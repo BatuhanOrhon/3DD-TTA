@@ -4,7 +4,7 @@ from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma_z, eta_h, p, loss_weights=None, total=100):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, total=100):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -102,7 +102,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma_
             H_pred_low = H_pred[:, :graph_spectral_module.M, :]
             
             # Compute Spectral MSE Loss
-            loss_spectral = F.mse_loss(H_pred_low, H_orig_low)
+            loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='sum')
             total_loss = total_loss + weight_spectral * loss_spectral
             
         # Optional: Original Selective Chamfer Distance (only computed if weight > 0)
@@ -125,8 +125,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma_
             total_loss.backward()
             
             # Update latent variables with gradient step
-            noisy_latent_point = scheduler_output.prev_sample - eta_h * noisy_latent_point.grad
-            style_cond = style_cond - gamma_z * style_cond.grad
+            noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
+            style_cond = style_cond - eta * style_cond.grad
         else:
             # If no loss was computed or loss is 0 (both weights 0), just proceed with normal DDIM step
             noisy_latent_point = scheduler_output.prev_sample
