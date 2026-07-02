@@ -74,8 +74,8 @@ class GraphSpectralDNA(nn.Module):
         degrees = A.sum(dim=-1)  # (B, N)
         sum_all_degrees = degrees.sum(dim=-1)  # (B,)
         
-        # Calculate threshold tau = gamma * (k / N) * sum(all_degrees)
-        tau = self.gamma * (self.k / N) * sum_all_degrees
+        # Calculate threshold tau = gamma * (average degree)
+        tau = self.gamma * (sum_all_degrees / N)
         tau = tau.view(B, 1)  # Broadcast over nodes
         
         # Keep edges only if node's degree > tau, otherwise set to 0.
