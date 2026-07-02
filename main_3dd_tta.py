@@ -7,10 +7,9 @@ from models.lion import LION
 from utils_mate import misc
 from default_config import cfg as configs
 from utilities_3dd_tta import *
-from tta import tta_reconstruct
-from graph_spectral import GraphSpectralDNA
+from tta import *
 from tqdm import tqdm
-import os
+
 
 def parse_arguments():
     """Parse and return command-line arguments."""
@@ -20,9 +19,9 @@ def parse_arguments():
     parser.add_argument('--batch_size', type=int, default=40, help='Batch size for processing data')
 
     # Configuration and checkpoint paths
-    parser.add_argument('--pointmae_config', type=str, default="./cfgs/tta_scanobj.yaml", 
+    parser.add_argument('--pointmae_config', type=str, default="./cfgs/tta_modelnet.yaml", 
                         help='Path to the YAML config file for PointMAE')
-    parser.add_argument('--pointmae_ckpt', type=str, default="./pointnet_ckpts/scanobjectnn_jt.pth", 
+    parser.add_argument('--pointmae_ckpt', type=str, default="./pointnet_ckpts/modelnet_jt.pth", 
                         help='Path to the PointMAE checkpoint')
     parser.add_argument('--diff_config', type=str, default="./lion_ckpts/unconditional_all55_cfg.yml", 
                         help='Path to the diffusion model config file')
@@ -30,11 +29,11 @@ def parse_arguments():
                         help='Path to the diffusion model checkpoint')
 
     # Dataset-related arguments
-    parser.add_argument('--dataset_name', type=str, default="scanobjectnn-c", 
+    parser.add_argument('--dataset_name', type=str, default="modelnet-c", 
                         choices=["modelnet-c", "shapenet-c", "scanobjectnn-c"], 
                         help="Dataset name (options: modelnet-c, shapenet-c, scanobjectnn-c)")
-    parser.add_argument('--dataset_root', type=str, default="./data/scanobjectnn_c", help='Root directory of the dataset')
-    parser.add_argument('--label_path', type=str, default="./data/scanobjectnn_c/label.npy", help='Path to the dataset labels')
+    parser.add_argument('--dataset_root', type=str, default="./data/modelnet40_c", help='Root directory of the dataset')
+    parser.add_argument('--label_path', type=str, default="./data/modelnet40_c/label.npy", help='Path to the dataset labels')
 
     # Shape latent and point updating factors
     parser.add_argument('--gamma', type=float, default=0.01, help='Shape latent updating factor')
@@ -44,16 +43,12 @@ def parse_arguments():
     # Device configuration
     parser.add_argument('--device', type=str, default="cuda", help='Device to run the computations on (e.g., cuda, cpu)')
 
-    # GSD specific parameters
-    parser.add_argument('--weight_spectral', type=float, default=1.0, help='Weight for Spectral Loss')
-    parser.add_argument('--weight_chamfer', type=float, default=0.0, help='Weight for Chamfer Distance Loss')
-    parser.add_argument('--use_4d_gft', action='store_true', help='Use 4D GFT instead of 3D')
-
     return parser.parse_args()
 
 
 def configure_model(args):
-    """Load and configure the base and diffusion models, and the graph spectral module."""
+    """Load and configure the base and diffusion models."""
+    # Load PointMAE configuration
     config = cfg_from_yaml_file(args.pointmae_config)
 
     # Set classification dimensions based on dataset
@@ -77,20 +72,12 @@ def configure_model(args):
     diff_model.load_model(args.diff_ckpt)
     print('Diffusion model loaded successfully.')
 
-    # Initialize Graph Spectral Module
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=100, use_4d_gft=args.use_4d_gft, device=args.device)
-
-    return base_model, diff_model, graph_spectral_module
+    return base_model, diff_model
 
 
-def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps):
-    """Process batches of data and compute predictions using GSDTTA."""
+def process_batches(dataloader, base_model, diff_model, args, num_steps):
+    """Process batches of data and compute predictions."""
     preds, targets = [], []
-    loss_weights = {
-        "spectral": args.weight_spectral,
-        "chamfer": args.weight_chamfer
-    }
-
     for data, label in tqdm(dataloader, desc="Processing Batches"):
         # Normalize and upsample the point cloud data
         data_sample, data_center, data_max = normalize(data)
@@ -101,18 +88,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         data_sample *= 3.3885
         data_sample = rotate_pointcloud(data_sample)
 
-        # Perform GSD Test-Time Adaptation
-        pred_points = tta_reconstruct(
-            x=data_sample, 
-            lion=diff_model, 
-            graph_spectral_module=graph_spectral_module, 
-            steps_back_local=num_steps, 
-            gamma_z=args.gamma, 
-            eta_h=args.eta, 
-            p=args.lambdaa, 
-            loss_weights=loss_weights,
-            total=100
-        )
+        # Perform Test-Time Adaptation (TTA) reconstruction
+        pred_points = tta_reconstruct(data_sample, diff_model, num_steps, args.gamma, args.eta, args.lambdaa, 100)
         pred_points = rotateback_pointcloud(pred_points)
 
         # Undo normalization based on dataset
@@ -140,18 +117,15 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
 
 
 def main():
-    """Main function to execute the GSDTTA pipeline."""
+    """Main function to execute the pipeline."""
     args = parse_arguments()
     args.use_gpu = torch.cuda.is_available()
     if args.use_gpu:
         torch.backends.cudnn.benchmark = True
     args.distributed = False
 
-    base_model, diff_model, graph_spectral_module = configure_model(args)
+    base_model, diff_model = configure_model(args)
 
-    os.makedirs("./outputs/quantitative", exist_ok=True)
-    
-    # We use corruptions from utilities_3dd_tta
     for corruption in corruptions:
         # Set reconstruction steps based on corruption type
         num_steps = 35 if corruption == "background" else 5
@@ -161,15 +135,15 @@ def main():
         dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
 
         # Process the batches
-        targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps)
+        targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps)
 
         # Compute accuracy
         acc = (preds == targets).float().mean().item()
-        print(f"Corruption: {corruption}, 4D_GFT: {args.use_4d_gft}, Accuracy: {acc}")
+        print(f"Corruption: {corruption}, Accuracy: {acc}")
 
         # Save results to a file
-        with open("./outputs/quantitative/gsd_results.txt", "a") as result_file:
-            result_file.write(f"Dataset: {args.dataset_name}, Corruption: {corruption}, 4D_GFT: {args.use_4d_gft}, Spectral_W: {args.weight_spectral}, Chamfer_W: {args.weight_chamfer}, Accuracy: {acc}\n")
+        with open("./outputs/quantitative/results.txt", "a") as result_file:
+            result_file.write(f"Corruption: {corruption}, Accuracy: {acc}\n")
 
 
 if __name__ == "__main__":
