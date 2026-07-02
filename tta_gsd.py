@@ -41,7 +41,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma_
     )
     scheduler.set_timesteps(total, device=x.device)
     
-    steps_back_local = (total * steps_back_local) // 100
+    steps_back_local = int((total * steps_back_local) // 100)
     timesteps_local = scheduler.timesteps[-steps_back_local:]
     alpha_bar_local = scheduler.alphas_cumprod[timesteps_local[0]]
 
