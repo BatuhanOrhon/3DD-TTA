@@ -14,7 +14,7 @@ from models.lion import LION
 from utils_mate import misc
 from default_config import cfg as configs
 from utilities_3dd_tta import *
-from tta import *
+from tta_gsd import tta_gsd_reconstruct
 from graph_spectral import GraphSpectralDNA
 
 
@@ -100,7 +100,7 @@ def main():
     }
 
     # Perform Test-Time Adaptation (TTA) reconstruction
-    pred_points = tta_reconstruct(
+    pred_points = tta_gsd_reconstruct(
         data_sample, 
         diff_model, 
         graph_spectral_module, 
