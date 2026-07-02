@@ -15,6 +15,7 @@ from utils_mate import misc
 from default_config import cfg as configs
 from utilities_3dd_tta import *
 from tta import *
+from graph_spectral import GraphSpectralDNA
 
 
 def parse_arguments():
@@ -48,6 +49,11 @@ def parse_arguments():
     # Device configuration
     parser.add_argument('--device', type=str, default="cuda", 
                         help='Device to run the computations on (e.g., cuda, cpu)')
+                        
+    # GSD specific parameters
+    parser.add_argument('--weight_spectral', type=float, default=1.0, help='Weight for Spectral Loss')
+    parser.add_argument('--weight_chamfer', type=float, default=0.0, help='Weight for Chamfer Distance Loss')
+    parser.add_argument('--use_4d_gft', action='store_true', help='Use 4D GFT instead of 3D')
 
     return parser.parse_args()
 
@@ -79,6 +85,8 @@ def main():
     diff_config.merge_from_file(args.diff_config)
     diff_model = LION(configs)
     diff_model.load_model(args.diff_ckpt)
+    
+    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=100, use_4d_gft=args.use_4d_gft, device=args.device)
 
     # Upsample, scale, and rotate the point cloud data
     data_sample = upsample_all(data_sample.numpy(), 2048)
@@ -86,8 +94,23 @@ def main():
     data_sample = 3.3885 * data_sample
     data_sample = rotate_pointcloud(data_sample)
 
+    loss_weights = {
+        "spectral": args.weight_spectral,
+        "chamfer": args.weight_chamfer
+    }
+
     # Perform Test-Time Adaptation (TTA) reconstruction
-    pred_points = tta_reconstruct(data_sample, diff_model, args.denoising_step, args.gamma, args.eta, args.lambdaa, 100)
+    pred_points = tta_reconstruct(
+        data_sample, 
+        diff_model, 
+        graph_spectral_module, 
+        args.denoising_step, 
+        args.gamma, 
+        args.eta, 
+        args.lambdaa, 
+        loss_weights,
+        total=100
+    )
     pred_points = rotateback_pointcloud(pred_points)
     pred_points, _, _ = normalize(pred_points)
 
@@ -96,7 +119,8 @@ def main():
     pred_points = pred_points.cpu().squeeze().detach().numpy()
 
     # Save the adapted point cloud as a GIF
-    gif_save(pred_points, os.path.join("./outputs/qualitative", f"{current_time}_adapted.gif"), multi_color=False)
+    method_name = "gsdtta" if args.weight_spectral > 0 else "baseline"
+    gif_save(pred_points, os.path.join("./outputs/qualitative", f"{current_time}_adapted_{method_name}.gif"), multi_color=False)
 
 
 if __name__ == "__main__":
