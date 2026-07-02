@@ -102,7 +102,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             H_pred_low = H_pred[:, :graph_spectral_module.M, :]
             
             # Compute Spectral MSE Loss
-            loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='sum')
+            loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='mean')
             total_loss = total_loss + weight_spectral * loss_spectral
             
         # Optional: Original Selective Chamfer Distance (only computed if weight > 0)
