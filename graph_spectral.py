@@ -82,22 +82,16 @@ class GraphSpectralDNA(nn.Module):
         valid_nodes = (degrees > tau).float()  # (B, N)
         A_o = A * valid_nodes.unsqueeze(1) * valid_nodes.unsqueeze(2)  # (B, N, N)
         
-        # 4. Compute Symmetric Normalized Graph Laplacian: L^o = I - D^{-1/2} A^o D^{-1/2}
+        # 4. Compute Unnormalized Graph Laplacian: L^o = D^o - A^o
         D_o_diag = A_o.sum(dim=-1)  # (B, N)
+        D_o = torch.diag_embed(D_o_diag)  # (B, N, N)
+        L_o = D_o - A_o  # (B, N, N)
         
-        # Calculate D^{-1/2}, setting 0 to 0 to avoid division by zero for outliers
-        D_inv_sqrt_diag = torch.zeros_like(D_o_diag)
-        mask = D_o_diag > 0
-        D_inv_sqrt_diag[mask] = 1.0 / torch.sqrt(D_o_diag[mask])
-        
-        D_inv_sqrt = torch.diag_embed(D_inv_sqrt_diag)  # (B, N, N)
-        
-        # Compute D^{-1/2} A^o D^{-1/2}
-        normalized_A = torch.bmm(torch.bmm(D_inv_sqrt, A_o), D_inv_sqrt)
-        
-        # Compute L^o = I - normalized_A
-        I = torch.eye(N, device=h_0.device).unsqueeze(0).expand(B, N, N)
-        L_o = I - normalized_A  # (B, N, N)
+        # FIX: İzole edilmiş düğümlerin (outliers) özdeğerini 0'dan 1000'e çıkararak
+        # onları en yüksek frekanslara itiyoruz. Böylece düşük frekanslar sadece
+        # gerçek şekli yansıtacak ve geometri (translation invariance) korunacak.
+        isolated_nodes = (D_o_diag == 0).float()  # (B, N)
+        L_o = L_o + torch.diag_embed(isolated_nodes * 1000.0)
         
         # 5. Perform Eigen-decomposition on L^o
         # torch.linalg.eigh returns eigenvalues in ascending order
