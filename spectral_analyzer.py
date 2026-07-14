@@ -70,7 +70,7 @@ class GraphSpectralAnalyzer:
         if self.weight_chamfer > 0.0 or self.weight_spectral > 0.0:
             chamfer_dist = chamfer_grad()
             
-        x = x.to(self.device).unsqueeze(0) # [1, 2048, 3]
+        x = x.to(self.device) # [B, 2048, 3]
         num_samples, num_points = x.size()[0], x.size()[1]
         
         from diffusers import DDIMScheduler
