@@ -26,8 +26,8 @@ def main():
     parser.add_argument('--M', type=int, default=100)
     parser.add_argument('--use_4d_gft', action='store_true')
     parser.add_argument('--denoising_step', type=int, default=30)
-    parser.add_argument('--gamma_lr', type=float, default=1000.0)
-    parser.add_argument('--eta_lr', type=float, default=20.0)
+    parser.add_argument('--gamma', type=float, default=0.01)
+    parser.add_argument('--eta', type=float, default=0.01)
     parser.add_argument('--lambdaa', type=float, default=0.95)
     parser.add_argument('--weight_spectral', type=float, default=1.0)
     parser.add_argument('--weight_chamfer', type=float, default=0.0)
@@ -72,8 +72,8 @@ def main():
         M=args.M,
         use_4d_gft=args.use_4d_gft,
         denoising_step=args.denoising_step,
-        gamma_lr=args.gamma_lr,
-        eta_lr=args.eta_lr,
+        gamma=args.gamma,
+        eta=args.eta,
         lambdaa=args.lambdaa,
         weight_spectral=args.weight_spectral,
         weight_chamfer=args.weight_chamfer,

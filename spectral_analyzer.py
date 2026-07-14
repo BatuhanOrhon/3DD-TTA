@@ -18,7 +18,7 @@ class GraphSpectralAnalyzer:
                  # GFT Parameters
                  k=10, delta=0.1, gamma_outlier=0.6, M=100, use_4d_gft=False,
                  # Diffusion/TTA Parameters
-                 denoising_step=30, gamma_lr=1000, eta_lr=20, lambdaa=0.95,
+                 denoising_step=30, gamma=1000, eta=20, lambdaa=0.95,
                  # Loss Weights
                  weight_spectral=1.0, weight_chamfer=0.0,
                  device="cuda"):
@@ -34,8 +34,8 @@ class GraphSpectralAnalyzer:
         self.use_4d_gft = use_4d_gft
         
         self.denoising_step = denoising_step
-        self.gamma_lr = gamma_lr
-        self.eta_lr = eta_lr
+        self.gamma = gamma
+        self.eta = eta
         self.lambdaa = lambdaa
         
         self.weight_spectral = weight_spectral
@@ -178,8 +178,8 @@ class GraphSpectralAnalyzer:
                 total_loss.backward()
                 
                 # Update latent variables with gradient step
-                noisy_latent_point = scheduler_output.prev_sample - self.gamma_lr * noisy_latent_point.grad
-                style_cond = style_cond - self.eta_lr * style_cond.grad
+                noisy_latent_point = scheduler_output.prev_sample - self.gamma * noisy_latent_point.grad
+                style_cond = style_cond - self.eta * style_cond.grad
             else:
                 # If no loss was computed or loss is 0 (both weights 0), just proceed with normal DDIM step
                 noisy_latent_point = scheduler_output.prev_sample
