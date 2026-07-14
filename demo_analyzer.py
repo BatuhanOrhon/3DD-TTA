@@ -53,9 +53,10 @@ def main():
         points_array = np.load(data_path)
         data = points_array[args.sample_id]
         
-    data_sample = torch.tensor(data, dtype=torch.float32)
+    data_sample = torch.tensor(data, dtype=torch.float32).unsqueeze(0)
     
-    from utilities_3dd_tta import upsample_all, rotate_pointcloud
+    from utilities_3dd_tta import upsample_all, rotate_pointcloud, normalize
+    data_sample, _, _ = normalize(data_sample)
         
     data_sample = upsample_all(data_sample.numpy(), 2048)
     data_sample = torch.from_numpy(data_sample).float().to(device)
