@@ -15,7 +15,9 @@ def main():
     parser.add_argument('--diff_config', type=str, default="./lion_ckpts/unconditional_all55_cfg.yml")
     parser.add_argument('--diff_ckpt', type=str, default="./lion_ckpts/epoch_10999_iters_2100999.pt")
     parser.add_argument('--dataset_root', type=str, default="./data/modelnet40_c")
+    parser.add_argument('--corruption', type=str, default="background")
     parser.add_argument('--sample_id', type=int, default=11)
+    parser.add_argument('--pc_path', type=str, default=None, help="Direct path to a .npy point cloud file (overrides dataset_root)")
     
     # Sweep setup
     parser.add_argument('--sweep_param', type=str, default="weight_spectral", help="Which parameter to sweep")
@@ -43,9 +45,15 @@ def main():
     diff_model = LION(diff_config)
     diff_model.load_model(args.diff_ckpt)
     
-    data_path = os.path.join(args.dataset_root, "data_background.h5")
-    with h5py.File(data_path, "r") as f:
-        data = f["data"][args.sample_id]
+    if args.pc_path:
+        data = np.load(args.pc_path)
+        if len(data.shape) == 3:
+            data = data[0]
+    else:
+        data_path = os.path.join(args.dataset_root, f"data_{args.corruption}_5.npy")
+        points_array = np.load(data_path)
+        data = points_array[args.sample_id]
+        
     data_sample = torch.tensor(data, dtype=torch.float32).to(device)
     data_sample = 3.3885 * data_sample
     
