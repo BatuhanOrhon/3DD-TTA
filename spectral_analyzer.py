@@ -5,12 +5,7 @@ from tqdm import tqdm
 from diffusers import DDIMScheduler
 from graph_spectral import GraphSpectralDNA
 from utilities_3dd_tta import grad_freeze
-
-try:
-    from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
-except ImportError:
-    print("Warning: ChamferDistancePytorch not found.")
-    chamfer_grad = None
+from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
 
 
 class GraphSpectralAnalyzer:
@@ -18,7 +13,7 @@ class GraphSpectralAnalyzer:
                  # GFT Parameters
                  k=10, delta=0.1, gamma_outlier=0.6, M=100, use_4d_gft=False,
                  # Diffusion/TTA Parameters
-                 denoising_step=30, gamma=1000, eta=20, lambdaa=0.95,
+                 denoising_step=30, gamma=0.01, eta=0.01, lambdaa=0.95,
                  # Loss Weights
                  weight_spectral=1.0, weight_chamfer=0.0,
                  device="cuda"):
@@ -61,19 +56,15 @@ class GraphSpectralAnalyzer:
         Runs the TTA loop on a single sample and logs H matrix distances.
         Uses exact same logic as tta_gsd.py -> tta_gsd_reconstruct.
         """
-        from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
-        
         self.history = {k: [] for k in self.history} # Reset history
         
         # Initialize chamfer distance
-        chamfer_dist = None
-        if self.weight_chamfer > 0.0 or self.weight_spectral > 0.0:
-            chamfer_dist = chamfer_grad()
+        chamfer_dist = chamfer_grad()
             
         x = x.to(self.device) # [B, 2048, 3]
         num_samples, num_points = x.size()[0], x.size()[1]
+        num_latent_points = 2048  # VAE latent space fixed at 2048 points
         
-        from diffusers import DDIMScheduler
         scheduler = DDIMScheduler(
             beta_end=0.02, beta_schedule="linear", beta_start=0.0001, 
             clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon"
@@ -88,9 +79,11 @@ class GraphSpectralAnalyzer:
         timesteps_local = scheduler.timesteps[-steps_back_local:]
         alpha_bar_local = scheduler.alphas_cumprod[timesteps_local[0]]
 
-        # Freeze gradients
+        # Freeze gradients for VAE and local prior
         vae = self.diff_model.vae
         local_prior = self.diff_model.priors[1]
+        grad_freeze(local_prior)
+        grad_freeze(vae)
         
         # Latent encoding (STEP 1)
         with torch.no_grad():
@@ -98,7 +91,7 @@ class GraphSpectralAnalyzer:
             shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
             latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)  # h_0 abstract
             # Reshape to (B, N, 4) - assuming 2048 points
-            h_0 = latent_point.view(num_samples, 2048, -1)
+            h_0 = latent_point.view(num_samples, num_latent_points, -1)
             
             # Pre-compute original low-frequency spectral components (H_orig_low) and eigenvectors (U_o)
             H_orig_low, U_o = self.graph_spectral_module(h_0)
@@ -111,7 +104,6 @@ class GraphSpectralAnalyzer:
         noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
      
         # Reverse diffusion process using DDIMScheduler (STEP 3)
-        import torch.nn.functional as F
         
         for i, t in enumerate(timesteps_local):
             t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
@@ -130,7 +122,7 @@ class GraphSpectralAnalyzer:
             pred_latent_point = scheduler_output.pred_original_sample
             
             total_loss = 0.0
-            h_bar_0 = pred_latent_point.view(num_samples, 2048, -1)
+            h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
             
             # STEP 4: Spectral Guidance Loss
             if self.weight_spectral > 0.0:
@@ -149,8 +141,8 @@ class GraphSpectralAnalyzer:
                     pred_spatial = h_bar_0[:, :, :3]
                     orig_spatial = h_0[:, :, :3]
                     sd1, sd2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
-                    sd1 = torch.sort(sd1, dim=1).values[:, :int(2048 * self.lambdaa)]
-                    sd2 = torch.sort(sd2, dim=1).values[:, :int(2048 * self.lambdaa)]
+                    sd1 = torch.sort(sd1, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
+                    sd2 = torch.sort(sd2, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
                     spatial_ch_val = (sd1.mean() + sd2.mean()).item()
                     
                     self.history['step'].append(i)
@@ -163,8 +155,8 @@ class GraphSpectralAnalyzer:
                 pred_spatial = h_bar_0[:, :, :3]
                 orig_spatial = h_0[:, :, :3]
                 dists1, dists2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
-                dists1 = torch.sort(dists1, dim=1).values[:, :int(2048 * self.lambdaa)]
-                dists2 = torch.sort(dists2, dim=1).values[:, :int(2048 * self.lambdaa)]
+                dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
+                dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
                 ch_loss = dists1.sum() + dists2.sum()
                 total_loss = total_loss + self.weight_chamfer * ch_loss
 

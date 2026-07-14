@@ -13,8 +13,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     - lion: Model instance containing VAE and local prior.
     - graph_spectral_module: Instance of GraphSpectralDNA for spectral computations.
     - steps_back_local: Percentage of total steps to use in reverse scheduling (e.g., 5).
-    - gamma_z: Step size for updating shape latent (style_cond / z_0).
-    - eta_h: Step size for updating latent points (noisy_local / h_t).
+    - gamma: Step size for updating latent points (noisy_local / h_t).
+    - eta: Step size for updating shape latent (style_cond / z_0).
     - p: Proportion of points to consider in Chamfer Distance.
     - loss_weights: Dictionary of loss weights. Default: {"spectral": 1.0, "chamfer": 0.0}.
     - total: Total number of diffusion steps (default: 100).
@@ -34,6 +34,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         chamfer_dist = chamfer_grad()
         
     num_samples, num_points = x.size()[0], x.size()[1]
+    num_latent_points = 2048  # VAE latent space fixed at 2048 points
     
     scheduler = DDIMScheduler(
         beta_end=0.02, beta_schedule="linear", beta_start=0.0001, 
@@ -57,7 +58,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
         latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)  # h_0 abstract
         # Reshape to (B, N, 4) - assuming 2048 points
-        h_0 = latent_point.view(num_samples, 2048, -1)
+        h_0 = latent_point.view(num_samples, num_latent_points, -1)
         
         # Pre-compute original low-frequency spectral components (H_orig_low) and eigenvectors (U_o)
         H_orig_low, U_o = graph_spectral_module(h_0)
@@ -90,7 +91,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         
         # STEP 4: Spectral Guidance Loss
         if weight_spectral > 0.0:
-            h_bar_0 = pred_latent_point.view(num_samples, 2048, -1)
+            h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
             
             # Choose correct signal dimensions based on graph_spectral_module config
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
@@ -107,11 +108,11 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             
         # Optional: Original Selective Chamfer Distance (only computed if weight > 0)
         if weight_chamfer > 0.0:
-            pred_latent_point_reshaped = pred_latent_point.view(num_samples, 2048, -1)[:, :, :3]
+            pred_latent_point_reshaped = pred_latent_point.view(num_samples, num_latent_points, -1)[:, :, :3]
             h_0_spatial = h_0[:, :, :3]
             dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
-            dists1 = torch.sort(dists1, dim=1).values[:, :int(2048 * p)]
-            dists2 = torch.sort(dists2, dim=1).values[:, :int(2048 * p)]
+            dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
+            dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
             ch_loss = dists1.sum() + dists2.sum()
             total_loss = total_loss + weight_chamfer * ch_loss
 

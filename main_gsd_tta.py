@@ -107,8 +107,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             lion=diff_model, 
             graph_spectral_module=graph_spectral_module, 
             steps_back_local=num_steps, 
-            gamma_z=args.gamma, 
-            eta_h=args.eta, 
+            gamma=args.gamma, 
+            eta=args.eta, 
             p=args.lambdaa, 
             loss_weights=loss_weights,
             total=100
