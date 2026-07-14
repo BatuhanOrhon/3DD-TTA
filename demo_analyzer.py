@@ -11,8 +11,7 @@ from models.lion import LION
 from spectral_analyzer import GraphSpectralAnalyzer
 
 def main():
-    parser = argparse.add_argument_group('GSDTTA Analyzer')
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='GSDTTA Analyzer')
     parser.add_argument('--diff_config', type=str, default="./lion_ckpts/unconditional_all55_cfg.yml")
     parser.add_argument('--diff_ckpt', type=str, default="./lion_ckpts/epoch_10999_iters_2100999.pt")
     parser.add_argument('--dataset_root', type=str, default="./data/modelnet40_c")
