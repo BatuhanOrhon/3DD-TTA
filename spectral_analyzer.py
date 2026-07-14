@@ -63,7 +63,8 @@ class GraphSpectralAnalyzer:
         self.history = {k: [] for k in self.history} # Reset history
         
         vae = self.diff_model.vae
-        local_prior = self.diff_model.local_prior
+        global_prior = self.diff_model.priors[0]
+        local_prior = self.diff_model.priors[1]
         scheduler = DDIMScheduler(
             num_train_timesteps=1000,
             beta_start=0.0001,
