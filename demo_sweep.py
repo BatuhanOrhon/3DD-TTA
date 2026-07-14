@@ -56,13 +56,7 @@ def main():
         
     data_sample = torch.tensor(data, dtype=torch.float32)
     
-    from utils.vis_helper import upsample_all
-    def rotate_pointcloud(pointcloud):
-        theta = np.pi / 2
-        rot_matrix = torch.tensor([[np.cos(theta), -np.sin(theta), 0],
-                                   [np.sin(theta), np.cos(theta), 0],
-                                   [0, 0, 1]], dtype=torch.float32).to(pointcloud.device)
-        return torch.matmul(pointcloud, rot_matrix)
+    from utilities_3dd_tta import upsample_all, rotate_pointcloud
         
     data_sample = upsample_all(data_sample.numpy(), 2048)
     data_sample = torch.from_numpy(data_sample).float().to(device)
