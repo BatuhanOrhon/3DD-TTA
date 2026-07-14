@@ -59,133 +59,131 @@ class GraphSpectralAnalyzer:
     def run_analysis(self, x):
         """
         Runs the TTA loop on a single sample and logs H matrix distances.
+        Uses exact same logic as tta_gsd.py -> tta_gsd_reconstruct.
         """
+        from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
+        
         self.history = {k: [] for k in self.history} # Reset history
         
-        vae = self.diff_model.vae
-        global_prior = self.diff_model.priors[0]
-        local_prior = self.diff_model.priors[1]
+        # Initialize chamfer distance
+        chamfer_dist = None
+        if self.weight_chamfer > 0.0 or self.weight_spectral > 0.0:
+            chamfer_dist = chamfer_grad()
+            
+        x = x.to(self.device).unsqueeze(0) # [1, 2048, 3]
+        num_samples, num_points = x.size()[0], x.size()[1]
+        
+        from diffusers import DDIMScheduler
         scheduler = DDIMScheduler(
-            num_train_timesteps=1000,
-            beta_start=0.0001,
-            beta_end=0.02,
-            beta_schedule="linear",
-            clip_sample=False,
-            set_alpha_to_one=False,
-            steps_offset=1,
+            beta_end=0.02, beta_schedule="linear", beta_start=0.0001, 
+            clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon"
         )
-        scheduler.set_timesteps(1000)
+        # Using denoising_step as total steps back
+        scheduler.set_timesteps(1000, device=x.device)
         
-        grad_freeze(vae)
-        grad_freeze(local_prior)
+        # in tta_gsd.py, steps_back_local is a percentage of total=100.
+        # But we pass denoising_step directly as the number of timesteps to go back from 1000.
+        # For simplicity, we just use the last `denoising_step` timesteps.
+        timesteps_local = scheduler.timesteps[-self.denoising_step:]
+        alpha_bar_local = scheduler.alphas_cumprod[timesteps_local[0]]
+
+        # Freeze gradients
+        vae = self.diff_model.vae
+        local_prior = self.diff_model.priors[1]
         
-        x = x.to(self.device).unsqueeze(0)  # [1, 2048, 3]
-        
+        # Latent encoding (STEP 1)
         with torch.no_grad():
             latents = vae.encode(x)
-            latent_point = latents[2][1][0]
-            shape_latent = latents[0]
+            shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
+            latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)  # h_0 abstract
+            # Reshape to (B, N, 4) - assuming 2048 points
+            h_0 = latent_point.view(num_samples, 2048, -1)
             
-            # TODO: Original author's logic for shape_latent vs style_cond
-            style_cond = vae.global2style(shape_latent)
-            
-            num_samples = latent_point.shape[0]
-            latent_point_reshaped = latent_point.view(num_samples, 2048, -1)
-            h_0_spatial = latent_point_reshaped[:, :, :3]
-            
-            # Precompute GFT on corrupted input
-            H_orig_low, U_o = self.graph_spectral_module(latent_point_reshaped)
-            
-        t = scheduler.timesteps[1000 - self.denoising_step]
-        t_tensor = torch.tensor([t], device=self.device)
-        alpha_bar_local = scheduler.alphas_cumprod[t].to(self.device)
+            # Pre-compute original low-frequency spectral components (H_orig_low) and eigenvectors (U_o)
+            H_orig_low, U_o = self.graph_spectral_module(h_0)
         
+        # Global style conditioning
+        style_cond = vae.global2style(shape_latent)
+        
+        # STEP 2: Noise Perturbation
         noise = torch.randn_like(latent_point)
         noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
+     
+        # Reverse diffusion process using DDIMScheduler (STEP 3)
+        import torch.nn.functional as F
         
-        noisy_latent_point = noisy_latent_point.detach()
-        style_cond = style_cond.detach()
-        
-        # Diffusion Loop
-        pbar = tqdm(range(self.denoising_step), desc="GSDTTA Analysis")
-        for step in pbar:
-            noisy_latent_point.requires_grad = True
-            style_cond.requires_grad = True
+        for i, t in enumerate(timesteps_local):
+            t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
             
+            noisy_latent_point = noisy_latent_point.detach()
+            noisy_latent_point.requires_grad = True
+            
+            style_cond = style_cond.detach()
+            style_cond.requires_grad = True
+
+            # Predict noise
             noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
-            scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point, eta=0.0)
+            scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
+            
+            # This is h_bar_0 in the abstract space
             pred_latent_point = scheduler_output.pred_original_sample
             
-            total_loss = torch.tensor(0.0, device=self.device)
-            
+            total_loss = 0.0
             h_bar_0 = pred_latent_point.view(num_samples, 2048, -1)
-            pred_spatial = h_bar_0[:, :, :3]
             
-            # --- SPECTRAL LOSS & LOGGING ---
+            # STEP 4: Spectral Guidance Loss
             if self.weight_spectral > 0.0:
-                signal = h_bar_0 if self.use_4d_gft else pred_spatial
+                signal = h_bar_0 if self.use_4d_gft else h_bar_0[:, :, :3]
                 H_pred = torch.bmm(U_o.transpose(1, 2), signal)
                 H_pred_low = H_pred[:, :self.M, :]
                 
                 loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='mean')
                 total_loss = total_loss + self.weight_spectral * loss_spectral
                 
-                # LOGGING: Record MSE and Chamfer on H matrices
+                # --- LOGGING ---
                 with torch.no_grad():
-                    mse_val = loss_spectral.item()
+                    d1_h, d2_h, _, _ = chamfer_dist(H_pred_low, H_orig_low)
+                    h_chamfer_val = (d1_h.mean() + d2_h.mean()).item()
                     
-                    if self.chamfer_dist is not None:
-                        d1, d2, _, _ = self.chamfer_dist(H_pred_low, H_orig_low)
-                        ch_h_val = (d1.mean() + d2.mean()).item()
-                        
-                        # Also track Spatial Chamfer
-                        sd1, sd2, _, _ = self.chamfer_dist(pred_spatial, h_0_spatial)
-                        num_points = 2048
-                        sd1 = torch.sort(sd1, dim=1).values[:, :int(num_points * self.lambdaa)]
-                        sd2 = torch.sort(sd2, dim=1).values[:, :int(num_points * self.lambdaa)]
-                        spatial_ch_val = (sd1.mean() + sd2.mean()).item()
-                    else:
-                        ch_h_val = 0.0
-                        spatial_ch_val = 0.0
-                        
-                    self.history['step'].append(step)
-                    self.history['h_mse'].append(mse_val)
-                    self.history['h_chamfer'].append(ch_h_val)
+                    pred_spatial = h_bar_0[:, :, :3]
+                    orig_spatial = h_0[:, :, :3]
+                    sd1, sd2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
+                    sd1 = torch.sort(sd1, dim=1).values[:, :int(2048 * self.lambdaa)]
+                    sd2 = torch.sort(sd2, dim=1).values[:, :int(2048 * self.lambdaa)]
+                    spatial_ch_val = (sd1.mean() + sd2.mean()).item()
+                    
+                    self.history['step'].append(i)
+                    self.history['h_mse'].append(loss_spectral.item())
+                    self.history['h_chamfer'].append(h_chamfer_val)
                     self.history['spatial_chamfer'].append(spatial_ch_val)
-            
-            # --- OPTIONAL CHAMFER LOSS ---
-            if self.weight_chamfer > 0.0 and self.chamfer_dist is not None:
-                d1, d2, _, _ = self.chamfer_dist(pred_spatial, h_0_spatial)
-                num_points = 2048
-                d1 = torch.sort(d1, dim=1).values[:, :int(num_points * self.lambdaa)]
-                d2 = torch.sort(d2, dim=1).values[:, :int(num_points * self.lambdaa)]
-                ch_loss = d1.sum() + d2.sum()
+                
+            # Optional: Original Selective Chamfer Distance (only computed if weight > 0)
+            if self.weight_chamfer > 0.0:
+                pred_spatial = h_bar_0[:, :, :3]
+                orig_spatial = h_0[:, :, :3]
+                dists1, dists2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
+                dists1 = torch.sort(dists1, dim=1).values[:, :int(2048 * self.lambdaa)]
+                dists2 = torch.sort(dists2, dim=1).values[:, :int(2048 * self.lambdaa)]
+                ch_loss = dists1.sum() + dists2.sum()
                 total_loss = total_loss + self.weight_chamfer * ch_loss
-            
-            # --- GRADIENT UPDATE ---
-            if total_loss > 0.0:
-                if noisy_latent_point.grad is not None:
-                    noisy_latent_point.grad.zero_()
-                if style_cond.grad is not None:
-                    style_cond.grad.zero_()
-                    
+
+            # STEP 5: Gradient Update (Guidance)
+            if noisy_latent_point.grad is not None:
+                noisy_latent_point.grad.zero_()
+            if style_cond.grad is not None:
+                style_cond.grad.zero_()
+                
+            if isinstance(total_loss, torch.Tensor) and total_loss.requires_grad:
                 total_loss.backward()
                 
+                # Update latent variables with gradient step
                 noisy_latent_point = scheduler_output.prev_sample - self.gamma_lr * noisy_latent_point.grad
                 style_cond = style_cond - self.eta_lr * style_cond.grad
             else:
+                # If no loss was computed or loss is 0 (both weights 0), just proceed with normal DDIM step
                 noisy_latent_point = scheduler_output.prev_sample
-                
-            noisy_latent_point = noisy_latent_point.detach()
-            style_cond = style_cond.detach()
-            
-            t -= 1000 // self.denoising_step
-            t_tensor = torch.tensor([t], device=self.device)
-            
-        with torch.no_grad():
-            final_pred_points = vae.decoder(pred_latent_point, style_cond)
-            
-        return final_pred_points[0]
+
+        return self.history
 
     def plot_history(self):
         """
