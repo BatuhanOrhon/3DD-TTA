@@ -53,8 +53,20 @@ def main():
         points_array = np.load(data_path)
         data = points_array[args.sample_id]
         
-    data_sample = torch.tensor(data, dtype=torch.float32).to(device)
+    data_sample = torch.tensor(data, dtype=torch.float32)
+    
+    from utils.vis_helper import upsample_all
+    def rotate_pointcloud(pointcloud):
+        theta = np.pi / 2
+        rot_matrix = torch.tensor([[np.cos(theta), -np.sin(theta), 0],
+                                   [np.sin(theta), np.cos(theta), 0],
+                                   [0, 0, 1]], dtype=torch.float32).to(pointcloud.device)
+        return torch.matmul(pointcloud, rot_matrix)
+        
+    data_sample = upsample_all(data_sample.numpy(), 2048)
+    data_sample = torch.from_numpy(data_sample).float().to(device)
     data_sample = 3.3885 * data_sample # normalization
+    data_sample = rotate_pointcloud(data_sample)
     
     # 3. Setup Analyzer
     analyzer = GraphSpectralAnalyzer(
