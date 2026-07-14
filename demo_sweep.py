@@ -40,8 +40,8 @@ def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     
     diff_config.merge_from_file(args.diff_config)
-    diff_model = LION(diff_config).to(device)
-    diff_model.load_state_dict(torch.load(args.diff_ckpt, map_location=device)["model"], strict=False)
+    diff_model = LION(diff_config)
+    diff_model.load_model(args.diff_ckpt)
     diff_model.eval()
     
     data_path = os.path.join(args.dataset_root, "data_background.h5")
