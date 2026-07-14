@@ -78,13 +78,14 @@ class GraphSpectralAnalyzer:
             beta_end=0.02, beta_schedule="linear", beta_start=0.0001, 
             clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon"
         )
-        # Using denoising_step as total steps back
-        scheduler.set_timesteps(1000, device=x.device)
         
-        # in tta_gsd.py, steps_back_local is a percentage of total=100.
-        # But we pass denoising_step directly as the number of timesteps to go back from 1000.
-        # For simplicity, we just use the last `denoising_step` timesteps.
-        timesteps_local = scheduler.timesteps[-self.denoising_step:]
+        # In tta_gsd.py, total is hardcoded to 100 for set_timesteps.
+        total = 100
+        scheduler.set_timesteps(total, device=x.device)
+        
+        # steps_back_local is a percentage of total=100.
+        steps_back_local = int((total * self.denoising_step) // 100)
+        timesteps_local = scheduler.timesteps[-steps_back_local:]
         alpha_bar_local = scheduler.alphas_cumprod[timesteps_local[0]]
 
         # Freeze gradients
