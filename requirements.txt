@@ -207,3 +207,5 @@ wurlitzer==3.0.2
 yacs==0.1.8
 yarl==1.7.2
 yaspin==2.1.0
+
+loguru
