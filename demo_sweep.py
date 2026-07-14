@@ -42,7 +42,6 @@ def main():
     diff_config.merge_from_file(args.diff_config)
     diff_model = LION(diff_config)
     diff_model.load_model(args.diff_ckpt)
-    diff_model.eval()
     
     data_path = os.path.join(args.dataset_root, "data_background.h5")
     with h5py.File(data_path, "r") as f:
