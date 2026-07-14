@@ -38,7 +38,7 @@ def main():
     
     # 1. Load Model
     diff_config.merge_from_file(args.diff_config)
-    diff_model = LION(diff_config, device).to(device)
+    diff_model = LION(diff_config).to(device)
     diff_model.load_state_dict(torch.load(args.diff_ckpt, map_location=device)["model"], strict=False)
     diff_model.eval()
     
