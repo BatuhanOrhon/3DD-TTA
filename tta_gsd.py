@@ -71,6 +71,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
  
     # Reverse diffusion process using DDIMScheduler (STEP 3)
+    history = {'raw_loss_spectral': [], 'raw_loss_chamfer': []}
     for i, t in enumerate(timesteps_local):
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
         
@@ -86,29 +87,37 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         
         # This is h_bar_0 in the abstract space
         pred_latent_point = scheduler_output.pred_original_sample
+        h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
         
         total_loss = 0.0
         
         # STEP 4: Spectral Guidance Loss
-        if weight_spectral > 0.0:
-            h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
-            
-            # Choose correct signal dimensions based on graph_spectral_module config
+        with torch.no_grad():
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
-            
-            # Apply GFT: H_pred = (U^o)^T @ h_bar_0
             H_pred = torch.bmm(U_o.transpose(1, 2), signal)
-            
-            # Extract low frequencies
             H_pred_low = H_pred[:, :graph_spectral_module.M, :]
+            raw_loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='mean')
             
-            # Compute Spectral MSE Loss
+            pred_latent_point_reshaped = h_bar_0[:, :, :3]
+            h_0_spatial = h_0[:, :, :3]
+            dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+            dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
+            dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
+            raw_loss_chamfer = dists1.sum() + dists2.sum()
+            
+            # Keep track for logging
+            history['raw_loss_spectral'].append(raw_loss_spectral.item())
+            history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
+            
+        if weight_spectral > 0.0:
+            signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
+            H_pred = torch.bmm(U_o.transpose(1, 2), signal)
+            H_pred_low = H_pred[:, :graph_spectral_module.M, :]
             loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='mean')
             total_loss = total_loss + weight_spectral * loss_spectral
             
-        # Optional: Original Selective Chamfer Distance (only computed if weight > 0)
         if weight_chamfer > 0.0:
-            pred_latent_point_reshaped = pred_latent_point.view(num_samples, num_latent_points, -1)[:, :, :3]
+            pred_latent_point_reshaped = h_bar_0[:, :, :3]
             h_0_spatial = h_0[:, :, :3]
             dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
             dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
@@ -139,4 +148,13 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         style=shape_latent.squeeze(3).squeeze(2)
     )
     
-    return pred_points
+    # Calculate means
+    mean_spec = sum(history['raw_loss_spectral']) / len(history['raw_loss_spectral']) if history['raw_loss_spectral'] else 0.0
+    mean_chamfer = sum(history['raw_loss_chamfer']) / len(history['raw_loss_chamfer']) if history['raw_loss_chamfer'] else 0.0
+    
+    metrics = {
+        'mean_raw_spectral': mean_spec,
+        'mean_raw_chamfer': mean_chamfer
+    }
+    
+    return pred_points, metrics

@@ -101,7 +101,7 @@ def main():
     }
 
     # Perform Test-Time Adaptation (TTA) reconstruction
-    pred_points = tta_gsd_reconstruct(
+    pred_points, metrics = tta_gsd_reconstruct(
         data_sample, 
         diff_model, 
         graph_spectral_module, 
@@ -112,6 +112,16 @@ def main():
         loss_weights,
         total=100
     )
+    
+    # Loss Scale Logging
+    mean_spec = metrics['mean_raw_spectral']
+    mean_chamfer = metrics['mean_raw_chamfer']
+    print("\n--- Loss Scale Analysis ---")
+    print(f"Average Raw Spectral Loss: {mean_spec:.6f}")
+    print(f"Average Raw Chamfer Loss:  {mean_chamfer:.6f}")
+    print(f"Suggested Weight Ratio (Chamfer/Spectral) to balance: {(mean_spec / (mean_chamfer + 1e-8)):.4f}")
+    print("---------------------------\n")
+    
     pred_points = rotateback_pointcloud(pred_points)
     pred_points, _, _ = normalize(pred_points)
 

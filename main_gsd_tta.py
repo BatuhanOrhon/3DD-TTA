@@ -103,7 +103,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         data_sample = rotate_pointcloud(data_sample)
 
         # Perform GSD Test-Time Adaptation
-        pred_points = tta_gsd_reconstruct(
+        pred_points, metrics = tta_gsd_reconstruct(
             x=data_sample, 
             lion=diff_model, 
             graph_spectral_module=graph_spectral_module, 
