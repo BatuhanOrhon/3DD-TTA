@@ -135,8 +135,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             total_loss.backward()
             
             # Update latent variables with gradient step
-            noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
-            style_cond = style_cond - eta * style_cond.grad
+            noisy_latent_point = scheduler_output.prev_sample - eta * noisy_latent_point.grad
+            style_cond = style_cond - gamma * style_cond.grad
         else:
             # If no loss was computed or loss is 0 (both weights 0), just proceed with normal DDIM step
             noisy_latent_point = scheduler_output.prev_sample

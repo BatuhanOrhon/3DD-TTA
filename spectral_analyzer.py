@@ -179,8 +179,8 @@ class GraphSpectralAnalyzer:
                 total_loss.backward()
                 
                 # Update latent variables with gradient step
-                noisy_latent_point = scheduler_output.prev_sample - self.gamma * noisy_latent_point.grad
-                style_cond = style_cond - self.eta * style_cond.grad
+                noisy_latent_point = scheduler_output.prev_sample - self.eta * noisy_latent_point.grad
+                style_cond = style_cond - self.gamma * style_cond.grad
             else:
                 # If no loss was computed or loss is 0 (both weights 0), just proceed with normal DDIM step
                 noisy_latent_point = scheduler_output.prev_sample

@@ -80,8 +80,8 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100):
         ch_loss.backward()
         
         # Update latent variables with gradient step
-        noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
-        style_cond = style_cond - eta * style_cond.grad
+        noisy_latent_point = scheduler_output.prev_sample - eta * noisy_latent_point.grad
+        style_cond = style_cond - gamma * style_cond.grad
 
     # Decode the predicted points    # STEP 6: Final Decoding
     # TODO: Bu mantık incelenecek. Yazarlar burada shape_latent kullanmış ancak optimizasyon döngüsünde style_cond (z_0) güncelleniyor. shape_latent yerine style_cond mu gelmeli kontrol edilecek.
