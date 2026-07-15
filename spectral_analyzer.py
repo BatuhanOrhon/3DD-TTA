@@ -137,18 +137,22 @@ class GraphSpectralAnalyzer:
                 with torch.no_grad():
                     d1_h, d2_h, _, _ = chamfer_dist(H_pred_low, H_orig_low)
                     h_chamfer_val = (d1_h.mean() + d2_h.mean()).item()
-                    
-                    pred_spatial = h_bar_0[:, :, :3]
-                    orig_spatial = h_0[:, :, :3]
-                    sd1, sd2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
-                    sd1 = torch.sort(sd1, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
-                    sd2 = torch.sort(sd2, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
-                    spatial_ch_val = (sd1.mean() + sd2.mean()).item()
-                    
-                    self.history['step'].append(i)
                     self.history['h_mse'].append(loss_spectral.item())
                     self.history['h_chamfer'].append(h_chamfer_val)
-                    self.history['spatial_chamfer'].append(spatial_ch_val)
+            else:
+                self.history['h_mse'].append(0.0)
+                self.history['h_chamfer'].append(0.0)
+                
+            with torch.no_grad():
+                pred_spatial = h_bar_0[:, :, :3]
+                orig_spatial = h_0[:, :, :3]
+                sd1, sd2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
+                sd1 = torch.sort(sd1, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
+                sd2 = torch.sort(sd2, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
+                spatial_ch_val = (sd1.mean() + sd2.mean()).item()
+                
+                self.history['step'].append(i)
+                self.history['spatial_chamfer'].append(spatial_ch_val)
                 
             # Optional: Original Selective Chamfer Distance (only computed if weight > 0)
             if self.weight_chamfer > 0.0:
