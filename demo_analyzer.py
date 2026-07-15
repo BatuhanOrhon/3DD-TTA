@@ -82,17 +82,37 @@ def main():
     
     # 4. Run Analysis
     print(f"Running Spectral Analysis on sample {args.sample_id}...")
-    _, _ = analyzer.run_analysis(data_sample)
+    _, pred_points = analyzer.run_analysis(data_sample)
     
-    # 5. Plot and Save
+    # Post-process the final point cloud to real space
+    from utilities_3dd_tta import rotateback_pointcloud
+    pred_points = rotateback_pointcloud(pred_points)
+    pred_points, _, _ = normalize(pred_points)
+    final_points = pred_points.cpu().squeeze().detach().numpy()
+    
+    # 5. Loss Scale Logging
+    if analyzer.history['raw_loss_spectral']:
+        mean_spec = sum(analyzer.history['raw_loss_spectral']) / len(analyzer.history['raw_loss_spectral'])
+        mean_chamfer = sum(analyzer.history['raw_loss_chamfer']) / len(analyzer.history['raw_loss_chamfer'])
+        print("\n--- Loss Scale Analysis ---")
+        print(f"Average Raw Spectral Loss: {mean_spec:.6f}")
+        print(f"Average Raw Chamfer Loss:  {mean_chamfer:.6f}")
+        print(f"Suggested Weight Ratio (Chamfer/Spectral) to balance: {(mean_spec / (mean_chamfer + 1e-8)):.4f}")
+        print("---------------------------\n")
+    
+    # 6. Plot and Save
     if not analyzer.history['step']:
-        print("No history to plot. (Is weight_spectral > 0?)")
+        print("No history to plot.")
         return
         
-    fig, axs = plt.subplots(1, 3, figsize=(18, 5))
+    from matplotlib.gridspec import GridSpec
+    fig = plt.figure(figsize=(24, 10))
+    gs = GridSpec(2, 4, figure=fig)
+    
+    axs = [fig.add_subplot(gs[0, i]) for i in range(4)]
     
     axs[0].plot(analyzer.history['step'], analyzer.history['h_mse'], marker='o', color='b')
-    axs[0].set_title('MSE of H_pred vs H_orig')
+    axs[0].set_title('MSE of H_pred vs H_orig (Spectral)')
     axs[0].set_xlabel('Diffusion Step')
     axs[0].set_ylabel('MSE Loss (Mean)')
     axs[0].grid(True)
@@ -104,10 +124,22 @@ def main():
     axs[1].grid(True)
     
     axs[2].plot(analyzer.history['step'], analyzer.history['spatial_chamfer'], marker='o', color='g')
-    axs[2].set_title('Spatial Chamfer of Pred vs Orig')
+    axs[2].set_title('Spatial Chamfer (Selective)')
     axs[2].set_xlabel('Diffusion Step')
-    axs[2].set_ylabel('Selective Chamfer Dist (Mean)')
+    axs[2].set_ylabel('Chamfer Dist (Mean)')
     axs[2].grid(True)
+    
+    axs[3].plot(analyzer.history['step'], analyzer.history['f_score'], marker='o', color='purple')
+    axs[3].set_title('F-Score (Threshold=0.05)')
+    axs[3].set_xlabel('Diffusion Step')
+    axs[3].set_ylabel('F-Score')
+    axs[3].grid(True)
+    
+    # 3D plot on bottom row centered
+    ax_3d = fig.add_subplot(gs[1, 1:3], projection='3d')
+    ax_3d.scatter(final_points[:, 0], final_points[:, 2], final_points[:, 1], s=2, c='b', alpha=0.6)
+    ax_3d.set_title("Final Reconstructed Point Cloud")
+    ax_3d.set_axis_off()
     
     plt.tight_layout()
     plt.savefig(args.output_img)

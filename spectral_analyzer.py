@@ -48,7 +48,10 @@ class GraphSpectralAnalyzer:
             'step': [],
             'h_mse': [],
             'h_chamfer': [],
-            'spatial_chamfer': []
+            'spatial_chamfer': [],
+            'raw_loss_spectral': [],
+            'raw_loss_chamfer': [],
+            'f_score': []
         }
         
     def run_analysis(self, x):
@@ -125,44 +128,46 @@ class GraphSpectralAnalyzer:
             h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
             
             # STEP 4: Spectral Guidance Loss
+            # Unconditionally compute Spectral variables
+            signal = h_bar_0 if self.use_4d_gft else h_bar_0[:, :, :3]
+            H_pred = torch.bmm(U_o.transpose(1, 2), signal)
+            H_pred_low = H_pred[:, :self.M, :]
+            
+            raw_loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='mean')
+            
             if self.weight_spectral > 0.0:
-                signal = h_bar_0 if self.use_4d_gft else h_bar_0[:, :, :3]
-                H_pred = torch.bmm(U_o.transpose(1, 2), signal)
-                H_pred_low = H_pred[:, :self.M, :]
+                total_loss = total_loss + self.weight_spectral * raw_loss_spectral
                 
-                loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='mean')
-                total_loss = total_loss + self.weight_spectral * loss_spectral
+            # Unconditionally compute Spatial variables
+            pred_spatial = h_bar_0[:, :, :3]
+            orig_spatial = h_0[:, :, :3]
+            dists1, dists2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
+            dists1_sorted = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
+            dists2_sorted = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
+            raw_loss_chamfer = dists1_sorted.sum() + dists2_sorted.sum()
+            spatial_ch_val = (dists1_sorted.mean() + dists2_sorted.mean()).item()
+            
+            if self.weight_chamfer > 0.0:
+                total_loss = total_loss + self.weight_chamfer * raw_loss_chamfer
                 
-                # --- LOGGING ---
-                with torch.no_grad():
-                    d1_h, d2_h, _, _ = chamfer_dist(H_pred_low, H_orig_low)
-                    h_chamfer_val = (d1_h.mean() + d2_h.mean()).item()
-                    self.history['h_mse'].append(loss_spectral.item())
-                    self.history['h_chamfer'].append(h_chamfer_val)
-            else:
-                self.history['h_mse'].append(0.0)
-                self.history['h_chamfer'].append(0.0)
-                
+            # F-Score computation (Threshold = 0.05 for latent normalized space)
+            threshold = 0.05
+            precision = (dists1 < threshold).float().mean().item()
+            recall = (dists2 < threshold).float().mean().item()
+            f_score = 2 * (precision * recall) / (precision + recall + 1e-8)
+            
+            # --- LOGGING ---
             with torch.no_grad():
-                pred_spatial = h_bar_0[:, :, :3]
-                orig_spatial = h_0[:, :, :3]
-                sd1, sd2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
-                sd1 = torch.sort(sd1, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
-                sd2 = torch.sort(sd2, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
-                spatial_ch_val = (sd1.mean() + sd2.mean()).item()
+                d1_h, d2_h, _, _ = chamfer_dist(H_pred_low, H_orig_low)
+                h_chamfer_val = (d1_h.mean() + d2_h.mean()).item()
                 
+                self.history['h_mse'].append(raw_loss_spectral.item())
+                self.history['h_chamfer'].append(h_chamfer_val)
                 self.history['step'].append(i)
                 self.history['spatial_chamfer'].append(spatial_ch_val)
-                
-            # Optional: Original Selective Chamfer Distance (only computed if weight > 0)
-            if self.weight_chamfer > 0.0:
-                pred_spatial = h_bar_0[:, :, :3]
-                orig_spatial = h_0[:, :, :3]
-                dists1, dists2, _, _ = chamfer_dist(pred_spatial, orig_spatial)
-                dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
-                dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * self.lambdaa)]
-                ch_loss = dists1.sum() + dists2.sum()
-                total_loss = total_loss + self.weight_chamfer * ch_loss
+                self.history['raw_loss_spectral'].append(raw_loss_spectral.item())
+                self.history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
+                self.history['f_score'].append(f_score)
 
             # STEP 5: Gradient Update (Guidance)
             if noisy_latent_point.grad is not None:
