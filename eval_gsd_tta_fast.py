@@ -117,7 +117,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         preds.append(pred)
         targets.append(target)
 
-    return torch.cat(targets), torch.cat(preds).cpu()
+    return torch.cat(targets).cpu(), torch.cat(preds).cpu()
 
 def main():
     args = parse_arguments()
