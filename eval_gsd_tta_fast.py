@@ -72,12 +72,15 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
     loss_weights = (args.weight_spectral, args.weight_chamfer)
     preds, targets = [], []
 
-    for label, data_sample in tqdm(dataloader, desc="Processing Batches"):
-        data_sample = data_sample.cuda()
+    for data, label in tqdm(dataloader, desc="Processing Batches"):
+        # Normalize and upsample the point cloud data
+        data_sample, data_center, data_max = normalize(data)
+        data_sample = upsample_all(data_sample.numpy(), 2048)
+        data_sample = torch.from_numpy(data_sample).float().cuda()
         label = label.cuda()
 
         if args.dataset_name == "scanobjectnn-c":
-            data_sample, data_center, data_max = normalize_data(data_sample)
+            # Extra scaling for ScanObjectNN
             data_sample *= 3.3885
 
         data_sample = rotate_pointcloud(data_sample)
