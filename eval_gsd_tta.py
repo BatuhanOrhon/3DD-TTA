@@ -83,10 +83,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         data_sample = torch.from_numpy(data_sample).float().cuda()
         label = label.cuda()
 
-        if args.dataset_name == "scanobjectnn-c":
-            # Extra scaling for ScanObjectNN
-            data_sample *= 3.3885
-
+        # Scale and rotate the point cloud data
+        data_sample *= 3.3885
         data_sample = rotate_pointcloud(data_sample)
 
         pred_points, _ = tta_gsd_reconstruct(
