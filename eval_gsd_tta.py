@@ -42,6 +42,7 @@ def parse_arguments():
     parser.add_argument('--use_4d_gft', action='store_true')
     parser.add_argument('--M', type=int, default=240)
     parser.add_argument('--denoising_step', type=int, default=35)
+    parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
     
     return parser.parse_args()
 
@@ -131,15 +132,29 @@ def main():
         'distortion_rbf', 'distortion_rbf_inv', 'density', 'density_inc',
         'shear', 'rotation', 'cutout', 'distortion', 'occlusion', 'lidar'
     ]
-    
-    # Setup CSV Writer
-    with open(csv_path, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Dataset", "Corruption", "M", "Weight_Spectral", "Weight_Chamfer", "Accuracy"])
-    
+    completed_noises = set()
     total_acc = 0.0
 
+    if args.resume and os.path.exists(csv_path):
+        print(f"Resuming from existing file: {csv_path}")
+        with open(csv_path, "r", newline="") as f:
+            reader = csv.reader(f)
+            next(reader, None)  # Skip header
+            for row in reader:
+                if len(row) > 1:
+                    completed_noises.add(row[1])
+                    total_acc += float(row[5])
+    else:
+        # Setup CSV Writer
+        with open(csv_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["Dataset", "Corruption", "M", "Weight_Spectral", "Weight_Chamfer", "Accuracy"])
+
     for corruption in noises:
+        if corruption in completed_noises:
+            print(f"\nSkipping Corruption: {corruption} (already evaluated).")
+            continue
+
         print(f"\nEvaluating Corruption: {corruption}")
         dataset = PointDataset(args.dataset_root, args.label_path, corruption)
         
