@@ -69,7 +69,10 @@ def configure_model(args):
     return base_model, diff_model, graph_spectral_module
 
 def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args):
-    loss_weights = (args.weight_spectral, args.weight_chamfer)
+    loss_weights = {
+        "spectral": args.weight_spectral,
+        "chamfer": args.weight_chamfer
+    }
     preds, targets = [], []
 
     for data, label in tqdm(dataloader, desc="Processing Batches"):
