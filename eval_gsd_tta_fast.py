@@ -120,7 +120,11 @@ def main():
 
     base_model, diff_model, graph_spectral_module = configure_model(args)
 
-    noises = ["uni", "gauss", "back", "impu", "ups", "rbf", "rbf-i", "den-d", "den-i", "shear", "rot", "cut", "dist", "occ", "lidar"]
+    noises = [
+        'uniform', 'gaussian', 'background', 'impulse', 'upsampling',
+        'distortion_rbf', 'distortion_rbf_inv', 'density', 'density_inc',
+        'shear', 'rotation', 'cutout', 'distortion', 'occlusion', 'lidar'
+    ]
     
     # Setup CSV Writer
     with open(csv_path, "w", newline="") as f:
