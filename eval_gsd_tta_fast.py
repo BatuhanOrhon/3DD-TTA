@@ -110,7 +110,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         pred_points = misc.fps(pred_points, 1024)
 
         with torch.no_grad():
-            logits = base_model.module.classification_only(pred_points, only_unmasked=False)
+            logits = base_model.classification_only(pred_points, only_unmasked=False)
             target = label.view(-1)
             pred = logits.argmax(-1).view(-1)
 
