@@ -82,7 +82,7 @@ def main():
     
     # 4. Run Analysis
     print(f"Running Spectral Analysis on sample {args.sample_id}...")
-    _ = analyzer.run_analysis(data_sample)
+    _, _ = analyzer.run_analysis(data_sample)
     
     # 5. Plot and Save
     if not analyzer.history['step']:

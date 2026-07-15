@@ -180,7 +180,14 @@ class GraphSpectralAnalyzer:
                 # If no loss was computed or loss is 0 (both weights 0), just proceed with normal DDIM step
                 noisy_latent_point = scheduler_output.prev_sample
 
-        return self.history
+        # STEP 6: Final Decoding (just like tta_gsd.py)
+        with torch.no_grad():
+            pred_points = vae.decoder(
+                None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
+                style=shape_latent.squeeze(3).squeeze(2)
+            )
+
+        return self.history, pred_points
 
     def plot_history(self):
         """

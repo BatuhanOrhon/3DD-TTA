@@ -56,7 +56,7 @@ def main():
         
     data_sample = torch.tensor(data, dtype=torch.float32).unsqueeze(0)
     
-    from utilities_3dd_tta import upsample_all, rotate_pointcloud, normalize
+    from utilities_3dd_tta import upsample_all, rotate_pointcloud, normalize, rotateback_pointcloud
     data_sample, _, _ = normalize(data_sample)
         
     data_sample = upsample_all(data_sample.numpy(), 2048)
@@ -93,22 +93,45 @@ def main():
         print(f"\n--- Testing: {args.sweep_param} = {val} ---")
         
         analyzer = GraphSpectralAnalyzer(diff_model=diff_model, **current_params)
-        _ = analyzer.run_analysis(data_sample)
+        _, pred_points = analyzer.run_analysis(data_sample)
+        
+        # Post-process the final point cloud to real space
+        pred_points = rotateback_pointcloud(pred_points)
+        pred_points, _, _ = normalize(pred_points)
+        final_points = pred_points.cpu().squeeze().detach().numpy()
         
         results[val] = {
             "step": analyzer.history["step"],
-            "spatial_chamfer": analyzer.history["spatial_chamfer"]
+            "spatial_chamfer": analyzer.history["spatial_chamfer"],
+            "points": final_points
         }
         
-    plt.figure(figsize=(10, 6))
+    num_vals = len(results)
+    fig = plt.figure(figsize=(4 * num_vals, 10))
+    from matplotlib.gridspec import GridSpec
+    gs = GridSpec(2, num_vals, figure=fig)
+    
+    # 1. Plot the 2D Line Graph (spans top row)
+    ax_line = fig.add_subplot(gs[0, :])
     for val, hist in results.items():
-        plt.plot(hist["step"], hist["spatial_chamfer"], marker="o", label=f"{args.sweep_param}={val}")
+        ax_line.plot(hist["step"], hist["spatial_chamfer"], marker="o", label=f"{args.sweep_param}={val}")
 
-    plt.title(f"Effect of {args.sweep_param} on Spatial Chamfer Distance")
-    plt.xlabel("Diffusion Step")
-    plt.ylabel("Selective Chamfer Distance")
-    plt.legend()
-    plt.grid(True)
+    ax_line.set_title(f"Effect of {args.sweep_param} on Spatial Chamfer Distance")
+    ax_line.set_xlabel("Diffusion Step")
+    ax_line.set_ylabel("Selective Chamfer Distance")
+    ax_line.legend()
+    ax_line.grid(True)
+    
+    # 2. Plot the 3D Point Clouds (bottom row)
+    for i, (val, hist) in enumerate(results.items()):
+        ax_3d = fig.add_subplot(gs[1, i], projection='3d')
+        pts = hist["points"]
+        # In 3D plots, Z is up, but standard pc might have Y up depending on dataset.
+        ax_3d.scatter(pts[:, 0], pts[:, 2], pts[:, 1], s=2, c='b', alpha=0.6)
+        ax_3d.set_title(f"val: {val}")
+        ax_3d.set_axis_off()
+        
+    plt.tight_layout()
     plt.savefig(args.output_img)
     print(f"Plot saved to {args.output_img}")
 
