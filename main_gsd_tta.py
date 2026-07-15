@@ -48,6 +48,7 @@ def parse_arguments():
     parser.add_argument('--weight_spectral', type=float, default=1.0, help='Weight for Spectral Loss')
     parser.add_argument('--weight_chamfer', type=float, default=0.0, help='Weight for Chamfer Distance Loss')
     parser.add_argument('--use_4d_gft', action='store_true', help='Use 4D GFT instead of 3D')
+    parser.add_argument('--M', type=int, default=100, help='Number of eigenvectors/frequencies to use for spectral matching')
 
     return parser.parse_args()
 
@@ -78,7 +79,7 @@ def configure_model(args):
     print('Diffusion model loaded successfully.')
 
     # Initialize Graph Spectral Module
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=100, use_4d_gft=args.use_4d_gft, device=args.device)
+    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, use_4d_gft=args.use_4d_gft, device=args.device)
 
     return base_model, diff_model, graph_spectral_module
 
