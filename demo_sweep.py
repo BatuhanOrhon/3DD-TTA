@@ -103,37 +103,56 @@ def main():
         results[val] = {
             "step": analyzer.history["step"],
             "spatial_chamfer": analyzer.history["spatial_chamfer"],
+            "f_score": analyzer.history["f_score"],
             "points": final_points
         }
         
+        # Loss Scale Logging for this sweep value
+        if analyzer.history['raw_loss_spectral']:
+            mean_spec = sum(analyzer.history['raw_loss_spectral']) / len(analyzer.history['raw_loss_spectral'])
+            mean_chamfer = sum(analyzer.history['raw_loss_chamfer']) / len(analyzer.history['raw_loss_chamfer'])
+            print(f"   -> Avg Raw Spectral Loss: {mean_spec:.6f} | Avg Raw Chamfer Loss: {mean_chamfer:.6f}")
+            print(f"   -> Suggested Weight Ratio (Chamfer/Spectral): {(mean_spec / (mean_chamfer + 1e-8)):.4f}")
+        
     num_vals = len(results)
-    fig = plt.figure(figsize=(4 * num_vals, 10))
+    fig = plt.figure(figsize=(6 * num_vals, 10))
     from matplotlib.gridspec import GridSpec
-    gs = GridSpec(2, num_vals, figure=fig)
+    gs = GridSpec(2, num_vals * 2, figure=fig)
     
-    # 1. Plot the 2D Line Graph (spans top row)
-    ax_line = fig.add_subplot(gs[0, :])
+    # 1. Plot the 2D Line Graphs (Top row)
+    # Left: Spatial Chamfer
+    ax_chamfer = fig.add_subplot(gs[0, :num_vals])
     for val, hist in results.items():
-        ax_line.plot(hist["step"], hist["spatial_chamfer"], marker="o", label=f"{args.sweep_param}={val}")
+        ax_chamfer.plot(hist["step"], hist["spatial_chamfer"], marker="o", label=f"{args.sweep_param}={val}")
 
-    ax_line.set_title(f"Effect of {args.sweep_param} on Spatial Chamfer Distance")
-    ax_line.set_xlabel("Diffusion Step")
-    ax_line.set_ylabel("Selective Chamfer Distance")
-    ax_line.legend()
-    ax_line.grid(True)
+    ax_chamfer.set_title(f"Effect of {args.sweep_param} on Spatial Chamfer Distance")
+    ax_chamfer.set_xlabel("Diffusion Step")
+    ax_chamfer.set_ylabel("Selective Chamfer Distance")
+    ax_chamfer.legend()
+    ax_chamfer.grid(True)
     
-    # 2. Plot the 3D Point Clouds (bottom row)
+    # Right: F-Score
+    ax_fscore = fig.add_subplot(gs[0, num_vals:])
+    for val, hist in results.items():
+        ax_fscore.plot(hist["step"], hist["f_score"], marker="o", label=f"{args.sweep_param}={val}")
+
+    ax_fscore.set_title(f"Effect of {args.sweep_param} on F-Score")
+    ax_fscore.set_xlabel("Diffusion Step")
+    ax_fscore.set_ylabel("F-Score (Threshold=0.05)")
+    ax_fscore.legend()
+    ax_fscore.grid(True)
+    
+    # 2. Plot the 3D Point Clouds (Bottom row)
     for i, (val, hist) in enumerate(results.items()):
-        ax_3d = fig.add_subplot(gs[1, i], projection='3d')
+        ax_3d = fig.add_subplot(gs[1, i*2 : (i+1)*2], projection='3d')
         pts = hist["points"]
-        # In 3D plots, Z is up, but standard pc might have Y up depending on dataset.
         ax_3d.scatter(pts[:, 0], pts[:, 2], pts[:, 1], s=2, c='b', alpha=0.6)
         ax_3d.set_title(f"val: {val}")
         ax_3d.set_axis_off()
         
     plt.tight_layout()
     plt.savefig(args.output_img)
-    print(f"Plot saved to {args.output_img}")
+    print(f"\nPlot saved to {args.output_img}")
 
 if __name__ == "__main__":
     main()
