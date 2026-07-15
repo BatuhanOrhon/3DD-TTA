@@ -63,10 +63,8 @@ def configure_model(args):
     diff_config.merge_from_file(args.diff_config)
     diff_model = LION(diff_config)
     diff_model.load_model(args.diff_ckpt)
-    diff_model.cuda()
-    diff_model.eval()
 
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, use_4d_gft=args.use_4d_gft).cuda()
+    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, use_4d_gft=args.use_4d_gft, device='cuda')
 
     return base_model, diff_model, graph_spectral_module
 
