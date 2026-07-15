@@ -142,10 +142,10 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             noisy_latent_point = scheduler_output.prev_sample
 
     # STEP 6: Final Decoding
-    # TODO: Bu mantık incelenecek. Yazarlar burada shape_latent kullanmış ancak optimizasyon döngüsünde style_cond (z_0) güncelleniyor. shape_latent yerine style_cond mu gelmeli kontrol edilecek.
+    # Note: Using the updated style_cond instead of the static shape_latent
     pred_points = vae.decoder(
         None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
-        style=shape_latent.squeeze(3).squeeze(2)
+        style=style_cond.squeeze(3).squeeze(2)
     )
     
     # Calculate means

@@ -187,9 +187,10 @@ class GraphSpectralAnalyzer:
 
         # STEP 6: Final Decoding (just like tta_gsd.py)
         with torch.no_grad():
+            # Note: Using the updated style_cond instead of the static shape_latent
             pred_points = vae.decoder(
                 None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
-                style=shape_latent.squeeze(3).squeeze(2)
+                style=style_cond.squeeze(3).squeeze(2)
             )
 
         return self.history, pred_points

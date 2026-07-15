@@ -83,11 +83,11 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100):
         noisy_latent_point = scheduler_output.prev_sample - eta * noisy_latent_point.grad
         style_cond = style_cond - gamma * style_cond.grad
 
-    # Decode the predicted points    # STEP 6: Final Decoding
-    # TODO: Bu mantık incelenecek. Yazarlar burada shape_latent kullanmış ancak optimizasyon döngüsünde style_cond (z_0) güncelleniyor. shape_latent yerine style_cond mu gelmeli kontrol edilecek.
+    # STEP 6: Final Decoding
+    # Note: Using the updated style_cond instead of the static shape_latent
     pred_points = vae.decoder(
         None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
-        style=shape_latent.squeeze(3).squeeze(2)
+        style=style_cond.squeeze(3).squeeze(2)
     )
     
     return pred_points
