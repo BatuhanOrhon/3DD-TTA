@@ -20,7 +20,7 @@ def parse_arguments():
 
     # Configuration and checkpoint paths
     parser.add_argument('--pointmae_config', type=str, default="./cfgs/tta_modelnet.yaml")
-    parser.add_argument('--pointmae_ckpt', type=str, default="./pointnet_ckpts/modelnet40_jt.pth")
+    parser.add_argument('--pointmae_ckpt', type=str, default="./pointnet_ckpts/modelnet_jt.pth")
     parser.add_argument('--diff_config', type=str, default="./lion_ckpts/unconditional_all55_cfg.yml")
     parser.add_argument('--diff_ckpt', type=str, default="./lion_ckpts/epoch_10999_iters_2100999.pt")
 
