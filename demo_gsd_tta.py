@@ -54,6 +54,7 @@ def parse_arguments():
     parser.add_argument('--weight_spectral', type=float, default=1.0, help='Weight for Spectral Loss')
     parser.add_argument('--weight_chamfer', type=float, default=0.0, help='Weight for Chamfer Distance Loss')
     parser.add_argument('--use_4d_gft', action='store_true', help='Use 4D GFT instead of 3D')
+    parser.add_argument('--M', type=int, default=100, help='Number of eigenvectors/frequencies to use for spectral matching')
 
     return parser.parse_args()
 
@@ -86,7 +87,7 @@ def main():
     diff_model = LION(configs)
     diff_model.load_model(args.diff_ckpt)
     
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=100, use_4d_gft=args.use_4d_gft, device=args.device)
+    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, use_4d_gft=args.use_4d_gft, device=args.device)
 
     # Upsample, scale, and rotate the point cloud data
     data_sample = upsample_all(data_sample.numpy(), 2048)
