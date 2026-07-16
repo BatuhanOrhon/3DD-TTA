@@ -69,7 +69,7 @@ def configure_model(args):
 
     return base_model, diff_model, graph_spectral_module
 
-def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args):
+def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps):
     loss_weights = {
         "spectral": args.weight_spectral,
         "chamfer": args.weight_chamfer
@@ -91,7 +91,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             x=data_sample, 
             lion=diff_model, 
             graph_spectral_module=graph_spectral_module, 
-            steps_back_local=args.denoising_step, 
+            steps_back_local=num_steps, 
             gamma=args.gamma, 
             eta=args.eta, 
             p=args.lambdaa, 
@@ -158,7 +158,8 @@ def main():
         
         dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
 
-        targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args)
+        num_steps = 35 if corruption == "background" else 5
+        targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps)
 
         acc = (preds == targets).float().mean().item()
         print(f"Accuracy for {corruption}: {acc * 100:.2f}%")
