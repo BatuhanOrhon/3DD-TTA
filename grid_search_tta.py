@@ -128,11 +128,11 @@ def main():
     
     # 2. Grid Search Parameters
     M_list = [240]
-    use_4d_gft_list = [True]
-    denoising_steps_list = [15, 20]
-    weight_spectrals_list = [8.0, 16.0]
-    delta_list = [0.05, 0.1, 0.5]
-    gamma_outlier_list = [0.3, 0.6, 0.9]
+    use_4d_gft_list = [False]
+    denoising_steps_list = [5, 10, 15, 25, 35]
+    weight_spectrals_list = [1.0, 2.0, 4.0, 16.0]
+    delta_list = [0.1]
+    gamma_outlier_list = [0.6]
     
     # Prepare CSV Header
     with open(csv_path, "w", newline="") as f:
