@@ -68,7 +68,7 @@ def configure_model(args):
 
     return base_model, diff_model, graph_spectral_module
 
-def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args):
+def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps):
     loss_weights = {
         "spectral": args.weight_spectral,
         "chamfer": args.weight_chamfer
@@ -82,17 +82,15 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         data_sample = torch.from_numpy(data_sample).float().cuda()
         label = label.cuda()
 
-        if args.dataset_name == "scanobjectnn-c":
-            # Extra scaling for ScanObjectNN
-            data_sample *= 3.3885
-
+        # Scale and rotate the point cloud data
+        data_sample *= 3.3885
         data_sample = rotate_pointcloud(data_sample)
 
         pred_points, _ = tta_gsd_reconstruct(
             x=data_sample, 
             lion=diff_model, 
             graph_spectral_module=graph_spectral_module, 
-            steps_back_local=args.denoising_step, 
+            steps_back_local=num_steps, 
             gamma=args.gamma, 
             eta=args.eta, 
             p=args.lambdaa, 
@@ -143,11 +141,12 @@ def main():
         print(f"\nEvaluating Corruption: {corruption}")
         dataset = PointDataset(args.dataset_root, args.label_path, corruption)
         
-        # PROTOTYPE MODE: Just use the first 2 samples!
-        subset_dataset = Subset(dataset, [0, 1])
+        # PROTOTYPE MODE: Just use the first 10 samples!
+        subset_dataset = Subset(dataset, range(10))
         dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
 
-        targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args)
+        num_steps = 35 if corruption == "background" else 5
+        targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps)
 
         acc = (preds == targets).float().mean().item()
         print(f"Accuracy for {corruption}: {acc * 100:.2f}%")
@@ -160,7 +159,7 @@ def main():
 
     mean_acc = total_acc / len(noises)
     print(f"\n--- FAST EVALUATION FINISHED ---")
-    print(f"Mean Accuracy (across 2 samples of {len(noises)} noises): {mean_acc * 100:.2f}%")
+    print(f"Mean Accuracy (across 10 samples of {len(noises)} noises): {mean_acc * 100:.2f}%")
     print(f"Results saved to: {csv_path}")
 
 if __name__ == "__main__":
