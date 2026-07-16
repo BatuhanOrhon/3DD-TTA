@@ -123,16 +123,16 @@ def main():
     target_noises = ['uniform', 'background', 'occlusion', 'rotation']
     
     # 2. Grid Search Parameters
-    M_list = [100, 240, 400]
-    denoising_steps_list = [5, 10, 15, 20]
-    weight_spectrals_list = [1.0, 4.0, 8.0, 16.0]
+    M_list = [240]
+    denoising_steps_list = [5, 10, 15, 20, 25, 30, 35]
+    weight_spectrals_list = [16.0]
     
     # Prepare CSV Header
     with open(csv_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["M", "Denoising_Step", "Weight_Spectral"] + target_noises + ["Mean_Accuracy"])
 
-    print(f"Starting Grid Search. 4 Noises (10 samples each). Grid Size: {len(M_list) * len(denoising_steps_list) * len(weight_spectrals_list)}")
+    print(f"Starting Grid Search. 4 Noises (50 samples each). Grid Size: {len(M_list) * len(denoising_steps_list) * len(weight_spectrals_list)}")
 
     for m_val, step, weight in itertools.product(M_list, denoising_steps_list, weight_spectrals_list):
         print(f"\n--- Testing Combo: M={m_val}, denoising_step={step}, weight_spectral={weight} ---")
@@ -140,7 +140,7 @@ def main():
         
         for corruption in target_noises:
             dataset = PointDataset(args.dataset_root, args.label_path, corruption)
-            subset_dataset = Subset(dataset, range(10)) # 10 samples per noise
+            subset_dataset = Subset(dataset, range(50)) # 50 samples per noise
             dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
             
             targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral=weight, M=m_val)
