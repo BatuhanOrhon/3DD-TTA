@@ -127,7 +127,7 @@ def main():
     ]
     
     # 2. Grid Search Parameters
-    M_list = [120, 240, 360]
+    M_list = [240]
     use_4d_gft_list = [True]
     denoising_steps_list = [15, 20]
     weight_spectrals_list = [8.0, 16.0]
