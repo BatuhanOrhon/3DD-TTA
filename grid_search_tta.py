@@ -63,8 +63,8 @@ def configure_model(args):
 
     return base_model, diff_model
 
-def process_batches(dataloader, base_model, diff_model, args, num_steps, weight_spectral, M):
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=M, use_4d_gft=args.use_4d_gft, device='cuda')
+def process_batches(dataloader, base_model, diff_model, args, num_steps, weight_spectral, M, use_4d_gft):
+    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=M, use_4d_gft=use_4d_gft, device='cuda')
     
     loss_weights = {
         "spectral": weight_spectral,
@@ -127,19 +127,20 @@ def main():
     ]
     
     # 2. Grid Search Parameters
-    M_list = [240]
-    denoising_steps_list = [5, 10, 15, 20, 35]
+    M_list = [100, 240]
+    denoising_steps_list = [15]
     weight_spectrals_list = [16.0]
+    use_4d_gft_list = [True, False]
     
     # Prepare CSV Header
     with open(csv_path, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["M", "Denoising_Step", "Weight_Spectral"] + target_noises + ["Mean_Accuracy"])
+        writer.writerow(["M", "Denoising_Step", "Weight_Spectral", "Use_4D_GFT"] + target_noises + ["Mean_Accuracy"])
 
-    print(f"Starting Grid Search. 4 Noises (50 samples each). Grid Size: {len(M_list) * len(denoising_steps_list) * len(weight_spectrals_list)}")
+    print(f"Starting Grid Search. 15 Noises (50 samples each). Grid Size: {len(M_list) * len(denoising_steps_list) * len(weight_spectrals_list) * len(use_4d_gft_list)}")
 
-    for m_val, step, weight in itertools.product(M_list, denoising_steps_list, weight_spectrals_list):
-        print(f"\n--- Testing Combo: M={m_val}, denoising_step={step}, weight_spectral={weight} ---")
+    for m_val, step, weight, use_4d in itertools.product(M_list, denoising_steps_list, weight_spectrals_list, use_4d_gft_list):
+        print(f"\n--- Testing Combo: M={m_val}, denoising_step={step}, weight_spectral={weight}, use_4d_gft={use_4d} ---")
         combo_accuracies = []
         
         for corruption in target_noises:
@@ -147,7 +148,7 @@ def main():
             subset_dataset = Subset(dataset, range(50)) # 50 samples per noise
             dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
             
-            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral=weight, M=m_val)
+            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral=weight, M=m_val, use_4d_gft=use_4d)
             
             acc = (preds == targets).float().mean().item()
             combo_accuracies.append(acc)
@@ -158,7 +159,7 @@ def main():
         
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([m_val, step, weight] + combo_accuracies + [mean_acc])
+            writer.writerow([m_val, step, weight, use_4d] + combo_accuracies + [mean_acc])
             
     print(f"\nGrid Search Finished! Results saved to {csv_path}")
 
