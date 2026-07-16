@@ -41,7 +41,8 @@ def parse_arguments():
     parser.add_argument('--weight_chamfer', type=float, default=1.0)
     parser.add_argument('--use_4d_gft', action='store_true')
     parser.add_argument('--M', type=int, default=240)
-    parser.add_argument('--denoising_step', type=int, default=35)
+    parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic 35/5 steps")
+    parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
     
     return parser.parse_args()
@@ -125,11 +126,14 @@ def main():
 
     base_model, diff_model, graph_spectral_module = configure_model(args)
 
-    noises = [
-        'uniform', 'gaussian', 'background', 'impulse', 'upsampling',
-        'distortion_rbf', 'distortion_rbf_inv', 'density', 'density_inc',
-        'shear', 'rotation', 'cutout', 'distortion', 'occlusion', 'lidar'
-    ]
+    if args.corruption:
+        noises = [args.corruption]
+    else:
+        noises = [
+            'uniform', 'gaussian', 'background', 'impulse', 'upsampling',
+            'distortion_rbf', 'distortion_rbf_inv', 'density', 'density_inc',
+            'shear', 'rotation', 'cutout', 'distortion', 'occlusion', 'lidar'
+        ]
     completed_noises = set()
     total_acc = 0.0
 
@@ -158,7 +162,7 @@ def main():
         
         dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
 
-        num_steps = 35 if corruption == "background" else 5
+        num_steps = args.denoising_step if args.denoising_step is not None else (35 if corruption == "background" else 5)
         targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps)
 
         acc = (preds == targets).float().mean().item()
