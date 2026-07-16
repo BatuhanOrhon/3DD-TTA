@@ -124,7 +124,7 @@ def main():
     
     # 2. Grid Search Parameters
     M_list = [240]
-    denoising_steps_list = [5, 10, 15, 20, 25, 30, 35]
+    denoising_steps_list = [5, 10, 15, 20, 25, 30, 35, 45, 55, 65]
     weight_spectrals_list = [16.0]
     
     # Prepare CSV Header
