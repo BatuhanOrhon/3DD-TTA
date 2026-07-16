@@ -139,7 +139,7 @@ def main():
         writer = csv.writer(f)
         writer.writerow(["M", "Use_4D_GFT", "Denoising_Step", "Weight_Spectral", "Delta", "Gamma_Outlier"] + target_noises + ["Mean_Accuracy"])
 
-    print(f"Starting Grid Search. 15 Noises (50 samples each). Grid Size: {len(M_list) * len(use_4d_gft_list) * len(denoising_steps_list) * len(weight_spectrals_list) * len(delta_list) * len(gamma_outlier_list)}")
+    print(f"Starting Grid Search. 15 Noises (25 samples each). Grid Size: {len(M_list) * len(use_4d_gft_list) * len(denoising_steps_list) * len(weight_spectrals_list) * len(delta_list) * len(gamma_outlier_list)}")
 
     for m_val, use_4d, step, weight, dlt, gm_out in itertools.product(M_list, use_4d_gft_list, denoising_steps_list, weight_spectrals_list, delta_list, gamma_outlier_list):
         print(f"\n--- Testing Combo: M={m_val}, 4D={use_4d}, step={step}, weight={weight}, delta={dlt}, gamma_out={gm_out} ---")
@@ -147,7 +147,7 @@ def main():
         
         for corruption in target_noises:
             dataset = PointDataset(args.dataset_root, args.label_path, corruption)
-            subset_dataset = Subset(dataset, range(50)) # 50 samples per noise
+            subset_dataset = Subset(dataset, range(25)) # 25 samples per noise
             dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
             
             targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral=weight, M=m_val, use_4d_gft=use_4d, delta=dlt, gamma_outlier=gm_out)
