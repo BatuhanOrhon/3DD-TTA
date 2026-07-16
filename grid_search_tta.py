@@ -120,11 +120,15 @@ def main():
     base_model, diff_model = configure_model(args)
 
     # 1. Target noises representing the whole dataset
-    target_noises = ['uniform', 'background', 'occlusion', 'rotation']
+    target_noises = [
+        'uniform', 'gaussian', 'background', 'impulse', 'upsampling',
+        'distortion_rbf', 'distortion_rbf_inv', 'density', 'density_inc',
+        'shear', 'rotation', 'cutout', 'distortion', 'occlusion', 'lidar'
+    ]
     
     # 2. Grid Search Parameters
     M_list = [240]
-    denoising_steps_list = [5, 10, 15, 20, 25, 30, 35, 45, 55, 65]
+    denoising_steps_list = [5, 10, 15, 20, 35]
     weight_spectrals_list = [16.0]
     
     # Prepare CSV Header
