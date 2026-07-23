@@ -97,17 +97,16 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             H_pred = torch.bmm(U_o.transpose(1, 2), signal)
             H_pred_low = H_pred[:, :graph_spectral_module.M, :]
             raw_loss_spectral = F.mse_loss(H_pred_low, H_orig_low, reduction='mean')
-            
-            pred_latent_point_reshaped = h_bar_0[:, :, :3]
-            h_0_spatial = h_0[:, :, :3]
-            dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
-            dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
-            dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
-            raw_loss_chamfer = dists1.sum() + dists2.sum()
-            
-            # Keep track for logging
             history['raw_loss_spectral'].append(raw_loss_spectral.item())
-            history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
+            
+            if chamfer_dist is not None:
+                pred_latent_point_reshaped = h_bar_0[:, :, :3]
+                h_0_spatial = h_0[:, :, :3]
+                dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+                dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
+                dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
+                raw_loss_chamfer = dists1.sum() + dists2.sum()
+                history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
             
         if weight_spectral > 0.0:
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
