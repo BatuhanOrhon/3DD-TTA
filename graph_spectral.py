@@ -94,9 +94,14 @@ class GraphSpectralDNA(nn.Module):
         isolated_nodes = (D_o_diag == 0).float()  # (B, N)
         L_o = L_o + torch.diag_embed(isolated_nodes * 1000.0)
         
+        # Add numerical stability jitter (epsilon) to the diagonal to prevent 
+        # convergence failures on ill-conditioned matrices (e.g. density_inc noise with overlapping points)
+        jitter = torch.eye(N, device=L_o.device).unsqueeze(0) * 1e-5
+        L_o_stable = L_o + jitter
+        
         # 5. Perform Eigen-decomposition on L^o
         # torch.linalg.eigh returns eigenvalues in ascending order
-        eigenvalues, U_o = torch.linalg.eigh(L_o)
+        eigenvalues, U_o = torch.linalg.eigh(L_o_stable)
         
         # 6. Perform Graph Fourier Transform (GFT)
         signal = h_0 if self.use_4d_gft else h_0_spatial
