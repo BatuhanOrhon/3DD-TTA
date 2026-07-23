@@ -14,7 +14,7 @@ except ImportError:
 
 
 class GraphSpectralDNA(nn.Module):
-    def __init__(self, k=10, delta=0.1, gamma=0.6, M=100, use_4d_gft=False, device='cuda'):
+    def __init__(self, k=10, delta=0.1, gamma=0.6, M=100, M_mid=1024, use_4d_gft=False, device='cuda'):
         """
         Graph Spectral DNA Module for 3DD-TTA.
         
@@ -32,6 +32,7 @@ class GraphSpectralDNA(nn.Module):
         self.delta = delta
         self.gamma = gamma
         self.M = M
+        self.M_mid = M_mid
         self.use_4d_gft = use_4d_gft
         self.device = device
         
@@ -45,7 +46,7 @@ class GraphSpectralDNA(nn.Module):
             h_0 (torch.Tensor): Latent points tensor of shape (B, N, C) where C is usually 4.
             
         Returns:
-            H_orig_low (torch.Tensor): Low frequency spectral components, shape (B, M, C_out).
+            H_orig (torch.Tensor): Full frequency spectral components, shape (B, N, C_out).
             U_o (torch.Tensor): Eigenvectors of the graph Laplacian, shape (B, N, N).
         """
         B, N, C = h_0.shape
@@ -103,8 +104,8 @@ class GraphSpectralDNA(nn.Module):
         # GFT: H_orig = (U^o)^T @ h_0
         H_orig = torch.bmm(U_o.transpose(1, 2), signal)  # (B, N, C_out)
         
-        # 7. Extract low-frequency components
-        H_orig_low = H_orig[:, :self.M, :]  # (B, M, C_out)
+        # 7. (Removed) We no longer extract only low-frequency components here, 
+        # so tta_gsd.py can handle multi-band slicing (Low, Mid, High).
         
         # Detach to ensure these are constants during the diffusion guidance phase
-        return H_orig_low.detach(), U_o.detach()
+        return H_orig.detach(), U_o.detach()

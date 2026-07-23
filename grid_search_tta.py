@@ -63,14 +63,20 @@ def configure_model(args):
 
     return base_model, diff_model
 
-def process_batches(dataloader, base_model, diff_model, args, num_steps, weight_spectral, M, use_4d_gft, delta, gamma_outlier):
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=delta, gamma=gamma_outlier, M=M, use_4d_gft=use_4d_gft, device='cuda')
+def process_batches(dataloader, base_model, diff_model, args, num_steps=35, weight_spectral_low=16.0, weight_spectral_mid=0.0, weight_spectral_high=0.0, M=240, M_mid=1024, use_4d_gft=False, delta=0.1, gamma_outlier=0.6):
+    preds, targets = [], []
+    
+    # Initialize dynamic GSD module
+    graph_spectral_module = GraphSpectralDNA(
+        k=10, delta=delta, gamma=gamma_outlier, M=M, M_mid=M_mid, use_4d_gft=use_4d_gft, device='cuda'
+    ).to('cuda')
     
     loss_weights = {
-        "spectral": weight_spectral,
+        "spectral_low": weight_spectral_low,
+        "spectral_mid": weight_spectral_mid,
+        "spectral_high": weight_spectral_high,
         "chamfer": args.weight_chamfer
     }
-    preds, targets = [], []
 
     for data, label in dataloader:
         data_sample, data_center, data_max = normalize(data)
@@ -150,7 +156,7 @@ def main():
             subset_dataset = Subset(dataset, range(25)) # 25 samples per noise
             dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
             
-            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral=weight, M=m_val, use_4d_gft=use_4d, delta=dlt, gamma_outlier=gm_out)
+            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral_low=weight, M=m_val, use_4d_gft=use_4d, delta=dlt, gamma_outlier=gm_out)
             
             acc = (preds == targets).float().mean().item()
             combo_accuracies.append(acc)

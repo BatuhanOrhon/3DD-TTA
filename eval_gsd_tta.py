@@ -37,10 +37,13 @@ def parse_arguments():
     parser.add_argument('--gamma', type=float, default=0.01)
     parser.add_argument('--eta', type=float, default=0.01)
     parser.add_argument('--lambdaa', type=float, default=0.95)
-    parser.add_argument('--weight_spectral', type=float, default=16.0)
-    parser.add_argument('--weight_chamfer', type=float, default=1.0)
+    parser.add_argument('--M', type=int, default=240, help="Number of low-frequency components to preserve")
+    parser.add_argument('--M_mid', type=int, default=1024, help="Boundary for mid-frequency components")
+    parser.add_argument('--weight_spectral', type=float, default=16.0, help="Weight for low-band Spectral guidance loss")
+    parser.add_argument('--weight_spectral_mid', type=float, default=0.0, help="Weight for mid-band Spectral guidance loss")
+    parser.add_argument('--weight_spectral_high', type=float, default=0.0, help="Weight for high-band Spectral guidance loss")
+    parser.add_argument('--weight_chamfer', type=float, default=1.0, help="Weight for Chamfer guidance loss")
     parser.add_argument('--use_4d_gft', action='store_true')
-    parser.add_argument('--M', type=int, default=240)
     parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic 35/5 steps")
     parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
@@ -66,13 +69,15 @@ def configure_model(args):
     diff_model = LION(diff_config)
     diff_model.load_model(args.diff_ckpt)
 
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, use_4d_gft=args.use_4d_gft, device='cuda')
+    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, M_mid=args.M_mid, use_4d_gft=args.use_4d_gft, device='cuda')
 
     return base_model, diff_model, graph_spectral_module
 
 def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps):
     loss_weights = {
-        "spectral": args.weight_spectral,
+        "spectral_low": args.weight_spectral,
+        "spectral_mid": args.weight_spectral_mid,
+        "spectral_high": args.weight_spectral_high,
         "chamfer": args.weight_chamfer
     }
     preds, targets = [], []
