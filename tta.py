@@ -80,14 +80,13 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100):
         ch_loss.backward()
         
         # Update latent variables with gradient step
-        noisy_latent_point = scheduler_output.prev_sample - eta * noisy_latent_point.grad
-        style_cond = style_cond - gamma * style_cond.grad
+        noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
+        style_cond = style_cond - eta * style_cond.grad
 
-    # STEP 6: Final Decoding
-    # Note: Using the updated style_cond instead of the static shape_latent
+    # Decode the predicted points from VAE decoder
     pred_points = vae.decoder(
         None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
-        style=style_cond.squeeze(3).squeeze(2)
+        style=shape_latent.squeeze(3).squeeze(2)
     )
     
     return pred_points
