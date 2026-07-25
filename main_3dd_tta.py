@@ -142,6 +142,8 @@ def main():
         print(f"Corruption: {corruption}, Accuracy: {acc}")
 
         # Save results to a file
+        import os
+        os.makedirs("./outputs/quantitative", exist_ok=True)
         with open("./outputs/quantitative/results.txt", "a") as result_file:
             result_file.write(f"Corruption: {corruption}, Accuracy: {acc}\n")
 
