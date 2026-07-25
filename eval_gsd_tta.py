@@ -46,6 +46,7 @@ def parse_arguments():
     parser.add_argument('--use_4d_gft', action='store_true')
     parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic 35/5 steps")
     parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
+    parser.add_argument('--use_static_style', action='store_true', help="Ignore updated style_cond at final decode (like original code)")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
     
     return parser.parse_args()
@@ -102,7 +103,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             eta=args.eta, 
             p=args.lambdaa, 
             loss_weights=loss_weights,
-            total=100
+            total=100,
+            use_static_style=args.use_static_style
         )
         pred_points = rotateback_pointcloud(pred_points)
 

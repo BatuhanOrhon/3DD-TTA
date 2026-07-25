@@ -4,7 +4,7 @@ from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, total=100):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, total=100, use_static_style=False):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -157,10 +157,10 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             noisy_latent_point = scheduler_output.prev_sample
 
     # STEP 6: Final Decoding
-    # Note: Using the updated style_cond instead of the static shape_latent
+    final_style = shape_latent if use_static_style else style_cond
     pred_points = vae.decoder(
         None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
-        style=style_cond.squeeze(3).squeeze(2)
+        style=final_style.squeeze(3).squeeze(2)
     )
     
     # Calculate means
