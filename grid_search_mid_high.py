@@ -45,7 +45,7 @@ def parse_arguments():
     parser.add_argument('--mid_weights', nargs='+', type=float, default=[0.1, 1.0, 4.0], help="List of weight_mid values")
     parser.add_argument('--high_weights', nargs='+', type=float, default=[0.1, 1.0, 4.0], help="List of weight_high values")
     parser.add_argument('--use_static_style', action='store_true', help="Use static shape_latent at final decode")
-    parser.add_argument('--samples_per_noise', type=int, default=25, help="Number of samples to evaluate per noise type (fast mode)")
+    parser.add_argument('--samples_per_noise', type=int, default=-1, help="Number of samples to evaluate per noise type. If not provided (-1), uses the entire dataset.")
     
     return parser.parse_args()
 
@@ -149,7 +149,8 @@ def main():
         writer = csv.writer(f)
         writer.writerow(["M", "M_mid", "M_high", "Weight_Low", "Weight_Mid", "Weight_High", "Use_Static_Style"] + target_noises + ["Mean_Accuracy"])
 
-    print(f"Starting Mid/High Frequency Grid Search. 15 Noises ({args.samples_per_noise} samples each). Total Combinations: {len(m_mids) * len(m_highs) * len(mid_weights) * len(high_weights)}")
+    sample_count_str = str(args.samples_per_noise) if args.samples_per_noise > 0 else "ALL"
+    print(f"Starting Mid/High Frequency Grid Search. 15 Noises ({sample_count_str} samples each). Total Combinations: {len(m_mids) * len(m_highs) * len(mid_weights) * len(high_weights)}")
     print(f"Fixed Params: M={args.M}, Weight_Low={args.weight_spectral_low}, Static_Style={args.use_static_style}")
 
     for m_mid, m_high, w_mid, w_high in itertools.product(m_mids, m_highs, mid_weights, high_weights):
@@ -158,8 +159,11 @@ def main():
         
         for corruption in target_noises:
             dataset = PointDataset(args.dataset_root, args.label_path, corruption)
-            subset_dataset = Subset(dataset, range(args.samples_per_noise))
-            dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
+            if args.samples_per_noise > 0:
+                subset_dataset = Subset(dataset, range(args.samples_per_noise))
+                dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
+            else:
+                dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
             
             # Oracle steps logic natively applied
             step = 35 if corruption == "background" else 5
