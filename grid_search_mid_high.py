@@ -44,6 +44,7 @@ def parse_arguments():
     parser.add_argument('--m_highs', nargs='+', type=int, default=[2048], help="List of M_high values")
     parser.add_argument('--mid_weights', nargs='+', type=float, default=[0.1, 1.0, 4.0], help="List of weight_mid values")
     parser.add_argument('--high_weights', nargs='+', type=float, default=[0.1, 1.0, 4.0], help="List of weight_high values")
+    parser.add_argument('--denoising_steps', nargs='+', type=int, default=[-1], help="List of denoising steps. -1 uses Oracle baseline (35 for background, 5 for others)")
     parser.add_argument('--use_static_style', action='store_true', help="Use static shape_latent at final decode")
     parser.add_argument('--samples_per_noise', type=int, default=-1, help="Number of samples to evaluate per noise type. If not provided (-1), uses the entire dataset.")
     
@@ -144,17 +145,18 @@ def main():
     m_highs = args.m_highs
     mid_weights = args.mid_weights
     high_weights = args.high_weights
+    denoising_steps = args.denoising_steps
     
     with open(csv_path, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["M", "M_mid", "M_high", "Weight_Low", "Weight_Mid", "Weight_High", "Use_Static_Style"] + target_noises + ["Mean_Accuracy"])
+        writer.writerow(["M", "M_mid", "M_high", "Weight_Low", "Weight_Mid", "Weight_High", "Denoising_Step", "Use_Static_Style"] + target_noises + ["Mean_Accuracy"])
 
     sample_count_str = str(args.samples_per_noise) if args.samples_per_noise > 0 else "ALL"
-    print(f"Starting Mid/High Frequency Grid Search. 15 Noises ({sample_count_str} samples each). Total Combinations: {len(m_mids) * len(m_highs) * len(mid_weights) * len(high_weights)}")
+    print(f"Starting Mid/High Frequency Grid Search. 15 Noises ({sample_count_str} samples each). Total Combinations: {len(m_mids) * len(m_highs) * len(mid_weights) * len(high_weights) * len(denoising_steps)}")
     print(f"Fixed Params: M={args.M}, Weight_Low={args.weight_spectral_low}, Static_Style={args.use_static_style}")
 
-    for m_mid, m_high, w_mid, w_high in itertools.product(m_mids, m_highs, mid_weights, high_weights):
-        print(f"\n--- Testing Combo: M_mid={m_mid}, M_high={m_high}, Weight_Mid={w_mid}, Weight_High={w_high} ---")
+    for m_mid, m_high, w_mid, w_high, test_step in itertools.product(m_mids, m_highs, mid_weights, high_weights, denoising_steps):
+        print(f"\n--- Testing Combo: M_mid={m_mid}, M_high={m_high}, Weight_Mid={w_mid}, Weight_High={w_high}, Step={test_step} ---")
         combo_accuracies = []
         
         for corruption in target_noises:
@@ -165,8 +167,11 @@ def main():
             else:
                 dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
             
-            # Oracle steps logic natively applied
-            step = 35 if corruption == "background" else 5
+            # Oracle steps logic natively applied if test_step == -1
+            if test_step == -1:
+                step = 35 if corruption == "background" else 5
+            else:
+                step = test_step
             
             targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, m_mid=m_mid, m_high=m_high, weight_mid=w_mid, weight_high=w_high)
             
@@ -179,7 +184,7 @@ def main():
         
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([args.M, m_mid, m_high, args.weight_spectral_low, w_mid, w_high, args.use_static_style] + combo_accuracies + [mean_acc])
+            writer.writerow([args.M, m_mid, m_high, args.weight_spectral_low, w_mid, w_high, test_step, args.use_static_style] + combo_accuracies + [mean_acc])
             
     print(f"\nGrid Search Finished. Results saved to {csv_path}")
 
