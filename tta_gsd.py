@@ -127,8 +127,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='mean')
                 total_loss = total_loss + weight_spectral_mid * loss_spectral_mid
                 
-            if weight_spectral_high > 0.0 and graph_spectral_module.M_mid < num_latent_points:
-                loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:, :], H_orig[:, graph_spectral_module.M_mid:, :], reduction='mean')
+            if weight_spectral_high > 0.0 and graph_spectral_module.M_mid < graph_spectral_module.M_high:
+                loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='mean')
                 total_loss = total_loss + weight_spectral_high * loss_spectral_high
             
         if weight_chamfer > 0.0:

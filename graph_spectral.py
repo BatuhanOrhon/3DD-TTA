@@ -14,7 +14,7 @@ except ImportError:
 
 
 class GraphSpectralDNA(nn.Module):
-    def __init__(self, k=10, delta=0.1, gamma=0.6, M=100, M_mid=1024, use_4d_gft=False, device='cuda'):
+    def __init__(self, k=10, delta=0.1, gamma=0.6, M=100, M_mid=1024, M_high=2048, use_4d_gft=False, device='cuda'):
         """
         Graph Spectral DNA Module for 3DD-TTA.
         
@@ -33,6 +33,7 @@ class GraphSpectralDNA(nn.Module):
         self.gamma = gamma
         self.M = M
         self.M_mid = M_mid
+        self.M_high = M_high
         self.use_4d_gft = use_4d_gft
         self.device = device
         
