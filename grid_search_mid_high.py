@@ -40,7 +40,10 @@ def parse_arguments():
     parser.add_argument('--weight_chamfer', type=float, default=1.0)
     parser.add_argument('--weight_spectral_low', type=float, default=16.0)
     parser.add_argument('--M', type=int, default=400)
-    parser.add_argument('--M_high', type=int, default=2048, help="End index for the high frequency band")
+    parser.add_argument('--m_mids', nargs='+', type=int, default=[512, 1024, 1536], help="List of M_mid values")
+    parser.add_argument('--m_highs', nargs='+', type=int, default=[2048], help="List of M_high values")
+    parser.add_argument('--mid_weights', nargs='+', type=float, default=[0.1, 1.0, 4.0], help="List of weight_mid values")
+    parser.add_argument('--high_weights', nargs='+', type=float, default=[0.1, 1.0, 4.0], help="List of weight_high values")
     parser.add_argument('--use_static_style', action='store_true', help="Use static shape_latent at final decode")
     parser.add_argument('--samples_per_noise', type=int, default=25, help="Number of samples to evaluate per noise type (fast mode)")
     
@@ -66,10 +69,10 @@ def configure_model(args):
 
     return base_model, diff_model
 
-def process_batches(dataloader, base_model, diff_model, args, num_steps, m_mid, weight_mid, weight_high):
+def process_batches(dataloader, base_model, diff_model, args, num_steps, m_mid, m_high, weight_mid, weight_high):
     graph_spectral_module = GraphSpectralDNA(
         k=10, delta=0.1, gamma=0.6, 
-        M=args.M, M_mid=m_mid, M_high=args.M_high,
+        M=args.M, M_mid=m_mid, M_high=m_high,
         use_4d_gft=False, device='cuda'
     )
     
@@ -136,20 +139,21 @@ def main():
         'shear', 'rotation', 'cutout', 'distortion', 'occlusion', 'lidar'
     ]
     
-    # Grid Search Parameters (3 widely spaced values each)
-    m_mids = [512, 1024, 1536]
-    mid_weights = [0.1, 1.0, 4.0]
-    high_weights = [0.1, 1.0, 4.0]
+    # Grid Search Parameters will be retrieved from args
+    m_mids = args.m_mids
+    m_highs = args.m_highs
+    mid_weights = args.mid_weights
+    high_weights = args.high_weights
     
     with open(csv_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["M", "M_mid", "M_high", "Weight_Low", "Weight_Mid", "Weight_High", "Use_Static_Style"] + target_noises + ["Mean_Accuracy"])
 
-    print(f"Starting Mid/High Frequency Grid Search. 15 Noises ({args.samples_per_noise} samples each). Total Combinations: {len(m_mids) * len(mid_weights) * len(high_weights)}")
-    print(f"Fixed Params: M={args.M}, M_high={args.M_high}, Weight_Low={args.weight_spectral_low}, Static_Style={args.use_static_style}")
+    print(f"Starting Mid/High Frequency Grid Search. 15 Noises ({args.samples_per_noise} samples each). Total Combinations: {len(m_mids) * len(m_highs) * len(mid_weights) * len(high_weights)}")
+    print(f"Fixed Params: M={args.M}, Weight_Low={args.weight_spectral_low}, Static_Style={args.use_static_style}")
 
-    for m_mid, w_mid, w_high in itertools.product(m_mids, mid_weights, high_weights):
-        print(f"\n--- Testing Combo: M_mid={m_mid}, Weight_Mid={w_mid}, Weight_High={w_high} ---")
+    for m_mid, m_high, w_mid, w_high in itertools.product(m_mids, m_highs, mid_weights, high_weights):
+        print(f"\n--- Testing Combo: M_mid={m_mid}, M_high={m_high}, Weight_Mid={w_mid}, Weight_High={w_high} ---")
         combo_accuracies = []
         
         for corruption in target_noises:
@@ -160,7 +164,7 @@ def main():
             # Oracle steps logic natively applied
             step = 35 if corruption == "background" else 5
             
-            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, m_mid=m_mid, weight_mid=w_mid, weight_high=w_high)
+            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, m_mid=m_mid, m_high=m_high, weight_mid=w_mid, weight_high=w_high)
             
             acc = (preds == targets).float().mean().item()
             print(f"  {corruption} -> {acc*100:.2f}%")
@@ -171,7 +175,7 @@ def main():
         
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([args.M, m_mid, args.M_high, args.weight_spectral_low, w_mid, w_high, args.use_static_style] + combo_accuracies + [mean_acc])
+            writer.writerow([args.M, m_mid, m_high, args.weight_spectral_low, w_mid, w_high, args.use_static_style] + combo_accuracies + [mean_acc])
             
     print(f"\nGrid Search Finished. Results saved to {csv_path}")
 
