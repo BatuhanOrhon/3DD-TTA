@@ -39,12 +39,15 @@ def parse_arguments():
     parser.add_argument('--lambdaa', type=float, default=0.95)
     parser.add_argument('--M', type=int, default=240, help="Number of low-frequency components to preserve")
     parser.add_argument('--M_mid', type=int, default=1024, help="Boundary for mid-frequency components")
+    parser.add_argument('--M_high', type=int, default=2048, help="End index for the high frequency band")
     parser.add_argument('--weight_spectral', type=float, default=16.0, help="Weight for low-band Spectral guidance loss")
     parser.add_argument('--weight_spectral_mid', type=float, default=0.0, help="Weight for mid-band Spectral guidance loss")
     parser.add_argument('--weight_spectral_high', type=float, default=0.0, help="Weight for high-band Spectral guidance loss")
     parser.add_argument('--weight_chamfer', type=float, default=1.0, help="Weight for Chamfer guidance loss")
     parser.add_argument('--use_4d_gft', action='store_true')
-    parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic 35/5 steps")
+    parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic steps globally")
+    parser.add_argument('--denoising_step_bg', type=int, default=35, help="Denoising step for background corruption")
+    parser.add_argument('--denoising_step_normal', type=int, default=5, help="Denoising step for non-background corruptions")
     parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
     parser.add_argument('--use_static_style', action='store_true', help="Ignore updated style_cond at final decode (like original code)")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
@@ -70,7 +73,7 @@ def configure_model(args):
     diff_model = LION(diff_config)
     diff_model.load_model(args.diff_ckpt)
 
-    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, M_mid=args.M_mid, use_4d_gft=args.use_4d_gft, device='cuda')
+    graph_spectral_module = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, M=args.M, M_mid=args.M_mid, M_high=args.M_high, use_4d_gft=args.use_4d_gft, device='cuda')
 
     return base_model, diff_model, graph_spectral_module
 
@@ -157,7 +160,7 @@ def main():
         # Setup CSV Writer
         with open(csv_path, "w", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["Dataset", "Corruption", "M", "Weight_Spectral", "Weight_Chamfer", "Accuracy"])
+            writer.writerow(["Dataset", "Corruption", "M", "M_mid", "M_high", "Weight_Spectral", "Weight_Spectral_Mid", "Weight_Spectral_High", "Weight_Chamfer", "Accuracy"])
 
     for corruption in noises:
         if corruption in completed_noises:
@@ -169,7 +172,11 @@ def main():
         
         dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
 
-        num_steps = args.denoising_step if args.denoising_step is not None else (35 if corruption == "background" else 5)
+        if args.denoising_step is not None:
+            num_steps = args.denoising_step
+        else:
+            num_steps = args.denoising_step_bg if corruption == "background" else args.denoising_step_normal
+            
         targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps)
 
         acc = (preds == targets).float().mean().item()
@@ -179,7 +186,7 @@ def main():
         # Append to CSV
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([args.dataset_name, corruption, args.M, args.weight_spectral, args.weight_chamfer, acc])
+            writer.writerow([args.dataset_name, corruption, args.M, args.M_mid, args.M_high, args.weight_spectral, args.weight_spectral_mid, args.weight_spectral_high, args.weight_chamfer, acc])
 
     mean_acc = total_acc / len(noises)
     print(f"\n--- FULL EVALUATION FINISHED ---")
