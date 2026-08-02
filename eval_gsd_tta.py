@@ -61,7 +61,7 @@ def configure_model(args):
     if args.dataset_name == "modelnet-c":
         config.model.cls_dim = 40
     elif args.dataset_name == "shapenet-c":
-        config.model.cls_dim = 50
+        config.model.cls_dim = 55
     elif args.dataset_name == "scanobjectnn-c":
         config.model.cls_dim = 15
 
@@ -157,7 +157,7 @@ def main():
             for row in reader:
                 if len(row) > 1:
                     completed_noises.add(row[1])
-                    total_acc += float(row[5])
+                    total_acc += float(row[-1])
     else:
         # Setup CSV Writer
         with open(csv_path, "w", newline="") as f:

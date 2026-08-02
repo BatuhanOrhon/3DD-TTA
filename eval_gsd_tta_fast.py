@@ -51,7 +51,7 @@ def configure_model(args):
     if args.dataset_name == "modelnet-c":
         config.model.cls_dim = 40
     elif args.dataset_name == "shapenet-c":
-        config.model.cls_dim = 50
+        config.model.cls_dim = 55
     elif args.dataset_name == "scanobjectnn-c":
         config.model.cls_dim = 15
 
