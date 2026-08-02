@@ -29,6 +29,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     weight_spectral_mid = loss_weights.get("spectral_mid", 0.0)
     weight_spectral_high = loss_weights.get("spectral_high", 0.0)
     weight_chamfer = loss_weights.get("chamfer", 0.0)
+    weight_invariant = loss_weights.get("invariant", 0.0)
 
     # Initialize chamfer distance only if needed
     chamfer_dist = None
@@ -73,7 +74,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
  
     # Reverse diffusion process using DDIMScheduler (STEP 3)
-    history = {'raw_loss_spectral_low': [], 'raw_loss_spectral_mid': [], 'raw_loss_spectral_high': [], 'raw_loss_chamfer': []}
+    history = {'raw_loss_spectral_low': [], 'raw_loss_spectral_mid': [], 'raw_loss_spectral_high': [], 'raw_loss_invariant': [], 'raw_loss_chamfer': []}
     for i, t in enumerate(timesteps_local):
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
         
@@ -102,9 +103,14 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             raw_loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='mean') if graph_spectral_module.M < graph_spectral_module.M_mid else torch.tensor(0.0)
             raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:, :], H_orig[:, graph_spectral_module.M_mid:, :], reduction='mean') if graph_spectral_module.M_mid < num_latent_points else torch.tensor(0.0)
             
+            power_pred_raw = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
+            power_orig_raw = torch.norm(H_orig[:, :graph_spectral_module.M, :], dim=-1)
+            raw_loss_invariant = F.mse_loss(power_pred_raw, power_orig_raw, reduction='mean')
+            
             history['raw_loss_spectral_low'].append(raw_loss_spectral_low.item())
             history['raw_loss_spectral_mid'].append(raw_loss_spectral_mid.item())
             history['raw_loss_spectral_high'].append(raw_loss_spectral_high.item())
+            history['raw_loss_invariant'].append(raw_loss_invariant.item())
             
             if chamfer_dist is not None:
                 pred_latent_point_reshaped = h_bar_0[:, :, :3]
@@ -115,10 +121,16 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 raw_loss_chamfer = dists1.sum() + dists2.sum()
                 history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
             
-        if weight_spectral_low > 0.0 or weight_spectral_mid > 0.0 or weight_spectral_high > 0.0:
+        if weight_spectral_low > 0.0 or weight_spectral_mid > 0.0 or weight_spectral_high > 0.0 or weight_invariant > 0.0:
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
             H_pred = torch.bmm(U_o.transpose(1, 2), signal)
             
+            if weight_invariant > 0.0:
+                power_pred = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
+                power_orig = torch.norm(H_orig[:, :graph_spectral_module.M, :], dim=-1)
+                loss_invariant = F.mse_loss(power_pred, power_orig, reduction='mean')
+                total_loss = total_loss + weight_invariant * loss_invariant
+                
             if weight_spectral_low > 0.0:
                 loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig[:, :graph_spectral_module.M, :], reduction='mean')
                 total_loss = total_loss + weight_spectral_low * loss_spectral_low
@@ -167,12 +179,14 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     mean_spec_low = sum(history['raw_loss_spectral_low']) / len(history['raw_loss_spectral_low']) if history['raw_loss_spectral_low'] else 0.0
     mean_spec_mid = sum(history['raw_loss_spectral_mid']) / len(history['raw_loss_spectral_mid']) if history['raw_loss_spectral_mid'] else 0.0
     mean_spec_high = sum(history['raw_loss_spectral_high']) / len(history['raw_loss_spectral_high']) if history['raw_loss_spectral_high'] else 0.0
+    mean_invariant = sum(history['raw_loss_invariant']) / len(history['raw_loss_invariant']) if history['raw_loss_invariant'] else 0.0
     mean_chamfer = sum(history['raw_loss_chamfer']) / len(history['raw_loss_chamfer']) if history['raw_loss_chamfer'] else 0.0
     
     metrics = {
         'mean_raw_spectral_low': mean_spec_low,
         'mean_raw_spectral_mid': mean_spec_mid,
         'mean_raw_spectral_high': mean_spec_high,
+        'mean_raw_invariant': mean_invariant,
         'mean_raw_chamfer': mean_chamfer
     }
     
