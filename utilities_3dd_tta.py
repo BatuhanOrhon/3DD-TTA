@@ -107,6 +107,40 @@ def normalize(data):
     
     return data, data_center, max_vals
 
+def align_pca(data):
+    """
+    Applies Principal Component Analysis (PCA) to align the point clouds to their 
+    principal axes, effectively removing global rotations (with sign ambiguity).
+    
+    Args:
+    - data (torch.Tensor): Point cloud of shape (batch_size, num_points, 3).
+    
+    Returns:
+    - torch.Tensor: PCA-aligned point cloud data.
+    """
+    aligned_data = torch.zeros_like(data)
+    for i in range(data.shape[0]):
+        pts = data[i]
+        
+        # Center the points
+        centroid = torch.mean(pts, dim=0)
+        pts_centered = pts - centroid
+        
+        # Compute covariance matrix (3x3)
+        cov = torch.matmul(pts_centered.T, pts_centered) / (pts.shape[0] - 1)
+        
+        # Eigen decomposition
+        eigenvalues, eigenvectors = torch.linalg.eigh(cov)
+        
+        # Sort in descending order to get principal axes
+        idx = torch.argsort(eigenvalues, descending=True)
+        eigenvectors = eigenvectors[:, idx]
+        
+        # Project points onto the new axes
+        pts_aligned = torch.matmul(pts_centered, eigenvectors)
+        aligned_data[i] = pts_aligned
+        
+    return aligned_data
 
 def unnormalize_data(data, max_vals, data_center):
     """

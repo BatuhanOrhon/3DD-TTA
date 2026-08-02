@@ -46,6 +46,7 @@ def parse_arguments():
     parser.add_argument('--weight_invariant', type=float, default=0.0, help="Weight for rotation-invariant spectral power loss")
     parser.add_argument('--weight_chamfer', type=float, default=1.0, help="Weight for Chamfer guidance loss")
     parser.add_argument('--use_4d_gft', action='store_true')
+    parser.add_argument('--apply_pca', action='store_true', help="Apply PCA alignment to remove global rotation")
     parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic steps globally")
     parser.add_argument('--denoising_step_bg', type=int, default=35, help="Denoising step for background corruption")
     parser.add_argument('--denoising_step_normal', type=int, default=5, help="Denoising step for non-background corruptions")
@@ -89,6 +90,9 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
     preds, targets = [], []
 
     for data, label in tqdm(dataloader, desc="Processing Batches"):
+        if args.apply_pca:
+            data = align_pca(data.float())
+            
         # Normalize and upsample the point cloud data
         data_sample, data_center, data_max = normalize(data)
         data_sample = upsample_all(data_sample.numpy(), 2048)
