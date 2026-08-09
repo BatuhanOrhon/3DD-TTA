@@ -10,7 +10,7 @@ from utils_mate import misc
 from default_config import cfg as configs
 from utilities_3dd_tta import *
 from tta_gsd import tta_gsd_reconstruct
-from LION.models.graph_spectral_dna import GraphSpectralDNA
+from graph_spectral import GraphSpectralDNA
 from tta_gsd_dual_sync import tta_gsd_reconstruct_sync
 from tta_gsd_dual_seq import tta_gsd_reconstruct_seq
 
