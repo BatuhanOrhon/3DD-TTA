@@ -125,7 +125,7 @@ def tta_gsd_reconstruct_seq(x, lion, graph_spectral_module, steps_back_local, st
             
             raw_loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig[:, :graph_spectral_module.M, :], reduction='mean')
             raw_loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='mean') if graph_spectral_module.M < graph_spectral_module.M_mid else torch.tensor(0.0)
-            raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:, :], H_orig[:, graph_spectral_module.M_mid:, :], reduction='mean') if graph_spectral_module.M_mid < num_latent_points else torch.tensor(0.0)
+            raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='mean') if graph_spectral_module.M_mid < graph_spectral_module.M_high else torch.tensor(0.0)
             
             power_pred_raw = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
             power_orig_raw = torch.norm(H_orig[:, :graph_spectral_module.M, :], dim=-1)

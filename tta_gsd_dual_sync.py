@@ -137,7 +137,7 @@ def tta_gsd_reconstruct_sync(x, lion, graph_spectral_module, steps_back_local, s
             
             raw_loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig[:, :graph_spectral_module.M, :], reduction='mean')
             raw_loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='mean') if graph_spectral_module.M < graph_spectral_module.M_mid else torch.tensor(0.0)
-            raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:, :], H_orig[:, graph_spectral_module.M_mid:, :], reduction='mean') if graph_spectral_module.M_mid < num_latent_points else torch.tensor(0.0)
+            raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='mean') if graph_spectral_module.M_mid < graph_spectral_module.M_high else torch.tensor(0.0)
             
             power_pred_raw = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
             power_orig_raw = torch.norm(H_orig[:, :graph_spectral_module.M, :], dim=-1)
@@ -210,10 +210,14 @@ def tta_gsd_reconstruct_sync(x, lion, graph_spectral_module, steps_back_local, s
         noisy_z = next_noisy_z
 
     # Final Decoding
-    final_style = shape_latent if use_static_style else noisy_z
+    if use_static_style:
+        final_style_decoded = shape_latent
+    else:
+        final_style_decoded = vae.global2style(noisy_z)
+        
     pred_points = vae.decoder(
         None, beta=None, context=noisy_h.squeeze(3).squeeze(2), 
-        style=vae.global2style(final_style).squeeze(3).squeeze(2)
+        style=final_style_decoded.squeeze(3).squeeze(2)
     )
     
     # Calculate means
