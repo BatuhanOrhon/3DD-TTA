@@ -201,8 +201,8 @@ def tta_gsd_reconstruct_sync(x, lion, graph_spectral_module, steps_back_local, s
                 # Update local points
                 next_noisy_h = next_noisy_h - eta * noisy_h.grad
                 
-                # Update global shape (if it was active)
-                if steps_back_global > 0 and t <= timesteps_global[0]:
+                # Update global shape continuously via gradient on every step
+                if next_noisy_z.grad is not None:
                     next_noisy_z = next_noisy_z - gamma * next_noisy_z.grad
             
             noisy_h = next_noisy_h
