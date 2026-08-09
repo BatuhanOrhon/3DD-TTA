@@ -111,8 +111,6 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             steps_back_local = args.denoising_step_normal
             
         steps_back_global = args.denoising_step_global if args.denoising_step_global is not None else steps_back_local
-            
-        print(f"[{c}] Selected steps_back_local: {steps_back_local}, steps_back_global: {steps_back_global}")
 
         if args.dual_mode == "sync":
             pred_points, metrics = tta_gsd_reconstruct_sync(
