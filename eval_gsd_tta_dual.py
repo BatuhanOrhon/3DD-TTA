@@ -13,6 +13,7 @@ from tta_gsd import tta_gsd_reconstruct
 from graph_spectral import GraphSpectralDNA
 from tta_gsd_dual_sync import tta_gsd_reconstruct_sync
 from tta_gsd_dual_seq import tta_gsd_reconstruct_seq
+from tqdm import tqdm
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
@@ -53,7 +54,7 @@ def parse_arguments():
     parser.add_argument('--denoising_step_global', type=int, default=None, help="Global Shape latent denoising step. If None, uses local step")
     parser.add_argument('--dual_mode', type=str, default="sync", choices=["sync", "seq"], help="Which dual diffusion method to use")
     parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
-    parser.add_argument('--use_static_style', action='store_true', default=True, help="Ignore updated style_cond at final decode")
+    parser.add_argument('--use_static_style', type=lambda x: (str(x).lower() in ['true', '1', 'yes']), default=True, help="Ignore updated style_cond at final decode (True/False)")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
     
     return parser.parse_args()

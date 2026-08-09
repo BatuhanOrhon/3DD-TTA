@@ -50,7 +50,7 @@ def parse_arguments():
     parser.add_argument('--denoising_step_bg', type=int, default=30, help="Denoising step for background corruption")
     parser.add_argument('--denoising_step_normal', type=int, default=10, help="Denoising step for non-background corruptions")
     parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
-    parser.add_argument('--use_static_style', action='store_true', default=True, help="Ignore updated style_cond at final decode (like original code)")
+    parser.add_argument('--use_static_style', type=lambda x: (str(x).lower() in ['true', '1', 'yes']), default=True, help="Ignore updated style_cond at final decode (True/False)")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
     
     return parser.parse_args()
