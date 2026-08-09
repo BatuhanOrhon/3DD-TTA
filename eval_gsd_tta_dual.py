@@ -17,7 +17,7 @@ from tta_gsd_dual_seq import tta_gsd_reconstruct_seq
 def parse_arguments():
     parser = argparse.ArgumentParser()
     # Batch size
-    parser.add_argument('--batch_size', type=int, default=40, help='Batch size for processing data')
+    parser.add_argument('--batch_size', type=int, default=70, help='Batch size for processing data')
 
     # Configuration and checkpoint paths
     parser.add_argument('--pointmae_config', type=str, default="./cfgs/tta_modelnet.yaml")
@@ -38,22 +38,22 @@ def parse_arguments():
     parser.add_argument('--gamma', type=float, default=0.01)
     parser.add_argument('--eta', type=float, default=0.01)
     parser.add_argument('--lambdaa', type=float, default=0.95)
-    parser.add_argument('--M', type=int, default=240, help="Number of low-frequency components to preserve")
-    parser.add_argument('--M_mid', type=int, default=1024, help="Boundary for mid-frequency components")
-    parser.add_argument('--M_high', type=int, default=2048, help="End index for the high frequency band")
+    parser.add_argument('--M', type=int, default=400, help="Number of low-frequency components to preserve")
+    parser.add_argument('--M_mid', type=int, default=600, help="Boundary for mid-frequency components")
+    parser.add_argument('--M_high', type=int, default=1300, help="End index for the high frequency band")
     parser.add_argument('--weight_spectral', type=float, default=16.0, help="Weight for low-band Spectral guidance loss")
-    parser.add_argument('--weight_spectral_mid', type=float, default=0.0, help="Weight for mid-band Spectral guidance loss")
+    parser.add_argument('--weight_spectral_mid', type=float, default=2.0, help="Weight for mid-band Spectral guidance loss")
     parser.add_argument('--weight_spectral_high', type=float, default=0.0, help="Weight for high-band Spectral guidance loss")
     parser.add_argument('--weight_invariant', type=float, default=0.0, help="Weight for rotation-invariant spectral power loss")
     parser.add_argument('--weight_chamfer', type=float, default=1.0, help="Weight for Chamfer guidance loss")
     parser.add_argument('--use_4d_gft', action='store_true')
     parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic steps globally")
-    parser.add_argument('--denoising_step_bg', type=int, default=35, help="Denoising step for background corruption")
-    parser.add_argument('--denoising_step_normal', type=int, default=5, help="Denoising step for non-background corruptions")
+    parser.add_argument('--denoising_step_bg', type=int, default=30, help="Denoising step for background corruption")
+    parser.add_argument('--denoising_step_normal', type=int, default=10, help="Denoising step for non-background corruptions")
     parser.add_argument('--denoising_step_global', type=int, default=None, help="Global Shape latent denoising step. If None, uses local step")
     parser.add_argument('--dual_mode', type=str, default="sync", choices=["sync", "seq"], help="Which dual diffusion method to use")
     parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
-    parser.add_argument('--use_static_style', action='store_true', help="Ignore updated style_cond at final decode")
+    parser.add_argument('--use_static_style', action='store_true', default=True, help="Ignore updated style_cond at final decode")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
     
     return parser.parse_args()
