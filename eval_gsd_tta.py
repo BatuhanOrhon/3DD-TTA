@@ -136,12 +136,14 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         targets.append(target)
 
     # Calculate average raw losses
-    avg_spec_low = sum(m['mean_raw_spectral_low'] for m in batch_metrics) / len(batch_metrics) if batch_metrics else 0.0
+    avg_spec_low_mean = sum(m['mean_raw_spectral_low_mean'] for m in batch_metrics) / len(batch_metrics) if batch_metrics else 0.0
+    avg_spec_low_sum = sum(m['mean_raw_spectral_low_sum'] for m in batch_metrics) / len(batch_metrics) if batch_metrics else 0.0
     avg_chamfer = sum(m['mean_raw_chamfer'] for m in batch_metrics) / len(batch_metrics) if batch_metrics else 0.0
     
     print(f"\n--- Raw Loss Diagnostics ---")
-    print(f"Average Raw Spectral (Low) Loss: {avg_spec_low:.6f}  (Current Weight: {args.weight_spectral})")
-    print(f"Average Raw Chamfer Loss:      {avg_chamfer:.6f}  (Current Weight: {args.weight_chamfer})")
+    print(f"Average Raw Spectral (Low) Loss [MEAN]: {avg_spec_low_mean:.6f}  (Current Weight: {args.weight_spectral})")
+    print(f"Average Raw Spectral (Low) Loss [SUM] : {avg_spec_low_sum:.6f}")
+    print(f"Average Raw Chamfer Loss (Sum)        : {avg_chamfer:.6f}  (Current Weight: {args.weight_chamfer})")
     print(f"----------------------------\n")
 
     return torch.cat(targets), torch.cat(preds)

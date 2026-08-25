@@ -76,7 +76,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
  
     # Reverse diffusion process using DDIMScheduler (STEP 3)
-    history = {'raw_loss_spectral_low': [], 'raw_loss_spectral_mid': [], 'raw_loss_spectral_high': [], 'raw_loss_invariant': [], 'raw_loss_chamfer': []}
+    history = {'raw_loss_spectral_low_mean': [], 'raw_loss_spectral_low_sum': [], 'raw_loss_spectral_mid': [], 'raw_loss_spectral_high': [], 'raw_loss_invariant': [], 'raw_loss_chamfer': []}
     
     # Initialize active targets
     U_active = U_o
@@ -117,7 +117,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
             H_pred = torch.bmm(U_active.transpose(1, 2), signal)
             
-            raw_loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='mean')
+            raw_loss_spectral_low_mean = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='mean')
+            raw_loss_spectral_low_sum = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='sum')
             raw_loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig_target[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='mean') if graph_spectral_module.M < graph_spectral_module.M_mid else torch.tensor(0.0)
             raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig_target[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='mean') if graph_spectral_module.M_mid < graph_spectral_module.M_high else torch.tensor(0.0)
             
@@ -125,7 +126,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             power_orig_raw = torch.norm(H_orig_target[:, :graph_spectral_module.M, :], dim=-1)
             raw_loss_invariant = F.mse_loss(power_pred_raw, power_orig_raw, reduction='mean')
             
-            history['raw_loss_spectral_low'].append(raw_loss_spectral_low.item())
+            history['raw_loss_spectral_low_mean'].append(raw_loss_spectral_low_mean.item())
+            history['raw_loss_spectral_low_sum'].append(raw_loss_spectral_low_sum.item())
             history['raw_loss_spectral_mid'].append(raw_loss_spectral_mid.item())
             history['raw_loss_spectral_high'].append(raw_loss_spectral_high.item())
             history['raw_loss_invariant'].append(raw_loss_invariant.item())
@@ -196,14 +198,16 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     )
     
     # Calculate means
-    mean_spec_low = sum(history['raw_loss_spectral_low']) / len(history['raw_loss_spectral_low']) if history['raw_loss_spectral_low'] else 0.0
+    mean_spec_low_mean = sum(history['raw_loss_spectral_low_mean']) / len(history['raw_loss_spectral_low_mean']) if history['raw_loss_spectral_low_mean'] else 0.0
+    mean_spec_low_sum = sum(history['raw_loss_spectral_low_sum']) / len(history['raw_loss_spectral_low_sum']) if history['raw_loss_spectral_low_sum'] else 0.0
     mean_spec_mid = sum(history['raw_loss_spectral_mid']) / len(history['raw_loss_spectral_mid']) if history['raw_loss_spectral_mid'] else 0.0
     mean_spec_high = sum(history['raw_loss_spectral_high']) / len(history['raw_loss_spectral_high']) if history['raw_loss_spectral_high'] else 0.0
     mean_invariant = sum(history['raw_loss_invariant']) / len(history['raw_loss_invariant']) if history['raw_loss_invariant'] else 0.0
     mean_chamfer = sum(history['raw_loss_chamfer']) / len(history['raw_loss_chamfer']) if history['raw_loss_chamfer'] else 0.0
     
     metrics = {
-        'mean_raw_spectral_low': mean_spec_low,
+        'mean_raw_spectral_low_mean': mean_spec_low_mean,
+        'mean_raw_spectral_low_sum': mean_spec_low_sum,
         'mean_raw_spectral_mid': mean_spec_mid,
         'mean_raw_spectral_high': mean_spec_high,
         'mean_raw_invariant': mean_invariant,
