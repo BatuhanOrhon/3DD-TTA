@@ -48,6 +48,7 @@ def parse_arguments():
     parser.add_argument('--weight_spectral', type=float, default=1.0, help='Weight for Spectral Loss')
     parser.add_argument('--weight_chamfer', type=float, default=0.0, help='Weight for Chamfer Distance Loss')
     parser.add_argument('--use_4d_gft', action='store_true', help='Use 4D GFT instead of 3D')
+    parser.add_argument('--dynamic_graph', action='store_true', help='Recompute graph and U_o dynamically at each step')
     parser.add_argument('--M', type=int, default=100, help='Number of eigenvectors/frequencies to use for spectral matching')
 
     return parser.parse_args()
@@ -88,7 +89,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
     """Process batches of data and compute predictions using GSDTTA."""
     preds, targets = [], []
     loss_weights = {
-        "spectral": args.weight_spectral,
+        "spectral_low": args.weight_spectral,
         "chamfer": args.weight_chamfer
     }
 
@@ -112,7 +113,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             eta=args.eta, 
             p=args.lambdaa, 
             loss_weights=loss_weights,
-            total=100
+            total=100,
+            dynamic_graph=args.dynamic_graph
         )
         pred_points = rotateback_pointcloud(pred_points)
 

@@ -40,6 +40,7 @@ def parse_arguments():
     parser.add_argument('--weight_spectral', type=float, default=16.0)
     parser.add_argument('--weight_chamfer', type=float, default=1.0)
     parser.add_argument('--use_4d_gft', action='store_true')
+    parser.add_argument('--dynamic_graph', action='store_true')
     parser.add_argument('--M', type=int, default=240)
     parser.add_argument('--denoising_step', type=int, default=35)
     
@@ -70,7 +71,7 @@ def configure_model(args):
 
 def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps):
     loss_weights = {
-        "spectral": args.weight_spectral,
+        "spectral_low": args.weight_spectral,
         "chamfer": args.weight_chamfer
     }
     preds, targets = [], []
@@ -95,7 +96,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             eta=args.eta, 
             p=args.lambdaa, 
             loss_weights=loss_weights,
-            total=100
+            total=100,
+            dynamic_graph=args.dynamic_graph
         )
         pred_points = rotateback_pointcloud(pred_points)
 
