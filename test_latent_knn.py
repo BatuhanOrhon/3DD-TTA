@@ -41,9 +41,9 @@ def main():
     else:
         print(f"Warning: Checkpoint not found at {ckpt_path}. Using untrained VAE weights for testing shape issues.")
         
-    diff_model.to(device)
-    diff_model.eval()
     vae = diff_model.vae
+    vae.eval()
+    diff_model.priors.eval()
     
     # Dataset (we'll use uniform noise for testing)
     corruption = "uniform"
