@@ -4,7 +4,7 @@ from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, total=100, use_static_style=False, dynamic_graph=False):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -77,6 +77,11 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
  
     # Reverse diffusion process using DDIMScheduler (STEP 3)
     history = {'raw_loss_spectral_low': [], 'raw_loss_spectral_mid': [], 'raw_loss_spectral_high': [], 'raw_loss_invariant': [], 'raw_loss_chamfer': []}
+    
+    # Initialize active targets
+    U_active = U_o
+    H_orig_target = H_orig
+    
     for i, t in enumerate(timesteps_local):
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
         
@@ -98,14 +103,14 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         
         # STEP 4: Spectral Guidance Loss
         with torch.no_grad():
-            if dynamic_graph:
+            if dynamic_graph and (i % graph_update_interval == 0):
                 # Dinamik U_current hesapla
                 _, U_current = graph_spectral_module(h_bar_0)
                 # Orijinal gürültülü datayı (h_0), YENİ eksenlere (U_current) izdüşür
                 signal_orig = h_0 if graph_spectral_module.use_4d_gft else h_0[:, :, :3]
                 H_orig_target = torch.bmm(U_current.transpose(1, 2), signal_orig).detach()
                 U_active = U_current
-            else:
+            elif not dynamic_graph:
                 H_orig_target = H_orig
                 U_active = U_o
 
@@ -135,15 +140,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
             
         if weight_spectral_low > 0.0 or weight_spectral_mid > 0.0 or weight_spectral_high > 0.0 or weight_invariant > 0.0:
-            if dynamic_graph:
-                _, U_current = graph_spectral_module(h_bar_0)
-                signal_orig = h_0 if graph_spectral_module.use_4d_gft else h_0[:, :, :3]
-                H_orig_target = torch.bmm(U_current.transpose(1, 2), signal_orig).detach()
-                U_active = U_current
-            else:
-                H_orig_target = H_orig
-                U_active = U_o
-
+            # U_active and H_orig_target are already correctly updated from the no_grad block above.
+            # We just need to compute H_pred with gradients enabled.
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
             H_pred = torch.bmm(U_active.transpose(1, 2), signal)
             

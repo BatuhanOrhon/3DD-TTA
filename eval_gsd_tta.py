@@ -47,6 +47,7 @@ def parse_arguments():
     parser.add_argument('--weight_chamfer', type=float, default=1.0, help="Weight for Chamfer guidance loss")
     parser.add_argument('--use_4d_gft', action='store_true')
     parser.add_argument('--dynamic_graph', action='store_true', help="Recompute graph dynamically")
+    parser.add_argument('--graph_update_interval', type=int, default=3, help="Interval for dynamic graph updates")
     parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic steps globally")
     parser.add_argument('--denoising_step_bg', type=int, default=30, help="Denoising step for background corruption")
     parser.add_argument('--denoising_step_normal', type=int, default=10, help="Denoising step for non-background corruptions")
@@ -88,6 +89,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         "chamfer": args.weight_chamfer
     }
     preds, targets = [], []
+    batch_metrics = []
 
     for data, label in tqdm(dataloader, desc="Processing Batches"):
         # Normalize and upsample the point cloud data
@@ -100,7 +102,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         data_sample *= 3.3885
         data_sample = rotate_pointcloud(data_sample)
 
-        pred_points, _ = tta_gsd_reconstruct(
+        pred_points, metrics = tta_gsd_reconstruct(
             x=data_sample, 
             lion=diff_model, 
             graph_spectral_module=graph_spectral_module, 
@@ -111,8 +113,10 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             loss_weights=loss_weights,
             total=100,
             use_static_style=args.use_static_style,
-            dynamic_graph=args.dynamic_graph
+            dynamic_graph=args.dynamic_graph,
+            graph_update_interval=args.graph_update_interval
         )
+        batch_metrics.append(metrics)
         pred_points = rotateback_pointcloud(pred_points)
 
         if args.dataset_name == "scanobjectnn-c":
@@ -130,6 +134,15 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
 
         preds.append(pred)
         targets.append(target)
+
+    # Calculate average raw losses
+    avg_spec_low = sum(m['mean_raw_spectral_low'] for m in batch_metrics) / len(batch_metrics) if batch_metrics else 0.0
+    avg_chamfer = sum(m['mean_raw_chamfer'] for m in batch_metrics) / len(batch_metrics) if batch_metrics else 0.0
+    
+    print(f"\n--- Raw Loss Diagnostics ---")
+    print(f"Average Raw Spectral (Low) Loss: {avg_spec_low:.6f}  (Current Weight: {args.weight_spectral})")
+    print(f"Average Raw Chamfer Loss:      {avg_chamfer:.6f}  (Current Weight: {args.weight_chamfer})")
+    print(f"----------------------------\n")
 
     return torch.cat(targets), torch.cat(preds)
 
