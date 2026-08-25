@@ -48,7 +48,7 @@ def main():
     # Dataset (we'll use uniform noise for testing)
     corruption = "uniform"
     try:
-        dataset = PointDataset("./data/scanobjectnn_c", "./data/scanobjectnn_c/label.npy", corruption)
+        dataset = PointDataset("./data/modelnet40_c", "./data/modelnet40_c/label.npy", corruption)
         dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
     except Exception as e:
         print(f"Could not load dataset. Make sure paths are correct. Error: {e}")
