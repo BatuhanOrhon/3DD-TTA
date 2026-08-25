@@ -46,6 +46,7 @@ def parse_arguments():
     parser.add_argument('--weight_invariant', type=float, default=0.0, help="Weight for rotation-invariant spectral power loss")
     parser.add_argument('--weight_chamfer', type=float, default=1.0, help="Weight for Chamfer guidance loss")
     parser.add_argument('--use_4d_gft', action='store_true')
+    parser.add_argument('--dynamic_graph', action='store_true', help="Recompute graph dynamically")
     parser.add_argument('--denoising_step', type=int, default=None, help="If set, overrides the dynamic steps globally")
     parser.add_argument('--denoising_step_bg', type=int, default=30, help="Denoising step for background corruption")
     parser.add_argument('--denoising_step_normal', type=int, default=10, help="Denoising step for non-background corruptions")
@@ -109,7 +110,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             p=args.lambdaa, 
             loss_weights=loss_weights,
             total=100,
-            use_static_style=args.use_static_style
+            use_static_style=args.use_static_style,
+            dynamic_graph=args.dynamic_graph
         )
         pred_points = rotateback_pointcloud(pred_points)
 
