@@ -112,13 +112,13 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
             H_pred = torch.bmm(U_active.transpose(1, 2), signal)
             
-            raw_loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='sum')
-            raw_loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig_target[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='sum') if graph_spectral_module.M < graph_spectral_module.M_mid else torch.tensor(0.0)
-            raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig_target[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='sum') if graph_spectral_module.M_mid < graph_spectral_module.M_high else torch.tensor(0.0)
+            raw_loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='mean')
+            raw_loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig_target[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='mean') if graph_spectral_module.M < graph_spectral_module.M_mid else torch.tensor(0.0)
+            raw_loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig_target[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='mean') if graph_spectral_module.M_mid < graph_spectral_module.M_high else torch.tensor(0.0)
             
             power_pred_raw = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
             power_orig_raw = torch.norm(H_orig_target[:, :graph_spectral_module.M, :], dim=-1)
-            raw_loss_invariant = F.mse_loss(power_pred_raw, power_orig_raw, reduction='sum')
+            raw_loss_invariant = F.mse_loss(power_pred_raw, power_orig_raw, reduction='mean')
             
             history['raw_loss_spectral_low'].append(raw_loss_spectral_low.item())
             history['raw_loss_spectral_mid'].append(raw_loss_spectral_mid.item())
@@ -150,19 +150,19 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             if weight_invariant > 0.0:
                 power_pred = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
                 power_orig = torch.norm(H_orig_target[:, :graph_spectral_module.M, :], dim=-1)
-                loss_invariant = F.mse_loss(power_pred, power_orig, reduction='sum')
+                loss_invariant = F.mse_loss(power_pred, power_orig, reduction='mean')
                 total_loss = total_loss + weight_invariant * loss_invariant
                 
             if weight_spectral_low > 0.0:
-                loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='sum')
+                loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='mean')
                 total_loss = total_loss + weight_spectral_low * loss_spectral_low
                 
             if weight_spectral_mid > 0.0 and graph_spectral_module.M < graph_spectral_module.M_mid:
-                loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig_target[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='sum')
+                loss_spectral_mid = F.mse_loss(H_pred[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], H_orig_target[:, graph_spectral_module.M:graph_spectral_module.M_mid, :], reduction='mean')
                 total_loss = total_loss + weight_spectral_mid * loss_spectral_mid
                 
             if weight_spectral_high > 0.0 and graph_spectral_module.M_mid < graph_spectral_module.M_high:
-                loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig_target[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='sum')
+                loss_spectral_high = F.mse_loss(H_pred[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], H_orig_target[:, graph_spectral_module.M_mid:graph_spectral_module.M_high, :], reduction='mean')
                 total_loss = total_loss + weight_spectral_high * loss_spectral_high
             
         if weight_chamfer > 0.0:
