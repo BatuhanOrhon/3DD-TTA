@@ -103,8 +103,7 @@ def process_batches(dataloader, base_model, diff_model, args, num_steps=10, weig
             loss_weights=loss_weights,
             total=100,
             use_static_style=False,
-            dynamic_graph=True,
-            graph_update_interval=3
+            dynamic_graph=False
         )
         pred_points = rotateback_pointcloud(pred_points)
 
