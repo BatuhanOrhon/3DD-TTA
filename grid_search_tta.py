@@ -37,9 +37,13 @@ def parse_arguments():
     parser.add_argument('--gamma', type=float, default=0.01)
     parser.add_argument('--eta', type=float, default=0.01)
     parser.add_argument('--lambdaa', type=float, default=0.95)
-    parser.add_argument('--weight_chamfer', type=float, default=1.0)
     parser.add_argument('--use_4d_gft', action='store_true')
-    parser.add_argument('--M', type=int, default=240)
+    parser.add_argument('--M', type=int, default=400)
+    
+    # Grid Search Parameters (Accepts multiple values)
+    parser.add_argument('--denoising_steps', nargs='+', type=int, default=[5, 10, 15], help="List of denoising steps to test (e.g. --denoising_steps 5 10 15)")
+    parser.add_argument('--weight_spectrals', nargs='+', type=float, default=[0.5, 1.0, 2.0], help="List of spectral weights to test (e.g. --weight_spectrals 0.5 1.0 2.0)")
+    parser.add_argument('--weight_chamfers', nargs='+', type=float, default=[0.5, 1.0, 2.0], help="List of chamfer weights to test (e.g. --weight_chamfers 0.5 1.0 2.0)")
     
     return parser.parse_args()
 
@@ -137,11 +141,11 @@ def main():
     ]
     
     # 2. Grid Search Parameters
-    M_list = [400]
-    use_4d_gft_list = [False]
-    denoising_steps_list = [5, 10, 15]
-    weight_spectrals_list = [0.5, 1.0, 2.0]
-    weight_chamfers_list = [0.5, 1.0, 2.0]
+    M_list = [args.M]
+    use_4d_gft_list = [args.use_4d_gft]
+    denoising_steps_list = args.denoising_steps
+    weight_spectrals_list = args.weight_spectrals
+    weight_chamfers_list = args.weight_chamfers
     
     # Prepare CSV Header
     with open(csv_path, "w", newline="") as f:
