@@ -63,19 +63,20 @@ def configure_model(args):
 
     return base_model, diff_model
 
-def process_batches(dataloader, base_model, diff_model, args, num_steps=35, weight_spectral_low=16.0, weight_spectral_mid=0.0, weight_spectral_high=0.0, M=240, M_mid=1024, use_4d_gft=False, delta=0.1, gamma_outlier=0.6):
+def process_batches(dataloader, base_model, diff_model, args, num_steps=10, weight_spectral_low=1.0, weight_spectral_mid=0.4, weight_spectral_high=0.0, weight_chamfer=1.0, M=400, M_mid=600, use_4d_gft=False):
     preds, targets = [], []
     
     # Initialize dynamic GSD module
     graph_spectral_module = GraphSpectralDNA(
-        k=10, delta=delta, gamma=gamma_outlier, M=M, M_mid=M_mid, use_4d_gft=use_4d_gft, device='cuda'
+        k=10, delta=0.1, gamma=0.6, M=M, M_mid=M_mid, use_4d_gft=use_4d_gft, device='cuda'
     ).to('cuda')
     
     loss_weights = {
         "spectral_low": weight_spectral_low,
         "spectral_mid": weight_spectral_mid,
         "spectral_high": weight_spectral_high,
-        "chamfer": args.weight_chamfer
+        "invariant": 0.0,
+        "chamfer": weight_chamfer
     }
 
     for data, label in dataloader:
@@ -96,7 +97,10 @@ def process_batches(dataloader, base_model, diff_model, args, num_steps=35, weig
             eta=args.eta, 
             p=args.lambdaa, 
             loss_weights=loss_weights,
-            total=100
+            total=100,
+            use_static_style=False,
+            dynamic_graph=True,
+            graph_update_interval=3
         )
         pred_points = rotateback_pointcloud(pred_points)
 
@@ -133,22 +137,22 @@ def main():
     ]
     
     # 2. Grid Search Parameters
-    M_list = [240]
+    M_list = [400]
     use_4d_gft_list = [False]
-    denoising_steps_list = [5, 10, 15, 25, 35]
-    weight_spectrals_list = [1.0, 2.0, 4.0, 16.0]
-    delta_list = [0.1]
-    gamma_outlier_list = [0.6]
+    denoising_steps_list = [5, 10, 15]
+    weight_spectrals_list = [0.5, 1.0, 2.0]
+    weight_chamfers_list = [0.5, 1.0, 2.0]
     
     # Prepare CSV Header
     with open(csv_path, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["M", "Use_4D_GFT", "Denoising_Step", "Weight_Spectral", "Delta", "Gamma_Outlier"] + target_noises + ["Mean_Accuracy"])
+        writer.writerow(["M", "Use_4D_GFT", "Denoising_Step", "Weight_Spectral_Low", "Weight_Spectral_Mid", "Weight_Chamfer"] + target_noises + ["Mean_Accuracy"])
 
-    print(f"Starting Grid Search. 15 Noises (25 samples each). Grid Size: {len(M_list) * len(use_4d_gft_list) * len(denoising_steps_list) * len(weight_spectrals_list) * len(delta_list) * len(gamma_outlier_list)}")
+    print(f"Starting Grid Search. 15 Noises (25 samples each). Grid Size: {len(denoising_steps_list) * len(weight_spectrals_list) * len(weight_chamfers_list)}")
 
-    for m_val, use_4d, step, weight, dlt, gm_out in itertools.product(M_list, use_4d_gft_list, denoising_steps_list, weight_spectrals_list, delta_list, gamma_outlier_list):
-        print(f"\n--- Testing Combo: M={m_val}, 4D={use_4d}, step={step}, weight={weight}, delta={dlt}, gamma_out={gm_out} ---")
+    for m_val, use_4d, step, weight_spec, weight_cham in itertools.product(M_list, use_4d_gft_list, denoising_steps_list, weight_spectrals_list, weight_chamfers_list):
+        weight_spec_mid = weight_spec * 0.4
+        print(f"\n--- Testing Combo: Step={step}, Spec_Low={weight_spec}, Spec_Mid={weight_spec_mid}, Chamfer={weight_cham} ---")
         combo_accuracies = []
         
         for corruption in target_noises:
@@ -156,7 +160,7 @@ def main():
             subset_dataset = Subset(dataset, range(25)) # 25 samples per noise
             dataloader = DataLoader(subset_dataset, batch_size=args.batch_size, shuffle=False)
             
-            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral_low=weight, M=m_val, use_4d_gft=use_4d, delta=dlt, gamma_outlier=gm_out)
+            targets, preds = process_batches(dataloader, base_model, diff_model, args, num_steps=step, weight_spectral_low=weight_spec, weight_spectral_mid=weight_spec_mid, weight_chamfer=weight_cham, M=m_val, M_mid=600, use_4d_gft=use_4d)
             
             acc = (preds == targets).float().mean().item()
             combo_accuracies.append(acc)
@@ -167,7 +171,7 @@ def main():
         
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([m_val, use_4d, step, weight, dlt, gm_out] + combo_accuracies + [mean_acc])
+            writer.writerow([m_val, use_4d, step, weight_spec, weight_spec_mid, weight_cham] + combo_accuracies + [mean_acc])
             
     print(f"\nGrid Search Finished! Results saved to {csv_path}")
 
