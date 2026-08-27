@@ -82,21 +82,26 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     U_active = U_o
     H_orig_target = H_orig
     
+    # Pre-calculate if ANY guidance is needed
+    requires_guidance = weight_spectral_low > 0.0 or weight_spectral_mid > 0.0 or weight_spectral_high > 0.0 or weight_invariant > 0.0 or weight_chamfer > 0.0
+    
     for i, t in enumerate(timesteps_local):
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
         
         noisy_latent_point = noisy_latent_point.detach()
-        noisy_latent_point.requires_grad = True
-        
         style_cond = style_cond.detach()
-        style_cond.requires_grad = True
-
-        # Predict noise
-        noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
-        scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
         
-        # This is h_bar_0 in the abstract space
-        pred_latent_point = scheduler_output.pred_original_sample
+        if requires_guidance:
+            noisy_latent_point.requires_grad = True
+            style_cond.requires_grad = True
+
+        # Predict noise with or without gradients
+        with torch.set_grad_enabled(requires_guidance):
+            noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
+            scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
+            
+            # This is h_bar_0 in the abstract space
+            pred_latent_point = scheduler_output.pred_original_sample
         h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
         
         total_loss = 0.0
