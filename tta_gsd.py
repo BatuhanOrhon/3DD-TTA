@@ -158,7 +158,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
                 dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
                 dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
-                raw_loss_chamfer = dists1.mean() + dists2.mean()
+                raw_loss_chamfer = dists1.sum() + dists2.sum()
                 history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
             else:
                 history['raw_loss_chamfer'].append(0.0)
@@ -193,7 +193,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
             dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
             dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
-            ch_loss = dists1.mean() + dists2.mean()
+            ch_loss = dists1.sum() + dists2.sum()
             total_loss = total_loss + weight_chamfer * ch_loss
 
         # STEP 5: Gradient Update (Guidance)
