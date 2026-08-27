@@ -41,7 +41,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     
     scheduler = DDIMScheduler(
         beta_end=0.02, beta_schedule="linear", beta_start=0.0001, 
-        clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon"
+        clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon",
+        set_alpha_to_one=False
     )
     scheduler.set_timesteps(total, device=x.device)
     
