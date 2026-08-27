@@ -35,6 +35,7 @@ def parse_arguments():
                         help="Dataset name (options: modelnet-c, shapenet-c, scanobjectnn-c)")
     parser.add_argument('--dataset_root', type=str, default="./data/scanobjectnn_c", help='Root directory of the dataset')
     parser.add_argument('--label_path', type=str, default="./data/scanobjectnn_c/label.npy", help='Path to the dataset labels')
+    parser.add_argument('--corruption', type=str, default=None, help='Specific corruption to evaluate (e.g. cutout)')
 
     # Shape latent and point updating factors
     parser.add_argument('--gamma', type=float, default=0.01, help='Shape latent updating factor')
@@ -156,7 +157,8 @@ def main():
     os.makedirs("./outputs/quantitative", exist_ok=True)
     
     # We use corruptions from utilities_3dd_tta
-    for corruption in corruptions:
+    corruptions_to_run = [args.corruption] if args.corruption else corruptions
+    for corruption in corruptions_to_run:
         # Set reconstruction steps based on corruption type
         num_steps = 35 if corruption == "background" else 5
 
