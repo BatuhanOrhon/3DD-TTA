@@ -207,15 +207,20 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
 
         # STEP 5: PCGrad Projection Update (PixelAsParam)
         # Compute independent gradients for Spectral and Chamfer constraints
-        g_spectral_latent, g_spectral_style = None, None
+        losses_to_backward = []
         if isinstance(spectral_loss_tensor, torch.Tensor) and spectral_loss_tensor.requires_grad:
-            grads = torch.autograd.grad(spectral_loss_tensor, [noisy_latent_point, style_cond], retain_graph=True, allow_unused=True)
-            g_spectral_latent, g_spectral_style = grads[0], grads[1]
-
-        g_chamfer_latent, g_chamfer_style = None, None
+            losses_to_backward.append(('spectral', spectral_loss_tensor))
         if isinstance(chamfer_loss_tensor, torch.Tensor) and chamfer_loss_tensor.requires_grad:
-            grads = torch.autograd.grad(chamfer_loss_tensor, [noisy_latent_point, style_cond], retain_graph=True, allow_unused=True)
-            g_chamfer_latent, g_chamfer_style = grads[0], grads[1]
+            losses_to_backward.append(('chamfer', chamfer_loss_tensor))
+            
+        grads_dict = {}
+        for i, (name, loss_tensor) in enumerate(losses_to_backward):
+            is_last = (i == len(losses_to_backward) - 1)
+            grads = torch.autograd.grad(loss_tensor, [noisy_latent_point, style_cond], retain_graph=not is_last, allow_unused=True)
+            grads_dict[name] = grads
+
+        g_spectral_latent, g_spectral_style = grads_dict.get('spectral', [None, None])
+        g_chamfer_latent, g_chamfer_style = grads_dict.get('chamfer', [None, None])
 
         def project_conflicting_gradients(g_source, g_target, delta=1.0):
             """
