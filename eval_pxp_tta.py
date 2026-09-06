@@ -40,7 +40,7 @@ def parse_arguments():
     parser.add_argument('--M', type=int, default=400, help="Number of low-frequency components to preserve")
     parser.add_argument('--M_mid', type=int, default=600, help="Boundary for mid-frequency components")
     parser.add_argument('--M_high', type=int, default=1300, help="End index for the high frequency band")
-    parser.add_argument('--weight_spectral', type=float, default=16.0, help="Weight for low-band Spectral guidance loss")
+    parser.add_argument('--weight_spectral_low', type=float, default=16.0, help="Weight for low-band Spectral guidance loss")
     parser.add_argument('--weight_spectral_mid', type=float, default=2.0, help="Weight for mid-band Spectral guidance loss")
     parser.add_argument('--weight_spectral_high', type=float, default=0.0, help="Weight for high-band Spectral guidance loss")
     parser.add_argument('--weight_invariant', type=float, default=0.0, help="Weight for rotation-invariant spectral power loss")
@@ -82,7 +82,7 @@ def configure_model(args):
 
 def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps):
     loss_weights = {
-        "spectral_low": args.weight_spectral,
+        "spectral_low": args.weight_spectral_low,
         "spectral_mid": args.weight_spectral_mid,
         "spectral_high": args.weight_spectral_high,
         "invariant": args.weight_invariant,
@@ -141,7 +141,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
     avg_chamfer = sum(m['mean_raw_chamfer'] for m in batch_metrics) / len(batch_metrics) if batch_metrics else 0.0
     
     print(f"\n--- Raw Loss Diagnostics ---")
-    print(f"Average Raw Spectral (Low) Loss [MEAN]: {avg_spec_low_mean:.6f}  (Current Weight: {args.weight_spectral})")
+    print(f"Average Raw Spectral (Low) Loss [MEAN]: {avg_spec_low_mean:.6f}  (Current Weight: {args.weight_spectral_low})")
     print(f"Average Raw Spectral (Low) Loss [SUM] : {avg_spec_low_sum:.6f}")
     print(f"Average Raw Chamfer Loss (Sum)        : {avg_chamfer:.6f}  (Current Weight: {args.weight_chamfer})")
     print(f"----------------------------\n")
@@ -205,7 +205,7 @@ def main():
         # Append to CSV
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([args.dataset_name, corruption, args.M, args.M_mid, args.M_high, args.weight_spectral, args.weight_spectral_mid, args.weight_spectral_high, args.weight_invariant, args.weight_chamfer, acc])
+            writer.writerow([args.dataset_name, corruption, args.M, args.M_mid, args.M_high, args.weight_spectral_low, args.weight_spectral_mid, args.weight_spectral_high, args.weight_invariant, args.weight_chamfer, acc])
 
     mean_acc = total_acc / len(noises)
     print(f"\n--- FULL EVALUATION FINISHED ---")
