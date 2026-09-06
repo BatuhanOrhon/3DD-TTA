@@ -67,7 +67,14 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         h_0 = latent_point.view(num_samples, num_latent_points, -1)
         
         # Pre-compute original full spectral components (H_orig) and eigenvectors (U_o)
-        H_orig, U_o = graph_spectral_module(h_0)
+        compute_spectral = False
+        if loss_weights is not None:
+            compute_spectral = any(loss_weights[k] > 0.0 for k in ["spectral_low", "spectral_mid", "spectral_high", "invariant"])
+        
+        if compute_spectral:
+            H_orig, U_o = graph_spectral_module(h_0)
+        else:
+            H_orig, U_o = None, None
     
     # Global style conditioning
     style_cond = vae.global2style(shape_latent)
