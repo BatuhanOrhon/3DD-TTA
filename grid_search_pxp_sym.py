@@ -43,6 +43,8 @@ def parse_arguments():
     parser.add_argument('--denoising_steps', type=int, default=5)
     parser.add_argument('--weight_chamfer', type=float, default=1.0)
     parser.add_argument('--weight_spectral_low', type=float, default=0.0)
+    parser.add_argument('--weight_spectral_mid', type=float, default=0.0)
+    parser.add_argument('--weight_spectral_high', type=float, default=0.0)
     parser.add_argument('--use_static_style', action='store_true', default=True, help="Use static style for evaluation")
     parser.add_argument('--spectral_reduction', type=str, default="mean", choices=["mean", "sum"], help="Reduction method for spectral MSE loss")
     
@@ -87,8 +89,8 @@ def main():
     
     loss_weights = {
         "spectral_low": args.weight_spectral_low,
-        "spectral_mid": 0.0,
-        "spectral_high": 0.0,
+        "spectral_mid": args.weight_spectral_mid,
+        "spectral_high": args.weight_spectral_high,
         "invariant": 0.0,
         "chamfer": args.weight_chamfer
     }
