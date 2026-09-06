@@ -4,7 +4,7 @@ from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, delta1=1.0, delta2=1.0):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, delta1=1.0, delta2=1.0, spectral_reduction='mean'):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -131,10 +131,9 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 H_pred = torch.bmm(U_active.transpose(1, 2), signal)
                 
             if weight_spectral_low > 0.0:
-                raw_loss_spectral_low_mean = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='mean')
-                raw_loss_spectral_low_sum = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='sum')
-                history['raw_loss_spectral_low_mean'].append(raw_loss_spectral_low_mean.item())
-                history['raw_loss_spectral_low_sum'].append(raw_loss_spectral_low_sum.item())
+                raw_loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction=spectral_reduction)
+                history['raw_loss_spectral_low_mean'].append(raw_loss_spectral_low.item() if spectral_reduction == 'mean' else 0.0)
+                history['raw_loss_spectral_low_sum'].append(raw_loss_spectral_low.item() if spectral_reduction == 'sum' else 0.0)
             else:
                 history['raw_loss_spectral_low_mean'].append(0.0)
                 history['raw_loss_spectral_low_sum'].append(0.0)
@@ -184,7 +183,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 spectral_loss_tensor = spectral_loss_tensor + weight_invariant * loss_invariant
                 
             if weight_spectral_low > 0.0:
-                loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction='mean')
+                loss_spectral_low = F.mse_loss(H_pred[:, :graph_spectral_module.M, :], H_orig_target[:, :graph_spectral_module.M, :], reduction=spectral_reduction)
                 spectral_loss_tensor = spectral_loss_tensor + weight_spectral_low * loss_spectral_low
                 
             if weight_spectral_mid > 0.0 and graph_spectral_module.M < graph_spectral_module.M_mid:

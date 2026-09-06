@@ -44,6 +44,7 @@ def parse_arguments():
     parser.add_argument('--weight_chamfer', type=float, default=1.0)
     parser.add_argument('--weight_spectral_low', type=float, default=0.0)
     parser.add_argument('--use_static_style', action='store_true', default=True, help="Use static style for evaluation")
+    parser.add_argument('--spectral_reduction', type=str, default="mean", choices=["mean", "sum"], help="Reduction method for spectral MSE loss")
     
     # Grid Search Parameters
     parser.add_argument('--gammas', nargs='+', type=float, default=[0.01, 0.005, 0.001, 0.0005, 0.0001], help="List of gammas")
@@ -144,6 +145,7 @@ def main():
                 use_static_style=args.use_static_style,
                 delta1=args.delta1,
                 delta2=args.delta2,
+                spectral_reduction=args.spectral_reduction,
                 dynamic_graph=False
             )
             pred_points = rotateback_pointcloud(pred_points)
