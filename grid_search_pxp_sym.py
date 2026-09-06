@@ -36,6 +36,7 @@ def parse_arguments():
     # Outputs
     parser.add_argument('--output_dir', type=str, default="./outputs/quantitative")
     parser.add_argument('--csv_name', type=str, default="grid_search_gamma_eta_results.csv")
+    parser.add_argument('--log_name', type=str, default="grid_search_gamma_eta_log.txt")
     
     # Fixed Custom Parameters
     parser.add_argument('--lambdaa', type=float, default=0.95)
@@ -93,16 +94,27 @@ def main():
 
     # Prepare Dataset (Full dataset, no subset)
     dataset = PointDataset(args.dataset_root, args.label_path, args.corruption)
-    dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
-
-    # Prepare CSV Header
-    with open(csv_path, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Corruption", "Use_Static_Style", "Gamma", "Eta", "Weight_Chamfer", "Accuracy"])
+    os.makedirs(args.output_dir, exist_ok=True)
+    csv_path = os.path.join(args.output_dir, args.csv_name)
+    log_path = os.path.join(args.output_dir, args.log_name)
+    
+    # Initialize CSV if it doesn't exist
+    if not os.path.exists(csv_path):
+        with open(csv_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["Corruption", "Static_Style", "Gamma", "Eta", "Weight_Chamfer", "Delta1", "Delta2", "Accuracy"])
+            
+    # Write to log file header
+    with open(log_path, "a") as f:
+        f.write("\n=========================================\n")
+        f.write(f"Starting Grid Search (PxP Symmetric) for Corruption: {args.corruption}\n")
+        f.write("=========================================\n")
 
     print(f"Starting Gamma/Eta Grid Search for corruption: {args.corruption}")
     print(f"Total Combinations: {len(args.gammas) * len(args.etas)}")
     print(f"Total samples per combo: {len(dataset)}")
+    
+    dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
     
     for gamma, eta in itertools.product(args.gammas, args.etas):
         print(f"\n--- Testing Combo: Gamma={gamma}, Eta={eta} ---")
@@ -154,13 +166,19 @@ def main():
             
 
         final_acc = correct / total
-        print(f"==> Final Accuracy for Combo (Gamma={gamma}, Eta={eta}): {final_acc * 100:.2f}%\n")
+        print_msg = f"==> Final Accuracy for Combo (Gamma={gamma}, Eta={eta}): {final_acc * 100:.2f}%\n"
+        print(print_msg)
+        with open(log_path, "a") as f:
+            f.write(print_msg)
         
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([args.corruption, args.use_static_style, gamma, eta, args.weight_chamfer, final_acc])
+            writer.writerow([args.corruption, args.use_static_style, gamma, eta, args.weight_chamfer, args.delta1, args.delta2, final_acc])
             
-    print(f"\nGrid Search Finished! Results saved to {csv_path}")
+    finish_msg = f"\nGrid Search Finished! Results saved to {csv_path} and {log_path}\n"
+    print(finish_msg)
+    with open(log_path, "a") as f:
+        f.write(finish_msg)
 
 if __name__ == "__main__":
     main()

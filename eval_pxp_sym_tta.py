@@ -32,6 +32,7 @@ def parse_arguments():
     # Outputs
     parser.add_argument('--output_dir', type=str, default="./outputs/quantitative")
     parser.add_argument('--csv_name', type=str, default="eval_results.csv")
+    parser.add_argument('--log_name', type=str, default="eval_results_log.txt")
 
     # Fixed Custom Parameters
     parser.add_argument('--gamma', type=float, default=0.01)
@@ -156,6 +157,15 @@ def main():
     args = parse_arguments()
     os.makedirs(args.output_dir, exist_ok=True)
     csv_path = os.path.join(args.output_dir, args.csv_name)
+    log_path = os.path.join(args.output_dir, args.log_name)
+
+    # Logging helper
+    def log_print(msg):
+        print(msg)
+        with open(log_path, "a") as f:
+            f.write(msg + "\n")
+
+    log_print(f"Starting TTA (PxP Symmetric) - Corruption: {args.corruption}")
 
     base_model, diff_model, graph_spectral_module = configure_model(args)
 
@@ -203,18 +213,18 @@ def main():
         targets, preds = process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps)
 
         acc = (preds == targets).float().mean().item()
-        print(f"Accuracy for {corruption}: {acc * 100:.2f}%")
+        log_print(f"Accuracy for {corruption}: {acc * 100:.2f}%")
         total_acc += acc
 
         # Append to CSV
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([args.dataset_name, corruption, args.M, args.M_mid, args.M_high, args.weight_spectral_low, args.weight_spectral_mid, args.weight_spectral_high, args.weight_invariant, args.weight_chamfer, acc])
+            writer.writerow([args.dataset_name, corruption, args.M, args.M_mid, args.M_high, args.weight_spectral_low, args.weight_spectral_mid, args.weight_spectral_high, args.weight_invariant, args.weight_chamfer, args.delta1, args.delta2, acc])
 
     mean_acc = total_acc / len(noises)
-    print(f"\n--- FULL EVALUATION FINISHED ---")
-    print(f"Mean Accuracy (across {len(noises)} noises): {mean_acc * 100:.2f}%")
-    print(f"Results saved to: {csv_path}")
+    log_print(f"\n--- FULL EVALUATION FINISHED ---")
+    log_print(f"Mean Accuracy (across {len(noises)} noises): {mean_acc * 100:.2f}%")
+    log_print(f"Results saved to: {csv_path} and {log_path}")
 
 if __name__ == "__main__":
     main()
