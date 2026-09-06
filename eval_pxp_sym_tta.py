@@ -56,6 +56,7 @@ def parse_arguments():
     parser.add_argument('--denoising_step_normal', type=int, default=10, help="Denoising step for non-background corruptions")
     parser.add_argument('--corruption', type=str, default=None, help="Evaluate a specific noise type only")
     parser.add_argument('--use_static_style', action='store_true', help="Ignore updated style_cond at final decode (True/False)")
+    parser.add_argument('--spectral_reduction', type=str, default="mean", choices=["mean", "sum"], help="Reduction method for spectral MSE loss")
     parser.add_argument('--resume', action='store_true', help='Resume from an existing CSV file')
     
     return parser.parse_args()
@@ -119,7 +120,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             dynamic_graph=args.dynamic_graph,
             graph_update_interval=args.graph_update_interval,
             delta1=args.delta1,
-            delta2=args.delta2
+            delta2=args.delta2,
+            spectral_reduction=args.spectral_reduction
         )
         batch_metrics.append(metrics)
         pred_points = rotateback_pointcloud(pred_points)
