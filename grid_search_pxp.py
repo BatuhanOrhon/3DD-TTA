@@ -148,9 +148,7 @@ def main():
             correct += (pred == target).sum().item()
             total += target.size(0)
             
-            current_acc = correct / total
-            print(f"  Batch {batch_idx+1}/{len(dataloader)} | Running Mean Accuracy: {current_acc * 100:.2f}%")
-            
+
         final_acc = correct / total
         print(f"==> Final Accuracy for Combo (Gamma={gamma}, Eta={eta}): {final_acc * 100:.2f}%\n")
         
