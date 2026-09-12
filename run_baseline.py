@@ -22,9 +22,9 @@ from research_artifacts import CLEAN_CONTROL, CORRUPTIONS, RunBundle, corruption
 REPO = Path(__file__).resolve().parent
 
 
-def selected_data_path(dataset_root: str, name: str) -> Path:
+def selected_data_path(dataset_root: str, name: str, severity: int = 5) -> Path:
     """Resolve one repository-format input without changing benchmark filenames."""
-    filename = "data_original.npy" if name == CLEAN_CONTROL else "data_" + name + "_5.npy"
+    filename = "data_original.npy" if name == CLEAN_CONTROL else "data_" + name + "_" + str(severity) + ".npy"
     return Path(dataset_root) / filename
 
 
@@ -104,7 +104,7 @@ def run_worker(directory: str) -> None:
         if args.method == "3dd_original":
             assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
         identities = {name: file_identity(Path(value)) for name, value in assets.items()}
-        data_files = {name: file_identity(selected_data_path(args.dataset_root, name))
+        data_files = {name: file_identity(selected_data_path(args.dataset_root, name, config["severity"]))
                       for name in args.corruptions}
         config.update(asset_manifest=identities, dataset_hash_manifest=data_files,
                       classifier_checkpoint_sha256=identities["classifier_checkpoint"]["sha256"])
@@ -151,7 +151,7 @@ def run_worker(directory: str) -> None:
 
         if args.method == "source_only":
             point_config = baseline.cfg_from_yaml_file(args.pointmae_config)
-            point_config.model.cls_dim = 40
+            point_config.model.cls_dim = 15 if args.dataset_name == "scanobjectnn-c" else (55 if args.dataset_name == "shapenet-c" else 40)
             base_model = baseline.load_base_model(args, point_config, None, checkpoint_observer=checkpoint_observer)
             base_model.eval()
             lion = None
@@ -189,14 +189,14 @@ def run_worker(directory: str) -> None:
 
         for active in args.corruptions:
             counters = {"n": 0, "correct": 0}
-            dataset = baseline.PointDataset(args.dataset_root, args.label_path, active)
+            dataset = baseline.PointDataset(args.dataset_root, args.label_path, active, severity=config["severity"])
             if len(dataset.data) != len(dataset.labels) or len(dataset) == 0:
                 raise ValueError("Empty data or data/label count mismatch.")
             if dataset.data.ndim != 3 or dataset.data.shape[-1] != 3:
                 raise ValueError("Expected data shape [examples, points, 3].")
             if dataset.labels.size != len(dataset) or not np.issubdtype(dataset.labels.dtype, np.integer):
                 raise ValueError("Expected one integer class label per example.")
-            if dataset.labels.min() < 0 or dataset.labels.max() >= 40:
+            if dataset.labels.min() < 0 or dataset.labels.max() >= config["num_classes"]:
                 raise ValueError("ModelNet40 class label outside [0,39].")
             config.setdefault("dataset_inventory", {})[active] = dict(
                 data_shape=list(dataset.data.shape), data_dtype=str(dataset.data.dtype),
@@ -232,7 +232,7 @@ def run_worker(directory: str) -> None:
             rows.append(corruption_row(config["run_id"], args.seed, active,
                                        counters["n"], counters["correct"], elapsed,
                                        torch.cuda.max_memory_allocated() / (1024 ** 2), status,
-                                       method=args.method, severity=config["severity"]))
+                                       method=args.method, severity=config["severity"], dataset=config["dataset"]))
             started = None
             bundle.write_results(rows, "running")
             record_modes("module_inventory_after")
@@ -259,7 +259,7 @@ def run_worker(directory: str) -> None:
             rows.append(corruption_row(config["run_id"], args.seed, active,
                                        counters["n"], counters["correct"],
                                        time.perf_counter() - started, memory, "failed",
-                                       method=args.method, severity=config["severity"]))
+                                       method=args.method, severity=config["severity"], dataset=config["dataset"]))
         bundle.write_results(rows, "failed")
         bundle.write_config(config)
         with (bundle.path / "notes.md").open("a", encoding="utf-8") as file:
@@ -286,6 +286,8 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
     parser.add_argument("--run-name", default=None)
     parser.add_argument("--result-root", default="./result")
+    parser.add_argument("--dataset-name", choices=("modelnet-c", "shapenet-c", "scanobjectnn-c"), default="modelnet-c")
+    parser.add_argument("--severity", type=int, default=5)
     args = parser.parse_args(argv)
     validate_selection(args.corruptions)
     args.clean_control = args.corruptions == [CLEAN_CONTROL]
@@ -299,7 +301,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
         parser.error("Invalid rates or SCD percentile.")
-    args.device, args.dataset_name = "cuda", "modelnet-c"
+    args.device = "cuda"
     default_name = "clean-control" if args.clean_control else ("source-only" if args.method == "source_only" else "baseline-smoke")
     args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
     return args
@@ -310,9 +312,9 @@ def main() -> int:
     if Path.cwd().resolve() != REPO:
         raise SystemExit("Run from the repository root so baseline relative configs resolve correctly.")
     config = dict(
-        stage="clean_control" if args.clean_control else ("source_identity" if args.method == "source_only" else "smoke"), dataset="modelnet40_c", severity=0 if args.clean_control else 5, method=args.method,
+        stage="clean_control" if args.clean_control else ("source_identity" if args.method == "source_only" else "smoke"), dataset={"modelnet-c": "modelnet40_c", "shapenet-c": "shapenet_c", "scanobjectnn-c": "scanobjectnn_c"}[args.dataset_name], severity=0 if args.clean_control else args.severity, method=args.method,
         seed=args.seed, batch_size=args.batch_size, corruptions=args.corruptions,
-        classifier="pointmae", num_input_points=2048, num_classifier_points=1024,
+        classifier="pointmae", num_classes={"modelnet-c": 40, "shapenet-c": 55, "scanobjectnn-c": 15}[args.dataset_name], num_input_points=2048, num_classifier_points=1024,
         scale_factor=3.3885, ddim_total_steps=100,
         normal_reverse_steps=5, background_reverse_steps=35,
         gamma=args.gamma, eta=args.eta, lambda_cd=args.lambdaa,

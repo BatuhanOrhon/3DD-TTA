@@ -21,11 +21,11 @@ def grad_freeze(model):
         
 
 class PointDataset(Dataset):
-    def __init__(self, data_root, label_path, corruption):
+    def __init__(self, data_root, label_path, corruption, severity=5):
         # Construct the filename and load the data
         filename = (os.path.join(data_root, "data_original.npy")
                     if corruption == "original"
-                    else os.path.join(data_root, f"data_{corruption}_5.npy"))
+                    else os.path.join(data_root, f"data_{corruption}_{severity}.npy"))
         self.data = np.load(filename)
 
         # Load labels

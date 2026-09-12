@@ -35,7 +35,7 @@ def validate_selection(names: list[str]) -> list[str]:
 
 def corruption_row(run_id: str, seed: int, corruption: str, n_examples: int,
                    n_correct: int, runtime: float, memory: float, status: str,
-                   *, method: str = "3dd_original", severity: int = 5) -> dict:
+                   *, method: str = "3dd_original", severity: int = 5, dataset: str = "modelnet40_c") -> dict:
     validate_selection([corruption])
     if type(n_examples) is not int or type(n_correct) is not int:
         raise ValueError("Counts must be integers.")
@@ -47,7 +47,7 @@ def corruption_row(run_id: str, seed: int, corruption: str, n_examples: int,
         raise ValueError("Runtime/memory must be finite and non-negative.")
     if type(severity) is not int or severity < 0:
         raise ValueError("Severity must be a non-negative integer.")
-    return dict(run_id=run_id, dataset="modelnet40_c", severity=severity,
+    return dict(run_id=run_id, dataset=dataset, severity=severity,
                 method=method, seed=seed, corruption=corruption,
                 n_examples=n_examples, n_correct=n_correct,
                 accuracy=n_correct / n_examples if n_examples else "",
@@ -66,7 +66,7 @@ def summarize(rows: list[dict], status: str | None = None) -> dict:
                               row["n_examples"], row["n_correct"],
                               row["runtime_seconds"], row["peak_gpu_memory_mb"],
                               row["status"], method=row["method"],
-                              severity=row["severity"]) for row in rows]
+                              severity=row["severity"], dataset=row["dataset"]) for row in rows]
     n = sum(row["n_examples"] for row in checked)
     correct = sum(row["n_correct"] for row in checked)
     observed = [row["accuracy"] for row in checked if row["n_examples"]]
