@@ -889,7 +889,8 @@ if __name__ == "__main__":
                 ORIG_NUM *= 2
 
             if args.dataset != "partnet":
-                index = np.random.choice(data.shape[1], ORIG_NUM, replace=False)
+                sample_num = min(ORIG_NUM, data.shape[1])
+                index = np.random.choice(data.shape[1], sample_num, replace=False)
                 data_new = data[:, index, :]
             else:
                 data_new = []
