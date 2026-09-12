@@ -857,6 +857,10 @@ if __name__ == "__main__":
 
     if args.dataset != 'partnet':
         data, labels = load_data(args)
+        if isinstance(data, list):
+            data = np.concatenate(data, axis=0)
+        if isinstance(labels, list):
+            labels = np.concatenate(labels, axis=0)
     else:
         data = []
         path = []
