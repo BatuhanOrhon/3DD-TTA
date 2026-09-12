@@ -94,6 +94,14 @@ Local syntax/CLI and temporary artifact/count/macro-micro/duplicate/collision/fa
 
 **Decision:** request the complete smoke ZIP using colab_baseline_smoke.md; validate before Batch 2. No numerical result, dropout effect or accuracy-gap cause is inferred. A Colab runtime/import/schema/count failure or unexplained GPU behavior rejects the end-to-end handoff until resolved.
 
+## 2026-09-12 - Chamfer import restoration for Batch 1 smoke
+
+**Evidence:** [Code] plus [User report] Colab traceback; no successful run yet.
+
+The Batch 1 smoke failed while constructing Point-MAE, before LION/TTA or classification. `models_mate/Point_MAE.py` referenced `ChamferDistanceL2` for `cdl2` but its import was commented out. The same import is active on the previously working `pxp-gradient-projection` branch. Git history identifies commit `8183863` as restoring it for Colab.
+
+Decision: restore only the missing import. This is a baseline construction repair, not a TTA, dropout, scheduler or GSD change. Re-run the same Level 0 Gaussian two-batch command with seed 0. The new ZIP falsifies this diagnosis if it still reaches the same undefined-name error.
+
 ## Entry template
 
 ```markdown
