@@ -7,7 +7,11 @@ from numpy import random
 import open3d as o3d
 import re
 import argparse
-from pygem import FFD, RBF
+try:
+    from pygem import FFD, RBF
+except ImportError:
+    FFD = None
+    RBF = None
 import glob
 import pickle
 
