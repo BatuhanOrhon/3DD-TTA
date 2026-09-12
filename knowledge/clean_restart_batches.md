@@ -1,5 +1,11 @@
 # Clean Restart: Small Implementation Batches
 
+## Latest progress - Batch 1 local implementation, Colab gate pending
+
+2026-09-12 **[Code]**. Batch 0 documentation was committed as b31fd23193bbcb9a5c189cfb4118be41506f9333; user accepted Batch 1. Added run_baseline.py and research_artifacts.py plus optional observers in three baseline modules. No GSD, LION eval, scheduler/style/rate/reduction changes or dependency changes. Observer-stripped ASTs of all three modified baseline files match main. Syntax/CLI and temporary count/schema/collision/failure-state checks passed; no unit-test files were added per user preference.
+
+This is implementation evidence, not a Colab run. [Smoke handoff](colab_baseline_smoke.md): user runs Gaussian/two batches/seed0 with explicitly declared batch32/lambda0.95 and supplies the seven-file ZIP. Batch 1 is not accepted end-to-end until that bundle is validated. Do not implement Batch 2 yet. Older Batch 0 status paragraphs and the previous implementation handoff below are historical snapshots, superseded by this progress note.
+
 ## Status, assumptions and invariants
 
 Recorded 2026-09-12; legacy audit revision `53ba252519c7cf65f836a9c1c564027142ab1573`. The user chose the same repository folder and approved preserving skill/knowledge. `baseline-repro-clean` is now checked out, based on main `107305fd7baf40b359f31c07d235599198be7324` (also origin/main and upstream/main). No worktree, Python change or push. Only curated research documentation/skill/result protocol are selected for the local documentation commit.
@@ -109,3 +115,7 @@ After every run request the complete ZIP with command.txt, config.json, environm
 ## Next handoff — Batch 1 after branch/documentation review
 
 > $development-agent: After the Batch 0 handoff is reviewed, execute Batch 1 only on baseline-repro-clean in the existing folder. Read knowledge/README.md, audit and experiment protocol. Add minimal reproducible runner/artifact helpers and pure schema/count tests without changing original TTA math, dropout mode, scheduler, steps, style, rates or lambda. Record actual configuration and environment, output seven-file immutable bundles, start without resume. Verify locally only in proportion to available dependencies; user performs CUDA smoke in Colab. Update findings/protocol/this note and request the smoke ZIP. Do not start source-only/full accuracy or dropout changes in this batch.
+
+## Current handoff - validate the Colab smoke ZIP
+
+The implementation handoff above is superseded by the local Batch 1 progress note. No unit-test files were added per user request. Follow colab_baseline_smoke.md, request/validate the seven-file bundle, preserve raw artifacts under result/ and update findings/open questions. Do not reimplement Batch 1 or start Batch 2 before this review.

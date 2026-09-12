@@ -33,6 +33,8 @@ Start the new branch directly from main, not a GSD/PxP development branch. Futur
 
 ### In scope
 
+Research workflow preference (2026-09-12): do not add unit-test files by default. Verify proportionately through syntax, baseline/protocol checks and controlled archived Colab experiments; local checks are not accuracy evidence.
+
 - ModelNet40-C, severity 5, initially with the repository's Point-MAE classifier and LION checkpoints.
 - Frozen classifier and training-free test-time input adaptation unless explicitly declared otherwise.
 - Original 3DD-TTA reproduction and controlled ablations.

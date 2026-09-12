@@ -20,6 +20,8 @@ The project studies training-free test-time input adaptation for corrupted 3D po
 
 Before clean-restart implementation also read the [follow-up code audit](code_audit_20260912.md) and [small implementation batches](clean_restart_batches.md). These refine earlier informal next-test ordering.
 
+Current next action: [Batch 1 Colab smoke instructions](colab_baseline_smoke.md). Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
+
 ## Evidence labels
 
 Use these labels in all future updates:
@@ -38,11 +40,11 @@ Never silently promote an inference or user report into a run-backed finding. If
 - **[Paper]** The WACV 2025 3DD-TTA paper reports **65.7%** ModelNet40-C mean accuracy for its Point-MAE setting.
 - **[Code]** The repository README reports **66.1%**; several per-corruption cells differ from the published table. Both references must remain visible.
 - **[User report]** Local original-code runs are approximately **63%**, while current GSD variants reach approximately **63.5%**. No complete run bundle is currently archived, so these numbers are provisional.
-- **[Code]** Active branch is `baseline-repro-clean`, created from main `107305f` in the same repository folder. Tracked Python/environment files are identical to main. Legacy GSD/PxP code remains on `pxp-gradient-projection` at `53ba252`; historical method notes refer to that audited revision.
+- **[Code]** Active branch is `baseline-repro-clean`, created from main `107305f` in the same repository folder. Batch 0 docs commit is `b31fd23`. Batch 1 adds a smoke runner/artifact module and optional observers; observer-stripped ASTs of the three changed baseline modules match main. LION/dependency files remain unchanged. Legacy GSD/PxP code remains on `pxp-gradient-projection` at `53ba252`; historical method notes refer to that audited revision.
 - **[Inference]** Reproducibility risks include unseeded stochastic interpolation/noise, environment drift, scheduler details, checkpoint/data identity, batch-size sensitivity, and incomplete result logging.
 - **[Code]** Original LION trainer inference disables dropout; the identical demo wrapper used here does not, and current baseline/GSD setup leaves LION in training mode. **[Inference]** Accuracy impact is unmeasured; isolated dropout A/B is the first adaptation-behavior test.
 - **[Code]** Mean spectral loss plus summed SCD changes relative guidance with batch size. **[User report]** Mean settings previously outperformed sum; sum/smaller-step tuning is deferred until baseline and spectral-off parity.
-- The user selected same-folder development and requested skill/knowledge preservation. Clean branch is checked out; no new stash was needed because tracked/index state was clean. Existing dev stash is untouched. Research memory/skill/result protocol are selected for a documentation-only commit; source PDFs are preserved locally but excluded from that commit. No Python behavior changed.
+- The user selected same-folder development and requested skill/knowledge preservation. No new stash was needed; existing dev stash is untouched. Research memory/skill/result protocol were committed in `b31fd23`; source PDFs remain local/untracked. Batch 1 local checks passed but Colab smoke acceptance is pending. No accuracy improvement or dropout effect is established.
 - **[Code]** The fork's spectral method is not a reproduction of full GSDTTA: it regularizes a LION local latent and keeps the classifier frozen instead of learning a physical-coordinate spectral shift and alternating input/model adaptation.
 - **[Code]** The fork's PxP variants are PixelAsParam-inspired gradient-conflict methods between spectral and Chamfer guidance; they do not implement PixelAsParam's denoising/diversity/classification decomposition.
 
@@ -67,4 +69,4 @@ After any material experiment, diagnosis, code change, or paper review:
 
 ## First action for the next session
 
-Ask the user for the most recent Colab run bundle in the format described by [result/README.md](../result/README.md). The clean same-folder branch has been prepared; next is Batch 1 in [clean restart batches](clean_restart_batches.md): artifact/source-only controls before dropout A/B, then the baseline ladder before new-method tuning. Read the audit first. Numerical experiments remain Colab-only.
+Request the Batch 1 smoke ZIP following [the Colab handoff](colab_baseline_smoke.md), or inspect a supplied bundle. An older approximately-63% run bundle is also valuable if available. Batch 1 local implementation exists; do not reimplement it or advance to source-only before reviewing the smoke. Then follow the source-only/dropout/baseline ladder in [clean restart batches](clean_restart_batches.md). Numerical experiments remain Colab-only.

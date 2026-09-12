@@ -4,6 +4,18 @@
 
 Produce Colab results that are comparable across commits and methods, diagnostically useful, and sufficient for a thesis claim. The raw run directory is the unit of evidence.
 
+## Batch 1 implementation - 2026-09-12
+
+**[Code]** run_baseline.py wraps the original configure/process path with optional read-only observers and research_artifacts.py count records. It is smoke-only (default Gaussian, two batches); no resume, LION mode change or guidance equation change. See [the runnable Colab handoff](colab_baseline_smoke.md). Base revision: b31fd23193bbcb9a5c189cfb4118be41506f9333; implementation commit reported in the handoff.
+
+Record actual parsed CLI, runtime source/asset hashes, resolved configs/scheduler, load incompatibilities, module/dropout modes, seeds/cuDNN flags, extension identities, per-corruption counts/time/peak allocated memory, raw subprocess output and ZIP. Seed-controlled is not common-draw-paired. No CUDA/model evaluation occurred locally.
+
+The runner preserves repository defaults (batch=40, lambda=0.95); the proposed smoke explicitly selects batch=32. Example configuration values elsewhere in this document are illustrative, not overrides. A completed prefix has execution_status=complete but coverage status=partial; a failed/empty run has no fabricated accuracy. Running/failed summaries and logs must never be promoted to benchmark results.
+
+Timestamps are UTC. Each invocation owns a new directory and seals it on exit; existing directories/ZIPs are not resumed or overwritten. CSV macro mean covers recorded nonempty corruption rows; only all-15 full coverage can be the benchmark macro mean. Timings exclude checkpoint hashing/model loading.
+
+User preference: do not add unit-test files by default. Use proportionate syntax/structural/protocol checks and controlled, archived Colab experiments. The next acceptance gate is the seven-file smoke ZIP, not full accuracy.
+
 ## Evaluation levels
 
 ### Level 0 — smoke test

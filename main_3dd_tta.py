@@ -46,7 +46,7 @@ def parse_arguments():
     return parser.parse_args()
 
 
-def configure_model(args):
+def configure_model(args, *, checkpoint_observer=None):
     """Load and configure the base and diffusion models."""
     # Load PointMAE configuration
     config = cfg_from_yaml_file(args.pointmae_config)
@@ -62,20 +62,29 @@ def configure_model(args):
         raise ValueError(f"Unsupported dataset name: {args.dataset_name}")
 
     # Load base model
-    base_model = load_base_model(args, config, None)
+    base_model = load_base_model(args, config, None, checkpoint_observer=checkpoint_observer)
     base_model.eval()
     print('Base model loaded successfully.')
 
     # Load diffusion model
     diff_config.merge_from_file(args.diff_config)
     diff_model = LION(configs)
-    diff_model.load_model(args.diff_ckpt)
+    handles = []
+    if checkpoint_observer is not None:
+        for name, module in (("lion_priors", diff_model.priors), ("lion_vae", diff_model.vae)):
+            handles.append(module.register_load_state_dict_post_hook(
+                lambda module, keys, name=name: checkpoint_observer(name, keys)))
+    try:
+        diff_model.load_model(args.diff_ckpt)
+    finally:
+        for handle in handles:
+            handle.remove()
     print('Diffusion model loaded successfully.')
 
     return base_model, diff_model
 
 
-def process_batches(dataloader, base_model, diff_model, args, num_steps):
+def process_batches(dataloader, base_model, diff_model, args, num_steps, *, scheduler_observer=None, batch_observer=None):
     """Process batches of data and compute predictions."""
     preds, targets = [], []
     for data, label in tqdm(dataloader, desc="Processing Batches"):
@@ -89,7 +98,8 @@ def process_batches(dataloader, base_model, diff_model, args, num_steps):
         data_sample = rotate_pointcloud(data_sample)
 
         # Perform Test-Time Adaptation (TTA) reconstruction
-        pred_points = tta_reconstruct(data_sample, diff_model, num_steps, args.gamma, args.eta, args.lambdaa, 100)
+        observer_args = {} if scheduler_observer is None else {"scheduler_observer": scheduler_observer}
+        pred_points = tta_reconstruct(data_sample, diff_model, num_steps, args.gamma, args.eta, args.lambdaa, 100, **observer_args)
         pred_points = rotateback_pointcloud(pred_points)
 
         # Undo normalization based on dataset
@@ -111,6 +121,8 @@ def process_batches(dataloader, base_model, diff_model, args, num_steps):
         # Store predictions and targets
         preds.append(pred)
         targets.append(target)
+        if batch_observer is not None:
+            batch_observer(target, pred)
 
     # Concatenate predictions and targets for accuracy computation
     return torch.cat(targets), torch.cat(preds).cpu()

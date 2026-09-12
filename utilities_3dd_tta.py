@@ -36,7 +36,7 @@ class PointDataset(Dataset):
         return torch.from_numpy(self.data[idx]), torch.from_numpy(self.labels[idx])
     
     
-def load_base_model(args, config, load_part_seg=False):
+def load_base_model(args, config, load_part_seg=False, *, checkpoint_observer=None):
     """
     Loads the base model, handles checkpoint loading, GPU usage, and distributed setup.
     
@@ -53,7 +53,15 @@ def load_base_model(args, config, load_part_seg=False):
     base_model = builder.model_builder(config.model)
     
     # Load the model weights from checkpoint
-    base_model.load_model_from_ckpt(args.pointmae_ckpt, load_part_seg)
+    handle = None
+    if checkpoint_observer is not None:
+        handle = base_model.register_load_state_dict_post_hook(
+            lambda module, keys: checkpoint_observer("pointmae", keys))
+    try:
+        base_model.load_model_from_ckpt(args.pointmae_ckpt, load_part_seg)
+    finally:
+        if handle is not None:
+            handle.remove()
     
     # Move the model to GPU if enabled
     if args.use_gpu:

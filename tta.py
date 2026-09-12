@@ -3,7 +3,7 @@ from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100):
+def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *, scheduler_observer=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -28,6 +28,8 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100):
         clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon"
     )
     scheduler.set_timesteps(total, device='cuda')
+    if scheduler_observer is not None:
+        scheduler_observer(scheduler)
     
     steps_back_local = (total * steps_back_local) // 100
     timesteps_local = scheduler.timesteps[-steps_back_local:]

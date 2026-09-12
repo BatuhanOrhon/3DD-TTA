@@ -18,7 +18,8 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [ ] Measure isolated dropout A/B after source-only identity checks: fixed configuration/common draws, Gaussian/background and seeds 0,1,2; log module modes and guidance input gradients.
 - [x] Create clean main-based branch reference: baseline-repro-clean at 107305fd7baf40b359f31c07d235599198be7324; legacy checkout/files unchanged.
 - [x] Finish same-folder clean-branch checkout and preserve curated skill/knowledge/protocol plus source PDFs; user selected in-place development. Tracked code matches main; existing stash untouched.
-- [ ] Implement Batch 1 artifact runner after branch/documentation handoff review; do not import old variants. See `clean_restart_batches.md`.
+- [x] Implement Batch 1 original-TTA smoke artifact runner, without old-variant imports or mode/math changes; local structural/protocol checks passed. See `colab_baseline_smoke.md`.
+- [ ] Receive and validate the Batch 1 Colab smoke ZIP before Batch 2. Local checks are not GPU parity or accuracy evidence.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.
