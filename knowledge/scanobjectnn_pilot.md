@@ -15,3 +15,8 @@ Date: 2026-09-12
 ## First experiment
 
 Use one selected corruption (initially Gaussian), severity 8, fixed seed, and --skip_ply. Validate generated array shape/count and deterministic rerun before expanding the corruption set. Do not treat this pilot as a ModelNet40-C result.
+## Validated input and runner adapter
+
+[Run] The archived pilot input under result/scanobjectnn_c now has data shape (581, 2048, 3), float32, and label shape (581,), int32 with 15 classes and finite coordinates.
+
+[Code] Commit ff6f6d7 adds dataset/severity-aware source-only artifact handling. The runner now supports dataset-name scanobjectnn-c, severity 8 filenames, 15-class Point-MAE configuration, and scanobjectnn_c result paths. A Point-MAE ScanObjectNN checkpoint is still required before evaluation.
