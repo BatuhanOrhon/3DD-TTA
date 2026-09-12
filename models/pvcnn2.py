@@ -234,8 +234,12 @@ class PVConv(nn.Module):
         r = self.resolution 
         B = coords.shape[0]
         voxel_features_4d = self.voxel_layers(voxel_features_4d) 
-        voxel_features = F.trilinear_devoxelize(voxel_features_4d, voxel_coords,
-                                                r, self.training)
+        # Evaluation mode disables dropout, but TTA still differentiates through
+        # this layer. The CUDA operator must retain interpolation data whenever
+        # autograd is enabled, independently of the module training flag.
+        voxel_features = F.trilinear_devoxelize(
+            voxel_features_4d, voxel_coords, r,
+            self.training or torch.is_grad_enabled())
 
         fused_features = voxel_features 
         if self.add_point_feat:
