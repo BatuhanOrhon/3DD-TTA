@@ -861,6 +861,7 @@ if __name__ == "__main__":
             data = np.concatenate(data, axis=0)
         if isinstance(labels, list):
             labels = np.concatenate(labels, axis=0)
+        labels = np.asarray(labels).reshape(-1)
     else:
         data = []
         path = []
