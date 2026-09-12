@@ -160,6 +160,9 @@ def run_worker(directory: str) -> None:
                           resolved_pointmae_config=point_config)
         else:
             base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
+            if args.lion_eval_mode:
+                lion.vae.eval()
+                lion.priors.eval()
             config["resolved_lion_config_yaml"] = baseline.diff_config.dump()
         config["extension_inventory"] = extension_inventory()
 
@@ -288,6 +291,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--result-root", default="./result")
     parser.add_argument("--dataset-name", choices=("modelnet-c", "shapenet-c", "scanobjectnn-c"), default="modelnet-c")
     parser.add_argument("--severity", type=int, default=5)
+    parser.add_argument("--lion-eval-mode", action="store_true", help="Set LION VAE and priors to eval mode; default preserves legacy mode.")
     args = parser.parse_args(argv)
     validate_selection(args.corruptions)
     args.clean_control = args.corruptions == [CLEAN_CONTROL]
