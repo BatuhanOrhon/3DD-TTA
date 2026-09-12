@@ -734,7 +734,7 @@ def load_data(args):
         data = np.concatenate(data)
         labels = np.concatenate(labels)
 
-    np.save(args.corrupted_dataset_path + "/label.npy", labels)
+    np.save(args.corrupted_dataset_path + "/label.npy", np.asarray(labels).reshape(-1))
     # np.save(args.corrupted_dataset_path + "/clean.npy", data)
 
     return data, labels
