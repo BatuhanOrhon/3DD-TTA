@@ -22,6 +22,8 @@ Before clean-restart implementation also read the [follow-up code audit](code_au
 
 Current next action: [Batch 1 Colab smoke instructions](colab_baseline_smoke.md). Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
 
+After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
+
 ## Evidence labels
 
 Use these labels in all future updates:
@@ -40,6 +42,7 @@ Never silently promote an inference or user report into a run-backed finding. If
 - **[Paper]** The WACV 2025 3DD-TTA paper reports **65.7%** ModelNet40-C mean accuracy for its Point-MAE setting.
 - **[Code]** The repository README reports **66.1%**; several per-corruption cells differ from the published table. Both references must remain visible.
 - **[User report]** Local original-code runs are approximately **63%**, while current GSD variants reach approximately **63.5%**. No complete run bundle is currently archived, so these numbers are provisional.
+- **[Run]** Batch 1 Gaussian smoke is archived at `result/modelnet40_c/3dd_original/20260912-110541_baseline-smoke_seed0/`: 47/64 on a two-batch prefix, with validated files/config/counts. It is not a full baseline or accuracy comparison.
 - **[Code]** Active branch is `baseline-repro-clean`, created from main `107305f` in the same repository folder. Batch 0 docs commit is `b31fd23`. Batch 1 adds a smoke runner/artifact module and optional observers; observer-stripped ASTs of the three changed baseline modules match main. LION/dependency files remain unchanged. Legacy GSD/PxP code remains on `pxp-gradient-projection` at `53ba252`; historical method notes refer to that audited revision.
 - **[Inference]** Reproducibility risks include unseeded stochastic interpolation/noise, environment drift, scheduler details, checkpoint/data identity, batch-size sensitivity, and incomplete result logging.
 - **[Code]** Original LION trainer inference disables dropout; the identical demo wrapper used here does not, and current baseline/GSD setup leaves LION in training mode. **[Inference]** Accuracy impact is unmeasured; isolated dropout A/B is the first adaptation-behavior test.

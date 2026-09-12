@@ -102,6 +102,20 @@ The Batch 1 smoke failed while constructing Point-MAE, before LION/TTA or classi
 
 Decision: restore only the missing import. This is a baseline construction repair, not a TTA, dropout, scheduler or GSD change. Re-run the same Level 0 Gaussian two-batch command with seed 0. The new ZIP falsifies this diagnosis if it still reaches the same undefined-name error.
 
+## 2026-09-12 - Batch 1 Gaussian smoke accepted
+
+**Evidence:** [Run] `result/modelnet40_c/3dd_original/20260912-110541_baseline-smoke_seed0/` and its unchanged ZIP, SHA-256 `1f7db8dee1fe80bc2cb3a7b4d9d36b5bd19ce355b98e4a4cb17de36bfd8d1611`.
+
+**Git commit:** `6a60b611b8ce03c236d541474fd4fd151c0da112` on `baseline-repro-clean`.
+
+**Protocol:** Level 0 smoke; ModelNet40-C Gaussian severity 5; first two file-order batches; 64 of 2468 examples; batch 32; seed 0; gamma=eta=0.01; lambda=0.95; normal reverse steps=5. NVIDIA A100-SXM4-80GB, driver 580.82.07, CUDA 13.0; Python 3.8.20.
+
+The seven required files have one safe archive root and no unexpected members. `execution_status=complete` and CSV `status=partial` correctly distinguish a finished prefix from full dataset coverage. Counts are internally consistent: 47/64 = 0.734375 for both recorded macro and micro values. Runtime is 4.3506 seconds and peak allocated GPU memory is 25748.2 MiB. `stdout.log` has no traceback or error line.
+
+Point-MAE loaded with strict=False but zero missing/unexpected keys; both LION modules loaded strictly with zero missing/unexpected keys. The actual scheduler is DDIMScheduler with set_alpha_to_one=True, epsilon prediction and 100 timesteps from 990 to 0. Classifier is eval; LION VAE/priors are train mode, retaining the intended legacy-mode control. Source hashes match the recorded Git commit blobs; apparent local Windows hash differences were CRLF line endings. Colab git dirty state contains compiled extension/cache artifacts, not the runner source files.
+
+**Decision:** accept Batch 1 artifact/output contract. This result is not an accuracy benchmark or reproduction claim. Next implementation gate is Batch 2 source-only full-corruption identity evaluation; do not yet change LION mode or add GSD.
+
 ## Entry template
 
 ```markdown

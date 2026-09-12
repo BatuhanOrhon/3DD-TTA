@@ -32,7 +32,8 @@ def validate_selection(names: list[str]) -> list[str]:
 
 
 def corruption_row(run_id: str, seed: int, corruption: str, n_examples: int,
-                   n_correct: int, runtime: float, memory: float, status: str) -> dict:
+                   n_correct: int, runtime: float, memory: float, status: str,
+                   *, method: str = "3dd_original") -> dict:
     validate_selection([corruption])
     if type(n_examples) is not int or type(n_correct) is not int:
         raise ValueError("Counts must be integers.")
@@ -43,7 +44,7 @@ def corruption_row(run_id: str, seed: int, corruption: str, n_examples: int,
     if any(not math.isfinite(value) or value < 0 for value in (runtime, memory)):
         raise ValueError("Runtime/memory must be finite and non-negative.")
     return dict(run_id=run_id, dataset="modelnet40_c", severity=5,
-                method="3dd_original", seed=seed, corruption=corruption,
+                method=method, seed=seed, corruption=corruption,
                 n_examples=n_examples, n_correct=n_correct,
                 accuracy=n_correct / n_examples if n_examples else "",
                 runtime_seconds=runtime, peak_gpu_memory_mb=memory, status=status)
@@ -60,7 +61,7 @@ def summarize(rows: list[dict], status: str | None = None) -> dict:
     checked = [corruption_row(row["run_id"], row["seed"], row["corruption"],
                               row["n_examples"], row["n_correct"],
                               row["runtime_seconds"], row["peak_gpu_memory_mb"],
-                              row["status"]) for row in rows]
+                              row["status"], method=row["method"]) for row in rows]
     n = sum(row["n_examples"] for row in checked)
     correct = sum(row["n_correct"] for row in checked)
     observed = [row["accuracy"] for row in checked if row["n_examples"]]
@@ -95,7 +96,7 @@ class RunBundle:
         stamp = timestamp or datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
         if not re.fullmatch(r"\d{8}-\d{6}", stamp):
             raise ValueError("Invalid timestamp.")
-        path = root.resolve() / "modelnet40_c" / "3dd_original" / (stamp + "_" + name)
+        path = root.resolve() / config.get("dataset", "modelnet40_c") / config.get("method", "3dd_original") / (stamp + "_" + name)
         path.mkdir(parents=True, exist_ok=False)
         bundle = cls(path)
         bundle.write_config(dict(config, run_id=path.name, status="running", timestamp_timezone="UTC"))
@@ -124,7 +125,7 @@ class RunBundle:
             config = json.loads((self.path / "config.json").read_text(encoding="utf-8"))
             summary = dict(
                 run_id=config["run_id"], dataset="modelnet40_c", severity=5,
-                method="3dd_original", seed=config["seed"], n_corruptions=0,
+                method=config.get("method", "3dd_original"), seed=config["seed"], n_corruptions=0,
                 macro_accuracy="", total_examples=0, total_correct=0, micro_accuracy="",
                 total_runtime_seconds=0, status=status)
         self._write_csv("per_corruption.csv", PER_COLUMNS, rows)

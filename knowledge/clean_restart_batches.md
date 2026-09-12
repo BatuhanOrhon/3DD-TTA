@@ -4,7 +4,7 @@
 
 2026-09-12 **[Code]**. Batch 0 documentation was committed as b31fd23193bbcb9a5c189cfb4118be41506f9333; user accepted Batch 1. Added run_baseline.py and research_artifacts.py plus optional observers in three baseline modules. No GSD, LION eval, scheduler/style/rate/reduction changes or dependency changes. Observer-stripped ASTs of all three modified baseline files match main. Syntax/CLI and temporary count/schema/collision/failure-state checks passed; no unit-test files were added per user preference.
 
-This is implementation evidence, not a Colab run. [Smoke handoff](colab_baseline_smoke.md): user runs Gaussian/two batches/seed0 with explicitly declared batch32/lambda0.95 and supplies the seven-file ZIP. Batch 1 is not accepted end-to-end until that bundle is validated. Do not implement Batch 2 yet. Older Batch 0 status paragraphs and the previous implementation handoff below are historical snapshots, superseded by this progress note.
+The [Batch 1 smoke artifact](../result/modelnet40_c/3dd_original/20260912-110541_baseline-smoke_seed0/) was validated: Gaussian two batches, 47/64, execution complete with partial coverage, no traceback, expected scheduler/module modes and count consistency. This is not benchmark evidence. Batch 1 is accepted end-to-end; Batch 2 source-only all-15-corruption identity evaluation is next. Older Batch 0 status paragraphs and the previous implementation handoff below are historical snapshots, superseded by this progress note.
 
 ## Status, assumptions and invariants
 
@@ -119,3 +119,7 @@ After every run request the complete ZIP with command.txt, config.json, environm
 ## Current handoff - validate the Colab smoke ZIP
 
 The implementation handoff above is superseded by the local Batch 1 progress note. No unit-test files were added per user request. Follow colab_baseline_smoke.md, request/validate the seven-file bundle, preserve raw artifacts under result/ and update findings/open questions. Do not reimplement Batch 1 or start Batch 2 before this review.
+
+## Current handoff - Batch 2 source-only identity gate
+
+Batch 1 is accepted. Use run_baseline.py with method source_only and max-batches 0 as specified in colab_source_only.md. Archive the all-15 ZIP before interpreting LION, dropout or spectral behavior.

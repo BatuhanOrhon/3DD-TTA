@@ -93,16 +93,17 @@ def run_worker(directory: str) -> None:
 
         # Hash the actual assets before loading; never hash only a filename.
         print("Hashing checkpoints and selected data files...", flush=True)
-        identities = {name: file_identity(Path(value)) for name, value in {
-            "classifier_checkpoint": args.pointmae_ckpt, "lion_checkpoint": args.diff_ckpt,
-            "pointmae_config": args.pointmae_config, "lion_config": args.diff_config,
-            "labels": args.label_path,
-        }.items()}
+        assets = {"classifier_checkpoint": args.pointmae_ckpt,
+                  "pointmae_config": args.pointmae_config, "labels": args.label_path}
+        if args.method == "3dd_original":
+            assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
+        identities = {name: file_identity(Path(value)) for name, value in assets.items()}
         data_files = {name: file_identity(Path(args.dataset_root) / ("data_" + name + "_5.npy"))
                       for name in args.corruptions}
         config.update(asset_manifest=identities, dataset_hash_manifest=data_files,
-                      classifier_checkpoint_sha256=identities["classifier_checkpoint"]["sha256"],
-                      lion_checkpoint_sha256=identities["lion_checkpoint"]["sha256"])
+                      classifier_checkpoint_sha256=identities["classifier_checkpoint"]["sha256"])
+        if "lion_checkpoint" in identities:
+            config["lion_checkpoint_sha256"] = identities["lion_checkpoint"]["sha256"]
         bundle.write_config(config)
         with (bundle.path / "environment.txt").open("a", encoding="utf-8") as file:
             file.write("\nAsset hashes:\n" + json.dumps({"assets": identities, "data": data_files}, indent=2) + "\n")
@@ -142,16 +143,23 @@ def run_worker(directory: str) -> None:
             bundle.write_config(config)
             print("Checkpoint load:", name, config["checkpoint_loads"][name], flush=True)
 
-        base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
+        if args.method == "source_only":
+            point_config = baseline.cfg_from_yaml_file(args.pointmae_config)
+            point_config.model.cls_dim = 40
+            base_model = baseline.load_base_model(args, point_config, None, checkpoint_observer=checkpoint_observer)
+            base_model.eval()
+            lion = None
+            config.update(lion_loaded=False, preprocessing="corrupted input -> FPS(1024) -> frozen classifier",
+                          resolved_pointmae_config=point_config)
+        else:
+            base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
+            config["resolved_lion_config_yaml"] = baseline.diff_config.dump()
         config["extension_inventory"] = extension_inventory()
-        config["resolved_pointmae_config"] = baseline.cfg_from_yaml_file(args.pointmae_config)
-        config["resolved_pointmae_config"]["model"]["cls_dim"] = 40
-        config["resolved_lion_config_yaml"] = baseline.diff_config.dump()
 
         def record_modes(key):
-            config[key] = dict(classifier=module_inventory(base_model),
-                               lion_vae=module_inventory(lion.vae),
-                               lion_priors=module_inventory(lion.priors))
+            config[key] = dict(classifier=module_inventory(base_model))
+            if lion is not None:
+                config[key].update(lion_vae=module_inventory(lion.vae), lion_priors=module_inventory(lion.priors))
 
         record_modes("module_inventory_before")
         bundle.write_config(config)
@@ -189,14 +197,26 @@ def run_worker(directory: str) -> None:
                 total_examples=len(dataset), min_label=int(dataset.labels.min()),
                 max_label=int(dataset.labels.max()))
             loader = baseline.DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
-            batches = itertools.islice(loader, args.max_batches)
+            batches = loader if args.max_batches == 0 else itertools.islice(loader, args.max_batches)
             steps = 35 if active == "background" else 5
             torch.cuda.synchronize()
             torch.cuda.reset_peak_memory_stats()
             started = time.perf_counter()
-            targets, predictions = baseline.process_batches(
-                batches, base_model, lion, args, steps,
-                scheduler_observer=scheduler_observer, batch_observer=batch_observer)
+            if args.method == "source_only":
+                targets, predictions = [], []
+                with torch.no_grad():
+                    for data, label in batches:
+                        points = baseline.misc.fps(data.float().cuda(), 1024)
+                        pred = base_model.module.classification_only(points, only_unmasked=False).argmax(-1).view(-1)
+                        target = label.cuda().view(-1)
+                        batch_observer(target, pred)
+                        targets.append(target.cpu())
+                        predictions.append(pred.cpu())
+                targets, predictions = torch.cat(targets), torch.cat(predictions)
+            else:
+                targets, predictions = baseline.process_batches(
+                    batches, base_model, lion, args, steps,
+                    scheduler_observer=scheduler_observer, batch_observer=batch_observer)
             torch.cuda.synchronize()
             elapsed = time.perf_counter() - started
             if counters["n"] != targets.numel() or counters["correct"] != int((predictions == targets).sum().item()):
@@ -204,7 +224,8 @@ def run_worker(directory: str) -> None:
             status = "complete" if counters["n"] == len(dataset) else "partial"
             rows.append(corruption_row(config["run_id"], args.seed, active,
                                        counters["n"], counters["correct"], elapsed,
-                                       torch.cuda.max_memory_allocated() / (1024 ** 2), status))
+                                       torch.cuda.max_memory_allocated() / (1024 ** 2), status,
+                                       method=args.method))
             started = None
             bundle.write_results(rows, "running")
             record_modes("module_inventory_after")
@@ -230,7 +251,8 @@ def run_worker(directory: str) -> None:
             memory = torch.cuda.max_memory_allocated() / (1024 ** 2) if torch is not None else 0.0
             rows.append(corruption_row(config["run_id"], args.seed, active,
                                        counters["n"], counters["correct"],
-                                       time.perf_counter() - started, memory, "failed"))
+                                       time.perf_counter() - started, memory, "failed",
+                                       method=args.method))
         bundle.write_results(rows, "failed")
         bundle.write_config(config)
         with (bundle.path / "notes.md").open("a", encoding="utf-8") as file:
@@ -252,18 +274,19 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--eta", type=float, default=0.01, help="Original style-conditioning step size")
     parser.add_argument("--lambdaa", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--method", choices=("3dd_original", "source_only"), default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS, default=["gaussian"])
-    parser.add_argument("--max-batches", type=int, default=2, help="Smoke-only prefix limit per corruption")
+    parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
     parser.add_argument("--run-name", default=None)
     parser.add_argument("--result-root", default="./result")
     args = parser.parse_args(argv)
     validate_selection(args.corruptions)
-    if args.batch_size < 1 or args.max_batches < 1 or not 0 <= args.seed < 2 ** 32:
-        parser.error("Batch size/max-batches must be positive; seed must be in [0,2**32).")
+    if args.batch_size < 1 or args.max_batches < 0 or not 0 <= args.seed < 2 ** 32:
+        parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
         parser.error("Invalid rates or SCD percentile.")
     args.device, args.dataset_name = "cuda", "modelnet-c"
-    args.run_name = args.run_name or ("baseline-smoke_seed%s" % args.seed)
+    args.run_name = args.run_name or (("source-only" if args.method == "source_only" else "baseline-smoke") + "_seed%s" % args.seed)
     return args
 
 
@@ -272,7 +295,7 @@ def main() -> int:
     if Path.cwd().resolve() != REPO:
         raise SystemExit("Run from the repository root so baseline relative configs resolve correctly.")
     config = dict(
-        stage="smoke", dataset="modelnet40_c", severity=5, method="3dd_original",
+        stage="source_identity" if args.method == "source_only" else "smoke", dataset="modelnet40_c", severity=5, method=args.method,
         seed=args.seed, batch_size=args.batch_size, corruptions=args.corruptions,
         classifier="pointmae", num_input_points=2048, num_classifier_points=1024,
         scale_factor=3.3885, ddim_total_steps=100,
