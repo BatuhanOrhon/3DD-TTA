@@ -17,9 +17,15 @@ import zipfile
 from pathlib import Path
 from types import SimpleNamespace
 
-from research_artifacts import CORRUPTIONS, RunBundle, corruption_row, validate_selection
+from research_artifacts import CLEAN_CONTROL, CORRUPTIONS, RunBundle, corruption_row, validate_selection
 
 REPO = Path(__file__).resolve().parent
+
+
+def selected_data_path(dataset_root: str, name: str) -> Path:
+    """Resolve one repository-format input without changing benchmark filenames."""
+    filename = "data_original.npy" if name == CLEAN_CONTROL else "data_" + name + "_5.npy"
+    return Path(dataset_root) / filename
 
 
 def command_output(command: list[str]) -> str:
@@ -98,7 +104,7 @@ def run_worker(directory: str) -> None:
         if args.method == "3dd_original":
             assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
         identities = {name: file_identity(Path(value)) for name, value in assets.items()}
-        data_files = {name: file_identity(Path(args.dataset_root) / ("data_" + name + "_5.npy"))
+        data_files = {name: file_identity(selected_data_path(args.dataset_root, name))
                       for name in args.corruptions}
         config.update(asset_manifest=identities, dataset_hash_manifest=data_files,
                       classifier_checkpoint_sha256=identities["classifier_checkpoint"]["sha256"])
@@ -149,7 +155,8 @@ def run_worker(directory: str) -> None:
             base_model = baseline.load_base_model(args, point_config, None, checkpoint_observer=checkpoint_observer)
             base_model.eval()
             lion = None
-            config.update(lion_loaded=False, preprocessing="corrupted input -> FPS(1024) -> frozen classifier",
+            source_name = "original input" if args.clean_control else "corrupted input"
+            config.update(lion_loaded=False, preprocessing=source_name + " -> FPS(1024) -> frozen classifier",
                           resolved_pointmae_config=point_config)
         else:
             base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
@@ -225,7 +232,7 @@ def run_worker(directory: str) -> None:
             rows.append(corruption_row(config["run_id"], args.seed, active,
                                        counters["n"], counters["correct"], elapsed,
                                        torch.cuda.max_memory_allocated() / (1024 ** 2), status,
-                                       method=args.method))
+                                       method=args.method, severity=config["severity"]))
             started = None
             bundle.write_results(rows, "running")
             record_modes("module_inventory_after")
@@ -252,7 +259,7 @@ def run_worker(directory: str) -> None:
             rows.append(corruption_row(config["run_id"], args.seed, active,
                                        counters["n"], counters["correct"],
                                        time.perf_counter() - started, memory, "failed",
-                                       method=args.method))
+                                       method=args.method, severity=config["severity"]))
         bundle.write_results(rows, "failed")
         bundle.write_config(config)
         with (bundle.path / "notes.md").open("a", encoding="utf-8") as file:
@@ -275,18 +282,26 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--lambdaa", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--method", choices=("3dd_original", "source_only"), default="3dd_original")
-    parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS, default=["gaussian"])
+    parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
     parser.add_argument("--run-name", default=None)
     parser.add_argument("--result-root", default="./result")
     args = parser.parse_args(argv)
     validate_selection(args.corruptions)
+    args.clean_control = args.corruptions == [CLEAN_CONTROL]
+    if CLEAN_CONTROL in args.corruptions and not args.clean_control:
+        parser.error("original is a standalone clean control and cannot be mixed with corruptions.")
+    if args.clean_control and args.method != "source_only":
+        parser.error("original clean control supports only --method source_only.")
+    if args.clean_control and args.max_batches != 0:
+        parser.error("original clean control requires --max-batches 0 for a complete evaluation.")
     if args.batch_size < 1 or args.max_batches < 0 or not 0 <= args.seed < 2 ** 32:
         parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
         parser.error("Invalid rates or SCD percentile.")
     args.device, args.dataset_name = "cuda", "modelnet-c"
-    args.run_name = args.run_name or (("source-only" if args.method == "source_only" else "baseline-smoke") + "_seed%s" % args.seed)
+    default_name = "clean-control" if args.clean_control else ("source-only" if args.method == "source_only" else "baseline-smoke")
+    args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
     return args
 
 
@@ -295,7 +310,7 @@ def main() -> int:
     if Path.cwd().resolve() != REPO:
         raise SystemExit("Run from the repository root so baseline relative configs resolve correctly.")
     config = dict(
-        stage="source_identity" if args.method == "source_only" else "smoke", dataset="modelnet40_c", severity=5, method=args.method,
+        stage="clean_control" if args.clean_control else ("source_identity" if args.method == "source_only" else "smoke"), dataset="modelnet40_c", severity=0 if args.clean_control else 5, method=args.method,
         seed=args.seed, batch_size=args.batch_size, corruptions=args.corruptions,
         classifier="pointmae", num_input_points=2048, num_classifier_points=1024,
         scale_factor=3.3885, ddim_total_steps=100,

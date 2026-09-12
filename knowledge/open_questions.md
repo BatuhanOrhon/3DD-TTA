@@ -24,6 +24,7 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [x] Implement and archive Batch 2 source-only all-15-corruption identity evaluation: 53.69% macro, 3.91 pp below README 57.6%; see findings log.
 - [x] Compare source-only FPS/classifier preprocessing against upstream reference: identical direct load -> FPS(1024) -> `classification_only` path; no added normalization/augmentation. The downloaded ModelNet40-C package also has expected array/label structure. Author asset hashes remain unavailable.
 - [ ] Establish Point-MAE clean-set accuracy from a documented clean ModelNet40 test asset and compare it with a checkpoint-appropriate reference before attributing the remaining source-only gap to corruptions, environment, or checkpoint identity.
+- [ ] Run and archive the standalone `data_original.npy` clean Point-MAE control (full 2,468 examples, seed 0); its result is diagnostic only until a checkpoint-appropriate external reference is located.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.

@@ -24,6 +24,8 @@ Current next action: [Batch 1 Colab smoke instructions](colab_baseline_smoke.md)
 
 After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
 
+After the source-only protocol audit, use the [clean Point-MAE control](colab_clean_control.md) before interpreting the remaining corrupted-source gap.
+
 ## Evidence labels
 
 Use these labels in all future updates:
