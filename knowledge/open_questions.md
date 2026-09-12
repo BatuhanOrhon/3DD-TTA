@@ -21,7 +21,9 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [x] Restore missing Point-MAE ChamferDistance import exposed by Batch 1 Colab smoke; this prevents model construction before TTA. Await rerun artifact.
 - [x] Implement Batch 1 original-TTA smoke artifact runner, without old-variant imports or mode/math changes; local structural/protocol checks passed. See `colab_baseline_smoke.md`.
 - [x] Receive and validate the Batch 1 Colab smoke ZIP: safe seven-file archive, correct count-based CSVs and intended runtime modes; Level 0 only, not accuracy evidence.
-- [ ] Implement and archive Batch 2 source-only all-15-corruption identity evaluation before dropout A/B.
+- [x] Implement and archive Batch 2 source-only all-15-corruption identity evaluation: 53.69% macro, 3.91 pp below README 57.6%; see findings log.
+- [x] Compare source-only FPS/classifier preprocessing against upstream reference: identical direct load -> FPS(1024) -> `classification_only` path; no added normalization/augmentation. The downloaded ModelNet40-C package also has expected array/label structure. Author asset hashes remain unavailable.
+- [ ] Establish Point-MAE clean-set accuracy from a documented clean ModelNet40 test asset and compare it with a checkpoint-appropriate reference before attributing the remaining source-only gap to corruptions, environment, or checkpoint identity.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.

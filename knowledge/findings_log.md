@@ -118,6 +118,22 @@ Point-MAE loaded with strict=False but zero missing/unexpected keys; both LION m
 
 ## Entry template
 
+## 2026-09-12 - Source-only all-corruption identity result
+
+**Evidence:** [Run] `result/modelnet40_c/source_only/20260912-111822_source-only_seed0/`; ZIP SHA-256 `bf1ff8884401b4617213299ff7e1f7a90476345e25a6ea79d8d514cfff09eabe`.
+
+**Git commit:** `ef87692042e337cf628b9438bfc06a3e362b2e0b`.
+
+**Protocol:** source-only identity evaluation, ModelNet40-C severity 5, all 15 corruptions, 2468 examples each, 37020 total; FPS(1024), frozen Point-MAE, batch32, seed0. No LION loaded, no normalize/rotation/diffusion/guidance. Execution complete with no traceback.
+
+Macro and micro accuracy are both `0.536899` (19876/37020), or 53.69%. This is 3.91 percentage points below the repository README source-only reference 57.6%. Per-corruption lows are lidar 19.94%, background 28.16%, rotation 30.19% and occlusion 37.24%; highest is density_inc 77.35%.
+
+**Follow-up code/data audit (2026-09-12):** [Code] the repository's data guide directs ModelNet40-C users to download the already-corrupted Zenodo package; it only directs users to generate corruptions for ShapeNetCore and ScanObjectNN. [Run] the archived package has the expected 15 severity-5 arrays, 2,468 examples and labels in `[0,39]` for every corruption. [Code] the source-only runner is behaviorally identical to the upstream `tools/runner_finetune.py` source evaluation for this path: direct `np.load(data_<corruption>_5.npy)` / `label.npy`, then `misc.fps(points, 1024)`, then frozen `classification_only(..., only_unmasked=False)`. It adds logging only; it does not normalize, rotate, denoise, or augment inputs.
+
+**Interpretation:** data/checkpoint/FPS/classifier protocol is operational and the locally used source-only path is not a preprocessing divergence from the upstream source-evaluation path. The actual downloaded files and Point-MAE checkpoint still have no author-published checksums, so structural validity does not prove byte identity. Because only one seed and one Colab environment are archived, this is a diagnosed reproduction gap, not a causal conclusion. Do not interpret LION/TTA accuracy before this gap is investigated.
+
+**Decision:** preserve this as the source-only comparator. Next, compare data/checkpoint hashes and Point-MAE preprocessing/evaluation details against the reference protocol before dropout A/B. No GSD work.
+
 ```markdown
 ## YYYY-MM-DD — Short finding title
 

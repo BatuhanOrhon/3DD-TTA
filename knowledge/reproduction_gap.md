@@ -13,6 +13,10 @@ The local gap is therefore approximately 2.7 points from the published paper or 
 
 ## What has already been ruled down
 
+- **[Run]** Complete source-only evaluation at `result/modelnet40_c/source_only/20260912-111822_source-only_seed0/` completed all 15 severity-5 corruptions with frozen Point-MAE and FPS(1024), but obtained 53.69% macro accuracy versus the README 57.6% reference. Thus the gap begins before LION/TTA under the recorded Colab protocol.
+
+- **[Code]** The archived source-only evaluation matches upstream's own source path exactly: direct `data_<corruption>_5.npy` loading, FPS to 1024 points, and frozen Point-MAE `classification_only`. **[Run]** all arrays have 2,468 examples and labels span 0--39, consistent with the expected ModelNet40-C test layout. The README explicitly designates the Zenodo pre-corrupted download for ModelNet40-C; its local corruption-generation instruction concerns ShapeNetCore/ScanObjectNN. This makes a locally introduced source-only preprocessing change unlikely, but cannot establish byte-identical data/checkpoint assets because authors publish no hashes.
+
 - **[Code]** Current `tta.py` is almost the upstream baseline; method additions are primarily in separate scripts. The low baseline is unlikely to be caused simply by GSD logic contaminating the original path.
 - **[Code]** ModelNet40-C loader selects severity 5, matching the stated benchmark severity.
 - **[Code]** The main path performs the LION scale/rotation and Point-MAE resampling operations expected by the repository.
