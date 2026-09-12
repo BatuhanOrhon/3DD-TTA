@@ -186,3 +186,11 @@ What result would overturn or materially revise the interpretation.
 - **[Run]** Result: 108/581 correct, accuracy 0.1858864028 (18.59%), runtime 2.884 s, no traceback, checkpoint missing/unexpected keys empty.
 - **[Inference]** This is a valid corruption result but not yet interpretable as adaptation evidence. A clean-input control with the same checkpoint and preprocessing is required first; the checkpoint is user-supplied and its clean OBJ-BG parity is not established.
 - **[Open]** Create data_original.npy from the official main_split test H5, run the complete clean source-only control, then compare Gaussian degradation.
+
+## 2026-09-12 — ScanObjectNN clean control
+
+- **[Run]** Artifact: result/scanobjectnn_c/source_only/20260912-135748_clean-control-seed0.zip (user-supplied; complete after validation).
+- **[Run]** Same seed/checkpoint/protocol as Gaussian pilot; 581 clean main_split examples, source-only, severity 0.
+- **[Run]** Result: 415/581, accuracy 0.7142857143 (71.43%), runtime 2.875 s, no traceback.
+- **[Run]** Clean and Gaussian artifacts use the identical label SHA-256 bb145670...eeb7a68; both inventory shapes are 581 examples and both checkpoint loads have empty missing/unexpected keys. This rules out a run-to-run label-file mismatch.
+- **[Inference]** The 52.84-point clean-to-Gaussian drop is not explained by an observed label shift. Remaining candidates are the severity-8 corruption strength, checkpoint/preprocessing mismatch, or a generator/data-content issue; external H5-label equality and a severity-1 control remain open.
