@@ -12,8 +12,6 @@ import glob
 import pickle
 
 
-# np.random.seed(2021)
-
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -21,6 +19,10 @@ def get_args():
     parser.add_argument('--main_path', type=str, default="./data/")
     parser.add_argument('--dataset_path', type=str)
     parser.add_argument('--corrupted_dataset_path', type=str)
+    parser.add_argument('--severity', type=int, default=8, help='Corruption severity.')
+    parser.add_argument('--corruptions', nargs='+', default=None, help='Selected corruption names; defaults to all.')
+    parser.add_argument('--seed', type=int, default=None, help='NumPy seed for deterministic generation.')
+    parser.add_argument('--skip_ply', action='store_true', help='Skip per-example PLY export.')
     parser.add_argument('--create_mesh', action='store_true', default=False, help='Create meshes out of pointclouds')
 
     return parser.parse_args()
@@ -828,6 +830,12 @@ ORIG_NUM = 4096
 
 if __name__ == "__main__":
     args = get_args()
+    if args.seed is not None:
+        np.random.seed(args.seed)
+    selected_corruptions = list(MAP.keys()) if args.corruptions is None else args.corruptions
+    unknown = [name for name in selected_corruptions if name not in MAP]
+    if unknown:
+        raise ValueError('Unknown corruption(s): ' + ', '.join(unknown))
     if args.dataset == "modelnet40":
         args.dataset_path = args.main_path + "ModelNet/modelnet40_normal_resampled/"
     elif args.dataset == "scanobjectnn":
@@ -862,8 +870,8 @@ if __name__ == "__main__":
             mesh = create_mesh(cloud)
             export_mesh(mesh, mesh_folder + str(index) + ".ply")
 
-    for cor in MAP.keys():
-        for sev in [8]:
+    for cor in selected_corruptions:
+        for sev in [args.severity]:
             if args.dataset in ["scanobjectnn", "partnet", "shapenet"]:
                 ORIG_NUM = 2048
             else:
