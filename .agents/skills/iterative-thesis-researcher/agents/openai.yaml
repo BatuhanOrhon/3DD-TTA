@@ -1,0 +1,4 @@
+interface:
+  display_name: "Iterative Thesis Researcher"
+  short_description: "Reproducible 3D TTA thesis research workflow"
+  default_prompt: "Use $iterative-thesis-researcher to continue the thesis research from the repository knowledge base."
