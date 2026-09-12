@@ -35,7 +35,7 @@ class PointDataset(Dataset):
         return len(self.data)
 
     def __getitem__(self, idx):
-        return torch.from_numpy(self.data[idx]), torch.from_numpy(self.labels[idx])
+        return torch.from_numpy(self.data[idx]), torch.as_tensor(self.labels[idx])
     
     
 def load_base_model(args, config, load_part_seg=False, *, checkpoint_observer=None):
