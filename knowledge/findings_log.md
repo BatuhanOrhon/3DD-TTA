@@ -134,6 +134,25 @@ Macro and micro accuracy are both `0.536899` (19876/37020), or 53.69%. This is 3
 
 **Decision:** preserve this as the source-only comparator. Next, compare data/checkpoint hashes and Point-MAE preprocessing/evaluation details against the reference protocol before dropout A/B. No GSD work.
 
+## 2026-09-12 - Source-only seed variance result
+
+**Evidence:** [Run] `result/modelnet40_c/source_only/20260912-120122_source-only_seed1/` and `result/modelnet40_c/source_only/20260912-120349_source-only_seed2/`.
+**Git commit:** `ef87692042e337cf628b9438bfc06a3e362b2e0b`.
+**Protocol:** source-only identity evaluation, ModelNet40-C severity 5, all 15 corruptions, 2468 examples each; FPS(1024), frozen Point-MAE, batch32. Seeds 1 and 2.
+
+### Result
+Both Seed 1 and Seed 2 have identically matching configuration, dataset hashes, and per-corruption metrics compared to Seed 0. 
+Zero variance across all 3 seeds: macro and micro accuracy are perfectly equal at 53.69% (19876/37020). 
+
+### Interpretation
+The source-only evaluation pipeline is deterministic across these three seeds. It confirms that the 53.69% accuracy gap observed for Point-MAE source-only is stable and not an artifact of random sampling in the FPS step (which was potentially stochastic if unseeded, but it appears to yield identical outcomes here, likely because numpy/torch seeds were fixed).
+
+### Decision
+Source-only baseline is fully verified and stable at 53.69%. Proceed with data/checkpoint provenance investigation and ShapeNet preparations.
+
+### Falsifier / next evidence
+A different checkpoint or data source showing the 57.6% source-only accuracy.
+
 ```markdown
 ## YYYY-MM-DD â€” Short finding title
 
@@ -159,3 +178,11 @@ Continue, modify, reject, reproduce, or escalate to full evaluation.
 
 What result would overturn or materially revise the interpretation.
 ```
+
+## 2026-09-12 — ScanObjectNN Gaussian source-only pilot
+
+- **[Run]** Artifact: result/scanobjectnn_c/20260912-135346_source-only-gaussian-seed0-label-fix.zip (user-supplied; complete after validation).
+- **[Run]** Dataset: main_split-derived ScanObjectNN, Gaussian severity 8, 581 examples, seed 0, batch size 32, frozen 15-class Point-MAE checkpoint scanobject_jt.pth.
+- **[Run]** Result: 108/581 correct, accuracy 0.1858864028 (18.59%), runtime 2.884 s, no traceback, checkpoint missing/unexpected keys empty.
+- **[Inference]** This is a valid corruption result but not yet interpretable as adaptation evidence. A clean-input control with the same checkpoint and preprocessing is required first; the checkpoint is user-supplied and its clean OBJ-BG parity is not established.
+- **[Open]** Create data_original.npy from the official main_split test H5, run the complete clean source-only control, then compare Gaussian degradation.
