@@ -131,6 +131,8 @@ def unnormalize_data(data, max_vals, data_center):
     array-like: The unnormalized data.
     """
     # Rescale the data back to its original scale using max_vals
+    max_vals = max_vals.to(device=data.device, dtype=data.dtype)
+    data_center = data_center.to(device=data.device, dtype=data.dtype)
     data = data * max_vals
     
     # Shift the data back to its original center
