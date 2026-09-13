@@ -18,6 +18,16 @@ The checkpoint contains 462/462 prior EMA tensors matching the 462 prior model e
 
 **Interpretation/decision:** A modest, same-direction seed-0 pilot supports testing EMA further, but does not establish a baseline change: runs are seed-controlled, not common-draw paired, and cuDNN benchmark remains enabled. Repeat the exact pair at seeds 1 and 2. Do not merge EMA with legacy/train-mode LION in this confirmation.
 
+## 2026-09-13 - Prior-EMA three-seed confirmation: inconclusive
+
+**Evidence:** [Run] six complete raw/EMA Gaussian+Impulse bundles at seeds 0/1/2, listed in `ema_inventory_20260913.md`; all use commit `c91c1c3`, eval mode and identical model/data hashes.
+
+**Result:** Macro raw/EMA by seed: 72.2650/72.7107 (+.4457), 72.3663/72.8525 (+.4862), and 72.6904/72.4878 (-.2026) percent. Three-seed means are 72.4406% raw and 72.6837% EMA: +.2431 pp with .3865 pp sample SD. Gaussian mean is -.0540 pp; Impulse mean is +.5402 pp.
+
+**Decision (superseded):** The two-corruption result is small, seed/corruption dependent, and not common-draw paired, but is insufficient to rule out an effect across the remaining corruptions.
+
+**Active decision:** Run all 15 corruptions for seeds 0 and 1 under matched `eval+raw` and `eval+EMA` conditions before accepting or rejecting EMA as a candidate. This is an exploratory two-seed screen, not a final benchmark claim.
+
 Append entries chronologically. Never delete negative or superseded results. Use exact run paths for **[Run]** claims.
 
 ## 2026-09-12 — Initial repository and literature audit
