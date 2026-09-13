@@ -8,7 +8,7 @@ Read this note first after `knowledge/README.md`. It is the current state snapsh
 - Active branch: `baseline-repro-clean`
 - HEAD: `9ce5553de9277f9b9d7e26fc729e70b912a7c2d7`
 - The working tree is intentionally dirty. Do **not** reset, checkout, clean, stash, or delete existing artifacts/PDFs without user direction.
-- EMA implementation is local and **not committed/pushed** yet: `models/lion.py`, `main_3dd_tta.py`, `run_baseline.py`.
+- EMA implementation was committed and pushed as `c91c1c3` on `baseline-repro-clean`: `models/lion.py`, `main_3dd_tta.py`, `run_baseline.py`.
 - Existing dirty knowledge files and untracked PDFs/results are part of the thesis record. Preserve them.
 
 ## What is established
@@ -42,19 +42,16 @@ Local implementation adds an opt-in `--lion-ema-mode`:
 - `run_baseline.py`: parses `--lion-ema-mode`, so the flag is saved in `config.json` CLI args.
 - Default remains raw prior. VAE EMA is never attempted.
 
-**[Code]** `python -m py_compile models/lion.py main_3dd_tta.py run_baseline.py`, `git diff --check`, and `python run_baseline.py --help` passed locally. No Colab EMA inference has run.
+**[Code]** `python -m py_compile models/lion.py main_3dd_tta.py run_baseline.py`, `git diff --check`, and `python run_baseline.py --help` passed locally. **[Run]** Seed-0 Gaussian+Impulse raw/EMA pilot is complete: EMA improves 72.2650% to 72.7107% macro (+.4457 pp); exact evidence is in `ema_inventory_20260913.md`.
 
 The mapping mirrors original LION training construction (`dae.parameters()`); count and shape checks are safeguards, but this is still an experimental inference-path change that needs output validation.
 
 ## Immediate next action
 
-1. Review the current diff. Commit locally; request user direction before pushing to remote, because Colab cannot fetch unpushed code.
-2. In Colab, on the exact committed revision, run two full severity-5, seed-0, batch-32 ModelNet40-C pilots with `--corruptions gaussian impulse`, gamma=.01, eta=.01, lambda=.95:
-   - `--lion-eval-mode` only: `eval+raw`.
-   - `--lion-eval-mode --lion-ema-mode`: `eval+EMA`.
-3. Confirm EMA stdout contains `INFO loaded prior EMA parameters: 462` and archive both complete runner ZIPs under `result/modelnet40_c/3dd_original/`. Copy the two folders to `/content/drive/MyDrive/thesis/result/modelnet40_c/3dd_original/` after completion.
-4. Ingest and validate the ZIPs: seven expected files, complete Gaussian and Impulse rows (2,468 examples each), same asset hashes/revision/args except `lion_ema_mode`, no traceback. Report per-corruption and macro deltas. Do not interpret one seed as a final gain.
-5. If the EMA pilot is promising, repeat both conditions seeds 1/2. If null/negative, record it and proceed to source-only severity-4 control. Do not mix EMA with legacy/train LION mode.
+1. On commit `c91c1c3`, repeat the exact full severity-5, batch-32 Gaussian+Impulse `eval+raw` / `eval+EMA` pair at seeds 1 and 2.
+2. Confirm EMA stdout contains `INFO loaded prior EMA parameters: 462`; ingest each complete ZIP and validate matched assets/args except `lion_ema_mode`.
+3. Report per-corruption and macro mean/standard deviation over the three seeds. Do not combine EMA with legacy/train LION mode.
+4. If the effect is repeatable, use EMA as the candidate and move to a predeclared all-15 confirmation. If null/negative, record it and proceed to source-only severity-4 control.
 
 ## Research constraints
 

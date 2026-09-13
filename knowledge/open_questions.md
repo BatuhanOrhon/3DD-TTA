@@ -4,8 +4,8 @@
 
 - [x] Inspect checkpoint: 462/462 prior EMA entries, 0 VAE EMA entries.
 - [x] Add opt-in, shape-validated `--lion-ema-mode`; default raw loading is unchanged.
-- [ ] Run eval+raw versus eval+EMA on complete Gaussian and Impulse severity 5 with matched settings.
-- [ ] Repeat a promising EMA effect at seeds 1 and 2 before changing the selected baseline.
+- [x] Run eval+raw versus eval+EMA on complete Gaussian and Impulse severity 5, seed 0: EMA +.4862 pp Gaussian, +.4052 pp Impulse, +.4457 pp macro; see findings log.
+- [ ] Repeat the promising EMA effect at seeds 1 and 2 before changing the selected baseline.
 
 Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method interpretation; **P2** is valuable after the foundation is stable.
 

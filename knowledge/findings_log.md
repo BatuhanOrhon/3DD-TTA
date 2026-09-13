@@ -8,6 +8,16 @@ The checkpoint contains 462/462 prior EMA tensors matching the 462 prior model e
 
 **Decision:** Run eval+raw versus eval+EMA on complete Gaussian and Impulse severity 5 with identical seed, batch, scheduler, gamma, eta and lambda. Do not combine with legacy dropout mode. Repeat any positive effect at seeds 1/2 before changing the selected baseline.
 
+## 2026-09-13 - First prior-EMA pilot: Gaussian and Impulse
+
+**Evidence:** [Run] `result/modelnet40_c/3dd_original/20260913-154218_3dd-original-gaussian-impulse-eval-raw-seed0.zip` and `20260913-154546_3dd-original-gaussian-impulse-eval-ema-seed0.zip`.
+
+**Protocol:** Commit `c91c1c3`; ModelNet40-C severity 5; Gaussian and Impulse; 2,468 examples/corruption; seed 0; batch 32; 100 DDIM / 5 reverse steps; gamma=eta=.01; lambda=.95; LION eval mode. Artifact manifests confirm identical Point-MAE and LION checkpoint hashes. The only intended CLI difference is `lion_ema_mode` false/true. EMA stdout confirms 462 prior EMA parameters loaded; both bundles are complete and traceback-free.
+
+**Result:** Raw/EMA Gaussian: 74.3112/74.7974% (+.4862 pp, +12 correct). Raw/EMA Impulse: 70.2188/70.6240% (+.4052 pp, +10 correct). Two-corruption macro: 72.2650/72.7107% (+.4457 pp, +22/4936 correct).
+
+**Interpretation/decision:** A modest, same-direction seed-0 pilot supports testing EMA further, but does not establish a baseline change: runs are seed-controlled, not common-draw paired, and cuDNN benchmark remains enabled. Repeat the exact pair at seeds 1 and 2. Do not merge EMA with legacy/train-mode LION in this confirmation.
+
 Append entries chronologically. Never delete negative or superseded results. Use exact run paths for **[Run]** claims.
 
 ## 2026-09-12 — Initial repository and literature audit
