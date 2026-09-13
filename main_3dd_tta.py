@@ -42,6 +42,7 @@ def parse_arguments():
 
     # Device configuration
     parser.add_argument('--device', type=str, default="cuda", help='Device to run the computations on (e.g., cuda, cpu)')
+    parser.add_argument('--lion-ema-mode', action='store_true', help='Load prior EMA parameters from the LION checkpoint.')
 
     return parser.parse_args()
 
@@ -75,7 +76,7 @@ def configure_model(args, *, checkpoint_observer=None):
             handles.append(module.register_load_state_dict_post_hook(
                 lambda module, keys, name=name: checkpoint_observer(name, keys)))
     try:
-        diff_model.load_model(args.diff_ckpt)
+        diff_model.load_model(args.diff_ckpt, use_ema=args.lion_ema_mode)
     finally:
         for handle in handles:
             handle.remove()

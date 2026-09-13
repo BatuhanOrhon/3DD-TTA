@@ -17,8 +17,10 @@ The local gap is therefore approximately 2.7 points from the published paper or 
 
 - **[Code]** The archived source-only evaluation matches upstream's own source path exactly: direct `data_<corruption>_5.npy` loading, FPS to 1024 points, and frozen Point-MAE `classification_only`. **[Run]** all arrays have 2,468 examples and labels span 0--39, consistent with the expected ModelNet40-C test layout. The README explicitly designates the Zenodo pre-corrupted download for ModelNet40-C; its local corruption-generation instruction concerns ShapeNetCore/ScanObjectNN. This makes a locally introduced source-only preprocessing change unlikely, but cannot establish byte-identical data/checkpoint assets because authors publish no hashes.
 
+- **[Run]** The matching `data_original.npy` clean control achieves 90.64% (2237/2468) with the same label file, Point-MAE checkpoint SHA-256 `507e0bbf...aec75`, batch size, FPS(1024), frozen classifier path and Colab environment. Thus the 53.69% corrupted-source macro is not explained by an obvious failure of this classifier on the paired clean input. This internal control has no author-published checkpoint-appropriate clean reference, so it does not establish external reproduction parity.
+
 - **[Code]** Current `tta.py` is almost the upstream baseline; method additions are primarily in separate scripts. The low baseline is unlikely to be caused simply by GSD logic contaminating the original path.
-- **[Code]** ModelNet40-C loader selects severity 5, matching the stated benchmark severity.
+- **[Code]** ModelNet40-C loader selects severity 5. **[Paper]** Table 2/Section 4 do not themselves state a severity number, so equivalence between the paper table and this released-code protocol is plausible but not yet proven.
 - **[Code]** The main path performs the LION scale/rotation and Point-MAE resampling operations expected by the repository.
 
 These observations narrow the search but do not prove parity.

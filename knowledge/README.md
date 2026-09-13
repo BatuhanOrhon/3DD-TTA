@@ -20,11 +20,13 @@ The project studies training-free test-time input adaptation for corrupted 3D po
 
 Before clean-restart implementation also read the [follow-up code audit](code_audit_20260912.md) and [small implementation batches](clean_restart_batches.md). These refine earlier informal next-test ordering.
 
-Current next action: [Batch 1 Colab smoke instructions](colab_baseline_smoke.md). Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
+Current next action: read the [2026-09-13 session handoff](session_handoff_20260913.md), review/commit the opt-in EMA loader, then run the paired `eval+raw` / `eval+EMA` Gaussian+Impulse Colab pilot. GSD/PxP and other datasets remain parked. Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
 
 After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
 
 After the source-only protocol audit, use the [clean Point-MAE control](colab_clean_control.md) before interpreting the remaining corrupted-source gap.
+
+Historical/parked task: [ShapeNet Audit Instructions](colab_shapenet_audit.md).
 
 ## Evidence labels
 
@@ -46,9 +48,10 @@ Never silently promote an inference or user report into a run-backed finding. If
 - **[User report]** Local original-code runs are approximately **63%**, while current GSD variants reach approximately **63.5%**. No complete run bundle is currently archived, so these numbers are provisional.
 - **[Run]** Batch 1 Gaussian smoke is archived at `result/modelnet40_c/3dd_original/20260912-110541_baseline-smoke_seed0/`: 47/64 on a two-batch prefix, with validated files/config/counts. It is not a full baseline or accuracy comparison.
 - **[Run]** Full source-only identity evaluation is archived at `result/modelnet40_c/source_only/20260912-111822_source-only_seed0/`: 53.69% macro over all 15 corruptions, 3.91 points below README's 57.6%. The reproduction gap therefore precedes LION/TTA under this recorded protocol.
+- **[Run]** The paired clean input control at `result/modelnet40_c/source_only/20260912-115021_clean-control_seed0/` obtains **90.64%** (2237/2468) using the same frozen Point-MAE checkpoint, labels and FPS(1024) path. This rules down an obvious clean classifier/data failure, but author-published clean checkpoint parity remains unavailable.
 - **[Code]** Active branch is `baseline-repro-clean`, created from main `107305f` in the same repository folder. Batch 0 docs commit is `b31fd23`. Batch 1 adds a smoke runner/artifact module and optional observers; observer-stripped ASTs of the three changed baseline modules match main. LION/dependency files remain unchanged. Legacy GSD/PxP code remains on `pxp-gradient-projection` at `53ba252`; historical method notes refer to that audited revision.
 - **[Inference]** Reproducibility risks include unseeded stochastic interpolation/noise, environment drift, scheduler details, checkpoint/data identity, batch-size sensitivity, and incomplete result logging.
-- **[Code]** Original LION trainer inference disables dropout; the identical demo wrapper used here does not, and current baseline/GSD setup leaves LION in training mode. **[Inference]** Accuracy impact is unmeasured; isolated dropout A/B is the first adaptation-behavior test.
+- **[Code]** Original LION trainer inference disables dropout; the inherited demo wrapper leaves LION in training mode. **[Run]** Full Gaussian severity-5 A/B at seeds 0, 1, 2 favors eval mode by +1.30 pp on average; this is replicated but limited to one corruption and non-common-draw sampling. Background and full-corruption controls remain open.
 - **[Code]** Mean spectral loss plus summed SCD changes relative guidance with batch size. **[User report]** Mean settings previously outperformed sum; sum/smaller-step tuning is deferred until baseline and spectral-off parity.
 - The user selected same-folder development and requested skill/knowledge preservation. No new stash was needed; existing dev stash is untouched. Research memory/skill/result protocol were committed in `b31fd23`; source PDFs remain local/untracked. Batch 1 local checks passed but Colab smoke acceptance is pending. No accuracy improvement or dropout effect is established.
 - **[Code]** The fork's spectral method is not a reproduction of full GSDTTA: it regularizes a LION local latent and keeps the classifier frozen instead of learning a physical-coordinate spectral shift and alternating input/model adaptation.
@@ -75,4 +78,4 @@ After any material experiment, diagnosis, code change, or paper review:
 
 ## First action for the next session
 
-Request the Batch 1 smoke ZIP following [the Colab handoff](colab_baseline_smoke.md), or inspect a supplied bundle. An older approximately-63% run bundle is also valuable if available. Batch 1 local implementation exists; do not reimplement it or advance to source-only before reviewing the smoke. Then follow the source-only/dropout/baseline ladder in [clean restart batches](clean_restart_batches.md). Numerical experiments remain Colab-only.
+Read the [session handoff](session_handoff_20260913.md). It supersedes historical smoke/ShapeNet-next-action statements above and records the exact uncommitted EMA implementation, accepted evidence, current blockers and the immediate Colab pair. Numerical experiments remain Colab-only.

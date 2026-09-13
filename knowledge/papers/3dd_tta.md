@@ -27,7 +27,7 @@ Important consequences:
 - Total DDIM schedule length: 100 steps.
 - Most corruptions start from 5 reverse steps; background corruption uses up to 35.
 - The paper reports `gamma = eta = 0.01` and `lambda = 0.96`.
-- ModelNet40-C is evaluated at corruption severity 5.
+- **[Paper]** Table 2 and Section 4 identify ModelNet40-C but do not state a severity number. **[Code]** The released upstream evaluation loader hard-codes data_<corruption>_5.npy, and its data guide documents the same _5 layout. Therefore severity 5 is the released-code protocol; attributing it to the paper table itself remains an inference pending an independent primary-source statement.
 - Hardware reported for the experiments: NVIDIA A6000.
 
 The current repository default `lambda_cd=0.95` is therefore close but not identical to the paper value.
@@ -72,3 +72,10 @@ Observed code/paper details that require controlled validation:
 ## Thesis use
 
 3DD-TTA is the baseline and host algorithm. Any new spectral or conflict-aware method must be compared against a matched run of this implementation, with the same data, checkpoint, batch size, seed set, scheduler, steps, preprocessing, and metric aggregation.
+
+### Severity attribution audit (2026-09-12)
+
+- **[Paper]** The 3DD-TTA PDF, Table 2 (p. 7) and Section 4.1 (p. 6), name ModelNet40-C but do not specify a severity level or an aggregation across levels.
+- **[Paper]** The cited ModelNet40-C benchmark has 15 corruption types with five severity levels (75 corruption settings): https://arxiv.org/abs/2201.12296 . Its official eval_cor.sh loops severity 1 2 3 4 5: https://github.com/jiachens/ModelNet40-C/blob/master/eval_cor.sh .
+- **[Code]** The 3DD-TTA upstream utility loader has selected data_<corruption>_5.npy since its initial public commit e5b7278 (2024-12-05), before the WACV paper publication. README/data instructions also use _5 filenames. This is strong evidence for the released 3DD-TTA evaluation path, but it cannot prove the unpublished run that generated Table 2 used identical code/assets.
+- **[Inference]** A lower-severity explanation remains logically possible only through an unpublished evaluation path. It currently has no positive evidence. A source-only severity sweep can identify which local severity best matches the paper's Point-MAE row, but cannot establish publication provenance if checkpoint/data identities differ.

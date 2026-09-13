@@ -292,6 +292,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--dataset-name", choices=("modelnet-c", "shapenet-c", "scanobjectnn-c"), default="modelnet-c")
     parser.add_argument("--severity", type=int, default=5)
     parser.add_argument("--lion-eval-mode", action="store_true", help="Set LION VAE and priors to eval mode; default preserves legacy mode.")
+    parser.add_argument("--lion-ema-mode", action="store_true", help="Load prior EMA parameters from the LION checkpoint.")
     args = parser.parse_args(argv)
     validate_selection(args.corruptions)
     args.clean_control = args.corruptions == [CLEAN_CONTROL]

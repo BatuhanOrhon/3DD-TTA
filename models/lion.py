@@ -27,11 +27,30 @@ class LION(object):
         self.diffusion = DiffusionDiscretized(None, None, cfg)
         # self.load_model(cfg)
 
-    def load_model(self, model_path):
+    def load_model(self, model_path, use_ema=False):
         # model_path = cfg.ckpt.path
         ckpt = torch.load(model_path)
         self.priors.load_state_dict(ckpt['dae_state_dict'])
         self.vae.load_state_dict(ckpt['vae_state_dict'])
+        if use_ema:
+            optimizer_state = ckpt.get('dae_optimizer')
+            if not isinstance(optimizer_state, dict):
+                raise ValueError('EMA requested, but checkpoint has no dae_optimizer state.')
+            parameter_ids = [pid for group in optimizer_state.get('param_groups', [])
+                             for pid in group.get('params', [])]
+            parameters = list(self.priors.parameters())
+            if len(parameter_ids) != len(parameters):
+                raise ValueError(f'EMA parameter mismatch: optimizer={len(parameter_ids)}, model={len(parameters)}')
+            with torch.no_grad():
+                for parameter, parameter_id in zip(parameters, parameter_ids):
+                    entry = optimizer_state['state'].get(parameter_id)
+                    if entry is None:
+                        entry = optimizer_state['state'].get(str(parameter_id))
+                    ema = entry.get('ema') if isinstance(entry, dict) else None
+                    if not torch.is_tensor(ema) or tuple(ema.shape) != tuple(parameter.shape):
+                        raise ValueError(f'EMA shape mismatch for parameter id {parameter_id}')
+                    parameter.copy_(ema.to(device=parameter.device, dtype=parameter.dtype))
+            print(f'INFO loaded prior EMA parameters: {len(parameters)}')
         print(f'INFO finish loading from {model_path}')
 
     @torch.no_grad()

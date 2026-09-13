@@ -1,5 +1,13 @@
 # Findings Log
 
+## 2026-09-13 - LION prior EMA inventory and opt-in loader
+
+**Evidence:** [Run] `result/modelnet40_c/diagnostics/checkpoint_ema_inventory.json` and `checkpoint_sha256.txt`; [Code] `models/lion.py`, `main_3dd_tta.py`, `run_baseline.py`.
+
+The checkpoint contains 462/462 prior EMA tensors matching the 462 prior model entries by count and shape. The VAE has no EMA entries. Config metadata reports EMA enabled with decay `.9999`. An opt-in, shape-validated `--lion-ema-mode` loader was added; default raw loading remains unchanged. VAE weights are never replaced. `py_compile` and `git diff --check` passed; no GPU inference was run.
+
+**Decision:** Run eval+raw versus eval+EMA on complete Gaussian and Impulse severity 5 with identical seed, batch, scheduler, gamma, eta and lambda. Do not combine with legacy dropout mode. Repeat any positive effect at seeds 1/2 before changing the selected baseline.
+
 Append entries chronologically. Never delete negative or superseded results. Use exact run paths for **[Run]** claims.
 
 ## 2026-09-12 â€” Initial repository and literature audit
@@ -179,7 +187,7 @@ Continue, modify, reject, reproduce, or escalate to full evaluation.
 What result would overturn or materially revise the interpretation.
 ```
 
-## 2026-09-12 — ScanObjectNN Gaussian source-only pilot
+## 2026-09-12 ï¿½ ScanObjectNN Gaussian source-only pilot
 
 - **[Run]** Artifact: result/scanobjectnn_c/20260912-135346_source-only-gaussian-seed0-label-fix.zip (user-supplied; complete after validation).
 - **[Run]** Dataset: main_split-derived ScanObjectNN, Gaussian severity 8, 581 examples, seed 0, batch size 32, frozen 15-class Point-MAE checkpoint scanobject_jt.pth.
@@ -187,10 +195,82 @@ What result would overturn or materially revise the interpretation.
 - **[Inference]** This is a valid corruption result but not yet interpretable as adaptation evidence. A clean-input control with the same checkpoint and preprocessing is required first; the checkpoint is user-supplied and its clean OBJ-BG parity is not established.
 - **[Open]** Create data_original.npy from the official main_split test H5, run the complete clean source-only control, then compare Gaussian degradation.
 
-## 2026-09-12 — ScanObjectNN clean control
+## 2026-09-12 ï¿½ ScanObjectNN clean control
 
 - **[Run]** Artifact: result/scanobjectnn_c/source_only/20260912-135748_clean-control-seed0.zip (user-supplied; complete after validation).
 - **[Run]** Same seed/checkpoint/protocol as Gaussian pilot; 581 clean main_split examples, source-only, severity 0.
 - **[Run]** Result: 415/581, accuracy 0.7142857143 (71.43%), runtime 2.875 s, no traceback.
 - **[Run]** Clean and Gaussian artifacts use the identical label SHA-256 bb145670...eeb7a68; both inventory shapes are 581 examples and both checkpoint loads have empty missing/unexpected keys. This rules out a run-to-run label-file mismatch.
 - **[Inference]** The 52.84-point clean-to-Gaussian drop is not explained by an observed label shift. Remaining candidates are the severity-8 corruption strength, checkpoint/preprocessing mismatch, or a generator/data-content issue; external H5-label equality and a severity-1 control remain open.
+
+## 2026-09-12 ï¿½ ScanObjectNN 3DD-TTA smoke
+
+- **[Run]** Artifact: result/scanobjectnn_c/3dd_original/20260912-154840_3dd-original-gaussian-smoke-seed0-device-fix.zip.
+- **[Run]** LION priors/VAE and Point-MAE loaded with empty missing/unexpected keys; the CPU/GPU unnormalization error did not recur.
+- **[Run]** First two batches, 64 examples, Gaussian severity 8: 11/64 correct (17.1875%), runtime 5.167 s; status partial by design.
+- **[Open]** Full 581-example 3DD-TTA run remains necessary; smoke accuracy is not benchmark evidence.
+
+## 2026-09-12 - LION eval-mode TTA autograd compatibility repair
+
+- **[User report]** The ModelNet40-C 3dd_original Gaussian eval-mode pilot failed at ch_loss.backward() because PVCNN devoxelization ran with is_training=False, so it did not retain the interpolation indices/weights required by its custom backward function.
+- **[Code]** models/pvcnn2.py and models/pvcnn2_ada.py now pass self.training or torch.is_grad_enabled() to trilinear_devoxelize. Thus lion.eval() continues to disable dropout, while gradient-enabled TTA retains the custom CUDA operator's backward state. Normal no-grad eval remains unchanged.
+- **[Code]** Local structural verification: python -m py_compile models/pvcnn2.py models/pvcnn2_ada.py third_party/pvcnn/functional/devoxelization.py completed successfully. No local CUDA execution was attempted.
+- **[Open]** The prior artifact 20260912-162954_3dd-original-gaussian-eval-seed0.zip is a failed run, not an accuracy result. Rerun the same smoke command after pulling this repair, using a fresh run name.
+
+## 2026-09-12 - LION dropout mode A/B: full Gaussian pilot
+
+**Evidence:** [Run] result/modelnet40_c/3dd_original/20260912-162758_3dd-original-gaussian-legacy-seed0/ and result/modelnet40_c/3dd_original/20260912-163734_3dd-original-gaussian-eval-fix_seed0/.
+
+**Protocol:** Complete ModelNet40-C Gaussian severity 5, 2,468 examples, batch 32, seed 0, gamma=eta=0.01, lambda=0.95, 100 DDIM steps and 5 reverse steps. The classifier checkpoint, LION checkpoint, Gaussian data file, configuration assets, batch size, and all listed TTA settings have identical hashes/values. The independent variable is LION mode: legacy train versus --lion-eval-mode.
+
+**Result:** Legacy LION mode: 1,826/2,468 = 0.739870 (73.99%), runtime 96.60 s, peak memory 25,750 MiB. Eval mode after commit 9ce5553: 1,843/2,468 = 0.746759 (74.68%), runtime 95.55 s, peak memory 25,249 MiB. The observed change is +17 correct examples, or +0.6888 percentage points. Both archives contain all seven required files, have complete status, and their stdout logs contain no Traceback, RuntimeError, or ValueError.
+
+**Code verification:** Legacy config records priors/VAE training=True. Eval config records CLI lion_eval_mode=True and priors/VAE training=False; this confirms dropout is disabled. The successful eval run also accepts the PVCNN autograd repair. The config field lion_mode_policy remains the stale string 'legacy; unchanged' in the eval artifact, so module inventory and CLI are the authoritative mode evidence for this pair.
+
+**Interpretation:** This is encouraging but inconclusive. The runner records seed-controlled, not common-random-number-paired sampling; stochastic interpolation/noise remains a confound. The two runs are also on adjacent commits, although 9ce5553 only repairs eval-mode autograd. One corruption and one seed cannot establish a reliable accuracy effect or a benchmark gain.
+
+**Decision:** Keep eval mode as a viable candidate. Repeat the exact legacy/eval pair for seeds 1 and 2 before selecting a mode; then test background under the same paired design. Do not yet use this +0.69 pp pilot to change the full benchmark protocol or make a thesis claim.
+
+## 2026-09-12 - LION dropout A/B: Gaussian three-seed result
+
+**Evidence:** [Run] seed-0 archives in the preceding entry plus 20260912-165102 legacy seed1, 20260912-165259 eval seed1, 20260912-165454 legacy seed2, and 20260912-165650 eval seed2 under result/modelnet40_c/3dd_original/.
+
+**Protocol:** Full Gaussian severity 5; 2,468 examples; seeds 0,1,2; batch32; gamma=eta=0.01; lambda=.95; 100 DDIM / 5 reverse steps. All six archives have seven required files, complete CSV status, matching within-seed assets, and no traceback/runtime error. Seed1/2 pairs both use 9ce5553; seed0 legacy is 2611da8 and eval is 9ce5553.
+
+**Result:** legacy/eval: seed0 73.9870/74.6759 (+0.6888 pp); seed1 73.3387/75.2431 (+1.9044 pp); seed2 73.9870/75.2836 (+1.2966 pp). Means: legacy 73.7709% (SD .3743 pp), eval 75.0675% (SD .3398 pp); paired mean delta +1.2966 pp (SD .6078 pp). All three deltas favor eval.
+
+**Interpretation and decision:** Gaussian replicates a favorable eval-mode effect, but this is not a significance or benchmark claim: n=3, seed-controlled rather than fully common-draw-paired sampling, and seed0 spans the repair commit. The matched-commit seed1/2 deltas are still positive. Run background at seeds 0,1,2 (35 reverse steps) before a full 15-corruption comparison.
+
+
+## 2026-09-12 - LION dropout A/B: full Background three-seed result
+
+**Evidence:** [Run] `result/modelnet40_c/3dd_original/20260912-171041_3dd-original-background-legacy-seed0.zip`, `20260912-171913_3dd-original-background-eval-seed0.zip`, `20260912-172738_3dd-original-background-legacy-seed1.zip`, `20260912-173612_3dd-original-background-eval-seed1.zip`, `20260912-174437_3dd-original-background-legacy-seed2.zip`, and `20260912-175310_3dd-original-background-eval-seed2.zip`.
+
+**Git commit:** `9ce5553de9277f9b9d7e26fc729e70b912a7c2d7`.
+
+**Protocol:** Complete ModelNet40-C Background severity 5; 2,468 examples per run; seeds 0, 1, 2; batch 32; gamma=eta=.01; lambda=.95; 100 DDIM steps and 35 background reverse steps. The six archives each contain the required seven files, one archive root, one complete summary/per-corruption row, and no Traceback, RuntimeError, or ValueError. Every artifact records the same Point-MAE, LION, config, label, and Background-file identities. Legacy CLI has lion_eval_mode=false; eval CLI has lion_eval_mode=true. Eval module inventory confirms LION dropout entries have training=false; legacy retains training mode.
+
+**Result:** Legacy accuracies for seeds 0/1/2 are 60.6564%, 61.5073%, and 60.0486%; eval accuracies are 60.8185%, 60.3323%, and 60.7374%. Paired eval-minus-legacy deltas are +0.1621, -1.1750, and +0.6888 percentage points. Means are 60.7374% legacy (SD 0.7327 pp) and 60.6294% eval (SD 0.2605 pp), for a paired mean delta of -0.1080 pp (SD about 0.961 pp). Eval is faster by about 8.21 seconds per run on average (485.69 versus 493.89 seconds) and uses about 500 MiB less peak allocated GPU memory (about 25,250 versus 25,750 MiB).
+
+**Interpretation:** Background does not replicate Gaussian's consistent eval advantage (+1.2966 pp mean across its three seed-controlled pairs). The current evidence falsifies a claim that disabling LION dropout uniformly improves 3DD-TTA over corruptions. It does not isolate a causal dropout effect because the runs are seed-controlled rather than common-random-number paired; changing the mode changes stochastic-draw consumption. The observed mode interaction is nevertheless large enough that a Gaussian-only mode selection would be unjustified.
+
+**Decision:** Do not lock either LION mode as the global baseline yet. Keep batch 32 unchanged. The next protocol decision must evaluate mode behavior across more corruptions before any all-corruption baseline is declared; do not interpret the Background mean as a paper-level reproduction metric.
+
+**Falsifier / next evidence:** A matched common-draw A/B or a broader multi-corruption paired evaluation that shows a stable same-direction difference would revise this conclusion.
+
+
+## 2026-09-13 - 15-corruption LION-mode screen at seed 0
+
+**Evidence:** [Run] Complete seed-0 legacy/eval ZIP pairs under `result/modelnet40_c/3dd_original/`, consisting of the existing Gaussian/Background pairs and 26 newly supplied `*-screen-seed0.zip` artifacts for Cutout, Density, Density Increase, Distortion, RBF Distortion, Inverse-RBF Distortion, Impulse, LiDAR, Occlusion, Rotation, Shear, Uniform, and Upsampling.
+
+**Git revisions:** `9ce5553de9277f9b9d7e26fc729e70b912a7c2d7` for every newly added screen artifact, all Background artifacts, and Gaussian eval. Gaussian legacy seed 0 is `2611da8a7507a449f5c34c5788f92e4506a63ad3`; therefore that one pair spans the PVCNN eval-autograd repair commit.
+
+**Protocol:** ModelNet40-C severity 5, all 15 corruptions, 2,468 examples per corruption, seed 0, batch 32, gamma=eta=.01, lambda=.95, 100 DDIM steps; Background uses 35 reverse steps and other corruptions use 5. Each included ZIP has exactly seven expected files under one root; each selected CSV row is complete, has 2,468 examples, and its stdout has no Traceback, RuntimeError, or ValueError. This is a seed-0 exploratory mode screen, not a locked Level-3 benchmark and not a common-random-number pair.
+
+**Result:** Macro accuracy is 63.0578% legacy (23,344/37,020 correct) and 63.8817% eval (23,649/37,020), a +0.8239 percentage-point eval-minus-legacy difference (+305 correct). Eval is higher in 13/15 corruptions; it is lower only on Rotation (-.5267 pp) and Shear (-.3241 pp). Largest gains are RBF Distortion (+1.9854 pp), Cutout (+1.6613), Density Increase (+1.5802), LiDAR (+1.5802), and Upsampling (+1.2561). Total recorded adaptation runtime is 1,818.34 s eval versus 1,846.22 s legacy; mean peak allocated memory is 25,249.40 MiB eval versus 25,749.44 MiB legacy.
+
+**Interpretation:** The full seed-0 screen strengthens the evidence that LION eval mode can improve the aggregate result under this implementation, but it does not establish a reproducible global advantage. Background seed variation already changes the comparison direction, the new 13 corruption pairs have only seed 0, draws are not common-random-number paired, and the Gaussian seed-0 legacy/eval pair crosses a code revision. The 63.8817% eval screen remains 1.8183 pp below the paper's 65.7% and 2.2183 pp below the README's 66.1%; it must not be used as a claim of paper-level parity.
+
+**Decision:** Keep batch 32. Treat eval mode as the leading candidate for the next confirmed baseline, but do not lock it until matched-commit repeated-seed evidence is obtained. Do not resume GSD/PxP tuning from this screen alone.
+
+**Falsifier / next evidence:** Re-run a predeclared full all-15-corruption evaluation for seeds 1 and 2 under a clean matched commit (or introduce common-draw pairing) and report the three-seed macro mean and variance.
