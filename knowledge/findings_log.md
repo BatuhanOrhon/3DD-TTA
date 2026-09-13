@@ -28,6 +28,14 @@ The checkpoint contains 462/462 prior EMA tensors matching the 462 prior model e
 
 **Active decision:** Run all 15 corruptions for seeds 0 and 1 under matched `eval+raw` and `eval+EMA` conditions before accepting or rejecting EMA as a candidate. This is an exploratory two-seed screen, not a final benchmark claim.
 
+## 2026-09-13 - All-15 three-seed EMA screen: small, non-robust aggregate effect
+
+**Evidence:** [Run] six complete all-15 raw/EMA ZIPs listed in `ema_inventory_20260913.md`, commit `b999a1e`, seeds 0/1/2, severity 5, batch 32, eval mode, matching assets and settings except EMA flag.
+
+**Result:** Raw/EMA macro by seed: 63.7061/63.8466 (+.1405), 63.8088/64.0546 (+.2458), and 63.9006/63.8250 (-.0756) percent. Means are 63.8052/63.9087: **+.1035 ± .1639 pp** sample SD; 70,862/70,977 correct over 111,060 examples. Largest mean gains: Background +.5808 and Distortion +.3647 pp. Largest mean declines: Impulse -.3241 and LiDAR -.2431 pp.
+
+**Decision:** Keep EMA as a documented ablation, not the selected baseline. The small aggregate gain is seed/corruption dependent and non-common-draw paired. Next run legacy+raw for all 15 corruptions at seeds 1/2 to isolate the dropout/eval effect against current eval+raw results.
+
 Append entries chronologically. Never delete negative or superseded results. Use exact run paths for **[Run]** claims.
 
 ## 2026-09-12 — Initial repository and literature audit

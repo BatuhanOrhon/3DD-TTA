@@ -36,3 +36,30 @@ Across the three seeds, Gaussian changes by +.4862, -.2431, and -.4052 pp (mean 
 **Decision (superseded):** The two-corruption result alone is inconclusive. The earlier decision not to run all 15 corruptions was premature because EMA may be corruption-dependent.
 
 **Active next test:** Run a matched screening benchmark over all 15 ModelNet40-C corruptions at seeds 0 and 1: `eval+raw` versus `eval+EMA`, with commit `c91c1c3`, severity 5, batch 32, gamma=eta=.01 and lambda=.95. Interpret the four runs as an exploratory two-seed screen, then decide whether a seed-2 confirmation or source-only severity-4 control is next.
+
+## All-15, three-seed screen
+
+**[Run]** Six complete ZIPs at commit `b999a1e` are archived under `result/modelnet40_c/3dd_original/`: raw/EMA pairs for seeds 0 (`20260913-163817`, `20260913-170822`), 1 (`20260913-173819`, `20260913-180820`), and 2 (`20260913-183818`, `20260913-190813`). Each has 15 complete 2,468-example rows; identical LION/Point-MAE checkpoint hashes; LION eval mode; seed/batch/severity/guidance settings matched; and EMA logs confirm 462 prior tensors.
+
+| Corruption | Raw mean | EMA mean | EMA minus raw |
+|---|---:|---:|---:|
+| uniform | 76.9584% | 77.1880% | +0.2296 pp |
+| gaussian | 74.6623% | 74.9325% | +0.2701 pp |
+| background | 60.4538% | 61.0346% | +0.5808 pp |
+| impulse | 70.4079% | 70.0837% | -0.3241 pp |
+| upsampling | 82.0232% | 82.3204% | +0.2971 pp |
+| distortion_rbf | 62.7634% | 62.8309% | +0.0675 pp |
+| distortion_rbf_inv | 65.1540% | 65.2215% | +0.0675 pp |
+| density | 72.4878% | 72.4743% | -0.0135 pp |
+| density_inc | 86.0886% | 86.3182% | +0.2296 pp |
+| shear | 66.1669% | 66.2075% | +0.0405 pp |
+| rotation | 33.1983% | 33.3739% | +0.1756 pp |
+| cutout | 70.5700% | 70.5700% | +0.0000 pp |
+| distortion | 65.0459% | 65.4106% | +0.3647 pp |
+| occlusion | 40.3025% | 40.1135% | -0.1891 pp |
+| lidar | 30.7942% | 30.5511% | -0.2431 pp |
+| Macro | 63.8052% | 63.9087% | +0.1035 pp |
+
+Seed macro deltas are +.1405, +.2458, and -.0756 pp: **+.1035 ± .1639 pp** (sample SD), equivalent to +115 correct predictions over 111,060 evaluated examples. Ten corruption means are positive, one is zero, and four are negative; neither direction is stable across every seed.
+
+**Decision:** The all-15 screen does not support selecting EMA as a robust baseline improvement. Preserve `--lion-ema-mode` as an ablation and report the small, corruption-dependent result. The next active baseline test is dropout: legacy+raw at seeds 1/2, compared with the now-available eval+raw seeds 1/2.

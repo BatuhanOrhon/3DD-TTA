@@ -42,16 +42,16 @@ Local implementation adds an opt-in `--lion-ema-mode`:
 - `run_baseline.py`: parses `--lion-ema-mode`, so the flag is saved in `config.json` CLI args.
 - Default remains raw prior. VAE EMA is never attempted.
 
-**[Code]** `python -m py_compile models/lion.py main_3dd_tta.py run_baseline.py`, `git diff --check`, and `python run_baseline.py --help` passed locally. **[Run]** Three-seed Gaussian+Impulse raw/EMA pilot is complete: +.2431 ± .3865 pp macro, but Gaussian is negative on average. This two-corruption evidence is inconclusive, not a rejection of EMA; exact evidence is in `ema_inventory_20260913.md`.
+**[Code]** `python -m py_compile models/lion.py main_3dd_tta.py run_baseline.py`, `git diff --check`, and `python run_baseline.py --help` passed locally. **[Run]** Three-seed all-15 raw/EMA screen is complete: +.1035 ± .1639 pp macro, with seed 2 negative and corruption-dependent signs. EMA remains an ablation, not selected baseline; exact evidence is in `ema_inventory_20260913.md`.
 
 The mapping mirrors original LION training construction (`dae.parameters()`); count and shape checks are safeguards, but this is still an experimental inference-path change that needs output validation.
 
 ## Immediate next action
 
-1. On commit `c91c1c3`, run all 15 ModelNet40-C corruptions at seeds 0 and 1 under matched `eval+raw` / `eval+EMA` conditions, severity 5/batch 32.
-2. Ingest four complete ZIPs; verify matching assets/revision/args except `lion_ema_mode`, and report per-corruption deltas plus two-seed macro summary.
-3. Decide whether EMA earns a seed-2 confirmation from its all-corruption pattern. If not, run the source-only severity-4 control.
-4. GSD remains parked until this baseline gate is resolved.
+1. On commit `b999a1e`, run all 15 ModelNet40-C corruptions in legacy+raw mode at seeds 1 and 2, severity 5/batch 32.
+2. Compare these with current matching eval+raw seeds 1/2 to isolate dropout/eval behavior. Do not include EMA in this comparison.
+3. Retain the earlier all-15 legacy/eval seed-0 result as historical/cross-commit support, but report seed 1/2 as current matched-commit evidence.
+4. GSD remains parked until the dropout baseline gate is resolved.
 
 ## Research constraints
 
