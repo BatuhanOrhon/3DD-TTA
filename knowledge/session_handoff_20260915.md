@@ -31,6 +31,9 @@ This is a seed-controlled rather than common-random-number paired comparison.
 It supports an operational default, not a claim that one dropout layer alone
 causes the improvement.
 
+For the complete terminology and all seed-0/1/2 macro results, read
+`inference_mode_matrix_20260915.md`.
+
 ## EMA decision
 
 **[Run]** The full 15-corruption, seed-0/1/2 `eval+raw` versus `eval+EMA`

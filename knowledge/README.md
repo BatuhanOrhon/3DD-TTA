@@ -20,7 +20,7 @@ The project studies training-free test-time input adaptation for corrupted 3D po
 
 Before clean-restart implementation also read the [follow-up code audit](code_audit_20260912.md) and [small implementation batches](clean_restart_batches.md). These refine earlier informal next-test ordering.
 
-Current next action: read the [2026-09-15 session handoff](session_handoff_20260915.md) and the matched [LION eval-mode screen](dropout_eval_mode_20260913.md), then investigate the source-only/released-data gap through a labelled severity 1--5 probe. `--lion-eval-mode` with raw weights is the provisional baseline; EMA, GSD/PxP and other datasets remain parked. Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
+Current next action: read the [2026-09-15 session handoff](session_handoff_20260915.md), the [inference-mode matrix](inference_mode_matrix_20260915.md), and the matched [LION eval-mode screen](dropout_eval_mode_20260913.md), then investigate the source-only/released-data gap through a labelled severity 1--5 probe. `--lion-eval-mode` with raw weights is the provisional baseline; EMA, GSD/PxP and other datasets remain parked. Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
 
 After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
 
