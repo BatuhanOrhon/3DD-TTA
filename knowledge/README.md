@@ -20,7 +20,7 @@ The project studies training-free test-time input adaptation for corrupted 3D po
 
 Before clean-restart implementation also read the [follow-up code audit](code_audit_20260912.md) and [small implementation batches](clean_restart_batches.md). These refine earlier informal next-test ordering.
 
-Current next action: read the [2026-09-13 session handoff](session_handoff_20260913.md) and the matched [LION eval-mode screen](dropout_eval_mode_20260913.md), then investigate the source-only/released-data gap. `--lion-eval-mode` with raw weights is the provisional baseline; EMA, GSD/PxP and other datasets remain parked. Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
+Current next action: read the [2026-09-15 session handoff](session_handoff_20260915.md) and the matched [LION eval-mode screen](dropout_eval_mode_20260913.md), then investigate the source-only/released-data gap through a labelled severity 1--5 probe. `--lion-eval-mode` with raw weights is the provisional baseline; EMA, GSD/PxP and other datasets remain parked. Research preference: no unit-test files by default; proportionate local structural/protocol checks and archived Colab experiments.
 
 After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
 
@@ -78,4 +78,4 @@ After any material experiment, diagnosis, code change, or paper review:
 
 ## First action for the next session
 
-Read the [session handoff](session_handoff_20260913.md). It supersedes historical smoke/ShapeNet-next-action statements above and records the exact uncommitted EMA implementation, accepted evidence, current blockers and the immediate Colab pair. Numerical experiments remain Colab-only.
+Read the [current session handoff](session_handoff_20260915.md). It supersedes historical smoke/ShapeNet-next-action statements above and records the selected eval/raw baseline, EMA decision, current blockers, and immediate Colab experiment. Numerical experiments remain Colab-only.
