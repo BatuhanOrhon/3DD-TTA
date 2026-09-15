@@ -326,3 +326,47 @@ What result would overturn or materially revise the interpretation.
 **Decision:** Select `--lion-eval-mode` with raw weights as the provisional baseline for subsequent reproduction diagnostics. Keep legacy/raw as the comparator, retain EMA as an ablation, and keep GSD/PxP parked. Full table and protocol caveats: `knowledge/dropout_eval_mode_20260913.md`.
 
 **Falsifier / next evidence:** A common-random-number legacy/eval control that reverses the result would overturn the operational choice. Independently, a labelled source-only severity 1--5 probe is the next P0 test for the reproduction gap.
+
+## 2026-09-15 - Main/LION re-audit: FPS and integration candidates
+
+**Evidence:** [Code], [Paper], [Inference]; [Run] reanalysis only of existing
+source/eval bundles. Active HEAD `262f3a668b3f5a7bc44c6282c4a8a2723ac6f00a`;
+3DD-TTA main `107305fd7baf40b359f31c07d235599198be7324`; LION
+`7711b3d185752eeb632d095494876e4de15f3195`. Remote main refs agree with local.
+Full source locations, exact archive paths, protocol and falsifiers are in
+`knowledge/code_audit_20260915.md`. No new GPU evaluation or algorithm change.
+
+**New observations:** [Code/Run] source-only always requests FPS(1024), although
+Density/Cutout/LiDAR inputs contain only 649/724/768 points in
+`result/modelnet40_c/source_only/20260912-111822_source-only_seed0/`. Gather-based
+sampling necessarily repeats indices. The bundled FPS kernel also excludes
+later candidates of squared radius <=.001, even when input/output counts match.
+The binary's actual behavior requires Colab inspection. [Code] Point-MAE creates
+unused NumPy random masks in all-token classification, which can alter subsequent
+TTA interpolation; added classifier diagnostics need RNG isolation. Inherited
+PVCNN interpolation/voxelization supplies only partial coordinate gradients.
+
+**Reconfirmed:** [Paper/Code] final decoding uses old global style despite its
+updates; Eq. 11 point-count denominators are absent from the SCD sum; paper
+lambda=.96 differs from code .95. Decoder residual weight .01 makes the style
+effect a measured question, not a promised gain. A shared-trajectory paired
+decode is the smallest targeted TTA experiment. A preprocessing-only identity
+control is missing from attribution of TTA-minus-source gains.
+
+**Reference correction:** visually checked Table 2 confirms paper source=57.6%;
+corrected the stale corruption headings in `papers/3dd_tta.md`. The earlier
+2026-09-13 audit claimed that correction but the old headings had remained.
+
+**Decision:** finish severity 1--5 first; if unresolved, prioritize installed
+FPS/index and preprocessing controls before source-data gate closure. Queue
+updated-style, SCD-scale and lambda as separate exploratory TTA tests after
+reviewing that gate. Keep eval/raw, batch32, severity5 and parked-method decisions.
+No candidate has a newly established accuracy benefit. Preserve all raw evidence;
+commit only the relevant knowledge changes. The pre-existing runner note-only
+working change remains uncommitted and was not modified by this audit.
+
+**Falsifiers:** an installed FPS binary without the suspected behavior weakens
+that runtime explanation; matched source controls with unchanged predictions
+rule down sampling/preprocessing effects. Null/negative shared-trajectory style
+results rule down the decoder candidate. Record full seven-file Colab ZIPs for
+each condition/seed; do not infer causality from cross-paper gain subtraction.

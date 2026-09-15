@@ -90,3 +90,21 @@ A cause is accepted only if changing that single factor produces a repeatable, d
 ## Current conclusion
 
 **[Inference]** The verified LION mode discrepancy is now a high-priority one-factor test alongside data/checkpoint/environment controls; no accuracy root cause is confirmed. This refines the earlier environment/stochasticity-first hypothesis rather than disproving it. Required evidence is a complete baseline bundle and controlled dropout A/B, not another unmatched method sweep.
+
+## Operational update - 2026-09-15
+
+The historical next-action text above is superseded by
+`session_handoff_20260915.md`: eval/raw is provisionally selected from complete
+matched seed-1/2 runs, EMA remains an ablation, and source-only severity 1--5 is
+the active diagnostic. No source-data root cause has been established.
+
+**[Code/Run/Inference]** The new `code_audit_20260915.md` identifies a concrete
+source-path candidate: FPS requests 1024 outputs from 649/724/768-point
+Density/Cutout/LiDAR files, and its bundled kernel contains an origin filter.
+Index repetition is unavoidable for those lengths; the actual binary's filtering
+and classifier effect await Colab evidence. These corruptions already have
+source deficits of about 9.87/8.12/9.16 pp against rounded paper cells.
+Investigate this alongside data/checkpoint identity if severity does not resolve
+the descriptive gap. A preprocessing-only identity control would separate that
+effect from LION reconstruction. Updated final style and SCD scaling are queued
+TTA candidates, with no newly measured accuracy gain.

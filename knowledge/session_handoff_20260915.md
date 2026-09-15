@@ -85,3 +85,26 @@ Use evidence labels `[Paper]`, `[Code]`, `[Run]`, `[User report]`,
 `[Inference]`, and `[Open]`. After a material result, append it to
 `findings_log.md`, update `open_questions.md` and this handoff as needed, then
 commit/push documentation without adding raw artifacts.
+
+## Subsequent main/LION audit - 2026-09-15
+
+Read `code_audit_20260915.md` while waiting for the five source-only severity
+ZIPs. Audit base is `262f3a668b3f5a7bc44c6282c4a8a2723ac6f00a`; no new GPU
+experiment or model change. Remote main refs match the local audited references.
+
+New source-path priority: installed FPS/index diagnostics. Historical severity-5
+Density/Cutout/LiDAR files contain 649/724/768 points, while source-only requests
+FPS(1024); the bundled kernel also filters near-origin candidates. Inspect its
+actual runtime behavior before changing sampling. The paper's 57.6 source mean
+and Table-2 column order were visually verified; stale paper-note headings fixed.
+
+After source-data gate review, the first small TTA candidate is a shared-trajectory
+original/updated final-style decode comparison; SCD scale and lambda are separate
+later factors. Extra classifier calls must preserve NumPy RNG because unused
+Point-MAE masks still consume it. Details, falsifiers and all source references
+are in the audit. GPU work remains Colab-only; no new accuracy benefit is claimed.
+
+The earlier authorized source-only `notes.md` fix is still a working change in
+`run_baseline.py`, excluded from the knowledge-only commit. Pulling documentation
+alone does not transfer that code edit to Colab. Source-only severity selection
+and immutable ZIP generation already exist at the audit base commit.

@@ -100,3 +100,19 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - **[Run]** All 15 ModelNet40-C severity-5 corruption pairs are now complete at seed 0 and batch 32. The 30 selected full-run artifacts are valid seven-file ZIPs with complete 2,468-example CSV rows.
 - **[Run]** Macro: legacy 63.0578% (23,344/37,020), eval 63.8817% (23,649/37,020), delta +0.8239 pp. Eval is higher for 13/15 seed-0 corruptions and lower for Rotation and Shear.
 - **[Superseded by Run]** The seed-1/2 all-15 repeat is complete under one commit and selects eval provisionally; see `dropout_eval_mode_20260913.md`. It is still not common-draw paired and does not justify a paper-parity claim.
+
+### 2026-09-15 main/LION audit - queued after severity results
+
+Full evidence and staged tests: `code_audit_20260915.md`. No new accuracy run.
+
+- [x] Recheck remote/local main refs and inherited LION sources: 99/100 overlapping model/utility/operator files are identical after line-ending normalization.
+- [x] Visually verify 3DD-TTA Eq. 11, Algorithm 1 and Table 2; fix the still-stale corruption headings in `papers/3dd_tta.md`. Paper source mean is 57.6%.
+- [ ] P0: inspect installed Pointnet2 FPS indices for Density (649 points), Cutout (724), LiDAR (768) and Gaussian (1024): repeated indices, origin filter, unique group centers and extension identity. The source path requests 1024 for all; runtime kernel behavior remains to be measured.
+- [ ] P0: add a separately labelled preprocessing identity control (TTA preprocessing with LION bypassed), then pure VAE reconstruction if needed. Preserve the original direct-loading source comparator.
+- [ ] P1: compare old versus updated final decoder style using one shared denoising trajectory per input, full Gaussian/Impulse at seeds 0/1/2 after source-data gate review. Historical trial/reversion has no matched archived effect.
+- [ ] P1: test Eq.-11-equivalent guidance scale (.01/2048 for both existing rates), separately from lambda .95/.96. This concerns baseline SCD, not the deferred spectral mean/sum study.
+- [ ] P1: isolate NumPy RNG when adding paired classifier calls: current all-token Point-MAE inference still generates unused random masks. Demonstrate fixed-input logit parity before any mask-removal optimization.
+- [ ] P2: quantify missing coordinate derivatives in inherited PVCNN operators using fixed-draw directional finite differences; account for neighbor/grid discontinuities before proposing a kernel change.
+- [ ] P1: establish checkpoint-specific provenance for scale 3.3885 and all55 normalization; public PointFlow loader alone does not establish the historical all55 training path.
+
+Existing eval/raw baseline and EMA/GSD/other-dataset decisions remain in force.

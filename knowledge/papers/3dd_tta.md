@@ -36,11 +36,18 @@ The current repository default `lambda_cd=0.95` is therefore close but not ident
 
 Table 2 of the published PDF reports the Point-MAE source model at **57.6%**, MATE-S at **64.3%**, and 3DD-TTA at **65.7%** mean accuracy. The 3DD-TTA per-corruption row is:
 
-| scale | jitter | dropout-global | dropout-local | rotate | add-global | add-local | density | density-inc | cutout | distortion | occlusion | lidar | shear | uniform | mean |
+| uniform | gaussian | background | impulse | upsampling | distortion_rbf | distortion_rbf_inv | density | density_inc | shear | rotation | cutout | distortion | occlusion | lidar | mean |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 77.5 | 79.1 | 49.9 | 80.3 | 81.8 | 63.8 | 66.9 | 79.3 | 84.7 | 63.7 | 33.4 | 74.7 | 68.2 | 39.9 | 42.2 | **65.7** |
 
-The repo `README.md` reports **66.1%**, with at least some different cells (for example density decrease and distortion). Treat 65.7 as the published target and 66.1 as the repository target; do not average or silently substitute them.
+The repo `README.md` reports **66.1%**, with at least some different cells (for example density decrease and distortion). Its displayed cells average **65.44%**. Treat 65.7 as the published target and 66.1 as the repository's separate, arithmetically inconsistent claim; do not silently substitute them.
+
+**[Paper, correction verified visually 2026-09-15]** The previous headings in
+this note incorrectly named/reordered corruptions; the values were unchanged.
+The corrected order above follows Table 2, PDF page 7 / printed page 1572.
+The 2026-09-13 audit had recorded the correct mapping but had not actually
+replaced this table's headings. Table 2 also explicitly reports Point-MAE
+source **57.6%**; it is not solely a README reference.
 
 ## Current code correspondence
 
@@ -79,3 +86,12 @@ Observed code/paper details that require controlled validation:
 - **[Paper]** The cited ModelNet40-C benchmark has 15 corruption types with five severity levels (75 corruption settings): https://arxiv.org/abs/2201.12296 . Its official eval_cor.sh loops severity 1 2 3 4 5: https://github.com/jiachens/ModelNet40-C/blob/master/eval_cor.sh .
 - **[Code]** The 3DD-TTA upstream utility loader has selected data_<corruption>_5.npy since its initial public commit e5b7278 (2024-12-05), before the WACV paper publication. README/data instructions also use _5 filenames. This is strong evidence for the released 3DD-TTA evaluation path, but it cannot prove the unpublished run that generated Table 2 used identical code/assets.
 - **[Inference]** A lower-severity explanation remains logically possible only through an unpublished evaluation path. It currently has no positive evidence. A source-only severity sweep can identify which local severity best matches the paper's Point-MAE row, but cannot establish publication provenance if checkpoint/data identities differ.
+
+### Current implementation audit (2026-09-15)
+
+See [the main/LION audit](../code_audit_20260915.md) for visually verified
+Algorithm-1 updated-style decoding, Eq.-11 point-count normalization, inherited
+FPS edge cases, unused mask RNG consumption and staged Colab diagnostics.
+Earlier statements that eval-mode accuracy impact is unmeasured are superseded
+by the matched all-15 seed-1/2 result in `../dropout_eval_mode_20260913.md`:
+eval/raw is the selected operational baseline; EMA remains an ablation.
