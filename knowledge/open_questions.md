@@ -8,7 +8,7 @@
 - [x] Repeat EMA at seeds 1 and 2 on Gaussian+Impulse: three-seed macro +.2431 ± .3865 pp, Gaussian mean -.0540 pp and Impulse +.5402 pp.
 - [x] Screen all 15 corruptions under matched eval+raw/eval+EMA conditions: completed at seeds 0/1/2; see EMA result below.
 - [x] Complete all-15 EMA screen at seeds 0/1/2: +.1035 ± .1639 pp macro; EMA remains an ablation, not selected baseline. See `ema_inventory_20260913.md`.
-- [ ] Active: run all-15 legacy+raw seeds 1/2, then compare with matched eval+raw seeds 1/2 to isolate dropout/eval effect.
+- [x] Complete matched all-15 legacy+raw versus eval+raw screen at seeds 1/2: eval is +.7577 +/- .1203 pp macro and higher on 13/15 corruption means. See `dropout_eval_mode_20260913.md`; eval is the provisional baseline, not a causal/common-draw result.
 
 Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method interpretation; **P2** is valuable after the foundation is stable.
 
@@ -26,7 +26,7 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 ## P1 â€” Baseline implementation questions
 
 - [x] Compare original LION inference modes: trainer evaluation disables dropout; the inherited demo wrapper and current TTA setup do not. Accuracy causality is still open; see `code_audit_20260912.md`.
-- [ ] Measure isolated dropout A/B after source-only identity checks: Gaussian is complete at seeds 0,1,2 and favors eval by +1.30 pp mean; run background at seeds 0,1,2 (35 reverse steps), then decide whether the effect generalizes. The runner is seed-controlled, not fully common-draw-paired.
+- [x] Broaden the LION mode A/B beyond Gaussian/Background: matched-commit all-15 seed-1/2 screen favors eval by +.7577 +/- .1203 pp and 13/15 corruption means. `dropout_eval_mode_20260913.md` records the full evidence. A common-random-number pair remains open if a causal dropout estimate is required.
 - [x] Rerun the eval-mode Gaussian full Gaussian evaluation after the PVCNN autograd repair: it completed at 74.68% versus legacy 73.99%, with priors/VAE eval confirmed. This is a one-seed, non-common-draw pilot only; repeat seeds 1--2 and background before selecting the mode.
 - [x] Create clean main-based branch reference: baseline-repro-clean at 107305fd7baf40b359f31c07d235599198be7324; legacy checkout/files unchanged.
 - [x] Finish same-folder clean-branch checkout and preserve curated skill/knowledge/protocol plus source PDFs; user selected in-place development. Tracked code matches main; existing stash untouched.
@@ -99,4 +99,4 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 
 - **[Run]** All 15 ModelNet40-C severity-5 corruption pairs are now complete at seed 0 and batch 32. The 30 selected full-run artifacts are valid seven-file ZIPs with complete 2,468-example CSV rows.
 - **[Run]** Macro: legacy 63.0578% (23,344/37,020), eval 63.8817% (23,649/37,020), delta +0.8239 pp. Eval is higher for 13/15 seed-0 corruptions and lower for Rotation and Shear.
-- **[Open]** This remains an exploratory screen: Gaussian legacy seed 0 predates `9ce5553`, the 13 newly screened corruptions lack seeds 1--2, and pairing is not common-draw. Repeat the predeclared all-15 evaluation at seeds 1 and 2 under one commit before locking a global LION mode or making a benchmark claim.
+- **[Superseded by Run]** The seed-1/2 all-15 repeat is complete under one commit and selects eval provisionally; see `dropout_eval_mode_20260913.md`. It is still not common-draw paired and does not justify a paper-parity claim.

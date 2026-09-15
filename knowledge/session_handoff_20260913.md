@@ -6,7 +6,7 @@ Read this note first after `knowledge/README.md`. It is the current state snapsh
 
 - Working repository: `D:/Akademik/Okul/Thesis/code/3DD-TTA`
 - Active branch: `baseline-repro-clean`
-- HEAD: `9ce5553de9277f9b9d7e26fc729e70b912a7c2d7`
+- HEAD: `69437d5d264bad9af8650ab00c06cd6f86435610`
 - The working tree is intentionally dirty. Do **not** reset, checkout, clean, stash, or delete existing artifacts/PDFs without user direction.
 - EMA implementation was committed and pushed as `c91c1c3` on `baseline-repro-clean`: `models/lion.py`, `main_3dd_tta.py`, `run_baseline.py`.
 - Existing dirty knowledge files and untracked PDFs/results are part of the thesis record. Preserve them.
@@ -17,7 +17,7 @@ Read this note first after `knowledge/README.md`. It is the current state snapsh
 
 - **[Paper]** WACV Table 2 reports 3DD-TTA mean 65.7%. Its 15 displayed cells average 65.6933%. README claims 66.1%, but its displayed cells average 65.44%; do not use 66.1 as an internally validated target.
 - **[Run]** Source-only severity-5 all-15 mean is 53.6899%, versus paper source 57.6%. The mismatch exists before LION/TTA. Clean `data_original.npy` source-only is 90.64% (2237/2468).
-- **[Run]** Full severity-5 seed-0 macro: legacy 63.0578%, LION eval 63.8817%, +0.8239 pp. Gaussian eval improves over legacy across seeds 0/1/2 by mean +1.2966 pp; Background does not generalize that effect (mean -0.1080 pp). Do not select an inference mode globally yet.
+- **[Run]** Matched-commit all-15 seed-1/2 screen: legacy/raw 63.0970% versus eval/raw 63.8547%, eval-minus-legacy +.7577 +/- .1203 pp and higher on 13/15 corruption means. Eval is the provisional reproduction baseline; `dropout_eval_mode_20260913.md` has artifacts and caveats. The historical seed-0 screen remains supporting, not strictly paired evidence.
 - **[Code/Paper]** Background uses 35 reverse steps in original upstream code and is discussed in paper Section 4.4. Do not infer five Table-2 steps merely from the paper’s lower Background accuracy.
 - **[Code/Paper]** Released SCD is unnormalized sum while Eq.11 divides directed sums by point count. This is an untested isolated hypothesis; it is distinct from deferred spectral-loss mean/sum work.
 - **[Code/Paper]** `style_cond` is updated in `tta.py`, but final decoding receives initial `shape_latent`. Historical fork tried the alternative; no current controlled result exists.
@@ -48,10 +48,10 @@ The mapping mirrors original LION training construction (`dae.parameters()`); co
 
 ## Immediate next action
 
-1. On commit `b999a1e`, run all 15 ModelNet40-C corruptions in legacy+raw mode at seeds 1 and 2, severity 5/batch 32.
-2. Compare these with current matching eval+raw seeds 1/2 to isolate dropout/eval behavior. Do not include EMA in this comparison.
-3. Retain the earlier all-15 legacy/eval seed-0 result as historical/cross-commit support, but report seed 1/2 as current matched-commit evidence.
-4. GSD remains parked until the dropout baseline gate is resolved.
+1. Treat `--lion-eval-mode` with raw prior weights as the provisional baseline; preserve legacy/raw as its comparator and leave EMA disabled.
+2. Address the still-unresolved source-only/released-data gap, beginning with the planned labelled ModelNet40-C source-only severity 1--5 probe.
+3. If causal attribution of the mode effect becomes necessary, add a common-random-number legacy/eval control; current evidence is seed-controlled only.
+4. GSD remains parked until the reproduction/source-data gate is resolved.
 
 ## Research constraints
 

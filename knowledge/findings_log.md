@@ -302,3 +302,19 @@ What result would overturn or materially revise the interpretation.
 **Decision:** Keep batch 32. Treat eval mode as the leading candidate for the next confirmed baseline, but do not lock it until matched-commit repeated-seed evidence is obtained. Do not resume GSD/PxP tuning from this screen alone.
 
 **Falsifier / next evidence:** Re-run a predeclared full all-15-corruption evaluation for seeds 1 and 2 under a clean matched commit (or introduce common-draw pairing) and report the three-seed macro mean and variance.
+
+## 2026-09-13 - Matched all-15 LION eval-mode screen, seeds 1 and 2
+
+**Evidence:** [Run] `result/modelnet40_c/3dd_original/20260913-173819_3dd-original-all15-eval-raw-seed1.zip`, `20260913-183818_3dd-original-all15-eval-raw-seed2.zip`, `20260913-200206_3dd-original-all15-legacy-raw-seed1.zip`, and `20260913-203231_3dd-original-all15-legacy-raw-seed2.zip`. All are safe seven-file ZIPs with 15 complete 2,468-example rows and no error signature in `stdout.log`.
+
+**Git commit:** `b999a1eb809690a625c1075b205cb042b384443f` for all four bundles.
+
+**Protocol:** ModelNet40-C severity 5, all 15 corruptions, 37,020 examples/run, batch 32, gamma=eta=.01, lambda=.95, raw LION prior (`lion_ema_mode=false`) and seeds 1/2. The sole planned condition difference is `lion_eval_mode`: legacy has false and records LION prior/VAE dropout `training=true`; eval has true and records `training=false`. Recorded LION and Point-MAE checkpoint identities agree across all four bundles.
+
+**Result:** Legacy macro accuracies are 63.1361% (seed 1) and 63.0578% (seed 2), mean 63.0970%. Eval/raw is 63.8088% and 63.9006%, mean 63.8547%. Eval minus legacy is +.6726 and +.8428 pp, respectively: **+.7577 +/- .1203 pp** sample SD, or +561 correct predictions across the two complete runs. Eval is higher in 13/15 two-seed per-corruption means; the largest mean gains are Density (+1.742 pp), Shear (+1.682), Impulse (+1.479), Cutout (+1.074), and LiDAR (+1.033). Uniform (-.122) and Background (-.101) are lower.
+
+**Interpretation:** This is the first full, same-commit repeated-seed evidence that the LION eval-mode path is operationally preferable in this fork. It remains a seed-controlled, non-common-draw comparison, so it cannot isolate the causal effect of dropout alone; it also does not resolve the source-only gap or establish parity with the 65.7% paper mean.
+
+**Decision:** Select `--lion-eval-mode` with raw weights as the provisional baseline for subsequent reproduction diagnostics. Keep legacy/raw as the comparator, retain EMA as an ablation, and keep GSD/PxP parked. Full table and protocol caveats: `knowledge/dropout_eval_mode_20260913.md`.
+
+**Falsifier / next evidence:** A common-random-number legacy/eval control that reverses the result would overturn the operational choice. Independently, a labelled source-only severity 1--5 probe is the next P0 test for the reproduction gap.
