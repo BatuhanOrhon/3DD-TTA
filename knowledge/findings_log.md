@@ -36,6 +36,14 @@ The checkpoint contains 462/462 prior EMA tensors matching the 462 prior model e
 
 **Decision:** Keep EMA as a documented ablation, not the selected baseline. The small aggregate gain is seed/corruption dependent and non-common-draw paired. Next run legacy+raw for all 15 corruptions at seeds 1/2 to isolate the dropout/eval effect against current eval+raw results.
 
+## 2026-09-15 - EMA provenance audit: code-backed, not paper-reported
+
+**Evidence:** [Paper] local `lion.pdf` exact-term scan; [Code] original local LION repository `../LION/trainers/common_fun_prior_train.py`, `trainers/train_prior.py`, `utils/ema.py`, plus this fork's supplied `lion_ckpts/unconditional_all55_cfg.yml`; [Run] checkpoint inventory under `result/modelnet40_c/diagnostics/`.
+
+**Result:** The LION paper text contains no exact `EMA`, `exponential moving average`, or `moving average` mention. The original training code does wrap the prior/DAE optimizer in an EMA optimizer, serializes its state as `dae_optimizer`, and swaps those weights into the prior around sampling when `cfg.ddpm.ema` is enabled. The supplied all55 configuration enables it with decay .9999. The checkpoint has 462 matching prior EMA tensors and no VAE EMA tensors.
+
+**Decision:** Retain the EMA experiment as a code-derived fork ablation, not a paper reproduction claim. Its existing three-seed all-15 result remains +.1035 +/- .1639 pp and is not selected. Full audit: `ema_inventory_20260913.md`.
+
 Append entries chronologically. Never delete negative or superseded results. Use exact run paths for **[Run]** claims.
 
 ## 2026-09-12 — Initial repository and literature audit

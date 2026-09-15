@@ -18,6 +18,9 @@ No legacy+EMA run was made: EMA was tested only against eval+raw, which is the
 appropriate trained-sampling comparison. The raw/eval condition is the current
 provisional baseline.
 
+EMA is a verified original-LION code-path detail, not a LION-paper-reported
+method component. See the provenance audit in `ema_inventory_20260913.md`.
+
 ## Complete-run matrix
 
 | LION condition | Seed 0 | Seed 1 | Seed 2 | Mean +/- sample SD | Evidence status |

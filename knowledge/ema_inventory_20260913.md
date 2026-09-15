@@ -6,6 +6,31 @@ The Colab checkpoint contains `dae_state_dict`, `dae_optimizer`, `vae_state_dict
 
 Implementation: `models/lion.py` now has opt-in `use_ema`, exposed by `--lion-ema-mode` in `main_3dd_tta.py` and `run_baseline.py`. Default raw loading is unchanged. The loader validates optimizer parameter count and every EMA tensor shape before copying parameters.
 
+## Provenance clarification - 2026-09-15
+
+**[Paper]** Text extraction from the local LION paper (`lion.pdf`, 19 pages)
+finds zero occurrences of the exact terms `EMA`, `exponential moving average`,
+and `moving average`. EMA is therefore **not** a paper-reported LION method
+claim or a stated explanation for any paper result.
+
+**[Code]** It is nevertheless a real implementation detail in the original
+LION training repository at `../LION/`: `trainers/common_fun_prior_train.py`
+wraps the prior/DAE optimizer in `EMA(..., ema_decay=args.ema_decay)`;
+`utils/ema.py` updates each optimizer-state `ema` tensor after the base
+optimizer step; and `trainers/train_prior.py` saves that optimizer state in
+`dae_optimizer`. At sampling, `trainers/train_prior.py` conditionally calls
+`dae_optimizer.swap_parameters_with_ema(store_params_in_ema=True)` before and
+after sampling. The supplied matching configuration in this fork,
+`lion_ckpts/unconditional_all55_cfg.yml`, sets `ddpm.ema: 1` and
+`sde.ema_decay: .9999`.
+
+**[Run]** The supplied LION checkpoint inventory independently records 462/462
+shape-matching prior EMA tensors in `dae_optimizer`, and no VAE EMA tensors.
+Our opt-in loader reconstructs this **prior-only sampling swap** because
+3DD-TTA loads modules directly instead of instantiating the original trainer.
+The reconstruction is shape/count validated, but it remains a fork ablation;
+it must not be presented as a paper-specified 3DD-TTA or LION setting.
+
 Next: compare eval+raw versus eval+EMA on complete Gaussian and Impulse severity-5 files with identical seed, scheduler, rates, lambda and batch. Do not replace VAE weights.
 
 ## First pilot result
