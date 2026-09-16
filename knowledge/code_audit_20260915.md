@@ -236,8 +236,11 @@ adaptation-specific probe (local gain is about 6.44 pp smaller than the paper's)
 
 ## Decision and Colab handoff
 
-1. Finish/validate the approved source-only severity 1--5 ZIPs first.
-2. If the source gap remains, prioritize installed FPS/index diagnostics and
+1. The approved source-only severity 1--5 ZIPs are complete and validated:
+   75.8806%, 73.2739%, 68.5062%, 62.0205%, and 53.6899% for severities 1--5.
+   The -22.1907 pp curve is descriptive evidence, but no tested level matches
+   the paper's 57.6% source row; severity 5 remains the benchmark condition.
+2. Because the source gap remains, prioritize installed FPS/index diagnostics and
    preprocessing identity, alongside checkpoint/data provenance. These controls
    require a separately scoped runner extension; current CLI does not implement
    them. Keep seed 0 initially for index inspection; use 0/1/2 for stochastic
@@ -254,4 +257,5 @@ Every Colab evaluation must use `!conda run --no-capture-output -n 3dd_tta_env
 python ...` and produce a fresh immutable seven-file run directory/ZIP per
 condition/seed, following `result/README.md`. Request the full ZIP, including
 command, config, environment, stdout, summary, per-corruption counts and notes;
-omit credentials. No new Colab result or accuracy gain is claimed here.
+omit credentials. The severity probe is recorded as `[Run]` evidence; no new
+TTA accuracy gain is claimed here.
