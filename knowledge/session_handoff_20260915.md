@@ -108,3 +108,39 @@ The earlier authorized source-only `notes.md` fix is still a working change in
 `run_baseline.py`, excluded from the knowledge-only commit. Pulling documentation
 alone does not transfer that code edit to Colab. Source-only severity selection
 and immutable ZIP generation already exist at the audit base commit.
+
+## Source-only severity probe result - 2026-09-16
+
+Five immutable all-15 ModelNet40-C source-only runs were received and validated:
+
+| severity | mean / micro accuracy | correct / total | archive SHA256 (prefix) |
+|---:|---:|---:|---|
+| 1 | 75.8806% | 28091 / 37020 | `a99c8998` |
+| 2 | 73.2739% | 27126 / 37020 | `a5272e15` |
+| 3 | 68.5062% | 25361 / 37020 | `a716844b` |
+| 4 | 62.0205% | 22960 / 37020 | `49cef14e` |
+| 5 | 53.6899% | 19876 / 37020 | `01fdcfda` |
+
+Evidence: `[Run]` ZIPs under `result/modelnet40_c/source_only/`; each archive
+contains exactly the seven required files, 15 complete corruption rows, the
+same classifier and label hashes, and direct `data_<corruption>_<severity>.npy`
+paths. Macro and micro means coincide because every corruption has 2468 examples.
+
+Interpretation: severity is a strong descriptive factor (`-22.1907 pp` from
+severity 1 to 5), but it does not explain the paper-vs-reproduction gap by
+itself: severity 5 is `53.6899%` (`-3.9101 pp` vs the paper's `57.6%`), while
+severities 1--4 are above that paper source value. Thirteen of fifteen corruption
+curves are monotone; Occlusion and LiDAR are non-monotone at low severity, so
+the probe is descriptive rather than a claim of a universal severity law.
+
+Metadata caveat: these runs used commit `262f3a6` and the pre-fix runner SHA;
+their generic `notes.md` text is stale, but the configs, logs, summaries and
+per-corruption rows validate the intended source-only protocol. Do not replace
+the raw archives. Keep severity 5 as the benchmark condition and do not present
+a lower-severity result as the paper benchmark.
+
+Next P0 checks before new TTA methods: (1) capture actual Colab FPS indices and
+duplicate counts, (2) reconcile checkpoint/archive and corruption-file provenance,
+and (3) run a preprocessing-identity control. Only after this source-data gate
+should the shared-trajectory decode and separate SCD-scale/lambda hypotheses be
+tested.

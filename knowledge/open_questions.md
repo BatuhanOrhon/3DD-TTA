@@ -116,3 +116,17 @@ Full evidence and staged tests: `code_audit_20260915.md`. No new accuracy run.
 - [ ] P1: establish checkpoint-specific provenance for scale 3.3885 and all55 normalization; public PointFlow loader alone does not establish the historical all55 training path.
 
 Existing eval/raw baseline and EMA/GSD/other-dataset decisions remain in force.
+
+### 2026-09-16 source-only severity probe
+
+- [x] Complete all-15 source-only severity 1--5 at seed 0, batch 32, frozen Point-MAE and direct loading. Macro: 75.8806%, 73.2739%, 68.5062%, 62.0205%, 53.6899%.
+- [x] Validate five ZIPs: seven files, 15 complete rows, 2,468 examples/corruption, 37,020 total, config/CSV/file severity agreement and no traceback.
+- [x] Confirm severity 5 reproduces the prior 53.6899% source-only result and the same classifier/label hashes are used across levels.
+- [x] Record metadata caveat: all five `notes.md` files retain old generic smoke wording. Raw artifacts are preserved and not rewritten; the results remain complete with documented metadata debt.
+- [x] Descriptive conclusion: severity strongly affects source accuracy (-22.1907 pp from s1 to s5), but no tested severity is a provenance match for paper source 57.6% (s4 +4.4205 pp, s5 -3.9101 pp).
+- [ ] P0 next: inspect installed Pointnet2 FPS extension indices for Density/Cutout/LiDAR and Gaussian, including unique counts, repeats, origin-filter candidates and extension identity.
+- [ ] P0 next: identify corruption archive/generator version and checkpoint provenance; seek a paper-specific severity statement or canonical asset hashes.
+- [ ] P0 next: run a preprocessing identity control that follows TTA normalization/interpolation/scale/rotation then bypasses LION, separating preprocessing from generative adaptation.
+
+Severity 5 remains the operational benchmark. No lower severity may be reported as
+the paper's benchmark without new provenance evidence.

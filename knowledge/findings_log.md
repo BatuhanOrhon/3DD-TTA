@@ -370,3 +370,67 @@ that runtime explanation; matched source controls with unchanged predictions
 rule down sampling/preprocessing effects. Null/negative shared-trajectory style
 results rule down the decoder candidate. Record full seven-file Colab ZIPs for
 each condition/seed; do not infer causality from cross-paper gain subtraction.
+
+## 2026-09-16 - Source-only severity 1--5 probe: severity explains a large descriptive component
+
+**Evidence:** [Run] Five complete seven-file ZIPs under
+`result/modelnet40_c/source_only/`:
+
+- `20260915-184540_source-only-sev1-all15_seed0.zip` (SHA-256 `a99c8998212d006a94418e8168ab21d299989f022a5fc87ccf6f9d70b76e8c7b`)
+- `20260915-184848_source-only-sev2-all15_seed0.zip` (SHA-256 `a5272e15c439772357ec1ef9d51b9dd67635158f08d725d6fa4091db400c23f6`)
+- `20260915-185118_source-only-sev3-all15_seed0.zip` (SHA-256 `a716844b0974efeee723ae36d447cc5dcaea198cbec8b86dfe735b2d2f5b60f1`)
+- `20260915-185346_source-only-sev4-all15_seed0.zip` (SHA-256 `49cef14e82ae709e9ed67c96ef4d6104d263dce7599fda71661c434b4fc6c458`)
+- `20260915-185615_source-only-sev5-all15_seed0.zip` (SHA-256 `01fdcfdab370f06a4d9b950603174fb6b978cd0c3acc1b2fd2a812eb7a0ceea6`)
+
+All five use commit `262f3a668b3f5a7bc44c6282c4a8a2723ac6f00a`, seed 0,
+batch 32, frozen Point-MAE, direct corruption-file loading, FPS(1024), all
+15 corruptions and 2,468 examples per corruption. Classifier checkpoint hash
+is `507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75`; the
+label hash is identical across levels. Each archive has a safe single root,
+all required files, 15 complete rows, 37,020 total examples, matching
+config/CSV severity and no traceback/error signature. The generated `notes.md`
+files retain the pre-patch generic smoke wording; this is documented metadata
+debt and raw artifacts are not rewritten.
+
+**Hypothesis:** released corruption severity could explain part of the source
+Point-MAE discrepancy before LION/TTA.
+
+### Result
+
+| Severity | Macro = micro accuracy | Correct / 37,020 | Difference from paper source 57.6% |
+|---:|---:|---:|---:|
+| 1 | 75.8806% | 28,091 | +18.2806 pp |
+| 2 | 73.2739% | 27,126 | +15.6739 pp |
+| 3 | 68.5062% | 25,361 | +10.9062 pp |
+| 4 | 62.0205% | 22,960 | +4.4205 pp |
+| 5 | 53.6899% | 19,876 | -3.9101 pp |
+
+Severity 1 to 5 changes the macro by **-22.1907 pp**. Thirteen of 15
+corruption curves are non-increasing. Occlusion rises from 41.7747% (s1) to
+43.7196% (s3); LiDAR rises from 20.2188% to 23.7439% before declining. The
+severity-5 row exactly reproduces the earlier source-only 53.6899% result.
+The largest s5 deficits against rounded paper source cells are Density
+(65.2350% vs 75.1%), LiDAR (19.9352% vs 29.1%), Cutout (62.2771% vs 70.4%)
+and Gaussian (51.2966% vs 57.0%).
+
+### Interpretation and decision
+
+**[Inference]** Severity is a strong descriptive determinant of source-only
+accuracy and can account for more than the observed s5 gap if a different
+severity were used. No tested severity is a provenance match for the paper:
+s4 is 4.4205 points above 57.6%, while s5 is 3.9101 points below it. The paper
+reports 57.6% in Table 2 but does not state severity; released 3DD-TTA code
+uses `_5` files. Checkpoint/data identity and corruption-generation version
+remain open. This is not TTA evidence and does not redefine the severity-5
+benchmark.
+
+Accept the probe as complete descriptive evidence. Keep severity 5 as the
+operational protocol and retain all five levels as a diagnostic curve. Next P0
+is provenance plus installed FPS/index inspection, followed by a preprocessing
+identity control. Do not start GSD/PxP or select a lower severity post hoc.
+
+**Falsifier / next evidence:** a verified paper-specific severity declaration
+or byte-identical data/checkpoint bundle would revise provenance. A different
+validated asset set would test asset-specificity. FPS diagnostics showing no
+suspected repeats/origin filter in the actual Colab binary would weaken that
+candidate explanation.
