@@ -201,8 +201,12 @@ localized to preprocessing; VAE reconstruction adds no net aggregate gain.
 This does not establish a causal diffusion/guidance estimate because the
 available 3DD-TTA context run uses a different commit and random draw.
 
-The implementation and research records are on `baseline-repro-clean` at
-`23e7a443d1f1108f7b503dc9ab79973b70bd47cf`. Next approved test is a pure-VAE
-seed-stability screen (seeds 1 and 2, all other scope fixed), followed if
-needed by a same-commit common-draw pure-VAE versus eval/raw 3DD-TTA control.
+The completed implementation and research records are on
+`baseline-repro-clean` through `23e7a443d1f1108f7b503dc9ab79973b70bd47cf`.
+This continuation adds the pure-VAE seed-stability diagnostic as
+`--method pure_vae_seed_stability`; it accepts only seed 1 or 2 and preserves
+the seed-0 method contract. Run seeds 1 and 2
+as separate complete ZIPs, then combine them with the seed-0 archive. If the
+variance remains material, use a same-commit common-draw pure-VAE versus
+eval/raw 3DD-TTA control before attributing the remaining gap to guidance.
 Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.

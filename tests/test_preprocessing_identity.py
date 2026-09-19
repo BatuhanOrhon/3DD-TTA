@@ -41,6 +41,52 @@ class PreprocessingIdentityTests(unittest.TestCase):
         self.assertEqual(args.seed, 0)
         self.assertEqual(args.severity, 5)
 
+    def test_cli_accepts_pure_vae_seed_stability_seed_one_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", "pure_vae_seed_stability",
+            "--batch_size", "32",
+            "--seed", "1",
+            "--severity", "5",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        self.assertEqual(args.method, "pure_vae_seed_stability")
+        self.assertEqual(args.batch_size, 32)
+        self.assertEqual(args.seed, 1)
+        self.assertEqual(args.severity, 5)
+
+    def test_pure_vae_seed_stability_config_records_fixed_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", "pure_vae_seed_stability",
+            "--batch_size", "32",
+            "--seed", "2",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        config = run_baseline.build_config(args)
+
+        self.assertEqual(config["method"], "pure_vae_seed_stability")
+        self.assertEqual(config["stage"], "pure_vae_seed_stability")
+        self.assertTrue(config["lion_loaded"])
+        self.assertEqual(config["seed_stability_reference"],
+                         "pure_vae_encode_decode seed0 archive")
+        self.assertEqual(config["lion_mode_policy"], "raw VAE eval; priors bypassed")
+        self.assertFalse(config["prior_used"])
+        self.assertEqual(config["vae_contract"], "encode -> decompose_eps -> sample")
+
+    def test_pure_vae_seed_stability_rejects_seed_zero(self):
+        with self.assertRaises(SystemExit):
+            with redirect_stdout(StringIO()), redirect_stderr(StringIO()):
+                run_baseline.parse_arguments([
+                    "--method", "pure_vae_seed_stability",
+                    "--batch_size", "32",
+                    "--seed", "0",
+                    "--max-batches", "0",
+                    "--corruptions", *run_baseline.CORRUPTIONS,
+                ])
+
     def test_identity_preprocessing_runs_without_a_lion_call(self):
         calls = []
 

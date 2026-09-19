@@ -43,6 +43,8 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [x] Run and validate the locked preprocessing identity control on Colab: ModelNet40-C severity 5, all 15 corruptions, batch 32, seed 0, direct files, frozen Point-MAE, exact seven-file ZIP. Result: 55.0243%, +1.3344 pp versus source-only; see findings log and raw ZIP.
 - [x] Implement the locked pure VAE encode/decode control: raw VAE `encode` -> `decompose_eps` -> `sample`, with priors, scheduler, and guidance bypassed; no GPU result yet.
 - [x] Run and validate the locked pure VAE encode/decode control because the identity delta is positive but modest. Result: 54.7947% (+1.1048 pp versus source-only, -0.2296 pp versus preprocessing identity); see findings log and raw ZIP.
+- [x] Implement the opt-in pure VAE seed-stability diagnostic; it accepts only seed 1 or 2 and preserves the seed-0 pure VAE method contract. No GPU result yet.
+- [ ] Run and validate pure VAE seed 1 and seed 2 as separate complete seven-file ZIPs, then combine with seed 0 for mean/std analysis.
 - [ ] Decide whether a matched common-draw or separately isolated decoder/protocol control is needed before attributing the remaining source-to-TTA gap to diffusion guidance. Keep GSD/PxP, EMA, and other datasets parked.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.

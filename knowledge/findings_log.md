@@ -181,6 +181,32 @@ decoder/protocol control could revise the localization. Do not add GSD/PxP,
 EMA, or another dataset on the strength of this single seed; preserve the raw
 ZIP unchanged.
 
+## 2026-09-19 - Pure VAE seed-stability diagnostic implemented
+
+**Evidence:** [Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`,
+`result/README.md`, and `knowledge/repository_map.md`; no [Run] artifact yet.
+
+**Implementation:** Added the opt-in `--method pure_vae_seed_stability` path.
+It reuses the already validated pure VAE encode/decode implementation and is
+locked to ModelNet40-C severity 5, all 15 canonical corruptions, batch 32,
+complete evaluation, direct corruption-file loading, raw VAE eval, and the
+same gamma/eta/lambda, checkpoint, data, preprocessing, and FPS contracts.
+Only seed 1 or seed 2 is accepted; seed 0 remains represented by the archived
+`pure_vae_encode_decode` run. The new path is a stochastic stability diagnostic,
+not a new TTA method, and records
+`seed_stability_reference="pure_vae_encode_decode seed0 archive"`.
+
+No priors, EMA, diffusion scheduler, guidance, GSD, PxP, alternate FPS policy,
+or dataset mutation is added. The existing seed-0 pure VAE and source-only
+paths retain their locked validation rules. Local tests cover seed-1 acceptance,
+seed-2 config serialization, and seed-0 rejection.
+
+**Decision/Open:** The implementation is ready for two separate Colab runs,
+one at seed 1 and one at seed 2. Combine their complete seven-file ZIPs with
+the archived seed-0 pure VAE ZIP to calculate mean and standard deviation. Do
+not interpret the one-seed `+1.1048 pp` pure-VAE delta as stable until this
+screen is complete.
+
 ## 2026-09-12 — Initial repository and literature audit
 
 **Evidence:** paper PDFs, current branch source, full Git history; no archived Colab artifacts.  

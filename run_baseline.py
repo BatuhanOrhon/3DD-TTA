@@ -25,6 +25,7 @@ IDENTITY_PREPROCESSING = (
     "scale(3.3885) -> rotate -> rotateback -> output normalize -> FPS(1024) -> "
     "frozen classifier"
 )
+PURE_VAE_METHODS = frozenset(("pure_vae_encode_decode", "pure_vae_seed_stability"))
 
 
 def selected_data_path(dataset_root: str, name: str, severity: int = 5) -> Path:
@@ -238,6 +239,23 @@ def notes_for_run(args: SimpleNamespace) -> str:
             "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
             "User: add Colab runtime/GPU type and anomalies.\n"
         )
+    if args.method == "pure_vae_seed_stability":
+        return (
+            "# Pure VAE seed-stability control\n\n"
+            "Purpose: repeat the locked pure VAE encode/decode control at a second seed; "
+            "this is a stochastic stability diagnostic, not a new TTA method. Direct "
+            "corruption-file loading -> per-shape normalize -> interpolation/upsampling "
+            "to 2048 -> scale 3.3885 -> rotate -> VAE encode/decompose_eps/sample -> "
+            "rotateback -> ModelNet output normalize -> FPS(1024) -> frozen Point-MAE "
+            "classification_only.\n"
+            "This is locked to ModelNet40-C severity 5, all-15, batch 32, seed 1 or 2, "
+            "raw VAE eval, and the same assets as the archived seed-0 pure VAE run. "
+            "No priors, EMA, diffusion scheduler, guidance, GSD, PxP, alternate FPS "
+            "policy, or dataset mutation is used. Combine this run with the archived "
+            "pure_vae_encode_decode seed-0 ZIP for mean/std analysis.\n"
+            "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
+            "User: add Colab runtime/GPU type and anomalies.\n"
+        )
     return (
         "# Smoke run\n\nPurpose: validate execution and artifact schema, NOT benchmark accuracy.\n"
         "Only a file-order prefix is evaluated. Seed-controlled, not fully paired.\n"
@@ -275,7 +293,7 @@ def run_worker(directory: str) -> None:
         print("Hashing checkpoints and selected data files...", flush=True)
         assets = {"classifier_checkpoint": args.pointmae_ckpt,
                   "pointmae_config": args.pointmae_config, "labels": args.label_path}
-        if args.method in {"3dd_original", "pure_vae_encode_decode"}:
+        if args.method in {"3dd_original", *PURE_VAE_METHODS}:
             assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
         identities = {name: file_identity(Path(value)) for name, value in assets.items()}
         data_files = {name: file_identity(selected_data_path(args.dataset_root, name, config["severity"]))
@@ -350,11 +368,11 @@ def run_worker(directory: str) -> None:
                 resolved_pointmae_config=point_config)
         else:
             base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
-            if args.lion_eval_mode or args.method == "pure_vae_encode_decode":
+            if args.lion_eval_mode or args.method in PURE_VAE_METHODS:
                 lion.vae.eval()
                 lion.priors.eval()
             config["resolved_lion_config_yaml"] = baseline.diff_config.dump()
-            if args.method == "pure_vae_encode_decode":
+            if args.method in PURE_VAE_METHODS:
                 config.update(
                     preprocessing=IDENTITY_PREPROCESSING,
                     lion_loaded=True,
@@ -437,7 +455,7 @@ def run_worker(directory: str) -> None:
                         targets.append(target.cpu())
                         predictions.append(pred.cpu())
                 targets, predictions = torch.cat(targets), torch.cat(predictions)
-            elif args.method == "pure_vae_encode_decode":
+            elif args.method in PURE_VAE_METHODS:
                 targets, predictions = [], []
                 with torch.no_grad():
                     for data, label in batches:
@@ -505,7 +523,8 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--lambdaa", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--method", choices=("3dd_original", "source_only", "preprocessing_identity",
-                                             "pure_vae_encode_decode"), default="3dd_original")
+                                             "pure_vae_encode_decode", "pure_vae_seed_stability"),
+                        default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
     parser.add_argument("--run-name", default=None)
@@ -549,6 +568,17 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
             parser.error("pure_vae_encode_decode sets raw VAE eval mode and rejects LION mode flags.")
         if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
             parser.error("pure_vae_encode_decode uses the locked baseline gamma, eta, and lambda values.")
+    if args.method == "pure_vae_seed_stability":
+        if args.dataset_name != "modelnet-c" or args.severity != 5:
+            parser.error("pure_vae_seed_stability is locked to ModelNet40-C severity 5.")
+        if args.batch_size != 32 or args.seed not in (1, 2) or args.max_batches != 0:
+            parser.error("pure_vae_seed_stability is locked to batch 32, seed 1 or 2, and complete evaluation.")
+        if args.corruptions != list(CORRUPTIONS):
+            parser.error("pure_vae_seed_stability requires the complete canonical all-15 corruption set.")
+        if args.lion_eval_mode or args.lion_ema_mode:
+            parser.error("pure_vae_seed_stability sets raw VAE eval mode and rejects LION mode flags.")
+        if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
+            parser.error("pure_vae_seed_stability uses the locked baseline gamma, eta, and lambda values.")
     if args.batch_size < 1 or args.max_batches < 0 or not 0 <= args.seed < 2 ** 32:
         parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
@@ -558,6 +588,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         "source-only" if args.method == "source_only" else
         "preprocessing-identity" if args.method == "preprocessing_identity" else
         "pure-vae-encode-decode" if args.method == "pure_vae_encode_decode" else
+        "pure-vae-seed-stability" if args.method == "pure_vae_seed_stability" else
         "baseline-smoke")
     args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
     return args
@@ -571,7 +602,8 @@ def build_config(args: argparse.Namespace) -> dict:
     stage = ("clean_control" if args.clean_control else
              "source_identity" if args.method == "source_only" else
              "preprocessing_identity" if args.method == "preprocessing_identity" else
-             "pure_vae_encode_decode" if args.method == "pure_vae_encode_decode" else "smoke")
+             "pure_vae_encode_decode" if args.method == "pure_vae_encode_decode" else
+             "pure_vae_seed_stability" if args.method == "pure_vae_seed_stability" else "smoke")
     config = dict(
         stage=stage, dataset=dataset,
         severity=0 if args.clean_control else args.severity, method=args.method,
@@ -582,10 +614,10 @@ def build_config(args: argparse.Namespace) -> dict:
         gamma=args.gamma, eta=args.eta, lambda_cd=args.lambdaa,
         guidance_mapping=dict(gamma="local latent", eta="style condition"),
         final_decode_style=("identity; no decode" if args.method == "preprocessing_identity" else
-                            "VAE decoder from encoded latents" if args.method == "pure_vae_encode_decode" else
+                            "VAE decoder from encoded latents" if args.method in PURE_VAE_METHODS else
                             "original shape_latent"),
         lion_mode_policy=("bypassed" if args.method == "preprocessing_identity" else
-                          "raw VAE eval; priors bypassed" if args.method == "pure_vae_encode_decode" else
+                          "raw VAE eval; priors bypassed" if args.method in PURE_VAE_METHODS else
                           "legacy; unchanged"),
         scheduler_config={}, spectral={}, projection={}, cli_args=vars(args),
         git_branch=command_output(["git", "branch", "--show-current"]),
@@ -596,12 +628,14 @@ def build_config(args: argparse.Namespace) -> dict:
                                   "tta.py", "utilities_3dd_tta.py", "models/lion.py")})
     if args.method == "preprocessing_identity":
         config.update(lion_loaded=False, preprocessing=IDENTITY_PREPROCESSING)
-    elif args.method == "pure_vae_encode_decode":
+    elif args.method in PURE_VAE_METHODS:
         config.update(
             lion_loaded=True,
             preprocessing=IDENTITY_PREPROCESSING,
             vae_contract="encode -> decompose_eps -> sample",
             prior_used=False)
+        if args.method == "pure_vae_seed_stability":
+            config["seed_stability_reference"] = "pure_vae_encode_decode seed0 archive"
     return config
 
 
