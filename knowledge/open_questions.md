@@ -141,6 +141,15 @@ the paper's benchmark without new provenance evidence.
   for severity 5, seed 0, batch 32, complete `density cutout lidar gaussian`.
 No alternate resampling policy is implemented or benchmarked yet.
 
+### 2026-09-19 rollback of diagnostic runner
+
+- **[Code] Superseded:** The opt-in `--fps-diagnostics` implementation was
+  reverted in `cc52437` before any valid diagnostic run. The source-only runner
+  is intentionally back to its pre-diagnostic behavior while the Colab
+  environment is rebuilt.
+- **[Open]** Revisit FPS diagnostics only after the historical dependency pins
+  and source-only import path are restored and an import smoke passes.
+
 ### 2026-09-19 dependency failure before FPS evaluation
 
 - [x] Identify the failed run's import source: `diffusers` evaluates

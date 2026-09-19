@@ -459,3 +459,9 @@ not the failure source.
 package versions, then restore the historical Diffusers/Hub pins without
 changing the dataset or FPS code. Separately consider lazy LION/Diffusers
 imports so source-only diagnostics do not require unused TTA dependencies.
+
+**[Code] Superseding update, 2026-09-19:** The diagnostic runner commit
+`47d3e3b` was reverted by `cc52437` at the user's request before any valid FPS
+diagnostic result. `run_baseline.py` is back to its pre-diagnostic behavior;
+the failed import remains an environment/provenance finding, not evidence
+against FPS and not an accuracy result.
