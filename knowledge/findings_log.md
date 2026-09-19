@@ -207,6 +207,51 @@ the archived seed-0 pure VAE ZIP to calculate mean and standard deviation. Do
 not interpret the one-seed `+1.1048 pp` pure-VAE delta as stable until this
 screen is complete.
 
+## 2026-09-19 - Pure VAE seed-stability result
+
+**Evidence:** [Run] the complete archives
+`result/modelnet40_c/pure_vae_seed_stability/20260919-162638_pure-vae-s5-all15-seed1.zip`
+and
+`result/modelnet40_c/pure_vae_seed_stability/20260919-163345_pure-vae-s5-all15-seed1.zip`.
+Their SHA-256 values are `5593e519efa0a4d7a87fae8e39bb551a78cbdc260d00172f96cbd2bf41101490`
+and `a5fe7d7b1b21736ce6403f0371f2cb022e4ab68a1003c0351fd8a1153210db67`.
+
+**Validation/provenance:** Both archives pass `testzip()`, contain exactly the
+seven required files, have complete status, 15/15 rows, 2,468 examples per
+corruption, and no traceback/error/exception/OOM marker. Both record method
+`pure_vae_seed_stability`, raw VAE `encode -> decompose_eps -> sample`, no
+priors, empty scheduler config, and the same batch-32 ModelNet40-C severity-5
+all-15 contract. Both record commit `e8be9a4e0ef6a0289fb0a749dd0ac72d1600d48c`;
+the archives also record the Colab working tree as dirty, so the commit and
+runtime source hashes are the provenance anchors. The filenames both end in
+`seed1`, but the earlier timestamp `162638` records seed 1 in config and
+command, while the later timestamp `163345` records seed 2; this discrepancy
+is preserved and the raw files are unchanged.
+
+### Result
+
+Seed 0 (archived pure VAE control) is **54.7947%** (20,285/37,020); seed 1 is
+**54.9379%** (20,338/37,020); seed 2 is **54.8082%** (20,290/37,020). Across
+seeds 0/1/2, mean accuracy is **54.8469%**, sample standard deviation
+**0.0790 pp**, population standard deviation **0.0645 pp**, and range
+**0.1432 pp**. The mean is **+1.1570 pp** over deterministic source-only at
+53.6899% (19,876/37,020).
+
+The paired pure-VAE minus preprocessing-identity differences are **-0.2296 pp**
+(seed 0), **-0.1297 pp** (seed 1), and **-0.1405 pp** (seed 2). Thus VAE
+reconstruction is consistently below the matched preprocessing-only control;
+the one-seed localization is supported, although the absolute VAE delta is
+still modest and stochastic.
+
+**Decision:** [Run]/[Inference] The positive source-model effect persists in
+the pure-VAE control, but the paired comparison assigns the aggregate gain
+primarily to preprocessing rather than VAE reconstruction. This is not yet a
+causal estimate of diffusion/guidance: the pure-VAE and available 3DD-TTA
+context runs are not same-commit common-draw pairs. The next test should be a
+same-commit, common-draw comparison between pure VAE encode/decode and the
+operational eval/raw 3DD-TTA path, with preprocessing held fixed. Keep EMA,
+GSD/PxP, alternate FPS policies, and other datasets parked.
+
 ## 2026-09-19 - Preprocessing identity seed-stability diagnostic implemented
 
 **Evidence:** [Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`,

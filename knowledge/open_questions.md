@@ -44,11 +44,12 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [x] Implement the locked pure VAE encode/decode control: raw VAE `encode` -> `decompose_eps` -> `sample`, with priors, scheduler, and guidance bypassed; no GPU result yet.
 - [x] Run and validate the locked pure VAE encode/decode control because the identity delta is positive but modest. Result: 54.7947% (+1.1048 pp versus source-only, -0.2296 pp versus preprocessing identity); see findings log and raw ZIP.
 - [x] Implement the opt-in pure VAE seed-stability diagnostic; it accepts only seed 1 or 2 and preserves the seed-0 pure VAE method contract. No GPU result yet.
-- [ ] Run and validate pure VAE seed 1 and seed 2 as separate complete seven-file ZIPs, then combine with seed 0 for mean/std analysis.
+- [x] Run and validate pure VAE seed 1 and seed 2 as separate complete seven-file ZIPs, then combine with seed 0 for mean/std analysis. Seeds 0/1/2 mean 54.8469%, sample SD 0.0790 pp, +1.1570 pp versus source-only; pure VAE is below matched preprocessing identity by 0.2296/0.1297/0.1405 pp at seeds 0/1/2; see findings log.
 - [x] Implement the opt-in preprocessing identity seed-stability diagnostic; it accepts only seed 1 or 2, fully bypasses LION, and preserves the seed-0 identity contract. No GPU result yet.
 - [x] Run and validate preprocessing identity seed 1 and seed 2 as separate complete seven-file ZIPs before interpreting pure VAE seed variance. Seeds 0/1/2 mean 55.0135%, sample SD 0.0602 pp, +1.3236 pp versus source-only; see findings log.
 - [x] Diagnose and fix the first preprocessing seed-stability Colab routing failure: the new method reached the old TTA `process_batches` branch with `lion=None`; the failed ZIP is preserved as non-evidence. Rerun is pending.
 - [ ] Decide whether a matched common-draw or separately isolated decoder/protocol control is needed before attributing the remaining source-to-TTA gap to diffusion guidance. Keep GSD/PxP, EMA, and other datasets parked.
+- [ ] P0: implement and run the same-commit common-draw pure-VAE versus eval/raw 3DD-TTA control with preprocessing fixed; use it to test whether the remaining delta is attributable to diffusion/guidance rather than preprocessing or VAE reconstruction.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.

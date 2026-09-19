@@ -208,15 +208,20 @@ screen is now complete: seeds 0/1/2 are 55.0243%, 55.0675%, and 54.9487%,
 mean 55.0135% with 0.0602 pp sample SD, and mean +1.3236 pp over source-only.
 The two new archives are complete and hash-validated; their filenames both say
 seed1, but config/command establish the earlier timestamp as seed 1 and the
-later timestamp as seed 2. The pure-VAE screen remains pending.
+later timestamp as seed 2. The pure-VAE screen is also complete: seeds 0/1/2
+are 54.7947%, 54.9379%, and 54.8082%, mean 54.8469% with 0.0790 pp sample SD,
+and mean +1.1570 pp over source-only. Its filenames likewise both say seed1;
+config/command establish the earlier timestamp as seed 1 and the later as seed
+2. At every seed, pure VAE is below the matched preprocessing identity result
+by 0.2296/0.1297/0.1405 pp.
 
 The two seed-stability diagnostics are:
 `--method pure_vae_seed_stability` and
 `--method preprocessing_identity_seed_stability`. Both accept only seed 1 or 2
-and preserve their seed-0 method contracts. Run pure VAE at seeds 1 and 2 as
-separate complete ZIPs, then combine with its seed-0 archive. The paired
-pure-VAE minus preprocessing-identity result at each seed isolates the VAE
-contribution. If variance remains material, use a same-commit common-draw
-pure-VAE versus eval/raw 3DD-TTA control before attributing the remaining gap
-to guidance.
+and preserve their seed-0 method contracts. Both seed screens are now complete.
+The paired pure-VAE minus preprocessing-identity result at each seed isolates
+the VAE contribution and is negative at all three seeds. The next planned test
+is a same-commit common-draw pure-VAE versus eval/raw 3DD-TTA control with the
+preprocessing chain fixed; use that before attributing the remaining gap to
+diffusion guidance.
 Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.
