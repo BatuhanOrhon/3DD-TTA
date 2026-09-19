@@ -544,3 +544,41 @@ only, not the LiDAR localization hypothesis.
 **[Open]** Re-run after fetching `origin/baseline-repro-clean` at or beyond
 `ceb9576`; verify `git rev-parse HEAD` and the schema field before accepting
 the archive as v2 evidence. Raw ZIP remains unchanged.
+
+## 2026-09-19 - FPS diagnostic v2 localizes LiDAR repetition
+
+**[Run]** Archive
+`result/modelnet40_c/source_only/20260919-133400_source-only-fpsdiag-v2-s5-seed0.zip`
+is complete and valid (seven files, four complete rows, 9,872 examples, no
+traceback). SHA-256 is
+`9a9cc4cd8dcdd432344d19e43c70394bd8c05be6efae748b9a39e37d56802330`.
+The run records commit `0003743b6362be322352ba42a70cbd8260c98f6d` and schema
+`legacy_fps_v2_finite_coordinate_unique`. Accuracy is unchanged from v1:
+Density 65.2350%, Cutout 62.2771%, LiDAR 19.9352%, Gaussian 51.2966%.
+
+| Corruption | input N | mean finite points | mean finite-coordinate unique | mean FPS-index unique | mean input coordinate duplicates | mean FPS duplicate slots | input NaN/Inf |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Density | 649 | 649 | 649.0000 | 648.7338 | 0.0000 | 375.2662 | 0 / 0 |
+| Cutout | 724 | 724 | 724.0000 | 723.7034 | 0.0000 | 300.2966 | 0 / 0 |
+| LiDAR | 768 | 768 | 396.2273 | 396.1528 | 371.7727 | 627.8472 | 0 / 0 |
+| Gaussian | 1024 | 1024 | 1024.0000 | 1023.6297 | 0.0000 | 0.3703 | 0 / 0 |
+
+**[Run/Inference]** LiDAR has no non-finite input points, but about 372 exact
+coordinate duplicates per example. FPS-index uniqueness nearly equals
+finite-coordinate uniqueness, so the large duplicate-slot count is explained
+by the input itself plus padding to 1024, not by NaN/Inf handling. The small
+184-index aggregate difference is consistent with FPS selecting among repeated
+coordinate rows. Density, Cutout, and Gaussian have no exact coordinate
+duplicates; their earlier padding/origin-filter interpretation remains intact.
+
+**[Code]** The repository generator's `simulate_lidar` uses
+`np.random.choice(new_pc.shape[0], 768)` at
+`datasets_mate/create_corrupted_dataset.py:655`; without an explicit
+`replace=False`, NumPy samples with replacement. This is a direct code-level
+mechanism consistent with the observed LiDAR duplicates, although the current
+artifact does not by itself prove which historical generator invocation
+created the archived `.npy` files.
+
+**[Decision/Open]** Do not change inference resampling or claim an FPS bug yet.
+First reconcile the corruption-file provenance/generator version. The v2 gate
+is now complete; alternate policies remain parked.

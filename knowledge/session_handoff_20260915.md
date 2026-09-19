@@ -144,3 +144,20 @@ duplicate counts, (2) reconcile checkpoint/archive and corruption-file provenanc
 and (3) run a preprocessing-identity control. Only after this source-data gate
 should the shared-trajectory decode and separate SCD-scale/lambda hypotheses be
 tested.
+
+## FPS diagnostic v2 update - 2026-09-19
+
+The actual Colab FPS diagnostic gate is now complete. The valid archive is
+`result/modelnet40_c/source_only/20260919-133400_source-only-fpsdiag-v2-s5-seed0.zip`
+and records commit `0003743`, schema
+`legacy_fps_v2_finite_coordinate_unique`, and unchanged source-only accuracies.
+LiDAR contains no NaN/Inf points but averages 396.227 finite-coordinate-unique
+rows out of 768 input rows, with 371.773 exact coordinate duplicates per
+example. The generator code uses `np.random.choice(..., 768)` without
+`replace=False` at `datasets_mate/create_corrupted_dataset.py:655`, a strong
+candidate explanation for the archived input structure.
+
+This is source-data evidence, not an inference FPS bug or a resampling
+contribution. Next P0 is provenance reconciliation for the historical
+`data_lidar_5.npy` generation; do not change inference sampling until that is
+resolved. Alternate policies and new TTA methods remain parked.

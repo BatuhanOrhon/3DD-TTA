@@ -199,3 +199,18 @@ No alternate resampling policy is implemented or benchmarked yet.
 - [ ] In Colab fetch the remote branch at `ceb9576` or newer, verify
   `git rev-parse HEAD`, then verify `config.json` contains
   `legacy_fps_v2_finite_coordinate_unique` before uploading the next ZIP.
+
+### 2026-09-19 valid FPS diagnostic v2 result
+
+- [x] Verify provenance: the archive records commit `0003743` and the v2
+  schema, so its new counters are admissible `[Run]` evidence.
+- [x] Establish that LiDAR has zero NaN/Inf points but approximately 371.77
+  exact coordinate-duplicate slots per input example; FPS-index uniqueness and
+  coordinate uniqueness nearly coincide.
+- [x] Locate a repository-level candidate mechanism: the LiDAR generator
+  samples 768 rows with NumPy's default replacement behavior at
+  `datasets_mate/create_corrupted_dataset.py:655` `[Code]`.
+- [ ] Reconcile the historical `.npy` generation provenance before treating
+  replacement sampling as the definitive source-data explanation.
+- [ ] Keep inference resampling changes and contribution claims parked; this
+  result diagnoses the input artifact, not an FPS implementation fix.
