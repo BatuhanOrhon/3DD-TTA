@@ -158,3 +158,11 @@ No alternate resampling policy is implemented or benchmarked yet.
 - [ ] Restore the historical compatible pins (`torch==2.0.1+cu121`,
   `diffusers==0.11.1`, `huggingface-hub==0.11.1`) or isolate source-only imports
   from unused LION/Diffusers dependencies before rerunning FPS diagnostics.
+
+### 2026-09-19 re-enable after smoke
+
+- **[Code]** The opt-in `--fps-diagnostics` flag was re-enabled after the user
+  reported a successful environment-rebuilt source-only smoke. It still runs
+  legacy FPS/gather and records only aggregate diagnostics.
+- **[User report]** Smoke execution passed; the complete seven-file ZIP remains
+  pending, so the environment gate is not yet archived as `[Run]` evidence.

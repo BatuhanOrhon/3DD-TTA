@@ -465,3 +465,10 @@ imports so source-only diagnostics do not require unused TTA dependencies.
 diagnostic result. `run_baseline.py` is back to its pre-diagnostic behavior;
 the failed import remains an environment/provenance finding, not evidence
 against FPS and not an accuracy result.
+
+**[Code/User report] Update, 2026-09-19:** After the user reported that the
+environment-rebuilt source-only smoke completed successfully, the same
+read-only `--fps-diagnostics` implementation was re-enabled. It remains an
+opt-in source-only path; no alternate resampling policy or dataset mutation is
+included. The complete smoke ZIP is still required before treating the
+environment gate as `[Run]` evidence.
