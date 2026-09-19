@@ -207,6 +207,31 @@ the archived seed-0 pure VAE ZIP to calculate mean and standard deviation. Do
 not interpret the one-seed `+1.1048 pp` pure-VAE delta as stable until this
 screen is complete.
 
+## 2026-09-19 - Preprocessing identity seed-stability diagnostic implemented
+
+**Evidence:** [Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`,
+`result/README.md`, and `knowledge/repository_map.md`; no [Run] artifact yet.
+
+**Implementation:** Added the opt-in
+`--method preprocessing_identity_seed_stability` path. It reuses the validated
+preprocessing identity chain with LION fully bypassed and is locked to
+ModelNet40-C severity 5, all 15 corruptions, batch 32, complete evaluation,
+direct files, seed 1 or 2, the same gamma/eta/lambda, data/checkpoint assets,
+and FPS(1024) contract as the seed-0 identity archive. Seed 0 remains the
+archived `preprocessing_identity` reference. The config records
+`seed_stability_reference="preprocessing_identity seed0 archive"`.
+
+This control is necessary because `upsample_all` uses NumPy random interpolation
+and downsampling. It isolates preprocessing stochasticity separately from the
+pure VAE seed screen, whose randomness includes both this preprocessing and VAE
+latent sampling. No LION, VAE, EMA, scheduler, guidance, alternate FPS policy,
+or dataset mutation is introduced.
+
+**Decision/Open:** Run seeds 1 and 2 as separate seven-file ZIPs and compare
+them with the archived seed-0 identity ZIP before interpreting the pure VAE
+seed screen. The useful paired quantity is pure-VAE accuracy minus
+preprocessing-identity accuracy at the same seed.
+
 ## 2026-09-12 — Initial repository and literature audit
 
 **Evidence:** paper PDFs, current branch source, full Git history; no archived Colab artifacts.  

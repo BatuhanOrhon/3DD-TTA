@@ -26,6 +26,7 @@ IDENTITY_PREPROCESSING = (
     "frozen classifier"
 )
 PURE_VAE_METHODS = frozenset(("pure_vae_encode_decode", "pure_vae_seed_stability"))
+PREPROCESSING_IDENTITY_METHODS = frozenset(("preprocessing_identity", "preprocessing_identity_seed_stability"))
 
 
 def selected_data_path(dataset_root: str, name: str, severity: int = 5) -> Path:
@@ -225,6 +226,21 @@ def notes_for_run(args: SimpleNamespace) -> str:
             "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
             "User: add Colab runtime/GPU type and anomalies.\n"
         )
+    if args.method == "preprocessing_identity_seed_stability":
+        return (
+            "# Preprocessing identity seed-stability control\n\n"
+            "Purpose: repeat the locked preprocessing identity control at a second seed; "
+            "this isolates stochastic preprocessing variability without LION, VAE, diffusion, "
+            "or guidance. Direct corruption-file loading -> per-shape normalize -> "
+            "interpolation/upsampling to 2048 -> scale 3.3885 -> rotate -> rotateback -> "
+            "ModelNet output normalize -> FPS(1024) -> frozen Point-MAE classification_only.\n"
+            "This is locked to ModelNet40-C severity 5, all-15, batch 32, seed 1 or 2, "
+            "and the same assets as the archived seed-0 preprocessing identity run. No "
+            "LION, EMA, alternate FPS policy, dataset mutation, or TTA guidance is used. "
+            "Combine this run with the archived preprocessing_identity seed-0 ZIP for mean/std analysis.\n"
+            "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
+            "User: add Colab runtime/GPU type and anomalies.\n"
+        )
     if args.method == "pure_vae_encode_decode":
         return (
             "# Pure VAE encode/decode control\n\n"
@@ -354,7 +370,7 @@ def run_worker(directory: str) -> None:
                 config["preprocessing"] = (source_name +
                                             " -> legacy FPS(1024) with read-only diagnostics -> frozen classifier")
                 config["fps_diagnostics_schema"] = "legacy_fps_v2_finite_coordinate_unique"
-        elif args.method == "preprocessing_identity":
+        elif args.method in PREPROCESSING_IDENTITY_METHODS:
             point_config = baseline.cfg_from_yaml_file(args.pointmae_config)
             point_config.model.cls_dim = 40
             base_model = baseline.load_base_model(args, point_config, None, checkpoint_observer=checkpoint_observer)
@@ -523,6 +539,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--lambdaa", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--method", choices=("3dd_original", "source_only", "preprocessing_identity",
+                                             "preprocessing_identity_seed_stability",
                                              "pure_vae_encode_decode", "pure_vae_seed_stability"),
                         default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
@@ -557,6 +574,17 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
             parser.error("preprocessing_identity bypasses LION; LION mode flags are invalid.")
         if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
             parser.error("preprocessing_identity uses the locked baseline gamma, eta, and lambda values.")
+    if args.method == "preprocessing_identity_seed_stability":
+        if args.dataset_name != "modelnet-c" or args.severity != 5:
+            parser.error("preprocessing_identity_seed_stability is locked to ModelNet40-C severity 5.")
+        if args.batch_size != 32 or args.seed not in (1, 2) or args.max_batches != 0:
+            parser.error("preprocessing_identity_seed_stability is locked to batch 32, seed 1 or 2, and complete evaluation.")
+        if args.corruptions != list(CORRUPTIONS):
+            parser.error("preprocessing_identity_seed_stability requires the complete canonical all-15 corruption set.")
+        if args.lion_eval_mode or args.lion_ema_mode:
+            parser.error("preprocessing_identity_seed_stability bypasses LION and rejects LION mode flags.")
+        if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
+            parser.error("preprocessing_identity_seed_stability uses the locked baseline gamma, eta, and lambda values.")
     if args.method == "pure_vae_encode_decode":
         if args.dataset_name != "modelnet-c" or args.severity != 5:
             parser.error("pure_vae_encode_decode is locked to ModelNet40-C severity 5.")
@@ -587,6 +615,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     default_name = "clean-control" if args.clean_control else (
         "source-only" if args.method == "source_only" else
         "preprocessing-identity" if args.method == "preprocessing_identity" else
+        "preprocessing-identity-seed-stability" if args.method == "preprocessing_identity_seed_stability" else
         "pure-vae-encode-decode" if args.method == "pure_vae_encode_decode" else
         "pure-vae-seed-stability" if args.method == "pure_vae_seed_stability" else
         "baseline-smoke")
@@ -602,6 +631,7 @@ def build_config(args: argparse.Namespace) -> dict:
     stage = ("clean_control" if args.clean_control else
              "source_identity" if args.method == "source_only" else
              "preprocessing_identity" if args.method == "preprocessing_identity" else
+             "preprocessing_identity_seed_stability" if args.method == "preprocessing_identity_seed_stability" else
              "pure_vae_encode_decode" if args.method == "pure_vae_encode_decode" else
              "pure_vae_seed_stability" if args.method == "pure_vae_seed_stability" else "smoke")
     config = dict(
@@ -613,10 +643,10 @@ def build_config(args: argparse.Namespace) -> dict:
         normal_reverse_steps=5, background_reverse_steps=35,
         gamma=args.gamma, eta=args.eta, lambda_cd=args.lambdaa,
         guidance_mapping=dict(gamma="local latent", eta="style condition"),
-        final_decode_style=("identity; no decode" if args.method == "preprocessing_identity" else
+        final_decode_style=("identity; no decode" if args.method in PREPROCESSING_IDENTITY_METHODS else
                             "VAE decoder from encoded latents" if args.method in PURE_VAE_METHODS else
                             "original shape_latent"),
-        lion_mode_policy=("bypassed" if args.method == "preprocessing_identity" else
+        lion_mode_policy=("bypassed" if args.method in PREPROCESSING_IDENTITY_METHODS else
                           "raw VAE eval; priors bypassed" if args.method in PURE_VAE_METHODS else
                           "legacy; unchanged"),
         scheduler_config={}, spectral={}, projection={}, cli_args=vars(args),
@@ -626,8 +656,10 @@ def build_config(args: argparse.Namespace) -> dict:
         runtime_source_manifest={name: file_identity(REPO / name) for name in
                                  ("run_baseline.py", "research_artifacts.py", "main_3dd_tta.py",
                                   "tta.py", "utilities_3dd_tta.py", "models/lion.py")})
-    if args.method == "preprocessing_identity":
+    if args.method in PREPROCESSING_IDENTITY_METHODS:
         config.update(lion_loaded=False, preprocessing=IDENTITY_PREPROCESSING)
+        if args.method == "preprocessing_identity_seed_stability":
+            config["seed_stability_reference"] = "preprocessing_identity seed0 archive"
     elif args.method in PURE_VAE_METHODS:
         config.update(
             lion_loaded=True,

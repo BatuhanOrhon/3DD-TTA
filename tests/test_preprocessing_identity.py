@@ -26,6 +26,51 @@ class PreprocessingIdentityTests(unittest.TestCase):
         self.assertEqual(args.severity, 5)
         self.assertEqual(args.corruptions, list(run_baseline.CORRUPTIONS))
 
+    def test_cli_accepts_preprocessing_identity_seed_stability_seed_one_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", "preprocessing_identity_seed_stability",
+            "--batch_size", "32",
+            "--seed", "1",
+            "--severity", "5",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        self.assertEqual(args.method, "preprocessing_identity_seed_stability")
+        self.assertEqual(args.batch_size, 32)
+        self.assertEqual(args.seed, 1)
+        self.assertEqual(args.severity, 5)
+
+    def test_preprocessing_identity_seed_stability_config_records_fixed_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", "preprocessing_identity_seed_stability",
+            "--batch_size", "32",
+            "--seed", "2",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        config = run_baseline.build_config(args)
+
+        self.assertEqual(config["method"], "preprocessing_identity_seed_stability")
+        self.assertEqual(config["stage"], "preprocessing_identity_seed_stability")
+        self.assertFalse(config["lion_loaded"])
+        self.assertEqual(config["seed_stability_reference"],
+                         "preprocessing_identity seed0 archive")
+        self.assertEqual(config["lion_mode_policy"], "bypassed")
+        self.assertEqual(config["final_decode_style"], "identity; no decode")
+
+    def test_preprocessing_identity_seed_stability_rejects_seed_zero(self):
+        with self.assertRaises(SystemExit):
+            with redirect_stdout(StringIO()), redirect_stderr(StringIO()):
+                run_baseline.parse_arguments([
+                    "--method", "preprocessing_identity_seed_stability",
+                    "--batch_size", "32",
+                    "--seed", "0",
+                    "--max-batches", "0",
+                    "--corruptions", *run_baseline.CORRUPTIONS,
+                ])
+
     def test_cli_accepts_locked_pure_vae_scope(self):
         args = run_baseline.parse_arguments([
             "--method", "pure_vae_encode_decode",

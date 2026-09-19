@@ -122,6 +122,7 @@ Use these identifiers in output directories and tables:
 |---|---|
 | `source_only` | Classifier on corrupted input, no LION/TTA |
 | `preprocessing_identity` | TTA preprocessing/output contract with LION bypassed, then frozen classifier |
+| `preprocessing_identity_seed_stability` | Seed 1/2 repeat of preprocessing identity for stochastic interpolation stability; LION bypassed |
 | `pure_vae_encode_decode` | TTA preprocessing followed by raw LION VAE encode/decode; priors, scheduler and guidance bypassed |
 | `pure_vae_seed_stability` | Seed 1/2 repeat of the pure VAE control for stochastic stability; not a new TTA method |
 | `lion_recon` | LION reconstruction without guidance |
