@@ -130,3 +130,13 @@ Existing eval/raw baseline and EMA/GSD/other-dataset decisions remain in force.
 
 Severity 5 remains the operational benchmark. No lower severity may be reported as
 the paper's benchmark without new provenance evidence.
+
+### 2026-09-19 FPS diagnostic runner
+
+- **[Code]** `run_baseline.py` now accepts opt-in `--fps-diagnostics` for
+  `source_only`. It runs the same legacy PointNet2 FPS/gather path and records
+  aggregate unique-index, duplicate-slot, near-origin and index-bound statistics
+  in `config.json`; the default path and classifier input are unchanged.
+- **[Open]** Colab evidence is still required. The first diagnostic is predeclared
+  for severity 5, seed 0, batch 32, complete `density cutout lidar gaussian`.
+  No alternate resampling policy is implemented or benchmarked yet.
