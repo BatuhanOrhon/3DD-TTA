@@ -139,4 +139,13 @@ the paper's benchmark without new provenance evidence.
   in `config.json`; the default path and classifier input are unchanged.
 - **[Open]** Colab evidence is still required. The first diagnostic is predeclared
   for severity 5, seed 0, batch 32, complete `density cutout lidar gaussian`.
-  No alternate resampling policy is implemented or benchmarked yet.
+No alternate resampling policy is implemented or benchmarked yet.
+
+### 2026-09-19 dependency failure before FPS evaluation
+
+- [x] Identify the failed run's import source: `diffusers` evaluates
+  `torch.xpu.empty_cache` while the installed PyTorch lacks `torch.xpu`.
+- [ ] Record Colab versions for `torch`, `diffusers`, and `huggingface-hub`.
+- [ ] Restore the historical compatible pins (`torch==2.0.1+cu121`,
+  `diffusers==0.11.1`, `huggingface-hub==0.11.1`) or isolate source-only imports
+  from unused LION/Diffusers dependencies before rerunning FPS diagnostics.

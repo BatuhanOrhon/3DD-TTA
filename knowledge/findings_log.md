@@ -434,3 +434,28 @@ or byte-identical data/checkpoint bundle would revise provenance. A different
 validated asset set would test asset-specificity. FPS diagnostics showing no
 suspected repeats/origin filter in the actual Colab binary would weaken that
 candidate explanation.
+
+## 2026-09-19 - FPS diagnostic blocked by dependency drift
+
+**Evidence:** `[Run]` The first Colab diagnostic artifact
+`result/modelnet40_c/source_only/20260919-104821_source-only-fpsdiag-s5-seed0.zip`
+failed before evaluation. Its traceback reaches `main_3dd_tta.py` ->
+`models/lion.py` -> `diffusers.utils.peft_utils` ->
+`diffusers.utils.torch_utils`, where the installed Diffusers code evaluates
+`torch.xpu.empty_cache` and the installed PyTorch has no `torch.xpu` attribute.
+The parent runner still sealed a failed ZIP; it is incomplete evidence, not an
+accuracy result.
+
+**[Code]** The source-only runner imports `main_3dd_tta` at worker startup,
+which imports LION/Diffusers even though source-only does not use LION. The
+repository's `env.yaml` pins `torch==2.0.1+cu121` but leaves `diffusers`
+unpinned; `requirements.txt` contains the historical compatible pins
+`diffusers==0.11.1` and `huggingface-hub==0.11.1`. This explains why older
+environments could run while a newly resolved environment fails at import.
+`ninja: no work to do` and `_pvcnn_backend` loading are preceding normal output,
+not the failure source.
+
+**Decision:** Do not add a fake `torch.xpu` attribute. First verify the Colab
+package versions, then restore the historical Diffusers/Hub pins without
+changing the dataset or FPS code. Separately consider lazy LION/Diffusers
+imports so source-only diagnostics do not require unused TTA dependencies.
