@@ -644,3 +644,6 @@ a justified benchmark correction.
 or claim a LiDAR preprocessing contribution. Keep the validated archive as the
 benchmark input and return to the broader source-only gap / asset-checkpoint
 identity investigation.
+this uncommitted batch is db1482ae3becb2e5f9f44a6811c775c5570b0501.
+**Implementation commit:** `1e66374b7d9fbe3f193c51cdeb9895d1c7ecd5de`,
+pushed to `origin/baseline-repro-clean`; no raw artifacts were included.
