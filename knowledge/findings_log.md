@@ -136,6 +136,51 @@ Identity macro/micro accuracy is 55.0243% (20,370/37,020). The source-only sever
 
 Identity is higher than source-only on 9/15 corruptions, equal on Upsampling, and lower on 5/15. Largest gains are Density Increase +8.1848 pp, Cutout +6.0373 pp, Density +3.6467 pp and Occlusion +2.8363 pp. Largest declines are LiDAR -4.6596 pp and Background -4.2950 pp.
 
+## 2026-09-19 - Pure VAE encode/decode result: preprocessing-localized positive delta
+
+**Evidence:** [Run] `result/modelnet40_c/pure_vae_encode_decode/20260919-144513_pure-vae-s5-all15-seed0.zip`; archive SHA-256 `ade0a5c0199be5cbbf6cd95b3deb5324a0572b16dd57dc9fc64d3c753dc0eb0d`.
+
+**Provenance/validation:** The archive passes `testzip()` and contains exactly
+the seven required files under one run directory. Config and CSV status are
+`complete`; all 15 canonical corruption rows contain 2,468 examples; stdout
+contains 15 corruption results and no traceback, error, exception, or OOM
+marker. The run is branch `baseline-repro-clean`, commit
+`3630e7903f1a888e0f015ef5bb4346bcdc99221e`, ModelNet40-C severity 5, batch 32,
+seed 0, direct file loading, frozen Point-MAE, and raw VAE eval with
+`encode -> decompose_eps -> sample`. `scheduler_config` is `{}` and no
+`scheduler_class` or timestep list is recorded. Classifier, label, and all 15
+data hashes match the source-only and preprocessing-identity artifacts; the
+LION checkpoint hash is `807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2`.
+
+### Result
+
+Pure VAE macro/micro accuracy is **54.7947%** (20,285/37,020). Relative to the
+source-only severity-5 comparator at 53.6899% (19,876/37,020), this is
+**+1.1048 pp**. Relative to preprocessing identity at 55.0243%, it is
+**-0.2296 pp**. Relative to the seed-0 eval/raw 3DD-TTA context at 63.7061%,
+it is **-8.9114 pp** and closes 11.03% of the source-to-TTA gap. This last
+comparison is contextual, not a causal estimate, because the TTA artifact is
+from a different commit and random draw.
+
+Pure VAE is higher than source-only on 12/15 corruptions and lower on
+Background (-5.1864 pp), Shear (-0.9319 pp), and LiDAR (-3.2010 pp). Largest
+gains are Density Increase (+6.6451 pp), Cutout (+4.7407 pp), Gaussian
+(+2.6742 pp), and Uniform (+2.2285 pp). It is equal to identity on Upsampling
+and below identity by 0.2296 pp overall.
+
+**Decision:** [Inference] The positive but identity-near result localizes most
+of the modest source-only delta to the preprocessing/interpolation/rotation/
+output-normalization chain. Pure VAE reconstruction does not explain the
+large remaining TTA gap and slightly reduces the identity result in aggregate.
+This does not by itself prove that diffusion guidance is ineffective: pure VAE
+and full TTA differ in more than one operation, and the available TTA context
+run is not a common-random-number, same-commit comparison.
+
+**Open/falsifier:** A matched common-draw comparison or a separately isolated
+decoder/protocol control could revise the localization. Do not add GSD/PxP,
+EMA, or another dataset on the strength of this single seed; preserve the raw
+ZIP unchanged.
+
 ## 2026-09-12 — Initial repository and literature audit
 
 **Evidence:** paper PDFs, current branch source, full Git history; no archived Colab artifacts.  
