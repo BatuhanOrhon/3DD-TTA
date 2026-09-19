@@ -523,3 +523,24 @@ diagnostic, not a resampling-policy change.
 **[Open]** No Colab v2 archive exists yet. The next run must use the same
 severity-5, seed-0, batch-32, four-corruption scope so its counters remain
 directly comparable to the validated v1 archive.
+
+## 2026-09-19 - Uploaded v2-named ZIP used stale diagnostic code
+
+**[Run]** Archive
+`result/modelnet40_c/source_only/20260919-133003_source-only-fpsdiag-v2-s5-seed0.zip`
+is structurally complete and error-free: seven required files, four complete
+corruptions, 9,872 examples, and no traceback. SHA-256 is
+`dfa4efd18637850b4cb0b5d62463fa797e3a7cd671cd799b28c524ea574d26a6`.
+Its source-only accuracies reproduce the validated v1 values exactly: Density
+65.2350%, Cutout 62.2771%, LiDAR 19.9352%, Gaussian 51.2966%.
+
+**[Run/Provenance]** This is not v2 diagnostic evidence. `config.json` records
+`git_commit=36a2d602a121acf46a8462a58992ab648d446bb9`, while v2 was added in
+later commit `ceb9576`; `fps_diagnostics_schema` is absent and the new finite,
+NaN/Inf, and finite-coordinate-unique fields are absent. `notes.md` also has
+the v1 diagnostic wording. The run therefore confirms the old classifier path
+only, not the LiDAR localization hypothesis.
+
+**[Open]** Re-run after fetching `origin/baseline-repro-clean` at or beyond
+`ceb9576`; verify `git rev-parse HEAD` and the schema field before accepting
+the archive as v2 evidence. Raw ZIP remains unchanged.

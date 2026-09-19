@@ -190,3 +190,12 @@ No alternate resampling policy is implemented or benchmarked yet.
 - **[Open]** Run the predeclared severity-5, seed-0, batch-32
   `density cutout lidar gaussian` Colab command and request the complete
   seven-file ZIP. Interpret LiDAR only after these counters are archived.
+
+### 2026-09-19 stale-code v2-named archive
+
+- **[Run]** `20260919-133003_source-only-fpsdiag-v2-s5-seed0.zip` is complete
+  and reproduces v1 accuracy, but its recorded commit is `36a2d60`; it lacks
+  the v2 schema and all new finite/NaN/Inf and coordinate-unique fields.
+- [ ] In Colab fetch the remote branch at `ceb9576` or newer, verify
+  `git rev-parse HEAD`, then verify `config.json` contains
+  `legacy_fps_v2_finite_coordinate_unique` before uploading the next ZIP.
