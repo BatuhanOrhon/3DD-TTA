@@ -1,0 +1,105 @@
+from types import SimpleNamespace
+from contextlib import redirect_stderr, redirect_stdout
+from io import StringIO
+import unittest
+
+import numpy as np
+import torch
+
+import run_baseline
+
+
+class PreprocessingIdentityTests(unittest.TestCase):
+    def test_cli_accepts_locked_preprocessing_identity_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", "preprocessing_identity",
+            "--batch_size", "32",
+            "--seed", "0",
+            "--severity", "5",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        self.assertEqual(args.method, "preprocessing_identity")
+        self.assertEqual(args.batch_size, 32)
+        self.assertEqual(args.seed, 0)
+        self.assertEqual(args.severity, 5)
+        self.assertEqual(args.corruptions, list(run_baseline.CORRUPTIONS))
+
+    def test_identity_preprocessing_runs_without_a_lion_call(self):
+        calls = []
+
+        def normalize(data):
+            calls.append("normalize")
+            return data, None, None
+
+        def upsample_all(data, number):
+            calls.append(("upsample_all", number))
+            self.assertIsInstance(data, np.ndarray)
+            return np.broadcast_to(data[:, :1], (data.shape[0], number, data.shape[2])).copy()
+
+        def rotate(data):
+            calls.append("rotate")
+            return data + 1
+
+        def rotateback(data):
+            calls.append("rotateback")
+            return data - 1
+
+        def fps(data, number):
+            calls.append(("fps", number))
+            return data[:, :number]
+
+        baseline = SimpleNamespace(
+            normalize=normalize,
+            upsample_all=upsample_all,
+            rotate_pointcloud=rotate,
+            rotateback_pointcloud=rotateback,
+            misc=SimpleNamespace(fps=fps),
+        )
+        args = SimpleNamespace(device="cpu", dataset_name="modelnet-c")
+        data = torch.tensor([[[2.0, 3.0, 4.0], [5.0, 6.0, 7.0]]])
+
+        points = run_baseline.preprocessing_identity_points(data, baseline, args, torch)
+
+        self.assertEqual(points.shape, (1, 1024, 3))
+        expected = torch.tensor([2.0, 3.0, 4.0]).view(1, 1, 3) * 3.3885
+        self.assertTrue(torch.allclose(points, expected.expand_as(points)))
+        self.assertEqual(calls, ["normalize", ("upsample_all", 2048), "rotate", "rotateback",
+                                 "normalize", ("fps", 1024)])
+
+    def test_identity_config_records_opt_in_control_contract(self):
+        args = run_baseline.parse_arguments([
+            "--method", "preprocessing_identity",
+            "--batch_size", "32",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        config = run_baseline.build_config(args)
+
+        self.assertEqual(config["method"], "preprocessing_identity")
+        self.assertEqual(config["stage"], "preprocessing_identity")
+        self.assertEqual(config["severity"], 5)
+        self.assertEqual(config["batch_size"], 32)
+        self.assertEqual(config["scale_factor"], 3.3885)
+        self.assertEqual(config["num_input_points"], 2048)
+        self.assertEqual(config["num_classifier_points"], 1024)
+        self.assertEqual(config["lion_mode_policy"], "bypassed")
+        self.assertEqual(config["final_decode_style"], "identity; no decode")
+        self.assertEqual(config["preprocessing"], run_baseline.IDENTITY_PREPROCESSING)
+        self.assertFalse(config["lion_loaded"])
+        self.assertEqual(config["spectral"], {})
+        self.assertEqual(config["projection"], {})
+        self.assertEqual(config["scheduler_config"], {})
+        self.assertEqual(config["cli_args"]["method"], "preprocessing_identity")
+
+    def test_identity_rejects_scope_changes(self):
+        with self.assertRaises(SystemExit):
+            with redirect_stdout(StringIO()), redirect_stderr(StringIO()):
+                run_baseline.parse_arguments([
+                    "--method", "preprocessing_identity",
+                    "--batch_size", "16",
+                    "--max-batches", "0",
+                    "--corruptions", *run_baseline.CORRUPTIONS,
+                ])

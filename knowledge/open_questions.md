@@ -38,6 +38,8 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [x] Run and archive the standalone `data_original.npy` clean Point-MAE control: 90.64% (2237/2468), same checkpoint/labels/FPS as the corruption run; see `20260912-115021_clean-control_seed0`. This rules down an obvious clean-path failure.
 - [ ] Locate a checkpoint-appropriate author-published clean reference or independent canonical reproduction; the current clean control is internal evidence, not external parity proof.
 - [ ] With clean-path failure ruled down, investigate the remaining corrupted-source gap through corruption-asset/version provenance and runtime/FPS extension sensitivity before treating an adaptation delta as causal.
+- [x] Implement the opt-in preprocessing identity control: direct corruption loading -> TTA preprocessing/output contract -> FPS(1024) -> frozen Point-MAE, with LION bypassed and the source-only comparator preserved. No GPU result yet; see the 2026-09-19 findings entry.
+- [ ] Run and validate the locked preprocessing identity control on Colab: ModelNet40-C severity 5, all 15 corruptions, batch 32, seed 0, direct files, frozen Point-MAE, exact seven-file ZIP.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.

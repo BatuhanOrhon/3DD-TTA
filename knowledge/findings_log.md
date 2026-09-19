@@ -46,6 +46,46 @@ The checkpoint contains 462/462 prior EMA tensors matching the 462 prior model e
 
 Append entries chronologically. Never delete negative or superseded results. Use exact run paths for **[Run]** claims.
 
+## 2026-09-19 - Preprocessing identity control implemented
+
+**Evidence:** [Code] run_baseline.py, tests/test_preprocessing_identity.py,
+and result/README.md; no [Run] artifact yet. Current workspace HEAD before
+this uncommitted batch is db1482ae3becb2e5f9f44a6811c775c5570b0501.
+
+**Question:** How much of the source-only to TTA accuracy difference is
+attributable to the TTA preprocessing/output chain rather than LION?
+
+**Implementation:** Added the opt-in --method preprocessing_identity path.
+It is locked to ModelNet40-C severity 5, all 15 canonical corruptions, batch
+32, seed 0, complete evaluation, direct corruption-file loading and the
+existing gamma/eta/lambda values. The path performs per-shape normalize,
+the existing interpolation/upsampling to 2048, scale 3.3885,
+rotate_pointcloud, rotateback_pointcloud, existing ModelNet output
+normalization, FPS(1024), and frozen Point-MAE classification_only under
+torch.no_grad(). It does not load or call LION, mutate data, alter FPS,
+use EMA, scheduler, guidance, GSD, or PxP.
+
+The runner reuses the existing immutable seven-file directory/ZIP contract.
+Identity config records method, stage, preprocessing contract,
+lion_loaded=false, lion_mode_policy=bypassed, final_decode_style,
+point counts, scale, scheduler/spectral/projection fields, asset manifests and
+the exact CLI. The canonical source_only branch AST is unchanged relative
+to HEAD.
+
+**Local verification:** [Code] py_compile passed for changed/affected
+modules; the four-test unittest control suite passed; CLI scope guards,
+identity transform order, and identity config serialization are covered.
+No CUDA/model evaluation was run locally.
+
+**Decision/Open:** The code is ready for the predeclared Colab run, but no
+accuracy or causal conclusion is made until the complete ZIP is supplied and
+validated. The result must be stored under
+result/modelnet40_c/preprocessing_identity/ and contain exactly the seven
+required files. A positive identity delta permits planning pure VAE
+encode/decode next; a null/negative result sends the next one-factor checks to
+updated final-style decoder, Eq. 11 SCD normalization, lambda .95/.96, and
+RNG controls in that order.
+
 ## 2026-09-12 — Initial repository and literature audit
 
 **Evidence:** paper PDFs, current branch source, full Git history; no archived Colab artifacts.  

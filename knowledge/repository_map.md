@@ -121,6 +121,7 @@ Use these identifiers in output directories and tables:
 | ID | Meaning |
 |---|---|
 | `source_only` | Classifier on corrupted input, no LION/TTA |
+| `preprocessing_identity` | TTA preprocessing/output contract with LION bypassed, then frozen classifier |
 | `lion_recon` | LION reconstruction without guidance |
 | `3dd_original` | Matched original `tta.py` path |
 | `gsd_static` | Static latent spectral guidance |

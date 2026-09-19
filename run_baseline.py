@@ -20,6 +20,11 @@ from types import SimpleNamespace
 from research_artifacts import CLEAN_CONTROL, CORRUPTIONS, RunBundle, corruption_row, validate_selection
 
 REPO = Path(__file__).resolve().parent
+IDENTITY_PREPROCESSING = (
+    "direct corruption-file loading -> normalize -> interpolate/upsample(2048) -> "
+    "scale(3.3885) -> rotate -> rotateback -> output normalize -> FPS(1024) -> "
+    "frozen classifier"
+)
 
 
 def selected_data_path(dataset_root: str, name: str, severity: int = 5) -> Path:
@@ -151,6 +156,23 @@ def merge_fps_diagnostics(config: dict, corruption: str, batch_stats: dict) -> N
         diagnostics[field] += batch_stats[field]
 
 
+def preprocessing_identity_points(data, baseline, args, torch_module):
+    """Apply the TTA preprocessing/output contract while bypassing LION."""
+    data_sample, data_center, data_max = baseline.normalize(data)
+    data_sample = baseline.upsample_all(data_sample.detach().cpu().numpy(), 2048)
+    data_sample = torch_module.from_numpy(data_sample).float().to(args.device)
+    data_sample *= 3.3885
+    data_sample = baseline.rotate_pointcloud(data_sample)
+
+    pred_points = baseline.rotateback_pointcloud(data_sample)
+    if args.dataset_name == "scanobjectnn-c":
+        pred_points /= 3.3885
+        pred_points = baseline.unnormalize_data(pred_points, data_max, data_center)
+    else:
+        pred_points, _, _ = baseline.normalize(pred_points)
+    return baseline.misc.fps(pred_points, 1024)
+
+
 def notes_for_run(args: SimpleNamespace) -> str:
     """Describe the evaluated path without classifying source-only runs as smoke tests."""
     if args.method == "source_only":
@@ -167,6 +189,18 @@ def notes_for_run(args: SimpleNamespace) -> str:
             "FPS(1024) -> frozen Point-MAE classifier; no LION, diffusion, or guidance is loaded.\n"
             + coverage + diagnostic_note + "\n"
             "Seed-controlled evaluation; no resume or test-set hyperparameter search. "
+            "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
+            "User: add Colab runtime/GPU type and anomalies.\n"
+        )
+    if args.method == "preprocessing_identity":
+        return (
+            "# Preprocessing identity control\n\n"
+            "Purpose: measure the TTA preprocessing/output chain with LION fully bypassed. "
+            "Direct corruption-file loading -> per-shape normalize -> interpolation/upsampling "
+            "to 2048 -> scale 3.3885 -> rotate -> rotateback -> ModelNet output normalize -> "
+            "FPS(1024) -> frozen Point-MAE classification_only.\n"
+            "This is the locked ModelNet40-C severity-5 all-15 seed-0 batch-32 control; "
+            "no dataset mutation, alternate FPS policy, EMA, scheduler, or guidance is used.\n"
             "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
             "User: add Colab runtime/GPU type and anomalies.\n"
         )
@@ -268,6 +302,18 @@ def run_worker(directory: str) -> None:
                 config["preprocessing"] = (source_name +
                                             " -> legacy FPS(1024) with read-only diagnostics -> frozen classifier")
                 config["fps_diagnostics_schema"] = "legacy_fps_v2_finite_coordinate_unique"
+        elif args.method == "preprocessing_identity":
+            point_config = baseline.cfg_from_yaml_file(args.pointmae_config)
+            point_config.model.cls_dim = 40
+            base_model = baseline.load_base_model(args, point_config, None, checkpoint_observer=checkpoint_observer)
+            base_model.eval()
+            lion = None
+            config.update(
+                lion_loaded=False,
+                preprocessing=IDENTITY_PREPROCESSING,
+                lion_mode_policy="bypassed",
+                final_decode_style="identity; no decode",
+                resolved_pointmae_config=point_config)
         else:
             base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
             if args.lion_eval_mode:
@@ -338,6 +384,17 @@ def run_worker(directory: str) -> None:
                         targets.append(target.cpu())
                         predictions.append(pred.cpu())
                 targets, predictions = torch.cat(targets), torch.cat(predictions)
+            elif args.method == "preprocessing_identity":
+                targets, predictions = [], []
+                with torch.no_grad():
+                    for data, label in batches:
+                        points = preprocessing_identity_points(data.float(), baseline, args, torch)
+                        pred = base_model.module.classification_only(points, only_unmasked=False).argmax(-1).view(-1)
+                        target = label.cuda().view(-1)
+                        batch_observer(target, pred)
+                        targets.append(target.cpu())
+                        predictions.append(pred.cpu())
+                targets, predictions = torch.cat(targets), torch.cat(predictions)
             else:
                 targets, predictions = baseline.process_batches(
                     batches, base_model, lion, args, steps,
@@ -393,7 +450,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--eta", type=float, default=0.01, help="Original style-conditioning step size")
     parser.add_argument("--lambdaa", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=0)
-    parser.add_argument("--method", choices=("3dd_original", "source_only"), default="3dd_original")
+    parser.add_argument("--method", choices=("3dd_original", "source_only", "preprocessing_identity"), default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
     parser.add_argument("--run-name", default=None)
@@ -415,29 +472,49 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         parser.error("original clean control requires --max-batches 0 for a complete evaluation.")
     if args.fps_diagnostics and args.method != "source_only":
         parser.error("--fps-diagnostics is currently supported only with --method source_only.")
+    if args.method == "preprocessing_identity":
+        if args.dataset_name != "modelnet-c" or args.severity != 5:
+            parser.error("preprocessing_identity is locked to ModelNet40-C severity 5.")
+        if args.batch_size != 32 or args.seed != 0 or args.max_batches != 0:
+            parser.error("preprocessing_identity is locked to batch 32, seed 0, and complete evaluation.")
+        if args.corruptions != list(CORRUPTIONS):
+            parser.error("preprocessing_identity requires the complete canonical all-15 corruption set.")
+        if args.lion_eval_mode or args.lion_ema_mode:
+            parser.error("preprocessing_identity bypasses LION; LION mode flags are invalid.")
+        if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
+            parser.error("preprocessing_identity uses the locked baseline gamma, eta, and lambda values.")
     if args.batch_size < 1 or args.max_batches < 0 or not 0 <= args.seed < 2 ** 32:
         parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
         parser.error("Invalid rates or SCD percentile.")
     args.device = "cuda"
-    default_name = "clean-control" if args.clean_control else ("source-only" if args.method == "source_only" else "baseline-smoke")
+    default_name = "clean-control" if args.clean_control else (
+        "source-only" if args.method == "source_only" else
+        "preprocessing-identity" if args.method == "preprocessing_identity" else
+        "baseline-smoke")
     args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
     return args
 
 
-def main() -> int:
-    args = parse_arguments()
-    if Path.cwd().resolve() != REPO:
-        raise SystemExit("Run from the repository root so baseline relative configs resolve correctly.")
+def build_config(args: argparse.Namespace) -> dict:
+    """Build the immutable run configuration before any GPU work starts."""
+    dataset = {"modelnet-c": "modelnet40_c", "shapenet-c": "shapenet_c",
+               "scanobjectnn-c": "scanobjectnn_c"}[args.dataset_name]
+    num_classes = {"modelnet-c": 40, "shapenet-c": 55, "scanobjectnn-c": 15}[args.dataset_name]
+    stage = ("clean_control" if args.clean_control else
+             "source_identity" if args.method == "source_only" else
+             "preprocessing_identity" if args.method == "preprocessing_identity" else "smoke")
     config = dict(
-        stage="clean_control" if args.clean_control else ("source_identity" if args.method == "source_only" else "smoke"), dataset={"modelnet-c": "modelnet40_c", "shapenet-c": "shapenet_c", "scanobjectnn-c": "scanobjectnn_c"}[args.dataset_name], severity=0 if args.clean_control else args.severity, method=args.method,
+        stage=stage, dataset=dataset,
+        severity=0 if args.clean_control else args.severity, method=args.method,
         seed=args.seed, batch_size=args.batch_size, corruptions=args.corruptions,
-        classifier="pointmae", num_classes={"modelnet-c": 40, "shapenet-c": 55, "scanobjectnn-c": 15}[args.dataset_name], num_input_points=2048, num_classifier_points=1024,
-        scale_factor=3.3885, ddim_total_steps=100,
+        classifier="pointmae", num_classes=num_classes, num_input_points=2048,
+        num_classifier_points=1024, scale_factor=3.3885, ddim_total_steps=100,
         normal_reverse_steps=5, background_reverse_steps=35,
         gamma=args.gamma, eta=args.eta, lambda_cd=args.lambdaa,
         guidance_mapping=dict(gamma="local latent", eta="style condition"),
-        final_decode_style="original shape_latent", lion_mode_policy="legacy; unchanged",
+        final_decode_style="identity; no decode" if args.method == "preprocessing_identity" else "original shape_latent",
+        lion_mode_policy="bypassed" if args.method == "preprocessing_identity" else "legacy; unchanged",
         scheduler_config={}, spectral={}, projection={}, cli_args=vars(args),
         git_branch=command_output(["git", "branch", "--show-current"]),
         git_commit=command_output(["git", "rev-parse", "HEAD"]),
@@ -445,6 +522,16 @@ def main() -> int:
         runtime_source_manifest={name: file_identity(REPO / name) for name in
                                  ("run_baseline.py", "research_artifacts.py", "main_3dd_tta.py",
                                   "tta.py", "utilities_3dd_tta.py", "models/lion.py")})
+    if args.method == "preprocessing_identity":
+        config.update(lion_loaded=False, preprocessing=IDENTITY_PREPROCESSING)
+    return config
+
+
+def main() -> int:
+    args = parse_arguments()
+    if Path.cwd().resolve() != REPO:
+        raise SystemExit("Run from the repository root so baseline relative configs resolve correctly.")
+    config = build_config(args)
     config["git_dirty"] = bool(config["git_status"])
     command = "cwd: " + str(REPO) + "\n" + shlex.join([sys.executable] + sys.argv)
     bundle = RunBundle.create(Path(args.result_root), args.run_name, config, command)
