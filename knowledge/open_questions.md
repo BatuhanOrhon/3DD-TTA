@@ -214,3 +214,15 @@ No alternate resampling policy is implemented or benchmarked yet.
   replacement sampling as the definitive source-data explanation.
 - [ ] Keep inference resampling changes and contribution claims parked; this
   result diagnoses the input artifact, not an FPS implementation fix.
+
+### 2026-09-19 upstream LiDAR generator cross-check
+
+- [x] Compare the forked generator with the canonical ModelNet40-C
+  `data/generate_c.py`: both sample 768 LiDAR rows with NumPy's default
+  replacement behavior.
+- [x] Downgrade the `replace=False` explanation from a suspected local bug to
+  an upstream-consistent benchmark construction detail.
+- [ ] Preserve archive/Zenodo byte identity as a provenance question, but do
+  not regenerate LiDAR or change inference FPS based on duplicate counts alone.
+- [ ] Resume the broader source-only gap investigation after this gate; LiDAR
+  duplicates are not by themselves a proposed contribution.

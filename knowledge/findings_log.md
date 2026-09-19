@@ -582,3 +582,25 @@ created the archived `.npy` files.
 **[Decision/Open]** Do not change inference resampling or claim an FPS bug yet.
 First reconcile the corruption-file provenance/generator version. The v2 gate
 is now complete; alternate policies remain parked.
+
+## 2026-09-19 - Upstream generator confirms LiDAR replacement sampling
+
+**[Code]** The canonical ModelNet40-C repository's `data/generate_c.py` uses
+the same LiDAR construction at lines 240--242:
+`index = np.random.choice(new_pc.shape[0], 768)` followed by `new_pc[index]`.
+No `replace=False` is supplied. The fork's
+`datasets_mate/create_corrupted_dataset.py:655-657` mirrors this behavior.
+The upstream README documents both direct pre-corrupted download and generation
+with `python data/process.py` / `python data/generate_c.py`.
+
+**[Paper/Code/Run]** Together with the v2 counters, this strongly supports
+that repeated LiDAR coordinates are an intended property of the ModelNet40-C
+generator, not evidence that our inference FPS implementation is wrong. The
+current archive still does not prove byte identity with the Zenodo package, so
+asset identity remains an open provenance question, but `replace=False` is not
+a justified benchmark correction.
+
+**[Decision]** Do not regenerate `data_lidar_5.npy`, alter inference resampling,
+or claim a LiDAR preprocessing contribution. Keep the validated archive as the
+benchmark input and return to the broader source-only gap / asset-checkpoint
+identity investigation.

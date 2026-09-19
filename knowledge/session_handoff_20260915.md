@@ -161,3 +161,14 @@ This is source-data evidence, not an inference FPS bug or a resampling
 contribution. Next P0 is provenance reconciliation for the historical
 `data_lidar_5.npy` generation; do not change inference sampling until that is
 resolved. Alternate policies and new TTA methods remain parked.
+
+### Upstream generator cross-check - 2026-09-19
+
+The provenance audit found that the canonical ModelNet40-C generator also uses
+`np.random.choice(new_pc.shape[0], 768)` without `replace=False` in its LiDAR
+path. The fork mirrors this line. Therefore the observed LiDAR duplicate
+coordinates are upstream-consistent benchmark construction, not a justified
+local FPS or preprocessing fix. Byte identity with the downloaded Zenodo
+archive remains unproven, but no LiDAR regeneration or inference resampling
+change is authorized. Resume the broader source-only asset/checkpoint gap
+investigation.
