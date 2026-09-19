@@ -472,3 +472,35 @@ read-only `--fps-diagnostics` implementation was re-enabled. It remains an
 opt-in source-only path; no alternate resampling policy or dataset mutation is
 included. The complete smoke ZIP is still required before treating the
 environment gate as `[Run]` evidence.
+
+## 2026-09-19 - Legacy FPS diagnostic completed on four severity-5 corruptions
+
+**[Run]** The complete archive
+`result/modelnet40_c/source_only/20260919-122509_source-only-fpsdiag-s5-seed0.zip`
+was validated without modifying it. SHA-256 is
+`1397e8640b2b0e7688d5a55caaad1872a5a8f4c4d459515b5185d03c505f5539`.
+It contains exactly the seven required files, four complete corruption rows
+(2,468 examples each; 9,872 total), and no traceback/error signature. The run
+records commit `36a2d602a121acf46a8462a58992ab648d446bb9`, Diffusers `0.11.1`,
+PointNet2 extension `3.0.0`, and classifier hash
+`507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75`.
+
+| Corruption | input N | mean unique indices | mean duplicate slots | input-origin total | selected-origin total | source accuracy |
+|---|---:|---:|---:|---:|---:|---:|
+| Density | 649 | 648.7338 | 375.2662 | 657 | 0 | 65.2350% |
+| Cutout | 724 | 723.7034 | 300.2966 | 733 | 1 | 62.2771% |
+| LiDAR | 768 | 396.1528 | 627.8472 | 405 | 0 | 19.9352% |
+| Gaussian | 1024 | 1023.6297 | 0.3703 | 914 | 0 | 51.2966% |
+
+**[Code/Run]** The four accuracies exactly match the corresponding prior
+source-only values, so the diagnostics did not change the classifier input or
+predictions. Density, Cutout, and Gaussian duplicate totals are approximately
+the unavoidable `1024-N` padding plus skipped near-origin points. LiDAR is
+qualitatively different: it averages only about 396 unique indices and about
+628 repeats per example; the 405 input-origin points cannot explain that scale.
+
+**[Inference/Open]** LiDAR may contain repeated/degenerate coordinates,
+non-finite values, or extension tie behavior, but these aggregate counters do
+not distinguish them. The next diagnostic should record finite/NaN/Inf counts
+and coordinate-unique counts, prioritizing LiDAR. No alternate resampling
+policy has been implemented or benchmarked.

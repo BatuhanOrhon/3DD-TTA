@@ -166,3 +166,18 @@ No alternate resampling policy is implemented or benchmarked yet.
   legacy FPS/gather and records only aggregate diagnostics.
 - **[User report]** Smoke execution passed; the complete seven-file ZIP remains
   pending, so the environment gate is not yet archived as `[Run]` evidence.
+
+### 2026-09-19 completed legacy FPS diagnostic
+
+- [x] Validate the complete seven-file archive
+  `20260919-122509_source-only-fpsdiag-s5-seed0.zip` without changing the raw
+  artifact.
+- [x] Confirm that diagnostic accuracies exactly match the prior source-only
+  predictions for the four tested severity-5 corruptions.
+- [x] Confirm the origin-filter/padding signature for Density, Cutout, and
+  Gaussian; treat LiDAR as a separate unresolved case.
+- [ ] **P0 next:** extend diagnostics with per-input finite/NaN/Inf counts and
+  coordinate-unique counts, prioritizing LiDAR, before changing any resampling
+  policy.
+- [ ] Keep alternate resampling policies unimplemented until the LiDAR cause
+  is localized and a predeclared comparison is approved.
