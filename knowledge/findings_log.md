@@ -251,6 +251,43 @@ The fix centralizes the route predicate in
 evaluation. The focused suite now covers both method identifiers; the failed
 archive must not be overwritten or interpreted as a benchmark result.
 
+## 2026-09-19 - Preprocessing identity seed-stability result
+
+**Evidence:** [Run] the complete archives
+`result/modelnet40_c/preprocessing_identity_seed_stability/20260919-165516_preprocessing-identity-s5-all15-seed1.zip`
+and
+`result/modelnet40_c/preprocessing_identity_seed_stability/20260919-165857_preprocessing-identity-s5-all15-seed1.zip`.
+Their SHA-256 values are `a9afc629d81a8c1c08c2b7ab4b1b331d492f53d45ad82d60bbe2923599e7a358`
+and `82720bc9378e4b235d31286007430d68c46af676f0ed08f95e572b3c34b56ae9`.
+
+**Validation/provenance:** Both archives pass `testzip()`, contain exactly the
+seven required files, have complete status, 15/15 rows, 2,468 examples per
+corruption, and no traceback/error/exception/OOM marker. Both record commit
+`9ad172848844467307427d7b7e1cbed72b3387d7`, raw preprocessing identity with
+LION bypassed, empty scheduler config, matching classifier/data/label hashes,
+and the same batch-32 ModelNet40-C severity-5 all-15 contract. The filenames
+both end in `seed1`, but the earlier timestamp `165516` records seed 1 in both
+config and command, while the later timestamp `165857` records seed 2; this
+labeling discrepancy is preserved and does not alter the raw files.
+
+### Result
+
+Seed 0 (archived identity control, commit `4096d4e`) is **55.0243%**
+(20,370/37,020); seed 1 is **55.0675%** (20,386/37,020); seed 2 is
+**54.9487%** (20,342/37,020). Across seeds 0/1/2, mean accuracy is
+**55.0135%**, sample standard deviation **0.0602 pp**, population standard
+deviation **0.0491 pp**, and range **0.1189 pp**. The mean is **+1.3236 pp**
+over deterministic source-only at 53.6899% (19,876/37,020); per-seed deltas
+are +1.3344, +1.3776, and +1.2588 pp.
+
+**Decision:** [Run]/[Inference] The preprocessing-only positive source-model
+delta is stable across these three seeds at the aggregate level and is not
+explained by a large interpolation-randomness swing. This strengthens the
+finding that preprocessing itself raises source-only accuracy modestly. The
+pure VAE seed screen remains necessary because it adds a second stochastic
+source, VAE latent sampling; compare pure VAE and preprocessing identity at
+the same seed before attributing any VAE contribution.
+
 ## 2026-09-12 — Initial repository and literature audit
 
 **Evidence:** paper PDFs, current branch source, full Git history; no archived Colab artifacts.  

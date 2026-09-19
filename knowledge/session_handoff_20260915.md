@@ -203,13 +203,20 @@ available 3DD-TTA context run uses a different commit and random draw.
 
 The completed implementation and research records are on
 `baseline-repro-clean` through `23e7a443d1f1108f7b503dc9ab79973b70bd47cf`.
-This continuation adds two seed-stability diagnostics:
+This continuation adds two seed-stability diagnostics. The preprocessing-only
+screen is now complete: seeds 0/1/2 are 55.0243%, 55.0675%, and 54.9487%,
+mean 55.0135% with 0.0602 pp sample SD, and mean +1.3236 pp over source-only.
+The two new archives are complete and hash-validated; their filenames both say
+seed1, but config/command establish the earlier timestamp as seed 1 and the
+later timestamp as seed 2. The pure-VAE screen remains pending.
+
+The two seed-stability diagnostics are:
 `--method pure_vae_seed_stability` and
 `--method preprocessing_identity_seed_stability`. Both accept only seed 1 or 2
-and preserve their seed-0 method contracts. Run both methods at seeds 1 and 2
-as separate complete ZIPs, then combine each with its seed-0 archive. The
-paired pure-VAE minus preprocessing-identity result at each seed isolates the
-VAE contribution. If variance remains material, use a same-commit common-draw
+and preserve their seed-0 method contracts. Run pure VAE at seeds 1 and 2 as
+separate complete ZIPs, then combine with its seed-0 archive. The paired
+pure-VAE minus preprocessing-identity result at each seed isolates the VAE
+contribution. If variance remains material, use a same-commit common-draw
 pure-VAE versus eval/raw 3DD-TTA control before attributing the remaining gap
 to guidance.
 Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.

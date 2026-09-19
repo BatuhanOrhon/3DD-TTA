@@ -46,7 +46,7 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [x] Implement the opt-in pure VAE seed-stability diagnostic; it accepts only seed 1 or 2 and preserves the seed-0 pure VAE method contract. No GPU result yet.
 - [ ] Run and validate pure VAE seed 1 and seed 2 as separate complete seven-file ZIPs, then combine with seed 0 for mean/std analysis.
 - [x] Implement the opt-in preprocessing identity seed-stability diagnostic; it accepts only seed 1 or 2, fully bypasses LION, and preserves the seed-0 identity contract. No GPU result yet.
-- [ ] Run and validate preprocessing identity seed 1 and seed 2 as separate complete seven-file ZIPs before interpreting pure VAE seed variance.
+- [x] Run and validate preprocessing identity seed 1 and seed 2 as separate complete seven-file ZIPs before interpreting pure VAE seed variance. Seeds 0/1/2 mean 55.0135%, sample SD 0.0602 pp, +1.3236 pp versus source-only; see findings log.
 - [x] Diagnose and fix the first preprocessing seed-stability Colab routing failure: the new method reached the old TTA `process_batches` branch with `lion=None`; the failed ZIP is preserved as non-evidence. Rerun is pending.
 - [ ] Decide whether a matched common-draw or separately isolated decoder/protocol control is needed before attributing the remaining source-to-TTA gap to diffusion guidance. Keep GSD/PxP, EMA, and other datasets parked.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
