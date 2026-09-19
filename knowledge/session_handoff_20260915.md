@@ -220,8 +220,9 @@ The two seed-stability diagnostics are:
 `--method preprocessing_identity_seed_stability`. Both accept only seed 1 or 2
 and preserve their seed-0 method contracts. Both seed screens are now complete.
 The paired pure-VAE minus preprocessing-identity result at each seed isolates
-the VAE contribution and is negative at all three seeds. The next planned test
-is a same-commit common-draw pure-VAE versus eval/raw 3DD-TTA control with the
-preprocessing chain fixed; use that before attributing the remaining gap to
-diffusion guidance.
+the VAE contribution and is negative at all three seeds. A same-commit
+common-draw pure-VAE versus eval/raw 3DD-TTA control would only strengthen a
+causal diffusion/guidance claim; it is deferred because it is not expected to
+change the accuracy ordering. Report that causal attribution as [Open] unless
+the stronger thesis claim later becomes necessary.
 Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.

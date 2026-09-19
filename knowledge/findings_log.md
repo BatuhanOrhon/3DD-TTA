@@ -250,7 +250,33 @@ causal estimate of diffusion/guidance: the pure-VAE and available 3DD-TTA
 context runs are not same-commit common-draw pairs. The next test should be a
 same-commit, common-draw comparison between pure VAE encode/decode and the
 operational eval/raw 3DD-TTA path, with preprocessing held fixed. Keep EMA,
-GSD/PxP, alternate FPS policies, and other datasets parked.
+GSD/PxP, alternate FPS policies, and other datasets parked. This was the
+initial candidate; the later decision below defers it unless a stronger causal
+thesis claim is required.
+
+## 2026-09-19 - Common-draw control deferred
+
+**Evidence:** [Run] the validated pure-VAE seed screen above, the validated
+preprocessing identity seed screen above, and the operational eval/raw LION
+screen documented in `knowledge/dropout_eval_mode_20260913.md` under
+`result/modelnet40_c/3dd_original/`.
+
+**Assessment:** The existing independent screens already establish the
+operational ordering: source-only is 53.6899%, preprocessing identity averages
+55.0135%, pure VAE averages 54.8469%, and the available eval/raw 3DD-TTA screen
+averages 63.8547% over its two repeated seeds (with the historical seed-0
+screen also archived). A common-draw run would not be expected to change these
+accuracy values; its purpose would be to tighten the causal attribution of the
+remaining 3DD-TTA gap by reusing one preprocessing realization in both branches.
+
+**Decision:** [User report]/[Inference] Do not spend the next Colab run on this
+paired control. Treat the result as an optional confirmatory experiment only if
+the thesis requires the stronger claim that diffusion/guidance, rather than
+unmatched stochastic preprocessing or VAE reconstruction, is causally
+responsible for the remaining gap. Until then, report the preprocessing
+positive effect and the consistently non-positive pure-VAE contribution, while
+leaving diffusion/guidance causality [Open]. No common-draw code was retained,
+committed, or pushed.
 
 ## 2026-09-19 - Preprocessing identity seed-stability diagnostic implemented
 
