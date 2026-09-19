@@ -20,7 +20,7 @@ The project studies training-free test-time input adaptation for corrupted 3D po
 
 Before clean-restart implementation also read the [follow-up code audit](code_audit_20260912.md) and [small implementation batches](clean_restart_batches.md). These refine earlier informal next-test ordering.
 
-Current next action: the source-only severity 1--5 probe is complete and shows a 22.1907 pp severity-1-to-5 drop, but no tested severity matches the paper's 57.6% source row. The opt-in preprocessing identity control is implemented and locally verified; run and validate its locked ModelNet40-C severity-5 all-15 Colab artifact next. `--lion-eval-mode` with raw weights is the provisional baseline; EMA, GSD/PxP and other datasets remain parked. Research preference: use proportionate local structural/protocol checks; this task explicitly adds a focused unit-test file.
+Current next action: the source-only severity 1--5 probe is complete and shows a 22.1907 pp severity-1-to-5 drop, but no tested severity matches the paper's 57.6% source row. The preprocessing identity control is validated at 55.0243% (+1.3344 pp versus source-only), a modest positive effect that closes 13.32% of the source-to-TTA gap. The locked pure VAE encode/decode control is now implemented but still awaits its Colab run; it uses raw VAE eval mode and bypasses priors, scheduler, and guidance. EMA, GSD/PxP and other datasets remain parked. Research preference: use proportionate local structural/protocol checks; the focused unit-test file covers both opt-in controls.
 
 After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
 

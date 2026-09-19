@@ -49,8 +49,8 @@ Append entries chronologically. Never delete negative or superseded results. Use
 ## 2026-09-19 - Preprocessing identity control implemented
 
 **Evidence:** [Code] run_baseline.py, tests/test_preprocessing_identity.py,
-and result/README.md; no [Run] artifact yet. Current workspace HEAD before
-this uncommitted batch is db1482ae3becb2e5f9f44a6811c775c5570b0501.
+and result/README.md; no [Run] artifact yet. The implementation was committed
+on top of `4096d4ec1426a8b2682f6fd2d45c9d094ad4c199` after local checks.
 
 **Question:** How much of the source-only to TTA accuracy difference is
 attributable to the TTA preprocessing/output chain rather than LION?
@@ -85,6 +85,56 @@ required files. A positive identity delta permits planning pure VAE
 encode/decode next; a null/negative result sends the next one-factor checks to
 updated final-style decoder, Eq. 11 SCD normalization, lambda .95/.96, and
 RNG controls in that order.
+
+## 2026-09-19 - Pure VAE encode/decode control implemented
+
+**Evidence:** [Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`,
+and `result/README.md`; no [Run] artifact yet.
+
+**Question:** After the positive preprocessing identity delta, how much of the
+remaining source-only to 3DD-TTA difference is explained by VAE reconstruction
+itself, without LION priors, diffusion scheduling, or guidance?
+
+**Implementation:** Added the opt-in `--method pure_vae_encode_decode` path.
+It is locked to ModelNet40-C severity 5, all 15 canonical corruptions, batch 32,
+seed 0, complete evaluation, direct corruption-file loading and the existing
+gamma/eta/lambda values. The path uses the same preprocessing/output contract as
+the identity control, then calls LION VAE `encode` -> `decompose_eps` -> `sample`
+with the encoded latents. It loads raw LION weights, forces VAE/prior modules to
+eval mode for provenance, but never calls the priors; no EMA, scheduler,
+guidance, GSD, PxP, alternate FPS policy, or dataset mutation is introduced.
+
+The seven-file immutable artifact contract is reused. Pure VAE config records
+`lion_loaded=true`, `lion_mode_policy="raw VAE eval; priors bypassed"`,
+`vae_contract="encode -> decompose_eps -> sample"`, and `prior_used=false`.
+The canonical source-only branch remains structurally unchanged relative to the
+pre-implementation HEAD.
+
+**Local verification:** [Code] the focused unittest suite passes 7/7, including
+locked CLI scope, config serialization, exact preprocessing order, and the
+absence of prior/guidance calls in the fake-VAE control. No CUDA/model
+evaluation was run locally.
+
+**Decision/Open:** The implementation is ready for the predeclared Colab run.
+Do not infer an accuracy result until the complete ZIP is supplied and checked
+for the seven required files, status/traceback, commit, checkpoint/data hashes,
+total accuracy, and all 15 per-corruption rows. If pure VAE is near source-only,
+the positive identity delta is primarily preprocessing-local; if it is much
+higher, VAE reconstruction explains a larger share of the TTA delta. These are
+[Inference] decision rules, not [Run] conclusions.
+
+## 2026-09-19 - Preprocessing identity result: modest positive delta
+
+Evidence: [Run] result/modelnet40_c/preprocessing_identity/20260919-140904_identity-s5-all15-seed0.zip; archive SHA-256 9348bcbf613b8e77ee1c758c7542b1e90cde74e59d1c8896a188669a3e969629.
+Git commit: 4096d4ec1426a8b2682f6fd2d45c9d094ad4c199; branch baseline-repro-clean.
+
+Protocol: Complete ModelNet40-C severity 5, all 15 corruptions, 2,468 examples/corruption, batch 32, seed 0, direct corruption-file loading, identity preprocessing chain, LION bypassed, frozen Point-MAE, FPS(1024), gamma=.01, eta=.01, lambda=.95. The ZIP passes testzip(), contains exactly the seven required files, has 15 complete rows, and stdout has no traceback/error signature. Classifier, label and all 15 data hashes match the archived source-only comparator; Colab records torch 2.1.2+cu121, CUDA 12.1, Diffusers 0.11.1, PointNet2 3.0.0 and an A100-SXM4-80GB.
+
+### Result
+
+Identity macro/micro accuracy is 55.0243% (20,370/37,020). The source-only severity-5 comparator is 53.6899% (19,876/37,020), so identity improves by +1.3344 pp (+494 correct). The seed-0 eval/raw 3DD-TTA context run is 63.7061%; identity remains 8.6818 pp below it and closes 13.32% of the 10.0162 pp source-to-TTA gap.
+
+Identity is higher than source-only on 9/15 corruptions, equal on Upsampling, and lower on 5/15. Largest gains are Density Increase +8.1848 pp, Cutout +6.0373 pp, Density +3.6467 pp and Occlusion +2.8363 pp. Largest declines are LiDAR -4.6596 pp and Background -4.2950 pp.
 
 ## 2026-09-12 — Initial repository and literature audit
 
@@ -647,3 +697,10 @@ identity investigation.
 this uncommitted batch is db1482ae3becb2e5f9f44a6811c775c5570b0501.
 **Implementation commit:** `1e66374b7d9fbe3f193c51cdeb9895d1c7ecd5de`,
 pushed to `origin/baseline-repro-clean`; no raw artifacts were included.
+Identity is higher than source-only on 9/15 corruptions, equal on Upsampling, and lower on 5/15. Largest gains are Density Increase +8.1848 pp, Cutout +6.0373 pp, Density +3.6467 pp and Occlusion +2.8363 pp. Largest declines are LiDAR -4.6596 pp and Background -4.2950 pp.
+
+Interpretation: [Run/Inference] The preprocessing chain has a real but modest positive aggregate effect under this seed and explains only a minority of the observed source-to-TTA difference. It is not sufficient to account for the TTA result, and the corruption-dependent signs prevent a claim of uniform preprocessing improvement. The run config has git_dirty=true because Colab generated or modified compiled extensions, caches and local data artifacts; the recorded source commit and runtime source manifest identify the intended code, and no method-source modification is visible in the recorded status.
+
+Decision: This is a positive identity control under the predeclared decision rule, so plan the next pure VAE encode/decode control. Do not add a new TTA method or tune GSD/PxP. Keep the result exploratory because it is one stochastic seed and the source comparator is archived at an older commit, even though source-only behavior was structurally preserved.
+
+Falsifier / next evidence: A pure VAE encode/decode result near source-only would localize the modest gain to preprocessing/interpolation/rotation/output normalization; a large pure-VAE gain would show that generative reconstruction, not guidance, explains more of the TTA difference. A repeat identity seed or common-draw control would test the stability of the +1.3344 pp estimate.
