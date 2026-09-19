@@ -232,6 +232,25 @@ them with the archived seed-0 identity ZIP before interpreting the pure VAE
 seed screen. The useful paired quantity is pure-VAE accuracy minus
 preprocessing-identity accuracy at the same seed.
 
+## 2026-09-19 - Preprocessing seed-stability routing failure and fix
+
+**Evidence:** [Run] failed archive
+`result/modelnet40_c/preprocessing_identity_seed_stability/20260919-164103_preprocessing-identity-s5-all15-seed1.zip`;
+[Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`.
+
+The first Colab attempt reached the evaluation loop but failed before the first
+corruption result with `AttributeError: 'NoneType' object has no attribute
+'vae'`. Root cause: model setup recognized the new method as a LION-free
+preprocessing route, but the batch-evaluation branch still matched only the
+exact `preprocessing_identity` string and fell through to
+`baseline.process_batches(..., lion=None, ...)`. The ZIP is preserved as a
+failed/incomplete run and provides no accuracy evidence.
+
+The fix centralizes the route predicate in
+`is_preprocessing_identity_method()` and uses it for both model setup and batch
+evaluation. The focused suite now covers both method identifiers; the failed
+archive must not be overwritten or interpreted as a benchmark result.
+
 ## 2026-09-12 — Initial repository and literature audit
 
 **Evidence:** paper PDFs, current branch source, full Git history; no archived Colab artifacts.  

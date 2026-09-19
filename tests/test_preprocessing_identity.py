@@ -71,6 +71,12 @@ class PreprocessingIdentityTests(unittest.TestCase):
                     "--corruptions", *run_baseline.CORRUPTIONS,
                 ])
 
+    def test_seed_stability_uses_preprocessing_identity_route(self):
+        self.assertTrue(run_baseline.is_preprocessing_identity_method("preprocessing_identity"))
+        self.assertTrue(run_baseline.is_preprocessing_identity_method(
+            "preprocessing_identity_seed_stability"))
+        self.assertFalse(run_baseline.is_preprocessing_identity_method("pure_vae_seed_stability"))
+
     def test_cli_accepts_locked_pure_vae_scope(self):
         args = run_baseline.parse_arguments([
             "--method", "pure_vae_encode_decode",

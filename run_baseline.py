@@ -29,6 +29,11 @@ PURE_VAE_METHODS = frozenset(("pure_vae_encode_decode", "pure_vae_seed_stability
 PREPROCESSING_IDENTITY_METHODS = frozenset(("preprocessing_identity", "preprocessing_identity_seed_stability"))
 
 
+def is_preprocessing_identity_method(method: str) -> bool:
+    """Return whether a method uses the LION-free preprocessing route."""
+    return method in PREPROCESSING_IDENTITY_METHODS
+
+
 def selected_data_path(dataset_root: str, name: str, severity: int = 5) -> Path:
     """Resolve one repository-format input without changing benchmark filenames."""
     filename = "data_original.npy" if name == CLEAN_CONTROL else "data_" + name + "_" + str(severity) + ".npy"
@@ -370,7 +375,7 @@ def run_worker(directory: str) -> None:
                 config["preprocessing"] = (source_name +
                                             " -> legacy FPS(1024) with read-only diagnostics -> frozen classifier")
                 config["fps_diagnostics_schema"] = "legacy_fps_v2_finite_coordinate_unique"
-        elif args.method in PREPROCESSING_IDENTITY_METHODS:
+        elif is_preprocessing_identity_method(args.method):
             point_config = baseline.cfg_from_yaml_file(args.pointmae_config)
             point_config.model.cls_dim = 40
             base_model = baseline.load_base_model(args, point_config, None, checkpoint_observer=checkpoint_observer)
@@ -460,7 +465,7 @@ def run_worker(directory: str) -> None:
                         targets.append(target.cpu())
                         predictions.append(pred.cpu())
                 targets, predictions = torch.cat(targets), torch.cat(predictions)
-            elif args.method == "preprocessing_identity":
+            elif is_preprocessing_identity_method(args.method):
                 targets, predictions = [], []
                 with torch.no_grad():
                     for data, label in batches:
