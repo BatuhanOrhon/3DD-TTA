@@ -172,3 +172,37 @@ local FPS or preprocessing fix. Byte identity with the downloaded Zenodo
 archive remains unproven, but no LiDAR regeneration or inference resampling
 change is authorized. Resume the broader source-only asset/checkpoint gap
 investigation.
+
+## Continuation update - 2026-09-19 preprocessing and pure VAE controls
+
+The stale earlier next-action text above is superseded by the validated
+controls below. Preserve both the historical handoff and this continuation
+record; do not rewrite the raw archives.
+
+**[Run] Preprocessing identity control:**
+`result/modelnet40_c/preprocessing_identity/20260919-140904_identity-s5-all15-seed0.zip`
+is a complete seven-file, all-15 ModelNet40-C severity-5 run at batch 32,
+seed 0. It obtains **55.0243%** (**20,370/37,020**) versus the direct
+source-only comparator's **53.6899%** (**19,876/37,020**): **+1.3344 percentage
+points**, or **+494 correct examples**. It is higher on 9/15 corruptions, equal
+on Upsampling, and lower on 5/15. Largest gains are Density Increase
+`+8.1848 pp`, Cutout `+6.0373 pp`, Density `+3.6467 pp`, and Occlusion
+`+2.8363 pp`; largest declines are LiDAR `-4.6596 pp` and Background
+`-4.2950 pp`. This is the important source-model finding: the TTA
+preprocessing/output chain alone raises source-only accuracy modestly, without
+LION, VAE, diffusion, or guidance.
+
+**[Run] Pure VAE control:**
+`result/modelnet40_c/pure_vae_encode_decode/20260919-144513_pure-vae-s5-all15-seed0.zip`
+is also complete and obtains **54.7947%** (**20,285/37,020**), **+1.1048 pp**
+versus source-only but **-0.2296 pp** versus preprocessing identity. Under this
+one-seed stochastic control, most of the modest positive source delta is
+localized to preprocessing; VAE reconstruction adds no net aggregate gain.
+This does not establish a causal diffusion/guidance estimate because the
+available 3DD-TTA context run uses a different commit and random draw.
+
+The implementation and research records are on `baseline-repro-clean` at
+`23e7a443d1f1108f7b503dc9ab79973b70bd47cf`. Next approved test is a pure-VAE
+seed-stability screen (seeds 1 and 2, all other scope fixed), followed if
+needed by a same-commit common-draw pure-VAE versus eval/raw 3DD-TTA control.
+Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.
