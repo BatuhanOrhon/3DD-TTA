@@ -73,6 +73,83 @@ def extension_inventory() -> dict:
     return observed
 
 
+def fps_with_diagnostics(data, number: int, baseline, torch_module):
+    """Run the legacy FPS/gather path and return read-only aggregate diagnostics."""
+    pointnet2_utils = baseline.misc.pointnet2_utils
+    fps_idx = pointnet2_utils.furthest_point_sample(data, number)
+    fps_data = pointnet2_utils.gather_operation(
+        data.transpose(1, 2).contiguous(), fps_idx).transpose(1, 2).contiguous()
+
+    index_cpu = fps_idx.detach().cpu().long()
+    unique_counts = [int(torch_module.unique(row).numel()) for row in index_cpu]
+    origin_mask = (data.square().sum(dim=-1) <= 1e-3)
+    selected_origin = torch_module.gather(origin_mask, 1, fps_idx.long())
+    return fps_data, dict(
+        batch_examples=int(data.shape[0]),
+        input_points=int(data.shape[1]),
+        target_points=int(number),
+        unique_index_min=min(unique_counts),
+        unique_index_max=max(unique_counts),
+        unique_index_sum=sum(unique_counts),
+        duplicate_index_sum=sum(number - count for count in unique_counts),
+        input_origin_sum=int(origin_mask.sum().item()),
+        selected_origin_sum=int(selected_origin.sum().item()),
+        selected_index_min=int(index_cpu.min().item()),
+        selected_index_max=int(index_cpu.max().item()),
+    )
+
+
+def merge_fps_diagnostics(config: dict, corruption: str, batch_stats: dict) -> None:
+    """Accumulate FPS diagnostics without storing per-example indices."""
+    diagnostics = config.setdefault("fps_diagnostics", {}).setdefault(corruption, dict(
+        batches=0, examples=0, input_points_min=None, input_points_max=None,
+        target_points=None, unique_index_min=None, unique_index_max=None,
+        unique_index_sum=0, duplicate_index_sum=0, input_origin_sum=0,
+        selected_origin_sum=0, selected_index_min=None, selected_index_max=None))
+    diagnostics["batches"] += 1
+    diagnostics["examples"] += batch_stats["batch_examples"]
+    diagnostics["target_points"] = batch_stats["target_points"]
+    for field, key in (("input_points", "input_points_min"),
+                       ("unique_index_min", "unique_index_min"),
+                       ("selected_index_min", "selected_index_min")):
+        value = batch_stats[field]
+        diagnostics[key] = value if diagnostics[key] is None else min(diagnostics[key], value)
+    for field, key in (("input_points", "input_points_max"),
+                       ("unique_index_max", "unique_index_max"),
+                       ("selected_index_max", "selected_index_max")):
+        value = batch_stats[field]
+        diagnostics[key] = value if diagnostics[key] is None else max(diagnostics[key], value)
+    for field in ("unique_index_sum", "duplicate_index_sum", "input_origin_sum", "selected_origin_sum"):
+        diagnostics[field] += batch_stats[field]
+
+
+def notes_for_run(args: SimpleNamespace) -> str:
+    """Describe the evaluated path without reclassifying source-only runs as smoke tests."""
+    if args.method == "source_only":
+        coverage = ("All selected corruptions are evaluated completely."
+                    if args.max_batches == 0 else
+                    "Only a file-order prefix is evaluated; this is not a full benchmark result.")
+        diagnostic_note = (" Read-only FPS diagnostics record index uniqueness, duplicate slots, "
+                           "near-origin candidates and extension bounds; classifier inputs remain legacy FPS outputs."
+                           if args.fps_diagnostics else "")
+        return (
+            "# Source-only run\n\n"
+            "Purpose: evaluate corrupted input without LION/TTA. Direct corruption-file loading -> "
+            "FPS(1024) -> frozen Point-MAE classifier; no LION, diffusion, or guidance is loaded.\n"
+            + coverage + diagnostic_note + "\n"
+            "Seed-controlled evaluation; no resume or test-set hyperparameter search. "
+            "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
+            "User: add Colab runtime/GPU type and anomalies.\n"
+        )
+    return (
+        "# Smoke run\n\nPurpose: validate execution and artifact schema, NOT benchmark accuracy.\n"
+        "Only a file-order prefix is evaluated. Seed-controlled, not fully paired.\n"
+        "Original TTA math, legacy LION modes, 5/35 steps, gamma/eta mapping and static decode style retained.\n"
+        "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
+        "No resume or test-set hyperparameter search. User: add Colab runtime/GPU type and anomalies.\n"
+    )
+
+
 def run_worker(directory: str) -> None:
     """Internal subprocess entry: parent captures Python/native stdout and stderr."""
     bundle = RunBundle(Path(directory))
@@ -158,6 +235,8 @@ def run_worker(directory: str) -> None:
             source_name = "original input" if args.clean_control else "corrupted input"
             config.update(lion_loaded=False, preprocessing=source_name + " -> FPS(1024) -> frozen classifier",
                           resolved_pointmae_config=point_config)
+            if args.fps_diagnostics:
+                config["preprocessing"] = source_name + " -> legacy FPS(1024) with read-only diagnostics -> frozen classifier"
         else:
             base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
             if args.lion_eval_mode:
@@ -216,7 +295,12 @@ def run_worker(directory: str) -> None:
                 targets, predictions = [], []
                 with torch.no_grad():
                     for data, label in batches:
-                        points = baseline.misc.fps(data.float().cuda(), 1024)
+                        data = data.float().cuda()
+                        if args.fps_diagnostics:
+                            points, fps_stats = fps_with_diagnostics(data, 1024, baseline, torch)
+                            merge_fps_diagnostics(config, active, fps_stats)
+                        else:
+                            points = baseline.misc.fps(data, 1024)
                         pred = base_model.module.classification_only(points, only_unmasked=False).argmax(-1).view(-1)
                         target = label.cuda().view(-1)
                         batch_observer(target, pred)
@@ -246,13 +330,7 @@ def run_worker(directory: str) -> None:
                       completed_corruptions=[row["corruption"] for row in rows])
         bundle.write_results(rows, final_status)
         bundle.write_config(config)
-        (bundle.path / "notes.md").write_text(
-            "# Smoke run\n\nPurpose: validate execution and artifact schema, NOT benchmark accuracy.\n"
-            "Only a file-order prefix is evaluated. Seed-controlled, not fully paired.\n"
-            "Original TTA math, legacy LION modes, 5/35 steps, gamma/eta mapping and static decode style retained.\n"
-            "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
-            "No resume or test-set hyperparameter search. User: add Colab runtime/GPU type and anomalies.\n",
-            encoding="utf-8")
+        (bundle.path / "notes.md").write_text(notes_for_run(args), encoding="utf-8")
     except BaseException:
         config.update(status="failed", execution_status="failed",
                       failed_corruption=active,
@@ -291,6 +369,8 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--result-root", default="./result")
     parser.add_argument("--dataset-name", choices=("modelnet-c", "shapenet-c", "scanobjectnn-c"), default="modelnet-c")
     parser.add_argument("--severity", type=int, default=5)
+    parser.add_argument("--fps-diagnostics", action="store_true",
+                        help="Record legacy FPS index diagnostics without changing classifier inputs.")
     parser.add_argument("--lion-eval-mode", action="store_true", help="Set LION VAE and priors to eval mode; default preserves legacy mode.")
     parser.add_argument("--lion-ema-mode", action="store_true", help="Load prior EMA parameters from the LION checkpoint.")
     args = parser.parse_args(argv)
@@ -302,6 +382,8 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         parser.error("original clean control supports only --method source_only.")
     if args.clean_control and args.max_batches != 0:
         parser.error("original clean control requires --max-batches 0 for a complete evaluation.")
+    if args.fps_diagnostics and args.method != "source_only":
+        parser.error("--fps-diagnostics is currently supported only with --method source_only.")
     if args.batch_size < 1 or args.max_batches < 0 or not 0 <= args.seed < 2 ** 32:
         parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
