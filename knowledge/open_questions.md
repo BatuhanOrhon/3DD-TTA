@@ -181,3 +181,12 @@ No alternate resampling policy is implemented or benchmarked yet.
   policy.
 - [ ] Keep alternate resampling policies unimplemented until the LiDAR cause
   is localized and a predeclared comparison is approved.
+
+### 2026-09-19 FPS diagnostic v2 implementation
+
+- **[Code]** Added finite/non-finite point, scalar NaN/Inf, finite-coordinate-
+  unique, and selected-point finite/non-finite counters to the opt-in legacy
+  FPS diagnostic. Classifier inputs remain unchanged.
+- **[Open]** Run the predeclared severity-5, seed-0, batch-32
+  `density cutout lidar gaussian` Colab command and request the complete
+  seven-file ZIP. Interpret LiDAR only after these counters are archived.

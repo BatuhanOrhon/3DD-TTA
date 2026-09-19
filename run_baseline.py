@@ -74,7 +74,7 @@ def extension_inventory() -> dict:
 
 
 def fps_with_diagnostics(data, number: int, baseline, torch_module):
-    """Run legacy FPS/gather and return aggregate, read-only index diagnostics."""
+    """Run legacy FPS/gather and return aggregate, read-only diagnostics."""
     pointnet2_utils = baseline.misc.pointnet2_utils
     fps_idx = pointnet2_utils.furthest_point_sample(data, number)
     fps_data = pointnet2_utils.gather_operation(
@@ -82,8 +82,17 @@ def fps_with_diagnostics(data, number: int, baseline, torch_module):
 
     index_cpu = fps_idx.detach().cpu().long()
     unique_counts = [int(torch_module.unique(row).numel()) for row in index_cpu]
+    data_cpu = data.detach().cpu()
+    finite_point_mask_cpu = torch_module.isfinite(data_cpu).all(dim=-1)
+    finite_coordinate_unique_counts = [
+        int(torch_module.unique(data_cpu[index, finite_point_mask_cpu[index]], dim=0).shape[0])
+        if bool(finite_point_mask_cpu[index].any()) else 0
+        for index in range(data_cpu.shape[0])
+    ]
+    finite_point_mask = torch_module.isfinite(data).all(dim=-1)
     origin_mask = data.square().sum(dim=-1) <= 1e-3
     selected_origin = torch_module.gather(origin_mask, 1, fps_idx.long())
+    selected_finite = torch_module.gather(finite_point_mask, 1, fps_idx.long())
     return fps_data, dict(
         batch_examples=int(data.shape[0]),
         input_points=int(data.shape[1]),
@@ -94,6 +103,15 @@ def fps_with_diagnostics(data, number: int, baseline, torch_module):
         duplicate_index_sum=sum(number - count for count in unique_counts),
         input_origin_sum=int(origin_mask.sum().item()),
         selected_origin_sum=int(selected_origin.sum().item()),
+        input_point_finite_sum=int(finite_point_mask_cpu.sum().item()),
+        input_point_nonfinite_sum=int((~finite_point_mask_cpu).sum().item()),
+        input_scalar_nan_sum=int(torch_module.isnan(data_cpu).sum().item()),
+        input_scalar_inf_sum=int(torch_module.isinf(data_cpu).sum().item()),
+        finite_coordinate_unique_min=min(finite_coordinate_unique_counts),
+        finite_coordinate_unique_max=max(finite_coordinate_unique_counts),
+        finite_coordinate_unique_sum=sum(finite_coordinate_unique_counts),
+        selected_point_finite_sum=int(selected_finite.sum().item()),
+        selected_point_nonfinite_sum=int((~selected_finite).sum().item()),
         selected_index_min=int(index_cpu.min().item()),
         selected_index_max=int(index_cpu.max().item()),
     )
@@ -105,21 +123,31 @@ def merge_fps_diagnostics(config: dict, corruption: str, batch_stats: dict) -> N
         batches=0, examples=0, input_points_min=None, input_points_max=None,
         target_points=None, unique_index_min=None, unique_index_max=None,
         unique_index_sum=0, duplicate_index_sum=0, input_origin_sum=0,
-        selected_origin_sum=0, selected_index_min=None, selected_index_max=None))
+        selected_origin_sum=0, input_point_finite_sum=0,
+        input_point_nonfinite_sum=0, input_scalar_nan_sum=0,
+        input_scalar_inf_sum=0, finite_coordinate_unique_min=None,
+        finite_coordinate_unique_max=None, finite_coordinate_unique_sum=0,
+        selected_point_finite_sum=0, selected_point_nonfinite_sum=0,
+        selected_index_min=None, selected_index_max=None))
     diagnostics["batches"] += 1
     diagnostics["examples"] += batch_stats["batch_examples"]
     diagnostics["target_points"] = batch_stats["target_points"]
     for field, key in (("input_points", "input_points_min"),
                        ("unique_index_min", "unique_index_min"),
+                       ("finite_coordinate_unique_min", "finite_coordinate_unique_min"),
                        ("selected_index_min", "selected_index_min")):
         value = batch_stats[field]
         diagnostics[key] = value if diagnostics[key] is None else min(diagnostics[key], value)
     for field, key in (("input_points", "input_points_max"),
                        ("unique_index_max", "unique_index_max"),
+                       ("finite_coordinate_unique_max", "finite_coordinate_unique_max"),
                        ("selected_index_max", "selected_index_max")):
         value = batch_stats[field]
         diagnostics[key] = value if diagnostics[key] is None else max(diagnostics[key], value)
-    for field in ("unique_index_sum", "duplicate_index_sum", "input_origin_sum", "selected_origin_sum"):
+    for field in ("unique_index_sum", "duplicate_index_sum", "input_origin_sum", "selected_origin_sum",
+                  "input_point_finite_sum", "input_point_nonfinite_sum", "input_scalar_nan_sum",
+                  "input_scalar_inf_sum", "finite_coordinate_unique_sum", "selected_point_finite_sum",
+                  "selected_point_nonfinite_sum"):
         diagnostics[field] += batch_stats[field]
 
 
@@ -130,7 +158,8 @@ def notes_for_run(args: SimpleNamespace) -> str:
                     if args.max_batches == 0 else
                     "Only a file-order prefix is evaluated; this is not a full benchmark result.")
         diagnostic_note = (" Read-only FPS diagnostics record index uniqueness, duplicate slots, "
-                           "near-origin candidates and extension bounds; classifier inputs remain legacy FPS outputs."
+                           "near-origin candidates, finite/non-finite points, scalar NaN/Inf counts, "
+                           "and finite coordinate uniqueness; classifier inputs remain legacy FPS outputs."
                            if args.fps_diagnostics else "")
         return (
             "# Source-only run\n\n"
@@ -238,6 +267,7 @@ def run_worker(directory: str) -> None:
             if args.fps_diagnostics:
                 config["preprocessing"] = (source_name +
                                             " -> legacy FPS(1024) with read-only diagnostics -> frozen classifier")
+                config["fps_diagnostics_schema"] = "legacy_fps_v2_finite_coordinate_unique"
         else:
             base_model, lion = baseline.configure_model(args, checkpoint_observer=checkpoint_observer)
             if args.lion_eval_mode:

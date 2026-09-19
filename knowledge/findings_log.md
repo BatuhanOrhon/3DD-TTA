@@ -504,3 +504,22 @@ non-finite values, or extension tie behavior, but these aggregate counters do
 not distinguish them. The next diagnostic should record finite/NaN/Inf counts
 and coordinate-unique counts, prioritizing LiDAR. No alternate resampling
 policy has been implemented or benchmarked.
+
+## 2026-09-19 - FPS diagnostic v2 prepared for LiDAR localization
+
+**[Code]** `run_baseline.py` now records additional read-only counters behind
+the existing opt-in `--fps-diagnostics` flag. For each selected corruption it
+aggregates finite and non-finite input-point counts, scalar NaN and Inf counts,
+finite-point coordinate-unique counts, and finite/non-finite selected-point
+counts. The schema is explicitly marked
+`legacy_fps_v2_finite_coordinate_unique` in `config.json`.
+
+**[Code/Inference]** The legacy FPS indices, gather operation, classifier input,
+and predictions are unchanged. Coordinate uniqueness is computed over exact
+finite `[x,y,z]` rows only; non-finite rows are counted separately rather than
+silently included in the uniqueness statistic. This is a localization
+diagnostic, not a resampling-policy change.
+
+**[Open]** No Colab v2 archive exists yet. The next run must use the same
+severity-5, seed-0, batch-32, four-corruption scope so its counters remain
+directly comparable to the validated v1 archive.
