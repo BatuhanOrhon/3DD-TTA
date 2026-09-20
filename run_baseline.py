@@ -30,6 +30,7 @@ IDENTITY_PREPROCESSING = (
 PURE_VAE_METHODS = frozenset(("pure_vae_encode_decode", "pure_vae_seed_stability"))
 PREPROCESSING_IDENTITY_METHODS = frozenset(("preprocessing_identity", "preprocessing_identity_seed_stability"))
 SHARED_DECODER_METHOD = "shared_trajectory_decoder_control"
+SHARED_DECODER_PILOT_CORRUPTIONS = ("gaussian", "impulse")
 
 
 def is_preprocessing_identity_method(method: str) -> bool:
@@ -358,8 +359,9 @@ def notes_for_run(args: SimpleNamespace) -> str:
             "Each batch runs one VAE encode, one initial noise draw, one DDIM/SCD trajectory, "
             "then decodes the same final local latent with original shape_latent and updated "
             "style_cond.\n"
-            "Locked pilot: ModelNet40-C severity 5, Gaussian and Impulse, complete files, "
-            "batch 32, seed 0/1/2, raw LION weights, LION eval mode, EMA disabled, and "
+            "Locked scopes: ModelNet40-C severity 5 Gaussian/Impulse pilot or complete "
+            "canonical all-15 confirmation, complete files, batch 32, seed 0/1/2, "
+            "raw LION weights, LION eval mode, EMA disabled, and "
             "unchanged gamma/eta/lambda/scheduler settings. The second classifier call "
             "snapshots/restores NumPy and Torch CPU/CUDA RNG state.\n"
             "The artifact records both accuracies, paired percentage-point delta, prediction "
@@ -767,8 +769,11 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
             parser.error("shared_trajectory_decoder_control is locked to ModelNet40-C severity 5.")
         if args.batch_size != 32 or args.seed not in (0, 1, 2) or args.max_batches != 0:
             parser.error("shared_trajectory_decoder_control is locked to batch 32, seed 0/1/2, and complete evaluation.")
-        if args.corruptions != ["gaussian", "impulse"]:
-            parser.error("shared_trajectory_decoder_control requires exactly gaussian and impulse.")
+        if (args.corruptions != list(SHARED_DECODER_PILOT_CORRUPTIONS)
+                and args.corruptions != list(CORRUPTIONS)):
+            parser.error(
+                "shared_trajectory_decoder_control requires the Gaussian/Impulse pilot "
+                "or the complete canonical all-15 corruption set.")
         if args.lion_ema_mode:
             parser.error("shared_trajectory_decoder_control requires raw LION weights; EMA is disabled.")
         if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):

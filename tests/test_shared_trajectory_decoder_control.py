@@ -187,6 +187,34 @@ class SharedTrajectoryDecoderControlTests(unittest.TestCase):
         self.assertFalse(args.lion_ema_mode)
         self.assertEqual(args.corruptions, ["gaussian", "impulse"])
 
+    def test_cli_accepts_shared_decoder_all15_confirmation_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", "shared_trajectory_decoder_control",
+            "--dataset-name", "modelnet-c",
+            "--severity", "5",
+            "--batch_size", "32",
+            "--seed", "2",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        self.assertEqual(args.corruptions, list(run_baseline.CORRUPTIONS))
+        self.assertTrue(args.lion_eval_mode)
+        self.assertFalse(args.lion_ema_mode)
+
+    def test_cli_rejects_shared_decoder_partial_nonpilot_scope(self):
+        with self.assertRaises(SystemExit):
+            with redirect_stdout(StringIO()), redirect_stderr(StringIO()):
+                run_baseline.parse_arguments([
+                    "--method", "shared_trajectory_decoder_control",
+                    "--dataset-name", "modelnet-c",
+                    "--severity", "5",
+                    "--batch_size", "32",
+                    "--seed", "0",
+                    "--max-batches", "0",
+                    "--corruptions", "gaussian", "impulse", "uniform",
+                ])
+
     def test_cli_rejects_shared_decoder_scope_change(self):
         with self.assertRaises(SystemExit):
             with redirect_stdout(StringIO()), redirect_stderr(StringIO()):
