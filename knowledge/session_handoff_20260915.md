@@ -173,6 +173,19 @@ archive remains unproven, but no LiDAR regeneration or inference resampling
 change is authorized. Resume the broader source-only asset/checkpoint gap
 investigation.
 
+## Source-only provenance manifest audit - 2026-09-20
+
+The complete severity-5 source-only archives share identical 15-file data
+manifests, Point-MAE checkpoint/config hashes, and label hash across their
+different recorded run commits. This closes the internal cross-run consistency
+check but not external byte identity: the workspace contains only
+`data/readme.md` and `pointnet_ckpts/readme.md`, not the Colab `.npy` files or
+checkpoint.
+
+Next action remains provenance reconciliation: obtain or compare the canonical
+ModelNet40-C archive and Point-MAE checkpoint hashes. Do not regenerate LiDAR,
+change FPS, or start a new unmatched TTA method before that gate is addressed.
+
 ## Continuation update - 2026-09-19 preprocessing and pure VAE controls
 
 The stale earlier next-action text above is superseded by the validated

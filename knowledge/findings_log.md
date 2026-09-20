@@ -278,6 +278,42 @@ positive effect and the consistently non-positive pure-VAE contribution, while
 leaving diffusion/guidance causality [Open]. No common-draw code was retained,
 committed, or pushed.
 
+## 2026-09-20 - Source-only provenance manifest audit
+
+**Evidence:** [Run] the complete severity-5 source-only archives
+`result/modelnet40_c/source_only/20260912-111822_source-only_seed0.zip`,
+`result/modelnet40_c/source_only/20260912-120122_source-only_seed1.zip`,
+`result/modelnet40_c/source_only/20260912-120349_source-only_seed2.zip`, and
+`result/modelnet40_c/source_only/20260915-185615_source-only-sev5-all15_seed0.zip`;
+[Code] `data/readme.md`, `pointnet_ckpts/readme.md`, and the current
+`datasets_mate/create_corrupted_dataset.py`.
+
+**Result:** All four complete severity-5 archives contain the same 15 data
+hashes, Point-MAE checkpoint hash
+`507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75`, Point-MAE
+config hash `346f37e06fc73111ddbcd2a2c07ff85f057d180f27e3c664dda88c7f015dd3c6`,
+and label hash
+`97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31`. The
+recorded run commits differ (`ef87692`, `fd4caea`, and `262f3a6`), but no asset
+hash difference appears between those source-only runs. The one archived run
+for each severity 1--4 also has a self-consistent 15-file data manifest.
+
+**Limitation:** The workspace's `data/` directory contains only `readme.md` and
+`pointnet_ckpts/` contains only an empty readme; the actual `.npy` files and
+Point-MAE checkpoint are Colab-side assets. Therefore these manifests prove
+cross-run consistency, not byte identity with the canonical ModelNet40-C
+Zenodo archive or the authors' checkpoint. `data/readme.md` identifies the
+Zenodo corruption download, while author-published hashes are unavailable.
+The LiDAR generator's replacement sampling has already been shown to be
+upstream-consistent; no regeneration or alternate FPS policy is authorized.
+
+**Decision:** [Run]/[Code]/[Open] The internal asset gate is consistent but not
+closed. The next provenance action is to obtain or compare canonical archive
+and checkpoint hashes, not to run another unmatched TTA method. Until that
+evidence exists, keep the source-only gap as an unresolved data/checkpoint
+provenance issue and keep the shared-trajectory decoder comparison queued
+after the source-data gate.
+
 ## 2026-09-19 - Preprocessing identity seed-stability diagnostic implemented
 
 **Evidence:** [Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`,

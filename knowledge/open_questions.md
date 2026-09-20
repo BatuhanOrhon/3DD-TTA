@@ -38,6 +38,7 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [x] Run and archive the standalone `data_original.npy` clean Point-MAE control: 90.64% (2237/2468), same checkpoint/labels/FPS as the corruption run; see `20260912-115021_clean-control_seed0`. This rules down an obvious clean-path failure.
 - [ ] Locate a checkpoint-appropriate author-published clean reference or independent canonical reproduction; the current clean control is internal evidence, not external parity proof.
 - [ ] With clean-path failure ruled down, investigate the remaining corrupted-source gap through corruption-asset/version provenance and runtime/FPS extension sensitivity before treating an adaptation delta as causal.
+- [x] Audit internal source-only provenance manifests: complete severity-5 runs share the same 15 corruption hashes, Point-MAE checkpoint/config hashes, and label hash across their differing run commits. Canonical archive/checkpoint byte identity remains open because the Colab assets are not present locally.
 - [x] Implement the opt-in preprocessing identity control: direct corruption loading -> TTA preprocessing/output contract -> FPS(1024) -> frozen Point-MAE, with LION bypassed and the source-only comparator preserved. No GPU result yet; see the 2026-09-19 findings entry.
 - [ ] Run and validate the locked preprocessing identity control on Colab: ModelNet40-C severity 5, all 15 corruptions, batch 32, seed 0, direct files, frozen Point-MAE, exact seven-file ZIP.
 - [x] Run and validate the locked preprocessing identity control on Colab: ModelNet40-C severity 5, all 15 corruptions, batch 32, seed 0, direct files, frozen Point-MAE, exact seven-file ZIP. Result: 55.0243%, +1.3344 pp versus source-only; see findings log and raw ZIP.
@@ -240,3 +241,6 @@ No alternate resampling policy is implemented or benchmarked yet.
   not regenerate LiDAR or change inference FPS based on duplicate counts alone.
 - [ ] Resume the broader source-only gap investigation after this gate; LiDAR
   duplicates are not by themselves a proposed contribution.
+- [ ] Obtain or compare the canonical ModelNet40-C archive and Point-MAE
+  checkpoint hashes from Colab/Zenodo before treating internal manifest
+  consistency as external provenance parity.
