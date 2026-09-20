@@ -55,7 +55,8 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
 - [x] Implement the opt-in shared-trajectory original-versus-updated final-style decoder control. It reuses one local trajectory and records both decoder branches plus paired diagnostics; no Colab result yet.
 - [x] [Code] Repair shared decoder control gradient context, metadata type collision and failed paired artifact rows; add CPU regression coverage including the actual trajectory loop.
-- [ ] Run the shared-trajectory decoder control on complete Gaussian/Impulse severity-5 files at seeds 0/1/2 and validate all seven-file ZIPs before deciding on all-15 confirmation.
+- [x] Run and validate the shared-trajectory decoder control on complete Gaussian/Impulse severity-5 files at seeds 0/1/2. All three seven-file ZIPs are complete, eval/dropout inventories are closed, and the updated-style arm is better in 3/6 paired rows and worse in 3/6; all-15 confirmation is not supported. See findings log.
+- [ ] Implement and run the next isolated Eq. 11 SCD-normalization control with lambda, RNG policy, scheduler, dropout mode and decoder-style contract unchanged.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.
 - [ ] Confirm that checkpoint loading reports no missing/unexpected keys in every entry point.
 - [ ] Quantify batch-size effects under fixed seeds/common random numbers.

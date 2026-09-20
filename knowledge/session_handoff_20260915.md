@@ -284,3 +284,27 @@ decoder branches and paired diagnostics in the two CSVs/config.
 then repeat seeds 1 and 2. Validate ZIP structure, completion/traceback,
 commit, checkpoint/data hashes, branch metrics and per-corruption deltas
 before any all-15 confirmation.
+
+## Shared-trajectory decoder control pilot result - 2026-09-20
+
+**[Run]** The requested seed 0/1/2 Gaussian+Impulse pilot is complete and
+validated. The three raw ZIPs are under
+`result/modelnet40_c/shared_trajectory_decoder_control/`; each has exactly
+the seven required files, passes CRC validation, contains two complete
+2,468-example corruption rows, and has no traceback. All record commit
+`141ad6de8566543fd6558fe664db455bb1e286ec`.
+
+**[Code]** All three artifacts record raw LION weights, EMA disabled and
+`lion_eval_mode=true`. The VAE is `training=false`; all 33 inventoried VAE
+dropout modules are `training=false` before and after the run.
+
+**[Run]** Updated-style minus original-style paired deltas are +0.0810 and
++0.2836 pp at seed 0, +0.2026 and -0.3241 pp at seed 1, and -0.3241 and
+-0.0405 pp at seed 2 for Gaussian and Impulse respectively. The seed-level
+macro deltas are +0.1823, -0.0608 and -0.1823 pp; pooled over 14,808 examples
+the delta is -0.0203 pp.
+
+**[Inference]** The updated-style arm is not consistently better, so the
+predeclared rule rejects all-15 confirmation and preserves the original-style
+decoder baseline. The next isolated factor is Eq. 11 SCD normalization;
+lambda, scheduler, RNG, dropout mode and decoder contract remain locked.

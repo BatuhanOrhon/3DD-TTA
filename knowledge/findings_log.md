@@ -1,5 +1,59 @@
 # Findings Log
 
+## 2026-09-20 - Shared-trajectory decoder control pilot
+
+**[Run]** The three raw Colab archives under
+`result/modelnet40_c/shared_trajectory_decoder_control/` are complete and
+valid. The archives are:
+
+- seed 0: `20260920-124502_shared-decoder-s5-gaussian-impulse-seed0.zip`,
+  SHA-256 `eaf2e676cdddc974f6a62ceea372e168498ccffc64f253cd2f2185d979c87608`;
+- seed 1: `20260920-124921_shared-decoder-s5-gaussian-impulse-seed1.zip`,
+  SHA-256 `cc670612cace441fea444172f1416c6fb3cf2a1bd923ca01de97c244f33d6019`;
+- seed 2: `20260920-125318_shared-decoder-s5-gaussian-impulse-seed2.zip`,
+  SHA-256 `3e14c1fb0ecdfc58a5b9f159d07502a8e279d2c99ece1d5fefbe9de14d3e038d`.
+
+Each ZIP passes CRC validation and contains exactly the seven required files.
+All six corruption rows are complete with 2,468 examples each, all summaries
+have `status=complete` and `execution_status=complete`, and no traceback or
+failed marker is present. The archives record branch
+`baseline-repro-clean` and commit
+`141ad6de8566543fd6558fe664db455bb1e286ec`.
+
+**[Code]** The three configs record raw LION weights, EMA disabled,
+`lion_eval_mode=true`, the same LION checkpoint SHA-256
+`807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2`, and
+the same Gaussian/Impulse dataset hashes. Each VAE inventory reports
+`training=false` and 33 dropout modules with `training=false` both before and
+after evaluation.
+
+**[Run]** Paired original-style versus updated-style deltas are:
+
+| Seed | Corruption | Original | Updated | Updated - original |
+|---:|---|---:|---:|---:|
+| 0 | Gaussian | 74.7164% | 74.7974% | +0.0810 pp |
+| 0 | Impulse | 70.1378% | 70.4214% | +0.2836 pp |
+| 1 | Gaussian | 75.0000% | 75.2026% | +0.2026 pp |
+| 1 | Impulse | 69.8136% | 69.4895% | -0.3241 pp |
+| 2 | Gaussian | 75.3241% | 75.0000% | -0.3241 pp |
+| 2 | Impulse | 70.5429% | 70.5024% | -0.0405 pp |
+
+The updated-style arm is better in 3/6 paired rows and worse in 3/6. Seed-level
+macro deltas are +0.1823, -0.0608 and -0.1823 pp for seeds 0, 1 and 2. The
+pooled result over 14,808 examples is 72.5891% original-style versus 72.5689%
+updated-style, a -0.0203 pp delta. Prediction disagreement is nonzero in every
+row; decoder-output difference and style displacement are recorded in the raw
+per-corruption CSVs.
+
+**[Inference]** The predeclared consistency rule is not met: updated style is
+not better across all three seeds and both pilot corruptions. The pilot does
+not justify all-15 confirmation and does not replace the original-style
+decoder baseline.
+
+**[Open]** The next single-factor test is Eq. 11 SCD normalization, with
+lambda, RNG policy, scheduler, dropout mode, and other factors unchanged.
+Diffusion/guidance causality remains separate from this decoder-style result.
+
 ## 2026-09-20 - Shared decoder control execution repair
 
 **[Code]** Review of implementation `381d74a` at HEAD `cf7d92d`
