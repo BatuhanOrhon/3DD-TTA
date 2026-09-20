@@ -1,5 +1,29 @@
 # Findings Log
 
+## 2026-09-20 - SCD normalization control implemented
+
+**[Code]** Added the opt-in `scd_normalization_control` method on top of the
+original-style decoder path. It passes `scd_normalize=True` through the
+existing batch runner and divides the two retained directed SCD sums by the
+original point-set cardinality before the batch sum, matching the recorded
+Eq. 11 normalization contract. The default `3dd_original` path keeps
+`scd_normalize=False`.
+
+**[Code]** The control is locked to ModelNet40-C severity 5, batch 32, seeds
+0/1/2, raw LION weights, LION eval mode, EMA off, gamma=.01, eta=.01,
+lambda=.95, and the existing scheduler. It accepts the Gaussian/Impulse
+pilot or the complete canonical all-15 scope, rejects arbitrary partial
+scopes, and retains the original `shape_latent` decoder style.
+
+**[Code]** Local verification passes: 30 unit tests, `py_compile`, CLI parsing,
+`git diff --check`, the SCD sum-to-point-count normalization test, and the
+source-only runner branch AST comparison. No GPU evaluation has been run for
+this method yet.
+
+**[Open]** The first Colab run should be the complete Gaussian/Impulse pilot
+at seeds 0/1/2. Promote to all-15 only if the pilot is directionally useful;
+keep lambda, scheduler, decoder style, RNG policy and LION eval mode fixed.
+
 ## 2026-09-20 - Shared-trajectory decoder control all-15 confirmation
 
 **[Run]** The user-requested all-15 coverage is complete and validated. The

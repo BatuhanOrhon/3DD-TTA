@@ -30,8 +30,15 @@ def decode_shared_trajectory(lion, trajectory: SharedTrajectory):
     return original_points, updated_points
 
 
+def selective_chamfer_loss(dists1, dists2, num_points, *, normalize=False):
+    """Return the legacy SCD sum or its Eq. 11 point-count normalization."""
+    loss = dists1.sum() + dists2.sum()
+    return loss / num_points if normalize else loss
+
+
 def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
-                    scheduler_observer=None, return_trajectory=False):
+                    scheduler_observer=None, return_trajectory=False,
+                    scd_normalize=False):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -43,6 +50,7 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     - eta: Step size for updating style_cond.
     - p: Proportion of points to consider in Chamfer Distance.
     - total: Total number of diffusion steps (default: 100).
+    - scd_normalize: Opt-in Eq. 11 point-count normalization for SCD.
 
     Returns:
     - pred_points: Reconstructed point cloud.
@@ -102,7 +110,8 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, latent_point_reshaped)
         dists1 = torch.sort(dists1, dim=1).values[:, :int(num_points * p)]
         dists2 = torch.sort(dists2, dim=1).values[:, :int(num_points * p)]
-        ch_loss = dists1.sum() + dists2.sum()
+        ch_loss = selective_chamfer_loss(
+            dists1, dists2, num_points, normalize=scd_normalize)
 
         # Zero out gradients and backpropagate Chamfer loss
         if noisy_latent_point.grad is not None:

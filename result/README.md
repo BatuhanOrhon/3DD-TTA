@@ -35,7 +35,7 @@ If an older script cannot generate the full format, provide all available logs a
 
 ## Method names
 
-Use the canonical IDs in [`knowledge/repository_map.md`](../knowledge/repository_map.md): `source_only`, `preprocessing_identity`, `preprocessing_identity_seed_stability`, `pure_vae_encode_decode`, `pure_vae_seed_stability`, `shared_trajectory_decoder_control`, `lion_recon`, `3dd_original`, `gsd_static`, `gsd_dynamic`, `gsd_physical`, `dual_seq`, `dual_sync`, `pxp_priority`, or `pxp_symmetric`.
+Use the canonical IDs in [`knowledge/repository_map.md`](../knowledge/repository_map.md): `source_only`, `preprocessing_identity`, `preprocessing_identity_seed_stability`, `pure_vae_encode_decode`, `pure_vae_seed_stability`, `shared_trajectory_decoder_control`, `scd_normalization_control`, `lion_recon`, `3dd_original`, `gsd_static`, `gsd_dynamic`, `gsd_physical`, `dual_seq`, `dual_sync`, `pxp_priority`, or `pxp_symmetric`.
 
 The `shared_trajectory_decoder_control` pilot/confirmation keeps the seven-file
 archive contract and accepts either the locked Gaussian/Impulse pilot scope or
@@ -45,3 +45,8 @@ paired delta in percentage points, prediction disagreement, decoder-output
 difference, and style displacement. `config.json` also records the control
 contract, RNG snapshot/restore policy, commit, checkpoint hash and dataset
 hash manifest.
+
+The `scd_normalization_control` method keeps the original-style decoder and
+accepts the same Gaussian/Impulse pilot or complete all-15 scope. Its
+`config.json` records the Eq. 11 point-count normalization contract; its
+standard CSVs record accuracy, counts, runtime and memory.

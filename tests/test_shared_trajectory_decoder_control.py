@@ -31,7 +31,7 @@ def _install_chamfer_import_stub():
 
 
 _install_chamfer_import_stub()
-from tta import SharedTrajectory, decode_shared_trajectory
+from tta import SharedTrajectory, decode_shared_trajectory, selective_chamfer_loss
 
 
 class SharedTrajectoryDecoderControlTests(unittest.TestCase):
@@ -245,6 +245,50 @@ class SharedTrajectoryDecoderControlTests(unittest.TestCase):
         self.assertAlmostEqual(summary["original_style_macro_accuracy"], 0.25)
         self.assertAlmostEqual(summary["updated_style_micro_accuracy"], 0.5)
         self.assertAlmostEqual(summary["paired_delta_pp_micro"], 25.0)
+
+    def test_scd_normalization_divides_directed_sum_by_original_point_count(self):
+        dists1 = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
+        dists2 = torch.tensor([[5.0, 6.0], [7.0, 8.0]])
+        legacy = selective_chamfer_loss(dists1, dists2, 4, normalize=False)
+        normalized = selective_chamfer_loss(dists1, dists2, 4, normalize=True)
+
+        self.assertAlmostEqual(legacy.item(), 36.0)
+        self.assertAlmostEqual(normalized.item(), 9.0)
+        self.assertAlmostEqual(normalized.item(), legacy.item() / 4.0)
+
+    def test_scd_normalization_control_locks_eval_and_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", run_baseline.SCD_NORMALIZATION_METHOD,
+            "--dataset-name", "modelnet-c",
+            "--severity", "5",
+            "--batch_size", "32",
+            "--seed", "0",
+            "--max-batches", "0",
+            "--corruptions", "gaussian", "impulse",
+        ])
+
+        self.assertTrue(args.lion_eval_mode)
+        self.assertFalse(args.lion_ema_mode)
+        config = run_baseline.build_config(args)
+        self.assertEqual(config["method"], run_baseline.SCD_NORMALIZATION_METHOD)
+        self.assertTrue(config["scd_normalization"]["enabled"])
+        self.assertEqual(
+            config["scd_normalization"]["denominator"],
+            "original point-set cardinality")
+
+    def test_scd_normalization_control_accepts_all15_scope(self):
+        args = run_baseline.parse_arguments([
+            "--method", run_baseline.SCD_NORMALIZATION_METHOD,
+            "--dataset-name", "modelnet-c",
+            "--severity", "5",
+            "--batch_size", "32",
+            "--seed", "2",
+            "--max-batches", "0",
+            "--corruptions", *run_baseline.CORRUPTIONS,
+        ])
+
+        self.assertEqual(args.corruptions, list(run_baseline.CORRUPTIONS))
+        self.assertTrue(args.lion_eval_mode)
 
 
 if __name__ == "__main__":

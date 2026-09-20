@@ -328,3 +328,20 @@ updated style is better in 18/45 per-corruption/seed rows and worse in 25/45.
 **[Inference]** The decoder-style effect is corruption-dependent and
 seed-sensitive. Preserve original-style decoding and proceed to the isolated
 Eq. 11 SCD-normalization test with all other controls locked.
+
+## SCD normalization control implementation - 2026-09-20
+
+**[Code]** The next opt-in method is `scd_normalization_control`. It retains
+the original `shape_latent` final decoder, raw LION weights, eval mode, EMA
+off, the existing scheduler, gamma=.01, eta=.01 and lambda=.95. The only
+trajectory change is Eq. 11 point-count normalization of the retained
+directed SCD sums; the batch reduction remains a sum.
+
+**[Code]** The method is locked to ModelNet40-C severity 5, batch 32, seeds
+0/1/2 and either the Gaussian/Impulse pilot or canonical all-15 scope. The
+default `3dd_original` path remains unchanged. Local checks pass with 30 unit
+tests and no GPU run has been performed.
+
+**[Open]** Run the three-seed Gaussian/Impulse pilot first. If it is
+directionally useful, run the same locked method on all 15 corruptions; then
+test lambda .96 separately if the normalization result warrants it.

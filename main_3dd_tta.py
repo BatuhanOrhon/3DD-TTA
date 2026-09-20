@@ -85,7 +85,9 @@ def configure_model(args, *, checkpoint_observer=None):
     return base_model, diff_model
 
 
-def process_batches(dataloader, base_model, diff_model, args, num_steps, *, scheduler_observer=None, batch_observer=None):
+def process_batches(dataloader, base_model, diff_model, args, num_steps, *,
+                    scheduler_observer=None, batch_observer=None,
+                    scd_normalize=False):
     """Process batches of data and compute predictions."""
     preds, targets = [], []
     for data, label in tqdm(dataloader, desc="Processing Batches"):
@@ -100,7 +102,9 @@ def process_batches(dataloader, base_model, diff_model, args, num_steps, *, sche
 
         # Perform Test-Time Adaptation (TTA) reconstruction
         observer_args = {} if scheduler_observer is None else {"scheduler_observer": scheduler_observer}
-        pred_points = tta_reconstruct(data_sample, diff_model, num_steps, args.gamma, args.eta, args.lambdaa, 100, **observer_args)
+        pred_points = tta_reconstruct(
+            data_sample, diff_model, num_steps, args.gamma, args.eta, args.lambdaa, 100,
+            **observer_args, scd_normalize=scd_normalize)
         pred_points = rotateback_pointcloud(pred_points)
 
         # Undo normalization based on dataset
