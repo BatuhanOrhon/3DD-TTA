@@ -1,5 +1,67 @@
 # Findings Log
 
+## 2026-09-20 - Shared-trajectory decoder control all-15 confirmation
+
+**[Run]** The user-requested all-15 coverage is complete and validated. The
+three raw archives are:
+
+- seed 0: `20260920-131504_shared-decoder-s5-all15-seed0.zip`, SHA-256
+  `d2cefdb57a91b1d1beefc444a8475e19f55bd2e27f890033fd3d6f5644f5080f`;
+- seed 1: `20260920-134840_shared-decoder-s5-all15-seed1.zip`, SHA-256
+  `bfafbe4c581da659bf46db34582ca8fa2ac4c733e1202286e490676cc4194fce`;
+- seed 2: `20260920-142217_shared-decoder-s5-all15-seed2.zip`, SHA-256
+  `a826c867595598b2dadf2031dd964c6e265ecce9f23a7dc6f9a33f7b8917e8b0`.
+
+Each archive passes CRC validation, contains exactly the seven required files,
+and records `status=complete`, `execution_status=complete`, with no traceback
+or failure marker. Each has 15 complete corruption rows with 2,468 examples;
+the total is 37,020 examples per seed and 111,060 paired examples across the
+three seeds. All configs record branch `baseline-repro-clean` and commit
+`5fc05e71cc7245828f0b64c0d6ab54a66926cdc2`.
+
+**[Code]** All three artifacts record raw LION weights, EMA disabled and
+`lion_eval_mode=true`. The VAE inventory reports `training=false` and all 33
+inventoried dropout modules report `training=false` both before and after the
+run. The LION checkpoint SHA-256 is
+`807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2`; the
+15 corruption dataset hashes are identical across seeds.
+
+**[Run]** Updated-style minus original-style paired deltas, in percentage
+points, are:
+
+| Corruption | Seed 0 | Seed 1 | Seed 2 | Mean |
+|---|---:|---:|---:|---:|
+| Uniform | -0.0810 | +0.1621 | 0.0000 | +0.0270 |
+| Gaussian | +0.2431 | -0.1216 | -0.2026 | -0.0270 |
+| Background | -0.8509 | -0.8914 | +0.7293 | -0.3377 |
+| Impulse | +0.2431 | +0.2836 | -0.1216 | +0.1351 |
+| Upsampling | +0.1621 | -0.0405 | -0.2026 | -0.0270 |
+| RBF distortion | -0.1216 | -0.1216 | +0.3647 | +0.0405 |
+| Inverse-RBF distortion | -0.0810 | -0.2836 | -0.1621 | -0.1756 |
+| Density | +0.0810 | -0.0810 | -0.0810 | -0.0270 |
+| Density increase | +0.2026 | -0.0405 | -0.0405 | +0.0405 |
+| Shear | -0.2026 | +0.0810 | -0.0810 | -0.0675 |
+| Rotation | +0.0405 | +0.1621 | +0.0810 | +0.0945 |
+| Cutout | +0.1216 | -0.2836 | +0.1216 | -0.0135 |
+| Distortion | +0.0405 | -0.4457 | 0.0000 | -0.1351 |
+| Occlusion | +0.4457 | -0.0810 | +0.2026 | +0.1891 |
+| LiDAR | -0.1621 | -0.2026 | -0.2026 | -0.1891 |
+
+The updated-style arm is better in 18/45 rows, worse in 25/45 and tied in
+2/45. Seed-level all-15 macro deltas are +0.0054, -0.1270 and +0.0270 pp.
+Pooled over 111,060 examples, original-style accuracy is 63.7484%,
+updated-style accuracy is 63.7169%, and the paired delta is -0.0315 pp.
+
+**[Inference]** The all-15 coverage confirms that style effects are
+corruption-dependent and seed-sensitive, not a consistent updated-style
+improvement. It does not support replacing the original-style decoder or
+claiming a general decoder-style gain. The previously selected original-style
+baseline remains appropriate.
+
+**[Open]** The next isolated factor remains Eq. 11 SCD normalization. Keep
+lambda, RNG policy, scheduler, LION eval/dropout mode, preprocessing and
+decoder-style contract unchanged.
+
 ## 2026-09-20 - User-requested all-15 decoder-control coverage
 
 **[User report]** Although the Gaussian/Impulse pilot did not satisfy the

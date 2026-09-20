@@ -308,3 +308,23 @@ the delta is -0.0203 pp.
 predeclared rule rejects all-15 confirmation and preserves the original-style
 decoder baseline. The next isolated factor is Eq. 11 SCD normalization;
 lambda, scheduler, RNG, dropout mode and decoder contract remain locked.
+
+## Shared-trajectory all-15 confirmation result - 2026-09-20
+
+**[Run]** The requested all-15 extension is complete for seeds 0/1/2. Each
+archive contains 15 complete corruption rows and 37,020 examples; all three
+archives pass the seven-file/CRC/traceback checks. The total paired sample is
+111,060 examples. All runs record commit
+`5fc05e71cc7245828f0b64c0d6ab54a66926cdc2`.
+
+**[Code]** The artifacts confirm raw LION, EMA disabled, eval mode, and 33/33
+VAE dropout modules disabled before and after every run. Checkpoint and all 15
+dataset hashes match across seeds.
+
+**[Run]** Seed-level all-15 updated-style minus original-style macro deltas
+are +0.0054, -0.1270 and +0.0270 pp. The pooled delta is -0.0315 pp;
+updated style is better in 18/45 per-corruption/seed rows and worse in 25/45.
+
+**[Inference]** The decoder-style effect is corruption-dependent and
+seed-sensitive. Preserve original-style decoding and proceed to the isolated
+Eq. 11 SCD-normalization test with all other controls locked.
