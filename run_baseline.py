@@ -27,12 +27,35 @@ IDENTITY_PREPROCESSING = (
     "scale(3.3885) -> rotate -> rotateback -> output normalize -> FPS(1024) -> "
     "frozen classifier"
 )
+SCD_TTA_PREPROCESSING = (
+    "direct corruption-file loading -> normalize -> interpolate/upsample(2048) -> "
+    "scale(3.3885) -> rotate -> VAE encode -> DDIM reverse with SCD guidance -> "
+    "VAE decode with original shape_latent -> rotateback -> output normalize -> "
+    "FPS(1024) -> frozen classifier"
+)
 PURE_VAE_METHODS = frozenset(("pure_vae_encode_decode", "pure_vae_seed_stability"))
 PREPROCESSING_IDENTITY_METHODS = frozenset(("preprocessing_identity", "preprocessing_identity_seed_stability"))
 SHARED_DECODER_METHOD = "shared_trajectory_decoder_control"
 SHARED_DECODER_PILOT_CORRUPTIONS = ("gaussian", "impulse")
 SCD_NORMALIZATION_METHOD = "scd_normalization_control"
 SCD_NORMALIZATION_PILOT_CORRUPTIONS = ("gaussian", "impulse")
+
+
+def scd_normalization_contract() -> dict:
+    """Return the auditable SCD normalization and Colab integration contract."""
+    return dict(
+        enabled=True,
+        denominator="original point-set cardinality",
+        denominator_value=2048,
+        retained_fraction=0.95,
+        retained_count=1945,
+        reduction="directed retained-distance sums, summed over batch",
+        relative_loss_scale="1/2048 of legacy sum at fixed input cardinality",
+        integration_check=(
+            "complete Colab GPU run exercises process_batches -> "
+            "tta_reconstruct(scd_normalize=True); local CPU tests cover only "
+            "the helper/config contract"),
+    )
 
 
 def is_preprocessing_identity_method(method: str) -> bool:
@@ -367,6 +390,9 @@ def notes_for_run(args: SimpleNamespace) -> str:
             "the same original-style final decoder contract. The normalized loss "
             "divides each directed retained-distance sum by the original "
             "point-set cardinality and preserves the batch sum.\n"
+            "The complete Colab GPU run is the integration check for the real "
+            "CUDA/Chamfer trajectory; local CPU tests cover only helper, config "
+            "and dispatch contracts.\n"
             "CUDA runtime excludes asset hashing and model loading; peak allocated "
             "memory includes models.\n"
             "User: add Colab runtime/GPU type and anomalies.\n"
@@ -526,10 +552,8 @@ def run_worker(directory: str) -> None:
                     lion_loaded=True,
                     lion_mode_policy="raw LION eval; EMA disabled",
                     final_decode_style="original shape_latent",
-                    scd_normalization=dict(
-                        enabled=True,
-                        denominator="original point-set cardinality",
-                        reduction="directed retained-distance sums, summed over batch"))
+                    preprocessing=SCD_TTA_PREPROCESSING,
+                    scd_normalization=scd_normalization_contract())
         config["extension_inventory"] = extension_inventory()
 
         def record_modes(key):
@@ -908,12 +932,9 @@ def build_config(args: argparse.Namespace) -> dict:
     elif args.method == SCD_NORMALIZATION_METHOD:
         config.update(
             lion_loaded=True,
-            preprocessing=IDENTITY_PREPROCESSING,
+            preprocessing=SCD_TTA_PREPROCESSING,
             final_decode_style="original shape_latent",
-            scd_normalization=dict(
-                enabled=True,
-                denominator="original point-set cardinality",
-                reduction="directed retained-distance sums, summed over batch"))
+            scd_normalization=scd_normalization_contract())
     return config
 
 

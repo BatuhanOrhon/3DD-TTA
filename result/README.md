@@ -48,5 +48,7 @@ hash manifest.
 
 The `scd_normalization_control` method keeps the original-style decoder and
 accepts the same Gaussian/Impulse pilot or complete all-15 scope. Its
-`config.json` records the Eq. 11 point-count normalization contract; its
-standard CSVs record accuracy, counts, runtime and memory.
+`config.json` records the Eq. 11 point-count normalization contract, fixed
+2048 denominator, retained count, actual VAE/DDIM/decode pipeline, and the
+Colab-only CUDA/Chamfer integration check; its standard CSVs record accuracy,
+counts, runtime and memory.

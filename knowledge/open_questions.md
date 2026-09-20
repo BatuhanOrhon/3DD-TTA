@@ -257,3 +257,15 @@ No alternate resampling policy is implemented or benchmarked yet.
   current Colab files match.
 - [ ] Compare the Colab Point-MAE checkpoint hash with an author/canonical
   checkpoint hash; keep this separate from the corruption-archive gate.
+
+### 2026-09-20 SCD normalization CPU/GPU verification boundary
+
+- **[Code]** Local tests cover the pure SCD reduction, locked CLI scope,
+  numeric denominator/retained-count metadata, and method configuration.
+- **[Open]** Validate the real CUDA/Chamfer trajectory in Colab with a complete
+  `scd_normalization_control` run. Accept the integration gate only when the
+  seven-file bundle is complete, traceback-free, records the new SCD contract,
+  and reports raw LION eval mode with dropout disabled.
+- **[Inference]** Do not treat the synthetic CPU trajectory test as evidence
+  that the installed Colab CUDA extension produces the same gradients; it is
+  only a control-flow regression check.

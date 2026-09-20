@@ -276,6 +276,27 @@ class SharedTrajectoryDecoderControlTests(unittest.TestCase):
             config["scd_normalization"]["denominator"],
             "original point-set cardinality")
 
+    def test_scd_config_records_colab_runtime_contract(self):
+        args = run_baseline.parse_arguments([
+            "--method", run_baseline.SCD_NORMALIZATION_METHOD,
+            "--dataset-name", "modelnet-c",
+            "--severity", "5",
+            "--batch_size", "32",
+            "--seed", "0",
+            "--max-batches", "0",
+            "--corruptions", "gaussian", "impulse",
+        ])
+
+        config = run_baseline.build_config(args)
+        self.assertIn("VAE encode", config["preprocessing"])
+        self.assertIn("DDIM reverse", config["preprocessing"])
+        self.assertIn("original shape_latent", config["preprocessing"])
+        contract = config["scd_normalization"]
+        self.assertEqual(contract["denominator_value"], 2048)
+        self.assertEqual(contract["retained_fraction"], 0.95)
+        self.assertEqual(contract["retained_count"], 1945)
+        self.assertIn("Colab GPU", contract["integration_check"])
+
     def test_scd_normalization_control_accepts_all15_scope(self):
         args = run_baseline.parse_arguments([
             "--method", run_baseline.SCD_NORMALIZATION_METHOD,

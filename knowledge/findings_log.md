@@ -1,5 +1,23 @@
 # Findings Log
 
+## 2026-09-20 - SCD review follow-up: CPU/GPU verification boundary
+
+**[Code]** The SCD normalization helper and CLI/config contracts can be
+validated locally, but the real `tta_reconstruct` path depends on the CUDA
+DDIM and Chamfer implementation. A synthetic CPU trajectory is therefore not
+treated as evidence for the GPU execution path.
+
+**[Code]** The SCD artifact contract now records the actual LION pipeline,
+the fixed denominator value 2048, the retained count `int(2048 * .95) = 1945`,
+and the explicit Colab integration check. This corrects the previous metadata
+that described the SCD run with the LION-free identity-preprocessing string.
+
+**[Open]** A complete Colab run of
+`scd_normalization_control` at the locked scope is required to validate the
+real CUDA/Chamfer integration. The run must be checked for complete status,
+zero traceback, the new `scd_normalization` config fields, and the expected
+raw LION eval/dropout mode records. No GPU run was performed locally.
+
 ## 2026-09-20 - SCD normalization control implemented
 
 **[Code]** Added the opt-in `scd_normalization_control` method on top of the
