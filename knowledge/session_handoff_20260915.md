@@ -257,3 +257,20 @@ causal diffusion/guidance claim; it is deferred because it is not expected to
 change the accuracy ordering. Report that causal attribution as [Open] unless
 the stronger thesis claim later becomes necessary.
 Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.
+
+## Shared-trajectory decoder control implementation - 2026-09-20
+
+**[Code]** The opt-in `shared_trajectory_decoder_control` method is now
+implemented on `baseline-repro-clean`. It runs one raw/eval LION trajectory
+per batch and decodes the same final local latent with original and updated
+styles. It is locked to severity 5, Gaussian/Impulse, complete files, batch
+32, seeds 0/1/2, raw weights, EMA off, and the existing gamma/eta/lambda and
+scheduler settings. The second classifier call restores NumPy and Torch
+CPU/CUDA RNG state. The seven-file artifact contract remains intact, with both
+decoder branches and paired diagnostics in the two CSVs/config.
+
+**[Open]** No Colab result exists yet. After the code commit is pushed, fetch
+`origin/baseline-repro-clean` in Colab and run the supplied seed-0 command,
+then repeat seeds 1 and 2. Validate ZIP structure, completion/traceback,
+commit, checkpoint/data hashes, branch metrics and per-corruption deltas
+before any all-15 confirmation.

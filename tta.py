@@ -1,9 +1,37 @@
+from dataclasses import dataclass
+
 import torch
 from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *, scheduler_observer=None):
+
+@dataclass(frozen=True)
+class SharedTrajectory:
+    """Final local state and both style states from one TTA trajectory."""
+
+    final_local_latent: torch.Tensor
+    original_style: torch.Tensor
+    updated_style: torch.Tensor
+
+
+def decode_shared_trajectory(lion, trajectory: SharedTrajectory):
+    """Decode one final local latent with original and updated styles."""
+    def decoder_shape(latent):
+        return latent.squeeze(3).squeeze(2) if latent.dim() == 4 else latent
+
+    local_latent = decoder_shape(trajectory.final_local_latent)
+    original_points = lion.vae.decoder(
+        None, beta=None, context=local_latent, style=decoder_shape(trajectory.original_style)
+    )
+    updated_points = lion.vae.decoder(
+        None, beta=None, context=local_latent, style=decoder_shape(trajectory.updated_style)
+    )
+    return original_points, updated_points
+
+
+def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
+                    scheduler_observer=None, return_trajectory=False):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -84,6 +112,13 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *, sche
         # Update latent variables with gradient step
         noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
         style_cond = style_cond - eta * style_cond.grad
+
+    if return_trajectory:
+        return SharedTrajectory(
+            final_local_latent=noisy_latent_point.detach(),
+            original_style=shape_latent.detach(),
+            updated_style=style_cond.detach(),
+        )
 
     # Decode the predicted points from VAE decoder
     pred_points = vae.decoder(

@@ -25,6 +25,17 @@ SUMMARY_COLUMNS = (
     "macro_accuracy", "total_examples", "total_correct", "micro_accuracy",
     "total_runtime_seconds", "status",
 )
+DECODER_PER_COLUMNS = (
+    "original_style_n_correct", "original_style_accuracy",
+    "updated_style_n_correct", "updated_style_accuracy", "paired_delta_pp",
+    "prediction_disagreement", "decoder_output_difference", "style_displacement",
+)
+DECODER_SUMMARY_COLUMNS = (
+    "original_style_macro_accuracy", "original_style_micro_accuracy",
+    "updated_style_macro_accuracy", "updated_style_micro_accuracy",
+    "paired_delta_pp_macro", "paired_delta_pp_micro", "prediction_disagreement",
+    "decoder_output_difference", "style_displacement",
+)
 
 
 def validate_selection(names: list[str]) -> list[str]:
@@ -79,13 +90,65 @@ def summarize(rows: list[dict], status: str | None = None) -> dict:
         if status == "complete" and resolved != "complete":
             raise ValueError("Incomplete rows cannot form a complete run.")
         resolved = status
-    return dict(**{key: rows[0][key] for key in identity},
+    summary = dict(**{key: rows[0][key] for key in identity},
                 n_corruptions=len(rows),
                 macro_accuracy=sum(observed) / len(observed) if observed else "",
                 total_examples=n, total_correct=correct,
                 micro_accuracy=correct / n if n else "",
                 total_runtime_seconds=sum(row["runtime_seconds"] for row in checked),
                 status=resolved)
+    if "original_style_accuracy" in rows[0]:
+        summary.update(decoder_control_summary(rows))
+    return summary
+
+
+def decoder_control_row(n_examples: int, original_correct: int, updated_correct: int,
+                        disagreement_n: int, decoder_output_difference: float,
+                        style_displacement: float) -> dict:
+    """Return validated per-corruption metrics for the shared-style control."""
+    if type(n_examples) is not int or type(original_correct) is not int or type(updated_correct) is not int:
+        raise ValueError("Decoder-control counts must be integers.")
+    if type(disagreement_n) is not int or not 0 <= disagreement_n <= n_examples:
+        raise ValueError("Invalid decoder-control disagreement count.")
+    if not (0 <= original_correct <= n_examples and 0 <= updated_correct <= n_examples):
+        raise ValueError("Invalid decoder-control correct count.")
+    if any(not math.isfinite(value) or value < 0 for value in
+           (decoder_output_difference, style_displacement)):
+        raise ValueError("Decoder-control distances must be finite and non-negative.")
+    original_accuracy = original_correct / n_examples if n_examples else ""
+    updated_accuracy = updated_correct / n_examples if n_examples else ""
+    return dict(
+        original_style_n_correct=original_correct,
+        original_style_accuracy=original_accuracy,
+        updated_style_n_correct=updated_correct,
+        updated_style_accuracy=updated_accuracy,
+        paired_delta_pp=(updated_accuracy - original_accuracy) * 100 if n_examples else "",
+        prediction_disagreement=disagreement_n / n_examples if n_examples else "",
+        decoder_output_difference=decoder_output_difference,
+        style_displacement=style_displacement,
+    )
+
+
+def decoder_control_summary(rows: list[dict]) -> dict:
+    """Aggregate shared-style metrics with explicit macro/micro semantics."""
+    if not rows or any("original_style_accuracy" not in row for row in rows):
+        raise ValueError("Decoder-control summary needs decoder-control rows.")
+    total = sum(row["n_examples"] for row in rows)
+    original_correct = sum(row["original_style_n_correct"] for row in rows)
+    updated_correct = sum(row["updated_style_n_correct"] for row in rows)
+    macro_original = sum(row["original_style_accuracy"] for row in rows) / len(rows)
+    macro_updated = sum(row["updated_style_accuracy"] for row in rows) / len(rows)
+    return dict(
+        original_style_macro_accuracy=macro_original,
+        original_style_micro_accuracy=original_correct / total if total else "",
+        updated_style_macro_accuracy=macro_updated,
+        updated_style_micro_accuracy=updated_correct / total if total else "",
+        paired_delta_pp_macro=(macro_updated - macro_original) * 100,
+        paired_delta_pp_micro=((updated_correct - original_correct) / total * 100) if total else "",
+        prediction_disagreement=sum(row["prediction_disagreement"] * row["n_examples"] for row in rows) / total,
+        decoder_output_difference=sum(row["decoder_output_difference"] * row["n_examples"] for row in rows) / total,
+        style_displacement=sum(row["style_displacement"] * row["n_examples"] for row in rows) / total,
+    )
 
 
 class RunBundle:
@@ -122,6 +185,7 @@ class RunBundle:
             encoding="utf-8")
 
     def write_results(self, rows: list[dict], status: str | None = None) -> None:
+        decoder_control = bool(rows and "original_style_accuracy" in rows[0])
         if rows:
             summary = summarize(rows, status)
         else:
@@ -133,8 +197,10 @@ class RunBundle:
                 method=config.get("method", "3dd_original"), seed=config["seed"], n_corruptions=0,
                 macro_accuracy="", total_examples=0, total_correct=0, micro_accuracy="",
                 total_runtime_seconds=0, status=status)
-        self._write_csv("per_corruption.csv", PER_COLUMNS, rows)
-        self._write_csv("summary.csv", SUMMARY_COLUMNS, [summary])
+        per_columns = PER_COLUMNS + DECODER_PER_COLUMNS if decoder_control else PER_COLUMNS
+        summary_columns = SUMMARY_COLUMNS + DECODER_SUMMARY_COLUMNS if decoder_control else SUMMARY_COLUMNS
+        self._write_csv("per_corruption.csv", per_columns, rows)
+        self._write_csv("summary.csv", summary_columns, [summary])
 
     def mark_failed(self) -> None:
         """Finalize this invocation after a worker crash, preserving recorded counts."""
@@ -142,7 +208,8 @@ class RunBundle:
             rows = list(csv.DictReader(file))
         for row in rows:
             row["status"] = "failed"
-        self._write_csv("summary.csv", SUMMARY_COLUMNS, rows)
+        columns = tuple(rows[0].keys()) if rows else SUMMARY_COLUMNS
+        self._write_csv("summary.csv", columns, rows)
 
     def _write_csv(self, filename: str, columns: tuple[str, ...], rows: list[dict]) -> None:
         with (self.path / filename).open("w", newline="", encoding="utf-8") as file:

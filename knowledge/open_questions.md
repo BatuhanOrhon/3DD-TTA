@@ -53,6 +53,8 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [ ] Optional P1: implement and run a same-commit common-draw pure-VAE versus eval/raw 3DD-TTA control with preprocessing fixed only if a causal diffusion/guidance thesis claim is required. Deferred for now because existing results already establish the accuracy ordering and the test is not expected to change it.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
+- [x] Implement the opt-in shared-trajectory original-versus-updated final-style decoder control. It reuses one local trajectory and records both decoder branches plus paired diagnostics; no Colab result yet.
+- [ ] Run the shared-trajectory decoder control on complete Gaussian/Impulse severity-5 files at seeds 0/1/2 and validate all seven-file ZIPs before deciding on all-15 confirmation.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.
 - [ ] Confirm that checkpoint loading reports no missing/unexpected keys in every entry point.
 - [ ] Quantify batch-size effects under fixed seeds/common random numbers.

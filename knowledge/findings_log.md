@@ -575,6 +575,48 @@ Point-MAE loaded with strict=False but zero missing/unexpected keys; both LION m
 
 ## Entry template
 
+## 2026-09-20 - Shared-trajectory final-style decoder control implemented
+
+**Evidence:** [Code] `tta.py`, `run_baseline.py`, `research_artifacts.py`,
+`tests/test_shared_trajectory_decoder_control.py`, `result/README.md`; no
+Colab `[Run]` result yet. The working tree is on `baseline-repro-clean`; the
+implementation commit is recorded when this code batch is committed.
+
+**Question:** Does decoding the same final local latent with the updated
+`style_cond` change predictions relative to decoding with the original
+`shape_latent`, with the TTA trajectory held fixed?
+
+**Implementation:** [Code] Added the opt-in
+`shared_trajectory_decoder_control` method. Each batch runs one existing
+`tta_reconstruct` trajectory with one initial noise/scheduler/SCD sequence,
+returns its final local latent plus original/updated styles, and calls the
+decoder twice with the shared local latent. The default `3dd_original` and
+`source_only` routes remain unchanged; the new method is locked to ModelNet40-C
+severity 5, Gaussian/Impulse, complete files, batch 32, seeds 0/1/2, raw LION,
+eval mode, EMA disabled, and gamma=eta=.01/lambda=.95.
+
+The seven-file artifact contract is preserved. [Code] Per-corruption and
+summary CSVs additionally record original/updated-style counts and accuracy,
+paired delta in percentage points, prediction disagreement, decoder-output
+difference, and style displacement. `config.json` records the method contract,
+RNG snapshot/restore policy, commit and asset manifests. [Code] The extra
+classifier call snapshots/restores NumPy and Torch CPU/CUDA RNG state.
+
+**Local verification:** [Code] 21 unittest cases pass; `py_compile` passes for
+`tta.py`, `run_baseline.py`, `research_artifacts.py`, `main_3dd_tta.py`, and
+`utilities_3dd_tta.py`; exact pilot CLI parsing and scope rejection pass;
+`main_3dd_tta.py` `process_batches` AST and the `source_only` runner branch AST
+match HEAD; `git diff --check` has no whitespace errors. No CUDA/model
+evaluation was run locally.
+
+**Decision/Open:** [Open] The control is code-ready but has no accuracy
+evidence until three complete Colab ZIPs are supplied and validated. Updated
+style is accepted for all-15 confirmation only if it is consistently better
+on all three seeds and both pilot corruptions. Null/unstable results reject
+the decoder-style hypothesis; negative results preserve the current original-
+style baseline. The next separate factor after a null/negative result is Eq.
+11 SCD normalization, without changing lambda, RNG, or scheduler together.
+
 ## 2026-09-12 - Source-only all-corruption identity result
 
 **Evidence:** [Run] `result/modelnet40_c/source_only/20260912-111822_source-only_seed0/`; ZIP SHA-256 `bf1ff8884401b4617213299ff7e1f7a90476345e25a6ea79d8d514cfff09eabe`.

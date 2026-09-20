@@ -125,6 +125,7 @@ Use these identifiers in output directories and tables:
 | `preprocessing_identity_seed_stability` | Seed 1/2 repeat of preprocessing identity for stochastic interpolation stability; LION bypassed |
 | `pure_vae_encode_decode` | TTA preprocessing followed by raw LION VAE encode/decode; priors, scheduler and guidance bypassed |
 | `pure_vae_seed_stability` | Seed 1/2 repeat of the pure VAE control for stochastic stability; not a new TTA method |
+| `shared_trajectory_decoder_control` | One raw/eval LION trajectory decoded with original and updated final styles; reproduction control, not a new TTA method |
 | `lion_recon` | LION reconstruction without guidance |
 | `3dd_original` | Matched original `tta.py` path |
 | `gsd_static` | Static latent spectral guidance |

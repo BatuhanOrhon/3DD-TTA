@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
 import hashlib
 import itertools
 import json
@@ -17,7 +18,8 @@ import zipfile
 from pathlib import Path
 from types import SimpleNamespace
 
-from research_artifacts import CLEAN_CONTROL, CORRUPTIONS, RunBundle, corruption_row, validate_selection
+from research_artifacts import (CLEAN_CONTROL, CORRUPTIONS, RunBundle, corruption_row,
+                                decoder_control_row, validate_selection)
 
 REPO = Path(__file__).resolve().parent
 IDENTITY_PREPROCESSING = (
@@ -27,11 +29,63 @@ IDENTITY_PREPROCESSING = (
 )
 PURE_VAE_METHODS = frozenset(("pure_vae_encode_decode", "pure_vae_seed_stability"))
 PREPROCESSING_IDENTITY_METHODS = frozenset(("preprocessing_identity", "preprocessing_identity_seed_stability"))
+SHARED_DECODER_METHOD = "shared_trajectory_decoder_control"
 
 
 def is_preprocessing_identity_method(method: str) -> bool:
     """Return whether a method uses the LION-free preprocessing route."""
     return method in PREPROCESSING_IDENTITY_METHODS
+
+
+@contextmanager
+def preserve_classifier_rng(numpy_module, torch_module):
+    """Preserve RNG streams consumed by the extra decoder-control call."""
+    numpy_state = numpy_module.random.get_state()
+    torch_cpu_state = torch_module.get_rng_state()
+    torch_cuda_states = (torch_module.cuda.get_rng_state_all()
+                         if torch_module.cuda.is_available() else None)
+    try:
+        yield
+    finally:
+        numpy_module.random.set_state(numpy_state)
+        torch_module.set_rng_state(torch_cpu_state)
+        if torch_cuda_states is not None:
+            torch_module.cuda.set_rng_state_all(torch_cuda_states)
+
+
+def decoder_control_batch_metrics(target, original_pred, updated_pred,
+                                  original_points, updated_points,
+                                  original_style, updated_style) -> dict:
+    """Compute paired decoder diagnostics for one batch."""
+    target = target.detach().view(-1)
+    original_pred = original_pred.detach().view(-1)
+    updated_pred = updated_pred.detach().view(-1)
+    if not (target.shape == original_pred.shape == updated_pred.shape):
+        raise ValueError("Decoder-control predictions and targets must have equal shapes.")
+    batch_size = target.numel()
+    output_diff = (updated_points.detach() - original_points.detach()).abs().reshape(batch_size, -1)
+    style_diff = (updated_style.detach() - original_style.detach()).reshape(batch_size, -1)
+    return dict(
+        n_examples=int(batch_size),
+        original_style_n_correct=int((original_pred == target).sum().item()),
+        updated_style_n_correct=int((updated_pred == target).sum().item()),
+        disagreement_n=int((original_pred != updated_pred).sum().item()),
+        decoder_output_difference=float(output_diff.mean().item()),
+        style_displacement=float(style_diff.norm(dim=1).mean().item()),
+    )
+
+
+def classify_decoder_variants(base_model, original_points, updated_points, label,
+                              torch_module, numpy_module):
+    """Classify both decoded branches while isolating the second call's RNG."""
+    with torch_module.no_grad():
+        original_pred = base_model.module.classification_only(
+            original_points, only_unmasked=False).argmax(-1).view(-1)
+    with preserve_classifier_rng(numpy_module, torch_module):
+        with torch_module.no_grad():
+            updated_pred = base_model.module.classification_only(
+                updated_points, only_unmasked=False).argmax(-1).view(-1)
+    return label.cuda().view(-1), original_pred, updated_pred
 
 
 def selected_data_path(dataset_root: str, name: str, severity: int = 5) -> Path:
@@ -200,6 +254,23 @@ def pure_vae_encode_decode_points(data, baseline, lion, args, torch_module):
     return tta_postprocess_points(pred_points, data_center, data_max, baseline, args)
 
 
+def shared_trajectory_decoder_points(data, baseline, lion, args, torch_module,
+                                     steps, scheduler_observer=None):
+    """Run one trajectory, then decode its final local state with both styles."""
+    data_sample, data_center, data_max = tta_preprocess_points(data, baseline, args, torch_module)
+    trajectory = baseline.tta_reconstruct(
+        data_sample, lion, steps, args.gamma, args.eta, args.lambdaa, 100,
+        scheduler_observer=scheduler_observer, return_trajectory=True)
+    original_points, updated_points = baseline.decode_shared_trajectory(lion, trajectory)
+    return (
+        tta_postprocess_points(original_points, data_center, data_max, baseline, args),
+        tta_postprocess_points(updated_points, data_center, data_max, baseline, args),
+        trajectory,
+        original_points,
+        updated_points,
+    )
+
+
 def notes_for_run(args: SimpleNamespace) -> str:
     """Describe the evaluated path without classifying source-only runs as smoke tests."""
     if args.method == "source_only":
@@ -277,6 +348,23 @@ def notes_for_run(args: SimpleNamespace) -> str:
             "CUDA runtime excludes asset hashing and model loading; peak allocated memory includes models.\n"
             "User: add Colab runtime/GPU type and anomalies.\n"
         )
+    if args.method == SHARED_DECODER_METHOD:
+        return (
+            "# Shared-trajectory decoder-style control\n\n"
+            "Purpose: compare original versus updated final decoder style on one shared "
+            "eval/raw LION trajectory; this is a reproduction control, not a new TTA method. "
+            "Each batch runs one VAE encode, one initial noise draw, one DDIM/SCD trajectory, "
+            "then decodes the same final local latent with original shape_latent and updated "
+            "style_cond.\n"
+            "Locked pilot: ModelNet40-C severity 5, Gaussian and Impulse, complete files, "
+            "batch 32, seed 0/1/2, raw LION weights, LION eval mode, EMA disabled, and "
+            "unchanged gamma/eta/lambda/scheduler settings. The second classifier call "
+            "snapshots/restores NumPy and Torch CPU/CUDA RNG state.\n"
+            "The artifact records both accuracies, paired percentage-point delta, prediction "
+            "disagreement, decoder output difference, style displacement, commit and asset "
+            "hashes in config.json and the extended CSV fields.\n"
+            "User: add Colab runtime/GPU type and anomalies.\n"
+        )
     return (
         "# Smoke run\n\nPurpose: validate execution and artifact schema, NOT benchmark accuracy.\n"
         "Only a file-order prefix is evaluated. Seed-controlled, not fully paired.\n"
@@ -314,7 +402,7 @@ def run_worker(directory: str) -> None:
         print("Hashing checkpoints and selected data files...", flush=True)
         assets = {"classifier_checkpoint": args.pointmae_ckpt,
                   "pointmae_config": args.pointmae_config, "labels": args.label_path}
-        if args.method in {"3dd_original", *PURE_VAE_METHODS}:
+        if args.method in {"3dd_original", *PURE_VAE_METHODS, SHARED_DECODER_METHOD}:
             assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
         identities = {name: file_identity(Path(value)) for name, value in assets.items()}
         data_files = {name: file_identity(selected_data_path(args.dataset_root, name, config["severity"]))
@@ -401,6 +489,13 @@ def run_worker(directory: str) -> None:
                     vae_contract="encode -> decompose_eps -> sample",
                     prior_used=False,
                     final_decode_style="VAE decoder from encoded latents")
+            elif args.method == SHARED_DECODER_METHOD:
+                config.update(
+                    lion_loaded=True,
+                    lion_mode_policy="raw LION eval; EMA disabled",
+                    final_decode_style="shared final local latent; original and updated style",
+                    decoder_control="one trajectory, two final-style decodes",
+                    rng_control="snapshot/restore NumPy and Torch CPU/CUDA around second classifier call")
         config["extension_inventory"] = extension_inventory()
 
         def record_modes(key):
@@ -429,6 +524,7 @@ def run_worker(directory: str) -> None:
 
         for active in args.corruptions:
             counters = {"n": 0, "correct": 0}
+            decoder_totals = None
             dataset = baseline.PointDataset(args.dataset_root, args.label_path, active, severity=config["severity"])
             if len(dataset.data) != len(dataset.labels) or len(dataset) == 0:
                 raise ValueError("Empty data or data/label count mismatch.")
@@ -488,6 +584,35 @@ def run_worker(directory: str) -> None:
                         targets.append(target.cpu())
                         predictions.append(pred.cpu())
                 targets, predictions = torch.cat(targets), torch.cat(predictions)
+            elif args.method == SHARED_DECODER_METHOD:
+                targets, predictions = [], []
+                decoder_totals = dict(
+                    n_examples=0, original_style_n_correct=0,
+                    updated_style_n_correct=0, disagreement_n=0,
+                    decoder_output_difference_sum=0.0,
+                    style_displacement_sum=0.0)
+                with torch.no_grad():
+                    for data, label in batches:
+                        original_points, updated_points, trajectory, original_decoder, updated_decoder = shared_trajectory_decoder_points(
+                            data.float(), baseline, lion, args, torch, steps,
+                            scheduler_observer=scheduler_observer)
+                        target, original_pred, updated_pred = classify_decoder_variants(
+                            base_model, original_points, updated_points, label, torch, np)
+                        batch_metrics = decoder_control_batch_metrics(
+                            target, original_pred, updated_pred, original_decoder, updated_decoder,
+                            trajectory.original_style, trajectory.updated_style)
+                        decoder_totals["n_examples"] += batch_metrics["n_examples"]
+                        decoder_totals["original_style_n_correct"] += batch_metrics["original_style_n_correct"]
+                        decoder_totals["updated_style_n_correct"] += batch_metrics["updated_style_n_correct"]
+                        decoder_totals["disagreement_n"] += batch_metrics["disagreement_n"]
+                        decoder_totals["decoder_output_difference_sum"] += (
+                            batch_metrics["decoder_output_difference"] * batch_metrics["n_examples"])
+                        decoder_totals["style_displacement_sum"] += (
+                            batch_metrics["style_displacement"] * batch_metrics["n_examples"])
+                        batch_observer(target, updated_pred)
+                        targets.append(target.cpu())
+                        predictions.append(updated_pred.cpu())
+                targets, predictions = torch.cat(targets), torch.cat(predictions)
             else:
                 targets, predictions = baseline.process_batches(
                     batches, base_model, lion, args, steps,
@@ -497,10 +622,21 @@ def run_worker(directory: str) -> None:
             if counters["n"] != targets.numel() or counters["correct"] != int((predictions == targets).sum().item()):
                 raise RuntimeError("Batch counters disagree with returned predictions.")
             status = "complete" if counters["n"] == len(dataset) else "partial"
-            rows.append(corruption_row(config["run_id"], args.seed, active,
-                                       counters["n"], counters["correct"], elapsed,
-                                       torch.cuda.max_memory_allocated() / (1024 ** 2), status,
-                                       method=args.method, severity=config["severity"], dataset=config["dataset"]))
+            row = corruption_row(config["run_id"], args.seed, active,
+                                 counters["n"], counters["correct"], elapsed,
+                                 torch.cuda.max_memory_allocated() / (1024 ** 2), status,
+                                 method=args.method, severity=config["severity"], dataset=config["dataset"])
+            if decoder_totals is not None:
+                decoder_metrics = decoder_control_row(
+                    decoder_totals["n_examples"],
+                    decoder_totals["original_style_n_correct"],
+                    decoder_totals["updated_style_n_correct"],
+                    decoder_totals["disagreement_n"],
+                    decoder_totals["decoder_output_difference_sum"] / decoder_totals["n_examples"],
+                    decoder_totals["style_displacement_sum"] / decoder_totals["n_examples"])
+                row.update(decoder_metrics)
+                config.setdefault("decoder_control", {})[active] = decoder_metrics
+            rows.append(row)
             started = None
             bundle.write_results(rows, "running")
             record_modes("module_inventory_after")
@@ -545,7 +681,8 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--method", choices=("3dd_original", "source_only", "preprocessing_identity",
                                              "preprocessing_identity_seed_stability",
-                                             "pure_vae_encode_decode", "pure_vae_seed_stability"),
+                                             "pure_vae_encode_decode", "pure_vae_seed_stability",
+                                             SHARED_DECODER_METHOD),
                         default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
@@ -612,6 +749,18 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
             parser.error("pure_vae_seed_stability sets raw VAE eval mode and rejects LION mode flags.")
         if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
             parser.error("pure_vae_seed_stability uses the locked baseline gamma, eta, and lambda values.")
+    if args.method == SHARED_DECODER_METHOD:
+        if args.dataset_name != "modelnet-c" or args.severity != 5:
+            parser.error("shared_trajectory_decoder_control is locked to ModelNet40-C severity 5.")
+        if args.batch_size != 32 or args.seed not in (0, 1, 2) or args.max_batches != 0:
+            parser.error("shared_trajectory_decoder_control is locked to batch 32, seed 0/1/2, and complete evaluation.")
+        if args.corruptions != ["gaussian", "impulse"]:
+            parser.error("shared_trajectory_decoder_control requires exactly gaussian and impulse.")
+        if args.lion_ema_mode:
+            parser.error("shared_trajectory_decoder_control requires raw LION weights; EMA is disabled.")
+        if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
+            parser.error("shared_trajectory_decoder_control uses the locked baseline gamma, eta, and lambda values.")
+        args.lion_eval_mode = True
     if args.batch_size < 1 or args.max_batches < 0 or not 0 <= args.seed < 2 ** 32:
         parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
@@ -623,6 +772,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         "preprocessing-identity-seed-stability" if args.method == "preprocessing_identity_seed_stability" else
         "pure-vae-encode-decode" if args.method == "pure_vae_encode_decode" else
         "pure-vae-seed-stability" if args.method == "pure_vae_seed_stability" else
+        "shared-decoder-s5-gaussian-impulse" if args.method == SHARED_DECODER_METHOD else
         "baseline-smoke")
     args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
     return args
@@ -638,7 +788,8 @@ def build_config(args: argparse.Namespace) -> dict:
              "preprocessing_identity" if args.method == "preprocessing_identity" else
              "preprocessing_identity_seed_stability" if args.method == "preprocessing_identity_seed_stability" else
              "pure_vae_encode_decode" if args.method == "pure_vae_encode_decode" else
-             "pure_vae_seed_stability" if args.method == "pure_vae_seed_stability" else "smoke")
+             "pure_vae_seed_stability" if args.method == "pure_vae_seed_stability" else
+             "shared_trajectory_decoder_control" if args.method == SHARED_DECODER_METHOD else "smoke")
     config = dict(
         stage=stage, dataset=dataset,
         severity=0 if args.clean_control else args.severity, method=args.method,
@@ -650,9 +801,11 @@ def build_config(args: argparse.Namespace) -> dict:
         guidance_mapping=dict(gamma="local latent", eta="style condition"),
         final_decode_style=("identity; no decode" if args.method in PREPROCESSING_IDENTITY_METHODS else
                             "VAE decoder from encoded latents" if args.method in PURE_VAE_METHODS else
+                            "shared final local latent; original and updated style" if args.method == SHARED_DECODER_METHOD else
                             "original shape_latent"),
         lion_mode_policy=("bypassed" if args.method in PREPROCESSING_IDENTITY_METHODS else
                           "raw VAE eval; priors bypassed" if args.method in PURE_VAE_METHODS else
+                          "raw LION eval; EMA disabled" if args.method == SHARED_DECODER_METHOD else
                           "legacy; unchanged"),
         scheduler_config={}, spectral={}, projection={}, cli_args=vars(args),
         git_branch=command_output(["git", "branch", "--show-current"]),
@@ -673,6 +826,12 @@ def build_config(args: argparse.Namespace) -> dict:
             prior_used=False)
         if args.method == "pure_vae_seed_stability":
             config["seed_stability_reference"] = "pure_vae_encode_decode seed0 archive"
+    elif args.method == SHARED_DECODER_METHOD:
+        config.update(
+            lion_loaded=True,
+            preprocessing=IDENTITY_PREPROCESSING,
+            decoder_control="one trajectory, two final-style decodes",
+            rng_control="snapshot/restore NumPy and Torch CPU/CUDA around second classifier call")
     return config
 
 
