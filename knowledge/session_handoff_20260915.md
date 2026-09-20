@@ -195,6 +195,15 @@ content parity: the next step is to extract the archive outside the repo and
 compare all 15 corruption-file hashes against the Colab manifest. The
 Point-MAE checkpoint remains a separate `[Open]` provenance question.
 
+The supplied completed report
+`result/modelnet40_c/provenance_report/provenance_report.json` supersedes that
+interim deferral. It confirms the Zenodo archive MD5/size and all 15 archive
+member hashes match the source-only manifest; all 15 current Colab files match
+as well. Dataset provenance is therefore closed as a source-gap explanation.
+The Point-MAE checkpoint remains a separate `[Open]` question. The next
+approved experiment is the shared-trajectory original-versus-updated
+final-style decoder control.
+
 ## Continuation update - 2026-09-19 preprocessing and pure VAE controls
 
 The stale earlier next-action text above is superseded by the validated

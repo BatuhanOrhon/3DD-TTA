@@ -244,7 +244,9 @@ No alternate resampling policy is implemented or benchmarked yet.
 - [x] Identify the canonical ModelNet40-C Zenodo archive from the reported API
   metadata: `modelnet40_c.zip`, 1,970,686,633 bytes, MD5
   `c4a7fffaa52c80b33f7b3a0ac7782d3b`.
-- [ ] Extract that archive outside the repository and compare all 15
+- [x] Extract the canonical archive outside the repository and compare all 15
   corruption-file sizes/SHA-256 values with the Colab source-only manifest.
+  The supplied provenance report confirms all 15 archive members and all 15
+  current Colab files match.
 - [ ] Compare the Colab Point-MAE checkpoint hash with an author/canonical
   checkpoint hash; keep this separate from the corruption-archive gate.

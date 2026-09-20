@@ -337,6 +337,47 @@ source-only result. If any file differs, rerun the direct source-only control
 with the canonical archive before interpreting TTA. Keep the checkpoint gate
 separate and do not change LiDAR generation or inference FPS.
 
+## 2026-09-20 - Archive byte audit deprioritized (superseded)
+
+**Evidence:** [User report] The ModelNet40-C data was downloaded from the same
+fixed Zenodo address. [Run] Complete Colab source-only artifacts already share
+the same 15 data-file hashes across seeds and recorded commits. [User report]
+The long-running archive download is not considered worthwhile at this stage.
+
+**Interpretation:** Same-record download provenance plus repeated identical
+Colab manifests makes an archive mismatch unlikely enough that a 1.97 GB
+byte-level re-download is not a useful current experiment gate. It does not
+mathematically prove archive-content identity, so the caveat remains recorded
+as [Open] rather than being silently declared resolved.
+
+**Decision:** Stop/defer the archive download, do not rerun source-only solely
+for this audit, and proceed to the predeclared shared-trajectory final-style
+decoder control. Do not regenerate LiDAR, alter FPS, or add a new TTA method.
+
+This decision is superseded by the supplied completed provenance report below.
+
+## 2026-09-20 - Canonical archive byte identity confirmed
+
+**Evidence:** [Run] `result/modelnet40_c/provenance_report/provenance_report.json`.
+The report contains 15 unique corruption rows and complete fields for every
+row. The downloaded archive is `1,970,686,633` bytes with MD5
+`c4a7fffaa52c80b33f7b3a0ac7782d3b`, matching both Zenodo metadata and the
+expected archive identity.
+
+**Result:** `all_archive_members_match=true` and
+`all_current_colab_files_match=true`. Every one of the 15 severity-5 archive
+members has exactly one matching member, and its byte count and SHA-256 match
+the audited source-only manifest. The corresponding 15 current Colab files
+also match the same byte counts and SHA-256 values. This includes LiDAR; no
+LiDAR regeneration or alternate FPS policy is justified by provenance.
+
+**Decision:** [Run] The ModelNet40-C corruption archive mismatch is removed as
+an explanation for the 53.6899% source-only result. The dataset provenance
+gate is closed. The Point-MAE checkpoint's author/canonical identity remains a
+separate [Open] question, but no source-only rerun is needed for the dataset.
+Proceed to the predeclared shared-trajectory original-versus-updated
+final-style decoder control after the normal code/protocol audit.
+
 ## 2026-09-19 - Preprocessing identity seed-stability diagnostic implemented
 
 **Evidence:** [Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`,
