@@ -579,8 +579,8 @@ Point-MAE loaded with strict=False but zero missing/unexpected keys; both LION m
 
 **Evidence:** [Code] `tta.py`, `run_baseline.py`, `research_artifacts.py`,
 `tests/test_shared_trajectory_decoder_control.py`, `result/README.md`; no
-Colab `[Run]` result yet. The working tree is on `baseline-repro-clean`; the
-implementation commit is recorded when this code batch is committed.
+Colab `[Run]` result yet. The implementation is committed on
+`baseline-repro-clean` at `381d74adc98624b233c5007c793c5cd8189aeb33`.
 
 **Question:** Does decoding the same final local latent with the updated
 `style_cond` change predictions relative to decoding with the original

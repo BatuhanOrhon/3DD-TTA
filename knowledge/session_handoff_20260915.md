@@ -261,7 +261,8 @@ Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.
 ## Shared-trajectory decoder control implementation - 2026-09-20
 
 **[Code]** The opt-in `shared_trajectory_decoder_control` method is now
-implemented on `baseline-repro-clean`. It runs one raw/eval LION trajectory
+implemented on `baseline-repro-clean` at commit
+`381d74adc98624b233c5007c793c5cd8189aeb33`. It runs one raw/eval LION trajectory
 per batch and decodes the same final local latent with original and updated
 styles. It is locked to severity 5, Gaussian/Impulse, complete files, batch
 32, seeds 0/1/2, raw weights, EMA off, and the existing gamma/eta/lambda and
