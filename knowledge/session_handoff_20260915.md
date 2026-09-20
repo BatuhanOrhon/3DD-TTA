@@ -186,6 +186,15 @@ Next action remains provenance reconciliation: obtain or compare the canonical
 ModelNet40-C archive and Point-MAE checkpoint hashes. Do not regenerate LiDAR,
 change FPS, or start a new unmatched TTA method before that gate is addressed.
 
+### Canonical archive metadata update - 2026-09-20
+
+**[User report]** The Colab Zenodo API lookup identifies the canonical file as
+`modelnet40_c.zip`, `1,970,686,633` bytes, MD5
+`c4a7fffaa52c80b33f7b3a0ac7782d3b`. This closes archive identification, not
+content parity: the next step is to extract the archive outside the repo and
+compare all 15 corruption-file hashes against the Colab manifest. The
+Point-MAE checkpoint remains a separate `[Open]` provenance question.
+
 ## Continuation update - 2026-09-19 preprocessing and pure VAE controls
 
 The stale earlier next-action text above is superseded by the validated

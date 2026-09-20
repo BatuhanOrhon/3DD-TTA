@@ -241,6 +241,10 @@ No alternate resampling policy is implemented or benchmarked yet.
   not regenerate LiDAR or change inference FPS based on duplicate counts alone.
 - [ ] Resume the broader source-only gap investigation after this gate; LiDAR
   duplicates are not by themselves a proposed contribution.
-- [ ] Obtain or compare the canonical ModelNet40-C archive and Point-MAE
-  checkpoint hashes from Colab/Zenodo before treating internal manifest
-  consistency as external provenance parity.
+- [x] Identify the canonical ModelNet40-C Zenodo archive from the reported API
+  metadata: `modelnet40_c.zip`, 1,970,686,633 bytes, MD5
+  `c4a7fffaa52c80b33f7b3a0ac7782d3b`.
+- [ ] Extract that archive outside the repository and compare all 15
+  corruption-file sizes/SHA-256 values with the Colab source-only manifest.
+- [ ] Compare the Colab Point-MAE checkpoint hash with an author/canonical
+  checkpoint hash; keep this separate from the corruption-archive gate.

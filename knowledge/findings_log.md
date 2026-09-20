@@ -314,6 +314,29 @@ evidence exists, keep the source-only gap as an unresolved data/checkpoint
 provenance issue and keep the shared-trajectory decoder comparison queued
 after the source-data gate.
 
+## 2026-09-20 - Canonical Zenodo archive identified
+
+**Evidence:** [User report] Colab's Zenodo API lookup returned the file entry
+`modelnet40_c.zip`, size `1,970,686,633` bytes, with MD5
+`c4a7fffaa52c80b33f7b3a0ac7782d3b`. [Run] The previously audited Colab
+source-only manifests have matching checkpoint/config/label hashes and the
+same 15 corruption-file hashes across complete severity-5 runs.
+
+**Interpretation:** The API metadata pins the canonical archive identity to a
+specific Zenodo file. It does not yet prove that the 15 `.npy` files used by
+the Colab runs are byte-identical to the archive, because the archive contents
+have not yet been extracted and compared against the recorded per-file
+manifest. It also does not establish that the Point-MAE checkpoint is the
+author's exact checkpoint; that checkpoint is a separate provenance object.
+
+**Decision:** [Inference]/[Open] Download the identified archive outside the
+repository, extract it without mutating `data/` or any raw result, and compare
+per-file sizes/SHA-256 values with the Colab manifest. If all 15 files match,
+remove the corruption-archive mismatch as an explanation for the 53.6899%
+source-only result. If any file differs, rerun the direct source-only control
+with the canonical archive before interpreting TTA. Keep the checkpoint gate
+separate and do not change LiDAR generation or inference FPS.
+
 ## 2026-09-19 - Preprocessing identity seed-stability diagnostic implemented
 
 **Evidence:** [Code] `run_baseline.py`, `tests/test_preprocessing_identity.py`,
