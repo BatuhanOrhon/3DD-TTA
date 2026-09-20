@@ -1,5 +1,32 @@
 # Findings Log
 
+## 2026-09-20 - Shared decoder control execution repair
+
+**[Code]** Review of implementation `381d74a` at HEAD `cf7d92d`
+found three defects: the worker disabled guidance autograd, the
+`decoder_control` string collided with per-corruption metric storage, and
+failed rows omitted paired fields. CPU reproductions confirmed the first two
+exceptions and failure-summary rejection. This supersedes the earlier
+"code-ready" assessment; the old 21 passing tests did not cover these paths.
+
+**[Code]** The control helper now explicitly enables gradients around the
+existing trajectory and disables them for decoding. Contract text uses
+`decoder_control_contract`; metrics use the `decoder_control` dictionary.
+Failure handling retains paired counters and distances for completed batches,
+including empty failed rows; summaries leave unobserved accuracies blank.
+
+**[Code]** Added regression tests for gradient context, metadata storage and
+empty/partially completed failed summaries. A CPU fake-dependency test executes
+the actual TTA loop, checks one encode/five prior calls, unchanged original
+style, changed updated style, no extra trajectory during decoding, and exact
+original-arm parity with the default decoder under the same seed.
+All 25 local unit tests pass. These are software checks, not model accuracy
+evidence. No local GPU evaluation or raw artifact modification occurred.
+
+**[Open]** Colab pilot and complete seven-file ZIP validation remain required.
+Keep Gaussian/Impulse, severity 5, batch 32, seeds 0/1/2, eval/raw and existing
+guidance/scheduler settings. No all-15 promotion or style benefit is established.
+
 ## 2026-09-13 - LION prior EMA inventory and opt-in loader
 
 **Evidence:** [Run] `result/modelnet40_c/diagnostics/checkpoint_ema_inventory.json` and `checkpoint_sha256.txt`; [Code] `models/lion.py`, `main_3dd_tta.py`, `run_baseline.py`.

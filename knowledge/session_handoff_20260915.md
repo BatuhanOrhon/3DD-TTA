@@ -260,6 +260,15 @@ Keep GSD/PxP, EMA, alternate FPS policies, and other datasets parked.
 
 ## Shared-trajectory decoder control implementation - 2026-09-20
 
+**[Code] Correction after review:** The initial `381d74a` implementation
+was not runnable: worker no-grad disabled guidance and a string/dictionary
+metadata collision blocked corruption completion. These are repaired by
+explicit gradient enabling in the control helper and separate contract/metric
+fields. Failed paired rows and empty summaries are also handled. The regression
+suite now has 25 passing CPU tests, including actual trajectory execution with
+fake dependencies. Fetch the latest repair commit before the Colab pilot;
+the earlier "code-ready" assessment is superseded.
+
 **[Code]** The opt-in `shared_trajectory_decoder_control` method is now
 implemented on `baseline-repro-clean` at commit
 `381d74adc98624b233c5007c793c5cd8189aeb33`. It runs one raw/eval LION trajectory

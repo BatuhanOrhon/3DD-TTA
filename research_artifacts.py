@@ -133,6 +133,9 @@ def decoder_control_summary(rows: list[dict]) -> dict:
     """Aggregate shared-style metrics with explicit macro/micro semantics."""
     if not rows or any("original_style_accuracy" not in row for row in rows):
         raise ValueError("Decoder-control summary needs decoder-control rows.")
+    rows = [row for row in rows if row["n_examples"]]
+    if not rows:
+        return dict.fromkeys(DECODER_SUMMARY_COLUMNS, "")
     total = sum(row["n_examples"] for row in rows)
     original_correct = sum(row["original_style_n_correct"] for row in rows)
     updated_correct = sum(row["updated_style_n_correct"] for row in rows)

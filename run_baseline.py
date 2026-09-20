@@ -258,10 +258,12 @@ def shared_trajectory_decoder_points(data, baseline, lion, args, torch_module,
                                      steps, scheduler_observer=None):
     """Run one trajectory, then decode its final local state with both styles."""
     data_sample, data_center, data_max = tta_preprocess_points(data, baseline, args, torch_module)
-    trajectory = baseline.tta_reconstruct(
-        data_sample, lion, steps, args.gamma, args.eta, args.lambdaa, 100,
-        scheduler_observer=scheduler_observer, return_trajectory=True)
-    original_points, updated_points = baseline.decode_shared_trajectory(lion, trajectory)
+    with torch_module.enable_grad():
+        trajectory = baseline.tta_reconstruct(
+            data_sample, lion, steps, args.gamma, args.eta, args.lambdaa, 100,
+            scheduler_observer=scheduler_observer, return_trajectory=True)
+    with torch_module.no_grad():
+        original_points, updated_points = baseline.decode_shared_trajectory(lion, trajectory)
     return (
         tta_postprocess_points(original_points, data_center, data_max, baseline, args),
         tta_postprocess_points(updated_points, data_center, data_max, baseline, args),
@@ -494,7 +496,7 @@ def run_worker(directory: str) -> None:
                     lion_loaded=True,
                     lion_mode_policy="raw LION eval; EMA disabled",
                     final_decode_style="shared final local latent; original and updated style",
-                    decoder_control="one trajectory, two final-style decodes",
+                    decoder_control_contract="one trajectory, two final-style decodes",
                     rng_control="snapshot/restore NumPy and Torch CPU/CUDA around second classifier call")
         config["extension_inventory"] = extension_inventory()
 
@@ -658,6 +660,17 @@ def run_worker(directory: str) -> None:
                                        counters["n"], counters["correct"],
                                        time.perf_counter() - started, memory, "failed",
                                        method=args.method, severity=config["severity"], dataset=config["dataset"]))
+            if args.method == SHARED_DECODER_METHOD and decoder_totals is not None:
+                n = decoder_totals["n_examples"]
+                rows[-1].update(decoder_control_row(
+                    n, decoder_totals["original_style_n_correct"],
+                    decoder_totals["updated_style_n_correct"],
+                    decoder_totals["disagreement_n"],
+                    decoder_totals["decoder_output_difference_sum"] / n if n else 0.0,
+                    decoder_totals["style_displacement_sum"] / n if n else 0.0))
+                config.setdefault("decoder_control", {})[active] = {
+                    key: value for key, value in rows[-1].items()
+                    if key not in {"run_id", "dataset", "method", "seed", "severity", "corruption"}}
         bundle.write_results(rows, "failed")
         bundle.write_config(config)
         with (bundle.path / "notes.md").open("a", encoding="utf-8") as file:
@@ -830,7 +843,8 @@ def build_config(args: argparse.Namespace) -> dict:
         config.update(
             lion_loaded=True,
             preprocessing=IDENTITY_PREPROCESSING,
-            decoder_control="one trajectory, two final-style decodes",
+            decoder_control_contract="one trajectory, two final-style decodes",
+            decoder_control={},
             rng_control="snapshot/restore NumPy and Torch CPU/CUDA around second classifier call")
     return config
 

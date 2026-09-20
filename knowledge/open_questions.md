@@ -54,6 +54,7 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
 - [x] Implement the opt-in shared-trajectory original-versus-updated final-style decoder control. It reuses one local trajectory and records both decoder branches plus paired diagnostics; no Colab result yet.
+- [x] [Code] Repair shared decoder control gradient context, metadata type collision and failed paired artifact rows; add CPU regression coverage including the actual trajectory loop.
 - [ ] Run the shared-trajectory decoder control on complete Gaussian/Impulse severity-5 files at seeds 0/1/2 and validate all seven-file ZIPs before deciding on all-15 confirmation.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.
 - [ ] Confirm that checkpoint loading reports no missing/unexpected keys in every entry point.

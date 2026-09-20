@@ -4,6 +4,7 @@ from types import SimpleNamespace
 import sys
 import types
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import torch
@@ -34,6 +35,91 @@ from tta import SharedTrajectory, decode_shared_trajectory
 
 
 class SharedTrajectoryDecoderControlTests(unittest.TestCase):
+    def test_actual_trajectory_updates_style_once_per_step_and_preserves_default(self):
+        import tta
+        counts = {"encode": 0, "prior": 0}
+        class CPU:
+            def __getattr__(self, name):
+                return getattr(torch, name)
+            def ones(self, *a, **kw):
+                kw["device"] = "cpu"
+                return torch.ones(*a, **kw)
+        class Scheduler:
+            def __init__(self, **kw):
+                pass
+            def set_timesteps(self, total, device):
+                self.timesteps = torch.arange(total - 1, -1, -1)
+                self.alphas_cumprod = torch.full((total,), .8)
+            def step(self, noise, t, x):
+                return SimpleNamespace(pred_original_sample=x-noise, prev_sample=x-.1*noise)
+        class VAE:
+            def encode(self, x):
+                counts["encode"] += 1
+                return None, None, [[torch.ones(1, 128)], [torch.ones(1, 8192)]]
+            def global2style(self, z):
+                return z
+            def decoder(self, unused, beta, context, style):
+                return context.reshape(1, 2048, 4)[:, :, :3] + .01*style.mean()
+        def prior(x, t, condition_input, clip_feat):
+            counts["prior"] += 1
+            return .1*x + condition_input.mean(dim=1, keepdim=True)
+        def chamfer(a, b):
+            d = (a-b).square().sum(-1)
+            return d, d, None, None
+        lion = SimpleNamespace(vae=VAE(), priors=[None, prior])
+        with patch.multiple(tta, torch=CPU(), DDIMScheduler=Scheduler,
+                            chamfer_grad=lambda: chamfer, grad_freeze=lambda m: None):
+            torch.manual_seed(7)
+            trajectory = tta.tta_reconstruct(
+                torch.ones(1, 2048, 3), lion, 5, .01, .01, .95, return_trajectory=True)
+            self.assertEqual(counts, {"encode": 1, "prior": 5})
+            self.assertTrue(torch.equal(trajectory.original_style, torch.ones(1, 128, 1, 1)))
+            self.assertFalse(torch.equal(trajectory.original_style, trajectory.updated_style))
+            original, updated = tta.decode_shared_trajectory(lion, trajectory)
+            self.assertEqual(counts, {"encode": 1, "prior": 5})
+            torch.manual_seed(7)
+            default = tta.tta_reconstruct(torch.ones(1, 2048, 3), lion, 5, .01, .01, .95)
+            self.assertTrue(torch.equal(original, default))
+            self.assertFalse(torch.equal(original, updated))
+
+    def test_control_enables_guidance_but_disables_decoder_gradients(self):
+        calls = []
+        def reconstruct(*args, **kwargs):
+            calls.append("trajectory")
+            x = torch.ones(1, requires_grad=True)
+            (x * 2).sum().backward()
+            self.assertEqual(x.grad.item(), 2)
+            return SharedTrajectory(x.detach(), x.detach(), x.detach())
+        def decode(*args):
+            self.assertFalse(torch.is_grad_enabled())
+            calls.append("decode")
+            return torch.ones(1, 2, 3), torch.ones(1, 2, 3)
+        baseline = SimpleNamespace(tta_reconstruct=reconstruct, decode_shared_trajectory=decode)
+        args = SimpleNamespace(gamma=.01, eta=.01, lambdaa=.95)
+        with patch.object(run_baseline, "tta_preprocess_points", return_value=(torch.ones(1), None, None)):
+            with patch.object(run_baseline, "tta_postprocess_points", side_effect=lambda x, *a: x):
+                with torch.no_grad():
+                    run_baseline.shared_trajectory_decoder_points(None, baseline, None, args, torch, 5)
+        self.assertEqual(calls, ["trajectory", "decode"])
+
+    def test_control_metadata_accepts_corruption_metrics(self):
+        args = run_baseline.parse_arguments([
+            "--method", run_baseline.SHARED_DECODER_METHOD, "--batch_size", "32",
+            "--max-batches", "0", "--corruptions", "gaussian", "impulse"])
+        config = run_baseline.build_config(args)
+        config.setdefault("decoder_control", {})["gaussian"] = {"paired_delta_pp": 0}
+        self.assertIn("gaussian", config["decoder_control"])
+
+    def test_empty_failed_decoder_row_has_no_fabricated_accuracy(self):
+        failed = run_baseline.corruption_row("audit", 0, "impulse", 0, 0, 1, 0, "failed")
+        failed.update(run_baseline.decoder_control_row(0, 0, 0, 0, 0, 0))
+        self.assertEqual(summarize([failed], "failed")["updated_style_macro_accuracy"], "")
+        complete = run_baseline.corruption_row("audit", 0, "gaussian", 4, 2, 1, 0, "complete")
+        complete.update(run_baseline.decoder_control_row(4, 1, 2, 2, .5, 1.5))
+        summary = summarize([complete, failed], "failed")
+        self.assertEqual(summary["status"], "failed")
+        self.assertEqual(summary["updated_style_micro_accuracy"], .5)
+
     def test_decoder_variants_share_one_final_local_latent_and_use_both_styles(self):
         final_local = torch.randn(2, 4, 1, 1)
         original_style = torch.randn(2, 3)
