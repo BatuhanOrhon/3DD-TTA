@@ -53,9 +53,11 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 - [ ] Optional P1: implement and run a same-commit common-draw pure-VAE versus eval/raw 3DD-TTA control with preprocessing fixed only if a causal diffusion/guidance thesis claim is required. Deferred for now because existing results already establish the accuracy ordering and the test is not expected to change it.
 - [ ] Serialize and compare the complete DDIM scheduler config between `tta.py` and `tta_gsd.py`, including `set_alpha_to_one` and installed `diffusers` behavior.
 - [ ] Determine the correct final decode input: raw global `shape_latent`, processed/updated `style_cond`, or another LION representation.
-- [x] Implement the opt-in shared-trajectory original-versus-updated final-style decoder control. It reuses one local trajectory and records both decoder branches plus paired diagnostics; no Colab result yet.
+- [x] Implement the opt-in shared-trajectory original-versus-updated final-style decoder control. It reuses one local trajectory and records both decoder branches plus paired diagnostics; the Gaussian/Impulse pilot result is validated in the findings log.
 - [x] [Code] Repair shared decoder control gradient context, metadata type collision and failed paired artifact rows; add CPU regression coverage including the actual trajectory loop.
 - [x] Run and validate the shared-trajectory decoder control on complete Gaussian/Impulse severity-5 files at seeds 0/1/2. All three seven-file ZIPs are complete, eval/dropout inventories are closed, and the updated-style arm is better in 3/6 paired rows and worse in 3/6; all-15 confirmation is not supported. See findings log.
+- [x] [Code] Extend the shared decoder-control scope guard to accept the complete canonical all-15 list while rejecting arbitrary partial scopes; preserve the original pilot scope and all eval/raw controls.
+- [ ] Run and validate the user-requested all-15 shared-trajectory decoder confirmation at seeds 0/1/2 before applying the next SCD-normalization test.
 - [ ] Implement and run the next isolated Eq. 11 SCD-normalization control with lambda, RNG policy, scheduler, dropout mode and decoder-style contract unchanged.
 - [ ] Verify gamma/eta global/local semantics with unequal values and gradient norms.
 - [ ] Confirm that checkpoint loading reports no missing/unexpected keys in every entry point.

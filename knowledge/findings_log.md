@@ -1,5 +1,24 @@
 # Findings Log
 
+## 2026-09-20 - User-requested all-15 decoder-control coverage
+
+**[User report]** Although the Gaussian/Impulse pilot did not satisfy the
+predeclared consistency rule for promoting updated style, the user requested
+an all-15 confirmation to measure the decoder-style behavior across every
+canonical ModelNet40-C corruption.
+
+**[Code]** Commit
+`5ead0556b87ceae47e86587e16d1279d31f92b90` extends the opt-in
+`shared_trajectory_decoder_control` scope guard to accept either the original
+Gaussian/Impulse pilot or the complete canonical all-15 list. It rejects
+arbitrary partial lists, preserves raw LION/eval mode, EMA-off, batch 32,
+severity 5, seed 0/1/2, and all trajectory/decoder math.
+
+**[Open]** The all-15 Colab artifacts are not yet available. The previous
+pilot result remains the decision-rule evidence; the requested all-15 run is
+an expanded descriptive confirmation, not a retroactive claim that updated
+style was already supported.
+
 ## 2026-09-20 - Shared-trajectory decoder control pilot
 
 **[Run]** The three raw Colab archives under
