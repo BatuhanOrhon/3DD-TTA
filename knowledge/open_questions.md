@@ -269,3 +269,17 @@ No alternate resampling policy is implemented or benchmarked yet.
 - **[Inference]** Do not treat the synthetic CPU trajectory test as evidence
   that the installed Colab CUDA extension produces the same gradients; it is
   only a control-flow regression check.
+
+### 2026-09-22 SCD normalization all-15 confirmation
+
+- [x] Validate the three all-15 SCD normalization ZIPs: seven-file contract,
+  CRC, complete rows, traceback, commit and hashes.
+- [x] Confirm raw LION eval mode and disabled VAE/prior dropout before and
+  after every run.
+- [x] Compare against the matched shared-trajectory original-style arms.
+  The normalized control is lower by **2.4806 pp** mean across seeds.
+- **[Inference]** Preserve the original unnormalized SCD baseline; do not
+  retune normalized guidance on the final all-15 test set.
+- [ ] Run the separately controlled `.96` lambda test with original summed
+  SCD, if approved. Keep gamma, eta, decoder style, scheduler, eval mode,
+  data, checkpoint and seed list fixed.

@@ -1,5 +1,49 @@
 # Findings Log
 
+## 2026-09-22 - SCD normalization all-15 confirmation
+
+**[Run]** The three complete all-15 archives are
+`result/modelnet40_c/scd_normalization_control/20260920-162839_scd-normalized-s5-all15-seed0.zip`,
+`result/modelnet40_c/scd_normalization_control/20260920-165839_scd-normalized-s5-all15-seed1.zip`,
+and
+`result/modelnet40_c/scd_normalization_control/20260920-172842_scd-normalized-s5-all15-seed2.zip`.
+Each ZIP contains exactly the seven required files, passes `testzip()`/CRC
+validation, has 15 complete corruption rows and 37,020 examples, and has no
+traceback. All record commit
+`2d06f79feb25452cdcdde730d06fd341bc4c7714`.
+
+**[Run]** Macro accuracy is 61.2804%, 61.3587% and 61.1642% for seeds 0, 1
+and 2; the mean is 61.2678% with 0.0979 pp sample SD. The artifacts retain
+the same Point-MAE hash `507e0bbf...aec75`, LION hash
+`807f6732...a0a86c2` and all 15 dataset hashes across seeds.
+
+**[Run]** Against the matched all-15 shared-trajectory original-style arms
+(`result/modelnet40_c/shared_trajectory_decoder_control/`), whose seed mean is
+63.7484%, the normalized control changes the macro result by -2.4806 pp on
+average (seed deltas -2.3096, -2.4419 and -2.6904 pp). Nine of 15 corruption
+means are lower and six are higher. The dominant decline is Background
+(-37.0881 pp mean); the largest mean gains are LiDAR (+0.7969 pp), Uniform
+(+0.3917 pp) and Distortion-RBF (+0.3782 pp).
+
+**[Code]** The run configuration confirms raw LION eval mode, EMA disabled,
+2048-point normalization and retained count 1945. VAE/prior dropout records
+are `training=false` before and after every seed. The ZIP validation therefore
+found no implementation/runtime or eval-mode failure that would invalidate the
+negative result.
+
+**[Inference]** Under the locked `.01/.01/.95` settings, Eq. 11-style point
+normalization is rejected as an operational replacement for the original
+summed-SCD baseline. This is a result for normalization with unchanged update
+rates: because the normalized gradient is 1/2048 of the legacy sum at fixed
+input cardinality, it is not evidence that a separately scale-matched
+normalization experiment would also be negative.
+
+**[Decision]** Preserve the original-style, unnormalized SCD decoder baseline.
+Do not promote the normalized control or run an all-15 normalized retuning
+search. The next isolated candidate is the paper/code lambda discrepancy
+(`.96` versus the locked `.95`) with the original unnormalized SCD path; it
+must remain a separate three-seed test.
+
 ## 2026-09-20 - SCD review follow-up: CPU/GPU verification boundary
 
 **[Code]** The SCD normalization helper and CLI/config contracts can be
