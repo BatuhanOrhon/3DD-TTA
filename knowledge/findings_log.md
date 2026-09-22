@@ -1,5 +1,27 @@
 # Findings Log
 
+## 2026-09-22 - SCD lambda=.96 control implementation
+
+**[Code]** Added the opt-in `scd_lambda96_control` method. It preserves the
+original unnormalized directed SCD sums, original `shape_latent` decoder,
+raw LION eval mode, EMA-off policy, scheduler, gamma=.01 and eta=.01; only
+`lambdaa` is locked to `.96` instead of `.95`.
+
+**[Code]** The method is restricted to ModelNet40-C severity 5, batch 32,
+seeds 0/1/2, complete evaluation and either the Gaussian/Impulse pilot or
+canonical all-15 scope. Its artifact config records that SCD normalization is
+disabled, the retained count `int(2048 * .96) = 1966`, and the Colab
+integration contract. Existing `3dd_original`, shared-decoder and SCD
+normalization routes remain unchanged.
+
+**[Code]** Local verification passes with 33 unit tests, `py_compile` for the
+touched runtime modules and `git diff --check`. No GPU evaluation has been
+performed for this method.
+
+**[Open]** Run the three-seed Gaussian/Impulse pilot first. Promote to all-15
+only after the pilot is complete and reviewed; do not combine lambda=.96 with
+normalization, gamma/eta changes, scheduler changes or decoder-style changes.
+
 ## 2026-09-22 - SCD normalization all-15 confirmation
 
 **[Run]** The three complete all-15 archives are

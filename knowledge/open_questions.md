@@ -283,3 +283,13 @@ No alternate resampling policy is implemented or benchmarked yet.
 - [ ] Run the separately controlled `.96` lambda test with original summed
   SCD, if approved. Keep gamma, eta, decoder style, scheduler, eval mode,
   data, checkpoint and seed list fixed.
+
+### 2026-09-22 SCD lambda=.96 control implementation
+
+- [x] Add the isolated `scd_lambda96_control` method with legacy summed SCD,
+  original-style decoder, raw LION eval mode and EMA disabled.
+- [x] Lock the method to lambdaa=.96, batch 32, seeds 0/1/2, complete files,
+  severity 5 and the Gaussian/Impulse or all-15 scope.
+- [x] Verify locally with 33 tests, syntax compilation and diff checks.
+- **[Open]** Run and validate the Colab Gaussian/Impulse pilot before any
+  all-15 confirmation.

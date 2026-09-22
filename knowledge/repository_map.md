@@ -127,6 +127,7 @@ Use these identifiers in output directories and tables:
 | `pure_vae_seed_stability` | Seed 1/2 repeat of the pure VAE control for stochastic stability; not a new TTA method |
 | `shared_trajectory_decoder_control` | One raw/eval LION trajectory decoded with original and updated final styles; reproduction control, not a new TTA method |
 | `scd_normalization_control` | Original-style eval/raw LION control with opt-in Eq. 11 point-count normalization of SCD |
+| `scd_lambda96_control` | Original-style eval/raw LION control with legacy summed SCD and lambdaa=.96 retention |
 | `lion_recon` | LION reconstruction without guidance |
 | `3dd_original` | Matched original `tta.py` path |
 | `gsd_static` | Static latent spectral guidance |

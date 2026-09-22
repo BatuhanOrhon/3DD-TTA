@@ -39,6 +39,8 @@ SHARED_DECODER_METHOD = "shared_trajectory_decoder_control"
 SHARED_DECODER_PILOT_CORRUPTIONS = ("gaussian", "impulse")
 SCD_NORMALIZATION_METHOD = "scd_normalization_control"
 SCD_NORMALIZATION_PILOT_CORRUPTIONS = ("gaussian", "impulse")
+SCD_LAMBDA96_METHOD = "scd_lambda96_control"
+SCD_LAMBDA96_PILOT_CORRUPTIONS = ("gaussian", "impulse")
 
 
 def scd_normalization_contract() -> dict:
@@ -54,6 +56,24 @@ def scd_normalization_contract() -> dict:
         integration_check=(
             "complete Colab GPU run exercises process_batches -> "
             "tta_reconstruct(scd_normalize=True); local CPU tests cover only "
+            "the helper/config contract"),
+    )
+
+
+def scd_lambda96_contract() -> dict:
+    """Return the isolated legacy-SCD lambda=.96 control contract."""
+    return dict(
+        parameter="lambdaa / retained SCD fraction",
+        baseline_value=0.95,
+        value=0.96,
+        denominator="none; legacy directed retained-distance sums",
+        retained_fraction=0.96,
+        retained_count=1966,
+        scd_normalization=False,
+        changed_only="SCD retention percentile",
+        integration_check=(
+            "complete Colab GPU run exercises process_batches -> "
+            "tta_reconstruct(scd_normalize=False); local CPU tests cover "
             "the helper/config contract"),
     )
 
@@ -397,6 +417,24 @@ def notes_for_run(args: SimpleNamespace) -> str:
             "memory includes models.\n"
             "User: add Colab runtime/GPU type and anomalies.\n"
         )
+    if args.method == SCD_LAMBDA96_METHOD:
+        return (
+            "# SCD lambda=.96 control\n\n"
+            "Purpose: test the paper/code SCD retention-percentile discrepancy "
+            "with the original unnormalized SCD sum. This is a one-factor "
+            "reproduction control, not a new TTA method. The original-style "
+            "shape_latent decoder, raw LION eval mode, EMA-off policy, scheduler, "
+            "gamma=.01 and eta=.01 remain fixed; only lambdaa changes from .95 "
+            "to .96.\n"
+            "Locked scopes: ModelNet40-C severity 5 Gaussian/Impulse pilot or "
+            "complete canonical all-15 confirmation, complete files, batch 32, "
+            "seed 0/1/2. The complete Colab GPU run is the integration check for "
+            "the real CUDA/Chamfer trajectory; local CPU tests cover config and "
+            "dispatch contracts.\n"
+            "CUDA runtime excludes asset hashing and model loading; peak allocated "
+            "memory includes models.\n"
+            "User: add Colab runtime/GPU type and anomalies.\n"
+        )
     if args.method == SHARED_DECODER_METHOD:
         return (
             "# Shared-trajectory decoder-style control\n\n"
@@ -453,7 +491,8 @@ def run_worker(directory: str) -> None:
         assets = {"classifier_checkpoint": args.pointmae_ckpt,
                   "pointmae_config": args.pointmae_config, "labels": args.label_path}
         if args.method in {"3dd_original", *PURE_VAE_METHODS,
-                           SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD}:
+                           SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD,
+                           SCD_LAMBDA96_METHOD}:
             assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
         identities = {name: file_identity(Path(value)) for name, value in assets.items()}
         data_files = {name: file_identity(selected_data_path(args.dataset_root, name, config["severity"]))
@@ -554,6 +593,17 @@ def run_worker(directory: str) -> None:
                     final_decode_style="original shape_latent",
                     preprocessing=SCD_TTA_PREPROCESSING,
                     scd_normalization=scd_normalization_contract())
+            elif args.method == SCD_LAMBDA96_METHOD:
+                config.update(
+                    lion_loaded=True,
+                    lion_mode_policy="raw LION eval; EMA disabled",
+                    final_decode_style="original shape_latent",
+                    preprocessing=SCD_TTA_PREPROCESSING,
+                    scd_normalization=dict(
+                        enabled=False,
+                        denominator="none; legacy directed retained-distance sums",
+                        reduction="directed retained-distance sums, summed over batch"),
+                    lambda_control=scd_lambda96_contract())
         config["extension_inventory"] = extension_inventory()
 
         def record_modes(key):
@@ -677,6 +727,12 @@ def run_worker(directory: str) -> None:
                     scheduler_observer=scheduler_observer,
                     batch_observer=batch_observer,
                     scd_normalize=True)
+            elif args.method == SCD_LAMBDA96_METHOD:
+                targets, predictions = baseline.process_batches(
+                    batches, base_model, lion, args, steps,
+                    scheduler_observer=scheduler_observer,
+                    batch_observer=batch_observer,
+                    scd_normalize=False)
             else:
                 targets, predictions = baseline.process_batches(
                     batches, base_model, lion, args, steps,
@@ -757,7 +813,8 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--method", choices=("3dd_original", "source_only", "preprocessing_identity",
                                              "preprocessing_identity_seed_stability",
                                              "pure_vae_encode_decode", "pure_vae_seed_stability",
-                                             SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD),
+                                             SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD,
+                                             SCD_LAMBDA96_METHOD),
                         default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
@@ -854,6 +911,21 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.95):
             parser.error("scd_normalization_control uses the locked baseline gamma, eta, and lambda values.")
         args.lion_eval_mode = True
+    if args.method == SCD_LAMBDA96_METHOD:
+        if args.dataset_name != "modelnet-c" or args.severity != 5:
+            parser.error("scd_lambda96_control is locked to ModelNet40-C severity 5.")
+        if args.batch_size != 32 or args.seed not in (0, 1, 2) or args.max_batches != 0:
+            parser.error("scd_lambda96_control is locked to batch 32, seed 0/1/2, and complete evaluation.")
+        if (args.corruptions != list(SCD_LAMBDA96_PILOT_CORRUPTIONS)
+                and args.corruptions != list(CORRUPTIONS)):
+            parser.error(
+                "scd_lambda96_control requires the Gaussian/Impulse pilot "
+                "or the complete canonical all-15 corruption set.")
+        if args.lion_ema_mode:
+            parser.error("scd_lambda96_control requires raw LION weights; EMA is disabled.")
+        if (args.gamma, args.eta, args.lambdaa) != (0.01, 0.01, 0.96):
+            parser.error("scd_lambda96_control uses gamma=.01, eta=.01 and lambda=.96.")
+        args.lion_eval_mode = True
     if args.batch_size < 1 or args.max_batches < 0 or not 0 <= args.seed < 2 ** 32:
         parser.error("Batch size must be positive, max-batches non-negative; seed must be in [0,2**32).")
     if not all(math.isfinite(v) and v >= 0 for v in (args.gamma, args.eta, args.lambdaa)) or not 0 < args.lambdaa <= 1:
@@ -867,6 +939,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         "pure-vae-seed-stability" if args.method == "pure_vae_seed_stability" else
         "shared-decoder-s5-gaussian-impulse" if args.method == SHARED_DECODER_METHOD else
         "scd-normalized-s5-gaussian-impulse" if args.method == SCD_NORMALIZATION_METHOD else
+        "scd-lambda96-s5-gaussian-impulse" if args.method == SCD_LAMBDA96_METHOD else
         "baseline-smoke")
     args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
     return args
@@ -884,6 +957,7 @@ def build_config(args: argparse.Namespace) -> dict:
              "pure_vae_encode_decode" if args.method == "pure_vae_encode_decode" else
              "pure_vae_seed_stability" if args.method == "pure_vae_seed_stability" else
              "scd_normalization_control" if args.method == SCD_NORMALIZATION_METHOD else
+             "scd_lambda96_control" if args.method == SCD_LAMBDA96_METHOD else
              "shared_trajectory_decoder_control" if args.method == SHARED_DECODER_METHOD else "smoke")
     config = dict(
         stage=stage, dataset=dataset,
@@ -935,6 +1009,16 @@ def build_config(args: argparse.Namespace) -> dict:
             preprocessing=SCD_TTA_PREPROCESSING,
             final_decode_style="original shape_latent",
             scd_normalization=scd_normalization_contract())
+    elif args.method == SCD_LAMBDA96_METHOD:
+        config.update(
+            lion_loaded=True,
+            preprocessing=SCD_TTA_PREPROCESSING,
+            final_decode_style="original shape_latent",
+            scd_normalization=dict(
+                enabled=False,
+                denominator="none; legacy directed retained-distance sums",
+                reduction="directed retained-distance sums, summed over batch"),
+            lambda_control=scd_lambda96_contract())
     return config
 
 

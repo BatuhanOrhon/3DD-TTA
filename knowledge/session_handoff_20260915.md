@@ -345,3 +345,18 @@ tests and no GPU run has been performed.
 **[Open]** Run the three-seed Gaussian/Impulse pilot first. If it is
 directionally useful, run the same locked method on all 15 corruptions; then
 test lambda .96 separately if the normalization result warrants it.
+
+## SCD lambda=.96 control implementation - 2026-09-22
+
+**[Code]** The isolated `scd_lambda96_control` method is implemented on
+`baseline-repro-clean`. It keeps legacy summed SCD, original-style decoding,
+raw LION eval mode, EMA off, the existing scheduler, gamma=.01 and eta=.01;
+only lambdaa changes to `.96`, retaining 1966 of 2048 directed distances.
+
+**[Code]** The method accepts the locked Gaussian/Impulse pilot or canonical
+all-15 scope at seeds 0/1/2, records the contract in `config.json`, and does
+not alter the existing source/original/shared/normalized routes.
+
+**[Open]** Run the three-seed Gaussian/Impulse pilot in Colab, validate the
+seven-file ZIPs and compare against the original unnormalized baseline before
+deciding whether all-15 confirmation is justified.

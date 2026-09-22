@@ -311,6 +311,42 @@ class SharedTrajectoryDecoderControlTests(unittest.TestCase):
         self.assertEqual(args.corruptions, list(run_baseline.CORRUPTIONS))
         self.assertTrue(args.lion_eval_mode)
 
+    def test_lambda96_control_locks_original_unnormalized_contract(self):
+        args = run_baseline.parse_arguments([
+            "--method", run_baseline.SCD_LAMBDA96_METHOD,
+            "--dataset-name", "modelnet-c",
+            "--severity", "5",
+            "--batch_size", "32",
+            "--seed", "1",
+            "--max-batches", "0",
+            "--lambdaa", "0.96",
+            "--corruptions", "gaussian", "impulse",
+        ])
+
+        self.assertEqual(args.lambdaa, 0.96)
+        self.assertTrue(args.lion_eval_mode)
+        self.assertFalse(args.lion_ema_mode)
+        config = run_baseline.build_config(args)
+        self.assertEqual(config["method"], run_baseline.SCD_LAMBDA96_METHOD)
+        self.assertEqual(config["lambda_control"]["value"], 0.96)
+        self.assertEqual(config["lambda_control"]["retained_count"], 1966)
+        self.assertFalse(config["scd_normalization"]["enabled"])
+        self.assertIn("VAE encode", config["preprocessing"])
+
+    def test_lambda96_control_rejects_baseline_lambda(self):
+        with self.assertRaises(SystemExit):
+            with redirect_stdout(StringIO()), redirect_stderr(StringIO()):
+                run_baseline.parse_arguments([
+                    "--method", run_baseline.SCD_LAMBDA96_METHOD,
+                    "--dataset-name", "modelnet-c",
+                    "--severity", "5",
+                    "--batch_size", "32",
+                    "--seed", "0",
+                    "--max-batches", "0",
+                    "--lambdaa", "0.95",
+                    "--corruptions", "gaussian", "impulse",
+                ])
+
 
 if __name__ == "__main__":
     unittest.main()

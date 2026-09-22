@@ -35,7 +35,7 @@ If an older script cannot generate the full format, provide all available logs a
 
 ## Method names
 
-Use the canonical IDs in [`knowledge/repository_map.md`](../knowledge/repository_map.md): `source_only`, `preprocessing_identity`, `preprocessing_identity_seed_stability`, `pure_vae_encode_decode`, `pure_vae_seed_stability`, `shared_trajectory_decoder_control`, `scd_normalization_control`, `lion_recon`, `3dd_original`, `gsd_static`, `gsd_dynamic`, `gsd_physical`, `dual_seq`, `dual_sync`, `pxp_priority`, or `pxp_symmetric`.
+Use the canonical IDs in [`knowledge/repository_map.md`](../knowledge/repository_map.md): `source_only`, `preprocessing_identity`, `preprocessing_identity_seed_stability`, `pure_vae_encode_decode`, `pure_vae_seed_stability`, `shared_trajectory_decoder_control`, `scd_normalization_control`, `scd_lambda96_control`, `lion_recon`, `3dd_original`, `gsd_static`, `gsd_dynamic`, `gsd_physical`, `dual_seq`, `dual_sync`, `pxp_priority`, or `pxp_symmetric`.
 
 The `shared_trajectory_decoder_control` pilot/confirmation keeps the seven-file
 archive contract and accepts either the locked Gaussian/Impulse pilot scope or
@@ -52,3 +52,9 @@ accepts the same Gaussian/Impulse pilot or complete all-15 scope. Its
 2048 denominator, retained count, actual VAE/DDIM/decode pipeline, and the
 Colab-only CUDA/Chamfer integration check; its standard CSVs record accuracy,
 counts, runtime and memory.
+
+The `scd_lambda96_control` method keeps the original-style decoder, legacy
+unnormalized SCD reduction, raw LION eval mode and EMA disabled while changing
+only the retained SCD fraction from `.95` to `.96`. It accepts the same locked
+pilot/all-15 scopes and records the value, retained count and Colab integration
+check in `config.json`.
