@@ -376,3 +376,13 @@ lambda=.96 confirmation.
 consider a separately predeclared scale-matched Eq. 11 pilot. It must change
 the guidance scale explicitly and cannot be presented as the fixed-rate
 lambda or normalization result.
+
+## SCD lambda=.96 all-15 confirmation decision - 2026-09-22
+
+**[User report/Decision]** The user requested all-15 confirmation because
+lambda=.96 is the paper-reported fixed value, despite the null two-corruption
+pilot. This is a paper-conformance check, not all-15 hyperparameter tuning.
+
+**[Open]** Run seeds 0/1/2 with the existing `scd_lambda96_control` method and
+compare against the matched original-style lambda=.95 baseline before drawing
+any benchmark conclusion.

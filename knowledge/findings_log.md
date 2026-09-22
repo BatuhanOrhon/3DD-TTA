@@ -1,5 +1,22 @@
 # Findings Log
 
+## 2026-09-22 - SCD lambda=.96 all-15 confirmation decision
+
+**[User report/Decision]** Although the Gaussian/Impulse lambda=.96 pilot was
+null, the user requested all-15 confirmation because the paper reports
+lambda=.96. This supersedes the pilot-only stopping suggestion as an explicit
+paper-conformance check; lambda=.96 is fixed before observing the all-15
+outcomes and is not being selected from the all-15 test results.
+
+**[Code]** The existing `scd_lambda96_control` method accepts the canonical
+all-15 corruption list, retains legacy summed SCD, keeps the original-style
+decoder and raw LION eval/EMA-off contract, and changes no other factor.
+
+**[Open]** Run seeds 0/1/2 on all 15 severity-5 corruptions. Compare the
+macro mean and per-corruption rows against the matched lambda=.95
+original-style baseline; preserve the lambda=.96 result as a paper-setting
+confirmation even if the mean is null or negative.
+
 ## 2026-09-22 - SCD lambda=.96 Gaussian/Impulse pilot
 
 **[Run]** The three complete pilot archives are

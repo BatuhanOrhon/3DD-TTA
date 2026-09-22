@@ -304,3 +304,14 @@ No alternate resampling policy is implemented or benchmarked yet.
   run all-15 confirmation under the current predeclared rule.
 - **[Open]** Keep any scale-matched Eq. 11 test separate from lambda and do
   not interpret it as evidence for the paper's fixed-rate setting.
+
+### 2026-09-22 SCD lambda=.96 all-15 confirmation decision
+
+- [x] Approve all-15 confirmation as a predeclared paper-setting check,
+  despite the null Gaussian/Impulse pilot.
+- [ ] Run complete ModelNet40-C severity-5 evaluation for seeds 0/1/2.
+- [ ] Compare macro mean, seed SD and all 15 per-corruption deltas against
+  lambda=.95 original-style runs.
+- **[Open]** Do not tune lambda or any other factor using the all-15 result;
+  the confirmation answers whether the paper-reported fixed `.96` setting
+  improves the general benchmark average under this repository protocol.
