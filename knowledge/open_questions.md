@@ -293,3 +293,14 @@ No alternate resampling policy is implemented or benchmarked yet.
 - [x] Verify locally with 33 tests, syntax compilation and diff checks.
 - **[Open]** Run and validate the Colab Gaussian/Impulse pilot before any
   all-15 confirmation.
+
+### 2026-09-22 SCD lambda=.96 pilot result
+
+- [x] Validate the three lambda=.96 pilot ZIPs, including the seven-file
+  contract, CRC, completion, traceback, commit, hashes and eval/dropout state.
+- [x] Compare against the matched lambda=.95 original-style pilot. The mean
+  delta is **+0.0068 pp** with mixed seed directions.
+- **[Inference]** Reject lambda=.96 as an operational improvement and do not
+  run all-15 confirmation under the current predeclared rule.
+- **[Open]** Keep any scale-matched Eq. 11 test separate from lambda and do
+  not interpret it as evidence for the paper's fixed-rate setting.

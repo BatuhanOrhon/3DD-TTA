@@ -360,3 +360,19 @@ not alter the existing source/original/shared/normalized routes.
 **[Open]** Run the three-seed Gaussian/Impulse pilot in Colab, validate the
 seven-file ZIPs and compare against the original unnormalized baseline before
 deciding whether all-15 confirmation is justified.
+
+## SCD lambda=.96 pilot result - 2026-09-22
+
+**[Run]** The Gaussian/Impulse pilot completed for seeds 0/1/2 under
+`result/modelnet40_c/scd_lambda96_control/`. The mean is 72.5959% +/- 0.4486
+pp. Against the matched lambda=.95 original-style pilot mean of 72.5891%, the
+mean delta is +0.0068 pp with seed deltas +0.4862, -0.3241 and -0.1418 pp.
+
+**[Inference]** The effect is null and not directionally consistent. Keep
+lambda=.95 and the original unnormalized SCD baseline; do not run an all-15
+lambda=.96 confirmation.
+
+**[Open]** If the normalization mechanism remains scientifically important,
+consider a separately predeclared scale-matched Eq. 11 pilot. It must change
+the guidance scale explicitly and cannot be presented as the fixed-rate
+lambda or normalization result.

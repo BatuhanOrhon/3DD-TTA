@@ -22,6 +22,12 @@ Before clean-restart implementation also read the [follow-up code audit](code_au
 
 **[Run/Inference]** Current next action: the source-only severity 1--5 probe is complete and shows a 22.1907 pp severity-1-to-5 drop, but no tested severity matches the paper's 57.6% source row. Internal artifact manifests and the canonical Zenodo archive now agree: the downloaded archive identity matches Zenodo, all 15 archive members match the audited manifest, and all 15 current Colab files match byte size and SHA-256. The remaining source-only provenance caveat is the author/canonical Point-MAE checkpoint identity. The preprocessing identity control is stable across seeds 0/1/2 at 55.0135% +/- 0.0602 pp sample SD (+1.3236 pp versus deterministic source-only). Pure VAE encode/decode is also stable across seeds 0/1/2 at 54.8469% +/- 0.0790 pp sample SD (+1.1570 pp versus source-only), but remains 0.1297--0.2296 pp below the matched preprocessing identity result at every seed. The SCD normalization all-15 control is complete at 61.2678% +/- 0.0979 pp and is 2.4806 pp below the matched original-style unnormalized control; preserve the original baseline and keep the separate lambda=.96 check open. The common-draw control is deferred because it is not expected to change accuracy and would only strengthen a causal diffusion/guidance claim; that claim remains explicitly open. EMA, GSD/PxP and other datasets remain parked.
 
+**[Run/Inference] 2026-09-22 update:** The three-seed Gaussian/Impulse
+lambda=.96 pilot is complete and null: +0.0068 pp mean versus the matched
+lambda=.95 original-style pilot, with mixed seed directions. Do not promote it
+to all-15; preserve the original baseline and keep any scale-matched Eq. 11
+test separate.
+
 After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
 
 After the source-only protocol audit, use the [clean Point-MAE control](colab_clean_control.md) before interpreting the remaining corrupted-source gap.

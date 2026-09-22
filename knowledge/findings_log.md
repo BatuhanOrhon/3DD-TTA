@@ -1,5 +1,37 @@
 # Findings Log
 
+## 2026-09-22 - SCD lambda=.96 Gaussian/Impulse pilot
+
+**[Run]** The three complete pilot archives are
+`result/modelnet40_c/scd_lambda96_control/20260922-191121_scd-lambda96-s5-gaussian-impulse-seed0.zip`,
+`result/modelnet40_c/scd_lambda96_control/20260922-191512_scd-lambda96-s5-gaussian-impulse-seed1.zip`,
+and
+`result/modelnet40_c/scd_lambda96_control/20260922-191840_scd-lambda96-s5-gaussian-impulse-seed2.zip`.
+Each ZIP contains the seven required files, passes CRC validation, has two
+complete 2,468-example corruption rows, and has no traceback. All record
+commit `4a1403d38c3342200789d5dd15652a4132790239`.
+
+**[Run]** The lambda=.96 macro accuracies are 72.9133%, 72.0827% and
+72.7917% for seeds 0/1/2, with mean 72.5959% and sample SD 0.4486 pp.
+The artifacts record raw LION eval mode, EMA disabled, the original summed
+SCD reduction, retained count 1966/2048 and matching checkpoint/data hashes.
+All inventoried LION VAE/prior dropout modules are `training=false` before
+and after each run.
+
+**[Run]** The matched lambda=.95 original-style pilot arms have seed mean
+72.5891%. Lambda=.96 minus lambda=.95 deltas are +0.4862, -0.3241 and
+-0.1418 pp by seed, for mean +0.0068 pp and sample SD 0.4251 pp. The
+corruption means are +0.1351 pp for Gaussian and -0.1216 pp for Impulse.
+
+**[Inference]** The lambda=.96 pilot is null and seed-directionally unstable;
+it provides no evidence that changing the retained fraction from .95 to .96
+improves the operational baseline. Do not promote it to all-15 confirmation.
+Preserve the original unnormalized lambda=.95 baseline.
+
+**[Open]** A scale-matched Eq. 11 experiment would answer a different question
+because SCD reduction and gamma/eta jointly determine update scale. It must be
+predeclared separately if pursued; it is not justified by this lambda pilot.
+
 ## 2026-09-22 - SCD lambda=.96 control implementation
 
 **[Code]** Added the opt-in `scd_lambda96_control` method. It preserves the
