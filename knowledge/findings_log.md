@@ -1388,3 +1388,13 @@ Interpretation: [Run/Inference] The preprocessing chain has a real but modest po
 Decision: This is a positive identity control under the predeclared decision rule, so plan the next pure VAE encode/decode control. Do not add a new TTA method or tune GSD/PxP. Keep the result exploratory because it is one stochastic seed and the source comparator is archived at an older commit, even though source-only behavior was structurally preserved.
 
 Falsifier / next evidence: A pure VAE encode/decode result near source-only would localize the modest gain to preprocessing/interpolation/rotation/output normalization; a large pure-VAE gain would show that generative reconstruction, not guidance, explains more of the TTA difference. A repeat identity seed or common-draw control would test the stability of the +1.3344 pp estimate.
+## 2026-09-22 - lambda=.96 eval provenance metadata repair
+
+**[Code]** `scd_lambda96_control` already forces `lion_eval_mode=True` and
+rejects EMA, but its immutable config metadata omitted the method from the
+`raw LION eval; EMA disabled` policy set. The metadata and regression test now
+agree with the runtime contract; no inference path or experimental factor was
+changed.
+
+**[Code]** Local CPU verification passed: 33 unit tests and `py_compile` for
+`run_baseline.py`. The all-15 GPU run remains a Colab-only operation.

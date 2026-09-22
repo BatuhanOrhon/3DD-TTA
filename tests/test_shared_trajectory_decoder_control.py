@@ -331,6 +331,7 @@ class SharedTrajectoryDecoderControlTests(unittest.TestCase):
         self.assertEqual(config["lambda_control"]["value"], 0.96)
         self.assertEqual(config["lambda_control"]["retained_count"], 1966)
         self.assertFalse(config["scd_normalization"]["enabled"])
+        self.assertEqual(config["lion_mode_policy"], "raw LION eval; EMA disabled")
         self.assertIn("VAE encode", config["preprocessing"])
 
     def test_lambda96_control_rejects_baseline_lambda(self):

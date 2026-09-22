@@ -975,7 +975,7 @@ def build_config(args: argparse.Namespace) -> dict:
         lion_mode_policy=("bypassed" if args.method in PREPROCESSING_IDENTITY_METHODS else
                           "raw VAE eval; priors bypassed" if args.method in PURE_VAE_METHODS else
                           "raw LION eval; EMA disabled" if args.method in
-                          {SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD} else
+                          {SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD, SCD_LAMBDA96_METHOD} else
                           "legacy; unchanged"),
         scheduler_config={}, spectral={}, projection={}, cli_args=vars(args),
         git_branch=command_output(["git", "branch", "--show-current"]),
