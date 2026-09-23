@@ -1,5 +1,27 @@
 # Findings Log
 
+## 2026-09-23 - GSD spectral-band pilots M=240 and M=400
+
+[Run] Twelve complete pilot ZIPs were supplied under
+`result/modelnet40_c/gsd_latent_spectral_v1/`: GSD weight 0/1, seeds 0/1/2,
+and requested modes M=240/400. All archives pass CRC validation, contain the
+seven-file schema, cover complete Gaussian/Impulse files (4,936 examples),
+record lambda=.95, and have no error signatures.
+
+[Run] Paired GSD-on minus GSD-off macro deltas for M=240 are -0.4660,
++0.1013, and -0.1418 pp at seeds 0/1/2 (mean -0.1688 pp, sample SD
+0.2846 pp). For M=400 they are +0.0608, -0.0810, and -0.1418 pp (mean
+-0.0540 pp, sample SD 0.1040 pp). Gaussian/Impulse rows and all diagnostics
+are finite; active mean ranks are approximately 250 for M=240 and 404 for
+M=400 because the requested boundary expands across numerically degenerate
+eigenvalues.
+
+[Inference] Neither M=240 nor M=400 improves the paired pilot mean relative
+to its weight-zero control. M=400 is less negative than the earlier M=100
+mean (-0.0135 pp versus -0.0540 pp is not an improvement), while M=240 is
+more negative. These are exploratory Gaussian/Impulse pilot results, not an
+all-15 claim.
+
 ## 2026-09-23 - Current-commit original pilot parity check
 
 [Run] Three current `3dd_original` pilot ZIPs were supplied under
