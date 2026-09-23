@@ -45,6 +45,19 @@ class ExportGsdResultsTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             export_archives(root / "result", drive, stage="all15")
 
+    def test_name_filter_exports_only_requested_band(self):
+        root = self.root
+        method = root / "result" / "modelnet40_c" / "gsd_latent_spectral_v1"
+        method.mkdir(parents=True)
+        for name in ("20260923_gsd-v1-pilot-on-seed0-m240.zip",
+                     "20260923_gsd-v1-pilot-on-seed0-m400.zip",
+                     "20260923_gsd-v1-pilot-on-seed0.zip"):
+            (method / name).write_bytes(name.encode())
+        exported = export_archives(root / "result", root / "drive", stage="pilot",
+                                   name_contains=("m240", "m400"))
+        self.assertEqual(len(exported), 2)
+        self.assertTrue(all("m240" in p.name or "m400" in p.name for p in exported))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -7,7 +7,8 @@ from pathlib import Path
 import shutil
 
 
-def export_archives(source_root: Path, drive_root: Path, *, stage: str = "all15") -> list[Path]:
+def export_archives(source_root: Path, drive_root: Path, *, stage: str = "all15",
+                    name_contains: tuple[str, ...] = ()) -> list[Path]:
     """Export GSD archives, preserving dataset/method/run-id path components."""
     source_root = source_root.resolve()
     drive_root = drive_root.resolve()
@@ -18,6 +19,7 @@ def export_archives(source_root: Path, drive_root: Path, *, stage: str = "all15"
     archives = sorted(
         path for path in source_root.rglob(pattern)
         if path.is_file() and path.parent.name in {"gsd_latent_spectral_v1", "3dd_original"}
+        and (not name_contains or any(token in path.stem for token in name_contains))
     )
     if not archives:
         raise FileNotFoundError(f"No {stage} GSD archives found below {source_root}")
@@ -56,8 +58,11 @@ def main(argv=None) -> int:
     parser.add_argument("--source-root", default="./result")
     parser.add_argument("--drive-root", required=True)
     parser.add_argument("--stage", choices=("smoke", "pilot", "all15", "all"), default="all15")
+    parser.add_argument("--name-contains", nargs="+", default=(),
+                        help="Optional run-name substrings; any match is exported")
     args = parser.parse_args(argv)
-    exported = export_archives(Path(args.source_root), Path(args.drive_root), stage=args.stage)
+    exported = export_archives(Path(args.source_root), Path(args.drive_root),
+                               stage=args.stage, name_contains=tuple(args.name_contains))
     print(f"Exported {len(exported)} archive(s).")
     return 0
 
