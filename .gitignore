@@ -2,3 +2,14 @@
 *.pt
 *.pth
 *.npy
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local temporary workspaces and generated scratch files
+tmp*/
+.cache/
