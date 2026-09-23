@@ -1,5 +1,34 @@
 # Findings Log
 
+## 2026-09-23 - GSD Colab smoke artifacts
+
+[Run] Four Colab smoke ZIPs were supplied under
+`result/modelnet40_c/gsd_latent_spectral_v1/`: Gaussian and Background, each
+with GSD weight 0 and 1, seed 0, severity 5, and 64 examples (two batches).
+All four archives passed `ZipFile.testzip()`, contain the required seven files,
+have `execution_status=complete`, and show no traceback, runtime error,
+nonfinite, or CUDA OOM signature. The CSV status is `partial` because smoke is
+intentionally a two-batch prefix.
+
+[Run] Gaussian accuracy is 0.734375 (47/64) at weight 0 and 0.750000 (48/64)
+at weight 1, a +1.5625 percentage-point prefix difference. Background is
+0.656250 (42/64) at weight 0 and 0.625000 (40/64) at weight 1, a -3.1250
+percentage-point prefix difference. These are smoke diagnostics, not accuracy
+evidence or a promotion decision.
+
+[Run] Active GSD diagnostics are finite for all 64 examples in both on-runs.
+Gaussian records 10 guidance steps and Background records 70, reflecting the
+5 and 35 reverse-step protocols. Mean spectral gradient norms are nonzero;
+the active graph mean rank is 145.125 for Gaussian and 109.578125 for
+Background. Peak GPU memory is approximately 20.5 GB for the on-runs versus
+14.6 GB for the corresponding off-runs. These resource values are smoke-only
+and must be checked again on complete pilot runs.
+
+[Open] The supplied set has GSD off/on arms but no newly matched
+`3dd_original` baseline ZIP with the same timestamp/configuration. Weight-zero
+trajectory parity therefore remains a pilot gate; do not interpret the smoke
+differences as a GSD improvement claim.
+
 ## 2026-09-23 - GSD-only latent spectral integration
 
 [User report] Implement GSD alone on `gsd-development`, beginning at the

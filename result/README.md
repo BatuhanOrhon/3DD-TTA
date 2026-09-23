@@ -7,8 +7,10 @@ stores graph/gradient aggregates in `config.json.gsd_diagnostics`. Each
 method/seed/arm receives a fresh directory and ZIP; no resume or overwrite.
 Source/asset hashes, resolved scheduler and before/after mode inventories are
 recorded. See [GSD handoff](../knowledge/colab_gsd.md).
-[Open] Provide complete original/off/on ZIPs after Colab, including failures;
-remove credentials. No GSD GPU results exist yet. Raw ZIPs remain outside Git.
+[Run] Four smoke ZIPs are present locally for Gaussian/Background and GSD
+weight 0/1 at seed 0. They are two-batch partial artifacts, not benchmark
+results. Provide complete original/off/on pilot ZIPs after Colab, including
+failures; remove credentials. Raw ZIPs remain outside Git.
 
 After a Colab all-15 run, `scripts/export_gsd_results.py` copies each local
 ZIP into the matching Drive path

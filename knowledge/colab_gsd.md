@@ -92,9 +92,13 @@ eigendecomposition timing, separate SCD/spectral local/style gradient norms,
 weighted spectral norms and final update norms. Runtime includes diagnostics
 and the extra gradient pass; corruption-level peak GPU memory includes models.
 
-[Open] Provide the complete run ZIPs, including failed/OOM runs, after removing
+[Run] Four smoke ZIPs are now present locally for Gaussian/Background and GSD
+weight 0/1 at seed 0. They pass the seven-file and CRC checks; their 64-example
+CSV rows are intentionally partial smoke coverage, not benchmark results.
+Provide the complete pilot ZIPs, including failed/OOM runs, after removing
 credentials. Report macro/per-corruption accuracy and seed SD, absolute
-percentage-point deltas, runtime and memory. No new GSD GPU result exists yet.
+percentage-point deltas, runtime and memory. No complete pilot or all-15 GSD
+result exists yet.
 Do not add raw result ZIPs to Git.
 
 ## Drive export after all-15
