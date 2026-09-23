@@ -338,3 +338,17 @@ No alternate resampling policy is implemented or benchmarked yet.
 - **[Open]** Do not tune lambda or any other factor using the all-15 result;
   the confirmation answers whether the paper-reported fixed `.96` setting
   improves the general benchmark average under this repository protocol.
+
+### 2026-09-23 SCD lambda=.96 all-15 confirmation result
+
+- [x] Validate the three all-15 ZIPs: seven-file contract, CRC, completion,
+  traceback state, 15/15 rows and 37,020 examples per seed.
+- [x] Confirm shared commit, classifier/LION hashes, dataset manifests and
+  raw/eval dropout-off metadata across seeds.
+- [x] Compare against matched original-style lambda=.95 rows: all three
+  seed deltas are positive and the mean delta is +0.1855 pp.
+- **[Inference]** Use lambda=.96 as the paper-conformant reference setting
+  for newly declared baseline/GSD runs, while retaining lambda=.95 as the
+  historical operational comparator.
+- **[Open]** The existing GSD `.95` pilot cannot be relabeled as `.96`; a
+  `.96` GSD pilot requires a fresh matched weight-zero/weight-one run.

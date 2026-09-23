@@ -49,6 +49,19 @@ graph gamma=.6, requested low modes=100, spectral weight=1.
 hyperparameters. Gaussian/Impulse is an exploratory test-set pilot; it is
 not an independent held-out validation set. Record all null/negative results.
 
+## Lambda reference update - 2026-09-23
+
+[Run] The separate all-15 `scd_lambda96_control` confirmation is complete at
+`result/modelnet40_c/scd_lambda96_control/`. Its original-style mean is
+63.9339% versus 63.7484% for the matched lambda=.95 original-style control,
+with positive paired deltas at seeds 0/1/2 and mean delta +0.1855 pp.
+
+[Inference] The paper-conformant reference for a newly declared GSD pilot is
+now `.96`, unless the experiment explicitly targets the historical `.95`
+operational control. The existing `.95` GSD pilot remains valid evidence for
+`.95`; it must not be relabeled. A `.96` GSD pilot requires a fresh matched
+weight-zero and weight-one comparison, with all other settings unchanged.
+
 ## All-15 confirmation
 
 [Open] First inspect complete pilot ZIPs: no failure/nonfinite errors,

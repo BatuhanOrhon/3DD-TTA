@@ -386,3 +386,20 @@ pilot. This is a paper-conformance check, not all-15 hyperparameter tuning.
 **[Open]** Run seeds 0/1/2 with the existing `scd_lambda96_control` method and
 compare against the matched original-style lambda=.95 baseline before drawing
 any benchmark conclusion.
+
+## SCD lambda=.96 all-15 confirmation result - 2026-09-23
+
+**[Run]** The three all-15 lambda=.96 ZIPs are complete and validated under
+`result/modelnet40_c/scd_lambda96_control/`, with 15/15 rows, 37,020 examples,
+CRC-clean seven-file archives, no traceback, commit
+`79cc02774e5fa85a7c2f84a08506617670416642`, matching asset manifests and
+dropout-off inventories.
+
+**[Run]** Original-style macro mean is 63.9339% +/- 0.1878 pp across seeds.
+The matched lambda=.95 original-style mean is 63.7484% +/- 0.1399 pp; paired
+seed deltas are +0.1405, +0.1702 and +0.2458 pp, mean +0.1855 pp.
+
+**[Inference]** Treat `.96` as the paper-conformant reference for newly
+declared baseline/GSD runs, while retaining `.95` as the historical control.
+The existing GSD `.95` pilot remains valid only for `.95`; a `.96` GSD pilot
+requires a fresh matched weight-zero control.

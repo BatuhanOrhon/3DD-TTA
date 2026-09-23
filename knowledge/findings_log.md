@@ -1,5 +1,71 @@
 # Findings Log
 
+## 2026-09-23 - SCD lambda=.96 all-15 confirmation result
+
+**[Run]** The three complete all-15 archives are
+`result/modelnet40_c/scd_lambda96_control/20260922-193839_scd-lambda96-s5-all15-seed0.zip`,
+`20260922-200845_scd-lambda96-s5-all15-seed1.zip`, and
+`20260922-203850_scd-lambda96-s5-all15-seed2.zip`. Each ZIP contains exactly
+the seven required files, passes `testzip()`/CRC validation, records 15
+complete corruption rows and 37,020 examples, has `execution_status=complete`,
+and contains no traceback or failed-run note. Their SHA-256 values are,
+respectively, `6ab0fea56221eddb449b9beb99276f5148eb37bedcd4a9c56e63c8dba9a03e81`,
+`4cf00f0b0ac728254956764c3814236b289717520770167b7f63495bc5495164`, and
+`78dd3a1e2a9d9f8ce4e831ade3a5007d67ec2551d56439022872840f38210d2a`.
+
+**[Code/Run]** All three runs record commit
+`79cc02774e5fa85a7c2f84a08506617670416642`, method
+`scd_lambda96_control`, ModelNet40-C severity 5, batch 32, raw LION eval,
+EMA disabled, original-style decoding, `lambda=.96`, retained count 1966,
+and legacy unnormalized SCD. The Point-MAE hash is
+`507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75`, the
+LION hash is `807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2`,
+and all 15 dataset manifest hashes match across the three seeds and the
+matched shared-decoder comparator. Config metadata records 106 dropout
+modules with `training=false` before and after each run. `git_dirty=true`
+records Colab-generated build/cache changes; the source commit and manifests
+remain explicit in the artifacts.
+
+**[Run]** Lambda=.96 original-style macro accuracies are 63.7304%, 63.9708%,
+and 64.1005% for seeds 0/1/2: mean **63.9339%**, sample SD **0.1878 pp**.
+The matched lambda=.95 original-style rows from
+`result/modelnet40_c/shared_trajectory_decoder_control/` are 63.5900%,
+63.8006%, and 63.8547%: mean **63.7484%**, sample SD **0.1399 pp**.
+The paired seed deltas are **+0.1405, +0.1702, and +0.2458 pp**, with mean
+**+0.1855 pp** and sample SD **0.0543 pp**.
+
+**[Run]** The mean per-corruption deltas in percentage points (lambda=.96
+minus matched original-style lambda=.95) are:
+
+| Corruption | Mean delta (pp) |
+|---|---:|
+| background | +1.3236 |
+| cutout | +0.2566 |
+| density | +0.1351 |
+| density_inc | +0.0810 |
+| distortion | -0.2026 |
+| distortion_rbf | +0.4322 |
+| distortion_rbf_inv | +0.0540 |
+| gaussian | +0.3377 |
+| impulse | -0.3106 |
+| lidar | 0.0000 |
+| occlusion | +0.3106 |
+| rotation | +0.2431 |
+| shear | -0.2026 |
+| uniform | +0.0675 |
+| upsampling | +0.2566 |
+
+**[Inference]** Under the predeclared paper-setting confirmation, lambda=.96
+raises the matched all-15 macro mean in all three seeds and by +0.1855 pp on
+average. This supports retaining `.96` as the paper-conformant reference
+setting for subsequent baseline/GSD comparisons; it is a small three-seed
+effect, not a significance test or proof of generalization beyond this
+protocol. Lambda=.95 remains the historical operational comparator.
+
+**[Open]** The existing GSD pilot was locked to lambda=.95. Reusing its result
+as a lambda=.96 GSD result would be invalid; any future GSD pilot using `.96`
+must be a newly declared, matched run with its own weight-zero control.
+
 ## 2026-09-23 - GSD Gaussian/Impulse pilot artifacts
 
 [Run] The repository also contains three historical complete

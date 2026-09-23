@@ -40,6 +40,17 @@ lambda=.95 original-style pilot, with mixed seed directions. Do not promote it
 to all-15; preserve the original baseline and keep any scale-matched Eq. 11
 test separate.
 
+**[Run/Inference] 2026-09-23 update:** The user-requested all-15 lambda=.96
+confirmation is complete and validated at
+`result/modelnet40_c/scd_lambda96_control/`. Original-style macro mean is
+63.9339% +/- 0.1878 pp versus 63.7484% +/- 0.1399 pp for the matched
+lambda=.95 original-style rows; all three paired seed deltas are positive and
+the mean delta is +0.1855 pp. This supersedes the pilot-only stopping note as
+a paper-setting check. Treat `.96` as the paper-conformant reference for new
+baseline/GSD runs; retain `.95` as the historical comparator. The existing
+GSD `.95` pilot is not relabeled and a `.96` GSD pilot would require a fresh
+matched weight-zero control.
+
 After the accepted Batch 1 smoke, follow [Batch 2 source-only instructions](colab_source_only.md).
 
 After the source-only protocol audit, use the [clean Point-MAE control](colab_clean_control.md) before interpreting the remaining corrupted-source gap.
