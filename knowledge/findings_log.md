@@ -1,5 +1,25 @@
 # Findings Log
 
+## 2026-09-23 - Current-commit original pilot parity check
+
+[Run] Three current `3dd_original` pilot ZIPs were supplied under
+`result/modelnet40_c/3dd_original/`: seeds 0, 1, and 2, each complete for
+Gaussian and Impulse (4,936 examples), with seven-file/CRC-valid archives and
+no error signatures. Configs record raw LION eval, EMA off, batch 32, severity
+5, lambda=.95, gamma=eta=.01, and the same checkpoint/label/config hashes as
+the GSD pilot.
+
+[Run] Current baseline two-corruption macro values are 72.2447%, 72.1637%,
+and 72.3460% for seeds 0, 1, and 2 (mean 72.2515%). The previously supplied
+GSD-off values are 72.3258%, 72.2650%, and 72.4473% (mean 72.3460%), giving
+GSD-off minus current-baseline deltas of +0.0810, +0.1013, and +0.1013 pp
+(mean +0.0945 pp).
+
+[Inference] This is practical protocol parity, not bitwise equality: the runs
+are separate CUDA processes and the runner retains cuDNN benchmark behavior.
+The small baseline/off spread is now suitable for interpreting the spectral
+ablation, while exact same-process common-draw equality remains open.
+
 ## 2026-09-23 - SCD lambda=.96 all-15 confirmation result
 
 **[Run]** The three complete all-15 archives are
@@ -65,6 +85,21 @@ protocol. Lambda=.95 remains the historical operational comparator.
 **[Open]** The existing GSD pilot was locked to lambda=.95. Reusing its result
 as a lambda=.96 GSD result would be invalid; any future GSD pilot using `.96`
 must be a newly declared, matched run with its own weight-zero control.
+
+## 2026-09-23 - GSD lambda baseline lock
+
+**[Code]** On `gsd-development`, `gsd_latent_spectral_v1` now defaults to and
+requires the paper-conformant lambda=.96. An explicit `.95` GSD invocation is
+rejected. The legacy `3dd_original`, source-only and existing control routes
+retain their historical contracts; no raw result was changed.
+
+**[Code]** Targeted GSD protocol tests and the full 88-test CPU suite pass;
+`run_baseline.py`, `gsd_protocol.py`, `tta_gsd.py`, `graph_spectral.py` and
+`eval_gsd_tta.py` compile successfully.
+
+**[Open]** The previous `.95` GSD pilot remains evidence for `.95` only. A
+paper-conformant `.96` GSD pilot must rerun matched weight-zero and weight-one
+arms before any all-15 promotion decision.
 
 ## 2026-09-23 - GSD Gaussian/Impulse pilot artifacts
 
