@@ -847,7 +847,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     if (args.method == gsd_protocol.METHOD
             and not any(token == "--lambdaa" or token.startswith("--lambdaa=")
                         for token in provided_argv)):
-        args.lambdaa = 0.96
+        args.lambdaa = 0.95
     gsd_protocol.validate_arguments(args, parser, CORRUPTIONS)
     validate_selection(args.corruptions)
     args.clean_control = args.corruptions == [CLEAN_CONTROL]

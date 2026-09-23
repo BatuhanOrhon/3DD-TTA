@@ -41,7 +41,7 @@ conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta.py --stage pilo
 Each smoke uses seed 0 and two batches, including Background's 35 reverse
 steps. Pilot evaluates complete Gaussian/Impulse files, batch 32, severity 5,
 seeds 0/1/2. Existing raw LION eval, EMA off, frozen Point-MAE,
-original-style decoder, gamma=eta=.01, lambda=.96, 100 DDIM schedule and
+original-style decoder, gamma=eta=.01, lambda=.95, 100 DDIM schedule and
 5/35 reverse steps are fixed. Graph settings are k=10, delta=.1,
 graph gamma=.6, requested low modes=100, spectral weight=1.
 
@@ -56,11 +56,11 @@ not an independent held-out validation set. Record all null/negative results.
 63.9339% versus 63.7484% for the matched lambda=.95 original-style control,
 with positive paired deltas at seeds 0/1/2 and mean delta +0.1855 pp.
 
-[Inference] The paper-conformant reference for a newly declared GSD pilot is
-now `.96`, unless the experiment explicitly targets the historical `.95`
-operational control. The existing `.95` GSD pilot remains valid evidence for
-`.95`; it must not be relabeled. A `.96` GSD pilot requires a fresh matched
-weight-zero and weight-one comparison, with all other settings unchanged.
+[Inference] The separate `scd_lambda96_control` result does not change the
+GSD contract. GSD remains locked to the operational `.95` SCD setting; a
+future GSD `.96` ablation would need a separately declared method and fresh
+matched weight-zero/weight-one artifacts. The existing `.95` GSD pilot is not
+relabeled.
 
 ## All-15 confirmation
 

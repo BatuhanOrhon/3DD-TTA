@@ -224,13 +224,13 @@ selected low-frequency subspace in `L_spec`; it does not alter SCD or the
 diffusion schedule. These are exploratory pilot variants, not the locked
 benchmark configuration.
 
-## Lambda baseline lock - 2026-09-23
+## Lambda baseline separation - 2026-09-23
 
 [Run] The separate all-15 original-style lambda=.96 confirmation is positive
 against the matched lambda=.95 comparator in all three seeds, with mean delta
 +0.1855 pp.
 
-[Code] `gsd_protocol.py` now gives `gsd_latent_spectral_v1` an implicit
-lambda=.96 default and rejects explicit lambda=.95. Legacy baseline/control
-methods retain their historical contracts. The existing GSD `.95` pilot is
-not relabeled; a new `.96` GSD pilot needs a fresh matched weight-zero arm.
+[Inference] The separate `scd_lambda96_control` result does not authorize a
+GSD change. `gsd_latent_spectral_v1` remains locked to the operational
+lambda=.95 contract; a future GSD lambda=.96 ablation would be a separately
+declared method with fresh matched weight-zero/weight-one artifacts.

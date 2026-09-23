@@ -347,18 +347,14 @@ No alternate resampling policy is implemented or benchmarked yet.
   raw/eval dropout-off metadata across seeds.
 - [x] Compare against matched original-style lambda=.95 rows: all three
   seed deltas are positive and the mean delta is +0.1855 pp.
-- **[Inference]** Use lambda=.96 as the paper-conformant reference setting
-  for newly declared baseline/GSD runs, while retaining lambda=.95 as the
-  historical operational comparator.
+- **[Inference]** Keep lambda=.96 as the separate SCD control result only;
+  retain lambda=.95 for the operational baseline and GSD method.
 - **[Open]** The existing GSD `.95` pilot cannot be relabeled as `.96`; a
   `.96` GSD pilot requires a fresh matched weight-zero/weight-one run.
 
-### 2026-09-23 GSD lambda baseline lock
+### 2026-09-23 GSD lambda baseline separation
 
-- [x] Change the GSD-only implicit baseline from `.95` to paper-conformant
-  `.96` without changing legacy baseline/control routes.
-- [x] Reject explicit `.95` for `gsd_latent_spectral_v1` and update protocol
-  notes/tests.
-- [x] Pass the full 88-test CPU suite and compile the GSD runner modules.
-- [ ] Rerun a matched GSD `.96` pilot with weight-zero and weight-one arms;
-  the prior `.95` pilot remains a separate historical result.
+- [x] Keep `gsd_latent_spectral_v1` locked to operational lambda `.95`.
+- [x] Keep the separate `scd_lambda96_control` evidence isolated from GSD.
+- [x] Reject implicit or explicit lambda `.96` for the current GSD method.
+- [ ] If desired, declare and run a separate future GSD lambda `.96` ablation.
