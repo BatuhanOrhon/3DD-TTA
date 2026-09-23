@@ -10,6 +10,11 @@ recorded. See [GSD handoff](../knowledge/colab_gsd.md).
 [Open] Provide complete original/off/on ZIPs after Colab, including failures;
 remove credentials. No GSD GPU results exist yet. Raw ZIPs remain outside Git.
 
+After a Colab all-15 run, `scripts/export_gsd_results.py` copies each local
+ZIP into the matching Drive path
+`thesis/result/modelnet40_c/<method>/<run_id>/<run_id>.zip` without modifying
+the local artifact.
+
 This directory stores immutable experiment evidence. See [`knowledge/experiment_protocol.md`](../knowledge/experiment_protocol.md) for the full protocol.
 
 ## Required layout

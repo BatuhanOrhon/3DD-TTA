@@ -96,3 +96,26 @@ and the extra gradient pass; corruption-level peak GPU memory includes models.
 credentials. Report macro/per-corruption accuracy and seed SD, absolute
 percentage-point deltas, runtime and memory. No new GSD GPU result exists yet.
 Do not add raw result ZIPs to Git.
+
+## Drive export after all-15
+
+[Code] The runner writes each all-15 ZIP locally before any Drive copy:
+`result/modelnet40_c/<method>/<run_id>.zip`. In a separate Colab cell, the
+export helper creates the matching run-id directory under
+`/content/drive/MyDrive/thesis/result/modelnet40_c/<method>/<run_id>/` and
+copies only `<run_id>.zip` into it. Existing same-size files are skipped;
+different-size files cause a hard failure, so an archive is never silently
+overwritten.
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python scripts/export_gsd_results.py \
+  --source-root ./result \
+  --drive-root /content/drive/MyDrive/thesis/result \
+  --stage all15
+```
+
+The same cell accepts `--stage pilot` or `--stage smoke` for those artifact
+sets. Raw ZIPs remain outside Git.
