@@ -224,6 +224,25 @@ selected low-frequency subspace in `L_spec`; it does not alter SCD or the
 diffusion schedule. These are exploratory pilot variants, not the locked
 benchmark configuration.
 
+## Spectral-only ablation - 2026-09-23
+
+[Code] `--gsd-scd-weight 0` is an explicit exploratory ablation. It keeps
+`spectral_weight=1`, so the reverse-step objective is `L_total = L_spec` and
+the SCD gradient is removed from both local and style updates. The operational
+lambda remains `.95`; this option does not alter the decoder, scheduler,
+preprocessing, or graph contract.
+
+[Code] This ablation is launched with `--arms on` and compared with the
+existing `3dd_original` baseline. A synthetic GSD-off arm is rejected because
+the zero-spectral path is reserved for exact baseline delegation when the SCD
+weight is the default `1`; it must not be mislabeled as a no-SCD control.
+
+[Inference] The method name for this run is **spectral-only latent guidance
+ablation**. It is not a GSDTTA reproduction and is not eligible for the locked
+all-14/all-15 benchmark. Existing M=100/240/400 pilot artifacts use the
+default SCD weight `1` and remain the combined SCD+spectral GSD-inspired
+variant.
+
 ## Lambda baseline separation - 2026-09-23
 
 [Run] The separate all-15 original-style lambda=.96 confirmation is positive

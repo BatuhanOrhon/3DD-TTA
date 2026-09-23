@@ -163,3 +163,24 @@ which evaluates the canonical corruption list without Background. It records
 `gsd_stage=benchmark_no_background`; the canonical 15-corruption command
 remains available explicitly as `--stage all15` after reviewing runtime and
 pilot evidence.
+
+## Spectral-only ablation
+
+[Code] To run the pure spectral guidance ablation, use only the active arm and
+compare its ZIP with the existing `3dd_original` pilot baseline. The launcher
+rejects `off` for this setting so that a baseline-delegation run is not
+mistaken for a no-SCD trajectory:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta.py \
+  --stage pilot --seeds 0 1 2 --arms on --gsd-modes 100 \
+  --gsd-scd-weight 0 --execute
+```
+
+[Code] These artifacts are tagged `spectral-only`; they retain lambda `.95`
+and use `L_total=L_spec`. They are exploratory and must not be called a
+“GSDTTA reproduction” or promoted to all-14/all-15 without a separately
+reviewed control design.

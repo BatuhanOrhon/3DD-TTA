@@ -7,10 +7,12 @@ METHOD = "gsd_latent_spectral_v1"
 METHOD_NAME = "GSD-inspired latent spectral guidance"
 PILOT_CORRUPTIONS = ("gaussian", "impulse")
 DEFAULTS = dict(gsd_weight=1.0, gsd_k=10, gsd_delta=0.1,
-                gsd_graph_gamma=0.6, gsd_modes=100, gsd_stage="pilot")
+                gsd_graph_gamma=0.6, gsd_modes=100, gsd_stage="pilot",
+                gsd_scd_weight=1.0)
 
 
 def add_arguments(parser) -> None:
+    parser.add_argument("--gsd-scd-weight", type=float, default=None)
     for name, cast in (("weight", float), ("k", int), ("delta", float),
                        ("graph-gamma", float), ("modes", int)):
         parser.add_argument("--gsd-" + name, type=cast, default=None)
@@ -36,8 +38,9 @@ def validate_arguments(args, parser, all_corruptions) -> None:
         parser.error("GSD v1 requires raw LION, EMA off, gamma=eta=.01, lambdaa=.95.")
     if args.fps_diagnostics:
         parser.error("GSD v1 keeps the existing FPS path.")
-    if not math.isfinite(args.gsd_weight) or args.gsd_weight < 0:
-        parser.error("GSD weight must be finite and non-negative.")
+    if (not math.isfinite(args.gsd_weight) or args.gsd_weight < 0 or
+            not math.isfinite(args.gsd_scd_weight) or args.gsd_scd_weight < 0):
+        parser.error("GSD and SCD weights must be finite and non-negative.")
     if not 1 <= args.gsd_k < 2048 or not 1 <= args.gsd_modes <= 2048:
         parser.error("GSD requires 1 <= k < 2048 and 1 <= modes <= 2048.")
     if not math.isfinite(args.gsd_delta) or args.gsd_delta <= 0:
@@ -54,7 +57,7 @@ def validate_arguments(args, parser, all_corruptions) -> None:
         if args.max_batches != 0 or args.corruptions != list(expected):
             parser.error("GSD pilot/benchmark requires complete files in its canonical scope.")
     if args.gsd_stage in ("benchmark", "benchmark_no_background") and (
-            args.gsd_weight not in (0.0, 1.0) or args.gsd_k != 10 or
+            args.gsd_weight not in (0.0, 1.0) or args.gsd_scd_weight != 1.0 or args.gsd_k != 10 or
             args.gsd_delta != .1 or args.gsd_graph_gamma != .6 or args.gsd_modes != 100):
         parser.error("GSD v1 benchmark is locked to weight 0/1, k=10, delta=.1, graph gamma=.6, modes=100.")
     args.lion_eval_mode = True
@@ -63,6 +66,7 @@ def validate_arguments(args, parser, all_corruptions) -> None:
 def spectral_contract(args) -> dict:
     return dict(
         name=METHOD_NAME, version=1, weight=args.gsd_weight,
+        scd_weight=args.gsd_scd_weight,
         graph_domain="encoded local latent XYZ", signal="predicted clean local latent XYZ",
         k=args.gsd_k, delta=args.gsd_delta, graph_gamma=args.gsd_graph_gamma,
         requested_modes=args.gsd_modes, graph="static non-self kNN; max-symmetric RBF",
@@ -87,7 +91,7 @@ def notes_for_run(args) -> str:
         "# " + METHOD_NAME + "\n\n"
         "[Code] Opt-in method " + METHOD + "; stage=" + args.gsd_stage + ". "
         "Raw LION eval, EMA off, frozen Point-MAE, original-style decoder, "
-        "summed SCD, lambda=.95, gamma=eta=.01, original 100-step DDIM / 5-35 reverse schedule.\n"
+        "summed SCD with configurable SCD weight, lambda=.95, gamma=eta=.01, original 100-step DDIM / 5-35 reverse schedule.\n"
         "[Inference] Static low-frequency fidelity may preserve instance structure. "
         "This is not a reproduction of the full GSDTTA algorithm.\n"
         "[Open] Accuracy benefit, corrupted-graph bias and real CUDA operator gradients "
@@ -140,7 +144,8 @@ def process_batches(batches, base_model, lion, args, baseline, torch_module, ste
             inputs, center, maximum = tta_preprocess_points(data, baseline, args, torch_module)
         points = tta_gsd_reconstruct(
             inputs, lion, steps, args.gamma, args.eta, args.lambdaa, 100,
-            spectral_weight=args.gsd_weight, spectral_config=spectral_config,
+            spectral_weight=args.gsd_weight, scd_weight=args.gsd_scd_weight,
+            spectral_config=spectral_config,
             scheduler_observer=scheduler_observer, diagnostics_observer=diagnostics_observer)
         with torch_module.no_grad():
             points = tta_postprocess_points(points, center, maximum, baseline, args)

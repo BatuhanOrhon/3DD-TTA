@@ -35,6 +35,7 @@ def _number(value: torch.Tensor, name: str) -> float:
 def tta_gsd_reconstruct(
     x: torch.Tensor, lion, steps_back_local: int, gamma: float, eta: float,
     p: float, total: int = 100, *, spectral_weight: float = 1.0,
+    scd_weight: float = 1.0,
     spectral_config=None, scheduler_observer: Optional[Callable] = None,
     diagnostics_observer: Optional[Callable] = None,
 ) -> torch.Tensor:
@@ -46,8 +47,15 @@ def tta_gsd_reconstruct(
     SCD. Gradients pass through the frozen prior to both optimization variables.
     An outer ``no_grad`` is supported; ``inference_mode`` is not supported.
     """
-    if not math.isfinite(spectral_weight) or spectral_weight < 0:
-        raise ValueError("spectral_weight must be finite and nonnegative")
+    if (not math.isfinite(spectral_weight) or spectral_weight < 0 or
+            not math.isfinite(scd_weight) or scd_weight < 0):
+        raise ValueError("spectral_weight and scd_weight must be finite and nonnegative")
+    if spectral_weight == 0 and scd_weight != 1.0:
+        raise ValueError(
+            "A zero spectral weight with a non-default SCD weight has no "
+            "baseline-compatible trajectory; use spectral_weight=1 for the "
+            "spectral-only ablation"
+        )
     if spectral_weight == 0:
         result = baseline.tta_reconstruct(
             x, lion, steps_back_local, gamma, eta, p, total,
@@ -109,10 +117,13 @@ def tta_gsd_reconstruct(
         distances2 = torch.sort(distances2, dim=1).values[:, :retained]
         scd_loss = baseline.selective_chamfer_loss(distances1, distances2, num_points)
         spectral_loss = target.loss(predicted_xyz)
+        weighted_scd_loss = scd_weight * scd_loss
         weighted_spectral_loss = spectral_weight * spectral_loss
+        total_loss = weighted_scd_loss + weighted_spectral_loss
         for name, loss in (("SCD loss", scd_loss), ("spectral loss", spectral_loss),
+                           ("weighted SCD loss", weighted_scd_loss),
                            ("weighted spectral loss", weighted_spectral_loss),
-                           ("total loss", scd_loss + weighted_spectral_loss)):
+                           ("total loss", total_loss)):
             _require_finite(loss, name)
 
         local_scd, style_scd = _loss_gradients(scd_loss, noisy_local, style_cond, retain_graph=True)
@@ -120,8 +131,10 @@ def tta_gsd_reconstruct(
             spectral_loss, noisy_local, style_cond, retain_graph=False)
         local_weighted = spectral_weight * local_spectral
         style_weighted = spectral_weight * style_spectral
-        local_update = gamma * (local_scd + local_weighted)
-        style_update = eta * (style_scd + style_weighted)
+        local_scd_weighted = scd_weight * local_scd
+        style_scd_weighted = scd_weight * style_scd
+        local_update = gamma * (local_scd_weighted + local_weighted)
+        style_update = eta * (style_scd_weighted + style_weighted)
         _require_finite(local_update, "local update")
         _require_finite(style_update, "style update")
 
@@ -130,6 +143,8 @@ def tta_gsd_reconstruct(
                            "timestep": int(timestep.item()), "batch_size": num_samples,
                            "scd_loss": _number(scd_loss, "SCD loss"),
                            "spectral_loss": _number(spectral_loss, "spectral loss"),
+                           "scd_weight": scd_weight,
+                           "spectral_weight": spectral_weight,
                            "weighted_spectral_loss": _number(weighted_spectral_loss, "weighted loss")}
             for name, value in (
                 ("local_scd_grad_norm", local_scd), ("local_spectral_grad_norm", local_spectral),

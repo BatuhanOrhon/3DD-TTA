@@ -14,7 +14,8 @@ REPO = Path(__file__).resolve().parent
 
 
 def build_commands(stage: str, *, seeds=None, arms=("baseline", "off", "on"),
-                   smoke_corruption="gaussian", result_root="./result", gsd_modes=100) -> list[list[str]]:
+                   smoke_corruption="gaussian", result_root="./result", gsd_modes=100,
+                   gsd_scd_weight=1.0) -> list[list[str]]:
     """Construct fixed controls; custom method tuning uses the explicit runner CLI."""
     if stage not in ("smoke", "pilot", "all14", "all15"):
         raise ValueError("Unknown experiment stage")
@@ -23,6 +24,11 @@ def build_commands(stage: str, *, seeds=None, arms=("baseline", "off", "on"),
         raise ValueError("Use unique seeds from 0/1/2")
     if not arms or len(set(arms)) != len(arms) or any(a not in ("baseline", "off", "on") for a in arms):
         raise ValueError("Use unique arms from baseline/off/on")
+    if gsd_scd_weight == 0 and "off" in arms:
+        raise ValueError(
+            "Spectral-only ablation has no GSD-off arm; use --arms on (and compare "
+            "against the existing 3dd_original baseline)"
+        )
     if smoke_corruption not in ("gaussian", "background"):
         raise ValueError("Smoke supports Gaussian or Background")
     corruptions = ([smoke_corruption] if stage == "smoke" else
@@ -46,9 +52,12 @@ def build_commands(stage: str, *, seeds=None, arms=("baseline", "off", "on"),
                 command += ["--gsd-stage", gsd_stage,
                             "--gsd-weight", "0" if arm == "off" else "1",
                             "--gsd-k", "10", "--gsd-delta", ".1",
-                            "--gsd-graph-gamma", ".6", "--gsd-modes", str(gsd_modes)]
+                            "--gsd-graph-gamma", ".6", "--gsd-modes", str(gsd_modes),
+                            "--gsd-scd-weight", str(gsd_scd_weight)]
                 if stage == "pilot" and gsd_modes != 100:
                     command[command.index("--run-name") + 1] += f"-m{gsd_modes}"
+                if stage == "pilot" and gsd_scd_weight != 1.0:
+                    command[command.index("--run-name") + 1] += "-spectral-only"
             commands.append(command)
     return commands
 
@@ -63,11 +72,13 @@ def main(argv=None) -> int:
     parser.add_argument("--result-root", default="./result")
     parser.add_argument("--gsd-modes", type=int, default=100,
                         help="Requested low-frequency modes for pilot/smoke GSD arms")
+    parser.add_argument("--gsd-scd-weight", type=float, default=1.0,
+                        help="SCD coefficient for exploratory GSD pilot ablations")
     parser.add_argument("--execute", action="store_true", help="Run in the existing Colab environment")
     args = parser.parse_args(argv)
     commands = build_commands(args.stage, seeds=args.seeds, arms=args.arms,
                               smoke_corruption=args.smoke_corruption, result_root=args.result_root,
-                              gsd_modes=args.gsd_modes)
+                              gsd_modes=args.gsd_modes, gsd_scd_weight=args.gsd_scd_weight)
     for command in commands:
         print(shlex.join(command), flush=True)
         if args.execute:

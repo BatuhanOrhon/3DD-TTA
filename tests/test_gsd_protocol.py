@@ -13,6 +13,7 @@ from unittest.mock import patch
 
 import gsd_protocol
 import run_baseline
+import eval_gsd_tta
 from research_artifacts import RunBundle, corruption_row
 
 
@@ -68,6 +69,7 @@ class GSDProtocolTests(unittest.TestCase):
                       ("--lambdaa", ".96"), ("--severity", "4"),
                       ("--dataset-name", "scanobjectnn-c"), ("--seed", "3"),
                       ("--gsd-weight", "nan"), ("--gsd-weight", "-1"),
+                      ("--gsd-scd-weight", "nan"), ("--gsd-scd-weight", "-1"),
                       ("--gsd-modes", "0"), ("--gsd-k", "2048"),
                       ("--gsd-delta", "0"), ("--gsd-graph-gamma", "inf"),
                       ("--corruptions", "background")):
@@ -86,6 +88,24 @@ class GSDProtocolTests(unittest.TestCase):
         self.assertEqual(config["stage"], "smoke")
         self.assertEqual(config["spectral"]["weight"], 0)
         self.assertIn("baseline", config["spectral"]["zero_weight_behavior"])
+
+    def test_spectral_only_ablation_is_explicit_and_nonbenchmark(self):
+        args = self.args("--gsd-scd-weight", "0")
+        config = run_baseline.build_config(args)
+        self.assertEqual(args.lambdaa, 0.95)
+        self.assertEqual(config["spectral"]["scd_weight"], 0)
+        with redirect_stderr(StringIO()), self.assertRaises(SystemExit):
+            self.args("--gsd-stage", "benchmark", "--gsd-scd-weight", "0",
+                      "--corruptions", *run_baseline.CORRUPTIONS)
+
+    def test_spectral_only_launcher_requires_on_arm(self):
+        with self.assertRaises(ValueError):
+            eval_gsd_tta.build_commands("pilot", arms=("off",), gsd_scd_weight=0)
+        commands = eval_gsd_tta.build_commands(
+            "pilot", seeds=[0], arms=("on",), gsd_scd_weight=0)
+        self.assertEqual(len(commands), 1)
+        self.assertIn("--gsd-scd-weight", commands[0])
+        self.assertIn("spectral-only", commands[0][commands[0].index("--run-name") + 1])
 
     def test_benchmark_requires_complete_canonical_all15(self):
         with redirect_stderr(StringIO()), self.assertRaises(SystemExit):
