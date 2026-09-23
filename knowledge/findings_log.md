@@ -2,6 +2,20 @@
 
 ## 2026-09-23 - GSD Gaussian/Impulse pilot artifacts
 
+[Run] The repository also contains three historical complete
+`3dd_original` all-15 eval/raw ZIPs:
+`result/modelnet40_c/3dd_original/20260913-163817_3dd-original-all15-eval-raw-seed0.zip`,
+`20260913-173819_3dd-original-all15-eval-raw-seed1.zip`, and
+`20260913-183818_3dd-original-all15-eval-raw-seed2.zip`. Their configs record
+ModelNet40-C severity 5, batch 32, raw LION eval mode, EMA disabled, lambda
+0.95, gamma/eta 0.01, 100 DDIM steps, complete 15-corruption coverage, and
+the same classifier/LION/label asset hashes as the supplied GSD pilot.
+
+[Open] Those baseline ZIPs were produced at commit `b999a1e`, whereas the GSD
+pilot was produced at `ad07257`. They are therefore valid historical
+eval/raw references, but strict current-commit parity would require a fresh
+`3dd_original` pilot run with the same launcher and seed/corruption scope.
+
 [Run] Six complete pilot ZIPs were supplied under
 `result/modelnet40_c/gsd_latent_spectral_v1/`: GSD weight 0 and 1 at seeds
 0, 1, and 2, covering complete Gaussian and Impulse severity-5 files. Every
