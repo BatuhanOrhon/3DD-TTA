@@ -1,5 +1,17 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[Code] 2026-09-23 GSD development update:** The user authorized GSD-only
+development on `gsd-development`, derived from current `baseline-repro-clean`
+at `79cc027`. Read [the short GSD design](gsd_design.md),
+[audit and plan](gsd_integration_20260922.md),
+[verification record](gsd_verification_20260923.md) and
+[Colab handoff](colab_gsd.md). The opt-in method is
+`gsd_latent_spectral_v1`, named GSD-inspired latent spectral guidance.
+Raw/eval LION, EMA off, frozen Point-MAE and original-style decoding remain
+the operational controls. Earlier statements parking GSD are superseded for
+this scope; PxP and combined-method work remain parked. **[Open]** GPU
+validation and accuracy evidence remain pending; local tests are CPU-only.
+
 This directory is the canonical, repository-local memory for the thesis. A new research session must start here instead of reconstructing the project from chat history.
 
 ## Current thesis in one paragraph

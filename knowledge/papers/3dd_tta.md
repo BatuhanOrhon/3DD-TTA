@@ -1,5 +1,17 @@
 # Paper Note: 3DD-TTA
 
+## GSD host contract audit - 2026-09-23
+
+[Paper] Rechecked Sec. 3.3/Eqs. 9--12 and Algorithm 1, visually including
+PDF p. 5: predicted-clean local-latent guidance and updates to conditioning.
+[Code] The GSD extension preserves operational unnormalized SCD, retention
+.95, gamma-local/eta-style mapping and original-style decode. Paper-normalized
+SCD, .96 retention or updated final style are not combined with GSD.
+[Inference] A static spectral objective on the same predicted-clean latent
+XYZ can compose with SCD by scalar addition and the ordinary chain rule;
+see [design](../gsd_integration_20260922.md). This supplies no evidence of
+accuracy benefit or paper-level reproduction parity.
+
 ## Reference
 
 A. Dastmalchi et al., “Test-Time Adaptation of 3D Point Clouds via Denoising Diffusion Models,” WACV 2025. Local PDF: `Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models kopyası.pdf`. Official page: <https://openaccess.thecvf.com/content/WACV2025/html/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.html>.

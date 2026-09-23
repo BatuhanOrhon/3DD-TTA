@@ -1,5 +1,15 @@
 # Colab Result Archive
 
+## GSD v1 artifacts - 2026-09-23
+
+[Code] `gsd_latent_spectral_v1` preserves the seven-file schema below and
+stores graph/gradient aggregates in `config.json.gsd_diagnostics`. Each
+method/seed/arm receives a fresh directory and ZIP; no resume or overwrite.
+Source/asset hashes, resolved scheduler and before/after mode inventories are
+recorded. See [GSD handoff](../knowledge/colab_gsd.md).
+[Open] Provide complete original/off/on ZIPs after Colab, including failures;
+remove credentials. No GSD GPU results exist yet. Raw ZIPs remain outside Git.
+
 This directory stores immutable experiment evidence. See [`knowledge/experiment_protocol.md`](../knowledge/experiment_protocol.md) for the full protocol.
 
 ## Required layout

@@ -1,5 +1,19 @@
 # Method Synthesis and Hypotheses
 
+## Selected first GSD integration - 2026-09-23
+
+[Code] The implemented opt-in `gsd_latent_spectral_v1` keeps the existing
+SCD trajectory and adds static latent-XYZ spectral fidelity. It uses
+`sum_b ||U_b^T(Qhat_b-Qref_b)||^2/(3*m_b)`, a detached common basis and
+reference, and derivatives through the denoiser to local state and style.
+Original encoded style is retained for final decode; weight zero delegates
+directly to the original path. See [the mathematical design and audit](gsd_integration_20260922.md).
+[Inference] H1 below is now testable under matched controls, not confirmed.
+Low-band fidelity can also retain corruption. Physical graphs, dynamic bases,
+all-feature distances, global diffusion and projection remain separate ideas.
+[Open] Colab pilot and all-15 evidence are pending. Historical code descriptions
+below refer to legacy branches unless explicitly superseded by this entry.
+
 ## Conceptual synthesis
 
 3DD-TTA supplies a hierarchical generative prior and robust instance anchoring. GSDTTA supplies a graph-frequency view of point-cloud structure. PixelAsParam supplies a way to reason about competing guidance directions. The thesis synthesis is:

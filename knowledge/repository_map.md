@@ -1,5 +1,25 @@
 # Repository Map
 
+## GSD v1 branch additions - 2026-09-23
+
+[Code] On `gsd-development` from `79cc027`, the new files below supersede
+the historical descriptions of identically named legacy GSD files later in
+this map. Existing baseline/model/preprocessing files retain their behavior.
+
+| File | Current responsibility |
+|---|---|
+| `graph_spectral.py` | Static detached latent XYZ graph, spectral target, numeric checks and graph diagnostics |
+| `tta_gsd.py` | SCD plus spectral fidelity trajectory; weight zero delegates original TTA |
+| `gsd_protocol.py` | GSD-only argument guards, batching adapter, contract and diagnostic aggregation |
+| `run_baseline.py` | Additive `gsd_latent_spectral_v1` dispatch; existing methods preserved |
+| `eval_gsd_tta.py` | Print/execute fixed original/off/on Colab command matrices |
+| `scripts/colab_gsd_pilot.sh`, `scripts/colab_gsd_all15.sh` | Existing-environment Colab launchers |
+| `tests/test_graph_spectral.py`, `tests/test_gsd_*.py` | CPU numerical, trajectory and protocol checks |
+
+[Code] Safe method ID: `gsd_latent_spectral_v1`. Scientific name:
+GSD-inspired latent spectral guidance. See [design](gsd_integration_20260922.md)
+and [Colab commands](colab_gsd.md); no PxP implementation was migrated.
+
 **Branch context, 2026-09-12:** active `baseline-repro-clean` contains main's baseline code. Variant paths and current-default comparisons in this historical map refer to audited legacy revision `53ba252` on `pxp-gradient-projection`; those variants were not migrated. See `clean_restart_batches.md` before implementation.
 
 ## Baseline execution path

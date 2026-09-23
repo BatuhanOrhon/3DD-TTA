@@ -1,5 +1,15 @@
 # Thesis Scope and Research Questions
 
+## GSD-only development authorization - 2026-09-23
+
+[User report] The current task authorizes a new `gsd-development` branch
+from the latest `baseline-repro-clean`, including GSD implementation,
+unit/protocol tests, knowledge records and Colab scripts. It supersedes
+the historical GSD deferral and default no-new-tests preference below.
+[Code] The selected method is a static latent XYZ fidelity regularizer;
+see [design](gsd_integration_20260922.md). PxP, gradient projection and
+combined variants are outside this task. Local GPU experiments are prohibited.
+
 ## Working title
 
 **Graph-Spectral and Conflict-Aware Test-Time Adaptation of Corrupted 3D Point Clouds with Denoising Diffusion Models**

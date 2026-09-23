@@ -1,5 +1,20 @@
 # Paper Note: GSDTTA
 
+## First GSD integration audit - 2026-09-23
+
+[Paper] PDF p. 4 / Eqs. 7--13 was visually inspected: Eq. 10 uses
+gamma/(N*k). Eq. 7 displays d squared in the exponent while nearby prose
+calls d squared Euclidean distance; this is a printed ambiguity.
+[Code] The new static latent graph explicitly selects standard Gaussian RBF
+with squared Euclidean distance, excludes self-neighbors, computes threshold
+from directed adjacency, max-symmetrizes, masks both endpoints and excludes
+final isolates from the eigensystem. These are declared implementation
+choices, replacing the legacy gamma/N and isolated-node 1000 penalty.
+[Inference] The transferred idea is low-frequency structural fidelity in
+LION latent space, not the paper's learned physical-coordinate shift or
+alternating classifier adaptation. Use **GSD-inspired latent spectral
+guidance**. See [design and limitations](../gsd_integration_20260922.md).
+
 ## Reference
 
 Y. Wei et al., “3D Test-time Adaptation via Graph Spectral Driven Point Shift,” ICCV 2025. Local PDF: `Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf`. Official page: <https://openaccess.thecvf.com/content/ICCV2025/html/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.html>.

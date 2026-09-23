@@ -1,5 +1,28 @@
 # Open Questions and Research Backlog
 
+## GSD v1 current gates - 2026-09-23
+
+- [x] [Code] Add opt-in GSD-only method with raw/eval, EMA-off, frozen
+  classifier and original-style decoder contracts; preserve baseline paths.
+- [x] [Paper] Visually check GSDTTA Eq. 10 and declare graph distance,
+  symmetrization and isolation choices; see [design](gsd_design.md).
+- [x] [Code] Cover tensor layout, both gradient routes, batch sum scaling,
+  zero-weight parity, graph invariance and artifact/worker failure handling
+  with CPU tests. Include the review's float32 eigenspace regression.
+- [ ] [Open] Validate native CUDA Chamfer/DDIM/LION execution in Colab and
+  compare spectral-off predictions with matched original eval/raw runs.
+- [ ] [Open] Measure N=2048 graph/eigendecomposition runtime and GPU memory,
+  isolates, actual ranks, effective tolerances and reference energy fraction.
+- [ ] [Open] Inspect spectral/SCD gradient scales for both local and style
+  inputs; initial weight1 and delta.1 are uncalibrated latent-space settings.
+- [ ] [Open] Validate complete three-seed pilot ZIPs and apply the declared
+  promotion rule before all-15; retain null/negative/OOM evidence.
+- [ ] [Open] Full GSDTTA reproduction, physical/dynamic graph alternatives,
+  and classifier adaptation are not implemented by this method.
+
+[User report] Earlier GSD deferral is superseded by this task; PxP and
+combined-method work remain out of scope. No GPU result is added here.
+
 ## EMA inventory result — 2026-09-13
 
 - [x] Inspect checkpoint: 462/462 prior EMA entries, 0 VAE EMA entries.

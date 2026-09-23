@@ -1,5 +1,57 @@
 # Findings Log
 
+## 2026-09-23 - GSD-only latent spectral integration
+
+[User report] Implement GSD alone on `gsd-development`, beginning at the
+latest `baseline-repro-clean`. Preserve PxP/projection/combined work and all
+raw local artifacts. This supersedes earlier GSD deferral only for this scope.
+
+[Code] Branch base is `79cc02774e5fa85a7c2f84a08506617670416642`.
+The new opt-in ID is `gsd_latent_spectral_v1`. `graph_spectral.py`, `tta_gsd.py`
+and `eval_gsd_tta.py` were implemented anew after inspecting legacy revisions
+`53ba252`, `06561f3`, `f63587b`, `09580b2` and `4079f49`.
+The new GSD-only protocol module connects it additively to the artifact runner.
+Baseline `tta.py`, `main_3dd_tta.py`, LION, dataset, preprocessing and FPS
+implementations were not edited.
+
+[Paper] Rechecked the local 3DD-TTA Sec. 3.3/Eqs. 9--12/Algorithm 1,
+LION Sec. 3/Eqs. 5--7 and GSDTTA Sec. 3/Eqs. 7--13. GSDTTA p. 4 visibly
+uses gamma/(N*k), and its printed distance notation/prose is ambiguous.
+[Code] Legacy GSD changed the scheduler endpoint convention, final style,
+rate bindings and relative batch scaling; its graph used gamma/N and an
+arbitrary isolated-node diagonal penalty. These were not inherited.
+
+[Inference] Selected objective: detached static graph on encoded local XYZ,
+low-band fidelity of predicted clean XYZ, sum over samples normalized by
+3*actual_rank, added to unchanged SCD. The ordinary chain rule guides both
+noisy local state and conditioning. Final decoder retains encoded original
+style. This is a GSD-inspired regularizer, not full GSDTTA reproduction.
+See [short design](gsd_design.md) and [full audit](gsd_integration_20260922.md).
+
+[Code] Review exposed a float32 repeated-eigenvalue boundary failure on a
+two-component graph: fixed absolute tolerance split its zero eigenspace and
+made loss depend on vertex order. A dtype/size/Laplacian-scale roundoff
+allowance and explicit diagnostic tolerances address the reproduced case;
+numerically unresolved neighboring modes may also be included.
+
+[Code] CPU tests cover spectral derivatives/invariance, zero-weight original
+tensor/RNG parity, active-path rate/scheduler/style contracts, frozen model
+state, no_grad callers, invalid protocols, immutable artifacts, actual worker
+dispatch and failure counters. GPU dependencies are doubles in trajectory
+and worker tests. The [final verification record](gsd_verification_20260923.md)
+reports 84 passing CPU tests, syntax checks and preserved baseline sources.
+
+[Open] No GSD GPU run exists. Expected paths:
+`result/modelnet40_c/gsd_latent_spectral_v1/<UTC-timestamp>_gsd-v1-<stage>-<arm>-seed<seed>/`.
+Colab scripts prepare smoke, full Gaussian/Impulse pilot and all-15 original/
+off/on comparisons at seeds 0/1/2, raw/eval, EMA off, batch32, severity5,
+gamma=eta=.01, lambda=.95 and original decode. The configuration is fixed
+before all-15; test-set pilot selection must be disclosed.
+
+[Inference] Falsifiers: failed off-parity, zero/nonfinite guidance, inconsistent
+three-seed pilot gains, retained-corruption bias or unacceptable graph cost.
+No accuracy improvement, full CUDA correctness or publication parity is claimed.
+
 ## 2026-09-22 - SCD lambda=.96 all-15 confirmation decision
 
 **[User report/Decision]** Although the Gaussian/Impulse lambda=.96 pilot was

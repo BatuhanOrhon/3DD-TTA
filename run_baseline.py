@@ -18,6 +18,8 @@ import zipfile
 from pathlib import Path
 from types import SimpleNamespace
 
+import gsd_protocol
+
 from research_artifacts import (CLEAN_CONTROL, CORRUPTIONS, RunBundle, corruption_row,
                                 decoder_control_row, validate_selection)
 
@@ -321,6 +323,8 @@ def shared_trajectory_decoder_points(data, baseline, lion, args, torch_module,
 
 def notes_for_run(args: SimpleNamespace) -> str:
     """Describe the evaluated path without classifying source-only runs as smoke tests."""
+    if args.method == gsd_protocol.METHOD:
+        return gsd_protocol.notes_for_run(args)
     if args.method == "source_only":
         coverage = ("All selected corruptions are evaluated completely."
                     if args.max_batches == 0 else
@@ -492,7 +496,7 @@ def run_worker(directory: str) -> None:
                   "pointmae_config": args.pointmae_config, "labels": args.label_path}
         if args.method in {"3dd_original", *PURE_VAE_METHODS,
                            SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD,
-                           SCD_LAMBDA96_METHOD}:
+                           SCD_LAMBDA96_METHOD, gsd_protocol.METHOD}:
             assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
         identities = {name: file_identity(Path(value)) for name, value in assets.items()}
         data_files = {name: file_identity(selected_data_path(args.dataset_root, name, config["severity"]))
@@ -604,6 +608,12 @@ def run_worker(directory: str) -> None:
                         denominator="none; legacy directed retained-distance sums",
                         reduction="directed retained-distance sums, summed over batch"),
                     lambda_control=scd_lambda96_contract())
+        if args.method == gsd_protocol.METHOD:
+            for model in (base_model, lion.vae, lion.priors):
+                model.requires_grad_(False)
+            config.update(lion_loaded=True, lion_mode_policy="raw LION eval; EMA disabled",
+                          preprocessing=SCD_TTA_PREPROCESSING.replace(
+                              "with SCD guidance", "with SCD + latent spectral guidance"))
         config["extension_inventory"] = extension_inventory()
 
         def record_modes(key):
@@ -721,6 +731,11 @@ def run_worker(directory: str) -> None:
                         targets.append(target.cpu())
                         predictions.append(updated_pred.cpu())
                 targets, predictions = torch.cat(targets), torch.cat(predictions)
+            elif args.method == gsd_protocol.METHOD:
+                targets, predictions = gsd_protocol.process_batches(
+                    batches, base_model, lion, args, baseline, torch, steps,
+                    scheduler_observer=scheduler_observer, batch_observer=batch_observer,
+                    diagnostics_observer=lambda event: gsd_protocol.merge_diagnostics(config, active, event))
             elif args.method == SCD_NORMALIZATION_METHOD:
                 targets, predictions = baseline.process_batches(
                     batches, base_model, lion, args, steps,
@@ -814,7 +829,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
                                              "preprocessing_identity_seed_stability",
                                              "pure_vae_encode_decode", "pure_vae_seed_stability",
                                              SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD,
-                                             SCD_LAMBDA96_METHOD),
+                                             SCD_LAMBDA96_METHOD, gsd_protocol.METHOD),
                         default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
@@ -826,7 +841,9 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
                         help="Record legacy FPS index diagnostics without changing classifier inputs.")
     parser.add_argument("--lion-eval-mode", action="store_true", help="Set LION VAE and priors to eval mode; default preserves legacy mode.")
     parser.add_argument("--lion-ema-mode", action="store_true", help="Load prior EMA parameters from the LION checkpoint.")
+    gsd_protocol.add_arguments(parser)
     args = parser.parse_args(argv)
+    gsd_protocol.validate_arguments(args, parser, CORRUPTIONS)
     validate_selection(args.corruptions)
     args.clean_control = args.corruptions == [CLEAN_CONTROL]
     if CLEAN_CONTROL in args.corruptions and not args.clean_control:
@@ -940,6 +957,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         "shared-decoder-s5-gaussian-impulse" if args.method == SHARED_DECODER_METHOD else
         "scd-normalized-s5-gaussian-impulse" if args.method == SCD_NORMALIZATION_METHOD else
         "scd-lambda96-s5-gaussian-impulse" if args.method == SCD_LAMBDA96_METHOD else
+        "gsd-" + args.gsd_stage if args.method == gsd_protocol.METHOD else
         "baseline-smoke")
     args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
     return args
@@ -1019,6 +1037,16 @@ def build_config(args: argparse.Namespace) -> dict:
                 denominator="none; legacy directed retained-distance sums",
                 reduction="directed retained-distance sums, summed over batch"),
             lambda_control=scd_lambda96_contract())
+    if args.method == gsd_protocol.METHOD:
+        config.update(stage=args.gsd_stage, spectral=gsd_protocol.spectral_contract(args),
+                      lion_mode_policy="raw LION eval; EMA disabled", lion_loaded=True,
+                      preprocessing=SCD_TTA_PREPROCESSING.replace(
+                          "with SCD guidance", "with SCD + latent spectral guidance"),
+                      scd_normalization=dict(enabled=False, reduction="legacy sum"),
+                      gsd_diagnostics={})
+        config["runtime_source_manifest"].update({name: file_identity(REPO / name) for name in
+                                                ("graph_spectral.py", "tta_gsd.py", "gsd_protocol.py",
+                                                 "eval_gsd_tta.py")})
     return config
 
 

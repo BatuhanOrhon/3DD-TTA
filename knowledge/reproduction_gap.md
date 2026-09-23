@@ -1,5 +1,12 @@
 # Reproduction Gap: Current Diagnosis
 
+[Code] 2026-09-23: GSD-only implementation is now authorized on a separate
+branch; see [the current audit/design](gsd_integration_20260922.md).
+Baseline `tta.py`, model, dataset, preprocessing, FPS and control equations
+are preserved. [Open] This development does not close the paper reproduction
+gap or Point-MAE checkpoint provenance question and supplies no GPU accuracy
+evidence. Compare only matched eval/raw original-style controls.
+
 ## The three numbers that must remain separate
 
 | Value | Status | Meaning |

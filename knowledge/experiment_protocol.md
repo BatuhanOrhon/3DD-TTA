@@ -1,5 +1,18 @@
 # Experiment and Reproducibility Protocol
 
+## GSD v1 extension - 2026-09-23
+
+[User report] The current GSD task explicitly authorizes CPU unit/protocol
+tests; this overrides the historical default no-new-tests preference below.
+[Code] `gsd_latent_spectral_v1` is opt-in and restricted to the operational
+ModelNet40-C severity-5 batch-32 raw/eval original-style protocol. Compare
+original, spectral-off and spectral-on arms at seeds 0/1/2. The exact
+smoke/pilot/all-15 scopes, locked settings, promotion rule and artifact fields
+are in [colab_gsd.md](colab_gsd.md). Graph diagnostic fields live in config;
+standard CSV schemas retain counts, accuracy, runtime, memory and status.
+[Open] No GSD GPU evaluation has been performed. Full CUDA integration,
+spectral-off prediction parity and pilot review precede benchmark claims.
+
 ## Objective
 
 Produce Colab results that are comparable across commits and methods, diagnostically useful, and sufficient for a thesis claim. The raw run directory is the unit of evidence.
