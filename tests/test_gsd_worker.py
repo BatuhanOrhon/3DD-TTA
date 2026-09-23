@@ -159,7 +159,7 @@ class GSDWorkerTests(unittest.TestCase):
             self.assertEqual(item["trainable_parameters"], 0)
         self.assertEqual(saved["lion_mode_policy"], "raw LION eval; EMA disabled")
         self.assertEqual(saved["final_decode_style"], "original shape_latent")
-        self.assertEqual(calls, [(35 if corruption == "background" else 5, .01, .01, .95, 100)] * 2)
+        self.assertEqual(calls, [(35 if corruption == "background" else 5, .01, .01, .96, 100)] * 2)
         return saved, rows, summary
 
     def test_worker_gsd_dispatch_seals_complete_bundle_for_both_schedules(self):

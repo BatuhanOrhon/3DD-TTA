@@ -32,8 +32,8 @@ def validate_arguments(args, parser, all_corruptions) -> None:
         parser.error("GSD v1 requires ModelNet40-C severity 5.")
     if args.batch_size != 32 or args.seed not in (0, 1, 2):
         parser.error("GSD v1 requires batch 32 and seed 0/1/2.")
-    if args.lion_ema_mode or (args.gamma, args.eta, args.lambdaa) != (.01, .01, .95):
-        parser.error("GSD v1 requires raw LION, EMA off, gamma=eta=.01, lambdaa=.95.")
+    if args.lion_ema_mode or (args.gamma, args.eta, args.lambdaa) != (.01, .01, .96):
+        parser.error("GSD v1 requires raw LION, EMA off, gamma=eta=.01, lambdaa=.96.")
     if args.fps_diagnostics:
         parser.error("GSD v1 keeps the existing FPS path.")
     if not math.isfinite(args.gsd_weight) or args.gsd_weight < 0:
@@ -87,7 +87,7 @@ def notes_for_run(args) -> str:
         "# " + METHOD_NAME + "\n\n"
         "[Code] Opt-in method " + METHOD + "; stage=" + args.gsd_stage + ". "
         "Raw LION eval, EMA off, frozen Point-MAE, original-style decoder, "
-        "summed SCD, lambda=.95, gamma=eta=.01, original 100-step DDIM / 5-35 reverse schedule.\n"
+        "summed SCD, lambda=.96, gamma=eta=.01, original 100-step DDIM / 5-35 reverse schedule.\n"
         "[Inference] Static low-frequency fidelity may preserve instance structure. "
         "This is not a reproduction of the full GSDTTA algorithm.\n"
         "[Open] Accuracy benefit, corrupted-graph bias and real CUDA operator gradients "

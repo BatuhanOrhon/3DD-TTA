@@ -352,3 +352,13 @@ No alternate resampling policy is implemented or benchmarked yet.
   historical operational comparator.
 - **[Open]** The existing GSD `.95` pilot cannot be relabeled as `.96`; a
   `.96` GSD pilot requires a fresh matched weight-zero/weight-one run.
+
+### 2026-09-23 GSD lambda baseline lock
+
+- [x] Change the GSD-only implicit baseline from `.95` to paper-conformant
+  `.96` without changing legacy baseline/control routes.
+- [x] Reject explicit `.95` for `gsd_latent_spectral_v1` and update protocol
+  notes/tests.
+- [x] Pass the full 88-test CPU suite and compile the GSD runner modules.
+- [ ] Rerun a matched GSD `.96` pilot with weight-zero and weight-one arms;
+  the prior `.95` pilot remains a separate historical result.

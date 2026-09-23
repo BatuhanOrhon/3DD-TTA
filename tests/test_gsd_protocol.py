@@ -43,6 +43,7 @@ class GSDProtocolTests(unittest.TestCase):
         args = self.args()
         self.assertTrue(args.lion_eval_mode)
         self.assertFalse(args.lion_ema_mode)
+        self.assertEqual(args.lambdaa, 0.96)
         config = run_baseline.build_config(args)
         self.assertEqual(config["stage"], "pilot")
         self.assertEqual(config["spectral"]["weight"], 1.0)
@@ -64,7 +65,7 @@ class GSDProtocolTests(unittest.TestCase):
     def test_protocol_rejects_changes_to_controlled_factors(self):
         for extra in (("--lion-ema-mode",), ("--batch_size", "16"),
                       ("--gamma", ".02"), ("--eta", ".02"),
-                      ("--lambdaa", ".96"), ("--severity", "4"),
+                      ("--lambdaa", ".95"), ("--severity", "4"),
                       ("--dataset-name", "scanobjectnn-c"), ("--seed", "3"),
                       ("--gsd-weight", "nan"), ("--gsd-weight", "-1"),
                       ("--gsd-modes", "0"), ("--gsd-k", "2048"),
@@ -176,7 +177,7 @@ class GSDProtocolTests(unittest.TestCase):
                 scheduler_observer=lambda scheduler: None,
                 batch_observer=lambda target, pred: observed.append(target.numel()),
                 diagnostics_observer=lambda event: gsd_protocol.merge_diagnostics(diagnostic_config, "background", event))
-        self.assertEqual(calls, [(35, .01, .01, .95, 100, 1.0)] * 2)
+        self.assertEqual(calls, [(35, .01, .01, .96, 100, 1.0)] * 2)
         self.assertEqual(observed, [2, 1])
         self.assertEqual(targets.tolist(), [1, 0, 1])
         self.assertEqual(predictions.tolist(), [1, 1, 1])

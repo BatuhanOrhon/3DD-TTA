@@ -842,7 +842,12 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--lion-eval-mode", action="store_true", help="Set LION VAE and priors to eval mode; default preserves legacy mode.")
     parser.add_argument("--lion-ema-mode", action="store_true", help="Load prior EMA parameters from the LION checkpoint.")
     gsd_protocol.add_arguments(parser)
-    args = parser.parse_args(argv)
+    provided_argv = list(sys.argv[1:] if argv is None else argv)
+    args = parser.parse_args(provided_argv)
+    if (args.method == gsd_protocol.METHOD
+            and not any(token == "--lambdaa" or token.startswith("--lambdaa=")
+                        for token in provided_argv)):
+        args.lambdaa = 0.96
     gsd_protocol.validate_arguments(args, parser, CORRUPTIONS)
     validate_selection(args.corruptions)
     args.clean_control = args.corruptions == [CLEAN_CONTROL]

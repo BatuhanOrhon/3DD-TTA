@@ -41,7 +41,7 @@ conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta.py --stage pilo
 Each smoke uses seed 0 and two batches, including Background's 35 reverse
 steps. Pilot evaluates complete Gaussian/Impulse files, batch 32, severity 5,
 seeds 0/1/2. Existing raw LION eval, EMA off, frozen Point-MAE,
-original-style decoder, gamma=eta=.01, lambda=.95, 100 DDIM schedule and
+original-style decoder, gamma=eta=.01, lambda=.96, 100 DDIM schedule and
 5/35 reverse steps are fixed. Graph settings are k=10, delta=.1,
 graph gamma=.6, requested low modes=100, spectral weight=1.
 
