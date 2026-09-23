@@ -7,10 +7,10 @@ stores graph/gradient aggregates in `config.json.gsd_diagnostics`. Each
 method/seed/arm receives a fresh directory and ZIP; no resume or overwrite.
 Source/asset hashes, resolved scheduler and before/after mode inventories are
 recorded. See [GSD handoff](../knowledge/colab_gsd.md).
-[Run] Four smoke ZIPs are present locally for Gaussian/Background and GSD
-weight 0/1 at seed 0. They are two-batch partial artifacts, not benchmark
-results. Provide complete original/off/on pilot ZIPs after Colab, including
-failures; remove credentials. Raw ZIPs remain outside Git.
+[Run] Four smoke ZIPs and six complete Gaussian/Impulse pilot ZIPs are present
+locally. The pilot's paired three-seed GSD-on minus GSD-off mean is -0.0135
+percentage points, so it does not pass the current promotion screen. Raw ZIPs
+remain outside Git; no all-15 GSD result exists yet.
 
 After a Colab all-15 run, `scripts/export_gsd_results.py` copies each local
 ZIP into the matching Drive path

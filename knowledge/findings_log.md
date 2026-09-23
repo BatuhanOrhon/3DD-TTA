@@ -1,5 +1,33 @@
 # Findings Log
 
+## 2026-09-23 - GSD Gaussian/Impulse pilot artifacts
+
+[Run] Six complete pilot ZIPs were supplied under
+`result/modelnet40_c/gsd_latent_spectral_v1/`: GSD weight 0 and 1 at seeds
+0, 1, and 2, covering complete Gaussian and Impulse severity-5 files. Every
+archive passed CRC validation, contains the required seven files, has 4,936
+examples across two complete corruption rows, and has no traceback, runtime
+error, nonfinite, or CUDA OOM signature.
+
+[Run] Paired GSD-on minus GSD-off macro deltas are -0.0608 pp (seed 0),
++0.1418 pp (seed 1), and -0.1216 pp (seed 2). The three-seed mean is
+-0.0135 pp with sample SD 0.1379 pp. Gaussian deltas are -0.1216, 0.0000,
+and -0.0405 pp; Impulse deltas are 0.0000, +0.2836, and -0.2026 pp for
+seeds 0, 1, and 2 respectively.
+
+[Run] GSD-on diagnostics are finite for all 2,468 examples in each corruption
+and each seed, with no missing aggregate values. Mean spectral gradient norms
+are approximately 0.0950 (Gaussian) and 0.1009 (Impulse). GSD-on runtime is
+approximately 515 seconds per seed versus 186 seconds for GSD-off, about
+2.77x in this pilot.
+
+[Open] The six supplied artifacts do not include a newly matched
+`3dd_original` baseline ZIP. The GSD-off control is therefore the current
+paired comparison, while exact original-arm parity remains open. The pilot
+promotion screen is not met because GSD-on does not improve all three seeds
+and its mean delta is negative. Do not start all-15 with this locked weight
+without an explicitly documented decision to record a negative confirmation.
+
 ## 2026-09-23 - GSD Colab smoke artifacts
 
 [Run] Four Colab smoke ZIPs were supplied under

@@ -92,13 +92,11 @@ eigendecomposition timing, separate SCD/spectral local/style gradient norms,
 weighted spectral norms and final update norms. Runtime includes diagnostics
 and the extra gradient pass; corruption-level peak GPU memory includes models.
 
-[Run] Four smoke ZIPs are now present locally for Gaussian/Background and GSD
-weight 0/1 at seed 0. They pass the seven-file and CRC checks; their 64-example
-CSV rows are intentionally partial smoke coverage, not benchmark results.
-Provide the complete pilot ZIPs, including failed/OOM runs, after removing
-credentials. Report macro/per-corruption accuracy and seed SD, absolute
-percentage-point deltas, runtime and memory. No complete pilot or all-15 GSD
-result exists yet.
+[Run] Four smoke ZIPs and six complete pilot ZIPs are now present locally.
+The pilot covers Gaussian/Impulse with GSD weight 0/1 at seeds 0/1/2. All
+pilot archives pass the seven-file and CRC checks. The paired three-seed mean
+GSD-on minus GSD-off delta is -0.0135 percentage points, so the current
+promotion screen is not met. No all-15 GSD result exists yet.
 Do not add raw result ZIPs to Git.
 
 ## Drive export after all-15
