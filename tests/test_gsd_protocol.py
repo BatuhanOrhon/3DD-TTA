@@ -97,6 +97,15 @@ class GSDProtocolTests(unittest.TestCase):
             self.args("--gsd-stage", "benchmark", "--gsd-weight", "3",
                       "--corruptions", *run_baseline.CORRUPTIONS)
 
+    def test_background_excluded_confirmation_scope_is_explicit(self):
+        corruptions = [name for name in run_baseline.CORRUPTIONS if name != "background"]
+        args = self.args("--gsd-stage", "benchmark_no_background",
+                         "--corruptions", *corruptions)
+        self.assertEqual(run_baseline.build_config(args)["stage"], "benchmark_no_background")
+        with redirect_stderr(StringIO()), self.assertRaises(SystemExit):
+            self.args("--gsd-stage", "benchmark_no_background",
+                      "--corruptions", *run_baseline.CORRUPTIONS)
+
     def test_diagnostics_aggregate_is_bounded_and_json_serializable(self):
         config = {}
         for _ in range(4):

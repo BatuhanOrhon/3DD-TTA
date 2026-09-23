@@ -194,3 +194,32 @@ remain pending. Initial weight1 may be weak versus summed SCD; separate
 gradient norms make this measurable without silently changing either rate.
 The selected low modes can preserve corruption. Larger numerical bands and
 exact-distance kNN ties remain declared limitations.
+
+## Loss path and exploratory bands - 2026-09-23
+
+[Code] For each batch, LION encodes the input into a global style latent and a
+local latent of shape `B x 8192 x 1 x 1`. The local latent is reshaped to
+`B x 2048 x 4`; its first three channels are detached reference XYZ. A static
+non-self kNN/RBF graph, active combinatorial Laplacian, and detached low-mode
+basis `U_b` are built once per batch.
+
+[Code] At every reverse step, the frozen local prior predicts noise and DDIM
+produces predicted clean latent XYZ `P_b`. Selective Chamfer retains the lowest
+`int(2048*.95)=1945` distances in both directions and uses the unchanged
+legacy sum:
+
+`L_SCD = sum(retained d(P_b,R_b)) + sum(retained d(R_b,P_b))`.
+
+The spectral term is the low-band projection error:
+
+`L_spec = sum_b || U_b^T (P_b - R_b) ||_F^2 / (3 * rank_b)`.
+
+The total objective is `L_total = L_SCD + w * L_spec`. SCD and spectral
+gradients are computed separately with respect to the noisy local state and
+style conditioning. The updates are `local -= gamma*(g_SCD + w*g_spec)` and
+`style -= eta*(g_SCD + w*g_spec)`, followed by the original-style decoder.
+
+[Inference] Increasing `gsd_modes` from 100 to 240 or 400 enlarges only the
+selected low-frequency subspace in `L_spec`; it does not alter SCD or the
+diffusion schedule. These are exploratory pilot variants, not the locked
+benchmark configuration.

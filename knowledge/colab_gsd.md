@@ -121,3 +121,32 @@ conda run --no-capture-output -n 3dd_tta_env python scripts/export_gsd_results.p
 
 The same cell accepts `--stage pilot` or `--stage smoke` for those artifact
 sets. Raw ZIPs remain outside Git.
+
+## Spectral-band pilot variants
+
+[Code] `gsd_modes` is the requested number of lowest Laplacian eigenmodes; it
+does not change the graph, scheduler, preprocessing, SCD, or update rates.
+The pilot permits exploratory values such as 240 and 400. Run each value as a
+separate artifact name and compare it with its own weight-zero control:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta.py \
+  --stage pilot --gsd-modes 240 --execute
+```
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta.py \
+  --stage pilot --gsd-modes 400 --execute
+```
+
+[Code] The provisional all-15 launcher currently invokes `--stage all14`,
+which evaluates the canonical corruption list without Background. It records
+`gsd_stage=benchmark_no_background`; the canonical 15-corruption command
+remains available explicitly as `--stage all15` after reviewing runtime and
+pilot evidence.
