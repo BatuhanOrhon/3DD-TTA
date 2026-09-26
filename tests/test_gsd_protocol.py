@@ -48,6 +48,7 @@ class GSDProtocolTests(unittest.TestCase):
         config = run_baseline.build_config(args)
         self.assertEqual(config["stage"], "pilot")
         self.assertEqual(config["spectral"]["weight"], 1.0)
+        self.assertIn("1.0 * SCD + 1.0 * spectral", config["spectral"]["guidance"])
         self.assertEqual(config["spectral"]["reduction"], "sum_samples_mean_modes_xyz")
         self.assertEqual(config["final_decode_style"], "original shape_latent")
         self.assertEqual(config["projection"], {})
@@ -94,6 +95,7 @@ class GSDProtocolTests(unittest.TestCase):
         config = run_baseline.build_config(args)
         self.assertEqual(args.lambdaa, 0.95)
         self.assertEqual(config["spectral"]["scd_weight"], 0)
+        self.assertIn("0.0 * SCD + 1.0 * spectral", config["spectral"]["guidance"])
         with redirect_stderr(StringIO()), self.assertRaises(SystemExit):
             self.args("--gsd-stage", "benchmark", "--gsd-scd-weight", "0",
                       "--corruptions", *run_baseline.CORRUPTIONS)

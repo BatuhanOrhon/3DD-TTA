@@ -1,5 +1,48 @@
 # Findings Log
 
+## 2026-09-23 - Spectral projector and band-boundary follow-up
+
+[User report] Old small spectral gradients accompanied almost +1 pp accuracy;
+PxP was introduced to address imbalance/conflicts. Small norm alone cannot
+explain the old/current discrepancy.
+[Code] At `761f47f`, a CPU-only synthetic N2048 graph check demonstrates that
+the boundary-expansion heuristic can select distinguishable eigenmodes:
+M100 becomes104, tolerance .007169 versus float32/float64 eigenvalue error
+about 1e-5; the first added gap is .0002177. Current analytic loss gradients
+agree with autograd (max error1.09e-10). This is numerical evidence only.
+[Run] Existing seed0 pilots select M100 mean ranks138.43/120.64 but M400
+mean ranks404.53/403.71. Expansion changes both direction and sample weighting;
+its role in accuracy is open and it cannot alone explain the M400 null result.
+[Inference] Current degree cutoff is 6% of mean directed degree; weak graph
+regions can enter low modes and anchor corruption. A scalar weight cannot
+recover a different projector or legacy low/mid weighting. PxP projection
+can alter SCD substantially even with small spectral norms, above its epsilon
+floor. Full derivations, CPU reproduction, artifact scope and falsifiers:
+[spectral mathematics follow-up](gsd_branch_comparison_20260923.md#follow-up-spectral-mathematics-rather-than-gradient-magnitude).
+No source edit or new model/GPU evaluation; actual latent graph diagnostics
+and controlled Colab comparisons remain needed.
+
+## 2026-09-23 - Legacy/current GSD comparison and gradient-scale diagnosis
+
+[Code] Compared `gsd-development@761f47f`, `dev@a458cd4` and
+`pxp-gradient-projection@53ba252`; see the
+[branch comparison](gsd_branch_comparison_20260923.md) for exact defaults,
+source anchors, raw artifact scope, causal controls and falsifiers.
+[User report] Legacy defaults including M400/mean weight16 improved accuracy.
+[Run] Re-reading the 18 current Gaussian/Impulse pilot ZIPs confirms mean
+on-minus-off deltas of -.0135/-.1688/-.0540 pp for M100/240/400.
+At M100 weight1, the local spectral/SCD ratio of mean gradient norms is only
+.084%/.097% (Gaussian/Impulse); at M400 it falls to .042%/.045%.
+[Inference] Weak added guidance plausibly explains the current null increment,
+but does not establish the cause of legacy gains. Legacy eval also changes
+steps (10/30), graph filtering, mid-band guidance, batch size and LION mode;
+pxp eval additionally changes final style and scheduler endpoint. Old
+weight16 is batch-mean: at identical B32/U/M its current-scale equivalent is
+.5, not 16. Test the successful legacy host with all spectral weights zero
+before attributing its gain to GSD. No new GPU run or implementation change.
+[Code] Current GSD remains lambda=.95 after `509b901`; the earlier .96 lock
+entry below is historical and superseded. Complete legacy run ZIPs are pending.
+
 ## 2026-09-23 - GSD spectral-band pilots M=240 and M=400
 
 [Run] Twelve complete pilot ZIPs were supplied under
@@ -17,8 +60,8 @@ M=400 because the requested boundary expands across numerically degenerate
 eigenvalues.
 
 [Inference] Neither M=240 nor M=400 improves the paired pilot mean relative
-to its weight-zero control. M=400 is less negative than the earlier M=100
-mean (-0.0135 pp versus -0.0540 pp is not an improvement), while M=240 is
+to its weight-zero control. M=400 is more negative than the earlier M=100
+mean (-0.0540 pp versus -0.0135 pp), while M=240 is also
 more negative. These are exploratory Gaussian/Impulse pilot results, not an
 all-15 claim.
 
@@ -1644,3 +1687,33 @@ changed.
 
 **[Code]** Local CPU verification passed: 33 unit tests and `py_compile` for
 `run_baseline.py`. The all-15 GPU run remains a Colab-only operation.
+## 2026-09-26 - spectral-only latent guidance pilot
+
+[User report] The user supplied three spectral-only pilot ZIPs under
+`result/modelnet40_c/gsd_latent_spectral_v1/`:
+`20260923-183420_gsd-v1-pilot-on-seed0-spectral-only.zip`,
+`20260923-184326_gsd-v1-pilot-on-seed1-spectral-only.zip`, and
+`20260923-185232_gsd-v1-pilot-on-seed2-spectral-only.zip`.
+
+[Run] All three archives pass CRC validation and contain the required seven
+files. They are complete Gaussian/Impulse pilot runs at commit
+`761f47f`, with raw LION eval, EMA disabled, batch 32, severity 5, lambda
+`.95`, `gsd_weight=1`, `gsd_scd_weight=0`, and 100 requested modes. The
+archives record `git_dirty=true`; this is retained as provenance metadata and
+does not alter the raw files.
+
+[Run] Macro accuracy for Gaussian/Impulse is 72.3865%, 72.6297%, and
+72.4271% for seeds 0/1/2. Against the matched `3dd_original` pilot ZIPs,
+paired deltas are +0.1418, +0.4660, and +0.0810 percentage points; mean
+delta is +0.2296 pp. This is a small exploratory pilot result, not evidence
+for all-15 promotion or causality.
+
+[Inference] Removing SCD did not collapse the pilot under this configuration,
+but the comparison is against separate seed-controlled runs and only two
+corruptions. The result supports retaining the ablation as a diagnostic
+comparison; it does not establish that spectral guidance is better than SCD.
+
+[Open] No matched spectral-only off trajectory is currently defined: the
+zero-spectral path delegates the exact original SCD baseline. Do not interpret
+an off arm with `gsd_scd_weight=0` as a no-SCD control. A larger corruption
+scope or common-draw comparison would be required for a stronger claim.

@@ -1,5 +1,36 @@
 # Open Questions and Research Backlog
 
+## 2026-09-23 legacy/current GSD diagnosis update
+
+- [x] Verify current spectral-loss derivative analytically and on a synthetic
+  CPU graph; no detached-prediction/sign error found.
+- [x] Demonstrate that boundary-expansion tolerance can include distinct
+  eigenmodes in a CPU example; see the comparison's spectral-math follow-up.
+- [ ] Capture real latent Laplacians and compare current boundary policy with
+  float64/eigenpair-residual references; preserve true repeated eigenspaces.
+- [ ] Separate projector changes from actual-rank normalization changes;
+  inspect sample-dependent rank and graph-degree weighting.
+- [ ] Inspect connected components and selected-projector localization versus
+  vertex degree under matched current/legacy graphs; numerical zero-mode
+  counts alone are not component counts.
+
+- [x] Compare current `761f47f`, dev `a458cd4`, pxp `53ba252` source defaults;
+  record [the comparison](gsd_branch_comparison_20260923.md).
+- [x] Inspect all M100/240/400 three-seed pilot gradient aggregates: local
+  spectral/SCD mean-norm ratios are approximately .04--.10% at weight1.
+- [x] Recompute archived pilot deltas; none has a positive three-seed mean.
+  This supersedes pilot/graph-diagnostics-pending statements below.
+- [ ] Obtain successful legacy command and complete raw run ZIPs; distinguish
+  eval GSD, fast, main/spectral-only, dual, dynamic and PxP entry points.
+- [ ] Compare the successful legacy host with all spectral weights off/on
+  under matched controls before assigning its improvement to spectral loss.
+- [ ] If its spectral increment survives, isolate graph filtering and
+  low/mid-band loss with batch-adjusted weights on the same host.
+- [ ] Diagnose current weight sensitivity and gradient alignment on validation
+  data; a tiny nonzero norm does not imply that a larger weight helps.
+- [ ] Same-process common-draw GPU prediction parity and all-15 GSD evidence
+  remain open. Current lambda is .95; .96 is a separate SCD control.
+
 ## GSD v1 current gates - 2026-09-23
 
 - [x] [Code] Add opt-in GSD-only method with raw/eval, EMA-off, frozen
@@ -358,3 +389,16 @@ No alternate resampling policy is implemented or benchmarked yet.
 - [x] Keep the separate `scd_lambda96_control` evidence isolated from GSD.
 - [x] Reject implicit or explicit lambda `.96` for the current GSD method.
 - [ ] If desired, declare and run a separate future GSD lambda `.96` ablation.
+### 2026-09-26 spectral-only pilot
+
+- [x] Validate the three spectral-only ZIPs: seven-file structure, CRC,
+  completion, Gaussian/Impulse scope, commit, lambda `.95`, raw/eval LION,
+  EMA off, and `gsd_scd_weight=0`.
+- [x] Record the paired seed deltas against the supplied original-style
+  baseline: mean **+0.2296 pp** over Gaussian/Impulse.
+- **[Inference]** Keep this as an exploratory spectral-only latent guidance
+  ablation. It is not a GSDTTA reproduction and does not qualify for all-14 or
+  all-15 promotion.
+- **[Open]** The current implementation intentionally has no no-SCD off arm;
+  design a separately declared control before making a claim about removing
+  SCD versus retaining it.
