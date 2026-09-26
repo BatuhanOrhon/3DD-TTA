@@ -11,7 +11,8 @@ from typing import Any, List, Tuple
 
 import torch
 
-__all__ = ["SpectralConfig", "SpectralTarget", "build_spectral_target"]
+__all__ = ["SpectralConfig", "SpectralTarget", "SmoothSpectralTarget",
+           "build_spectral_target", "build_smooth_spectral_target"]
 
 
 @dataclass(frozen=True)
@@ -74,7 +75,36 @@ class SpectralTarget:
         return loss
 
 
-def _sample_target(reference: torch.Tensor, config: SpectralConfig) -> Tuple[torch.Tensor, dict]:
+@dataclass(frozen=True)
+class SmoothSpectralTarget:
+    """[Code] Detached reference and fixed-point-normalized spectral filters."""
+
+    reference_xyz: torch.Tensor
+    filters: Tuple[torch.Tensor, ...]
+    diagnostics: List[dict]
+
+    def loss(self, pred_xyz: torch.Tensor) -> torch.Tensor:
+        """Sum <E,F E>/(3*N); gradients flow only through the prediction."""
+        _validate_xyz(pred_xyz, "pred_xyz")
+        if pred_xyz.shape != self.reference_xyz.shape:
+            raise ValueError("prediction and reference shapes must match")
+        if pred_xyz.device != self.reference_xyz.device or pred_xyz.dtype != self.reference_xyz.dtype:
+            raise ValueError("prediction and reference device/dtype must match")
+        count = pred_xyz.shape[1]
+        loss = pred_xyz.reshape(-1)[0] * 0.0
+        for prediction, reference, spectral_filter in zip(
+                pred_xyz, self.reference_xyz, self.filters):
+            residual = prediction - reference
+            filtered = spectral_filter @ residual
+            loss = loss + (residual * filtered).sum() / (3 * count)
+        if not bool(torch.isfinite(loss)):
+            raise FloatingPointError("smooth spectral loss is nonfinite")
+        return loss
+
+
+def _sample_target(reference: torch.Tensor, config: SpectralConfig, *,
+                   profile: str | None = None, beta: float | None = None
+                   ) -> Tuple[torch.Tensor, dict]:
     started = time.perf_counter()
     count = reference.shape[0]
     # Direct Euclidean differences avoid cancellation in the matrix-product
@@ -111,7 +141,12 @@ def _sample_target(reference: torch.Tensor, config: SpectralConfig) -> Tuple[tor
     effective_zero_atol = config.eigenspace_atol
     eigendecomposition_seconds = 0.0
     eigengap = None
-    basis = reference.new_zeros((count, 0))
+    basis = reference.new_zeros((count, rank))
+    target_tensor = basis
+    effective_spectral_mass = 0.0
+    mean_active_degree = 0.0
+    scaled_eigenvalue_min = None
+    scaled_eigenvalue_max = None
     if active_count:
         active_adjacency = adjacency[active][:, active]
         laplacian = torch.diag(active_adjacency.sum(dim=1)) - active_adjacency
@@ -144,8 +179,46 @@ def _sample_target(reference: torch.Tensor, config: SpectralConfig) -> Tuple[tor
             rank += 1
         if rank < active_count:
             eigengap = float((eigenvalues[rank] - eigenvalues[rank - 1]).item())
+        # Rank may have expanded to include a numerically repeated boundary.
+        # Allocate only after that final rank is known.
         basis = reference.new_zeros((count, rank))
         basis[active] = eigenvectors[:, :rank]
+        target_tensor = basis
+        if profile is not None:
+            mean_active_degree = float((laplacian.diagonal().sum() / active_count).item())
+            if not math.isfinite(mean_active_degree) or mean_active_degree <= 0:
+                raise FloatingPointError("active graph has invalid mean degree")
+            # Keep eigenvalues and the tolerance in the same raw units.
+            if float(eigenvalues.min().item()) < -effective_zero_atol:
+                raise FloatingPointError("graph Laplacian has a materially negative eigenvalue")
+            scaled_eigenvalues = (eigenvalues / mean_active_degree).clamp_min(0)
+            scaled_eigenvalue_min = float(scaled_eigenvalues.min().item())
+            scaled_eigenvalue_max = float(scaled_eigenvalues.max().item())
+            if profile == "hard":
+                if beta is not None:
+                    raise ValueError("beta must be omitted for the hard spectral profile")
+                weights = torch.zeros_like(scaled_eigenvalues)
+                weights[:rank] = 1
+            elif profile == "smooth":
+                if beta is None or isinstance(beta, bool) or not isinstance(beta, (int, float)) or \
+                        not math.isfinite(beta) or beta <= 0:
+                    raise ValueError("smooth spectral profile requires finite beta > 0")
+                # A finite Python beta can exceed float32's range. Multiply
+                # in float64 so exact zero modes keep weight 1 (not inf*0).
+                weights = torch.exp(-float(beta) * scaled_eigenvalues.to(torch.float64)).to(reference.dtype)
+                if not bool(torch.isfinite(weights).all()):
+                    raise FloatingPointError("smooth spectral weights are nonfinite")
+            else:
+                raise ValueError("spectral profile must be 'hard' or 'smooth'")
+            active_filter = (eigenvectors * weights.unsqueeze(0)) @ eigenvectors.transpose(0, 1)
+            active_filter = (active_filter + active_filter.transpose(0, 1)) * 0.5
+            spectral_filter = reference.new_zeros((count, count))
+            active_indices = active.nonzero(as_tuple=False).flatten()
+            spectral_filter[active_indices[:, None], active_indices[None, :]] = active_filter
+            effective_spectral_mass = float(weights.sum().item())
+            target_tensor = spectral_filter
+    elif profile is not None:
+        target_tensor = reference.new_zeros((count, count))
     # Scale cancels in the fraction. Normalization avoids diagnostic overflow
     # for finite large coordinates, and float64 reduces projector roundoff.
     reference_scale = reference.abs().max()
@@ -183,7 +256,17 @@ def _sample_target(reference: torch.Tensor, config: SpectralConfig) -> Tuple[tor
         "eigendecomposition_seconds": eigendecomposition_seconds,
         "runtime_seconds": time.perf_counter() - started,
     }
-    return basis.detach(), diagnostics
+    if profile is not None:
+        diagnostics.update(
+            effective_spectral_mass=effective_spectral_mass,
+            mean_active_degree=mean_active_degree,
+            scaled_eigenvalue_min=scaled_eigenvalue_min,
+            scaled_eigenvalue_max=scaled_eigenvalue_max,
+            numerically_zero_weight_count=int((weights == 0).sum().item()) if active_count else 0,
+            operator_storage_bytes=target_tensor.numel() * target_tensor.element_size(),
+            spectral_profile=profile,
+            spectral_beta=float(beta) if beta is not None else None)
+    return target_tensor.detach(), diagnostics
 
 
 @torch.no_grad()
@@ -209,3 +292,39 @@ def build_spectral_target(reference_xyz: torch.Tensor, config: SpectralConfig) -
         bases.append(basis)
         diagnostics.append(sample_diagnostics)
     return SpectralTarget(reference, tuple(bases), diagnostics)
+
+
+@torch.no_grad()
+def build_smooth_spectral_target(reference_xyz: torch.Tensor, config: SpectralConfig,
+                                 *, profile: str, beta: float | None = None
+                                 ) -> SmoothSpectralTarget:
+    """Build v2 hard/smooth filters, normalized over the original point count.
+
+    The smooth profile applies exp(-beta * L / mean_active_degree) to all
+    active modes. The hard profile is the first-M v1 projector under the new
+    fixed 3*N reduction and exists as its scale-controlled profile comparator.
+    """
+    _validate_xyz(reference_xyz, "reference_xyz")
+    if not isinstance(config, SpectralConfig):
+        raise TypeError("config must be SpectralConfig")
+    if profile not in ("hard", "smooth"):
+        raise ValueError("profile must be 'hard' or 'smooth'")
+    if profile == "smooth" and (beta is None or isinstance(beta, bool) or
+                                 not isinstance(beta, (int, float)) or
+                                 not math.isfinite(beta) or beta <= 0):
+        raise ValueError("smooth spectral profile requires finite beta > 0")
+    if profile == "hard" and beta is not None:
+        raise ValueError("beta must be omitted for the hard spectral profile")
+    if config.k >= reference_xyz.shape[1]:
+        raise ValueError("k must be smaller than the number of vertices")
+    denominator = reference_xyz.new_tensor(2 * config.delta * config.delta)
+    if not bool(torch.isfinite(denominator)) or not bool(denominator > 0):
+        raise ValueError("2 * delta squared must be finite and positive in the reference dtype")
+    reference = reference_xyz.detach().clone()
+    filters, diagnostics = [], []
+    for sample in reference:
+        spectral_filter, sample_diagnostics = _sample_target(
+            sample, config, profile=profile, beta=beta)
+        filters.append(spectral_filter.detach())
+        diagnostics.append(sample_diagnostics)
+    return SmoothSpectralTarget(reference, tuple(filters), diagnostics)

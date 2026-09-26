@@ -8,7 +8,8 @@ from unittest.mock import patch
 
 import torch
 
-from graph_spectral import SpectralConfig, build_spectral_target
+from graph_spectral import (SpectralConfig, build_smooth_spectral_target,
+                            build_spectral_target)
 
 
 class GraphSpectralTests(unittest.TestCase):
@@ -114,6 +115,57 @@ class GraphSpectralTests(unittest.TestCase):
         self.assertAlmostEqual(target.diagnostics[0]["eigenvalue_max"], 2 * math.exp(-2))
         expected_projector = torch.full((2, 2), 0.5, dtype=torch.float64)
         torch.testing.assert_close(target.bases[0] @ target.bases[0].T, expected_projector)
+
+    def test_smooth_profile_builds_filter_on_active_graph(self):
+        target = build_smooth_spectral_target(
+            self.reference, self.config, profile="smooth", beta=1.3)
+        self.assertEqual(target.filters[0].shape, (4, 4))
+        self.assertTrue(torch.isfinite(target.filters[0]).all())
+        self.assertGreater(target.diagnostics[0]["effective_spectral_mass"], 0)
+        prediction = (self.reference + 0.1).requires_grad_()
+        gradient, = torch.autograd.grad(target.loss(prediction), prediction)
+        self.assertGreater(float(gradient.norm()), 0)
+
+    def test_smooth_profile_tolerates_negative_eigenvalue_within_raw_tolerance(self):
+        reference = torch.tensor([[[0., 0., 0.], [1., 0., 0.]]], dtype=torch.float64)
+        config = SpectralConfig(k=1, delta=.25, graph_gamma=.6, modes=2)
+        real_eigh = torch.linalg.eigh
+
+        def eigh_with_zero_mode_roundoff(laplacian):
+            eigenvalues, eigenvectors = real_eigh(laplacian)
+            eigenvalues[0] = -1e-8
+            return eigenvalues, eigenvectors
+
+        with patch("torch.linalg.eigh", side_effect=eigh_with_zero_mode_roundoff):
+            target = build_smooth_spectral_target(reference, config,
+                                                  profile="smooth", beta=1.0)
+        self.assertEqual(target.diagnostics[0]["scaled_eigenvalue_min"], 0)
+
+    def test_smooth_rank_one_graph_retains_nonempty_filter(self):
+        reference = torch.tensor([[[0., 0., 0.], [2., 0., 0.]]], dtype=torch.float64)
+        config = SpectralConfig(k=1, delta=1, graph_gamma=0, modes=1)
+        target = build_smooth_spectral_target(reference, config,
+                                              profile="smooth", beta=1.0)
+        self.assertGreater(float(target.filters[0].sum()), 0)
+
+    def test_two_vertex_smooth_loss_matches_literal_heat_kernel_and_gradient(self):
+        reference = torch.tensor([[[0., 0., 0.], [2., 0., 0.]]], dtype=torch.float64)
+        config = SpectralConfig(k=1, delta=1, graph_gamma=0, modes=1)
+        beta = 2.0
+        target = build_smooth_spectral_target(reference, config,
+                                              profile="smooth", beta=beta)
+        high_frequency_weight = math.exp(-2 * beta)
+        expected_filter = 0.5 * torch.tensor(
+            [[1 + high_frequency_weight, 1 - high_frequency_weight],
+             [1 - high_frequency_weight, 1 + high_frequency_weight]],
+            dtype=torch.float64)
+        torch.testing.assert_close(target.filters[0], expected_filter)
+        residual = torch.tensor([[[0.2, -0.1, 0.3], [0., 0., 0.]]], dtype=torch.float64)
+        prediction = (reference + residual).requires_grad_()
+        expected_loss = (residual[0] * (expected_filter @ residual[0])).sum() / 6
+        torch.testing.assert_close(target.loss(prediction), expected_loss)
+        gradient, = torch.autograd.grad(target.loss(prediction), prediction)
+        torch.testing.assert_close(gradient[0], expected_filter @ residual[0] / 3)
 
     def test_max_union_symmetry_and_both_endpoint_threshold_mask(self):
         reference = torch.tensor([[[0., 0., 0.], [1., 0., 0.],

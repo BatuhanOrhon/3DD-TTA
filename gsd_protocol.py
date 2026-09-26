@@ -4,11 +4,18 @@ from __future__ import annotations
 import math
 
 METHOD = "gsd_latent_spectral_v1"
+SMOOTH_METHOD = "gsd_latent_spectral_smooth_v2"
+METHODS = (METHOD, SMOOTH_METHOD)
 METHOD_NAME = "GSD-inspired latent spectral guidance"
+SMOOTH_METHOD_NAME = "GSD-inspired smooth latent spectral guidance"
 PILOT_CORRUPTIONS = ("gaussian", "impulse")
 DEFAULTS = dict(gsd_weight=1.0, gsd_k=10, gsd_delta=0.1,
                 gsd_graph_gamma=0.6, gsd_modes=100, gsd_stage="pilot",
                 gsd_scd_weight=1.0)
+
+
+def is_gsd_method(method: str) -> bool:
+    return method in METHODS
 
 
 def add_arguments(parser) -> None:
@@ -18,25 +25,46 @@ def add_arguments(parser) -> None:
         parser.add_argument("--gsd-" + name, type=cast, default=None)
     parser.add_argument("--gsd-stage", choices=("smoke", "pilot", "benchmark", "benchmark_no_background",
                                                   "ablation_no_background"), default=None)
+    parser.add_argument("--gsd-profile", choices=("hard", "smooth"), default=None)
+    parser.add_argument("--gsd-beta", type=float, default=None)
 
 
 def validate_arguments(args, parser, all_corruptions) -> None:
-    if args.method != METHOD:
-        if any(getattr(args, key) is not None for key in DEFAULTS):
-            parser.error("GSD options require --method " + METHOD)
+    if args.method not in METHODS:
+        if (any(getattr(args, key) is not None for key in DEFAULTS) or
+                args.gsd_profile is not None or args.gsd_beta is not None):
+            parser.error("GSD options require --method " + " or ".join(METHODS))
         # Keep existing methods' serialized CLI dictionaries unchanged.
         for key in DEFAULTS:
             delattr(args, key)
+        delattr(args, "gsd_profile")
+        delattr(args, "gsd_beta")
         return
+    is_smooth_method = args.method == SMOOTH_METHOD
+    if is_smooth_method and args.gsd_weight is None:
+        parser.error("GSD smooth v2 requires an explicit --gsd-weight.")
+    if not is_smooth_method and (args.gsd_profile is not None or args.gsd_beta is not None):
+        parser.error("--gsd-profile and --gsd-beta require --method " + SMOOTH_METHOD)
     for key, value in DEFAULTS.items():
         if getattr(args, key) is None:
             setattr(args, key, value)
+    if is_smooth_method:
+        if args.gsd_profile is None:
+            parser.error("GSD smooth v2 requires an explicit --gsd-profile.")
+        if args.gsd_profile == "smooth":
+            if args.gsd_beta is None or not math.isfinite(args.gsd_beta) or args.gsd_beta <= 0:
+                parser.error("GSD smooth profile requires a finite positive --gsd-beta.")
+        elif args.gsd_beta is not None:
+            parser.error("--gsd-beta is only valid with --gsd-profile smooth.")
+    else:
+        delattr(args, "gsd_profile")
+        delattr(args, "gsd_beta")
     if args.dataset_name != "modelnet-c" or args.severity != 5:
-        parser.error("GSD v1 requires ModelNet40-C severity 5.")
+        parser.error("GSD requires ModelNet40-C severity 5.")
     if args.batch_size != 32 or args.seed not in (0, 1, 2):
-        parser.error("GSD v1 requires batch 32 and seed 0/1/2.")
+        parser.error("GSD requires batch 32 and seed 0/1/2.")
     if args.lion_ema_mode or (args.gamma, args.eta, args.lambdaa) != (.01, .01, .95):
-        parser.error("GSD v1 requires raw LION, EMA off, gamma=eta=.01, lambdaa=.95.")
+        parser.error("GSD requires raw LION, EMA off, gamma=eta=.01, lambdaa=.95.")
     if args.fps_diagnostics:
         parser.error("GSD v1 keeps the existing FPS path.")
     if (not math.isfinite(args.gsd_weight) or args.gsd_weight < 0 or
@@ -57,7 +85,9 @@ def validate_arguments(args, parser, all_corruptions) -> None:
             if args.gsd_stage in ("benchmark_no_background", "ablation_no_background") else all_corruptions)
         if args.max_batches != 0 or args.corruptions != list(expected):
             parser.error("GSD pilot/benchmark requires complete files in its canonical scope.")
-    if args.gsd_stage in ("benchmark", "benchmark_no_background") and (
+    if is_smooth_method and args.gsd_stage not in ("smoke", "pilot"):
+        parser.error("GSD smooth v2 is restricted to smoke/pilot until promotion review.")
+    if not is_smooth_method and args.gsd_stage in ("benchmark", "benchmark_no_background") and (
             args.gsd_weight not in (0.0, 1.0) or args.gsd_scd_weight != 1.0 or args.gsd_k != 10 or
             args.gsd_delta != .1 or args.gsd_graph_gamma != .6 or args.gsd_modes != 100):
         parser.error("GSD v1 benchmark is locked to weight 0/1, k=10, delta=.1, graph gamma=.6, modes=100.")
@@ -65,35 +95,55 @@ def validate_arguments(args, parser, all_corruptions) -> None:
 
 
 def spectral_contract(args) -> dict:
-    return dict(
-        name=METHOD_NAME, version=1, weight=args.gsd_weight,
+    smooth_version = args.method == SMOOTH_METHOD
+    method_name = SMOOTH_METHOD_NAME if smooth_version else METHOD_NAME
+    contract = dict(
+        name=method_name, version=2 if smooth_version else 1, weight=args.gsd_weight,
         scd_weight=args.gsd_scd_weight,
         graph_domain="encoded local latent XYZ", signal="predicted clean local latent XYZ",
         k=args.gsd_k, delta=args.gsd_delta, graph_gamma=args.gsd_graph_gamma,
-        requested_modes=args.gsd_modes, graph="static non-self kNN; max-symmetric RBF",
+        requested_modes=(args.gsd_modes if not smooth_version or args.gsd_profile == "hard" else None),
+        graph="static non-self kNN; max-symmetric RBF",
         distance="squared Euclidean in exp(-d2/(2*delta^2))",
         threshold="graph_gamma * directed_adjacency.sum() / (N*k)",
         outlier_policy="both endpoints must pass directed degree threshold; exclude final isolates",
-        laplacian="combinatorial, active induced subgraph; no diagonal penalty",
-        band_boundary="fixed anchor; rtol=1e-5, atol=max(1e-7, 2*roundoff_floor)",
+        laplacian=("combinatorial active induced subgraph divided by mean active degree; no diagonal penalty"
+                   if smooth_version else "combinatorial, active induced subgraph; no diagonal penalty"),
+        band_boundary=("fixed anchor; rtol=1e-5, atol=max(1e-7, 2*roundoff_floor)"
+                       if not smooth_version or args.gsd_profile == "hard"
+                       else "not used by smooth weighting; retained only for graph diagnostics"),
         roundoff_floor="eps(dtype) * active_vertices * Laplacian infinity norm",
         zero_mode_tolerance="max(1e-7, roundoff_floor); numerical, not exact connectivity count",
-        reduction="sum_samples_mean_modes_xyz",
+        reduction=("sum_samples_fixed_original_point_count_xyz" if smooth_version
+                   else "sum_samples_mean_modes_xyz"),
         guidance=(f"{args.gsd_scd_weight} * SCD + {args.gsd_weight} * spectral; ordinary sum"),
-        target="detached encoded XYZ; static shared orthonormal basis",
+        target=("detached encoded XYZ; static shared-basis spectral filter operator"
+                if smooth_version else "detached encoded XYZ; static shared orthonormal basis"),
         gradients="through clean prediction and frozen denoiser to noisy local state AND conditioning",
         zero_weight_behavior="direct original baseline trajectory; bypass graph and spectral computation",
         random_draws="no extra graph or diagnostics RNG draws; cross-run pairing not assumed",
         tuning="fixed initial configuration; exploratory pilot, no established optimal weight",
     )
+    if smooth_version:
+        contract.update(
+            profile=args.gsd_profile,
+            beta=args.gsd_beta,
+            hard_requested_modes=args.gsd_modes if args.gsd_profile == "hard" else None,
+            operator="full active graph spectral filter; dense fixed operator")
+    return contract
 
 
 def notes_for_run(args) -> str:
+    name = SMOOTH_METHOD_NAME if args.method == SMOOTH_METHOD else METHOD_NAME
+    method = args.method
+    profile = (f" Profile={args.gsd_profile}; beta={args.gsd_beta}; fixed 3*N reduction."
+               if args.method == SMOOTH_METHOD else "")
     return (
-        "# " + METHOD_NAME + "\n\n"
-        "[Code] Opt-in method " + METHOD + "; stage=" + args.gsd_stage + ". "
+        "# " + name + "\n\n"
+        "[Code] Opt-in method " + method + "; stage=" + args.gsd_stage + ". "
         "Raw LION eval, EMA off, frozen Point-MAE, original-style decoder, "
-        "summed SCD with configurable SCD weight, lambda=.95, gamma=eta=.01, original 100-step DDIM / 5-35 reverse schedule.\n"
+        "summed SCD with configurable SCD weight, lambda=.95, gamma=eta=.01, original 100-step DDIM / 5-35 reverse schedule."
+        + profile + "\n"
         "[Inference] Static low-frequency fidelity may preserve instance structure. "
         "This is not a reproduction of the full GSDTTA algorithm.\n"
         "[Open] Accuracy benefit, corrupted-graph bias and real CUDA operator gradients "
@@ -139,7 +189,8 @@ def process_batches(batches, base_model, lion, args, baseline, torch_module, ste
     from run_baseline import tta_preprocess_points, tta_postprocess_points
 
     spectral_config = SpectralConfig(k=args.gsd_k, delta=args.gsd_delta,
-                                    graph_gamma=args.gsd_graph_gamma, modes=args.gsd_modes)
+                                     graph_gamma=args.gsd_graph_gamma, modes=args.gsd_modes)
+    smooth_method = args.method == SMOOTH_METHOD
     targets, predictions = [], []
     for data, label in baseline.tqdm(batches, desc="GSD Batches"):
         with torch_module.no_grad():
@@ -148,7 +199,9 @@ def process_batches(batches, base_model, lion, args, baseline, torch_module, ste
             inputs, lion, steps, args.gamma, args.eta, args.lambdaa, 100,
             spectral_weight=args.gsd_weight, scd_weight=args.gsd_scd_weight,
             spectral_config=spectral_config,
-            scheduler_observer=scheduler_observer, diagnostics_observer=diagnostics_observer)
+            scheduler_observer=scheduler_observer, diagnostics_observer=diagnostics_observer,
+            spectral_profile=args.gsd_profile if smooth_method else None,
+            spectral_beta=args.gsd_beta if smooth_method else None)
         with torch_module.no_grad():
             points = tta_postprocess_points(points, center, maximum, baseline, args)
             pred = base_model.module.classification_only(points, only_unmasked=False).argmax(-1).view(-1)

@@ -38,6 +38,7 @@ def tta_gsd_reconstruct(
     scd_weight: float = 1.0,
     spectral_config=None, scheduler_observer: Optional[Callable] = None,
     diagnostics_observer: Optional[Callable] = None,
+    spectral_profile: Optional[str] = None, spectral_beta: Optional[float] = None,
 ) -> torch.Tensor:
     """Guide local and conditioning states; decode with the encoded global state.
 
@@ -94,8 +95,13 @@ def tta_gsd_reconstruct(
         if local_latent.shape != (num_samples, 8192, 1, 1):
             raise ValueError("GSD expects LION local encoding B x 8192 x 1 x 1")
         reference_xyz = local_latent.view(num_samples, 2048, 4)[:, :, :3]
-        target = build_spectral_target(
-            reference_xyz, SpectralConfig() if spectral_config is None else spectral_config)
+        graph_config = SpectralConfig() if spectral_config is None else spectral_config
+        if spectral_profile is None:
+            target = build_spectral_target(reference_xyz, graph_config)
+        else:
+            from graph_spectral import build_smooth_spectral_target
+            target = build_smooth_spectral_target(
+                reference_xyz, graph_config, profile=spectral_profile, beta=spectral_beta)
     if diagnostics_observer is not None:
         diagnostics_observer({"kind": "graph", "samples": target.diagnostics})
 
@@ -146,6 +152,9 @@ def tta_gsd_reconstruct(
                            "scd_weight": scd_weight,
                            "spectral_weight": spectral_weight,
                            "weighted_spectral_loss": _number(weighted_spectral_loss, "weighted loss")}
+            if spectral_profile is not None:
+                diagnostics["spectral_profile"] = spectral_profile
+                diagnostics["spectral_beta"] = spectral_beta
             for name, value in (
                 ("local_scd_grad_norm", local_scd), ("local_spectral_grad_norm", local_spectral),
                 ("style_scd_grad_norm", style_scd), ("style_spectral_grad_norm", style_spectral),

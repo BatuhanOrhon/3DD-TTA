@@ -1,5 +1,38 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[Code/Run] 2026-09-26 implementation correction:** The three blockers in the
+[implementation review](gsd_smooth_review_20260926.md) have been repaired:
+rank-sized basis allocation, raw-unit PSD tolerance, and the v1/hard-v2/smooth-v2
+launcher matrix. Persistent algebra, protocol and launcher tests were added;
+all 111 CPU tests pass after a second independent review. Launcher floats now
+round-trip exactly, empty-filter storage is correct, and large finite beta
+avoids float32 overflow at zero modes. This is CPU evidence only. Beta/alpha calibration and
+Colab smoke/pilot evidence remain open; no accuracy claim is supported.
+
+**[Paper/Inference] 2026-09-26 mathematical design:** Read the
+[GSDTTA reread and guidance decision](gsd_guidance_math_20260926.md).
+The paper learns low-frequency shifts, not a two-spectrum matching loss.
+The next scalar guidance uses a fixed latent reference graph and common-basis
+smooth spectral fidelity. The opt-in `gsd_latent_spectral_smooth_v2` code and
+pilot runner are now on branch `gsd-smooth-spectrum`, based on
+`gsd-development@9650770`; no model/Colab accuracy evidence is available.
+The existing v1 code/results remain the comparator.
+The next GSD test is registered as
+[`gsd_smooth_spectrum_profile_pilot`](gsd_guidance_math_20260926.md#9-difference-from-the-current-gsd-code-and-next-test-case):
+preserve v1, then compare hard and smooth profiles in the same new host with
+the guidance scale calibrated. Beta and calibration values remain explicit
+inputs; they must be fixed before evaluation.
+
+**[Code/Run] 2026-09-23 branch-comparison update:** Read the
+[current versus legacy GSD diagnosis](gsd_branch_comparison_20260923.md).
+The M100/240/400 Gaussian/Impulse pilots are archived and have null/negative
+mean increments; weight1 local spectral gradients are approximately
+.04--.10% of SCD norms. Legacy eval defaults differ in trajectory, graph,
+multiband objective and batch scaling, so reported old gains are not yet
+isolated spectral effects. Current GSD lambda remains **.95** after `509b901`;
+historical .96-lock and GPU-pending statements below are superseded for this
+method. No all-15 GSD result or confirmed causal explanation is available.
+
 **[Code] 2026-09-23 GSD development update:** The user authorized GSD-only
 development on `gsd-development`, derived from current `baseline-repro-clean`
 at `79cc027`. Read [the short GSD design](gsd_design.md),

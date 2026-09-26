@@ -22,6 +22,18 @@ and [Colab commands](colab_gsd.md); no PxP implementation was migrated.
 
 **Branch context, 2026-09-12:** active `baseline-repro-clean` contains main's baseline code. Variant paths and current-default comparisons in this historical map refer to audited legacy revision `53ba252` on `pxp-gradient-projection`; those variants were not migrated. See `clean_restart_batches.md` before implementation.
 
+## GSD smooth-spectrum v2 branch additions - 2026-09-26
+
+[Code] Branch `gsd-smooth-spectrum` adds opt-in method
+`gsd_latent_spectral_smooth_v2`; v1 dispatch and defaults are retained.
+`graph_spectral.py` builds fixed dense heat-kernel or hard-M filters with
+`3*N` reduction; `tta_gsd.py` uses them in the existing guidance host;
+`gsd_protocol.py` records v2 profile/beta/normalization; `eval_gsd_smooth.py`
+constructs v1/hard-v2/smooth-v2 smoke and pilot command matrices. See
+[the test plan](gsd_smooth_spectrum_test_plan_20260926.md). The 111-test CPU
+suite passes; Colab validation and the full-spectrum operator's memory/runtime cost need
+measurement before any promotion.
+
 ## Baseline execution path
 
 ```text
@@ -150,6 +162,7 @@ Use these identifiers in output directories and tables:
 | `scd_lambda96_control` | Original-style eval/raw LION control with legacy summed SCD and lambdaa=.96 retention |
 | `lion_recon` | LION reconstruction without guidance |
 | `3dd_original` | Matched original `tta.py` path |
+| `gsd_latent_spectral_smooth_v2` | Smooth eigenvalue-weighted or hard-M spectral filter with fixed `3*N` reduction; experimental, no accuracy evidence |
 | `gsd_static` | Static latent spectral guidance |
 | `gsd_dynamic` | Periodically recomputed latent eigenbasis |
 | `gsd_physical` | Physical-coordinate basis applied to latent features |

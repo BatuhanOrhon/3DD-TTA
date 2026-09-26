@@ -1,5 +1,119 @@
 # Findings Log
 
+## 2026-09-26 — second GSD smooth review before push
+
+[Code/Run] Independent review confirmed the earlier fixes. Additional regression
+tests exposed and fixed empty-graph operator-byte underreporting, six-digit
+launcher rounding of calibration inputs, and finite large-beta overflow in
+float32 zero modes. The return tensor now determines storage, CLI floats
+round-trip, and spectral exponential weights are computed in float64 before
+casting back. V1 graph/loss semantics are preserved.
+
+[Run] Actual-source full suite: `python -m unittest discover -s tests -q`,
+**111 tests passed** (3.489 seconds), branch `gsd-smooth-spectrum`, base
+`9650770`, changes prepared for commit/push. Added independent heat-kernel and
+hard-v1 equivalence checks, invariance/isolate/empty/gradient checks, v2 baseline
+bypass and synthetic artifact checks. An independent follow-up review ran
+21 tests and found no further actionable code issue.
+
+[Decision/Open] CPU review complete; calibration, runtime common-draw evidence
+and Colab smoke/pilot remain pending. A-vs-B interpretation must include an
+alpha change unless alpha is held fixed. No new accuracy result or raw-result
+modification. See [the review record](gsd_smooth_review_20260926.md).
+
+## 2026-09-26 — smooth-spectrum implementation review
+
+[Code/Run] `gsd-smooth-spectrum`, HEAD `9650770f75cf0c37e1e16b873bd6b8ddd0a4276e`,
+uncommitted v2 working tree: actual CPU suite has 92 tests, 1 failure and 22
+errors. Shared basis allocation remains N x 0 after rank selection, breaking
+v1 and v2. An allocation-only in-memory diagnostic makes all 92 existing
+tests pass; no implementation source was repaired during review. A separate
+matrix-exponential check validates the intended quadratic loss and gradient
+on a small graph after that diagnostic substitution.
+
+[Code/Run] The launcher omits the planned v1 arm. The normalized-eigenvalue
+PSD check also uses a raw-unit tolerance; a controlled roundoff probe
+demonstrates false rejection. Dedicated v2 tests and calibration/pairing
+evidence remain incomplete. See [full evidence and next steps](gsd_smooth_review_20260926.md).
+
+[Decision/Open] Supersede the v1-preservation claim and block pilot launch
+until repaired actual-source tests and smoke artifacts pass. No Colab/model
+run or new accuracy result was produced; historical ZIPs remain untouched.
+
+## 2026-09-26 — review blockers repaired
+
+[Code] The allocation now uses the final eigenspace rank; the negative
+eigenvalue check compares raw Laplacian eigenvalues against the raw-unit
+roundoff tolerance before scaling. The command builder now produces unchanged
+v1, v2 hard-M, and v2 smooth arms for seeds 0/1/2. Smooth v2 CLI use requires
+an explicit spectral coefficient rather than silently defaulting to 1.
+
+[Run] Added persistent checks for active v1/smooth bases, rank-one smooth
+filters, tolerated raw zero-mode roundoff, literal two-node heat-kernel loss
+and gradient, v2 invalid/missing protocol values, matched launcher arms, and
+smooth guidance reaching both local and conditioning states. The focused CPU
+suite passed 60 tests, then the complete suite passed **101 tests** via
+`python -m unittest discover -s tests -v`. Python compilation passed for the
+changed runtime and test modules. The launcher preview generated 9 valid
+commands: 3 v1, 3 hard-v2 and 3 smooth-v2. These checks do not establish CUDA
+behavior or accuracy.
+
+[Open] Calibration source/statistic and beta selection rule remain to be
+declared before the pilot; then run Colab smoke and ingest its complete bundle.
+No model evaluation or accuracy result was produced in this correction.
+
+## 2026-09-26 - Paper reread and spectral-guidance mathematical decision
+
+[Paper] Re-read the repository Wei PDF, visually including pp.3-5/Eqs.7-18.
+GSDPS learns low-frequency displacement `X_s=X+U_M DeltaC`, retaining high
+input frequencies; its driving losses are classification/information/Chamfer,
+not spectral equality. Low-band fidelity is a different method hypothesis.
+[Code] Host audited at `gsd-development@9650770`; predicted-clean and reference
+latent XYZ use tracked slots and the existing SCD domain. No source edit.
+[Inference] Select a fixed reference graph/common basis and smooth weights
+`exp(-beta*lambda)` on coefficient differences, fixed original N normalization
+and sample sum. Detached graph, chain rule through denoiser, existing host
+controls retained. This is a proposal, not implemented or accuracy-confirmed.
+[Code: CPU mathematical checks] Analytic/autograd and finite-difference
+derivatives, basis invariance and permutation checks passed on small synthetic
+graphs. Full derivation, paper ambiguities, alternatives and falsifiers are in
+[the decision record](gsd_guidance_math_20260926.md). No new model/Colab run or
+result path. Existing pilot evidence is not evidence for this new formula.
+
+## 2026-09-26 - Smooth-spectrum v2 implementation and test plan
+
+[Code] Created branch `gsd-smooth-spectrum` from
+`gsd-development@9650770f75cf0c37e1e16b873bd6b8ddd0a4276e`. Added opt-in
+`gsd_latent_spectral_smooth_v2` with the existing reference graph rules,
+mean-active-degree-scaled Laplacian, dense fixed hard-M/smooth spectral filter,
+and sample-summed `3*N` objective. V1 dispatch and method ID remain separate.
+The new `eval_gsd_smooth.py` builds paired baseline/hard/smooth smoke and pilot
+matrices; beta and both spectral coefficients are explicit required inputs.
+[Open] No automated test command or model/Colab evaluation has been run in this
+turn; there is no result path or accuracy evidence. The dense filter stores
+N-by-N values per sample, so GPU peak memory/runtime are unresolved.
+[Open/plan] CPU formula/protocol verification and the severity-5 Gaussian/Impulse
+pilot (9 run bundles: three arms x seeds 0/1/2, each covering both corruptions) are described in the
+[test plan](gsd_smooth_spectrum_test_plan_20260926.md). Calibration data,
+gradient-scale statistic, beta candidate set and acceptance rule must be fixed
+before evaluation; all-15 is not a parameter-selection set.
+
+[Code] Comparison with `graph_spectral.py` and `tta_gsd.py` confirms that the
+fixed reference graph, shared-basis coordinate difference, predicted-clean
+XYZ, frozen-denoiser chain rule and SCD+spectral host already exist in v1. The
+new part is smooth eigenvalue weighting over all active modes, scalar mean
+degree normalization of L, full-spectrum state/configuration, and the `3*N`
+reduction. The denominator changes guidance scale, so weight/alpha cannot be
+carried over numerically from v1.
+[Open / next test] Registered `gsd_smooth_spectrum_profile_pilot`: compare the
+unchanged v1 method, a hard-M arm in the new `3*N` host and the smooth profile
+in that host; calibrate the latter two to a predeclared equal aggregate
+spectral-gradient scale before paired Gaussian/Impulse severity-5 seeds
+0/1/2. This is a planned experiment, not implemented or run. Beta candidates,
+calibration data/rule and acceptance criteria remain to be declared; no
+accuracy gain is claimed. Full case specification is in
+[the mathematical decision record](gsd_guidance_math_20260926.md#9-difference-from-the-current-gsd-code-and-next-test-case).
+
 ## 2026-09-23 - Spectral projector and band-boundary follow-up
 
 [User report] Old small spectral gradients accompanied almost +1 pp accuracy;

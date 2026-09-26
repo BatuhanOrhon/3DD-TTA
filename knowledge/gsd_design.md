@@ -40,3 +40,7 @@ and guidance weight are not established optima; dense N=2048 eigendecomposition,
 band expansion and inherited CUDA coordinate gradients need measurement.
 CPU tests establish contracts, not accuracy benefit. Follow the
 [Colab pilot and confirmation protocol](colab_gsd.md).
+
+[Code, 2026-09-26] The separate `gsd_latent_spectral_smooth_v2` proposal adds
+smooth all-active-mode weighting and fixed `3*N` reduction; it does not replace
+or reinterpret v1. See the [v2 test plan](gsd_smooth_spectrum_test_plan_20260926.md).

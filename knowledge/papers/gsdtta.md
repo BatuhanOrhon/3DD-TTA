@@ -1,5 +1,19 @@
 # Paper Note: GSDTTA
 
+## Mathematical reread - 2026-09-26
+
+[Paper] Visually rechecked local PDF pp.3-5, Fig.2/3 and Eqs.7-18. Eqs.11-13
+give `X_s=X+U_M DeltaC`: low frequencies are adapted, high-frequency input
+coefficients retained. Eq.17 is pseudo-label CE plus entropy/diversity and
+one-direction Chamfer, not a two-spectrum matching loss.
+[Inference] Low-band fidelity to corrupted input is a different hypothesis
+from allowing low-band shifts. The chair energy plot does not establish latent
+spectral-fidelity benefit. Eq.9 requires an explicit symmetric construction
+for the stated eigensystem; Eq.10 sums affinities despite distance wording.
+See the [reread and proposed guidance mathematics](../gsd_guidance_math_20260926.md).
+Selected proposal: common-basis smooth fidelity in latent XYZ. Implemented
+as v2 with CPU checks; not accuracy-validated. V1 remains the comparator.
+
 ## First GSD integration audit - 2026-09-23
 
 [Paper] PDF p. 4 / Eqs. 7--13 was visually inspected: Eq. 10 uses
@@ -17,7 +31,7 @@ guidance**. See [design and limitations](../gsd_integration_20260922.md).
 
 ## Reference
 
-Y. Wei et al., “3D Test-time Adaptation via Graph Spectral Driven Point Shift,” ICCV 2025. Local PDF: `Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf`. Official page: <https://openaccess.thecvf.com/content/ICCV2025/html/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.html>.
+Xin Wei et al., “3D Test-time Adaptation via Graph Spectral Driven Point Shift,” ICCV 2025. Local PDF: `Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf`. Official page: <https://openaccess.thecvf.com/content/ICCV2025/html/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.html>.
 
 ## Core idea
 

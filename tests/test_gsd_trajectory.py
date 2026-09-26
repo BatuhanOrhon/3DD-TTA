@@ -120,11 +120,13 @@ class TrajectoryTests(unittest.TestCase):
             self.points, self.lion, 100, .017, .023, .95, total=2)
         expected_rng = torch.get_rng_state().clone()
         # A sentinel module proves that zero-weight execution needs no graph import.
-        with patch.dict(sys.modules, {"graph_spectral": None}), torch.no_grad():
-            torch.manual_seed(23)
-            actual = self.run_gsd(0.)
-        self.assertTrue(torch.equal(expected, actual))
-        self.assertTrue(torch.equal(expected_rng, torch.get_rng_state()))
+        for profile, beta in ((None, None), ("hard", None), ("smooth", 2.)):
+            with self.subTest(profile=profile), \
+                    patch.dict(sys.modules, {"graph_spectral": None}), torch.no_grad():
+                torch.manual_seed(23)
+                actual = self.run_gsd(0., spectral_profile=profile, spectral_beta=beta)
+            self.assertTrue(torch.equal(expected, actual))
+            self.assertTrue(torch.equal(expected_rng, torch.get_rng_state()))
 
     def test_active_zero_objective_preserves_original_unequal_rate_math_and_scheduler(self):
         target = SimpleNamespace(diagnostics=[], loss=lambda predicted: predicted.sum()*0)
@@ -183,6 +185,30 @@ class TrajectoryTests(unittest.TestCase):
             self.assertTrue(torch.equal(old, current))
             self.assertFalse(current.requires_grad)
             self.assertIsNone(current.grad)
+
+    def test_smooth_profile_flows_through_both_guidance_states(self):
+        import graph_spectral
+        build = graph_spectral.build_smooth_spectral_target
+
+        def small_smooth_graph(reference, config, *, profile, beta):
+            target = build(reference[:, :8], config, profile=profile, beta=beta)
+            return SimpleNamespace(diagnostics=target.diagnostics,
+                                   loss=lambda predicted: target.loss(predicted[:, :8]))
+
+        config = graph_spectral.SpectralConfig(k=3, modes=3, delta=.1)
+        events = []
+        with patch.object(graph_spectral, "build_smooth_spectral_target",
+                          side_effect=small_smooth_graph), torch.no_grad():
+            result = self.run_gsd(2., spectral_config=config,
+                                  spectral_profile="smooth", spectral_beta=1.7,
+                                  diagnostics_observer=events.append)
+        self.assertTrue(torch.isfinite(result).all())
+        self.assertEqual([event["kind"] for event in events], ["graph", "step", "step"])
+        for event in events[1:]:
+            self.assertEqual(event["spectral_profile"], "smooth")
+            self.assertEqual(event["spectral_beta"], 1.7)
+            self.assertGreater(event["local_spectral_grad_norm"], 0)
+            self.assertGreater(event["style_spectral_grad_norm"], 0)
 
     def test_nonfinite_loss_is_rejected(self):
         target = SimpleNamespace(diagnostics=[], loss=lambda predicted: predicted.sum()*float("nan"))

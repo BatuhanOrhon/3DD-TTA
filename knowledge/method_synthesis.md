@@ -1,5 +1,17 @@
 # Method Synthesis and Hypotheses
 
+## Proposed mathematics after paper reread - 2026-09-26
+
+[Paper/Inference] GSDTTA's low-frequency shift and our low-frequency fidelity
+have different roles. A source-faithful shift requires a driving adaptation
+objective; it is not a spectral-matching loss. For scalar guidance in the
+existing 3DD-TTA host, fixed-reference common-basis smooth spectral fidelity
+is implemented as opt-in `gsd_latent_spectral_smooth_v2`; see the
+[mathematics and test plan](gsd_guidance_math_20260926.md). It removes hard
+rank boundaries but does not solve corrupted targets, wrong topology or slot
+correspondence. The implementation is unverified on model data and has no
+accuracy evidence; v1 and its archived results remain unchanged.
+
 ## Selected first GSD integration - 2026-09-23
 
 [Code] The implemented opt-in `gsd_latent_spectral_v1` keeps the existing

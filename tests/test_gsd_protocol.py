@@ -182,6 +182,39 @@ class GSDProtocolTests(unittest.TestCase):
             self.assertEqual(saved["gsd_diagnostics"]["gaussian"]["step"]["records"], 1)
             self.assertIn("0.7", (bundle.path / "summary.csv").read_text())
 
+    def test_v2_success_and_failure_bundles_preserve_spectral_contract(self):
+        for profile in ("hard", "smooth"):
+            extra = ["--method", gsd_protocol.SMOOTH_METHOD, "--gsd-weight", "2",
+                     "--gsd-profile", profile]
+            if profile == "smooth":
+                extra += ["--gsd-beta", "1.7"]
+            config = run_baseline.build_config(self.args(*extra))
+            for failed in (False, True):
+                with self.subTest(profile=profile, failed=failed), artifact_directory() as directory:
+                    config["cli_args"]["pointmae_ckpt"] = "missing-v2-test-checkpoint.pth"
+                    bundle = RunBundle.create(Path(directory), "v2-test", config, "synthetic CPU test")
+                    if failed:
+                        with patch.object(run_baseline, "command_output", return_value="CPU test"), \
+                                redirect_stderr(StringIO()), redirect_stdout(StringIO()), \
+                                self.assertRaises(FileNotFoundError):
+                            run_baseline.run_worker(str(bundle.path))
+                    else:
+                        row = corruption_row(bundle.path.name, 0, "gaussian", 10, 7, 2.5, 0,
+                                             "complete", method=gsd_protocol.SMOOTH_METHOD)
+                        bundle.write_results([row], "complete")
+                        completed = json.loads((bundle.path / "config.json").read_text())
+                        completed.update(status="complete", execution_status="complete",
+                                         completed_corruptions=["gaussian"])
+                        bundle.write_config(completed)
+                    saved = json.loads((bundle.path / "config.json").read_text())
+                    self.assertEqual(saved["status"], "failed" if failed else "complete")
+                    self.assertEqual(saved["method"], gsd_protocol.SMOOTH_METHOD)
+                    self.assertEqual(saved["spectral"]["profile"], profile)
+                    self.assertEqual(saved["spectral"]["beta"], 1.7 if profile == "smooth" else None)
+                    self.assertEqual(saved["spectral"]["reduction"],
+                                     "sum_samples_fixed_original_point_count_xyz")
+                    self.assertEqual(len(list(bundle.path.iterdir())), 7)
+
     def test_batch_adapter_preserves_counting_postprocess_and_frozen_classifier(self):
         import torch
         calls, observed = [], []

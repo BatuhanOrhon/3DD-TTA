@@ -1,5 +1,58 @@
 # Open Questions and Research Backlog
 
+## 2026-09-26 implementation review blockers
+
+See [the review and corrections](gsd_smooth_review_20260926.md); its historical
+failures are resolved, and the second review passes 111 actual-source CPU tests.
+
+- [x] Restore basis allocation after rank selection; v1 and v2 tests pass on disk.
+- [x] Compare PSD eigenvalues and tolerance in the same Laplacian units.
+- [x] Implement persistent v2 algebra, protocol, trajectory and launcher tests.
+- [x] Restore v1/hard-v2/smooth-v2 arms; SCD-only is not a substitute for v1.
+- [ ] Declare calibration data/statistic, beta grid and common-draw verification.
+
+## 2026-09-26 proposed spectral mathematics
+
+- [x] Re-read local GSDTTA equations and distinguish learned low-band shifts
+  from fidelity-to-reference; record [the mathematical decision](gsd_guidance_math_20260926.md).
+- [x] Specify common node/basis correspondence, symmetric graph, smooth
+  spectral weights, loss reduction and full denoiser chain rule.
+- [x] Check mathematical derivatives/invariance on CPU synthetic graphs.
+- [ ] If implemented, compare smooth versus hard profiles under matched graph
+  and controlled loss scale; do not combine graph-rule changes in that test.
+- [ ] Validate reference topology and slot correspondence on real latent states;
+  smooth weights cannot make corrupted components trustworthy.
+- [ ] Select beta/alpha on declared validation data and test repeated-seed
+  accuracy before any claim; this design does not establish an optimum.
+
+## NEXT GSD TEST — `gsd_smooth_spectrum_profile_pilot` (implementation added; validation pending)
+
+- [x] Implement a separately versioned smooth-spectrum method while preserving
+  `gsd_latent_spectral_v1` and baseline dispatch. The shared allocation
+  regression is repaired and both versions are covered by passing CPU tests.
+- [x] Complete CPU formula/protocol checks and review the new v2 implementation
+  before Colab evaluation; see [the v2 test plan](gsd_smooth_spectrum_test_plan_20260926.md).
+- [ ] Keep the reference graph, signals, SCD, DDIM schedule/rates, decoder,
+  classifier and preprocessing identical. New objective uses scaled-Laplacian
+  weights `exp(-beta*lambda)` on all active modes and denominator `3*N`.
+- [ ] Compare unchanged v1 hard-M to the new-host hard-M and smooth arms.
+  Calibrate the latter two to a predeclared equal aggregate spectral-gradient
+  scale on declared calibration data; freeze alpha and beta candidates before
+  scoring. B vs C compares profile shape at calibrated scale; A vs B includes
+  the denominator and any coefficient change, unless alpha is held fixed.
+- [ ] Log paired seed/common-draw deltas, all per-corruption accuracy, effective
+  spectral weight mass, active graph/components, local/style spectral and SCD
+  gradient/update norms, runtime and peak memory.
+- [ ] First scope: exploratory ModelNet40-C severity-5 Gaussian/Impulse,
+  batch 32, seeds 0/1/2, raw LION eval, EMA off, frozen Point-MAE, lambda
+  `.95`, unchanged v1 scheduler, rates, decoder and preprocessing. Do not
+  promote from this two-corruption pilot or tune from all-15 evaluation.
+- [ ] Before evaluation, record beta grid, calibration source/statistic,
+  acceptance rule and exact run identity in the protocol. A null/negative
+  scale-matched profile comparison falsifies the proposed accuracy advantage.
+
+See the detailed [mathematics and test-case specification](gsd_guidance_math_20260926.md#9-difference-from-the-current-gsd-code-and-next-test-case).
+
 ## 2026-09-23 legacy/current GSD diagnosis update
 
 - [x] Verify current spectral-loss derivative analytically and on a synthetic

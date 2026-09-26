@@ -323,7 +323,7 @@ def shared_trajectory_decoder_points(data, baseline, lion, args, torch_module,
 
 def notes_for_run(args: SimpleNamespace) -> str:
     """Describe the evaluated path without classifying source-only runs as smoke tests."""
-    if args.method == gsd_protocol.METHOD:
+    if gsd_protocol.is_gsd_method(args.method):
         return gsd_protocol.notes_for_run(args)
     if args.method == "source_only":
         coverage = ("All selected corruptions are evaluated completely."
@@ -496,7 +496,7 @@ def run_worker(directory: str) -> None:
                   "pointmae_config": args.pointmae_config, "labels": args.label_path}
         if args.method in {"3dd_original", *PURE_VAE_METHODS,
                            SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD,
-                           SCD_LAMBDA96_METHOD, gsd_protocol.METHOD}:
+                           SCD_LAMBDA96_METHOD, *gsd_protocol.METHODS}:
             assets.update(lion_checkpoint=args.diff_ckpt, lion_config=args.diff_config)
         identities = {name: file_identity(Path(value)) for name, value in assets.items()}
         data_files = {name: file_identity(selected_data_path(args.dataset_root, name, config["severity"]))
@@ -608,7 +608,7 @@ def run_worker(directory: str) -> None:
                         denominator="none; legacy directed retained-distance sums",
                         reduction="directed retained-distance sums, summed over batch"),
                     lambda_control=scd_lambda96_contract())
-        if args.method == gsd_protocol.METHOD:
+        if gsd_protocol.is_gsd_method(args.method):
             for model in (base_model, lion.vae, lion.priors):
                 model.requires_grad_(False)
             config.update(lion_loaded=True, lion_mode_policy="raw LION eval; EMA disabled",
@@ -731,7 +731,7 @@ def run_worker(directory: str) -> None:
                         targets.append(target.cpu())
                         predictions.append(updated_pred.cpu())
                 targets, predictions = torch.cat(targets), torch.cat(predictions)
-            elif args.method == gsd_protocol.METHOD:
+            elif gsd_protocol.is_gsd_method(args.method):
                 targets, predictions = gsd_protocol.process_batches(
                     batches, base_model, lion, args, baseline, torch, steps,
                     scheduler_observer=scheduler_observer, batch_observer=batch_observer,
@@ -829,7 +829,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
                                              "preprocessing_identity_seed_stability",
                                              "pure_vae_encode_decode", "pure_vae_seed_stability",
                                              SHARED_DECODER_METHOD, SCD_NORMALIZATION_METHOD,
-                                             SCD_LAMBDA96_METHOD, gsd_protocol.METHOD),
+                                             SCD_LAMBDA96_METHOD, *gsd_protocol.METHODS),
                         default="3dd_original")
     parser.add_argument("--corruptions", nargs="+", choices=CORRUPTIONS + (CLEAN_CONTROL,), default=["gaussian"])
     parser.add_argument("--max-batches", type=int, default=2, help="0 evaluates all batches; otherwise a prefix")
@@ -844,7 +844,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     gsd_protocol.add_arguments(parser)
     provided_argv = list(sys.argv[1:] if argv is None else argv)
     args = parser.parse_args(provided_argv)
-    if (args.method == gsd_protocol.METHOD
+    if (gsd_protocol.is_gsd_method(args.method)
             and not any(token == "--lambdaa" or token.startswith("--lambdaa=")
                         for token in provided_argv)):
         args.lambdaa = 0.95
@@ -962,6 +962,9 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         "shared-decoder-s5-gaussian-impulse" if args.method == SHARED_DECODER_METHOD else
         "scd-normalized-s5-gaussian-impulse" if args.method == SCD_NORMALIZATION_METHOD else
         "scd-lambda96-s5-gaussian-impulse" if args.method == SCD_LAMBDA96_METHOD else
+        (f"gsd-smooth-{args.gsd_profile}" +
+         (f"-beta{args.gsd_beta:g}" if args.gsd_beta is not None else ""))
+        if args.method == gsd_protocol.SMOOTH_METHOD else
         "gsd-" + args.gsd_stage if args.method == gsd_protocol.METHOD else
         "baseline-smoke")
     args.run_name = args.run_name or (default_name + "_seed%s" % args.seed)
@@ -1042,7 +1045,7 @@ def build_config(args: argparse.Namespace) -> dict:
                 denominator="none; legacy directed retained-distance sums",
                 reduction="directed retained-distance sums, summed over batch"),
             lambda_control=scd_lambda96_contract())
-    if args.method == gsd_protocol.METHOD:
+    if gsd_protocol.is_gsd_method(args.method):
         config.update(stage=args.gsd_stage, spectral=gsd_protocol.spectral_contract(args),
                       lion_mode_policy="raw LION eval; EMA disabled", lion_loaded=True,
                       preprocessing=SCD_TTA_PREPROCESSING.replace(
@@ -1051,7 +1054,8 @@ def build_config(args: argparse.Namespace) -> dict:
                       gsd_diagnostics={})
         config["runtime_source_manifest"].update({name: file_identity(REPO / name) for name in
                                                 ("graph_spectral.py", "tta_gsd.py", "gsd_protocol.py",
-                                                 "eval_gsd_tta.py")})
+                                                 "eval_gsd_smooth.py" if args.method == gsd_protocol.SMOOTH_METHOD
+                                                 else "eval_gsd_tta.py")})
     return config
 
 
