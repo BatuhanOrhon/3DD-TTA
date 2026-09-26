@@ -184,3 +184,27 @@ conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta.py \
 and use `L_total=L_spec`. They are exploratory and must not be called a
 “GSDTTA reproduction” or promoted to all-14/all-15 without a separately
 reviewed control design.
+
+## Single-seed 14-corruption exploratory comparison
+
+[Code] The separate `ablation14` stage evaluates the canonical 14-corruption
+scope with Background excluded, without relaxing the locked benchmark stage.
+For a matched seed-0 comparison, run both the original SCD baseline and the
+spectral-only arm:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta.py \
+  --stage ablation14 \
+  --seeds 0 \
+  --arms baseline on \
+  --gsd-scd-weight 0 \
+  --gsd-modes 100 \
+  --execute
+```
+
+[Inference] This is a single-seed exploratory screen. It can test whether the
+pilot direction persists across 14 corruptions, but it cannot establish a
+general superiority claim or replace the three-seed locked benchmark.

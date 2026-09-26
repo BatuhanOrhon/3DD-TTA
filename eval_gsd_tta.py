@@ -17,7 +17,7 @@ def build_commands(stage: str, *, seeds=None, arms=("baseline", "off", "on"),
                    smoke_corruption="gaussian", result_root="./result", gsd_modes=100,
                    gsd_scd_weight=1.0) -> list[list[str]]:
     """Construct fixed controls; custom method tuning uses the explicit runner CLI."""
-    if stage not in ("smoke", "pilot", "all14", "all15"):
+    if stage not in ("smoke", "pilot", "ablation14", "all14", "all15"):
         raise ValueError("Unknown experiment stage")
     seeds = ([0] if stage == "smoke" else [0, 1, 2]) if seeds is None else list(seeds)
     if not seeds or len(set(seeds)) != len(seeds) or any(s not in (0, 1, 2) for s in seeds):
@@ -33,7 +33,7 @@ def build_commands(stage: str, *, seeds=None, arms=("baseline", "off", "on"),
         raise ValueError("Smoke supports Gaussian or Background")
     corruptions = ([smoke_corruption] if stage == "smoke" else
                    list(PILOT_CORRUPTIONS) if stage == "pilot" else
-                   [name for name in CORRUPTIONS if name != "background"] if stage == "all14" else
+                   [name for name in CORRUPTIONS if name != "background"] if stage in ("ablation14", "all14") else
                    list(CORRUPTIONS))
     commands = []
     for seed in seeds:
@@ -48,15 +48,16 @@ def build_commands(stage: str, *, seeds=None, arms=("baseline", "off", "on"),
                        "--corruptions", *corruptions]
             if arm != "baseline":
                 gsd_stage = "benchmark" if stage == "all15" else (
-                    "benchmark_no_background" if stage == "all14" else stage)
+                    "benchmark_no_background" if stage == "all14" else
+                    "ablation_no_background" if stage == "ablation14" else stage)
                 command += ["--gsd-stage", gsd_stage,
                             "--gsd-weight", "0" if arm == "off" else "1",
                             "--gsd-k", "10", "--gsd-delta", ".1",
                             "--gsd-graph-gamma", ".6", "--gsd-modes", str(gsd_modes),
                             "--gsd-scd-weight", str(gsd_scd_weight)]
-                if stage == "pilot" and gsd_modes != 100:
+                if stage in ("pilot", "ablation14") and gsd_modes != 100:
                     command[command.index("--run-name") + 1] += f"-m{gsd_modes}"
-                if stage == "pilot" and gsd_scd_weight != 1.0:
+                if stage in ("pilot", "ablation14") and gsd_scd_weight != 1.0:
                     command[command.index("--run-name") + 1] += "-spectral-only"
             commands.append(command)
     return commands
@@ -64,7 +65,7 @@ def build_commands(stage: str, *, seeds=None, arms=("baseline", "off", "on"),
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--stage", choices=("smoke", "pilot", "all14", "all15"), default="pilot")
+    parser.add_argument("--stage", choices=("smoke", "pilot", "ablation14", "all14", "all15"), default="pilot")
     parser.add_argument("--seeds", type=int, nargs="+", default=None)
     parser.add_argument("--arms", choices=("baseline", "off", "on"), nargs="+",
                         default=["baseline", "off", "on"])

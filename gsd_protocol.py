@@ -16,7 +16,8 @@ def add_arguments(parser) -> None:
     for name, cast in (("weight", float), ("k", int), ("delta", float),
                        ("graph-gamma", float), ("modes", int)):
         parser.add_argument("--gsd-" + name, type=cast, default=None)
-    parser.add_argument("--gsd-stage", choices=("smoke", "pilot", "benchmark", "benchmark_no_background"), default=None)
+    parser.add_argument("--gsd-stage", choices=("smoke", "pilot", "benchmark", "benchmark_no_background",
+                                                  "ablation_no_background"), default=None)
 
 
 def validate_arguments(args, parser, all_corruptions) -> None:
@@ -53,7 +54,7 @@ def validate_arguments(args, parser, all_corruptions) -> None:
     else:
         expected = PILOT_CORRUPTIONS if args.gsd_stage == "pilot" else (
             tuple(name for name in all_corruptions if name != "background")
-            if args.gsd_stage == "benchmark_no_background" else all_corruptions)
+            if args.gsd_stage in ("benchmark_no_background", "ablation_no_background") else all_corruptions)
         if args.max_batches != 0 or args.corruptions != list(expected):
             parser.error("GSD pilot/benchmark requires complete files in its canonical scope.")
     if args.gsd_stage in ("benchmark", "benchmark_no_background") and (

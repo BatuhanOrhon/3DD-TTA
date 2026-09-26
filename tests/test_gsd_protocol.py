@@ -109,6 +109,15 @@ class GSDProtocolTests(unittest.TestCase):
         self.assertIn("--gsd-scd-weight", commands[0])
         self.assertIn("spectral-only", commands[0][commands[0].index("--run-name") + 1])
 
+    def test_spectral_only_ablation14_is_separate_from_locked_benchmark(self):
+        commands = eval_gsd_tta.build_commands(
+            "ablation14", seeds=[0], arms=("baseline", "on"), gsd_scd_weight=0)
+        self.assertEqual(len(commands), 2)
+        gsd = commands[1]
+        self.assertIn("ablation_no_background", gsd)
+        self.assertEqual(gsd[gsd.index("--corruptions") + 1:gsd.index("--gsd-stage")],
+                         [name for name in run_baseline.CORRUPTIONS if name != "background"])
+
     def test_benchmark_requires_complete_canonical_all15(self):
         with redirect_stderr(StringIO()), self.assertRaises(SystemExit):
             self.args("--gsd-stage", "benchmark")
