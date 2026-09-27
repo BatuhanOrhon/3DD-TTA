@@ -175,3 +175,14 @@ snapshots. CPU implementation review is complete. Pilot calibration, beta
 selection, real-runtime common-draw confirmation and Colab smoke remain open.
 The test plan now explicitly avoids attributing A-vs-B effects solely to the
 denominator when the external alpha also changes.
+
+## Colab compatibility correction, 2026-09-27
+
+**[User report/Code]** The first Colab smoke failed at module import because
+Python 3.8 eagerly evaluated PEP 604 annotations (`str | None`). The repository
+records Colab Python 3.8.20. `graph_spectral.py` now postpones annotation
+evaluation; a regression test failed before and passed after this change.
+
+**[Run/Open]** Full local CPU suite passes 112 tests on Python 3.13. This
+confirms the annotation is deferred locally, but it is not a Colab execution.
+Rerun the smoke matrix after pulling the fix; accuracy remains untested.

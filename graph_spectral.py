@@ -3,6 +3,7 @@
 [Inference] This fidelity objective is not a reproduction of GSDTTA's learned
 point shifts or model adaptation. Graph construction never consumes RNG state.
 """
+from __future__ import annotations
 
 from dataclasses import dataclass
 import math

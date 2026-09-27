@@ -2,7 +2,7 @@
 
 **[Code/Run] Review/correction update:** The [2026-09-26 review](gsd_smooth_review_20260926.md)
 recorded three blockers; all three are repaired. New persistent smooth-loss,
-gradient, tolerance, protocol and launcher tests pass as part of the 111-test
+gradient, tolerance, protocol and launcher tests pass as part of the 112-test
 full CPU suite after the second review. This does not validate GPU execution or accuracy.
 Beta/alpha calibration and Colab smoke/pilot remain prerequisites.
 

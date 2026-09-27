@@ -1,5 +1,23 @@
 # Findings Log
 
+## 2026-09-27 — Colab Python 3.8 import fix
+
+[User report/Code] The first Colab smoke failed while importing
+`graph_spectral.py`: `str | None` annotations were evaluated at module load,
+but Colab's recorded environment uses Python 3.8.20 (findings log, entry
+2026-09-15, Colab smoke). Add postponed annotation evaluation so the union
+type hints load under Python 3.8 without changing runtime tensor behavior.
+
+[Run] A regression test first failed on the eager annotation, then passed with
+`from __future__ import annotations`. Full local CPU suite:
+`python -m unittest discover -s tests -q` — **112 tests passed**. This host
+uses Python 3.13; the test verifies the annotation is deferred. Colab must pull
+the fix and rerun smoke on its recorded Python 3.8.20 environment.
+
+[Open] The failed v1 smoke ZIP is correctly marked failed and provides no
+accuracy evidence. The complete smoke matrix must be rerun after the fix;
+check that each bundle completes before exporting it to Drive.
+
 ## 2026-09-26 — second GSD smooth review before push
 
 [Code/Run] Independent review confirmed the earlier fixes. Additional regression

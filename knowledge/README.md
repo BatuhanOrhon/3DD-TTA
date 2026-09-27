@@ -4,7 +4,8 @@
 [implementation review](gsd_smooth_review_20260926.md) have been repaired:
 rank-sized basis allocation, raw-unit PSD tolerance, and the v1/hard-v2/smooth-v2
 launcher matrix. Persistent algebra, protocol and launcher tests were added;
-all 111 CPU tests pass after a second independent review. Launcher floats now
+all 112 CPU tests pass, including a regression guard for the Colab Python 3.8
+annotation failure. Launcher floats now
 round-trip exactly, empty-filter storage is correct, and large finite beta
 avoids float32 overflow at zero modes. This is CPU evidence only. Beta/alpha calibration and
 Colab smoke/pilot evidence remain open; no accuracy claim is supported.

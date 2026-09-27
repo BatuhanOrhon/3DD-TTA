@@ -6,6 +6,7 @@ from unittest.mock import patch
 
 import torch
 
+import graph_spectral
 from graph_spectral import SpectralConfig, build_spectral_target, build_smooth_spectral_target
 
 
@@ -14,6 +15,9 @@ class SmoothSpectralTests(unittest.TestCase):
         self.reference = torch.tensor([[[0., 0., 0.], [1., 0., 0.], [4., 0., 0.]]],
                                       dtype=torch.float64)
         self.config = SpectralConfig(k=1, delta=1, modes=1)
+
+    def test_graph_module_defers_pep604_annotations_for_python38(self):
+        self.assertIsInstance(graph_spectral._sample_target.__annotations__["profile"], str)
 
     def test_hard_matches_v1_with_actual_rank_over_original_point_count(self):
         # Disconnected pairs expand requested rank 1 to actual rank 2.
