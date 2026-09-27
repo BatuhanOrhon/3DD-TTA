@@ -7,6 +7,10 @@ The [approved execution plan](gsd_calibration_execution_20260927.md) and
 128-example development screen. Start with `eval_gsd_calibration.py --phase
 diagnose --execute` in Colab. CPU evidence and limits are recorded in the plan;
 real CUDA diagnostics and accuracy screening remain pending.
+For compact analysis of the large report, use
+[`scripts/analyze_gsd_calibration.py`](../scripts/analyze_gsd_calibration.py);
+it ranks beta by observed development accuracy only after all five screen
+bundles at the same rho are supplied.
 
 **[Code/Inference] 2026-09-27 calibration review:** The
 [revised proposal](gsd_calibration_review_20260927.md) uses mean-normalized

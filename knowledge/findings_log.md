@@ -2004,3 +2004,39 @@ would block progression. Identity correspondence across corruption files
 remains unverified; a shuffled index pool does not establish held-out objects.
 The small screen cannot establish a roughly 1 pp gain. Preserve SCD weight1
 until measured evidence justifies a separate strength ablation.
+
+## 2026-09-27 - compact analyzer and supplied calibration report
+
+[User report/Code] The user placed the phase-report JSON at
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/report.json` (124,414
+bytes). `scripts/analyze_gsd_calibration.py` reads that file in Python and
+writes only a compact derived summary to
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/calibration_summary.json`;
+the raw report is left unchanged. The analyzer also accepts a raw calibration
+run and can rank the five completed same-rho development runs later.
+
+[User report, derived by script] Diagnostic run ID is
+`20260927-201522_gsd-cal-diagnose-reference-seed0-n64`, 64 examples per
+corruption. Pooled local unit spectral/SCD median ratios are 0.00012286 for
+beta .5, 0.00008842 for beta 2 and 0.00006719 for beta 8. At rho=.0001 these
+imply alpha=.8139, 1.1310 and 1.4882; at rho=.001 alpha=8.1391, 11.3102 and
+14.8822. Gaussian/Impulse local R are respectively .00011959/.00012703,
+.00008763/.00008919 and .00006740/.00006687. The respective local gradient
+cosine medians against SCD are positive and fall as beta rises: roughly
+.229/.202, .186/.170, .151/.132. Hard-M has R=.00005333.
+
+[Inference/Open] These scales alone do not identify an accuracy-optimal beta.
+Beta 8 has the closest Gaussian/Impulse scale match, beta .5 has the strongest
+median gradient alignment, and beta 2 is the predeclared middle candidate;
+none of those properties proves better cleaning. Run the registered accuracy
+screen at the explicit rho, then use the analyzer on its five matching run
+directories to report the observed two-corruption development winner.
+
+[User report, derived by script] Median local SCD update/state ratios are
+about .14%--.18% across steps/corruptions, while SCD update/DDIM displacement
+ratios are about .20--.27 through steps 0--3 and rise to 2.31--2.46 at step 4.
+This last-step denominator is small and makes that ratio large; it deserves
+review with the recorded displacement distribution, but is not by itself
+evidence to change SCD weight. No accuracy labels were used in calibration.
+The report JSON is a summary rather than a validated seven-file source ZIP;
+retain and provide the original calibration run bundle for provenance.

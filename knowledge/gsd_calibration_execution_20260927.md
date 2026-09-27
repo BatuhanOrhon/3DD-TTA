@@ -73,3 +73,11 @@ No further concrete runtime or spectral-math bug was found in that review.
 diagnostic scale values require the first Colab ZIP. CPU fixtures are not
 model evidence. No new model run, optimum beta/alpha, SCD instability or
 accuracy improvement is claimed.
+
+[User report/Code] A phase-report file was supplied at
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/report.json`. The compact
+analyzer was run against it and saved its reduced output beside it as
+`calibration_summary.json`; see the findings log for the label-free candidate
+scales. This report does not include the complete raw run bundle, so source
+hash/count validation still requires that ZIP. Accuracy-based beta selection
+is pending the registered five-arm development screen.
