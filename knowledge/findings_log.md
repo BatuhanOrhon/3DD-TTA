@@ -2040,3 +2040,37 @@ review with the recorded displacement distribution, but is not by itself
 evidence to change SCD weight. No accuracy labels were used in calibration.
 The report JSON is a summary rather than a validated seven-file source ZIP;
 retain and provide the original calibration run bundle for provenance.
+
+## 2026-09-27 - beta2 contribution screen received
+
+[Run] Four screen-weight ZIPs were added under
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/`: SCD-only baseline and
+beta2 at rho .0001/.001/.01, seed 0, 128 examples per corruption. All four
+archives pass CRC checks and contain the complete seven-file bundle. Their
+run IDs are `20260927-203752_gsd-cal-screen-weight-baseline-seed0-n128`,
+`20260927-203822_gsd-cal-screen-weight-smooth-beta2p0-rho0p0001-seed0-n128`,
+`20260927-203909_gsd-cal-screen-weight-smooth-beta2p0-rho0p001-seed0-n128`,
+and `20260927-203957_gsd-cal-screen-weight-smooth-beta2p0-rho0p01-seed0-n128`.
+
+[Verification] Configurations agree on calibration ID/hash, shuffled indices,
+seed/count, data/checkpoint manifests and runtime source manifests. The
+analyzer reads ZIP members directly (without extraction) and writes
+`screen_weight_summary.json` beside the archives. Equal-corruption macro and
+paired accuracy differences against SCD-only are:
+
+| Arm | Gaussian | Impulse | Two-corruption macro | Delta vs SCD |
+|---|---:|---:|---:|---:|
+| SCD-only | 76.5625% (98/128) | 71.8750% (92/128) | 74.2188% | reference |
+| beta2, rho .0001, alpha 1.1310 | 77.3438% (99/128) | 71.8750% (92/128) | 74.6094% | +0.3906 pp |
+| beta2, rho .001, alpha 11.3102 | 78.1250% (100/128) | 72.6563% (93/128) | 75.3906% | +1.1719 pp |
+| beta2, rho .01, alpha 113.1024 | 78.1250% (100/128) | 71.8750% (92/128) | 75.0000% | +0.7813 pp |
+
+[Inference] Rho .001 is the current development-screen leader: it adds two
+correct Gaussian examples and one Impulse example relative to baseline. Rho
+.01 has the same Gaussian count but loses the Impulse example; raising the
+target contribution did not improve this screen. This is one seed and 128
+examples per corruption; per-example paired predictions are not in the CSV,
+so the aggregate cannot support a paired significance test or a 1 pp claim.
+The next registered step is beta .5, beta 8 and matched hard at rho .001 on
+the same seed/index pool, reusing this beta2 and SCD control. Then expand
+promising arms and controls to other seeds/larger subsets before any claim.

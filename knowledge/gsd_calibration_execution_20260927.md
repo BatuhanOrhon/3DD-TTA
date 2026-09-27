@@ -81,3 +81,9 @@ analyzer was run against it and saved its reduced output beside it as
 scales. This report does not include the complete raw run bundle, so source
 hash/count validation still requires that ZIP. Accuracy-based beta selection
 is pending the registered five-arm development screen.
+
+[Run] The first four-arm beta2 weight screen is now ingested; its paired
+summary is `result/modelnet40_c/gsd_latent_spectral_smooth_v2/screen_weight_summary.json`.
+Rho .001 is the exploratory leader (+1.1719 pp macro over 128 Gaussian and
+128 Impulse examples, seed0). Next compare beta .5, beta8 and hard at rho .001;
+see the findings log for exact per-corruption counts and limitations.

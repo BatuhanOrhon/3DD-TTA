@@ -88,6 +88,25 @@ conda run --no-capture-output -n 3dd_tta_env python eval_gsd_calibration.py \
   --phase screen-weight --calibration "$CALIBRATION" --execute
 ```
 
+Summarize the four resulting ZIPs (baseline and beta2 at three rho values)
+without printing their contents:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+ROOT=./result/modelnet40_c/gsd_latent_spectral_smooth_v2
+WEIGHT_RUNS=("$ROOT"/*gsd-cal-screen-weight-*.zip)
+conda run --no-capture-output -n 3dd_tta_env \
+  python scripts/analyze_gsd_calibration.py \
+  --calibration "$ROOT/report.json" --weight-screen \
+  --screen-run "${WEIGHT_RUNS[@]}" \
+  --output "$ROOT/screen_weight_summary.json"
+```
+
+Review the compact ranking, then carry its highest observed rho into the beta
+comparison. This one-seed subset is exploratory, not confirmation.
+
 The reference config's SHA-256/run ID and target rho are recorded. Data,
 checkpoint/config, labels and runtime source hashes must match calibration;
 changed inputs are rejected before model loading. Graph/host settings must

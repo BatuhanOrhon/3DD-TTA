@@ -12,6 +12,7 @@ import json
 import math
 from pathlib import Path
 import sys
+from zipfile import ZipFile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from gsd_calibration import BETAS, RHOS, load_calibration
@@ -99,25 +100,52 @@ def calibration_summary(path: Path) -> dict:
 
 
 def _read_screen(path: Path) -> tuple[dict, dict[str, dict]]:
-    path = _config_path(path)
-    config = json.loads(path.read_text(encoding="utf-8"))
+    if path.suffix.lower() == ".zip":
+        with ZipFile(path) as archive:
+            files = [name for name in archive.namelist() if not name.endswith("/")]
+            if any(Path(name).is_absolute() or ".." in Path(name).parts for name in files):
+                raise ValueError("unsafe path in screen archive: " + str(path))
+            if archive.testzip() is not None:
+                raise ValueError("screen archive failed CRC validation: " + str(path))
+            required = {"config.json", "command.txt", "environment.txt", "stdout.log", "notes.md",
+                        "per_corruption.csv", "summary.csv"}
+            if len(files) != 7 or {Path(name).name for name in files} != required:
+                raise ValueError("screen archive must contain the complete seven-file run bundle: " + str(path))
+            config_name = next(name for name in files if name.endswith("/config.json"))
+            csv_name = next(name for name in files if name.endswith("/per_corruption.csv"))
+            config = json.loads(archive.read(config_name))
+            csv_text = archive.read(csv_name).decode("utf-8")
+        run_path = path
+    else:
+        path = _config_path(path)
+        config = json.loads(path.read_text(encoding="utf-8"))
+        csv_text = (path.parent / "per_corruption.csv").read_text(encoding="utf-8")
+        run_path = path
     if config.get("stage") != "development" or config.get("execution_status") != "complete":
-        raise ValueError("screen run must be a fully executed development bundle: " + str(path))
+        raise ValueError("screen run must be a fully executed development bundle: " + str(run_path))
     if config.get("completed_corruptions") != list(PILOT_CORRUPTIONS):
-        raise ValueError("screen run must cover Gaussian and Impulse: " + str(path))
+        raise ValueError("screen run must cover Gaussian and Impulse: " + str(run_path))
     reference = config.get("calibration_reference")
     if not reference or not reference.get("sha256"):
-        raise ValueError("screen run is missing calibration provenance: " + str(path))
+        raise ValueError("screen run is missing calibration provenance: " + str(run_path))
     split = config.get("development_split", {})
     rows_by_corruption = {}
-    with (path.parent / "per_corruption.csv").open(newline="", encoding="utf-8") as stream:
-        for row in csv.DictReader(stream):
-            rows_by_corruption[row["corruption"]] = row
+    for row in csv.DictReader(csv_text.splitlines()):
+        if row["corruption"] in rows_by_corruption:
+            raise ValueError("duplicate corruption result row: " + str(run_path))
+        if row["run_id"] != config["run_id"] or row["status"] != "partial":
+            raise ValueError("screen CSV run ID/status disagrees with config: " + str(run_path))
+        if int(row["n_examples"]) != len(split[row["corruption"]]["indices"]):
+            raise ValueError("screen subset coverage/count is inconsistent: " + str(run_path))
+        if not math.isclose(float(row["accuracy"]), int(row["n_correct"]) / int(row["n_examples"]),
+                            rel_tol=0, abs_tol=1e-12):
+            raise ValueError("screen CSV accuracy/counts disagree: " + str(run_path))
+        rows_by_corruption[row["corruption"]] = row
     if set(rows_by_corruption) != set(PILOT_CORRUPTIONS):
-        raise ValueError("screen CSV is missing Gaussian or Impulse: " + str(path))
+        raise ValueError("screen CSV is missing Gaussian or Impulse: " + str(run_path))
     for corruption, row in rows_by_corruption.items():
         if row["status"] != "partial" or int(row["n_examples"]) != len(split[corruption]["indices"]):
-            raise ValueError("screen subset coverage/count is inconsistent: " + str(path))
+            raise ValueError("screen subset coverage/count is inconsistent: " + str(run_path))
     return config, rows_by_corruption
 
 
@@ -137,6 +165,9 @@ def screen_ranking(paths: list[Path], calibration_run_id=None, calibrated_weight
             raise ValueError("screen run references a different calibration run")
         if config["development_split"] != common_split:
             raise ValueError("screen runs use different development indices")
+        for manifest in ("asset_manifest", "dataset_hash_manifest", "runtime_source_manifest"):
+            if config.get(manifest) != first.get(manifest):
+                raise ValueError("screen runs use different " + manifest)
         if config["seed"] != first["seed"]:
             raise ValueError("screen runs use different seeds; rank one seed at a time")
         if config["cli_args"]["gsd_development_count"] != first["cli_args"]["gsd_development_count"]:
@@ -207,12 +238,79 @@ def screen_ranking(paths: list[Path], calibration_run_id=None, calibrated_weight
                         "before describing beta as accuracy-optimal."))
 
 
+def screen_weight_ranking(paths: list[Path], calibration_report: dict) -> dict:
+    """Compare SCD-only with beta=2 at its three preregistered rho values."""
+    runs = [_read_screen(path) for path in paths]
+    if len(runs) != 4:
+        raise ValueError("weight screen requires exactly four bundles: SCD-only and beta2 at three rho values")
+    first = runs[0][0]
+    by_candidate = {}
+    for config, rows in runs:
+        if config["calibration_reference"].get("run_id") != calibration_report["run_id"]:
+            raise ValueError("screen run references a different calibration run")
+        if (config["calibration_reference"]["sha256"] != first["calibration_reference"]["sha256"] or
+                config["development_split"] != first["development_split"] or
+                config["seed"] != first["seed"] or
+                config["cli_args"]["gsd_development_count"] != first["cli_args"]["gsd_development_count"]):
+            raise ValueError("screen runs differ in calibration, split, seed or subset size")
+        for manifest in ("asset_manifest", "dataset_hash_manifest", "runtime_source_manifest"):
+            if config.get(manifest) != first.get(manifest):
+                raise ValueError("screen runs use different " + manifest)
+        args = config["cli_args"]
+        weight = float(args["gsd_weight"])
+        rho = config["calibration_reference"].get("target_rho")
+        if weight == 0:
+            if rho is not None:
+                raise ValueError("SCD-only comparator unexpectedly declares rho")
+            key = "scd_only"
+        else:
+            if args["gsd_profile"] != "smooth" or args["gsd_beta"] != 2.0 or rho not in RHOS:
+                raise ValueError("weight screen contains a non-beta2 or undeclared-rho run")
+            key = "beta2_rho_" + str(rho)
+            expected_weight = calibration_report["candidates"]["2.0"]["weights"][str(rho)]
+            if not math.isclose(weight, expected_weight, rel_tol=1e-12, abs_tol=0):
+                raise ValueError("beta2 weight differs from the calibration report")
+        if key in by_candidate:
+            raise ValueError("duplicate weight-screen condition " + key)
+        by_candidate[key] = dict(run_id=config["run_id"], rows=rows, weight=weight, rho=rho)
+    expected = {"scd_only"} | {"beta2_rho_" + str(rho) for rho in RHOS}
+    if set(by_candidate) != expected:
+        raise ValueError("weight screen is missing one or more of baseline/beta2 rho conditions")
+    baseline = by_candidate["scd_only"]["rows"]
+    ranking = []
+    for key, candidate in by_candidate.items():
+        per_corruption = {}
+        for corruption in PILOT_CORRUPTIONS:
+            row = candidate["rows"][corruption]
+            accuracy = float(row["accuracy"])
+            per_corruption[corruption] = dict(
+                accuracy=accuracy, n_examples=int(row["n_examples"]), n_correct=int(row["n_correct"]),
+                delta_vs_scd_only_pp=100 * (accuracy - float(baseline[corruption]["accuracy"])))
+        ranking.append(dict(candidate=key, run_id=candidate["run_id"],
+                            rho=candidate["rho"], weight=candidate["weight"],
+                            per_corruption=per_corruption,
+                            macro_accuracy=sum(item["accuracy"] for item in per_corruption.values()) /
+                            len(PILOT_CORRUPTIONS)))
+    ranking.sort(key=lambda item: item["macro_accuracy"], reverse=True)
+    top = ranking[0]["macro_accuracy"]
+    top_candidates = [row["candidate"] for row in ranking if abs(row["macro_accuracy"] - top) <= 1e-12]
+    return dict(report_type="exploratory development weight screen; seed 0, fixed subset",
+                calibration_run_id=calibration_report["run_id"],
+                calibration_sha256=first["calibration_reference"]["sha256"],
+                seed=first["seed"], examples_per_corruption=first["cli_args"]["gsd_development_count"],
+                macro_definition="equal-weight mean of Gaussian and Impulse accuracies",
+                ranking=ranking, best_observed_rho_candidates=top_candidates,
+                interpretation="Select rho only for the next exploratory beta comparison. This 128-example, one-seed ranking is not confirmation.")
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--calibration", type=Path, required=True,
                         help="diagnostic run directory or its config.json")
     parser.add_argument("--screen-run", type=Path, nargs="+", default=None,
-                        help="all five screen run directories/configs at one seed and rho")
+                        help="screen ZIPs or run directories/configs")
+    parser.add_argument("--weight-screen", action="store_true",
+                        help="rank baseline plus beta2 at rho .0001/.001/.01 (four bundles)")
     parser.add_argument("--rho", type=float, choices=RHOS,
                         help="optional expected screen rho, checked when --screen-run is set")
     parser.add_argument("--output", type=Path, default=None,
@@ -221,13 +319,22 @@ def main(argv=None) -> int:
     try:
         summary = calibration_summary(args.calibration)
         if args.screen_run:
-            weights = {"hard": summary["hard"]["alpha_by_rho"]}
-            weights.update({"beta_" + str(row["beta"]): row["alpha_by_rho"]
-                            for row in summary["smooth_candidates"]})
-            ranking = screen_ranking(args.screen_run, summary["run_id"], weights)
-            if args.rho is not None and ranking["rho"] != args.rho:
-                raise ValueError("screen rho differs from --rho")
-            summary["development_accuracy_selection"] = ranking
+            if args.weight_screen:
+                if args.rho is not None:
+                    raise ValueError("--rho is not used for the three-rho weight screen")
+                summary["development_weight_selection"] = screen_weight_ranking(
+                    args.screen_run, {"run_id": summary["run_id"],
+                                      "candidates": {"2.0": {"weights": next(
+                                          row["alpha_by_rho"] for row in summary["smooth_candidates"]
+                                          if row["beta"] == 2.0)}}})
+            else:
+                weights = {"hard": summary["hard"]["alpha_by_rho"]}
+                weights.update({"beta_" + str(row["beta"]): row["alpha_by_rho"]
+                                for row in summary["smooth_candidates"]})
+                ranking = screen_ranking(args.screen_run, summary["run_id"], weights)
+                if args.rho is not None and ranking["rho"] != args.rho:
+                    raise ValueError("screen rho differs from --rho")
+                summary["development_accuracy_selection"] = ranking
         elif args.rho is not None:
             raise ValueError("--rho is only valid together with --screen-run")
         rendered = json.dumps(summary, indent=2, allow_nan=False)
