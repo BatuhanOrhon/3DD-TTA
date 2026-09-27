@@ -80,10 +80,12 @@ def batches(dataset, batch_size, shuffle):
 
 
 class GSDWorkerTests(unittest.TestCase):
-    def run_fixture(self, directory, corruption, *, fail_second_batch=False):
+    def run_fixture(self, directory, corruption, *, fail_second_batch=False, calibration=False):
         data_root = directory / "data"
         data_root.mkdir()
         np.save(data_root / ("data_" + corruption + "_5.npy"), np.ones((33, 8, 3), dtype=np.float32))
+        if calibration:
+            np.save(data_root / "data_impulse_5.npy", np.ones((33, 8, 3), dtype=np.float32))
         np.save(data_root / "label.npy", np.arange(33, dtype=np.int64) % 2)
         asset_paths = {}
         for name in ("pointmae_ckpt", "pointmae_config", "diff_ckpt", "diff_config"):
@@ -92,6 +94,10 @@ class GSDWorkerTests(unittest.TestCase):
         cli = ["--method", gsd_protocol.METHOD, "--batch_size", "32", "--seed", "0",
                "--gsd-stage", "smoke", "--max-batches", "2", "--corruptions", corruption,
                "--dataset_root", str(data_root), "--label_path", str(data_root / "label.npy")]
+        if calibration:
+            cli += ["--method", gsd_protocol.SMOOTH_METHOD, "--gsd-stage", "calibrate",
+                    "--gsd-weight", "0", "--gsd-profile", "hard", "--max-batches", "0",
+                    "--corruptions", "gaussian", "impulse", "--gsd-development-count", "32"]
         for name, path in asset_paths.items():
             cli.extend(["--" + name, str(path)])
         args = run_baseline.parse_arguments(cli)
@@ -126,6 +132,16 @@ class GSDWorkerTests(unittest.TestCase):
                 config={"prediction_type": "epsilon"}, timesteps=torch.arange(steps-1, -1, -1)))
             kwargs["diagnostics_observer"]({"kind": "graph", "samples": [{"actual_rank": 3}] * len(points)})
             kwargs["diagnostics_observer"]({"kind": "step", "batch_size": len(points), "spectral_loss": .5})
+            if calibration:
+                for step in range(5):
+                    kwargs["sample_observer"](dict(step_index=step, timestep=40 - step * 10,
+                                                   samples=[dict(local_state_rms=.1)] * len(points)))
+                    if step in (0, 2, 4):
+                        from gsd_calibration import CANDIDATES
+                        for profile, beta in CANDIDATES:
+                            kwargs["probe_observer"](dict(step_index=step, timestep=40 - step * 10,
+                                profile=profile, beta=beta,
+                                samples=[dict(local_ratio=.001, style_ratio=.002)] * len(points)))
             return points
 
         with patch.dict(sys.modules, {"torch": CPUTorch(), "main_3dd_tta": host,
@@ -140,7 +156,7 @@ class GSDWorkerTests(unittest.TestCase):
                     run_baseline.run_worker(str(bundle.path))
             else:
                 run_baseline.run_worker(str(bundle.path))
-            self.assertEqual(dispatch.call_count, 1)
+            self.assertEqual(dispatch.call_count, 2 if calibration else 1)
             self.assertEqual(dispatch.call_args.args[-1], 35 if corruption == "background" else 5)
         saved = json.loads((bundle.path / "config.json").read_text(encoding="utf-8"))
         with (bundle.path / "per_corruption.csv").open(newline="", encoding="utf-8") as stream:
@@ -161,6 +177,59 @@ class GSDWorkerTests(unittest.TestCase):
         self.assertEqual(saved["final_decode_style"], "original shape_latent")
         self.assertEqual(calls, [(35 if corruption == "background" else 5, .01, .01, .95, 100)] * 2)
         return saved, rows, summary
+
+    def test_calibration_worker_records_original_indices_and_partial_coverage(self):
+        from gsd_calibration import summarize_calibration, development_indices
+        with artifact_directory() as directory:
+            saved, rows, summary = self.run_fixture(directory, "gaussian", calibration=True)
+        self.assertEqual(saved["execution_status"], "complete")
+        self.assertEqual(saved["status"], "partial")
+        self.assertEqual([row["n_examples"] for row in rows], ["32", "32"])
+        self.assertEqual([row["status"] for row in rows], ["partial", "partial"])
+        for corruption in ("gaussian", "impulse"):
+            indices = development_indices(33, 32, 20260927)
+            self.assertEqual(saved["development_split"][corruption]["indices"], indices)
+            self.assertEqual({r["sample_index"] for r in saved["gsd_sample_diagnostics"][corruption]["probe"]}, set(indices))
+        report = summarize_calibration(saved)
+        self.assertEqual(report["candidates"]["2.0"]["weights"]["0.001"], 1.)
+        saved["gsd_sample_diagnostics"]["impulse"]["probe"].pop()
+        with self.assertRaisesRegex(ValueError, "missing or duplicate"):
+            summarize_calibration(saved)
+
+    def test_staged_launcher_binds_weights_and_provenance_and_rejects_failed_evidence(self):
+        from eval_gsd_calibration import build_commands
+        from gsd_calibration import verify_calibration_inputs
+        with artifact_directory() as directory:
+            saved, _, _ = self.run_fixture(directory, "gaussian", calibration=True)
+            reference = directory / "reference.json"
+            reference.write_text(json.dumps(saved), encoding="utf-8")
+            commands = build_commands("screen-weight", calibration=reference, count=32)
+            self.assertEqual(len(commands), 4)
+            parsed = [run_baseline.parse_arguments(command[3:]) for command in commands]
+            self.assertEqual([args.gsd_weight for args in parsed], [0., .1, 1., 10.])
+            self.assertTrue(all("." not in args.run_name for args in parsed))
+            with patch.object(run_baseline, "command_output", return_value="CPU fixture"):
+                config = run_baseline.build_config(parsed[2])
+            self.assertEqual(config["calibration_reference"]["target_rho"], .001)
+            config.update(asset_manifest=saved["asset_manifest"], dataset_hash_manifest=saved["dataset_hash_manifest"])
+            verify_calibration_inputs(config)
+            config["dataset_hash_manifest"] = {"gaussian": {"sha256": "different"}}
+            with self.assertRaisesRegex(ValueError, "hash mismatch"):
+                verify_calibration_inputs(config)
+            parsed[2].gsd_weight = 123.
+            with self.assertRaisesRegex(ValueError, "does not match"), \
+                    patch.object(run_baseline, "command_output", return_value="CPU fixture"):
+                run_baseline.build_config(parsed[2])
+            with self.assertRaisesRegex(ValueError, "explicit --rho"):
+                build_commands("screen-beta", calibration=reference)
+            beta_commands = build_commands("screen-beta", calibration=reference, rho=.001)
+            self.assertEqual(len(beta_commands), 3)
+            for command in beta_commands:
+                run_baseline.parse_arguments(command[3:])
+            saved["execution_status"] = "failed"
+            reference.write_text(json.dumps(saved), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "completed seed-0"):
+                build_commands("screen-weight", calibration=reference)
 
     def test_worker_gsd_dispatch_seals_complete_bundle_for_both_schedules(self):
         for corruption in ("gaussian", "background"):

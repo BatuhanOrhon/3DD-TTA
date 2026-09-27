@@ -58,6 +58,16 @@ class ExportGsdResultsTests(unittest.TestCase):
         self.assertEqual(len(exported), 2)
         self.assertTrue(all("m240" in p.name or "m400" in p.name for p in exported))
 
+    def test_exports_smooth_calibration_archives_with_all_stage_filter(self):
+        method = self.root / "result" / "modelnet40_c" / "gsd_latent_spectral_smooth_v2"
+        method.mkdir(parents=True)
+        archive = method / "20260927-200000_gsd-cal-diagnose-reference-seed0-n64.zip"
+        archive.write_bytes(b"immutable calibration bundle")
+        exported = export_archives(self.root / "result", self.root / "drive", stage="all",
+                                   name_contains=("gsd-cal-",))
+        self.assertEqual(len(exported), 1)
+        self.assertEqual(exported[0].read_bytes(), archive.read_bytes())
+
 
 if __name__ == "__main__":
     unittest.main()

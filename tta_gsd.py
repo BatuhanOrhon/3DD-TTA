@@ -39,6 +39,8 @@ def tta_gsd_reconstruct(
     spectral_config=None, scheduler_observer: Optional[Callable] = None,
     diagnostics_observer: Optional[Callable] = None,
     spectral_profile: Optional[str] = None, spectral_beta: Optional[float] = None,
+    probe_observer: Optional[Callable] = None,
+    sample_observer: Optional[Callable] = None,
 ) -> torch.Tensor:
     """Guide local and conditioning states; decode with the encoded global state.
 
@@ -46,6 +48,8 @@ def tta_gsd_reconstruct(
     bypassing graph construction and preserving its random number consumption.
     Positive weights add a fixed latent-XYZ graph objective to legacy summed
     SCD. Gradients pass through the frozen prior to both optimization variables.
+    Explicit probe/sample observers opt into an instrumented reference path;
+    probes never apply their candidate gradients and consume no random draws.
     An outer ``no_grad`` is supported; ``inference_mode`` is not supported.
     """
     if (not math.isfinite(spectral_weight) or spectral_weight < 0 or
@@ -57,7 +61,9 @@ def tta_gsd_reconstruct(
             "baseline-compatible trajectory; use spectral_weight=1 for the "
             "spectral-only ablation"
         )
-    if spectral_weight == 0:
+    if probe_observer is not None and (spectral_weight != 0 or scd_weight != 1):
+        raise ValueError("calibration probes require SCD-only weight 1, spectral weight 0")
+    if spectral_weight == 0 and probe_observer is None and sample_observer is None:
         result = baseline.tta_reconstruct(
             x, lion, steps_back_local, gamma, eta, p, total,
             scheduler_observer=scheduler_observer)
@@ -96,19 +102,25 @@ def tta_gsd_reconstruct(
             raise ValueError("GSD expects LION local encoding B x 8192 x 1 x 1")
         reference_xyz = local_latent.view(num_samples, 2048, 4)[:, :, :3]
         graph_config = SpectralConfig() if spectral_config is None else spectral_config
-        if spectral_profile is None:
+        if probe_observer is not None:
+            from graph_spectral import build_probe_spectral_target
+            target = build_probe_spectral_target(reference_xyz, graph_config)
+        elif spectral_weight == 0:
+            target = None
+        elif spectral_profile is None:
             target = build_spectral_target(reference_xyz, graph_config)
         else:
             from graph_spectral import build_smooth_spectral_target
             target = build_smooth_spectral_target(
                 reference_xyz, graph_config, profile=spectral_profile, beta=spectral_beta)
-    if diagnostics_observer is not None:
+    if diagnostics_observer is not None and target is not None:
         diagnostics_observer({"kind": "graph", "samples": target.diagnostics})
 
     style_cond = vae.global2style(shape_latent)
     noise = torch.randn_like(local_latent)
     noisy_local = (torch.sqrt(alpha_bar_local) * local_latent
                    + noise * torch.sqrt(1 - alpha_bar_local))
+    probe_steps = {0, reverse_steps // 2, reverse_steps - 1}
     for step_index, timestep in enumerate(timesteps_local):
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (timestep + 1)
         noisy_local = noisy_local.detach().requires_grad_(True)
@@ -122,7 +134,7 @@ def tta_gsd_reconstruct(
         distances1 = torch.sort(distances1, dim=1).values[:, :retained]
         distances2 = torch.sort(distances2, dim=1).values[:, :retained]
         scd_loss = baseline.selective_chamfer_loss(distances1, distances2, num_points)
-        spectral_loss = target.loss(predicted_xyz)
+        spectral_loss = target.loss(predicted_xyz) if spectral_weight else scd_loss.detach() * 0
         weighted_scd_loss = scd_weight * scd_loss
         weighted_spectral_loss = spectral_weight * spectral_loss
         total_loss = weighted_scd_loss + weighted_spectral_loss
@@ -132,9 +144,24 @@ def tta_gsd_reconstruct(
                            ("total loss", total_loss)):
             _require_finite(loss, name)
 
-        local_scd, style_scd = _loss_gradients(scd_loss, noisy_local, style_cond, retain_graph=True)
-        local_spectral, style_spectral = _loss_gradients(
-            spectral_loss, noisy_local, style_cond, retain_graph=False)
+        probing = probe_observer is not None and step_index in probe_steps
+        local_scd, style_scd = _loss_gradients(
+            scd_loss, noisy_local, style_cond, retain_graph=bool(spectral_weight) or probing)
+        if spectral_weight:
+            local_spectral, style_spectral = _loss_gradients(
+                spectral_loss, noisy_local, style_cond, retain_graph=False)
+        else:
+            local_spectral, style_spectral = torch.zeros_like(noisy_local), torch.zeros_like(style_cond)
+        if probing:
+            from gsd_calibration import CANDIDATES, gradient_rows
+            for candidate_index, (profile, beta) in enumerate(CANDIDATES):
+                loss = target.loss(predicted_xyz, profile=profile, beta=beta)
+                local_probe, style_probe = _loss_gradients(
+                    loss, noisy_local, style_cond, retain_graph=candidate_index < len(CANDIDATES) - 1)
+                probe_observer(dict(step_index=step_index, timestep=int(timestep.item()),
+                                    profile=profile, beta=beta,
+                                    samples=gradient_rows(local_scd, style_scd, local_probe, style_probe)))
+                del loss, local_probe, style_probe
         local_weighted = spectral_weight * local_spectral
         style_weighted = spectral_weight * style_spectral
         local_scd_weighted = scd_weight * local_scd
@@ -143,6 +170,16 @@ def tta_gsd_reconstruct(
         style_update = eta * (style_scd_weighted + style_weighted)
         _require_finite(local_update, "local update")
         _require_finite(style_update, "style update")
+
+        if sample_observer is not None:
+            from gsd_calibration import state_rows, gradient_rows
+            rows = state_rows(noisy_local, style_cond, local_scd_weighted, style_scd_weighted,
+                              scheduler_output.prev_sample, gamma, eta, local_weighted, style_weighted)
+            if spectral_weight:
+                for row, gradients in zip(rows, gradient_rows(
+                        local_scd_weighted, style_scd_weighted, local_weighted, style_weighted)):
+                    row.update(gradients)
+            sample_observer(dict(step_index=step_index, timestep=int(timestep.item()), samples=rows))
 
         if diagnostics_observer is not None:
             diagnostics = {"kind": "step", "step_index": step_index,

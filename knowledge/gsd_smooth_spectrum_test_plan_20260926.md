@@ -6,7 +6,14 @@ gradient, tolerance, protocol and launcher tests pass as part of the 112-test
 full CPU suite after the second review. This does not validate GPU execution or accuracy.
 Beta/alpha calibration and Colab smoke/pilot remain prerequisites.
 
-**Status:** V2 implementation and command-matrix runner are present on `gsd-smooth-spectrum`, based on `gsd-development@9650770`. CPU formula/protocol checks pass; calibration, common-draw verification and Colab model evaluation remain pending. No model evaluation was performed locally. V1 uses its historical alpha=1; the two v2 coefficients and smooth beta are explicit inputs and must be fixed before evaluation.
+**2026-09-27 update:** The immediate next experiment is now the approved
+[fixed-state calibration and staged development screen](gsd_calibration_execution_20260927.md),
+with [runnable Colab instructions](colab_gsd_calibration.md). The historical
+full-file three-arm pilot below remains a later comparator; do not begin it
+using arbitrary coefficients. The new small screen includes its own SCD-only
+control and does not replace the historical v1 comparator for thesis claims.
+
+**Status:** V2 implementation and command-matrix runner are present on `gsd-smooth-spectrum`, based on `gsd-development@9650770`. CPU formula/protocol checks pass; calibration model runs and cross-run common-draw verification remain pending. No model evaluation was performed locally. V1 uses its historical alpha=1; the two v2 coefficients and smooth beta are explicit inputs and must be fixed before evaluation.
 
 **Method:** `gsd_latent_spectral_smooth_v2`; retain `gsd_latent_spectral_v1` as the historical comparator. The hypothesis and derivation are in [the mathematical decision](gsd_guidance_math_20260926.md#9-difference-from-the-current-gsd-code-and-next-test-case).
 

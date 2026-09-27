@@ -12,6 +12,8 @@ PILOT_CORRUPTIONS = ("gaussian", "impulse")
 DEFAULTS = dict(gsd_weight=1.0, gsd_k=10, gsd_delta=0.1,
                 gsd_graph_gamma=0.6, gsd_modes=100, gsd_stage="pilot",
                 gsd_scd_weight=1.0)
+DEVELOPMENT_OPTIONS = ("gsd_development_count", "gsd_split_seed",
+                       "gsd_calibration_reference", "gsd_target_rho")
 
 
 def is_gsd_method(method: str) -> bool:
@@ -24,21 +26,28 @@ def add_arguments(parser) -> None:
                        ("graph-gamma", float), ("modes", int)):
         parser.add_argument("--gsd-" + name, type=cast, default=None)
     parser.add_argument("--gsd-stage", choices=("smoke", "pilot", "benchmark", "benchmark_no_background",
-                                                  "ablation_no_background"), default=None)
+                                                  "ablation_no_background", "calibrate", "development"), default=None)
     parser.add_argument("--gsd-profile", choices=("hard", "smooth"), default=None)
     parser.add_argument("--gsd-beta", type=float, default=None)
+    parser.add_argument("--gsd-development-count", type=int, default=None)
+    parser.add_argument("--gsd-split-seed", type=int, default=None)
+    parser.add_argument("--gsd-calibration-reference", default=None)
+    parser.add_argument("--gsd-target-rho", type=float, default=None)
 
 
 def validate_arguments(args, parser, all_corruptions) -> None:
     if args.method not in METHODS:
         if (any(getattr(args, key) is not None for key in DEFAULTS) or
-                args.gsd_profile is not None or args.gsd_beta is not None):
+                args.gsd_profile is not None or args.gsd_beta is not None or
+                any(getattr(args, key) is not None for key in DEVELOPMENT_OPTIONS)):
             parser.error("GSD options require --method " + " or ".join(METHODS))
         # Keep existing methods' serialized CLI dictionaries unchanged.
         for key in DEFAULTS:
             delattr(args, key)
         delattr(args, "gsd_profile")
         delattr(args, "gsd_beta")
+        for key in DEVELOPMENT_OPTIONS:
+            delattr(args, key)
         return
     is_smooth_method = args.method == SMOOTH_METHOD
     if is_smooth_method and args.gsd_weight is None:
@@ -76,7 +85,29 @@ def validate_arguments(args, parser, all_corruptions) -> None:
         parser.error("GSD delta must be finite and positive.")
     if not math.isfinite(args.gsd_graph_gamma) or args.gsd_graph_gamma < 0:
         parser.error("GSD graph gamma must be finite and non-negative.")
-    if args.gsd_stage == "smoke":
+    if args.gsd_calibration_reference is not None and args.gsd_stage != "development":
+        parser.error("Calibration reference requires development stage.")
+    if args.gsd_stage == "development" and args.gsd_calibration_reference is None:
+        parser.error("Development stage requires --gsd-calibration-reference.")
+    if args.gsd_target_rho is not None and (args.gsd_calibration_reference is None or
+                                          args.gsd_target_rho not in (1e-4, 1e-3, 1e-2)):
+        parser.error("Target rho requires calibration reference and value 0.0001/0.001/0.01.")
+    if args.gsd_stage in ("calibrate", "development"):
+        if not is_smooth_method or args.max_batches != 0 or args.corruptions != list(PILOT_CORRUPTIONS):
+            parser.error("GSD calibration/development requires smooth-v2, Gaussian+Impulse and max-batches 0.")
+        if args.gsd_scd_weight != 1:
+            parser.error("Calibration/development preserves SCD weight 1.")
+        if args.gsd_stage == "calibrate" and (args.gsd_weight != 0 or args.seed != 0 or args.gsd_profile != "hard"):
+            parser.error("Calibration requires spectral weight 0, seed 0 and hard placeholder profile.")
+        if args.gsd_development_count is None:
+            args.gsd_development_count = 64 if args.gsd_stage == "calibrate" else 128
+        if args.gsd_split_seed is None:
+            args.gsd_split_seed = 20260927
+        if not 32 <= args.gsd_development_count <= 512 or args.gsd_development_count % 32:
+            parser.error("Development count must be a multiple of 32 in [32,512].")
+    elif args.gsd_development_count is not None or args.gsd_split_seed is not None:
+        parser.error("Development subset options require calibrate/development stage.")
+    elif args.gsd_stage == "smoke":
         if args.max_batches not in (1, 2) or args.corruptions not in (["gaussian"], ["background"]):
             parser.error("GSD smoke requires 1/2 batches of Gaussian or Background.")
     else:
@@ -85,7 +116,7 @@ def validate_arguments(args, parser, all_corruptions) -> None:
             if args.gsd_stage in ("benchmark_no_background", "ablation_no_background") else all_corruptions)
         if args.max_batches != 0 or args.corruptions != list(expected):
             parser.error("GSD pilot/benchmark requires complete files in its canonical scope.")
-    if is_smooth_method and args.gsd_stage not in ("smoke", "pilot"):
+    if is_smooth_method and args.gsd_stage not in ("smoke", "pilot", "calibrate", "development"):
         parser.error("GSD smooth v2 is restricted to smoke/pilot until promotion review.")
     if not is_smooth_method and args.gsd_stage in ("benchmark", "benchmark_no_background") and (
             args.gsd_weight not in (0.0, 1.0) or args.gsd_scd_weight != 1.0 or args.gsd_k != 10 or
@@ -130,10 +161,30 @@ def spectral_contract(args) -> dict:
             beta=args.gsd_beta,
             hard_requested_modes=args.gsd_modes if args.gsd_profile == "hard" else None,
             operator="full active graph spectral filter; dense fixed operator")
+    if args.gsd_stage == "calibrate":
+        contract.update(name="SCD-only reference with read-only spectral probes",
+                        profile="shared hard/smooth probes", beta=None,
+                        zero_weight_behavior="instrumented SCD-only trajectory; no spectral gradient applied",
+                        operator="one retained eigensystem per graph; fixed 3*N probe losses",
+                        tuning="label-free pooled development calibration; candidates hard and beta .5/2/8")
+    elif args.gsd_stage == "development":
+        contract.update(tuning="exploratory fixed shuffled subset; not a benchmark",
+                        zero_weight_behavior="instrumented SCD-only trajectory; graph bypass")
     return contract
 
 
 def notes_for_run(args) -> str:
+    if args.gsd_stage in ("calibrate", "development"):
+        return ("# GSD development experiment\n\n"
+                "[Code] Stage=" + args.gsd_stage + ". Fixed shuffled index subset; raw/eval LION, "
+                "EMA off, original-style decoder, SCD weight 1, lambda .95, gamma=eta=.01. "
+                "Calibration probes hard and beta .5/2/8 at shared SCD-only states; no candidate update applied. "
+                "Development applies its configured fixed guidance weight.\n"
+                "[Code] config.json contains development_split and per-sample gsd_sample_diagnostics. "
+                "CSV coverage stays partial. Pooled calibration creates cross-example dependence.\n"
+                "[Open] Index correspondence is not verified object identity. No held-out or full-benchmark claim. "
+                "Separate seeded screening runs are not proven common-draw paired. "
+                "Provide the complete seven-file ZIP.\n")
     name = SMOOTH_METHOD_NAME if args.method == SMOOTH_METHOD else METHOD_NAME
     method = args.method
     profile = (f" Profile={args.gsd_profile}; beta={args.gsd_beta}; fixed 3*N reduction."
@@ -159,6 +210,10 @@ def notes_for_run(args) -> str:
 def merge_diagnostics(config: dict, corruption: str, event: dict) -> None:
     """Keep bounded scalar aggregates, including absent/empty-spectrum counters."""
     kind = event["kind"]
+    if kind in ("state", "probe"):
+        config.setdefault("gsd_sample_diagnostics", {}).setdefault(corruption, {}).setdefault(
+            kind, []).extend(event["samples"])
+        return
     rows = event["samples"] if kind == "graph" else [event]
     target = config.setdefault("gsd_diagnostics", {}).setdefault(corruption, {}).setdefault(
         kind, {"records": 0, "scalars": {}})
@@ -192,16 +247,27 @@ def process_batches(batches, base_model, lion, args, baseline, torch_module, ste
                                      graph_gamma=args.gsd_graph_gamma, modes=args.gsd_modes)
     smooth_method = args.method == SMOOTH_METHOD
     targets, predictions = [], []
+    offset = 0
     for data, label in baseline.tqdm(batches, desc="GSD Batches"):
         with torch_module.no_grad():
             inputs, center, maximum = tta_preprocess_points(data, baseline, args, torch_module)
+        extra = {}
+        if args.gsd_stage in ("calibrate", "development"):
+            def observe(kind, event):
+                metadata = {key: value for key, value in event.items() if key != "samples"}
+                rows = [dict(row, **metadata, sample_index=args.gsd_sample_indices[offset + i])
+                        for i, row in enumerate(event["samples"])]
+                diagnostics_observer(dict(kind=kind, samples=rows))
+            extra["sample_observer"] = lambda event: observe("state", event)
+            if args.gsd_stage == "calibrate":
+                extra["probe_observer"] = lambda event: observe("probe", event)
         points = tta_gsd_reconstruct(
             inputs, lion, steps, args.gamma, args.eta, args.lambdaa, 100,
             spectral_weight=args.gsd_weight, scd_weight=args.gsd_scd_weight,
             spectral_config=spectral_config,
             scheduler_observer=scheduler_observer, diagnostics_observer=diagnostics_observer,
             spectral_profile=args.gsd_profile if smooth_method else None,
-            spectral_beta=args.gsd_beta if smooth_method else None)
+            spectral_beta=args.gsd_beta if smooth_method else None, **extra)
         with torch_module.no_grad():
             points = tta_postprocess_points(points, center, maximum, baseline, args)
             pred = base_model.module.classification_only(points, only_unmasked=False).argmax(-1).view(-1)
@@ -209,4 +275,5 @@ def process_batches(batches, base_model, lion, args, baseline, torch_module, ste
         batch_observer(target, pred)
         targets.append(target.cpu())
         predictions.append(pred.cpu())
+        offset += len(data)
     return torch_module.cat(targets), torch_module.cat(predictions)

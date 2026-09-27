@@ -1,5 +1,16 @@
 # Experiment and Reproducibility Protocol
 
+## GSD development calibration extension - 2026-09-27
+
+[User report/Code] The approved [calibration plan](gsd_calibration_execution_20260927.md)
+adds explicit `calibrate` and `development` stages for smooth-v2 only.
+Use the [Colab handoff](colab_gsd_calibration.md). Complete execution on these
+shuffled subsets retains CSV coverage `partial`; it is not a full-file pilot
+or all-15 benchmark. Preserve exact selected original indices, raw per-sample
+metrics and calibration provenance in config.json. Calibration candidate
+probes share states; separate screen runs remain seed-controlled, not proven
+common-draw paired. Numerical model experiments remain Colab-only.
+
 ## GSD v1 extension - 2026-09-23
 
 [User report] The current GSD task explicitly authorizes CPU unit/protocol

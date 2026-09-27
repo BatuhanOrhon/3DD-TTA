@@ -276,3 +276,51 @@ source and scale-matching statistic from `experiment_protocol.md`; the design
 does not imply an optimal beta or alpha. Validate graph component quality and
 slot correspondence on real latent captures. Numerical/model runs remain
 Colab-only under the project workflow.
+
+## 10. Proposed beta and guidance-scale calibration protocol (2026-09-27)
+
+**Superseded proposal:** The later [calibration review](gsd_calibration_review_20260927.md)
+replaces the q95 prerequisite and v1-scale default, and corrects the blanket
+restriction on unlabeled target-input statistics. The text below is retained
+as proposal history; it was never implemented or locked.
+
+[Inference/Proposal; not yet locked] Do not choose beta or spectral alpha by
+searching accuracy on ModelNet40-C test examples. Use two separate stages:
+
+1. Build a fixed, unlabeled calibration pool with object identities that do
+   not appear in the final ModelNet40-C evaluation. Preferred practical option:
+   held-out ModelNet40 training-partition shapes corrupted with the repository's
+   fixed Gaussian and Impulse severity-5 transforms. No labels or accuracy are
+   used; Point-MAE/LION weights remain frozen. This is offline source-domain
+   hyperparameter calibration and must be disclosed; it is not strict
+   source-data-free tuning. If even offline source examples are disallowed,
+   use an external unlabeled pool and report the domain mismatch. Reserving
+   ModelNet40-C test identities instead requires excluding them from final
+   scoring and is not comparable to the canonical full test score.
+2. On this calibration pool, collect the normalized eigenvalue distribution
+   `q=lambda/mean_active_degree` over active graph modes. The current smoke
+   logs only min/max, so add a calibration-only q95 statistic (or compute it
+   in a separate read-only Colab utility); do not derive it from the already
+   inspected smoke/test prefix. Set `q_ref` to the median per-shape q95 and
+   derive candidates from predeclared attenuation targets
+   `tau in {0.5, 0.1, 0.01}` using `beta_tau=-ln(tau)/q_ref`. This selects
+   interpretable filter shapes without accuracy peeking. Keep beta=2 only as
+   the completed smoke setting, not as an accuracy-selected optimum.
+3. With common calibration inputs, graph, diffusion draws and timesteps,
+   measure at unit coefficient the concatenated update-space spectral/SCD
+   gradient ratio, weighting local/style norms by the locked `gamma`/`eta`.
+   Use the v1 weight-1 ratio as the predeclared target. Since a scalar loss
+   coefficient scales its gradient linearly, set each v2 hard/smooth alpha
+   to `target_ratio / observed_unit_alpha_ratio`. Report local and style
+   ratios separately as imbalance diagnostics and estimate uncertainty over
+   shapes/seeds. This matches B and C to a common scale without using accuracy.
+4. Freeze beta candidates and both calibrated weights before any labelled
+   validation/pilot accuracy is inspected. If accuracy-based model selection
+   is required, it needs a further validation set disjoint from the final
+   benchmark. Final all-15 accuracy remains a locked confirmation, not a
+   tuning loop.
+
+[Open] The calibration source is not yet approved or available in the current
+artifact record; beta q95 diagnostics and the calibration-only runner are not
+implemented. The 2026-09-27 Gaussian smoke prefix remains execution/diagnostic
+evidence only and must not be reused to pick beta or alpha.

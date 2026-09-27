@@ -1874,3 +1874,133 @@ smooth Gaussian smoke arm. Preserve the already completed hard smoke ZIP.
 Then inspect the complete hard and smooth smoke bundles before starting any
 pilot or interpreting accuracy. No calibration or profile conclusion follows
 from the reported 32-example partial result.
+
+## 2026-09-27 - smooth-profile Gaussian smoke validated
+
+[Run] The user supplied
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260927-192156_gsd-smooth-v2-smoke-smooth-seed0-beta2p0.zip`.
+ZIP CRC passes; all seven required files are present; config and both CSVs
+agree on run ID; logs show no traceback and one completed batch. The run records
+commit `d75a32d3c31b95d899a49a3e352bb74e2e243b37`, beta 2, smooth profile,
+spectral/SCD weights 1/1, seed 0, Gaussian severity 5, and 32 examples.
+
+[Run] Accuracy is 26/32 (81.25%), runtime 5.3296 seconds, and peak allocated
+GPU memory 21,010.9 MB. This is a partial smoke prefix, not an accuracy
+comparison. The separately reported hard smoke also had 26/32, but its ZIP is
+not present in the canonical result folder, and equal prefix counts cannot
+establish method equivalence.
+
+[Run/Inference] Batch-mean effective smooth spectral mass is 641.79 with no
+numerically zero weights, confirming the smooth filter ran without an observed
+hard cutoff/underflow. The ratios of aggregate gradient-norm means are 0.00873%
+for local spectral/SCD and 0.01380% for style spectral/SCD. This supports a
+very weak relative spectral contribution at weight 1 in this smoke; it does
+not establish a performance cause or calibration value.
+
+[Provenance] `git_dirty=true`, but all manifested runtime/method Python files
+match this checkout after normalizing Windows CRLF to LF. The recorded dirty
+status is from generated build/cache artifacts plus a generated build-tree
+Python file; no method-source divergence is detected in the manifest.
+
+[Decision/Open] The earlier smoke-failure item is superseded: the fixed smooth
+smoke now completes and its bundle is archived. Keep pilot accuracy runs
+parked until beta candidates, calibration data, and a scale-matching rule are
+predeclared; also archive the hard smoke ZIP if a direct artifact comparison
+is needed. See the derived validation note beside the raw ZIP.
+
+## 2026-09-27 - beta and weight calibration proposal
+
+**Superseded by the later calibration review below.** The q95 prerequisite,
+v1-scale target as a default and blanket target-input restriction were not
+implemented and are no longer the recommended protocol.
+
+[Inference/Proposal] Derive beta candidates from an active-spectrum attenuation
+target rather than accuracy search: measure per-shape q95 for
+`q=lambda/mean_active_degree`, take its calibration-set median, and set
+`beta=-ln(tau)/q_ref` for predeclared attenuation targets such as 0.5, 0.1,
+and 0.01. The existing smoke only logs scaled-eigenvalue min/max and is not a
+valid calibration source because it is an inspected benchmark prefix.
+
+[Inference/Proposal] For the scalar spectral weights, use an independent
+unlabeled calibration pool and common diffusion draws. Match hard-v2 and each
+smooth candidate's aggregate update-space spectral/SCD gradient ratio to the
+v1 weight-1 ratio; retain local/style ratios separately. Freeze all values
+before any accuracy-based validation. A distinct held-out accuracy-validation
+set is required if pilot accuracy will be used to select a candidate.
+
+[Open] A disjoint ModelNet40 training-partition calibration pool is the
+practical same-domain option but uses source-domain examples offline and must
+be disclosed; otherwise an external unlabeled pool is needed. No beta grid,
+calibration data, q95 capture or calibration runner has been approved or
+implemented yet. No run/accuracy result supports this proposal.
+
+## 2026-09-27 - calibration efficiency and SCD-scale reassessment
+
+[Code/Derivation] Review at `d75a32d`: mean active normalized eigenvalue is
+exactly 1 in exact arithmetic, so beta candidates do not require a fitted
+spectral quantile. The Gaussian smoke's batch-wide local SCD norm113.0058
+corresponds to coordinate update RMS .002207 for B32, local dimension8192,
+gamma=.01. State/DDIM scales are missing; SCD overshooting is unestablished.
+
+[Inference] Recommend a small predeclared beta grid (.5,2,8), common-state
+unit-gradient probes, and fixed local spectral/SCD contribution targets
+(.01%, .1%, 1%) for exploratory screening. A v1 gradient match is an ablation
+control, not an optimum. Monitor style independently and verify full guided
+trajectories because fixed-state linear alpha scaling does not transfer
+exactly across changed trajectories. Reusing eigendecompositions and probing
+only selected timesteps saves work; candidate VJPs still have a real cost.
+
+[Paper/Correction] Unlabeled target-input adaptation is compatible with
+source-free TTA (Tent, https://arxiv.org/abs/2006.10726). The prior blanket
+restriction was too strong. Predetermined target-input statistics require an
+explicit adaptation/dependency protocol; final-test accuracy-based selection
+remains distinct. TTAB discusses model-selection/batch-dependency pitfalls:
+https://proceedings.mlr.press/v202/zhao23d.html .
+
+[Decision/Open] Preserve the SCD=1 baseline, add relative-step diagnostics
+before judging its scale, and use a staged development screen rather than
+immediately changing the SCD objective or adding online norm balancing.
+The detailed proposal is `gsd_calibration_review_20260927.md`. This is a
+documentation/design revision, not a new implementation or model experiment.
+
+## 2026-09-27 - approved calibration runner and staged test preparation
+
+[User report] User approved updating knowledge and performing the revised
+tests. Implementation extends `gsd-smooth-spectrum` from `d75a32d`; exact
+implementation commit is the commit containing this entry.
+
+[Code] Added SCD-only common-state probes for hard and beta .5/2/8, with one
+graph eigendecomposition per example and no candidate gradient application.
+Local/style metrics distinguish SCD, spectral and total update sizes; local
+DDIM displacement and per-probe gradient ratios/cosines retain raw norms and
+explicit null denominators. Ratios are per-example slices, not ratios of
+batch-mean norms. The report includes median/p90 and per-step summaries.
+
+[Code] A local RNG selects nested shuffled diagnostic/development index pools
+(default 64/128 per Gaussian/Impulse corruption, split seed 20260927). Fixed
+alpha uses pooled median unit local spectral/SCD ratio and rho 1e-4/1e-3/1e-2.
+Zero spectral ratios remain in the median; missing denominators or near-zero
+median block recommendations. There is no label/accuracy input to this fit.
+The launcher adds baseline+beta2/three weights, then .5/8/hard only after an
+explicit selected rho. No automatic winner or benchmark promotion.
+
+[Code] Development requires a completed calibration reference, records its
+hash/run ID, enforces matched coefficient/host/graph settings and checks
+source/data/asset hashes before loading models. Raw individual diagnostics
+and original indices reside in config.json; seven-file ZIP schema remains.
+Successful subset execution has coverage partial. The exporter supports the
+new smooth-v2 archives through `--stage all --name-contains gsd-cal-`.
+
+[Verification] 125 CPU tests pass; diff whitespace check passes. Algebra,
+five-step output/RNG parity under CPU adapters, worker/count/artifact plumbing,
+calibration failure guards, staged commands and export have persistent tests.
+Independent review caught a missing-reference CLI escape and it was fixed.
+See `gsd_calibration_execution_20260927.md` and `colab_gsd_calibration.md`.
+
+[Open/Falsifier] No numerical LION/CUDA run took place locally. Ingest the
+first diagnostic ZIP before choosing any weight. OOM, nonfinite gradients,
+missing probe rows, unexpected scale tails or CUDA trajectory discrepancies
+would block progression. Identity correspondence across corruption files
+remains unverified; a shuffled index pool does not establish held-out objects.
+The small screen cannot establish a roughly 1 pp gain. Preserve SCD weight1
+until measured evidence justifies a separate strength ablation.

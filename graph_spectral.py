@@ -13,7 +13,8 @@ from typing import Any, List, Tuple
 import torch
 
 __all__ = ["SpectralConfig", "SpectralTarget", "SmoothSpectralTarget",
-           "build_spectral_target", "build_smooth_spectral_target"]
+           "ProbeSpectralTarget", "build_spectral_target", "build_smooth_spectral_target",
+           "build_probe_spectral_target"]
 
 
 @dataclass(frozen=True)
@@ -104,7 +105,8 @@ class SmoothSpectralTarget:
 
 
 def _sample_target(reference: torch.Tensor, config: SpectralConfig, *,
-                   profile: str | None = None, beta: float | None = None
+                   profile: str | None = None, beta: float | None = None,
+                   spectrum_parts: list | None = None,
                    ) -> Tuple[torch.Tensor, dict]:
     started = time.perf_counter()
     count = reference.shape[0]
@@ -211,15 +213,24 @@ def _sample_target(reference: torch.Tensor, config: SpectralConfig, *,
                     raise FloatingPointError("smooth spectral weights are nonfinite")
             else:
                 raise ValueError("spectral profile must be 'hard' or 'smooth'")
-            active_filter = (eigenvectors * weights.unsqueeze(0)) @ eigenvectors.transpose(0, 1)
-            active_filter = (active_filter + active_filter.transpose(0, 1)) * 0.5
-            spectral_filter = reference.new_zeros((count, count))
             active_indices = active.nonzero(as_tuple=False).flatten()
-            spectral_filter[active_indices[:, None], active_indices[None, :]] = active_filter
+            if spectrum_parts is not None:
+                # Diagnostic probes retain one eigensystem, not four dense filters.
+                spectrum_parts.append((active_indices, eigenvectors.detach(),
+                                       scaled_eigenvalues.detach(), rank))
+            else:
+                active_filter = (eigenvectors * weights.unsqueeze(0)) @ eigenvectors.transpose(0, 1)
+                active_filter = (active_filter + active_filter.transpose(0, 1)) * 0.5
+                spectral_filter = reference.new_zeros((count, count))
+                spectral_filter[active_indices[:, None], active_indices[None, :]] = active_filter
+                target_tensor = spectral_filter
             effective_spectral_mass = float(weights.sum().item())
-            target_tensor = spectral_filter
     elif profile is not None:
-        target_tensor = reference.new_zeros((count, count))
+        if spectrum_parts is not None:
+            spectrum_parts.append((active.nonzero(as_tuple=False).flatten(),
+                                   reference.new_empty((0, 0)), reference.new_empty(0), 0))
+        else:
+            target_tensor = reference.new_zeros((count, count))
     # Scale cancels in the fraction. Normalization avoids diagnostic overflow
     # for finite large coordinates, and float64 reduces projector roundoff.
     reference_scale = reference.abs().max()
@@ -268,6 +279,67 @@ def _sample_target(reference: torch.Tensor, config: SpectralConfig, *,
             spectral_profile=profile,
             spectral_beta=float(beta) if beta is not None else None)
     return target_tensor.detach(), diagnostics
+
+
+@dataclass(frozen=True)
+class ProbeSpectralTarget:
+    """Shared eigensystems for fixed-state, fixed-3N diagnostic candidates."""
+
+    reference_xyz: torch.Tensor
+    spectra: tuple
+    diagnostics: list
+
+    def loss(self, pred_xyz: torch.Tensor, *, profile: str, beta=None) -> torch.Tensor:
+        _validate_xyz(pred_xyz, "pred_xyz")
+        if (pred_xyz.shape != self.reference_xyz.shape or
+                pred_xyz.device != self.reference_xyz.device or
+                pred_xyz.dtype != self.reference_xyz.dtype):
+            raise ValueError("prediction/reference shape, device and dtype must match")
+        if profile not in ("hard", "smooth") or (profile == "hard" and beta is not None):
+            raise ValueError("invalid probe profile/beta")
+        if profile == "smooth" and (beta is None or not math.isfinite(beta) or beta <= 0):
+            raise ValueError("smooth probe requires finite positive beta")
+        loss = pred_xyz.reshape(-1)[0] * 0
+        for pred, ref, (indices, basis, q, rank) in zip(
+                pred_xyz, self.reference_xyz, self.spectra):
+            coefficients = basis.T @ (pred - ref)[indices]
+            if profile == "hard":
+                energy = coefficients[:rank].square().sum()
+            else:
+                weights = torch.exp(-float(beta) * q.to(torch.float64)).to(pred.dtype)
+                energy = (weights[:, None] * coefficients.square()).sum()
+            loss = loss + energy / (3 * pred_xyz.shape[1])
+        if not bool(torch.isfinite(loss)):
+            raise FloatingPointError("probe spectral loss is nonfinite")
+        return loss
+
+
+@torch.no_grad()
+def build_probe_spectral_target(reference_xyz: torch.Tensor,
+                                config: SpectralConfig) -> ProbeSpectralTarget:
+    """One eigendecomposition per sample, shared by all calibration candidates."""
+    _validate_xyz(reference_xyz, "reference_xyz")
+    if not isinstance(config, SpectralConfig):
+        raise TypeError("config must be SpectralConfig")
+    if config.k >= reference_xyz.shape[1]:
+        raise ValueError("k must be smaller than the number of vertices")
+    denominator = reference_xyz.new_tensor(2 * config.delta * config.delta)
+    if not bool(torch.isfinite(denominator)) or not bool(denominator > 0):
+        raise ValueError("2 * delta squared must be finite and positive in the reference dtype")
+    reference = reference_xyz.detach().clone()
+    spectra, diagnostics = [], []
+    for sample in reference:
+        _, row = _sample_target(sample, config, profile="hard", spectrum_parts=spectra)
+        indices, basis, q, rank = spectra[-1]
+        row.update(spectral_profile="probe_shared_spectrum",
+                   operator_storage_bytes=sum(t.numel() * t.element_size() for t in (indices, basis, q)),
+                   hard_effective_mass=float(rank))
+        for beta in (.5, 2., 8.):
+            weights = torch.exp(-beta * q.to(torch.float64)).to(reference.dtype)
+            row["effective_mass_beta" + str(beta)] = float(weights.sum().item())
+            row["zero_weight_count_beta" + str(beta)] = int((weights == 0).sum().item())
+        diagnostics.append(row)
+    return ProbeSpectralTarget(reference, tuple(spectra), diagnostics)
 
 
 @torch.no_grad()

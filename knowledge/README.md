@@ -1,5 +1,29 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[Code] 2026-09-27 next test: fixed-state calibration.**
+The [approved execution plan](gsd_calibration_execution_20260927.md) and
+[Colab commands](colab_gsd_calibration.md) implement SCD-only diagnostics on
+64 shuffled examples/corruption, shared hard/beta .5/2/8 probes, and a staged
+128-example development screen. Start with `eval_gsd_calibration.py --phase
+diagnose --execute` in Colab. CPU evidence and limits are recorded in the plan;
+real CUDA diagnostics and accuracy screening remain pending.
+
+**[Code/Inference] 2026-09-27 calibration review:** The
+[revised proposal](gsd_calibration_review_20260927.md) uses mean-normalized
+eigenvalue scale for a small fixed beta grid, measures SCD update sizes rather
+than judging raw gradient norms, and calibrates fixed relative spectral
+contributions on common reference states. It corrects the earlier blanket
+restriction on unlabeled target-input statistics. The prior q95/v1-target
+proposal is superseded; the diagnostic runner is now implemented, but no
+new model experiment has been run.
+
+**[Run] 2026-09-27 smooth-v2 smoke:** The fixed Colab launcher now completes
+the Gaussian smooth-profile one-batch smoke at commit `d75a32d`; its validated
+32-example ZIP and diagnostics are recorded in
+[`findings_log.md`](findings_log.md) and beside the raw artifact. This is
+execution/gradient evidence only, not an accuracy comparison. Beta/weight
+calibration and the hard/smooth pilot remain open.
+
 **[Code/Run] 2026-09-26 implementation correction:** The three blockers in the
 [implementation review](gsd_smooth_review_20260926.md) have been repaired:
 rank-sized basis allocation, raw-unit PSD tolerance, and the v1/hard-v2/smooth-v2

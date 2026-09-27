@@ -1,5 +1,26 @@
 # Open Questions and Research Backlog
 
+## NEXT TEST 2026-09-27: SCD scale diagnostics and fixed GSD calibration
+
+See [execution plan](gsd_calibration_execution_20260927.md) and
+[Colab handoff](colab_gsd_calibration.md).
+
+- [x] Declare beta .5/2/8 and local rho 1e-4/1e-3/1e-2 before accuracy inspection.
+- [x] Implement shared-eigensystem probes on unchanged SCD-only reference states.
+- [x] Log per-sample state/SCD update RMS, local DDIM displacement, gradient
+  ratios and cosines; keep zero denominators explicit.
+- [x] Implement fixed shuffled development indices and traceable staged commands.
+- [x] Reject incomplete/degenerate calibration and mismatched source/assets/weights.
+- [ ] Run and ingest Colab diagnostic ZIP: 64 Gaussian + 64 Impulse, seed 0.
+- [ ] Assess SCD displacement before considering a separate weight-.5 ablation.
+- [ ] Run baseline + beta2 at three calibrated weights on 128 indices/corruption.
+- [ ] Choose rho explicitly, compare beta .5/8 and matched hard, then check interaction.
+- [ ] Expand promising candidates and controls across data/seeds; freeze settings.
+- [ ] Verify cross-corruption object identities before claiming held-out confirmation.
+
+These stages supersede the earlier mandatory q95/v1-scale calibration recipe.
+They do not establish an optimum or a 1 pp accuracy gain.
+
 ## 2026-09-26 implementation review blockers
 
 See [the review and corrections](gsd_smooth_review_20260926.md); its historical
@@ -463,9 +484,55 @@ No alternate resampling policy is implemented or benchmarked yet.
 - [x] Change only the run-name label to `beta2p0`; preserve numeric beta passed
   to inference. Add a regression test exercising the actual artifact writer.
 - [x] Verify all 113 local CPU tests pass.
-- [ ] Pull the fix into Colab and rerun the smooth Gaussian smoke arm; archive
-  and validate the complete artifact bundle before beginning the pilot.
-- **[Open]** The user's hard smoke result is partial (32 examples) and cannot
-  support profile accuracy comparisons. Keep calibration and pilot selection
-  pending until the smoke matrix completes and the beta/scale matching rule is
-  predeclared.
+- [x] Pull commit `d75a32d` into Colab; smooth Gaussian smoke completes and its
+  seven-file ZIP validates at
+  `result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260927-192156_gsd-smooth-v2-smoke-smooth-seed0-beta2p0.zip`.
+- [x] Confirm smooth diagnostics have effective spectral mass 641.79,
+  zero underflowed weights, and very small spectral/SCD aggregate gradient
+  ratios (local .00873%, style .01380%) at guidance weight 1.
+- [ ] Obtain/archive the hard smoke ZIP if a raw-artifact comparison is needed;
+  its user-reported 26/32 prefix result is not itself an archived run bundle.
+- **[Open]** Both smoke runs are partial prefixes (smooth 26/32, hard reported
+  26/32) and do not support accuracy or equivalence claims. Before a pilot,
+  predeclare beta candidates, calibration data, and the spectral-gradient
+  scale-matching rule; freeze parameters before accuracy evaluation.
+
+### 2026-09-27 calibration design proposal (not yet locked)
+
+**Superseded:** This checklist is historical. Follow the revised calibration
+review/checklist below instead of treating source-domain data or q95 as gates.
+
+- [ ] Decide whether offline use of unlabeled ModelNet40 training-partition
+  shapes is acceptable; disclose that this relaxes a strict source-data-free
+  assumption. If not, identify a disjoint external unlabeled calibration pool.
+- [ ] Fix object IDs and corruption-generation settings for the calibration
+  pool; do not use the inspected ModelNet40-C smoke prefix to select parameters.
+- [ ] Add/read out per-graph q95 for `q=lambda/mean_active_degree`; current
+  smoke records only scaled-eigenvalue min/max.
+- [ ] Predeclare attenuation targets (proposal: 0.5, 0.1, 0.01 at median q95)
+  and derive beta values as `-ln(tau)/q_ref` without inspecting accuracy.
+- [ ] Match hard-v2 and smooth-v2 aggregate update-space gradient ratios to
+  the v1 weight-1 ratio on the same calibration inputs; log local/style ratios
+  separately and freeze all coefficients before accuracy evaluation.
+- [ ] Keep any accuracy-based validation set disjoint from final benchmark
+  examples; use the all-15 ModelNet40-C test only for locked confirmation.
+
+### 2026-09-27 revised calibration and SCD-scale review
+
+- [x] Establish mean normalized graph eigenvalue=1; an initial beta grid can
+  be declared without fitting q95. Proposed grid: .5, 2, 8.
+- [x] Separate batch gradient norm from per-coordinate update RMS: the smoke
+  local SCD norm113 implies update RMS about .002207 at gamma=.01, not a
+  demonstrated overshoot. State/DDIM relative scales remain unmeasured.
+- [ ] Define a fixed development split and its final-evaluation boundary;
+  unlabeled target statistics are permissible under an explicit TTA protocol.
+- [ ] Measure per-example local/style update-to-state ratios, local
+  update-to-DDIM ratios and gradient cosines on common SCD-only states.
+- [ ] Calibrate fixed alpha to a declared local relative-contribution grid
+  (proposal: rho=.0001,.001,.01); monitor style separately. V1 strength is
+  an optional comparator, not an established optimum.
+- [ ] Reuse graphs/forward passes for unit-weight gradient probes, then run
+  the small staged beta/rho screen and a beta/rho interaction check.
+- [ ] Expand candidates only with sufficient development evidence; keep
+  actual-trajectory diagnostics and paired seed/held-out confirmation.
+- See [review and experimental sequence](gsd_calibration_review_20260927.md).

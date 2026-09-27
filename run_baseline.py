@@ -503,6 +503,9 @@ def run_worker(directory: str) -> None:
                       for name in args.corruptions}
         config.update(asset_manifest=identities, dataset_hash_manifest=data_files,
                       classifier_checkpoint_sha256=identities["classifier_checkpoint"]["sha256"])
+        if config.get("calibration_reference") is not None:
+            from gsd_calibration import verify_calibration_inputs
+            verify_calibration_inputs(config)
         if "lion_checkpoint" in identities:
             config["lion_checkpoint_sha256"] = identities["lion_checkpoint"]["sha256"]
         bundle.write_config(config)
@@ -657,6 +660,22 @@ def run_worker(directory: str) -> None:
                 label_shape=list(dataset.labels.shape), label_dtype=str(dataset.labels.dtype),
                 total_examples=len(dataset), min_label=int(dataset.labels.min()),
                 max_label=int(dataset.labels.max()))
+            if getattr(args, "gsd_stage", None) in ("calibrate", "development"):
+                from gsd_calibration import development_indices
+                indices = development_indices(len(dataset), args.gsd_development_count, args.gsd_split_seed)
+                config.setdefault("development_split", {})[active] = dict(
+                    split_seed=args.gsd_split_seed, indices=indices, total_examples=len(dataset),
+                    correspondence="index only; object identity across corruptions unverified",
+                    purpose="exploratory target development; not held-out confirmation")
+                if config.get("calibration_reference") is not None:
+                    reference_split = config["calibration_reference"]["development_split"][active]
+                    if (reference_split["total_examples"] != len(dataset) or
+                            reference_split["indices"] != indices[:len(reference_split["indices"])]):
+                        raise ValueError("development pool does not contain the recorded calibration indices")
+                config["randomness"]["data_order"] = "fixed shuffled development indices; loader shuffle=False"
+                args.gsd_sample_indices = indices
+                dataset.data, dataset.labels = dataset.data[indices], dataset.labels[indices]
+                bundle.write_config(config)
             loader = baseline.DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
             batches = loader if args.max_batches == 0 else itertools.islice(loader, args.max_batches)
             steps = 35 if active == "background" else 5
@@ -757,6 +776,8 @@ def run_worker(directory: str) -> None:
             if counters["n"] != targets.numel() or counters["correct"] != int((predictions == targets).sum().item()):
                 raise RuntimeError("Batch counters disagree with returned predictions.")
             status = "complete" if counters["n"] == len(dataset) else "partial"
+            if getattr(args, "gsd_stage", None) in ("calibrate", "development"):
+                status = "partial"
             row = corruption_row(config["run_id"], args.seed, active,
                                  counters["n"], counters["correct"], elapsed,
                                  torch.cuda.max_memory_allocated() / (1024 ** 2), status,
@@ -963,7 +984,7 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
         "scd-normalized-s5-gaussian-impulse" if args.method == SCD_NORMALIZATION_METHOD else
         "scd-lambda96-s5-gaussian-impulse" if args.method == SCD_LAMBDA96_METHOD else
         (f"gsd-smooth-{args.gsd_profile}" +
-         (f"-beta{args.gsd_beta:g}" if args.gsd_beta is not None else ""))
+         ("-beta" + str(args.gsd_beta).replace(".", "p").replace("+", "") if args.gsd_beta is not None else ""))
         if args.method == gsd_protocol.SMOOTH_METHOD else
         "gsd-" + args.gsd_stage if args.method == gsd_protocol.METHOD else
         "baseline-smoke")
@@ -1056,6 +1077,15 @@ def build_config(args: argparse.Namespace) -> dict:
                                                 ("graph_spectral.py", "tta_gsd.py", "gsd_protocol.py",
                                                  "eval_gsd_smooth.py" if args.method == gsd_protocol.SMOOTH_METHOD
                                                  else "eval_gsd_tta.py")})
+        if args.gsd_stage in ("calibrate", "development"):
+            config["runtime_source_manifest"].update({name: file_identity(REPO / name) for name in
+                                                    ("gsd_calibration.py", "eval_gsd_calibration.py")})
+            config.update(evaluation_scope="shuffled target development subset; not a benchmark",
+                          gsd_sample_diagnostics={},
+                          calibration_denominator_epsilon=1e-12)
+            if args.gsd_calibration_reference is not None:
+                from gsd_calibration import calibration_provenance
+                config["calibration_reference"] = calibration_provenance(args)
     return config
 
 

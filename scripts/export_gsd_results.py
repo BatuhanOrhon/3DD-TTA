@@ -18,7 +18,7 @@ def export_archives(source_root: Path, drive_root: Path, *, stage: str = "all15"
     pattern = "*.zip" if stage == "all" else f"*gsd-v1-{stage}-*.zip"
     archives = sorted(
         path for path in source_root.rglob(pattern)
-        if path.is_file() and path.parent.name in {"gsd_latent_spectral_v1", "3dd_original"}
+        if path.is_file() and path.parent.name in {"gsd_latent_spectral_v1", "gsd_latent_spectral_smooth_v2", "3dd_original"}
         and (not name_contains or any(token in path.stem for token in name_contains))
     )
     if not archives:

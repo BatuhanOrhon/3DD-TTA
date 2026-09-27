@@ -109,9 +109,9 @@ class TrajectoryTests(unittest.TestCase):
             chamfer_grad=lambda: chamfer, grad_freeze=freeze))
         Scheduler.instances.clear()
 
-    def run_gsd(self, weight=1., **kwargs):
+    def run_gsd(self, weight=1., total=2, **kwargs):
         return self.gsd.tta_gsd_reconstruct(
-            self.points, self.lion, 100, .017, .023, .95, total=2,
+            self.points, self.lion, 100, .017, .023, .95, total=total,
             spectral_weight=weight, **kwargs)
 
     def test_zero_weight_exact_original_output_rng_and_graph_bypass_under_no_grad(self):
@@ -148,6 +148,43 @@ class TrajectoryTests(unittest.TestCase):
         self.assertEqual(Scheduler.instances[0].kwargs, Scheduler.instances[1].kwargs)
         self.assertNotIn("set_alpha_to_one", observed[0].kwargs)
         self.assertEqual([t.item() for t in self.lion.priors[1].timesteps], [2, 1, 2, 1])
+
+    def test_calibration_probes_share_scd_states_without_changing_output_or_rng(self):
+        target = SimpleNamespace(
+            diagnostics=[],
+            loss=lambda predicted, **kwargs: predicted.square().sum() / (1 + (kwargs.get("beta") or 0)))
+        import graph_spectral
+        torch.manual_seed(31)
+        expected = self.run_gsd(0., total=5)
+        expected_rng = torch.get_rng_state().clone()
+        expected_styles = [s.clone() for s in self.lion.priors[1].styles]
+        self.lion.priors[1].styles.clear()
+        probes, states = [], []
+        with patch.object(graph_spectral, "build_probe_spectral_target", return_value=target) as build:
+            torch.manual_seed(31)
+            actual = self.run_gsd(0., total=5, probe_observer=probes.append, sample_observer=states.append)
+        build.assert_called_once()
+        torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+        self.assertTrue(torch.equal(expected_rng, torch.get_rng_state()))
+        self.assertEqual(len(probes), 12)  # three unique timesteps x four profiles
+        self.assertEqual({event["step_index"] for event in probes}, {0, 2, 4})
+        self.assertEqual(len(states), 5)
+        for left, right in zip(expected_styles, self.lion.priors[1].styles):
+            torch.testing.assert_close(left, right, rtol=0, atol=0)
+        json.dumps([probes, states], allow_nan=False)
+
+    def test_instrumented_scd_screen_preserves_output_and_skips_graph(self):
+        import graph_spectral
+        torch.manual_seed(41)
+        expected = self.run_gsd(0.)
+        expected_rng = torch.get_rng_state().clone()
+        states = []
+        with patch.object(graph_spectral, "build_spectral_target", side_effect=AssertionError("unexpected graph")):
+            torch.manual_seed(41)
+            actual = self.run_gsd(0., sample_observer=states.append)
+        torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+        self.assertTrue(torch.equal(expected_rng, torch.get_rng_state()))
+        self.assertEqual(len(states), 2)
 
     def test_real_spectral_objective_updates_both_inputs_and_keeps_original_decoder(self):
         import graph_spectral

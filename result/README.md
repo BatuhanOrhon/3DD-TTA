@@ -1,5 +1,17 @@
 # Colab Result Archive
 
+## GSD calibration/development artifacts - 2026-09-27
+
+[Code] Smooth-v2 `calibrate` and `development` stages keep the same seven-file
+bundle. `config.json.development_split` contains original shuffled indices;
+`gsd_sample_diagnostics` contains per-example state/probe rows; graph aggregates
+remain in `gsd_diagnostics`. A successful subset run has execution_status
+complete and coverage status partial. Calibration accuracy is SCD-only, since
+candidate spectral gradients are measured but never applied. Development runs
+include the calibration reference hash/run ID and declared target rho.
+See [Colab commands](../knowledge/colab_gsd_calibration.md). Preserve the first
+diagnostic ZIP for review before screening; no new Colab result is claimed yet.
+
 ## GSD v1 artifacts - 2026-09-23
 
 [Code] `gsd_latent_spectral_v1` preserves the seven-file schema below and
@@ -11,6 +23,16 @@ recorded. See [GSD handoff](../knowledge/colab_gsd.md).
 locally. The pilot's paired three-seed GSD-on minus GSD-off mean is -0.0135
 percentage points, so it does not pass the current promotion screen. Raw ZIPs
 remain outside Git; no all-15 GSD result exists yet.
+
+## GSD smooth-spectrum v2 smoke - 2026-09-27
+
+[Run] The validated partial smooth-profile Gaussian smoke is archived at
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260927-192156_gsd-smooth-v2-smoke-smooth-seed0-beta2p0.zip`.
+It contains 32 examples (26 correct) and is execution/diagnostic evidence,
+not an accuracy evaluation. A separate
+`20260927-192156_validation.md` records archive checks, gradient-scale
+diagnostics and the calibration gate. No hard/smooth accuracy conclusion or
+pilot promotion is supported by this smoke.
 
 After a Colab all-15 run, `scripts/export_gsd_results.py` copies each local
 ZIP into the matching Drive path
