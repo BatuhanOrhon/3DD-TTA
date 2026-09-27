@@ -1849,3 +1849,28 @@ comparison; it does not establish that spectral guidance is better than SCD.
 zero-spectral path delegates the exact original SCD baseline. Do not interpret
 an off arm with `gsd_scd_weight=0` as a no-SCD control. A larger corruption
 scope or common-draw comparison would be required for a stronger claim.
+
+## 2026-09-27 - smooth-profile smoke run-name failure
+
+[User report] The hard-profile Gaussian smoke completed one batch at
+81.25% (26/32), status `partial`, with reported peak GPU memory 21,010.9 MB.
+This is a one-batch smoke result and is not accuracy evidence. The following
+smooth-profile arm stopped before model execution while creating its artifact:
+`RunBundle.create` rejected the generated run name
+`gsd-smooth-v2-smoke-smooth-seed0-beta2.0` because periods are outside its
+allowed run-name alphabet.
+
+[Code] Root cause is the launcher formatting the beta value directly into the
+artifact run name. `eval_gsd_smooth.py` now replaces decimal points with `p`
+for the run-name label only (so beta 2.0 becomes `beta2p0`); the numerical
+`--gsd-beta` argument is unchanged. A regression test passes the generated
+name through the real `RunBundle.create` validator.
+
+[Code] The focused GSD smooth launcher tests pass (6 tests), and the full CPU
+suite passes (113 tests). These checks do not validate the Colab GPU path.
+
+[Open] Re-fetch the branch containing this fix in Colab and rerun only the
+smooth Gaussian smoke arm. Preserve the already completed hard smoke ZIP.
+Then inspect the complete hard and smooth smoke bundles before starting any
+pilot or interpreting accuracy. No calibration or profile conclusion follows
+from the reported 32-example partial result.

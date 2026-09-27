@@ -455,3 +455,17 @@ No alternate resampling policy is implemented or benchmarked yet.
 - **[Open]** The current implementation intentionally has no no-SCD off arm;
   design a separately declared control before making a claim about removing
   SCD versus retaining it.
+
+### 2026-09-27 smooth-profile smoke launcher fix
+
+- [x] Trace the smooth smoke failure to decimal beta text (`2.0`) in the
+  generated artifact run name, rejected by `RunBundle.create` validation.
+- [x] Change only the run-name label to `beta2p0`; preserve numeric beta passed
+  to inference. Add a regression test exercising the actual artifact writer.
+- [x] Verify all 113 local CPU tests pass.
+- [ ] Pull the fix into Colab and rerun the smooth Gaussian smoke arm; archive
+  and validate the complete artifact bundle before beginning the pilot.
+- **[Open]** The user's hard smoke result is partial (32 examples) and cannot
+  support profile accuracy comparisons. Keep calibration and pilot selection
+  pending until the smoke matrix completes and the beta/scale matching rule is
+  predeclared.

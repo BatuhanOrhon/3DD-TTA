@@ -1,10 +1,14 @@
 import unittest
 from contextlib import redirect_stderr
 from io import StringIO
+from pathlib import Path
+import shutil
+import uuid
 
 import gsd_protocol
 import run_baseline
 from eval_gsd_smooth import build_commands
+from research_artifacts import RunBundle
 
 
 class GSDSmoothLauncherTests(unittest.TestCase):
@@ -42,6 +46,23 @@ class GSDSmoothLauncherTests(unittest.TestCase):
         self.assertEqual(len(commands), 3)
         self.assertEqual({command[command.index("--seed") + 1]
                           for command in commands}, {"0"})
+
+    def test_decimal_beta_produces_run_name_accepted_by_artifact_writer(self):
+        command = build_commands("smoke", beta=2.0, hard_weight=1.0,
+                                 smooth_weight=1.0, arms=("smooth",))[0]
+        run_name = command[command.index("--run-name") + 1]
+        root = Path(__file__).resolve().parents[1] / "tmp"
+        root.mkdir(exist_ok=True)
+        directory = root / ("gsd-smooth-name-" + uuid.uuid4().hex)
+        directory.mkdir()
+        try:
+            bundle = RunBundle.create(
+                directory, run_name,
+                {"method": gsd_protocol.SMOOTH_METHOD, "seed": 0},
+                "synthetic CPU smoke", timestamp="20260927-000000")
+            self.assertTrue(bundle.path.is_dir())
+        finally:
+            shutil.rmtree(directory)
 
     def test_smooth_v2_requires_explicit_weight(self):
         common = ["--method", gsd_protocol.SMOOTH_METHOD, "--batch_size", "32",

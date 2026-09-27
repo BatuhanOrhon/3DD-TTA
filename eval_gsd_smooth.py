@@ -48,7 +48,8 @@ def build_commands(stage: str, *, beta: float, hard_weight: float,
             weight = 1.0 if is_v1 else (hard_weight if profile == "hard" else smooth_weight)
             run_name = f"gsd-smooth-v2-{stage}-{arm}-seed{seed}"
             if profile == "smooth":
-                run_name += f"-beta{beta}"
+                beta_label = str(beta).replace(".", "p").replace("+", "")
+                run_name += f"-beta{beta_label}"
             command = [sys.executable, "-u", str(REPO / "run_baseline.py"),
                        "--method", method, "--batch_size", "32", "--seed", str(seed),
                        "--severity", "5", "--lambdaa", ".95", "--gamma", ".01", "--eta", ".01",
