@@ -2074,3 +2074,50 @@ so the aggregate cannot support a paired significance test or a 1 pp claim.
 The next registered step is beta .5, beta 8 and matched hard at rho .001 on
 the same seed/index pool, reusing this beta2 and SCD control. Then expand
 promising arms and controls to other seeds/larger subsets before any claim.
+
+## 2026-09-28 - beta profile screen at rho .001
+
+[Run] The three beta-screen ZIPs supplied by the user were added beside the
+previous two controls under
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/`. The compact analyzer
+read the calibration `report.json` and five ZIPs directly, verified their
+shared calibration hash, seed, 128-example scope and required run bundle, and
+wrote `beta_screen_summary.json`. The five run IDs are:
+
+- `20260927-203752_gsd-cal-screen-weight-baseline-seed0-n128` (SCD-only)
+- `20260927-203909_gsd-cal-screen-weight-smooth-beta2p0-rho0p001-seed0-n128`
+- `20260927-205045_gsd-cal-screen-beta-smooth-beta0p5-rho0p001-seed0-n128`
+- `20260927-205132_gsd-cal-screen-beta-smooth-beta8p0-rho0p001-seed0-n128`
+- `20260927-205219_gsd-cal-screen-beta-hard-rho0p001-seed0-n128`
+
+All use seed 0 and 128 examples per Gaussian/Impulse corruption, with
+calibration SHA-256
+`e9f5ce3a435aea40a41e0ced3e33e085d052eeb473cf2e5400309ed2dcaff4c4`.
+At rho .001, calibrated alpha is 8.1391 for beta .5, 11.3102 for beta 2,
+14.8822 for beta 8 and 18.7515 for hard-M. Equal-corruption accuracies are:
+
+| Arm | Gaussian | Impulse | Macro | Delta vs SCD-only |
+|---|---:|---:|---:|---:|
+| SCD-only | 76.5625% (98/128) | 71.8750% (92/128) | 74.2188% | reference |
+| Smooth beta .5 | 77.3438% (99/128) | 72.6563% (93/128) | 75.0000% | +0.7813 pp |
+| Smooth beta 2 | 78.1250% (100/128) | 72.6563% (93/128) | 75.3906% | +1.1719 pp |
+| Smooth beta 8 | 77.3438% (99/128) | 71.0938% (91/128) | 74.2188% | 0.0000 pp |
+| Hard-M | 76.5625% (98/128) | 71.8750% (92/128) | 74.2188% | 0.0000 pp |
+
+[Inference] Beta 2 is the observed winner on this development subset. Its
+delta is +1.5625 pp Gaussian and +0.7813 pp Impulse; beta .5 is positive on
+both, while beta 8's Gaussian gain is offset by an Impulse loss. Hard-M ties
+SCD-only. This favors the smooth profile at beta 2 in this particular screen,
+but does not establish that smoothing caused the gain or that beta 2 is
+accuracy-optimal.
+
+[Open] This is one seed, 128 examples per corruption and five compared arms.
+The CSVs do not contain per-example predictions, and cross-corruption object
+identity correspondence has not been verified. Do not interpret the aggregate
+as paired significance, independent confirmation or a stable 1 pp gain. The
+report JSON is available locally, but the complete raw diagnostic run ZIP is
+still absent. Keep beta 2/rho .001 as a frozen candidate for the next
+validation only. First define an object-level disjoint validation pool and
+verify its indices across corruption files; then compare the frozen candidate
+with SCD-only under repeated seeds. If a disjoint pool cannot be established,
+describe the next repeated-seed results as development-set stability only.

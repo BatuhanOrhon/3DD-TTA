@@ -150,6 +150,16 @@ Reserve every touched index and establish object correspondence before any
 held-out claim. A 128-example subset cannot reliably establish a 1 pp gain.
 SCD weight .5, dynamic weights and source-data calibration are not added here.
 
+The registered seed-0 beta screen has since completed. Its compact result is
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/beta_screen_summary.json`:
+beta2/rho .001 ranks first (+1.1719 pp macro), with beta .5 at +.7813 pp and
+beta8/hard tied with SCD-only. Treat beta2/rho .001 as a frozen candidate,
+not an optimum. Before another accuracy run, define an object-level disjoint
+validation pool and verify correspondence across the corruption files. If
+the next comparison reuses the same 128 objects, repeated seeds measure
+development-set stability only and do not confirm generalization. The exact
+counts, run IDs and limitations are in the findings log.
+
 ## 4. Copy immutable ZIPs to Google Drive
 
 Mount Drive in a Python cell:

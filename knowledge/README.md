@@ -1,12 +1,14 @@
 # 3DD-TTA Thesis Knowledge Base
 
-**[Code] 2026-09-27 next test: fixed-state calibration.**
-The [approved execution plan](gsd_calibration_execution_20260927.md) and
-[Colab commands](colab_gsd_calibration.md) implement SCD-only diagnostics on
-64 shuffled examples/corruption, shared hard/beta .5/2/8 probes, and a staged
-128-example development screen. Start with `eval_gsd_calibration.py --phase
-diagnose --execute` in Colab. CPU evidence and limits are recorded in the plan;
-real CUDA diagnostics and accuracy screening remain pending.
+**[Run/Inference] 2026-09-28 next test: frozen beta2 validation.**
+The fixed-state diagnostic and five-arm seed-0 development screen have now
+run. Beta2/rho .001 ranks first (+1.1719 pp over SCD-only) on 128 Gaussian and
+128 Impulse examples, but this is exploratory and not held-out confirmation.
+First define an object-level disjoint validation pool; see the result entry in
+[`findings_log.md`](findings_log.md), the updated
+[`open_questions.md`](open_questions.md), and the exact run summary at
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/beta_screen_summary.json`.
+The complete raw diagnostic ZIP is still needed for full provenance.
 For compact analysis of the large report, use
 [`scripts/analyze_gsd_calibration.py`](../scripts/analyze_gsd_calibration.py);
 it ranks beta by observed development accuracy only after all five screen

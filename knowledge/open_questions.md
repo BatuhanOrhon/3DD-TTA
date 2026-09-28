@@ -11,12 +11,21 @@ See [execution plan](gsd_calibration_execution_20260927.md) and
   ratios and cosines; keep zero denominators explicit.
 - [x] Implement fixed shuffled development indices and traceable staged commands.
 - [x] Reject incomplete/degenerate calibration and mismatched source/assets/weights.
-- [ ] Run and ingest Colab diagnostic ZIP: 64 Gaussian + 64 Impulse, seed 0.
-- [ ] Assess SCD displacement before considering a separate weight-.5 ablation.
-- [ ] Run baseline + beta2 at three calibrated weights on 128 indices/corruption.
-- [ ] Choose rho explicitly, compare beta .5/8 and matched hard, then check interaction.
-- [ ] Expand promising candidates and controls across data/seeds; freeze settings.
-- [ ] Verify cross-corruption object identities before claiming held-out confirmation.
+- [x] Run and ingest the 64-example/corruption seed-0 diagnostic report; the
+  report JSON is available, but its complete raw run ZIP remains missing.
+- [x] Assess SCD displacement; retain weight 1 and defer a separate
+  weight-.5 ablation.
+- [x] Compare SCD-only and beta2 at three calibrated weights on 128
+  indices/corruption; rho .001 is the exploratory winner.
+- [x] At rho .001 compare beta .5/2/8 and matched hard. Beta2 ranks first
+  on this same development pool; details and limits are in the findings log.
+- [ ] Freeze beta2/rho .001 and compare it with SCD-only on a disjoint,
+  object-verified validation pool across repeated seeds. If no disjoint pool
+  is defined, label repeated-seed runs development-set stability only.
+- [ ] Verify cross-corruption object identities and reserve every selected
+  index before making any held-out claim.
+- [ ] Only after validation, assess broader corruption coverage with the
+  selected settings locked; do not retune on the final evaluation.
 
 These stages supersede the earlier mandatory q95/v1-scale calibration recipe.
 They do not establish an optimum or a 1 pp accuracy gain.

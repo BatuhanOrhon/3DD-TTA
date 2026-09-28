@@ -69,10 +69,18 @@ invocation could omit its calibration reference; the CLI now requires it.
 SCD-only, spectral and total update/state metrics are explicitly separated.
 No further concrete runtime or spectral-math bug was found in that review.
 
-[Open] Native CUDA/Chamfer/DDIM/LION integration, actual GPU memory/time and
-diagnostic scale values require the first Colab ZIP. CPU fixtures are not
-model evidence. No new model run, optimum beta/alpha, SCD instability or
-accuracy improvement is claimed.
+[Run] Colab diagnostic and development screens are now available. The report
+records native model metrics but was supplied as a report JSON rather than a
+complete raw diagnostic ZIP; the full seven-file provenance bundle is still
+requested. The five-arm seed-0 screen ranks beta2/rho .001 first at +1.1719
+pp versus SCD-only on 128 Gaussian and 128 Impulse examples. See the findings
+log and `beta_screen_summary.json` for all candidates and counts.
+
+[Inference/Open] This is an exploratory subset ranking, not a held-out
+confirmation or a stable accuracy-optimal setting. Keep beta2/rho .001 frozen
+for the next comparison. Define and verify an object-level disjoint pool,
+then compare the frozen arm with SCD-only across repeated seeds. If the same
+development objects are reused, call the result seed-stability evidence only.
 
 [User report/Code] A phase-report file was supplied at
 `result/modelnet40_c/gsd_latent_spectral_smooth_v2/report.json`. The compact
