@@ -24,8 +24,9 @@ See [execution plan](gsd_calibration_execution_20260927.md) and
   seven-archive results; see the 2026-09-28 findings entry.
 - [ ] Restore the planned beta/rho interaction check, retaining beta .5 and 2.
   Proposed one-arm extension: beta .5/rho .01 to complete an existing 2x2
-  development comparison. The direct Colab command and strict five-arm
-  interaction summary are registered; it has not been run.
+  development comparison. The Colab orchestrator regenerates calibration,
+  checks equivalence with the three archived cells, then runs this one arm and
+  strict five-arm summary; it has not been run.
 - [ ] Expand promising candidates and matched controls across development
   examples and seeds 0/1/2, then freeze. The former immediate beta2-freeze
   recommendation is superseded by the audit; the current lead is one example.

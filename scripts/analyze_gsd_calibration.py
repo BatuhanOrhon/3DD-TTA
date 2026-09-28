@@ -342,19 +342,22 @@ def _read_screen(path: Path) -> tuple[dict, dict[str, dict]]:
     return config, rows_by_corruption
 
 
-def _common_screen_runs(paths: list[Path], calibration_run_id=None) -> list[tuple[dict, dict[str, dict]]]:
+def _common_screen_runs(paths: list[Path], calibration_run_id=None,
+                        allow_equivalent_calibrations=False) -> list[tuple[dict, dict[str, dict]]]:
     runs = [_read_screen(path) for path in paths]
     if not runs:
         raise ValueError("provide completed screen run directories or ZIPs")
     first = runs[0][0]
-    reference_hash = first["calibration_reference"]["sha256"]
     common_split = first["development_split"]
     for config, _ in runs:
         reference = config["calibration_reference"]
-        if reference["sha256"] != reference_hash:
+        if not allow_equivalent_calibrations and reference["sha256"] != first["calibration_reference"]["sha256"]:
             raise ValueError("screen runs use different calibration files")
         if calibration_run_id is not None and reference["run_id"] != calibration_run_id:
             raise ValueError("screen run references a different calibration run")
+        if (allow_equivalent_calibrations and
+                reference.get("development_split") != first["calibration_reference"].get("development_split")):
+            raise ValueError("screen runs use different calibration development indices")
         if config["development_split"] != common_split:
             raise ValueError("screen runs use different development indices")
         for manifest in ("asset_manifest", "dataset_hash_manifest", "runtime_source_manifest"):
@@ -448,12 +451,27 @@ def screen_ranking(paths: list[Path], calibration_run_id=None, calibrated_weight
                         "before describing beta as accuracy-optimal."))
 
 
-def interaction_ranking(paths: list[Path], calibration_run_id=None, calibrated_weights=None) -> dict:
+def interaction_ranking(paths: list[Path], calibration_run_id=None, calibrated_weights=None,
+                        calibration_manifests=None, calibration_split=None) -> dict:
     """Summarize the preregistered beta .5/2 by rho .001/.01 development cells."""
-    runs = _common_screen_runs(paths, calibration_run_id)
+    if calibrated_weights is None:
+        raise ValueError("interaction screen requires weights from its calibration report")
+    runs = _common_screen_runs(paths, calibration_run_id, allow_equivalent_calibrations=True)
+    reference_ids = {(config["calibration_reference"]["run_id"], config["calibration_reference"]["sha256"])
+                     for config, _ in runs}
+    if len(reference_ids) > 1 and (not calibration_manifests or not calibration_split):
+        raise ValueError("different calibration generations require matching raw calibration manifests and split")
     first = runs[0][0]
     by_condition = {}
     for config, rows in runs:
+        reference = config["calibration_reference"]
+        if calibration_manifests is not None:
+            if reference.get("expected_manifests") != calibration_manifests:
+                raise ValueError("interaction run manifests differ from the supplied calibration")
+            if any(config.get(name) != manifest for name, manifest in calibration_manifests.items()):
+                raise ValueError("interaction run assets/source differ from the supplied calibration")
+        if calibration_split is not None and reference.get("development_split") != calibration_split:
+            raise ValueError("interaction run calibration split differs from the supplied calibration")
         key, beta, rho, weight = _screen_condition(config)
         if key == "scd_only":
             condition = key
@@ -480,7 +498,12 @@ def interaction_ranking(paths: list[Path], calibration_run_id=None, calibrated_w
             cells[beta_key][str(rho)] = _candidate_summary(condition, baseline)
     return dict(
         report_type="exploratory development beta-rho interaction; not held-out confirmation",
-        calibration_sha256=first["calibration_reference"]["sha256"], seed=first["seed"],
+        calibration_references=sorted(
+            ({"run_id": config["calibration_reference"]["run_id"],
+              "sha256": config["calibration_reference"]["sha256"]} for config, _ in runs),
+            key=lambda item: (item["run_id"], item["sha256"])),
+        coefficients_match_current_calibration=True, seed=first["seed"],
+        calibration_manifests_match=(calibration_manifests is not None),
         examples_per_corruption=first["cli_args"]["gsd_development_count"],
         macro_definition="equal-weight mean of Gaussian and Impulse accuracies",
         scd_only=_candidate_summary(by_condition["scd_only"], baseline), beta_rho_cells=cells,
@@ -580,12 +603,21 @@ def main(argv=None) -> int:
             elif args.interaction_screen:
                 if args.rho is not None:
                     raise ValueError("--rho is not used for the beta-rho interaction screen")
+                calibration_path = _config_path(args.calibration)
+                calibration_config = json.loads(calibration_path.read_text(encoding="utf-8"))
+                if "cli_args" not in calibration_config:
+                    raise ValueError("--interaction-screen requires the fresh raw calibration config.json")
                 weights = {"beta_0.5": next(row["alpha_by_rho"] for row in summary["smooth_candidates"]
                                               if row["beta"] == .5),
                            "beta_2.0": next(row["alpha_by_rho"] for row in summary["smooth_candidates"]
                                               if row["beta"] == 2.0)}
+                calibration_manifests = {name: calibration_config.get(name) for name in
+                                         ("asset_manifest", "dataset_hash_manifest", "runtime_source_manifest")}
+                if any(not value for value in calibration_manifests.values()):
+                    raise ValueError("fresh calibration config is missing required manifests")
                 summary["development_beta_rho_interaction"] = interaction_ranking(
-                    args.screen_run, summary["run_id"], weights)
+                    args.screen_run, None, weights, calibration_manifests,
+                    calibration_config.get("development_split"))
             else:
                 weights = {"hard": summary["hard"]["alpha_by_rho"]}
                 weights.update({"beta_" + str(row["beta"]): row["alpha_by_rho"]

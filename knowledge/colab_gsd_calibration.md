@@ -166,9 +166,14 @@ and repeated-seed stability. Counts, run IDs and limits are in the findings log.
 This is the only new guidance condition in this handoff: smooth beta .5,
 rho .01, seed 0 and 128 examples per corruption. It completes the already
 partially observed beta `.5/2` by rho `.001/.01` development table. It is not
-a holdout, and no result exists yet. Keep the existing calibration reference:
-the runner checks its source/input hashes, so do not replace it with a report
-JSON or a different run.
+a holdout, and no result exists yet. The original diagnostic `config.json` is
+missing from the current Colab environment. Use the dedicated orchestrator
+below: it creates a fresh diagnostic reference, derives alpha from that run,
+and checks that the existing baseline/three interaction bundles have identical
+split, source/data/checkpoint manifests and calibrated coefficients before it
+starts the new guidance condition. It stops before the interaction run if any
+check differs; in that case, do not combine results from the two calibration
+generations.
 
 ```bash
 %%bash
@@ -176,48 +181,18 @@ set -euo pipefail
 cd /content/3DD-TTA
 git switch gsd-smooth-spectrum
 git pull --ff-only origin gsd-smooth-spectrum
-ROOT=./result/modelnet40_c/gsd_latent_spectral_smooth_v2
-CALIBRATION="$ROOT/20260927-201522_gsd-cal-diagnose-reference-seed0-n64/config.json"
-test -f "$CALIBRATION"
-conda run --no-capture-output -n 3dd_tta_env python run_baseline.py \
-  --method gsd_latent_spectral_smooth_v2 --batch_size 32 --seed 0 --severity 5 \
-  --lambdaa .95 --gamma .01 --eta .01 --max-batches 0 --lion-eval-mode \
-  --result-root ./result \
-  --run-name gsd-cal-interaction-smooth-beta0p5-rho0p01-seed0-n128 \
-  --corruptions gaussian impulse --gsd-stage development \
-  --gsd-weight 81.39104941932808 --gsd-scd-weight 1 \
-  --gsd-profile smooth --gsd-beta .5 --gsd-development-count 128 \
-  --gsd-split-seed 20260927 --gsd-target-rho .01 \
-  --gsd-calibration-reference "$CALIBRATION"
+conda run --no-capture-output -n 3dd_tta_env python \
+  scripts/run_gsd_interaction_from_scratch.py
 ```
 
-The direct command intentionally leaves `eval_gsd_calibration.py` unchanged:
-that file is in the calibration runtime source manifest, and changing it would
-correctly block use of this immutable reference. The runner prints the exact
-directory and seven-file ZIP path. Set `NEW_RUN_ZIP` to that printed ZIP, then
-produce the compact five-arm interaction record without opening archive rows:
-
-```bash
-%%bash
-set -euo pipefail
-cd /content/3DD-TTA
-ROOT=./result/modelnet40_c/gsd_latent_spectral_smooth_v2
-NEW_RUN_ZIP="<ZIP path printed by the new run>"
-conda run --no-capture-output -n 3dd_tta_env python scripts/analyze_gsd_calibration.py \
-  --calibration "$ROOT/report.json" --interaction-screen \
-  --screen-run \
-    "$ROOT/20260927-203752_gsd-cal-screen-weight-baseline-seed0-n128.zip" \
-    "$ROOT/20260927-205045_gsd-cal-screen-beta-smooth-beta0p5-rho0p001-seed0-n128.zip" \
-    "$ROOT/20260927-203909_gsd-cal-screen-weight-smooth-beta2p0-rho0p001-seed0-n128.zip" \
-    "$ROOT/20260927-203957_gsd-cal-screen-weight-smooth-beta2p0-rho0p01-seed0-n128.zip" \
-    "$NEW_RUN_ZIP" \
-  --output "$ROOT/beta_rho_interaction_summary.json"
-```
-
-Share the single ZIP printed by this run as an attachment, preserving its
-original filename and all seven members: `command.txt`, `config.json`,
-`environment.txt`, `stdout.log`, `summary.csv`, `per_corruption.csv` and
-`notes.md`. Do not send only the compact summary or screenshots.
+The script prints both generated seven-file ZIP paths and writes the compact
+summary at `result/modelnet40_c/gsd_latent_spectral_smooth_v2/beta_rho_interaction_summary.json`.
+Keep/share the fresh diagnostic ZIP as well as the new interaction ZIP; the
+diagnostic is now the provenance source for the new coefficient. Each ZIP
+contains `command.txt`, `config.json`, `environment.txt`, `stdout.log`,
+`summary.csv`, `per_corruption.csv` and `notes.md`. The script uses existing
+Colab dependencies, leaves `eval_gsd_calibration.py` unchanged, and never
+launches beta8 or hard reruns.
 
 ## 5. Copy immutable ZIPs to Google Drive
 

@@ -2186,6 +2186,18 @@ calibration `config.json`, seed 0, count 128, batch 32 and alpha
 `81.39104941932808`; it has not been executed. `eval_gsd_calibration.py` was
 not changed because its recorded hash is required by that calibration reference.
 
+[User report/Code] The user confirmed that the original diagnostic reference
+`config.json` is absent in Colab (`commit afa9b7a`, expected path missing).
+Added `scripts/run_gsd_interaction_from_scratch.py`: it runs the existing
+diagnostic phase first, derives beta .5/rho .01 alpha from the resulting raw
+config, and checks the four archived cells against the fresh split, manifests
+and coefficients before launching the one new arm. The interaction analyzer
+can compare calibration generations only when every included guided run's
+stored coefficient matches the fresh report exactly under the existing tight
+numeric tolerance, and the split/manifests agree. A mismatch stops before the
+new guidance run; no existing ZIP is edited. The script has not been run in
+Colab; no new model result or performance claim exists.
+
 [Open/Falsifier] Ingest the printed complete seven-file ZIP, run the strict
 interaction summary, then retain beta .5/2 candidates only if expanded
 development examples and seed 0/1/2 comparisons warrant it. Do not call the

@@ -13,6 +13,8 @@ overlap with the calibration pool and cannot execute that confirmation yet.
 Analyzer validation gaps are recorded in the audit; independent checks found
 no corresponding mismatch in the current seven archives. The stricter analyzer
 and the one-arm beta .5/rho .01 handoff are prepared; the latter has not run.
+The original calibration config is missing from Colab, so the next handoff
+regenerates calibration and checks equivalence before using the archived cells.
 See
 [`findings_log.md`](findings_log.md), [`open_questions.md`](open_questions.md),
 and the exact run summary at
