@@ -13,8 +13,15 @@ overlap with the calibration pool and cannot execute that confirmation yet.
 Analyzer validation gaps are recorded in the audit; independent checks found
 no corresponding mismatch in the current seven archives. The stricter analyzer
 and the one-arm beta .5/rho .01 handoff are prepared; the latter has not run.
-The original calibration config is missing from Colab, so the next handoff
-regenerates calibration and checks equivalence before using the archived cells.
+The original calibration config is missing from Colab. A regenerated reference
+failed the coefficient-equivalence check against an old cell (user report);
+the mismatch magnitude/cause remain unmeasured. At the user's request,
+`c1c7467` adds `--rebuild-prerequisites`: one new reference, four regenerated
+comparison cells, then beta .5/rho .01 and the five-cell summary. New results
+must form their own matched block. No rebuilt result ZIP has been ingested yet.
+Read the [current restart review](gsd_interaction_review_20260928.md) and
+[copyable next-agent handoff](gsd_interaction_handoff_20260928.md) before
+continuing. Do not restart an already running Colab invocation.
 See
 [`findings_log.md`](findings_log.md), [`open_questions.md`](open_questions.md),
 and the exact run summary at

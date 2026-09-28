@@ -1,12 +1,29 @@
 # Open Questions and Research Backlog
 
-## 2026-09-28 Colab setup/runtime blocker
+## 2026-09-28 current interaction restart
+
+Read the [restart review](gsd_interaction_review_20260928.md) and
+[next-agent handoff](gsd_interaction_handoff_20260928.md).
+
+- [x] Prepare `c1c7467 --rebuild-prerequisites`: one new calibration, four
+  required comparison runs, then the beta .5/rho .01 arm and compact analysis.
+- [ ] Ingest all six raw ZIPs and summary from this exact block; current
+  Colab completion is not verified here. Do not automatically relaunch it.
+- [ ] Inspect fresh diagnostic scales and quantify old/new coefficient drift.
+  The reported equivalence failure alone does not establish its size or cause.
+- [x] User reports restored Diffusers .11.1 / Hub .11.1 with Torch2.1.2+cu121,
+  CUDA=True and DDPMScheduler import=OK. New raw environment evidence remains
+  part of the pending six-ZIP review.
+
+## 2026-09-28 historical Colab setup/runtime incident
 
 - [ ] Inspect `20260928-092752_gsd-cal-diagnose-reference-seed0-n64.zip` for
   GPU model, Python/PyTorch build, and PointNet2 extension identity.
-- [ ] Test PointNet2 FPS with a freshly built extension for that GPU. The
-  vendored setup hard-codes CUDA architecture 8.6; verify the device's compute
-  capability before changing the build path.
+- [ ] If the FPS error recurs, inspect the actual installed extension/device
+  and test that failing operation. The vendored setup hard-codes architecture
+  8.6; that alone does not establish the loaded binary's identity. Later user
+  reports reached calibration coefficient validation. Do not rebuild a working
+  environment merely to resolve this historical incident.
 - [ ] Keep `env.yaml` and `requirements.txt` identical to `dev` per user
   direction. Do not rebuild/relabel the failed attempt as a calibration result.
 
@@ -33,10 +50,11 @@ See [execution plan](gsd_calibration_execution_20260927.md) and
   stricter reader rejects reviewed invalid variants and preserves the current
   seven-archive results; see the 2026-09-28 findings entry.
 - [ ] Restore the planned beta/rho interaction check, retaining beta .5 and 2.
-  Proposed one-arm extension: beta .5/rho .01 to complete an existing 2x2
-  development comparison. The Colab orchestrator regenerates calibration,
-  checks equivalence with the three archived cells, then runs this one arm and
-  strict five-arm summary; it has not been run.
+  Registered extension: beta .5/rho .01 completes a 2x2 development comparison.
+  After a reported fresh/old alpha mismatch, the user authorized rebuilding
+  SCD-only and the other three cells under one new reference. The current
+  `--rebuild-prerequisites` invocation produces its own matched five-arm
+  summary; completion and accuracy are pending raw-artifact ingestion.
 - [ ] Expand promising candidates and matched controls across development
   examples and seeds 0/1/2, then freeze. The former immediate beta2-freeze
   recommendation is superseded by the audit; the current lead is one example.

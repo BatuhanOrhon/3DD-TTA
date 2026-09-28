@@ -6,6 +6,40 @@ See [the approved execution plan](gsd_calibration_execution_20260927.md) and
 These commands use the existing installed Colab environment and downloaded
 ModelNet40-C/LION/Point-MAE assets. No dependency reinstall is needed.
 
+## Current restart handoff — 2026-09-28
+
+This takes precedence over the historical reuse-of-old-ZIPs instructions in
+section 4. The user reported a coefficient mismatch between a fresh reference
+and the old beta .5/rho .001 bundle, then requested regenerated comparisons.
+Runtime commit `c1c7467` supports:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+git switch gsd-smooth-spectrum
+git pull --ff-only origin gsd-smooth-spectrum
+conda run --no-capture-output -n 3dd_tta_env python \
+  scripts/run_gsd_interaction_from_scratch.py --rebuild-prerequisites
+```
+
+If this is already running, let that invocation finish; this is not a resume
+command. It generates one diagnostic reference (64/corruption), SCD-only,
+beta .5/rho .001, beta2/rho .001, beta2/rho .01, and beta .5/rho .01
+(128/corruption for all five development runs). All coefficients come from
+that one reference. Old ZIPs are not inputs. Beta8/hard are still diagnostic
+probes, but are not rerun as guided accuracy arms. No alpha from the old report
+is hard-coded in this path.
+
+Provide all six seven-file ZIPs and
+`beta_rho_interaction_summary_<CALIBRATION_RUN_ID>.json`. Validate fresh
+diagnostics, reference identity, environment and matched controls before
+interpreting the new result. See the [restart review](gsd_interaction_review_20260928.md)
+and [next-agent handoff](gsd_interaction_handoff_20260928.md). The prior
+Diffusers import issue was resolved in the existing Colab environment by the
+user's .11.1 Diffusers/.11.1 Hub restoration; do not recreate the environment
+or change `env.yaml`/`requirements.txt` from `dev`.
+
 ## 1. Diagnostic run: first required Colab test
 
 ```bash
@@ -162,6 +196,10 @@ the diagnostic pool. Existing nested pools measure development performance
 and repeated-seed stability. Counts, run IDs and limits are in the findings log.
 
 ## 4. Registered one-arm beta-rho interaction extension
+
+Historical equivalence-based reuse path: the current user-authorized restart
+above replaces this command for the ongoing experiment. Keep this description
+as provenance for why the old/new coefficient mismatch stopped execution.
 
 This is the only new guidance condition in this handoff: smooth beta .5,
 rho .01, seed 0 and 128 examples per corruption. It completes the already

@@ -2248,3 +2248,32 @@ are tied to the fresh calibration ID, preserving previous raw artifacts.
 [Verification] Two launcher unit tests and all 133 CPU tests pass. No Colab
 model run was performed in this environment; the regenerated ZIPs and
 interaction outcome are pending.
+
+## 2026-09-28 - review of the current restart and next-agent handoff
+
+[Code/Inference] Reviewed `c1c7467` against the calibration review, execution
+plan and 2026-09-28 audit. The new six-run block (one diagnostic plus five
+development conditions) preserves the registered beta .5/2 by rho .001/.01
+question and fixed host/data protocol. Repeating the necessary controls under
+one new reference is a user-authorized recovery from missing original raw
+reference and reported coefficient mismatch, not independent confirmation.
+See `gsd_interaction_review_20260928.md` and the copyable
+`gsd_interaction_handoff_20260928.md` for complete context.
+
+[Run/User report/Open] Seven original screen ZIPs were re-read with passing
+CRC, strict analyzer validation and unchanged counts. No new rebuild or interaction ZIP exists locally
+at review time. The supplied 095332 failure is the Diffusers .36.0/Hub .36.2
+import failure; the subsequent successful .11.1/.11.1 import check is user
+evidence, not a new archived experiment. The original alpha mismatch size and
+cause remain unknown; it used a very tight numeric equivalence check.
+
+[Inference/Open] The automated restart does not pause for scientific review of
+new diagnostic tails. Inspect those metrics before interpretation/promotion.
+Require all six raw ZIPs, one exact calibration identity across the five
+development runs, and actual environment evidence. Do not mix in historical
+cells or restart completed GPU work solely after an analyzer/export failure.
+Retain beta .5/2 until expanded development data and seeds0/1/2 support a
+decision; frozen disjoint confirmation remains a later separate stage.
+
+[Verification] Re-ran the full local suite: 133 CPU tests pass. Env files match
+`dev`. No runtime code or raw artifact was changed by this review.
