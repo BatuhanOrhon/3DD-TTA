@@ -1,5 +1,15 @@
 # Open Questions and Research Backlog
 
+## 2026-09-28 GSD dependency import gate
+
+- [ ] Inspect the failed diagnostic ZIP environment and confirm the Colab
+  PyTorch/Diffusers/Hub versions. Restore the recorded compatible pins
+  (`torch==2.0.1+cu121`, `diffusers==0.11.1`, `huggingface-hub==0.11.1`)
+  and pass the scheduler import check before rerunning calibration.
+- [ ] Keep the failed attempt as an incomplete artifact; it contains no model
+  evaluation or calibration result. See the current recovery instructions in
+  [the Colab handoff](colab_gsd_calibration.md#0-check-the-lion-import-dependencies-after-a-torchxpu-error).
+
 ## NEXT TEST 2026-09-27: SCD scale diagnostics and fixed GSD calibration
 
 See [execution plan](gsd_calibration_execution_20260927.md) and

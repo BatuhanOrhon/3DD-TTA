@@ -6,6 +6,37 @@ See [the approved execution plan](gsd_calibration_execution_20260927.md) and
 These commands use the existing installed Colab environment and downloaded
 ModelNet40-C/LION/Point-MAE assets. No dependency reinstall is needed.
 
+## 0. Check the LION import dependencies after a `torch.xpu` error
+
+The supported Colab combination is PyTorch `2.0.1+cu121`, Diffusers `0.11.1`
+and Hugging Face Hub `0.11.1`. A newer Diffusers release accesses
+`torch.xpu` during import, but this PyTorch build does not expose that API.
+Do not add a fake `torch.xpu` attribute. First inspect installed versions
+without importing Diffusers:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python -c "import importlib.metadata as m, torch; print('torch:', torch.__version__); print('diffusers:', m.version('diffusers')); print('huggingface-hub:', m.version('huggingface-hub'))"
+```
+
+If Diffusers or Hub differs from the pins, restore only these two packages
+in the existing environment, then verify the LION scheduler import. This does
+not run a model or change repository source hashes:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python -m pip install --no-deps \
+  diffusers==0.11.1 huggingface-hub==0.11.1
+conda run --no-capture-output -n 3dd_tta_env python -c "import importlib.metadata as m, torch; from diffusers import DDPMScheduler; print('torch:', torch.__version__); print('diffusers:', m.version('diffusers')); print('huggingface-hub:', m.version('huggingface-hub')); print('DDPMScheduler import: OK')"
+```
+
+Proceed to calibration only after that import check passes. Keep the failed
+run ZIP: its `environment.txt` records the installed versions.
+
 ## 1. Diagnostic run: first required Colab test
 
 ```bash

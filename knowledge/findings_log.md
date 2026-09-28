@@ -1,5 +1,28 @@
 # Findings Log
 
+## 2026-09-28 — GSD calibration import blocked by Diffusers drift
+
+[User report] The fresh calibration run
+`20260928-082719_gsd-cal-diagnose-reference-seed0-n64.zip` failed before
+evaluation while importing `models.lion`: installed Diffusers accessed
+`torch.xpu.empty_cache`, absent from the installed PyTorch. The preceding
+`_pvcnn_backend` extension load is not the reported exception. No model
+evaluation or calibration result was produced by this attempt.
+
+[Code] The supported `env.yaml` combination pins PyTorch `2.0.1+cu121`, while
+it previously left Diffusers and Hugging Face Hub unpinned. `requirements.txt`
+already specified historical compatible versions (`diffusers==0.11.1` and
+`huggingface-hub==0.11.1`) but also had an earlier unpinned Diffusers entry.
+The environment recipes are now consistent. Colab instructions inspect
+package metadata, restore only those two historical pins and smoke-test the
+`DDPMScheduler` import before launching calibration. No fake `torch.xpu` shim
+is introduced. These edits do not alter the Python files in the calibration
+runtime source manifest.
+
+[Open] Inspect the failed ZIP's `environment.txt` when supplied and verify
+the Colab import check. Then rerun the fresh calibration/interaction launcher;
+the failed attempt remains incomplete evidence, not an accuracy result.
+
 ## 2026-09-27 — Colab Python 3.8 import fix
 
 [User report/Code] The first Colab smoke failed while importing

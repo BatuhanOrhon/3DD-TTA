@@ -16,7 +16,6 @@ loguru
 einops
 comet_ml
 calmsize
-diffusers
 tabulate
 ninja
 
