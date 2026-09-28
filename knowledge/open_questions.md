@@ -9,6 +9,9 @@
   `torchvision==0.16.2+cu121`, `torchaudio==2.1.2+cu121`), with
   `diffusers==0.11.1` and `huggingface-hub==0.11.1`, then pass the scheduler
   import check before rerunning calibration.
+- [ ] The next environment create failed because a global PyTorch `--index-url`
+  hid PyPI packages such as `argparse`. Keep PyPI as the main index, use
+  package-specific PyTorch CUDA wheel links, and omit stdlib `argparse`.
 - [ ] Keep the failed attempt as an incomplete artifact; it contains no model
   evaluation or calibration result. See the current recovery instructions in
   [the Colab handoff](colab_gsd_calibration.md#0-check-the-lion-import-dependencies-after-a-torchxpu-error).

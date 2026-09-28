@@ -43,7 +43,10 @@ run ZIP: its `environment.txt` records the installed versions.
 
 For a new environment, pull the corrected `env.yaml` first, then create or
 update the environment from that file. It now aligns all three PyTorch-family
-versions with the CUDA 12.1 wheels:
+versions with the CUDA 12.1 wheels. The CUDA wheel pages are supplied as
+`--find-links`, leaving PyPI as pip's normal index for the rest of the
+dependencies. `argparse` is omitted because Python 3.8 provides it in the
+standard library:
 
 ```bash
 conda env create -f env.yaml

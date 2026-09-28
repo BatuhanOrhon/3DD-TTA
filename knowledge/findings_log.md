@@ -1,5 +1,25 @@
 # Findings Log
 
+## 2026-09-28 — Keep PyPI available during Colab environment resolution
+
+[User report] The corrected environment's next pip step failed on
+`argparse`: `env.yaml` selected the PyTorch CUDA 12.1 page as the global
+`--index-url`, so ordinary PyPI packages were not discoverable. No Colab
+environment or model run was completed by this attempt.
+
+[Code] Python 3.8 already provides `argparse` in its standard library, so it
+does not belong in either pip requirements list. Replaced the global
+`--index-url` with `--find-links` entries for the official torch, torchvision
+and torchaudio CUDA 12.1 wheel pages. This preserves PyPI as pip's primary
+index while making the exact pinned CUDA wheels discoverable. The pip docs
+define `--find-links` for wheel links on HTML pages and distinguish it from
+changing the package index. No application Python source was changed.
+
+[Open] Pull the updated branch and retry/update environment resolution, then
+check package versions and the LION scheduler import before any model run.
+Record the complete failed setup output if pip reports another missing
+dependency; do not interpret setup failures as evaluation results.
+
 ## 2026-09-28 — Correct CUDA 12.1 environment pins
 
 [User report] `conda env create` failed resolving `torch==2.0.1+cu121` from
