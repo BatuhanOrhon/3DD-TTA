@@ -8,9 +8,13 @@ ModelNet40-C/LION/Point-MAE assets. No dependency reinstall is needed.
 
 ## 0. Check the LION import dependencies after a `torch.xpu` error
 
-The supported Colab combination is PyTorch `2.0.1+cu121`, Diffusers `0.11.1`
-and Hugging Face Hub `0.11.1`. A newer Diffusers release accesses
-`torch.xpu` during import, but this PyTorch build does not expose that API.
+The supported Colab combination is PyTorch `2.1.2+cu121`, torchvision
+`0.16.2+cu121`, torchaudio `2.1.2+cu121`, Diffusers `0.11.1` and Hugging
+Face Hub `0.11.1`. The earlier `torch==2.0.1+cu121` environment pin cannot be
+resolved from the CUDA 12.1 wheel index. Existing successful run artifacts
+record the 2.1.2/0.16.2/2.1.2 tuple. A newer Diffusers release accesses
+`torch.xpu` during import; the PyTorch build in the reported failed run lacked
+that API.
 Do not add a fake `torch.xpu` attribute. First inspect installed versions
 without importing Diffusers:
 
@@ -18,12 +22,12 @@ without importing Diffusers:
 %%bash
 set -euo pipefail
 cd /content/3DD-TTA
-conda run --no-capture-output -n 3dd_tta_env python -c "import importlib.metadata as m, torch; print('torch:', torch.__version__); print('diffusers:', m.version('diffusers')); print('huggingface-hub:', m.version('huggingface-hub'))"
+conda run --no-capture-output -n 3dd_tta_env python -c "import importlib.metadata as m, torch; print('torch:', torch.__version__); print('torchvision:', m.version('torchvision')); print('torchaudio:', m.version('torchaudio')); print('diffusers:', m.version('diffusers')); print('huggingface-hub:', m.version('huggingface-hub'))"
 ```
 
-If Diffusers or Hub differs from the pins, restore only these two packages
-in the existing environment, then verify the LION scheduler import. This does
-not run a model or change repository source hashes:
+If only Diffusers or Hub differs, restore only these two packages in the
+existing environment, then verify the LION scheduler import. This does not
+run a model or change repository source hashes:
 
 ```bash
 %%bash
@@ -36,6 +40,20 @@ conda run --no-capture-output -n 3dd_tta_env python -c "import importlib.metadat
 
 Proceed to calibration only after that import check passes. Keep the failed
 run ZIP: its `environment.txt` records the installed versions.
+
+For a new environment, pull the corrected `env.yaml` first, then create or
+update the environment from that file. It now aligns all three PyTorch-family
+versions with the CUDA 12.1 wheels:
+
+```bash
+conda env create -f env.yaml
+```
+
+If the failed create left `3dd_tta_env` present, update it instead:
+
+```bash
+conda env update -n 3dd_tta_env -f env.yaml
+```
 
 ## 1. Diagnostic run: first required Colab test
 

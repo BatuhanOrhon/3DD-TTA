@@ -3,9 +3,12 @@
 ## 2026-09-28 GSD dependency import gate
 
 - [ ] Inspect the failed diagnostic ZIP environment and confirm the Colab
-  PyTorch/Diffusers/Hub versions. Restore the recorded compatible pins
-  (`torch==2.0.1+cu121`, `diffusers==0.11.1`, `huggingface-hub==0.11.1`)
-  and pass the scheduler import check before rerunning calibration.
+  PyTorch/Diffusers/Hub versions. The failed `env.yaml` request for
+  `torch==2.0.1+cu121` is unavailable in the configured CUDA 12.1 index;
+  use the previously archived PyTorch tuple (`torch==2.1.2+cu121`,
+  `torchvision==0.16.2+cu121`, `torchaudio==2.1.2+cu121`), with
+  `diffusers==0.11.1` and `huggingface-hub==0.11.1`, then pass the scheduler
+  import check before rerunning calibration.
 - [ ] Keep the failed attempt as an incomplete artifact; it contains no model
   evaluation or calibration result. See the current recovery instructions in
   [the Colab handoff](colab_gsd_calibration.md#0-check-the-lion-import-dependencies-after-a-torchxpu-error).

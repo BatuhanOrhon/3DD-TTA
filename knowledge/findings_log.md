@@ -1,5 +1,24 @@
 # Findings Log
 
+## 2026-09-28 — Correct CUDA 12.1 environment pins
+
+[User report] `conda env create` failed resolving `torch==2.0.1+cu121` from
+`https://download.pytorch.org/whl/cu121`; pip listed available versions from
+2.1.0 through 2.4.1. The environment was not created successfully.
+
+[Code/Run] Existing archived Colab environment manifests consistently record
+`torch==2.1.2+cu121`, `torchvision==0.16.2+cu121`, and
+`torchaudio==2.1.2+cu121`. The official PyTorch 2.1.2 wheel set uses this
+matching version tuple, and the CUDA 12.1 index lists the Python 3.8 Linux
+wheel. Updated `env.yaml` to those available, previously used pins. This also
+corrects the preceding 2026-09-28 note: 2.0.1 was the erroneous environment
+file pin, not the supported/archived Colab runtime.
+
+[Open] Pull the corrected branch before creating/updating the Colab
+environment. Complete package resolution and the `DDPMScheduler` import check
+before launching calibration. No model run or accuracy result exists from the
+failed environment build.
+
 ## 2026-09-28 — GSD calibration import blocked by Diffusers drift
 
 [User report] The fresh calibration run
@@ -9,8 +28,9 @@ evaluation while importing `models.lion`: installed Diffusers accessed
 `_pvcnn_backend` extension load is not the reported exception. No model
 evaluation or calibration result was produced by this attempt.
 
-[Code] The supported `env.yaml` combination pins PyTorch `2.0.1+cu121`, while
-it previously left Diffusers and Hugging Face Hub unpinned. `requirements.txt`
+[Code] The then-current `env.yaml` combination pinned PyTorch
+`2.0.1+cu121`, while it left Diffusers and Hugging Face Hub unpinned.
+`requirements.txt`
 already specified historical compatible versions (`diffusers==0.11.1` and
 `huggingface-hub==0.11.1`) but also had an earlier unpinned Diffusers entry.
 The environment recipes are now consistent. Colab instructions inspect
