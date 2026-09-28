@@ -1,67 +1,29 @@
 # Findings Log
 
-## 2026-09-28 — Keep PyPI available during Colab environment resolution
+## 2026-09-28 — Colab GSD rerun blocked before calibration
 
-[User report] The corrected environment's next pip step failed on
-`argparse`: `env.yaml` selected the PyTorch CUDA 12.1 page as the global
-`--index-url`, so ordinary PyPI packages were not discoverable. No Colab
-environment or model run was completed by this attempt.
+[User report] Three failures interrupted the fresh Colab attempt: a Diffusers
+import accessed missing `torch.xpu`; a later environment create could not
+resolve `torch==2.0.1+cu121`; then pip could not find `argparse` while only the
+PyTorch wheel index was configured. The latest attempt loaded LION checkpoints
+successfully but failed on the first FPS call with `no kernel image is
+available` in `furthest_point_sampling`. Its failed archive is
+`20260928-092752_gsd-cal-diagnose-reference-seed0-n64.zip`. No calibration or
+accuracy result was produced.
 
-[Code] Python 3.8 already provides `argparse` in its standard library, so it
-does not belong in either pip requirements list. Replaced the global
-`--index-url` with `--find-links` entries for the official torch, torchvision
-and torchaudio CUDA 12.1 wheel pages. This preserves PyPI as pip's primary
-index while making the exact pinned CUDA wheels discoverable. The pip docs
-define `--find-links` for wheel links on HTML pages and distinguish it from
-changing the package index. No application Python source was changed.
+[Code] As requested, `env.yaml` and `requirements.txt` on
+`gsd-smooth-spectrum` have been restored to match branch `dev` exactly. The
+Colab handoff's interim environment recreation advice has been removed.
+Separately, the vendored PointNet2 `setup.py` hard-codes
+`TORCH_CUDA_ARCH_LIST="8.6"` (present in the repository's initial commit);
+this is a plausible cause of the FPS kernel error when the active GPU has a
+different compute capability, but the run ZIP/GPU identity is needed to
+confirm it. No environment or CUDA source adjustment is recorded as validated.
 
-[Open] Pull the updated branch and retry/update environment resolution, then
-check package versions and the LION scheduler import before any model run.
-Record the complete failed setup output if pip reports another missing
-dependency; do not interpret setup failures as evaluation results.
-
-## 2026-09-28 — Correct CUDA 12.1 environment pins
-
-[User report] `conda env create` failed resolving `torch==2.0.1+cu121` from
-`https://download.pytorch.org/whl/cu121`; pip listed available versions from
-2.1.0 through 2.4.1. The environment was not created successfully.
-
-[Code/Run] Existing archived Colab environment manifests consistently record
-`torch==2.1.2+cu121`, `torchvision==0.16.2+cu121`, and
-`torchaudio==2.1.2+cu121`. The official PyTorch 2.1.2 wheel set uses this
-matching version tuple, and the CUDA 12.1 index lists the Python 3.8 Linux
-wheel. Updated `env.yaml` to those available, previously used pins. This also
-corrects the preceding 2026-09-28 note: 2.0.1 was the erroneous environment
-file pin, not the supported/archived Colab runtime.
-
-[Open] Pull the corrected branch before creating/updating the Colab
-environment. Complete package resolution and the `DDPMScheduler` import check
-before launching calibration. No model run or accuracy result exists from the
-failed environment build.
-
-## 2026-09-28 — GSD calibration import blocked by Diffusers drift
-
-[User report] The fresh calibration run
-`20260928-082719_gsd-cal-diagnose-reference-seed0-n64.zip` failed before
-evaluation while importing `models.lion`: installed Diffusers accessed
-`torch.xpu.empty_cache`, absent from the installed PyTorch. The preceding
-`_pvcnn_backend` extension load is not the reported exception. No model
-evaluation or calibration result was produced by this attempt.
-
-[Code] The then-current `env.yaml` combination pinned PyTorch
-`2.0.1+cu121`, while it left Diffusers and Hugging Face Hub unpinned.
-`requirements.txt`
-already specified historical compatible versions (`diffusers==0.11.1` and
-`huggingface-hub==0.11.1`) but also had an earlier unpinned Diffusers entry.
-The environment recipes are now consistent. Colab instructions inspect
-package metadata, restore only those two historical pins and smoke-test the
-`DDPMScheduler` import before launching calibration. No fake `torch.xpu` shim
-is introduced. These edits do not alter the Python files in the calibration
-runtime source manifest.
-
-[Open] Inspect the failed ZIP's `environment.txt` when supplied and verify
-the Colab import check. Then rerun the fresh calibration/interaction launcher;
-the failed attempt remains incomplete evidence, not an accuracy result.
+[Open] Inspect the failed ZIP's `environment.txt` for GPU and installed
+package identities, confirm the PointNet2 extension selected by Python, then
+rebuild/test only that native extension for the reported GPU before rerunning
+the calibration launcher. Keep the failed artifact as incomplete evidence.
 
 ## 2026-09-27 — Colab Python 3.8 import fix
 

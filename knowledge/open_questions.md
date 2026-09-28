@@ -1,20 +1,14 @@
 # Open Questions and Research Backlog
 
-## 2026-09-28 GSD dependency import gate
+## 2026-09-28 Colab setup/runtime blocker
 
-- [ ] Inspect the failed diagnostic ZIP environment and confirm the Colab
-  PyTorch/Diffusers/Hub versions. The failed `env.yaml` request for
-  `torch==2.0.1+cu121` is unavailable in the configured CUDA 12.1 index;
-  use the previously archived PyTorch tuple (`torch==2.1.2+cu121`,
-  `torchvision==0.16.2+cu121`, `torchaudio==2.1.2+cu121`), with
-  `diffusers==0.11.1` and `huggingface-hub==0.11.1`, then pass the scheduler
-  import check before rerunning calibration.
-- [ ] The next environment create failed because a global PyTorch `--index-url`
-  hid PyPI packages such as `argparse`. Keep PyPI as the main index, use
-  package-specific PyTorch CUDA wheel links, and omit stdlib `argparse`.
-- [ ] Keep the failed attempt as an incomplete artifact; it contains no model
-  evaluation or calibration result. See the current recovery instructions in
-  [the Colab handoff](colab_gsd_calibration.md#0-check-the-lion-import-dependencies-after-a-torchxpu-error).
+- [ ] Inspect `20260928-092752_gsd-cal-diagnose-reference-seed0-n64.zip` for
+  GPU model, Python/PyTorch build, and PointNet2 extension identity.
+- [ ] Test PointNet2 FPS with a freshly built extension for that GPU. The
+  vendored setup hard-codes CUDA architecture 8.6; verify the device's compute
+  capability before changing the build path.
+- [ ] Keep `env.yaml` and `requirements.txt` identical to `dev` per user
+  direction. Do not rebuild/relabel the failed attempt as a calibration result.
 
 ## NEXT TEST 2026-09-27: SCD scale diagnostics and fixed GSD calibration
 
