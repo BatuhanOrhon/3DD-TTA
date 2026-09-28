@@ -2121,3 +2121,73 @@ validation only. First define an object-level disjoint validation pool and
 verify its indices across corruption files; then compare the frozen candidate
 with SCD-only under repeated seeds. If a disjoint pool cannot be established,
 describe the next repeated-seed results as development-set stability only.
+
+## 2026-09-28 - implementation and experiment-plan audit of 6a0b4da
+
+[Code/Run/Inference] User requested a review of recent code and adherence to
+the knowledge plans. Full findings are in
+`gsd_calibration_audit_20260928.md`. The core smooth loss, shared-state probes,
+fixed local-ratio coefficients and host updates follow the approved design;
+128 CPU tests pass. All seven screen ZIPs were independently checked against
+their counts, commands/logs, source/assets, scheduler and host settings; the
+recorded ranking is unchanged. No runtime code or raw archive was changed.
+
+[Code] The ranking analyzer can accept mismatched SCD/graph CLI settings,
+missing manifests and counts inconsistent with declared subset size. In-memory
+mutation checks reproduce these gaps; actual supplied bundles do not contain
+them. Strict validator fixes remain open. Current sources match the archived
+runtime source hashes after accounting for local CRLF line endings.
+
+[Run] On guided rho=.001 trajectories, per-corruption median weighted local
+ratios across profiles are .0009683--.0010329, supporting successful local
+calibration. Style medians span .0006538--.0014786, so both routes are not
+simultaneously matched. Mean effective masses for beta .5/2/8 are about
+1259/647/329 on Gaussian and 1261/615/286 on Impulse. Hard requested M=100
+expands to mean ranks139.3/121.2 and maxima291/240 under the existing tolerance.
+
+[Correction/Decision] Supersedes the preceding immediate beta2-freeze/held-out
+next-step recommendation. Beta2 beats beta .5 by just one aggregate correct
+prediction. The registered plan still calls for a small interaction check and
+larger/repeated-seed development comparisons, retaining multiple promising
+candidates, before freezing. A proposed single extra condition beta .5/rho
+.01 completes a 2x2 development comparison with three existing corners.
+Its outcome is unknown. Independent confirmation must have a separate path:
+current development code enforces the same split seed and calibration-prefix
+overlap. Do not bypass that guard or call a larger nested prefix held out.
+
+[Open/Falsifier] Native CUDA original/instrumented SCD parity, original raw
+diagnostic ZIP, per-example paired predictions and object correspondence
+remain outstanding. Losing the apparent gain on expanded development data
+or repeated seeds would rule against promoting the current candidate. This
+review supports continued development, not a confirmed accuracy improvement.
+
+## 2026-09-28 - strict screen validation and beta-rho interaction handoff
+
+[Code/Verification] `scripts/analyze_gsd_calibration.py` now requires an
+exact seven-file bundle with one root/run ID, valid asset/dataset/runtime
+manifest identities and agreement with the immutable calibration provenance.
+It checks the fixed ModelNet40-C smooth-v2 host/graph protocol, deterministic
+development indices and prefix, scheduler/batch/randomness metadata, CSV
+headers/metadata/counts/correct-count bounds, and summary aggregates. ZIP and
+run-directory inputs use the same checks. Regression fixtures reject the audit
+examples: SCD weight `.5`, modes `400`, missing manifests, a mismatched CLI
+count, inconsistent summary totals and a scheduler change.
+
+[Verification] The stricter reader accepted the current four weight-screen and
+five beta-screen ZIPs directly, preserving their recorded rankings and compact
+summaries. This verifies internal archive consistency, not CUDA/native baseline
+parity or a new accuracy result. No raw ZIP, report JSON or derived committed
+result was changed.
+
+[Code/Plan] Added `--interaction-screen` to compactly summarize SCD-only plus
+the four beta `.5/2` by rho `.001/.01` cells after the proposed beta `.5`,
+rho `.01` run arrives. The only registered new command uses the existing raw
+calibration `config.json`, seed 0, count 128, batch 32 and alpha
+`81.39104941932808`; it has not been executed. `eval_gsd_calibration.py` was
+not changed because its recorded hash is required by that calibration reference.
+
+[Open/Falsifier] Ingest the printed complete seven-file ZIP, run the strict
+interaction summary, then retain beta .5/2 candidates only if expanded
+development examples and seed 0/1/2 comparisons warrant it. Do not call the
+same/nested development pool held out or fit a new final coefficient from this
+single result.

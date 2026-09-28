@@ -1,12 +1,21 @@
 # 3DD-TTA Thesis Knowledge Base
 
-**[Run/Inference] 2026-09-28 next test: frozen beta2 validation.**
+**[Code/Run/Inference] 2026-09-28 review: finish development before freezing.**
 The fixed-state diagnostic and five-arm seed-0 development screen have now
 run. Beta2/rho .001 ranks first (+1.1719 pp over SCD-only) on 128 Gaussian and
 128 Impulse examples, but this is exploratory and not held-out confirmation.
-First define an object-level disjoint validation pool; see the result entry in
-[`findings_log.md`](findings_log.md), the updated
-[`open_questions.md`](open_questions.md), and the exact run summary at
+The [implementation/plan audit](gsd_calibration_audit_20260928.md) corrects
+the preceding immediate-freeze recommendation: beta .5 is only one correct
+prediction behind beta2. Restore the planned small interaction check and
+larger/repeated-seed development comparison, keeping both candidates.
+Prepare object-disjoint confirmation separately; the current launcher requires
+overlap with the calibration pool and cannot execute that confirmation yet.
+Analyzer validation gaps are recorded in the audit; independent checks found
+no corresponding mismatch in the current seven archives. The stricter analyzer
+and the one-arm beta .5/rho .01 handoff are prepared; the latter has not run.
+See
+[`findings_log.md`](findings_log.md), [`open_questions.md`](open_questions.md),
+and the exact run summary at
 `result/modelnet40_c/gsd_latent_spectral_smooth_v2/beta_screen_summary.json`.
 The complete raw diagnostic ZIP is still needed for full provenance.
 For compact analysis of the large report, use

@@ -76,22 +76,26 @@ requested. The five-arm seed-0 screen ranks beta2/rho .001 first at +1.1719
 pp versus SCD-only on 128 Gaussian and 128 Impulse examples. See the findings
 log and `beta_screen_summary.json` for all candidates and counts.
 
-[Inference/Open] This is an exploratory subset ranking, not a held-out
-confirmation or a stable accuracy-optimal setting. Keep beta2/rho .001 frozen
-for the next comparison. Define and verify an object-level disjoint pool,
-then compare the frozen arm with SCD-only across repeated seeds. If the same
-development objects are reused, call the result seed-stability evidence only.
+[Inference/Open, corrected by the 2026-09-28 audit] This is an exploratory
+subset ranking, not a held-out confirmation or a stable accuracy-optimal
+setting. The immediate-freeze recommendation skipped registered development
+stages. Retain beta .5 and 2, check a bounded beta/rho interaction, expand
+promising arms and matched controls over data/seeds, and only then freeze.
+Prepare object-disjoint confirmation as a separate stage: the current runner
+requires overlap with the calibration pool. See the
+[implementation/plan audit](gsd_calibration_audit_20260928.md), including
+analyzer validation gaps and the independent audit of current artifacts.
 
 [User report/Code] A phase-report file was supplied at
 `result/modelnet40_c/gsd_latent_spectral_smooth_v2/report.json`. The compact
 analyzer was run against it and saved its reduced output beside it as
 `calibration_summary.json`; see the findings log for the label-free candidate
 scales. This report does not include the complete raw run bundle, so source
-hash/count validation still requires that ZIP. Accuracy-based beta selection
-is pending the registered five-arm development screen.
+hash/count validation still requires that ZIP. The five-arm development
+screen is now complete; its observed ranking is described above.
 
 [Run] The first four-arm beta2 weight screen is now ingested; its paired
 summary is `result/modelnet40_c/gsd_latent_spectral_smooth_v2/screen_weight_summary.json`.
 Rho .001 is the exploratory leader (+1.1719 pp macro over 128 Gaussian and
-128 Impulse examples, seed0). Next compare beta .5, beta8 and hard at rho .001;
-see the findings log for exact per-corruption counts and limitations.
+128 Impulse examples, seed0). The beta .5/beta8/hard comparison at rho .001
+has also completed; see the findings log for counts and limitations.

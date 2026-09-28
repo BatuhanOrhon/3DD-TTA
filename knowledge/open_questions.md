@@ -19,9 +19,19 @@ See [execution plan](gsd_calibration_execution_20260927.md) and
   indices/corruption; rho .001 is the exploratory winner.
 - [x] At rho .001 compare beta .5/2/8 and matched hard. Beta2 ranks first
   on this same development pool; details and limits are in the findings log.
-- [ ] Freeze beta2/rho .001 and compare it with SCD-only on a disjoint,
-  object-verified validation pool across repeated seeds. If no disjoint pool
-  is defined, label repeated-seed runs development-set stability only.
+- [x] Harden analyzer shared CLI/manifest/count/CSV consistency checks. The
+  stricter reader rejects reviewed invalid variants and preserves the current
+  seven-archive results; see the 2026-09-28 findings entry.
+- [ ] Restore the planned beta/rho interaction check, retaining beta .5 and 2.
+  Proposed one-arm extension: beta .5/rho .01 to complete an existing 2x2
+  development comparison. The direct Colab command and strict five-arm
+  interaction summary are registered; it has not been run.
+- [ ] Expand promising candidates and matched controls across development
+  examples and seeds 0/1/2, then freeze. The former immediate beta2-freeze
+  recommendation is superseded by the audit; the current lead is one example.
+- [ ] Specify and implement a separate disjoint confirmation path with frozen
+  coefficients; current development guards intentionally require calibration
+  pool overlap. Repeated seeds on reused objects remain development evidence.
 - [ ] Verify cross-corruption object identities and reserve every selected
   index before making any held-out claim.
 - [ ] Only after validation, assess broader corruption coverage with the

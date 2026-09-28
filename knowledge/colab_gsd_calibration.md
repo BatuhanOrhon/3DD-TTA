@@ -153,14 +153,73 @@ SCD weight .5, dynamic weights and source-data calibration are not added here.
 The registered seed-0 beta screen has since completed. Its compact result is
 `result/modelnet40_c/gsd_latent_spectral_smooth_v2/beta_screen_summary.json`:
 beta2/rho .001 ranks first (+1.1719 pp macro), with beta .5 at +.7813 pp and
-beta8/hard tied with SCD-only. Treat beta2/rho .001 as a frozen candidate,
-not an optimum. Before another accuracy run, define an object-level disjoint
-validation pool and verify correspondence across the corruption files. If
-the next comparison reuses the same 128 objects, repeated seeds measure
-development-set stability only and do not confirm generalization. The exact
-counts, run IDs and limitations are in the findings log.
+beta8/hard tied with SCD-only. The [2026-09-28 review](gsd_calibration_audit_20260928.md)
+corrects the earlier immediate-freeze recommendation: finish the planned
+interaction check and larger/repeated-seed development comparison first,
+keeping beta .5 and 2. Separately prepare object-disjoint confirmation; the
+current launcher cannot produce it because development deliberately includes
+the diagnostic pool. Existing nested pools measure development performance
+and repeated-seed stability. Counts, run IDs and limits are in the findings log.
 
-## 4. Copy immutable ZIPs to Google Drive
+## 4. Registered one-arm beta-rho interaction extension
+
+This is the only new guidance condition in this handoff: smooth beta .5,
+rho .01, seed 0 and 128 examples per corruption. It completes the already
+partially observed beta `.5/2` by rho `.001/.01` development table. It is not
+a holdout, and no result exists yet. Keep the existing calibration reference:
+the runner checks its source/input hashes, so do not replace it with a report
+JSON or a different run.
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+git switch gsd-smooth-spectrum
+git pull --ff-only origin gsd-smooth-spectrum
+ROOT=./result/modelnet40_c/gsd_latent_spectral_smooth_v2
+CALIBRATION="$ROOT/20260927-201522_gsd-cal-diagnose-reference-seed0-n64/config.json"
+test -f "$CALIBRATION"
+conda run --no-capture-output -n 3dd_tta_env python run_baseline.py \
+  --method gsd_latent_spectral_smooth_v2 --batch_size 32 --seed 0 --severity 5 \
+  --lambdaa .95 --gamma .01 --eta .01 --max-batches 0 --lion-eval-mode \
+  --result-root ./result \
+  --run-name gsd-cal-interaction-smooth-beta0p5-rho0p01-seed0-n128 \
+  --corruptions gaussian impulse --gsd-stage development \
+  --gsd-weight 81.39104941932808 --gsd-scd-weight 1 \
+  --gsd-profile smooth --gsd-beta .5 --gsd-development-count 128 \
+  --gsd-split-seed 20260927 --gsd-target-rho .01 \
+  --gsd-calibration-reference "$CALIBRATION"
+```
+
+The direct command intentionally leaves `eval_gsd_calibration.py` unchanged:
+that file is in the calibration runtime source manifest, and changing it would
+correctly block use of this immutable reference. The runner prints the exact
+directory and seven-file ZIP path. Set `NEW_RUN_ZIP` to that printed ZIP, then
+produce the compact five-arm interaction record without opening archive rows:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+ROOT=./result/modelnet40_c/gsd_latent_spectral_smooth_v2
+NEW_RUN_ZIP="<ZIP path printed by the new run>"
+conda run --no-capture-output -n 3dd_tta_env python scripts/analyze_gsd_calibration.py \
+  --calibration "$ROOT/report.json" --interaction-screen \
+  --screen-run \
+    "$ROOT/20260927-203752_gsd-cal-screen-weight-baseline-seed0-n128.zip" \
+    "$ROOT/20260927-205045_gsd-cal-screen-beta-smooth-beta0p5-rho0p001-seed0-n128.zip" \
+    "$ROOT/20260927-203909_gsd-cal-screen-weight-smooth-beta2p0-rho0p001-seed0-n128.zip" \
+    "$ROOT/20260927-203957_gsd-cal-screen-weight-smooth-beta2p0-rho0p01-seed0-n128.zip" \
+    "$NEW_RUN_ZIP" \
+  --output "$ROOT/beta_rho_interaction_summary.json"
+```
+
+Share the single ZIP printed by this run as an attachment, preserving its
+original filename and all seven members: `command.txt`, `config.json`,
+`environment.txt`, `stdout.log`, `summary.csv`, `per_corruption.csv` and
+`notes.md`. Do not send only the compact summary or screenshots.
+
+## 5. Copy immutable ZIPs to Google Drive
 
 Mount Drive in a Python cell:
 
