@@ -2228,3 +2228,23 @@ interaction summary, then retain beta .5/2 candidates only if expanded
 development examples and seed 0/1/2 comparisons warrant it. Do not call the
 same/nested development pool held out or fit a new final coefficient from this
 single result.
+
+## 2026-09-28 - restart interaction cells under one calibration reference
+
+[User report/Run] Colab completed a new diagnostic calibration, but the
+existing beta .5/rho .001 ZIP had a different calibrated coefficient. The
+launcher correctly stopped before the new guidance run; do not combine those
+old cells with the new reference. The coefficient difference was reported,
+but its numeric magnitude was not included in the traceback.
+
+[Code] `scripts/run_gsd_interaction_from_scratch.py --rebuild-prerequisites`
+now creates one fresh diagnostic reference, then regenerates only SCD-only,
+beta .5/rho .001, beta 2/rho .001 and beta 2/rho .01 using coefficients from
+that reference. It validates the four generated bundles and launches only the
+missing beta .5/rho .01 condition before producing an interaction summary.
+It does not repeat beta 8 or hard guidance cells. Run names and summary output
+are tied to the fresh calibration ID, preserving previous raw artifacts.
+
+[Verification] Two launcher unit tests and all 133 CPU tests pass. No Colab
+model run was performed in this environment; the regenerated ZIPs and
+interaction outcome are pending.

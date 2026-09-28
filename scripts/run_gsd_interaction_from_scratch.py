@@ -1,11 +1,13 @@
-"""Run a fresh GSD calibration, then only the registered beta/rho condition.
+"""Run the GSD beta/rho interaction from one fresh diagnostic reference.
 
 Run from the repository root inside the existing 3dd_tta_env Colab environment.
-The script checks that archived interaction cells use the same development
-indices, source/assets and calibrated coefficients before launching the new arm.
+By default, validate the four existing prerequisite bundles. With
+``--rebuild-prerequisites``, regenerate only the required four cells under the
+fresh reference before launching the single new beta .5/rho .01 arm.
 """
 from __future__ import annotations
 
+import argparse
 import math
 from pathlib import Path
 import shlex
@@ -33,6 +35,48 @@ ARCHIVED_CELLS = (
 )
 
 
+def build_rebuild_commands(calibration_config: dict, report: dict,
+                           calibration_config_path: str,
+                           result_root: str = "./result") -> list[list[str]]:
+    """Build only the prerequisite cells needed for the beta-rho interaction."""
+    alpha05 = report["candidates"]["0.5"]["weights"]
+    alpha2 = report["candidates"]["2.0"]["weights"]
+    if not alpha05 or not alpha2:
+        raise ValueError("Fresh calibration did not produce usable beta .5/beta 2 coefficients.")
+    selected_weights = (alpha05["0.001"], alpha2["0.001"], alpha2["0.01"])
+    if any(not math.isfinite(float(weight)) or float(weight) <= 0 for weight in selected_weights):
+        raise ValueError("Prerequisite guidance coefficients must be finite and positive.")
+
+    calibration_id = calibration_config["run_id"]
+    split_seed = str(calibration_config["cli_args"]["gsd_split_seed"])
+    conditions = (
+        ("baseline", "hard", None, 0.0, None),
+        ("smooth-beta0p5-rho0p001", "smooth", .5, alpha05["0.001"], .001),
+        ("smooth-beta2p0-rho0p001", "smooth", 2.0, alpha2["0.001"], .001),
+        ("smooth-beta2p0-rho0p01", "smooth", 2.0, alpha2["0.01"], .01),
+    )
+    commands = []
+    for label, profile, beta, alpha, rho in conditions:
+        name = "gsd-rebuild-{}-{}-seed0-n128".format(calibration_id, label)
+        command = [
+            sys.executable, "-u", str(REPO / "run_baseline.py"),
+            "--method", SMOOTH_METHOD, "--batch_size", "32", "--seed", "0",
+            "--severity", "5", "--lambdaa", ".95", "--gamma", ".01", "--eta", ".01",
+            "--max-batches", "0", "--lion-eval-mode", "--result-root", result_root,
+            "--run-name", name, "--corruptions", "gaussian", "impulse",
+            "--gsd-stage", "development", "--gsd-weight", str(alpha),
+            "--gsd-scd-weight", "1", "--gsd-profile", profile,
+            "--gsd-development-count", "128", "--gsd-split-seed", split_seed,
+            "--gsd-calibration-reference", calibration_config_path,
+        ]
+        if beta is not None:
+            command += ["--gsd-beta", str(beta)]
+        if rho is not None:
+            command += ["--gsd-target-rho", str(rho)]
+        commands.append(command)
+    return commands
+
+
 def run_streamed(command: list[str]) -> tuple[int, str | None, str | None]:
     """Run a command while preserving live Colab output and capture run paths."""
     print("$ " + shlex.join(command), flush=True)
@@ -55,8 +99,9 @@ def _resolved(path_text: str) -> Path:
     return path if path.is_absolute() else (REPO / path).resolve()
 
 
-def verify_archived_cells(calibration_config: dict, report: dict) -> list[Path]:
-    """Allow a regenerated reference only when its calibration is equivalent."""
+def verify_archived_cells(calibration_config: dict, report: dict,
+                          paths: list[Path] | None = None) -> list[Path]:
+    """Verify prerequisite bundles against one calibration reference."""
     expected_manifests = {key: calibration_config[key] for key in
                           ("asset_manifest", "dataset_hash_manifest", "runtime_source_manifest")}
     expected_split = calibration_config["development_split"]
@@ -65,43 +110,51 @@ def verify_archived_cells(calibration_config: dict, report: dict) -> list[Path]:
     if not alpha05 or not alpha2:
         raise ValueError("Fresh calibration did not produce usable beta .5/beta 2 coefficients.")
 
-    paths = []
-    for filename, expected_key, rho, beta_key in ARCHIVED_CELLS:
-        path = REPO / METHOD_ROOT / filename
+    expected_cells = [(key, rho, beta_key) for _, key, rho, beta_key in ARCHIVED_CELLS]
+    if paths is None:
+        paths = [REPO / METHOD_ROOT / filename for filename, _, _, _ in ARCHIVED_CELLS]
+    if len(paths) != len(expected_cells):
+        raise ValueError("Interaction comparison requires exactly four prerequisite bundles.")
+    for path, (expected_key, rho, beta_key) in zip(paths, expected_cells):
         if not path.is_file():
-            raise FileNotFoundError("Required earlier interaction bundle is missing: " + str(path))
+            raise FileNotFoundError("Required interaction bundle is missing: " + str(path))
         config, _ = _read_screen(path)
-        paths.append(path)
         if (config["seed"] != 0 or config["cli_args"]["gsd_development_count"] != 128 or
                 config["cli_args"]["gsd_split_seed"] != calibration_config["cli_args"]["gsd_split_seed"]):
-            raise ValueError("Archived interaction seed/count/split seed differs: " + filename)
+            raise ValueError("Interaction seed/count/split seed differs: " + path.name)
         if config["development_split"]["gaussian"]["indices"] != config["development_split"]["impulse"]["indices"]:
-            raise ValueError("Archived Gaussian/Impulse development indices differ: " + filename)
+            raise ValueError("Gaussian/Impulse development indices differ: " + path.name)
         reference = config["calibration_reference"]
         if reference.get("development_split") != expected_split:
-            raise ValueError("Fresh calibration split differs from archived reference: " + filename)
+            raise ValueError("Calibration split differs from interaction bundle: " + path.name)
         if reference.get("expected_manifests") != expected_manifests:
-            raise ValueError("Fresh source/data/checkpoint manifests differ from archived run: " + filename)
+            raise ValueError("Calibration source/data/checkpoint manifests differ: " + path.name)
         if any(config.get(key) != value for key, value in expected_manifests.items()):
-            raise ValueError("Archived runtime/assets differ from fresh calibration: " + filename)
+            raise ValueError("Interaction runtime/assets differ from calibration: " + path.name)
         condition, beta, observed_rho, weight = _screen_condition(config)
         if condition != expected_key or observed_rho != rho:
-            raise ValueError("Unexpected archived interaction condition: " + filename)
+            raise ValueError("Unexpected interaction condition: " + path.name)
         if condition == "scd_only":
             continue
         expected_weight = (alpha05 if beta_key == "0.5" else alpha2)[str(rho)]
         if not math.isclose(weight, expected_weight, rel_tol=1e-12, abs_tol=0):
             raise ValueError(
-                "Fresh calibration coefficient differs from " + filename +
+                "Calibration coefficient differs from " + path.name +
                 ". Stop before the new guidance run; the old cells cannot be combined "
                 "with this regenerated reference."
             )
-    print("Archived baseline and three interaction cells match the fresh split, "
+    print("Baseline and three interaction cells match the calibration split, "
           "source/assets and calibrated coefficients.", flush=True)
     return paths
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--rebuild-prerequisites", action="store_true",
+        help="re-run only SCD-only and beta .5/2 rho .001/.01 cells under the fresh reference",
+    )
+    args = parser.parse_args()
     if Path.cwd().resolve() != REPO:
         raise SystemExit("Run this script from /content/3DD-TTA.")
     calibration_command = [sys.executable, "-u", str(REPO / "eval_gsd_calibration.py"),
@@ -119,18 +172,34 @@ def main() -> int:
     if calibration_config.get("execution_status") != "complete":
         raise ValueError("Diagnostic run did not complete successfully.")
 
-    archived_paths = verify_archived_cells(calibration_config, report)
+    if args.rebuild_prerequisites:
+        archived_paths = []
+        for command in build_rebuild_commands(
+                calibration_config, report, str(calibration_config_path), str(RESULT_ROOT)):
+            code, _, archive = run_streamed(command)
+            if code:
+                return code
+            if not archive:
+                raise RuntimeError("Could not read a rebuilt prerequisite ZIP path from runner output.")
+            archived_paths.append(_resolved(archive))
+        archived_paths = verify_archived_cells(calibration_config, report, archived_paths)
+    else:
+        archived_paths = verify_archived_cells(calibration_config, report)
     alpha = report["candidates"]["0.5"]["weights"]["0.01"]
     if not math.isfinite(alpha) or alpha <= 0:
         raise ValueError("Fresh beta .5/rho .01 coefficient is not finite and positive.")
     print("Fresh beta .5/rho .01 alpha:", repr(alpha), flush=True)
 
+    interaction_name = "gsd-cal-interaction-smooth-beta0p5-rho0p01-seed0-n128"
+    if args.rebuild_prerequisites:
+        interaction_name = "gsd-cal-interaction-{}-smooth-beta0p5-rho0p01-seed0-n128".format(
+            calibration_config["run_id"])
     interaction_command = [
         sys.executable, "-u", str(REPO / "run_baseline.py"),
         "--method", SMOOTH_METHOD, "--batch_size", "32", "--seed", "0", "--severity", "5",
         "--lambdaa", ".95", "--gamma", ".01", "--eta", ".01", "--max-batches", "0",
         "--lion-eval-mode", "--result-root", str(RESULT_ROOT),
-        "--run-name", "gsd-cal-interaction-smooth-beta0p5-rho0p01-seed0-n128",
+        "--run-name", interaction_name,
         "--corruptions", "gaussian", "impulse", "--gsd-stage", "development",
         "--gsd-weight", repr(alpha), "--gsd-scd-weight", "1", "--gsd-profile", "smooth",
         "--gsd-beta", ".5", "--gsd-development-count", "128", "--gsd-split-seed",
@@ -143,7 +212,10 @@ def main() -> int:
     if not interaction_zip:
         raise RuntimeError("Could not read the interaction ZIP path from runner output.")
 
-    output_path = REPO / METHOD_ROOT / "beta_rho_interaction_summary.json"
+    output_name = "beta_rho_interaction_summary.json"
+    if args.rebuild_prerequisites:
+        output_name = "beta_rho_interaction_summary_{}.json".format(calibration_config["run_id"])
+    output_path = REPO / METHOD_ROOT / output_name
     analyzer_command = [
         sys.executable, str(REPO / "scripts" / "analyze_gsd_calibration.py"),
         "--calibration", str(calibration_config_path), "--interaction-screen",
