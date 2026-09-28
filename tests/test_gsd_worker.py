@@ -80,10 +80,14 @@ def batches(dataset, batch_size, shuffle):
 
 
 class GSDWorkerTests(unittest.TestCase):
-    def run_fixture(self, directory, corruption, *, fail_second_batch=False, calibration=False):
+    def run_fixture(self, directory, corruption, *, fail_second_batch=False, calibration=False,
+                    full_dataset=False, invalid_dataset=False):
         data_root = directory / "data"
         data_root.mkdir()
-        np.save(data_root / ("data_" + corruption + "_5.npy"), np.ones((33, 8, 3), dtype=np.float32))
+        selected = run_baseline.CORRUPTIONS if full_dataset else [corruption]
+        for name in selected:
+            count = 0 if invalid_dataset and name == corruption else 33
+            np.save(data_root / ("data_" + name + "_5.npy"), np.ones((count, 8, 3), dtype=np.float32))
         if calibration:
             np.save(data_root / "data_impulse_5.npy", np.ones((33, 8, 3), dtype=np.float32))
         np.save(data_root / "label.npy", np.arange(33, dtype=np.int64) % 2)
@@ -98,10 +102,19 @@ class GSDWorkerTests(unittest.TestCase):
             cli += ["--method", gsd_protocol.SMOOTH_METHOD, "--gsd-stage", "calibrate",
                     "--gsd-weight", "0", "--gsd-profile", "hard", "--max-batches", "0",
                     "--corruptions", "gaussian", "impulse", "--gsd-development-count", "32"]
+        if full_dataset:
+            cli = ["--method", gsd_protocol.SMOOTH_METHOD, "--batch_size", "32", "--seed", "0",
+                   "--gsd-stage", "full_dataset_development", "--gsd-weight", "0",
+                   "--gsd-profile", "hard", "--gsd-calibration-reference", "fixture-calibration.json",
+                   "--max-batches", "0", "--corruptions", *run_baseline.CORRUPTIONS,
+                   "--dataset_root", str(data_root), "--label_path", str(data_root / "label.npy")]
         for name, path in asset_paths.items():
             cli.extend(["--" + name, str(path)])
         args = run_baseline.parse_arguments(cli)
-        with patch.object(run_baseline, "command_output", return_value="CPU fixture"):
+        provenance = {"path": "fixture", "sha256": "a" * 64, "run_id": "fixture-calibration",
+                      "target_rho": None, "development_split": {}, "expected_manifests": {}}
+        with patch.object(run_baseline, "command_output", return_value="CPU fixture"), \
+                patch("gsd_calibration.calibration_provenance", return_value=provenance):
             config = run_baseline.build_config(args)
         bundle = RunBundle.create(directory / "runs", "worker", config, "CPU worker integration")
         classifier = torch.nn.Module()
@@ -151,13 +164,18 @@ class GSDWorkerTests(unittest.TestCase):
                 patch.object(run_baseline, "tta_postprocess_points", side_effect=lambda points, *a: points), \
                 patch.object(gsd_protocol, "process_batches", wraps=gsd_protocol.process_batches) as dispatch, \
                 redirect_stdout(StringIO()), redirect_stderr(StringIO()):
-            if fail_second_batch:
+            if invalid_dataset:
+                with self.assertRaisesRegex(ValueError, "Empty data or data/label count mismatch"):
+                    run_baseline.run_worker(str(bundle.path))
+            elif fail_second_batch:
                 with self.assertRaisesRegex(FloatingPointError, "synthetic GSD"):
                     run_baseline.run_worker(str(bundle.path))
             else:
                 run_baseline.run_worker(str(bundle.path))
-            self.assertEqual(dispatch.call_count, 2 if calibration else 1)
-            self.assertEqual(dispatch.call_args.args[-1], 35 if corruption == "background" else 5)
+            expected_dispatch = 0 if invalid_dataset else (2 if calibration else (len(selected) if full_dataset else 1))
+            self.assertEqual(dispatch.call_count, expected_dispatch)
+            if not invalid_dataset:
+                self.assertEqual(dispatch.call_args.args[-1], 35 if corruption == "background" else 5)
         saved = json.loads((bundle.path / "config.json").read_text(encoding="utf-8"))
         with (bundle.path / "per_corruption.csv").open(newline="", encoding="utf-8") as stream:
             rows = list(csv.DictReader(stream))
@@ -175,7 +193,12 @@ class GSDWorkerTests(unittest.TestCase):
             self.assertEqual(item["trainable_parameters"], 0)
         self.assertEqual(saved["lion_mode_policy"], "raw LION eval; EMA disabled")
         self.assertEqual(saved["final_decode_style"], "original shape_latent")
-        self.assertEqual(calls, [(35 if corruption == "background" else 5, .01, .01, .95, 100)] * 2)
+        expected_corruptions = selected if full_dataset else (["gaussian", "impulse"] if calibration else [corruption])
+        batches_per_corruption = 1 if calibration else 2
+        expected_calls = [] if invalid_dataset else [
+            (35 if name == "background" else 5, .01, .01, .95, 100)
+            for name in expected_corruptions for _ in range(batches_per_corruption)]
+        self.assertEqual(calls, expected_calls)
         return saved, rows, summary
 
     def test_calibration_worker_records_original_indices_and_partial_coverage(self):
@@ -259,6 +282,30 @@ class GSDWorkerTests(unittest.TestCase):
                              ("32", "16", "failed"))
             self.assertEqual((summary["total_examples"], summary["total_correct"], summary["status"]),
                              ("32", "16", "failed"))
+
+    def test_worker_full_dataset_stage_records_all15_full_file_rows_without_sample_traces(self):
+        with artifact_directory() as directory:
+            saved, rows, summary = self.run_fixture(directory, "gaussian", full_dataset=True)
+        self.assertEqual(saved["status"], "complete")
+        self.assertEqual(saved["execution_status"], "complete")
+        self.assertEqual(saved["completed_corruptions"], list(run_baseline.CORRUPTIONS))
+        self.assertEqual(saved["evaluation_scope"], "full ModelNet40-C severity-5 test files; all 15 corruptions")
+        self.assertEqual(set(saved["dataset_inventory"]), set(run_baseline.CORRUPTIONS))
+        self.assertNotIn("gsd_sample_diagnostics", saved)
+        self.assertEqual(len(rows), 15)
+        self.assertTrue(all(row["n_examples"] == "33" and row["status"] == "complete" for row in rows))
+        self.assertEqual(summary["total_examples"], "495")
+        self.assertTrue(all(saved["observed_batch_sizes"][name] == [32, 1]
+                            for name in run_baseline.CORRUPTIONS))
+
+    def test_worker_full_dataset_rejects_empty_or_count_mismatched_corruption_file(self):
+        with artifact_directory() as directory:
+            saved, rows, _ = self.run_fixture(directory, "uniform", full_dataset=True,
+                                               invalid_dataset=True)
+        self.assertEqual(saved["status"], "failed")
+        self.assertEqual(saved["execution_status"], "failed")
+        self.assertEqual(saved["completed_corruptions"], [])
+        self.assertEqual(rows, [])
 
 
 if __name__ == "__main__":

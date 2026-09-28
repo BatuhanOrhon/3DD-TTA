@@ -2277,3 +2277,56 @@ decision; frozen disjoint confirmation remains a later separate stage.
 
 [Verification] Re-ran the full local suite: 133 CPU tests pass. Env files match
 `dev`. No runtime code or raw artifact was changed by this review.
+
+## 2026-09-28 - rebuilt interaction accepted; ranking changes
+
+[Run/Verification] On local `gsd-smooth-spectrum@ee12d91`, ingested all six
+ZIPs and the supplied interaction JSON for
+`20260928-113047_gsd-cal-diagnose-reference-seed0-n64` under
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/`. All runs record runtime
+`c1c74672493284c323a66a558f31b57ca03c35f3`. Safe path/CRC/seven-file checks,
+completion, command/config/log/CSV agreement, counts, sample/step coverage,
+source/assets/host and recorded environment comparisons pass. Each of the five
+development runs binds to reference config SHA256
+`550d73dc83375395c905db2e6cda3845dc3362632117d3371f8d4ad4e787e2d6`.
+The strict interaction analyzer reproduces the supplied JSON exactly.
+Derived audit/config copy/recomputed summary are separate in
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/analysis_20260928_113047/`.
+Raw files remain unchanged. No GPU work or full runtime test suite was run here.
+
+[Run] Seed0, Gaussian/Impulse128 each, severity5, batch32, lambda .95,
+raw/eval LION, EMA off: new baseline99/92 (74.609375%); beta .5/rho .001
+99/94 (75.390625%, +.781250 pp); beta .5/rho .01 100/91 (74.609375%, null);
+beta2/rho .001 98/91 (73.828125%, -.781250 pp); beta2/rho .01 100/94
+(75.781250%, +1.171875 pp). Rho .01 minus .001 macro effects are -.781250
+and +1.953125 pp for beta .5/2; difference +2.734375 pp is descriptive only.
+
+[Run] The new diagnostic has384 valid probe ratios per candidate with no
+missing denominator; state coverage is complete. Relative alpha drift from
+old `report.json` is +.01297949% for beta .5 and +.00512817% for beta2.
+New rho .001 alpha values:8.140161356429882 and11.310823980075076;
+rho .01 values:81.40161356429881 and113.10823980075075. Actual local guided
+medians stay within3.30% of target rho. Style is not simultaneously matched;
+beta2/rho .01 Gaussian style ratio p90=.024986, max=.076052.
+Step4 SCD/DDIM medians2.469/2.332 coexist with local SCD/state medians
+approximately .0015; they alone do not justify changing SCD weight1.
+
+[Run/Open] All six new recorded environments agree. Historical source/data/
+checkpoint identities match, but NumPy1.21.2 ->1.24.4, SciPy1.8.0 ->1.9.1
+and multiple extension hashes/package versions differ. Nondeterministic CUDA
+settings and calibration changes remain confounded. Neither coefficient drift
+nor environment changes isolate the cause of reversed beta2/rho .001 ranking.
+The exact earlier failing reference is still unavailable. Environment data-order
+text is generic/stale relative to config and explicit sample indices; preserve
+that metadata caveat. Full details and exact ZIP names are in
+`knowledge/gsd_interaction_results_20260928.md`.
+
+[Inference/Decision/Falsifier] Accept the reference for continued development,
+not a final optimum. Register a bounded next proposal: SCD-only plus beta
+.5/rho .001 and beta2/rho .01, 512 examples/corruption, seeds0/1/2, fixed
+split20260927 and fixed113047 calibration (nine new runs, not executed).
+Report per-seed matched-control macro deltas, their mean/sample SD, corruption
+effects and costs. Nonpositive mean, mixed seed directions or material
+corruption regressions weaken advancement; no automatic freeze. This narrow
+comparison will not reconfirm the entire2x2 interaction. Nested objects remain
+development, with separate holdout/object-identity/native-parity gates open.

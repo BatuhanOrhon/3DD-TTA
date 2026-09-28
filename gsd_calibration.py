@@ -11,6 +11,8 @@ BETAS = (.5, 2., 8.)
 RHOS = (1e-4, 1e-3, 1e-2)
 DENOMINATOR_EPS = 1e-12
 CANDIDATES = (("hard", None),) + tuple(("smooth", beta) for beta in BETAS)
+PINNED_REFERENCE_RUN_ID = "20260928-113047_gsd-cal-diagnose-reference-seed0-n64"
+PINNED_REFERENCE_CONFIG_SHA256 = "550d73dc83375395c905db2e6cda3845dc3362632117d3371f8d4ad4e787e2d6"
 
 
 def development_indices(total: int, count: int, seed: int) -> list[int]:
@@ -162,11 +164,21 @@ def calibration_provenance(args) -> dict:
     if path.is_dir():
         path = path / "config.json"
     config, report = load_calibration(path)
-    for key in ("gsd_split_seed", "gsd_k", "gsd_delta", "gsd_graph_gamma", "gsd_modes",
-                "gsd_scd_weight", "lambdaa", "gamma", "eta", "batch_size"):
+    raw_sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
+    if args.gsd_stage == "full_dataset_development":
+        if config.get("run_id") != PINNED_REFERENCE_RUN_ID:
+            raise ValueError("full-dataset screen requires the pinned calibration run ID")
+        if raw_sha256 != PINNED_REFERENCE_CONFIG_SHA256:
+            raise ValueError("full-dataset screen calibration config hash mismatch")
+    setting_keys = ("gsd_k", "gsd_delta", "gsd_graph_gamma", "gsd_modes",
+                    "gsd_scd_weight", "lambdaa", "gamma", "eta", "batch_size")
+    if args.gsd_stage != "full_dataset_development":
+        setting_keys = ("gsd_split_seed",) + setting_keys
+    for key in setting_keys:
         if config["cli_args"][key] != getattr(args, key):
             raise ValueError("calibration setting mismatch: " + key)
-    if args.gsd_development_count < config["cli_args"]["gsd_development_count"]:
+    if (args.gsd_stage != "full_dataset_development" and
+            args.gsd_development_count < config["cli_args"]["gsd_development_count"]):
         raise ValueError("screening pool must contain the diagnostic pool")
     if args.gsd_weight:
         key = "hard" if args.gsd_profile == "hard" else str(float(args.gsd_beta))
@@ -176,7 +188,7 @@ def calibration_provenance(args) -> dict:
             raise ValueError("guidance weight does not match the declared calibrated rho")
     elif args.gsd_target_rho is not None:
         raise ValueError("SCD-only comparator must not declare a spectral target rho")
-    return dict(path=str(path), sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+    return dict(path=str(path), sha256=raw_sha256,
                 run_id=config["run_id"], target_rho=args.gsd_target_rho,
                 development_split=config["development_split"],
                 expected_manifests={key: config[key] for key in
@@ -187,7 +199,16 @@ def verify_calibration_inputs(config: dict) -> None:
     reference = config.get("calibration_reference")
     if reference is None:
         return
-    for kind, manifest in reference["expected_manifests"].items():
-        for name, identity in manifest.items():
-            if not identity.get("sha256") or config.get(kind, {}).get(name, {}).get("sha256") != identity["sha256"]:
-                raise ValueError("calibration input/source hash mismatch: " + kind + "/" + name)
+    expected = reference["expected_manifests"]
+    for name, identity in expected.get("asset_manifest", {}).items():
+        if not identity.get("sha256") or config.get("asset_manifest", {}).get(name) != identity:
+            raise ValueError("calibration input/source hash mismatch: asset_manifest/" + name)
+    for name, identity in expected.get("dataset_hash_manifest", {}).items():
+        if not identity.get("sha256") or config.get("dataset_hash_manifest", {}).get(name) != identity:
+            raise ValueError("calibration input/source hash mismatch: dataset_hash_manifest/" + name)
+    mutable = {"run_baseline.py", "gsd_protocol.py", "gsd_calibration.py"}
+    for name, identity in expected.get("runtime_source_manifest", {}).items():
+        if name in mutable:
+            continue
+        if not identity.get("sha256") or config.get("runtime_source_manifest", {}).get(name) != identity:
+            raise ValueError("calibration input/source hash mismatch: runtime_source_manifest/" + name)

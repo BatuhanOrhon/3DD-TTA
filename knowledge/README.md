@@ -1,5 +1,18 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[Run/Inference] 2026-09-28 rebuilt interaction ingested:** All six ZIPs under
+reference `20260928-113047_gsd-cal-diagnose-reference-seed0-n64` pass the recorded
+artifact/protocol checks; the supplied summary matches raw recomputation.
+Read [the accepted results and next development proposal](gsd_interaction_results_20260928.md).
+New SCD-only macro is 74.609375%; beta .5/rho .001 is 75.390625%, beta2/rho .01
+is 75.781250%, while beta2/rho .001 is 73.828125%. This supersedes pending
+ingestion below and prevents treating the old beta2/rho .001 lead as stable.
+The new block is internally matched; old/new package and extension identities
+differ. Calibration alpha drift is small (.01298%/.00513% for beta .5/2),
+with cause unisolated. Next proposed comparison: SCD-only and the two promising
+conditions, 512 examples/corruption, seeds0/1/2, fixed new reference (nine runs).
+No new model run has been launched. This is still development, not confirmation.
+
 **[Code/Run/Inference] 2026-09-28 review: finish development before freezing.**
 The fixed-state diagnostic and five-arm seed-0 development screen have now
 run. Beta2/rho .001 ranks first (+1.1719 pp over SCD-only) on 128 Gaussian and

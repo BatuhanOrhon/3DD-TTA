@@ -12,12 +12,15 @@ proposed 100-example-per-corruption extension. The run is a full-test-set
 development scan to compare the candidates and assess their behavior across
 the corruption suite.
 
-This test set has already supplied labels for the 128-example Gaussian/Impulse
-development screens. Selecting a candidate from the full-set scores therefore
-does not create an untouched benchmark confirmation. Preserve this distinction
-in the run notes, summary, and thesis-facing knowledge record. A later
-independent confirmation requires a separately defined untouched evaluation
-protocol.
+Use the same canonical ModelNet40-C test examples already evaluated by the
+repository's `all_corruptions` runs; do not sample a different dataset or
+replace the corruption files. The adaptation receives corrupted inputs but no
+class labels. Labels are used only after prediction to calculate accuracy and
+compare candidate settings. These are valid full-test-set descriptive
+comparisons. Because observed accuracy can inform which setting advances, the
+selected setting's score is not independent confirmation of its
+generalization. State that limit in run notes and summaries; a claim on an
+untouched evaluation requires a separately defined protocol.
 
 ## Experiment matrix
 
@@ -70,7 +73,7 @@ contracts intact. The new stage:
   prefix; does not require a subset count or calibration-index overlap;
 - records `stage=full_dataset_development`, full-file counts, canonical order,
   calibration provenance, complete dataset scope, and the explicit
-  development/test-set selection caveat in every run config and notes;
+  accuracy-selection caveat in every run config and notes;
 - reports `execution_status=complete` and CSV coverage `complete` only after
   all 15 corruption files have been fully processed;
 - accumulates the existing bounded per-corruption scalar diagnostics, without
@@ -112,8 +115,8 @@ Report per arm and seed:
   seed-matched macro deltas, plus the sign of every seed delta.
 
 Do not pool all examples across corruptions into the macro score. Do not
-present the best arm's full-test score as an unbiased final performance claim
-after inspecting it for selection. Do not call the three seeds independent
+present the best arm's full-test score as an independent confirmation after
+inspecting it for selection. Do not call the three seeds independent
 objects or common-draw paired. The purpose is to select or reject candidates
 for further work; an independent evaluation remains outstanding.
 
@@ -151,7 +154,7 @@ confirmation. Do not modify or combine the immutable 113047 interaction ZIPs.
 
 - “15 corruption'ın tamamı” means all 15 corruption files in the ModelNet40-C
   **test set**, not an inferred noise-only subset.
-- The user accepts evaluating the entire dataset for this important candidate
-  comparison and is willing to spend the additional runtime.
+- The user accepts evaluating the same full ModelNet40-C test set as prior
+  `all_corruptions` runs for this important candidate comparison.
 - The candidate arms are the currently retained beta .5/rho .001 and beta
   2/rho .01 conditions with a matched SCD-only control, across seeds0/1/2.

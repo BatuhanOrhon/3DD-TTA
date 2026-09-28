@@ -1,3 +1,17 @@
+> Current approved next task (2026-09-28): compare all 15 full ModelNet40-C
+> severity-5 test corruption files, all examples, seeds 0/1/2, using SCD-only,
+> beta .5/rho .001 and beta 2/rho .01. This supersedes the 512-example subset
+> proposal below. The distinct `full_dataset_development` stage, strict ZIP
+> analyzer and resumable Colab launcher are implemented locally; no GPU run was
+> restarted. See `knowledge/colab_gsd_calibration.md` for the exact command.
+>
+> Güncelleme (2026-09-28, [Run]): 113047 referanslı altı ZIP ve interaction
+> özeti alındı ve doğrulandı. Aşağıdaki bekleyen-sonuç ifadeleri tarihseldir.
+> Önce `knowledge/gsd_interaction_results_20260928.md` dosyasını oku.
+> Yeni öneri: aynı kalibrasyonla 512 örnek/corruption, seed0/1/2,
+> SCD-only + beta .5/rho .001 + beta2/rho .01 (dokuz koşu; başlatılmadı).
+> Mevcut from-scratch koşusunu yeniden başlatma.
+
 Bu projede devam eden GSD beta-rho geliştirme deneyinin sonuçlarını devralmanı
 istiyorum. Bu metin, önceki sohbeti görmeyen bir agent için hazırlanmıştır.
 Önce mevcut dosyaları ve Git durumunu kontrol et; aşağıdaki bilgileri eski

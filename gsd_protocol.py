@@ -26,7 +26,8 @@ def add_arguments(parser) -> None:
                        ("graph-gamma", float), ("modes", int)):
         parser.add_argument("--gsd-" + name, type=cast, default=None)
     parser.add_argument("--gsd-stage", choices=("smoke", "pilot", "benchmark", "benchmark_no_background",
-                                                  "ablation_no_background", "calibrate", "development"), default=None)
+                                                  "ablation_no_background", "calibrate", "development",
+                                                  "full_dataset_development"), default=None)
     parser.add_argument("--gsd-profile", choices=("hard", "smooth"), default=None)
     parser.add_argument("--gsd-beta", type=float, default=None)
     parser.add_argument("--gsd-development-count", type=int, default=None)
@@ -85,14 +86,23 @@ def validate_arguments(args, parser, all_corruptions) -> None:
         parser.error("GSD delta must be finite and positive.")
     if not math.isfinite(args.gsd_graph_gamma) or args.gsd_graph_gamma < 0:
         parser.error("GSD graph gamma must be finite and non-negative.")
-    if args.gsd_calibration_reference is not None and args.gsd_stage != "development":
-        parser.error("Calibration reference requires development stage.")
-    if args.gsd_stage == "development" and args.gsd_calibration_reference is None:
+    reference_stages = ("development", "full_dataset_development")
+    if args.gsd_calibration_reference is not None and args.gsd_stage not in reference_stages:
+        parser.error("Calibration reference requires a calibrated development stage.")
+    if args.gsd_stage in reference_stages and args.gsd_calibration_reference is None:
         parser.error("Development stage requires --gsd-calibration-reference.")
     if args.gsd_target_rho is not None and (args.gsd_calibration_reference is None or
                                           args.gsd_target_rho not in (1e-4, 1e-3, 1e-2)):
         parser.error("Target rho requires calibration reference and value 0.0001/0.001/0.01.")
-    if args.gsd_stage in ("calibrate", "development"):
+    if args.gsd_stage == "full_dataset_development":
+        if (not is_smooth_method or args.max_batches != 0 or
+                args.corruptions != list(all_corruptions)):
+            parser.error("Full-dataset development requires smooth-v2, canonical all-15 and max-batches 0.")
+        if args.gsd_scd_weight != 1:
+            parser.error("Full-dataset development preserves SCD weight 1.")
+        if args.gsd_development_count is not None or args.gsd_split_seed is not None:
+            parser.error("Full-dataset development does not accept subset options.")
+    elif args.gsd_stage in ("calibrate", "development"):
         if not is_smooth_method or args.max_batches != 0 or args.corruptions != list(PILOT_CORRUPTIONS):
             parser.error("GSD calibration/development requires smooth-v2, Gaussian+Impulse and max-batches 0.")
         if args.gsd_scd_weight != 1:
@@ -116,7 +126,8 @@ def validate_arguments(args, parser, all_corruptions) -> None:
             if args.gsd_stage in ("benchmark_no_background", "ablation_no_background") else all_corruptions)
         if args.max_batches != 0 or args.corruptions != list(expected):
             parser.error("GSD pilot/benchmark requires complete files in its canonical scope.")
-    if is_smooth_method and args.gsd_stage not in ("smoke", "pilot", "calibrate", "development"):
+    if is_smooth_method and args.gsd_stage not in ("smoke", "pilot", "calibrate", "development",
+                                                    "full_dataset_development"):
         parser.error("GSD smooth v2 is restricted to smoke/pilot until promotion review.")
     if not is_smooth_method and args.gsd_stage in ("benchmark", "benchmark_no_background") and (
             args.gsd_weight not in (0.0, 1.0) or args.gsd_scd_weight != 1.0 or args.gsd_k != 10 or
@@ -170,10 +181,23 @@ def spectral_contract(args) -> dict:
     elif args.gsd_stage == "development":
         contract.update(tuning="exploratory fixed shuffled subset; not a benchmark",
                         zero_weight_behavior="instrumented SCD-only trajectory; graph bypass")
+    elif args.gsd_stage == "full_dataset_development":
+        contract.update(tuning="fixed calibration-derived candidate; full-test-set development screen",
+                        zero_weight_behavior="calibrated-reference-bound SCD-only comparator; graph bypass")
     return contract
 
 
 def notes_for_run(args) -> str:
+    if args.gsd_stage == "full_dataset_development":
+        return ("# GSD full-test-set development screen\n\n"
+                "[Code] All examples from the canonical ModelNet40-C severity-5 test files are evaluated "
+                "for all 15 corruptions. Inputs and ordering match the existing all-corruptions test files. "
+                "Adaptation receives point clouds only; labels are read for post-prediction accuracy metrics.\n"
+                "[Code] Calibration-derived coefficients are fixed before this run. Comparing and selecting "
+                "candidates on these test-set scores is descriptive development evidence, not independent "
+                "confirmation. Do not treat the selected score as an unbiased final estimate.\n"
+                "[Code] Aggregate diagnostics are bounded per corruption; no sample-by-step diagnostic rows. "
+                "The raw seven-file bundle is the evidence unit. Record Colab runtime details and anomalies.\n")
     if args.gsd_stage in ("calibrate", "development"):
         return ("# GSD development experiment\n\n"
                 "[Code] Stage=" + args.gsd_stage + ". Fixed shuffled index subset; raw/eval LION, "

@@ -1,5 +1,28 @@
 # Open Questions and Research Backlog
 
+## 2026-09-28 approved full-test-set GSD screen
+
+- [x] Define the next comparison as full-file evaluation over all 15
+  ModelNet40-C severity-5 corruptions, seeds 0/1/2; retain the existing
+  all-corruptions test examples and file order.
+- [x] Lock SCD-only, beta .5/rho .001 and beta 2/rho .01 to the raw
+  113047 calibration config and its SHA-256; preserve batch 32 and all other
+  inference controls.
+- [x] Implement the distinct `full_dataset_development` stage, strict
+  seven-file ZIP analyzer, and sequential resumable Colab launcher.
+- [ ] Run the nine conditions in the existing Colab environment; do not
+  restart the completed Colab job or rerun calibration.
+- [ ] Ingest all nine raw ZIPs and the compact summary; verify 15/15 full
+  counts, same assets/data/environment, per-seed deltas, macro and sample SD.
+- **[Limit]** Labels are used only after predictions for accuracy. Candidate
+  selection on the full ModelNet40-C test set is descriptive development
+  evidence; the selected score is not independent confirmation.
+- [ ] After inspecting this comparison, freeze the choice before any
+  independently sourced or disjoint confirmation experiment.
+
+The former 512-example-per-corruption proposal below is superseded by the
+user-approved full-test-set screen; it was never run.
+
 ## 2026-09-28 current interaction restart
 
 Read the [restart review](gsd_interaction_review_20260928.md) and
@@ -7,13 +30,15 @@ Read the [restart review](gsd_interaction_review_20260928.md) and
 
 - [x] Prepare `c1c7467 --rebuild-prerequisites`: one new calibration, four
   required comparison runs, then the beta .5/rho .01 arm and compact analysis.
-- [ ] Ingest all six raw ZIPs and summary from this exact block; current
-  Colab completion is not verified here. Do not automatically relaunch it.
-- [ ] Inspect fresh diagnostic scales and quantify old/new coefficient drift.
-  The reported equivalence failure alone does not establish its size or cause.
+- [x] Ingest all six raw ZIPs and summary for reference 20260928-113047;
+  checks pass and raw recomputation matches the supplied summary. Do not relaunch.
+- [x] Inspect fresh diagnostic scales and quantify 113047 versus old report:
+  beta .5/2 alpha changes +.01298%/+.00513%; no missing denominators.
+  This does not identify the earlier failing reference or explain the cause.
 - [x] User reports restored Diffusers .11.1 / Hub .11.1 with Torch2.1.2+cu121,
-  CUDA=True and DDPMScheduler import=OK. New raw environment evidence remains
-  part of the pending six-ZIP review.
+  CUDA=True and DDPMScheduler import=OK. New raw six-ZIP environment evidence
+  is now validated; packages/binaries match within this block but differ from
+  the historical block. See [accepted results](gsd_interaction_results_20260928.md).
 
 ## 2026-09-28 historical Colab setup/runtime incident
 
@@ -49,15 +74,16 @@ See [execution plan](gsd_calibration_execution_20260927.md) and
 - [x] Harden analyzer shared CLI/manifest/count/CSV consistency checks. The
   stricter reader rejects reviewed invalid variants and preserves the current
   seven-archive results; see the 2026-09-28 findings entry.
-- [ ] Restore the planned beta/rho interaction check, retaining beta .5 and 2.
+- [x] Restore the planned beta/rho interaction check, retaining beta .5 and 2.
   Registered extension: beta .5/rho .01 completes a 2x2 development comparison.
   After a reported fresh/old alpha mismatch, the user authorized rebuilding
   SCD-only and the other three cells under one new reference. The current
   `--rebuild-prerequisites` invocation produces its own matched five-arm
-  summary; completion and accuracy are pending raw-artifact ingestion.
-- [ ] Expand promising candidates and matched controls across development
-  examples and seeds 0/1/2, then freeze. The former immediate beta2-freeze
-  recommendation is superseded by the audit; the current lead is one example.
+  summary; all six raw artifacts are now ingested. New best observed condition
+  is beta2/rho .01 (+1.171875 pp); beta .5/rho .001 is one prediction behind.
+- [x] Historical proposal: expand promising candidates and matched controls
+  across a shuffled 512-example subset and seeds0/1/2. Superseded by the
+  user-approved full-test-set screen above; no 512-subset run was made.
 - [ ] Specify and implement a separate disjoint confirmation path with frozen
   coefficients; current development guards intentionally require calibration
   pool overlap. Repeated seeds on reused objects remain development evidence.

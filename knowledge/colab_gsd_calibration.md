@@ -1,12 +1,97 @@
 # Colab: fixed-state GSD calibration, then a staged development screen
 
-[Code] Branch `gsd-smooth-spectrum`, implementation based on `d75a32d`.
+[Code] Branch `gsd-smooth-spectrum`; the existing smooth-v2 calibration
+workflow is extended with the approved full-test-set screen below.
 See [the approved execution plan](gsd_calibration_execution_20260927.md) and
 [mathematical/statistical rationale](gsd_calibration_review_20260927.md).
 These commands use the existing installed Colab environment and downloaded
 ModelNet40-C/LION/Point-MAE assets. No dependency reinstall is needed.
 
+## Current next run — full ModelNet40-C test-set candidate screen
+
+**[Approved]** The prior 512-example subset proposal is superseded. The next
+screen evaluates every example in the existing ModelNet40-C severity-5 test
+files for all 15 corruptions, with seeds 0/1/2 and batch 32. It compares
+SCD-only, calibrated beta .5/rho .001, and calibrated beta 2/rho .01, all
+bound to reference `20260928-113047_gsd-cal-diagnose-reference-seed0-n64`
+(raw config SHA-256
+`550d73dc83375395c905db2e6cda3845dc3362632117d3371f8d4ad4e787e2d6`).
+This uses the same all-corruptions test examples as the existing runs. The
+adaptation receives point clouds only; labels are read after predictions for
+accuracy metrics. Since the candidates are compared on the full test set,
+choosing one from these scores is descriptive development evidence, not an
+independent confirmation result.
+
+Run from the repository root after the full-dataset stage and scripts are
+present in the Colab checkout. Point `CALIBRATION` to the preserved raw
+calibration `config.json` from the reference run:
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+CALIBRATION="./result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/config.json"
+conda run --no-capture-output -n 3dd_tta_env python \
+  scripts/run_gsd_full_dataset_screen.py \
+  --calibration "$CALIBRATION" --result-root ./result
+```
+
+If only the reference ZIP remains, copy its `config.json` member to a scratch
+path first; do not edit the ZIP:
+
+```bash
+ROOT=./result/modelnet40_c/gsd_latent_spectral_smooth_v2
+RUN_ID=20260928-113047_gsd-cal-diagnose-reference-seed0-n64
+mkdir -p ./tmp/full-gsd-screen-reference
+unzip -p "$ROOT/$RUN_ID.zip" "$RUN_ID/config.json" \
+  > ./tmp/full-gsd-screen-reference/config.json
+CALIBRATION=./tmp/full-gsd-screen-reference/config.json
+```
+
+The launcher preflights the reference ID, raw config hash, and two calibrated
+coefficients before starting a child run. It then runs the nine arm/seed jobs
+sequentially in the existing `3dd_tta_env`; it does not install packages or
+pull Git. Use `--resume` after interruption. Resume skips only a complete,
+CRC-valid seven-file ZIP whose config matches its arm, seed, full 15-file
+coverage and pinned reference. Failed, incomplete, corrupt or mismatched ZIPs
+are retained; a retry gets a distinct `-attemptNN` run name.
+
+The output is nine immutable ZIPs under
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/`, named
+`<UTC>_gsd-full-screen-<reference>-<arm>-seed<N>.zip`, plus
+`full_test_screen_summary_<reference>.json`. The summary reports per-seed
+per-corruption accuracy, the unweighted 15-corruption macro, candidate-minus-
+SCD-only percentage-point deltas by corruption and seed, across-seed mean and
+sample SD, runtime, and peak memory. If any command fails, the launcher stops
+and prints completed archives; rerun with `--resume` to continue.
+
+For local ingestion, preserve all nine ZIPs and the summary JSON together.
+The strict analyzer interface is:
+
+```bash
+ROOT=./result/modelnet40_c/gsd_latent_spectral_smooth_v2
+RUN_ID=20260928-113047_gsd-cal-diagnose-reference-seed0-n64
+CALIBRATION="$ROOT/$RUN_ID/config.json"
+conda run --no-capture-output -n 3dd_tta_env python \
+  scripts/analyze_gsd_full_dataset_screen.py \
+  --calibration "$CALIBRATION" --screen-run <SCD0.zip> <SCD1.zip> <SCD2.zip> \
+  <BETA05_0.zip> <BETA05_1.zip> <BETA05_2.zip> \
+  <BETA2_0.zip> <BETA2_1.zip> <BETA2_2.zip> \
+  --output "$ROOT/full_test_screen_summary_<reference>.json"
+```
+
+No new calibration is run. The existing reference's Gaussian/Impulse data,
+checkpoint/config identities and unchanged inference-source identities are
+checked; this screen's current protocol/worker source hashes are recorded and
+must agree across its nine runs.
+
 ## Current restart handoff — 2026-09-28
+
+**[Run] Completed and ingested:** reference113047 and all five development
+ZIPs are validated. The command below is historical; do not rerun it.
+Read [results and the nine-run larger-development proposal](gsd_interaction_results_20260928.md).
+Keep the raw 113047 config and current installed environment for that next
+comparison; it uses the existing direct development runner, not fresh diagnosis.
 
 This takes precedence over the historical reuse-of-old-ZIPs instructions in
 section 4. The user reported a coefficient mismatch between a fresh reference

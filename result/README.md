@@ -1,5 +1,27 @@
 # Colab Result Archive
 
+## GSD full-test-set candidate screen — approved, awaiting Colab execution
+
+[Plan] `full_dataset_development` evaluates every example from all 15 existing
+ModelNet40-C severity-5 corruption files with seeds 0/1/2. The nine runs compare
+SCD-only, calibrated beta .5/rho .001 and beta 2/rho .01, all bound to reference
+`20260928-113047_gsd-cal-diagnose-reference-seed0-n64` (raw config SHA-256
+`550d73dc83375395c905db2e6cda3845dc3362632117d3371f8d4ad4e787e2d6`). The
+adaptation path consumes points; labels are used after prediction for accuracy
+metrics. Candidate selection from the full test set is descriptive development
+evidence and is not independent confirmation.
+
+Run `scripts/run_gsd_full_dataset_screen.py` in the existing Colab
+`3dd_tta_env`, passing the raw reference `config.json` and `--result-root
+./result`. Add `--resume` after interruption: only complete matching ZIPs are
+skipped, and retries use unique attempt names. The launcher writes nine raw
+seven-file ZIPs and
+`full_test_screen_summary_20260928-113047_gsd-cal-diagnose-reference-seed0-n64.json`.
+Keep all of them together for ingestion. The compact JSON includes full-file
+counts, per-seed per-corruption accuracy, equal-weight 15-corruption macro,
+candidate-minus-SCD percentage-point deltas, seed mean/sample SD, runtime and
+peak memory. See [Colab commands](../knowledge/colab_gsd_calibration.md).
+
 ## GSD calibration/development artifacts - 2026-09-27
 
 [Code] Smooth-v2 `calibrate` and `development` stages keep the same seven-file

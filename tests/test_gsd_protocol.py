@@ -138,6 +138,44 @@ class GSDProtocolTests(unittest.TestCase):
             self.args("--gsd-stage", "benchmark_no_background",
                       "--corruptions", *run_baseline.CORRUPTIONS)
 
+    def test_full_dataset_development_requires_exact_all15_and_no_subset(self):
+        reference = "calibration-config.json"
+        base = ["--method", gsd_protocol.SMOOTH_METHOD, "--batch_size", "32",
+                "--gsd-stage", "full_dataset_development",
+                "--gsd-profile", "hard", "--gsd-weight", "0", "--max-batches", "0",
+                "--gsd-calibration-reference", reference, "--corruptions", *run_baseline.CORRUPTIONS]
+        args = run_baseline.parse_arguments(base)
+        self.assertEqual(args.gsd_stage, "full_dataset_development")
+        self.assertIsNone(args.gsd_development_count)
+        self.assertIsNone(args.gsd_split_seed)
+        for corruptions in (run_baseline.CORRUPTIONS[:-1],
+                            list(reversed(run_baseline.CORRUPTIONS))):
+            altered = base[:base.index("--corruptions")] + ["--corruptions", *corruptions]
+            with self.subTest(corruptions=corruptions), redirect_stderr(StringIO()), self.assertRaises(SystemExit):
+                run_baseline.parse_arguments(altered)
+        for extra in (("--max-batches", "1"), ("--gsd-development-count", "64"),
+                      ("--gsd-split-seed", "7"), ("--batch_size", "16"),
+                      ("--gsd-calibration-reference",)):
+            with self.subTest(extra=extra), redirect_stderr(StringIO()), self.assertRaises(SystemExit):
+                run_baseline.parse_arguments(base + list(extra))
+
+    def test_full_dataset_config_has_full_scope_without_sample_diagnostics(self):
+        cli = ["--method", gsd_protocol.SMOOTH_METHOD, "--batch_size", "32",
+               "--gsd-stage", "full_dataset_development",
+               "--gsd-profile", "hard", "--gsd-weight", "0", "--max-batches", "0",
+               "--gsd-calibration-reference", "calibration-config.json",
+               "--corruptions", *run_baseline.CORRUPTIONS]
+        args = run_baseline.parse_arguments(cli)
+        provenance = {"path": "reference", "sha256": "a" * 64, "run_id": "calibration",
+                      "target_rho": None, "development_split": {}, "expected_manifests": {}}
+        with patch("gsd_calibration.calibration_provenance", return_value=provenance), \
+                patch.object(run_baseline, "command_output", return_value="fixture"):
+            config = run_baseline.build_config(args)
+        self.assertEqual(config["evaluation_scope"], "full ModelNet40-C severity-5 test files; all 15 corruptions")
+        self.assertEqual(config["calibration_reference"], provenance)
+        self.assertNotIn("gsd_sample_diagnostics", config)
+        self.assertIn("full-test-set candidate selection is descriptive", config["selection_caveat"])
+
     def test_diagnostics_aggregate_is_bounded_and_json_serializable(self):
         config = {}
         for _ in range(4):

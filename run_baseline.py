@@ -1086,6 +1086,22 @@ def build_config(args: argparse.Namespace) -> dict:
             if args.gsd_calibration_reference is not None:
                 from gsd_calibration import calibration_provenance
                 config["calibration_reference"] = calibration_provenance(args)
+        elif args.gsd_stage == "full_dataset_development":
+            config["runtime_source_manifest"].update({name: file_identity(REPO / name) for name in
+                                                    ("gsd_calibration.py", "eval_gsd_calibration.py")})
+            config.update(
+                evaluation_scope="full ModelNet40-C severity-5 test files; all 15 corruptions",
+                input_scope="same canonical all_corruptions test files and file order; all examples",
+                label_use="post-prediction accuracy metrics only; adaptation receives points only",
+                calibration_source_compatibility=dict(
+                    allowed_source_extensions=sorted(("run_baseline.py", "gsd_protocol.py", "gsd_calibration.py")),
+                    reason="full-scope orchestration/provenance gate added; inference algorithm sources remain hash-checked",
+                    current_source_hashes_retained=True),
+                selection_caveat=("full-test-set candidate selection is descriptive; selected scores are not "
+                                  "independent confirmation"),
+                gsd_diagnostics={})
+            from gsd_calibration import calibration_provenance
+            config["calibration_reference"] = calibration_provenance(args)
     return config
 
 
