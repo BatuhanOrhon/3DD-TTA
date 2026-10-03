@@ -165,19 +165,22 @@ def calibration_provenance(args) -> dict:
         path = path / "config.json"
     config, report = load_calibration(path)
     raw_sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
-    if args.gsd_stage == "full_dataset_development":
+    full_stage = args.gsd_stage in ("full_dataset_development", "full_dataset_ablation")
+    if full_stage:
         if config.get("run_id") != PINNED_REFERENCE_RUN_ID:
             raise ValueError("full-dataset screen requires the pinned calibration run ID")
         if raw_sha256 != PINNED_REFERENCE_CONFIG_SHA256:
             raise ValueError("full-dataset screen calibration config hash mismatch")
     setting_keys = ("gsd_k", "gsd_delta", "gsd_graph_gamma", "gsd_modes",
                     "gsd_scd_weight", "lambdaa", "gamma", "eta", "batch_size")
-    if args.gsd_stage != "full_dataset_development":
+    if args.gsd_stage == "full_dataset_ablation":
+        setting_keys = tuple(key for key in setting_keys if key != "gsd_scd_weight")
+    if not full_stage:
         setting_keys = ("gsd_split_seed",) + setting_keys
     for key in setting_keys:
         if config["cli_args"][key] != getattr(args, key):
             raise ValueError("calibration setting mismatch: " + key)
-    if (args.gsd_stage != "full_dataset_development" and
+    if (not full_stage and
             args.gsd_development_count < config["cli_args"]["gsd_development_count"]):
         raise ValueError("screening pool must contain the diagnostic pool")
     if args.gsd_weight:
@@ -207,6 +210,8 @@ def verify_calibration_inputs(config: dict) -> None:
         if not identity.get("sha256") or config.get("dataset_hash_manifest", {}).get(name) != identity:
             raise ValueError("calibration input/source hash mismatch: dataset_hash_manifest/" + name)
     mutable = {"run_baseline.py", "gsd_protocol.py", "gsd_calibration.py"}
+    if "tta_gsd.py" in config.get("calibration_source_compatibility", {}).get("allowed_source_extensions", []):
+        mutable.add("tta_gsd.py")
     for name, identity in expected.get("runtime_source_manifest", {}).items():
         if name in mutable:
             continue

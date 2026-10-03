@@ -31,6 +31,50 @@ def _number(value: torch.Tensor, name: str) -> float:
     return float(value.detach().item())
 
 
+@torch.no_grad()
+def _unguided_diffusion(x, lion, steps_back_local, total, scheduler_observer,
+                        diagnostics_observer):
+    """Same encode/noise/DDIM/decode host, with no losses or guidance gradients."""
+    if total <= 0 or not 0 < steps_back_local <= 100:
+        raise ValueError("Unguided diffusion requires valid total/reverse steps")
+    reverse_steps = (total * steps_back_local) // 100
+    if reverse_steps < 1:
+        raise ValueError("Unguided diffusion requires at least one reverse step")
+    scheduler = baseline.DDIMScheduler(
+        beta_end=.02, beta_schedule="linear", beta_start=.0001,
+        clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon")
+    scheduler.set_timesteps(total, device=x.device)
+    if scheduler_observer is not None:
+        scheduler_observer(scheduler)
+    timesteps = scheduler.timesteps[-reverse_steps:]
+    vae, prior = lion.vae, lion.priors[1]
+    baseline.grad_freeze(vae)
+    baseline.grad_freeze(prior)
+    latents = vae.encode(x)
+    shape = latents[2][0][0].unsqueeze(2).unsqueeze(3)
+    local = latents[2][1][0].unsqueeze(2).unsqueeze(3)
+    if local.shape != (len(x), 8192, 1, 1):
+        raise ValueError("Unguided diffusion expects B x 8192 x 1 x 1 local encoding")
+    style = vae.global2style(shape)
+    noise = torch.randn_like(local)
+    alpha = scheduler.alphas_cumprod[timesteps[0]]
+    local = torch.sqrt(alpha) * local + torch.sqrt(1 - alpha) * noise
+    for index, timestep in enumerate(timesteps):
+        t = torch.ones(len(x), dtype=torch.int64, device=x.device) * (timestep + 1)
+        prediction = prior(x=local, t=t.float(), condition_input=style, clip_feat=None)
+        previous = scheduler.step(prediction, timestep, local).prev_sample
+        _require_finite(previous, "unguided local state")
+        if diagnostics_observer is not None:
+            diagnostics_observer(dict(kind="step", step_index=index, timestep=int(timestep.item()),
+                                      batch_size=len(x), local_update_norm=0., style_update_norm=0.,
+                                      local_ddim_displacement_norm=_number((previous-local).norm(), "DDIM step")))
+        local = previous
+    result = vae.decoder(None, beta=None, context=local.squeeze(3).squeeze(2),
+                         style=shape.squeeze(3).squeeze(2))
+    _require_finite(result, "unguided output")
+    return result
+
+
 @torch.enable_grad()
 def tta_gsd_reconstruct(
     x: torch.Tensor, lion, steps_back_local: int, gamma: float, eta: float,
@@ -41,6 +85,7 @@ def tta_gsd_reconstruct(
     spectral_profile: Optional[str] = None, spectral_beta: Optional[float] = None,
     probe_observer: Optional[Callable] = None,
     sample_observer: Optional[Callable] = None,
+    allow_unguided: bool = False,
 ) -> torch.Tensor:
     """Guide local and conditioning states; decode with the encoded global state.
 
@@ -55,6 +100,11 @@ def tta_gsd_reconstruct(
     if (not math.isfinite(spectral_weight) or spectral_weight < 0 or
             not math.isfinite(scd_weight) or scd_weight < 0):
         raise ValueError("spectral_weight and scd_weight must be finite and nonnegative")
+    if allow_unguided and spectral_weight == 0 and scd_weight == 0:
+        if probe_observer is not None or sample_observer is not None:
+            raise ValueError("Unguided diffusion does not support calibration gradient probes")
+        return _unguided_diffusion(x, lion, steps_back_local, total,
+                                  scheduler_observer, diagnostics_observer)
     if spectral_weight == 0 and scd_weight != 1.0:
         raise ValueError(
             "A zero spectral weight with a non-default SCD weight has no "

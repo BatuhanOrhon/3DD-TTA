@@ -285,6 +285,29 @@ class TrajectoryTests(unittest.TestCase):
                 self.run_gsd(weight)
         self.assertEqual(self.lion.vae.encode_calls, 0)
 
+    def test_explicit_unguided_diffusion_matches_reverse_equations_without_losses(self):
+        torch.manual_seed(57)
+        encoded = torch.linspace(-.2, .2, 8192).reshape(1, 8192, 1, 1)
+        noisy = (.8 ** .5) * encoded + (.2 ** .5) * torch.randn_like(encoded)
+        for _ in range(2):
+            noisy = noisy - .1 * (.1 * noisy + .02)
+        expected = noisy.reshape(1, 2048, 4)[:, :, :3] + .02
+        expected_rng = torch.get_rng_state().clone()
+        with patch.dict(sys.modules, {"graph_spectral": None}), \
+                patch.object(self.baseline, "chamfer_grad", side_effect=AssertionError("unguided Chamfer")), \
+                patch.object(self.gsd, "_loss_gradients", side_effect=AssertionError("unguided gradient")):
+            torch.manual_seed(57)
+            actual = self.run_gsd(0., scd_weight=0., allow_unguided=True)
+        torch.testing.assert_close(actual, expected, rtol=1e-6, atol=1e-7)
+        self.assertTrue(torch.equal(expected_rng, torch.get_rng_state()))
+        self.assertEqual(len(self.lion.priors[1].timesteps), 2)
+        self.assertTrue(all(torch.equal(s, torch.full_like(s, 2.)) for s in self.lion.priors[1].styles))
+        self.assertFalse(actual.requires_grad)
+
+    def test_unguided_requires_explicit_opt_in(self):
+        with self.assertRaises(ValueError):
+            self.run_gsd(0., scd_weight=0.)
+
 
 if __name__ == "__main__":
     unittest.main()

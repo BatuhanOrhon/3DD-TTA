@@ -120,9 +120,12 @@ def _validate_manifest(config: dict, name: str, path: Path):
             raise ValueError("invalid " + name + " identity: " + str(path))
 
 
-def read_full_run(path: Path) -> dict:
+def read_full_run(path: Path, *, guidance_ablation: bool = False) -> dict:
     """Read and strictly validate one complete seven-file full-suite bundle."""
     path = Path(path)
+    stage = "full_dataset_ablation" if guidance_ablation else "full_dataset_development"
+    scd_weight = 0. if guidance_ablation else 1.
+    mutable_sources = MUTABLE_CALIBRATION_SOURCE_FILES | ({"tta_gsd.py"} if guidance_ablation else set())
     root, contents = _bundle_contents(path)
     try:
         config = json.loads(contents["config.json"])
@@ -135,7 +138,7 @@ def read_full_run(path: Path) -> dict:
         raise ValueError("run bundle has invalid JSON or text encoding: " + str(path)) from error
     if not isinstance(config, dict) or config.get("run_id") != root:
         raise ValueError("archive root and config run ID disagree: " + str(path))
-    if (config.get("stage") != "full_dataset_development" or config.get("execution_status") != "complete" or
+    if (config.get("stage") != stage or config.get("execution_status") != "complete" or
             config.get("status") != "complete" or config.get("dataset") != "modelnet40_c" or
             config.get("severity") != 5 or config.get("method") != METHOD or
             config.get("completed_corruptions") != list(CORRUPTIONS) or
@@ -144,9 +147,9 @@ def read_full_run(path: Path) -> dict:
     cli = config.get("cli_args")
     if not isinstance(cli, dict):
         raise ValueError("run is missing CLI metadata: " + str(path))
-    required_cli = {"gsd_stage": "full_dataset_development", "dataset_name": "modelnet-c", "severity": 5,
+    required_cli = {"gsd_stage": stage, "dataset_name": "modelnet-c", "severity": 5,
                     "batch_size": 32, "max_batches": 0, "lion_eval_mode": True, "lion_ema_mode": False,
-                    "gamma": .01, "eta": .01, "lambdaa": .95, "gsd_scd_weight": 1.,
+                    "gamma": .01, "eta": .01, "lambdaa": .95, "gsd_scd_weight": scd_weight,
                     "gsd_k": 10, "gsd_delta": .1, "gsd_graph_gamma": .6, "gsd_modes": 100,
                     "corruptions": list(CORRUPTIONS)}
     for key, value in required_cli.items():
@@ -193,20 +196,27 @@ def read_full_run(path: Path) -> dict:
     if arm is None:
         raise ValueError("run is not one of the three locked screen arms: " + str(path))
     weight, expected_profile, expected_beta, expected_rho = ARMS[arm]
+    if guidance_ablation:
+        arm = {"scd_only": "unguided", "beta_0.5_rho_0.001": "smooth_only"}.get(arm)
+        if arm is None or config.get("guidance_ablation") != arm:
+            raise ValueError("unexpected guidance ablation condition: " + str(path))
     if not math.isclose(_finite(cli.get("gsd_weight"), "spectral weight"), weight, rel_tol=0, abs_tol=1e-12):
         raise ValueError("candidate coefficient mismatch: " + str(path))
     if (profile, beta, rho) != (expected_profile, expected_beta, expected_rho):
         raise ValueError("candidate profile/rho mismatch: " + str(path))
     spectral = config.get("spectral")
     if not isinstance(spectral, dict) or any(spectral.get(k) != v for k, v in {
-            "weight": weight, "scd_weight": 1., "profile": expected_profile,
+            "weight": weight, "scd_weight": scd_weight, "profile": expected_profile,
             "beta": expected_beta, "k": 10, "delta": .1, "graph_gamma": .6}.items()):
         raise ValueError("spectral contract disagrees with CLI: " + str(path))
     for name in ("asset_manifest", "dataset_hash_manifest", "runtime_source_manifest"):
         _validate_manifest(config, name, path)
     compatibility = config.get("calibration_source_compatibility")
+    if (not guidance_ablation and isinstance(compatibility, dict) and
+            compatibility.get("allowed_source_extensions") == sorted(mutable_sources | {"tta_gsd.py"})):
+        mutable_sources = mutable_sources | {"tta_gsd.py"}
     if (not isinstance(compatibility, dict) or compatibility.get("allowed_source_extensions") !=
-            sorted(MUTABLE_CALIBRATION_SOURCE_FILES)):
+            sorted(mutable_sources)):
         raise ValueError("run is missing the declared calibration-source compatibility record: " + str(path))
     if set(config["dataset_hash_manifest"]) != set(CORRUPTIONS):
         raise ValueError("run is missing full-file hashes for all 15 corruptions: " + str(path))
@@ -222,7 +232,7 @@ def read_full_run(path: Path) -> dict:
         if config["dataset_hash_manifest"].get(name) != identity:
             raise ValueError("calibration test-file identity mismatch: " + name + ": " + str(path))
     for name, identity in expected_manifests.get("runtime_source_manifest", {}).items():
-        if name in MUTABLE_CALIBRATION_SOURCE_FILES:
+        if name in mutable_sources:
             continue
         if config["runtime_source_manifest"].get(name) != identity:
             raise ValueError("calibration source identity mismatch: " + name + ": " + str(path))
@@ -241,7 +251,7 @@ def read_full_run(path: Path) -> dict:
     if not isinstance(logical_run_name, str) or not root.endswith("_" + logical_run_name):
         raise ValueError("config run name disagrees with archived run ID: " + str(path))
     for flag, expected in (("--run-name", logical_run_name), ("--seed", str(config["seed"])),
-                           ("--gsd-stage", "full_dataset_development"), ("--max-batches", "0")):
+                           ("--gsd-stage", stage), ("--max-batches", "0")):
         if flag not in command_tokens or command_tokens[command_tokens.index(flag) + 1] != expected:
             raise ValueError("command/config mismatch for " + flag + ": " + str(path))
 
@@ -266,6 +276,22 @@ def read_full_run(path: Path) -> dict:
         by_corruption[name] = row
     if list(by_corruption) != list(CORRUPTIONS):
         raise ValueError("per-corruption rows must preserve canonical order: " + str(path))
+    if guidance_ablation:
+        predictions = config.get("per_example_predictions")
+        if not isinstance(predictions, dict) or set(predictions) != set(CORRUPTIONS):
+            raise ValueError("ablation requires predictions for all 15 corruptions")
+        for name, row in by_corruption.items():
+            item = predictions[name]
+            if not isinstance(item, dict) or int(row["n_examples"]) != 2468:
+                raise ValueError("ablation requires all 2468 examples per corruption")
+            labels, predicted = item.get("labels"), item.get("predictions")
+            if (item.get("sample_indices") != list(range(2468)) or
+                    not isinstance(labels, list) or not isinstance(predicted, list) or
+                    len(labels) != 2468 or len(predicted) != 2468 or
+                    any(type(v) is not int or not 0 <= v < 40 for v in labels + predicted)):
+                raise ValueError("invalid per-example predictions: " + name)
+            if sum(a == b for a, b in zip(labels, predicted)) != int(row["n_correct"]):
+                raise ValueError("predictions disagree with CSV accuracy: " + name)
     summary_rows = _csv(summary_text, SUMMARY_COLUMNS, "summary.csv", path)
     if len(summary_rows) != 1:
         raise ValueError("summary CSV must contain one row: " + str(path))

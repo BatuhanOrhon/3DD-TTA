@@ -35,6 +35,20 @@ def artifact_directory():
 
 
 class GSDProtocolTests(unittest.TestCase):
+    def test_full_guidance_ablation_accepts_only_missing_conditions(self):
+        from research_artifacts import CORRUPTIONS
+        common = ["--method", gsd_protocol.SMOOTH_METHOD, "--batch_size", "32",
+                  "--max-batches", "0", "--corruptions", *CORRUPTIONS,
+                  "--gsd-stage", "full_dataset_ablation", "--gsd-scd-weight", "0",
+                  "--gsd-calibration-reference", "reference.json"]
+        for flags in (["--gsd-weight", "0", "--gsd-profile", "hard"],
+                      ["--gsd-weight", "8.140161356429882", "--gsd-profile", "smooth",
+                       "--gsd-beta", ".5", "--gsd-target-rho", ".001"]):
+            args = run_baseline.parse_arguments(common + flags)
+            self.assertEqual(args.gsd_stage, "full_dataset_ablation")
+            self.assertEqual(args.gsd_scd_weight, 0)
+            self.assertTrue(args.lion_eval_mode)
+
     def args(self, *extra):
         return run_baseline.parse_arguments([
             "--method", METHOD, "--batch_size", "32", "--max-batches", "0",

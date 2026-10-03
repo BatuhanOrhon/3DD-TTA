@@ -649,6 +649,8 @@ def run_worker(directory: str) -> None:
             dataset = baseline.PointDataset(args.dataset_root, args.label_path, active, severity=config["severity"])
             if len(dataset.data) != len(dataset.labels) or len(dataset) == 0:
                 raise ValueError("Empty data or data/label count mismatch.")
+            if getattr(args, "gsd_stage", None) == "full_dataset_ablation" and len(dataset) != 2468:
+                raise ValueError("Full guidance ablation requires all 2468 examples per corruption.")
             if dataset.data.ndim != 3 or dataset.data.shape[-1] != 3:
                 raise ValueError("Expected data shape [examples, points, 3].")
             if dataset.labels.size != len(dataset) or not np.issubdtype(dataset.labels.dtype, np.integer):
@@ -775,6 +777,11 @@ def run_worker(directory: str) -> None:
             elapsed = time.perf_counter() - started
             if counters["n"] != targets.numel() or counters["correct"] != int((predictions == targets).sum().item()):
                 raise RuntimeError("Batch counters disagree with returned predictions.")
+            if getattr(args, "gsd_stage", None) == "full_dataset_ablation":
+                config.setdefault("per_example_predictions", {})[active] = dict(
+                    sample_indices=list(range(counters["n"])),
+                    labels=targets.detach().cpu().view(-1).tolist(),
+                    predictions=predictions.detach().cpu().view(-1).tolist())
             status = "complete" if counters["n"] == len(dataset) else "partial"
             if getattr(args, "gsd_stage", None) in ("calibrate", "development"):
                 status = "partial"
@@ -1086,7 +1093,12 @@ def build_config(args: argparse.Namespace) -> dict:
             if args.gsd_calibration_reference is not None:
                 from gsd_calibration import calibration_provenance
                 config["calibration_reference"] = calibration_provenance(args)
-        elif args.gsd_stage == "full_dataset_development":
+                config["calibration_source_compatibility"] = dict(
+                    allowed_source_extensions=sorted(("run_baseline.py", "gsd_protocol.py",
+                                                       "gsd_calibration.py", "tta_gsd.py")),
+                    reason="explicit unguided branch added; existing guided trajectory preserved",
+                    current_source_hashes_retained=True)
+        elif args.gsd_stage in ("full_dataset_development", "full_dataset_ablation"):
             config["runtime_source_manifest"].update({name: file_identity(REPO / name) for name in
                                                     ("gsd_calibration.py", "eval_gsd_calibration.py")})
             config.update(
@@ -1094,14 +1106,23 @@ def build_config(args: argparse.Namespace) -> dict:
                 input_scope="same canonical all_corruptions test files and file order; all examples",
                 label_use="post-prediction accuracy metrics only; adaptation receives points only",
                 calibration_source_compatibility=dict(
-                    allowed_source_extensions=sorted(("run_baseline.py", "gsd_protocol.py", "gsd_calibration.py")),
-                    reason="full-scope orchestration/provenance gate added; inference algorithm sources remain hash-checked",
+                    allowed_source_extensions=sorted(("run_baseline.py", "gsd_protocol.py", "gsd_calibration.py", "tta_gsd.py")),
+                    reason="full-scope orchestration and explicit unguided branch; existing guided trajectory preserved",
                     current_source_hashes_retained=True),
                 selection_caveat=("full-test-set candidate selection is descriptive; selected scores are not "
                                   "independent confirmation"),
                 gsd_diagnostics={})
             from gsd_calibration import calibration_provenance
             config["calibration_reference"] = calibration_provenance(args)
+            if args.gsd_stage == "full_dataset_ablation":
+                config["calibration_source_compatibility"] = dict(
+                    allowed_source_extensions=sorted(("run_baseline.py", "gsd_protocol.py",
+                                                       "gsd_calibration.py", "tta_gsd.py")),
+                    reason="explicit unguided inference branch; existing guided trajectory preserved",
+                    current_source_hashes_retained=True)
+                config.update(guidance_ablation="unguided" if args.gsd_weight == 0 else "smooth_only",
+                              selection_caveat="fixed ablation; historical controls are not common-draw pairs",
+                              per_example_predictions={})
     return config
 
 

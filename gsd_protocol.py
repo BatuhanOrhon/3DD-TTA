@@ -27,7 +27,7 @@ def add_arguments(parser) -> None:
         parser.add_argument("--gsd-" + name, type=cast, default=None)
     parser.add_argument("--gsd-stage", choices=("smoke", "pilot", "benchmark", "benchmark_no_background",
                                                   "ablation_no_background", "calibrate", "development",
-                                                  "full_dataset_development"), default=None)
+                                                  "full_dataset_development", "full_dataset_ablation"), default=None)
     parser.add_argument("--gsd-profile", choices=("hard", "smooth"), default=None)
     parser.add_argument("--gsd-beta", type=float, default=None)
     parser.add_argument("--gsd-development-count", type=int, default=None)
@@ -86,7 +86,7 @@ def validate_arguments(args, parser, all_corruptions) -> None:
         parser.error("GSD delta must be finite and positive.")
     if not math.isfinite(args.gsd_graph_gamma) or args.gsd_graph_gamma < 0:
         parser.error("GSD graph gamma must be finite and non-negative.")
-    reference_stages = ("development", "full_dataset_development")
+    reference_stages = ("development", "full_dataset_development", "full_dataset_ablation")
     if args.gsd_calibration_reference is not None and args.gsd_stage not in reference_stages:
         parser.error("Calibration reference requires a calibrated development stage.")
     if args.gsd_stage in reference_stages and args.gsd_calibration_reference is None:
@@ -94,11 +94,20 @@ def validate_arguments(args, parser, all_corruptions) -> None:
     if args.gsd_target_rho is not None and (args.gsd_calibration_reference is None or
                                           args.gsd_target_rho not in (1e-4, 1e-3, 1e-2)):
         parser.error("Target rho requires calibration reference and value 0.0001/0.001/0.01.")
-    if args.gsd_stage == "full_dataset_development":
+    if args.gsd_stage in ("full_dataset_development", "full_dataset_ablation"):
         if (not is_smooth_method or args.max_batches != 0 or
                 args.corruptions != list(all_corruptions)):
             parser.error("Full-dataset development requires smooth-v2, canonical all-15 and max-batches 0.")
-        if args.gsd_scd_weight != 1:
+        if args.gsd_stage == "full_dataset_ablation":
+            if args.gsd_scd_weight != 0:
+                parser.error("Guidance ablation requires SCD weight zero; reuse existing SCD runs.")
+            condition = (args.gsd_weight, args.gsd_profile, args.gsd_beta, args.gsd_target_rho)
+            if condition not in ((0., "hard", None, None),
+                                  (8.140161356429882, "smooth", .5, .001)):
+                parser.error("Guidance ablation is locked to unguided or beta .5/rho .001 smooth-only.")
+            if (args.gsd_k, args.gsd_delta, args.gsd_graph_gamma, args.gsd_modes) != (10, .1, .6, 100):
+                parser.error("Guidance ablation preserves the reference graph settings.")
+        elif args.gsd_scd_weight != 1:
             parser.error("Full-dataset development preserves SCD weight 1.")
         if args.gsd_development_count is not None or args.gsd_split_seed is not None:
             parser.error("Full-dataset development does not accept subset options.")
@@ -127,7 +136,7 @@ def validate_arguments(args, parser, all_corruptions) -> None:
         if args.max_batches != 0 or args.corruptions != list(expected):
             parser.error("GSD pilot/benchmark requires complete files in its canonical scope.")
     if is_smooth_method and args.gsd_stage not in ("smoke", "pilot", "calibrate", "development",
-                                                    "full_dataset_development"):
+                                                    "full_dataset_development", "full_dataset_ablation"):
         parser.error("GSD smooth v2 is restricted to smoke/pilot until promotion review.")
     if not is_smooth_method and args.gsd_stage in ("benchmark", "benchmark_no_background") and (
             args.gsd_weight not in (0.0, 1.0) or args.gsd_scd_weight != 1.0 or args.gsd_k != 10 or
@@ -184,10 +193,28 @@ def spectral_contract(args) -> dict:
     elif args.gsd_stage == "full_dataset_development":
         contract.update(tuning="fixed calibration-derived candidate; full-test-set development screen",
                         zero_weight_behavior="calibrated-reference-bound SCD-only comparator; graph bypass")
+    elif args.gsd_stage == "full_dataset_ablation":
+        contract.update(
+            name="Unguided LION diffusion" if args.gsd_weight == 0 else "Smooth spectral-only latent guidance",
+            tuning="fixed existing coefficient; SCD disabled; no new calibration or parameter search",
+            zero_weight_behavior="explicit unguided DDIM; no graph, Chamfer loss, or guidance gradients",
+            target_rho_interpretation="ratio on archived SCD reference only; no active SCD denominator")
+        if args.gsd_weight == 0:
+            contract.update(operator="none", gradients="none; inference-only diffusion", graph="not constructed")
     return contract
 
 
 def notes_for_run(args) -> str:
+    if args.gsd_stage == "full_dataset_ablation":
+        return ("# Fixed guidance ablation\n\n"
+                "[Code] All15 severity5, full files, raw/eval LION, no EMA, batch32, lambda .95, "
+                "gamma=eta=.01, original style, 5/35 reverse steps. SCD weight is zero. "
+                "Spectral weight zero selects true unguided diffusion with constant conditioning; "
+                "positive weight applies beta .5 smooth-only using the archived alpha unchanged. "
+                "Rho describes the archived SCD reference, not an active SCD ratio.\n"
+                "[Code] Per-example labels/predictions and file indices are in config.json. "
+                "Labels are used only after prediction. Seven-file ZIP; seeded runs, no common-draw claim. "
+                "Existing SCD results are reused, not rerun. Provide each complete ZIP and derived summary.\n")
     if args.gsd_stage == "full_dataset_development":
         return ("# GSD full-test-set development screen\n\n"
                 "[Code] All examples from the canonical ModelNet40-C severity-5 test files are evaluated "
@@ -276,6 +303,8 @@ def process_batches(batches, base_model, lion, args, baseline, torch_module, ste
         with torch_module.no_grad():
             inputs, center, maximum = tta_preprocess_points(data, baseline, args, torch_module)
         extra = {}
+        if args.gsd_stage == "full_dataset_ablation":
+            extra["allow_unguided"] = True
         if args.gsd_stage in ("calibrate", "development"):
             def observe(kind, event):
                 metadata = {key: value for key, value in event.items() if key != "samples"}
