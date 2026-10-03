@@ -4,6 +4,7 @@ set -euo pipefail
 ENV_NAME="3dd_tta_env"
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CONDA_PREFIX="$(conda run --no-capture-output -n "$ENV_NAME" python -c 'import sys; print(sys.prefix)')"
+TORCH_LIB_DIR="$(conda run --no-capture-output -n "$ENV_NAME" python -c 'import os, torch; print(os.path.join(os.path.dirname(torch.__file__), "lib"))')"
 HOST_CC="$(conda run --no-capture-output -n "$ENV_NAME" python -c 'import os; print(os.environ["CC"])')"
 HOST_CXX="$(conda run --no-capture-output -n "$ENV_NAME" python -c 'import os; print(os.environ["CXX"])')"
 TORCH_CUDA_ARCH_LIST="$(conda run --no-capture-output -n "$ENV_NAME" python -c 'import torch; assert torch.cuda.is_available(), "Select a Colab GPU runtime"; assert torch.version.cuda == "12.1", torch.version.cuda; print(".".join(map(str, torch.cuda.get_device_capability())))')"
@@ -41,7 +42,7 @@ run_with_cuda_env() {
     CUDA_HOME="$CONDA_PREFIX" \
     CPATH="$CUDA_INCLUDE_DIR${CPATH:+:$CPATH}" \
     LIBRARY_PATH="$CUDA_LIBRARY_DIR${LIBRARY_PATH:+:$LIBRARY_PATH}" \
-    LD_LIBRARY_PATH="$CUDA_LIBRARY_DIR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+    LD_LIBRARY_PATH="$TORCH_LIB_DIR:$CUDA_LIBRARY_DIR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
     TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST" \
     "$@"
 }
@@ -53,4 +54,4 @@ build_extension Pointnet2_PyTorch/pointnet2_ops_lib
 cd "$REPO_DIR"
 run_with_cuda_env python build_pkg.py
 run_with_cuda_env python -c \
-  'import chamfer, emd_cuda, pointnet2_ops._ext, torch; print("EMD, Chamfer and PointNet++ extensions imported; CUDA", torch.version.cuda)'
+  'import torch; import chamfer, emd_cuda, pointnet2_ops._ext; print("EMD, Chamfer and PointNet++ extensions imported; CUDA", torch.version.cuda)'
