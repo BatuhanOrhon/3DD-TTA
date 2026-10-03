@@ -31,6 +31,9 @@ echo "GPU compute capability: $TORCH_CUDA_ARCH_LIST"
 
 build_extension() {
   local relative_dir="$1"
+  local build_dir="$REPO_DIR/$relative_dir/build"
+  echo "Removing cached native build artifacts: $build_dir"
+  rm -rf -- "$build_dir"
   cd "$REPO_DIR/$relative_dir"
   run_with_cuda_env python setup.py install --force
 }
