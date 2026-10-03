@@ -649,8 +649,8 @@ def run_worker(directory: str) -> None:
             dataset = baseline.PointDataset(args.dataset_root, args.label_path, active, severity=config["severity"])
             if len(dataset.data) != len(dataset.labels) or len(dataset) == 0:
                 raise ValueError("Empty data or data/label count mismatch.")
-            if getattr(args, "gsd_stage", None) == "full_dataset_ablation" and len(dataset) != 2468:
-                raise ValueError("Full guidance ablation requires all 2468 examples per corruption.")
+            if getattr(args, "gsd_stage", None) in ("full_dataset_ablation", "background_completion") and len(dataset) != 2468:
+                raise ValueError("Full GSD ablations require all 2468 examples per corruption.")
             if dataset.data.ndim != 3 or dataset.data.shape[-1] != 3:
                 raise ValueError("Expected data shape [examples, points, 3].")
             if dataset.labels.size != len(dataset) or not np.issubdtype(dataset.labels.dtype, np.integer):

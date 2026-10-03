@@ -26,7 +26,8 @@ def add_arguments(parser) -> None:
                        ("graph-gamma", float), ("modes", int)):
         parser.add_argument("--gsd-" + name, type=cast, default=None)
     parser.add_argument("--gsd-stage", choices=("smoke", "pilot", "benchmark", "benchmark_no_background",
-                                                  "ablation_no_background", "calibrate", "development",
+                                                  "ablation_no_background", "background_completion",
+                                                  "calibrate", "development",
                                                   "full_dataset_development", "full_dataset_ablation"), default=None)
     parser.add_argument("--gsd-profile", choices=("hard", "smooth"), default=None)
     parser.add_argument("--gsd-beta", type=float, default=None)
@@ -111,6 +112,12 @@ def validate_arguments(args, parser, all_corruptions) -> None:
             parser.error("Full-dataset development preserves SCD weight 1.")
         if args.gsd_development_count is not None or args.gsd_split_seed is not None:
             parser.error("Full-dataset development does not accept subset options.")
+    elif args.gsd_stage == "background_completion":
+        if (is_smooth_method or args.max_batches != 0 or args.corruptions != ["background"]):
+            parser.error("Background completion requires GSD v1, the full Background file, and max-batches 0.")
+        if (args.gsd_weight, args.gsd_scd_weight, args.gsd_k, args.gsd_delta,
+                args.gsd_graph_gamma, args.gsd_modes) != (1., 0., 10, .1, .6, 100):
+            parser.error("Background completion is locked to v1 spectral-only M100 settings.")
     elif args.gsd_stage in ("calibrate", "development"):
         if not is_smooth_method or args.max_batches != 0 or args.corruptions != list(PILOT_CORRUPTIONS):
             parser.error("GSD calibration/development requires smooth-v2, Gaussian+Impulse and max-batches 0.")
@@ -126,6 +133,8 @@ def validate_arguments(args, parser, all_corruptions) -> None:
             parser.error("Development count must be a multiple of 32 in [32,512].")
     elif args.gsd_development_count is not None or args.gsd_split_seed is not None:
         parser.error("Development subset options require calibrate/development stage.")
+    elif args.gsd_stage == "background_completion":
+        pass  # The single-corruption full-file contract is checked above.
     elif args.gsd_stage == "smoke":
         if args.max_batches not in (1, 2) or args.corruptions not in (["gaussian"], ["background"]):
             parser.error("GSD smoke requires 1/2 batches of Gaussian or Background.")
@@ -205,6 +214,14 @@ def spectral_contract(args) -> dict:
 
 
 def notes_for_run(args) -> str:
+    if args.gsd_stage == "background_completion":
+        return ("# GSD v1 spectral-only Background completion\n\n"
+                "[Code] Completes the missing Background severity-5 file for the existing seed-0, "
+                "14-corruption spectral-only M100 run. All 2,468 examples are processed; "
+                "spectral weight=1, SCD weight=0, k=10, delta=.1, graph gamma=.6, raw/eval LION, "
+                "EMA off, lambda=.95 and gamma=eta=.01. This single-corruption artifact is not "
+                "a standalone all-15 run. The companion analyzer combines it with the archived "
+                "14-corruption ZIP and labels the reconstructed mean as a cross-run composite.\n")
     if args.gsd_stage == "full_dataset_ablation":
         return ("# Fixed guidance ablation\n\n"
                 "[Code] All15 severity5, full files, raw/eval LION, no EMA, batch32, lambda .95, "
