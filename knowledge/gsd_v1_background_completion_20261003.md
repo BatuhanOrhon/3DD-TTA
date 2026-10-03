@@ -20,12 +20,13 @@ score. The knowledge record is appended only after both ZIPs pass validation.
 
 [User report/Code] Both new guidance launchers stopped before inference because
 the `3dd_tta_env` Python could not import `pointnet2_ops`. The subsequent setup
-trace identifies the actual build blocker: system nvcc13.0 versus the installed
-PyTorch cu121. The `TORCH_CUDA_ARCH_LIST` setting selects GPU architectures; it
-does not choose the CUDA toolkit version. The notebook installs the CUDA12.1
-toolkit into the existing conda environment, targets the active GPU, rebuilds
-the extension, and calls the FPS CUDA kernel before evaluation. It does not
-reinstall `requirements.txt` or replace PyTorch.
+trace first identified system nvcc13.0 versus the installed PyTorch cu121. After
+pinning nvcc to CUDA12.1, the compiler output showed the remaining failure:
+CUDA12.1 rejects the host GCC because it is newer than GCC12. The notebook now
+installs CUDA12.1 plus GCC/G++12 in the existing conda environment, selects the
+active GPU architecture, rebuilds the extension, and calls the FPS CUDA kernel
+before evaluation. `TORCH_CUDA_ARCH_LIST` selects GPU architecture, not toolkit
+version. The notebook does not reinstall `requirements.txt` or replace PyTorch.
 
 [Open] The Colab build and FPS check have not yet completed successfully. Once
 the user runs the repair cell, retry the two failed guidance launchers; their
