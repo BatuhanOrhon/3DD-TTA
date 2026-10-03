@@ -20,37 +20,31 @@ We propose a training-free, online 3D TTA method called **3DD-TTA** (3D Denoisin
 - **Strong performance**: Achieves state-of-the-art results on ShapeNet, ModelNet40, and ScanObjectNN.
 
 
-## Install:
+## Install on Google Colab (Linux x86_64 / CUDA 12.8 compiler)
+
+The pinned environment follows the successful Colab logs: Python 3.8.20 and
+PyTorch 2.1.2+cu121. The successful extension build log reports CUDA 12.8 as
+the compiler toolkit. Create the environment from the repository root.
+
 ```
-# Create a new Conda environment named "3dd_tta_env" with Python 3.8
-conda create --name 3dd_tta_env python=3.8
-conda activate 3dd_tta_env
+# Create the pinned Python, PyTorch/cu121, CUDA 12.8 toolkit, and GCC/G++ environment
+conda env create -f env.yaml
 
-# Install PyTorch, torchvision, and torchaudio with CUDA 12.1 support
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# Install the pinned KNN_CUDA 0.2 wheel
+conda run --no-capture-output -n 3dd_tta_env python -m pip install https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl
 
-# Install all dependencies from requirements.txt
-pip install -r requirements.txt
-
-# Compile and install the Earth Mover's Distance (EMD) extension (used for point cloud comparison)
-cd ./extensions/emd
-python setup.py install --user
-cd ../..
-
-# Install the PointNet++ operations library (required for point cloud processing)
-cd Pointnet2_PyTorch/pointnet2_ops_lib
-pip install .
-cd ../..
-
-# Install KNN_CUDA (GPU-accelerated k-nearest neighbor functionality)
-pip install --upgrade https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl
-
-# Install OpenAI's CLIP model (used for vision-language tasks)
-pip install git+https://github.com/openai/CLIP.git 
-
-# Build and package the project
-python build_pkg.py
+# Build CUDA extensions with the environment's CUDA 12.8 and GCC/G++ 12.2
+bash scripts/build_cuda_extensions_colab.sh
 ```
+
+`requirements.txt` pins the PyTorch/cu121 wheels, Python dependencies, and the
+OpenAI CLIP source commit. `env.yaml` pins the Conda-side numeric stack and the
+CUDA 12.8.0 / GCC 12.2 toolchain. The log does not record the GCC version, so
+12.2 is a selected compatible pin rather than a recovered log value. Conda's
+transitive packages still come from its solver; `env.yaml` pins the requested
+Conda packages, not every resolved Conda package build. The build script checks
+the selected tools, GPU architecture, and extension imports before returning
+success.
 
 ## Data Preparation
 
