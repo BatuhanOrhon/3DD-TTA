@@ -176,7 +176,7 @@ def main():
         # Setup CSV Writer
         with open(csv_path, "w", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["Dataset", "Corruption", "M", "M_mid", "M_high", "Weight_Spectral", "Weight_Spectral_Mid", "Weight_Spectral_High", "Weight_Invariant", "Weight_Chamfer", "Accuracy"])
+            writer.writerow(["Dataset", "Corruption", "M_max", "Beta", "Weight_Spectral", "Weight_Invariant", "Weight_Chamfer", "Accuracy"])
 
     for corruption in noises:
         if corruption in completed_noises:
@@ -202,7 +202,7 @@ def main():
         # Append to CSV
         with open(csv_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([args.dataset_name, corruption, args.M, args.M_mid, args.M_high, args.weight_spectral, args.weight_spectral_mid, args.weight_spectral_high, args.weight_invariant, args.weight_chamfer, acc])
+            writer.writerow([args.dataset_name, corruption, args.M_max, args.beta, args.weight_spectral, args.weight_invariant, args.weight_chamfer, acc])
 
     mean_acc = total_acc / len(noises)
     print(f"\n--- FULL EVALUATION FINISHED ---")

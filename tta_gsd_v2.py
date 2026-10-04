@@ -82,7 +82,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     H_orig_target = H_orig
     
     # Pre-calculate if ANY guidance is needed
-    requires_guidance = weight_spectral_low > 0.0 or weight_spectral_mid > 0.0 or weight_spectral_high > 0.0 or weight_invariant > 0.0 or weight_chamfer > 0.0
+    requires_guidance = weight_spectral > 0.0 or weight_invariant > 0.0 or weight_chamfer > 0.0
     
     for i, t in enumerate(timesteps_local):
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
@@ -152,7 +152,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             else:
                 history['raw_loss_chamfer'].append(0.0)
             
-        if weight_spectral_low > 0.0 or weight_spectral_mid > 0.0 or weight_spectral_high > 0.0 or weight_invariant > 0.0:
+        if weight_spectral > 0.0 or weight_invariant > 0.0:
             # U_active and H_orig_target are already correctly updated from the no_grad block above.
             # We just need to compute H_pred with gradients enabled.
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
