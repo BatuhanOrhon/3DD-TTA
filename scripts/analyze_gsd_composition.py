@@ -253,30 +253,38 @@ def _geometry(arms: Sequence[dict]) -> dict:
                "local_guidance_ddim_norm_ratio", "style_update_norm",
                "local_update_norm", "style_routed_direction_norm",
                "local_routed_direction_norm")
-    output = {}
+    accumulators = {}
     for arm in arms:
         arm_id = arm["manifest"]["arm_id"]
-        values = {name: [] for name in numeric}
-        conflict_n = valid_cosine_n = skipped_n = 0
+        phase = arm["manifest"].get("phase", "unknown")
+        corruption = arm["manifest"].get("corruption", "unknown")
+        accumulator = accumulators.setdefault(
+            (phase, arm_id, corruption),
+            {"values": {name: [] for name in numeric},
+             "conflict_n": 0, "valid_cosine_n": 0, "skipped_n": 0})
         for row in arm["diagnostics"]:
             for name in numeric:
                 value = row.get(name)
                 if isinstance(value, (int, float)) and math.isfinite(float(value)):
-                    values[name].append(float(value))
+                    accumulator["values"][name].append(float(value))
             cosine = row.get("style_gradient_cosine")
             if isinstance(cosine, (int, float)) and math.isfinite(float(cosine)):
-                valid_cosine_n += 1
-                conflict_n += int(cosine < 0)
-            skipped_n += int(bool(row.get("style_projection_skipped")))
-        phase = arm["manifest"].get("phase", "unknown")
-        output.setdefault(phase, {})[arm_id] = dict(
+                accumulator["valid_cosine_n"] += 1
+                accumulator["conflict_n"] += int(cosine < 0)
+            accumulator["skipped_n"] += int(bool(row.get("style_projection_skipped")))
+    output = {}
+    for (phase, arm_id, corruption), accumulator in accumulators.items():
+        values = accumulator["values"]
+        valid_cosine_n = accumulator["valid_cosine_n"]
+        output.setdefault(phase, {}).setdefault(arm_id, {})[corruption] = dict(
             metrics={name: dict(count=len(seq), mean=(statistics.mean(seq) if seq else None),
                                 median=(statistics.median(seq) if seq else None),
                                 p90=(sorted(seq)[int(.9 * (len(seq) - 1))] if seq else None))
                      for name, seq in values.items()},
-            style_conflict_fraction=(conflict_n / valid_cosine_n if valid_cosine_n else None),
+            style_conflict_fraction=(accumulator["conflict_n"] / valid_cosine_n
+                                     if valid_cosine_n else None),
             valid_style_cosines=valid_cosine_n,
-            style_projection_skipped=skipped_n,
+            style_projection_skipped=accumulator["skipped_n"],
         )
     return output
 

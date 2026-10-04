@@ -10,7 +10,8 @@ from gsd_composition_protocol import _SPLIT, write_arm_bundle
 from scripts.analyze_gsd_composition import analyze_root
 
 
-def _write_arm(root, arm_id, predictions, *, input_hash="a" * 64, indices=None,
+def _write_arm(root, arm_id, predictions, *, corruption="gaussian",
+               input_hash="a" * 64, indices=None,
                logits=None, labels=None, locked_identity="c" * 64,
                phase="diagnose", block_id="gaussian-seed0-attempt01"):
     labels = np.tile(np.asarray([1, 2, 3, 4] if labels is None else labels, dtype=np.int64), 16)
@@ -25,14 +26,14 @@ def _write_arm(root, arm_id, predictions, *, input_hash="a" * 64, indices=None,
               "norm_floor": 1e-12, "schema_version": 1}
     manifest = dict(
         method="gsd_guidance_composition_v1", arm_id=arm_id,
-        corruption="gaussian", seed=0, status="complete", original_indices=indices,
+        corruption=corruption, seed=0, status="complete", original_indices=indices,
         input_sha256=input_hash, block_id=block_id, phase=phase,
         runtime_fingerprint="b" * 64, experiment_fingerprint="same-experiment",
         config=config, total_runtime_seconds=2.5, peak_gpu_memory_mb=400.0,
     )
     if locked_identity is not None:
         manifest["locked_config_fingerprint"] = locked_identity
-    path = root / phase / arm_id
+    path = root / phase / corruption / arm_id
     write_arm_bundle(path, manifest, labels, predictions, logits,
                      [{"step_index": 0, "timestep": 999, "style_gradient_cosine": -0.2}])
     return path
@@ -68,6 +69,18 @@ class AnalyzeCompositionTests(unittest.TestCase):
         self.assertEqual(uncertainty["paired_accuracy_delta"]["n_object_ids"], 64)
         self.assertIn("runtime", report)
         self.assertIn("gradient_geometry", report)
+
+    def test_gradient_geometry_keeps_each_corruption_separate(self):
+        _write_arm(self.root, "C_SCD", [1, 2, 3, 4], corruption="gaussian")
+        _write_arm(self.root, "C_SCD", [1, 2, 3, 4], corruption="background",
+                   block_id="background-seed0-attempt01")
+
+        report = analyze_root(self.root)
+
+        geometry = report["gradient_geometry"]["diagnose"]["C_SCD"]
+        self.assertEqual(set(geometry), {"gaussian", "background"})
+        self.assertEqual(geometry["gaussian"]["metrics"]["style_gradient_cosine"]["count"], 1)
+        self.assertEqual(geometry["background"]["metrics"]["style_gradient_cosine"]["count"], 1)
 
     def test_rejects_duplicate_original_indices_and_nonfinite_logits(self):
         duplicate_root = self.root / "duplicate"
