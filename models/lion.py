@@ -21,6 +21,8 @@ class LION(object):
         global_prior = GlobalPrior(cfg.sde, cfg.latent_pts.style_dim, cfg).cuda()
         local_prior = LocalPrior(cfg.sde, cfg.shapelatent.latent_dim, cfg).cuda()
         self.priors = torch.nn.ModuleList([global_prior, local_prior])
+        self.vae.eval()
+        self.priors.eval()
         self.scheduler = DDPMScheduler(clip_sample=False,
                                        beta_start=cfg.ddpm.beta_1, beta_end=cfg.ddpm.beta_T, beta_schedule=cfg.ddpm.sched_mode,
                                        num_train_timesteps=cfg.ddpm.num_steps, variance_type=cfg.ddpm.model_var_type)
