@@ -1,17 +1,74 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[Run/Inference] 2026-10-04 unguided and smooth-only ablations accepted:**
+All six full15/seeds0-2 ZIPs and both supplied summaries validate.
+Unguided is **61.2021 +/- 0.1274%**; smooth-only beta .5/alpha8.140161 is
+**61.3596 +/- 0.0721%**. The observed smooth-only increment is +0.1576 pp,
+positive in all three seeds and 12/15 corruption means. Background stays
+near24% in both, with actual35-step execution verified. Archived SCD-only
+is63.8799%; same-smooth+SCD is63.8520%. Native binary identities differ
+between the two new arms, and the historical controls also differ in source
+and package inventory; no common-draw causal claim is established.
+Read the [accepted results, provenance and next decision](gsd_guidance_ablation_results_20261004.md).
+These conditions are complete: reuse them and inspect existing mechanism
+diagnostics before proposing any new capture or parameter search.
+
+**[Run/Code] 2026-10-04 v1 Background completion ingested:** Full seed0
+spectral-only M100 Background is **572/2468 = 23.1767%**. Reusing the archived
+14 rows yields a **61.1967%** descriptive 14+1 composite (22655/37020), not one
+homogeneous all15 run. Source/binary differences and the launcher's graph-file
+compatibility guard are documented in the
+[validation report](../result/modelnet40_c/gsd_latent_spectral_v1/analysis_20261004_background/validation.md).
+Do not rerun Background. No Colab composite JSON was supplied; the local
+derived summary is explicitly separate. The subsequent unguided/smooth-only
+ingestion above supersedes the earlier pending-output status.
+
+**[User decision/Code] 2026-10-03 missing ablations prepared:**
+[Colab handoff](gsd_guidance_ablation_handoff_20261003.md) provides unguided
+diffusion and fixed beta=.5 smooth spectral-only (SCD=0), all15/fullfiles,
+seeds0/1/2: six new runs total. Existing controls are reused. Scripts and
+upload notebook are locally ready; no GPU results or push yet.
+
+**[Run/User preference] 2026-10-03 reuse completed results:** The
+[GSD/SCD coverage audit](gsd_existing_runs_audit_20261003.md) checks all 144
+local result ZIP configs/CSVs. SCD-only/all15 and spectral-only/combined
+results already exist at their recorded scopes. The 12-new-run proposal is
+withdrawn; only unguided diffusion is a wholly missing main control. Inspect
+existing coverage before every launch and honor the user's no-repeat preference.
+
+**[Run/Code/Inference] 2026-10-01 smoothing diagnosis:** Read the
+[historical versus smooth-gradient analysis](gsd_smoothing_diagnosis_20261001.md)
+for full Gaussian/Impulse recomputation, weighted gradient scales, graph/profile
+scope, conditioning conflicts and limits of attributing historical gains.
+
+**[Run/Verification] 2026-10-01 all-15 test matrix:** See the consolidated
+[ModelNet40-C 15-corruption results matrix](modelnet40_c_all15_results_matrix_20261001.md),
+covering 40 complete local archives across source-only severity, reconstruction,
+3DD-TTA controls and the full GSD screen. Incomplete/pilot runs and external
+paper/reference scores are labeled separately.
+
+**[Run/Inference] 2026-10-01 full-test screen ingested:** All nine ZIPs and the
+derived summary for reference `20260928-113047_gsd-cal-diagnose-reference-seed0-n64`
+pass strict archive and protocol checks. Across seeds 0/1/2, SCD-only is
+63.8799% +/- 0.1326 pp; beta .5/rho .001 is 63.8520% +/- 0.0353 pp
+(-0.0279 pp against matched SCD-only, mixed seed directions); beta2/rho .01
+is 63.8214% +/- 0.1184 pp (-0.0585 pp, all three seeds lower). Neither spectral
+candidate improves the full-set mean. This is a full-test-set development
+screen with descriptive candidate selection, not independent confirmation.
+Do not repeat candidate tuning on the same examples or promote a spectral
+candidate from this result. See the latest entry in [`findings_log.md`](findings_log.md).
+
 **[Run/Inference] 2026-09-28 rebuilt interaction ingested:** All six ZIPs under
-reference `20260928-113047_gsd-cal-diagnose-reference-seed0-n64` pass the recorded
-artifact/protocol checks; the supplied summary matches raw recomputation.
-Read [the accepted results and next development proposal](gsd_interaction_results_20260928.md).
-New SCD-only macro is 74.609375%; beta .5/rho .001 is 75.390625%, beta2/rho .01
-is 75.781250%, while beta2/rho .001 is 73.828125%. This supersedes pending
-ingestion below and prevents treating the old beta2/rho .001 lead as stable.
-The new block is internally matched; old/new package and extension identities
-differ. Calibration alpha drift is small (.01298%/.00513% for beta .5/2),
-with cause unisolated. Next proposed comparison: SCD-only and the two promising
-conditions, 512 examples/corruption, seeds0/1/2, fixed new reference (nine runs).
-No new model run has been launched. This is still development, not confirmation.
+the same calibration reference pass the recorded artifact/protocol checks; the
+supplied summary matches raw recomputation. Read [the accepted results and
+historical development proposal](gsd_interaction_results_20260928.md). New
+SCD-only macro is 74.609375%; beta .5/rho .001 is 75.390625%, beta2/rho .01 is
+75.781250%, while beta2/rho .001 is 73.828125%. This supersedes the earlier
+screen and prevents treating the old beta2/rho .001 lead as stable. The new
+block is internally matched; old/new package and extension identities differ.
+Calibration alpha drift is small (.01298%/.00513% for beta .5/2), with cause
+unisolated. The later full-test screen above supersedes its proposed 512-example
+follow-up. No independent confirmation is available.
 
 **[Code/Run/Inference] 2026-09-28 review: finish development before freezing.**
 The fixed-state diagnostic and five-arm seed-0 development screen have now

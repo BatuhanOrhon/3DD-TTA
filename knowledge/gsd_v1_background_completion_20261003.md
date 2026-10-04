@@ -1,5 +1,30 @@
 # GSD v1 spectral-only M100 Background completion
 
+## 2026-10-04 accepted Background artifact and derived composite
+
+[Run] `20261004-095901_gsd-v1-background-completion-seed0-spectral-only-m100.zip`
+is archived under `result/modelnet40_c/gsd_latent_spectral_v1/`.
+The seven-file bundle, CRC, full counts, config/CLI/stdout/CSV and recorded
+source identities validate. Background: **572/2468 = 23.1767%**, seed0,
+spectral weight1/SCD0/M100, 877.008 seconds, peak20521.495 MB.
+This supersedes the Background GPU-pending instruction below.
+
+[Run/Inference] Reusing the immutable 14-row archive gives **61.1967%**
+(22655/37020). This local descriptive 14+1 calculation has source/runtime
+limits; full details and per-corruption comparison are in the
+[validation report](../result/modelnet40_c/gsd_latent_spectral_v1/analysis_20261004_background/validation.md).
+Against the archived full-screen SCD-only seed0 result, the composite delta
+is -2.5554 pp, with -2.5149 pp contributed by Background alone. This is not
+a causal SCD-removal estimate or a smooth-versus-hard comparison.
+
+[Code/Open] No Colab composite JSON or parent-launcher stdout was supplied.
+The current source guard excludes the changed `graph_spectral.py` from its
+allowed set and would reject these archives after current-data checks.
+Static review identifies v2 additions while retaining the v1 math; changed
+native CUDA binaries still prevent claiming numerical identity. The local
+derived JSON does not impersonate the missing Colab summary. Preserve the
+completed Background ZIP; summary handling requires no inference rerun.
+
 [Code/User report] The archived seed-0 `ablation_no_background` run evaluates
 14 ModelNet40-C corruption files at severity5 with weight1, SCD weight0 and
 M100. Background is the only missing corruption. A dedicated `background_completion`
@@ -24,9 +49,12 @@ trace first identified system nvcc13.0 versus the installed PyTorch cu121. After
 pinning nvcc to CUDA12.1, the compiler output showed the remaining failure:
 CUDA12.1 rejects the host GCC because it is newer than GCC12. The notebook now
 installs CUDA12.1 plus GCC/G++12 in the existing conda environment, selects the
-active GPU architecture, rebuilds the extension, and calls the FPS CUDA kernel
-before evaluation. `TORCH_CUDA_ARCH_LIST` selects GPU architecture, not toolkit
-version. The notebook does not reinstall `requirements.txt` or replace PyTorch.
+active GPU architecture, rebuilds Chamfer and PointNet++, and verifies both the
+Chamfer import and FPS CUDA kernel before evaluation. `TORCH_CUDA_ARCH_LIST`
+selects GPU architecture, not toolkit version. The notebook does not reinstall
+`requirements.txt` or replace PyTorch. The original setup cell used shell escapes
+whose failures did not stop later lines, so its green final message did not
+establish that every extension had built successfully.
 
 [Open] The Colab build and FPS check have not yet completed successfully. Once
 the user runs the repair cell, retry the two failed guidance launchers; their

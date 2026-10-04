@@ -1,5 +1,47 @@
 # Method Synthesis and Hypotheses
 
+## Unguided versus smooth-only - 2026-10-04
+
+[Run/Inference] All15/seeds0-2 unguided61.2021% versus fixed beta .5,
+alpha8.140161 smooth-only61.3596% gives an observed +0.1576 pp in all three
+seeds. Native binary hashes differ between arms; repeated seeds do not remove
+the method/build confound. This is a small positive development observation,
+not a proven causal gain. Recorded smooth-only runtime is about4.46 times
+unguided on the reported hardware. Historical same-smooth+SCD still has a
+nonpositive increment versus SCD (-0.0279 pp).
+
+[Run] Background is23.6224% unguided and23.8790% smooth-only despite35 actual
+reverse steps, versus60.6699% in historical SCD-only. Other14 means are
+63.8863/64.0368/64.1092%, respectively. Background dominates the descriptive
+SCD-versus-no-SCD gap. Neither this pattern nor the negative descriptive
+interaction proves harmful gradient conflict. Reuse common-state probes
+before introducing projection or more parameters. See the
+[accepted results and limits](gsd_guidance_ablation_results_20261004.md).
+
+## V1 spectral-only Background evidence - 2026-10-04
+
+[Run/Inference] The missing full Background seed0 run gives 23.1767%; the
+archived 14 rows plus this run give a descriptive 61.1967% composite.
+Against the archived full-screen SCD-only seed0, other-14 means differ by
+-0.0434 pp but Background by -37.7229 pp. Thus the observed composite
+deficit is concentrated in Background. Different revisions/native binaries,
+one seed and unmatched random draws prevent a causal SCD-removal claim.
+Wait for unguided and smooth-only Background outcomes before attributing
+the failure to spectral fidelity, the graph, or absence of SCD. This does
+not isolate smoothing. See the [validation report](../result/modelnet40_c/gsd_latent_spectral_v1/analysis_20261004_background/validation.md).
+
+## Measured smoothing limits - 2026-10-01
+
+[Run/Inference] The [smoothing diagnosis](gsd_smoothing_diagnosis_20261001.md)
+supersedes the pending-v2-accuracy status below. Both selected smooth profiles
+have nonpositive full-screen mean increments, including when restricted back
+to full Gaussian/Impulse. Weighted spectral gradients are finite and applied;
+small unweighted norms alone do not explain the null. Broad fidelity to a
+corrupted latent reference and changed legacy graph/trajectory remain mechanism
+hypotheses. Calibration has no negative local smooth/SCD cosines but measurable
+style conflicts; accuracy causality is unproven. No all-15 matched hard-profile
+arm exists, so a smoothing-specific regression has not been isolated.
+
 ## Proposed mathematics after paper reread - 2026-09-26
 
 [Paper/Inference] GSDTTA's low-frequency shift and our low-frequency fidelity

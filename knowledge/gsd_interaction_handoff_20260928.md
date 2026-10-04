@@ -1,9 +1,13 @@
-> Current approved next task (2026-09-28): compare all 15 full ModelNet40-C
-> severity-5 test corruption files, all examples, seeds 0/1/2, using SCD-only,
-> beta .5/rho .001 and beta 2/rho .01. This supersedes the 512-example subset
-> proposal below. The distinct `full_dataset_development` stage, strict ZIP
-> analyzer and resumable Colab launcher are implemented locally; no GPU run was
-> restarted. See `knowledge/colab_gsd_calibration.md` for the exact command.
+> Completed [Run] (ingested 2026-10-01): all 15 full ModelNet40-C severity-5
+> test corruption files, all examples, seeds 0/1/2, SCD-only, beta .5/rho .001,
+> and beta2/rho .01. All nine ZIPs and the derived summary passed strict
+> validation. Neither spectral candidate improved the matched SCD-only mean;
+> see the latest dated entry in `knowledge/findings_log.md`. This supersedes
+> both the 512-example proposal and the pending-result wording below. The
+> remaining sections preserve the earlier rebuild history; instructions to
+> collect six rebuild ZIPs or run a 512-example follow-up are superseded. Do
+> not restart this Colab invocation or tune these candidates again on these
+> same examples. The run used the distinct `full_dataset_development` stage.
 >
 > Güncelleme (2026-09-28, [Run]): 113047 referanslı altı ZIP ve interaction
 > özeti alındı ve doğrulandı. Aşağıdaki bekleyen-sonuç ifadeleri tarihseldir.
@@ -203,17 +207,19 @@ Launcher'ın resume modu yoktur; yeniden çağırmak bütün diziyi başlatır.
    Gerçek guided local spectral/SCD oranlarını hedef rho ile kontrol et;
    style'ı ayrı raporla. Eski sonuçları ancak ayrı bir tarihsel karşılaştırma
    olarak, kalibrasyon/ortam farklarını belirterek sun.
-7. Sonra umut veren beta .5/2 koşulları ve eşleştirilmiş SCD-only kontrolünü
-   daha fazla development örneği ve seed0/1/2 için açıkça kaydet. Aynı kabul
-   edilmiş calibration'ı koru; her model seed'i için sessizce yeniden alpha
-   fit etme. Sonuç görmeden kazanan veya nihai katsayı ilan etme.
-   Ayarları bu aşamadan sonra sabitle. Object-disjoint holdout ve
-   cross-corruption correspondence sonraki ayrı iştir; current guard'ları
-   kaldırarak holdout taklidi yapma.
+7. **Superseded by the completed full-test screen above:** do not run the old
+   512-example repeat or select a winner from these same test examples. If
+   development continues, first declare an independent data source/split and
+   its relation to calibration; retain raw/eval and coefficient controls.
+   Object-disjoint holdout and cross-corruption correspondence remain separate
+   open design/evidence questions; do not remove current guards to imitate a
+   holdout.
 8. Knowledge kayıtlarını [Code]/[Run]/[User report]/[Inference]/[Open]
-   ayrımıyla güncelle. Gerekirse mevcut `scripts/export_gsd_results.py`
-   (`--stage all --name-contains <CALIBRATION_RUN_ID>`) ile altı ZIP'i Drive'a
-   yedekle; exporter summary JSON'u taşımadığı için onu ayrıca koru.
+   ayrımıyla güncelle. Full-test screen için Drive yedeği alınacaksa dokuz ham
+   `gsd-full-screen` ZIP'ini ve `full_test_screen_summary_<REFERENCE_ID>.json`
+   dosyasını birlikte sakla; mevcut `scripts/export_gsd_results.py` summary
+   JSON'u taşımadığı için JSON'u ayrıca kopyala. Eski altı interaction ZIP'ini
+   bu yedekle karıştırma.
 
 ## İncelenecek kod ve doğrulama sınırı
 

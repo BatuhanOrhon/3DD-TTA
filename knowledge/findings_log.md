@@ -2330,3 +2330,334 @@ effects and costs. Nonpositive mean, mixed seed directions or material
 corruption regressions weaken advancement; no automatic freeze. This narrow
 comparison will not reconfirm the entire2x2 interaction. Nested objects remain
 development, with separate holdout/object-identity/native-parity gates open.
+
+## 2026-10-01 - full ModelNet40-C screen: spectral candidates do not improve
+
+[Run/Verification] Inspected all nine `gsd-full-screen` ZIPs and
+`full_test_screen_summary_20260928-113047_gsd-cal-diagnose-reference-seed0-n64.json`
+under `result/modelnet40_c/gsd_latent_spectral_smooth_v2/` on
+`gsd-smooth-spectrum@4be6afd86629f3d52648fb543fc2eb350a5f9f1d`. Each ZIP passes
+the strict seven-file, safe-path, CRC, completion, config/CLI/log/CSV,
+batch/timestep/count, and manifest checks. The nine archives contain exactly
+one run for each of SCD-only, beta .5/rho .001, and beta2/rho .01 at seeds 0/1/2.
+All cover the 15 severity-5 corruptions and 2,468 examples per corruption
+(37,020 examples per run), bind to calibration config SHA-256
+`550d73dc83375395c905db2e6cda3845dc3362632117d3371f8d4ad4e787e2d6`, and agree
+on commit, data/assets/source manifests, extensions, and runtime. Recorded
+runtime is PyTorch 2.1.2+cu121, CUDA 12.1, NVIDIA A100-SXM4-80GB. Local strict
+recomputation agrees with the supplied summary after ignoring machine-specific
+paths and allowing Python's final-bit floating-point differences (maximum
+absolute difference 2.22e-16). Raw ZIPs and supplied summary were not changed.
+
+[Run] Equal-weight macro accuracy across the 15 corruption rows, mean +/-
+sample SD across seeds: SCD-only **63.879885 +/- 0.132590%**; beta .5/rho .001
+**63.851972 +/- 0.035323%**; beta2/rho .01 **63.821358 +/- 0.118373%**. Matched
+per-seed macro deltas versus SCD-only are respectively **+0.083739,
+-0.043220, -0.124257 pp** (mean **-0.027913 pp**, sample SD 0.104839 pp) and
+**-0.010805, -0.105348, -0.059427 pp** (mean **-0.058527 pp**, sample SD
+0.047278 pp). Beta .5 is mixed across seeds and slightly lower on average;
+beta2/rho .01 is lower in all three seeds. Across corruption means, beta .5
+improves 8 rows and regresses 7; beta2 improves 6 and regresses 9. Guidance
+runs take about 76.5 minutes each versus 29.6 minutes for SCD-only; peak memory
+is about 21.0 GB versus 14.6 GB as recorded by the runner. Total recorded
+runtime is about 9.14 GPU-hours.
+
+[Inference/Decision] This full-test-set screen supplies no evidence to advance
+either candidate over SCD-only under the locked protocol. Do not label these
+test-set comparisons independent confirmation: the ModelNet40-C test outcomes
+were used to compare candidate settings. The prior proposal to repeat these
+conditions on 512 examples/corruption is superseded by the full-file runs.
+Preserve SCD-only as the development reference; any future parameter search
+needs a separately declared, genuinely independent evaluation source or split.
+This does not establish equivalence or prove that spectral guidance cannot
+help under another predeclared setting. Raw evidence is the nine screen ZIPs
+and the summary at the path above; the conclusion would change only with
+independent, protocol-matched evidence showing a reproducible gain.
+
+
+## 2026-10-01 ModelNet40-C all-15 results matrix
+
+[Run/Verification] Audited 141 local ModelNet40-C ZIPs against full severity-5
+coverage: 40 contain all 15 canonical corruption rows with 2,468 examples each
+and internally consistent bundle/CSV/macro data. The consolidated matrix is
+`knowledge/modelnet40_c_all15_results_matrix_20261001.md`; it reports aggregate
+results, per-corruption accuracies and paired deltas across source-only severity
+1-5, preprocessing identity, pure VAE, 3DD-TTA controls, decoder/SCD ablations,
+and the nine-run GSD smooth-v2 screen. Raw ZIPs were read only.
+
+[Run/Verification] The local GSD v1 spectral-only `ablation14` result covers
+14/15 corruptions (Background absent), so it is recorded separately and not
+counted as an all-15 result. Earlier 2-corruption beta-rho interaction and
+external paper/upstream reference scores are also explicitly kept outside the
+all-15 comparison. The GSD full-test candidates are lower on mean macro than
+matched SCD-only in the same screen; the matrix marks the full-test candidate
+selection as descriptive rather than independent confirmation.
+
+## 2026-10-01 - smoothing null and historical small-gradient diagnosis
+
+[Code/Run/Inference/Open] At `gsd-smooth-spectrum@4be6afd86629f3d52648fb543fc2eb350a5f9f1d`,
+reanalyzed the nine full-screen ZIPs and raw 113047 calibration ZIP under
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/`. Exact input identities,
+derived metrics and a CPU-only archive-reader script are in
+`analysis_20261001_smoothing/`; the full interpretation is
+`knowledge/gsd_smoothing_diagnosis_20261001.md`. No model run or source-method
+change was made; raw bundles are unchanged.
+
+[Run] Full Gaussian/Impulse-only candidate deltas are -.054025 and -.148568
+pp across seeds 0/1/2, versus +.781250/+1.171875 in the 128-example-per-
+corruption seed-0 subset. The small-pool gains therefore do not vanish solely
+because 13 other corruptions were added. Gaussian full-run local weighted
+spectral/SCD ratios of batch-step mean norms are .096322% and .980377%;
+Background ratios are .428373% and 4.914854%. These are not per-example
+medians. Gaussian profile masses are 1259.76 and 646.17, showing broad
+spectral support rather than a minor adjustment of the M100 boundary.
+
+[Run] Shared SCD-reference probes have no negative local cosine for either
+smooth profile in Gaussian/Impulse. Beta2 style conflicts occur in
+38.0208%/36.9792% of those probe rows. These are not full-guided-trajectory
+measurements, and conflict does not establish classification harm.
+
+[Code/Inference] The objective remains fidelity to a corrupted encoded
+reference; smoothing does not repair reference topology or establish semantic
+usefulness. Legacy raw MSE logging, batch-mean reduction, graph filtering,
+low/mid bands and host defaults differ from current runs. A small raw loss
+or gradient is not a sufficient measure of applied influence. Historical
+gains require a matched legacy host-off/on comparison; full-screen smoothing
+causality also remains open because no matched all-15 hard arm was run.
+
+[Decision/Falsifier] Prioritize recovering the successful legacy bundle and
+same-state graph/profile/conditioning diagnostics with paired predictions.
+A repeatable legacy on-minus-off gain would support an actual old spectral
+benefit; a host-off gain without that increment would favor a host explanation.
+These proposals do not launch new Colab work. Update method synthesis and
+open questions; preserve the full-screen negative/null finding without
+claiming that spectral guidance or smoothing is universally ineffective.
+
+
+## 2026-10-03 - proposed factorial control for spectral-only interpretation
+
+[Code/Inference/Proposal] On `gsd-smooth-spectrum@4be6afd`, the user asked
+which experiment to run next and what missing evidence can run in parallel.
+Registered `knowledge/gsd_next_experiment_proposal_20261003.md`: all15 full
+files at seeds0/1/2, unguided diffusion/SCD-only/v1 spectral-only/SCD+spectral
+(12 conditions). Hold v1 M100/weight1 and the current .95 host fixed; replay
+common input/latent/noise states and record paired predictions. The key
+missing contrast is spectral-only minus unguided diffusion. Pure VAE is not
+an unguided diffusion control; smooth-plus-SCD null is not proof of spectral
+uselessness. Include Background, absent from the prior 14-corruption run.
+
+[Code] Current trajectory rejects simultaneous zero guidance weights and
+protocol guards prevent the required all15 spectral-only benchmark. This is
+a proposed experiment needing explicit ablation support, not a ready launcher.
+No implementation/model run/commit/push occurred. Parallel priorities are
+shared-state graph/direction diagnostics and recovery of the actual successful
+legacy bundle; avoid guessing historical runtime settings from defaults.
+
+[Decision/Falsifier] C-A positive but D-B null supports a spectral contribution
+without incremental benefit under SCD; null C-A weakens attribution of C's
+performance to spectral guidance, without proving equivalence. Report seeds,
+corruptions and paired uncertainty. Existing result paths and exact evidence
+are linked from the proposal; no new empirical accuracy result is claimed.
+
+
+## 2026-10-03 - existing-run audit corrects unnecessary repetition proposal
+
+[Run/Code/User report/Decision] The user explicitly rejects repeating tests
+whose results already exist. At `gsd-smooth-spectrum@4be6afd`, read config.json
+and per_corruption.csv from all 144 local ZIPs (141 ModelNet40-C, three
+ScanObjectNN-C), without read errors; standalone configs added no unarchived
+run identities. Exact paths/config hashes/CSV rows are in
+`result/modelnet40_c/diagnostics/gsd_existing_run_inventory_20261003.json`.
+This was metadata/coverage verification, not a new CRC/runtime parity audit.
+
+[Run] All15 SCD-only exists at seeds0/1/2 both in original eval/raw and the
+latest full-screen control block. V1 spectral-only exists for full Gaussian/
+Impulse at all three seeds and for 14 corruptions excluding Background at
+seed0. SCD+v1 spectral exists for Gaussian/Impulse at M100/240/400, three
+seeds per M, with off controls. Both selected SCD+smooth candidates already
+have all15/three-seed results. No unguided diffusion archive was found;
+v1 off is SCD-only, and pure VAE omits diffusion.
+
+[Decision] Withdraw the blanket 12-new-run proposal; retain its scientific
+contrasts but reuse existing evidence. Minimal new main proposal is unguided
+diffusion, all15/seeds0-2 (three new full runs). Any later coverage extension
+should identify missing cells, avoid duplicate evaluation, and retain scope/
+randomization/environment differences rather than splice a synthetic paired
+benchmark. Missing per-example predictions are a known evidence limitation,
+not an automatic reason to repeat all tests. Reuse existing calibration/
+full-screen diagnostics before scheduling new captures. Full correction:
+`knowledge/gsd_existing_runs_audit_20261003.md`. Updated proposal, backlog,
+README and thesis scope; no experiment, code change, commit or push occurred.
+
+## 2026-10-03 ? Requested unguided and smooth-only launchers prepared
+
+[User decision/Code] Added two missing full-test ablations, each all15 severity5,
+2468 examples/corruption, seeds0/1/2. No existing SCD or combined run repeated.
+Unguided uses zero losses/gradients while retaining DDIM; smooth-only sets SCD0
+and preserves beta=.5, alpha=8.140161356429882 from reference113047. Per-example
+indices/labels/predictions are recorded post-inference. Resume skips validated
+complete seed ZIPs; failed attempts are retained. Base commit
+`4be6afd86629f3d52648fb543fc2eb350a5f9f1d`; local changes only, no push/GPU run.
+
+[Verification] 158 CPU tests passed, six real-reference CLI/config builds and
+both dry-runs passed; nine archived full-screen ZIPs still validate. Independent
+review caught the tta_gsd source-identity regression on old calibrated stages;
+new compatibility records explicitly cover the added branch, while old records
+retain strict source validation.
+
+[Open] Accuracy and CUDA execution remain Colab work. Historical contrasts are
+not common-draw paired; v1-versus-smooth also changes normalization/scale.
+Exact protocol, outputs, transfer bundle and falsifiers:
+`knowledge/gsd_guidance_ablation_handoff_20261003.md`.
+
+## 2026-10-04 - v1 spectral-only Background accepted; descriptive 14+1 composite
+
+[Run/Verification] Ingested the user-supplied archive
+`result/modelnet40_c/gsd_latent_spectral_v1/20261004-095901_gsd-v1-background-completion-seed0-spectral-only-m100.zip`
+at `gsd-smooth-spectrum@f04bfbdb24d5e9617602b50f1711f835861b6eb9`.
+Archive SHA256 is `49b6883694e231413c1415b18f62041a13cf3c9a4c283ab8c4170b5d35546b43`.
+The run records the same commit with a dirty checkout; all ten recorded
+inference-source hashes exactly match that commit's Git blobs.
+Seven unique safe ZIP members, CRC, statuses, CLI/config/stdout/CSV agreement,
+counts, scheduler and model inventories pass. Background has 77 batches of 32
+plus one of 4, 2468 graph records and 2730 batch-step records (78 x 35).
+Seed 0, severity 5, raw/eval LION, no EMA, frozen Point-MAE, original final style,
+batch32, lambda=.95, gamma=eta=.01, spectral weight1/SCD0, M100/k10,
+delta=.1/graph gamma=.6. This is one full-corruption single-seed result;
+it does not meet the three-seed Level 2 requirement or constitute an all15 run.
+
+[Run] Background **572/2468 = 23.176661%**, runtime 877.007984 seconds,
+peak 20521.495117 MB. Revalidated and reused
+`result/modelnet40_c/gsd_latent_spectral_v1/20260926-141029_gsd-v1-ablation14-on-seed0-spectral-only.zip`
+(SHA256 `a083cf795dc7e2b951fa80f47ea32e939cbeb8f9e41c027449b02431ee6b804a`,
+commit `9650770f75cf0c37e1e16b873bd6b8ddd0a4276e`). Its 22083/34552 plus the
+new Background 572/2468 give **22655/37020 = 61.196650%** equal-corruption
+macro/micro. This is a locally derived cross-run **14+1 composite**, with
+one seed and no repeated-seed uncertainty or independent confirmation.
+
+[Run/Inference] Compared descriptively with
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-133819_gsd-full-screen-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-scd-seed0.zip`,
+SCD-only Background is 60.899514% and all15 is 63.752026%.
+Composite-minus-reference is -2.555375 pp; Background contributes -2.514857 pp
+and the other 14 together -0.040519 pp. Other-14 means alone are 63.912364%
+versus 63.955777%. The observed deficit is concentrated in Background;
+this does not identify a causal spectral/SCD effect. The v1 ZIPs have no
+per-example predictions, and the unguided/smooth-only artifacts remain awaited.
+
+[Code/Run/Open] Old/new assets match; all 15 recorded data identities match
+the archived full-screen reference. Raw dataset files are absent locally,
+so no new check of Colab/current file bytes is claimed. PyTorch/CUDA/cuDNN/GPU
+metadata match, while ConfigArgParse/OpenEXR/tzdata versions and native hashes
+for Chamfer, chamfer_3D and PointNet2 change. Four inference-source files differ,
+including `graph_spectral.py`. Static review retains the v1 graph/loss/update
+math, but does not establish numerical equivalence across native builds.
+The launcher allows the other three source differences but omits the graph
+file from its allowed set; it would reject these archives after current-data
+checks. No Colab composite JSON or parent-launcher final stdout was supplied.
+The completed child run remains valid; no inference rerun is needed to address
+summary handling. The missing Colab summary has not been fabricated.
+
+[Decision/Falsifier] Mark Background seed0 complete and reuse the new archive.
+The remaining v1 spectral-only coverage gap is 26 cells (13 each at seeds 1/2);
+do not expand automatically. Await the two ongoing guidance-ablation families
+before deciding on mechanism experiments. Conflicting counts/metadata,
+nonzero SCD weighting, asset mismatch or unexplained source identity would
+reopen acceptance; none was found within the stated verification scope.
+
+Derived files, kept separate from immutable raw inputs:
+`result/modelnet40_c/gsd_latent_spectral_v1/analysis_20261004_background/validation_and_composite.json`,
+`per_corruption_comparison.csv`, and `validation.md` in the same directory.
+Updated README, completion handoff, method synthesis, coverage audit, result
+matrix addendum and open questions. No model/code change, GPU execution,
+commit or push occurred during ingestion.
+
+## 2026-10-04 - unguided and smooth-only full-file results accepted
+
+[Run/Verification] The user supplied six ZIPs and both launcher summaries
+under `result/modelnet40_c/gsd-guidance-ablations/`, preserving the Drive
+hierarchy. Raw files remain at their supplied paths, unchanged and without
+duplicate canonical copies. Ingestion Git context and all six recorded run
+commits: `gsd-smooth-spectrum@f04bfbdb24d5e9617602b50f1711f835861b6eb9`.
+Calibration: `20260928-113047_gsd-cal-diagnose-reference-seed0-n64`, raw config
+SHA256 `550d73dc83375395c905db2e6cda3845dc3362632117d3371f8d4ad4e787e2d6`.
+
+Raw directories:
+
+- `result/modelnet40_c/gsd-guidance-ablations/unguided/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/`
+  contains seed0/1/2 ZIPs timestamped20261003-145004/150745/152505 and the
+  `guidance_ablation_summary_unguided_<reference>.json` supplied summary.
+- `result/modelnet40_c/gsd-guidance-ablations/smooth_only/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/`
+  contains seed0/1/2 ZIPs timestamped20261003-141149/152811/164407 and the
+  `guidance_ablation_summary_smooth_only_<reference>.json` supplied summary.
+
+Every ZIP passes the strict full-file ablation reader, safe seven-file/CRC,
+config/CLI/calibration/count/prediction checks, and independent stdout/CSV,
+eval/frozen module, checkpoint-load and Git-source-blob reconciliation.
+Both supplied summaries agree with raw recomputation, allowing only per-run
+machine directory differences and final-bit floating-point differences
+(max1.110223e-16 and5.551115e-17). The six reused historical SCD-only and
+same-beta combined ZIPs also validate. Exact paths and input SHA256 values
+are in the derived analysis JSON linked below. Raw dataset/checkpoint files
+were not rehashed locally; archived manifests agree across all12 runs.
+
+[Run] All15 severity5, 2468 examples/corruption, seeds0/1/2, batch32,
+gamma=eta=.01, lambda=.95, raw/eval/noEMA, frozen classifier, original final
+style. Both new arms have SCD0; smooth-only retains beta .5 and
+alpha8.140161356429882, while unguided has spectral0. Every new Background
+run records35 actual reverse steps (2730 batch-step records, indices0-34,
+times340-0); other corruptions record5. Unguided local/style guidance norms
+are exactly zero; smooth-only records the fixed nonzero spectral weight.
+This closes the missing full-test conditions, with development coverage
+rather than independent benchmark confirmation.
+
+| Condition | All15 mean +/- sample SD (%) | Background mean (%) |
+|---|---:|---:|
+| Unguided | 61.202053 +/- 0.127389 | 23.622366 |
+| Smooth-only | 61.359625 +/- 0.072095 | 23.878984 |
+| Reused SCD-only | 63.879885 +/- 0.132590 | 60.669908 |
+| Reused SCD + same smooth | 63.851972 +/- 0.035323 | 60.913020 |
+
+[Run/Inference] Smooth-only minus unguided is **+0.157572 +/-0.103226 pp**,
+with seed deltas+.113452/+.083739/+.275527 and12/15 positive corruption
+means. Aligned predictions show corrected/broken counts531/489,497/466,
+534/432: net42/31/102 extra correct per37020 exposures. These are cross-run
+outcome counts, not proven guidance-caused corrections. The corresponding
+increment with SCD remains **-.027913 +/-0.104839 pp**, with one positive
+seed. Smooth-only minus historical SCD is-2.520259 pp. Other14 means are
+63.886316% unguided,64.036814% smooth-only,64.109169% SCD-only; most of the
+large descriptive SCD-versus-no-SCD gap is concentrated in Background.
+The earlier v1 Background23.1767% is consistent with the low no-SCD scores,
+but differs in operator/scale/build and is not a homogeneous fourth seed.
+
+[Run/Open] New arms have identical runtime source/data/assets and nominal
+Python/platform/packages/PyTorch/CUDA/GPU metadata, but `chamfer`,
+`chamfer_3D` and `pointnet2_ops._ext` hashes differ between the two arms.
+Each arm's three seeds share its own native inventory. Native functional
+equivalence is unverified; method and build are confounded despite repeated
+seeds. Historical controls at `4be6afd86629f3d52648fb543fc2eb350a5f9f1d`
+also differ in runtime source and package inventory. Equal seed numbers and
+aligned indices do not prove common random draws. No causal interaction,
+significance, projection benefit or held-out generalization claim is made.
+
+[Run] Mean recorded per-seed runtimes are1017.621s unguided,4538.678s
+smooth-only,1776.273s SCD-only and4597.439s combined. Smooth-only/unguided
+observed ratio is about4.46, with mean peak memory21008.48 versus11686.34 MB.
+These are logged evaluation costs, not a controlled performance benchmark.
+
+[Decision/Falsifier] Reuse all completed conditions. The small positive
+fixed-alpha observation supports a mechanism investigation, not promotion
+over SCD or another test-set parameter grid. First inspect existing shared
+reference-state graph/update/style probes, then identify only the missing
+measurement needed by a concrete hypothesis. Counts/prediction disagreement,
+nonzero unguided updates, wrong reverse steps or identity mismatch would
+reopen acceptance; none was found in the stated checks. Independent evidence
+resolving native-build/draw confounds could weaken or strengthen the causal
+interpretation of the small smooth-only increment.
+
+Detailed report: `knowledge/gsd_guidance_ablation_results_20261004.md`.
+Derived outputs under
+`result/modelnet40_c/gsd-guidance-ablations/analysis_20261004/`:
+`analysis.json`, `per_corruption.csv`, `prediction_transitions.csv`.
+Updated README, handoff, coverage audit, all15 matrix, method synthesis,
+open questions and result README. No model experiment, inference-source
+change, commit or push occurred during this ingestion.

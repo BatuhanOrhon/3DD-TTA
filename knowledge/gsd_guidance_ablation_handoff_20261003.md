@@ -1,5 +1,13 @@
 # Missing guidance ablations: Colab handoff, 2026-10-03
 
+> [Run] Completed and ingested2026-10-04: six ZIPs and both summaries validate.
+> Unguided61.2021 +/-0.1274%, smooth-only61.3596 +/-0.0721%; observed
+> difference+0.1576 pp. Raw inputs retain the user's imported folders under
+> `result/modelnet40_c/gsd-guidance-ablations/`. Do not repeat these runs.
+> Native builds differ between arms; read the
+> [results and provenance](gsd_guidance_ablation_results_20261004.md).
+> Historical local-only/GPU-pending statements below are superseded.
+
 [User decision/Code] Implement only the two requested missing conditions.
 Reuse completed SCD-only and SCD+smooth controls; do not repeat their runs.
 This supersedes the implementation-readiness paragraph and 12-run proposal

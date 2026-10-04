@@ -1,5 +1,75 @@
 # Open Questions and Research Backlog
 
+## 2026-10-04 guidance ablations accepted
+
+- [x] Validate all six full15/seeds0-2 ZIPs and both supplied JSON summaries;
+  raw predictions, CSVs and stdout agree, and raw archives remain unchanged.
+- [x] Compare unguided61.2021% and smooth-only61.3596%: +0.1576 pp mean,
+  all three seeds positive, 12/15 corruption means positive. Record corrected/
+  broken predictions and runtime/memory, without a common-draw causal claim.
+- [x] Confirm actual Background35-step execution in all new runs; unguided
+  local/style guidance norms are zero. Background means23.6224/23.8790%.
+- [x] Reuse the six SCD-only/same-smooth combined controls; disclose native
+  binary differences between new arms and source/package changes versus old.
+- [ ] Reuse existing common-state graph/update/style probes to identify the
+  next missing mechanism observation; no automatic all15 rerun or tuning grid.
+- [Open] Binary functional equivalence and common random-draw pairing remain
+  unproven. Independent confirmation and broader smooth-only strengths remain
+  separate questions; do not claim them from this fixed-alpha development run.
+- Evidence and exact raw paths: [accepted results](gsd_guidance_ablation_results_20261004.md).
+
+## 2026-10-04 v1 Background completion
+
+- [x] Ingest and validate the complete Background seed0 spectral-only M100
+  ZIP: 572/2468, 23.1767%; reuse it without rerunning inference.
+- [x] Recompute the archived 14 rows plus Background as a descriptive
+  14+1 composite: 61.1967%, 22655/37020. Record changed source/native binaries
+  and the large descriptive Background deficit versus archived SCD-only.
+- [ ] Resolve the parent launcher's graph-source compatibility guard / obtain
+  its final log or Colab summary if available. A local derived analysis exists;
+  it does not claim that the official combiner passed all current-data checks.
+- [x] Ingest the unguided and smooth-only six ZIPs/two summaries; their
+  Background rows are now recorded above, while causal attribution stays open.
+- [Open] V1 spectral-only still lacks 13 corruption cells at each of seeds1/2
+  (26 total); no repeat or automatic expansion is scheduled.
+- Evidence: [Background validation](../result/modelnet40_c/gsd_latent_spectral_v1/analysis_20261004_background/validation.md).
+
+## 2026-10-03 next experiment proposal
+
+- [x] Audit all 144 result ZIP metadata/CSV records and standalone run configs;
+  read [existing coverage and the correction](gsd_existing_runs_audit_20261003.md).
+- [x] Withdraw the blanket 12-new-run execution proposal. Reuse SCD-only,
+  spectral-only and combined results; user does not want repeated completed tests.
+- [ ] Prepare explicit unguided diffusion support and missing measurements.
+  Minimal main proposal: only unguided all15/seeds0-2 (three new full runs).
+- [ ] Before any scope extension, subtract existing corruption/seed coverage
+  and check host/environment compatibility; do not claim retrospective common draws.
+- [ ] Reuse existing probes first; capture only missing direction/graph metrics
+  in parallel and recover the actual successful legacy command/bundle.
+
+## 2026-10-01 smoothing mechanism diagnosis
+
+- [x] Recompute full Gaussian/Impulse deltas: -.0540/-.1486 pp for the two
+  selected smooth candidates, so adding other corruptions is not the sole issue.
+- [x] Audit weighted contribution, profile mass and shared-state cosine evidence;
+  see [smoothing diagnosis](gsd_smoothing_diagnosis_20261001.md).
+- [ ] Recover the successful legacy command/bundle and isolate legacy host-off
+  versus spectral-on with matched per-example random draws.
+- [ ] Distinguish corrupted-anchor/graph effects from profile and conditioning
+  effects on fixed states, with paired predictions and margin/displacement logs.
+- [ ] Obtain a matched hard-versus-smooth comparison before attributing the
+  full-screen null specifically to smoothing. No new run is launched.
+
+## 2026-10-01 all-15 archive comparison
+
+- [x] Audit local ModelNet40-C result ZIPs and compile completed full-file
+  severity-5 results into
+  [the all-15 results matrix](modelnet40_c_all15_results_matrix_20261001.md).
+- [x] Keep incomplete/pilot coverage, the 14/15 GSD v1 ablation, the earlier
+  2-corruption interaction, and external references distinct from all-15 runs.
+- [x] Record archive integrity, per-corruption results, paired effects and
+  limitations without changing raw result archives.
+
 ## 2026-09-28 approved full-test-set GSD screen
 
 - [x] Define the next comparison as full-file evaluation over all 15
@@ -10,9 +80,9 @@
   inference controls.
 - [x] Implement the distinct `full_dataset_development` stage, strict
   seven-file ZIP analyzer, and sequential resumable Colab launcher.
-- [ ] Run the nine conditions in the existing Colab environment; do not
+- [x] Run the nine conditions in the existing Colab environment; do not
   restart the completed Colab job or rerun calibration.
-- [ ] Ingest all nine raw ZIPs and the compact summary; verify 15/15 full
+- [x] Ingest all nine raw ZIPs and the compact summary; verify 15/15 full
   counts, same assets/data/environment, per-seed deltas, macro and sample SD.
 - **[Limit]** Labels are used only after predictions for accuracy. Candidate
   selection on the full ModelNet40-C test set is descriptive development
@@ -610,3 +680,34 @@ review/checklist below instead of treating source-domain data or q95 as gates.
 - [ ] Expand candidates only with sufficient development evidence; keep
   actual-trajectory diagnostics and paired seed/held-out confirmation.
 - See [review and experimental sequence](gsd_calibration_review_20260927.md).
+
+### 2026-10-01 full-test-set screen outcome
+
+- [x] Validate the nine full-suite ZIPs: exact 3 arms x 3 seeds, seven-file
+  structure, CRC/safe paths, full completion, all 15 severity-5 corruption
+  rows and all 2,468 examples per row, config/log/CSV consistency, and matched
+  data/assets/source/runtime/reference identities.
+- [x] Recompute the supplied JSON summary from raw ZIPs; values agree within
+  `2.22e-16` absolute floating-point difference, with only machine paths and
+  JSON tuple/list representation differing.
+- [x] Record matched macro deltas against SCD-only: beta .5/rho .001 mean
+  `-0.0279 pp` with mixed seed directions; beta2/rho .01 mean `-0.0585 pp`
+  with all three seeds lower. Neither candidate advances on this screen.
+- **[Inference]** The full ModelNet40-C test outcomes were used for candidate
+  comparison, so this is descriptive full-test-set development evidence, not
+  independent confirmation. The proposed 512-example repeat is superseded.
+- [ ] If continuing parameter selection, predeclare an independent data source
+  or split before observing its outcomes; do not retune these candidates on the
+  same ModelNet40-C test examples.
+
+### 2026-10-03 requested missing ablations
+
+- [x] Implement unguided DDIM and fixed beta=.5 smooth-only/SCD0 launchers;
+  all15/fullfiles/seeds0-2, six new runs total; reuse completed controls.
+- [x] Verify no guidance in unguided CPU trajectory, prediction/CSV agreement
+  contracts, safe resume and historical archive compatibility.
+- [x] Execute both scripts in Colab and ingest six complete ZIPs plus two
+  summaries; accepted on2026-10-04 in the result note linked above.
+- [x] Compare with archived SCD/combined results with scope, binary and
+  randomization limits stated; v1/smooth is not a pure profile contrast.
+- Handoff: [missing guidance ablations](gsd_guidance_ablation_handoff_20261003.md).

@@ -1,5 +1,15 @@
 # Thesis Scope and Research Questions
 
+## Result reuse preference - 2026-10-03
+
+[User report/Decision] Do not rerun tests whose results are already available.
+Before proposing execution, inspect knowledge and result artifacts, identify
+existing condition/corruption/seed coverage, and specify what is genuinely new.
+Missing per-example diagnostics or a different launcher do not automatically
+justify repeating a complete accuracy evaluation. Preserve historical pairing
+limits rather than relabeling archived comparisons as common-draw experiments.
+Current inventory: [GSD/SCD coverage audit](gsd_existing_runs_audit_20261003.md).
+
 ## GSD-only development authorization - 2026-09-23
 
 [User report] The current task authorizes a new `gsd-development` branch
