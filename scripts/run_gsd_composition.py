@@ -16,6 +16,10 @@ import sys
 import time
 import uuid
 
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
 from gsd_composition_protocol import (
     METHOD,
     build_phase_plan,
@@ -35,7 +39,6 @@ from gsd_composition_protocol import (
 
 
 PHASES = ("smoke", "diagnose", "scale", "routing", "projection", "replicate", "all15")
-_REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def required_reference_phase(phase: str, selection=None):

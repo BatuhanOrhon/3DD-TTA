@@ -3,6 +3,8 @@ import io
 import json
 import random
 import shutil
+import subprocess
+import sys
 import unittest
 import uuid
 from dataclasses import asdict
@@ -94,6 +96,18 @@ class CompositionRunnerTests(unittest.TestCase):
                 "--phase", "smoke", "--result-root", str(self.root / "results")
             ])
         self.assertEqual(result, 0)
+
+    def test_cli_scripts_start_from_repository_root(self):
+        repo_root = Path(__file__).resolve().parents[1]
+        for relative_path in (
+                "scripts/run_gsd_composition.py",
+                "scripts/analyze_gsd_composition.py"):
+            with self.subTest(script=relative_path):
+                completed = subprocess.run(
+                    [sys.executable, str(repo_root / relative_path), "--help"],
+                    cwd=str(repo_root), stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE, text=True, timeout=30)
+                self.assertEqual(completed.returncode, 0, completed.stderr)
 
     def test_all_phase_dry_runs_print_a_valid_scope_and_do_not_require_cuda(self):
         reference = self.root / "reference.json"
