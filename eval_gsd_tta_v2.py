@@ -39,7 +39,7 @@ def parse_arguments():
     parser.add_argument('--lambdaa', type=float, default=0.95)
     parser.add_argument('--M_max', type=int, default=1200, help="Maximum number of frequency components to keep")
     parser.add_argument('--beta', type=float, default=2.0, help="Exponential decay beta for smooth filtering")
-    parser.add_argument('--weight_spectral', type=float, default=16.0, help="Weight for smooth Spectral guidance loss")
+    parser.add_argument('--weight_spectral', type=float, default=1.17, help="Weight for smooth Spectral guidance loss (adjusted for batch invariance)")
     parser.add_argument('--weight_invariant', type=float, default=0.0, help="Weight for rotation-invariant spectral power loss")
     parser.add_argument('--weight_chamfer', type=float, default=1.0, help="Weight for Chamfer guidance loss")
     parser.add_argument('--use_4d_gft', action='store_true')

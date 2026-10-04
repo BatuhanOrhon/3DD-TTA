@@ -128,7 +128,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 
                 squared_diff = (H_pred - H_orig_target)**2
                 weighted_sq_diff = smooth_weights * squared_diff
-                raw_loss_spectral = weighted_sq_diff.sum() / (3 * num_latent_points * num_samples)
+                raw_loss_spectral = weighted_sq_diff.sum() / (3 * num_latent_points)
                 history['raw_loss_spectral'].append(raw_loss_spectral.item())
             else:
                 history['raw_loss_spectral'].append(0.0)
@@ -171,7 +171,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 
                 squared_diff = (H_pred - H_orig_target)**2
                 weighted_sq_diff = smooth_weights * squared_diff
-                loss_spectral = weighted_sq_diff.sum() / (3 * num_latent_points * num_samples)
+                loss_spectral = weighted_sq_diff.sum() / (3 * num_latent_points)
                 total_loss = total_loss + weight_spectral * loss_spectral
             
         if weight_chamfer > 0.0:

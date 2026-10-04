@@ -23,7 +23,7 @@ def parse_arguments():
     parser.add_argument('--gamma', type=float, default=0.01)
     parser.add_argument('--eta', type=float, default=0.01)
     parser.add_argument('--lambdaa', type=float, default=0.95)
-    parser.add_argument('--weight_spectral', type=float, default=16.0)
+    parser.add_argument('--weight_spectral', type=float, default=1.17)
     parser.add_argument('--weight_invariant', type=float, default=0.0)
     parser.add_argument('--weight_chamfer', type=float, default=1.0)
     parser.add_argument('--beta', type=float, default=2.0)
