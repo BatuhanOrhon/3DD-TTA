@@ -84,6 +84,11 @@ def main():
             
             results[m_max][corruption] = acc
             
+        # Calculate and print mean accuracy for this M_max
+        mean_acc = sum(results[m_max].values()) / len(results[m_max])
+        print(f"\\n>>> MEAN ACCURACY FOR M_max={m_max} : {mean_acc*100:.2f}% <<<\\n")
+        results[m_max]['mean_acc'] = mean_acc
+            
         # Save intermediate results
         with open(os.path.join(args.output_dir, "grid_search_m_max.json"), "w") as f:
             json.dump(results, f, indent=4)
