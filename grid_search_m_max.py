@@ -45,7 +45,7 @@ def main():
     corruptions = [
         "uniform", "gaussian", "background", "impulse", "upsampling", 
         "distortion_rbf", "distortion_rbf_inv", "density", "density_inc", 
-        "shear", "rotation", "cutout", "local_gaussian", "local_uniform", "local_impulse"
+        "shear", "rotation", "cutout", "distortion", "occlusion", "lidar"
     ]
     
     m_max_candidates = [400, 600, 800, 1000, 1200]
