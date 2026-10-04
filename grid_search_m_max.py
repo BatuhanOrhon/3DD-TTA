@@ -1,7 +1,7 @@
 import argparse
 import torch
 from eval_gsd_tta_v2 import configure_model, process_batches
-from utilities_3dd_tta import ModelNet40C
+from utilities_3dd_tta import PointDataset
 from torch.utils.data import DataLoader
 from default_config import cfg as configs
 import json
@@ -15,6 +15,7 @@ def parse_arguments():
     parser.add_argument('--pointmae_ckpt', type=str, default="./pointnet_ckpts/modelnet_jt.pth")
     parser.add_argument('--diff_config', type=str, default="./lion_ckpts/unconditional_all55_cfg.yml")
     parser.add_argument('--diff_ckpt', type=str, default="./lion_ckpts/epoch_10999_iters_2100999.pt")
+    parser.add_argument('--dataset_name', type=str, default="modelnet-c")
     parser.add_argument('--dataset_root', type=str, default="./data/modelnet40_c")
     parser.add_argument('--label_path', type=str, default="./data/modelnet40_c/label.npy")
     parser.add_argument('--output_dir', type=str, default="./result/modelnet40_c/gsd_smooth_grid_search")
@@ -60,13 +61,7 @@ def main():
             print(f"  Evaluating {corruption}...")
             
             # Create a dataset for just this corruption, only 120 items
-            dataset = ModelNet40C(
-                root=args.dataset_root, 
-                label_path=args.label_path,
-                severity=5,
-                split='test',
-                corruptions=[corruption]
-            )
+            dataset = PointDataset(args.dataset_root, args.label_path, corruption)
             
             # Subset to exactly 120 samples
             from torch.utils.data import Subset
