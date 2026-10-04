@@ -270,7 +270,7 @@ class PVConv(nn.Module):
             else:
                 voxel_features_4d = voxel_layers(voxel_features_4d) 
         voxel_features = F.trilinear_devoxelize(voxel_features_4d, voxel_coords,
-                                                r, self.training)
+                                                r, self.training or torch.is_grad_enabled())
 
         fused_features = voxel_features 
         if self.add_point_feat:
