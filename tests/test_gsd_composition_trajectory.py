@@ -1,5 +1,6 @@
 """CPU-mocked checks for paired GSD routing on shared sampler inputs."""
 from contextlib import ExitStack
+from dataclasses import replace
 import importlib
 import json
 import math
@@ -140,6 +141,14 @@ class CompositionTrajectoryTests(unittest.TestCase):
                 self.inputs + 1, self.lion, 50, .017, .023, .95, total=10,
                 composition_config=self.config("scd", "scd"),
                 prepared_inputs=prepared)
+
+    def test_prepared_scheduler_scalar_may_live_off_the_point_cloud_device(self):
+        from gsd_paired_inputs import prepare_guidance_inputs
+        prepared = prepare_guidance_inputs(
+            self.inputs, self.lion, total=10, steps_back_local=50)
+        prepared = replace(prepared, alpha_bar=torch.empty((), device="meta"))
+        with patch("gsd_paired_inputs._config_hash", return_value=prepared.config_sha256):
+            prepared.validate_for(self.inputs, total=10, steps_back_local=50)
 
     def test_all_legacy_composition_routes_match_corresponding_sampler(self):
         # Same CPU fixture, encoded inputs and noise are regenerated from the

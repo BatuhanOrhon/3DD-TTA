@@ -96,8 +96,11 @@ class PreparedGuidanceInputs:
                 or self.style_conditioning.shape[0] != batch
                 or self.timesteps.numel() != (total * steps_back_local) // 100):
             raise ValueError("prepared input tensor shapes do not match the sampler")
-        if any(value.device != x.device for _, value in self.tensor_items()):
-            raise ValueError("prepared inputs and point cloud must share a device")
+        # Diffusers keeps alphas_cumprod on the scheduler's device, often CPU;
+        # the sampler explicitly transfers this scalar to the latent device.
+        for name, value in self.tensor_items():
+            if name != "alpha_bar" and value.device != x.device:
+                raise ValueError("prepared {} and point cloud must share a device".format(name))
 
 
 @torch.no_grad()
