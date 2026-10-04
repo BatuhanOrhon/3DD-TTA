@@ -48,7 +48,7 @@ def main():
         "shear", "rotation", "cutout", "distortion", "occlusion", "lidar"
     ]
     
-    m_max_candidates = [400, 600, 800, 1000, 1200]
+    m_max_candidates = [1400, 1600, 1800, 2000]
     
     results = {}
     
@@ -90,7 +90,7 @@ def main():
         results[m_max]['mean_acc'] = mean_acc
             
         # Save intermediate results
-        with open(os.path.join(args.output_dir, "grid_search_m_max.json"), "w") as f:
+        with open(os.path.join(args.output_dir, "grid_search_m_max_high.json"), "w") as f:
             json.dump(results, f, indent=4)
             
 if __name__ == "__main__":
