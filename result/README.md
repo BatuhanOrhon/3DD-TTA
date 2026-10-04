@@ -1,26 +1,44 @@
 # Colab Result Archive
 
-## GSD full-test-set candidate screen — approved, awaiting Colab execution
+## GSD guidance composition v1 - implementation, no runs yet
 
-[Plan] `full_dataset_development` evaluates every example from all 15 existing
-ModelNet40-C severity-5 corruption files with seeds 0/1/2. The nine runs compare
-SCD-only, calibrated beta .5/rho .001 and beta 2/rho .01, all bound to reference
-`20260928-113047_gsd-cal-diagnose-reference-seed0-n64` (raw config SHA-256
-`550d73dc83375395c905db2e6cda3845dc3362632117d3371f8d4ad4e787e2d6`). The
-adaptation path consumes points; labels are used after prediction for accuracy
-metrics. Candidate selection from the full test set is descriptive development
-evidence and is not independent confirmation.
+[Code/Verification] The local implementation adds the separate
+`gsd_guidance_composition_v1` result schema. Each arm bundle contains the
+seven standard files plus `predictions.npz`,
+`gradient_diagnostics.jsonl.gz`, and `experiment_manifest.json`; the runner
+also writes phase/selection manifests and preserves partial bundles. Focused
+CPU algebra, protocol, runner, analyzer, and trajectory tests pass. The code is
+uncommitted and not yet available to Colab. No GPU run or accuracy result is
+claimed. See the [Colab phase plan](../knowledge/colab_gsd_block_routing_20261004.md).
 
-Run `scripts/run_gsd_full_dataset_screen.py` in the existing Colab
-`3dd_tta_env`, passing the raw reference `config.json` and `--result-root
-./result`. Add `--resume` after interruption: only complete matching ZIPs are
-skipped, and retries use unique attempt names. The launcher writes nine raw
-seven-file ZIPs and
-`full_test_screen_summary_20260928-113047_gsd-cal-diagnose-reference-seed0-n64.json`.
-Keep all of them together for ingestion. The compact JSON includes full-file
-counts, per-seed per-corruption accuracy, equal-weight 15-corruption macro,
-candidate-minus-SCD percentage-point deltas, seed mean/sample SD, runtime and
-peak memory. See [Colab commands](../knowledge/colab_gsd_calibration.md).
+## Guidance ablations - ingested2026-10-04
+
+[Run/Verification] Six new full15/seeds0-2 ZIPs and two supplied summaries
+are preserved under the user's imported hierarchy:
+`modelnet40_c/gsd-guidance-ablations/{unguided,smooth_only}/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/`.
+Treat these folders as the raw evidence locations for this batch; do not
+duplicate them under the older method directory or count copies as new runs.
+Derived JSON, corruption tables and prediction transitions are under
+`modelnet40_c/gsd-guidance-ablations/analysis_20261004/`.
+Both conditions are complete. See
+[accepted results and provenance](../knowledge/gsd_guidance_ablation_results_20261004.md).
+Native binary identities differ between arms; no common-draw pairing is claimed.
+
+## GSD full-test-set candidate screen - completed
+
+[Run/Verification] Nine full-file runs cover every example in all 15
+ModelNet40-C severity-5 corruptions with seeds 0/1/2. They compare SCD-only,
+beta .5/rho .001 and beta 2/rho .01 using calibration reference
+`20260928-113047_gsd-cal-diagnose-reference-seed0-n64`. The archives and compact
+summary are under `result/modelnet40_c/gsd_latent_spectral_smooth_v2/`.
+
+[Run] Equal-weight macro mean +/- sample SD: SCD-only 63.8799 +/- 0.1326%;
+beta .5/rho .001 63.8520 +/- 0.0353% (mean matched delta -0.0279 pp);
+beta 2/rho .01 63.8214 +/- 0.1184% (delta -0.0585 pp). The first candidate
+has mixed seed directions; the second is lower in all three seeds. This is
+descriptive full-test-set development evidence, not independent confirmation.
+See the [consolidated all-15 ModelNet40-C result matrix](../knowledge/modelnet40_c_all15_results_matrix_20261001.md)
+for this screen and prior experiments.
 
 ## GSD calibration/development artifacts - 2026-09-27
 
@@ -62,6 +80,17 @@ ZIP into the matching Drive path
 the local artifact.
 
 This directory stores immutable experiment evidence. See [`knowledge/experiment_protocol.md`](../knowledge/experiment_protocol.md) for the full protocol.
+
+## Imported GSD improvements default CSV - incomplete metadata
+
+[User report/Run] The supplied `modelnet40_c/gsd_tta_improvements/eval_results.csv`
+contains 15 corruption accuracies at M=400/M_mid=600 and weights 16/2. Its
+equal-corruption macro is 64.3868% (all 15) and 64.7459% (Background excluded).
+Values are consistent with 2,468 examples per row, though the CSV omits explicit
+counts. Preserve the raw file unchanged. It has no seed, command, config,
+environment, checkpoint/data hashes or logs, so it is an incomplete result
+artifact and must not be treated as a matched comparison. See the latest
+entry in `knowledge/findings_log.md` for its comparison and interpretation.
 
 ## Required layout
 

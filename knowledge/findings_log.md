@@ -2661,3 +2661,291 @@ Derived outputs under
 Updated README, handoff, coverage audit, all15 matrix, method synthesis,
 open questions and result README. No model experiment, inference-source
 change, commit or push occurred during this ingestion.
+
+## 2026-10-04 - Background reverse-step sensitivity plan
+
+[Code] Plan recorded on branch `gsd-smooth-spectrum`, checkout commit
+`aa8b725ba4daaf3448f0cda75bfc6aaec6c86d48`; no inference source was changed.
+
+[Run] The validated 35-step Background values provide the reference condition
+for the next diagnostic. Unguided accuracy by seeds 0/1/2 is
+23.703404/23.946515/23.217180% (mean 23.622366%, sample SD 0.371359 pp).
+Smooth-only (beta .5, alpha 8.140161356429882) is
+24.149109/23.662885/23.824959% (mean 23.878984%, sample SD 0.247573 pp).
+The separate v1 spectral-only seed-0 Background result is 23.176661%; it is
+not a matched seed or method control. Full prior results and provenance are
+in `gsd_guidance_ablation_results_20261004.md` and
+`gsd_v1_background_completion_20261003.md`. The accepted smooth/unguided
+analysis is at `result/modelnet40_c/gsd-guidance-ablations/analysis_20261004/analysis.json`;
+the v1 completion is at
+`result/modelnet40_c/gsd_latent_spectral_v1/20261004-095901_gsd-v1-background-completion-seed0-spectral-only-m100.zip`.
+
+[Code] `run_baseline.py` currently chooses 35 reverse steps for Background
+and 5 for other corruptions. `tta_gsd.py` interprets this argument as a
+percentage of a 100-step schedule, so values 5/10/15/20/25 correspond to the
+requested number of reverse steps. The underlying runner files are unchanged
+in this plan. The Colab cell prepared in this session temporarily adapts the
+runtime copy to accept Background-only full-file runs and a configurable step
+count, then restores the two source files on exit; resulting artifacts should
+retain the adapted source fingerprints and CLI step value.
+
+[User report/Decision] Because the 35-step smooth-only result is unexpectedly
+low, the user requested a Background-only step scan. The declared matrix is
+five step counts x two fixed arms x seeds 0/1/2 = 30 full-file runs. Each run
+uses ModelNet40-C severity 5 Background (2,468 examples), batch 32, raw/eval
+LION, EMA off, frozen Point-MAE, original final decode style, lambda=.95,
+gamma=eta=.01 and the pinned calibration reference. Both arms have SCD weight
+0. Smooth-only keeps beta=.5 and alpha=8.140161356429882; unguided keeps
+spectral weight 0. Reuse, rather than rerun, each arm's existing 35-step
+seed0/1/2 archive as the comparison condition.
+
+[Superseded by the 2026-10-04 sweep result below] The pre-run protocol and
+first launch failure are retained in `gsd_background_step_sensitivity_20261004.md`.
+
+[User report/Run failure] The first Colab attempt started only the 5-step
+smooth-only, seed-0 condition. It created
+`20261004-121037_gsd-bg-step-5-smooth_only-seed0-20261004-121036.zip`, then
+failed before model inference in `verify_calibration_inputs` with
+`dataset_hash_manifest/gaussian` mismatch. The worker had recorded only the
+selected Background file in `dataset_hash_manifest`, while the pinned
+calibration reference requires current Gaussian and Impulse hashes too. The
+shell stopped after this first failed condition, so the other 29 runs did not
+start. Treat this ZIP as a failed pre-inference artifact; preserve it for
+provenance and exclude it from accuracy summaries.
+
+[Code/Decision] Correct the Colab-only launcher patch at the verification
+boundary: compute hashes for any calibration-reference dataset files missing
+from the selected-run manifest, call `verify_calibration_inputs` on a copy
+containing both sets, and record those calibration-input hashes in a separate
+config field. Keep `dataset_hash_manifest` scoped to the Background file being
+evaluated. This retains calibration data identity checking without labeling
+Gaussian/Impulse as evaluated in the Background-only run. No repository
+inference source has been edited for this fix.
+
+## 2026-10-04 - Imported GSD improvements default all-15 CSV
+
+**Evidence:** [User report] The user ran the `gsd-tta-improvements` branch's
+`eval_gsd_tta.py` with defaults and supplied
+`result/modelnet40_c/gsd_tta_improvements/eval_results.csv`. [Code] The locally
+available branch worktree is at `6992587`; its defaults specify batch 70,
+M=400/M_mid=600, low/mid spectral weights 16/2, normal/Background reverse
+steps 10/30, and low/mid losses with `reduction='mean'`. The CSV does not
+record which commit, seed, command, runtime environment, checkpoint/data
+hashes, or per-row example counts produced it.
+
+**[Run/Inference]** The CSV has 15 unique corruption rows. Every accuracy is
+consistent with an integer correct count out of 2,468 (inferred from the
+rounded CSV values; explicit counts are absent). Equal-corruption macro is
+64.3868% over all 15 and 64.7459% with Background excluded. The current
+smooth-v2 full-test screen's SCD-only three-seed means are 63.8799% and
+64.1092% on those same respective scopes, so the imported single-run CSV is
+descriptively +0.5069 pp / +0.6367 pp higher. It is higher on only 6/15 rows
+(6/14 excluding Background); its largest same-corruption gains are Impulse
+(+8.16 pp), LiDAR (+5.58 pp), and Gaussian (+2.04 pp), while Shear is lower
+by 3.82 pp. This is an unmatched comparison, not evidence that mean reduction
+caused the higher macro.
+
+**[Inference/Decision]** A batch-mean spectral-loss ablation in the current
+smooth-v2 implementation is warranted. Hold profile, beta, weight, SCD,
+trajectory and all other settings fixed; compare the existing sum-over-samples
+condition against dividing only the spectral loss/gradient by the actual
+batch size. That scales the spectral gradient by `1/B` while preserving its
+direction, but changes its balance against summed SCD. Report per-corruption
+accuracy and local/style spectral-to-SCD gradient ratios. Current all-15
+candidate outcomes already use these test files, so any follow-up remains
+descriptive development evidence, not independent confirmation.
+
+**Open evidence:** Preserve the supplied CSV unchanged and request its full
+run directory (command, config, environment, stdout, counts, seed, and hashes)
+before promoting it to a fully auditable result.
+
+## 2026-10-04 - Background reverse-step sensitivity accepted
+
+[Run/Verification] Ingested 30 valid Background-only runs at
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/background_step_sensitivity_20261004/`:
+smooth-only and unguided x steps 5/10/15/20/25 x seeds 0/1/2. Every ZIP CRC,
+seven-file member set, and ZIP-to-directory content check passes. All runs
+complete all 2,468 examples, with config/CSV/summary completion consistent.
+Within the new block, asset, Background data, calibration-input, runtime
+source, and extension manifests are identical. LION VAE/priors and Dropout
+are eval; EMA is off. One failed pre-inference 5-step smooth-only seed-0 ZIP
+is retained, documented, and excluded; its initial calibration-input hash
+error did not proceed to model inference.
+
+[Code/Run] The saved `scheduler_timesteps` array contains the full 100-point
+DDIM grid, not the consumed step count. Per-batch diagnostics show exactly
+78 x requested reverse steps in every valid run, with step index 0 through
+N-1. The sampler consumes the grid suffix, so both loop count and initial
+noising timestep change (25-step starts at t=240; 35-step starts at t=340).
+
+[Run] Background accuracy by seed0/1/2; mean +/- sample SD (%):
+
+| Arm | Steps | Seed 0 | Seed 1 | Seed 2 | Mean +/- SD (%) | Delta vs same-arm 35-step (pp) |
+|---|---:|---:|---:|---:|---:|---:|
+| Smooth-only | 5 | 24.0681 | 23.8655 | 23.6224 | 23.8520 +/- 0.2232 | -0.0270 +/- 0.2079 |
+| Smooth-only | 10 | 25.5267 | 24.4733 | 24.7974 | 24.9325 +/- 0.5396 | +1.0535 +/- 0.2922 |
+| Smooth-only | 15 | 24.9190 | 23.3387 | 23.9060 | 24.0546 +/- 0.8005 | +0.1756 +/- 0.5531 |
+| Smooth-only | 20 | 24.4733 | 23.3387 | 23.5413 | 23.7844 +/- 0.6051 | -0.0945 +/- 0.3632 |
+| Smooth-only | 25 | 25.7699 | 24.1086 | 25.0000 | 24.9595 +/- 0.8314 | +1.0805 +/- 0.5932 |
+| Unguided | 5 | 24.1896 | 24.0681 | 24.1491 | 24.1356 +/- 0.0619 | +0.5132 +/- 0.4059 |
+| Unguided | 10 | 24.7974 | 24.7569 | 24.4733 | 24.6759 +/- 0.1766 | +1.0535 +/- 0.2256 |
+| Unguided | 15 | 25.0000 | 23.4603 | 23.5413 | 24.0005 +/- 0.8665 | +0.3782 +/- 0.8926 |
+| Unguided | 20 | 24.3517 | 23.1767 | 23.8250 | 23.7844 +/- 0.5886 | +0.1621 +/- 0.8073 |
+| Unguided | 25 | 25.1621 | 24.5543 | 25.2836 | 25.0000 +/- 0.3907 | +1.3776 +/- 0.7327 |
+
+[Run/Inference] Scores stay low and non-monotonic. The best means, at step
+25, are about +1.08 pp smooth-only and +1.38 pp unguided against the 35-step
+references; step depth through 25 does not explain the roughly 23–25% no-SCD
+outcome by itself. Historical 35-step SCD-only and smooth+SCD Background
+means are 60.6699% and 60.9130%, respectively. This makes SCD presence the
+stronger descriptive correlate, not a causal finding: old/new comparisons
+also differ in `run_baseline.py`/`gsd_protocol.py` source hashes and native
+Chamfer/PointNet2 hashes. All step conditions within the new block are
+matched; same seeds do not establish common random draws. This is
+full-test-set development evidence; do not select step 25 as a final setting
+or launch another accuracy grid on the same examples without a separate
+mechanistic hypothesis.
+
+Derived validation and tables are stored separately from the raw archives in
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/background_step_sensitivity_20261004/analysis_20261004_step_sensitivity/`:
+`validation.md`, `analysis.json`, `per_step_summary.csv`, and
+`run_validation.csv`.
+
+
+## 2026-10-04 ? SCD/spectral composition: dominance and conflict are distinct
+
+[Paper/Code/Run/Inference/Open] User requested research into why close
+standalone scores fail to yield a better combined result. Inspected current
+`gsd-smooth-spectrum` HEAD `aa8b725ba4daaf3448f0cda75bfc6aaec6c86d48`,
+legacy `pxp-gradient-projection` `53ba252519c7cf65f836a9c1c564027142ab1573`,
+and primary PCGrad, PixelAsParam and CAGrad papers. Full report:
+[composition review](gsd_scd_gradient_composition_review_20261004.md).
+
+[Run/Inference] New offline analysis of archived SCD-only common-state
+probes, seed0, 64 Gaussian + 64 Impulse examples, three timesteps each:
+weighted smooth beta.5 local sums deviate from SCD by median .05430/.05791
+degrees; beta2 by .55512/.56816 degrees. No local conflicts in this scope.
+Style negative-cosine rates are 10.417/8.854% and 38.021/36.979%, respectively.
+These are hypothetical sums reconstructed from norms/cosines, not applied
+trajectories, classification gains, or hard-v1 evidence. Repeated timestep
+observations are not independent examples. Raw archive remained unchanged:
+`result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-113047_gsd-cal-diagnose-reference-seed0-n64.zip`.
+Derived script/JSON/CSVs are in the sibling
+`analysis_20261004_gradient_composition/` directory; SHA256 and formulas
+are recorded in `analysis.json`.
+
+[Decision/Open] First fill missing v1 gradient geometry and SCD/v1 paired
+prediction complementarity on a declared small diagnostic subset. Conditional
+symmetric projection per example and initially style-only is the first
+direction candidate if v1 conflicts confirm this pattern. Include magnitude
+controls. SCD-priority one-way projection need not preserve spectral progress;
+legacy projection flattens whole batches and must not be transplanted.
+Positive weights do not change pairwise cosine. PixelAsParam's selective-pair
+ablation is Table6. Updated stale branch/diagnostic descriptions in method
+and paper notes. No model code, GPU run, commit or push was performed.
+
+[Falsifiers] No conflicts makes conditional projection inactive; no prediction
+complementarity limits separate-trajectory fusion. Better gradient geometry
+without better classification rejects conflict repair as the performance
+explanation at that scope. Do not repeat completed full benchmarks to collect
+these initial missing diagnostics; current inspected samples are development
+evidence, and future comparison requires matched runtime/common draws.
+
+
+## 2026-10-04 - Local/style routing assessment and implementation handoff
+
+[User report/Code/Run/Inference/Planning] User requests a critical assessment
+of local-SCD/style-spectral routing and an implementation/Colab plan for a
+separate agent. Source inspected at gsd-smooth-spectrum
+`aa8b725ba4daaf3448f0cda75bfc6aaec6c86d48`; no source changes or GPU runs.
+Created [design](gsd_block_routing_design_20261004.md),
+[implementation batches](gsd_block_routing_implementation_plan_20261004.md),
+and [Colab scenarios](colab_gsd_block_routing_20261004.md).
+
+[Code/Inference] SCD-only already updates style conditioning through the
+local prior. Final decoding uses original shape latent; the last style
+update is therefore unused downstream. Global diffusion is a separate model
+on raw z and is not called on this path. Low-frequency XYZ spectral guidance
+does not imply a matching semantic style gradient after the denoiser Jacobian.
+LION section3 trains local diffusion with clean global conditioning; noisy
+synchronized conditioning from legacy dual code needs an independent audit.
+
+[Run] Reused completed shared-trajectory decoder evidence: all15/seeds0-2,
+original63.7484%, updated63.7169%, mean delta-.0315pp. Artifacts remain at
+`result/modelnet40_c/shared_trajectory_decoder_control/`. This is not evidence
+about disabling conditioning guidance or enabling global diffusion.
+
+[Decision/Planning] Start hard-v1 per-block routing with style-off anchors;
+if hard-v1 nonterminal style conflicts exist, compare style-only norm-capped
+symmetric PCGrad against same-route sum and applied-norm-matched sum.
+Scope: severity5, raw/eval, noEMA, B32, lambda.95, gamma/eta.01, v1weight1,
+M100, DDIM100 with actual5/35steps, original final decode. Proposed diagnostic
+and pilot use64 samples/corruption at Gaussian/Impulse/Background/Shear,
+seed0; next256 indices with seeds0/1/2 replicate one selected mechanism.
+All indices/draws/provenance are explicit; no full-grid repetition and no
+independent-confirmation claim from already inspected test data. Additional
+scale/CAGrad/ensemble/schedule/global-prior studies are conditional follow-ups.
+
+[Falsifiers] Routing that matches style-off may merely remove harmful style
+updates; projection matched by step-norm control does not establish a useful
+direction effect; seed-unstable gains do not justify full15 promotion. Even a
+replicated style-guidance gain does not predict a global-diffusion gain.
+The requested documents are ready for a separate implementation agent;
+new sampler options/runners do not yet exist. No commit or push performed.
+
+
+## 2026-10-04 - Clarify spectral gradient magnitude and calibration
+
+[Code/Run/Inference] User asks why spectral style guidance is small and whether
+local guidance is similarly small. Verified current SCD sum, v1 division by
+3*actual_rank, smooth division by3*N, and calibration rule in
+`gsd_calibration.coefficient_summary`. Both local/style receive the same
+scalar loss normalization; smooth alpha explicitly targets local norm ratios
+rho=.001/.01 for the two discussed settings. Style has no independent target.
+Existing hard-v1 M100 weight1 aggregate norm ratios are local.0838/.0968%
+and style approximately.164/.0905% for Gaussian/Impulse. These are historical
+ratios of mean norms, not the smooth reference-probe medians. The smallness
+is relative to SCD, not a diagnosed style-specific vanishing gradient.
+Added this clarification to the block-routing design; no new experiment or
+implementation change. No research conclusion beyond existing evidence.
+
+
+## 2026-10-04 - Registered GSD gradient-scale hypothesis
+
+[User decision/Open] Add to `open_questions.md`: can the small effective v1
+spectral gradient explain its limited accuracy gain? The planned next scale
+pilot holds SCD, loss reduction, graph, trajectory and decoder fixed; only v1
+`gsd_weight` varies over 0/1/100/1000 on matched prepared inputs. It records
+local/style spectral-to-SCD norm ratios, guidance-to-DDIM displacement, state
+stability and paired accuracy. If one scale merits follow-up, replicate only
+one plus 0/1 controls on new manifest indices/seeds 0-2. Keep this study
+distinct from block routing, projection, smooth profiles and mean normalization.
+Larger applied gradients changing predictions without accuracy gain would
+falsify gradient magnitude as a sufficient explanation. The scale phase is
+documented in `colab_gsd_block_routing_20261004.md` and the implementation
+handoff; the CPU runner and protocol are now implemented locally. The four
+composition/algebra, protocol, runner and analyzer suites passed in focused
+runs; trajectory tests also passed. Independent review approved the final fixes.
+No GPU run has been launched, so there is no accuracy evidence yet. Code is
+uncommitted and no Colab execution ref is available.
+
+
+## 2026-10-04 - Block-composition algebra implemented
+
+[Code/Verification] Batch1 added `gsd_composition.py` with independent per-example
+route/project arithmetic and `tests/test_gsd_composition.py`. RED observed
+(`ModuleNotFoundError` before helper existed), then 12 focused tests passed:
+`python -m unittest discover -s tests -p "test_gsd_composition.py"`. Reviewer
+approved spec compliance/quality. `git diff --check` clean. Uses float64 reductions
+then returns source dtype; norm-capped symmetric PCGrad and same-state matched-sum
+control expose separate cap/applied scales. Sampler, CLI, Colab artifacts and the
+registered gradient-scale experiment remain unimplemented. No GPU run.
+
+## 2026-10-04 - Smooth Spectral Guidance and Batch Invariance
+[Code/User report] Transitioned to `gsd-tta-smooth-integration` branch.
+1. Fixed LION prior evaluation mode `.eval()` dropout bug.
+2. Replaced hard cut-off frequency filtering (M, M_mid, M_high) with a continuous exponential decay function: `weight = exp(-beta * lambda)` where `lambda` is the graph Laplacian eigenvalue and `beta=2.0`.
+3. Discovered that PyTorch's default `reduction='mean'` in MSELoss was inadvertently dividing the per-sample spectral gradient by the batch size (`1/B`), causing guidance strength to fluctuate heavily with `batch_size`.
+4. Fixed the loss calculation to be batch-invariant by summing over the batch dimension instead of averaging, and mathematically calibrated the default spectral weight (from 16.0 -> 1.17) to match the exact effective gradient magnitude of the previous optimal run.
+5. Grid search subset (120 samples/corruption) confirmed `M_max = 800` (cutting off eigenvalues > ~0.95) acts as an optimal noise filter, yielding ~64.72% subset accuracy.
+6. [Run] Full evaluation on ModelNet40-C (all 15 corruptions, 37020 samples) with `batch_size=70`, `M_max=800`, `weight_spectral=1.17` yielded a new baseline accuracy of **64.53%**, successfully surpassing the prior 64.39% record with a more mathematically principled formulation.

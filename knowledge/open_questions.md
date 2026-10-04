@@ -362,6 +362,7 @@ Priority meanings: **P0** blocks trustworthy comparison; **P1** blocks method in
 ## P2 â€” Research extensions
 
 - [ ] Deferred by user: sum spectral loss plus smaller eta/gamma after baseline/spectral-off parity, including reduction-equivalence controls and explicit SCD effects. Earlier mean advantage is [User report], not [Run].
+- **[2026-10-04 update]** A supplied legacy-default all-15 CSV is 64.3868% (15 corruptions) / 64.7459% (Background excluded), descriptively above the current smooth-v2 SCD-only means, but it lacks seed/config/environment provenance and differs in graph, bands, batch, and reverse steps. Test spectral batch-mean scaling in smooth-v2 as one isolated development ablation; see the newest `findings_log.md` entry. Do not infer causality or promote it as confirmation.
 - [ ] Compare static versus dynamic eigenbasis at matched compute and several update intervals.
 - [ ] Validate physical-to-latent point correspondence before interpreting physical-basis results.
 - [ ] Evaluate global/local sequential and synchronized diffusion after resolving style decoding.
@@ -711,3 +712,75 @@ review/checklist below instead of treating source-domain data or q95 as gates.
 - [x] Compare with archived SCD/combined results with scope, binary and
   randomization limits stated; v1/smooth is not a pure profile contrast.
 - Handoff: [missing guidance ablations](gsd_guidance_ablation_handoff_20261003.md).
+
+### 2026-10-04 Background reverse-step sensitivity (planned)
+
+- [x] Record the accepted 35-step Background baseline by arm and seed.
+- [x] Predeclare Background-only steps 5/10/15/20/25 for unguided and fixed
+  beta=.5 smooth-only; use seeds 0/1/2 and all 2,468 examples per run.
+- [x] Reuse the existing 35-step ZIPs as references; do not rerun them.
+- [x] Diagnose the first launch failure: calibration verification also expects
+  Gaussian/Impulse source-file hashes; no inference started in that attempt.
+- [x] Run and ingest all 30 ZIPs plus summaries/logs; verify archive integrity,
+  full-file counts, calibration/data hashes, and source/native identities.
+- [x] Verify actual step counts using per-batch diagnostics, not the full
+  100-point scheduler grid stored in `scheduler_timesteps`.
+- [x] Report each seed, step-level mean/sample SD and delta against the
+  same-arm/seed 35-step reference; preserve the failed pre-inference attempt.
+- **[Inference/Open]** Scores remain about 23.8–25.0% and vary non-monotonically.
+  Step 25 has the highest observed means, only +1.08 pp smooth-only and
+  +1.38 pp unguided over 35 steps. This same-test-set scan is development
+  evidence, not independent confirmation. Historical SCD-containing scores
+  are much higher, but source/native-build differences prevent a causal claim.
+  Do not launch another accuracy grid on these examples without a separate
+  mechanism hypothesis. See
+  [the experiment record](gsd_background_step_sensitivity_20261004.md).
+
+
+### 2026-10-04 SCD / spectral composition research
+
+- [x] Review PCGrad, PixelAsParam and CAGrad primary sources against current
+  code; distinguish ordinary sum from legacy batch-level projection.
+- [x] Reconstruct weighted-sum angles from archived smooth common-state
+  probes; local dominance and style conflicts are separate mechanisms.
+- [ ] Obtain missing hard-v1 local/style geometry on a small fixed subset;
+  do not treat smooth-profile probes as hard-v1 evidence.
+- [ ] Capture paired SCD/v1 predictions and quantify complementary correct
+  examples; archived SCD full runs lack per-example predictions.
+- [ ] If supported by v1 geometry, compare per-example style-only symmetric
+  projection with ordinary and magnitude-matched sums; SCD-priority is a
+  control and does not guarantee spectral progress.
+- [ ] Consider CAGrad or separate trajectories only if the diagnostic outcome
+  supports that mechanism; no repeated full15 grid is currently justified.
+- [Inference/Open] Equal aggregate scores do not establish cancellation or
+  useful complementary information. Existing smooth probes are seed0,
+  Gaussian/Impulse, three timesteps on SCD-only states. See the
+  [evidence, equations, sources and decision tree](gsd_scd_gradient_composition_review_20261004.md).
+
+
+### 2026-10-04 block-routing and global-style planning handoff
+
+- [x] Evaluate local-SCD/style-spectral and reverse routing, including why
+  spectral low frequencies do not establish semantic style suitability.
+- [x] Separate existing conditioning gradients, final decoder style and
+  currently inactive global diffusion; reuse the null decoder-style result.
+- [x] Write exact core implementation batches, algebra/parity requirements,
+  Colab phase counts, selection gates and next-agent handoff.
+- [x] Implement core Batches 1-3, preserving old-method behavior and raw data.
+  Focused CPU suites pass and the independent code review is approved; Colab
+  smoke and GPU evidence remain outstanding.
+- [ ] Run Colab smoke and hard-v1 diagnostic/routing phases; projection only
+  if v1 style conflicts activate on nonterminal steps.
+- [ ] Compare any routing improvement with its style-off anchor; compare
+  projection with both same-route sum and matched applied-norm control.
+- [ ] Replicate one selected mechanism before any new full15 comparison.
+- [ ] **Can the small GSD gradient scale explain its limited accuracy gain?**
+  Isolate scalar guidance strength with v1 SCD+GSD coefficients 0/1/100/1000
+  in a separate common-draw pilot, then replicate one candidate if evidence
+  supports it. Record local/style-to-SCD and guidance-to-DDIM ratios; do not
+  mix this with routing, PCGrad, smooth-loss or mean-reduction changes.
+- [ ] Consider global diffuse-denoise only after its representation audit and
+  evidence gate; no train/unfreeze operation is included.
+- Handoff: [implementation plan](gsd_block_routing_implementation_plan_20261004.md)
+  and [Colab scenarios](colab_gsd_block_routing_20261004.md). All new commands
+  are future interface specifications, not runnable code at this revision.

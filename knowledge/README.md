@@ -1,5 +1,42 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[User report/Code/Planning] 2026-10-04 block-routing handoff:**
+The user requests an honest assessment and implementation/Colab plan for
+local-SCD/style-spectral routing, its reverse, and style-only projection.
+Read the [design](gsd_block_routing_design_20261004.md),
+[implementation plan](gsd_block_routing_implementation_plan_20261004.md) and
+[Colab scenarios](colab_gsd_block_routing_20261004.md).
+Style conditioning already receives SCD gradients; global diffusion is a
+separate, currently inactive mechanism. Existing updated-final-style decoding
+was null on average (-.0315 pp), which is not a style-off/global-prior test.
+The plan preserves hard v1, original decode, matched inputs and frozen models;
+global diffusion is conditional. The runner and analyzers are now implemented
+locally and independently reviewed; GPU phases have not yet been run.
+The user also registered the hypothesis that the small spectral gradient
+limits accuracy gains. A v1 coefficient pilot at 0/1/100/1000 is planned on
+common four-corruption draws, separately from routing. See `open_questions.md`
+and the linked Colab scenario.
+
+**[Paper/Run/Inference] 2026-10-04 SCD/GSD composition research:**
+The [composition review](gsd_scd_gradient_composition_review_20261004.md)
+separates magnitude dominance, conflict and prediction complementarity.
+New offline arithmetic on existing smooth probes gives median local sum
+rotation only .054-.568 degrees from SCD and no local negative cosines;
+style conflicts are present. These are seed-0 Gaussian/Impulse reference
+states, not hard-v1 or new guided-run results. The proposed next step is
+missing v1 diagnostics, followed conditionally by per-example style projection
+with a magnitude control. No adaptation algorithm or GPU run was added.
+
+**[Run/Inference] 2026-10-04 Background step sensitivity ingested:**
+All 30 Background-only runs (2 arms x 5/10/15/20/25 steps x seeds 0/1/2)
+validate; one separate pre-inference hash failure is preserved and excluded.
+Measured counts are 78 batches x requested steps. Scores remain about
+23.8–25.0%; the best observed mean is step 25 (smooth-only 24.9595%,
+unguided 25.0000%), only +1.08/+1.38 pp against same-arm/seed 35-step
+references. Results are non-monotonic and do not resolve the low accuracy.
+See the [validated analysis](../result/modelnet40_c/gsd_latent_spectral_smooth_v2/background_step_sensitivity_20261004/analysis_20261004_step_sensitivity/validation.md)
+and [research record](gsd_background_step_sensitivity_20261004.md).
+
 **[Run/Inference] 2026-10-04 unguided and smooth-only ablations accepted:**
 All six full15/seeds0-2 ZIPs and both supplied summaries validate.
 Unguided is **61.2021 +/- 0.1274%**; smooth-only beta .5/alpha8.140161 is
@@ -10,8 +47,8 @@ is63.8799%; same-smooth+SCD is63.8520%. Native binary identities differ
 between the two new arms, and the historical controls also differ in source
 and package inventory; no common-draw causal claim is established.
 Read the [accepted results, provenance and next decision](gsd_guidance_ablation_results_20261004.md).
-These conditions are complete: reuse them and inspect existing mechanism
-diagnostics before proposing any new capture or parameter search.
+Reuse these completed conditions. The user-directed Background step scan is a
+separate development sensitivity test; inspect its [predeclared plan](gsd_background_step_sensitivity_20261004.md).
 
 **[Run/Code] 2026-10-04 v1 Background completion ingested:** Full seed0
 spectral-only M100 Background is **572/2468 = 23.1767%**. Reusing the archived
@@ -184,7 +221,12 @@ The project studies training-free test-time input adaptation for corrupted 3D po
 
 Before clean-restart implementation also read the [follow-up code audit](code_audit_20260912.md) and [small implementation batches](clean_restart_batches.md). These refine earlier informal next-test ordering.
 
-**[Run/Inference]** Current next action: the source-only severity 1--5 probe is complete and shows a 22.1907 pp severity-1-to-5 drop, but no tested severity matches the paper's 57.6% source row. Internal artifact manifests and the canonical Zenodo archive now agree: the downloaded archive identity matches Zenodo, all 15 archive members match the audited manifest, and all 15 current Colab files match byte size and SHA-256. The remaining source-only provenance caveat is the author/canonical Point-MAE checkpoint identity. The preprocessing identity control is stable across seeds 0/1/2 at 55.0135% +/- 0.0602 pp sample SD (+1.3236 pp versus deterministic source-only). Pure VAE encode/decode is also stable across seeds 0/1/2 at 54.8469% +/- 0.0790 pp sample SD (+1.1570 pp versus source-only), but remains 0.1297--0.2296 pp below the matched preprocessing identity result at every seed. The SCD normalization all-15 control is complete at 61.2678% +/- 0.0979 pp and is 2.4806 pp below the matched original-style unnormalized control; preserve the original baseline and keep the separate lambda=.96 check open. The common-draw control is deferred because it is not expected to change accuracy and would only strengthen a causal diffusion/guidance claim; that claim remains explicitly open. EMA, GSD/PxP and other datasets remain parked.
+**[Run/Inference] Reproduction context:** The source-only severity 1--5 probe is complete and shows a 22.1907 pp severity-1-to-5 drop, but no tested severity matches the paper's 57.6% source row. Internal artifact manifests and the canonical Zenodo archive now agree: the downloaded archive identity matches Zenodo, all 15 archive members match the audited manifest, and all 15 current Colab files match byte size and SHA-256. The remaining source-only provenance caveat is the author/canonical Point-MAE checkpoint identity. The preprocessing identity control is stable across seeds 0/1/2 at 55.0135% +/- 0.0602 pp sample SD (+1.3236 pp versus deterministic source-only). Pure VAE encode/decode is also stable across seeds 0/1/2 at 54.8469% +/- 0.0790 pp sample SD (+1.1570 pp versus source-only), but remains 0.1297--0.2296 pp below the matched preprocessing identity result at every seed. The SCD normalization all-15 control is complete at 61.2678% +/- 0.0979 pp and is 2.4806 pp below the matched original-style unnormalized control; preserve the original baseline and keep the separate lambda=.96 check open. The common-draw control is deferred because it is not expected to change accuracy and would only strengthen a causal diffusion/guidance claim; that claim remains explicitly open. EMA, GSD/PxP and other datasets remain parked.
+
+**[Inference/Open] Current GSD next action:** The requested step scan is
+complete. Do not promote 25 steps from this same-test-set sensitivity result;
+the remaining Background gap is much larger than the observed step effect.
+See the validated analysis and its source/native-build comparison limits above.
 
 **[Run/Inference] 2026-09-22 update:** The three-seed Gaussian/Impulse
 lambda=.96 pilot is complete and null: +0.0068 pp mean versus the matched

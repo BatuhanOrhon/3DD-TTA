@@ -9,6 +9,8 @@ from typing import Callable, Optional
 import torch
 
 import tta as baseline
+from gsd_composition import CompositionConfig, compose_block
+from gsd_paired_inputs import PreparedGuidanceInputs, prepare_guidance_inputs
 
 
 def _require_finite(value: torch.Tensor, name: str) -> None:
@@ -29,6 +31,235 @@ def _loss_gradients(loss, local, style, *, retain_graph):
 def _number(value: torch.Tensor, name: str) -> float:
     _require_finite(value, name)
     return float(value.detach().item())
+
+
+def _paired_loss_gradients(loss, local, style, *, retain_graph):
+    gradients = torch.autograd.grad(
+        loss, (local, style), retain_graph=retain_graph, allow_unused=True)
+    unused = tuple(gradient is None for gradient in gradients)
+    values = tuple(torch.zeros_like(state) if gradient is None else gradient.detach()
+                   for gradient, state in zip(gradients, (local, style)))
+    for gradient in values:
+        _require_finite(gradient, "gradient")
+    return values, unused
+
+
+def _sample_norm(value: torch.Tensor) -> torch.Tensor:
+    return value.detach().reshape(value.shape[0], -1).double().norm(dim=1)
+
+
+def _sample_cosine(left: torch.Tensor, right: torch.Tensor):
+    left_flat = left.detach().reshape(left.shape[0], -1).double()
+    right_flat = right.detach().reshape(right.shape[0], -1).double()
+    left_norm = torch.linalg.vector_norm(left_flat, dim=1)
+    right_norm = torch.linalg.vector_norm(right_flat, dim=1)
+    valid = (left_norm > 1e-12) & (right_norm > 1e-12)
+    result = [None] * left.shape[0]
+    if bool(valid.any()):
+        values = (left_flat[valid] * right_flat[valid]).sum(dim=1) / (left_norm[valid] * right_norm[valid])
+        for index, value in zip(valid.nonzero(as_tuple=False).flatten().tolist(), values.tolist()):
+            result[index] = max(-1.0, min(1.0, float(value)))
+    return result
+
+
+def _observer_scalar(value, name):
+    if torch.is_tensor(value):
+        if value.numel() != 1:
+            raise ValueError("composition observer diagnostic must be scalar: " + name)
+        value = value.detach().item()
+    if value is None or isinstance(value, (bool, int, str)):
+        return value
+    if isinstance(value, float):
+        return value if math.isfinite(value) else None
+    raise TypeError("composition observer diagnostic is not JSON scalar: " + name)
+
+
+def _composition_reconstruct(x, lion, steps_back_local, gamma, eta, p, total, *,
+                             spectral_config, scheduler_observer,
+                             composition_config, prepared_inputs,
+                             composition_observer):
+    if not isinstance(composition_config, CompositionConfig):
+        raise TypeError("composition_config must be a CompositionConfig")
+    if total <= 0 or not 0 < steps_back_local <= 100:
+        raise ValueError("GSD requires total > 0 and steps_back_local in (0, 100]")
+    reverse_steps = (total * steps_back_local) // 100
+    if reverse_steps < 1:
+        raise ValueError("GSD requires at least one reverse step")
+    if not 0 < p <= 1 or not all(math.isfinite(v) for v in (gamma, eta)):
+        raise ValueError("GSD requires p in (0, 1] and finite update rates")
+    baseline.grad_freeze(lion.vae)
+    baseline.grad_freeze(lion.priors[1])
+    lion.vae.eval()
+    lion.priors[1].eval()
+    if prepared_inputs is None:
+        prepared_inputs = prepare_guidance_inputs(
+            x, lion, total=total, steps_back_local=steps_back_local)
+    elif not isinstance(prepared_inputs, PreparedGuidanceInputs):
+        raise TypeError("prepared_inputs must be PreparedGuidanceInputs")
+    else:
+        prepared_inputs.validate_for(x, total, steps_back_local)
+
+    from graph_spectral import SpectralConfig, build_spectral_target
+
+    shape_latent, original_local, original_style, noise, timesteps, alpha_bar = \
+        prepared_inputs.clone_states()
+    reference_xyz = original_local.view(len(x), 2048, 4)[:, :, :3].detach()
+    graph_config = SpectralConfig() if spectral_config is None else spectral_config
+    target = build_spectral_target(reference_xyz, graph_config)
+    if composition_observer is not None:
+        graph_config_values = {
+            "k": graph_config.k,
+            "delta": graph_config.delta,
+            "gamma": graph_config.graph_gamma,
+            "modes": graph_config.modes,
+            "eigenspace_rtol": graph_config.eigenspace_rtol,
+            "eigenspace_atol": graph_config.eigenspace_atol,
+        }
+        for sample_index, diagnostics in enumerate(target.diagnostics):
+            graph_event = {"kind": "graph", "sample_index": int(sample_index)}
+            graph_event.update({
+                "graph_config_" + key: _observer_scalar(value, "config/" + key)
+                for key, value in graph_config_values.items()
+            })
+            graph_event.update({
+                "graph_" + key: _observer_scalar(value, "diagnostics/" + key)
+                for key, value in diagnostics.items()
+            })
+            graph_event["graph_runtime_seconds"] = _observer_scalar(
+                diagnostics.get("runtime_seconds", 0.0), "diagnostics/runtime_seconds")
+            composition_observer(graph_event)
+    scheduler = baseline.DDIMScheduler(**dict(prepared_inputs.scheduler_options))
+    scheduler.set_timesteps(total, device=x.device)
+    if not torch.equal(scheduler.timesteps[-reverse_steps:].to(timesteps.device), timesteps):
+        raise ValueError("prepared timesteps do not match the active scheduler")
+    current_alpha = scheduler.alphas_cumprod[timesteps[0].to(scheduler.alphas_cumprod.device)]
+    if not torch.equal(current_alpha.to(alpha_bar.device), alpha_bar):
+        raise ValueError("prepared alpha does not match the active scheduler")
+    if scheduler_observer is not None:
+        scheduler_observer(scheduler)
+    alpha = alpha_bar.to(device=original_local.device, dtype=original_local.dtype)
+    local = torch.sqrt(alpha) * original_local + noise * torch.sqrt(1 - alpha)
+    style = original_style.detach().clone()
+    chamfer_dist = baseline.chamfer_grad()
+    num_samples, num_points = x.shape[:2]
+    retained = int(num_points * p)
+
+    for step_index, timestep in enumerate(timesteps):
+        t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (timestep + 1)
+        local = local.detach().requires_grad_(True)
+        style = style.detach().requires_grad_(True)
+        noise_pred = lion.priors[1](
+            x=local, t=t_tensor.float(), condition_input=style, clip_feat=None)
+        scheduler_output = scheduler.step(noise_pred, timestep, local)
+        predicted_xyz = scheduler_output.pred_original_sample.view(num_samples, 2048, 4)[:, :, :3]
+        distances1, distances2, _, _ = chamfer_dist(predicted_xyz, reference_xyz)
+        distances1 = torch.sort(distances1, dim=1).values[:, :retained]
+        distances2 = torch.sort(distances2, dim=1).values[:, :retained]
+        scd_loss = baseline.selective_chamfer_loss(distances1, distances2, num_points)
+        # Hard-v1 is evaluated and differentiated on every route, including a
+        # zero spectral coefficient, so masked mechanism probes remain live.
+        spectral_loss = target.loss(predicted_xyz)
+        _require_finite(scd_loss, "SCD loss")
+        _require_finite(spectral_loss, "hard-v1 spectral loss")
+        (local_scd, style_scd), local_scd_unused = _paired_loss_gradients(
+            scd_loss, local, style, retain_graph=True)
+        (local_spectral, style_spectral), local_spectral_unused = _paired_loss_gradients(
+            spectral_loss, local, style, retain_graph=False)
+        local_direction, local_rows = compose_block(
+            local_scd, local_spectral,
+            scd_weight=composition_config.local_scd_weight,
+            spectral_weight=composition_config.local_spectral_weight,
+            mode=composition_config.local_mode,
+            norm_floor=composition_config.norm_floor)
+        style_direction, style_rows = compose_block(
+            style_scd, style_spectral,
+            scd_weight=composition_config.style_scd_weight,
+            spectral_weight=composition_config.style_spectral_weight,
+            mode=composition_config.style_mode,
+            norm_floor=composition_config.norm_floor)
+        local_update = gamma * local_direction
+        style_update = eta * style_direction
+        _require_finite(local_update, "local update")
+        _require_finite(style_update, "style update")
+        local_guidance_displacement = -local_update
+        local_ddim_displacement = scheduler_output.prev_sample - local
+        guidance_cosine = _sample_cosine(local_guidance_displacement, local_ddim_displacement)
+        guidance_norm = _sample_norm(local_guidance_displacement)
+        ddim_norm = _sample_norm(local_ddim_displacement)
+        guidance_dot = (local_guidance_displacement.detach().reshape(num_samples, -1).double() *
+                        local_ddim_displacement.detach().reshape(num_samples, -1).double()).sum(dim=1)
+        style_after = (style - style_update).detach()
+        style_drift_norm = _sample_norm(style_after - original_style)
+        if composition_observer is not None:
+            local_scd_norm, local_spectral_norm = _sample_norm(local_scd), _sample_norm(local_spectral)
+            style_scd_norm, style_spectral_norm = _sample_norm(style_scd), _sample_norm(style_spectral)
+            local_applied_norm, style_applied_norm = _sample_norm(local_direction), _sample_norm(style_direction)
+            local_actual_update_norm = _sample_norm(local_update)
+            style_actual_update_norm = _sample_norm(style_update)
+            for sample_index, (local_diag, style_diag) in enumerate(zip(local_rows, style_rows)):
+                ddim = float(ddim_norm[sample_index].item())
+                composition_observer({
+                    "kind": "step",
+                    "step_index": int(step_index),
+                    "timestep": int(timestep.item()),
+                    "sample_index": int(sample_index),
+                    "local_mode": composition_config.local_mode,
+                    "style_mode": composition_config.style_mode,
+                    "local_scd_grad_norm": float(local_scd_norm[sample_index].item()),
+                    "local_spectral_grad_norm": float(local_spectral_norm[sample_index].item()),
+                    "style_scd_grad_norm": float(style_scd_norm[sample_index].item()),
+                    "style_spectral_grad_norm": float(style_spectral_norm[sample_index].item()),
+                    "local_weighted_scd_grad_norm": local_diag["scd_norm"],
+                    "local_weighted_spectral_grad_norm": local_diag["spectral_norm"],
+                    "style_weighted_scd_grad_norm": style_diag["scd_norm"],
+                    "style_weighted_spectral_grad_norm": style_diag["spectral_norm"],
+                    "local_scd_unused": bool(local_scd_unused[0]),
+                    "local_spectral_unused": bool(local_spectral_unused[0]),
+                    "style_scd_unused": bool(local_scd_unused[1]),
+                    "style_spectral_unused": bool(local_spectral_unused[1]),
+                    "local_gradient_cosine": local_diag["cosine"],
+                    "style_gradient_cosine": style_diag["cosine"],
+                    "local_routed_scd_dot": local_diag["scd_direction_dot"],
+                    "local_routed_spectral_dot": local_diag["spectral_direction_dot"],
+                    "style_routed_scd_dot": style_diag["scd_direction_dot"],
+                    "style_routed_spectral_dot": style_diag["spectral_direction_dot"],
+                    "local_raw_projected_norm": local_diag["raw_projected_norm"],
+                    "local_capped_projected_norm": local_diag["capped_projected_norm"],
+                    "local_cap_factor": local_diag["cap_factor"],
+                    "local_applied_scale": local_diag["applied_scale"],
+                    "local_applied_norm": local_diag["applied_norm"],
+                    "style_raw_projected_norm": style_diag["raw_projected_norm"],
+                    "style_capped_projected_norm": style_diag["capped_projected_norm"],
+                    "style_cap_factor": style_diag["cap_factor"],
+                    "style_applied_scale": style_diag["applied_scale"],
+                    "style_applied_norm": style_diag["applied_norm"],
+                    "local_routed_direction_norm": float(local_applied_norm[sample_index].item()),
+                    "style_routed_direction_norm": float(style_applied_norm[sample_index].item()),
+                    "local_update_norm": float(local_actual_update_norm[sample_index].item()),
+                    "style_update_norm": float(style_actual_update_norm[sample_index].item()),
+                    "style_drift_norm": float(style_drift_norm[sample_index].item()),
+                    "local_guidance_ddim_dot": float(guidance_dot[sample_index].item()),
+                    "local_guidance_ddim_cosine": guidance_cosine[sample_index],
+                    "local_guidance_ddim_norm_ratio": (
+                        float(guidance_norm[sample_index].item() / ddim) if ddim > 1e-12 else None),
+                    "local_projection_skipped": bool(local_diag["projection_skipped"]),
+                    "style_projection_skipped": bool(style_diag["projection_skipped"]),
+                })
+        local = (scheduler_output.prev_sample - local_update).detach()
+        style = style_after
+        _require_finite(local, "local state")
+        _require_finite(style, "style conditioning state")
+        del (noise_pred, scheduler_output, predicted_xyz, distances1, distances2,
+             scd_loss, spectral_loss, local_scd, style_scd, local_spectral,
+             style_spectral, local_direction, style_direction, local_update,
+             style_update, local_rows, style_rows)
+
+    with torch.no_grad():
+        result = lion.vae.decoder(
+            None, beta=None, context=local.squeeze(3).squeeze(2),
+            style=shape_latent.squeeze(3).squeeze(2))
+    _require_finite(result, "output")
+    return result
 
 
 @torch.no_grad()
@@ -86,6 +317,9 @@ def tta_gsd_reconstruct(
     probe_observer: Optional[Callable] = None,
     sample_observer: Optional[Callable] = None,
     allow_unguided: bool = False,
+    composition_config: Optional[CompositionConfig] = None,
+    prepared_inputs: Optional[PreparedGuidanceInputs] = None,
+    composition_observer: Optional[Callable] = None,
 ) -> torch.Tensor:
     """Guide local and conditioning states; decode with the encoded global state.
 
@@ -97,6 +331,26 @@ def tta_gsd_reconstruct(
     probes never apply their candidate gradients and consume no random draws.
     An outer ``no_grad`` is supported; ``inference_mode`` is not supported.
     """
+    if composition_config is not None:
+        if spectral_weight != 1.0 or scd_weight != 1.0:
+            raise ValueError("composition_config cannot be combined with legacy scalar weights")
+        if spectral_profile is not None or spectral_beta is not None:
+            raise ValueError("composition_config uses hard-v1 and does not accept legacy profiles")
+        if probe_observer is not None or sample_observer is not None:
+            raise ValueError("composition_config cannot be combined with legacy calibration probes")
+        if diagnostics_observer is not None:
+            raise ValueError("composition_config uses composition_observer for scalar diagnostics")
+        if allow_unguided:
+            raise ValueError("composition_config selects the instrumented route directly")
+        return _composition_reconstruct(
+            x, lion, steps_back_local, gamma, eta, p, total,
+            spectral_config=spectral_config,
+            scheduler_observer=scheduler_observer,
+            composition_config=composition_config,
+            prepared_inputs=prepared_inputs,
+            composition_observer=composition_observer)
+    if prepared_inputs is not None or composition_observer is not None:
+        raise ValueError("prepared_inputs and composition_observer require composition_config")
     if (not math.isfinite(spectral_weight) or spectral_weight < 0 or
             not math.isfinite(scd_weight) or scd_weight < 0):
         raise ValueError("spectral_weight and scd_weight must be finite and nonnegative")
