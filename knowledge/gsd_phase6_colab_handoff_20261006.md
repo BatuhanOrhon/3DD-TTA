@@ -38,24 +38,77 @@ do not rerun other algorithms, pilots or failed Background100/1000 scale arms.
   seed directions and uncertainty; a nonpositive macro15 contrast or mixed
   seed directions would contradict a broadly stable benefit interpretation.
 
-## Cell 1 - synchronize code and inspect the conda environment
+## Cell 1 - preserve the Colab tree, install the helper and inspect the environment
+
+The initial cell incorrectly stopped on any tracked Colab edit and then
+proposed a whole-branch pull. Replace it with this version. It fetches commit
+objects only, leaves the current branch/index/worktree in place, and checks
+the nine inference files against the Phase5-recorded run commit. Other tracked
+edits do not block the cell. If an inference file itself differs, the cell
+lists the file and stops before inference; inspect that file rather than
+discarding edits.
 
 ```bash
 %%bash
 set -euo pipefail
 cd /content/3DD-TTA
-git status --short
-git diff --quiet && git diff --cached --quiet || {
-  echo 'Tracked Colab edits present. Preserve and inspect them before pulling.'; exit 2;
-}
 git fetch origin gsd-smooth-spectrum
-git checkout gsd-smooth-spectrum
-git pull --ff-only origin gsd-smooth-spectrum
-git log -1 --oneline
-test -f scripts/gsd_all15_colab.py
+RUN_COMMIT=86fb15544f1a82a31afccd99427bb39f3a3c53e4
+HELPER_COMMIT=3c80105c828245a31aaa3dec4af22fd565f4a718
+git cat-file -e "$RUN_COMMIT^{commit}"
+git cat-file -e "$HELPER_COMMIT^{commit}"
+echo "Current branch/HEAD (left untouched): $(git branch --show-current) / $(git rev-parse --short HEAD)"
+git status --short
+
+# Install only the new helper. Keep a copy first if a same-named local file differs.
+conda run --no-capture-output -n 3dd_tta_env python - <<'PY'
+from pathlib import Path
+import hashlib, subprocess, uuid
+
+revision = '3c80105c828245a31aaa3dec4af22fd565f4a718'
+relative = 'scripts/gsd_all15_colab.py'
+expected = subprocess.check_output(['git', 'show', revision + ':' + relative])
+target = Path(relative)
+if target.is_symlink():
+    raise RuntimeError('Refusing to replace a symlinked helper path: ' + str(target))
+if target.exists() and target.read_bytes() != expected:
+    backup = Path('/content/gsd_all15_colab_backup_' + uuid.uuid4().hex + '.py')
+    backup.write_bytes(target.read_bytes())
+    print('Existing helper preserved at:', backup)
+if not target.exists() or target.read_bytes() != expected:
+    target.write_bytes(expected)
+print('Installed helper from', revision,
+      'SHA-256', hashlib.sha256(expected).hexdigest())
+PY
+
+# Guard only the inference source files recorded by the completed Phase5 run.
+conda run --no-capture-output -n 3dd_tta_env python - <<'PY'
+import hashlib, subprocess
+from pathlib import Path
+run_commit = '86fb15544f1a82a31afccd99427bb39f3a3c53e4'
+names = ['scripts/run_gsd_composition.py', 'gsd_composition_protocol.py',
+         'gsd_composition.py', 'gsd_paired_inputs.py', 'tta_gsd.py', 'tta.py',
+         'graph_spectral.py', 'run_baseline.py', 'main_3dd_tta.py']
+changed = []
+for name in names:
+    expected = subprocess.check_output(['git', 'show', run_commit + ':' + name])
+    path = Path(name)
+    if not path.is_file() or path.read_bytes() != expected:
+        actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else 'MISSING'
+        wanted = hashlib.sha256(expected).hexdigest()
+        changed.append((name, wanted, actual))
+if changed:
+    print('Inference sources differ from the completed Phase5 run:')
+    for name, wanted, actual in changed:
+        print(name, 'expected', wanted, 'found', actual)
+    raise SystemExit('No reset/pull was attempted. Review the listed files before continuing.')
+print('All nine inference files match Phase5 run commit', run_commit)
+PY
+
 conda run --no-capture-output -n 3dd_tta_env python - <<'PY'
 import sys, numpy, torch, diffusers, scipy
 from pathlib import Path
+from research_artifacts import CORRUPTIONS
 print('Python:', sys.executable)
 print('NumPy:', numpy.__version__, 'Torch:', torch.__version__)
 print('Diffusers:', diffusers.__version__, 'SciPy:', scipy.__version__)
@@ -67,7 +120,6 @@ for name in ['data/modelnet40_c/label.npy', 'cfgs/tta_modelnet.yaml',
              'lion_ckpts/unconditional_all55_cfg.yml',
              'lion_ckpts/epoch_10999_iters_2100999.pt']:
     assert Path(name).is_file(), 'Missing asset: ' + name
-from research_artifacts import CORRUPTIONS
 for corruption in CORRUPTIONS:
     assert Path('data/modelnet40_c/data_' + corruption + '_5.npy').is_file(), corruption
 print('Environment and required asset paths: OK')
