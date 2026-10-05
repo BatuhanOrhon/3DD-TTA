@@ -2997,6 +2997,224 @@ previews for Background/SCALE_1000 and Shear/0,1,100,1000 passed; no model
 tests or Colab execution were run. Exact commands are recorded in
 colab_gsd_block_routing_20261004.md.
 
+## 2026-10-05 - Background SCALE_1000 continuation failure reported
+
+[User report] The user supplied the Colab traceback for the planned
+Background/SCALE_1000 seed0, 64-example scale continuation. It reports
+`Scale arm failed; recording and continuing: background / SCALE_1000:
+GSD nonfinite gradient`. The call fails in `tta_gsd.py:164` while extracting
+SCD gradients via `_paired_loss_gradients`, then `_require_finite`.
+No new attempt archive has been supplied. Its exact attempt ID, actual
+Colab commit/runtime, completed sample count and final phase status are
+unverified. Expected parent path:
+`result/modelnet40_c/gsd_guidance_composition_v1/scale/`.
+
+[Code] Inspected local `gsd-smooth-spectrum@5b21382`, with continuation
+support from `83e06b3`. Both SCD and hard-v1 spectral scalar losses are
+checked for finiteness before this SCD backward call. The generic gradient
+error does not distinguish local from style, NaN from infinity, or identify
+the failing sample/timestep. The handler prints this traceback and continues
+selected arms; a normally finalized attempt with caught arm failures is
+`partial`. Finalization must still be verified from the supplied manifest.
+
+[Decision/Inference] The reported nonfinite failure meets the predeclared
+SCALE_1000 instability gate independently of the guidance/DDIM ratio test;
+exclude SCALE_1000 from replication. Retain the separate archived
+Background/SCALE_100 failure. Continue the already planned Shear pilot
+0/1/100/1000 cell even if Background finishes partial. Do not rerun completed
+or failed Background arms, smoke or diagnose, and do not introduce clipping,
+normalization, coefficient or update-rate changes. This failure supplies no
+complete 64-example accuracy and does not establish a generally safe scale
+or prove that spectral amplification caused the SCD backward failure.
+
+[Open] Request both new complete attempt directories as ZIPs, including
+phase manifests, raw logs and any partial arm bundles. Compare prepared
+input hashes, indices, assets, runtime/native identities and inference-source
+hashes before combining attempts. Archive validation may refine the reported
+scope; locating the first nonfinite operation requires evidence absent from
+this traceback. Review scale results before deciding Phase 3 routing, reusing
+the existing diagnose reference. No model code change or local GPU run.
+
+## 2026-10-05 - Shear scale attempt-0004 ingested and validated
+
+[Run] At the user's request, copied the five newest Downloads files (four
+Shear arm ZIPs and phase_manifest.json) unchanged to
+`result/modelnet40_c/gsd_guidance_composition_v1/scale/attempt-0004/`.
+Source/destination SHA-256 matches; existing user edits and raw results are
+preserved. Colab commit `5b21382a9c0cb5e3572d383f11a8446e45cb12f0`.
+All four arms and the phase manifest are complete. ZIP CRC/path/schema,
+internal artifact hashes, phase/arm identities, finite logits/diagnostics,
+CSV/prediction counts,64 indices and64x5 actual steps pass. Within this
+attempt all four arms share prepared-input/runtime/assets/draw identities.
+Each arm has256 nonterminal observations after excluding timestep0.
+
+| Spectral coefficient | Correct/64 | Accuracy (%) | Delta vs0 (pp) | Corrected/broken vs0 |
+|---:|---:|---:|---:|---:|
+| 0 | 47 | 73.4375 | 0 | 0/0 |
+| 1 | 49 | 76.5625 | +3.1250 | 2/0 |
+| 100 | 47 | 73.4375 | 0 | 1/1 |
+| 1000 | 46 | 71.8750 | -1.5625 | 1/2 |
+
+[Run/Inference] All four arms have0/256 guidance/DDIM ratios>2; respective
+maxima are .299941/.299966/.300936/.397509. Nonterminal median weighted
+local spectral/SCD ratios at1/100/1000 are .10166/10.08685/94.38713%; style
+ratios .12006/11.43351/105.81907%. Stronger gradients change predictions
+without improving this Shear subset. Gradient smallness alone is therefore
+insufficient at this scope; weight1 is only an observed single-seed pilot
+leader, not an optimum. Its paired bootstrap95% interval versus0 includes
+zero ([0,7.8125]pp,2,000 resamples over64 indices). No larger scale nominated.
+
+[Run/Limit] Cross-attempt audit finds identical locked settings, indices,
+common model/config/data hashes and seven inference/preparation source hashes;
+runner/protocol source hashes differ. Python/Torch/CUDA/GPU/platform fields
+match, but Chamfer, Chamfer3D and PointNet2 extension binaries differ.
+Diagnose Shear actual prepared-input hash differs despite identical draw
+keys. Old C_SCD/C_SUM each score48/64, with three prediction differences
+against new SCALE_0/SCALE_1 respectively. These controls are not paired
+reusable; no attempts were pooled. Old scale attempt-0001 lacks completed
+Shear preparation evidence. Empty arm stdout files and compact environment
+records limit trace-level provenance; full console logs were not supplied.
+
+[Decision/Open] Preserve the archived Background100 nonfinite result and
+user-reported Background1000 failure;1000 remains excluded from replication
+even though Shear1000 passes its recorded stability gate. The five supplied
+files contain no Background1000 attempt manifest/bundle; request that ZIP.
+Routing remains a separate mechanism pilot, but Phase3's control-reuse gate
+is unresolved for the new runtime/prepared inputs. Use the existing diagnose
+evidence without rerunning diagnose; restore demonstrable compatibility or
+explicitly scope minimal new matched controls before launch. No new GPU run
+or inference-code change. A matched repeated-seed accuracy benefit would be
+needed to overturn this pilot-only no-promotion decision.
+
+Derived script, full audit hashes, analyzer output, uncertainty and report:
+`result/modelnet40_c/gsd_guidance_composition_v1/analysis_20261005_shear/`.
+
+## 2026-10-05 - Background SCALE_1000 attempt-0005 manifest ingested
+
+[Run/User report] The user supplied `Downloads/phase_manifest (1).json`,
+copied byte-for-byte to
+`result/modelnet40_c/gsd_guidance_composition_v1/scale/attempt-0005/phase_manifest.json`.
+SHA-256 source/destination agrees:
+`a21d2a2d9638b228b176bbf39ef75ac5e27a3872c4db92b6119c7cbd350310d7`.
+It identifies scale attempt-0005 on Colab commit
+`5b21382a9c0cb5e3572d383f11a8446e45cb12f0`, Background, seed0,
+SCALE_1000 only. Phase status is `partial`, execution status
+`finished_with_arm_failures`; the failure is `FloatingPointError:
+GSD nonfinite gradient`. Its `completed_indices` is empty and `bundle_path`
+is null. No per-arm ZIP, prediction, diagnostics, or accuracy was produced.
+The manifest records input hash
+`a52b838bb8b8492c1bed70ebb9ede531d3d801ec7b36854823a937dc7cb0bd6f`, but
+without a completed arm this is not sample-level failure localization.
+
+[Inference/Decision] This repeat reproduces the Background/SCALE_1000
+nonfinite failure and independently satisfies the predeclared instability
+gate. It remains excluded from replication; do not run it again. No root
+cause is established: the generic gradient check does not say local/style,
+sample, step, NaN/Inf, or which backward operation first became nonfinite.
+The earlier Background/SCALE_100 failure remains separate evidence. Preserve
+Shear attempt-0004's validated results; no pooled/complete four-corruption
+scale score follows from these artifacts.
+
+[Open] Only an available raw Colab traceback/log could add execution detail;
+the attempt manifest itself cannot. Phase3 routing remains gated on resolving
+diagnose-control runtime/prepared-input mismatch as recorded above. No
+inference code change or local model execution.
+
+## 2026-10-05 - Hard-v1 block-routing pilot attempt-0001 ingested
+
+[Run/Code] Validated `result/modelnet40_c/gsd_guidance_composition_v1/routing/attempt-0001/`.
+Phase manifest is complete on commit `5b21382a9c0cb5e3572d383f11a8446e45cb12f0`;
+all16 arm ZIPs pass the repository analyzer, comprising four complete paired
+blocks (Gaussian/Impulse/Background/Shear, first64 indices, seed0). No arms
+were reused from diagnose. Exact archive, prediction, count, diagnostic and
+paired-transition output is in `analysis/analysis.json`; interpretation is in
+`validation.md`.
+
+[Run] Per-corruption correct counts and four-corruption equal-weight macro:
+
+| Arm | Gaussian | Impulse | Background | Shear | Macro (%) |
+|---|---:|---:|---:|---:|---:|
+| R_S0 (local SCD, style off) |45/64|38/64|34/64|47/64|64.0625|
+| R_SG (local SCD, style spectral) |46/64|40/64|33/64|48/64|65.2344|
+| R_G0 (local spectral, style off) |46/64|41/64|14/64|46/64|57.4219|
+| R_GS (local spectral, style SCD) |45/64|38/64|23/64|46/64|59.3750|
+
+[Run/Inference] Primary `R_SG-R_S0` deltas are +1.5625/+3.1250/-1.5625/
++1.5625 pp (Gaussian/Impulse/Background/Shear), macro +1.1719 pp; paired
+transitions correct4 and break1 of256 corruption-example rows. Per-corruption
+paired 95% bootstrap intervals include zero at or touch zero: Gaussian
+[0,6.25], Impulse [0,7.8125], Background [-4.6875,0], Shear [0,4.6875] pp.
+Reverse `R_GS-R_G0` is -1.5625/-4.6875/+14.0625/0 pp, macro +1.9531 pp;
+its improvement is Background-concentrated, with Gaussian/Impulse losses.
+Cross-corruption object correspondence is unverified; no pooled bootstrap.
+One seed and64 examples/corruption are development-only evidence.
+
+[Run/Mechanism] On R_SG nonterminal observations with valid nonzero style
+gradients, negative style SCD/spectral cosines occur on Gaussian96/256,
+Impulse115/256, Background1227/2176 and Shear80/256 (31.25-56.4%). This
+meets the registered condition to consider the conditional style-projection
+pilot; conflict frequency alone is not evidence of accuracy harm or repair.
+
+[Run/Limit] Routing references the complete diagnose manifest from commit
+`2acd05a2ec5f282ef3d9d1d51442ac1d8dbd448b`, but its runtime fingerprint
+`0ec676...` differs from routing `088dc8...`; native extension and actual
+prepared-input hashes also differ. Every route arm record has `reused:false`.
+Thus no direct paired comparison to old C_SCD/C_SPEC/C_SUM is valid. R_SG's
+positive aggregate versus its same-run style-off anchor is a routing-specific
+pilot signal, not promotion versus ordinary SCD.
+
+[Decision/Open] The next bounded mechanism pilot is Phase4 projection:
+P_SUM/P_PC/P_NORM on the same first64 indices, only to test projected style
+direction against additive style guidance and its norm control. This pilot
+cannot establish practical improvement against C_SCD. Resolve a compatible
+C_SCD comparator before any replication. Do not rerun diagnose; no additional
+full-set or scale experiment is warranted from this pilot alone. User runs
+Colab GPU; no local model inference was performed during ingestion.
+
+## 2026-10-05 - Conditional style-projection pilot attempt-0001 ingested
+
+[Run/Code] Validated `result/modelnet40_c/gsd_guidance_composition_v1/projection/attempt-0001/`.
+The manifest is complete on commit `5b21382a9c0cb5e3572d383f11a8446e45cb12f0`;
+12/12 arm ZIPs pass repository validation: P_SUM/P_PC/P_NORM on Gaussian,
+Impulse, Background and Shear, seed0, first64 indices. All four paired blocks
+share actual prepared inputs and runtime/config/assets within this phase.
+Derived counts/transitions/bootstrap are in `analysis/analysis.json` and the
+validation report is `validation.md`.
+
+[Run] Four-corruption equal-weight accuracy is P_SUM67.5781%, P_PC68.3594%,
+P_NORM67.1875%. P_PC-P_SUM is +.78125 pp (2 net correct rows/256), with
+per-corruption deltas Gaussian0, Impulse+1.5625, Background+1.5625, Shear0.
+P_PC-P_NORM is +1.171875 pp (3 net correct rows/256), with deltas Gaussian
+-1.5625, Impulse+3.125, Background+4.6875, Shear-1.5625 pp. Per-corruption
+paired bootstrap intervals include/touch zero: P_PC-P_SUM Gaussian[0,0],
+Impulse[-3.125,6.25], Background[-6.25,7.8125], Shear[0,0]; P_PC-P_NORM
+Gaussian[-4.6875,0], Impulse[0,7.8125], Background[0,10.9375],
+Shear[-4.6875,0]. No pooled cross-corruption interval: object correspondence
+is unverified. One seed/64 examples is exploratory.
+
+[Run/Mechanism] Among valid nonzero style gradients on nonterminal P_PC
+observations, negative cosine counts are Gaussian100/256, Impulse115/256,
+Background1589/2176 and Shear71/256; none of these projection updates was
+skipped. P_PC changes predictions versus P_SUM but net accuracy gains only
+two rows; against P_NORM it gains three net rows. The norm-control trajectory
+matches projected norm at its own state, so actual norm sequences may diverge.
+Frequent conflicts and active projections do not establish useful accuracy
+repair.
+
+[Run/Limit] Projection and routing share runtime fingerprint
+`088dc88dba75449d401d3cc65f5b8558ba1156c0e1174782afa0267d28e1ca00`, source,
+native identities, indices and preparation keys, but actual prepared-input
+hashes differ on every corruption. Do not combine with R_S0. Diagnose
+C_SCD/C_SPEC/C_SUM remain incompatible by runtime/native/prepared-input
+identity. No matched ordinary C_SCD practical comparator is available.
+
+[Decision/Open] Do not select P_PC for replication from this pilot; per-cell
+paired intervals include/touch zero and effects are mixed. Stop projection
+accuracy work here. A practical method claim needs a same-runtime/same-input
+block containing C_SCD, but no such GPU run is selected now. Do not repeat
+completed scale, diagnose, routing or projection cells. No inference code
+change or local model inference during ingestion.
+
 ## 2026-10-05 - GSD pilot gate review and proposed control completion
 
 [Run] Reviewed existing routing/projection manifests and derived analyses at
@@ -3039,6 +3257,7 @@ Full protocol, dependencies, acceptance criteria and implementation handoff:
 [gsd_pilot_review_action_plan_20261005.md](gsd_pilot_review_action_plan_20261005.md).
 No inference code changed and no tests/model inference ran in this review.
 
+
 ## 2026-10-05 - Matched projection control-completion runner implemented
 
 [Code] On branch `gsd-smooth-spectrum` at base HEAD
@@ -3066,3 +3285,44 @@ registered next256/three-seed replication.
 Implementation and separate Colab cells:
 [gsd_pilot_review_action_plan_20261005.md](gsd_pilot_review_action_plan_20261005.md)
 and [Colab phase handoff](colab_gsd_block_routing_20261004.md).
+
+
+## 2026-10-05 - Matched projection control completion attempt-0001 ingested
+
+[Run/User supplied] The user supplied `C:/Users/batuo/Downloads/attempt-0001_control_completion.zip`.
+It passes ZIP CRC/safe-path checks. An unchanged copy is stored at
+`result/modelnet40_c/gsd_guidance_composition_v1/control_completion/attempt-0001_control_completion.zip`;
+source and copy SHA-256 are both
+`b283afd09b499295dcdd306648d701e3ff6a343fc1fda1bfd1b1667e748b16e1`.
+It extracts to `control_completion/attempt-0001/`.
+
+[Run] Manifest is complete, phase `control_completion`, seed0, first64 indices,
+four corruptions, commit `86fb15544f1a82a31afccd99427bb39f3a3c53e4`.
+All16 arm archives validate; there are four complete paired blocks, no partial
+or failed arms. All four arms share exact prepared-input/component, index,
+runtime and configuration identities within each corruption. All nine
+recorded inference-source hashes match the recorded commit. Step logs cover
+all64 samples:320 rows/arm for each five-step corruption and2,240 rows/arm
+for35-step Background. Local analysis is separate from the raw ZIP at
+`control_completion/attempt-0001/analysis_ingested/analysis.json` and
+`validation.md`.
+
+[Run] Four-corruption macro accuracy is C_SCD67.1875%, P_SUM68.3594%,
+P_PC69.53125%, P_NORM67.578125%. P_PC paired deltas are +2.34375pp versus
+C_SCD (7 corrected/1 broken), +1.171875pp versus P_SUM (5/2), and +1.953125pp
+versus P_NORM (6/1). Per-corruption P_PC deltas (Gaussian/Impulse/Background/
+Shear) are +1.5625/+4.6875/+4.6875/-1.5625pp vs C_SCD,
++1.5625/+1.5625/+3.1250/-1.5625pp vs P_SUM, and
++1.5625/+4.6875/+1.5625/0pp vs P_NORM. Every contrast has mixed or null
+corruption behavior; per-corruption paired bootstrap intervals touch/include
+zero. Cross-corruption object correspondence is unverified, so no pooled
+interval is reported.
+
+[Decision/Inference] P_PC passes the registered Phase4 pilot criterion of
+positive aggregate mean against C_SCD, P_SUM and P_NORM. Nominate it for the
+registered Phase5 development replication: next256 indices, same four
+corruptions, seeds0/1/2, retaining all three comparators. This single-seed
+pilot does not prove stable benefit or qualify as independent confirmation.
+Keep Shear's negative/mixed results visible. Do not start all15 before Phase5
+is assessed. Recorded sum of arm runtimes is175.58s; setup/serialization are
+outside that sum. Peak GPU allocation is about15.16GB.

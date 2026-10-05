@@ -1,7 +1,8 @@
 # GSD pilot review and next action plan — 2026-10-05
 
-Status: review recorded; Batch1 runner support implemented locally on 2026-10-05.
-Colab GPU run remains pending user execution.
+Status: Batch1 runner implemented; Batch2 completed and validated from the
+user's Colab attempt on 2026-10-05. P_PC passes the registered pilot gate;
+Phase5 development replication is next.
 Repository: `gsd-smooth-spectrum@5b21382a9c0cb5e3572d383f11a8446e45cb12f0`.
 Evidence labels: [Run], [Code], [Inference], [Open]. Existing dirty research
 notes, including the independent M_max=1800 study, remain separate.
@@ -113,7 +114,7 @@ if needed; finding their root cause is not required to share one preparation.
   cells are provided in the Colab handoff below.
 - Out of scope: smoke/diagnose repeats, failed scale retries, new algorithms.
 
-### Batch 2 - User-run control completion and result decision
+### Batch 2 - User-run control completion and result decision (completed)
 
 - Goal: evaluate the missing practical SCD comparison.
 - Scope: the1,024-classification block above, one seed; sequential arms share
@@ -124,13 +125,16 @@ if needed; finding their root cause is not required to share one preparation.
 - Implementation notes for $development-agent: no algorithm changes. Request
   the full attempt directory ZIP including manifest, all arm archives and
   console/error logs; preserve partial outputs and credentials-free metadata.
-- Verification: validate manifests, archives, source/assets/native identities,
-  index and tensor hashes,64 predictions per arm and actual5/35 step coverage.
-  Report per-corruption paired changes, corrected/broken counts and uncertainty.
-  Accept the candidate only if its equal-corruption mean is strictly above
-  **each** of C_SCD, P_SUM and P_NORM. No new significance threshold.
+- Verification: complete manifest;16/16 bundle archives valid; four paired
+  blocks have matching inputs/runtime/config and component hashes; all source
+  hashes match the recorded commit; all64 examples per arm and 5/35 step
+  coverage validate. P_PC macro is69.5313%, versus C_SCD67.1875%,
+  P_SUM68.3594% and P_NORM67.5781%. All three registered aggregate contrasts
+  are positive. Per-corruption paired intervals remain broad and touch/include
+  zero.
 - Knowledge artifact to update: this plan and dated findings/open questions.
-- User review gate: review all results before selecting a replication candidate.
+- User review gate: P_PC is nominated for Phase5; evaluate that replication
+  before any all15 expansion.
 - Out of scope: partial-as-complete accuracy, cross-attempt pairing, broad tuning.
 
 ### Batch 3 - Conditional replication under the original Phase5 rule

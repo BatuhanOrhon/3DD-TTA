@@ -35,8 +35,14 @@ no arm reuse. The planned size is16 arm archives /1,024 classifications.
 Batch identities record SHA-256 values for input points, shape/local latents,
 style conditioning, noise, timesteps, alpha-bar and scheduler configuration.
 
-The updated runner and handoff were pushed to `origin/gsd-smooth-spectrum` at
-`8c436566a408191f4de6a0046e3706cfc50beda8`.
+[Run] `control_completion/attempt-0001` completed with16/16 valid arm archives.
+P_PC passes the registered pilot gate: +2.3438pp versus C_SCD, +1.1719pp
+versus P_SUM and +1.9531pp versus P_NORM. Recommend Phase5 on next256/three
+seeds; this one-seed64-example pilot is not final promotion. Validated local
+report: `result/modelnet40_c/gsd_guidance_composition_v1/control_completion/attempt-0001/analysis_ingested/validation.md`.
+
+The updated runner and handoff are on `origin/gsd-smooth-spectrum`; run Cell1
+to fast-forward the Colab checkout before planning or execution.
 
 ### Cell 1 - Update the Colab checkout
 

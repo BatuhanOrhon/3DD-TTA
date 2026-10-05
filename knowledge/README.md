@@ -3,10 +3,13 @@
 **[Run/Inference] 2026-10-05 pilot decision review:** The earlier permanent
 projection-stop recommendation is superseded. P_PC has small positive means
 against P_SUM/P_NORM; the registered pilot gate does not require intervals to
-exclude zero. Its matched C_SCD contrast remains missing, so replication is
-not selected yet. The explicit four-arm runner phase is implemented locally;
-the 1,024 classification Colab execution remains pending. See the [review and
-action plan](gsd_pilot_review_action_plan_20261005.md) and linked Colab cells.
+exclude zero. The complete matched control block at
+`control_completion/attempt-0001` passes all three pilot accuracy gates:
+P_PC is +2.3438pp versus C_SCD, +1.1719pp versus P_SUM and +1.9531pp versus
+P_NORM. Nominate P_PC for the registered four-corruption/three-seed Phase5
+replication; this remains development evidence, not thesis-level confirmation.
+See its [validated analysis](../result/modelnet40_c/gsd_guidance_composition_v1/control_completion/attempt-0001/analysis_ingested/validation.md)
+and the [review/action plan](gsd_pilot_review_action_plan_20261005.md).
 
 **[Run/Inference] 2026-10-05 Shear scale continuation accepted:** Four complete
 64-example seed0 arms at `scale/attempt-0004` give weights0/1/100/1000:

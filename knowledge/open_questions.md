@@ -7,12 +7,15 @@
   The earlier stop recommendation below is superseded by this review.
 - [x] Implement explicit control-completion support for
   C_SCD/P_SUM/P_PC/P_NORM using the same first64/seed0/four-corruption block
-  and shared preparations. Planned cost1,024 classifications; GPU execution
-  remains pending. Colab cells are in the linked handoff.
-- [ ] Evaluate all three paired contrasts before selecting P_PC for Phase5.
-  Retain R_SG as unresolved, not a demonstrated inferior candidate.
-- [ ] If all three pass, freeze the candidate and use original next256,
-  seeds0/1/2 replication and promotion gates; otherwise no accuracy promotion.
+  and shared preparations. The complete 1,024-classification run is validated
+  at `control_completion/attempt-0001`; see its `analysis_ingested/` report.
+- [x] Evaluate all three paired pilot contrasts. P_PC leads C_SCD by2.3438pp,
+  P_SUM by1.1719pp and P_NORM by1.9531pp in the four-corruption macro.
+  Per-corruption effects are mixed and intervals touch/include zero; this is
+  a pilot gate pass, not proof of stable benefit.
+- [ ] Freeze P_PC and run original Phase5 on the next256 indices, seeds0/1/2,
+  retaining C_SCD/P_SUM/P_NORM. Apply the original per-seed, Background and
+  mechanism-contrast gates before any all15 evaluation.
 - [Open] Prepared-input hashes differ across routing/projection despite equal
   draw keys/source/runtime/native identities. Cause and numerical magnitude
   are unknown; log component hashes in future blocks, do not infer causality.
