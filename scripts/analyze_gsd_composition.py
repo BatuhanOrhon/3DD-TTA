@@ -35,7 +35,10 @@ def _discover(root: Path) -> List[Path]:
     if (root / "experiment_manifest.json").is_file():
         return [root]
     paths = sorted(path.parent for path in root.rglob("experiment_manifest.json"))
-    paths.extend(sorted(root.rglob("*.zip")))
+    # The runner retains each bundle directory after creating its ZIP. Prefer
+    # the directory once so analyzing a full attempt does not count each arm twice.
+    paths.extend(sorted(path for path in root.rglob("*.zip")
+                        if not (path.with_suffix("") / "experiment_manifest.json").is_file()))
     unique = []
     seen = set()
     for path in paths:
@@ -74,6 +77,7 @@ def _load_arms(root: Path) -> List[dict]:
 
 
 def _paired_identity(manifest: dict) -> dict:
+    identity = manifest.get("identity") or {}
     return {
         "method": manifest.get("method"),
         "corruption": manifest.get("corruption"),
@@ -82,6 +86,7 @@ def _paired_identity(manifest: dict) -> dict:
         "runtime_fingerprint": manifest.get("runtime_fingerprint"),
         "locked_config_fingerprint": manifest.get("locked_config_fingerprint"),
         "input_sha256": manifest.get("input_sha256"),
+        "prepared_components": identity.get("prepared_components"),
         "preparation_key": manifest.get("preparation_key"),
         "original_indices": manifest.get("original_indices"),
     }

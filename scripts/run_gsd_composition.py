@@ -39,12 +39,13 @@ from gsd_composition_protocol import (
 )
 
 
-PHASES = ("smoke", "diagnose", "scale", "routing", "projection", "replicate", "all15")
+PHASES = ("smoke", "diagnose", "scale", "routing", "projection",
+          "control_completion", "replicate", "all15")
 
 
 def required_reference_phase(phase: str, selection=None):
     """Return the nearest phase whose compatible completed controls may be reused."""
-    if phase == "smoke":
+    if phase in ("smoke", "control_completion"):
         return None
     if phase in ("diagnose", "scale"):
         return "smoke" if phase == "diagnose" else "diagnose"
@@ -129,7 +130,7 @@ def _check_reference(phase, selection, reference, reference_path=None):
     expected = required_reference_phase(phase, selection)
     if expected is None:
         if reference is not None:
-            raise ValueError("smoke is a root phase and does not accept a reference manifest")
+            raise ValueError("{} is a root phase and does not accept a reference manifest".format(phase))
         return
     if reference is None:
         raise ValueError("{} requires --reference-manifest for completed {} controls".format(
@@ -522,6 +523,7 @@ def _execute_colab_plan(plan):
             raise ValueError("phase manifest contains an index outside the dataset")
         prepared_batches = []
         input_hashes = []
+        component_hashes = []
         preparation_seconds = 0.0
         for batch in block["batches"]:
             indices = batch["indices"]
@@ -537,10 +539,16 @@ def _execute_colab_plan(plan):
                     steps_back_local=35 if corruption == "background" else 5)
             preparation_seconds += time.perf_counter() - preparation_started
             input_hashes.append(prepared.input_sha256)
+            component_hashes.append(dict(
+                batch_index=batch["batch_index"], indices=list(indices),
+                components=prepared.component_sha256,
+                scheduler_config_sha256=prepared.config_sha256,
+            ))
             prepared_batches.append((indices, labels, inputs, center, maximum, prepared,
                                      batch["classification_seed"]))
         actual_identity = dict(block["identity"])
         actual_identity["input_sha256"] = canonical_sha256(input_hashes)
+        actual_identity["prepared_components"] = component_hashes
 
         matching = []
         if reference is not None:

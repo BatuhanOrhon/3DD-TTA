@@ -1,5 +1,91 @@
 # Open Questions and Research Backlog
 
+## 2026-10-05 pilot review — current next actions
+
+- [x] Reconcile the projection interpretation with the registered gate:
+  positive aggregate contrasts are required; pilot significance is not.
+  The earlier stop recommendation below is superseded by this review.
+- [x] Implement explicit control-completion support for
+  C_SCD/P_SUM/P_PC/P_NORM using the same first64/seed0/four-corruption block
+  and shared preparations. Planned cost1,024 classifications; GPU execution
+  remains pending. Colab cells are in the linked handoff.
+- [ ] Evaluate all three paired contrasts before selecting P_PC for Phase5.
+  Retain R_SG as unresolved, not a demonstrated inferior candidate.
+- [ ] If all three pass, freeze the candidate and use original next256,
+  seeds0/1/2 replication and promotion gates; otherwise no accuracy promotion.
+- [Open] Prepared-input hashes differ across routing/projection despite equal
+  draw keys/source/runtime/native identities. Cause and numerical magnitude
+  are unknown; log component hashes in future blocks, do not infer causality.
+- Details and implementation handoff:
+  [pilot review and action plan](gsd_pilot_review_action_plan_20261005.md).
+
+## 2026-10-05 style projection pilot ingested
+
+- [x] Validate all12 P_SUM/P_PC/P_NORM archives, four complete paired blocks,
+  seed0, first64 indices; see `projection/attempt-0001/analysis/analysis.json`.
+- [x] Compare P_PC with P_SUM and P_NORM using paired predictions and
+  per-corruption bootstrap intervals. Four-corruption macro deltas are
+  +0.7813/+1.1719 pp respectively, but cell signs are mixed and intervals
+  touch/include zero. Selection awaits the missing matched C_SCD comparison.
+- [x] Confirm projection activates on hard-v1 style conflicts; no projection
+  update was skipped. Activation and prediction changes alone do not establish
+  useful accuracy repair.
+- [x] Audit cross-phase pairing: route and projection runtime/source/native
+  identities match, but actual prepared-input hashes differ in all four
+  corruptions despite common draw keys. Do not pair with R_S0. Diagnose C_SCD
+  remains incompatible as well.
+- [ ] A practical matched C_SCD comparison is still absent. The current review
+  proposes a predeclared same-runtime/same-input control-completion block;
+  see the action plan above. Replication remains conditional.
+- Details: [projection validation](../result/modelnet40_c/gsd_guidance_composition_v1/projection/attempt-0001/validation.md).
+
+## 2026-10-05 routing pilot ingested
+
+- [x] Validate all16 routing arm archives and four complete paired blocks
+  for first64 indices, seed0; see `routing/attempt-0001/analysis/analysis.json`.
+- [x] Evaluate `R_SG-R_S0` and `R_GS-R_G0` per corruption with paired
+  transitions and per-corruption bootstrap intervals. R_SG macro delta is
+  +1.1719 pp with mixed corruption signs; R_GS +1.9531 pp is dominated by
+  Background while Gaussian/Impulse decline.
+- [x] Audit diagnose reference compatibility: no arms reused; runtime/native
+  and prepared-input hashes differ. Existing C_SCD/C_SPEC/C_SUM cannot be
+  treated as paired controls for this routing run.
+- [x] Hard-v1 style conflicts are frequent along R_SG nonterminal trajectory
+  (31.25-56.4% across corruptions), meeting the condition to consider style
+  projection as a separate mechanism pilot.
+- [x] Run projection pilot P_SUM/P_PC/P_NORM after routing diagnostics showed
+  style conflicts. It compares projection to additive style guidance and an
+  applied-norm control; result is inconclusive and does not promote PCGrad.
+- [ ] Resolve a compatible C_SCD control before any candidate replication;
+  do not rerun diagnose blindly or interpret old-runtime scores as paired.
+- Details and exact values: [routing validation](../result/modelnet40_c/gsd_guidance_composition_v1/routing/attempt-0001/validation.md).
+
+## 2026-10-05 Shear scale continuation accepted
+
+- [x] Copy the five newest Downloads files unchanged into
+  `result/modelnet40_c/gsd_guidance_composition_v1/scale/attempt-0004/`;
+  validate phase manifest, four ZIPs, hashes, predictions/counts and steps.
+- [Run] Weights0/1/100/1000:47/49/47/46 correct out of64. No nonterminal
+  guidance/DDIM>2 observations (0/256 per arm). Weight1000 reaches median
+  local/style spectral-to-SCD ratios94.39%/105.82% without accuracy gain.
+  Larger scale is not promoted; weight1's two-example lead is exploratory.
+- [x] Audit old/new identities before pooling: settings/assets/indices and
+  seven inference source hashes agree, but three native binaries differ;
+  diagnose Shear prepared-input hash differs despite matching draw keys.
+  No cross-attempt paired reuse or pooled scale result is accepted.
+- [x] Ingest the new Background1000 attempt manifest. It records attempt-0005
+  as partial with zero completed examples and `bundle_path: null`; no arm ZIP
+  or accuracy exists. User supplied traceback reports `GSD nonfinite gradient`.
+  Preserve as a failed attempt and exclude1000 from any further repeat.
+- [ ] Obtain available Colab console traceback/log if desired for locating the
+  failing local/style gradient and step. The manifest alone cannot do so.
+- [ ] Before Phase3 routing, resolve matching controls using existing
+  diagnose evidence; do not rerun diagnose. If exact compatibility cannot
+  be restored, explicitly scope a minimal matched-control block before launch.
+  Current artifacts do not justify silent reuse or an automatic new run.
+- This supersedes older Shear-unrun statements below. Details:
+  [validation](../result/modelnet40_c/gsd_guidance_composition_v1/analysis_20261005_shear/validation.md).
+
 ## 2026-10-04 guidance ablations accepted
 
 - [x] Validate all six full15/seeds0-2 ZIPs and both supplied JSON summaries;
@@ -769,10 +855,15 @@ review/checklist below instead of treating source-domain data or q95 as gates.
 - [x] Implement core Batches 1-3, preserving old-method behavior and raw data.
   Focused CPU suites pass and the independent code review is approved; Colab
   smoke and GPU evidence remain outstanding.
-- [ ] Run Colab smoke and hard-v1 diagnostic/routing phases; projection only
-  if v1 style conflicts activate on nonterminal steps.
-- [ ] Compare any routing improvement with its style-off anchor; compare
-  projection with both same-route sum and matched applied-norm control.
+- [x] Run Colab smoke, hard-v1 diagnose and routing pilot. Diagnose-to-routing
+  control reuse failed the runtime/prepared-input identity gate; see the
+  2026-10-05 accepted routing result above.
+- [x] Compare routing arms with their within-phase style-off anchors. R_SG's
+  four-corruption macro delta is +1.1719 pp with mixed signs; no matched
+  standard C_SCD comparator exists for this runtime.
+- [ ] Compare projection with both same-route sum and matched applied-norm
+  control; the conditional P_SUM/P_PC/P_NORM pilot is now prepared because
+  hard-v1 style conflicts were observed on nonterminal steps.
 - [ ] Replicate one selected mechanism before any new full15 comparison.
 - [ ] **Can the small GSD gradient scale explain its limited accuracy gain?**
   Isolate scalar guidance strength with v1 SCD+GSD coefficients 0/1/100/1000
@@ -787,6 +878,15 @@ review/checklist below instead of treating source-domain data or q95 as gates.
   guidance/DDIM ratio exceeded 2 on 26/32 samples at the first step, though
   only 2.94% across all persisted nonterminal sample-steps. The failing
   sample/step was not recorded.
+  [User report/Decision, 2026-10-05] Background/SCALE_1000 was subsequently
+  attempted and failed during SCD gradient extraction with `GSD nonfinite
+  gradient`; the runner caught the arm error. This supersedes its unrun
+  status above. Apply the predeclared nonfinite gate: exclude SCALE_1000
+  from replication. Continue the planned Shear 0/1/100/1000 pilot cell;
+  do not rerun Background 100/1000 or change inference settings.
+  [Open] Obtain both new complete attempt directories as ZIPs; validate
+  manifest statuses, completed counts and cross-attempt identities before
+  any aggregation. Failing block/sample/step and root cause remain unknown.
 - [ ] Consider global diffuse-denoise only after its representation audit and
   evidence gate; no train/unfreeze operation is included.
 - Handoff: [implementation plan](gsd_block_routing_implementation_plan_20261004.md)

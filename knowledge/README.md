@@ -1,5 +1,59 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[Run/Inference] 2026-10-05 pilot decision review:** The earlier permanent
+projection-stop recommendation is superseded. P_PC has small positive means
+against P_SUM/P_NORM; the registered pilot gate does not require intervals to
+exclude zero. Its matched C_SCD contrast remains missing, so replication is
+not selected yet. The explicit four-arm runner phase is implemented locally;
+the 1,024 classification Colab execution remains pending. See the [review and
+action plan](gsd_pilot_review_action_plan_20261005.md) and linked Colab cells.
+
+**[Run/Inference] 2026-10-05 Shear scale continuation accepted:** Four complete
+64-example seed0 arms at `scale/attempt-0004` give weights0/1/100/1000:
+73.4375/76.5625/73.4375/71.8750%. Increasing spectral magnitude does not
+improve this subset; no optimum or replicated gain is established. All four
+have zero nonterminal sample-steps with guidance/DDIM>2. Background1000's
+reported nonfinite failure still excludes1000 from replication; its raw
+attempt's first failure is archived. Old diagnose versus new Shear has different prepared-input
+and native binary hashes, so controls cannot be silently reused as paired.
+See [validation and next-phase assessment](../result/modelnet40_c/gsd_guidance_composition_v1/analysis_20261005_shear/validation.md).
+
+**[Run/User report] Background/SCALE_1000 repeat:** The manifest at
+`result/modelnet40_c/gsd_guidance_composition_v1/scale/attempt-0005/phase_manifest.json`
+records a partial failed attempt: nonfinite gradient, zero completed examples,
+and no arm bundle. There is no accuracy result; do not repeat. The traceback
+does not locate the failing sample, step or block. See the latest findings entry.
+
+**[Run/Inference] Routing pilot accepted:** All16 arms at
+`routing/attempt-0001` validate. Local SCD + style spectral (`R_SG`) is
+65.2344% versus its local-SCD/style-off anchor (`R_S0`) at64.0625% across
+four small corruption subsets; per-corruption signs are mixed and Background
+falls1.5625 pp. Reverse `R_GS` improves its style-off anchor mainly on
+Background while reducing Gaussian/Impulse scores. Diagnose controls are
+incompatible by prepared-input/runtime/native hashes, so no matched comparison
+to standard C_SCD is available. Frequent hard-v1 style conflicts supported
+the conditional projection pilot; that pilot is inconclusive for accuracy
+and does not promote PCGrad. See
+[routing validation](../result/modelnet40_c/gsd_guidance_composition_v1/routing/attempt-0001/validation.md).
+
+**[Run/Inference] Style projection pilot accepted:** All12 arms at
+`projection/attempt-0001` validate. P_PC is +0.78 pp versus P_SUM and
++1.17 pp versus P_NORM on four 64-example subsets, with mixed corruption
+effects and per-corruption paired intervals touching/including zero. This
+does not establish reliable benefit; the missing matched C_SCD contrast
+prevents evaluating the full replication gate. Projection inputs are matched within their
+phase; actual encoded-input hashes differ from routing despite common draw
+keys, so no cross-phase pooling is accepted. See
+[projection validation](../result/modelnet40_c/gsd_guidance_composition_v1/projection/attempt-0001/validation.md).
+
+**[User report/Code/Decision] 2026-10-05 scale continuation:** The user
+reports Background/SCALE_1000 failed with a nonfinite SCD gradient; the
+runner entered its `recording and continuing` handler. Under the predeclared
+nonfinite gate, SCALE_1000 is unstable and excluded from replication.
+Continue the already planned Shear four-arm cell; do not rerun Background
+100/1000. The new attempt ID, runtime identity, completion counts and final
+manifest status await the complete attempt ZIP. See the latest findings entry.
+
 **[Run/Inference] 2026-10-04 GSD scale pilot partial:** The first Colab
 attempt completed Gaussian and Impulse for weights 0/1/100/1000 and Background
 for 0/1, then failed with a nonfinite SCD gradient in Background/SCALE_100.

@@ -6,6 +6,181 @@ continuation flags described below are available at that ref; the remaining
 Colab execution examples are runnable after pulling it. See
 [design](gsd_block_routing_design_20261004.md) for rationale and settings.
 
+[Run handoff] Routing attempt-0001 completed and is validated; see its
+`result/modelnet40_c/gsd_guidance_composition_v1/routing/attempt-0001/validation.md`.
+All route arms used fresh preparations: diagnose reuse was rejected by runtime,
+native-extension and prepared-input identity differences. A conditional
+projection pilot is justified by frequent nonterminal hard-v1 style conflicts.
+It compares P_PC to P_SUM/P_NORM, but cannot establish gain versus ordinary
+C_SCD because that matched practical control is unavailable.
+
+[Run handoff updated] Projection attempt-0001 is complete and validated.
+P_PC is slightly ahead of P_SUM/P_NORM in the four-corruption macro, but
+effects are uncertain and paired intervals touch/include zero. The full
+replication gate is unevaluated because matched C_SCD is missing. The
+2026-10-05 [review and action plan](gsd_pilot_review_action_plan_20261005.md)
+supersedes the earlier stop recommendation and proposes one four-arm control
+block. Its runner support and executable cells follow below.
+Actual prepared-input hashes differ
+across routing/projection despite common draw keys, so only within-phase
+pairing is accepted. See `projection/attempt-0001/validation.md`.
+
+## Phase 4b - Matched projection control completion
+
+[Code] The local runner now has an explicit `control_completion` phase. It
+uses the fixed first64 indices, seed0, all four pilot corruptions, and the
+ordered arms C_SCD/P_SUM/P_PC/P_NORM. It prepares each batch once and runs
+all four arms from cloned shared inputs. There is no reference manifest and
+no arm reuse. The planned size is16 arm archives /1,024 classifications.
+Batch identities record SHA-256 values for input points, shape/local latents,
+style conditioning, noise, timesteps, alpha-bar and scheduler configuration.
+
+The Colab runtime must receive these three updated source files first:
+
+- `gsd_paired_inputs.py`
+- `gsd_composition_protocol.py`
+- `scripts/run_gsd_composition.py`
+- `scripts/analyze_gsd_composition.py`
+
+### Cell 1 - Upload and install the updated runner files
+
+Download the four linked source files from the local workspace, then select
+all four when this cell opens the upload dialog. It writes only these named
+runner files inside the repository checkout.
+
+```python
+from google.colab import files
+from pathlib import Path
+
+uploaded = files.upload()
+required = {
+    "gsd_paired_inputs.py": Path("/content/3DD-TTA/gsd_paired_inputs.py"),
+    "gsd_composition_protocol.py": Path("/content/3DD-TTA/gsd_composition_protocol.py"),
+    "run_gsd_composition.py": Path("/content/3DD-TTA/scripts/run_gsd_composition.py"),
+    "analyze_gsd_composition.py": Path("/content/3DD-TTA/scripts/analyze_gsd_composition.py"),
+}
+missing = set(required) - set(uploaded)
+if missing:
+    raise RuntimeError(f"Missing uploaded source files: {sorted(missing)}")
+for name, destination in required.items():
+    destination.write_bytes(uploaded[name])
+    print(f"Installed {name}: {destination}")
+```
+
+### Cell 2 - Plan-only preview (no model loading or GPU inference)
+
+```python
+import importlib
+import os
+os.chdir("/content/3DD-TTA")
+import gsd_composition_protocol
+importlib.reload(gsd_composition_protocol)
+import scripts.run_gsd_composition as runner
+importlib.reload(runner)
+
+ROOT = "/content/3DD-TTA/result/modelnet40_c/gsd_guidance_composition_v1"
+plan = runner.build_plan([
+    "--phase", "control_completion",
+    "--result-root", ROOT,
+])
+assert plan["status"] == "planned"
+assert plan["corruptions"] == ["gaussian", "impulse", "background", "shear"]
+assert plan["indices"] and len(plan["indices"]) == 64
+assert plan["seeds"] == [0]
+assert [arm["arm_id"] for arm in plan["arms"]] == [
+    "C_SCD", "P_SUM", "P_PC", "P_NORM"
+]
+assert len(plan["blocks"]) == 4
+assert sum(len(block["arm_ids"]) * len(block["indices"]) for block in plan["blocks"]) == 1024
+print("Preview valid:", len(plan["blocks"]), "blocks,",
+      len(plan["arms"]), "arms, 1,024 classifications")
+print("Commit:", plan["resolved_ref"]["commit"])
+print("Source hashes (these identify the uploaded working files):")
+for name, identity in sorted(plan["resolved_ref"]["source_manifest"].items()):
+    print(name, identity["sha256"])
+```
+
+Check that the preview lists exactly those four arms/corruptions and the
+intended commit and uploaded-file hashes. The commit can still show the base
+revision because these source files were uploaded as working-tree edits. The
+manifest records both the commit and the source-file hashes. If correct, run
+the next cell once.
+
+### Cell 3 - Execute the matched control block
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+ROOT="result/modelnet40_c/gsd_guidance_composition_v1"
+LOG_TMP="$(mktemp)"
+set +e
+conda run --no-capture-output -n 3dd_tta_env python \
+  scripts/run_gsd_composition.py \
+  --phase control_completion \
+  --result-root "$ROOT" \
+  --execute 2>&1 | tee "$LOG_TMP"
+RUN_STATUS=${PIPESTATUS[0]}
+set -e
+MANIFEST_PATH="$(sed -n 's/^Phase manifest: //p' "$LOG_TMP" | tail -n 1)"
+if [[ -n "$MANIFEST_PATH" && -d "$(dirname "$MANIFEST_PATH")" ]]; then
+  cp "$LOG_TMP" "$(dirname "$MANIFEST_PATH")/colab_console.log"
+fi
+rm -f "$LOG_TMP"
+exit "$RUN_STATUS"
+```
+
+After execution, download the entire newly created
+`result/modelnet40_c/gsd_guidance_composition_v1/control_completion/attempt-NNNN/`
+directory as a ZIP, including `phase_manifest.json`, all arm ZIPs and Colab
+console output. A partial or failed block is not an accuracy comparison.
+
+### Cell 4 - Validate and summarize the new attempt
+
+Run after Cell3, including when the phase manifest is partial, to produce a
+validation report that distinguishes complete and failed arms.
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+ROOT="result/modelnet40_c/gsd_guidance_composition_v1/control_completion"
+ATTEMPT="$(find "$ROOT" -mindepth 1 -maxdepth 1 -type d -name 'attempt-*' | sort | tail -n 1)"
+test -n "$ATTEMPT"
+python scripts/analyze_gsd_composition.py \
+  --result-root "$ATTEMPT/arms" \
+  --output "$ATTEMPT/analysis"
+python - "$ATTEMPT/analysis/analysis.json" <<'PY'
+import json
+import sys
+with open(sys.argv[1], encoding="utf-8") as source:
+    report = json.load(source)
+print("Bundle validation:", report["validation"])
+for phase, arms in report["accuracy"].items():
+    for arm, row in arms.items():
+        print(phase, arm, row["macro_accuracy"], row["by_corruption"])
+PY
+```
+
+### Cell 5 - Download the complete attempt
+
+```python
+from google.colab import files
+from pathlib import Path
+import shutil
+
+phase_root = Path("/content/3DD-TTA/result/modelnet40_c/gsd_guidance_composition_v1/control_completion")
+attempts = sorted(phase_root.glob("attempt-*"))
+if not attempts:
+    raise FileNotFoundError("No control_completion attempt found")
+attempt = attempts[-1]
+archive = Path(shutil.make_archive(
+    str(Path("/content") / (attempt.name + "_control_completion")),
+    "zip", root_dir=attempt.parent, base_dir=attempt.name))
+print("Downloading", archive, "from", attempt)
+files.download(str(archive))
+```
+
 ## Fixed conditions and sample manifests
 
 - Method: `gsd_guidance_composition_v1`; hard v1, weight1, M100, k10,
@@ -169,12 +344,13 @@ replication.
   the single separate scale-calibration follow-up; do not search a broad grid.
   A positive pilot is only a reason to replicate, not a thesis result.
 
-## Phase 4 - Style projection pilot (conditional)
+## Phase 4 - Style projection pilot (completed, inconclusive)
 
 - Run only if Phase1 shows negative style cosine on at least one valid,
   nonterminal update and the projected direction differs numerically.
 - Same64/four-corruption/seed0 set; add P_SUM/P_PC/P_NORM.
-- 3 new arms x4x64 =768 classifications; all other matching controls reused.
+- 3 new arms x4x64 =768 classifications. Reuse a comparator only after exact
+  runtime/prepared-input validation; diagnose controls currently fail that gate.
 - Primary `P_PC-P_SUM` and `P_PC-P_NORM`; compare with C_SCD for practical gain.
   A gain reproduced by P_NORM supports scale change rather than direction repair.
 - If projection never activates, report a no-op and omit this GPU phase.
@@ -182,6 +358,28 @@ replication.
   SCD-versus-spectral trade-off; it is not part of the initial grid.
 - Candidate gate: positive aggregate gain versus C_SCD and both P_SUM/P_NORM.
   Null/negative or scale-only results do not promote conflict repair.
+
+### Executed Colab cell (archive for provenance; do not rerun)
+
+This uses the completed routing manifest as the phase reference. It runs
+P_SUM/P_PC/P_NORM sequentially as one paired suite: 3 arms x 4 corruptions
+x64 =768 predictions. It does not reuse old diagnose controls or include a
+matched C_SCD practical comparator.
+
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+ROOT="result/modelnet40_c/gsd_guidance_composition_v1"
+REF="$ROOT/routing/attempt-0001/phase_manifest.json"
+test -f "$REF"
+conda run --no-capture-output -n 3dd_tta_env python \
+  scripts/run_gsd_composition.py \
+  --phase projection \
+  --result-root "$ROOT" \
+  --reference-manifest "$REF" \
+  --execute
+```
 
 ## Phase 5 - Replicate one selected routing/projection mechanism
 

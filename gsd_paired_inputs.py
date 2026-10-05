@@ -37,6 +37,21 @@ def _prepared_input_hash(x: torch.Tensor, shape_latent: torch.Tensor,
     return digest.hexdigest()
 
 
+def _prepared_component_hashes(x: torch.Tensor, shape_latent: torch.Tensor,
+                               local_latent: torch.Tensor, style: torch.Tensor,
+                               noise: torch.Tensor, timesteps: torch.Tensor,
+                               alpha_bar: torch.Tensor) -> dict:
+    return {
+        "input_points": _tensor_hash(x),
+        "shape_latent": _tensor_hash(shape_latent),
+        "local_latent": _tensor_hash(local_latent),
+        "style_conditioning": _tensor_hash(style),
+        "local_noise": _tensor_hash(noise),
+        "timesteps": _tensor_hash(timesteps),
+        "alpha_bar": _tensor_hash(alpha_bar),
+    }
+
+
 def _config_hash(total: int, steps_back_local: int, timesteps: torch.Tensor,
                  alpha_bar: torch.Tensor) -> str:
     payload = {
@@ -65,6 +80,7 @@ class PreparedGuidanceInputs:
     total: int
     steps_back_local: int
     input_sha256: str
+    component_sha256: dict
     config_sha256: str
 
     def tensor_items(self) -> Iterator[Tuple[str, torch.Tensor]]:
@@ -128,6 +144,8 @@ def prepare_guidance_inputs(x: torch.Tensor, lion, *, total: int,
         raise ValueError("GSD expects LION local encoding B x 8192 x 1 x 1")
     style = vae.global2style(shape_latent).detach().clone()
     noise = torch.randn_like(local_latent).detach()
+    component_hashes = _prepared_component_hashes(
+        x, shape_latent, local_latent, style, noise, timesteps, alpha_bar)
     return PreparedGuidanceInputs(
         shape_latent=shape_latent,
         local_latent=local_latent,
@@ -139,5 +157,6 @@ def prepare_guidance_inputs(x: torch.Tensor, lion, *, total: int,
         total=total,
         steps_back_local=steps_back_local,
         input_sha256=_prepared_input_hash(x, shape_latent, local_latent, style, noise),
+        component_sha256=component_hashes,
         config_sha256=_config_hash(total, steps_back_local, timesteps, alpha_bar),
     )

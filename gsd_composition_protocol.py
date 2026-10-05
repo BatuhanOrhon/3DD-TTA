@@ -293,7 +293,8 @@ def validate_all15_reference(selection: dict, reference: dict) -> dict:
 def build_phase_plan(phase: str, selection: Optional[dict] = None, *,
                      scale_corruptions: Optional[Sequence[str]] = None,
                      scale_arm_ids: Optional[Sequence[str]] = None) -> PhasePlan:
-    if phase not in ("smoke", "diagnose", "scale", "routing", "projection", "replicate", "all15"):
+    if phase not in ("smoke", "diagnose", "scale", "routing", "projection",
+                     "control_completion", "replicate", "all15"):
         raise ValueError("unknown phase: {}".format(phase))
     if phase != "scale" and (scale_corruptions is not None or scale_arm_ids is not None):
         raise ValueError("scale filters are only valid for the scale phase")
@@ -302,12 +303,15 @@ def build_phase_plan(phase: str, selection: Optional[dict] = None, *,
     if phase == "smoke":
         arm_ids, corruptions, indices, seeds = ("C_SCD", "C_SPEC", "C_SUM"), SMOKE_CORRUPTIONS, _SPLIT["pilot_indices"][:32], (0,)
         scope = "first32 of locked pilot indices; technical smoke"
-    elif phase in ("diagnose", "routing", "projection"):
+    elif phase in ("diagnose", "routing", "projection", "control_completion"):
         arm_ids = {"diagnose": ("C_SCD", "C_SPEC", "C_SUM"),
                    "routing": ("R_S0", "R_SG", "R_G0", "R_GS"),
-                   "projection": ("P_SUM", "P_PC", "P_NORM")}[phase]
+                   "projection": ("P_SUM", "P_PC", "P_NORM"),
+                   "control_completion": ("C_SCD", "P_SUM", "P_PC", "P_NORM")}[phase]
         corruptions, indices, seeds = PILOT_CORRUPTIONS, _SPLIT["pilot_indices"], (0,)
         scope = "first64 of locked pilot indices; development diagnostics"
+        if phase == "control_completion":
+            scope = "same-process matched C_SCD/projection control completion; first64 development indices"
     elif phase == "scale":
         arm_ids, corruptions, indices, seeds = _scale_arms(), PILOT_CORRUPTIONS, _SPLIT["pilot_indices"], (0,)
         scope = "isolated scalar hard-v1 scale pilot; first64 development indices"
@@ -514,6 +518,7 @@ def validate_arm_bundle(path: Path) -> dict:
         "scale": (PILOT_CORRUPTIONS, tuple(_SPLIT["pilot_indices"])),
         "routing": (PILOT_CORRUPTIONS, tuple(_SPLIT["pilot_indices"])),
         "projection": (PILOT_CORRUPTIONS, tuple(_SPLIT["pilot_indices"])),
+        "control_completion": (PILOT_CORRUPTIONS, tuple(_SPLIT["pilot_indices"])),
         "replicate": (PILOT_CORRUPTIONS, tuple(_SPLIT["replication_indices"])),
         "all15": (CORRUPTIONS, tuple(range(SPLIT_SIZE))),
     }

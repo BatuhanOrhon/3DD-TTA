@@ -2996,3 +2996,73 @@ Inference code and coefficients are unchanged. py_compile and CLI dry-run
 previews for Background/SCALE_1000 and Shear/0,1,100,1000 passed; no model
 tests or Colab execution were run. Exact commands are recorded in
 colab_gsd_block_routing_20261004.md.
+
+## 2026-10-05 - GSD pilot gate review and proposed control completion
+
+[Run] Reviewed existing routing/projection manifests and derived analyses at
+`result/modelnet40_c/gsd_guidance_composition_v1/{routing,projection}/attempt-0001/`.
+Both phases are complete (16/12 ZIPs), commit
+`5b21382a9c0cb5e3572d383f11a8446e45cb12f0`, seed0, four corruptions,64 indices.
+R_SG-R_S0 is +1.171875pp; P_PC-P_SUM is +0.78125pp (5 corrected/3 broken)
+and P_PC-P_NORM is +1.171875pp (5 corrected/2 broken). These are exploratory
+within-phase effects. Corrected the projection report's conflict-frequency
+lower endpoint: Shear71/256 is27.734375%, not31.25%.
+
+[Inference correction] The earlier decision to stop projection solely on
+intervals touching/including zero was stronger than the registered Phase4
+gate. That gate requires positive aggregate change versus C_SCD and both
+projection controls, without a pilot significance threshold. Two contrasts
+pass; C_SCD is absent. The gate is unevaluated, not demonstrated to fail.
+This entry supersedes the earlier permanent-stop inference while preserving
+its historical record. No reliable method benefit or replication selection
+is claimed.
+
+[Run/Code/Open] Routing/projection have equal runtime/source/native identities
+but different actual prepared-input hashes in all four corruptions. Diagnose
+C_SCD also has incompatible native/runtime identity. Cause and magnitude of
+tensor differences remain unknown. Only aggregate input hashes were archived;
+a standalone new C_SCD run cannot guarantee the earlier prepared states.
+
+[Inference/Plan] Propose explicit runner support for one shared-preparation
+C_SCD/P_SUM/P_PC/P_NORM block: first64 indices, seed0, four corruptions,
+1,024 classifications. Re-evaluating the three projection conditions is
+necessary for this missing comparison; it is a scoped proposal, not a GPU
+launch. P_PC is prioritized for completing its two positive mechanism
+contrasts, not by comparing unmatched absolute routing/projection accuracy.
+If all three mean contrasts are positive, freeze one candidate and use the
+original next256/seeds0-2 Phase5 gates (12,288 classifications). If a complete
+block fails an accuracy contrast, do not promote projection. No scale retry,
+diagnose/smoke repeat, new hyperparameter grid or local GPU run is planned.
+Background100 and1000 failures remain separate instability evidence.
+
+Full protocol, dependencies, acceptance criteria and implementation handoff:
+[gsd_pilot_review_action_plan_20261005.md](gsd_pilot_review_action_plan_20261005.md).
+No inference code changed and no tests/model inference ran in this review.
+
+## 2026-10-05 - Matched projection control-completion runner implemented
+
+[Code] On branch `gsd-smooth-spectrum` at base HEAD
+`5b21382a9c0cb5e3572d383f11a8446e45cb12f0`, added the opt-in
+`control_completion` phase. It fixes C_SCD/P_SUM/P_PC/P_NORM, the locked first64
+indices, seed0 and four pilot corruptions. The existing runner prepares each
+batch once and runs all arms sequentially with cloned common inputs. No old
+phase arm is reused. Each arm identity records per-batch SHA-256 hashes for
+input points, shape/local latents, style, noise, timesteps, alpha-bar and the
+scheduler config. The analyzer now treats those component hashes as part of
+paired identity and avoids counting both a retained arm directory and its ZIP.
+
+[Verification] `py_compile` passed for the four touched Python files. A local
+plan-only `build_plan` preview returned four paired blocks, four arms,64
+indices, seed0, no reference manifest, and1,024 classifications. No automated
+tests or GPU inference ran. No user files were staged or committed.
+
+[Open/Run] Updated sources are local and must be uploaded into the Colab clone
+before the new preview/execution cells. The user executes one four-arm block
+(16 archives). Then download the full attempt ZIP with manifest, bundles,
+analysis and console log. Accuracy gate remains positive equal-corruption mean
+versus each of C_SCD, P_SUM and P_NORM; a positive pilot only permits the
+registered next256/three-seed replication.
+
+Implementation and separate Colab cells:
+[gsd_pilot_review_action_plan_20261005.md](gsd_pilot_review_action_plan_20261005.md)
+and [Colab phase handoff](colab_gsd_block_routing_20261004.md).
