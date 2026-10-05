@@ -790,5 +790,6 @@ review/checklist below instead of treating source-domain data or q95 as gates.
 - [ ] Consider global diffuse-denoise only after its representation audit and
   evidence gate; no train/unfreeze operation is included.
 - Handoff: [implementation plan](gsd_block_routing_implementation_plan_20261004.md)
-  and [Colab scenarios](colab_gsd_block_routing_20261004.md). All new commands
-  are future interface specifications, not runnable code at this revision.
+  and [Colab scenarios](colab_gsd_block_routing_20261004.md). Core commands
+  are available on gsd-smooth-spectrum commit 83e06b3; GPU execution of the
+  remaining scale cells and routing phase is pending.

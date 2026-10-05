@@ -1,10 +1,9 @@
 # Colab scenarios: local/style routing and conditional composition
 
-[Implementation reviewed] 2026-10-04. The runner, phase manifests and
-analysis tools exist in the local working tree, pass focused CPU tests, and
-have independent review approval. They are not committed or available through
-a remote Git ref yet, so the execution example below becomes usable after the
-reviewed code is published to an accessible ref. See
+[Implementation/Run handoff updated] 2026-10-05. The runner and analyzers are
+on branch gsd-smooth-spectrum at commit 83e06b3 and pushed to origin. The scale
+continuation flags described below are available at that ref; the remaining
+Colab execution examples are runnable after pulling it. See
 [design](gsd_block_routing_design_20261004.md) for rationale and settings.
 
 ## Fixed conditions and sample manifests
