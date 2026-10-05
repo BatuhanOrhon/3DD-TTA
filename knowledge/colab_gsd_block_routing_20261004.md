@@ -47,46 +47,42 @@ cd /content/3DD-TTA
 git fetch origin
 git switch gsd-smooth-spectrum
 git pull --ff-only origin gsd-smooth-spectrum
-test "$(git rev-parse HEAD)" = "8c436566a408191f4de6a0046e3706cfc50beda8"
+test "$(git rev-parse HEAD)" = "$(git rev-parse origin/gsd-smooth-spectrum)"
+git log -1 --oneline
 git status --short
 ```
 
 ### Cell 2 - Plan-only preview (no model loading or GPU inference)
 
-```python
-import importlib
-import os
-os.chdir("/content/3DD-TTA")
-import gsd_composition_protocol
-importlib.reload(gsd_composition_protocol)
-import scripts.run_gsd_composition as runner
-importlib.reload(runner)
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+conda run --no-capture-output -n 3dd_tta_env python - <<'PY'
+from scripts.run_gsd_composition import build_plan
 
-ROOT = "/content/3DD-TTA/result/modelnet40_c/gsd_guidance_composition_v1"
-plan = runner.build_plan([
-    "--phase", "control_completion",
-    "--result-root", ROOT,
-])
+root = "result/modelnet40_c/gsd_guidance_composition_v1"
+plan = build_plan(["--phase", "control_completion", "--result-root", root])
 assert plan["status"] == "planned"
 assert plan["corruptions"] == ["gaussian", "impulse", "background", "shear"]
-assert plan["indices"] and len(plan["indices"]) == 64
-assert plan["seeds"] == [0]
+assert len(plan["indices"]) == 64 and plan["seeds"] == [0]
 assert [arm["arm_id"] for arm in plan["arms"]] == [
     "C_SCD", "P_SUM", "P_PC", "P_NORM"
 ]
 assert len(plan["blocks"]) == 4
-assert sum(len(block["arm_ids"]) * len(block["indices"]) for block in plan["blocks"]) == 1024
-print("Preview valid:", len(plan["blocks"]), "blocks,",
-      len(plan["arms"]), "arms, 1,024 classifications")
+assert sum(len(block["arm_ids"]) * len(block["indices"])
+           for block in plan["blocks"]) == 1024
+print("Preview valid: 4 blocks, 4 arms, 64 indices, seed0, 1,024 classifications")
 print("Commit:", plan["resolved_ref"]["commit"])
-print("Source hashes (these identify the uploaded working files):")
+print("Source hashes:")
 for name, identity in sorted(plan["resolved_ref"]["source_manifest"].items()):
     print(name, identity["sha256"])
+PY
 ```
 
-Check that the preview lists exactly those four arms/corruptions and commit
-`8c43656`. The manifest also records source-file hashes. If correct, run the
-next cell once.
+Check that the preview lists exactly those four arms/corruptions and shows the
+updated branch commit. The manifest also records source-file hashes. If correct,
+run the next cell once.
 
 ### Cell 3 - Execute the matched control block
 
@@ -129,7 +125,8 @@ cd /content/3DD-TTA
 ROOT="result/modelnet40_c/gsd_guidance_composition_v1/control_completion"
 ATTEMPT="$(find "$ROOT" -mindepth 1 -maxdepth 1 -type d -name 'attempt-*' | sort | tail -n 1)"
 test -n "$ATTEMPT"
-python scripts/analyze_gsd_composition.py \
+conda run --no-capture-output -n 3dd_tta_env python \
+  scripts/analyze_gsd_composition.py \
   --result-root "$ATTEMPT/arms" \
   --output "$ATTEMPT/analysis"
 python - "$ATTEMPT/analysis/analysis.json" <<'PY'
