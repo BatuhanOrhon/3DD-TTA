@@ -141,7 +141,16 @@ Sequential and synchronized variants denoise/adapt the global latent as well as 
 
 ## Conflict-aware gradient composition
 
-Let `g_s` be the weighted spectral gradient and `g_c` the weighted SCD gradient. Current one-way mode preserves `g_s` and projects `g_c` when `g_s · g_c < 0`; symmetric mode modifies both.
+Let `g_s` be the weighted spectral gradient and `g_c` the weighted SCD gradient. The legacy `pxp-gradient-projection` branch's one-way mode preserves `g_s` and projects `g_c` when `g_s · g_c < 0`; its symmetric mode modifies both. Current `gsd-smooth-spectrum` uses their ordinary weighted sum and has no projection.
+
+[Run/Inference] The [2026-10-04 composition review](gsd_scd_gradient_composition_review_20261004.md)
+distinguishes local magnitude dominance from style conflicts using archived
+common-state smooth probes. Weighted local sums rotate SCD by median
+.054-.568 degrees, with no local conflicts in that scope. This is not v1
+evidence. Obtain missing v1 geometry and prediction complementarity before
+choosing per-example style projection, scale control, or separate trajectories.
+SCD-priority projection protects SCD locally but need not protect spectral
+progress; the proposed symmetric control explicitly tests both objectives.
 
 **Hypothesis H6:** destructive SCD–spectral conflicts cause unstable or suboptimal steps; conditional projection improves final classification or reduces variance.
 
@@ -167,3 +176,23 @@ Do not run the full matrix immediately. Use the staged protocol in [experiment_p
 - A lower spectral/SCD loss is not necessarily better classification.
 - A negative gradient cosine is not automatically destructive; test the post-step outcome.
 - ModelNet40-C results from GSDTTA's DGCNN/CurveNet/PointNeXt protocol are context, not a target for Point-MAE here.
+
+
+## 2026-10-04 local/style objective routing
+
+[User report/Code/Inference] New proposal: local SCD with spectral style,
+plus its reverse as a control. Neither low-frequency guidance nor LION's
+hierarchy establishes a one-to-one loss/block correspondence. Loss gradients
+reach style through the local-prior Jacobian; block routing can still have
+cross-block interference. Style-off anchors distinguish useful new guidance
+from merely removing old guidance. SCD already adapts conditioning, while
+global latent diffusion is inactive in the current GSD path.
+
+[Planning] See [design](gsd_block_routing_design_20261004.md),
+[implementation plan](gsd_block_routing_implementation_plan_20261004.md), and
+[Colab phases](colab_gsd_block_routing_20261004.md). Initial style PCGrad is
+per-example symmetric projection with an explicit cap at ordinary-sum norm,
+and an ordinary-sum control at that applied norm. This cap is a documented
+variant, not silently identical to standard PCGrad. Global diffusion,
+CAGrad, norm calibration, ensembling and scheduling have separate evidence
+gates; none is implemented by this planning record.

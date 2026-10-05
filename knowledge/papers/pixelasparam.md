@@ -2,7 +2,7 @@
 
 ## Reference
 
-T. M. Dinh et al., “Pixel-as-Param: A Gradient View on Diffusion Sampling with Guidance,” ICML 2023, PMLR 202. Local PDFs: `PixelAsParam_ A Gradient View on Diffusion Sampling with Guidance.pdf` and `dinh23a.pdf`. Official page: <https://proceedings.mlr.press/v202/dinh23a.html>.
+Anh-Dung Dinh, Daochang Liu, and Chang Xu, “PixelAsParam: A Gradient View on Diffusion Sampling with Guidance,” ICML 2023, PMLR 202. Local PDFs: `PixelAsParam_ A Gradient View on Diffusion Sampling with Guidance.pdf` and `dinh23a.pdf`. Official page: <https://proceedings.mlr.press/v202/dinh23a.html>.
 
 ## Core idea
 
@@ -29,14 +29,14 @@ The useful transferable principle is: when multiple guidance objectives update t
 
 The accurate name for the fork is therefore **PixelAsParam-inspired PCGrad-style guidance**, not a PixelAsParam implementation.
 
-## Current fork mapping
+## Historical fork mapping (legacy PxP branch)
 
 - `tta_pxp.py` gives spectral guidance priority: if Chamfer conflicts with spectral guidance, the Chamfer gradient is projected away from the spectral direction before summation.
 - `tta_pxp_sym.py` symmetrically projects both conflicting directions using the original counterpart gradient and configurable `delta1`/`delta2` values.
 - Gradients are computed with respect to the noisy local latent and conditioning/style state.
-- Loss weights are applied before gradient computation/projection, so weight scale changes both norm and geometry.
+- Positive scalar loss weights change norms and the combined update direction, but do not change pairwise cosine or conflict sign. Numerical denominator regularization can break exact scale invariance of projection.
 
-## Current diagnostic gaps
+## Historical diagnostic gaps (legacy PxP branch)
 
 - Conflict is computed after flattening the full batch, so sample-level conflicts can cancel each other.
 - Conflict rate, cosine distribution, gradient norms, projection frequency, and pre/post projection angles are not archived.
@@ -53,3 +53,17 @@ The accurate name for the fork is therefore **PixelAsParam-inspired PCGrad-style
 5. Test whether projected steps actually improve the next-step losses and final classification, not only whether they remove negative dot products.
 
 Only after these diagnostics should accuracy changes be attributed to conflict resolution.
+
+## 2026-10-04 branch and evidence clarification
+
+[Paper] The selective pair ablation is section 6.4, **Table 6**; Table 4
+concerns classifier-free guidance. See the
+[official PDF](https://proceedings.mlr.press/v202/dinh23a/dinh23a.pdf).
+
+[Code/Run] `gsd-smooth-spectrum` currently uses ordinary sums in `tta_gsd.py`;
+the two PxP files above belong to `pxp-gradient-projection`. Current calibration
+does archive per-example local/style cosine and norm diagnostics. Therefore
+the historical diagnostic gaps above do not describe all present tooling.
+Existing smooth probes show local dominance and some style conflicts;
+equivalent current v1 evidence is missing. Read the
+[composition review and conditional experiment plan](../gsd_scd_gradient_composition_review_20261004.md).

@@ -1,5 +1,17 @@
 # Thesis Scope and Research Questions
 
+## Local/style composition planning request - 2026-10-04
+
+[User report/Decision] The user requested assessment plus an implementation
+plan and Colab scenarios for a different agent: local-SCD/style-spectral,
+reverse routing, style-only PCGrad and conditional alternatives. This extends
+the earlier research scope to planning composition; the September GSD-only
+exclusion does not forbid this requested plan. No implementation or GPU run
+was requested in the planning session. Global diffusion is a later gated
+study with frozen pretrained weights, not model training. Read the
+[design](gsd_block_routing_design_20261004.md) and
+[handoff](gsd_block_routing_implementation_plan_20261004.md).
+
 ## Result reuse preference - 2026-10-03
 
 [User report/Decision] Do not rerun tests whose results are already available.

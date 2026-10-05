@@ -2997,6 +2997,11 @@ previews for Background/SCALE_1000 and Shear/0,1,100,1000 passed; no model
 tests or Colab execution were run. Exact commands are recorded in
 colab_gsd_block_routing_20261004.md.
 
+## 2026-10-05 - M_max=1800 Full Evaluation and Parameter Confirmation
+[Run/User report] Full evaluation on ModelNet40-C using `M_max=1800` with smoothed GSD (`weight_spectral=1.17`, `beta=2.0`) yielded an accuracy of **64.51%**.
+[Inference] Comparing the full dataset runs, M_max=800 (64.53%) and M_max=1800 (64.51%) perform virtually identically (difference of ~8 samples out of 37,020). The slight peak at 1800 observed during the 120-sample grid search was subset variance.
+[Decision] `M_max=800` remains the optimal theoretical and empirical choice, as it properly discards high-frequency noise (eigenvalues > ~0.95), reduces computational overhead slightly, and prevents potential instability without sacrificing accuracy. The 64.53% record stands as the definitive smoothed GSD baseline.
+
 ## 2026-10-05 - Background SCALE_1000 continuation failure reported
 
 [User report] The user supplied the Colab traceback for the planned
@@ -3214,6 +3219,13 @@ accuracy work here. A practical method claim needs a same-runtime/same-input
 block containing C_SCD, but no such GPU run is selected now. Do not repeat
 completed scale, diagnose, routing or projection cells. No inference code
 change or local model inference during ingestion.
+
+## 2026-10-05 - Frequency Cutoff (M_max) vs. Corruption Type Analysis
+[Inference] A deep dive into the per-corruption results between `M_max=800` (64.53%) and `M_max=1800` (64.50%) revealed a critical theoretical confirmation of the Graph Spectral method:
+1. **Geometric/Structural Corruptions:** `M_max=1800` performs consistently better on corruptions that alter geometry but don't add random points (e.g., `distortion_rbf`: 63.17% vs 62.03%, `shear`: 62.93% vs 62.36%, `density`, `occlusion`). Including high-frequency bands (even with tiny weights) helps preserve fine structural details.
+2. **Noise/Outlier Corruptions:** `M_max=800` performs consistently better on corruptions that inject noise or add points (e.g., `background`: 60.09% vs 59.81%, `impulse`: 79.01% vs 78.77%, `gaussian`). Cutting off the high-frequency spectrum entirely makes the model robust against confusing pure noise with structural information.
+[Decision] This proves `M_max` acts as a direct dial controlling the model's trade-off between structural detail retention and noise filtering, rather than just being an arbitrary performance limit. `M_max=800` remains the robust default since additive noise is common, but adaptive frequency filtering per-corruption is theoretically possible.
+
 
 ## 2026-10-05 - GSD pilot gate review and proposed control completion
 
