@@ -1,5 +1,17 @@
 # 3DD-TTA Thesis Knowledge Base
 
+**[Run/Inference] 2026-10-04 GSD scale pilot partial:** The first Colab
+attempt completed Gaussian and Impulse for weights 0/1/100/1000 and Background
+for 0/1, then failed with a nonfinite SCD gradient in Background/SCALE_100.
+Background/SCALE_1000 and Shear were not run; do not treat this as a complete
+pilot or use it to select a promoted scale. Existing per-arm ZIPs and the
+failed phase manifest are under
+[`scale/attempt-0001`](../result/modelnet40_c/gsd_guidance_composition_v1/scale/attempt-0001/phase_manifest.json).
+The partial SCALE_100 bundle shows 32/64 Background examples completed all
+35 denoising steps; failure occurred in the second batch, whose current-step
+diagnostics were not persisted. See the latest entry in
+[`findings_log.md`](findings_log.md).
+
 **[User report/Code/Planning] 2026-10-04 block-routing handoff:**
 The user requests an honest assessment and implementation/Colab plan for
 local-SCD/style-spectral routing, its reverse, and style-only projection.
@@ -10,12 +22,14 @@ Style conditioning already receives SCD gradients; global diffusion is a
 separate, currently inactive mechanism. Existing updated-final-style decoding
 was null on average (-.0315 pp), which is not a style-off/global-prior test.
 The plan preserves hard v1, original decode, matched inputs and frozen models;
-global diffusion is conditional. The runner and analyzers are now implemented
-locally and independently reviewed; GPU phases have not yet been run.
+global diffusion is conditional. The runner and analyzers are implemented;
+the scale pilot has run partially, while routing and projection GPU phases
+remain pending. Scale continuation filters and per-arm error capture are
+documented in the Colab handoff.
 The user also registered the hypothesis that the small spectral gradient
-limits accuracy gains. A v1 coefficient pilot at 0/1/100/1000 is planned on
-common four-corruption draws, separately from routing. See `open_questions.md`
-and the linked Colab scenario.
+limits accuracy gains. A v1 coefficient pilot at 0/1/100/1000 is being
+completed on common four-corruption draws, separately from routing. See
+`open_questions.md` and the linked Colab scenario.
 
 **[Paper/Run/Inference] 2026-10-04 SCD/GSD composition research:**
 The [composition review](gsd_scd_gradient_composition_review_20261004.md)

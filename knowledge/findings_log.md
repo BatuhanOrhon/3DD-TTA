@@ -2949,3 +2949,50 @@ registered gradient-scale experiment remain unimplemented. No GPU run.
 4. Fixed the loss calculation to be batch-invariant by summing over the batch dimension instead of averaging, and mathematically calibrated the default spectral weight (from 16.0 -> 1.17) to match the exact effective gradient magnitude of the previous optimal run.
 5. Grid search subset (120 samples/corruption) confirmed `M_max = 800` (cutting off eigenvalues > ~0.95) acts as an optimal noise filter, yielding ~64.72% subset accuracy.
 6. [Run] Full evaluation on ModelNet40-C (all 15 corruptions, 37020 samples) with `batch_size=70`, `M_max=800`, `weight_spectral=1.17` yielded a new baseline accuracy of **64.53%**, successfully surpassing the prior 64.39% record with a more mathematically principled formulation.
+[Run/Inference] 2026-10-04 GSD composition scale pilot, attempt-0001 is
+incomplete. The initial artifact review below is superseded by the immediate
+follow-up after the missing partial Background/SCALE_100 ZIP was supplied.
+The phase manifest and ten completed arm ZIPs under
+`result/modelnet40_c/gsd_guidance_composition_v1/scale/attempt-0001/` show
+Gaussian and Impulse completed at spectral weights 0/1/100/1000, and
+Background completed at 0/1. Background/SCALE_100 stopped with
+`FloatingPointError: GSD nonfinite gradient` in the SCD gradient extraction;
+the raw SCD loss had passed its finite check. The failed manifest points to a
+partial arm bundle, but that bundle was absent from the copied artifacts, so
+the failing step, example, and number of completed predictions are unknown.
+Background/SCALE_1000 and Shear were not run. Descriptive pilot accuracies:
+Gaussian weights 0/1/100/1000 = 71.875/71.875/70.3125/68.75%; Impulse =
+59.375/60.9375/64.0625/60.9375%; Background 0/1 = 62.5/60.9375%. These
+64-example cells are not a complete paired scale screen and do not support
+selection or a gain claim. Successful Gaussian/Impulse SCALE_1000 local
+guidance/DDIM ratios stayed below .47; Background SCALE_0/1 had about 2.3%
+of nonterminal example-steps above 2x, below the predeclared 10% threshold.
+The isolated Background/SCALE_100 failure is nevertheless an instability
+signal at coefficient 100 on that corruption; it does not establish a
+general coefficient threshold. Preserve completed ZIPs, inspect the missing
+partial bundle if available, and do not restart the entire phase before
+deciding whether a bounded follow-up is warranted. Commit `e0c1733`.
+
+[Run/Inference] Follow-up after ingesting
+`attempt-0001_background_seed0_SCALE_100.zip`: the partial arm contains 32/64
+examples, each with all 35 denoising steps and finite recorded diagnostics;
+the exception occurred in the second batch. That batch's in-progress observer
+events were buffered and not persisted, so the failing timestep/sample and
+whether the latent first became nonfinite remain unknown. On the matched first
+32 examples, SCALE_100 is 17/32 (53.125%), versus SCALE_0 19/32 (59.375%) and
+SCALE_1 18/32 (56.25%); this incomplete prefix is descriptive only. For the
+first batch, local guidance/DDIM ratio exceeded 2 on 32/1088 nonterminal
+sample-steps (2.94%) overall, but on 26/32 examples at the first step (median
+2.75; max 7.49). The predeclared aggregate >10% threshold is not met on
+persisted steps, while the later nonfinite failure independently makes this
+Background/SCALE_100 cell unstable. This does not locate a safe coefficient
+or establish general instability. The partial bundle is preserved beside the
+other attempt artifacts; no rerun was made at result-ingestion time.
+
+[Code/Verification] 2026-10-05 Added scale-only scale-corruptions and
+scale-arms filters plus continue-on-arm-error to avoid rerunning completed
+scale cells and let later selected arms execute after an arm failure.
+Inference code and coefficients are unchanged. py_compile and CLI dry-run
+previews for Background/SCALE_1000 and Shear/0,1,100,1000 passed; no model
+tests or Colab execution were run. Exact commands are recorded in
+colab_gsd_block_routing_20261004.md.

@@ -779,6 +779,14 @@ review/checklist below instead of treating source-domain data or q95 as gates.
   in a separate common-draw pilot, then replicate one candidate if evidence
   supports it. Record local/style-to-SCD and guidance-to-DDIM ratios; do not
   mix this with routing, PCGrad, smooth-loss or mean-reduction changes.
+  [Run, 2026-10-04] Attempt-0001 is incomplete: Gaussian/Impulse finished all
+  four scales; Background failed at SCALE_100; Background SCALE_1000 and
+  Shear remain unrun. Do not select a scale from these partial results; see
+  the [findings log](findings_log.md). The partial Background/SCALE_100 ZIP
+  confirms 32 samples completed all 35 steps before failure in batch 2;
+  guidance/DDIM ratio exceeded 2 on 26/32 samples at the first step, though
+  only 2.94% across all persisted nonterminal sample-steps. The failing
+  sample/step was not recorded.
 - [ ] Consider global diffuse-denoise only after its representation audit and
   evidence gate; no train/unfreeze operation is included.
 - Handoff: [implementation plan](gsd_block_routing_implementation_plan_20261004.md)

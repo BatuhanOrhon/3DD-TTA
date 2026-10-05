@@ -290,9 +290,13 @@ def validate_all15_reference(selection: dict, reference: dict) -> dict:
     return dict(selection=selection, reference=reference, candidate_id=validated["candidate_id"])
 
 
-def build_phase_plan(phase: str, selection: Optional[dict] = None) -> PhasePlan:
+def build_phase_plan(phase: str, selection: Optional[dict] = None, *,
+                     scale_corruptions: Optional[Sequence[str]] = None,
+                     scale_arm_ids: Optional[Sequence[str]] = None) -> PhasePlan:
     if phase not in ("smoke", "diagnose", "scale", "routing", "projection", "replicate", "all15"):
         raise ValueError("unknown phase: {}".format(phase))
+    if phase != "scale" and (scale_corruptions is not None or scale_arm_ids is not None):
+        raise ValueError("scale filters are only valid for the scale phase")
     if phase in ("replicate", "all15") and selection is None:
         raise ValueError("{} requires a reviewed selection manifest".format(phase))
     if phase == "smoke":
@@ -307,6 +311,21 @@ def build_phase_plan(phase: str, selection: Optional[dict] = None) -> PhasePlan:
     elif phase == "scale":
         arm_ids, corruptions, indices, seeds = _scale_arms(), PILOT_CORRUPTIONS, _SPLIT["pilot_indices"], (0,)
         scope = "isolated scalar hard-v1 scale pilot; first64 development indices"
+        if scale_corruptions is not None:
+            selected_corruptions = tuple(dict.fromkeys(scale_corruptions))
+            if (not selected_corruptions or
+                    set(selected_corruptions) - set(PILOT_CORRUPTIONS)):
+                raise ValueError("scale_corruptions must select known pilot corruptions")
+            corruptions = selected_corruptions
+        if scale_arm_ids is not None:
+            selected_arm_ids = tuple(dict.fromkeys(scale_arm_ids))
+            scale_library = {arm.arm_id: arm for arm in arm_ids}
+            if not selected_arm_ids or set(selected_arm_ids) - set(scale_library):
+                raise ValueError("scale_arm_ids must select known scale arms")
+            arm_ids = tuple(scale_library[arm_id] for arm_id in selected_arm_ids)
+        if scale_corruptions is not None or scale_arm_ids is not None:
+            scope += "; selected corruptions={} arms={}".format(
+                ",".join(corruptions), ",".join(arm.arm_id for arm in arm_ids))
     elif phase == "replicate":
         chosen = _selected_arm(selection)
         comparators = tuple(selection["relevant_comparators"])

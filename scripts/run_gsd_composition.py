@@ -14,6 +14,7 @@ import shlex
 import subprocess
 import sys
 import time
+import traceback
 import uuid
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -64,6 +65,14 @@ def _parser():
     parser.add_argument("--result-root", default="./result/modelnet40_c/" + METHOD)
     parser.add_argument("--reference-manifest")
     parser.add_argument("--selection-manifest")
+    parser.add_argument("--scale-corruptions", nargs="+",
+                        choices=("gaussian", "impulse", "background", "shear"),
+                        help="optional subset of scale-phase corruptions")
+    parser.add_argument("--scale-arms", nargs="+",
+                        choices=("SCALE_0", "SCALE_1", "SCALE_100", "SCALE_1000"),
+                        help="optional subset of scale-phase weight arms")
+    parser.add_argument("--continue-on-arm-error", action="store_true",
+                        help="scale only: record a failed arm and continue remaining selected arms")
     parser.add_argument("--execute", action="store_true",
                         help="run inference; omission plans the phase without loading models")
     parser.add_argument("--dataset-root", default="./data/modelnet40_c")
@@ -180,9 +189,14 @@ def build_plan(argv=None):
         validate_selection_manifest(selection)
     elif selection is not None:
         raise ValueError("selection manifests are only valid for replicate/all15")
+    if args.phase != "scale" and (args.scale_corruptions or args.scale_arms or
+                                    args.continue_on_arm_error):
+        raise ValueError("scale filters and arm-error continuation are only valid for scale")
     reference = _load_input_manifest(args.reference_manifest, "reference")
     _check_reference(args.phase, selection, reference, args.reference_manifest)
-    phase_plan = build_phase_plan(args.phase, selection)
+    phase_plan = build_phase_plan(
+        args.phase, selection, scale_corruptions=args.scale_corruptions,
+        scale_arm_ids=args.scale_arms)
 
     source_manifest = _source_manifest()
     git_branch = _git_value("branch", "--show-current")
@@ -268,6 +282,12 @@ def build_plan(argv=None):
         command.extend(("--reference-manifest", str(Path(args.reference_manifest).expanduser().resolve())))
     if args.selection_manifest:
         command.extend(("--selection-manifest", str(Path(args.selection_manifest).expanduser().resolve())))
+    if args.scale_corruptions:
+        command.extend(("--scale-corruptions", *args.scale_corruptions))
+    if args.scale_arms:
+        command.extend(("--scale-arms", *args.scale_arms))
+    if args.continue_on_arm_error:
+        command.append("--continue-on-arm-error")
     command.extend(("--dataset-root", resolved["paths"]["dataset_root"],
                     "--label-path", resolved["paths"]["label_path"],
                     "--pointmae-config", resolved["paths"]["pointmae_config"],
@@ -292,6 +312,7 @@ def build_plan(argv=None):
         arms=[dict(arm_id=arm.arm_id, question=arm.question, config=asdict(arm.config))
               for arm in phase_plan.arms],
         blocks=blocks, command=shlex.join(command), execute_requested=args.execute,
+        continue_on_arm_error=args.continue_on_arm_error,
         result_root=str(result_root),
     )
 
@@ -594,7 +615,8 @@ def _execute_colab_plan(plan):
                     diagnostics.extend(events)
                     graph_seconds += _graph_runtime_seconds(events)
                     peak_memory = max(peak_memory, int(torch.cuda.max_memory_allocated()))
-            except BaseException:
+            except BaseException as error:
+                partial_path = None
                 if targets:
                     partial_manifest = dict(
                         run_id=run_id, phase=plan["phase"], arm_id=arm_id,
@@ -622,12 +644,22 @@ def _execute_colab_plan(plan):
                         logits=torch.cat(logits_rows).numpy(), diagnostics=diagnostics,
                         command=plan["command"], environment=environment,
                     )
-                    plan.setdefault("partial_arms", []).append({
-                        "arm_id": arm_id, "status": "partial",
+                if plan.get("continue_on_arm_error") and isinstance(error, Exception):
+                    failure = {
+                        "arm_id": arm_id, "status": "failed",
                         "block_id": block["block_id"],
-                        "bundle_path": str(partial_path),
+                        "corruption": corruption, "seed": int(seed),
+                        "failure_type": type(error).__name__, "failure": str(error),
+                        "completed_indices": completed_indices,
+                        "bundle_path": str(partial_path) if partial_path else None,
                         "identity": actual_identity,
-                    })
+                    }
+                    arm_records.append(failure)
+                    plan.setdefault("arm_failures", []).append(failure)
+                    print("Scale arm failed; recording and continuing: {} / {}: {}".format(
+                        corruption, arm_id, str(error)), file=sys.stderr)
+                    traceback.print_exc()
+                    continue
                 raise
             arm_elapsed = time.perf_counter() - arm_started
             labels_all = torch.cat(targets).numpy()
@@ -662,12 +694,18 @@ def _execute_colab_plan(plan):
                 "arm_id": arm_id, "status": "complete", "identity": actual_identity,
                 "bundle_path": str(arm_path), "zip_path": str(zip_path), "reused": False,
             })
-        validate_resume_block(arm_records, block["arm_ids"], actual_identity)
+        block_has_failures = any(record.get("status") != "complete" for record in arm_records)
+        if not block_has_failures:
+            validate_resume_block(arm_records, block["arm_ids"], actual_identity)
         completed_blocks.append(dict(
             block_id=block["block_id"], corruption=corruption, seed=seed,
             indices=block["indices"], identity=actual_identity, arms=arm_records,
+            status="partial" if block_has_failures else "complete",
         ))
-    return dict(status="complete", execution_status="complete", paired_blocks=completed_blocks,
+    has_failures = bool(plan.get("arm_failures"))
+    return dict(status="partial" if has_failures else "complete",
+                execution_status="finished_with_arm_failures" if has_failures else "complete",
+                arm_failures=plan.get("arm_failures", []), paired_blocks=completed_blocks,
                 completed_blocks=len(completed_blocks),
                 runtime_fingerprint=runtime_fingerprint,
                 runtime_identity=runtime_identity,
@@ -720,7 +758,8 @@ def main(argv=None, *, worker=None):
         result = _execute_plan(plan, worker=worker)
         if isinstance(result, dict):
             manifest.update(result)
-        manifest["status"] = "complete"
+        manifest["status"] = (result.get("status", "complete")
+                               if isinstance(result, dict) else "complete")
         write_manifest(attempt_path / "phase_manifest.json", manifest)
         return 0
     except BaseException as error:
@@ -728,6 +767,8 @@ def main(argv=None, *, worker=None):
                         failure_type=type(error).__name__, failure=str(error))
         if plan.get("partial_arms"):
             manifest["partial_arms"] = plan["partial_arms"]
+        if plan.get("arm_failures"):
+            manifest["arm_failures"] = plan["arm_failures"]
         write_manifest(attempt_path / "phase_manifest.json", manifest)
         raise
 

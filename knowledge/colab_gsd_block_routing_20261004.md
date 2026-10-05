@@ -110,6 +110,46 @@ P_PC/P_NORM trajectories need not have equal actual norm sequences. Log both.
 - If stronger guidance changes predictions but not accuracy, gradient
   smallness alone is insufficient. Do not combine this phase with routing.
 
+### Continue an interrupted scale pilot
+
+[Code] After `scale/attempt-0001` stopped at Background/SCALE_100, do not rerun
+its completed cells. The CLI now accepts scale-only corruption/arm filters and
+`--continue-on-arm-error`; each invocation creates a fresh attempt, records
+failed arms (and any completed-batch partial ZIP), then proceeds through the
+selected matrix. A handled arm failure leaves the phase manifest status
+`partial`, even when remaining selected cells finish.
+
+From `/content/3DD-TTA`, after pulling the updated branch, run these as separate
+Colab cells. They use the same seed0 indices and preparation keys:
+
+```bash
+conda run -n 3dd_tta_env python scripts/run_gsd_composition.py \
+  --phase scale \
+  --result-root result/modelnet40_c/gsd_guidance_composition_v1 \
+  --reference-manifest result/modelnet40_c/gsd_guidance_composition_v1/diagnose/attempt-0001/phase_manifest.json \
+  --scale-corruptions background \
+  --scale-arms SCALE_1000 \
+  --continue-on-arm-error --execute
+```
+
+```bash
+conda run -n 3dd_tta_env python scripts/run_gsd_composition.py \
+  --phase scale \
+  --result-root result/modelnet40_c/gsd_guidance_composition_v1 \
+  --reference-manifest result/modelnet40_c/gsd_guidance_composition_v1/diagnose/attempt-0001/phase_manifest.json \
+  --scale-corruptions shear \
+  --scale-arms SCALE_0 SCALE_1 SCALE_100 SCALE_1000 \
+  --continue-on-arm-error --execute
+```
+
+The failed Background/SCALE_100 observation stays failed; do not rerun it or
+change its coefficient. Check each new `phase_manifest.json` and retain any
+per-arm failure bundle. Cross-attempt pairing/aggregation is allowed only
+after comparing prepared-input hashes, asset/runtime identities, indices and
+the unchanged inference-source hashes. A new runner commit alone does not
+prove compatibility. These are still seed0 development cells, not scale
+replication.
+
 ## Phase 3 - Routing pilot
 
 - Same64 examples/corruption, seed0; add R_S0/R_SG/R_G0/R_GS.
