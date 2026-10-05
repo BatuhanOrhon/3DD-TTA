@@ -35,36 +35,20 @@ no arm reuse. The planned size is16 arm archives /1,024 classifications.
 Batch identities record SHA-256 values for input points, shape/local latents,
 style conditioning, noise, timesteps, alpha-bar and scheduler configuration.
 
-The Colab runtime must receive these three updated source files first:
+The updated runner and handoff were pushed to `origin/gsd-smooth-spectrum` at
+`8c436566a408191f4de6a0046e3706cfc50beda8`.
 
-- `gsd_paired_inputs.py`
-- `gsd_composition_protocol.py`
-- `scripts/run_gsd_composition.py`
-- `scripts/analyze_gsd_composition.py`
+### Cell 1 - Update the Colab checkout
 
-### Cell 1 - Upload and install the updated runner files
-
-Download the four linked source files from the local workspace, then select
-all four when this cell opens the upload dialog. It writes only these named
-runner files inside the repository checkout.
-
-```python
-from google.colab import files
-from pathlib import Path
-
-uploaded = files.upload()
-required = {
-    "gsd_paired_inputs.py": Path("/content/3DD-TTA/gsd_paired_inputs.py"),
-    "gsd_composition_protocol.py": Path("/content/3DD-TTA/gsd_composition_protocol.py"),
-    "run_gsd_composition.py": Path("/content/3DD-TTA/scripts/run_gsd_composition.py"),
-    "analyze_gsd_composition.py": Path("/content/3DD-TTA/scripts/analyze_gsd_composition.py"),
-}
-missing = set(required) - set(uploaded)
-if missing:
-    raise RuntimeError(f"Missing uploaded source files: {sorted(missing)}")
-for name, destination in required.items():
-    destination.write_bytes(uploaded[name])
-    print(f"Installed {name}: {destination}")
+```bash
+%%bash
+set -euo pipefail
+cd /content/3DD-TTA
+git fetch origin
+git switch gsd-smooth-spectrum
+git pull --ff-only origin gsd-smooth-spectrum
+test "$(git rev-parse HEAD)" = "8c436566a408191f4de6a0046e3706cfc50beda8"
+git status --short
 ```
 
 ### Cell 2 - Plan-only preview (no model loading or GPU inference)
@@ -100,11 +84,9 @@ for name, identity in sorted(plan["resolved_ref"]["source_manifest"].items()):
     print(name, identity["sha256"])
 ```
 
-Check that the preview lists exactly those four arms/corruptions and the
-intended commit and uploaded-file hashes. The commit can still show the base
-revision because these source files were uploaded as working-tree edits. The
-manifest records both the commit and the source-file hashes. If correct, run
-the next cell once.
+Check that the preview lists exactly those four arms/corruptions and commit
+`8c43656`. The manifest also records source-file hashes. If correct, run the
+next cell once.
 
 ### Cell 3 - Execute the matched control block
 
