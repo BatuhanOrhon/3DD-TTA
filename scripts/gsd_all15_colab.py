@@ -170,7 +170,10 @@ def audit_attempt(attempt: Path) -> dict:
                                  global_prior='unused', decoder_style='original encoded shape latent'),
             'Model/decode config differs')
     ref = m['resolved_ref']
-    require(ref['branch'] == 'gsd-smooth-spectrum', 'Unexpected run branch')
+    # Colab uses a detached Phase6 worktree to preserve its pre-existing dirty
+    # notebook checkout. The resolved commit and per-file source hashes below
+    # carry the executable identity; an empty branch name is expected there.
+    require(ref['branch'] in ('', 'gsd-smooth-spectrum'), 'Unexpected run branch')
     require(len(ref['source_manifest']) == 9, 'Incomplete inference source inventory')
     for name, identity in ref['source_manifest'].items():
         data = subprocess.check_output(['git', 'show', ref['commit'] + ':' + name], cwd=REPO)

@@ -38,82 +38,90 @@ do not rerun other algorithms, pilots or failed Background100/1000 scale arms.
   seed directions and uncertainty; a nonpositive macro15 contrast or mixed
   seed directions would contradict a broadly stable benefit interpretation.
 
-## Cell 1 - preserve the Colab tree, install the helper and inspect the environment
+## Cell 1 - create an isolated Phase6 workspace and inspect the environment
 
-The initial cell incorrectly stopped on any tracked Colab edit and then
-proposed a whole-branch pull. Replace it with this version. It fetches commit
-objects only, leaves the current branch/index/worktree in place, and checks
-the nine inference files against the Phase5-recorded run commit. Other tracked
-edits do not block the cell. If an inference file itself differs, the cell
-lists the file and stops before inference; inspect that file rather than
-discarding edits.
+The earlier cell stopped on tracked edits. The follow-up also showed that the
+old checkout has no `scripts/` directory. This cell leaves the existing
+checkout untouched and creates a detached worktree from the pushed Phase6
+commit. It links the required data, checkpoints, compiled Chamfer extension
+and result directory. The nine inference files are checked against the
+completed Phase5 commit. A mismatch is printed and stops execution.
 
 ```bash
 %%bash
 set -euo pipefail
 cd /content/3DD-TTA
 git fetch origin gsd-smooth-spectrum
-RUN_COMMIT=86fb15544f1a82a31afccd99427bb39f3a3c53e4
-HELPER_COMMIT=3c80105c828245a31aaa3dec4af22fd565f4a718
-git cat-file -e "$RUN_COMMIT^{commit}"
-git cat-file -e "$HELPER_COMMIT^{commit}"
-echo "Current branch/HEAD (left untouched): $(git branch --show-current) / $(git rev-parse --short HEAD)"
+PHASE_COMMIT=b7d095a68cd9ab95294bce86cbd1a1f94cb87cc4
+PHASE_REPO=/content/3DD-TTA-phase6
+git cat-file -e "$PHASE_COMMIT^{commit}"
+
+if test -e "$PHASE_REPO"; then
+  test "$(git -C "$PHASE_REPO" rev-parse HEAD)" = "$PHASE_COMMIT"
+else
+  git worktree add --detach "$PHASE_REPO" "$PHASE_COMMIT"
+fi
+
+echo "Original checkout retained: $(git branch --show-current) / $(git rev-parse --short HEAD)"
 git status --short
 
-# Install only the new helper. Keep a copy first if a same-named local file differs.
 conda run --no-capture-output -n 3dd_tta_env python - <<'PY'
+import hashlib, os, subprocess, sys, numpy, torch, diffusers, scipy
 from pathlib import Path
-import hashlib, subprocess, uuid
 
-revision = '3c80105c828245a31aaa3dec4af22fd565f4a718'
-relative = 'scripts/gsd_all15_colab.py'
-expected = subprocess.check_output(['git', 'show', revision + ':' + relative])
-target = Path(relative)
-if target.is_symlink():
-    raise RuntimeError('Refusing to replace a symlinked helper path: ' + str(target))
-if target.exists() and target.read_bytes() != expected:
-    backup = Path('/content/gsd_all15_colab_backup_' + uuid.uuid4().hex + '.py')
-    backup.write_bytes(target.read_bytes())
-    print('Existing helper preserved at:', backup)
-if not target.exists() or target.read_bytes() != expected:
-    target.write_bytes(expected)
-print('Installed helper from', revision,
-      'SHA-256', hashlib.sha256(expected).hexdigest())
-PY
+original = Path('/content/3DD-TTA')
+workspace = Path('/content/3DD-TTA-phase6')
+os.chdir(workspace)
+from research_artifacts import CORRUPTIONS
+links = [
+    ('data/modelnet40_c', 'data/modelnet40_c'),
+    ('lion_ckpts', 'lion_ckpts'),
+    ('pointnet_ckpts', 'pointnet_ckpts'),
+    ('result/modelnet40_c/gsd_guidance_composition_v1',
+     'result/modelnet40_c/gsd_guidance_composition_v1'),
+    ('third_party/ChamferDistancePytorch/tmp/chamfer_3D.so',
+     'third_party/ChamferDistancePytorch/tmp/chamfer_3D.so'),
+]
+for source_name, target_name in links:
+    source, target = original / source_name, workspace / target_name
+    assert source.exists(), 'Missing Colab asset: ' + str(source)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    if target.is_symlink():
+        assert target.resolve() == source.resolve(), 'Unexpected link: ' + str(target)
+    elif target.exists():
+        if target.is_dir():
+            assert not any(target.iterdir()), 'Preserving nonempty path: ' + str(target)
+            target.rmdir()
+        else:
+            assert target.read_bytes() == source.read_bytes(), 'Unexpected file: ' + str(target)
+            continue
+        target.symlink_to(source, target_is_directory=source.is_dir())
+    else:
+        target.symlink_to(source, target_is_directory=source.is_dir())
+    print('Linked:', target_name)
 
-# Guard only the inference source files recorded by the completed Phase5 run.
-conda run --no-capture-output -n 3dd_tta_env python - <<'PY'
-import hashlib, subprocess
-from pathlib import Path
 run_commit = '86fb15544f1a82a31afccd99427bb39f3a3c53e4'
 names = ['scripts/run_gsd_composition.py', 'gsd_composition_protocol.py',
          'gsd_composition.py', 'gsd_paired_inputs.py', 'tta_gsd.py', 'tta.py',
          'graph_spectral.py', 'run_baseline.py', 'main_3dd_tta.py']
 changed = []
 for name in names:
-    expected = subprocess.check_output(['git', 'show', run_commit + ':' + name])
-    path = Path(name)
+    expected = subprocess.check_output(['git', 'show', run_commit + ':' + name], cwd=workspace)
+    path = workspace / name
     if not path.is_file() or path.read_bytes() != expected:
         actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else 'MISSING'
-        wanted = hashlib.sha256(expected).hexdigest()
-        changed.append((name, wanted, actual))
+        changed.append((name, hashlib.sha256(expected).hexdigest(), actual))
 if changed:
-    print('Inference sources differ from the completed Phase5 run:')
     for name, wanted, actual in changed:
-        print(name, 'expected', wanted, 'found', actual)
-    raise SystemExit('No reset/pull was attempted. Review the listed files before continuing.')
-print('All nine inference files match Phase5 run commit', run_commit)
-PY
+        print('Inference source differs:', name, 'expected', wanted, 'found', actual)
+    raise SystemExit('Phase5 source check failed; original checkout remains unchanged.')
+print('All nine inference files match the Phase5 run commit.')
 
-conda run --no-capture-output -n 3dd_tta_env python - <<'PY'
-import sys, numpy, torch, diffusers, scipy
-from pathlib import Path
-from research_artifacts import CORRUPTIONS
+assert '3dd_tta_env' in sys.executable
+assert torch.cuda.is_available(), 'Select a Colab GPU runtime first'
 print('Python:', sys.executable)
 print('NumPy:', numpy.__version__, 'Torch:', torch.__version__)
 print('Diffusers:', diffusers.__version__, 'SciPy:', scipy.__version__)
-assert '3dd_tta_env' in sys.executable
-assert torch.cuda.is_available(), 'Select a Colab GPU runtime first'
 print('GPU:', torch.cuda.get_device_name())
 for name in ['data/modelnet40_c/label.npy', 'cfgs/tta_modelnet.yaml',
              'pointnet_ckpts/modelnet_jt.pth',
@@ -137,7 +145,7 @@ files only, no `all15/attempt-*` directory and no inference.
 import os, json, subprocess, hashlib
 from pathlib import Path
 
-repo = Path('/content/3DD-TTA')
+repo = Path('/content/3DD-TTA-phase6')
 os.chdir(repo)
 root = repo / 'result/modelnet40_c/gsd_guidance_composition_v1'
 reference = root / 'replicate/attempt-0001'
@@ -179,7 +187,7 @@ re-execution. A failed/interrupted run is still packaged using Cell4.
 ```bash
 %%bash
 set -euo pipefail
-cd /content/3DD-TTA
+cd /content/3DD-TTA-phase6
 ROOT=result/modelnet40_c/gsd_guidance_composition_v1
 ATTEMPT="$ROOT/all15/attempt-0001"
 LOG="$ROOT/all15/attempt-0001_colab_execution.log"
@@ -217,7 +225,7 @@ import hashlib, json, subprocess, uuid
 from pathlib import Path
 from google.colab import files
 
-repo = Path('/content/3DD-TTA')
+repo = Path('/content/3DD-TTA-phase6')
 root = repo / 'result/modelnet40_c/gsd_guidance_composition_v1'
 attempt = root / 'all15/attempt-0001'
 log = root / 'all15/attempt-0001_colab_execution.log'
