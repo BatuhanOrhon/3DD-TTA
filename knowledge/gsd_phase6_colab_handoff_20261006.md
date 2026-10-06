@@ -52,7 +52,7 @@ completed Phase5 commit. A mismatch is printed and stops execution.
 set -euo pipefail
 cd /content/3DD-TTA
 git fetch origin gsd-smooth-spectrum
-PHASE_COMMIT=b7d095a68cd9ab95294bce86cbd1a1f94cb87cc4
+PHASE_COMMIT=32a6c6b50f69e9236b66c2ecc7c4d219f7e1077b
 PHASE_REPO=/content/3DD-TTA-phase6
 git cat-file -e "$PHASE_COMMIT^{commit}"
 
