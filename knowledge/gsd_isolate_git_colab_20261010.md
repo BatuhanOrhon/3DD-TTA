@@ -13,7 +13,8 @@ The correction changes the isolated-node eigenvalues; it does not change beta.
 Full seed0 evaluations: 37020 examples per policy; 74040 total, plus560 smoke.
 
 [Open] These are seed-controlled separate runs, not prepared-input hash-proven
-pairs. Unknown historical seed/build prevents bitwise historical reproduction.
+pairs. Each evaluation command is launched as `conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta_v2.py ...`.
+Unknown historical seed/build prevents bitwise historical reproduction.
 No new accuracy evidence or +1–2pp guarantee exists. Do not lower batch70 after
 OOM without declaring a different protocol. Keep failed ZIPs; Cell13 also works
 after failed runs. Retain the SESSION path on disconnect. Full runs never
@@ -55,7 +56,8 @@ import hashlib, json, subprocess, sys
 repo = Path('/content/3DD-TTA')
 session = Path(SESSION_PATH)
 policies = ('legacy', 'offdiag')
-common = [sys.executable, 'eval_gsd_tta_v2.py',
+common = ['conda', 'run', '--no-capture-output', '-n', '3dd_tta_env',
+          'python', 'eval_gsd_tta_v2.py',
           '--batch_size','70','--weight_spectral','1.17','--weight_chamfer','1.0',
           '--M_max','800','--beta','2.0','--gamma','0.01','--eta','0.01',
           '--lambdaa','0.95','--denoising_step_bg','30','--denoising_step_normal','10',
