@@ -17,7 +17,9 @@ pairs. Each evaluation command is launched as `conda run --no-capture-output -n 
 The Cell4 PointNet2 build changes the tracked generated helper
 `Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/pointnet2_utils.py`.
 Cell7 and run guards ignore that exact file while rejecting other changed
-Python sources. Unknown historical seed/build prevents bitwise historical reproduction.
+Python sources. The run guard permits a newer descendant commit when all five
+experiment source hashes remain identical. Unknown historical seed/build
+prevents bitwise historical reproduction.
 No new accuracy evidence or +1–2pp guarantee exists. Do not lower batch70 after
 OOM without declaring a different protocol. Keep failed ZIPs; Cell13 also works
 after failed runs. Retain the SESSION path on disconnect. Full runs never
@@ -68,7 +70,8 @@ common = ['conda', 'run', '--no-capture-output', '-n', '3dd_tta_env',
           '--csv_name','eval_results.csv','--seed','0']
 def launch(policy, tag, *extra):
     manifest = json.loads((session/'source_manifest.json').read_text())
-    assert subprocess.check_output(['git','rev-parse','HEAD'], cwd=repo, text=True).strip() == manifest['commit']
+    head = subprocess.check_output(['git','rev-parse','HEAD'], cwd=repo, text=True).strip()
+    subprocess.run(['git','merge-base','--is-ancestor',manifest['commit'],head], cwd=repo, check=True)
     subprocess.run(['git','diff','--quiet','HEAD','--','*.py',
                     ':(exclude,glob)Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/pointnet2_utils.py'],
                    cwd=repo, check=True)
