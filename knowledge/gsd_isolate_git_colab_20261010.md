@@ -14,7 +14,10 @@ Full seed0 evaluations: 37020 examples per policy; 74040 total, plus560 smoke.
 
 [Open] These are seed-controlled separate runs, not prepared-input hash-proven
 pairs. Each evaluation command is launched as `conda run --no-capture-output -n 3dd_tta_env python eval_gsd_tta_v2.py ...`.
-Unknown historical seed/build prevents bitwise historical reproduction.
+The Cell4 PointNet2 build changes the tracked generated helper
+`Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/pointnet2_utils.py`.
+Cell7 and run guards ignore that exact file while rejecting other changed
+Python sources. Unknown historical seed/build prevents bitwise historical reproduction.
 No new accuracy evidence or +1–2pp guarantee exists. Do not lower batch70 after
 OOM without declaring a different protocol. Keep failed ZIPs; Cell13 also works
 after failed runs. Retain the SESSION path on disconnect. Full runs never
@@ -33,7 +36,7 @@ git fetch origin
 git switch gsd-smooth-spectrum
 git merge --ff-only origin/gsd-smooth-spectrum
 git merge-base --is-ancestor c18926ff7751ed9023313869229f5d4dffe218be HEAD
-git diff --quiet HEAD -- '*.py'
+git diff --quiet HEAD -- '*.py' ':(exclude,glob)Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/pointnet2_utils.py'
 git ls-files --error-unmatch eval_gsd_tta_v2.py graph_spectral_v2_offdiag.py legacy_gsd_artifacts.py
 conda run --no-capture-output -n 3dd_tta_env python -c "import sys, torch; print(sys.executable); assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0))"
 ```
@@ -66,7 +69,9 @@ common = ['conda', 'run', '--no-capture-output', '-n', '3dd_tta_env',
 def launch(policy, tag, *extra):
     manifest = json.loads((session/'source_manifest.json').read_text())
     assert subprocess.check_output(['git','rev-parse','HEAD'], cwd=repo, text=True).strip() == manifest['commit']
-    subprocess.run(['git','diff','--quiet','HEAD','--','*.py'], cwd=repo, check=True)
+    subprocess.run(['git','diff','--quiet','HEAD','--','*.py',
+                    ':(exclude,glob)Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/pointnet2_utils.py'],
+                   cwd=repo, check=True)
     for name, digest in manifest['files'].items():
         assert hashlib.sha256((repo/name).read_bytes()).hexdigest() == digest, name
     output = session / (policy + '_' + tag + '_seed0')
