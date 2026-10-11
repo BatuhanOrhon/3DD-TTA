@@ -13,6 +13,16 @@ from tests.test_legacy_gsd_restore import workspace_temp
 
 
 class ObserverTests(unittest.TestCase):
+    def test_smoke_validation_keys_are_json_serializable(self):
+        from scripts.legacy_trajectory_colab import smoke_arm_key
+        arms = {smoke_arm_key(corruption, mode): {'mode': mode}
+                for corruption in ('gaussian', 'background')
+                for mode in ('off', 'audit', 'observe')}
+        encoded = json.dumps(arms)
+        self.assertEqual(set(json.loads(encoded)), {
+            'gaussian_off', 'gaussian_audit', 'gaussian_observe',
+            'background_off', 'background_audit', 'background_observe'})
+
     def test_git_sources_reject_edits_but_allow_unrelated_build_outputs(self):
         from unittest.mock import patch
         from scripts.legacy_trajectory_colab import verify_sources, BASE_SHA, PROVENANCE_PATH

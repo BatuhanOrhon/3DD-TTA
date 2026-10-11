@@ -32,6 +32,11 @@ def write_json(path, value):
         json.dump(value, stream, indent=2, allow_nan=False)
 
 
+def smoke_arm_key(corruption, mode):
+    """Build a JSON-safe validation key for one smoke arm."""
+    return '%s_%s' % (corruption, mode)
+
+
 def verify_sources():
     """Verify inference sources against one resolved Git commit, without writes.
 
@@ -161,7 +166,8 @@ def execute(session, stage, drive_dir=None):
             prefix = session / ('smoke_' + corruption)
             for mode in ('off', 'audit', 'observe'):
                 arm = Path(str(prefix) + '_' + mode + '.zip')
-                arms[(corruption, mode)] = validate_smoke_bundle(arm, mode, expected_count=140)
+                arms[smoke_arm_key(corruption, mode)] = validate_smoke_bundle(
+                    arm, mode, expected_count=140)
             analyze([Path(str(prefix)+'_observe.zip')], session / ('smoke_analysis_' + corruption))
             results.append(compare(str(prefix)+'_off.zip', str(prefix)+'_audit.zip'))
             results.append(compare(str(prefix)+'_audit.zip', str(prefix)+'_observe.zip'))

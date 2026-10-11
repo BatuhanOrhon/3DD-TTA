@@ -214,6 +214,41 @@ never rewritten. If an earlier smoke has already completed, inspect it before
 scheduling redundant execution under a new session.
 
 
+## Smoke handoff recovery — 2026-10-11
+
+[Artifact/recovery] User-provided
+`20261011T145239Z_trajectory_handoff_20261011T145805Z.zip` was verified and
+preserved at `result/modelnet40_c/legacy_trajectory/` (SHA-256
+`7cd75452ce7d64f3e3359ee66edadb5f08c9cf2d7a57c074b0c12bbf1bed488e`). All six
+smoke arms completed their locked 140 examples. The runner failed after those
+arms when it tried to serialize tuple-keyed `(corruption, mode)` validation
+results as JSON. This is a reporting failure; no inference arm needs repeating.
+The launcher now uses JSON-safe string keys, with a CPU regression test.
+
+[CPU reconstruction] All six nested archives pass coverage, locked-ID, finite
+logit, and artifact checks. Observe arms record six clean probes each and
+preserve their RNG and model buffers; audit records preserve the replay RNG
+boundary and buffers. However, exact same-RNG VAE latent replay failed in all
+four audit batches, even though RNG was replayed/restored and buffers stayed
+unchanged. The precise nondeterministic operation remains unknown. This finding
+keeps cross-process parity descriptive and does not invalidate the completed
+within-arm checks. Off arms do not report a model-state audit (`null`).
+
+[Exploratory only] On the partial 140-example observe subsets, Gaussian
+terminal/minimum-entropy/probability-mean accuracy was 76.43/79.29/79.29%;
+Background was 57.14/54.29/55.00%. The direction differs by corruption and
+the smoke subset is not an all-15 evaluation or evidence of a general gain.
+Gaussian and Background observe predictions differed from their audit controls
+on 10/140 and 22/140 examples respectively. No accuracy threshold or early
+stop rule is inferred. Full recovered CPU reports are under
+`result/modelnet40_c/diagnostics/legacy_trajectory_smoke_20261011_145239Z/`.
+
+[Open] Before relying on exact replay parity, isolate the VAE encode/operator
+that changes latents under identical recorded RNG and unchanged buffers. Pilot
+execution should use a valid gate produced by the fixed runner; do not rerun
+these already completed smoke inference arms solely to repair JSON reporting.
+
+
 [CPU verification, seed0 revision]234 tests passed in29.834s. The launcher/session
 checks assert only seed0 and4,200 pilot examples; the one-seed analyzer reports
 null seed SD. Notebook syntax, all81 package source hashes and safe prior-overlay

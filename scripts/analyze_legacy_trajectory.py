@@ -340,7 +340,7 @@ def validate_smoke_bundle(path, expected_mode: str, expected_count: int) -> dict
                 raise ValueError('Smoke observer produced no clean probes')
         return dict(path=str(path), mode=mode, batches=len(prediction_files), examples=count,
                     changed_predictions=None, probe_count=probes, encode_replay=replay_reports,
-                    model_state_unchanged=True)
+                    model_state_unchanged=(True if mode != 'off' else None))
     finally:
         bundle.close()
 
