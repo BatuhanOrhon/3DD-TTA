@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "branch": "gsd-smooth-spectrum",
+  "baseline_archive_sha256": "534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968",
+  "source_paths": [
+    "cfgs/tta_modelnet.yaml",
+    "datasets_mate/ModelNetDataset.py",
+    "datasets_mate/ModelNetDatasetFewShot.py",
+    "datasets_mate/PartNormalDataset.py",
+    "datasets_mate/ScanObjectNNDataset.py",
+    "datasets_mate/ShapeNet55Dataset.py",
+    "datasets_mate/ShapeNetCoreDataset.py",
+    "datasets_mate/__init__.py",
+    "datasets_mate/build.py",
+    "datasets_mate/data_transforms.py",
+    "datasets_mate/io.py",
+    "datasets_mate/tta_datasets.py",
+    "default_config.py",
+    "eval_gsd_tta_v2.py",
+    "extensions/chamfer_dist/__init__.py",
+    "graph_spectral_v2.py",
+    "graph_spectral_v2_offdiag.py",
+    "gsd_protocol.py",
+    "legacy_gsd_artifacts.py",
+    "legacy_trajectory.py",
+    "models/adagn.py",
+    "models/dense.py",
+    "models/distributions.py",
+    "models/latent_points_ada.py",
+    "models/latent_points_ada_localprior.py",
+    "models/lion.py",
+    "models/pvcnn2.py",
+    "models/pvcnn2_ada.py",
+    "models/score_sde/resnet.py",
+    "models/shapelatent_modules.py",
+    "models/utils.py",
+    "models/vae_adain.py",
+    "models_mate/Point_MAE.py",
+    "models_mate/__init__.py",
+    "models_mate/build.py",
+    "research_artifacts.py",
+    "run_baseline.py",
+    "scripts/analyze_legacy_trajectory.py",
+    "scripts/legacy_trajectory_colab.py",
+    "third_party/ChamferDistancePytorch/chamfer3D/dist_chamfer_3D.py",
+    "third_party/PyTorchEMD/__init__.py",
+    "third_party/PyTorchEMD/backend.py",
+    "third_party/PyTorchEMD/emd.py",
+    "third_party/PyTorchEMD/emd_nograd.py",
+    "third_party/pvcnn/functional/__init__.py",
+    "third_party/pvcnn/functional/backend.py",
+    "third_party/pvcnn/functional/ball_query.py",
+    "third_party/pvcnn/functional/devoxelization.py",
+    "third_party/pvcnn/functional/grouping.py",
+    "third_party/pvcnn/functional/interpolatation.py",
+    "third_party/pvcnn/functional/loss.py",
+    "third_party/pvcnn/functional/sampling.py",
+    "third_party/pvcnn/functional/voxelization.py",
+    "third_party/yacs_config.py",
+    "tools/__init__.py",
+    "tools/builder.py",
+    "tools/runner.py",
+    "tools/runner_finetune.py",
+    "tools/runner_pretrain.py",
+    "tools/tta.py",
+    "tta_gsd_v2.py",
+    "utilities_3dd_tta.py",
+    "utils/checker.py",
+    "utils/diffusion.py",
+    "utils/diffusion_pvd.py",
+    "utils/evaluation_metrics_fast.py",
+    "utils/exp_helper.py",
+    "utils/model_helper.py",
+    "utils/utils.py",
+    "utils/vis_helper.py",
+    "utils/yacs_config.py",
+    "utils_mate/AverageMeter.py",
+    "utils_mate/checkpoint.py",
+    "utils_mate/config.py",
+    "utils_mate/dist_utils.py",
+    "utils_mate/logger.py",
+    "utils_mate/misc.py",
+    "utils_mate/registry.py",
+    "utils_mate/rotnet_utils.py",
+    "utils_mate/t3a.py",
+    "utils_mate/tent_shot.py"
+  ],
+  "baseline_assets": {
+    "cfgs/tta_modelnet.yaml": {
+      "bytes": 931,
+      "path": "/content/3DD-TTA/cfgs/tta_modelnet.yaml",
+      "sha256": "346f37e06fc73111ddbcd2a2c07ff85f057d180f27e3c664dda88c7f015dd3c6"
+    },
+    "data/modelnet40_c/data_background_5.npy": {
+      "bytes": 31837328,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_background_5.npy",
+      "sha256": "db05e75cffb4440323a064df9e23ebd526584daf027f9ad02e391a36b051a616"
+    },
+    "data/modelnet40_c/data_cutout_5.npy": {
+      "bytes": 21442112,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_cutout_5.npy",
+      "sha256": "b3ffb68ec412f54c89e02b5c128b3590eeaf16dd4ff08cc89f7039247a6c9c4b"
+    },
+    "data/modelnet40_c/data_density_5.npy": {
+      "bytes": 19220912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_density_5.npy",
+      "sha256": "bdde461b92427a0eaafc125eb93c8af89d979c0141d6ca5ae8e2bd61d6be65ba"
+    },
+    "data/modelnet40_c/data_density_inc_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_density_inc_5.npy",
+      "sha256": "719fd79232fb6c6a72e83d4f5f219d499b253b2caadc55bd128110bb299ee86b"
+    },
+    "data/modelnet40_c/data_distortion_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_distortion_5.npy",
+      "sha256": "43b5849e878ba73bbda781491b689db3af5cd958dc8d57c2fd6b4460a584e19e"
+    },
+    "data/modelnet40_c/data_distortion_rbf_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_distortion_rbf_5.npy",
+      "sha256": "9cbcca3ee41e0f10e77b36aaa9b7021095aae860e81688009cbd8bab0055b596"
+    },
+    "data/modelnet40_c/data_distortion_rbf_inv_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_distortion_rbf_inv_5.npy",
+      "sha256": "604c6acaacc4111dcef1cc22dee936c938e00cfafff9c7bb569d4b78a2439cce"
+    },
+    "data/modelnet40_c/data_gaussian_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_gaussian_5.npy",
+      "sha256": "bf762a8f441a4234d0ca3e91da1f5101440acb7e5902c4854300041103f7171c"
+    },
+    "data/modelnet40_c/data_impulse_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_impulse_5.npy",
+      "sha256": "2174438eec71c4d98ebf23b48c5571805e280411a2a3a0ff51ee377462d50cfb"
+    },
+    "data/modelnet40_c/data_lidar_5.npy": {
+      "bytes": 22745216,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_lidar_5.npy",
+      "sha256": "99ccaf1d62b5b308dd34d4fc1b09013cba8b73e9d1c8f0df1e94cfb812b9e91a"
+    },
+    "data/modelnet40_c/data_occlusion_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_occlusion_5.npy",
+      "sha256": "5f37e9de373402007214fcb9fc90e00db4783f9801d0620f21bbeee6328cda2c"
+    },
+    "data/modelnet40_c/data_rotation_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_rotation_5.npy",
+      "sha256": "b75c5c8c0cb0ed57038d4677750a5e4fdad3aaf82de96357f33fe7c3a3bc4958"
+    },
+    "data/modelnet40_c/data_shear_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_shear_5.npy",
+      "sha256": "78df0043e5cea431d10c817ac6a13e85e6e246fc64765e32546ecdd1d6614069"
+    },
+    "data/modelnet40_c/data_uniform_5.npy": {
+      "bytes": 30326912,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_uniform_5.npy",
+      "sha256": "2cfbe01e02ae6745503eddf548db8f362656e92ec7efc6636281468547c73572"
+    },
+    "data/modelnet40_c/data_upsampling_5.npy": {
+      "bytes": 60653696,
+      "path": "/content/3DD-TTA/data/modelnet40_c/data_upsampling_5.npy",
+      "sha256": "4984bfac96c7b559727fd0d967d115855eab30a315c3c3b2608cc43878fd782e"
+    },
+    "data/modelnet40_c/label.npy": {
+      "bytes": 2596,
+      "path": "/content/3DD-TTA/data/modelnet40_c/label.npy",
+      "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31"
+    },
+    "lion_ckpts/epoch_10999_iters_2100999.pt": {
+      "bytes": 1508051672,
+      "path": "/content/3DD-TTA/lion_ckpts/epoch_10999_iters_2100999.pt",
+      "sha256": "807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2"
+    },
+    "lion_ckpts/unconditional_all55_cfg.yml": {
+      "bytes": 7860,
+      "path": "/content/3DD-TTA/lion_ckpts/unconditional_all55_cfg.yml",
+      "sha256": "9d4a826f35fe9b3053210105eb4857811c8bfd53cd8c6a998f8ea7953e975816"
+    },
+    "pointnet_ckpts/modelnet_jt.pth": {
+      "bytes": 351656113,
+      "path": "/content/3DD-TTA/pointnet_ckpts/modelnet_jt.pth",
+      "sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75"
+    }
+  }
+}

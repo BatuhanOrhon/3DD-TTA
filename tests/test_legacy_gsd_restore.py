@@ -15,6 +15,19 @@ ROOT = Path(__file__).resolve().parents[1]
 REFERENCE = '5c3ed88314f1c3d50ab77d17f7c6ba22da59c441'
 
 
+class StripTrajectoryObserver(ast.NodeTransformer):
+    """Only remove opt-in hooks, leaving the entire Legacy mathematical body."""
+    def visit_If(self, node):
+        if 'trajectory_observer' in ast.unparse(node.test):
+            return None
+        return self.generic_visit(node)
+
+    def visit_Call(self, node):
+        node.keywords = [k for k in node.keywords if not
+                         (k.arg is None and 'trajectory_observer' in ast.unparse(k.value))]
+        return self.generic_visit(node)
+
+
 @contextmanager
 def workspace_temp():
     # Ordinary workspace mkdir avoids this Windows sandbox's temp ACL issue.
@@ -56,7 +69,15 @@ class RestoreContractTests(unittest.TestCase):
     def test_core_sources_equal_pinned_branch(self):
         for name in ('tta_gsd_v2.py', 'graph_spectral_v2.py'):
             reference = subprocess.check_output(['git', 'show', REFERENCE + ':' + name], cwd=ROOT)
-            self.assertEqual((ROOT / name).read_bytes().replace(b'\r\n', b'\n'), reference.replace(b'\r\n', b'\n'))
+            if name == 'graph_spectral_v2.py':
+                self.assertEqual((ROOT / name).read_bytes().replace(b'\r\n', b'\n'), reference.replace(b'\r\n', b'\n'))
+            else:
+                old = ast.parse(reference)
+                new = StripTrajectoryObserver().visit(ast.parse((ROOT / name).read_text(encoding='utf-8')))
+                old_fn = next(n for n in old.body if isinstance(n, ast.FunctionDef))
+                new_fn = next(n for n in new.body if isinstance(n, ast.FunctionDef))
+                new_fn.args = old_fn.args
+                self.assertEqual(ast.dump(old), ast.dump(new))
 
     def test_fresh_output_refuses_existing_directory(self):
         module = importlib.import_module('legacy_gsd_artifacts')
@@ -83,6 +104,7 @@ class RestoreContractTests(unittest.TestCase):
         current = ast.parse((ROOT / 'eval_gsd_tta_v2.py').read_text(encoding='utf-8'))
         old = next(n for n in reference.body if isinstance(n, ast.FunctionDef) and n.name == 'process_batches')
         new = next(n for n in current.body if isinstance(n, ast.FunctionDef) and n.name == 'process_batches')
+        new = StripTrajectoryObserver().visit(new)
         new.args = old.args
         loop = next(n for n in new.body if isinstance(n, ast.For))
         loop.body = [n for n in loop.body if not (isinstance(n, ast.If) and 'batch_observer' in ast.unparse(n.test))]
@@ -144,11 +166,16 @@ class RestoreContractTests(unittest.TestCase):
             return (torch.nn.Identity(), types.SimpleNamespace(vae=torch.nn.Identity(),
                     priors=torch.nn.ModuleList([torch.nn.Identity()])), None)
         fail = False
-        def batches(loader, base, lion, graph, args, steps, *, batch_observer):
+        def batches(loader, base, lion, graph, args, steps, *, batch_observer, trajectory_observer=None):
             targets, predictions = [], []
             for data, labels in loader:
                 target = labels.view(-1)
                 prediction = torch.zeros_like(target)
+                if trajectory_observer is not None:
+                    trajectory_observer.begin(len(target), torch.device('cpu'))
+                    trajectory_observer.initial(input_points=data)
+                    trajectory_observer.final_state(data, data, 0)
+                    trajectory_observer.terminal(torch.zeros(len(target), 40), target)
                 batch_observer(target, prediction, torch.zeros(len(target), 40), {'loss': 0.})
                 if fail:
                     raise RuntimeError('simulated midrun failure')
@@ -161,12 +188,14 @@ class RestoreContractTests(unittest.TestCase):
             fixture.write_text('CPU fixture only', encoding='utf-8')
             for c in artifacts.CORRUPTIONS:
                 (root / ('data_' + c + '_5.npy')).write_bytes(b'CPU fixture only')
-            for failed, capped_smoke in ((False, False), (True, False), (False, True)):
+            for failed, capped_smoke, audit in ((False, False, False), (True, False, False), (False, True, False), (False, False, True)):
                 fail = failed
-                output = root / ('failed' if failed else 'smoke' if capped_smoke else 'complete')
+                output = root / ('audit' if audit else 'failed' if failed else 'smoke' if capped_smoke else 'complete')
                 arguments = ['--output_dir', str(output), '--batch_size', '2468', '--dataset_root', str(root)]
                 if capped_smoke:
                     arguments += ['--max_batches', '1']
+                if audit:
+                    arguments += ['--trajectory_mode', 'audit', '--seed', '0']
                 for key in ('pointmae_config','pointmae_ckpt','diff_config','diff_ckpt','label_path'):
                     arguments += ['--' + key, str(fixture)]
                 args = entry.parse_arguments(arguments)
@@ -174,7 +203,7 @@ class RestoreContractTests(unittest.TestCase):
                      patch.dict(sys.modules, {'utilities_3dd_tta': utilities}), \
                      patch.multiple(torch.cuda, is_available=lambda: True, get_device_name=lambda: 'CPU MOCK',
                                     synchronize=lambda: None, reset_peak_memory_stats=lambda: None,
-                                    max_memory_allocated=lambda: 0), \
+                                    max_memory_allocated=lambda: 0, max_memory_reserved=lambda: 0), \
                      patch.object(artifacts, 'native_inventory', return_value={}):
                     if failed:
                         with self.assertRaisesRegex(RuntimeError, 'simulated midrun failure'):
@@ -184,6 +213,9 @@ class RestoreContractTests(unittest.TestCase):
                 config = json.loads((output / 'config.json').read_text(encoding='utf-8'))
                 self.assertEqual(config['status'], 'failed' if failed else 'partial' if capped_smoke else 'complete')
                 self.assertEqual(config['completed_examples'], 2468 if failed else 37020)
+                if audit:
+                    self.assertTrue(config['model_state_unchanged'])
+                    self.assertEqual(len(config['trajectory_artifact_manifest']), 45)
                 saved = np.load(output / 'predictions' / 'uniform_0000.npz')
                 np.testing.assert_array_equal(saved['indices'], np.arange(2468))
                 saved.close()

@@ -30,6 +30,21 @@ def validate_arguments(args, parser) -> None:
     """Bound this restoration to the reported static XYZ ModelNet40-C path."""
     if args.resume:
         parser.error('Resume is disabled: use a fresh output directory; existing evidence is never merged.')
+    from legacy_trajectory import selected_indices, trajectory_protocol
+    try:
+        trajectory_protocol(args)
+        selected_indices(args)
+    except (ValueError, KeyError, OSError) as error:
+        parser.error(str(error))
+    if not 0 <= args.trajectory_geometry_samples <= 2:
+        parser.error('Trajectory geometry is bounded to 0, 1 or 2 examples per batch.')
+    if args.indices_manifest and args.max_batches:
+        parser.error('Use an explicit index manifest or max_batches, not both.')
+    if args.trajectory_mode != 'off':
+        if (args.seed is None or args.isolate_policy != 'legacy' or args.use_static_style
+                or args.denoising_step is not None or args.denoising_step_normal != 10
+                or args.denoising_step_bg != 30):
+            parser.error('Trajectory observation requires seeded Legacy updated-style 10/30 horizon.')
     if args.dataset_name != 'modelnet-c' or args.corruption not in (None, *CORRUPTIONS):
         parser.error('Legacy restoration supports ModelNet40-C severity5 and canonical corruptions.')
     if args.weight_invariant != 0 or args.dynamic_graph or args.use_4d_gft:
@@ -54,13 +69,17 @@ def validate_arguments(args, parser) -> None:
 
 
 def protocol(args) -> dict:
+    from legacy_trajectory import selected_indices, trajectory_protocol
+    indices = selected_indices(args)
     names = [args.corruption] if args.corruption else list(CORRUPTIONS)
     n = min(2468, args.batch_size * args.max_batches) if args.max_batches else 2468
     return dict(
         schema_version=1, reference_commit=REFERENCE_COMMIT, method=METHOD,
         dataset='modelnet40_c', severity=5, seed=args.seed, cli=vars(args).copy(),
-        corruptions=names, expected_classifications=len(names)*n,
-        stage='smoke' if args.max_batches else 'full_file_development',
+        corruptions=names, expected_classifications=sum(len(v) for v in indices.values()) if indices else len(names)*n,
+        selected_indices=indices, trajectory=trajectory_protocol(args),
+        indices_manifest_identity=file_identity(Path(args.indices_manifest)) if args.indices_manifest else None,
+        stage='development_subset' if indices else 'smoke' if args.max_batches else 'full_file_development',
         decoder_style='original' if args.use_static_style else 'updated',
         scheduler=dict(beta_end=.02, beta_start=.0001, beta_schedule='linear',
                        clip_sample=False, num_train_timesteps=1000,
@@ -98,7 +117,8 @@ def _write_json(path: Path, value) -> None:
 def source_inventory() -> dict:
     paths = {Path(__file__).resolve(), REPO / 'eval_gsd_tta_v2.py',
              REPO / 'tta_gsd_v2.py', REPO / 'graph_spectral_v2.py',
-             REPO / 'graph_spectral_v2_offdiag.py'}
+             REPO / 'graph_spectral_v2_offdiag.py', REPO / 'legacy_trajectory.py',
+             REPO / 'scripts/analyze_legacy_trajectory.py'}
     for module in list(sys.modules.values()):
         name = getattr(module, '__file__', None)
         if name:
@@ -165,7 +185,7 @@ def run(args, load_runtime, configure_model, process_batches) -> None:
             try:
                 _execute(args, config, bundle, rows, load_runtime, configure_model, process_batches)
                 config['execution_status'] = 'complete'
-                config['status'] = ('complete' if not args.max_batches and len(rows) == 15 and
+                config['status'] = ('complete' if not args.max_batches and not args.indices_manifest and len(rows) == 15 and
                                     all(r['status'] == 'complete' for r in rows) else 'partial')
                 bundle.write_results(rows, config['status'])
                 if config['status'] == 'complete':
@@ -180,6 +200,12 @@ def run(args, load_runtime, configure_model, process_batches) -> None:
                 raise
             finally:
                 config['source_manifest'] = source_inventory()
+                config['native_extensions'] = native_inventory()
+                if args.trajectory_mode != 'off':
+                    config['trajectory_artifact_manifest'] = {
+                        p.relative_to(path).as_posix(): file_identity(p)
+                        for directory in ('trajectory', 'predictions')
+                        for p in sorted((path / directory).rglob('*')) if p.is_file()}
                 config['completed_examples'] = sum(r['n_examples'] for r in rows)
                 config['finished_utc'] = datetime.now(timezone.utc).isoformat()
                 bundle.write_config(config)
@@ -222,6 +248,9 @@ def _execute(args, config, bundle, rows, load_runtime, configure_model, process_
     config['assets'] = {str(p): file_identity(p) for p in asset_paths}
     base, lion, graph = configure_model(args)
     config['model_modes'] = dict(classifier=module_inventory(base), vae=module_inventory(lion.vae), priors=module_inventory(lion.priors))
+    if args.trajectory_mode != 'off':
+        from legacy_trajectory import model_state_hashes
+        config['model_state_before'] = model_state_hashes(dict(classifier=base, vae=lion.vae, priors=lion.priors))
     config['native_extensions'] = native_inventory()
     config['external_python_sources'] = {
         name: file_identity(Path(module.__file__))
@@ -238,9 +267,15 @@ def _execute(args, config, bundle, rows, load_runtime, configure_model, process_
             if len(dataset) != 2468 or len(dataset.labels) != 2468:
                 raise ValueError('Expected 2468 ModelNet40-C examples and labels: ' + corruption)
             n = min(len(dataset), args.max_batches*args.batch_size) if args.max_batches else len(dataset)
-            selected = dataset if n == len(dataset) else Subset(dataset, range(n))
+            indices = config['selected_indices'].get(corruption, list(range(n)))
+            n = len(indices)
+            selected = Subset(dataset, indices) if args.indices_manifest or n != len(dataset) else dataset
             loader = DataLoader(selected, batch_size=args.batch_size, shuffle=False)
             steps = args.denoising_step or (args.denoising_step_bg if corruption == 'background' else args.denoising_step_normal)
+            trajectory = None
+            if args.trajectory_mode != 'off':
+                from legacy_trajectory import TrajectoryObserver
+                trajectory = TrajectoryObserver(bundle.path, corruption, args.seed, indices, steps, config['trajectory'])
             torch.cuda.synchronize()
             torch.cuda.reset_peak_memory_stats()
             start = time.perf_counter()
@@ -255,10 +290,10 @@ def _execute(args, config, bundle, rows, load_runtime, configure_model, process_
                 count = len(target_np)
                 if count == 0 or len(pred_np) != count or seen+count > n:
                     raise ValueError('Prediction count mismatch')
-                if not np.array_equal(target_np, np.asarray(dataset.labels[seen:seen+count]).reshape(-1)):
+                if not np.array_equal(target_np, np.asarray(dataset.labels)[indices[seen:seen+count]].reshape(-1)):
                     raise ValueError('Label/index mismatch')
                 np.savez_compressed(bundle.path / 'predictions' / (corruption + '_%04d.npz' % batch_number),
-                                    indices=np.arange(seen, seen+count), targets=target_np, predictions=pred_np,
+                                    indices=np.asarray(indices[seen:seen+count]), targets=target_np, predictions=pred_np,
                                     logits=logits.detach().cpu().numpy())
                 seen += count
                 correct += int((target_np == pred_np).sum())
@@ -272,15 +307,26 @@ def _execute(args, config, bundle, rows, load_runtime, configure_model, process_
                     rows[row_index] = row
                 bundle.write_results(rows, 'running')
 
-            targets, preds = process_batches(loader, base, lion, graph, args, steps, batch_observer=observe)
+            targets, preds = process_batches(loader, base, lion, graph, args, steps, batch_observer=observe,
+                                            **({'trajectory_observer': trajectory} if trajectory is not None else {}))
             torch.cuda.synchronize()
             if seen != n or len(targets) != n or int((targets == preds).sum().item()) != correct:
                 raise ValueError('Final counts disagree with persisted predictions')
-            rows[row_index].update(status='complete' if n == 2468 and not args.max_batches else 'partial',
+            rows[row_index].update(status='complete' if n == 2468 and not args.max_batches and not args.indices_manifest else 'partial',
                                    runtime_seconds=time.perf_counter()-start)
+            if trajectory is not None:
+                config.setdefault('trajectory_runtime', {})[corruption] = dict(
+                    seconds=time.perf_counter()-start, examples_per_second=seen/(time.perf_counter()-start),
+                    peak_allocated_bytes=torch.cuda.max_memory_allocated(),
+                    peak_reserved_bytes=torch.cuda.max_memory_reserved())
             bundle.write_results(rows, 'running')
             acc = (preds == targets).float().mean().item()  # preserve legacy CSV rounding
             writer.writerow([args.dataset_name,corruption,args.M_max,args.beta,args.weight_spectral,
                              args.weight_invariant,args.weight_chamfer,acc])
             stream.flush()
             print('%s: %d/%d (%.6f%%)' % (corruption, correct, seen, correct/seen*100))
+    if args.trajectory_mode != 'off':
+        config['model_state_after'] = model_state_hashes(dict(classifier=base, vae=lion.vae, priors=lion.priors))
+        config['model_state_unchanged'] = config['model_state_before'] == config['model_state_after']
+        if not config['model_state_unchanged']:
+            raise RuntimeError('Model weights/buffers changed during trajectory observation')

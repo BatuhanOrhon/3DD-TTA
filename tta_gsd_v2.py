@@ -4,7 +4,7 @@ from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -55,6 +55,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     grad_freeze(vae)
     
     # Latent encoding (STEP 1)
+    if trajectory_observer is not None:
+        trajectory_observer.mark('encode')
     with torch.no_grad():
         latents = vae.encode(x)
         shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
@@ -65,14 +67,23 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         h_0 = latent_point.view(num_samples, num_latent_points, -1)
         
         # Pre-compute original full spectral components (H_orig) and eigenvectors (U_o)
+        if trajectory_observer is not None:
+            trajectory_observer.mark('graph_eigh')
         H_orig, U_o, eigenvalues = graph_spectral_module(h_0)
     
     # Global style conditioning
+    if trajectory_observer is not None:
+        trajectory_observer.mark('style_noise')
     style_cond = vae.global2style(shape_latent)
     
     # STEP 2: Noise Perturbation
     noise = torch.randn_like(latent_point)
     noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
+    if trajectory_observer is not None:
+        trajectory_observer.initial(input_points=x, shape_latent=shape_latent,
+                                    local_latent=latent_point, style=style_cond, noise=noise,
+                                    noisy_local=noisy_latent_point, timesteps=timesteps_local,
+                                    alpha_bar=alpha_bar_local)
  
     # Reverse diffusion process using DDIMScheduler (STEP 3)
     history = {'raw_loss_spectral': [], 'raw_loss_invariant': [], 'raw_loss_chamfer': []}
@@ -85,6 +96,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     requires_guidance = weight_spectral > 0.0 or weight_invariant > 0.0 or weight_chamfer > 0.0
     
     for i, t in enumerate(timesteps_local):
+        if trajectory_observer is not None:
+            trajectory_observer.mark('prior_scheduler')
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
         
         noisy_latent_point = noisy_latent_point.detach()
@@ -102,6 +115,9 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             # This is h_bar_0 in the abstract space
             pred_latent_point = scheduler_output.pred_original_sample
         h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
+        if trajectory_observer is not None:
+            trajectory_observer.clean(pred_latent_point, style_cond, i, t)
+            trajectory_observer.mark('guidance_losses_and_diagnostics')
         
         total_loss = 0.0
         
@@ -184,6 +200,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             total_loss = total_loss + weight_chamfer * ch_loss
 
         # STEP 5: Gradient Update (Guidance)
+        if trajectory_observer is not None:
+            trajectory_observer.mark('guidance_backward_update')
         if noisy_latent_point.grad is not None:
             noisy_latent_point.grad.zero_()
         if style_cond.grad is not None:
@@ -201,6 +219,9 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
 
     # STEP 6: Final Decoding
     final_style = shape_latent if use_static_style else style_cond
+    if trajectory_observer is not None:
+        trajectory_observer.final_state(noisy_latent_point, final_style, timesteps_local[-1])
+        trajectory_observer.mark('terminal_decode')
     pred_points = vae.decoder(
         None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
         style=final_style.squeeze(3).squeeze(2)

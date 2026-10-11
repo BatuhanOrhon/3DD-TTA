@@ -66,6 +66,13 @@ def parse_arguments(argv=None):
     parser.add_argument('--preview', action='store_true', help='Print protocol without loading models or creating output.')
     parser.add_argument('--isolate_policy', choices=('legacy', 'offdiag'), default='legacy',
                         help='Keep the historical isolate mask or correct only nonself isolation detection.')
+    parser.add_argument('--trajectory_mode', choices=('off', 'audit', 'observe'), default='off',
+                        help='audit records terminal/state hashes; observe adds isolated clean probes.')
+    parser.add_argument('--trajectory_steps_normal', default='3,5,8')
+    parser.add_argument('--trajectory_steps_bg', default='8,15,23')
+    parser.add_argument('--trajectory_geometry_samples', type=int, default=0,
+                        help='Decoded geometry examples per batch/candidate, 0 disables, maximum 2.')
+    parser.add_argument('--indices_manifest', default=None, help='Predeclared ordered original IDs (JSON).')
     
     args = parser.parse_args(argv)
     from legacy_gsd_artifacts import validate_arguments
@@ -102,7 +109,7 @@ def configure_model(args):
 
     return base_model, diff_model, graph_spectral_module
 
-def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps, *, batch_observer=None):
+def process_batches(dataloader, base_model, diff_model, graph_spectral_module, args, num_steps, *, batch_observer=None, trajectory_observer=None):
     loss_weights = {
         "spectral": args.weight_spectral,
         "invariant": args.weight_invariant,
@@ -112,6 +119,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
     batch_metrics = []
 
     for data, label in tqdm(dataloader, desc="Processing Batches"):
+        if trajectory_observer is not None:
+            trajectory_observer.begin(len(data), torch.device('cuda'))
         # Normalize and upsample the point cloud data
         data_sample, data_center, data_max = normalize(data)
         data_sample = upsample_all(data_sample.numpy(), 2048)
@@ -121,6 +130,15 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         # Scale and rotate the point cloud data
         data_sample *= 3.3885
         data_sample = rotate_pointcloud(data_sample)
+
+        if trajectory_observer is not None:
+            # Same operations as the unchanged terminal path below. No labels
+            # enter the probe callback or the inference policies.
+            def probe_preprocess(points):
+                points = rotateback_pointcloud(points)
+                points, _, _ = normalize(points)
+                return misc.fps(points, 1024)
+            trajectory_observer.bind(diff_model.vae, base_model, probe_preprocess)
 
         pred_points, metrics = tta_gsd_reconstruct(
             x=data_sample, 
@@ -136,9 +154,12 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
             total=100,
             use_static_style=args.use_static_style,
             dynamic_graph=args.dynamic_graph,
-            graph_update_interval=args.graph_update_interval
+            graph_update_interval=args.graph_update_interval,
+            **({'trajectory_observer': trajectory_observer} if trajectory_observer is not None else {})
         )
         batch_metrics.append(metrics)
+        if trajectory_observer is not None:
+            trajectory_observer.mark('terminal_preprocess_fps')
         pred_points = rotateback_pointcloud(pred_points)
 
         if args.dataset_name == "scanobjectnn-c":
@@ -149,6 +170,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
 
         pred_points = misc.fps(pred_points, 1024)
 
+        if trajectory_observer is not None:
+            trajectory_observer.mark('terminal_classifier')
         with torch.no_grad():
             logits = base_model.classification_only(pred_points, only_unmasked=False)
             target = label.view(-1)
@@ -156,6 +179,8 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
 
         preds.append(pred)
         targets.append(target)
+        if trajectory_observer is not None:
+            trajectory_observer.terminal(logits, target)
         if batch_observer is not None:
             batch_observer(target, pred, logits, metrics)
 
