@@ -248,6 +248,14 @@ that changes latents under identical recorded RNG and unchanged buffers. Pilot
 execution should use a valid gate produced by the fixed runner; do not rerun
 these already completed smoke inference arms solely to repair JSON reporting.
 
+[Recovery workflow] `legacy_trajectory_colab.py recover-smoke` imports the six
+completed Drive ZIPs into a fresh session only after validating current source
+identity, smoke coverage/IDs, seed0, archive CRCs, and that intervening Git
+changes are limited to reporting/orchestration files. It refuses collisions,
+analyzes the recovered candidates, and writes the gate last. The notebook has
+separate recovery/review, pilot, and package/download cells; the pilot remains
+an explicit user-run Colab step.
+
 
 [CPU verification, seed0 revision]234 tests passed in29.834s. The launcher/session
 checks assert only seed0 and4,200 pilot examples; the one-seed analyzer reports

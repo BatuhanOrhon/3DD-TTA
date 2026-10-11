@@ -13,6 +13,21 @@ from tests.test_legacy_gsd_restore import workspace_temp
 
 
 class ObserverTests(unittest.TestCase):
+    def test_recovery_requires_all_smoke_archives_before_copying_any(self):
+        from unittest.mock import patch
+        from scripts.legacy_trajectory_colab import recover_smoke
+        with workspace_temp() as root:
+            session = root / 'session'; session.mkdir()
+            (session / 'session.json').write_text(json.dumps({'source_manifest': {}}))
+            (session / 'smoke_indices.json').write_text(json.dumps({'indices': {}}))
+            backup = root / 'drive_backup'; backup.mkdir()
+            (backup / 'smoke_gaussian_off.zip').write_bytes(b'partial')
+            with patch('scripts.legacy_trajectory_colab.verify_sources', return_value={}):
+                with self.assertRaisesRegex(ValueError, 'Missing smoke archives'):
+                    recover_smoke(session, backup)
+            self.assertEqual(sorted(p.name for p in session.iterdir()),
+                             ['session.json', 'smoke_indices.json'])
+
     def test_smoke_validation_keys_are_json_serializable(self):
         from scripts.legacy_trajectory_colab import smoke_arm_key
         arms = {smoke_arm_key(corruption, mode): {'mode': mode}

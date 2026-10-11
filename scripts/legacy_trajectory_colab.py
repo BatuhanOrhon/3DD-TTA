@@ -21,6 +21,9 @@ CONDA = ['conda', 'run', '--no-capture-output', '-n', '3dd_tta_env', 'python']
 PILOT_SEEDS = (0,)
 BASE_SHA = '534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968'
 PROVENANCE_PATH = 'cfgs/legacy_trajectory_provenance.json'
+SMOKE_ARMS = tuple('smoke_%s_%s.zip' % (corruption, mode)
+                   for corruption in ('gaussian', 'background')
+                   for mode in ('off', 'audit', 'observe'))
 
 
 def sha(data):
@@ -179,6 +182,105 @@ def execute(session, stage, drive_dir=None):
         analyze([session / ('pilot_seed%d.zip' % seed) for seed in PILOT_SEEDS], session / 'pilot_analysis')
 
 
+def recover_smoke(session, backup_dir):
+    """Recover completed Drive smoke arms into a fresh, current-source session.
+
+    This is CPU-only. It validates existing ZIPs and never reruns inference or
+    overwrites a session, arm archive, analysis, or smoke gate.
+    """
+    from scripts.analyze_legacy_trajectory import Bundle, analyze, compare, validate_smoke_bundle
+
+    session, backup_dir = Path(session).resolve(), Path(backup_dir).resolve()
+    manifest = verify_sources()
+    session_record = json.loads((session / 'session.json').read_text(encoding='utf-8'))
+    if session_record.get('source_manifest') != manifest:
+        raise ValueError('Recovery requires a freshly initialized current-source session')
+    if not (session / 'smoke_indices.json').is_file():
+        raise FileNotFoundError('Fresh session is missing smoke_indices.json')
+    if (session / 'smoke_validation.json').exists():
+        raise FileExistsError('Preserve existing smoke gate; refusing recovery')
+
+    sources = {name: backup_dir / name for name in SMOKE_ARMS}
+    missing = [str(path) for path in sources.values() if not path.is_file() or path.is_symlink()]
+    if missing:
+        raise ValueError('Missing smoke archives: ' + ', '.join(missing))
+    destinations = {name: session / name for name in SMOKE_ARMS}
+    collisions = [str(path) for path in destinations.values() if path.exists()]
+    if collisions:
+        raise FileExistsError('Preserve existing smoke output: ' + ', '.join(collisions))
+    for corruption in ('gaussian', 'background'):
+        output = session / ('smoke_analysis_' + corruption)
+        if output.exists():
+            raise FileExistsError('Preserve existing smoke analysis: ' + str(output))
+
+    expected_indices = json.loads((session / 'smoke_indices.json').read_text(encoding='utf-8'))['indices']
+    source_commit = None
+    source_reports = {}
+    for name, path in sources.items():
+        with zipfile.ZipFile(path) as archive:
+            bad_member = archive.testzip()
+            if bad_member is not None:
+                raise ValueError('Smoke ZIP CRC failure: %s (%s)' % (path, bad_member))
+        mode = name.rsplit('_', 1)[1][:-4]
+        report = validate_smoke_bundle(path, mode, expected_count=140)
+        bundle = Bundle(path)
+        try:
+            config = bundle.config
+            corruption = config['corruptions'][0]
+            if corruption not in expected_indices or config['selected_indices'][corruption] != expected_indices[corruption]:
+                raise ValueError('Smoke IDs do not match fresh session manifest: ' + name)
+            if config.get('seed') != 0:
+                raise ValueError('Only the completed seed-0 smoke can be recovered: ' + name)
+            if source_commit is None:
+                source_commit = config['resolved_commit']
+            elif source_commit != config['resolved_commit']:
+                raise ValueError('Smoke arms come from different source commits')
+        finally:
+            bundle.close()
+        source_reports[name] = report
+
+    # Permit only post-smoke report/orchestration changes; any model/evaluation
+    # source change requires a fresh smoke instead of this recovery path.
+    subprocess.check_output(['git', 'merge-base', '--is-ancestor', source_commit,
+                             manifest['resolved_commit']], cwd=REPO)
+    changed = set(subprocess.check_output(
+        ['git', 'diff', '--name-only', source_commit + '..' + manifest['resolved_commit']],
+        cwd=REPO).decode().splitlines())
+    allowed = {'scripts/analyze_legacy_trajectory.py', 'scripts/legacy_trajectory_colab.py',
+               'tests/test_legacy_trajectory_observer.py',
+               'knowledge/gsd_trajectory_implementation_20261011.md'}
+    if changed - allowed:
+        raise ValueError('Model/evaluation sources changed since smoke: ' + ', '.join(sorted(changed - allowed)))
+
+    for name, source in sources.items():
+        with source.open('rb') as src, destinations[name].open('xb') as dst:
+            shutil.copyfileobj(src, dst)
+
+    results, arms = [], {}
+    for corruption in ('gaussian', 'background'):
+        prefix = session / ('smoke_' + corruption)
+        for mode in ('off', 'audit', 'observe'):
+            name = 'smoke_%s_%s.zip' % (corruption, mode)
+            arms[smoke_arm_key(corruption, mode)] = validate_smoke_bundle(
+                destinations[name], mode, expected_count=140)
+        analyze([destinations['smoke_%s_observe.zip' % corruption]],
+                session / ('smoke_analysis_' + corruption))
+        results.append(compare(destinations['smoke_%s_off.zip' % corruption],
+                               destinations['smoke_%s_audit.zip' % corruption]))
+        results.append(compare(destinations['smoke_%s_audit.zip' % corruption],
+                               destinations['smoke_%s_observe.zip' % corruption]))
+    gate = dict(passed=True, recovered=True, recovered_from=str(backup_dir),
+                recovery_source_commit=source_commit, current_source_commit=manifest['resolved_commit'],
+                arms=arms, cross_process_variability=results,
+                limitation='Recovered completed seed-0 smoke; no inference was rerun. Cross-process variability is descriptive, not a pass/fail criterion. No accuracy or latency evidence.')
+    write_json(session / 'smoke_validation.json', gate)
+    write_json(session / 'smoke_recovery.json', dict(source_commit=source_commit,
+               current_source_commit=manifest['resolved_commit'],
+               archives={name: sha(path.read_bytes()) for name, path in sources.items()},
+               copied_archives={name: sha(path.read_bytes()) for name, path in destinations.items()}))
+    return gate
+
+
 def pack_results(session, output):
     if session.resolve() in output.resolve().parents:
         raise ValueError('Handoff ZIP must be outside the session directory')
@@ -195,9 +297,10 @@ def pack_results(session, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=('verify', 'init', 'preview', 'smoke', 'pilot', 'pack'))
+    parser.add_argument('action', choices=('verify', 'init', 'preview', 'smoke', 'recover-smoke', 'pilot', 'pack'))
     parser.add_argument('--session', type=Path)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--smoke-dir', type=Path, help='Drive directory containing all six completed smoke ZIPs')
     parser.add_argument('--drive-dir', type=Path, help='Optional mounted Drive directory; back up each sealed arm, even failed.')
     args = parser.parse_args()
     if args.action == 'verify':
@@ -212,6 +315,12 @@ def main():
     elif args.action == 'pack':
         if not args.output: parser.error('--output required')
         pack_results(session, args.output.resolve())
+    elif args.action == 'recover-smoke':
+        if not args.smoke_dir: parser.error('--smoke-dir required')
+        report = recover_smoke(session, args.smoke_dir)
+        print(json.dumps(dict(passed=report['passed'], recovered=report['recovered'],
+                              source_commit=report['recovery_source_commit'],
+                              current_commit=report['current_source_commit']), indent=2))
     else:
         status = session / (args.action + '_status.json')
         try:
