@@ -57,8 +57,12 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     # Latent encoding (STEP 1)
     if trajectory_observer is not None:
         trajectory_observer.mark('encode')
+    if trajectory_observer is not None:
+        encode_rng_start = trajectory_observer.encode_rng_start()
     with torch.no_grad():
         latents = vae.encode(x)
+        if trajectory_observer is not None and encode_rng_start is not None:
+            trajectory_observer.replay_encode(vae, x, latents, encode_rng_start)
         shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
         latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)  # h_0 abstract
         

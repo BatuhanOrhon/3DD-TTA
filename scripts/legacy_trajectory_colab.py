@@ -136,9 +136,9 @@ def execute(session, stage, drive_dir=None):
     if json.loads((session / 'session.json').read_text())['source_manifest'] != manifest:
         raise ValueError('Git source identity changed since session initialization')
     if stage == 'pilot':
-        gate = json.loads((session / 'smoke_parity.json').read_text())
+        gate = json.loads((session / 'smoke_validation.json').read_text())
         if not gate.get('passed'):
-            raise ValueError('Smoke parity must pass first')
+            raise ValueError('Smoke invariants must pass first')
     verify_assets(manifest, session)
     jobs = list(commands(session, stage))
     for cmd in jobs:
@@ -155,15 +155,19 @@ def execute(session, stage, drive_dir=None):
             if drive_dir is not None and sealed.exists():
                 backup_zip(sealed, drive_dir / session.name)
     if stage == 'smoke':
-        from scripts.analyze_legacy_trajectory import compare, analyze
-        results = []
+        from scripts.analyze_legacy_trajectory import compare, analyze, validate_smoke_bundle
+        results, arms = [], {}
         for corruption in ('gaussian', 'background'):
             prefix = session / ('smoke_' + corruption)
+            for mode in ('off', 'audit', 'observe'):
+                arm = Path(str(prefix) + '_' + mode + '.zip')
+                arms[(corruption, mode)] = validate_smoke_bundle(arm, mode, expected_count=140)
+            analyze([Path(str(prefix)+'_observe.zip')], session / ('smoke_analysis_' + corruption))
             results.append(compare(str(prefix)+'_off.zip', str(prefix)+'_audit.zip'))
             results.append(compare(str(prefix)+'_audit.zip', str(prefix)+'_observe.zip'))
-            analyze([Path(str(prefix)+'_observe.zip')], session / ('smoke_analysis_' + corruption))
-        write_json(session / 'smoke_parity.json', dict(passed=True, results=results,
-                   limitation='Tiny integration check, not accuracy or latency evidence. Stop for review.'))
+        write_json(session / 'smoke_validation.json', dict(passed=True, arms=arms,
+                   cross_process_variability=results,
+                   limitation='Smoke checks artifacts and within-run RNG/buffer invariants. Cross-process logits may differ; variability is descriptive, not a pass/fail criterion. No accuracy or latency evidence. Stop for review.'))
     else:
         from scripts.analyze_legacy_trajectory import analyze
         analyze([session / ('pilot_seed%d.zip' % seed) for seed in PILOT_SEEDS], session / 'pilot_analysis')

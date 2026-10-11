@@ -22,8 +22,21 @@ def _rng_state():
             torch.cuda.get_rng_state_all() if torch.cuda.is_initialized() else [])
 
 
+def _restore_rng(state):
+    import torch
+    random.setstate(state[0])
+    np.random.set_state(state[1])
+    torch.set_rng_state(state[2])
+    if state[3]:
+        torch.cuda.set_rng_state_all(state[3])
+
+
 def rng_hash() -> str:
-    py, np_state, cpu, cuda = _rng_state()
+    return _rng_state_hash(_rng_state())
+
+
+def _rng_state_hash(state) -> str:
+    py, np_state, cpu, cuda = state
     return hashlib.sha256(pickle.dumps((py, np_state, cpu.numpy(),
                                       [v.cpu().numpy() for v in cuda]), protocol=4)).hexdigest()
 
@@ -31,6 +44,12 @@ def rng_hash() -> str:
 def model_state_hashes(models) -> dict:
     """Audit weights/BN/buffers without loading checkpoints or changing flags."""
     return {name: {key: tensor_hash(value) for key, value in model.state_dict().items()}
+            for name, model in models.items()}
+
+
+def model_buffer_hashes(models) -> dict:
+    """Hash named buffers only; useful for checking an isolated probe boundary."""
+    return {name: {key: tensor_hash(value) for key, value in model.named_buffers()}
             for name, model in models.items()}
 
 
@@ -54,11 +73,7 @@ def isolated_probe(models):
             for buffer, saved in buffers:
                 if not torch.equal(buffer, saved):
                     buffer.copy_(saved)
-        random.setstate(state[0])
-        np.random.set_state(state[1])
-        torch.set_rng_state(state[2])
-        if state[3]:
-            torch.cuda.set_rng_state_all(state[3])
+        _restore_rng(state)
 
 
 def checkpoint_list(value: str, horizon: int) -> list:
@@ -124,6 +139,7 @@ class TrajectoryObserver:
         if len(self.ids) != count:
             raise ValueError('Trajectory index count mismatch')
         self.times, self.candidates, self.hashes = {}, [], {}
+        self.encode_replay = None
         self.active = None
         self.start = time.perf_counter()
         self.rng_before = rng_hash()
@@ -132,15 +148,43 @@ class TrajectoryObserver:
     def bind(self, vae, classifier, preprocess):
         self.vae, self.classifier, self.preprocess = vae, classifier, preprocess
 
+    def encode_rng_start(self):
+        return _rng_state() if self.options['mode'] == 'audit' else None
+
     def initial(self, **states):
         self.mark('state_hashing')
         self.hashes = {name: tensor_hash(value) for name, value in states.items()}
+
+    def replay_encode(self, vae, points, original_latents, rng_before):
+        """Repeat VAE encode with the exact pre-encode RNG state, then restore post-state."""
+        if self.options['mode'] != 'audit':
+            return
+        import torch
+        post_rng = _rng_state()
+        post_rng_hash = _rng_state_hash(post_rng)
+        buffers_before = model_buffer_hashes({'vae': vae})
+        original = dict(shape=tensor_hash(original_latents[2][0][0]),
+                        local=tensor_hash(original_latents[2][1][0]))
+        with isolated_probe([vae]):
+            _restore_rng(rng_before)
+            with torch.no_grad():
+                replay = vae.encode(points)
+            repeated = dict(shape=tensor_hash(replay[2][0][0]),
+                            local=tensor_hash(replay[2][1][0]))
+        rng_restored_hash = rng_hash()
+        buffers_after = model_buffer_hashes({'vae': vae})
+        self.encode_replay = dict(rng_replayed=True, original_hashes=original,
+                                  replay_hashes=repeated,
+                                  exact_latent_match=original == repeated,
+                                  post_rng_restored=(post_rng_hash == rng_restored_hash),
+                                  buffers_unchanged=buffers_before == buffers_after)
 
     def clean(self, latent, style, loop_index, timestep):
         if self.options['mode'] != 'observe' or loop_index + 1 not in self.steps:
             return
         self.mark('probe_guard_and_hash')
         before = rng_hash()
+        buffers_before = model_buffer_hashes({'vae': self.vae, 'classifier': self.classifier})
         with isolated_probe([self.vae, self.classifier]):
             latent, style = latent.detach().clone(), style.detach().clone()
             hashes = dict(clean_latent=tensor_hash(latent), style=tensor_hash(style))
@@ -153,11 +197,17 @@ class TrajectoryObserver:
             self.mark('probe_classifier')
             logits = self.classifier.classification_only(points, only_unmasked=False)
             self.mark('probe_artifact')
-            self._save(logits, 'clean_%02d' % (loop_index + 1), loop_index, int(timestep),
-                       'predicted_clean', 'pre_update', hashes, geometry)
             self.mark('probe_guard_and_hash')
-        if rng_hash() != before:
+        after = rng_hash()
+        buffers_after = model_buffer_hashes({'vae': self.vae, 'classifier': self.classifier})
+        hashes.update(probe_rng_before=before, probe_rng_after=after,
+                      probe_buffers_before=buffers_before, probe_buffers_after=buffers_after)
+        if after != before:
             raise RuntimeError('Probe changed main RNG')
+        if buffers_after != buffers_before:
+            raise RuntimeError('Probe changed model buffers after restoration')
+        self._save(logits, 'clean_%02d' % (loop_index + 1), loop_index, int(timestep),
+                   'predicted_clean', 'pre_update', hashes, geometry)
 
     def final_state(self, latent, style, timestep):
         self.mark('terminal_state_hashing')
@@ -191,6 +241,7 @@ class TrajectoryObserver:
                       indices=self.ids, targets=targets.detach().cpu().view(-1).tolist(),
                       candidates=self.candidates, initial_hashes=self.hashes,
                       rng_before=self.rng_before, rng_after=rng_hash(), times=self.times,
+                      encode_replay=self.encode_replay,
                       wall_seconds=time.perf_counter()-self.start)
         with (self.path / ('%04d.json' % self.batch)).open('x', encoding='utf-8') as stream:
             json.dump(record, stream, indent=2, allow_nan=False)

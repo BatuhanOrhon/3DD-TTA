@@ -194,6 +194,19 @@ class ObserverTests(unittest.TestCase):
                         self.assertTrue(classifier.assertion)
                     if observer:
                         observer.terminal(torch.zeros(1, 40), torch.tensor([2]))
+                        if mode == 'audit':
+                            record = json.loads((root / mode / 'trajectory' / 'gaussian' / '0000.json').read_text())
+                            self.assertTrue(record['encode_replay']['exact_latent_match'])
+                            self.assertTrue(record['encode_replay']['post_rng_restored'])
+                            self.assertTrue(record['encode_replay']['buffers_unchanged'])
+                        if mode == 'observe':
+                            record = json.loads((root / mode / 'trajectory' / 'gaussian' / '0000.json').read_text())
+                            for candidate in record['candidates']:
+                                if candidate['kind'] == 'predicted_clean':
+                                    self.assertEqual(candidate['hashes']['probe_rng_before'],
+                                                     candidate['hashes']['probe_rng_after'])
+                                    self.assertEqual(candidate['hashes']['probe_buffers_before'],
+                                                     candidate['hashes']['probe_buffers_after'])
                 for result in results[1:]:
                     torch.testing.assert_close(result[0], results[0][0], rtol=0, atol=0)
                     self.assertEqual(result[1:3], results[0][1:3])

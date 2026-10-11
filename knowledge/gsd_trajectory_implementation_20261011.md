@@ -127,10 +127,12 @@ Sequence:
    shared across all corruptions/seeds. The smoke uses the first140 of that
    list, solely for integration. Checkpoint/index manifests precede inference.
 2. **Smoke:** Gaussian + Background, seed0,140 examples each, modes off/audit/
-   observe:6 arms,840 example processings. Exact off/audit terminal equality
-   and audit/observe terminal/state/noise/RNG equality are required. Model
-   weights/buffers must remain equal. No numerical tolerance is silently added.
-   **Stop, download and review the full smoke ZIP before pilot.**
+   observe:6 arms,840 example processings. Each arm validates complete locked
+   IDs, finite logits and (when enabled) unchanged model state. Audit replays
+   VAE encode with the exact pre-encode RNG state and records latent/buffer
+   equality. Observe records RNG/buffer hashes around every probe. Cross-process
+   latent/logit equality is descriptive only because a same-mode GPU repeat
+   already varied. **Stop, download and review the full smoke ZIP before pilot.**
 3. **Pilot:** all15 ×280 ×seed0 =4,200 terminal classifications plus
    three clean probes each. Four B70 batches/corruption. Same10/30 horizons,
    no early exit and no full2468 rerun. CPU analyzer uses these same traces.
