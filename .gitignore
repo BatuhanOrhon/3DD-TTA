@@ -13,3 +13,6 @@ __pycache__/
 # Local temporary workspaces and generated scratch files
 tmp*/
 .cache/
+
+# Local experiment outputs and raw result archives
+/result/
