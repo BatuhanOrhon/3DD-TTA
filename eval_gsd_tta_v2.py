@@ -72,6 +72,10 @@ def parse_arguments(argv=None):
     parser.add_argument('--trajectory_steps_bg', default='8,15,23')
     parser.add_argument('--trajectory_geometry_samples', type=int, default=0,
                         help='Decoded geometry examples per batch/candidate, 0 disables, maximum 2.')
+    parser.add_argument('--trajectory_sampling', choices=('off', 'paired'), default='off',
+                        help='Paired external FPS views plus eight terminal votes; macro14 only.')
+    parser.add_argument('--corruption_scope', choices=('all15', 'macro14'), default='all15',
+                        help='Evaluation scope only; macro14 excludes Background without input routing.')
     parser.add_argument('--indices_manifest', default=None, help='Predeclared ordered original IDs (JSON).')
     
     args = parser.parse_args(argv)
@@ -138,7 +142,11 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
                 points = rotateback_pointcloud(points)
                 points, _, _ = normalize(points)
                 return misc.fps(points, 1024)
-            trajectory_observer.bind(diff_model.vae, base_model, probe_preprocess)
+            def prepare_sampling_cloud(points):
+                points = rotateback_pointcloud(points)
+                return normalize(points)[0]
+            trajectory_observer.bind(diff_model.vae, base_model, probe_preprocess,
+                                     prepare_sampling_cloud=prepare_sampling_cloud)
 
         pred_points, metrics = tta_gsd_reconstruct(
             x=data_sample, 
@@ -168,7 +176,14 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         else:
             pred_points, _, _ = normalize(pred_points)
 
-        pred_points = misc.fps(pred_points, 1024)
+        sampling_context = None
+        if args.trajectory_sampling == 'paired':
+            from trajectory_sampling import native_fps
+            cloud = pred_points
+            pred_points, sampled_indices = native_fps(cloud)
+            sampling_context = (cloud, sampled_indices)
+        else:
+            pred_points = misc.fps(pred_points, 1024)
 
         if trajectory_observer is not None:
             trajectory_observer.mark('terminal_classifier')
@@ -180,7 +195,7 @@ def process_batches(dataloader, base_model, diff_model, graph_spectral_module, a
         preds.append(pred)
         targets.append(target)
         if trajectory_observer is not None:
-            trajectory_observer.terminal(logits, target)
+            trajectory_observer.terminal(logits, target, sampling_context=sampling_context)
         if batch_observer is not None:
             batch_observer(target, pred, logits, metrics)
 

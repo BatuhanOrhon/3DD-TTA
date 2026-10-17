@@ -45,6 +45,12 @@ def validate_arguments(args, parser) -> None:
                 or args.denoising_step is not None or args.denoising_step_normal != 10
                 or args.denoising_step_bg != 30):
             parser.error('Trajectory observation requires seeded Legacy updated-style 10/30 horizon.')
+    if getattr(args, 'corruption_scope', 'all15') == 'macro14' and args.corruption == 'background':
+        parser.error('Background is excluded from macro14 scope.')
+    if getattr(args, 'trajectory_sampling', 'off') == 'paired':
+        if (args.trajectory_mode != 'observe' or args.corruption_scope != 'macro14'
+                or args.trajectory_steps_normal != '3,5,8'):
+            parser.error('Paired sampling requires observe, macro14 scope and checkpoints 3,5,8.')
     if args.dataset_name != 'modelnet-c' or args.corruption not in (None, *CORRUPTIONS):
         parser.error('Legacy restoration supports ModelNet40-C severity5 and canonical corruptions.')
     if args.weight_invariant != 0 or args.dynamic_graph or args.use_4d_gft:
@@ -69,9 +75,9 @@ def validate_arguments(args, parser) -> None:
 
 
 def protocol(args) -> dict:
-    from legacy_trajectory import selected_indices, trajectory_protocol
+    from legacy_trajectory import selected_indices, trajectory_protocol, corruption_names
     indices = selected_indices(args)
-    names = [args.corruption] if args.corruption else list(CORRUPTIONS)
+    names = corruption_names(args)
     n = min(2468, args.batch_size * args.max_batches) if args.max_batches else 2468
     return dict(
         schema_version=1, reference_commit=REFERENCE_COMMIT, method=METHOD,
@@ -163,12 +169,19 @@ class _Tee:
 
 def run(args, load_runtime, configure_model, process_batches) -> None:
     """Run a fresh invocation, persisting completed batches even on failure."""
+    delivery = None
+    if getattr(args, 'trajectory_sampling', 'off') == 'paired':
+        from scripts.trajectory_sampling_colab import verify_delivery
+        delivery = verify_delivery()
     path = create_output(Path(args.output_dir))
     config = protocol(args)
     config.update(run_id=path.name, execution_status='running', status='running',
                   timestamp_utc=datetime.now(timezone.utc).isoformat(),
                   resolved_commit=_git('rev-parse', 'HEAD'), git_status=_git('status', '--short'),
                   source_manifest=source_inventory())
+    if delivery is not None:
+        config.update(source_delivery=delivery, resolved_commit=delivery['base_commit'],
+                      source_revision_kind='base commit plus hashed working-tree overrides; not a Git-only run')
     bundle = RunBundle(path)
     bundle.write_config(config)
     bundle.write_results([], 'running')

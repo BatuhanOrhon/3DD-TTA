@@ -84,13 +84,26 @@ def checkpoint_list(value: str, horizon: int) -> list:
 
 
 def trajectory_protocol(args) -> dict:
-    return dict(mode=args.trajectory_mode,
+    result = dict(mode=args.trajectory_mode,
                 checkpoints={'10': checkpoint_list(args.trajectory_steps_normal, 10),
                              '30': checkpoint_list(args.trajectory_steps_bg, 30)},
                 geometry_samples_per_batch=args.trajectory_geometry_samples,
                 style='predicted_clean: pre-update forward style; terminal: original updated decode',
                 tie_break='terminal first, then earliest checkpoint', temperature=1,
                 timing='synchronized component wall seconds; includes observer/hash/I/O overhead; no speedup claim')
+    if getattr(args, 'trajectory_sampling', 'off') == 'paired':
+        from trajectory_sampling import sampling_protocol
+        result['sampling'] = sampling_protocol()
+    return result
+
+
+def corruption_names(args) -> list:
+    """Predeclared evaluation scope; never infer a corruption from input."""
+    from research_artifacts import CORRUPTIONS
+    if args.corruption:
+        return [args.corruption]
+    return [c for c in CORRUPTIONS
+            if c != 'background' or getattr(args, 'corruption_scope', 'all15') == 'all15']
 
 
 def selected_indices(args) -> dict:
@@ -102,7 +115,7 @@ def selected_indices(args) -> dict:
     if value.get('schema_version') != 1 or value.get('dataset') != 'modelnet40_c':
         raise ValueError('Invalid index manifest schema/dataset')
     indices = value['indices']
-    required = [args.corruption] if args.corruption else list(CORRUPTIONS)
+    required = corruption_names(args)
     for name in required:
         ids = indices.get(name, [])
         if not ids or len(ids) != len(set(ids)) or any(type(i) is not int or not 0 <= i < 2468 for i in ids):
@@ -145,8 +158,13 @@ class TrajectoryObserver:
         self.rng_before = rng_hash()
         self.mark('input_preprocess')
 
-    def bind(self, vae, classifier, preprocess):
+    def bind(self, vae, classifier, preprocess, prepare_sampling_cloud=None):
         self.vae, self.classifier, self.preprocess = vae, classifier, preprocess
+        self.prepare_sampling_cloud = prepare_sampling_cloud
+
+    @property
+    def sampling_enabled(self):
+        return self.options.get('sampling', {}).get('mode') == 'paired'
 
     def encode_rng_start(self):
         return _rng_state() if self.options['mode'] == 'audit' else None
@@ -193,9 +211,20 @@ class TrajectoryObserver:
                                       style=style.squeeze(3).squeeze(2))
             geometry = points[:self.options['geometry_samples_per_batch']].detach().cpu().numpy().copy()
             self.mark('probe_preprocess_fps')
-            points = self.preprocess(points)
+            if self.sampling_enabled:
+                from trajectory_sampling import native_fps
+                cloud = self.prepare_sampling_cloud(points)
+                points, indices_a = native_fps(cloud)
+            else:
+                points = self.preprocess(points)
             self.mark('probe_classifier')
             logits = self.classifier.classification_only(points, only_unmasked=False)
+            extra = None
+            if self.sampling_enabled:
+                from trajectory_sampling import collect_views
+                extra, hashes['sampling'] = collect_views(
+                    cloud, indices_a, logits, self.classifier, self.ids,
+                    self.seed, 2, self.mark)
             self.mark('probe_artifact')
             self.mark('probe_guard_and_hash')
         after = rng_hash()
@@ -207,14 +236,15 @@ class TrajectoryObserver:
         if buffers_after != buffers_before:
             raise RuntimeError('Probe changed model buffers after restoration')
         self._save(logits, 'clean_%02d' % (loop_index + 1), loop_index, int(timestep),
-                   'predicted_clean', 'pre_update', hashes, geometry)
+                   'predicted_clean', 'pre_update', hashes, geometry, extra)
 
     def final_state(self, latent, style, timestep):
         self.mark('terminal_state_hashing')
         self.final_hashes = dict(latent=tensor_hash(latent), style=tensor_hash(style))
         self.last_timestep = int(timestep)
 
-    def _save(self, logits, name, loop_index, timestep, kind, style_timing, hashes, geometry=None):
+    def _save(self, logits, name, loop_index, timestep, kind, style_timing, hashes, geometry=None,
+              extra=None):
         array = logits.detach().cpu().numpy().copy()
         if array.shape != (self.count, 40) or not np.isfinite(array).all():
             raise ValueError('Expected finite B x 40 trajectory logits')
@@ -223,6 +253,8 @@ class TrajectoryObserver:
         entropy = -(np.exp(logp) * logp).sum(1) / np.log(40)
         filename = '%04d_%s.npz' % (self.batch, name)
         data = dict(indices=np.asarray(self.ids), logits=array, predictions=array.argmax(1), entropy=entropy)
+        if extra is not None:
+            data.update(extra)
         if geometry is not None and len(geometry):
             data.update(decoded_geometry=geometry, geometry_indices=np.asarray(self.ids[:len(geometry)]))
         # Exclusive write; interrupted traces remain present but cannot pass analysis.
@@ -232,10 +264,19 @@ class TrajectoryObserver:
                                     loop_count=loop_index+1, timestep=timestep, kind=kind,
                                     style_timing=style_timing, hashes=hashes))
 
-    def terminal(self, logits, targets):
+    def terminal(self, logits, targets, sampling_context=None):
+        extra = None
+        if self.sampling_enabled:
+            if sampling_context is None:
+                raise ValueError('Sampling requires normalized terminal cloud and A indices')
+            from trajectory_sampling import collect_views
+            cloud, indices_a = sampling_context
+            extra, self.final_hashes['sampling'] = collect_views(
+                cloud, indices_a, logits, self.classifier, self.ids,
+                self.seed, 8, self.mark)
         self.mark('terminal_artifact')
         self._save(logits, 'terminal', self.horizon-1, self.last_timestep,
-                   'original_terminal', 'post_update', self.final_hashes)
+                   'original_terminal', 'post_update', self.final_hashes, extra=extra)
         self.mark(None)
         record = dict(schema_version=1, complete=True, corruption=self.corruption, seed=self.seed,
                       indices=self.ids, targets=targets.detach().cpu().view(-1).tolist(),

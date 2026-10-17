@@ -160,6 +160,8 @@ class ObserverTests(unittest.TestCase):
 
     def test_real_legacy_loop_preserves_guidance_and_pre_update_style(self):
         from types import SimpleNamespace, ModuleType
+        from unittest.mock import patch
+        from trajectory_sampling import sampling_protocol
         from tests.test_legacy_gsd_numerics import load_source, Scheduler, VAE, Prior, chamfer
         from legacy_trajectory import TrajectoryObserver, rng_hash
         native = ModuleType('third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D')
@@ -192,25 +194,32 @@ class ObserverTests(unittest.TestCase):
             use_4d_gft = False
             def __call__(self, local):
                 return local[:, :, :3].detach(), torch.eye(2048)[None], torch.linspace(0, 4, 2048)[None]
+        def sample(points, count=1024):
+            return points[:, :count].contiguous(), torch.arange(count)[None].expand(len(points), -1)
         previous_threads = torch.get_num_threads()
         torch.set_num_threads(2)
         try:
-            with workspace_temp() as root:
+            with workspace_temp() as root, patch('trajectory_sampling.native_fps', sample):
                 results = []
-                for mode in ('off', 'audit', 'observe'):
+                for mode in ('off', 'audit', 'observe', 'paired'):
                     random.seed(42); np.random.seed(42); torch.manual_seed(42)
                     vae, prior, classifier = RecordingVAE().eval(), RecordingPrior().eval(), Classifier().eval()
                     observer = None
                     if mode != 'off':
+                        options = dict(mode='observe' if mode == 'paired' else mode,
+                                       checkpoints={'10': [3, 5, 8]}, geometry_samples_per_batch=1)
+                        if mode == 'paired':
+                            options['sampling'] = sampling_protocol()
                         observer = TrajectoryObserver(root / mode, 'gaussian', 42, [13], 10,
-                            dict(mode=mode, checkpoints={'10': [3, 5, 8]}, geometry_samples_per_batch=1))
+                                                      options)
                         observer.begin(1, torch.device('cpu'))
-                        observer.bind(vae, classifier, lambda x: x)
+                        observer.bind(vae, classifier, lambda x: sample(x)[0],
+                                      prepare_sampling_cloud=lambda x: x)
                     points, metrics = module.tta_gsd_reconstruct(torch.zeros(1, 2048, 3),
                         SimpleNamespace(vae=vae, priors=[None, prior]), Graph(), 10, .01, .01, .95,
                         loss_weights={'spectral': 1.17, 'chamfer': 1.}, M_max=800, trajectory_observer=observer)
                     results.append((points.detach().clone(), metrics, rng_hash(), prior.styles))
-                    if mode == 'observe':
+                    if mode in ('observe', 'paired'):
                         self.assertEqual(len(vae.calls), 4)
                         for call, step in zip(vae.calls[:-1], (3, 5, 8)):
                             torch.testing.assert_close(call[1], prior.styles[step-1].squeeze(3).squeeze(2), rtol=0, atol=0)
@@ -218,13 +227,14 @@ class ObserverTests(unittest.TestCase):
                         self.assertFalse(torch.equal(vae.calls[-1][1], prior.styles[-1].squeeze(3).squeeze(2)))
                         self.assertTrue(classifier.assertion)
                     if observer:
-                        observer.terminal(torch.zeros(1, 40), torch.tensor([2]))
+                        observer.terminal(torch.zeros(1, 40), torch.tensor([2]),
+                                          sampling_context=(points, sample(points)[1]))
                         if mode == 'audit':
                             record = json.loads((root / mode / 'trajectory' / 'gaussian' / '0000.json').read_text())
                             self.assertTrue(record['encode_replay']['exact_latent_match'])
                             self.assertTrue(record['encode_replay']['post_rng_restored'])
                             self.assertTrue(record['encode_replay']['buffers_unchanged'])
-                        if mode == 'observe':
+                        if mode in ('observe', 'paired'):
                             record = json.loads((root / mode / 'trajectory' / 'gaussian' / '0000.json').read_text())
                             for candidate in record['candidates']:
                                 if candidate['kind'] == 'predicted_clean':

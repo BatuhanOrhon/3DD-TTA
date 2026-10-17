@@ -18,7 +18,14 @@ REFERENCE = '5c3ed88314f1c3d50ab77d17f7c6ba22da59c441'
 class StripTrajectoryObserver(ast.NodeTransformer):
     """Only remove opt-in hooks, leaving the entire Legacy mathematical body."""
     def visit_If(self, node):
+        if ast.unparse(node.test) == "args.trajectory_sampling == 'paired'":
+            return [self.visit(child) for child in node.orelse]
         if 'trajectory_observer' in ast.unparse(node.test):
+            return None
+        return self.generic_visit(node)
+
+    def visit_Assign(self, node):
+        if ast.unparse(node) == 'sampling_context = None':
             return None
         return self.generic_visit(node)
 
