@@ -3338,3 +3338,867 @@ pilot does not prove stable benefit or qualify as independent confirmation.
 Keep Shear's negative/mixed results visible. Do not start all15 before Phase5
 is assessed. Recorded sum of arm runtimes is175.58s; setup/serialization are
 outside that sum. Peak GPU allocation is about15.16GB.
+
+## 2026-10-05 - Phase 5 P_PC selection and plan prepared
+
+[Code] On `gsd-smooth-spectrum@fa03d5032a63cd2c283b2f07236f4201fc221de8`, audited `gsd_composition_protocol.py`, `scripts/run_gsd_composition.py` and `scripts/analyze_gsd_composition.py`. The `replicate` phase, frozen selection-manifest schema and P_PC canonical route already exist; no inference source changes were required. The replicate runner requires a `projection` phase reference for a P_PC selection. Keep the final candidate-gate evidence separately tied to `control_completion/attempt-0001`; do not relabel that phase as the selection source.
+
+[Run/Code verification] Generated `result/modelnet40_c/gsd_guidance_composition_v1/replicate/selection_manifest.json` with `make_selection_manifest` and validated it with `validate_selection_manifest`. Frozen selection SHA-256 is `56a256da5b4c5d789f83ce8ea4230b8746ec4f9db242ad22597c436decceaa2d`; candidate P_PC, comparators C_SCD/P_SUM/P_NORM. Pure `build_plan` preview against completed `projection/attempt-0001/phase_manifest.json` resolves branch `gsd-smooth-spectrum`, HEAD `fa03d5032a63cd2c283b2f07236f4201fc221de8`, four corruptions, 256 unique replication indices, seeds0/1/2, 12 paired blocks, exactly48 planned arms and12,288 classifications. No runner CLI, model, CUDA or inference call ran. The preview used the installed local Python3.13/NumPy2.3.2 only as CPU planning code; Colab commands explicitly use conda environment `3dd_tta_env` for NumPy and analysis.
+
+[User report/Scope] User requested Colab execution and did not authorize local GPU inference. No Colab run was launched. I ran no stage/commit/push/reset/delete command. The read-only reflog shows HEAD advancing from `f2a152c` at22:43:45 +0300 to user-authored `fa03d50` (`docs(knowledge): sync research notes`) at22:45:57 +0300 while this task was active; this was not a command issued by this preparation. Preserve that observed commit as-is. Existing user changes and untracked results, including the separate M_max=1800 notes, were not selected or altered; this entry is a separate Phase5 append.
+
+[Open] User must review the preview and start the GPU cell in Colab. Afterward validate the phase manifest, all48 arm ZIPs, ordered indices, eight prepared batches and component hashes per arm, runtime/assets/native identities and all recorded inference-source hashes. Only complete arms in a complete phase can supply the paired accuracy result. Report four corruption means, per-seed deltas and per-corruption uncertainty; no cross-corruption pooled bootstrap because object correspondence is unverified. Evaluate the frozen Phase5 thresholds without tuning. No outcome automatically authorizes `all15`.
+
+[Handoff] Four separate Colab cells and the post-run audit/analyzer/download steps are in `gsd_phase5_colab_handoff_20261005.md`. `knowledge/open_questions.md` keeps execution and result validation open.
+
+## 2026-10-06 - Phase 5 Colab download cell corrected
+
+[User report/Code] The user reports that Phase 5 post-run validation succeeded for48 complete arm ZIPs across12 paired blocks, and `analyze_gsd_composition.py` wrote `replicate/attempt-0001/analysis/analysis.json`. Packaging then failed at `from google.colab import files` because it ran under `%%bash` in a subprocess without the notebook's `google` module. This is an output-transfer failure after analysis, not an inference or artifact-validation failure.
+
+[Code] The first documentation correction separated bash packaging from the notebook-kernel download. The user clarified that they need the entire post-run cell fixed. The current Cell4 is a normal Python notebook cell: it invokes audit/analyzer as `conda run` subprocesses, then packages and calls `google.colab.files.download` in the notebook kernel. This fixes the process-boundary cause without rerunning inference. Remote Colab data was not available to this workspace, so ZIP creation/download was not executed locally.
+
+
+## 2026-10-06 - Phase 5 P_PC replication attempt-0001 validated
+
+[Run/User supplied] Raw ZIP `result/modelnet40_c/gsd_guidance_composition_v1/replicate/attempt-0001.zip`, 44,022,540 bytes, SHA-256 `028d31bec666bf0bd0e4427e7a64799ade78f2b3f3eb2e283b0285a6ed1e3a29`, is retained unchanged. All51 archive entries pass CRC/safe-path checks and match fresh extraction. Derived audit, recomputation and report are separate in `replicate/attempt-0001/analysis_ingested/`.
+
+[Run] Phase and execution status complete:48 complete arm ZIPs,12 paired blocks, zero partial/failed arms, next256 locked indices, seeds0/1/2, Gaussian/Impulse/Background/Shear,12,288 classifications. Fixed config, canonical arm routes, index/label/prediction/logit counts, artifact hashes and sample-step coverage validate. All four arms share eight prepared batches per block; component hashes, reconstructed aggregate input hashes and derived RNG keys match. Phase/config/runtime fingerprints recompute exactly. Recorded assets/native/runtime match across arms and the earlier control-completion pilot. Original tensor/model/native binary bytes are absent here, so their recorded hashes cannot be independently remeasured locally.
+
+[Run/Code] Colab records `gsd-smooth-spectrum@86fb15544f1a82a31afccd99427bb39f3a3c53e4`, rather than preparation HEAD `fa03d5032a63cd2c283b2f07236f4201fc221de8`. All nine inference-source hashes match the run commit, current HEAD and LF-normalized working files; the analyzer is also unchanged. Runtime is Python3.8.20/torch2.1.2+cu121/CUDA12.1/A100-SXM4-80GB using `3dd_tta_env`. The local NumPy-only audit reproduces Colab counts and decisions;18 floating fields differ by at most1.78e-15. Both analyses and exact roundoff differences are retained. No inference ran locally.
+
+[Run] Equal-corruption macro mean +/- sample SD across seeds: C_SCD65.104167 +/-0.203288%, P_SUM65.332031 +/-1.184019%, P_PC65.950521 +/-0.298345%, P_NORM65.266927 +/-0.056382%. P_PC-C_SCD seed deltas are +0.683594/+0.976562/+0.878906pp, mean +0.846354pp (SD0.149172). P_PC-P_SUM mean +0.618490pp (SD1.368350), P_PC-P_NORM +0.683594pp (SD0.292969). P_PC loses to P_SUM in seed0 (-0.78125pp). P_PC corrects80/breaks54 vs C_SCD,79/60 vs P_SUM and73/52 vs P_NORM across all recorded predictions.
+
+[Run/Decision] Every unchanged Phase5 development criterion passes: mean vs C_SCD +0.846354 >=+0.2pp; all three seed differences positive; Background +2.083333 >=-1pp; mean vs both P_SUM and P_NORM positive. The pilot direction replicates at this scope with a smaller mean effect than the first64/seed0 pilot (+2.34375pp). This is not statistical proof, independent held-out confirmation or automatic all15 promotion. No new run, tuning, stage, commit or push was performed.
+
+[Run/Inference] P_PC-C_SCD per-corruption deltas and95% paired intervals (pp): Gaussian0 [-1.1719,+1.3021], Impulse+0.2604 [-1.0417,+1.6927], Background+2.0833 [0,+4.2969], Shear+1.0417 [+0.1302,+2.0833]. Intervals use2,000 per-corruption bootstrap resamples, clustering three seed repeats within original index. Cross-corruption correspondence is unverified; no pooled object bootstrap. Mechanism-contrast intervals all touch/include zero; Impulse P_PC-P_NORM is negative. P_NORM matches the hypothetical projection norm at its own state, not identical norms along diverging trajectories. Thus the favorable aggregate controls do not establish a unique directional causal explanation.
+
+[Run] Diagnostics contain153,600 timestep rows, verified against256 examples per arm at5/35 steps; these are not additional accuracy samples. Nonterminal P_PC style conflict rates are43.39% Gaussian,50.07% Impulse,70.63% Background and29.72% Shear; no style projection skipped. Sum of recorded arm runtimes2118.41s excludes setup/shared preparation/packaging; peak allocation15185.17MiB. The existing analyzer's `total_seconds` aggregate is empty due to its field lookup; cost above is computed directly from raw `total_runtime_seconds`. No production-source change was made.
+
+[Open] Generalization beyond these four development corruptions and causal separation of direction/norm effects remain unresolved. A provenance/pairing error would invalidate this acceptance; broader separately authorized evaluation could contradict a general benefit claim. Keep the completed pilot/replication and Background SCALE_100/1000 nonfinite failures; no repeats or optimum-scale claim follows. Separate user M_max=1800 notes remain untouched.
+
+[Evidence] [Full validation, paired tables and fixed gate decision](../result/modelnet40_c/gsd_guidance_composition_v1/replicate/attempt-0001/analysis_ingested/validation.md); machine-readable `phase5_audit.json`, `analysis.json`, `colab_comparison.json` and reproducible offline scripts in the same derived directory.
+
+
+## 2026-10-06 - Phase 6 all15 preparation explicitly authorized
+
+[User report/Decision] After reviewing the successful Phase5 result, the user authorized preparing the P_PC versus matched C_SCD full15 evaluation and requested runnable Colab cells with reliable download handling. Scope:15 corruptions,2468 indices each,seeds0/1/2,45 paired blocks,90 arm ZIPs,222120 classifications. No new model/algorithm setting, pilot repeat or Background100/1000 retry is included. Full-test-set development performance evaluation; mechanism contrasts remain limited to Phase5.
+
+[Code] Added `scripts/gsd_all15_colab.py` and `knowledge/gsd_phase6_colab_handoff_20261006.md`. Existing runner/protocol/inference sources already support all15 and remain unchanged. The helper validates the accepted Phase5 reference ZIP/manifest, creates a separate relocated reference manifest pointing at original arm ZIPs, freezes a new selection (source `replicate`, P_PC, C_SCD), and calls pure `build_plan`. New selection SHA-256 is `33e39ba3f601451122581fe335fd0810704c87f6abae42b4b3c7e75e857e29b7`. Old raw and selection manifests are retained unchanged.
+
+[Run/Code verification] CPU preview at preparation HEAD `fa03d5032a63cd2c283b2f07236f4201fc221de8` confirms45 blocks/90 arms/222120 classifications,78 batches per block with last batch4. No all15 attempt directory or inference was created. Python3.8 helper syntax and all four cells' embedded Python parse. Exercised packaging on the existing Phase5 artifact: all51 original entries and48 nested ZIPs match byte-for-byte, CRC passes; evidence is `result/preparation/gsd_all15_20261006/packaging_verification.json`. This is packaging verification, not a new accuracy run or a live browser download check.
+
+[Code] Post-run audit rejects partial/failed phases as complete accuracy, verifies all90 arm bundles, indices, shared components/RNG keys, config/runtime/assets/native/source identities and sample-step coverage, and runs the existing analyzer in `3dd_tta_env`. Separate derived postrun directories preserve supplied raw analyses. Even audit/analyzer failure leads to a clearly named UNVALIDATED archive of available raw files. Only byte-identical extracted copies of ZIP members are omitted; incomplete/divergent files remain. Unique archive/receipt names, CRC and SHA-256 checks avoid selecting stale packages. `google.colab.files.download` runs only in the notebook kernel; browser failures retain the verified ZIP for manual download.
+
+[Run/Inference] Three historical full-screen SCD ZIP configs lack the current composition prepared-input/component identity contract; no prior full all15 composition attempt is present. New same-process paired C_SCD is necessary for this newly authorized P_PC comparison; other archived baselines remain descriptive controls.
+
+[Open] User-run Colab execution and subsequent complete artifact ingestion remain pending. Frozen reporting: macro15 primary; macro14, Background, per-corruption and per-seed differences, sample SD, paired uncertainty, runtime/memory. No automatic outcome claim or post-result tuning. Existing dirty user notebook, result files and M_max notes are excluded from staging/commit/push.
+
+
+[Code/Git verification] Phase6 helper and new handoff only were committed as `3c80105c828245a31aaa3dec4af22fd565f4a718` (`feat(gsd): add all15 Colab handoff`) and pushed to `origin/gsd-smooth-spectrum`. Read-only `git ls-remote` confirms the exact remote commit. Default `.git/index.lock` access was denied; the scoped Git operations succeeded with approved escalation. User notebook, existing knowledge edits, M_max notes, raw results and local derived artifacts were not staged or committed.
+
+
+## 2026-10-06 - Phase 6 Cell1 Colab dirty-tree blocker corrected
+
+[User report/Code] The first Phase6 Cell1 aborted on any tracked Colab change (`git diff --quiet`) before synchronization or environment checks. This was overly broad; it could block harmless notebook edits. Replaced it in `gsd_phase6_colab_handoff_20261006.md`: fetches commit objects only (no checkout/pull/reset/stash), installs just the pinned helper while preserving a differing helper copy, checks the nine Phase5 inference-source files against run commit `86fb155`, then checks `3dd_tta_env` and assets. It prints the current branch/status and stops with per-file hashes only if an inference source differs. The user Colab state and the original erroring tracked files remain untouched.
+
+[Code verification] Re-parsed all four documented cells and embedded Python bodies; all parse. The inference helper remains commit `3c80105` unchanged. No inference was started in Colab or locally by this fix.
+
+
+## 2026-10-06 - Phase 6 Colab helper placement fixed
+
+[User report/Code] On retry, Colab fetched successfully but the first cell failed writing `scripts/gsd_all15_colab.py` because the existing checkout has no `scripts/` directory. Avoid creating files inside this dirty checkout. The latest Cell1 creates a detached worktree at the pinned Phase6 commit under `/content/3DD-TTA-phase6`, links read-only source data/checkpoints/compiled Chamfer and the shared result tree, verifies all nine inference files against Phase5 commit `86fb155`, and checks `3dd_tta_env`. Cells2-4 now use the isolated workspace; output paths are shared through the result-directory symlink. The finalize audit accepts detached provenance (empty branch name), while requiring exact commit-bound source hashes. No reset, pull, checkout or source overwrite is done to the user's original tree.
+
+[Code verification] All four documented cells and embedded Python blocks parse; user-reported first-cell failure has been traced to the absent parent directory. No GPU run was launched. Isolated worktree creation/symlinks and live Colab remain to be exercised by the user in Colab.
+
+[Code/Git verification] Isolated workspace helper changes were committed only with the Phase6 helper/handoff as `32a6c6b50f69e9236b66c2ecc7c4d219f7e1077b`. Cell1 is pinned to that commit. Existing user notebook and knowledge edits remain unstaged.
+
+
+## 2026-10-07 — Phase 6 all15 independent audit (run completed 2026-10-06)
+
+[Run] Raw `result/modelnet40_c/gsd_guidance_composition_v1/all15/attempt-0001_all15_validated_20261006T201838Z-796974.zip`
+is unchanged:479306228 bytes, SHA-256
+`c0d4aedffc03379dbf7ccd5fc0d0154c57230ef9496de1e1d948e282572b62c2`.
+Recomputed outer CRC/safe paths and all90 inner ZIP CRCs/ten-file inventories,
+artifact hashes, finite40-class logits/argmax, indices, counts, CSV schemas,
+manifest/config identities and diagnostic coverage.45 complete matched blocks,
+90 complete arms,222120 classifications; no missing/duplicate/partial/failed arm.
+There are222120 graph rows and1554840 sample-step rows, not additional accuracy
+samples. All15 uses ordered0-2467, not the shuffled Phase5 next256 list.
+
+[Run/Code] Run and ingestion HEAD are
+`gsd-smooth-spectrum@c18926ff7751ed9023313869229f5d4dffe218be`.
+All nine inference-source identities match that commit and Phase5's86fb155
+Git bytes. Six working files match raw; main_3dd_tta.py,run_baseline.py,tta.py
+match after CRLF-to-LF only. Frozen selection recomputes to
+`33e39ba3f601451122581fe335fd0810704c87f6abae42b4b3c7e75e857e29b7`.
+Phase5 reference ZIP SHA028d31...1e3a29 matches; its bundled relocated manifest
+differs only in96 storage-path fields. All3510 batch component/state/noise
+identities and preparation/classification draw keys agree between paired arms.
+Runtime/assets/native identities are constant within Phase6. Three native
+binary hashes differ from Phase5; no cross-phase common-state claim is made.
+
+[Run/Code/Open] Handoff Cell1's full pin32a6c6b50f69e9236b66c2ecc7c4d219f7e1077b
+is unavailable in local Git; history records32a6c6baa3d1228c75712e799c78ac65bef441e0.
+The actual preview/log/manifest consistently use c18926f and /content/3DD-TTA,
+not the documented detached /content/3DD-TTA-phase6. This documentation/setup
+deviation does not imply an inference-source mismatch. Original tensor/data/
+checkpoint/binary bytes are absent from the ZIP. kNN's recorded hash covers
+__init__.py, not a compiled kNN binary; full package/dirty-state/determinism
+inventory is unavailable.90 empty arm stdout files are supplemented by the
+shared execution log; completion is established from artifact coverage.
+
+[Run] Macro15 mean +/- sample SD: C_SCD63.974428 +/-0.209487%,
+P_PC64.011345 +/-0.241410%. Paired deltas by seed0/1/2:
+-0.002701/+0.056726/+0.056726pp; mean +0.036917 +/-0.034310pp.
+Macro14 excluding Background: +0.017365 +/-0.053130pp; Background:
++0.310643 +/-0.244235pp.6 corruption means positive,8 negative,1 zero.
+All per-corruption95% intervals include zero.20,000 per-corruption paired
+bootstrap resamples cluster all three seed repeats inside original index;
+no pooled cross-corruption or macro object interval. The original analyzer's
+2000-resample method was also replayed unchanged. Counts:1464 corrected,
+1423 broken,5822 disagreements; net41 correct among111060 prediction pairs.
+
+[Run/Inference] Phase5's +0.8464pp and Background +2.0833pp are retained at
+their four-corruption/next256 scope. The all15 effect is much smaller and has
+mixed seed directions; a broadly stable gain is not supported. This is full
+test-set development performance, not independent confirmation, equivalence,
+automatic promotion or full-scope proof against P_SUM/P_NORM. No new outcome
+threshold or algorithm tuning was introduced. Background100/1000 nonfinite
+failures and the separate M_max=1800 research record remain unchanged.
+
+[Run/Code] Packaged audit/counts/transitions agree. Local Python3.13/NumPy2.3.2
+CPU replay uses the unchanged commit-bound analyzer calculation code with a
+documented streaming I/O adapter after independent validation; local conda/
+3dd_tta_env was unavailable.20 float fields differ by <=5.55e-16, no substantive
+analysis difference. Existing analyzer total_seconds is empty due to a field
+lookup error; raw manifest totals are C_SCD13544.839s and P_PC13629.588s,
+peak15376.960MiB. Shared preparation640.756s is counted once; graph is within
+sampling. These are instrumented-suite timings, not plain standalone SCD cost.
+
+[Evidence] [Dated report](../result/modelnet40_c/gsd_guidance_composition_v1/all15/analysis_20261006_independent/validation_20261007.md), all45 per-seed count/accuracy rows,
+15 corruption mean/SD/interval rows, code/artifact audits and replay receipts
+are in `all15/analysis_20261006_independent/`. Raw ZIP rehashed unchanged.
+Only derived outputs and dated Phase6 knowledge additions were made; pre-existing
+tracked changes/notebook, untracked user artifacts and M_max notes were preserved.
+No GPU/model inference, reset/clean/stage/commit/push or new test suite was run.
+This later result supersedes the preceding preparation/pending-output statements
+without deleting their history.
+
+
+## 2026-10-07 ? User sets all15 accuracy as the immediate priority
+
+[User decision] The user prioritizes +1?2 absolute percentage points in all15
+macro accuracy as the intended empirical foundation of a paper and expresses
+disappointment with the style results. Treat this as the forward research
+objective; do not substitute additional mechanism-only ablations for that goal.
+The target does not alter any registered Phase5/6 interpretation threshold.
+
+[Run/CSV-only] Read the existing standalone eval_results.csv files under
+result/modelnet40_c/gsd_smooth_optimal/ and gsd_smooth_optimal_1800/. Fifteen-row
+equal-weight means recompute to64.532684% (M800) and64.505672% (M1800). These
+directories contain only CSVs; they do not supply the full manifests, seed
+replication or matched SCD control required to call the differences verified
+method gains. Their historical notes refer to the separate
+gsd-tta-smooth-integration branch, B70, beta2/weight1.17. Preserve that branch
+and its notes; no configuration/result was changed or pooled with Phase6.
+
+[Inference/Proposal] Stop prioritizing additional P_PC/style variants or
+routing reruns after the near-zero all15 result. First locate existing exact
+source/config/provenance and comparator evidence for the higher descriptive
+smooth-branch score; its corruption pattern can identify the next concrete
+accuracy hypothesis, but cannot justify label-based corruption-specific
+selection. Current C_SCD63.974428% implies a same-protocol target near65?66%;
+this is an aspiration, not an established achievable effect. +1?2pp represents
+roughly370?740 net extra correct predictions per37020-example seed.
+
+[Code/Scope] Context c18926ff7751ed9023313869229f5d4dffe218be,
+gsd-smooth-spectrum; separate smooth-integration branch exists in another
+worktree. Only read-only inventory/CSV arithmetic and these dated knowledge
+additions were performed. No GPU/model inference, new run, source edit,
+reset/clean/stage/commit/push.
+
+
+## 2026-10-07 - Accuracy branch audit completed; bounded next candidate
+
+[Run/Code] Read the separate smooth-integration worktree at5c3ed883 and
+recomputed three CSV means: multiband64.386817%, M80064.532684%,
+M180064.505672%. Seven tracked sources match that HEAD after CRLF
+normalization, but CSV executed-source identity remains missing. M800
+versus Phase6 C_SCD is an unmatched descriptive+0.558256pp, with large
+Impulse/LiDAR gains and Shear/Distortion losses. No same-host SCD-only
+result was located; a launcher for a different entry point is not evidence
+that this control ran. The October3 inventory has144 archives, zero normal10.
+
+[Inference/Proposal] Park further style/projection variants. Propose one
+current-host SCD candidate: normal10/Background35 versus5/35, other settings
+fixed, all15 development coverage and seeds0/1/2. This changes starting noise
+strength as well as update count; no +1-2pp improvement is promised. The
+completed SCD-off Background step scan does not answer this question.
+No GPU run or implementation was performed. Details, limits, commands and
+prospective action sequence: [accuracy branch audit](gsd_accuracy_branch_audit_20261007.md).
+Historical M_max1800 and failed Background100/1000 records remain intact.
+
+
+## 2026-10-08 - User identifies legacy command; smooth-v2 restored locally
+
+[User report] The64.532684% result used origin/gsd-tta-smooth-integration
+and eval_gsd_tta_v2.py with B70, spectral1.17/SCD1, M800/beta2,
+gamma=eta=.01, lambda.95, normal10/Background30. This resolves the earlier
+missing-command question; exact historical commit, seed and build identities
+remain unrecorded. The user requests porting this structure into the current
+branch and testing it, superseding the proposed normal10/Background35-only
+next action. No parameter sweep is authorized or launched by this restoration.
+
+[Code] Main basec18926f; locally available origin source5c3ed883. Restored
+exact graph_spectral_v2.py/tta_gsd_v2.py plus eval_gsd_tta_v2.py with explicit
+legacy eval modes and an auditable execution shell. Current calibrated smooth
+uses normalized eigenvalues/all modes; legacy uses raw eigenvalues/M800,
+stronger symmetric-degree filtering, isolate penalty/jitter, updated decoder,
+DDIM final-alphaFalse and10/30 steps. These differences are not all bugs.
+
+[Code/CPU tests] 51 tests passed: source/AST parity, CLI and eval modes,
+synthetic graph and gradient math, artifact success/failure counts, existing
+GSD regressions. No actual GPU/model execution or accuracy result. Source
+overlay/Colab smoke/full cells and remaining native-runtime limits are in
+[restoration report](gsd_legacy_smooth_restore_20261008.md). No shared inference
+source defaults were edited, no stage/commit/push; user changes and raw results
+are preserved. Phase6 raw size479306228 and SHA256c0d4aedffc03379dbf7ccd5fc0d0154c57230ef9496de1e1d948e282572b62c2 rechecked unchanged.
+
+
+## 2026-10-10 - Mathematical audit and minimal isolate control handoff
+
+[Code/CPU] See `gsd_spectral_math_audit_20261008.md`: self-query KNN retains
+self edges, so the legacy full-row degree-zero mask misses self-only vertices.
+The minimal opt-in `--isolate_policy offdiag` counts nonzero nonself edges and
+applies the existing penalty1000. No arbitrary epsilon, filter, cutoff,
+decoder, scheduler, guidance or batch change accompanies it. Legacy stays the
+default; `graph_spectral_v2.py` and `tta_gsd_v2.py` preserve the reference core.
+Base commit c18926ff7751ed9023313869229f5d4dffe218be; reference
+5c3ed88314f1c3d50ab77d17f7c6ba22da59c441; changes remain uncommitted.
+
+[Code/CPU] 89 CPU tests pass, including single-mask source-diff restriction,
+self-only vertex penalty, unchanged connected graph, original inference parity,
+artifact lifecycle and existing graph/trajectory/composition regressions.
+A read-only independent review found no important issue; its suggestion to
+hash the optional graph even before import is included. Seven notebook cells
+parse; source ZIP passes CRC, source hashes and Python3.8 grammar checks.
+Records: `result/modelnet40_c/diagnostics/isolate_control_20261010/`.
+
+[Open/Inference] `scripts/gsd_legacy_isolate_control_20261010.ipynb` schedules
+Gaussian/Background two-batch integration checks for each policy, followed by
+all15 severity5 full2468/seed0 per policy (74040 full classifications).
+Parameters remain the user-reported historical B70, M800, beta2, spectral1.17,
+SCD1, gamma=eta=.01, lambda=.95, normal10/Background30. Historical seed/build
+identity remains unknown. New runs are seed-controlled, not prepared-input
+hash-proven pairs. No CUDA/model inference, broad sweep or new result exists.
+A null/negative delta would refute an accuracy benefit in this seed setting;
+a positive single-seed delta would still require replication. Test-set
+development evidence cannot serve as independent validation or a guaranteed
++1?2pp contribution. Preserve the original64.5327% observation as unmatched.
+Raw archives, M1800 notes and failed Background100/1000 records are untouched.
+
+
+## 2026-10-10 - Authorized Git publication of legacy isolate control
+
+[Code/CPU] User explicitly authorized pushing the new scripts. Commit
+12525b8191a2af18aa00eba5dc3129ec2fbcdc0a is verified on
+origin/gsd-smooth-spectrum. It adds five runtime files, two CPU test files,
+`scripts/gsd_legacy_isolate_git_colab.ipynb` and
+`knowledge/gsd_isolate_git_colab_20261010.md`. The notebook continues after
+the original notebook's first six code cells; source ZIP upload is no longer
+required. Previews, experiments, analysis and packaging run in3dd_tta_env.
+89 relevant CPU tests passed freshly; notebook dispatch was mocked and all
+expanded conda payloads parse with Python3.8 grammar. Independent review
+found no blocker. No local GPU/model run or accuracy evidence was added.
+Only the nine new files were committed; prior tracked user modifications and
+raw archives remain outside that commit. Older no-push/ZIP-transfer notes
+describe the earlier handoff and are superseded for this deployment.
+
+
+## 2026-10-10 - Colab setup guard corrected from user trace
+
+[User report/Run] After preparation cells1-6, Colab is at HEAD535e48a,
+base c18926f is an ancestor, required scripts are tracked, and
+`3dd_tta_env` reports CUDA=True on NVIDIA A100. The first handoff cell failed
+because Cell4's PointNet2 build changed the tracked generated file
+`Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/pointnet2_utils.py`; the broad `*.py` dirty-tree guard returned1.
+
+[Code] Cell7 and the repeated launch guard now exclude only that exact generated
+helper. Other changed Python sources still fail the guard. The code alteration
+is committed/pushed separately; no inference or result archive was produced.
+
+
+## 2026-10-10 - Legacy isolate control smoke ingested
+
+[Run] User-provided handoff `20261010T114156946419Z_handoff_20261010T114914115459Z.zip` is preserved byte-for-byte at `result/modelnet40_c/legacy_isolate_control/attempt-0001_smoke_seed0/`. Size243729 bytes, SHA-256 `bd1aae3f9c827c5e7f0baf5dab58f1bf1b633cea7220151f82c36328e53c9a18`. Outer ZIP and all four nested arm ZIP CRCs/path inventories validate. Each arm completed two batches/140 indexed examples with finite40-class logits and accuracy counts matching persisted predictions. All are correctly marked partial smoke, not full corruption results.
+
+[Run] Prefix counts: Background legacy89/140 (63.5714%), offdiag91/140 (65.0000%); Gaussian legacy107/140 (76.4286%), offdiag104/140 (74.2857%). By original index, Background had7 corrected/5 broken (net+2); Gaussian0 corrected/3 broken (net-3). Signs differ; these first140-example prefixes do not estimate all15 or full-corruption accuracy and do not support a gain claim. Pair targets, six asset hashes, 226-entry native inventories, external Python sources, model modes and common CLI parameters match. Prepared input hashes were not recorded, so this is not a hash-proven paired-input result.
+
+[Run/Code] Torch2.1.2+cu121, CUDA12.1, NVIDIA A100-SXM4-80GB. Each arm peaks around60.76GiB allocated. The session manifest records commit535e48a while arm configs resolve80931d6; all five declared runtime source hashes match, and intervening commits only updated notebook/handoff docs. Manifests also show generated PointNet2 build outputs/native files and pycache dirt after setup. See `validation.md`, `validation.json`, and `smoke_summary.csv` beside the preserved ZIP.
+
+[Decision/Open] Smoke implementation completed for all four short arms. Proceed with Cell10 legacy all15 only; inspect its ZIP before Cell11 offdiag all15. No GPU run was performed locally.
+
+## 2026-10-10 - Legacy isolate correction all15 ingested
+
+[Run] The handoff ZIP `20261010T114156946419Z_handoff_20261010T141536060023Z.zip`
+is preserved byte-for-byte at
+`result/modelnet40_c/legacy_isolate_control/attempt-0002_all15_seed0/`.
+It is 12,277,729 bytes, SHA-256
+`534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968`.
+The outer archive and all six nested arm ZIPs pass CRC, duplicate-path and
+traversal checks. The two full arms each report complete coverage of 15
+severity-5 corruptions x 2,468 indices at seed0; four smoke arms remain partial
+as expected. Each full arm's 540 NPZ predictions have finite logits, logits
+argmax matches saved predictions, indices cover 0-2467 once per corruption,
+and counts reproduce the CSVs.
+
+[Code] Session manifest commit is `535e48a`; resolved run commit is
+`80931d6` (descendant); reference commit is `5c3ed88`. All 77 full-run source
+hashes match the resolved Git tree. The five session-declared inference source
+hashes match both full arms. Fixed configuration, assets, 226-entry native
+inventories, external Python sources, model modes, scheduler and RNG protocol
+match; only isolate policy/output path differ. Runtime is PyTorch2.1.2+cu121,
+CUDA12.1, A100-SXM4-80GB. No prepared-input/common-random-draw hashes exist.
+
+[Run] Legacy macro15 is64.570502% (23,904/37,020); offdiag is64.554295%
+(23,898/37,020), delta -0.016207 pp. Macro14 delta -0.014471 pp; Background
+-0.040519 pp. Per-corruption results and index-aligned transitions are in
+`result/modelnet40_c/legacy_isolate_control/attempt-0002_all15_seed0/analysis_ingested/`.
+The bundled Cell12 comparison matches independent recomputation. Prediction
+transitions total872 corrected and878 broken (net -6), with3,571 differing
+predictions. This is descriptive same-index comparison, not hash-proven paired
+inference.
+
+[Inference/Open] One seed per method gives no seed SD or inferential interval;
+separate stochastic trajectories prevent causal attribution of the tiny delta.
+This correction does not deliver the stated +1 to 2 pp accuracy objective and is
+not promoted for accuracy. Historical user-reported64.5327% remains separate:
+the new legacy arm is descriptively +0.0378pp, but historical seed/build/runtime
+identity is missing, so parity is unestablished. The earlier pending/smoke-only
+status is superseded by this completed artifact; retain it as history. Do not
+combine with M_max=1800 or the failed Background100/1000 scale runs.
+
+## 2026-10-11 - Practical legacy reproduction; accuracy research and offline selection
+
+[User report/Run] The user accepts legacy64.570502% as practical reproduction
+of historical64.5327% and requests accuracy-focused research. Historical
+bitwise provenance is still unknown but no longer blocks development. Current
+branch/HEAD: gsd-smooth-spectrum/f670c07440533f01e10fd149fad2480d36f9194c.
+The October10 pending-parity priority is superseded by this user decision.
+
+[Run] CPU-only fixed-rule analysis of the existing all15 seed0 logits:
+probability averaging64.848730% (+0.278228pp, corrected496/broken393), logit
+averaging64.816316%, minimum-entropy selection64.800108%, maximum-probability
+selection64.854133%. No parameters were fitted. Probability averaging improves
+13/15 rows. The label-using selector ceiling66.925986% is explicitly nondeployable.
+Raw ZIP SHA534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968
+verified before/after; archive untouched. Script/JSON/CSV:
+`result/modelnet40_c/legacy_isolate_control/attempt-0002_all15_seed0/analysis_20261011_selection/`.
+
+[Inference] Probability-average conditional95% bootstrap interval is
+[+0.1162,+0.4349]pp:20,000 independent within-corruption paired-index resamples,
+RNG20261011, equal macro15 weighting. Assumes within-stratum exchangeability;
+does not model seed variance/cross-corruption dependence, adjust multiple
+comparisons or establish independent validation. This narrower conditional
+interval is possible despite no seed SD. Two reconstruction costs and one
+seed limit its usefulness; do not attribute diversity specifically to offdiag.
+
+[Code/Paper] Reviewed current legacy spectral fidelity, classifier CLS/max
+pooling and BN, plus Purge-Gate official commit894d4b6372897986eb468038dc6ffbc93f89e38c.
+Official PG-SF prunes before first transformer block, uses entropy over purge
+sizes0/2/4/8/16/32, and recommended commands also reset BN buffers. It uses a
+PointTransformer wrapper/random FPS/different grouping implementation; porting
+the small operation while preserving our Point_MAE/checkpoint is required.
+Other literature scoped: Point-Cache, Uni-Adapter, BayesMM, adaptive diffusion
+and FOCUS. Their task/backbone/training differences preclude direct gain transfer.
+
+[Inference/Open] Proposed next pilot: all15,280 fixed indices/corruption,
+seeds0/1/2; input/no-diffusion, same-host spectral-off SCD, and legacy GSD input
+states, each with gate on/off x frozen/current-batch BN. Only two diffusion
+trajectories per sample; cache geometry for classifier variants. No new GPU
+work or algorithm implementation. Earlier normal5->10 proposal is operationally
+superseded because legacy already uses10/30. Conditional second idea: choose
+among clean decoded trajectory outputs by prediction consistency/entropy.
+Full proposal, falsifiers, costs and references:
+[accuracy research plan](gsd_accuracy_research_plan_20261011.md).
+No guarantee of1-2pp or novelty; no rerun of style/projection, failed100/1000,
+or changes to separate M1800 work. No stage/commit/push.
+
+
+
+## 2026-10-11 - User trajectory proposal and advisor agenda created
+
+[User report] User requests a persistent record of advisor discussion topics,
+including Purge-Gate link/summary, and proposes low-entropy clean diffusion-step
+selection, temporal prediction averaging, early stopping and conditional
+GSD/SCD runtime ablation/removal. New advisor_meeting_log.md separates pending
+topics from actual meeting records; no completed meeting is reported.
+
+[Code] Inspected f670c07440533f01e10fd149fad2480d36f9194c: tta_gsd_v2.py
+produces pred_original_sample before guidance and decodes physical points only
+at the end. Probes require extra decode/preprocessing/Point-MAE forward. Match
+pre-update style to the clean estimate; retain final guided decode separately.
+Spectral weight0 still builds a graph; either loss can retain shared prior
+backward. These limit anticipated savings from component removal/early exit.
+
+[Inference/Open] Proposed sparse observation study: terminal vs min entropy vs
+equal probability mean, same trajectories, all15 and repeated seeds. Confidence
+is not stability/correctness. Follow with causal prefix stopping only if useful;
+measure actual active-batch wall time. GSD/SCD2x2 controls follow conditionally.
+Existing legacy/offdiag +0.2782pp averaging at
+result/modelnet40_c/legacy_isolate_control/attempt-0002_all15_seed0/analysis_20261011_selection/
+is contextual evidence only, not a temporal-run result. Primary calibration
+reference: https://proceedings.mlr.press/v70/guo17a.html .
+
+The earlier PG-first assistant recommendation is superseded as immediate
+research emphasis by this user proposal, without deleting its literature review.
+Full assessment: [trajectory selection](gsd_trajectory_selection_20261011.md).
+No implementation/model test/GPU run, raw archive mutation, stage/commit/push.
+Historical nonfinite100/1000 and separate M1800 records are unchanged.
+
+
+## 2026-10-11 - Clean-session implementation handoff and online correction
+
+[User report] User chooses accepted legacy64.570502% as the baseline for the
+next development session and requests a copyable prompt with knowledge/code
+references. User clarifies that online TTA uses single/small batches, so early
+stopping can skip work without large-batch waiting.
+
+[Code/Inference/Open] Inspected HEAD remains f670c07440533f01e10fd149fad2480d36f9194c.
+At B1 a true early exit skips future diffusion calls; the earlier B70 caveat
+is not applicable to single-sample scheduling. Net latency gain depends on
+saved work minus extra probes. Plan separate B70 benchmark and B1 matched
+latency/accuracy evaluations, causal stopping and explicit horizon assumptions.
+The old B70 result must not serve as a measured B1 baseline. Online unknown
+corruption does not automatically supply the legacy10/30 corruption identity.
+
+New [session handoff](gsd_trajectory_session_handoff_20261011.md) fixes the
+baseline settings/raw artifact, initial opt-in observer/analyzer scope, code
+map, conda-only Colab execution, CPU validation expectations and future stages.
+No inference implementation, tests or GPU execution occurred in this turn;
+only documentation. Dirty/untracked user files and raw results preserved.
+
+
+## 2026-10-11 — Legacy trajectory observation/analyzer implemented
+
+[Code/CPU/Open] Base HEAD f670c07440533f01e10fd149fad2480d36f9194c on
+gsd-smooth-spectrum; changes remain unstaged/uncommitted. User authorized
+implementation, synthetic CPU tests and separate Colab continuation cells.
+Local conda was unavailable; user explicitly approved existing Python3.13.5
+for CPU tests. No local GPU or trained-model inference was launched.
+
+Implemented default-off Legacy observer, audit-only mode, clean latent decoded
+with its matching pre-update forward style at3/5/8 or8/15/23, original terminal
+as a separate untouched candidate, RNG/buffer isolation and model-state audit.
+Added indexed logits/entropy/timing/state/noise/source/assets/native provenance,
+file SHA manifests, CPU-only terminal/minimum-entropy/equal-probability-mean
+analysis, fixed-probe and labelled oracle diagnostics, paired transitions,
+seed SD and original-index clustered development intervals. No thresholds,
+accuracy increase, speedup or early-stop policy are claimed.
+
+[CPU verification] `python -m unittest discover -s tests -q`:
+**234 tests passed in28.480s**, exit0. New tests exercise the actual Legacy loop
+with synthetic CPU dependencies; outputs/guidance/RNG agree across off/audit/
+observe, and probe styles are exactly pre-update. Tests also cover buffer
+exception restoration, untouched version counters, policy arithmetic/ties,
+index selection, corrupted artifacts and simulated all15 audit packaging.
+Python3.8 AST syntax passes for the six inference/observer/analysis/runner files.
+Notebook Python and embedded conda-Python blocks parse. Its source installer
+was executed against a disposable CPU fixture:81 files installed, an unknown
+edit was rejected before writes and retained. Source ZIP CRC and all81 current
+source hashes match. Partial independent review identified missing cross-run
+runtime provenance matching; native/external/environment/model-state comparisons
+were added. The reviewer then hit its usage limit; full final independent review
+was not completed, and no claim to that effect is made.
+
+Receipt and complete log:
+`result/modelnet40_c/diagnostics/legacy_trajectory_20261011/verification.json`
+and `cpu_tests.log`. CPU evidence is not native CUDA parity or model accuracy.
+
+[Run integrity] The original Legacy raw ZIP SHA remains
+534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968.
+Operational reference remains Legacy B70/M800/10-30 seed0 **64.570502%**.
+Offdiag/Phase6, M1800 and failed Background100/1000 are not substituted or rerun.
+The original user-modified notebooks, graph, Point-MAE and classifier config
+were not edited. No reset/clean/stage/commit/push.
+
+[Colab handoff] See [implementation and cells](gsd_trajectory_implementation_20261011.md).
+New notebook: `scripts/gsd_legacy_trajectory_colab_20261011.ipynb`, used after
+the original notebook's first6 code preparation cells. Source upload:
+`result/preparation/legacy_trajectory_20261011/legacy_trajectory_source_20261011.zip`,
+SHA256 c44c243929b64c5628bfc3d49152cdd9416d06e0c07fb8ef67aea83e545dcc9c.
+Conda-only compute cells; off/audit/observe Gaussian+Background smoke first,
+then STOP and review/download; separate all15/280/seeds0–2 development pilot,
+then STOP. Each sealed arm and the full timestamped handoff ZIP have verified
+Drive backups; download full logs/logits, not screenshots. Pilot remains unrun.
+
+[Inference/Open] Falsifier remains absent/harmful selection or averaging gains,
+confident wrong minima, fixed-probe equivalence or terminal voting explaining
+any effect. Low entropy, correctness and temporal stability remain distinct.
+Later onlineB1 stopping must use observed prefixes and measure real net latency
+against same-B1 full horizon including probes. B70 throughput is separate;
+unknown-corruption horizon, actual GSD/SCD compute skips, novelty and independent
+evaluation remain open. Purge-Gate is still only advisor agenda/comparator.
+
+
+## 2026-10-11 — Historical step-count evidence rechecked for trajectory hypothesis
+
+[Run/Code/Inference/Open] At HEAD f670c074 with observer working-tree changes,
+rechecked24 raw Background ZIP hashes/CRCs/counts for two SCD-off arms,
+steps5/10/15/20, seeds0/1/2. Smooth-only5-to10 improves+1.080497pp; unguided
+improves+0.540249pp, both positive in all three seeds.10-to20 falls-1.148028pp
+and-0.891410pp respectively, also consistently across seeds. Existing25-step
+results rebound, so10 is not declared optimal. B32 no-SCD results do not
+substitute the current Legacy B70/M800/SCD-on baseline.
+
+Updated unmatched Phase6 normal5 versus restored Legacy normal10 contrasts:
+Impulse+8.684495pp, LiDAR+5.294435pp, Gaussian+1.755808pp, Shear-3.552134pp,
+Distortion-1.580227pp (Phase6 seeds0–2 mean versus Legacy seed0). Batch,
+guidance/graph, scheduler and final style also differ; no step-only attribution.
+No completed same-Legacy all15 step5/10 control was identified in the searched
+knowledge. The earlier October7 proposal was not an executed experiment.
+
+Critical distinction: changing5 to10 also changes initial timestep t40 to t90.
+This is not stopping a fixed10-step trajectory after five steps. Evidence
+motivates adaptation-depth sensitivity, but same-trajectory selection/entropy
+benefit remains unproven. [Full assessment](gsd_step_count_evidence_20261011.md).
+Derived CPU results (no model inference):
+`result/modelnet40_c/diagnostics/trajectory_step_evidence_20261011/analysis.json`
+and its two CSVs. Raw archives/code unchanged; no repeats or Git writes.
+Falsifier: no same-trajectory policy/candidate advantage in the planned pilot.
+
+
+## 2026-10-11 — User-directed seed0-only trajectory screening
+
+[User decision/Code/CPU/Open] User requests saving time by evaluating all15
+at seed0 first, with seeds1/2 conditional on useful policy benefit. Updated
+`scripts/legacy_trajectory_colab.py` session manifest, launch generation,
+preview and automatic analyzer inputs to seed0 only. Smoke remains6 seed0
+arms/840 examples; pilot is now15×280×1 =4,200 examples (previous12,600).
+B70/M800, normal10/Background30, probes and fixed original IDs are unchanged;
+index-selection seed20261011 is retained. No full2468 benchmark is scheduled.
+
+Notebook `scripts/gsd_legacy_trajectory_colab_20261011.ipynb` now launches and
+analyzes only `pilot_seed0.zip`. Multi-seed analyzer capability remains available
+for later replication. Single-seed summary SD is null; index-bootstrap intervals
+are conditional evidence, not cross-seed stability or a general significance
+claim. Review gains/losses and probe cost, then lock the policy before a separate
+seed1/2 evaluation. No numerical gate or accuracy benefit is asserted.
+
+Updated source package:
+`result/preparation/legacy_trajectory_20261011_seed0/legacy_trajectory_source_seed0_20261011.zip`
+SHA256 `0e6114c6a5049ce171e121547113c1e871184ab8c968120ecfd84f53581a722b`.
+Old source package remains preserved. The installer recognizes its exact prior
+manifest/source hashes, backs up known files and refuses unknown edits. Existing
+run directories are untouched; prior completed smoke evidence must be reviewed
+before any redundant run is scheduled.
+
+[CPU verification] The launcher contract test first failed with3 pilot jobs
+instead of1; after the update, `python -m unittest discover -s tests -q`
+passes234 tests in29.834s, exit0. Tests cover seed0-only commands, session
+pilot/deferred seeds,4,200-index scope and undefined single-seed SD. Notebook
+Python blocks parse as3.8; no seed1/2 input remains in executable cells. The
+source upgrade was exercised in a disposable fixture:81 sources, backup of old
+manifest, unknown edit retained/rejected. Source package CRC/current hashes
+match. Receipt/log:
+`result/modelnet40_c/diagnostics/legacy_trajectory_seed0_20261011/verification.json`
+and `cpu_tests.log`.
+
+Base HEAD remainsf670c074; no GPU/model inference, stage/commit/push or raw
+archive modification. Baseline SHA remains534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968.
+Updated README, protocol, handoff, implementation and open questions record the
+new launch order while preserving historical three-seed planning entries.
+
+
+## 2026-10-11 ? Trajectory smoke stopped at terminal parity
+
+[Run/Inference/Open] User handoff ZIP preserved and CRC-checked:
+`result/modelnet40_c/legacy_trajectory/20261011T135333Z_trajectory_handoff_20261011T142247Z.zip` (SHA-256 `748af41956fa7f958a557a81bed9c6357f157c2f0bc773e77d5b128b728bf532`). Six smoke arms completed 140 examples
+per arm; no pilot started. Provenance, assets, environment, source hashes, IDs
+and labels match across modes. Off/audit terminal predictions differ on9/140
+Gaussian and24/140 Background examples; audit/observe differ on6/140 and22/140.
+
+Audit and observe share input-point, explicit diffusion-noise, and captured
+Python/NumPy/Torch CPU/CUDA RNG hashes per batch, but VAE style/local latent
+hashes already differ before the first clean probe. GPU run used A100-SXM4-80GB,
+PyTorch2.1.2+cu121, cuDNN8.9.2, with deterministic algorithms and cuDNN
+determinism disabled. [Inference] This implicates uncontrolled variability in
+or beneath VAE encoding before any clean probe; probe causality is not shown.
+A same-mode repeat was subsequently completed and confirmed run-to-run VAE
+latent variability before changing the gate. Keep failed parity gate;
+no accuracy or observer-safety claim. [Detailed audit](../result/modelnet40_c/diagnostics/legacy_trajectory_smoke_20261011/validation.md).
+
+
+## 2026-10-11 - Same-mode Gaussian audit repeat confirms run variability
+
+[Run/Inference/Open] Preserved repeated arm:
+`result/modelnet40_c/legacy_trajectory/20261011T135333Z_trajectory/diagnostic_gaussian_audit_repeat.zip`
+(SHA-256 `2d784fbe468000f39df896d97e96994dc85148d5abf9ffa389b9c4adbd323c93`).
+Against the original Gaussian audit, source/assets/native/environment, initial
+model state, indices/targets, input-point hashes and captured RNG before/after
+match. Style/local encoded-latent hashes differ in both batches; terminal
+predictions differ9/140. This confirms the strict cross-process parity gate
+fails even between same-mode runs. The exact nondeterministic GPU operator or
+uncaptured randomness is not localized. It does not show the observer caused
+the change and does not test the selection hypothesis. Keep pilot stopped until
+a revised smoke gate retains within-run RNG/buffer/provenance invariants and
+accounts for measured repeat variability. [Audit](../result/modelnet40_c/diagnostics/legacy_trajectory_smoke_20261011/repeat_validation.md).
+
+
+## 2026-10-11 - Smoke gate now measures within-run invariants
+
+[Code/CPU/Open] After the repeated audit confirmed cross-process variability,
+replaced strict inter-arm prediction equality as the smoke pass criterion.
+Each arm now validates its locked example IDs, complete finite logits and,
+when trajectory mode is enabled, unchanged model state. Audit repeats VAE
+encode from the saved pre-encode RNG state and records sampled-latent and
+buffer equality; observe records RNG/buffer hashes around every clean probe.
+Cross-process differences remain summarized as diagnostics. CPU unit tests
+for the replay and probe invariants pass. This does not establish GPU replay
+behavior, explain the observed variability, prove observer neutrality across
+processes, or test accuracy/selection. The smoke must be run again under a
+fresh session/commit; pilot remains stopped pending ZIP review.
+
+
+## 2026-10-11 - Trajectory smoke recovery and pilot guard review
+
+[Run/CPU/Inference/Open] Preserved handoff ZIP SHA-256 `7cd75452ce7d64f3e3359ee66edadb5f08c9cf2d7a57c074b0c12bbf1bed488e`; six seed0 smoke arms each cover140 examples. Observe Gaussian terminal/min-entropy/probability-mean accuracy is76.43/79.29/79.29%; Background is57.14/54.29/55.00%. Off terminal controls are75.00% and57.86%, respectively. These partial figures have opposite directions across corruptions and are exploratory only. Observe vs audit predictions differ10/140 Gaussian and22/140 Background. Identical-RNG VAE latent replay differs in4/4 audit batches with RNG/buffer guards intact; the operation causing variability is unknown.
+
+[Code check/Open] Pilot normally preserves completed work on exceptions: batch artifacts and result rows are written incrementally; the runner's `finally` records status and seals a ZIP; the launcher backs up that ZIP to Drive even on subprocess failure. CPU analysis is downstream of that backup. A hard runtime reset may skip both `finally` blocks and lose local partial batches; there is no periodic Drive checkpoint or auto-resume. Ensure Drive mount and available runtime before launch; if an ordinary failure occurs, package/download the attempt before making any new run.
+
+[Open] Entropy-weighted probability averaging may be compared after the seed0 all15 screening, on the same traces and alongside equal averaging/min-entropy/fixed-probe controls. Freeze the weighting function and tau or calibrate separately. No empirical gain or entropy guarantee is asserted.
+
+
+## 2026-10-11 - Seed0 all15 pilot completed
+
+[Run/CPU/Inference/Open] Preserved and CRC-checked the recovered handoff; all15 corruption types completed 280 shared seed0 IDs (4,200 total). Local CPU analyzer reproduced the per-corruption report. Equal probability mean was+0.7619pp and minimum entropy+0.5238pp versus the same-trace terminal, but both lost3.5714pp on Background. This is a single-seed development subset, not full-data baseline or independent confirmation. The per-corruption table, conditional bootstrap limits, cost and next-step proposal are recorded in [trajectory evidence](gsd_trajectory_implementation_20261011.md) and [selection analysis](gsd_trajectory_selection_20261011.md). Entropy-weighted averaging remains an offline exploratory follow-up; no early stop or speedup was tested.
+
+## 2026-10-11 - Full-data trajectory inference running by user report
+
+[User report/Open] User confirms `Preflight passed` and that the full all15
+seed0 inference cell is running. Earlier launch-pending statements are
+superseded; completion and accuracy remain unverified until the full ZIP arrives.
+Scope remains 37,020 examples, Legacy B70/M800, horizons10/30 and probes3/5/8
+or8/15/23. Local branch/HEAD rechecked: `gsd-smooth-spectrum` at
+`a351e66ec58f08f3a2104e46cab2cb8b20cdf961`. No local model execution or rerun.
+
+[Code] Read current notebook and source: full-data eval seals available outputs
+on ordinary exceptions; Drive backup is performed by the separate packaging
+cell after inference ends. Preserve pointer/session and use package then
+download, including on ordinary failure while runtime remains alive. Full-data
+artifact path and SHA are not yet available. Raw Legacy baseline ZIP SHA-256
+rechecked as `534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968`.
+No code/notebook/raw-result edits or Git index/history changes. Only dated
+knowledge continuations record this operational update.
+
+[Open] Accept completion only after archive/coverage/provenance/model-state
+checks; reject a completion claim if any fail. Analyze policies against the
+same trace terminal and explicitly report Background. This update supplies no
+new method result or basis for changing the accepted baseline or selecting tau.
+See [active session handoff](gsd_trajectory_session_handoff_20261011.md).
+
+## 2026-10-11 - Full-data seed0 trajectory screen: modest gain, Background regression
+
+- [Run/CPU] Preserved the user's full handoff at
+  `result/modelnet40_c/legacy_trajectory/full_all15_seed0_20261011T154536Z_handoff_20261011T171147Z.zip`
+  (33,579,609 bytes; SHA-256 `44f5366448263dc02d7932111685948ed0a5ead39d4a8f53c3bda4ec2969d07a`).
+  Outer7-member and nested3,249-member ZIP CRCs pass; members are path-safe.
+  Independent CPU analysis is beside the ingested bundle. All15x2,468,
+  seed0=37,020 examples; source commit a351e66, all79 source hashes match its
+  Git tree, model state unchanged, execution/coverage complete. Baseline raw
+  archive SHA still matches the accepted record.
+- [Run/Inference] Same-trace terminal64.592112% (23,912),
+  minimum entropy65.051324% (24,082; +0.459211pp,1,073 corrected/903 broken),
+  equal probability mean65.156672% (24,121; +0.564560pp,953/744). Conditional
+  1,000-replicate index-cluster95% intervals are[+0.2269,+0.6942] and
+  [+0.3431,+0.7915]pp. One seed only; intervals do not measure seed or path
+  variation. Equal mean is +0.586170pp versus separate accepted64.570502%
+  Legacy baseline descriptively, not paired; result does not reach+1pp.
+- [Run/Inference] Background regresses3.4846pp under minimum entropy and
+  2.6742pp under mean (mean:77 corrected/143 broken). Mean improves10 rows
+  and regresses5; full paired table is in
+  `..._ingested/independent_analysis/per_corruption_seed.csv`. Macro14 mean
+  is65.7560% versus terminal64.9601%. Fixed probe3 is64.7299% and has no
+  positive interval versus terminal.
+- [Run/Cost/Open] Wall timestamps span86.1min; instrumented sum is80.4min vs
+  prior Legacy68.98min (~17% by sums, approximate, separate-run comparison);
+  observer includes probe and artifact overhead. Peak62.16GiB allocated /
+  69.05GiB reserved. No measured early-exit or speed benefit. Same-cost
+  terminal voting and matched timing remain open.
+- [Inference/Decision] Full scope strengthens a modest same-trace selector/mean
+  signal, but Background harm and one-seed evidence prohibit broad promotion.
+  Keep accepted Legacy baseline. Next candidate is exploratory entropy-weighted
+  probability averaging from saved logits; do not fit/select tau confirmatorily
+  on these same outcomes. If policy retained, seed1/2 test repeatability before
+  any independent dataset evaluation. Details and falsifiers:
+  [implementation report](gsd_trajectory_implementation_20261011.md).
+
+
+## 2026-10-11 - Proposed bounded offline follow-up
+
+[Run/Inference/Open] Background early probes are much weaker than terminal,
+while Uniform/Gaussian benefit from early candidates. Recommend comparing a
+parameter-free entropy-weighted probability mean (w proportional to1-H,
+normalized H; equal fallback at zero total weight) and latest-clean-plus-terminal
+equal mean on saved logits. Both are proposals, not implemented/evaluated.
+Use one rule across corruptions, no tau/threshold fitting, paired transitions
+against terminal and equal mean. Merely repairing Background's mean loss would
+hypothetically raise macro gain from+0.5646pp to about+0.7428pp, still below1pp.
+Freeze a supported candidate before conditional seeds1/2. See
+[proposal and limits](gsd_trajectory_selection_20261011.md).
+
+
+## 2026-10-11 - Common-horizon development focus (user decision)
+
+[User decision/Run/Open] Prioritize the14 non-Background corruptions sharing
+10 reverse steps. The user points out that selecting30 steps specifically for
+Background assumes corruption identity at inference; Background repair is no
+longer the next development objective or candidate-selection requirement.
+Preserve and report the existing Background/all15 legacy results separately.
+On the existing full-data seed0 trace, macro14 terminal/minimum entropy/equal
+mean are64.960060/65.700972/65.755962% (+0.740912/+0.795902pp vs terminal).
+Use one shared label-free policy across14; per-corruption reporting must not
+become corruption-specific inference routing. These are macro14 development
+results, not all15 improvements or demonstrated unknown-corruption deployment.
+No horizon/model/code/raw-artifact change or new inference. Entropy-weighted
+averaging remains a proposed offline candidate, with no tau/threshold selected.
+See [updated decision and limits](gsd_trajectory_selection_20261011.md).
+
+## 2026-10-11 - Parameter-free entropy weighting on saved full-data logits
+
+- [Run/CPU] New strict macro14 analyzer validated the complete frozen-state seed0 all15 archive and evaluated only the14 common10-step corruptions (34,552 examples). Results are written to `..._ingested/macro14_policy_analysis_v2/`; the source archive was read-only.
+- [Run/Inference] Terminal64.9601%; equal probability mean65.7560% (+0.7959pp;876 corrected/601 broken); normalized entropy weighted by `1-H` gives65.7270% (+0.7670pp;875/610). Weighted vs equal mean:26 corrected,36 broken (net -10; -0.0289pp). This parameter-free weighting therefore nearly matches but does not beat equal averaging in this seed0 screen.
+- [Run/Open] Weighted accuracy exceeds terminal in10/14 corruption rows and is below it in4/14 (Occlusion, Lidar, Cutout, Density). Latest-clean/terminal equal control:65.4752%. No policy promotion, tau, speed or generalization claim. Same-seed index bootstrap excludes seed variability.
+- [Code/Validation] `scripts/analyze_legacy_trajectory_macro14.py` strictly validates provenance, all15 coverage, unchanged model state and the locked Legacy protocol; writes paired CSVs against terminal and equal mean. Focused3 tests and45 existing regression tests pass.
+
+## 2026-10-11 - Error complementarity and next accuracy proposal
+
+[Run/CPU/Inference] From the saved full-data macro14 paired CSV,24,569/34,552 examples have a correct clean03/05/08 or terminal prediction (label-using selector oracle71.1073%; not deployable). Equal mean is wrong on1,850 examples with a correct candidate;6,461 have unanimously wrong candidates. Proposed next independent reliability signal is prediction agreement across two point-sampling views, with frozen Point-MAE/BN/token algorithm and common10-step horizon. Compare equal multi-view averaging and an H+JS selector to equal trajectory mean and same-pass-count terminal voting. Existing archive saves zero decoded geometries per batch, so this needs a new Colab probe run. Prepared-input plus trajectory mean is a separate diversity candidate. These are unimplemented hypotheses; no new accuracy gain or runtime claim. Source, exact artifact path, diagnostic recipe, primary literature and falsifiers are in the latest section of `gsd_trajectory_selection_20261011.md`.
+
+## 2026-10-11 - Sampling proposal attribution clarified
+
+[User requirement/Paper/Code] Explicit source mapping added to `gsd_trajectory_selection_20261011.md`: Bahri et al. WACV2025 sections3.1-3.2 (FPS/KNN variation with TENT and weight averaging); MEMO NeurIPS2022 section3.1 (marginal entropy across augmentations with parameter updates); AugMix ICLR2020 is an additional related JS-consistency precedent. The frozen-classifier trajectory selector and normalized H+JS score are our unvalidated synthesis, not a reproduced paper algorithm or established novelty. Code confirms each input view has1024 points after shared normalization. Two views overlap and represent the whole shape; they are not disjoint halves. Alternative external FPS initialization requires explicit implementation/verification because the current wrapper has no start-index argument.
+
+## 2026-10-11 - Sampling-consistency test implementation
+
+[Code/CPU/Open] Implemented the user-approved two-view FPS trajectory experiment with unchanged Point-MAE weights/BN/token algorithm and Legacy10-step macro14 host. Six policies include existing four-A mean, eight-view mean, H selector, H+JS selector and terminal8 vote control. Acquisition14 forwards is explicitly distinct from eight-forward policy cost. Original A/RNG/guidance CPU preservation, artifact/provenance rejection, partial recovery and regressions pass66 tests. No GPU run or new accuracy. Exact plan/test and reference titles (Bahri et al. WACV2025 sampling variation; MEMO NeurIPS2022; AugMix ICLR2020) are in `gsd_sampling_consistency_20261011.md`; full source ZIP/SHA and notebook continuation are in the latest implementation record. Next is user-run Gaussian140 smoke, full ZIP review, then conditional macro14x280 pilot.
+
+
+## 2026-10-12 - Sampling source delivery v2 (current)
+
+[Code/CPU/Open] Base remains `gsd-smooth-spectrum@a351e66ec58f08f3a2104e46cab2cb8b20cdf961` plus the declared hashed working-tree overrides. Use `result/preparation/trajectory_sampling_source_20261011_v2.zip` (642,170 bytes; 318 source files), SHA-256 `d0c48e7f5a90f8fe19bfc615961e0ed1db3451b19cf5c98494cb613181b57295`. This supersedes v1 for new launches; v1 is preserved.
+
+The standalone CPU analyzer now independently compares recorded checkpoint/config/label/selected-data SHA-256 and sizes with the accepted baseline specification and verifies that specification against source delivery. Changed or absent identities are rejected before scoring. The launcher still hashes actual assets before inference.67 targeted CPU tests pass; extracted v2 CRC, all source SHA checks, CPU macro14 preview (34,552 full-scope examples; the staged runs remain140/3920), and Python3.8 syntax checks pass. Tests use synthetic CPU fixtures, not native CUDA.
+
+The notebook now requests v2 and its exact SHA. Only the filename/hash in the newly added section were revised; original21 cells are unchanged. Amendment receipt: `result/preparation/trajectory_sampling_notebook_receipt_20261012_v2.json`. The plan and its explicit paper attribution remain in `knowledge/gsd_sampling_consistency_20261011.md` (sampling variation/weight averaging paper, MEMO, AugMix; our H+JS selector is an unvalidated synthesis).
+
+Next: user-operated Colab preparation, new sampling preflight once, Gaussian140 seed0 smoke, then download/provide its complete handoff ZIP for review. Pilot macro14x280 remains separate and conditional on smoke review. No Run all, old-run repetition, local GPU, stage/commit/push, or raw baseline changes. Native CUDA behavior, accuracy, cost and repeatability remain open; failed invariants or no paired gain over the controls would reject promotion. Acquisition14 forwards is not deployment latency for the8-forward method.
+[The entry below is the latest workspace handoff snapshot; prior entries remain historical evidence.]
+
+## 2026-10-17 - Current status reconciled and next-agent handoff prepared
+
+[Run/Code/Inference/Open] Reconciled README and current artifacts: operational
+Legacy all15 seed0 is64.570502%; Phase6 P_PC-C_SCD is+0.036917pp; Phase5
+P_PC65.9505% is a four-corruption result. Full all15 Legacy trajectory policies
+on one seed0 trace score64.592112% terminal,65.051324% minimum entropy and
+65.156672% equal probability mean (+0.564560pp versus its same-trace terminal).
+This is not a matched comparison against the separate baseline, not seed
+stability, and not external validation; Background loses2.6742pp under mean.
+
+[Code/CPU/Open] Sampling-consistency v2 is implemented and source-pinned, but
+the Gaussian140 CUDA smoke handoff is still the next gate according to the
+latest dated knowledge and local `legacy_trajectory` inventory. No sampling
+accuracy result is recorded. Smoke ZIP review must precede the distinct
+macro14×280 pilot. No local GPU run was performed for this handoff.
+
+[Code/Open] Added `knowledge/new_agent_handoff_20261017.md` with ordered
+knowledge/code/artifact references and a copyable prompt. Updated the README
+front matter to distinguish current facts from older dated status notes. The
+working tree remains dirty; HEAD is
+`a351e66ec58f08f3a2104e46cab2cb8b20cdf961`; no source/results were changed,
+and nothing was staged, committed, or pushed.
+
+## 2026-10-17 - ScanObjectNN severity mismatch confirmed; Colab plan prepared
+
+[User decision] User switches current work to ScanObjectNN source accuracy
+and asks to ensure severity5 generation using the original dataset on Drive.
+Sampling-consistency smoke remains pending; it is not the immediate task.
+
+[Code/Run] `main:data/readme.md` shows severity5 filenames but references an
+absent `datasets/create_corrupted_dataset.py`. The actual main generator in
+`datasets_mate/` hardcodes severity8; the current HEAD generator exposes
+`--severity` but defaults to8. Reopened three ScanObjectNN ZIPs (CRC passes).
+Gaussian source command/config/CSV all say severity8 and581 examples,
+108 correct (18.588640%). Local Gaussian/label SHA identities match their
+runtime manifest. This is not a severity5 source result. Gaussian sigma
+is0.03 at5 versus0.045 at8, followed by clipping[-1,1]; low accuracy's full
+cause remains open. The current `--skip_ply` flag is parsed but has no effect.
+
+[Code/Inference/Open] Prepared
+`colab_scanobjectnn_severity5_20261017.md`: original main_split H5 audit,
+fresh isolated generation with explicit severity5/seed0, label/order/hash
+checks and CPU deterministic replay, direct clean control, complete581-example
+Gaussian source-only evaluation, verified Drive handoff, then conditional
+13-array-corruption expansion. Occlusion/lidar require a separate mesh
+protocol. No source code, raw results or inference were changed; no local
+GPU or tests were run. No new accuracy or severity-causality claim.
+
+## 2026-10-17 - Primary-source ScanObjectNN severity and preparation audit
+
+[User report/Code] User confirms notebook's first6 code cells prepare their
+Colab GPU session. Inspected cells1..6: environment/Drive/extensions/data/
+weights setup is reusable. They checkout `dev` and copy ModelNet/LION weights,
+so later ScanObjectNN cells must record actual source and separately verify
+the ScanObjectNN checkpoint. Do not rerun preparation or old experiments.
+
+[Code] Upstream initial author commit `e5b7278` already hardcodes generator8;
+fork `1f28b29` preserved8 when introducing the severity CLI. Thus prior pilot8
+was inherited generation behavior, not documented ScanObjectNN paper protocol.
+Live official `main_3dd_tta.py` and `utilities_3dd_tta.py` confirm ScanObjectNN
+evaluation selects the shared `_5.npy` loader. Generator8 is verified against
+local upstream/main `107305f`; remote generator fetch was unavailable.
+
+[Paper/Inference] Official supplement Appendix A says Gaussian sigma0.03,
+uniform+/-0.05, background5%, impulse10%, shear+/-0.25, rotation+/-15degrees;
+all map to inherited severity5 entries. Main Sec4.1 gives no explicit severity
+number. This independently supports Gaussian5 and the released evaluation
+setting. It does not establish exact author data provenance or full appendix/
+code equivalence (cut-out descriptions differ). Updated paper note and
+`colab_scanobjectnn_severity5_20261017.md` with primary links, history and
+after-six-cell workflow. No notebook/source edit, local GPU or accuracy run.
+
+## 2026-10-17 - ScanObjectNN author-code Gaussian5 Colab workflow implemented
+
+[User decision] User authorizes fresh generation/Drive backup and notebook
+restore integration; explicitly selects Gaussian+clean first and emphasizes
+matching the paper's dataset procedure. Keep original assets and raw results.
+
+[Code/CPU] Added `scripts/scanobjectnn_severity5_colab.py`, tests and a pinned
+author-source snapshot from upstream/main `107305f`. The adapter executes
+unchanged author normalization/Uniform/Gaussian functions; no added raw-data
+normalization. It preserves the author's MAP order through Gaussian (Uniform
+draws first, output discarded), point permutations, severity5 sigma0.03,
+float32 and clipping; saves direct clean H5 data and flat labels. Independent
+CPU replay must exactly match. Seed0 is declared locally, not attributed to
+the authors. Exact paper data identity remains unestablished without original
+assets/seed. This supersedes the earlier Gaussian-only CLI draft RNG sequence.
+
+[Code] Notebook cell5 appends verified Drive restore; three new cells after
+the original six preparation code cells implement generation, verified Drive
+backup and download/recovery. Original cell objects other than the cell5
+addition are preserved; source payload is embedded so Colab's dev checkout
+requires no commit/push. Snapshot and preservation receipt are in
+`result/preparation/scanobjectnn_author_generator_107305f.py` and
+`scanobjectnn_s5_notebook_receipt_20261017.json`. Drive destination is
+`thesis/dataset/scanobjectnn_c_s5_seed0/runs/<fresh-ID>/dataset.zip`;
+only complete verified data can update `latest_gaussian.json`.
+
+[CPU/Open] Six focused unittest cases pass with synthetic numpy arrays:
+generation/order/replay/clean identity, verified roundtrip and repeated load,
+severity/label and ZIP tampering rejection, unsafe paths, failed-attempt
+non-promotion, and H5 split/ambiguity rejection. Python3.8 syntax, payload
+identity, pinned source SHA and notebook preservation checks pass. Initial
+default Windows temp-root permissions blocked test setup; rerunning in a
+unique workspace-owned test root passed. Real h5py I/O, Colab Drive behavior
+and original-data generation await user execution. No local real-data/GPU
+evaluation, accuracy, Git stage/commit/push, or old ZIP modification.

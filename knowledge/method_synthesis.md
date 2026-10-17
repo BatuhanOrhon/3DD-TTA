@@ -196,3 +196,51 @@ and an ordinary-sum control at that applied norm. This cap is a documented
 variant, not silently identical to standard PCGrad. Global diffusion,
 CAGrad, norm calibration, ensembling and scheduling have separate evidence
 gates; none is implemented by this planning record.
+
+
+## 2026-10-11 - Clean diffusion prediction selection and temporal ensemble
+
+[User report/Code/Inference/Open] The user proposes selecting low-entropy
+Point-MAE predictions from clean intermediate diffusion estimates, or averaging
+class probabilities across steps. Classifier weights, BN and token flow stay
+fixed. The actual clean estimate is a latent; it requires VAE decoding before
+Point-MAE. Observe pre-guidance clean latent with matching pre-update style and
+retain the distinct original terminal decode as comparator.
+
+Hypothesis: intermediate and terminal outputs have useful complementary errors,
+and a label-free selector or temporal average improves all15 accuracy. Test
+terminal/minimum entropy/equal probability mean on the same saved trajectory.
+Falsifiers include no actual selector/ensemble gain, confident error selection,
+a fixed earlier output matching the proposed adaptive rule, or equal-cost
+terminal voting explaining the gain. Correlated steps are not independent
+samples. Existing legacy/offdiag ensemble evidence is not temporal evidence.
+
+Conditional efficiency hypotheses: causal early exit can save more work than
+extra probes cost; one guidance component may be removable at acceptable
+accuracy cost. Profile both/all/none guidance in the same host; shared backward
+and upfront graph costs prevent additive runtime attribution. Active-batch
+execution is required to establish real per-sample exit speedup.
+See [trajectory proposal](gsd_trajectory_selection_20261011.md) and
+[advisor agenda](advisor_meeting_log.md). Not implemented; no new GPU result.
+
+
+## Later 2026-10-11 — Legacy trajectory observation implementation
+
+[Code/CPU/Open] Implemented the bounded clean-trajectory hypothesis without
+changing guidance, scheduler, classifier weights/BN/tokens or original terminal
+inference. Three sparse decoded clean probes and terminal feed a CPU-only
+minimum-entropy / equal-probability-mean comparison. See [implementation](gsd_trajectory_implementation_20261011.md).
+Synthetic CPU equality is preservation evidence, not accuracy or CUDA evidence.
+Confidently wrong selection and stable wrong trajectories are explicit diagnostics.
+Early exit, GSD/SCD removal, Purge-Gate and independent generalization remain open.
+
+## 2026-10-11 - Full-data clean-trajectory selector evidence
+
+[Run/Inference/Open] Full all15 seed0 traces show same-trajectory terminal
+64.5921%, minimum entropy65.0513% (+0.4592pp) and equal probability mean
+65.1567% (+0.5646pp). The probability mean is positive in10/15 corruptions
+but reduces Background2.6742pp; one-seed conditional bootstrap does not
+establish seed stability. This is a promising small selector signal rather than
+a1–2pp result or a speed result. An exploratory entropy-weighted mean may be
+computed from saved logits, but tau must not be tuned/presented as confirmatory
+on this same evaluation. [Full analysis and limits](gsd_trajectory_implementation_20261011.md).

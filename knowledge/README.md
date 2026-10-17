@@ -1,4 +1,173 @@
+**[User decision/Code/Run/Open] 2026-10-17 task switch:** The current user-selected
+task is ScanObjectNN severity5 data preparation and source-only evaluation.
+Prior Gaussian18.59% is confirmed as severity8 from command/config/CSV and
+data SHA, not severity5. Main README shows `_5.npy`, but its generator
+hardcodes8; current generator defaults to8 unless explicitly overridden.
+See the [audit and staged Colab plan](colab_scanobjectnn_severity5_20261017.md).
+Original data is on Drive per user report. No new run exists; sampling v2
+smoke below remains pending and is temporarily deferred as the immediate task.
+
+**[Code/CPU/Open] ScanObjectNN continuation implemented:** The notebook now
+provides Gaussian severity5 + clean generation from the original main_split
+H5 after the first6 preparation code cells, pinned author functions and
+Uniform->Gaussian RNG order, and SHA-verified Drive backup. The fifth
+preparation cell restores verified severity5 data in later sessions. Scope
+is Gaussian+clean, not all15; author seed/file identity remains unavailable.
+Six synthetic CPU tests and notebook/source checks pass; actual Colab data
+generation and accuracy are pending. [Current cells and paths](colab_scanobjectnn_severity5_20261017.md#implemented-colab-continuation-current-supersedes-draft-commands-below).
+
+**[Run/Code/Open] Current state snapshot — 2026-10-17:** Later records supersede
+the older pending/“no GPU result” notes below; those entries are retained as
+dated history. Accepted operational Legacy all15 seed0 is64.570502% (37,020
+examples), a practical reproduction of the historical user-reported64.5327%
+run, whose exact original provenance remains unavailable. The full all15
+Legacy trajectory observation is complete for seed0: same-trace terminal
+64.592112%, minimum entropy65.051324%, equal probability mean65.156672%
+(+0.564560pp vs terminal; one-seed conditional original-index bootstrap
+95% CI[+0.3431,+0.7915]pp). This is a post-hoc policy comparison on saved
+trajectory logits, not seed-stable validation or a matched gain over the
+separate Legacy baseline. Probability mean decreases Background by2.6742pp and
+regresses5/15 corruption rows. The separate Phase6 P_PC-vs-C_SCD all15 result
+is only+0.036917pp; Phase5 P_PC65.9505% was a four-corruption development
+comparison and must not be relabeled all15. No all15 method has established the
+target +1–2pp gain.
+
+The next experiment is the separately staged **sampling-consistency v2**
+Gaussian140 seed0 CUDA smoke in the new Colab notebook section. The smoke ZIP
+must be reviewed before the distinct macro14×280 pilot. There is no sampling
+consistency CUDA result yet. The current workspace has substantial uncommitted
+and untracked user/research changes; branch `gsd-smooth-spectrum` is at HEAD
+`a351e66ec58f08f3a2104e46cab2cb8b20cdf961`, while trajectory/sampling source
+also exists as working-tree edits and a pinned source ZIP. Preserve both and
+inspect their hashes; do not assume HEAD contains the delivered implementation.
+See the [dated agent handoff](new_agent_handoff_20261017.md),
+[trajectory evidence](gsd_trajectory_implementation_20261011.md), and
+[sampling plan](gsd_sampling_consistency_20261011.md).
+
+**[Code/CPU/Run pending] 2026-10-11 smoke gate revised:** the failed strict
+cross-process logits equality was replaced by per-arm artifact/model-state
+checks, same-RNG VAE encode replay diagnostics, and within-probe RNG/buffer
+invariants. GPU smoke must be rerun from a fresh session/commit; pilot remains
+stopped until that smoke ZIP is reviewed. See the implementation handoff.
+
+**[Run/Inference/Open] 2026-10-11 trajectory smoke failed parity:** all six
+140-example arms completed, but independently launched GPU runs produced
+unequal VAE latent hashes before the first clean probe and mismatched terminal
+predictions. Provenance/assets/environment match; deterministic CUDA settings
+were disabled. A repeated Gaussian audit also changed encoded latents and 9/140
+terminal predictions, confirming same-mode run variability. Pilot remains
+stopped until the parity gate accounts for this. See [smoke investigation](../result/modelnet40_c/diagnostics/legacy_trajectory_smoke_20261011/validation.md)
+and [implementation handoff](gsd_trajectory_implementation_20261011.md).
+
 # 3DD-TTA Thesis Knowledge Base
+
+**[User decision/Code/Open] Later 2026-10-11 — seed0 first:** Smoke and the
+all15/280 pilot now run only seed0 (4,200 pilot examples). Seeds1/2 are deferred
+until seed0 policy accuracy/cost is reviewed and the candidate is frozen.
+No numerical promotion threshold or seed-stability claim is introduced. This
+supersedes the initial three-seed launch plan below; see the updated
+[implementation/Colab handoff](gsd_trajectory_implementation_20261011.md).
+
+**[Code/CPU/Open] 2026-10-11 trajectory infrastructure implemented:**
+Opt-in Legacy clean probes (3/5/8 and 8/15/23), distinct original terminal,
+RNG/buffer isolation, indexed/hash-audited artifacts, CPU selection/averaging
+analyzer and separate Colab continuation cells are ready in the working tree.
+Read [implementation and Colab handoff](gsd_trajectory_implementation_20261011.md). This supersedes the older
+preparation-only status below; no GPU result or gain is claimed. Baseline
+remains Legacy64.570502% B70/M800. Smoke review precedes the all15/280/seeds0–2
+development pilot. No early stopping, PG, model/BN/token changes or Git writes.
+
+**[User report/Code/Inference/Open] 2026-10-11 next-session handoff:**
+Continue from the accepted legacy64.5705% B70/M800 baseline with opt-in clean
+trajectory observation and offline selection/averaging first. The
+[implementation handoff](gsd_trajectory_session_handoff_20261011.md) records
+code/artifact references, constraints and the user's online-use clarification:
+at B1, an early exit directly skips remaining diffusion computation without
+waiting for other samples. Measure its net latency against same-B1 full-horizon
+inference, including added probes; report this separately from B70 throughput.
+No new inference implementation or GPU run has started.
+
+**[User report/Code/Inference/Open] 2026-10-11 trajectory-selection agenda:**
+The user proposes clean point-cloud prediction at multiple diffusion steps,
+minimum-entropy selection or temporal probability averaging, followed by
+conditional early stopping and GSD/SCD accuracy/runtime ablations. See
+[the technical assessment](gsd_trajectory_selection_20261011.md) and the new
+[advisor discussion log](advisor_meeting_log.md). Purge-Gate is recorded as a
+topic to discuss, not as advisor approval or a required first implementation.
+The earlier PG-first recommendation below is superseded as the immediate
+research emphasis. Low entropy, temporal stability and correctness are distinct;
+no new method implementation, run, measured gain or speedup exists.
+
+**[User report/Run/Code/Paper/Inference/Open] 2026-10-11 accuracy development:**
+The user accepts restored legacy64.5705% as practical reproduction of the
+historical64.5327% and prioritizes accuracy development. Earlier statements
+requiring historical reproduction first are superseded operationally; exact
+old-run provenance is still undocumented. New CPU-only analysis of archived
+logits gives64.8487% for fixed50/50 probability averaging (+0.2782pp, one seed,
+two inference costs). This is exploratory, not the1-2pp target or independent
+validation. Read the [research review and proposed next experiment](gsd_accuracy_research_plan_20261011.md):
+official PG-SF token filtering, separate BatchNorm controls, matched legacy
+spectral-off control, then conditional sample-wise output selection. No new
+adaptation implementation/GPU run has occurred. Preserve prior results below.
+
+**[Run/Code/Inference/Open] 2026-10-10 legacy isolate correction, all15:** The
+user-provided handoff ZIP is preserved at
+[`attempt-0002_all15_seed0`](../result/modelnet40_c/legacy_isolate_control/attempt-0002_all15_seed0/20261010T114156946419Z_handoff_20261010T141536060023Z.zip)
+(size: 12,277,729 bytes; SHA-256:
+`534c8634ed16aa0a0787e3be2f92294268453029a0d0a175ebcd7b6618726968`). The
+outer and all six inner ZIPs pass CRC/path checks. Both full arms cover 15 x
+2,468 examples at seed 0; all 77 source hashes match run commit `80931d6` and
+current HEAD `f670c07`. Legacy scores 64.5705%, offdiag 64.5543% (delta
+-0.0162 pp); macro14 delta is -0.0145 pp and Background delta is -0.0405 pp.
+Index-aligned transitions: 872 corrected, 878 broken. This is one
+seed-controlled comparison without shared prepared-input/random-draw hashes;
+there is no causal or stable-null claim and no accuracy promotion. Historical
+64.5327% remains unmatched. See the [independent validation](../result/modelnet40_c/legacy_isolate_control/attempt-0002_all15_seed0/analysis_ingested/validation.md).
+
+**[Run/Code/Inference] 2026-10-07 Phase 6 all15 independently audited:**
+The 2026-10-06 completed ZIP passes outer and all90 inner CRC/schema checks:
+45 matched blocks,222120 classifications, ordered indices0-2467 and seeds0/1/2.
+Macro15 C_SCD is63.9744% versus P_PC64.0113%; paired mean +0.036917pp,
+sample SD0.034310pp. Seed deltas are -0.002701/+0.056726/+0.056726pp.
+Macro14 delta +0.017365pp; Background +0.310643pp. All15 per-corruption
+index-clustered intervals include zero. This small, heterogeneous development
+effect does not support broad seed-stable improvement or full mechanism claims.
+See the [independent report](../result/modelnet40_c/gsd_guidance_composition_v1/all15/analysis_20261006_independent/validation_20261007.md) and its per-seed CSV, provenance and
+analyzer comparison. The earlier preparation-stage “no full15 result yet”
+and pending-ingestion statements below are historical and superseded by this
+later artifact; they are retained. Do not repeat the completed run or invent
+a post-result promotion threshold. Separate M_max=1800 notes remain unchanged.
+
+
+**[User decision/Code] 2026-10-06 Phase 6 handoff:** The user authorized
+preparation of the frozen P_PC versus matched C_SCD all15 comparison:
+45 blocks,90 arm ZIPs,222120 classifications. Existing inference code is
+reused. Reference recovery, pure preview and verified result packaging are
+implemented in `scripts/gsd_all15_colab.py`; four Colab cells are in the
+[Phase 6 handoff](gsd_phase6_colab_handoff_20261006.md).
+GPU execution remains user-operated; no full15 result exists yet.
+
+**[Run/Inference] 2026-10-06 Phase 5 replication accepted:** All 48 arm ZIPs
+and 12 matched blocks validate (12,288 classifications). P_PC is 65.9505%
+versus C_SCD 65.1042%, P_SUM 65.3320% and P_NORM 65.2669%.
+P_PC-minus-C_SCD is +0.8464pp on average and positive in seeds0/1/2;
+Background is +2.0833pp. Mean advantages over P_SUM/P_NORM are
++0.6185/+0.6836pp. All registered development gates pass. This is limited
+four-corruption development replication, not statistical proof or automatic
+all15 promotion. The pilot effect (+2.3438pp vs C_SCD) is smaller here;
+most per-corruption intervals include/touch zero. See the
+[Phase 5 validation](../result/modelnet40_c/gsd_guidance_composition_v1/replicate/attempt-0001/analysis_ingested/validation.md).
+Preparation and pending-run statements below are historical and superseded
+by this ingestion. Do not repeat the completed run.
+
+**[Code/Run handoff] 2026-10-05 Phase 5 P_PC preparation:** The existing
+`replicate` plan and selection-manifest schema validate. Frozen selection
+fingerprint is `56a256da5b4c5d789f83ce8ea4230b8746ec4f9db242ad22597c436decceaa2d`.
+A pure preview confirms four arms × four corruptions × 256 indices × three
+seeds = 12,288 classifications. Colab branch/environment, preview, execution,
+provenance audit and download cells are in the
+[Phase 5 handoff](gsd_phase5_colab_handoff_20261005.md). GPU execution remains
+for the user to start in Colab after reviewing its preview.
 
 **[Run/Inference] 2026-10-05 pilot decision review:** The earlier permanent
 projection-stop recommendation is superseded. P_PC has small positive means
@@ -376,3 +545,113 @@ After any material experiment, diagnosis, code change, or paper review:
 ## First action for the next session
 
 Read the [current session handoff](session_handoff_20260915.md). It supersedes historical smoke/ShapeNet-next-action statements above and records the selected eval/raw baseline, EMA decision, current blockers, and immediate Colab experiment. Numerical experiments remain Colab-only.
+
+
+## 2026-10-07 - Accuracy-first follow-up
+
+[User decision/Code/Run/Inference] The prospective goal is +1 to +2 absolute
+pp in all15 macro accuracy. Read the [existing-branch audit and next action](gsd_accuracy_branch_audit_20261007.md).
+The separate M800 CSV is64.5327%, but no matched gain or executed-source
+identity is established. Further style/projection expansion is parked.
+One proposed performance candidate changes current SCD normal5 to10 steps,
+retaining Background35 and all other controls; it remains unimplemented.
+The earlier Background step scan was SCD-off and does not cover this question.
+Historical research branches and raw results are unchanged.
+
+
+## 2026-10-08 - Legacy smooth command identified and ported
+
+[User report/Code] The high CSV used eval_gsd_tta_v2 on smooth-integration
+with B70/M800/beta2/spectral1.17/SCD1 and10/30 steps. The user requested this
+structure on gsd-smooth-spectrum. Exact legacy core sources are restored as
+an opt-in entry; auditable artifacts and a Colab source overlay are ready.
+[Restoration report and runnable cells](gsd_legacy_smooth_restore_20261008.md).
+51 CPU tests pass; real CUDA integration and reproduction accuracy remain
+open. This supersedes the October7 step-only next-action proposal; no broad
+parameter search or GPU run was performed, and existing results stay intact.
+
+
+## 2026-10-10 - Legacy isolate correction control ready
+
+[Code/CPU/Open] The mathematical audit demonstrates a legacy self-loop
+isolation-mask defect; the GFT layout and weighted gradient are consistent.
+Read [the audit](gsd_spectral_math_audit_20261008.md) and the
+[new Colab cells](gsd_isolate_control_colab_20261010.md).
+The immediate user-operated experiment is legacy versus offdiag isolate
+detection, otherwise fixed B70/M800/beta2/spectral1.17/SCD1/steps10-30, seed0.
+The original graph/trajectory are preserved; no local GPU run or improvement
+evidence exists. This adds the controlled correction to the Oct8 reproduction
+plan. Existing Phase6, M1800 and Background100/1000 failure records stand.
+
+
+## 2026-10-10 - Git/conda handoff published
+
+[Code] User-authorized commit12525b8 is on origin/gsd-smooth-spectrum.
+Use [the Git/conda cells](gsd_isolate_git_colab_20261010.md) after the
+existing preparation notebook first six code cells; source ZIP upload is
+no longer needed. CPU checks pass; GPU accuracy remains pending.
+
+
+**[Run/Open] 2026-10-10 isolate smoke:** Four two-batch seed0 arms completed and their ZIPs/predictions validate. Background prefix is +2 correct for offdiag; Gaussian is -3. This is not accuracy evidence for full corruptions. Next: inspect legacy all15 before running offdiag all15. [Smoke validation](../result/modelnet40_c/legacy_isolate_control/attempt-0001_smoke_seed0/validation.md).
+
+
+### 2026-10-11 trajectory smoke update
+
+- [Trajectory implementation, recovered smoke evidence, and Colab pilot failure handling](gsd_trajectory_implementation_20261011.md)
+- [Selection, averaging, and conditional entropy-weighted follow-up](gsd_trajectory_selection_20261011.md)
+- [Open questions and resilience limitations](open_questions.md)
+- [Chronological evidence log](findings_log.md)
+
+
+### 2026-10-11 - Seed0 trajectory pilot evidence
+
+- [Recovered all15 seed0 pilot results, paired corruption analysis, cost and next-step limits](gsd_trajectory_implementation_20261011.md)
+- [Selection and entropy-weighted probability-mean question](gsd_trajectory_selection_20261011.md)
+- Local preserved handoff: `../result/modelnet40_c/legacy_trajectory/pilot_recovered_20261011T152044Z_handoff_20261011T153106Z.zip`.
+
+
+### 2026-10-11 - Full-data trajectory screen prepared
+
+- [Runnable Colab cells, full-data scope, runtime estimate and recovery path](gsd_trajectory_implementation_20261011.md)
+- Approved seed0 all15 launch: 37,020 examples, same a351e66 Legacy protocol; no local GPU run and no result claimed yet.
+
+
+- [2026-10-11 Colab preflight rerun behavior and current pending all15 launch](gsd_trajectory_implementation_20261011.md)
+
+### 2026-10-11 - Full-data inference active by user report
+
+[User report/Open] User explicitly confirms `Preflight passed` and full all15
+seed0 inference is running. This supersedes launch-pending notes. Preserve the
+session, wait for inference to end, then use the existing packaging/Drive-backup
+and download cells. No full-data result or completion is verified yet.
+[Current continuation and artifact-review requirements](gsd_trajectory_session_handoff_20261011.md).
+
+### 2026-10-11 - Full-data trajectory screen ingested
+
+[Run/CPU/Inference/Open] Complete all15 seed0 full-data evaluation independently
+validated (37,020 examples, provenance/source hashes and frozen model state).
+Equal probability mean is65.1567% versus same-trace terminal64.5921%
+(+0.5646pp); minimum entropy65.0513% (+0.4592pp). Background falls2.6742pp
+under the mean, with mixed per-corruption results. One seed; no1–2pp,
+repeatability or speed claim. Full report, raw SHA and derived CPU outputs are
+in the [trajectory implementation record](gsd_trajectory_implementation_20261011.md).
+
+
+### 2026-10-11 - User selects common10-step macro14 development
+
+[User decision/Run/Open] Accuracy development now prioritizes the14 corruptions
+with a shared10-step horizon and a common prediction rule. Background's
+corruption-name-dependent30-step protocol remains a preserved separate legacy
+result; recovering its loss is not the next objective. Existing macro14 equal
+mean65.7560% vs terminal64.9601% (+0.7959pp), seed0 only. This does not revise
+the all15 result or establish unknown-corruption deployment. Read the
+[scope correction](gsd_trajectory_selection_20261011.md).
+
+### 2026-10-11 - Sampling-consistency implementation ready for Colab smoke
+
+[User decision/Code/CPU/Open] New development step: two external FPS views per clean trajectory candidate, frozen classifier/BN/token algorithm, common10-step macro14; terminal8 voting is a control. The [plan and test protocol](gsd_sampling_consistency_20261011.md) names **Test-Time Adaptation in Point Clouds: Leveraging Sampling Variation with Weight Averaging**, **MEMO: Test Time Robustness via Adaptation and Augmentation**, and **AugMix: A Simple Data Processing Method to Improve Robustness and Uncertainty**, with precise attribution and no novelty claim.66 targeted CPU tests and source-snapshot preview pass. Next: new Gaussian140 smoke in the appended notebook section, complete ZIP review, then separate macro14x280 seed0 pilot. No CUDA result yet. [Delivery ZIP/SHA and continuation](gsd_trajectory_implementation_20261011.md).
+
+
+### 2026-10-12 - Current sampling delivery: v2
+
+[Code/CPU/Open] Use the v2 source ZIP and updated notebook section.67 targeted CPU tests and extracted-source checks pass, including strict checkpoint/data identity checks. v1 is superseded and retained. [Current ZIP/SHA and launch steps](gsd_trajectory_implementation_20261011.md#2026-10-12---sampling-source-delivery-v2-current); [plan, tests and full reference titles](gsd_sampling_consistency_20261011.md). Gaussian140 smoke on Colab remains the next experiment; no GPU result yet.

@@ -244,3 +244,76 @@ A configuration moves from pilot to full benchmark only when it:
 - beats or meaningfully diagnoses a matched baseline on validation corruptions across fixed seeds;
 - has acceptable runtime/memory;
 - does not rely on an untracked protocol change.
+
+
+## 2026-10-11 - Proposed trajectory observation and stopping protocol
+
+[User report/Code/Inference/Open] See
+[trajectory selection design](gsd_trajectory_selection_20261011.md).
+For this proposed experiment, preserve original terminal inference and archive
+per-original-index/per-seed/per-checkpoint logits, timestep and loop index,
+clean-latent versus terminal designation, style/update timing, shared-input/RNG
+hashes, and component/end-to-end times. Fix checkpoint schedule before running.
+Do not mix pre-update clean latent with post-update style. Extra probes must
+not mutate classifier BN, main RNG or the guidance trajectory.
+
+Selection/averaging can be computed from the same full trace. Early stopping
+must use observed prefixes only; offline saved-step simulations are not measured
+speedups. Retain the terminal fallback and evaluate live batch compaction/cost.
+Thresholds and candidate selection use explicitly labelled development data;
+target labels never enter inference. Treat timesteps as repeated measurements.
+Report seed SD, index-cluster uncertainty, corrected/broken counts and all15
+heterogeneity. A guidance-zero accuracy arm is not a speed ablation if graph or
+loss computation still executes. No new numerical promotion threshold is set.
+
+
+## Later 2026-10-11 - Separate benchmark and online runtime protocols
+
+[User report/Inference/Open] OnlineB1 early exit directly skips subsequent
+sample computation; B70 active-batch limitations do not apply to a single
+sample. Report B70 all15 accuracy/throughput and matched onlineB1 accuracy plus
+mean/p50/p95 latency separately. Include additional probe and scheduling cost;
+B70 baseline accuracy is not a measured B1 result. A smaller number of actual
+B1 prior calls is structural evidence of saved work; wall-time speedup needs
+measurement. Keep stopping causal, lock thresholds before evaluation, and
+explicitly disclose the existing corruption-name-dependent10/30 horizon.
+See [session handoff](gsd_trajectory_session_handoff_20261011.md).
+
+
+## Later 2026-10-11 — Implemented Legacy observation protocol
+
+[Code/CPU/Open] [Implementation and runnable cells](gsd_trajectory_implementation_20261011.md).
+Predeclare checkpoint counts3/5/8 for10 and8/15/23 for30; preserve the Legacy
+corruption-name horizon. Label-free seed20261011 selects280 original IDs; sort
+and reuse them across all15 and seeds0/1/2. Smoke uses140 IDs on Gaussian and
+Background in off/audit/observe modes and requires exact output/state/RNG parity.
+Stop for smoke review before the separate12,600-example development pilot.
+
+Artifact completion and subset coverage remain separate. Original terminal is
+stored once, probes add no entropy backward, model state is hashed before/after,
+and all candidate files are hashed. Pool only matched protocol/source/assets/
+native/external/environment identities and original IDs. Use three simple
+label-free policies plus separate fixed-probe and label-using oracle diagnostics.
+One thousand fixed-seed original-index bootstrap replicates retain seed pairing;
+timesteps are not independent samples. Instrumented time includes observer cost,
+not evidence for early-stop speedup. No numerical promotion/entropy threshold.
+
+
+## Later 2026-10-11 — Seed0 first, replication conditional
+
+[User decision/Code/Open] For the current Legacy trajectory study only, replace
+the initial seeds0/1/2 pilot with seed0 all15/280 (4,200 examples). Smoke already
+uses seed0. Preserve IDs, checkpoints and other settings. Review exploratory
+seed0 policy benefit, corrected/broken balance and cost before locking a policy
+for separate seeds1/2 replication. Single-seed intervals do not establish seed
+stability; no numerical significance/promotion threshold is prescribed.
+[Updated delivery](gsd_trajectory_implementation_20261011.md).
+
+
+## 2026-10-11 - Approved seed0 all15 trajectory screen
+
+The next user-operated Colab run is a full-data development screen: all15 ModelNet40-C severity5 corruptions, original IDs0..2467, seed0 (37,020 inputs). Keep accepted Legacy B70/M800, beta2, spectral1.17, chamfer1, gamma/eta.01, lambda.95, legacy isolate policy, normal/background horizons10/30, and observe checkpoints3/5/8 and8/15/23. No index manifest, batch limit, early stopping, or horizon change. Analyze terminal, minimum entropy and equal probability mean only after full coverage/model-state/provenance validation; report paired and per-corruption results. A one-seed result is exploratory; review before deciding on seeds1/2. Entropy is not a correctness or temporal-stability guarantee; no accuracy threshold or speedup is presumed. Use the appended notebook preflight, run, package/Drive-backup, and download code cells in order. Reserve2h; runtime reset can lose non-checkpointed partial artifacts.
+
+## 2026-10-11 - Opt-in sampling-consistency experiment
+
+[User decision/Code/CPU/Open] The approved two-view extension uses a common10-step horizon and macro14 only, Legacy B70/M800 seed0, checkpoints3/5/8 plus terminal. Per candidate: original A FPS and deterministic alternate-start B, same whole-cloud normalization and1024-point input. Terminal A+B plus six more votes provide the eight-forward terminal control. Acquisition14 forwards must not be reported as method-eight latency. Freeze classifier weights/BN/token algorithm; no entropy gradient, fitted threshold, corruption routing or early stop. Compare four-A mean, eight-view mean, two-view H and H+JS selectors, terminalA and terminal8. Source snapshot and ID manifests are hashed; full source/coverage/state/view checks precede CPU scoring. Gaussian140 smoke is followed by a separately launched macro14x280 pilot after ZIP review; source and user notebooks are preserved. Exact references, test requirements and falsifiers: [sampling consistency](gsd_sampling_consistency_20261011.md). No GPU result yet.

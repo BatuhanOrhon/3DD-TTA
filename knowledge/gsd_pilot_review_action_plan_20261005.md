@@ -137,7 +137,16 @@ if needed; finding their root cause is not required to share one preparation.
   before any all15 expansion.
 - Out of scope: partial-as-complete accuracy, cross-attempt pairing, broad tuning.
 
-### Batch 3 - Conditional replication under the original Phase5 rule
+### Batch 3 - Conditional replication under the original Phase5 rule (completed)
+
+[Run/Inference] 2026-10-06: `replicate/attempt-0001` passes all registered
+development gates. All48 complete archives and12 matched blocks validate.
+Mean P_PC-C_SCD is +0.8464pp (seeds +0.6836/+0.9766/+0.8789pp),
+Background +2.0833pp, P_PC-P_SUM +0.6185pp and P_PC-P_NORM +0.6836pp.
+Pilot-disjoint next256 indices do not make this independent benchmark
+confirmation. No automatic all15 promotion or repeat is authorized.
+See the [validation and uncertainty report](../result/modelnet40_c/gsd_guidance_composition_v1/replicate/attempt-0001/analysis_ingested/validation.md).
+The original scope and thresholds below are retained unchanged.
 
 - Goal: assess stability on more examples and seeds after Batch2 passes.
 - Scope: freeze selection manifest; same four arms/corruptions, next256

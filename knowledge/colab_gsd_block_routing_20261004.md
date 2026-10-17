@@ -492,3 +492,7 @@ Include the analyzer output and preserve failed attempts. Remove credentials
 from command/environment logs before sharing. Follow `result/README.md` with
 the new method-specific schema added by the implementing agent. Archive
 validation and research interpretation precede any next-phase decision.
+
+**2026-10-05 Phase 5 handoff:** The frozen P_PC selection, separate Colab
+sync/environment/preview/execution/audit/download cells, and post-run checks
+are in [gsd_phase5_colab_handoff_20261005.md](gsd_phase5_colab_handoff_20261005.md).

@@ -1,5 +1,27 @@
 # Paper Note: 3DD-TTA
 
+## ScanObjectNN severity attribution update - 2026-10-17
+
+[Code/Paper/Inference] The released evaluation loader's `_5.npy` selection
+also applies to ScanObjectNN: official `main_3dd_tta.py` selects15 classes
+and invokes the same `PointDataset` in `utilities_3dd_tta.py`. Both official
+raw files were checked online. The local upstream generator nevertheless
+hardcodes8, present since initial author commit `e5b7278`; fork `1f28b29`
+kept8 as the new CLI default. Prior ScanObjectNN18.59% was indeed severity8.
+
+Official supplement Appendix A provides stronger numeric parameter evidence
+than the old main-text-only audit below: Gaussian sigma0.03, uniform+/-0.05,
+background5%, impulse10%, shear+/-0.25 and rotation+/-15degrees map to the
+generator's severity5 entries. The main text does not explicitly label the
+severity number. This supports severity5 for released ScanObjectNN evaluation
+and our next Gaussian dataset; it does not prove authors' raw asset identity.
+Some appendix prose/code details differ (cut-out centers/neighbors), so avoid
+claiming complete paper corruption parity from the severity label alone.
+
+Source: [official Appendix A](https://openaccess.thecvf.com/content/WACV2025/supplemental/Dastmalchi_Test-Time_Adaptation_of_WACV_2025_supplemental.pdf).
+See [the audit, exact history and Colab plan](../colab_scanobjectnn_severity5_20261017.md#primary-source-follow-up-why8-and-evidence-for5).
+No inference run was performed for this update.
+
 ## GSD host contract audit - 2026-09-23
 
 [Paper] Rechecked Sec. 3.3/Eqs. 9--12 and Algorithm 1, visually including

@@ -108,3 +108,66 @@ Minimum scientific success is a defensible explanation of the reproduction gap a
 - **[Open]** Exact commands, seeds, environment, per-corruption values, checkpoint hashes, and raw logs have not yet been archived under `result/`.
 
 Therefore no gain is yet treated as confirmed.
+
+
+## 2026-10-07 ? User priority: all15 accuracy improvement
+
+[User decision] The immediate priority is a +1 to +2 absolute percentage-point
+improvement in equal-weight all15 accuracy, as the intended empirical basis
+for a paper contribution. Explanatory style ablations alone do not satisfy
+this objective. This is a prospective research objective, not a retroactive
+Phase6 acceptance threshold, guaranteed gain, or publication guarantee.
+
+[Inference/Proposal] Deprioritize further P_PC/style-composition expansion
+after the +0.036917pp all15 result. Use existing evidence to select the next
+performance hypothesis; avoid repeating completed conditions merely to fill
+mechanism tables. Keep shared inference protocol, seed variance, compute cost
+and candidate selection on development data explicit. Local GPU inference
+remains prohibited; no new Colab run is authorized by this priority note.
+
+## 2026-10-11 - Practical legacy reproduction accepted
+
+[User report/Run] The user accepts the restored legacy64.5705% result as
+practical reproduction of historical64.5327%. Use it as the operational
+accuracy-development baseline; exact historical bitwise identity remains
+undocumented and is no longer the immediate prerequisite. This supersedes
+earlier reproduction-first status statements without removing their evidence.
+
+[Code/Paper/Inference/Open] The next proposed experiment is PG-SF-inspired
+token filtering on the existing classifier/legacy outputs, with separate
+BatchNorm and same-host spectral-off controls. Frozen weights with adapted
+BatchNorm is a distinct protocol from fully frozen classifier state and must
+be labelled. A later sample-wise output selector is conditional. See
+[the dated research plan](gsd_accuracy_research_plan_20261011.md). These are
+unimplemented hypotheses; the requested1-2pp gain and novelty remain open.
+
+
+## Later 2026-10-11 - User-directed trajectory research and advisor record
+
+[User report/Inference/Open] The user requests an advisor discussion log and
+prioritizes examination of clean intermediate diffusion outputs, low-entropy
+selection, temporal prediction averaging and conditional early stopping.
+Potential GSD/SCD deletion is conditional on measured accuracy and runtime.
+The prior PG-first proposal is not a mandatory implementation sequence.
+This candidate preserves the classifier weights, BN and token computation;
+classifier output only scores reconstructed inputs. It is distinct from PG's
+classifier-internal adaptation. Neither novelty nor an accuracy/speed gain is
+established. See [design](gsd_trajectory_selection_20261011.md) and
+[advisor log](advisor_meeting_log.md); no advisor meeting/approval is invented.
+
+
+## 2026-10-11 - Common-horizon development focus (user decision)
+
+[User decision/Run/Open] Prioritize the14 non-Background corruptions sharing
+10 reverse steps. The user points out that selecting30 steps specifically for
+Background assumes corruption identity at inference; Background repair is no
+longer the next development objective or candidate-selection requirement.
+Preserve and report the existing Background/all15 legacy results separately.
+On the existing full-data seed0 trace, macro14 terminal/minimum entropy/equal
+mean are64.960060/65.700972/65.755962% (+0.740912/+0.795902pp vs terminal).
+Use one shared label-free policy across14; per-corruption reporting must not
+become corruption-specific inference routing. These are macro14 development
+results, not all15 improvements or demonstrated unknown-corruption deployment.
+No horizon/model/code/raw-artifact change or new inference. Entropy-weighted
+averaging remains a proposed offline candidate, with no tau/threshold selected.
+See [updated decision and limits](gsd_trajectory_selection_20261011.md).

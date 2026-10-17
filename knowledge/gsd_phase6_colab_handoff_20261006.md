@@ -277,3 +277,25 @@ Phase5 artifact: all51 original entries, including48 arm ZIPs, were preserved
 byte-for-byte, and the output CRC passed. Evidence lives in
 `result/preparation/gsd_all15_20261006/packaging_verification.json`.
 No local GPU/model inference or live Colab browser download was performed.
+
+
+## 2026-10-07 result ingestion addendum — historical cells retained
+
+[Run/Code/Inference] The user supplied the completed2026-10-06 all15 ZIP.
+Independent outer/all90 inner ZIP and pairing audit passes:45 complete blocks,
+222120 classifications, ordered0-2467 indices and seeds0/1/2. P_PC-C_SCD
+macro15 is +0.036917 +/-0.034310pp sample SD, with seed0 slightly negative;
+macro14 +0.017365pp and Background +0.310643pp. All15 per-corruption clustered
+intervals include zero. This supports a small heterogeneous development effect,
+not broad stable benefit, independent confirmation or full mechanism superiority.
+No threshold was invented. Full evidence: [independent report](../result/modelnet40_c/gsd_guidance_composition_v1/all15/analysis_20261006_independent/validation_20261007.md).
+
+[Code/Run] Cell1's written full pin32a6c6b50f69e9236b66c2ecc7c4d219f7e1077b
+does not resolve locally; the recorded Git history has32a6c6baa3d1228c75712e799c78ac65bef441e0.
+The actual run's manifest/preview/log consistently record branch
+gsd-smooth-spectrum@c18926ff7751ed9023313869229f5d4dffe218be and
+/content/3DD-TTA. Nine inference-source hashes match that commit and the Phase5
+source bytes. This documentary setup difference is preserved explicitly.
+Earlier “no all15 result” and pending-run statements are superseded by the later
+ZIP, not erased. These cells are historical execution instructions; do not rerun
+the completed attempt for this ingestion.

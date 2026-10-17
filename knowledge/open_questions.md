@@ -1,5 +1,66 @@
 # Open Questions and Research Backlog
 
+## 2026-10-17 - ScanObjectNN severity5 is the current user-selected task
+
+- [x] Verify prior Gaussian source-only result: severity8,108/581=18.59%;
+  selected data/label SHA match local archived arrays.
+- [x] Audit main README versus generator: README layout says `_5.npy`,
+  original generator hardcodes8; current generator requires explicit
+  `--severity 5` because default remains8.
+- [x] Prepare [Colab severity5 plan](colab_scanobjectnn_severity5_20261017.md).
+- [x] Trace8 to initial upstream hardcode and fork default preservation;
+  verify official ScanObjectNN evaluator loads `_5.npy`. Supplement AppendixA
+  Gaussian sigma0.03 and several other parameters independently map to5.
+- [x] Align plan with user's existing first6 preparation code cells;
+  note `dev` checkout and separate ScanObjectNN-checkpoint preflight.
+- [x] User selected Gaussian+clean first and prioritizes author-protocol
+  reproduction. Added source-pinned generation/Drive/download cells and
+  fifth-cell verified restore. Preserve Uniform->Gaussian RNG order;
+  author seed and exact original dataset byte identity remain unavailable.
+- [x] Six focused synthetic CPU tests, Python3.8 syntax, embedded source
+  identities and original notebook-cell preservation checks pass.
+- [ ] User-run original H5 audit, isolated Gaussian-s5 generation and
+  deterministic CPU verification, complete clean/Gaussian source evaluation,
+  then full handoff ZIP review. No result yet.
+- [Open] Whether severity explains low source accuracy; coordinate clipping,
+  checkpoint/split identity and preprocessing still require evidence.
+- [Open] Expansion to13 array corruptions follows input/Gaussian review;
+  occlusion/lidar require a separately validated mesh pipeline.
+- [Open] Sampling-consistency v2 smoke remains pending from the previous task.
+
+## 2026-10-06 Phase 6 preparation authorized
+
+- [x] User explicitly authorized preparing P_PC versus C_SCD all15 after
+  the Phase5 decision; this supersedes the pending-authorization item below.
+- [x] Reuse existing `all15` runner support; new frozen selection source
+  is `replicate`, candidate P_PC, comparator C_SCD. Preserve old selection.
+- [x] CPU preview:45 paired blocks,90 arm archives,222120 classifications;
+  no inference attempt created. Existing full-screen SCD archives lack
+  matching prepared-input identities, so new paired C_SCD is required.
+- [x] Packaging verification preserves all51 original Phase5 entries,
+  including48 ZIPs; CRC passes. Notebook download stays in the Colab kernel.
+- [ ] User reviews and runs the four [Colab cells](gsd_phase6_colab_handoff_20261006.md).
+- [ ] Ingest the complete/partial output ZIP, report macro15/macro14,
+  Background/per-corruption and paired seed differences without retuning.
+
+## 2026-10-06 Phase 5 replication decision
+
+- [x] Ingest `replicate/attempt-0001.zip`: 48 complete arms, 12 matched
+  blocks, next256 indices and seeds0/1/2; 12,288 classifications.
+- [x] Apply unchanged gates: mean P_PC-C_SCD +0.8464pp; seed deltas
+  +0.6836/+0.9766/+0.8789pp; Background +2.0833pp; mean P_PC-P_SUM
+  +0.6185pp and P_PC-P_NORM +0.6836pp. All development gates pass.
+- [x] Report per-corruption clustered paired uncertainty; no pooled
+  cross-corruption bootstrap. Keep partial/failed arms separate (none here).
+- [Open] Whether the advantage generalizes beyond these four development
+  corruptions remains untested. Any all15 evaluation requires a separate
+  explicit decision; this pass does not launch or authorize it automatically.
+- [Open] Positive means against additive and norm-matched controls support
+  the candidate at this scope, but do not establish a unique directional
+  causal mechanism. P_PC loses to P_SUM in seed0; per-corruption intervals
+  for the two mechanism contrasts all include/touch zero.
+- Evidence: [validation and fixed gates](../result/modelnet40_c/gsd_guidance_composition_v1/replicate/attempt-0001/analysis_ingested/validation.md).
+
 ## 2026-10-05 pilot review — current next actions
 
 - [x] Reconcile the projection interpretation with the registered gate:
@@ -13,14 +74,34 @@
   P_SUM by1.1719pp and P_NORM by1.9531pp in the four-corruption macro.
   Per-corruption effects are mixed and intervals touch/include zero; this is
   a pilot gate pass, not proof of stable benefit.
-- [ ] Freeze P_PC and run original Phase5 on the next256 indices, seeds0/1/2,
-  retaining C_SCD/P_SUM/P_NORM. Apply the original per-seed, Background and
-  mechanism-contrast gates before any all15 evaluation.
+- [x] Freeze P_PC with C_SCD/P_SUM/P_NORM and prepare the original Phase5
+  next256/seeds0-2 plan; selection manifest and no-inference preview are ready.
+- [x] User ran Phase5 in Colab; original per-seed, Background and mechanism
+  gates evaluated on 2026-10-06. All pass; see the decision above.
 - [Open] Prepared-input hashes differ across routing/projection despite equal
   draw keys/source/runtime/native identities. Cause and numerical magnitude
   are unknown; log component hashes in future blocks, do not infer causality.
 - Details and implementation handoff:
   [pilot review and action plan](gsd_pilot_review_action_plan_20261005.md).
+
+## 2026-10-05 Phase 5 preparation
+
+- [x] Confirm `replicate` and the selection-manifest schema are already
+  supported; use the complete projection pilot as the phase reference and
+  preserve `control_completion` as the final pilot-gate evidence.
+- [x] Freeze P_PC with C_SCD/P_SUM/P_NORM comparators; selection fingerprint
+  `56a256da5b4c5d789f83ce8ea4230b8746ec4f9db242ad22597c436decceaa2d`.
+- [x] Run no-inference `build_plan` preview: 12 paired blocks, four arms,
+  256 indices, seeds0/1/2, exactly12,288 classifications.
+- [x] User completed the GPU phase in Colab; full attempt ZIP retained.
+- [x] Validate ZIPs, indices, prepared component hashes, runtime/assets/native
+  identities and source hashes; compute paired seed contrasts and apply the
+  unchanged Phase5 gates before discussing any later evaluation.
+- Colab cells and post-run audit:
+  [Phase 5 handoff](gsd_phase5_colab_handoff_20261005.md).
+- [x] Correct the post-run cell's process boundary: use one normal notebook
+  Python cell for audit/analyzer subprocesses, packaging and `files.download`;
+  keep analysis in `3dd_tta_env`. See the 2026-10-06 findings entry.
 
 ## 2026-10-05 style projection pilot ingested
 
@@ -896,3 +977,388 @@ review/checklist below instead of treating source-domain data or q95 as gates.
   and [Colab scenarios](colab_gsd_block_routing_20261004.md). Core commands
   are available on gsd-smooth-spectrum commit 83e06b3; GPU execution of the
   remaining scale cells and routing phase is pending.
+
+
+## 2026-10-07 — Phase 6 completed and independently audited
+
+- [x] Ingest the supplied all15 ZIP:45 blocks,90 arms,222120 classifications;
+  outer/inner CRC, artifact/count/step coverage and component pairing pass.
+- [x] Report macro15/macro14/Background, all45 corruption/seed rows, transitions,
+  sample SD, clustered per-corruption uncertainty, runtime and provenance limits.
+- [x] Reconcile packaged audit/analysis/accuracy summary with independent counts
+  and unchanged analyzer calculations under a documented CPU streaming adapter.
+- [Run/Inference] P_PC-C_SCD macro15 +0.036917pp, seed directions negative/
+  positive/positive; macro14 +0.017365pp, Background +0.310643pp. All15
+  corruption intervals include zero; broad stable improvement is unsupported.
+- [Open] Independent generalization and full-scope P_SUM/P_NORM mechanism
+  comparisons remain unestablished. Original runtime tensors/binaries, complete
+  dependency/determinism records and cross-corruption object correspondence are
+  not supplied. These limits do not authorize rerunning completed conditions.
+- [Run/Code] Historical handoff commit/path text differs from actual consistent
+  c18926f provenance; three working source files differ only in CRLF line endings.
+  Three native binary hashes differ between Phase5 and Phase6, but not within
+  Phase6's paired blocks. See the [audit report](../result/modelnet40_c/gsd_guidance_composition_v1/all15/analysis_20261006_independent/validation_20261007.md).
+- The prior Phase6 pending-execution/ingestion checkboxes are historical and
+  superseded by this dated evidence. No post-result gate or automatic promotion;
+  preserve failed Background100/1000 and separate M_max=1800 work.
+
+
+## 2026-10-07 ? Accuracy-first priority after Phase6
+
+- [User decision] Target +1?2 absolute pp in all15 macro accuracy; a small
+  style mechanism effect does not meet the current research objective.
+- [Proposal] Park new P_PC/style projection variants and automatic routing
+  control repetitions. Reopen only with a concrete performance hypothesis.
+- [ ] Assess whether the separate smooth-integration M800 CSV signal can
+  be tied to its exact executed source/protocol and existing controls. The
+  CSV mean is64.532684%; M1800 is64.505672%. Both are descriptive CSV records,
+  not three-seed matched gains over current C_SCD63.974428%. Preserve their
+  raw files and historical M_max notes. Locate existing evidence before any
+  new execution; do not select a per-corruption winner using test labels.
+- [Open] The reason for large cross-branch Impulse/LiDAR differences and
+  opposite Shear behavior is unisolated. Code/config/build/seed differences
+  must be distinguished before proposing a performance-focused intervention.
+- Future candidate acceptance/confirmation criteria must be fixed before new
+  outcomes; no threshold is applied retroactively to Phase6.
+
+
+## 2026-10-07 - Accuracy branch audit follow-up
+
+- [x] Complete the bounded existing-source/CSV/control search above. See
+  [report](gsd_accuracy_branch_audit_20261007.md). This closes the inspection
+  task, not the missing executed-source or matched-control evidence.
+- [Open] The M800 CSV cannot be bound to an exact executed commit, seed or
+  environment. No matching legacy SCD-only result was located in searched
+  paths; unprovided runs remain possible.
+- [Proposal] Next performance candidate: current SCD normal10/Background35,
+  holding all other settings fixed, evaluated across all15 rather than the
+  old four-corruption pilot. Existing SCD-off Background step scans do not
+  cover it. Shared encoded state/epsilon and matched runtime are required;
+  stronger initial noising is part of the intervention.
+- [Open] Freeze development indices, candidate acceptance criteria and cost
+  budget before any new execution. No implementation/run has started; the
+  report proposes a sequence, not a registered or completed experiment.
+
+
+## 2026-10-08 - Legacy smooth restoration replaces the step-only proposal
+
+- [x] User supplied the historical eval_gsd_tta_v2 command and source branch.
+  Preserve its [User report] status; exact old commit/seed/build remain open.
+- [x] Restore the legacy graph/trajectory and reported settings as a separate
+  entry point in gsd-smooth-spectrum; CPU source/math/protocol tests pass.
+- [ ] Run the documented user-operated Colab smoke, then the same M800
+  configuration on all15; ingest the complete newly generated ZIP. No GPU
+  execution has occurred locally and no reproduction score is established.
+- [Open] Compare the new native/software/assets identities and corruption
+  pattern against the old CSV. No old-seed recovery, automatic +1-2pp promise,
+  common-draw causal claim or parameter sweep follows from CPU parity.
+- The October7 SCD10/Background35-only proposal is superseded as the immediate
+  action by the user's requested legacy restoration. Historical results and
+  M1800/failed Background100/1000 records remain unchanged. See
+  [implementation and Colab handoff](gsd_legacy_smooth_restore_20261008.md).
+
+
+## 2026-10-10 - Legacy isolate control pending
+
+- [Code] The legacy self-only isolation-mask error is demonstrated; opt-in
+  offdiag correction and fixed-parameter Colab cells are ready. See
+  `gsd_spectral_math_audit_20261008.md` and `gsd_isolate_control_colab_20261010.md`.
+- [Open] Do real latent graphs contain enough affected vertices for the
+  correction to change all15 accuracy? No GPU accuracy evidence yet.
+- [Open] Recover legacy seed0 accuracy under B70/M800/10-30 and compare the
+  offdiag-only control; retain per-corruption counts, prediction records,
+  assets/native/source identities and failed runs. Do not claim historical
+  bitwise reproduction or common-prepared-input pairing.
+- [Open] Any positive seed0 observation needs further seed replication before
+  a stable gain claim. No new numerical promotion threshold is defined.
+
+
+## 2026-10-10 - Smoke passed; all15 pending
+
+- [Run] Four seed0 two-batch smoke arms validate in `result/modelnet40_c/legacy_isolate_control/attempt-0001_smoke_seed0/`. Per-corruption prefix signs differ (+2 Background correct, -3 Gaussian correct for offdiag), so no accuracy conclusion.
+- [Open] Validate legacy all15 seed0 first (Cell10), then offdiag all15 (Cell11). Smoke used ~60.8GiB peak allocated on A100 80GB.
+- [Open] No prepared-input hashes exist for this runner; describe the comparison as seed-controlled separate runs, not verified paired inference inputs.
+
+## 2026-10-10 - Legacy isolate all15 completed; no accuracy signal
+
+- [Run] The seed0 legacy/offdiag all15 comparison is validated at
+  `result/modelnet40_c/legacy_isolate_control/attempt-0002_all15_seed0/analysis_ingested/validation.md`.
+  Legacy 64.5705%; offdiag 64.5543%; delta -0.0162 pp. Per-corruption signs are
+  mixed; 872 corrected and 878 broken index-aligned predictions.
+- [Inference/Open] The correction does not support the +1 to 2 pp target. Do not
+  schedule seeds1/2 solely to promote offdiag for accuracy based on this result.
+  Keep the mathematically corrected option available; pursuing a causal or
+  stable effect would require repeated seeds and common stochastic inputs.
+- [Open] The reported historical64.5327% still lacks exact seed, build/runtime,
+  and source commit provenance. The restored legacy run is close descriptively,
+  but reproduction parity is not established.
+- [Open] Choose the next accuracy experiment from a separately justified
+  hypothesis; no numerical promotion threshold is introduced after seeing this result.
+
+## 2026-10-11 - Accuracy development after practical reproduction
+
+- [x] [User report/Run] Accept legacy64.5705% as practical reproduction of
+  historical64.5327%; exact old metadata remains missing but does not block
+  the next development experiment. This supersedes the October10 priority.
+- [x] [Run] Fixed-rule offline ensemble/selection evaluated on archived logits:
+  probability mean64.8487% (+0.2782pp). One seed, two-run cost, exploratory.
+  No automatic promotion and no oracle-label accuracy claim.
+- [ ] [Open] Port PG-SF inference to our Point_MAE, preserving checkpoint,
+  native grouping/FPS and purge0 parity; compare token filtering separately
+  from episodic BatchNorm. No implementation has begun.
+- [ ] [Open] Establish matched spectral-off SCD control in restored B70/10-30
+  host alongside the new experiment; completed old-host C_SCD is not equivalent.
+- [ ] [Open] Freeze280 development indices per corruption and seeds0/1/2,
+  actual prepared-input/RNG hashes and accuracy/cost decision criteria before
+  the proposed new pilot. Save decoded geometry for classifier-only reuse.
+- [ ] [Open] If supported, test label-free consistency/entropy selection of
+  prepared input, intermediate clean prediction and terminal reconstruction.
+  Separate output selection from changing forward noise depth.
+- [Open] Can the selected method beat legacy and prepared-input PG under
+  matched costs/seeds? Does spectral guidance add measurable value? These
+  outcomes determine the mechanism claim; a larger score alone does not.
+- [Open] Locked all15 remains development evaluation; identify separate
+  generalization evidence before a paper-level independent-validation claim.
+  See [the research review and plan](gsd_accuracy_research_plan_20261011.md).
+
+
+
+## Later 2026-10-11 - Advisor agenda and temporal inference questions
+
+- [x] Create [advisor discussion log](advisor_meeting_log.md), with PG link and
+  short summary plus trajectory/efficiency agenda. No meeting or approval claimed.
+- [x] Record user proposal and realistic [technical assessment](gsd_trajectory_selection_20261011.md).
+- [ ] Does clean intermediate prediction have useful complementary errors vs
+  the true terminal decode in this legacy host?
+- [ ] Do fixed min-entropy selection or equal probability averaging improve
+  actual accuracy across all15/seeds, beyond fixed-step or equal-cost voting?
+- [ ] Does entropy track correctness across steps; how often does confidence
+  rise while accuracy falls? Does temporal agreement add useful information?
+- [ ] Freeze sparse checkpoint timing, indices, seeds and latency budget before
+  implementing a trajectory observer; verify probe-free terminal parity/RNG.
+- [ ] If useful, develop causal prefix stopping with fallback; distinguish
+  simulated step savings from measured latency/throughput under batch compaction.
+- [ ] If useful, profile matched GSD+SCD/SCD-only/GSD-only/unguided trajectories
+  and actually skipped components before deciding whether either can be removed.
+- [ ] Discuss input-only scope, PG comparison, novelty and acceptable cost with
+  advisor. No advisor response, stop threshold or accuracy-loss budget exists yet.
+
+The earlier PG-first recommendation is no prerequisite for this experiment.
+Current request authorizes documentation/assessment; no GPU run has started.
+
+
+## 2026-10-11 - Fresh-session handoff and online timing
+
+- [x] [User report] Freeze last accepted legacy B70/M800/10-30 baseline as the
+  initial development host; [session handoff](gsd_trajectory_session_handoff_20261011.md).
+- [x] [Inference] Clarify that B1 exits skip future work directly; B70 batch
+  waiting is not an argument against single-sample online acceleration.
+- [ ] Implement opt-in sparse clean-trajectory observer and CPU analyzer first,
+  preserving terminal behavior, RNG and source-classifier state.
+- [ ] Once selection is useful, measure matched B1 full-horizon vs causal early
+  exit latency including probes; separately measure B70 throughput/accuracy.
+- [ ] Define horizon without corruption identity for unknown-corruption online
+  use, separately from preserved legacy10/30 benchmark convention.
+- [Open] No new entropy threshold, guaranteed speedup or model result is recorded.
+
+
+## Later 2026-10-11 — Trajectory infrastructure completion and pending evidence
+
+- [x] [Code/CPU] Legacy opt-in clean probes with matching pre-update style,
+  distinct original terminal, RNG/buffer preservation, per-index provenance,
+  GPU-free analyzer and conda Colab cells. [Details](gsd_trajectory_implementation_20261011.md).
+- [ ] [Open] User-run CUDA smoke: exact off/audit/observe terminal and audited
+  state/noise/RNG parity, frozen model state, native/source/assets, finite outputs
+  and peak memory. CPU mocks cannot resolve native-kernel parity.
+- [ ] [Open] All15/280/seeds0–2 development pilot: actual selector/mean gains,
+  corrected/broken balance, fixed-probe controls, entropy versus correctness,
+  temporal instability, oracle headroom and added probe cost. No threshold set.
+- [ ] [Open] If useful: same-cost terminal voting and independent evaluation;
+  prefix-only locked early stop with fallback; onlineB1 actual net latency versus
+  matched B1 full horizon including probes; B70 throughput separately.
+- [ ] [Open] Unknown-corruption online horizon, live compute skipping and matched
+  GSD/SCD ablations remain conditional. Preserve10/30 in this first observer.
+
+
+## 2026-10-11 — Step-count evidence is motivation, not early-exit validation
+
+[Run/Inference/Open] Archived Background no-SCD5-to10 improvements are positive
+across seeds, while10-to20 worsens both arms. Larger cross-host normal5/10
+contrasts are confounded. [Evidence audit](gsd_step_count_evidence_20261011.md).
+Keep the missing question explicit: does an earlier clean candidate on the
+same Legacy trajectory help, and can an unlabeled prefix rule identify it?
+Changing horizon also changes initial noise depth; do not equate it with early
+exit. Reuse the completed step scan; no new sweep is scheduled.
+
+
+## Later 2026-10-11 — Seed0 screen precedes seed replication
+
+[User decision/Code/Open] Current pilot: all15/280/seed0 only. Does any fixed
+policy show a useful accuracy/cost trade-off without unacceptable corruption
+losses? Review that first, then conditionally freeze the policy and evaluate
+seed1/2. Existing three-seed pilot checklist entries are superseded in launch
+order, not completed. No numerical gate or observed benefit is claimed.
+
+
+## 2026-10-11 ? GPU smoke parity unresolved
+
+- [x] [Run] Preserve and inspect six 140-example arms; terminal parity failed.
+- [x] [Run] Same-mode Gaussian audit repeat with identical IDs: VAE latent
+  hashes and 9/140 terminal predictions differed despite matching captured RNG.
+- [x] [Code] Revised smoke contract to use per-arm artifact checks, same-RNG
+  VAE encode replay diagnostics, and within-probe RNG/buffer invariants. New GPU
+  smoke is still pending; pilot remains stopped until its ZIP is reviewed.
+- [Open] Current evidence puts audit/observe latent divergence before the
+  first probe; no conclusion about probe effect, accuracy, or speedup.
+  [Diagnostic report](../result/modelnet40_c/diagnostics/legacy_trajectory_smoke_20261011/validation.md).
+
+[Open] Does exact same-RNG encode replay reproduce sampled latents in the
+Colab GPU runtime? If not, localize CUDA/operator variability before attributing
+cross-process output differences to the trajectory observer. The smoke gate
+change does not assert observer neutrality across independent processes or
+support the policy hypothesis.
+
+
+## 2026-10-11 - Recovered smoke and pilot resilience
+
+- [x] [Run/CPU] Recover and validate the completed six-arm smoke ZIP; keep all 140-example results exploratory. See [implementation record](gsd_trajectory_implementation_20261011.md).
+- [Open] Explain the same-RNG VAE latent replay mismatch (4/4 audit batches) before claiming cross-process terminal parity or probe neutrality.
+- [Open/next] If the seed0 all15 pilot supports further work, compare entropy-weighted class-probability averaging on the same traces. Freeze a weight function and tau or calibrate separately; assess per-corruption failures and confidence/correctness, since entropy is not a correctness or temporal-stability guarantee.
+- [Code check] Ordinary pilot exceptions preserve per-batch files, write failed status, seal an available ZIP and copy it to Drive; later CPU analysis failures happen after the ZIP backup. A hard Colab runtime reset may bypass `finally`, and no periodic Drive sync/resume exists. Preserve/pack partial outputs after ordinary errors; do not rerun an existing path blindly.
+
+
+## 2026-10-11 - Pilot answered the first seed0 screen, not generalization
+
+- [x] [Run/CPU] Complete and independently reanalyze all15x280 seed0 pilot outputs; provenance and unchanged model state validate. Detailed metrics, paired deltas and artifact hashes are in [trajectory implementation evidence](gsd_trajectory_implementation_20261011.md).
+- [Run/Inference] Probability mean is+0.7619pp vs the same-trace terminal and minimum entropy is+0.5238pp on the selected subset, while both are-3.5714pp on Background. The conditional index-bootstrap interval includes zero for minimum entropy and is narrowly positive for probability mean; neither is a multi-seed or independent test.
+- [Open/next] Compute entropy-weighted probability means from saved logits as an exploratory analyzer extension, with an explicit formula/tau sensitivity; do not choose tau confirmatorily on these same IDs. Then decide whether the modest seed0 signal justifies freezing a policy for seeds1/2 and independent evaluation.
+- [Open] No early-stop rule or speedup was tested. Keep matched online B1 latency, B70 throughput comparison, unknown-corruption horizon, and conditional GSD/SCD ablations separate.
+
+
+## 2026-10-11 - Full-data Colab preflight retry
+
+[User report/Open] First preflight-cell execution reportedly completed without error; a second execution of the same cell raised a generic CalledProcessError. The cell intentionally stops if `/content/legacy_trajectory_full_session.txt` already exists. If the first pass printed `Preflight passed`, this is a rerun guard: preserve its session and proceed to the inference cell. The raw Bash stderr was not included, so confirm from the first output if uncertain. Full inference remains pending in the latest report; do not erase or recreate the session pointer.
+
+## 2026-10-11 - Full-data run started; artifact review pending
+
+- [x] [User report] Confirmed first preflight printed `Preflight passed` and
+  full all15 seed0 inference is now running; previous launch-pending status
+  is superseded. Preserve the active session and avoid repeat launches.
+- [ ] [Open] After inference ends or an ordinary error, package and download
+  the full/partial handoff; verify Drive backup and obtain complete logs.
+- [ ] [Open] Validate 37,020-example coverage, source/assets and frozen state;
+  then evaluate same-trace terminal/minimum entropy/equal probability mean,
+  paired transitions, all15/macro14 and Background. No full-data result yet.
+- [Open] Entropy-weighted analysis, policy lock and conditional seed1/2 remain
+  later decisions; no tau, gain or speedup selected. See the updated
+  [session handoff](gsd_trajectory_session_handoff_20261011.md).
+
+## 2026-10-11 - Full-data trajectory screen reviewed
+
+- [x] [Run/CPU] Complete handoff preserved and independently analyzed: all15 x
+  2,468 IDs, seed0, complete provenance/source hashes, frozen model state.
+- [x] [Run] Same-trace mean is+0.5646pp and minimum entropy+0.4592pp;
+  conditional index-cluster intervals are positive. These are one-seed
+  intervals, not seed stability. Probability mean regresses Background
+  2.6742pp and regresses5 corruption rows. Keep Legacy as reference.
+- [ ] [Open] Is the gain stable over seeds1/2 and does its tradeoff remain
+  useful after explicitly reviewing Background and other losses? Seed runs
+  establish repeatability on development data, not independent generalization.
+- [ ] [Open] Explore entropy-weighted probability averaging only on saved logits;
+  keep tau unselected or disclose any same-data sweep as exploratory. Does it
+  improve paired accuracy without amplifying confidently wrong Background
+  predictions?
+- [ ] [Open] Compare to same-cost terminal voting before attributing the gain
+  to temporal diversity. Current probe cost is material and full-trace policies
+  do not early-stop; online B1 latency and B70 throughput remain unmeasured as
+  matched comparisons.
+- [Open] One-seed full-data result is+0.5646pp versus same-run terminal and
+  +0.5862pp versus separate Legacy run descriptively, below the1pp lower
+  development target. Do not claim1–2pp or external validation. See
+  [validated artifact and analysis](gsd_trajectory_implementation_20261011.md).
+
+
+## 2026-10-11 - Proposed bounded offline follow-up
+
+[Run/Inference/Open] Background early probes are much weaker than terminal,
+while Uniform/Gaussian benefit from early candidates. Recommend comparing a
+parameter-free entropy-weighted probability mean (w proportional to1-H,
+normalized H; equal fallback at zero total weight) and latest-clean-plus-terminal
+equal mean on saved logits. Both are proposals, not implemented/evaluated.
+Use one rule across corruptions, no tau/threshold fitting, paired transitions
+against terminal and equal mean. Merely repairing Background's mean loss would
+hypothetically raise macro gain from+0.5646pp to about+0.7428pp, still below1pp.
+Freeze a supported candidate before conditional seeds1/2. See
+[proposal and limits](gsd_trajectory_selection_20261011.md).
+
+
+## 2026-10-11 - Common-horizon development focus (user decision)
+
+[User decision/Run/Open] Prioritize the14 non-Background corruptions sharing
+10 reverse steps. The user points out that selecting30 steps specifically for
+Background assumes corruption identity at inference; Background repair is no
+longer the next development objective or candidate-selection requirement.
+Preserve and report the existing Background/all15 legacy results separately.
+On the existing full-data seed0 trace, macro14 terminal/minimum entropy/equal
+mean are64.960060/65.700972/65.755962% (+0.740912/+0.795902pp vs terminal).
+Use one shared label-free policy across14; per-corruption reporting must not
+become corruption-specific inference routing. These are macro14 development
+results, not all15 improvements or demonstrated unknown-corruption deployment.
+No horizon/model/code/raw-artifact change or new inference. Entropy-weighted
+averaging remains a proposed offline candidate, with no tau/threshold selected.
+See [updated decision and limits](gsd_trajectory_selection_20261011.md).
+
+## 2026-10-11 - Entropy-weighted macro14 screen reviewed
+
+- [Run/Inference] The fixed `1-H` normalized-entropy probability mean scores65.7270% versus terminal64.9601% (+0.7670pp), but the equal probability mean scores65.7560% (+0.7959pp). Direct pairing: entropy weighting corrects26 examples and breaks36 relative to equal averaging, net -0.0289pp. Do not choose it over the equal mean on this evidence.
+- [Open] Does the modest equal-mean benefit repeat on seeds1/2 under the locked common10-step, macro14 protocol? This is still repeatability on development data, not independent generalization. Keep all15/Background records intact.
+- [Open] Same-cost terminal-vote controls, causal online stopping, and B1 latency remain unmeasured. These policy analyses do not reduce denoising runtime. No tau or corruption-specific routing is approved.
+- [Artifact] Full paired report: `..._ingested/macro14_policy_analysis_v2/analysis.json`, with per-corruption and per-example CSVs; source nested archive SHA-256 `1711d875d190e79e207f13960e97c131d12410541a1b6e8bbb1bbe176cf31ec7`.
+
+## 2026-10-11 - Sampling-consistency follow-up questions
+
+[Open/Inference] Can two input sampling views distinguish useful clean trajectory candidates better than entropy alone under a fully frozen classifier? Compare a predeclared normalized H+JS selector and equal eight-view mean against existing four-view mean, plus terminal voting with matched classifier-pass count and measured total cost. Reject the mechanism if consistency adds no benefit beyond voting. Shared wrong predictions (6,461 macro14 examples) show agreement alone is insufficient. Saved run has no decoded probe geometry, so new views require a new Colab run; no launch or implementation yet. A separate prepared-input prediction may add error diversity, but its gain is unmeasured. See `gsd_trajectory_selection_20261011.md` for exact evidence and sources. ModelNet40-C remains development data; conditional new seeds are repeatability, not independent generalization.
+
+[Open/2026-10-11] Before implementing sampling consistency, specify and verify an external FPS view construction that genuinely changes sampled points at fixed1024 count and shared normalization while preserving classifier/token code and original A-view RNG. Attribute sampling diversity to Bahri et al. (WACV2025), confidence/augmentation consistency to MEMO (NeurIPS2022), and JS consistency precedent to AugMix (ICLR2020); do not attribute our H+JS selector formula or novelty to those works. Full source mapping is in `gsd_trajectory_selection_20261011.md`.
+
+## 2026-10-11 - Sampling-consistency implementation gates
+
+- [x] [Code/CPU] Reference titles, exact inspired components and unvalidated synthesis boundary recorded in `gsd_sampling_consistency_20261011.md`.
+- [x] [Code/CPU] Deterministic external A/B sampling, frozen-state/RNG checks, six policies, same-trace terminal8 control and paired analyzer implemented;66 targeted CPU tests pass.
+- [x] [Code/CPU] Hash-verified source snapshot and append-only Colab continuation prepared without Git writes; existing21 notebook cells preserved.
+- [ ] [Open] User-run Gaussian140 smoke: inspect complete ZIP, native FPS start/indices/diversity, state/provenance/coverage and actual resource use. Source/archive identity is pinned in the implementation handoff.
+- [ ] [Open] After smoke review, execute the separate macro14x280 seed0 pilot; compare H+JS against H alone, equal eight-view mean, existing four-A mean and terminal8 voting. No GPU result exists yet.
+- [ ] [Open] If a policy is supported, freeze it before conditional seeds1/2; use independent evaluation for generalization. Acquisition runtime is not B1 policy latency; no early-stop/speed claim.
+
+
+### 2026-10-12 - Sampling provenance closure
+
+- [x] [Code/CPU] Standalone analysis rejects missing/changed checkpoint, config, labels and selected data identities; specification is tied to source delivery.67 targeted CPU tests pass.
+- [x] [Code/CPU] v2 delivery validated by CRC/SHA and extracted CPU preview; notebook updated only in the new section, old21 cells preserved.
+- [ ] [Open] Review complete Gaussian140 native CUDA smoke ZIP before macro14x280 pilot. Accuracy, B1 latency and seed stability are still unmeasured. See `gsd_trajectory_implementation_20261011.md` for the current v2 SHA.
+
+## 2026-10-17 - Current next gate and new-agent context
+
+- [x] [Code/CPU] Sampling-consistency v2 source delivery, Colab cells, strict
+  CPU artifact analyzer and provenance checks are recorded. This does not
+  mean the CUDA method has been validated.
+- [ ] [Open/Run] Has the user-run Gaussian140 seed0 sampling smoke completed?
+  First inspect current result handoffs. If present, validate its ZIP, source
+  identity, native FPS starts/indices, view coverage/diversity, RNG/buffer and
+  model-state invariants, then review outcomes and resources. If absent, the
+  next action remains running only the new sampling-consistency preflight,
+  Gaussian140 smoke and packaging/download cells in the prepared Colab
+  notebook.
+- [ ] [Open/Run] Consider the separate macro14×280 seed0 pilot only after
+  smoke review passes. Compare the locked H+JS selector, H-only selector,
+  equal eight-view mean, existing four-A mean, and matched eight-pass terminal
+  voting control. Do not tune on labels or corruption identity. Reject any
+  claimed consistency mechanism that does not add evidence beyond the controls.
+- [Open] No sampling CUDA accuracy, matched latency, online B1 early-stop,
+  seed replication, or independent-dataset generalization is yet recorded.
+  The full-trace trajectory mean's +0.5646pp is below the user's +1–2pp goal
+  and includes a Background regression; do not describe it as achieving that
+  goal.
+- Handoff and copyable fresh-agent prompt:
+  [new agent handoff](new_agent_handoff_20261017.md). Keep the 2026-10-11
+  pre-run notes below as historical records rather than deleting them.
