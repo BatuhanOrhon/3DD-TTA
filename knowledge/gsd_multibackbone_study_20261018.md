@@ -522,3 +522,9 @@ geometry. Batch shards and corruption/final ZIPs have immutable SHA-verified
 Drive receipts. Proceed to3-condition one-batch GPU smoke per dataset/head;
 only after artifacts/finite geometry/logits/losses/frozen states/RNG guards pass, run full15.
 Continue within the user's unchanged28800s GPU-work cap and preserve r7.
+
+[Run/Decision] 2026-10-18 20:53 UTC — both selected heads pass3-condition
+CUDA smokes on both datasets (840 predictions); all RNG/frozen-state/shared
+geometry and Drive/local evidence checks pass. See guidance note for immutable
+ZIP identities, B70 peak32GB and1.5–2h full-phase estimate. Advance unchanged
+to fixed seed0 full15 under existing8h cap.

@@ -30,10 +30,14 @@
 - [ ] Obtain exact GSDTTA weights/protocol/corruption bytes to causally resolve
   paper gaps; severity alone is not established. Earlier Point-MAE/3DD severity1
   only matched Gaussian, not the full corruption profile. Do not conflate tables.
-- [ ] Current steering: park DGCNN and prepare PointNeXt+CurveNet frozen
+- [x] Park DGCNN; implement and validate PointNeXt+CurveNet frozen
   guidance on both datasets (user explicitly confirmed PointNeXt+CurveNet).
   Compare to each own source-only row; fixed prior legacy800 configuration,
   no new target-label tuning. CurveNet/ModelNet is not paper-equivalent.
+  Both heads pass3-corruption/70-example CUDA smokes,840 indexed predictions;
+  batch Drive receipts, native bindings, RNG/geometry and frozen states verified.
+- [ ] Run two-head full15 on both datasets, fixed seed0, and independently
+  validate matched source deltas before interpreting method benefit.
 - [ ] Proposed next study: original3DD-TTA with the same accepted heads/data/
   preprocessing/seeds; a same-flow spectral0 control is needed for a more
   isolated spectral contribution claim. Not yet launched.

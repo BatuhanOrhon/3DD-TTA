@@ -130,3 +130,37 @@ geometry. Batch shards and corruption/final ZIPs have immutable SHA-verified
 Drive receipts. Proceed to3-condition one-batch GPU smoke per dataset/head;
 only after artifacts/finite geometry/logits/losses/frozen states/RNG guards pass, run full15.
 Continue within the user's unchanged28800s GPU-work cap and preserve r7.
+
+
+## 2026-10-18 20:53 UTC — two-backbone CUDA smokes accepted
+
+[Run/Artifact] Existing r7 completed both selected heads on Gaussian,
+Background and Density, first70 original IDs each, seed0/B70. All840 indexed
+predictions independently validate finite logits/argmax/pinned labels/counts;
+shards exactly concatenate to corruption NPZs. Six shared geometry batches
+match across the two heads, all RNG guards and frozen classifier/LION state
+hashes pass. Native bootstrap reports all4 pinned binaries/no-build. Raw/eval
+LION loads successfully; peak whole-process allocation32381.92MiB (~31.62GiB).
+Reconstruction takes~7s/normal batch and~13.8s/Background; full two-dataset phase
+is estimated1.5–2h, within the existing8h approval. Smokes are partial subsets,
+not all15 accuracies and not evidence of improvement over full source macros.
+
+All4 final ZIPs and12 batch NPZ/diagnostic receipts were independently checked
+against exact local/Drive bytes, in addition to per-corruption checkpoints.
+Raw ZIPs live under canonical `result/<dataset>/gsd_inspired_latent_spectral_guidance/`;
+run IDs and full hashes are in the provenance JSON and guidance smoke validation.
+Smoke jobs consumed57.106+56.524s; no model/parameter setting changed afterward.
+
+Immutable evidence ZIP local
+`result/preparation/multibackbone_20261018/guidance_smoke_evidence_v1.zip`,15264bytes,
+SHA `4760b814c94b3bab81f26b9954e872a85663dd106407f72184af2922df44de75`;
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T205237Z/`.
+It contains the exact executed CPU verification phase, ledger, final phase
+state,12 Drive receipt audit and independent derived analysis/source bytes.
+Local/Drive SHA, CRC and all member identities pass. Current code batch is
+pushed as fbb096b; executed snapshot remains separately identified by revision6.
+
+[Decision/Next] Run fixed full15 seed0 for CurveNet+PointNeXt, both datasets,
+with batch-level immutable receipts and per-corruption/final model ZIPs. Compare
+only to each own fixed full source baseline. Original3DD-TTA and spectral0
+controls stay future proposals. Preserve r7 and the sole local monitor.
