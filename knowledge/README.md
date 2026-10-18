@@ -13,8 +13,10 @@ GSD-inspired guidance; no target-label tuning. Approved whole campaign cap8GPU
 hours, per-batch/corruption/model persistence. Existing r7 remains live. User confirmed PointNeXt+CurveNet guidance only;
 DGCNN parked. New isolated runner passes33 focused CPU tests; actual r7 loads
 4 audited native binaries without a JIT build, repeats8 strict CPU loads and
-validates4 matched-source links with CUDA uninitialized. GPU smokes/full15
-remain next; original3DD-TTA is a proposed subsequent comparison.
+validates4 matched-source links with CUDA uninitialized. Both-head CUDA smokes pass on both datasets (840 predictions); fixed full15
+seed0/B70 is now running, ModelNet then Scan. Batch-level Drive receipts and
+corruption/final ZIPs are verified. Original3DD-TTA is a proposed subsequent
+comparison, not currently launched.
 [Source results and diagnosis](gsd_multibackbone_source_results_20261018.md),
 [study](gsd_multibackbone_study_20261018.md),
 [asset provenance](gsd_multibackbone_provenance_20261018.json).

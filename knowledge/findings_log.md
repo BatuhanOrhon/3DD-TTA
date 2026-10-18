@@ -5009,3 +5009,35 @@ pushed as fbb096b; executed snapshot remains separately identified by revision6.
 with batch-level immutable receipts and per-corruption/final model ZIPs. Compare
 only to each own fixed full source baseline. Original3DD-TTA and spectral0
 controls stay future proposals. Preserve r7 and the sole local monitor.
+
+
+[Run/running] 2026-10-18 20:53:36 UTC — fixed full15 two-head phase launched
+on protected r7 through monitor97631. Exact controller SHA
+`c609a312d72068154c244ddeaccb3c9b3f8620c9431c17fc4b3a76f84f6981d7`,
+revision6 manifest/source unchanged. Phase path
+`/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T205336Z_guidance_all15/`.
+ModelNet run IDs `20261018-205338_curvenet-seed0` and
+`20261018-205339_pointnext-seed0`; Scan follows automatically only after both
+ModelNet final ZIPs verify on Drive. First Uniform batches are producing
+verified immutable Drive shards. Prior GPU-job consumption645.614s of28800s.
+Estimate1.5–2h for full phase, existing approval unchanged; no new3DD-TTA run.
+Do not start another cell or duplicate job while this phase is active.
+
+
+[Run/Partial campaign] 2026-10-18 21:00 UTC (local date2026-10-19) — first
+full corruption accepted while the unchanged full15 phase continues. ModelNet
+Uniform has2468 indexed predictions per head. CurveNet source1661/2468=67.3015%
+versus guidance1774/2468=71.8801%, +4.5786pp (271 corrected/158 harmed objects).
+PointNeXt source1117/2468=45.2593% versus guidance1880/2468=76.1750%, +30.9157pp
+(844 corrected/81 harmed). Both immutable corruption ZIPs were downloaded from
+Drive; receipt SHA/bytes, safe paths, CRC, every checkpoint member hash, labels,
+IDs, finite logits/argmax/counts and original-source predictions independently
+pass. Local paths are
+`result/preparation/multibackbone_20261018/full_modelnet_<backbone>_uniform_checkpoint.zip`;
+ZIP SHA values are `d2ed9e9edb465f28d85b41652fba4c56ece8976986fc011ec80ef66a1dd6cf32`
+(CurveNet) and `579b5a7b74ecb9076e8515a152fc7c627e342453d218b0e5a97ef4367b80526c`
+(PointNeXt). Drive roots are the current205338/205339 run directories,
+`corruption-uniform.zip` plus receipt. Derived counts are in
+`uniform_full_checkpoint_validation.json` under the same local preparation root.
+These are single-corruption descriptive gains, not all15 means or isolated
+spectral contributions. No setting changed after observing the labels.
