@@ -14,10 +14,13 @@
   manifest; real r7 Python3.8/torch2.1.2 CPU compatibility passes for all6, with
   no CUDA initialization/forward. Revision2 corrects an inferred label shape;
   failed v1 and passed v2 bundles are preserved with verified Drive/local SHA.
-- [ ] Record one comprehensive approval for the planned GPU phase above60min.
-  No GPU inference is authorized by elapsed time or by CPU preparation success.
-- [ ] Run Point-MAE real CUDA exact-logit/RNG/state parity, then six source-only
-  smokes and full15 evaluations. Diagnose per-corruption paper differences before
+- [x] Record comprehensive approval for the8-hour-capped GPU campaign: user
+  “Tamam başlatabilirsin”. Added per-corruption and final per-model Drive
+  persistence per user steering; numerical protocol unchanged. First parity
+  stopped before forward on legacy NumPy metadata; diagnose and retry safely.
+- [x] Run real Point-MAE CUDA boundary parity: all6 conditions pass exact
+  logits/predictions/RNG/state checks after pinned legacy metadata loading fix.
+- [ ] Run six source-only smokes and full15 evaluations. Diagnose per-corruption paper differences before
   GSD integration; alternative identity alone is not a measured causal diagnosis.
 - [ ] Integrate only validated frozen classifiers into the existing method;
   evaluate matched source-only deltas on both datasets without label tuning.

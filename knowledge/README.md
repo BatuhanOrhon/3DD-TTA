@@ -8,7 +8,10 @@ strict-loads all6 models without CUDA initialization. The revision2 manifest
 and immutable preparation/CPU bundles are verified on Drive and locally.
 These are preparation results, not GPU accuracy. Real Point-MAE
 parity and source-only all15 diagnosis precede GSD-inspired guidance integration.
-The whole planned GPU phase exceeds60min and awaits comprehensive approval.
+The user approved the whole8-hour-capped GPU campaign. Real Point-MAE CUDA
+boundary parity now passes on both datasets (3 conditions each, max logits
+difference0.0); alternative source smoke/all15 evaluations are next. Verified
+Drive checkpoints are written per corruption and after every model.
 [Current study](gsd_multibackbone_study_20261018.md),
 [asset provenance](gsd_multibackbone_provenance_20261018.json).
 

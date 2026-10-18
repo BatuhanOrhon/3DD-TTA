@@ -349,3 +349,56 @@ Historical full15 legacy runtime4138.711s gives an uncertain4–8h campaign
 estimate; the proposed cap is8 GPU-work hours, seed0 only. Approval is still
 pending. No accuracy, real CUDA parity or GSD result exists. r7 responded to
 the completed CPU phase and remains live; the local monitor owns CLI execution.
+
+
+## GPU parity accepted; persistence and legacy payload fix — 2026-10-18
+
+[User decision] Whole conditional8-hour GPU campaign approved; save every
+completed model to Drive and checkpoint after each corruption. Verified optional
+Drive snapshots and final receipts are implemented without numerical changes.
+All29 focused CPU tests pass (boundary10/source15/parity4). Revision4 uses
+manifest `bf964525b6d3e1d747f7d6ba959c02bd7f7153b0b9d79725ba08007b049cb7f8`
+and sourceZIP `ec136350e58506e700fb30e35c3e33a39fcdc3cc2cabfc542d54f9f28e039183`.
+Preparation deltaSHA
+`cdb4d6599038a0f5bba1bf41a86abf28822312315467374c0e4dbe08c9f23284`
+and CPU ZIP `d6588b0e84d5ab63460768e6d20f9bb5def174d419c0592f930ca6d0262aed2b`
+match Drive/local. Actual CPU preflight strict-loads all six alternatives and
+both original Point-MAE models; CUDA stays uninitialized.
+
+[Run/Diagnosis] Initial parity stopped before forward because torch2.1.2's
+weights-only unpickler rejects legacy NumPy scalar training metadata. Only the
+two exact-SHA-pinned Point-MAE files now use the original repository's legacy
+payload loading semantics (`weights_only=False`). The helper hashes the exact
+open handle immediately before loading it; CPU regression proves a wrong SHA
+is rejected before torch.load. All new-backbone loads remain weights-only.
+Original checkpoint bytes, strict model loading and classifier math are
+unchanged. Failed attempt ZIP/traceback is retained with Drive/local SHA
+`84b108a8ca186d3b0f171feb14acc832010f8f5ae5046a0279fcc7a208357599`.
+
+[Run] Actual CUDA parity passed on both datasets, Gaussian/Density/Background,
+32 original IDs each, seed0, batch32. Direct Point-MAE and FrozenClassifier have
+bitwise equal logits/predictions, equal post-call Python/NumPy/Torch/CUDA RNG,
+unchanged inputs and unchanged full model-state hashes. Maximum logits
+absolute difference0.0 for all six conditions. This validates the classifier
+call boundary, not end-to-end GSD preprocessing or benchmark accuracy.
+The accepted phase took30.967s; the failed loading attempt consumed11.328s.
+No source-only alternative model forward has run at this gate.
+
+[Artifact] Accepted raw ZIPs:
+- `result/modelnet40_c/pointmae_boundary_parity/20261018-201336_pointmae-seed0.zip`,
+  SHA `61cef430e37e75cbff274c5be66a8e2f6bd4fb32d11a03c2833b1b51f7b7a456`.
+- `result/scanobjectnn_c/pointmae_boundary_parity/20261018-201351_pointmae-seed0.zip`,
+  SHA `ab42b3b38a229dedebbe82a9a58d9a5e849f791c43ca1602cdf0f36b5f87a19d`.
+Each has canonical seven files, exact sourceZIP, indexed paired logits and
+per-file manifest. CRC, safe paths, every member hash, exact NPZ equality and
+Drive/local hashes independently pass. Drive directory is
+`MyDrive/thesis/result/gsd_multibackbone_study/<dataset>/pointmae_boundary_parity/<run_id>/`;
+three intermediate parity receipts plus final verified ZIP are present per run.
+
+[User decision/Run] The later instruction to close assignments unused by this
+task explicitly supersedes the earlier no-touch rule for the two observed CPU
+assignments. Both were released; only r7 remains, at6.77CU/hour in the latest
+inventory. A second inactive local monitor was discovered and stopped locally;
+PID34633/session97631 is now sole CLI owner. No runtime teardown occurred for
+r7. Monitoring cannot guarantee Colab lifetime/quota retention. The next gate is
+six source smokes, then complete all15 evaluation and discrepancy diagnosis.

@@ -1,12 +1,29 @@
 # Prepared multibackbone GPU campaign — 2026-10-18
 
-[Open/User gate] Prepared scope only: not approved and no GPU inference launched.
-The existing task authorizes CPU preparation. Whole conditional GPU campaign
-exceeds60min and requires one comprehensive explicit approval before its first
-GPU smoke. This gate comes from the user's task, AGENTS.md and the Colab
-operator skill's “Approval for GPU runs longer than one hour” section.
+[User decision] Approved: “Tamam başlatabilirsin”. The approved whole
+conditional GPU campaign has an8-hour GPU-work cap, seed0 and unchanged
+source/GSD gates. Later steering requires saving each completed model to Drive
+and retaining interrupted progress. Add per-corruption immutable verified Drive
+checkpoints and an exact final archive per model/dataset; preserve source/data
+semantics. Backup-only source revision/hashes will be recorded before launch.
+No additional approval is required for this authorized persistence change.
 
-## Fixed assets and runtime
+
+## Current execution revision4
+
+[Run] Point-MAE CUDA parity passed on both datasets, all3 selected conditions,
+max logits difference0.0; six source smoke/full evaluations remain next.
+Execution root is `prepared_v4/assets/source_snapshot`; manifest SHA
+`bf964525b6d3e1d747f7d6ba959c02bd7f7153b0b9d79725ba08007b049cb7f8`,
+source ZIP SHA
+`ec136350e58506e700fb30e35c3e33a39fcdc3cc2cabfc542d54f9f28e039183`.
+Only exact-SHA-pinned original Point-MAE payloads use legacy loading to handle
+NumPy training metadata; strict weights and inference calls are unchanged.
+All6 alternatives retain weights-only loading. Actual r7 CPU checks load all8
+models without CUDA initialization;29 focused CPU tests pass. Revisions1–3
+below remain historical evidence and must not be used as the current run source.
+
+## Original prepared assets and runtime (source revision superseded)
 
 - Branch/base: `gsd-multibackbone-study`,
   `2684f11922d77696a26c2b954dcd0c43de5f5a6c` plus explicit study overlay.
@@ -130,3 +147,39 @@ commit/push the accepted batch. Local raw artifacts stay under
 `result/preparation/multibackbone_20261018/` or canonical dataset result paths.
 On disconnect, inspect the existing process/markers/artifacts first; never
 start a duplicate job or replay a completed native build. Preserve the session.
+
+
+## Approved persistence revision3 before first GPU launch
+
+[User decision] The user approved the complete8-hour-capped campaign with
+“Tamam başlatabilirsin”, then required saving after each model and preserving
+interrupted progress. Revision3 adds only optional `--drive-root` persistence:
+per-corruption/parity-condition immutable ZIP snapshots and a final exact run
+ZIP, each with SHA256/bytes verification before a completed receipt. Interrupted
+copies without a receipt are incomplete; collisions and Drive errors stop work.
+Intermediate stdout is explicitly a captured prefix. All28 focused CPU tests
+pass, and six strict CPU loads pass again in actual r7 Python3.8/torch2.1.2.
+No model weights, preprocessing or classifier math changed.
+
+[Artifact] Current execution root is `prepared_v3/assets/source_snapshot` under
+the same study root. ManifestSHA
+`b812737d1249ebf5640a6c5561cdd55f46faecb2397182eebcae7cd612d48e5e`;
+sourceZIP SHA
+`679b3d8c33763b7713248778e9453dd926923eeb2775f75667d1f96ae3cb7468`.
+Revision3 delta5399892 bytes/SHA
+`1efd3da23a9c1f4af4a2f4aab6acc2428581a11d70dd9bc00db1a07a6215bfce`
+is verified on Drive; it preserves all prior sealed directories. Exact three
+phase-controller sources and the user's approval are inside this delta. The
+phase controller verifies each model's final Drive receipt/ZIP before starting
+the next model. A durable ledger accumulates elapsed GPU-job seconds under
+28800 seconds; timer cleanup stops only that job's subprocess group at the cap,
+never the runtime. Worker logs stream through the primary monitor process.
+
+[Code] Current source runnerSHA
+`632ac94dfbdfd101739e6492841779fade804f39833322f5f155792f1eaf3d81`,
+parity runnerSHA
+`7589abc51023b1e003737d596fd4625fe1eb5d7f8eb0f4a05d2c1d4668ee03f8`.
+Initial commands above use prepared_v3 and this manifest, with
+`--drive-root /content/drive/MyDrive/thesis/result/gsd_multibackbone_study`.
+Earlier prepared_v2 hashes remain historical provenance and are superseded for
+GPU execution. The new snapshot is a persistence-only change within approval.

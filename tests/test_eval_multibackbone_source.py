@@ -239,5 +239,69 @@ class SourceTensorContracts(unittest.TestCase):
                     self.assertEqual(hashlib.sha256(content).hexdigest(), expected["sha256"])
 
 
+class DriveCheckpointContracts(unittest.TestCase):
+    def bundle(self, root):
+        bundle = runner.RunBundle.create(root / "results", "test-seed0",
+                                         {"dataset": "scanobjectnn_c", "method": "source_only", "seed": 0}, "test")
+        (bundle.path / "source_snapshot.zip").write_bytes(b"recoverable source bytes")
+        return bundle
+
+    def test_partial_then_final_archives_are_verified_and_do_not_grow_recursively(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            bundle = self.bundle(root)
+            row = runner.corruption_row(bundle.path.name, 0, "gaussian", 2, 1, 1., 0., "partial", dataset="scanobjectnn_c", method="source_only")
+            bundle.write_results([row], "partial")
+            (bundle.path / "gaussian_predictions.npz").write_bytes(b"indexed predictions")
+            receipt = runner.save_drive_checkpoint(bundle, root / "drive", "corruption-gaussian")
+            archive = Path(receipt["archive"]["path"])
+            self.assertEqual(runner.file_identity(archive), {key: receipt["archive"][key] for key in ("sha256", "bytes")})
+            self.assertTrue(receipt["stdout_is_prefix"])
+            with zipfile.ZipFile(archive) as file:
+                manifest = json.loads(file.read(bundle.path.name + "/checkpoint_manifest.json"))
+                self.assertIn("source_snapshot.zip", manifest)
+                self.assertIn("gaussian_predictions.npz", manifest)
+                self.assertIn("2,1,0.5", file.read(bundle.path.name + "/per_corruption.csv").decode())
+                for relative, expected in manifest.items():
+                    content = file.read(bundle.path.name + "/" + relative)
+                    self.assertEqual(hashlib.sha256(content).hexdigest(), expected["sha256"])
+            self.assertFalse((bundle.path / "checkpoint_manifest.json").exists())
+            self.assertFalse(any("corruption-gaussian" in path.name for path in bundle.path.iterdir()))
+            config = json.loads((bundle.path / "config.json").read_text())
+            config["status"] = "partial"
+            bundle.write_config(config)
+            runner.seal_bundle(bundle)
+            final = runner.save_drive_checkpoint(bundle, root / "drive", "final", final=True)
+            self.assertEqual(final["result_status"], "partial")
+            self.assertFalse(final["stdout_is_prefix"])
+            self.assertEqual(Path(final["archive"]["path"]).read_bytes(), Path(str(bundle.path) + ".zip").read_bytes())
+            persisted = json.loads((Path(final["archive"]["path"]).parent / "final.receipt.json").read_text())
+            self.assertEqual(persisted, final)
+
+    def test_collisions_and_copy_failure_publish_no_completed_receipt(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            bundle = self.bundle(root)
+            runner.seal_bundle(bundle)
+            receipt = runner.save_drive_checkpoint(bundle, root / "drive", "final", final=True)
+            original = Path(receipt["archive"]["path"]).read_bytes()
+            with self.assertRaises(FileExistsError):
+                runner.save_drive_checkpoint(bundle, root / "drive", "final", final=True)
+            self.assertEqual(Path(receipt["archive"]["path"]).read_bytes(), original)
+            with patch.object(runner.shutil, "copyfileobj", side_effect=OSError("Drive interrupted")):
+                with self.assertRaisesRegex(OSError, "Drive interrupted"):
+                    runner.save_drive_checkpoint(bundle, root / "drive", "interrupted", final=True)
+            target = Path(receipt["archive"]["path"]).parent
+            self.assertTrue((target / "interrupted.zip").exists())
+            self.assertFalse((target / "interrupted.receipt.json").exists())
+            with self.assertRaises(FileExistsError):
+                runner.save_drive_checkpoint(bundle, root / "drive", "interrupted", final=True)
+            with patch.object(runner, "verify_identity", side_effect=ValueError("SHA-256 mismatch")):
+                with self.assertRaisesRegex(ValueError, "SHA-256"):
+                    runner.save_drive_checkpoint(bundle, root / "drive", "corrupt", final=True)
+            self.assertFalse((target / "corrupt.receipt.json").exists())
+            self.assertIsNone(runner.save_drive_checkpoint(bundle, None, "disabled"))
+
+
 if __name__ == "__main__":
     unittest.main()

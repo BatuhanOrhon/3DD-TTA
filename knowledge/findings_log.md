@@ -4829,3 +4829,51 @@ The full249654807-byte payload and39060-byte revision2 delta are verified on
 Drive. Detailed recovery/failed-phase evidence is in the study note. GPU scope
 is concretely prepared at [the phase note](gsd_multibackbone_gpu_phase_20261018.md),
 but no long-GPU approval or GPU accuracy exists yet.
+
+
+## 2026-10-18 20:08 UTC — approved campaign, persistence and first parity stop
+
+[User decision] The user approved the prepared whole conditional8-hour GPU
+campaign, seed0, and required Drive persistence after each model. Added verified
+immutable per-corruption/parity-condition checkpoints plus final per-model ZIP
+receipts; interrupted copies without a completed receipt are incomplete. All28
+focused CPU tests pass; real r7 strict CPU preflight again loads all six models
+with unchanged state hashes and CUDA uninitialized. Revision3 asset/source IDs
+and Drive receipts are recorded in the current GPU phase note/provenance JSON.
+
+[User decision/Run] The user subsequently explicitly requested closing all
+assignments unused by this task. This supersedes the earlier don't-touch-other
+assignments instruction for the two observed CPU assignments. They were released
+using the installed Colab CLI client's unassign method (plain CLI stop accepts
+only locally named sessions); server re-listing proves only protected r7 remains.
+Receipt: `result/preparation/multibackbone_20261018/unused_assignments_release_receipt.json`.
+The skill's foreground monitor remains live for r7. The agent explicitly states
+that monitoring cannot guarantee Colab quota/maximum-lifetime retention; no
+runtime-lifetime guarantee or fake GPU/anti-idle work is claimed.
+
+[Run/Diagnosis] First actual parity phase started20:08:05 UTC and stopped before
+any forward. SHA-verified original Point-MAE ModelNet payload contains NumPy
+scalar training metadata unsupported by torch2.1.2's weights-only unpickler.
+Strict-load success of the six alternative backbones does not test this legacy
+payload. Failure was sealed and copied to Drive automatically; local ZIP SHA
+`84b108a8ca186d3b0f171feb14acc832010f8f5ae5046a0279fcc7a208357599`
+matches Drive receipt, CRC and failed config. GPU-job budget consumed11.328s.
+No parity or accuracy passed. Use the existing legacy payload loading semantics
+only behind exact known Point-MAE SHA guards; keep all six alternative loads
+weights-only. A fresh snapshot and CPU check precede the short approved retry.
+
+
+[Run/Artifact] 2026-10-18 20:14 UTC — Point-MAE real CUDA boundary parity
+accepted on both datasets (3 conditions x32 IDs). All logits/predictions, RNG
+post-states, inputs and model-state hashes match, max difference0.0. Accepted
+ZIP SHA values are `61cef430...b7a456` (ModelNet) and `ab42b3b3...f87a19d`
+under canonical `result/<dataset>/pointmae_boundary_parity/` paths listed in
+the study. Drive/local SHA, CRC, full member manifests and NPZ pair equality
+pass. Phase elapsed30.967s; no alternative backbone accuracy exists yet.
+Legacy metadata failure was fixed with exact-open-handle SHA-gated original
+Point-MAE payload loading only;29 CPU tests and8 actual strict CPU loads pass.
+Revision4 source/manifest/Drive preparation details are in the study and current
+GPU plan. The user approved8GPU hours and per-model/per-corruption persistence.
+Only r7 remains after explicitly authorized release of two unused CPU
+assignments; the single local monitor preserves CLI ownership, not a guarantee
+of externally imposed runtime lifetime. Proceed to six source smokes.

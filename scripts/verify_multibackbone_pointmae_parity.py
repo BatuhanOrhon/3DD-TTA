@@ -26,6 +26,19 @@ CHECKPOINTS = {
 CONDITIONS = ("gaussian", "density", "background")
 
 
+def load_pinned_legacy_checkpoint(path, expected_sha256):
+    """Trust legacy metadata only after hashing the exact handle being loaded."""
+    import torch
+    with Path(path).open("rb") as checkpoint:
+        digest = hashlib.sha256()
+        for chunk in iter(lambda: checkpoint.read(1024 * 1024), b""):
+            digest.update(chunk)
+        if digest.hexdigest() != expected_sha256:
+            raise ValueError("Point-MAE checkpoint SHA-256 mismatch")
+        checkpoint.seek(0)
+        return torch.load(checkpoint, map_location="cpu", weights_only=False)
+
+
 def compare_calls(model, classifier, points):
     import numpy as np
     import torch
@@ -88,7 +101,9 @@ def worker(directory):
         options = cfg_from_yaml_file(str(source_runner.REPO / "cfgs" / filename))
         options.model.cls_dim = config["num_classes"]
         model = builder.model_builder(options.model)
-        state = torch.load(checkpoint, map_location="cpu", weights_only=True)["base_model"]
+        config["checkpoint_load"] = dict(weights_only=False, strict=True,
+                                         trust="exact pinned legacy Point-MAE SHA-256; NumPy training metadata")
+        state = load_pinned_legacy_checkpoint(checkpoint, CHECKPOINTS[config["dataset"]][1])["base_model"]
         stripped = {(key[7:] if key.startswith("module.") else key): value for key, value in state.items()}
         if len(stripped) != len(state):
             raise ValueError("Checkpoint module-prefix stripping collides")
@@ -121,10 +136,12 @@ def worker(directory):
                         torch.cuda.max_memory_allocated() / 1024 ** 2, "partial", method=config["method"], dataset=config["dataset"]))
             if not all(checks[key] for key in ("logits_equal", "predictions_equal", "rng_equal", "input_unchanged")) or checks["model_state_after_sha256"] != config["model_state_before_sha256"]:
                 raise RuntimeError("Point-MAE parity failed: " + name)
-            bundle.write_results(rows, "partial")
+            bundle.write_results(rows, "running")
             bundle.write_config(config)
+            source_runner.save_drive_checkpoint(bundle, config.get("drive_root"), "parity-" + name)
             print(name, "exact parity passed; max_abs_diff", checks["max_abs_diff"], flush=True)
         config.update(status="partial", parity_status="passed")
+        bundle.write_results(rows, "partial")
     except BaseException:
         config.update(status="failed", parity_status="failed", failure=traceback.format_exc())
         for row in rows:
@@ -145,6 +162,7 @@ def main(argv=None):
     for name in ("asset-root", "result-root"):
         parser.add_argument("--" + name, required=True)
     parser.add_argument("--asset-manifest-sha256")
+    parser.add_argument("--drive-root", help="Verified immutable progress/final archive destination")
     parser.add_argument("--modelnet-root", default="/content/3DD-TTA/data/modelnet40_c")
     parser.add_argument("--checkpoint-root", default="/content/3DD-TTA/pointnet_ckpts")
     parser.add_argument("--batch-size", type=int, choices=(32,), default=32)
@@ -182,6 +200,7 @@ def main(argv=None):
             bundle.write_config(failed)
             bundle.mark_failed()
         source_runner.seal_bundle(bundle)
+        source_runner.save_drive_checkpoint(bundle, config.get("drive_root"), "final", final=True)
         print("Sealed:", bundle.path, flush=True)
         if returncode:
             raise SystemExit(returncode)

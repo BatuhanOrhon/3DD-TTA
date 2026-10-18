@@ -268,5 +268,210 @@
       "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261018T194915Z.zip",
       "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T194915Z/cpu_preflight_20261018T194915Z.zip"
     }
+  },
+  "persistence_revision3": {
+    "identity": {
+      "bytes": 5399892,
+      "sha256": "1efd3da23a9c1f4af4a2f4aab6acc2428581a11d70dd9bc00db1a07a6215bfce",
+      "manifest": {
+        "bytes": 119753,
+        "sha256": "b812737d1249ebf5640a6c5561cdd55f46faecb2397182eebcae7cd612d48e5e"
+      },
+      "source_snapshot": {
+        "bytes": 5427642,
+        "sha256": "679b3d8c33763b7713248778e9453dd926923eeb2775f75667d1f96ae3cb7468"
+      },
+      "controllers": {
+        "gpu_phase_parity_r7.py": {
+          "bytes": 8662,
+          "sha256": "6dcc41ecdd817dde7fd747e2d4b3611df2ece1933cffdad6d993dc3fdce8db74"
+        },
+        "gpu_phase_smoke_r7.py": {
+          "bytes": 8661,
+          "sha256": "4a655d5961c19289678cfbffebfcc247ad3350f9f21b8f5358d8bd0e0a03c697"
+        },
+        "gpu_phase_source_all15_r7.py": {
+          "bytes": 8668,
+          "sha256": "c3a776dc8e04747e7f25dacb6799bfc8d7aad33022ef8f6121fe9f51508b52d6"
+        }
+      },
+      "overlay": {
+        "classifier_backbones.py": {
+          "bytes": 4114,
+          "sha256": "bfb18eacf5d72e57818cdc44695eff006b953700ac2fc5354baac5dc565de729"
+        },
+        "scripts/eval_multibackbone_source.py": {
+          "bytes": 30001,
+          "sha256": "632ac94dfbdfd101739e6492841779fade804f39833322f5f155792f1eaf3d81"
+        },
+        "scripts/verify_multibackbone_pointmae_parity.py": {
+          "bytes": 11235,
+          "sha256": "7589abc51023b1e003737d596fd4625fe1eb5d7f8eb0f4a05d2c1d4668ee03f8"
+        },
+        "tests/test_classifier_backbones.py": {
+          "bytes": 10642,
+          "sha256": "aac8ca4d88851ee7cca3d003b5ba77572d062edb8ca277a43e102c6d7e7f810d"
+        },
+        "tests/test_eval_multibackbone_source.py": {
+          "bytes": 17482,
+          "sha256": "98e5a6cd1e61d166f2b84dff39f50a0a7231a7b09e7aba2d1a45ffe7c012bc62"
+        },
+        "tests/test_multibackbone_pointmae_parity.py": {
+          "bytes": 4255,
+          "sha256": "d0543238f2fa2aa1d059cc8540b00df76214e62e843d2f9d5d7c8b38aa5882e2"
+        }
+      }
+    },
+    "cpu_archive": {
+      "bytes": 4093,
+      "sha256": "ffe1157dd6f9e3409c0b838c6bb30114653a83bc876483c4012a1ad21f066ef6",
+      "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261018T200651Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T200651Z/cpu_preflight_20261018T200651Z.zip"
+    },
+    "gpu_approval": {
+      "status": "approved",
+      "user_reply": "Tamam ba\u015flatabilirsin",
+      "scope": "Point-MAE parity -> six source smokes and all15 -> source discrepancy diagnosis -> conditional frozen guidance smokes and matched all15",
+      "max_gpu_work_seconds": 28800,
+      "seed": 0,
+      "source_batch_size": 32,
+      "guidance_batch_size": 70,
+      "scan_split": "main_split",
+      "scan_count": 581,
+      "modelnet_count": 2468,
+      "never_close_runtime": true,
+      "save_each_model_to_drive": true,
+      "intermediate_save": "after each completed corruption, immutable ZIP and verified receipt"
+    },
+    "unused_assignments_release": {
+      "utc": "2026-10-18T20:07:35.961863+00:00",
+      "protected_endpoint": "gpu-a100-hm-kkb-euw4a2-1d8qxj97k4u94",
+      "authorization": "User explicitly requests terminating every assignment unused by this task; supersedes earlier do-not-touch other assignments instruction",
+      "before": [
+        "gpu-a100-hm-kkb-euw4a2-1d8qxj97k4u94",
+        "m-s-kkb-use1b2-2hujmypn99fhn",
+        "m-s-kkb-usw3b1-3663hutz3roaf"
+      ],
+      "released": [
+        "m-s-kkb-use1b2-2hujmypn99fhn",
+        "m-s-kkb-usw3b1-3663hutz3roaf"
+      ],
+      "after": [
+        "gpu-a100-hm-kkb-euw4a2-1d8qxj97k4u94"
+      ],
+      "status": "complete"
+    }
+  },
+  "legacy_payload_revision4": {
+    "identity": {
+      "bytes": 5401550,
+      "sha256": "cdb4d6599038a0f5bba1bf41a86abf28822312315467374c0e4dbe08c9f23284",
+      "manifest": {
+        "bytes": 119755,
+        "sha256": "bf964525b6d3e1d747f7d6ba959c02bd7f7153b0b9d79725ba08007b049cb7f8"
+      },
+      "source_snapshot": {
+        "bytes": 5428220,
+        "sha256": "ec136350e58506e700fb30e35c3e33a39fcdc3cc2cabfc542d54f9f28e039183"
+      },
+      "controllers": {
+        "gpu_phase_parity_v4_r7.py": {
+          "bytes": 8662,
+          "sha256": "90cac4132def07226a2a922cc7c352a37ce2a8cb3cfda4ae4166ba89efbfda6c"
+        },
+        "gpu_phase_smoke_v4_r7.py": {
+          "bytes": 8661,
+          "sha256": "d0b1b775b1a7f8fe7ddb616301eb1230254082e0951469e93984230594e073cd"
+        },
+        "gpu_phase_source_all15_v4_r7.py": {
+          "bytes": 8668,
+          "sha256": "748e180dacc8cbb2e8feb64f3ef51d986a8439960c930116aa85bf09b18dc8dc"
+        }
+      },
+      "overlay": {
+        "classifier_backbones.py": {
+          "bytes": 4114,
+          "sha256": "bfb18eacf5d72e57818cdc44695eff006b953700ac2fc5354baac5dc565de729"
+        },
+        "scripts/eval_multibackbone_source.py": {
+          "bytes": 30001,
+          "sha256": "632ac94dfbdfd101739e6492841779fade804f39833322f5f155792f1eaf3d81"
+        },
+        "scripts/verify_multibackbone_pointmae_parity.py": {
+          "bytes": 12004,
+          "sha256": "b575729a9579bc38051e7ceafa52e5a971b598baf6445076fa56c4e210ee5906"
+        },
+        "tests/test_classifier_backbones.py": {
+          "bytes": 10642,
+          "sha256": "aac8ca4d88851ee7cca3d003b5ba77572d062edb8ca277a43e102c6d7e7f810d"
+        },
+        "tests/test_eval_multibackbone_source.py": {
+          "bytes": 17482,
+          "sha256": "98e5a6cd1e61d166f2b84dff39f50a0a7231a7b09e7aba2d1a45ffe7c012bc62"
+        },
+        "tests/test_multibackbone_pointmae_parity.py": {
+          "bytes": 5608,
+          "sha256": "e1d20cdfc1cb6df5af55fc6eedabc4ced2ce91ce98913e0aae56aec78eaac017"
+        }
+      }
+    },
+    "cpu_archive": {
+      "bytes": 5007,
+      "sha256": "d6588b0e84d5ab63460768e6d20f9bb5def174d419c0592f930ca6d0262aed2b",
+      "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261018T201255Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T201255Z/cpu_preflight_20261018T201255Z.zip"
+    },
+    "accepted_parity_phase": {
+      "mode": "parity",
+      "status": "complete",
+      "manifest_sha256": "bf964525b6d3e1d747f7d6ba959c02bd7f7153b0b9d79725ba08007b049cb7f8",
+      "source_snapshot_sha256": "ec136350e58506e700fb30e35c3e33a39fcdc3cc2cabfc542d54f9f28e039183",
+      "jobs": [
+        {
+          "name": "pointmae-both-datasets",
+          "mode": "parity",
+          "command": [
+            "conda",
+            "run",
+            "--no-capture-output",
+            "-n",
+            "3dd_tta_env",
+            "python",
+            "-u",
+            "scripts/verify_multibackbone_pointmae_parity.py",
+            "--asset-root",
+            "/content/gsd_multibackbone_study_20261018/prepared_v4/assets",
+            "--asset-manifest-sha256",
+            "bf964525b6d3e1d747f7d6ba959c02bd7f7153b0b9d79725ba08007b049cb7f8",
+            "--seed",
+            "0",
+            "--batch-size",
+            "32",
+            "--drive-root",
+            "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study",
+            "--result-root",
+            "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201334Z_parity/jobs/pointmae-both-datasets"
+          ],
+          "status": "complete",
+          "utc_start": "2026-10-18T20:13:34.986970+00:00",
+          "returncode": 0,
+          "archives": [
+            {
+              "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201334Z_parity/jobs/pointmae-both-datasets/modelnet40_c/pointmae_boundary_parity/20261018-201336_pointmae-seed0.zip",
+              "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/pointmae_boundary_parity/20261018-201336_pointmae-seed0/final.zip",
+              "bytes": 5392968,
+              "sha256": "61cef430e37e75cbff274c5be66a8e2f6bd4fb32d11a03c2833b1b51f7b7a456"
+            },
+            {
+              "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201334Z_parity/jobs/pointmae-both-datasets/scanobjectnn_c/pointmae_boundary_parity/20261018-201351_pointmae-seed0.zip",
+              "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/pointmae_boundary_parity/20261018-201351_pointmae-seed0/final.zip",
+              "bytes": 5383990,
+              "sha256": "ab42b3b38a229dedebbe82a9a58d9a5e849f791c43ca1602cdf0f36b5f87a19d"
+            }
+          ],
+          "elapsed_seconds": 30.966997301000447
+        }
+      ]
+    }
   }
 }

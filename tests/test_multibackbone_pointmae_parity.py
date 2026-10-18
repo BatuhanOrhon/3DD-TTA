@@ -16,6 +16,28 @@ SCRIPT = Path(__file__).resolve().parents[1] / "scripts/verify_multibackbone_poi
 
 
 class ParityPreparationTests(unittest.TestCase):
+    def test_legacy_numpy_metadata_load_requires_exact_hash_before_unpickling(self):
+        import numpy as np
+        import torch
+        spec = importlib.util.spec_from_file_location("pointmae_legacy_load", SCRIPT)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as temporary:
+            checkpoint = Path(temporary) / "legacy.pth"
+            weights = torch.tensor([[1., 2.], [3., 4.]])
+            torch.save({"base_model": {"weight": weights}, "best_accuracy": np.float64(.9)}, checkpoint)
+            with patch("torch.load") as load:
+                with self.assertRaises(ValueError):
+                    module.load_pinned_legacy_checkpoint(checkpoint, "0" * 64)
+                load.assert_not_called()
+            expected_hash = module.source_runner.file_identity(checkpoint)["sha256"]
+            with patch("torch.load", wraps=torch.load) as load:
+                payload = module.load_pinned_legacy_checkpoint(checkpoint, expected_hash)
+                self.assertFalse(load.call_args.kwargs["weights_only"])
+                self.assertEqual(load.call_args.kwargs["map_location"], "cpu")
+            self.assertTrue(torch.equal(payload["base_model"]["weight"], weights))
+            self.assertIsInstance(payload["best_accuracy"], np.float64)
+
     def test_bad_manifest_stops_before_native_imports_and_seals_failed_bundle_once(self):
         spec = importlib.util.spec_from_file_location("pointmae_parity_failure", SCRIPT)
         module = importlib.util.module_from_spec(spec)

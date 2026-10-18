@@ -14,6 +14,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 import traceback
 from types import SimpleNamespace
@@ -80,6 +81,7 @@ def parse_args(argv=None):
     for name in ("dataset-root", "label-path", "asset-root", "result-root"):
         parser.add_argument("--" + name, required=True)
     parser.add_argument("--asset-manifest-sha256")
+    parser.add_argument("--drive-root", help="Verified immutable progress/final archive destination")
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--corruptions", nargs="+", default=["all"])
@@ -128,6 +130,8 @@ def resolve_config(args) -> dict:
         config["provenance_status"] = "existing Point-MAE control; checkpoint identity is supplied explicitly"
     for name in ("asset_root", "dataset_root", "label_path", "result_root"):
         config[name] = str(Path(config[name]).absolute())
+    if config.get("drive_root"):
+        config["drive_root"] = str(Path(config["drive_root"]).absolute())
     return config
 
 
@@ -378,11 +382,18 @@ def run_worker(directory: str) -> None:
             torch.cuda.synchronize()
             save_corruption(bundle, config, rows, active, outputs, started, torch, failed=False)
             active = None
-            bundle.write_results(rows, "partial" if any(row["status"] == "partial" for row in rows) else "complete")
+            bundle.write_results(rows, "running")
+            config["completed_corruptions"] = [row["corruption"] for row in rows]
+            config["classifier_state_checkpoint_sha256"] = state_hash(classifier)
+            if config["classifier_state_checkpoint_sha256"] != config["classifier_state_before_sha256"]:
+                raise RuntimeError("Frozen classifier state changed")
+            bundle.write_config(config)
+            save_drive_checkpoint(bundle, config.get("drive_root"), "corruption-" + corruption)
         config["classifier_state_after_sha256"] = state_hash(classifier)
         if config["classifier_state_before_sha256"] != config["classifier_state_after_sha256"]:
             raise RuntimeError("Frozen classifier state changed")
         config["status"] = "partial" if any(row["status"] == "partial" for row in rows) else "complete"
+        bundle.write_results(rows, config["status"])
         snapshot_sources(bundle, config, manifest)
         (bundle.path / "notes.md").write_text(
             "# Source-only study\n\n" + config["provenance_status"] + ".\n"
@@ -422,6 +433,50 @@ def seal_bundle(bundle: RunBundle) -> None:
         for path in sorted(bundle.path.rglob("*")):
             if path.is_file():
                 archive.write(path, str(Path(bundle.path.name) / path.relative_to(bundle.path)))
+
+
+def save_drive_checkpoint(bundle: RunBundle, drive_root, stage: str, *, final: bool = False):
+    """Publish verified immutable progress; interrupted copies have no receipt."""
+    if not drive_root:
+        return None
+    config = json.loads((bundle.path / "config.json").read_text())
+    identity = {key: config[key] for key in ("dataset", "method", "run_id")}
+    if any(not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", value) for value in (*identity.values(), stage)):
+        raise ValueError("Drive checkpoint identity must contain safe path components")
+    directory = Path(drive_root).absolute() / identity["dataset"] / identity["method"] / identity["run_id"]
+    directory.mkdir(parents=True, exist_ok=True)
+    target = directory / (stage + ".zip")
+    receipt_path = directory / (stage + ".receipt.json")
+    pending = directory / (stage + ".receipt.pending.json")
+    if any(path.exists() for path in (target, receipt_path, pending)):
+        raise FileExistsError("Immutable Drive checkpoint collision: " + str(target))
+    with tempfile.TemporaryDirectory(prefix="drive-checkpoint-", dir=str(bundle.path.parent)) as temporary:
+        if final:
+            source = Path(str(bundle.path) + ".zip")
+        else:
+            snapshot = Path(temporary) / bundle.path.name
+            shutil.copytree(bundle.path, snapshot)
+            manifest = {str(path.relative_to(snapshot)): file_identity(path)
+                        for path in sorted(snapshot.rglob("*")) if path.is_file()}
+            (snapshot / "checkpoint_manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+            source = Path(temporary) / (stage + ".zip")
+            with zipfile.ZipFile(source, mode="x", compression=zipfile.ZIP_DEFLATED) as archive:
+                for path in sorted(snapshot.rglob("*")):
+                    if path.is_file():
+                        archive.write(path, str(Path(bundle.path.name) / path.relative_to(snapshot)))
+        expected = file_identity(source)
+        with source.open("rb") as incoming, target.open("xb") as outgoing:
+            shutil.copyfileobj(incoming, outgoing)
+        verify_identity(target, expected)
+        receipt = dict(identity, stage=stage, status="complete", result_status=config.get("status"),
+                       parity_status=config.get("parity_status"), stdout_is_prefix=not final,
+                       archive=dict(path=str(target), **expected))
+        with pending.open("x") as file:
+            json.dump(receipt, file, indent=2, sort_keys=True)
+            file.write("\n")
+        pending.rename(receipt_path)
+    print("Verified Drive checkpoint:", receipt_path, flush=True)
+    return receipt
 
 
 def main(argv=None) -> None:
@@ -478,6 +533,7 @@ def main(argv=None) -> None:
         bundle.mark_failed()
         (bundle.path / "notes.md").write_text("# Failed source-only invocation\n\nSee config.json and stdout.log.\n")
     seal_bundle(bundle)
+    save_drive_checkpoint(bundle, config.get("drive_root"), "final", final=True)
     if failure is not None:
         raise failure
     if returncode:
