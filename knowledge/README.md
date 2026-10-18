@@ -1,23 +1,22 @@
-**[User decision/Run/Open] 2026-10-18 — r6 lost; split setup replay active on
-r7:** The older six-cell r6 runtime produced pinned PyTorch and KNN output but
-no combined Cell4 completion marker. At about27 minutes the named server was no
-longer present; interrupting the still-waiting local executor returned exit130
-and the CLI pruned its stale local record. No later setup or no-background
-inference ran on r6. The user directed continuation with the split phases. Fresh
-A100/High-RAM session `tta-scanobjectnn-nobg-a100-r7-20261018` is live: Cell1
-completed and reconnected to the same VM; Cell2 created the Python3.8
-environment and ended only at the explicitly deferred `fastrlock` wheel
-failure. Next, mount/verify Drive with Cell3, then run Cells4–8 individually and
-require every exact wrapper
-and phase marker before Cells9–10 and the clean/Gaussian-s5 no-background
-diagnostic. Preserve r7 until the user explicitly declares the task complete
-and authorizes closure. The first Cell3 attempt ended with `ValueError: mount
-failed`; the user then authorized the TTY-backed CLI `drivemount`. The mount and
-KNN wheel were verified, and the Cell3 retry emitted
-`SETUP_WRAPPER_CELL_3_COMPLETED`. Split Cell4/prepare is next.
+**[Run/Inference/Open] 2026-10-18 — r7 no-background diagnostic completed:**
+Fresh A100/High-RAM session `tta-scanobjectnn-nobg-a100-r7-20261018` passed the
+ten-cell setup: Cells4–8 each emitted the exact wrapper marker and persistent
+native-phase marker; Cell10 reported `status: passed` for CUDA12.1, native GPU
+operators, datasets and checkpoints. The exact released Point-MAE checkpoint
+then evaluated all581 official `main_split_nobg` examples. Clean is
+**504/581 = 86.747%** and author-order Gaussian severity5 is
+**248/581 = 42.685%**. Relative to `main_split`, no-background recovers
+**+15.318pp** clean and **+11.188pp** Gaussian, but remains **16.315pp** below
+Table3's59.0% Gaussian source row. The split mismatch is therefore a material
+partial cause, not a complete explanation. Local ZIP SHA-256 values are
+`f655a652...f22e1e` (clean) and `b07c50d3...602e3` (Gaussian); CRC, required
+seven-file membership, state and summary values pass. Drive backup:
+`MyDrive/thesis/result/preparation/scanobjectnn_nobg/20261018T180104Z/`.
+Preserve r7 until the user explicitly declares the task complete and authorizes
+closure.
 
-**[User decision/Code/Run pending] 2026-10-18 — long native setup split for
-future runtimes:** The user approved replacing the extracted setup notebook's
+**[User decision/Code/Run] 2026-10-18 — long native setup split validated on
+r7:** The user approved replacing the extracted setup notebook's
 single long Cell4 with five ordered phases. `scripts/colab_environment_setup.ipynb`
 now has ten code cells: Cell4 prepares packages/toolchain/source patches;
 Cells5–8 build EMD, Chamfer, PointNet++ and PVCNN plus the native GPU smoke;
@@ -25,11 +24,14 @@ Cell9 prepares ModelNet40-C and Cell10 performs final asset verification. Native
 phases emit UTC progress heartbeats and persist completion markers so a confirmed
 phase is not rebuilt. The full research notebook remains unchanged. Local
 notebook structure tests, Bash syntax, JSON parsing, unknown-phase rejection and
-embedded-script byte equality pass. The complete local suite passes266 tests in
-an isolated dependency environment, and official skill validation passes. The
-split notebook is now being replayed on
-fresh r7; no split native phase has completed yet. r6 used the earlier combined
-Cell4 and was later lost as recorded above.
+embedded-script byte equality pass. The complete pre-run local suite passed266
+tests in an isolated dependency environment, and official skill validation
+passed. Fresh r7 then completed the entire ten-cell replay and final verifier.
+A later monitoring audit found that bare notebook `subprocess.run` did not
+forward the helper's two-minute heartbeats into the CLI stream; Cells5–8 now
+reuse the existing streaming `_tta_run_checked` helper, with focused regression
+coverage. r6 used the earlier combined Cell4 and was later lost as recorded
+below.
 
 **[Run/Code/Open] 2026-10-18 — no-background diagnostic runtimes lost during
 setup:** r4 disappeared during Cell4; r5 later disappeared during Cell2 after

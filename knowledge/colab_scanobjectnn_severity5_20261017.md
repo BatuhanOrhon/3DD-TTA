@@ -599,3 +599,53 @@ copied the KNN wheel with its exact wrapper marker. Next require
 separate Cell4–8 markers, complete Cells9–10, then evaluate and archive clean and
 Gaussian severity5 on the no-background581-example H5. Preserve r7 until the
 user explicitly declares the task complete and authorizes closure.
+
+## No-background diagnostic completed on r7 (2026-10-18)
+
+[Run] r7 completed the first fresh replay of the ten-cell setup notebook.
+Cells4–8 each produced both the exact wrapper completion line and their
+persistent native-phase marker; Cell9 prepared ModelNet40-C, and Cell10 reported
+`status: passed` for Python3.8.20, PyTorch2.1.2+cu121, A100, FPS, KNN, Chamfer,
+EMD, datasets and checkpoints. The known Cell2 fastrlock source-wheel failure
+remains the only explicitly deferred setup item.
+
+[Run] The diagnostic used the official581-example
+`main_split_nobg/test_objectdataset.h5`, SHA-256
+`b7176ebd4b8f2218c8cca84b59617d96f5145d864924cc930b36eaf55931c9e1`,
+and the exact released 3DD Point-MAE checkpoint, SHA-256
+`53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac`.
+Gaussian severity5 used sigma0.03, clipping to[-1,1], seed0 and the released
+Uniform-before-Gaussian RNG consumption/order; an independent replay matched
+the generated array exactly. Both runs used batch32 and all581 examples.
+
+| split / corruption | correct | accuracy | delta versus `main_split` |
+|---|---:|---:|---:|
+| `main_split_nobg` clean | 504/581 | 86.7470% | +15.3184pp |
+| `main_split_nobg` Gaussian-s5 | 248/581 | 42.6850% | +11.1876pp |
+
+[Inference] The no-background split materially improves the released
+checkpoint, so using `main_split` explains part of the earlier low result. It
+does not reproduce Table3: Gaussian remains16.3150pp below the reported59.0%.
+Dataset split is therefore a partial cause, not the complete fix. The exact
+Table3 arrays/checkpoint/training provenance remains open. The equality between
+no-background Gaussian-s5 and the earlier main-split Gaussian-s3 count
+(248/581) is recorded as a numerical coincidence, not evidence that the
+protocols are equivalent.
+
+[Artifact] Local validated files are under
+`result/preparation/scanobjectnn_nobg_20261018T180104Z/`; `original.zip` is
+14,112 bytes, SHA-256
+`f655a6524932dbefa20d12d57ac7c01b4b289873f5c9cb83af0ad73715f22e1e`,
+and `gaussian.zip` is15,494 bytes, SHA-256
+`b07c50d3169d70f16136f94559a583a4afb7ee8f73d8b451fe304bfd3dc602e3`.
+Both ZIPs pass CRC and contain exactly the seven required evidence files; their
+summaries and total counts independently match the state. Verified Drive copy:
+`MyDrive/thesis/result/preparation/scanobjectnn_nobg/20261018T180104Z/`.
+
+[Code/Diagnosis] The first launch failed before state creation because r7's
+`dev` checkout lacked three runner files and carried the older
+`utilities_3dd_tta.py`. The exact four-file source snapshot was uploaded and
+guarded by SHA-256 before the safe retry. The launcher was also changed to
+forward child stdout/stderr line by line; this exposed live evaluation output.
+The runtime remains live and must not be closed without explicit task-complete
+plus close authorization.

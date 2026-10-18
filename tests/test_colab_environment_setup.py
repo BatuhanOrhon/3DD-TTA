@@ -51,6 +51,14 @@ class ColabEnvironmentSetupTests(unittest.TestCase):
         ]
         self.assertEqual(commands[:4], expected_commands)
 
+    def test_native_phase_cells_stream_subprocess_output_to_colab_cli(self):
+        _, cells = setup_code_cells()
+
+        for cell in cells[4:8]:
+            source = "".join(cell["source"])
+            self.assertIn("_tta_run_checked([", source)
+            self.assertNotIn("subprocess.run(", source)
+
     def test_build_script_rejects_an_unknown_phase_before_environment_access(self):
         result = subprocess.run(
             ["bash", str(BUILD_SCRIPT), "not-a-phase"],

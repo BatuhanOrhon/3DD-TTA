@@ -4720,3 +4720,46 @@ The operator skill now forbids conclusions from one status snapshot or output
 silence and requires the same primary exec output, exact wrapper marker, and
 native `.complete` marker. The regression test was RED before the change; all6
 skill tests and official validation are GREEN afterward.
+
+## 2026-10-18 17:17–18:02 UTC - r7 setup and no-background diagnostic complete
+
+[Run] r7 completed split Cells4–8 with every exact wrapper marker and matching
+`prepare`, `emd`, `chamfer`, `pointnet2` and `pvcnn-smoke` persistent marker.
+Cells9–10 completed; the final verifier returned `status: passed` for
+PyTorch2.1.2+cu121, CUDA12.1, A100-SXM4-80GB, native GPU operators, ModelNet40-C
+and checkpoint assets. The r7 runtime remains live under the explicit lifecycle
+contract.
+
+[Run] Exact official `main_split_nobg` H5 SHA-256
+`b7176ebd4b8f2218c8cca84b59617d96f5145d864924cc930b36eaf55931c9e1`
+and released Point-MAE checkpoint SHA-256
+`53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac`
+produced clean504/581=86.74699% and author-order Gaussian severity5
+248/581=42.68503%. Both complete batch32/seed0 runs loaded the checkpoint with
+no missing or unexpected keys. Compared with the validated `main_split` runs,
+the no-background gains are+15.3184pp clean and+11.1876pp Gaussian.
+
+[Inference/Open] The dataset split is a material cause of the earlier low
+accuracy but cannot explain Table3 by itself: no-background Gaussian-s5 remains
+16.3150pp below59.0%. Exact Table3 corruption bytes and training/checkpoint
+provenance remain required. The identical248/581 count for no-background-s5 and
+main-split-s3 is not treated as protocol equivalence.
+
+[Artifact] Local state/manifest and two validated ZIPs are in
+`result/preparation/scanobjectnn_nobg_20261018T180104Z/`. Clean ZIP SHA-256 is
+`f655a6524932dbefa20d12d57ac7c01b4b289873f5c9cb83af0ad73715f22e1e`;
+Gaussian ZIP SHA-256 is
+`b07c50d3169d70f16136f94559a583a4afb7ee8f73d8b451fe304bfd3dc602e3`.
+CRC, exact seven-file membership, summaries and581-example totals pass. Drive
+copy is `MyDrive/thesis/result/preparation/scanobjectnn_nobg/20261018T180104Z/`.
+
+[Code/Diagnosis] The first diagnostic launch failed before state creation on an
+exact source-hash guard: r7's `dev` checkout lacked `run_baseline.py`,
+`research_artifacts.py` and `gsd_protocol.py` and had an older
+`utilities_3dd_tta.py`. Uploading the exact four-file, SHA-guarded local source
+snapshot allowed the safe retry. A separate monitoring audit proved that bare
+notebook `subprocess.run` hid child heartbeats from the CLI IOPub stream even
+though the remote helper emitted them. Cells5–8 now reuse the existing
+line-streaming `_tta_run_checked`; the Colab skill requires IOPub forwarding and
+independent browser-attachment verification. Focused tests were RED before both
+rules and GREEN afterward; the skill validator passes.

@@ -66,6 +66,8 @@ class ColabResearchOperatorSkillTests(unittest.TestCase):
             "emit periodic meaningful progress heartbeats from the running phase itself",
             "UTC timestamp, current phase, and last confirmed unit of progress",
             "A heartbeat improves observability; it does not guarantee runtime retention.",
+            "forward child stdout and stderr into the notebook's IOPub stream",
+            "Bare `subprocess.run` output may bypass the CLI stream",
             "query the server session inventory through a separate CLI connection",
         )
         for phrase in required:
@@ -83,6 +85,22 @@ class ColabResearchOperatorSkillTests(unittest.TestCase):
             "exact wrapper completion marker",
             "phase's on-disk `.complete` marker",
             "Use `colab sessions` only to confirm that the server assignment still exists",
+        )
+        for phrase in required:
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, text)
+
+    def test_browser_url_requires_independent_runtime_verification(self):
+        text = SKILL.read_text()
+
+        required = (
+            "`colab url -s SESSION`",
+            "requests that the browser attach to an existing CLI-created runtime",
+            "`empty.ipynb`",
+            "does not display prior CLI cell output",
+            "is not proof that the browser attached to the requested endpoint",
+            "unexpected CPU assignment",
+            "Do not run browser cells concurrently with a CLI-managed cell",
         )
         for phrase in required:
             with self.subTest(phrase=phrase):

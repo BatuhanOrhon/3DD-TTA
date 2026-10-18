@@ -2,19 +2,20 @@
 
 ## 2026-10-18 - ScanObjectNN Table3 provenance conclusion
 
-- [ ] Complete the active r7 no-background diagnostic. r4 and r6 vanished
+- [x] Complete the r7 no-background diagnostic. r4 and r6 vanished
   during combined Cell4, and r5 vanished during Cell2. r6 emitted no Cell4
   marker before its named server disappeared at about27 minutes. Fresh r7 uses
   the ten-cell notebook: Cell1 passed and Cell2 reached only the accepted,
   deferred `fastrlock` wheel failure. A TTY-backed CLI `drivemount` recovered
   the first Cell3 mount failure; Drive/KNN and the exact Cell3 wrapper marker
-  now pass. Execute Cells4–8
-  separately before Cells9–10 and inference. Do not count an orphaned local CLI
-  wait as remote progress.
-- [ ] Finish the first fresh replay of the ten-cell setup notebook on r7. Local
-  structure/syntax/hash checks pass, but Cells4–8 have not yet completed as
-  separate Colab phases. Preserve the full research notebook unchanged and
-  retain r7 until explicit task-complete plus close authorization.
+  now pass. r7 completed all separate Cells4–8 markers, Cells9–10 and the final
+  verifier. Exact `main_split_nobg` results are clean504/581=86.747% and
+  Gaussian-s5 248/581=42.685%; validated local/Drive artifacts are recorded in
+  the experiment note. Do not count an orphaned local CLI wait as progress.
+- [x] Finish the first fresh replay of the ten-cell setup notebook on r7. All
+  split native markers and the final environment verifier passed. Preserve the
+  full research notebook unchanged and retain r7 until explicit task-complete
+  plus close authorization.
 
 - [x] Replay the repaired six-cell environment on a fresh r3 A100/High-RAM VM;
   pinned PyTorch2.1.2+cu121, CUDA12.1 native checks, data and checkpoints pass.
@@ -41,7 +42,10 @@
   3DD's released `scanobject_jt.pth`: file SHA-256 differs, checkpoint epochs
   are100 versus93, classifier-head key names differ, and all225 common named
   tensors have different bytes despite matching shapes. Corruption-array byte
-  identity and the actual Table3 experimental asset remain unknown.
+  identity and the actual Table3 experimental asset remain unknown. The
+  official no-background split explains11.188pp of the Gaussian gap but still
+  yields42.685%,16.315pp below Table3, so split choice alone is rejected as a
+  complete explanation.
 - [x] Start a fresh GPU runtime for the pending test: r7 is live. The Colab
   operator skill forbids teardown until the user explicitly states both task
   completion and close permission.

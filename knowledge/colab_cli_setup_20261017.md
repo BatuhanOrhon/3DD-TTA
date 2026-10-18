@@ -426,3 +426,39 @@ the local client remained blocked for about2h24m;106.16 compute units remained.
 Periodic second print cells are not a recovery mechanism for a busy kernel.
 Future long phases should emit real timestamped phase/progress heartbeats from
 the running process and use a separate CLI connection only for server inventory.
+
+## 2026-10-18 r7 ten-cell replay and monitoring corrections
+
+[Run] Session `tta-scanobjectnn-nobg-a100-r7-20261018` completed the first full
+fresh replay of the ten-cell setup. Cells4–8 passed their exact wrapper and
+on-disk native markers; Cell10's verifier passed CUDA12.1, A100, native
+FPS/KNN/Chamfer/EMD, datasets and checkpoints. This supersedes the earlier
+unvalidated status of the split setup notebook. r7 remains live pending explicit
+task-complete and close authorization.
+
+[Code/Diagnosis] CLI0.7.4 `colab url -s SESSION` generated a URL containing the
+correct r7 A100 endpoint, but the user's browser showed CPU and the server
+inventory gained an unrelated `[?]` CPU assignment. Therefore an endpoint in
+the generated URL is only an attachment request, not proof that the frontend
+honored it. `empty.ipynb` also does not show prior CLI cell output. Verify the
+browser-reported hardware and server inventory; do not run browser cells in
+parallel with a CLI-managed cell. The unrelated CPU assignments were not
+modified.
+
+[Code/Diagnosis] The native helper emitted two-minute heartbeats, but Cells5–8
+used bare `subprocess.run`, whose inherited child file descriptors bypassed the
+Jupyter IOPub/CLI stream. This explained why only Python start/end prints were
+visible. The canonical notebook now reuses Cell4's `_tta_run_checked` helper to
+pipe combined stdout/stderr through flushed Python prints. A RED/GREEN test
+requires all four native phase cells to use that streaming path, and the Colab
+operator skill records the same constraint. This improves observability but
+does not prevent Colab-managed quota, lifetime or backend termination.
+
+[Run/History] Local CLI history lists seven named sessions created on
+2026-10-18 plus unregistered server assignments. Several terminations followed
+27–144 minute gaps after the last completed logged action and are compatible
+with inactivity; r6 disappeared during an uncompleted long Cell4, so inactivity
+does not explain every loss. The backend exposed no definitive termination
+reason. Keep primary `colab exec` output, exact completion markers, persistent
+phase markers and server inventory as separate evidence rather than claiming a
+single liveness signal.

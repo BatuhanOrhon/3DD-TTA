@@ -108,6 +108,7 @@ Do not submit a second notebook cell merely to print while the kernel is busy;
 it will normally queue behind the running cell and is not a keep-alive. Instead,
 make long-running scripts emit periodic meaningful progress heartbeats from the running phase itself with a UTC timestamp, current phase, and last confirmed unit of progress.
 A heartbeat improves observability; it does not guarantee runtime retention.
+For notebook-launched subprocesses, forward child stdout and stderr into the notebook's IOPub stream and flush each line so the primary `colab exec` receives those heartbeats. Bare `subprocess.run` output may bypass the CLI stream even when the child prints correctly; verify visibility during a timed phase before relying on it.
 When the kernel is busy or silent, query the server session inventory through a separate CLI connection without launching another notebook cell.
 
 In the inspected CLI0.7.4, `colab status` reports CLI-local bookkeeping from
@@ -115,6 +116,15 @@ the session-state record; it is not an independent remote-kernel probe and can
 briefly disagree across separate CLI processes. Do not infer remote execution or completion from one `status` snapshot or silence in the streamed output.
 Monitor one cell through the same primary `colab exec` process and retain its
 raw output. Treat a setup phase as successful only after the exact wrapper completion marker and, for split native phases, the phase's on-disk `.complete` marker are both confirmed. Use `colab sessions` only to confirm that the server assignment still exists; it does not report kernel busy state or cell completion.
+
+`colab url -s SESSION` requests that the browser attach to an existing CLI-created runtime.
+The generated `empty.ipynb` page does not display prior CLI cell output or
+automatically open a remote notebook file. The URL containing the expected
+endpoint is not proof that the browser attached to the requested endpoint.
+Confirm the browser-reported hardware and compare the server inventory before
+trusting it; an unexpected CPU assignment means the attachment failed or fell
+back to another runtime. Do not run browser cells concurrently with a CLI-managed cell;
+use the primary CLI process and remote completion markers as execution evidence.
 
 A local CLI or WebSocket disconnect is not evidence that the remote kernel or process stopped.
 Before retrying, query the server inventory, reconnect to the same named session,
