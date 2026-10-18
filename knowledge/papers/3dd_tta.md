@@ -22,6 +22,42 @@ Source: [official Appendix A](https://openaccess.thecvf.com/content/WACV2025/sup
 See [the audit, exact history and Colab plan](../colab_scanobjectnn_severity5_20261017.md#primary-source-follow-up-why8-and-evidence-for5).
 No inference run was performed for this update.
 
+### ScanObjectNN reproduction result - 2026-10-17
+
+[Run] The released-code-compatible 581-example main split, supplied Point-MAE
+checkpoint and exact author-order Gaussian generator give clean71.43%,
+severity8 18.59%, and severity5 (`sigma=0.03`)31.50%. Matched controls show
+point permutation and clipping each affect about1pp or less. The 2882-example
+PB_T50_RS substitution is worse (clean54.79%, Gaussian-s521.51%).
+
+[Run/Inference] A controlled Gaussian severity1–5 sweep yields60.59%,50.95%,
+42.69%,36.14%,31.50%. Severity1 happens to approximate Table3's59.0%, but the
+paper supplement maps Gaussian to sigma0.03/severity5 and the released loader
+selects `_5.npy`. Therefore no honest severity-only change reproduces the
+published row. Current evidence supports an unpublished array, checkpoint or
+evaluation-protocol difference; it does not identify which one. Exact author
+asset hashes or clarification are required before claiming paper parity.
+
+[Code] Changing the local generator default8->5 prevents recurrence of the
+known severity8 footgun. It fixes the released-code protocol mismatch, not the
+remaining publication gap. Full evidence and archive identities are in the
+[dated Colab record](../colab_scanobjectnn_severity5_20261017.md#validated-colab-results-and-pause-handoff).
+
+### ScanObjectNN full severity1 profile - 2026-10-18
+
+[Run/Inference] The13 non-rendered corruptions at seed0/actual severity1 give
+49.2784% macro versus69.0% for the same13 Table3 source columns. Gaussian is
+60.5852% versus59.0%; every other row is6.36–36.00pp lower. The result rejects
+a global severity1 explanation while retaining the Gaussian-specific clue.
+
+[Correction] Table3 orders RBF and inverse-RBF before density/shear/rotation,
+while the generator emits shear/rotation/cutout before density/RBF. The first
+diagnostic state zipped values positionally and therefore mislabeled several
+per-corruption differences, though raw accuracies, macro and MAE were unchanged.
+The corrected analysis maps values by corruption name and preserves the raw
+artifact. See
+[`corrected_table3_comparison.md`](../../result/preparation/cli_scanobjectnn_s1_20261018/corrected_table3_comparison.md).
+
 ## GSD host contract audit - 2026-09-23
 
 [Paper] Rechecked Sec. 3.3/Eqs. 9--12 and Algorithm 1, visually including

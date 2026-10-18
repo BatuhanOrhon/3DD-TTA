@@ -19,7 +19,7 @@ For the **ModelNet40-C dataset**, you can directly download the corrupted versio
 To generate the same corruptions for ShapeNetCore or ScanObjectNN (if required), run the following command:
 
 ```
-python ./datasets/create_corrupted_dataset.py --main_path <path/to/dataset/parent/directory> --dataset <dataset_name>
+python ./datasets_mate/create_corrupted_dataset.py --main_path <path/to/dataset/parent/directory> --dataset <dataset_name> --severity 5
 ```
 
 Replace `<dataset_name>` with either `scanobjectnn` or `shapenet`, as appropriate.

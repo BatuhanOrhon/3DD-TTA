@@ -1,5 +1,113 @@
 # Open Questions and Research Backlog
 
+## 2026-10-18 - ScanObjectNN Table3 provenance conclusion
+
+- [ ] Complete the active r7 no-background diagnostic. r4 and r6 vanished
+  during combined Cell4, and r5 vanished during Cell2. r6 emitted no Cell4
+  marker before its named server disappeared at about27 minutes. Fresh r7 uses
+  the ten-cell notebook: Cell1 passed and Cell2 reached only the accepted,
+  deferred `fastrlock` wheel failure. Cell3 is BUSY awaiting Drive mount
+  completion; then execute Cells4–8
+  separately before Cells9–10 and inference. Do not count an orphaned local CLI
+  wait as remote progress.
+- [ ] Finish the first fresh replay of the ten-cell setup notebook on r7. Local
+  structure/syntax/hash checks pass, but Cells4–8 have not yet completed as
+  separate Colab phases. Preserve the full research notebook unchanged and
+  retain r7 until explicit task-complete plus close authorization.
+
+- [x] Replay the repaired six-cell environment on a fresh r3 A100/High-RAM VM;
+  pinned PyTorch2.1.2+cu121, CUDA12.1 native checks, data and checkpoints pass.
+- [x] Run the13 non-rendered ScanObjectNN-C corruptions at actual severity1,
+  seed0, released generator order and the verified Point-MAE checkpoint.
+  Mean49.2784%; only Gaussian60.5852% is within2pp of Table3. This falsifies a
+  simple whole-table severity1 explanation.
+- [x] Validate/download the seven-file artifact and state: local/Drive SHA
+  `885a1f...6a79`, CRC and safe paths pass; 13 complete581-example rows and
+  macro accuracy independently recompute.
+- [x] Correct the diagnostic comparison's column mapping. The initial state
+  zipped Table3 order to generator order; raw accuracies and macro were not
+  affected. `corrected_table3_comparison.csv` uses corruption names, and the
+  runner now has an explicit name-to-value mapping plus a regression test.
+- [x] Use explicit severity5 as the available-code benchmark and retain the
+  generator default fix from8 to5. Do not tune severity/seed to Table3.
+- [ ] Obtain the authors' exact ScanObjectNN-C arrays and Point-MAE checkpoint
+  byte identities, or a clarification of Table3's mixed provenance/protocol.
+  Until then, the published source row is not reproducible from released
+  protocol/assets; SVWA's independent severity5 source result supports ours.
+  The official SVWA code was audited at commit `59935d6`: it explicitly uses
+  severity5, the same corruption ordering, FPS(1024), 15 classes and the same
+  Point-MAE inference call. Direct downloads prove its checkpoint differs from
+  3DD's released `scanobject_jt.pth`: file SHA-256 differs, checkpoint epochs
+  are100 versus93, classifier-head key names differ, and all225 common named
+  tensors have different bytes despite matching shapes. Corruption-array byte
+  identity and the actual Table3 experimental asset remain unknown.
+- [x] Start a fresh GPU runtime for the pending test: r7 is live. The Colab
+  operator skill forbids teardown until the user explicitly states both task
+  completion and close permission.
+
+## 2026-10-17 - Current CUDA repair gate
+
+- [x] [User decision] Defer cell2 fastrlock diagnosis unless later GPU work fails.
+- [x] [User report/Code] Confirm fatal cell4 nvcc13.0/PyTorch CUDA12.1 mismatch.
+- [x] [Code/Local] Prepare environment-local12.1.1 toolchain/build helper and
+  synchronize cell4 in both notebooks; local syntax/version/architecture and
+  notebook-preservation checks pass.
+- [x] [User decision] Approve the A100/High-RAM setup retry. Subsequent approval
+  is required only for GPU phases expected to exceed 60 minutes.
+- [x] [Run] Complete Drive authorization and cell3 KNN wheel check.
+- [x] [Run] Resolve Chamfer/pybind11 with GCC11.4, repair missing EMD cost
+  symbols using the existing complete source, and pass native GPU/data/weight
+  checks. Final cell5 and cell6 passed; archive and Drive SHA/CRC are verified.
+  The original cell2 fastrlock failure remains explicitly deferred. This gate
+  supersedes the older fastrlock-first proposal below. See the
+  [current revision](colab_cli_setup_20261017.md#current-revision-cuda13--pytorch-cu121-build-mismatch).
+
+## 2026-10-17 - Six-cell CLI environment setup gate
+
+- [x] Save the original first6 code cells unchanged in
+  `scripts/colab_environment_setup.ipynb` and route new-runtime setup there.
+- [x] Allocate user-approved A100/High-RAM, execute cell1 and reconnect after
+  its Conda kernel restart; cell2's check and clone/dev checkout pass.
+- [ ] [Deferred/User decision] Diagnose cell2 fastrlock only if later GPU work
+  exposes a dependency failure; current native/import/data checks passed.
+- [x] Obtain approval for the r2 setup after the first VM disappeared; r2 is
+  now validated and ready. Other browser assignments remain untouched.
+- [x] Complete the repaired setup on r2, with the agreed cell2 exception.
+  Save the consolidated six-cell notebook, helpers and raw evidence. No model
+  evaluation was run; final combined notebook was not replayed on another VM.
+  See the final status and historical
+  [failed-attempt evidence](colab_cli_setup_20261017.md#later-six-cell-setup-explicitly-authorized).
+
+- [ ] [Open] Validate the old ScanObjectNN Drive receipt and its actual archive
+  before ScanObjectNN work. Restore failed `Invalid ScanObjectNN5 Drive receipt`;
+  the dedicated research section remains separate from ModelNet base setup.
+
+## 2026-10-17 - Colab CLI and cross-environment continuation
+
+- [x] [User decision/Code] Add the Colab CLI skill and align the research skill.
+  The latest rule requires approval only for GPU phases expected to exceed
+  60 minutes, superseding the initial every-run requirement.
+- [x] [Code] Transfer the user's Downloads/result folder into the project:
+  1,087 files,1,351,309,810 bytes, size/SHA-256 verified; delete the Downloads
+  copy only after verification. Existing files preserved; incoming README's
+  newline variant retained beside the
+  [transfer manifest](../result/import_receipts/downloads_20261017T102815Z/transfer_manifest.json).
+- [ ] [Open] Validate relevant transferred archive contents before new research
+  conclusions; filesystem transfer verification is not experiment validation.
+- [x] [Code] Reconcile source delivery after the checkout update: the full
+  33-cell notebook and severity5 helper are present at e955799; the earlier
+  12-cell/missing-helper snapshot is superseded.
+- [x] [Code] Verify OAuth identity and backend session listing after the user's
+  Terminal sign-in. One A100 High-RAM assignment is visible as `[?]`, not
+  locally registered; no remote code was executed. See the
+  [CLI setup record](colab_cli_setup_20261017.md).
+- [x] [Run] Resolve CLI execution-session access; r2 A100 is validated/ready.
+- [ ] [Open] Validate existing Gaussian5 package coverage and its invalid Drive
+  receipt before the next research phase; obtain approval if the GPU phase is
+  expected to exceed 60 minutes. Other browser runtimes remain untouched.
+- Current checkout: `gsd-smooth-spectrum@e955799`. See the
+  [Mac continuation amendment](colab_scanobjectnn_severity5_20261017.md#mac-checkout-and-cli-amendment).
+
 ## 2026-10-17 - ScanObjectNN severity5 is the current user-selected task
 
 - [x] Verify prior Gaussian source-only result: severity8,108/581=18.59%;
@@ -19,11 +127,22 @@
   author seed and exact original dataset byte identity remain unavailable.
 - [x] Six focused synthetic CPU tests, Python3.8 syntax, embedded source
   identities and original notebook-cell preservation checks pass.
-- [ ] User-run original H5 audit, isolated Gaussian-s5 generation and
-  deterministic CPU verification, complete clean/Gaussian source evaluation,
-  then full handoff ZIP review. No result yet.
-- [Open] Whether severity explains low source accuracy; coordinate clipping,
-  checkpoint/split identity and preprocessing still require evidence.
+- [x] Original-H5 Gaussian-s5 generation, exact replay, Drive validation and
+  complete clean/Gaussian source evaluation: clean71.43%, Gaussian-s531.50%.
+- [x] Quantify severity contribution: severity8 18.59% -> severity5 31.50%,
+  a+12.91pp recovery that does not reach the paper's59.0%.
+- [x] Reject point permutation, clipping and PB_T50_RS split substitution as
+  explanations using matched complete controls.
+- [x] Complete Gaussian severity1–5 sweep:60.59,50.95,42.69,36.14,31.50%.
+  Severity1's numerical proximity to59.0% is not protocol evidence.
+- [ ] Obtain/check the authors' exact ScanObjectNN-C array and Point-MAE
+  checkpoint byte identities, or author clarification of the Table3 protocol.
+  Until then, classify the remaining gap as unpublished asset/protocol
+  mismatch; do not relabel severity1 or tune seed to the target.
+- [x] Archive small state/manifests and all runner ZIPs locally; SHA-256
+  `eab1be...d9a7`, CRC pass. User requested the investigation pause; the named
+  A100 and orphan CPU runtimes were released, with no active server/local
+  sessions in the final check.
 - [Open] Expansion to13 array corruptions follows input/Gaussian review;
   occlusion/lidar require a separately validated mesh pipeline.
 - [Open] Sampling-consistency v2 smoke remains pending from the previous task.

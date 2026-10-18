@@ -48,7 +48,17 @@ Act as a rigorous academic researcher for this repository. Preserve continuity, 
 
 ## Colab result handoff
 
-The user runs all training/evaluation in Colab. After any run discussed in the session, explicitly ask the user to provide the complete run directory as a ZIP using:
+For Colab preparation, execution and retrieval, also read
+`.codex/skills/colab-research-operator/SKILL.md` from the repository root.
+The user now delegates Colab operations through the installed Colab CLI,
+with explicit approval only for GPU runs expected to exceed 60 minutes.
+This supersedes the historical assumption that all runs are manually operated
+by the user. Prepare the concrete phase, obtain approval when it exceeds that
+GPU-duration threshold, then execute within the requested scope. Short runs,
+CPU preparation, setup and allocation need no additional research-run approval.
+Retrieve and validate the complete bundle through CLI when available.
+If the bundle is only available in another environment, ask for that transfer
+instead. The standard inference layout is:
 
 ```text
 result/<dataset>/<method>/<YYYYMMDD-HHMMSS>_<short-run-name>/
@@ -61,7 +71,10 @@ result/<dataset>/<method>/<YYYYMMDD-HHMMSS>_<short-run-name>/
   notes.md
 ```
 
-Point the user to `result/README.md` for schemas and naming. Request raw logs, not only screenshots or final percentages, and remind them to remove credentials.
+Follow `result/README.md` for schemas and naming. Retain raw logs, not only
+screenshots or final percentages; keep credentials out of captured artifacts.
+Use the declared audit schema for dataset preparation rather than inventing
+inference CSVs. Do not request manual packaging when CLI retrieval is available.
 
 When a bundle is supplied:
 

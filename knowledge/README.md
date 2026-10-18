@@ -1,3 +1,178 @@
+**[User decision/Run/Open] 2026-10-18 — r6 lost; split setup replay active on
+r7:** The older six-cell r6 runtime produced pinned PyTorch and KNN output but
+no combined Cell4 completion marker. At about27 minutes the named server was no
+longer present; interrupting the still-waiting local executor returned exit130
+and the CLI pruned its stale local record. No later setup or no-background
+inference ran on r6. The user directed continuation with the split phases. Fresh
+A100/High-RAM session `tta-scanobjectnn-nobg-a100-r7-20261018` is live: Cell1
+completed and reconnected to the same VM; Cell2 created the Python3.8
+environment and ended only at the explicitly deferred `fastrlock` wheel
+failure. Next, mount/verify Drive with Cell3, then run Cells4–8 individually and
+require every exact wrapper
+and phase marker before Cells9–10 and the clean/Gaussian-s5 no-background
+diagnostic. Preserve r7 until the user explicitly declares the task complete
+and authorizes closure. Cell3 has been submitted and remains BUSY without a
+completion marker; the direct session URL was provided for Drive authorization.
+
+**[User decision/Code/Run pending] 2026-10-18 — long native setup split for
+future runtimes:** The user approved replacing the extracted setup notebook's
+single long Cell4 with five ordered phases. `scripts/colab_environment_setup.ipynb`
+now has ten code cells: Cell4 prepares packages/toolchain/source patches;
+Cells5–8 build EMD, Chamfer, PointNet++ and PVCNN plus the native GPU smoke;
+Cell9 prepares ModelNet40-C and Cell10 performs final asset verification. Native
+phases emit UTC progress heartbeats and persist completion markers so a confirmed
+phase is not rebuilt. The full research notebook remains unchanged. Local
+notebook structure tests, Bash syntax, JSON parsing, unknown-phase rejection and
+embedded-script byte equality pass. The complete local suite passes266 tests in
+an isolated dependency environment, and official skill validation passes. The
+split notebook is now being replayed on
+fresh r7; no split native phase has completed yet. r6 used the earlier combined
+Cell4 and was later lost as recorded above.
+
+**[Run/Code/Open] 2026-10-18 — no-background diagnostic runtimes lost during
+setup:** r4 disappeared during Cell4; r5 later disappeared during Cell2 after
+Cell1 and Drive mount passed. Neither emitted its active cell's completion
+marker, and both server inventories returned zero sessions while the local CLI
+continued waiting. The exact backend cause was not reported; r5 still had
+106.16 compute units. No no-background inference was run. The Colab skill now
+forbids meaningless print-cell/anti-idle workarounds and instead requires real
+in-process progress heartbeats plus independent server-inventory checks. A
+fresh runtime is required.
+
+**[Code/Run/Inference/Open] 2026-10-18 — ScanObjectNN severity hypothesis
+falsified and local protocol repaired:** A fresh r3 A100-SXM4-80GB/High-RAM
+runtime completed the six-cell setup after Cell4 was changed to install the
+final pinned PyTorch `2.1.2+cu121` stack only once. CUDA12.1, FPS/gather,
+KNN, Chamfer, EMD, datasets and checkpoints all passed. The seed0 Point-MAE
+source-only profile then evaluated all 13 non-rendered corruptions generated in
+released-code order at actual severity1. Gaussian **60.59%** is close to
+Table3's59.0%, but the full13 mean is only **49.28%**, versus Table3's69.0%
+over those same13 columns; the other rows remain6.4–36.0pp lower. Therefore
+Table3 is not explained by a simple global
+severity5-to-severity1 swap.
+
+Combined with the independently published SVWA Point-MAE source-only result
+(Gaussian-s5 **32.5%**, mean **33.1%**) and our Gaussian-s5 **31.50%**, the
+supported reproduction baseline is the released severity5 protocol, not
+3DD-TTA's Table3 source row. An audit of the official SVWA code confirms
+severity5, the same 15-corruption ordering, FPS(1024), 15 classes and
+`classification_only(..., only_unmasked=False)`. The two official Drive
+checkpoints were then downloaded and compared: 3DD's released file is exactly
+our `53f6...35dac` asset, while SVWA's is `011a...a432`; all225 common named
+model tensors have equal shapes but different stored bytes. Thus SVWA is an
+independent same-protocol-family cross-check, not the same weights repackaged.
+The implemented repair is to default the local
+generator to severity5, record actual severity/provenance, and stop treating
+the Table3 numbers as a target for the available assets. Exact authors' arrays,
+checkpoint bytes or clarification remain required to reproduce that row.
+Validated artifact:
+[`result/preparation/cli_scanobjectnn_s1_20261018/scanobjectnn_s1_profile_handoff_r3.zip`](../result/preparation/cli_scanobjectnn_s1_20261018/scanobjectnn_s1_profile_handoff_r3.zip),
+SHA-256 `885a1f16f866b64c179b0c48948f11d5ac534b5aef4d37322647c197f7486a79`;
+7 files, CRC/safe-path checks and independent 13-row metric recomputation pass.
+The first downloaded state's per-corruption comparison incorrectly zipped
+Table3's column order to generator order; raw accuracies and macro are valid,
+and the corrected derived table is adjacent to the artifact.
+[Full severity record](colab_scanobjectnn_severity5_20261017.md#severity1-full-profile-falsification-2026-10-18).
+
+**[User decision/Run/Inference/Open] 2026-10-17 — ScanObjectNN work paused after
+severity diagnosis:** The fresh A100 run verified the 581-example
+`main_split/test_objectdataset.h5` protocol with the released Point-MAE asset.
+Clean is **415/581 = 71.43%**; exact author-order Gaussian severity5
+(`sigma=0.03`) is **183/581 = 31.50%**, versus the old severity8
+**108/581 = 18.59%**. Fixing severity therefore recovers **+12.91pp**, but does
+not reproduce the paper's 59.0%. Point order and `[-1,1]` clipping change the
+result by at most about 1pp in matched controls. Substituting PB_T50_RS is worse
+(clean54.79%, Gaussian21.51%), so split replacement is rejected for this
+checkpoint. A controlled same-noise sweep gives Gaussian severity1–5:
+**60.59, 50.95, 42.69, 36.14, 31.50%**. Severity1 numerically resembles the
+paper, but Appendix A specifies the severity5 `sigma=0.03`; relabeling
+severity1 would not be a valid fix. The remaining issue is an unpublished
+paper-asset/checkpoint/protocol mismatch, not a verified runner bug.
+
+The user paused the investigation. Small state/manifests and all runner ZIPs
+are preserved in
+[`result/preparation/cli_scanobjectnn_s5_20261017T190028Z/scanobjectnn_pause_handoff_20261017.zip`](../result/preparation/cli_scanobjectnn_s5_20261017T190028Z/scanobjectnn_pause_handoff_20261017.zip),
+SHA-256 `eab1be91726d5bb7f7aef3c957fdbd88c45936fec310e692597975b28083d9a7`;
+CRC passed. Generated NPY arrays are excluded from that small archive; the
+verified Gaussian5 package remains in Drive. After archival, the named A100
+runtime and the sole orphan CPU assignment were released; final `colab sessions`
+and `colab status` both reported no active sessions. Resume by establishing the authors' exact
+ScanObjectNN-C arrays and Point-MAE checkpoint identity, not by tuning severity
+to the published number. [Full run record](colab_scanobjectnn_severity5_20261017.md#validated-colab-results-and-pause-handoff).
+
+**[User decision/Code/Run/Open] 2026-10-17 — Colab environment ready and archived:**
+The A100-SXM4-80GB / High-RAM session `tta-setup-a100-20261017-r2` is ready
+and idle. Environment-local CUDA12.1 / GCC11.4 / PyTorch2.1.2+cu121 passed native
+FPS/gather forward/backward, KNN, Chamfer and EMD GPU checks. ModelNet40-C clean
+and 15 severity5 arrays, imports and both checkpoints were verified. The user
+confirmed ModelNet40-C is the required archive; the separate zero-byte original
+ZIP was removed from Drive on request.
+
+Use the corrected six-cell [setup notebook](../scripts/colab_environment_setup.ipynb)
+for new runtimes. It includes the toolchain, PointNet++ arch, EMD cost-kernel,
+ZIP and final verification fixes; original notebook prep cells are synchronized.
+Raw logs/source snapshots and the SHA/CRC-verified Drive backup are recorded in
+[the final setup handoff](colab_cli_setup_20261017.md#final-validated-status).
+Only GPU phases expected to exceed **60 minutes** need explicit research approval.
+Earlier every-run and pending-approval instructions below are superseded.
+
+Limits: known cell2 fastrlock failure remains deferred; later checks passed.
+The final combined notebook was not replayed on a second clean VM, and no model
+accuracy run was executed. The old ScanObjectNN Drive receipt failed validation;
+its dedicated research section remains separate, with no receipt bypass.
+
+**[User decision/Code/Open] 2026-10-17 — Cell4 CUDA repair prepared:**
+User defers cell2 fastrlock diagnosis. Actual cell4 error is CUDA13.0 versus
+PyTorch CUDA12.1. Both preparation notebooks now use an environment-local
+12.1.1 toolchain and the native build/GPU-check helper; system CUDA/driver
+remain unchanged. Local guards/source checks pass; live rebuild and new
+A100/High-RAM retry approval remain pending. See the
+[current revision](colab_cli_setup_20261017.md#current-revision-cuda13--pytorch-cu121-build-mismatch).
+
+**[User decision/Code/Open] 2026-10-17 — Six-cell CLI setup attempt failed:**
+The user authorized A100/High-RAM allocation and the first six preparation
+code cells. Exact cells are saved in
+[`scripts/colab_environment_setup.ipynb`](../scripts/colab_environment_setup.ipynb)
+and routed from AGENTS/the Colab skill. Cell1 passed, including Conda restart
+and reconnection. Cell2 checked out `dev` but failed in its pip phase building
+`fastrlock0.8.4`; cells3–6 were not run. A later diagnostic connection returned
+404/401, and our exact VM endpoint is absent from the active assignment list.
+User reports changing only their own browser sessions. No cause of VM loss is
+established; other A100 sessions were untouched and no duplicate was created.
+Logs and CRC-checked local archive are preserved; renewed allocation/diagnostic
+approval precedes another attempt. See the
+[setup evidence and next gate](colab_cli_setup_20261017.md#later-six-cell-setup-explicitly-authorized).
+Current source checkout is `e955799`: the full33-cell original notebook,
+severity5 adapter and transferred preparation snapshots are present now;
+earlier missing-source notes below are historical snapshots.
+
+**[User decision/Code/Open] 2026-10-17 — CLI authentication verified:**
+The user completed OAuth sign-in in Terminal; separate CLI identity and backend
+session-list checks succeeded. One existing A100 High-RAM assignment is listed
+as `[?]` (not locally registered); no code was sent to it and no VM/GPU run was
+started. New-runtime/setup execution requires a separate approved plan. See the
+[setup record and next checks](colab_cli_setup_20261017.md).
+
+**[User decision/Code/Open] 2026-10-17 — Mac / Colab CLI continuation:**
+Colab work now uses the installed CLI, with explicit user approval before every
+new run (including CPU generation, retries and VM allocation). Read the
+[Colab operator skill](../.codex/skills/colab-research-operator/SKILL.md).
+Current Mac checkout is `gsd-smooth-spectrum@7fcfef7`, not the older dirty
+`a351e66` workspace described below. The user supplied the result folder through
+Downloads: all1,087 files (1,351,309,810 bytes) are now present under `result/`,
+with source/destination SHA-256 verification; the Downloads copy was deleted
+after verification. Preparation snapshots/receipts are now available too.
+[Transfer manifest](../result/import_receipts/downloads_20261017T102815Z/transfer_manifest.json).
+Archive contents and research conclusions have not been revalidated in this
+transfer. The documented severity5 adapter and updated notebook cells remain
+absent from the source checkout: its guidance-ablation notebook has12 cells
+and no severity5 section.
+Do not execute it from the historical cell instructions. Next: reconcile the
+source delivery and transferred artifacts, then prepare the next missing
+Gaussian5 phase for approval. No remote session/authentication or run has
+been verified/started in this continuation. See the
+[current checkout amendment](colab_scanobjectnn_severity5_20261017.md#mac-checkout-and-cli-amendment).
+
 **[User decision/Code/Run/Open] 2026-10-17 task switch:** The current user-selected
 task is ScanObjectNN severity5 data preparation and source-only evaluation.
 Prior Gaussian18.59% is confirmed as severity8 from command/config/CSV and

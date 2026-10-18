@@ -1,0 +1,4 @@
+interface:
+  display_name: "Colab Research Operator"
+  short_description: "Colab setup, GPU runs and research evidence"
+  default_prompt: "Use $colab-research-operator to prepare the next Colab phase, request approval only for GPU phases expected to exceed one hour, and archive its evidence in the research knowledge base."

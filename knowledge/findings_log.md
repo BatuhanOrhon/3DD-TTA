@@ -4202,3 +4202,510 @@ default Windows temp-root permissions blocked test setup; rerunning in a
 unique workspace-owned test root passed. Real h5py I/O, Colab Drive behavior
 and original-data generation await user execution. No local real-data/GPU
 evaluation, accuracy, Git stage/commit/push, or old ZIP modification.
+
+## 2026-10-17 - Mac Colab CLI skill and continuation audit
+
+[User decision/Code] The user now delegates Colab operations through the
+installed CLI and requires approval before new runs. Added
+`.codex/skills/colab-research-operator/SKILL.md`, repository `AGENTS.md` routing,
+and aligned the existing research skill. The workflow specifies bounded phase
+approval (CPU generation included), exact source/assets/config provenance,
+shared-session preservation, timeout inspection before retry, immutable
+Drive/local SHA-verified archives, and dated evidence-labelled knowledge updates.
+CLI0.7.4 and local help for exec/download/log were inspected; bundled auth-default
+prose conflicts with installed help/code, so the skill uses the actual interface.
+Help/version required sandbox escalation for the CLI's local log file; this
+does not constitute approval for research execution.
+
+[Code] Actual Mac branch/HEAD is `gsd-smooth-spectrum` at
+`7fcfef71641b2b623ee737ae1ce404a29116d6c4`, whose latest commit updates research
+documents. Initial status contains only pre-existing untracked `.codex/`.
+The documented ScanObjectNN severity5 adapter, pinned source/receipt under
+`result/preparation/`, and updated notebook section are absent here. The local
+guidance-ablation notebook has12 cells and no severity5 section, rather than
+the recorded33. This checkout cannot execute the documented cell sequence as-is.
+The existing generator's default remains8; the source-only runner supports
+ScanObjectNN and15 output classes. This is a source-delivery discrepancy,
+not new evidence against any archived accuracy result.
+
+[User report/Open] The user confirms result files exist in another environment
+and is transferring them through Drive. Do not classify their local absence as
+lost evidence or authorize reruns. Research context remains ScanObjectNN
+Gaussian5+clean first; sampling-consistency smoke is pending and deferred.
+Historical ModelNet40 scores retain their recorded scopes and limits; raw
+archives were not independently revalidated during this continuation.
+
+[Decision/Open] Continue result-independent skill/knowledge work. Once delivery
+is available, reconcile source and coverage, recover a complete Gaussian5
+package if present, otherwise prepare the exact missing generation phase and
+request approval. Source-only evaluation is a later reviewed/approved phase.
+Falsifier for the source-delivery blocker: the intended adapter, pinned source
+and notebook are recovered with matching identities. No remote session/auth
+was inspected, no VM or experiment started, and no source/notebook/raw result
+was changed. No stage, commit or push performed.
+
+[Validation] Both skill frontmatters and UI metadata pass YAML/name/description/
+invocation checks using Ruby's installed YAML library; new workflow links and
+`git diff --check` pass. The bundled `quick_validate.py` could not run because
+PyYAML is absent in the local Python environments; no dependency was installed.
+An independent dry scenario review covered approval boundaries, successful
+CPU generation before unapproved inference, timeout recovery, cross-environment
+transfer and shared-session cleanup. It prompted explicit source-byte archiving
+and local salvage when Drive backup fails. The baseline already respected
+approval, so this is an instruction review, not measured behavioral improvement.
+No project test suite, real Colab execution or result validation was performed.
+
+## 2026-10-17 - Downloads result transfer verified and source copy removed
+
+[User decision/Code] At the user's explicit request, copied
+`/Users/batuhan/Downloads/result` into the existing repository `result/` without
+overwriting existing files. All1,087 source files (1,351,309,810 bytes) matched
+their mapped destinations by size and SHA-256, and the source inventory was
+unchanged before deletion. One identical calibration config was reused. The
+incoming README differs only by CRLF/LF; the existing README stays intact and
+incoming bytes are preserved as `source_README.md` beside
+`result/import_receipts/downloads_20261017T102815Z/transfer_manifest.json`.
+That manifest records every source/destination mapping, size/hash and deletion
+confirmation. Removed only the Downloads/result tree after verification and
+confirmed every mapped destination file remains present. System escalation
+was required because Downloads is outside the writable workspace.
+
+[Code/Open] `result/preparation/` now includes the author generator, severity5
+notebook receipt and sampling source v1/v2 ZIPs previously absent on this Mac.
+Source checkout discrepancies remain separate. This operation verifies file
+transfer only; no ZIP internals, numerical results or historical scientific
+claims were revalidated, and no Colab session/run was started.
+
+## 2026-10-17 - Colab CLI OAuth configuration started
+
+[User decision/Code/Open] User authorized CLI setup. Initial existence-only
+checks found no cached OAuth token, local session registry or ADC credentials;
+gcloud is absent and is unnecessary for the installed CLI's bundled OAuth2
+flow. Read installed auth/command source and opened a user-facing Terminal
+running `/Users/batuhan/.local/bin/colab --auth oauth2 whoami`. Google sign-in
+and authorization-code entry must occur there, not through chat. Awaiting user
+completion; no identity or backend-access success is claimed. No credential
+contents read or archived. Setup-time HEAD is `e955799de89476a5d58105c4f8622d0481bdecdc`;
+earlier checkout hashes remain dated snapshots.
+
+[Code/Open] Normal CLI execution targets locally registered sessions; the
+installed0.7.4 interface lacks a browser-session attach/adopt command. Next:
+verify whoami and read-only backend session listing after interactive sign-in.
+New VM allocation, Drive mounting, environment installation and experiments
+remain outside this setup authorization. Details:
+`knowledge/colab_cli_setup_20261017.md`. No Colab VM or GPU run started.
+
+[Later Code/User report/Open] User completed Google sign-in in the Terminal.
+Token-file existence was checked without reading contents. Separate CLI
+`--auth oauth2 whoami` succeeded, followed by `--auth oauth2 sessions`:
+one A100 High-RAM assignment is visible as `[?]`, not registered locally.
+This supersedes the pending-auth status above, but does not verify access to
+that runtime's kernel, Drive or project environment. No VM allocation,
+remote code or experiment occurred. The Terminal window and entered OAuth
+code were not read; the separate CLI identity command returned email,
+audience, expiry and scopes in conversation tool output, with no access or
+refresh token. No account identifier or credential values are copied here.
+Next is a separately approved runtime/setup plan if CLI execution is needed;
+preserve the existing browser runtime. Setup record updated accordingly.
+
+[Later User decision/Code/Open] User conditionally requests a new2026.07
+runtime with A100 and High-RAM if CLI version selection is supported. Inspected
+installed0.7.4 session-command signature and assignment URL construction:
+GPU/high-memory flags are supported, but runtime image/version selection is
+not exposed or sent. Official backend-info lists2026.07 as a past runtime;
+that does not establish CLI selection support. No new VM was allocated and
+no default runtime was substituted. Preserve the requested image/hardware
+combination while deciding an execution route. Details and primary links:
+`knowledge/colab_cli_setup_20261017.md`.
+
+## 2026-10-17 - Six-cell setup extraction and failed A100 CLI attempt
+
+[User decision/Code] User explicitly authorized saving the first6 preparation
+code cells, allocating A100/High-RAM and verifying their execution, reconnecting
+after cell1. Extracted exact notebook indices1–6 from the now33-cell source at
+HEAD`e955799` into `scripts/colab_environment_setup.ipynb`, without historical
+outputs. Original source SHA-256`dd3146508be8a717d260418a312d00c127291672cb2dc1e20c40b642cd1b9315`.
+Source equality checks pass; original notebook is unchanged. AGENTS and the
+operator skill route future setup to this file and its current validation note.
+
+[Code/Run/Open] CLI allocation reported READY for
+`tta-setup-a100-20261017`, A100/High-RAM, endpoint
+`gpu-a100-hm-kkb-ass1c2-jah5ciy1qndo` at10:42:38Z. Cell1 installed Conda and
+restarted the kernel. Same-session reconnection and cell2 condacolab check,
+clone and `dev` checkout passed. `conda env create` then failed in its pip
+phase: CuPy pulled source`fastrlock0.8.4`, whose wheel build failed;
+`CondaEnvException: Pip failed`. Actual compiler cause is not in the captured
+output. The guarded cell stopped; cells3–6 never ran. CLI exited0 despite the
+remote RuntimeError, so completion markers/errors must supplement exit codes.
+
+[Code/User report/Open] A subsequent prepared diagnostic never ran because
+the CLI prelude received404/401 and pruned its local registration. The exact
+created VM is absent from later active assignments; two other A100 endpoints
+were visible and untouched. User reports modifying only their own browser
+sessions, not this VM. Cause of VM loss is unknown; do not attribute it to
+user action or token expiry without evidence. No duplicate allocation or retry.
+
+[Artifact/Decision] Failed-attempt logs, exact cell sources, wrappers and
+manifest are archived locally in
+`result/preparation/cli_setup_20261017T104109Z/setup_attempt.zip`,72,382 bytes,
+SHA-256`2f512b3aaf492c305151fa4283e1f66ce3dbd416e49c6b0f9ac1968726e98c2d`;
+CRC passes. Drive backup unavailable because the mount phase was not reached.
+Next is renewed approval for a fresh diagnostic/setup attempt, minimally
+capturing the Python3.8 wheel compiler error before any dependency change.
+No successful six-cell validation, GPU-kernel test, model accuracy or new
+research result is claimed. Full status: `knowledge/colab_cli_setup_20261017.md`.
+
+## 2026-10-17 - cu121 repair, approved r2 setup and revised approval threshold
+
+[User decision/User report/Code] User defers known cell2 fastrlock diagnosis
+and supplies actual PointNet++ failure: toolkit13.0 versus torch CUDA12.1.
+Prepared an environment-local12.1.1/GCC12.2 build helper, reused from the
+earlier build-script pattern, and embedded it in cell4 of both notebooks.
+It preserves system CUDA/driver, targets the GPU, fixes dev's architecture
+override and checks native imports/FPS/gather forward/backward. Local syntax,
+version-guard and notebook-preservation checks pass; GPU repair is unverified.
+
+[User decision/Code/Open] User explicitly approved r2 A100/High-RAM setup.
+Later changed the ongoing rule: require approval only for GPU runs expected
+to exceed60 minutes; shorter runs, CPU/setup/allocation/retries proceed within
+scope. Updated AGENTS and both applicable skills, preserving historical notes.
+r2 preflight confirms A100-SXM4-80GB and MemTotal175,166,472kB. After cell1's
+Conda restart, cell2 initially lost connection in the CLI prelude. The VM was
+still active; an explicit same-VM kernel restart recovered access. Cell2 is
+now solving the environment. No duplicate allocation, model evaluation or
+native CUDA success claim. Pinned source/logs:
+`result/preparation/cli_setup_20261017T130314Z_r2/`; use its layout-revised
+cell4 snapshot. See `knowledge/colab_cli_setup_20261017.md` for exact metadata.
+
+[User decision/Code/Open, later update] Approval is required only for a GPU
+phase reasonably expected to exceed 60 minutes; exactly 60 minutes and shorter
+phases do not require additional research approval. Assess the whole phase,
+including any planned continuation. The active r2 setup reached the known
+deferred cell2 fastrlock failure and is now awaiting user-operated Drive
+authorization in Terminal. Terminal contents and credentials are not read.
+
+## 2026-10-17 15:12 UTC — A100 setup validated, consolidated and archived
+
+[User decision/Code/Run/Open] r2 is ready/idle on A100-SXM4-80GB / High-RAM.
+CUDA12.1/GCC11.4/PyTorch2.1.2+cu121 passed native imports, FPS/gather
+forward/backward, KNN, Chamfer and EMD checks; ModelNet40-C clean +15 severity5
+arrays and both checkpoints passed, with24 asset SHA256 identities recorded.
+Fixed the GCC12.2 pybind11 failure and missing EMD cost kernels using the
+project's existing complete source. The user confirmed ModelNet40-C as the only
+required archive and explicitly authorized removal of the empty original ZIP.
+ScanObjectNN's invalid receipt stays unaccepted in its separate research flow.
+
+Delivered six-cell scripts/colab_environment_setup.ipynb, embedded build and
+verification helpers, synchronized original prep cells and README/AGENTS/skill
+routing. Final acceptance uses exact output markers, JSON status and archive
+validation; the earlier sys.path/substring-marker diagnostic failures remain in
+raw logs. Only cell2 fastrlock is deferred. No second-clean-VM replay and no
+model accuracy run. Actual remote dev@a458cd46 differs from local research HEAD;
+see the [final handoff](colab_cli_setup_20261017.md#final-validated-status).
+
+Local result: result/preparation/cli_setup_20261017T130314Z_r2/.
+Drive: MyDrive/thesis/result/preparation/cli_setup_20261017T130314Z_r2/setup_attempt.zip.
+Archive461,401 bytes, SHA256
+0cc4a67a67ab1a53ef97dc89cc4abbbdd2bafa373d72060c4f295536deff798a;
+local/Drive size, SHA and CRC verified. Scope had explicit user setup approval;
+standing approval threshold is now only GPU phases expected to exceed60 minutes.
+Next gate: inspect ScanObjectNN receipt/actual artifacts and intended source;
+no new accuracy or method-comparison claim follows from environment setup.
+
+## 2026-10-17 20:22–20:49 UTC — ScanObjectNN Gaussian severity diagnosis paused
+
+[User decision/Run] The user authorized the short A100 diagnostic phase and
+later requested a pause plus teardown of all Colab runtimes. Session
+`tta-scanobjectnn-s5-a100-20261017`, A100-SXM4-80GB/High-RAM, used remote
+`dev@a458cd46`; setup/native/data/checkpoint verification passed. Checkpoint
+SHA-256 was `53f6c2e...35dac`; main-split original/Gaussian5/label SHA-256 were
+`47c641b3...175fe`, `9bff59ad...2a7e7`, and `bb145670...b7a68`.
+
+[Run] Exact author-order seed0 Gaussian5 generation and complete source-only
+evaluation produced clean415/581=71.4286% and Gaussian5
+183/581=31.4974%. The historical Gaussian8 result is108/581=18.5886%, so the
+severity correction recovers+12.9088pp but remains27.5026pp below the paper's
+Gaussian59.0%.
+
+[Run/Inference] Controls reject point order and clipping: permuted clean70.40%;
+Gaussian clipped permuted31.50%, clipped original-order31.33%, unclipped
+permuted32.53%, unclipped original-order32.01%. PB_T50_RS is also incompatible
+with this checkpoint: clean1579/2882=54.7883%, Gaussian5
+620/2882=21.5128%.
+
+[Run] Same-noise Gaussian severity1–5 results are352,296,248,210,183 correct
+out of581:60.5852%,50.9466%,42.6850%,36.1446%,31.4974%. Severity1 is close to
+Table3 but contradicts the published Appendix-A sigma0.03/severity5 parameter;
+it is a diagnostic, not a replacement benchmark.
+
+[Inference/Open] The remaining paper gap is best recorded as an unpublished
+data/checkpoint/evaluator-asset mismatch. Exact author array/checkpoint hashes
+or clarification would falsify or refine that attribution. Do not tune
+severity/seed to59.0 or expand all15 before this provenance gate.
+
+[Artifact] Local pause handoff:
+`result/preparation/cli_scanobjectnn_s5_20261017T190028Z/scanobjectnn_pause_handoff_20261017.zip`,
+139,672 bytes,24 members, SHA-256
+`eab1be91726d5bb7f7aef3c957fdbd88c45936fec310e692597975b28083d9a7`;
+CRC and downloaded SHA passed. It retains state/manifests plus one failed and
+six complete runner archives, excluding large NPY arrays. CLI history is
+adjacent and credential-pattern scan was empty. Next action is intentionally
+paused. The named A100 session and sole orphan CPU assignment were released;
+final server/local CLI checks reported no active sessions.
+
+## 2026-10-18 - Planned severity/provenance falsification
+
+[Run plan/Open] The severity5 Gaussian result (31.4974%) agrees with the
+independent official SVWA Point-MAE source-only Gaussian result (32.5%), while
+our severity1 Gaussian result (60.5852%) is close to 3DD-TTA Table3 (59.0%).
+Run one seed0 A100 source-only profile over the13 non-rendered Table3
+corruptions at actual severity1, preserving the released generator's order and
+recording every generated-array hash. Hypothesis: if several corruption
+accuracies and the macro profile approach Table3, the paper/released-protocol
+severity mismatch is the dominant explanation; otherwise retain unpublished
+dataset/checkpoint/evaluator provenance as the unresolved cause. This is a
+diagnostic and must not relabel severity1 as the published severity5 benchmark.
+
+## 2026-10-18 10:02 UTC - Severity1 profile setup VM lost
+
+[Run/Failed] Session `tta-scanobjectnn-s1-a100-20261018` was allocated as an
+A100 High-RAM VM for the planned seed0 severity1 source-only profile. Cell1
+completed sufficiently to install Conda and restart the kernel; cell2 reached
+only the previously deferred `fastrlock` wheel failure and its recovery check
+passed on remote `dev@a458cd46` with Python3.8.20. The user completed Drive
+authorization and cell3 passed with `SETUP_CELL_3_COMPLETED`.
+
+[Run/Open] Cell4 installed the pinned requirements, including torch2.1.2 and
+torchvision0.16.2, then entered the CUDA12.1.1/GCC11.4 Conda toolchain step.
+Before any native-build completion marker or forward/backward result appeared,
+the CLI reported `RuntimeError: Connection was lost`; an immediate server
+query pruned the stale local record and returned no active sessions. Therefore
+cell4, cells5-6, ScanObjectNN restore and all severity1 inference remain
+unexecuted. No result archive or accuracy was produced. Do not treat package
+installation output as a validated environment. A continuation requires a new
+runtime and the complete six-cell setup from cell1; the remaining planned GPU
+phase should be re-estimated before allocation.
+
+[User decision/Planned] The user explicitly approved a fresh A100 High-RAM
+retry after being told the complete replacement phase is estimated at60-75
+minutes. Approved scope: new session, all six setup cells, verified
+ScanObjectNN main-split restore, seed0 severity1 generation for the13
+non-rendered Table3 corruptions, Point-MAE `scanobject_jt.pth` source-only
+evaluation at batch32, hash-verified local/Drive archiving, and cleanup.
+Stop on native, dataset/checkpoint identity or artifact validation failure.
+
+## 2026-10-18 10:31–10:58 UTC - Second setup VM lost; Cell4 dependency duplication removed
+
+[Run/Failed] Replacement session `tta-scanobjectnn-s1-a100-r2-20261018`
+reached the same validated preconditions: Cell1 passed on an A100-SXM4-80GB
+High-RAM VM, the deferred Cell2 `fastrlock` failure was verified against
+Python3.8.20 and remote `dev@a458cd46`, Drive mounted successfully, and Cell3
+emitted `SETUP_CELL_3_COMPLETED`. Cell4 then ran for approximately26 minutes
+without a completion marker. The CLI ended with `RuntimeError: Connection was
+lost`, and the immediate server query returned no active sessions. No Cell4
+success, later setup cell, dataset restore or inference result exists from r2.
+
+[Code/Diagnosis] The last successful setup history from2026-10-17 proves the
+old Cell4 first installed unpinned torch2.4.1/torchvision0.19.1 and their CUDA
+packages, then the repository requirements replaced them with
+torch2.1.2/torchvision0.16.2 before native compilation. This avoidable double
+installation materially increases setup time, downloads and disk churn. It is
+a reproducible setup defect and a plausible contributor to the two VM losses,
+but the absent in-progress remote log means it is not proven as their server-
+side termination cause.
+
+[Code/Test] Cell4 in both `scripts/colab_environment_setup.ipynb` and
+`scripts/gsd_guidance_ablations_colab.ipynb` now installs the required
+torch2.1.2+cu121, torchvision0.16.2+cu121 and torchaudio2.1.2+cu121 first;
+KNN, repository requirements, CLIP, toolchain and native-build steps retain
+their order. `tests/test_colab_environment_setup.py` failed against both old
+cells and passes after the synchronized change. A fresh six-cell runtime replay
+is still required before treating this repair as Colab-validated.
+
+## 2026-10-18 12:20–12:21 UTC - r3 setup and severity1 profile completed
+
+[Run/Code] Fresh r3 A100/High-RAM completed the revised six-cell setup. The
+single pinned torch2.1.2+cu121 installation survived KNN, requirements and CLIP;
+CUDA12.1/GCC11.4 compiled EMD, Chamfer, PointNet++ and PVCNN. Final native,
+dataset and checkpoint verification passed. This validates the Cell4 repair on
+a new VM; it does not establish why r1/r2 disappeared.
+
+[Run] The13 non-rendered ScanObjectNN-C corruptions were generated at actual
+severity1, seed0, released RNG order (including discarded scale), with every
+array hash recorded. Point-MAE checkpoint
+`53f6c2e...35dac` evaluated all581 examples per row. Results (%): uniform41.14,
+Gaussian60.59, background42.00, impulse34.42, upsampling28.40, shear43.72,
+rotation44.41, cutout71.94, density70.74, density-inc71.60, distortion44.06,
+RBF43.20, inverse-RBF44.41. Macro13=49.2784%; Table3 macro over the same13
+columns=69.0%; mean absolute difference=19.9654pp.
+
+[Inference] Gaussian (+1.59pp) is the only row within2pp of Table3; the other12
+are6.36–36.00pp lower. Thus Table3 is not a simple severity1 profile. Our
+Gaussian-s531.50% and independent SVWA source-only Gaussian-s532.5% agree,
+supporting the released severity5 baseline and leaving unpublished/mixed
+Table3 data, checkpoint or evaluator provenance unresolved. Do not relabel
+severity1 as severity5 or tune seeds.
+
+[Artifact] `result/preparation/cli_scanobjectnn_s1_20261018/` contains the
+state, streamed runners, CLI JSONL and seven-file result ZIP. Validation passed
+CRC, regular safe paths,13 complete rows and independent macro recomputation.
+Local/Drive ZIP SHA-256:
+`885a1f16f866b64c179b0c48948f11d5ac534b5aef4d37322647c197f7486a79`.
+
+[Correction/Code] The run itself is valid, but the initial state's derived
+comparison zipped paper values to generator order although Table3 uses RBF,
+RBF-inverse, density-decrease, density-increase, shear, rotation, cutout and
+distortion order. Correct name-based mapping leaves macro49.2784% and
+MAE19.9654pp unchanged but replaces the false density-inc -0.30pp comparison
+with -10.80pp. Corrected derived CSV/notes are adjacent to the immutable raw
+artifact. The runner now uses an explicit dictionary; its regression test
+failed on the old `dict(zip(...))` form and passes after the fix.
+
+[User correction/Operational failure] The agent terminated r3 after artifact
+validation based on the earlier cleanup plan, before the user declared task
+completion/close permission. Server and local CLI then showed no sessions; the
+VM is not recoverable. The user requires costly Colab environments to remain
+live for follow-up tests. The Colab operator skill now prohibits teardown until
+the user explicitly states both task completion and permission to close, for
+agent-created and shared runtimes alike. A focused skill-contract test passed
+after first failing on the prior wording; official skill validation also passed.
+
+## 2026-10-18 - Official SVWA source-only protocol audit
+
+[Paper] SVWA reports a Point-MAE source-only ScanObjectNN-C row with Gaussian
+32.5% and all-15 mean33.1%. The first13 non-rendered entries average36.7385%.
+
+[Code] Official repository commit
+`59935d68d0ef12811619ce4776e1dc4a711997d1` fixes evaluation to severity5,
+uses the same15 corruption order as the paper/3DD table, loads
+`data_<corruption>_5.npy`, applies FPS(1024), sets15 output classes and calls
+Point-MAE `classification_only(..., only_unmasked=False)`. Its corruption
+generator reads the581-example ScanObjectNN main-split test H5. The published
+Gaussian32.5% therefore closely corroborates our Gaussian-s531.4974% under the
+same released protocol family.
+
+[Artifact/Code] Direct public-Drive downloads establish that SVWA does not
+reuse 3DD's checkpoint. 3DD `scanobject_jt.pth` is351,525,407 bytes with
+SHA-256 `53f6c2e...35dac`, exactly matching our evaluated asset; SVWA
+`objectnn_src_only_PointMAE.pth` is294,085,061 bytes with SHA-256
+`011a9efc...a432`. Both PyTorch ZIPs pass CRC. Their model state dictionaries
+have227 keys each:225 common names and shapes, but zero equal raw tensor
+payloads; the remaining classifier-head key pair is named differently. The
+recorded epochs are93 (3DD) and100 (SVWA).
+
+[Limit/Inference] SVWA does not publish corruption-array hashes and its
+evaluator uses `drop_last=True`. Consequently the row is an independent
+severity5/protocol-family cross-check, not an exact reproduction. Agreement
+despite genuinely different weights makes the much higher 3DD Table3 source
+row still more anomalous. Because our checkpoint is exactly the official 3DD
+download, the remaining candidates are Table3's unpublished/mixed checkpoint,
+corruption arrays or evaluator conditions; exact experimental assets or author
+clarification are still required to identify which one conclusively.
+
+## 2026-10-18 13:02–13:44 UTC - r4 no-background setup runtime lost
+
+[Run/Failed] Fresh A100/High-RAM session
+`tta-scanobjectnn-nobg-a100-r4-20261018` completed Cell1, reached only the
+explicitly deferred Cell2 `fastrlock` failure, mounted Drive after a second
+authorization attempt, and emitted `SETUP_WRAPPER_CELL_3_COMPLETED`. Cell4
+installed the pinned PyTorch2.1.2+cu121 stack and KNN-CUDA, but no Cell4
+completion marker or later setup/inference result appeared.
+
+[Run/Diagnosis] A server inventory query returned no active sessions; the
+local status command pruned the stale session at13:43:49 UTC. The still-waiting
+local `colab exec` client had accumulated about27 minutes and was interrupted
+only after server absence was confirmed. This wait is not evidence of a
+40-minute native build. The exported CLI history contained an ephemeral Drive
+authorization URL and was deliberately not retained; the sanitized receipt is
+`result/preparation/cli_scanobjectnn_nobg_20261018/runtime_loss_receipt.json`.
+The server did not expose a definitive quota, compute-unit, or backend cause.
+
+[Run/Inference/Open] The prior successful fresh r3 history places Cell3
+completion at11:50:06 UTC and Cell4 completion at12:13:31 UTC, about23m25s.
+Thus the2400-second CLI timeout was a safety ceiling, not a runtime estimate;
+roughly10-minute observations likely reflect a warmer or partial setup rather
+than this full fresh Cell4. r4 produced no no-background accuracy. A new runtime
+must replay all six setup cells before the planned clean/Gaussian severity5
+diagnostic.
+
+[User decision/Code] The Colab operator skill now states that managed lifetime,
+quota and compute-unit termination cannot be prevented; forbids fake-click,
+JavaScript and empty-loop anti-idle workarounds; requires same-session/server
+inspection before retry; and requires verified Drive persistence of material
+intermediate state. It also clarifies that a mobile/browser tab need not remain
+open after interactive authorization for CLI-managed execution. The focused
+contract tests and official skill validator pass.
+
+## 2026-10-18 13:47–16:17 UTC - r5 lost during Cell2; heartbeat rule clarified
+
+[Run/Failed] Session `tta-scanobjectnn-nobg-a100-r5-20261018` completed Cell1,
+reconnected to the same A100 VM, mounted and verified Drive, then entered Cell2.
+No Cell2 completion marker was produced. At16:17:10 UTC the server inventory
+returned zero sessions and the local record was pruned while its orphaned CLI
+client had waited about2h24m. The client was interrupted only after server
+absence was confirmed. The account still had106.16 compute units, so exhaustion
+is not supported as the cause. Sanitized evidence:
+`result/preparation/cli_scanobjectnn_nobg_20261018/runtime_loss_receipt_r5.json`.
+
+[User decision/Code] The user requested periodic meaningless print cells to
+avoid disconnects. This was not encoded as anti-idle behavior: a busy kernel
+would queue the second cell and Colab-managed retention is not guaranteed.
+Instead, the operator skill now requires long phases to emit meaningful UTC/
+phase/progress heartbeats from the running process and permits independent
+server-inventory checks without launching a second cell. The added contract
+test failed before the change; all four skill tests and validation pass after it.
+
+## 2026-10-18 16:52 UTC - future setup Cell4 split into restartable phases
+
+[User decision/Code] The user approved splitting the extracted setup notebook's
+long Cell4 for future sessions. The canonical notebook now has ten code cells:
+Cell4 installs pinned packages/toolchain and patches sources; Cells5–8 build
+EMD, Chamfer, PointNet++, and PVCNN plus native GPU smoke; the former data and
+final-verification cells move to9 and10. The full research notebook is retained
+unchanged.
+
+[Code] `scripts/build_cuda_extensions_colab.sh` now supports ordered
+`prepare`, `emd`, `chamfer`, `pointnet2`, and `pvcnn-smoke` phases plus the old
+`all` behavior. It checks prerequisite completion markers, skips confirmed
+phases, rejects unknown phases before environment access, and emits UTC phase
+heartbeats during long builds. Standalone and notebook-embedded helper bytes
+match SHA-256 `bd2baffb...3bb6`.
+
+[Code validation/Open] The focused test was observed failing first because the
+old notebook had six rather than ten code cells and the old helper reached
+missing Conda before rejecting an invalid phase. After the change, all three
+focused tests, Bash syntax, notebook JSON, diff checks, and embedded-helper byte
+comparison pass. Local IPython transform compilation was unavailable because
+IPython is not installed in the Mac environment. The ten-cell notebook remains
+unvalidated on a fresh Colab VM; active r6 uses the earlier combined Cell4 and
+must not switch numbering mid-run.
+
+## 2026-10-18 16:32–17:06 UTC - r6 lost; first split replay started on r7
+
+[Run/Failed] The r6 A100/High-RAM session used the pre-split six-cell notebook.
+Its combined Cell4 printed successful pinned PyTorch2.1.2+cu121 and KNN-CUDA
+installation but emitted no Cell4 wrapper marker. At about27 minutes the named
+runtime disappeared from the server inventory. The user then directed stopping
+the wait and continuing with split components; interrupting the local executor
+returned exit130 and the CLI pruned the stale r6 record. No Cell5/6 or
+no-background inference ran. As with r4, the backend exposed no definitive
+termination cause, so package output is not treated as environment validation.
+
+[User decision/Run/Open] The user directed a new session and per-component
+execution. Fresh session `tta-scanobjectnn-nobg-a100-r7-20261018` is live on
+A100/High-RAM endpoint `gpu-a100-hm-kkb-euw4a2-1d8qxj97k4u94`. Cell1 completed
+and the CLI reconnected to the same VM. Cell2 created the Python3.8 environment
+and stopped only at the known, explicitly deferred fastrlock wheel failure.
+Planned gates: mount and verify Drive in Cell3, execute split Cells4–8 sequentially
+with exact wrapper and phase markers, finish Cells9–10, then run and archive the
+581-example no-background clean/Gaussian severity5 Point-MAE diagnostic. Keep
+r7 live until the user explicitly declares task completion and permits closure.
+
+[Code validation] The split setup and Colab skill contract run eight focused
+tests successfully; Bash syntax, notebook JSON and scoped diff checks pass.
+Initial bare-Python discovery failed only because numpy/torch were absent. A
+fresh isolated uv environment with numpy, torch, scipy, h5py and PyYAML then ran
+the complete suite:266 tests passed. The skill quick validator also reports
+`Skill is valid!` in that environment. Cell3 is submitted on r7 and remains
+BUSY without a completion marker; the direct session URL was supplied for Drive
+authorization.

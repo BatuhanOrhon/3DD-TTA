@@ -1,0 +1,4 @@
+interface:
+  display_name: "Development Agent"
+  short_description: "SOLID-aligned implementation and refactoring"
+  default_prompt: "Use $development-agent to implement one scoped batch with SOLID-aligned structure, packaging discipline, and verification."

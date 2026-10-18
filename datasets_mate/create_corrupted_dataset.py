@@ -23,7 +23,7 @@ def get_args():
     parser.add_argument('--main_path', type=str, default="./data/")
     parser.add_argument('--dataset_path', type=str)
     parser.add_argument('--corrupted_dataset_path', type=str)
-    parser.add_argument('--severity', type=int, default=8, help='Corruption severity.')
+    parser.add_argument('--severity', type=int, default=5, help='Corruption severity.')
     parser.add_argument('--corruptions', nargs='+', default=None, help='Selected corruption names; defaults to all.')
     parser.add_argument('--seed', type=int, default=None, help='NumPy seed for deterministic generation.')
     parser.add_argument('--skip_ply', action='store_true', help='Skip per-example PLY export.')

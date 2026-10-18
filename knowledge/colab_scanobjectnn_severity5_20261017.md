@@ -2,6 +2,139 @@
 
 Date: 2026-10-17. Evidence: [Code], [Run], [Inference], [User decision], [Open].
 
+**Latest continuation, 2026-10-17:** the source checkout now contains the full
+33-cell notebook and severity5 helper. The r2 A100 environment, ModelNet40-C
+and checkpoints passed setup checks; use the new six-cell preparation notebook.
+The ScanObjectNN Drive restore failed `Invalid ScanObjectNN5 Drive receipt`.
+Its package remains unaccepted; inspect actual receipt/archive evidence before
+ScanObjectNN research. Base setup does not regenerate or silently accept it.
+See the [final setup handoff](colab_cli_setup_20261017.md#final-validated-status).
+The older missing-source snapshot below is historical.
+
+## Validated Colab results and pause handoff
+
+[User decision] On2026-10-17 the user authorized continuation, then requested
+that the work pause after the diagnostic sweep. The GPU phases were each well
+under60 minutes. Preserve the following as the latest state; older pending-run
+text below is historical.
+
+[Run] Session `tta-scanobjectnn-s5-a100-20261017` used an A100-SXM4-80GB /
+High-RAM VM. The six-cell environment completed after the documented deferred
+cell2 `fastrlock` failure: Python3.8.20, PyTorch2.1.2+cu121, CUDA12.1 and native
+FPS/gather, KNN, Chamfer and EMD checks passed. Remote source was
+`dev@a458cd46bba1288a3f41302548bc777700cbc7d4`; audited local runner files were
+uploaded and hashed separately. Checkpoint `scanobject_jt.pth` SHA-256 was
+`53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac`,
+with no missing/unexpected Point-MAE keys.
+
+[Run] The source-pinned generator consumed the official main-split H5, retained
+the author Uniform-to-Gaussian RNG order, seed0, severity5 and sigma0.03. Exact
+replay passed. Identities: `data_original.npy`
+`47c641b3d32e342e5a4b7260a5166826ea9d4771942d2552f971eceae1c175fe`,
+`data_gaussian_5.npy`
+`9bff59ad07b1f2f5a788a0baefa2d6ef1f9a12a90c432d681bf3d6994282a7e7`,
+and `label.npy`
+`bb1456708f5724e43abf01e14315c0b3059af68e6fe8531eb97aa4c38eeb7a68`.
+The verified Drive package is under
+`MyDrive/thesis/dataset/scanobjectnn_c_s5_seed0/runs/`; its latest receipt was
+validated before evaluation.
+
+[Run] Complete source-only results, batch32 and seed0:
+
+| Protocol | Correct / total | Accuracy |
+|---|---:|---:|
+| main split, clean | 415 / 581 | 71.4286% |
+| main split, Gaussian severity8, historical | 108 / 581 | 18.5886% |
+| main split, Gaussian severity5 | 183 / 581 | 31.4974% |
+| PB_T50_RS, clean diagnostic | 1579 / 2882 | 54.7883% |
+| PB_T50_RS, Gaussian severity5 diagnostic | 620 / 2882 | 21.5128% |
+
+[Inference] Correcting8 to5 accounts for+75 correct examples and+12.9088pp,
+but leaves a27.5026pp gap to Table3's59.0%. The 2882-example PB_T50_RS
+substitution makes both clean and Gaussian accuracy worse, so it is not the
+matching split for this checkpoint.
+
+[Run/Inference] Matched 581-example controls reject two implementation
+suspects: permuted clean is70.40%; clipped Gaussian is31.50% in permuted order
+and31.33% in original order; without clipping these are32.53% and32.01%.
+Neither point permutation nor clipping explains the publication gap.
+
+[Run] A same-seed, same-point-selection, same-standard-noise Gaussian sweep
+measured severity1 through5 as follows:
+
+| Actual severity | Sigma | Correct / 581 | Accuracy |
+|---:|---:|---:|---:|
+| 1 | 0.010 | 352 | 60.5852% |
+| 2 | 0.015 | 296 | 50.9466% |
+| 3 | 0.020 | 248 | 42.6850% |
+| 4 | 0.025 | 210 | 36.1446% |
+| 5 | 0.030 | 183 | 31.4974% |
+
+[Inference/Open] Severity1 is numerically close to the paper's59.0%, but this
+does not authorize relabeling it as severity5: the official Appendix-A Gaussian
+parameter is sigma0.03 and the released evaluator selects `_5.npy`. Current
+evidence instead indicates an unpublished data/checkpoint/evaluation asset
+difference behind Table3. The next valid discriminator is byte identity for the
+authors' actual ScanObjectNN-C arrays and Point-MAE checkpoint, or an author
+clarification. Do not tune seed/severity against Table3.
+
+[Artifact] The pause handoff contains setup JSON, dataset manifests, the failed
+compatibility attempt and six complete runner archives:
+`result/preparation/cli_scanobjectnn_s5_20261017T190028Z/scanobjectnn_pause_handoff_20261017.zip`,
+139,672 bytes, SHA-256
+`eab1be91726d5bb7f7aef3c957fdbd88c45936fec310e692597975b28083d9a7`.
+It has24 ZIP members and passes CRC. The adjacent `colab_history.jsonl` is the
+CLI history; a pattern scan found no access/refresh token or client-secret
+strings. Large diagnostic NPY arrays were intentionally excluded.
+
+[Code] The local generator default and documentation were corrected from8 to5;
+`python3 -m unittest tests.test_corrupted_dataset_cli -v` passed. This prevents
+new accidental severity8 generation but does not manufacture paper parity.
+
+[User decision/Run] Pause here. After local archive/knowledge validation, the
+named A100 session was stopped normally. The only remaining server assignment,
+orphan CPU endpoint `m-s-kkb-usc1b0-30l31az8yrmdu`, was identity-checked then
+unassigned through the installed CLI backend because it had no local session
+name. Final `colab sessions` and `colab status` both reported no active
+sessions. On resume, begin with author asset provenance; do not repeat completed
+setup or the above diagnostics.
+
+## Mac checkout and CLI amendment
+
+[User decision/Code/Open] Later on2026-10-17, Colab operations move to the
+installed CLI (`colab`0.7.4). The user's latest rule requires explicit approval
+only for GPU phases expected to exceed 60 minutes. Short GPU runs, CPU work,
+setup and retries within the requested task need no additional run approval. Follow
+[`colab-research-operator`](../.codex/skills/colab-research-operator/SKILL.md).
+Historical user-operated instructions below describe the intended procedure;
+apply the latest duration rule before launching a CLI run.
+
+[Code] The Mac checkout is `gsd-smooth-spectrum` at
+`7fcfef71641b2b623ee737ae1ce404a29116d6c4`. Initial Git status shows only the
+pre-existing untracked `.codex/` directory. The implementation described below
+is not fully delivered in this checkout: `scripts/scanobjectnn_severity5_colab.py`,
+the pinned author snapshot and notebook receipt under `result/preparation/`
+are absent. `scripts/gsd_guidance_ablations_colab.ipynb` contains12 cells and
+no ScanObjectNN severity5 section, rather than the documented33 cells.
+Do not apply the historical first-six-code-cell instructions to this notebook.
+The existing generator still defaults to8; the baseline runner supports
+ScanObjectNN source-only with15 classes. No source repair is part of this
+skill/setup task; verify/recover the intended delivery before execution.
+
+[User report/Open] The user confirms result files exist in another working
+environment and will transfer them via Drive to this session. Missing local
+archives are a transfer state, not evidence that the recorded runs did not
+happen. Remote session/authentication, original H5 availability and the source
+delivery have not been inspected in this continuation. There is no newly
+approved or executed Colab run.
+
+[Next gate] Reconcile transferred artifacts and source identities. If a complete
+Gaussian5 preparation package exists, validate and restore it instead of
+regenerating. Otherwise prepare the pinned-author Gaussian5+clean CPU phase,
+including Uniform-to-Gaussian RNG order,581-example main_split checks and
+verified Drive backup, and request approval before execution. Review that
+package before separately approving the clean/Gaussian source-only evaluations.
+
 ## Implemented Colab continuation (current; supersedes draft commands below)
 
 [User decision] Gaussian + clean is the approved first scope. Priority is
@@ -317,3 +450,151 @@ do not silently rewrite corruption functions to claim exact paper reproduction.
 session. Generating8 only to preserve the old default is not supported for
 the intended evaluation. The first task remains H5/source preflight followed
 by fresh Gaussian5 generation and integrity review.
+
+## Severity1 full-profile falsification (2026-10-18)
+
+[Run] On fresh session `tta-scanobjectnn-s1-a100-r3-20261018`, the repaired
+six-cell setup passed on A100-SXM4-80GB/High-RAM with Python3.8.20,
+PyTorch2.1.2+cu121 and CUDA12.1. The setup validated FPS/gather forward and
+backward, KNN, Chamfer, EMD, ModelNet40-C and checkpoint identities. Cell4's
+single pinned-PyTorch installation avoided the earlier unpinned2.4.1 then
+2.1.2 replacement and completed successfully. The known cell2 fastrlock
+failure remained the user-approved exception.
+
+[Run] Starting from clean ScanObjectNN main-split SHA-256
+`47c641b3d32e342e5a4b7260a5166826ea9d4771942d2552f971eceae1c175fe`,
+the released generator was replayed at seed0 and actual severity1 in this RNG
+order: uniform, Gaussian, background, impulse, discarded scale, upsampling,
+shear, rotation, cutout, density, density-inc, distortion, RBF and inverse RBF.
+The verified Point-MAE checkpoint SHA-256 was
+`53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac`.
+All13 source-only rows completed on581 examples:
+
+| corruption | observed s1 | Table3 source | difference pp |
+|---|---:|---:|---:|
+| uniform | 41.14% | 59.0% | -17.86 |
+| gaussian | 60.59% | 59.0% | +1.59 |
+| background | 42.00% | 57.3% | -15.30 |
+| impulse | 34.42% | 66.6% | -32.18 |
+| upsampling | 28.40% | 64.4% | -36.00 |
+| shear | 43.72% | 71.9% | -28.18 |
+| rotation | 44.41% | 59.7% | -15.29 |
+| cutout | 71.94% | 78.3% | -6.36 |
+| density | 70.74% | 81.2% | -10.46 |
+| density-inc | 71.60% | 82.4% | -10.80 |
+| distortion | 44.06% | 70.7% | -26.64 |
+| distortion-rbf | 43.20% | 73.6% | -30.40 |
+| distortion-rbf-inv | 44.41% | 72.9% | -28.49 |
+
+The observed macro over these13 columns is **49.2784%**; Table3's corresponding
+13-column macro is **69.0%**, and mean absolute difference is **19.9654pp**.
+Only Gaussian is within2pp of Table3. Severity1 therefore does not explain the
+published profile, and a global severity-label error is rejected.
+
+[Correction] The executed runner's raw array generation and inference are
+valid, but its downloaded state's `comparison` object zipped Table3 values to
+generator order. Table3 instead orders RBF/RBF-inverse before density and
+shear/rotation/cutout. The corrected table above and
+`corrected_table3_comparison.csv` map by corruption name. Macro49.2784% and
+MAE19.9654pp are unchanged; the earlier density-inc -0.30pp statement is
+superseded by -10.80pp. The runner now uses an explicit mapping guarded by
+`tests/test_scanobjectnn_s1_runner.py`. Raw state/ZIP bytes remain immutable.
+
+[Inference] Our severity5 Gaussian31.4974% independently agrees with SVWA's
+published Point-MAE source-only Gaussian32.5% (severity5; full mean33.1%).
+Together with the mixed severity1 profile, this makes an unpublished or mixed
+3DD-TTA Table3 data/checkpoint/evaluator provenance the best remaining
+explanation. It does not prove which unpublished input was used. The correct
+local fix is explicit severity5 plus complete provenance, not relabeling
+severity1 or optimizing a seed toward59.0%.
+
+[Code/Limit] The official SVWA repository was audited at commit
+`59935d68d0ef12811619ce4776e1dc4a711997d1`. Its source evaluator fixes
+`level = [5]`, iterates the same15 corruption names/order, loads
+`data_<corruption>_5.npy`, applies FPS(1024), sets15 classes and calls Point-MAE
+`classification_only(..., only_unmasked=False)`. Its generator reads the
+581-example ScanObjectNN `main_split` test H5. This makes the published SVWA row
+a strong independent protocol-family cross-check. It is not a byte-identical
+reproduction: SVWA uses `drop_last=True` and does not publish array hashes. The
+local modified generator also differs from SVWA's checked-in file in CLI, path
+and robustness fixes.
+
+[Code/Artifact] Both public Drive checkpoint files were downloaded directly.
+3DD `scanobject_jt.pth` (Drive ID
+`1CMPm8Nj65gcvLmysPPW0IWrd8Ls_9tj_`,351,525,407 bytes) hashes to
+`53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac`,
+exactly the checkpoint used by our runs. SVWA
+`objectnn_src_only_PointMAE.pth` (Drive ID
+`1kKmsqIT29mdTDvjemK2M7MBK5uGCWp5k`,294,085,061 bytes) hashes to
+`011a9efc5d038e74e42e9271b7d4ce21905322cc2d153646b9352e63d824a432`.
+Both ZIP-format PyTorch checkpoints pass CRC. Safe pickle metadata inspection
+finds227 model keys in each;225 common names have matching shapes but different
+raw storage bytes, while the final two classifier keys are renamed
+(`class_head.8.{weight,bias}` versus
+`class_head.8.custom_last_layer_name.{weight,bias}`). Recorded epochs are93
+and100. Therefore SVWA's close Gaussian result comes from genuinely different
+weights, strengthening its value as an independent severity5 cross-check. It
+does not establish the unpublished Table3 data identity. The compact derived
+receipt is
+`result/preparation/cli_scanobjectnn_s1_20261018/official_checkpoint_comparison_20261018.json`.
+
+Official sources:
+
+- https://github.com/AliBahri94/SVWA_TTA
+- https://github.com/AliBahri94/SVWA_TTA/blob/main/tools/tta.py
+- https://github.com/AliBahri94/SVWA_TTA/blob/main/datasets/create_corrupted_dataset.py
+- https://openaccess.thecvf.com/content/WACV2025/papers/Bahri_Test-Time_Adaptation_in_Point_Clouds_Leveraging_Sampling_Variation_with_Weight_WACV_2025_paper.pdf
+- https://drive.google.com/drive/folders/1wUH7gInq5OHwNo5c6bOVYMeguwZiEA0B
+- https://drive.google.com/drive/folders/1MTH8WpOqfAIiZ0DZV9p-tSKiDgQ_Id5A
+
+[Artifact] Local state, CLI history, runners and validated handoff are under
+`result/preparation/cli_scanobjectnn_s1_20261018/`. The handoff ZIP has7 regular
+files, passes CRC/path/symlink checks, and its13 rows independently recompute to
+49.27843241096253%. Local and Drive SHA-256 are both
+`885a1f16f866b64c179b0c48948f11d5ac534b5aef4d37322647c197f7486a79`.
+The array manifest records all generated hashes; large arrays remain in the
+runtime/Drive workflow rather than the small result ZIP.
+
+[User correction/Operational failure] After artifact and knowledge validation,
+the agent treated the earlier plan's cleanup step as sufficient authorization
+and terminated r3. The user clarified that costly prepared runtimes must remain
+live until they explicitly state both that the task is complete and that the
+runtime may be closed. No active session remains, so future GPU work requires a
+fresh six-cell setup. `.codex/skills/colab-research-operator/SKILL.md` now makes
+this lifecycle rule explicit for agent-created and shared runtimes; its RED/GREEN
+regression test and skill validator pass.
+
+## No-background diagnostic r4 runtime loss (2026-10-18)
+
+[Run/Failed] The dedicated A100/High-RAM session
+`tta-scanobjectnn-nobg-a100-r4-20261018` completed Cell3 but disappeared during
+Cell4 after pinned PyTorch and KNN-CUDA installation. No Cell4 completion marker,
+dataset generation, clean evaluation or Gaussian severity5 evaluation exists.
+The server listed zero active sessions; the local stale record was pruned and
+provided no definitive termination cause. A sanitized receipt is at
+`result/preparation/cli_scanobjectnn_nobg_20261018/runtime_loss_receipt.json`.
+
+[Open] Recreate a fresh runtime and replay cells1–6 before testing the official
+581-example `main_split_nobg` H5 against the exact released 3DD checkpoint.
+Preserve the main-split result as the released-protocol baseline; the no-bg run
+is a separate split-mismatch diagnostic and must not silently replace it.
+
+[Run/Failed, later r5] A replacement A100 runtime passed Cell1 and Drive mount
+but disappeared during Cell2. It produced no Cell2 marker or research result;
+the server showed zero sessions despite106.16 remaining compute units. Do not
+treat the2h24m orphaned CLI wait as experiment or setup progress.
+
+[Run/Failed, later r6] A second replacement used the older combined setup.
+Cell4 reached pinned PyTorch and KNN-CUDA installation but no completion marker;
+the named server disappeared at about27 minutes. The local wait was interrupted
+only after that observation. No no-background result exists from r6.
+
+[User decision/Run/Open, r7] The user requested continuation with the newly
+split setup phases. Fresh A100/High-RAM session
+`tta-scanobjectnn-nobg-a100-r7-20261018` completed Cell1; Cell2 created the
+Python3.8 environment and ended only at the explicitly deferred fastrlock wheel
+failure. Cell3 is submitted and BUSY without a completion marker; after Drive
+authorization/mount, require
+separate Cell4–8 markers, complete Cells9–10, then evaluate and archive clean and
+Gaussian severity5 on the no-background581-example H5. Preserve r7 until the
+user explicitly declares the task complete and authorizes closure.

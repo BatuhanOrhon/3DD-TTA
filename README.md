@@ -20,6 +20,18 @@ We propose a training-free, online 3D TTA method called **3DD-TTA** (3D Denoisin
 - **Strong performance**: Achieves state-of-the-art results on ShapeNet, ModelNet40, and ScanObjectNN.
 
 
+## Google Colab setup
+
+For each new Colab runtime, use the ten setup cells in
+[colab_environment_setup.ipynb](scripts/colab_environment_setup.ipynb).
+Run cell 1 separately, reconnect after its Conda kernel restart, then continue
+with cells 2–10. Cells 4–8 split dependency/toolchain preparation, EMD,
+Chamfer, PointNet++, and PVCNN/GPU checks into restartable phases with progress
+heartbeats. ModelNet preparation uses `modelnet40_c.zip`, including its clean
+`data_original.npy`; a separate original-data ZIP is not required.
+See the [setup validation record](knowledge/colab_cli_setup_20261017.md) for
+verified steps and remaining limitations.
+
 ## Install:
 ```
 # Create a new Conda environment named "3dd_tta_env" with Python 3.8

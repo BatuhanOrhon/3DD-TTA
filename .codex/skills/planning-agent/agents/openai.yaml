@@ -1,0 +1,4 @@
+interface:
+  display_name: "Planning Agent"
+  short_description: "Batch-first task analysis and delegation"
+  default_prompt: "Use $planning-agent to analyze a task, split it into batches, define verification, and hand the active batch to $development-agent."
