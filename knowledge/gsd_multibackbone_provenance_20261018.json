@@ -473,5 +473,55 @@
         }
       ]
     }
-  }
+  },
+  "accepted_source_smokes": [
+    {
+      "pair": "modelnet40_c-dgcnn",
+      "elapsed_seconds": 8.181723147001321,
+      "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201547Z_smoke/jobs/modelnet40_c-dgcnn/modelnet40_c/source_only/20261018-201549_dgcnn-seed0.zip",
+      "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/source_only/20261018-201549_dgcnn-seed0/final.zip",
+      "bytes": 5380294,
+      "sha256": "a76ada31b804e87bfcffa919bb0052bd6e1129b9d4b4daf745d06f90c83ba1f6"
+    },
+    {
+      "pair": "modelnet40_c-curvenet",
+      "elapsed_seconds": 8.951534628000445,
+      "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201547Z_smoke/jobs/modelnet40_c-curvenet/modelnet40_c/source_only/20261018-201557_curvenet-seed0.zip",
+      "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/source_only/20261018-201557_curvenet-seed0/final.zip",
+      "bytes": 5380187,
+      "sha256": "c09a95713fb07a143d2f07a8a606019e6c20ee0196c3af7f5ee8da30dd7cf7da"
+    },
+    {
+      "pair": "modelnet40_c-pointnext",
+      "elapsed_seconds": 11.15177130399934,
+      "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201547Z_smoke/jobs/modelnet40_c-pointnext/modelnet40_c/source_only/20261018-201606_pointnext-seed0.zip",
+      "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/source_only/20261018-201606_pointnext-seed0/final.zip",
+      "bytes": 5382128,
+      "sha256": "f7b12f268df3e2b693d25426d3f37ccd041abdbf74e7734d1c6ce0329dba7370"
+    },
+    {
+      "pair": "scanobjectnn_c-dgcnn",
+      "elapsed_seconds": 8.073501075999957,
+      "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201547Z_smoke/jobs/scanobjectnn_c-dgcnn/scanobjectnn_c/source_only/20261018-201617_dgcnn-seed0.zip",
+      "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/source_only/20261018-201617_dgcnn-seed0/final.zip",
+      "bytes": 5377400,
+      "sha256": "04c86d7950711cd349ae429ff5cc36e93c39dd27078dcbfa5bf7af1c2f9fd204"
+    },
+    {
+      "pair": "scanobjectnn_c-curvenet",
+      "elapsed_seconds": 8.781353259999378,
+      "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201547Z_smoke/jobs/scanobjectnn_c-curvenet/scanobjectnn_c/source_only/20261018-201625_curvenet-seed0.zip",
+      "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/source_only/20261018-201625_curvenet-seed0/final.zip",
+      "bytes": 5377532,
+      "sha256": "ab5de9112485ddae9e575f5e3d3f71ea38c3f00b410c95ffde6d16775ef22d82"
+    },
+    {
+      "pair": "scanobjectnn_c-pointnext",
+      "elapsed_seconds": 9.248583579999831,
+      "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T201547Z_smoke/jobs/scanobjectnn_c-pointnext/scanobjectnn_c/source_only/20261018-201634_pointnext-seed0.zip",
+      "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/source_only/20261018-201634_pointnext-seed0/final.zip",
+      "bytes": 5379470,
+      "sha256": "334c9db6bc3c4c651523a8ec22c021f2006ae102ebb3bf215e7b98c20ed9773d"
+    }
+  ]
 }

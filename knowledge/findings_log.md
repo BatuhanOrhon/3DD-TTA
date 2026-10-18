@@ -4877,3 +4877,12 @@ GPU plan. The user approved8GPU hours and per-model/per-corruption persistence.
 Only r7 remains after explicitly authorized release of two unused CPU
 assignments; the single local monitor preserves CLI ownership, not a guarantee
 of externally imposed runtime lifetime. Proceed to six source smokes.
+
+
+[Run/Artifact] 2026-10-18 20:17 UTC — six source-only GPU smokes accepted:
+all3 backbones x both datasets, Gaussian-s5 first32 original IDs, seed0/batch32.
+Finite logits, exact class/output sizes, NPZ indices/argmax/counts, strict weights
+and frozen-state hashes pass. Six final archives and corruption checkpoints
+are verified on Drive; local CRC/safe paths/full manifests also pass. Elapsed
+54.388s. No macro benchmark inference follows from prefixes. Advance
+unchanged to six full15 rows; source discrepancies must precede GSD integration.

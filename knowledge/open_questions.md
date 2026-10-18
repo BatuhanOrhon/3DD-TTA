@@ -20,7 +20,9 @@
   stopped before forward on legacy NumPy metadata; diagnose and retry safely.
 - [x] Run real Point-MAE CUDA boundary parity: all6 conditions pass exact
   logits/predictions/RNG/state checks after pinned legacy metadata loading fix.
-- [ ] Run six source-only smokes and full15 evaluations. Diagnose per-corruption paper differences before
+- [x] Run six source-only GPU smokes: finite logits/classes/IDs/strict weights
+  and frozen-state hashes pass; all6 ZIPs verified on Drive and locally.
+- [ ] Run six complete source-only all15 evaluations. Diagnose per-corruption paper differences before
   GSD integration; alternative identity alone is not a measured causal diagnosis.
 - [ ] Integrate only validated frozen classifiers into the existing method;
   evaluate matched source-only deltas on both datasets without label tuning.

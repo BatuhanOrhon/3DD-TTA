@@ -402,3 +402,22 @@ inventory. A second inactive local monitor was discovered and stopped locally;
 PID34633/session97631 is now sole CLI owner. No runtime teardown occurred for
 r7. Monitoring cannot guarantee Colab lifetime/quota retention. The next gate is
 six source smokes, then complete all15 evaluation and discrepancy diagnosis.
+
+
+## Six source GPU smokes accepted — 2026-10-18 20:17 UTC
+
+[Run] All six alternatives (DGCNN/CurveNet/PointNeXt x both datasets) pass
+Gaussian-s5 first32 IDs, seed0/batch32, manifest revision4. Strict checkpoint
+loading, finite32x40/15 logits, exact original ID arrays, prediction/argmax/count
+agreement and frozen classifier full-state hashes pass. Six final ZIPs plus
+per-Gaussian checkpoints were copied and SHA-verified on Drive before the next
+model started. Local CRC, safe paths and every bundle member hash pass. Total
+six-job elapsed54.388s. These prefix accuracies are not benchmark results.
+Raw state is `result/preparation/multibackbone_20261018/source_smoke_state.json`;
+compact archive identities are in the provenance JSON. Individual ZIPs live in
+`result/<dataset>/source_only/<20261018-2015xx/2016xx_run_id>.zip`.
+
+[Decision] Advance to fixed source-only all15, seed0, batch32 and the exact
+same weights/preprocessing. No model/configuration was selected by smoke
+accuracy. The source discrepancy gate before GSD remains closed until full
+coverage and interpretation are recorded.
