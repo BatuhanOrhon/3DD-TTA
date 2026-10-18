@@ -528,3 +528,15 @@ CUDA smokes on both datasets (840 predictions); all RNG/frozen-state/shared
 geometry and Drive/local evidence checks pass. See guidance note for immutable
 ZIP identities, B70 peak32GB and1.5–2h full-phase estimate. Advance unchanged
 to fixed seed0 full15 under existing8h cap.
+
+
+[Run/Artifact] 2026-10-18 22:05 UTC — ModelNet full15 accepted: CurveNet
+64.0113->65.1864%, +1.1750pp; PointNeXt65.8320->66.4722%, +0.6402pp. Independent
+74040-prediction/540-shared-batch checks pass, full classifier/LION states and
+RNG guards unchanged. Each head improves6/worsens9 corruptions; no universal
+benefit or isolated spectral claim. Joint duration4165.243s; raw final ZIPs
+are verified on Drive and locally. Derived8837-byte analysis ZIP SHA
+77ff619a008b881702358b83e4fbe54e6518bf3904cbdb17c13a6500389f1eff passes actual
+Drive upload/download roundtrip and all member identities. Full identities,
+per-corruption table and interpretation are in the new guidance-results note.
+Scan full15 now runs; no extra GPU phase or config change.

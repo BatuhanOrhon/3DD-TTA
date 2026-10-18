@@ -36,8 +36,11 @@
   no new target-label tuning. CurveNet/ModelNet is not paper-equivalent.
   Both heads pass3-corruption/70-example CUDA smokes,840 indexed predictions;
   batch Drive receipts, native bindings, RNG/geometry and frozen states verified.
-- [ ] Run two-head full15 on both datasets, fixed seed0, and independently
-  validate matched source deltas before interpreting method benefit.
+- [x] ModelNet two-head full15: CurveNet+1.1750pp and PointNeXt+0.6402pp
+  versus own source;74040 predictions, frozen/RNG/geometry and Drive/local SHA
+  independently verified. Both improve6/worsen9 corruptions; one-seed descriptive.
+- [ ] Finish Scan two-head full15 (currently running), then independent full
+  cross-dataset validation/archive and matched-source interpretation.
 - [ ] Proposed next study: original3DD-TTA with the same accepted heads/data/
   preprocessing/seeds; a same-flow spectral0 control is needed for a more
   isolated spectral contribution claim. Not yet launched.

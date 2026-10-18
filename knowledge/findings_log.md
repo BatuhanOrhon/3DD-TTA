@@ -5041,3 +5041,31 @@ ZIP SHA values are `d2ed9e9edb465f28d85b41652fba4c56ece8976986fc011ec80ef66a1dd6
 `uniform_full_checkpoint_validation.json` under the same local preparation root.
 These are single-corruption descriptive gains, not all15 means or isolated
 spectral contributions. No setting changed after observing the labels.
+
+
+[Run/Partial campaign] 2026-10-18 21:07 UTC — full ModelNet Gaussian
+checkpoint downloaded from Drive and independently verified for both heads:
+CurveNet source1902/2468=77.0665% ->1770/2468=71.7180%, -5.3485pp
+(175 corrected/307 harmed); PointNeXt1356/2468=54.9433% ->1871/2468=75.8104%,
++20.8671pp (641 corrected/126 harmed). Receipt size/SHA, CRC/safe paths,
+checkpoint member hashes, pinned IDs/labels, finite logits/argmax/counts and
+frozen classifier hashes pass. ZIP SHA values:
+CurveNet `b1251937f74ee9ecb1a9457c9db405826bfd80c461f30a1e8e8e0d44f5ad0379`;
+PointNeXt `ef5424b8f100ba9e8bdccfd808c23a6e379e2c567e2e19cf0a77e1e92d5a48a5`.
+Local files are `full_modelnet_<backbone>_gaussian_checkpoint.zip` and
+`gaussian_full_checkpoint_validation.json` in the preparation root. Drive
+roots remain205338/205339, `corruption-gaussian.zip` plus receipt. Mixed
+positive/negative corruption effects preclude an all15 benefit claim now.
+Full15 continues unchanged; no target-based configuration selection occurred.
+
+
+[Run/Artifact] 2026-10-18 22:05 UTC — ModelNet full15 accepted: CurveNet
+64.0113->65.1864%, +1.1750pp; PointNeXt65.8320->66.4722%, +0.6402pp. Independent
+74040-prediction/540-shared-batch checks pass, full classifier/LION states and
+RNG guards unchanged. Each head improves6/worsens9 corruptions; no universal
+benefit or isolated spectral claim. Joint duration4165.243s; raw final ZIPs
+are verified on Drive and locally. Derived8837-byte analysis ZIP SHA
+77ff619a008b881702358b83e4fbe54e6518bf3904cbdb17c13a6500389f1eff passes actual
+Drive upload/download roundtrip and all member identities. Full identities,
+per-corruption table and interpretation are in the new guidance-results note.
+Scan full15 now runs; no extra GPU phase or config change.
