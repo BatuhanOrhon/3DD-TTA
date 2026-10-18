@@ -110,6 +110,12 @@ make long-running scripts emit periodic meaningful progress heartbeats from the 
 A heartbeat improves observability; it does not guarantee runtime retention.
 When the kernel is busy or silent, query the server session inventory through a separate CLI connection without launching another notebook cell.
 
+In the inspected CLI0.7.4, `colab status` reports CLI-local bookkeeping from
+the session-state record; it is not an independent remote-kernel probe and can
+briefly disagree across separate CLI processes. Do not infer remote execution or completion from one `status` snapshot or silence in the streamed output.
+Monitor one cell through the same primary `colab exec` process and retain its
+raw output. Treat a setup phase as successful only after the exact wrapper completion marker and, for split native phases, the phase's on-disk `.complete` marker are both confirmed. Use `colab sessions` only to confirm that the server assignment still exists; it does not report kernel busy state or cell completion.
+
 A local CLI or WebSocket disconnect is not evidence that the remote kernel or process stopped.
 Before retrying, query the server inventory, reconnect to the same named session,
 and inspect remote processes, completion markers, and artifacts. Never launch a

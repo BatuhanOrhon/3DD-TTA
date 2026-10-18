@@ -40,6 +40,15 @@ and standalone helper pass. Helper SHA-256 is
 `bd2baffb888de47e14f4119bd69df999450fd6d26d2ea2898e73d03c816a3bb6`.
 The complete local suite passes266 tests in an isolated uv environment with
 numpy/torch/scipy/h5py/PyYAML, and the official skill validator reports valid.
+
+[Code/Diagnosis] CLI0.7.4 `colab status` reads the CLI's local session-state
+`running` field; it is not an independent remote-kernel probe. Separate CLI
+processes can therefore show a transient IDLE/BUSY contradiction, while a
+silent cell may still be healthy. Monitoring now keeps one primary `colab exec`
+process, preserves its raw output, uses `colab sessions` only for server
+assignment existence, and requires the exact wrapper marker plus the native
+phase `.complete` marker before advancing. The new skill contract test failed
+before this rule and all6 tests plus official validation pass after it.
 The full research notebook is intentionally preserved. Operational cell mapping
 is now Cell1 restart, Cell2 environment, Cell3 Drive/KNN, Cells4–8 native setup,
 Cell9 ModelNet40-C, Cell10 weights/final verification.

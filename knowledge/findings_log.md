@@ -4711,3 +4711,12 @@ the complete suite:266 tests passed. The skill quick validator also reports
 `drivemount` reported `Mounted at /content/drive`; independent listing verified
 MyDrive and the KNN wheel. The Cell3 retry then copied the wheel and emitted the
 exact `SETUP_WRAPPER_CELL_3_COMPLETED` marker. Split Cell4/prepare is next.
+
+[Code/Diagnosis] Inspection of CLI0.7.4 showed that `colab status` prints the
+local session-state record's `running` field, not independently queried remote
+kernel state. This explains the transient IDLE/BUSY contradiction during Cell3;
+the lack of output was also expected while `drive.mount()` had not returned.
+The operator skill now forbids conclusions from one status snapshot or output
+silence and requires the same primary exec output, exact wrapper marker, and
+native `.complete` marker. The regression test was RED before the change; all6
+skill tests and official validation are GREEN afterward.

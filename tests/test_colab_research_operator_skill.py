@@ -72,6 +72,22 @@ class ColabResearchOperatorSkillTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, text)
 
+    def test_monitoring_does_not_treat_local_status_as_remote_truth(self):
+        text = SKILL.read_text()
+
+        required = (
+            "`colab status` reports CLI-local bookkeeping",
+            "Do not infer remote execution or completion from one `status` snapshot",
+            "silence in the streamed output",
+            "same primary `colab exec` process",
+            "exact wrapper completion marker",
+            "phase's on-disk `.complete` marker",
+            "Use `colab sessions` only to confirm that the server assignment still exists",
+        )
+        for phrase in required:
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, text)
+
     def test_fresh_runtime_uses_split_ten_cell_setup(self):
         text = SKILL.read_text()
 
