@@ -96,8 +96,8 @@ def resolve_config(args) -> dict:
     if args.batch_size < 1 or args.max_batches < 0 or args.seed < 0:
         raise ValueError("batch-size must be positive; max-batches and seed must be nonnegative")
     selected = list(CORRUPTIONS) if args.corruptions == ["all"] else validate_selection(args.corruptions)
-    if "original" in selected:
-        raise ValueError("This study runner evaluates the canonical corrupted inputs")
+    if "original" in selected and selected != ["original"]:
+        raise ValueError("The original clean control cannot be mixed with corruptions")
     if not args.preview and not re.fullmatch(r"[0-9a-f]{64}", args.asset_manifest_sha256 or ""):
         raise ValueError("Actual runs require --asset-manifest-sha256 with a pinned SHA-256")
     scan = args.dataset == "scanobjectnn_c"
@@ -113,7 +113,7 @@ def resolve_config(args) -> dict:
     if args.backbone == "pointmae" and not args.preview and not (args.pointmae_config and args.pointmae_checkpoint):
         raise ValueError("Point-MAE requires --pointmae-config and --pointmae-checkpoint")
     config = dict(vars(args))
-    config.update(method="source_only", severity=5, corruptions=selected,
+    config.update(method="source_only", severity=0 if selected == ["original"] else 5, corruptions=selected,
                   n_examples=581 if scan else 2468, num_classes=15 if scan else 40,
                   split="main_split" if scan else "official_modelnet40_test",
                   checkpoint="checkpoints/" + checkpoint,
@@ -133,6 +133,11 @@ def resolve_config(args) -> dict:
     if config.get("drive_root"):
         config["drive_root"] = str(Path(config["drive_root"]).absolute())
     return config
+
+
+def selected_data_path(config: dict, corruption: str) -> Path:
+    filename = "data_original.npy" if corruption == "original" else "data_" + corruption + "_" + str(config["severity"]) + ".npy"
+    return Path(config["dataset_root"]) / filename
 
 
 def dataset_manifest(manifest: dict, config: dict) -> dict:
@@ -335,7 +340,7 @@ def run_worker(directory: str) -> None:
         labels = load_array(labels_path, dataset["files"][labels_path.name], config, labels=True)
         arrays = {}
         for corruption in config["corruptions"]:
-            path = Path(config["dataset_root"]) / ("data_" + corruption + "_5.npy")
+            path = selected_data_path(config, corruption)
             arrays[corruption] = load_array(path, dataset["files"][path.name], config)
         config["dataset_provenance"] = dataset
         if not torch.cuda.is_available():
@@ -422,7 +427,7 @@ def save_corruption(bundle, config, rows, corruption, outputs, started, torch, *
         np.savez_compressed(bundle.path / (corruption + "_predictions.npz"), **arrays)
     rows.append(corruption_row(config["run_id"], config["seed"], corruption, count, correct,
                                time.monotonic() - started, torch.cuda.max_memory_allocated() / 1024 ** 2,
-                               status, method="source_only", severity=5, dataset=config["dataset"]))
+                               status, method="source_only", severity=config["severity"], dataset=config["dataset"]))
 
 
 def seal_bundle(bundle: RunBundle) -> None:

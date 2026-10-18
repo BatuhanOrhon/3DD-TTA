@@ -149,7 +149,7 @@
     "source_files": 254,
     "source_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4"
   },
-  "gpu_inference_executed": false,
+  "gpu_inference_executed": true,
   "preparation": {
     "cpu_archive": {
       "bytes": 4198,
@@ -523,5 +523,223 @@
       "bytes": 5379470,
       "sha256": "334c9db6bc3c4c651523a8ec22c021f2006ae102ebb3bf215e7b98c20ed9773d"
     }
-  ]
+  ],
+  "source_all15_20261018": {
+    "manifest_sha256": "bf964525b6d3e1d747f7d6ba959c02bd7f7153b0b9d79725ba08007b049cb7f8",
+    "models": [
+      {
+        "accuracy_percent": 58.797947055645594,
+        "archive": "result/modelnet40_c/source_only/20261018-201819_dgcnn-seed0.zip",
+        "archive_sha256": "b08e296f7ef2c5828ea051263f6672334ca8a904f34acb604995dfc072ca3bdd",
+        "backbone": "dgcnn",
+        "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+        "dataset": "modelnet40_c",
+        "delta_pp": -7.7120529443544115,
+        "paper_checkpoint_identity_verified": false,
+        "paper_percent": 66.51,
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "runtime_seconds": 37.84537832699789,
+        "total_correct": 21767,
+        "total_examples": 37020
+      },
+      {
+        "accuracy_percent": 64.01134521880066,
+        "archive": "result/modelnet40_c/source_only/20261018-201913_curvenet-seed0.zip",
+        "archive_sha256": "25736accdd0074535de3fcf0c5fc45c75ae51138a68b81b20ce10ae4e84d47eb",
+        "backbone": "curvenet",
+        "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+        "dataset": "modelnet40_c",
+        "delta_pp": -7.368654781199339,
+        "paper_checkpoint_identity_verified": false,
+        "paper_percent": 71.38,
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "runtime_seconds": 159.0321443419998,
+        "total_correct": 23697,
+        "total_examples": 37020
+      },
+      {
+        "accuracy_percent": 65.83198271204755,
+        "archive": "result/modelnet40_c/source_only/20261018-202209_pointnext-seed0.zip",
+        "archive_sha256": "ea88626ea8fe6dbe01d658e95c7282142160ccc328570c7d4bc7800dcf47a36a",
+        "backbone": "pointnext",
+        "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+        "dataset": "modelnet40_c",
+        "delta_pp": -1.1580172879524468,
+        "paper_checkpoint_identity_verified": false,
+        "paper_percent": 66.99,
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> XYZ features; no added normalization",
+        "runtime_seconds": 23.18880684299984,
+        "total_correct": 24371,
+        "total_examples": 37020
+      },
+      {
+        "accuracy_percent": 32.782558806655196,
+        "archive": "result/scanobjectnn_c/source_only/20261018-202249_dgcnn-seed0.zip",
+        "archive_sha256": "73af725a13e3be0f53f0f0b2658cc40e1e04b327c4d22bb014da1e2e9197f5b1",
+        "backbone": "dgcnn",
+        "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+        "dataset": "scanobjectnn_c",
+        "delta_pp": -22.937441193344803,
+        "paper_checkpoint_identity_verified": false,
+        "paper_percent": 55.72,
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "runtime_seconds": 9.325479084001927,
+        "total_correct": 2857,
+        "total_examples": 8715
+      },
+      {
+        "accuracy_percent": 52.07114170969592,
+        "archive": "result/scanobjectnn_c/source_only/20261018-202311_curvenet-seed0.zip",
+        "archive_sha256": "67c7eaf13ccdff6659cb1ff32cfcf781933b68eadb7d8b75ef7973a736944e14",
+        "backbone": "curvenet",
+        "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+        "dataset": "scanobjectnn_c",
+        "delta_pp": -0.9888582903040799,
+        "paper_checkpoint_identity_verified": false,
+        "paper_percent": 53.06,
+        "preprocessing": "raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling",
+        "runtime_seconds": 39.82015846299146,
+        "total_correct": 4538,
+        "total_examples": 8715
+      },
+      {
+        "accuracy_percent": 49.08777969018933,
+        "archive": "result/scanobjectnn_c/source_only/20261018-202404_pointnext-seed0.zip",
+        "archive_sha256": "51c50a53d8cc6d6f45e58f03599d8cb8c8feab6257fac40846eea1cf67d3123e",
+        "backbone": "pointnext",
+        "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+        "dataset": "scanobjectnn_c",
+        "delta_pp": -1.5722203098106675,
+        "paper_checkpoint_identity_verified": false,
+        "paper_percent": 50.66,
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> height=y-min(y) -> centroid and unit-sphere XYZ normalization -> XYZ + unscaled height features",
+        "runtime_seconds": 3.742480589000479,
+        "total_correct": 4278,
+        "total_examples": 8715
+      }
+    ],
+    "n_predictions": 137205,
+    "source_snapshot_sha256": "ec136350e58506e700fb30e35c3e33a39fcdc3cc2cabfc542d54f9f28e039183",
+    "status": "complete"
+  },
+  "clean_source_20261018": {
+    "manifest_sha256": "34db8218f6eeebaa1eee3c81deebfa6132449a066a0261fc9f71caaf272efeba",
+    "models": [
+      {
+        "accuracy_percent": 89.70826580226904,
+        "archive": "result/modelnet40_c/source_only/20261018-202653_dgcnn-seed0.zip",
+        "archive_sha256": "0df7c1672af8733f2d56097fb144c13cb28868f2fc771bbac9caff45e94ad785",
+        "backbone": "dgcnn",
+        "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+        "dataset": "modelnet40_c",
+        "n_correct": 2214,
+        "n_examples": 2468
+      },
+      {
+        "accuracy_percent": 89.91085899513776,
+        "archive": "result/modelnet40_c/source_only/20261018-202704_curvenet-seed0.zip",
+        "archive_sha256": "c26b9a056ecb2b812f270999ae3346236636413fe4d3ec06094708d9e1cf6c0b",
+        "backbone": "curvenet",
+        "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+        "dataset": "modelnet40_c",
+        "n_correct": 2219,
+        "n_examples": 2468
+      },
+      {
+        "accuracy_percent": 92.50405186385737,
+        "archive": "result/modelnet40_c/source_only/20261018-202723_pointnext-seed0.zip",
+        "archive_sha256": "fd4ee823b9b754f162edd7e01ebba9500fc6201d07ff41c19ae2a19428a48978",
+        "backbone": "pointnext",
+        "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+        "dataset": "modelnet40_c",
+        "n_correct": 2283,
+        "n_examples": 2468
+      },
+      {
+        "accuracy_percent": 68.67469879518072,
+        "archive": "result/scanobjectnn_c/source_only/20261018-202736_dgcnn-seed0.zip",
+        "archive_sha256": "ee278c40e5ea905280f92c2da4f039467d2ce559a6aedb54f08fdddece965671",
+        "backbone": "dgcnn",
+        "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+        "dataset": "scanobjectnn_c",
+        "n_correct": 399,
+        "n_examples": 581
+      },
+      {
+        "accuracy_percent": 77.4526678141136,
+        "archive": "result/scanobjectnn_c/source_only/20261018-202745_curvenet-seed0.zip",
+        "archive_sha256": "fbcce975ff696931bc1128bde1dc7fbcc2bd65a0e03661cf51b9b8ef14ca0e87",
+        "backbone": "curvenet",
+        "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+        "dataset": "scanobjectnn_c",
+        "n_correct": 450,
+        "n_examples": 581
+      },
+      {
+        "accuracy_percent": 92.08261617900172,
+        "archive": "result/scanobjectnn_c/source_only/20261018-202756_pointnext-seed0.zip",
+        "archive_sha256": "ff86cd0092fe13d1115cd9c1b6de2a98ebc860f4bbff0e281b26936097a5bd6f",
+        "backbone": "pointnext",
+        "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+        "dataset": "scanobjectnn_c",
+        "n_correct": 535,
+        "n_examples": 581
+      }
+    ],
+    "n_predictions": 9147,
+    "status": "complete"
+  },
+  "source_clean_analysis_archive": {
+    "archive": {
+      "bytes": 19410,
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T203352Z/source_clean_analysis_v1.zip",
+      "remote_path": "/content/source_clean_analysis_v1.zip",
+      "sha256": "35a3676efa75dc39084760a476ba086f6579de80ceee5faf03e6fa5c19cedfed"
+    },
+    "kind": "source all15 and clean independent validation; no GPU work",
+    "status": "complete",
+    "utc": "20261018T203352Z"
+  },
+  "preparation_v5": {
+    "cpu_archive": {
+      "bytes": 5005,
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T202541Z/cpu_preflight_20261018T202541Z.zip",
+      "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261018T202541Z.zip",
+      "sha256": "317af60a94be4562fce7e499e402552e4bd7cd42a552eb9b9270ad8a3011a8c8"
+    },
+    "preparation_archive": {
+      "bytes": 5395385,
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T202541Z/multibackbone_preparation_v5_delta.zip",
+      "remote_path": "/content/multibackbone_preparation_v5_delta.zip",
+      "sha256": "186ca5dc3aea0fdf66a94491c8d18a99f864e51bf2175e738a605b4e5284123c"
+    },
+    "state": {
+      "command": [
+        "conda",
+        "run",
+        "--no-capture-output",
+        "-n",
+        "3dd_tta_env",
+        "python",
+        "-u",
+        "/content/gsd_multibackbone_study_20261018/prepared_v5/audit/preflight_study_cpu.py",
+        "/content/gsd_multibackbone_study_20261018/prepared_v5/assets",
+        "34db8218f6eeebaa1eee3c81deebfa6132449a066a0261fc9f71caaf272efeba"
+      ],
+      "drive_preparation_archive": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T202541Z/multibackbone_preparation_v5_delta.zip",
+      "elapsed_seconds": 19.23868660500011,
+      "payload": {
+        "bytes": 5395385,
+        "manifest": {
+          "bytes": 119778,
+          "sha256": "34db8218f6eeebaa1eee3c81deebfa6132449a066a0261fc9f71caaf272efeba"
+        },
+        "sha256": "186ca5dc3aea0fdf66a94491c8d18a99f864e51bf2175e738a605b4e5284123c"
+      },
+      "source_snapshot": "0b311b65f2270cabab31740341bdbd96d01d1d27aead345aae969c75d626b279",
+      "stage": "CPU-only strict state load and data validation; no GPU inference",
+      "status": "complete",
+      "utc": "20261018T202541Z"
+    }
+  }
 }

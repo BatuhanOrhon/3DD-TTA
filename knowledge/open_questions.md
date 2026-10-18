@@ -22,8 +22,14 @@
   logits/predictions/RNG/state checks after pinned legacy metadata loading fix.
 - [x] Run six source-only GPU smokes: finite logits/classes/IDs/strict weights
   and frozen-state hashes pass; all6 ZIPs verified on Drive and locally.
-- [ ] Run six complete source-only all15 evaluations. Diagnose per-corruption paper differences before
-  GSD integration; alternative identity alone is not a measured causal diagnosis.
+- [x] Run six complete source-only all15 evaluations and six clean controls;
+  independently verify137205+9147 indexed predictions, Drive/local SHA and
+  frozen states. Record per-corruption gaps, source training/preprocess/data
+  confounds and clean Scan DGCNN68.67%; no unique quantitative cause claimed.
+  Published-alternative matched guidance is eligible; paper reproduction remains open.
+- [ ] Obtain exact GSDTTA weights/protocol/corruption bytes to causally resolve
+  paper gaps; severity alone is not established. Earlier Point-MAE/3DD severity1
+  only matched Gaussian, not the full corruption profile. Do not conflate tables.
 - [ ] Integrate only validated frozen classifiers into the existing method;
   evaluate matched source-only deltas on both datasets without label tuning.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,

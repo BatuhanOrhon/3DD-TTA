@@ -421,3 +421,38 @@ compact archive identities are in the provenance JSON. Individual ZIPs live in
 same weights/preprocessing. No model/configuration was selected by smoke
 accuracy. The source discrepancy gate before GSD remains closed until full
 coverage and interpretation are recorded.
+
+
+## 2026-10-18 20:35 UTC — full source and clean controls accepted
+
+[Run/Artifact] Six full15 seed0/severity5 source evaluations and six clean
+controls complete on existing r7, all2468 ModelNet/581 Scan main_split objects.
+Independent validation recomputes137205 corrupted +9147 clean predictions from
+indexed finite logits, pinned labels and argmax/counts. Strict weights and
+full frozen-state hashes pass; every raw archive has matching Drive/local
+SHA, CRC, safe paths and member manifest. Source macros DGCNN/CurveNet/PointNeXt
+are58.7979/64.0113/65.8320% ModelNet and32.7826/52.0711/49.0878% Scan.
+Clean values are89.7083/89.9109/92.5041% and68.6747/77.4527/92.0826%.
+All15 phase20:18:18–20:24:20 UTC; clean20:26:51–20:28:04 UTC. Focused source
+runner16 CPU tests pass; clean is explicitly singleton severity0 and does not
+change default all15. Revision5 strict CPU preflight is again verified.
+
+[Artifact] Derived immutable archive SHA
+`35a3676efa75dc39084760a476ba086f6579de80ceee5faf03e6fa5c19cedfed`,19410 bytes,
+local `result/preparation/multibackbone_20261018/source_clean_analysis_v1.zip`,
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T203352Z/source_clean_analysis_v1.zip`.
+It contains exact12 run indexes, paper row mapping and independent validation/
+comparison files; raw ZIPs remain separate and immutable. All per-corruption
+and final per-model Drive receipts passed before advancing.
+
+[Inference/Open/Decision] Exact GSDTTA weights and corruption/protocol identities
+remain unknown. Known alternative checkpoint/training and preprocessing
+confounds, unequal corruption deltas and weaker clean Scan DGCNN are recorded
+in the source-results note. These do not isolate a unique quantitative cause.
+Severity8->5 previously partially improved Point-MAE; severity1 failed to
+reproduce13-column 3DD Table3. That is a different paper/backbone investigation,
+not proof of GSDTTA severity. No tuning to published targets. Retain all six
+fixed published alternatives for already-approved exploratory matched-source
+GSD-inspired guidance; paper-reproduction gate remains open. First verify
+three GSD native backend identities/no-build import, then integration CPU tests,
+new immutable source deployment, GPU smokes and conditional full15.

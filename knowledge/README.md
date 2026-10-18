@@ -1,18 +1,19 @@
-**[User decision/Code/Run/Open] 2026-10-18 — multibackbone study started:**
-`gsd-multibackbone-study` starts at requested2684f11. Six published alternatives
-for DGCNN, CurveNet and PointNeXt strict-load on CPU; exact GSDTTA checkpoints
-remain unidentified. Released ScanObjectNN-C split/order is verified against all
-581 official `main_split` objects, and PointNeXt native compilation/import passes
-in existing r7. All26 focused CPU tests pass and actual r7 Python3.8/torch2.1.2
-strict-loads all6 models without CUDA initialization. The revision2 manifest
-and immutable preparation/CPU bundles are verified on Drive and locally.
-These are preparation results, not GPU accuracy. Real Point-MAE
-parity and source-only all15 diagnosis precede GSD-inspired guidance integration.
-The user approved the whole8-hour-capped GPU campaign. Real Point-MAE CUDA
-boundary parity now passes on both datasets (3 conditions each, max logits
-difference0.0); alternative source smoke/all15 evaluations are next. Verified
-Drive checkpoints are written per corruption and after every model.
-[Current study](gsd_multibackbone_study_20261018.md),
+**[User decision/Code/Run/Open] 2026-10-18 — multibackbone source study complete:**
+`gsd-multibackbone-study` starts at requested2684f11. Real Point-MAE CUDA
+boundary parity passes on both datasets (max difference0.0). Six full15
+severity5 source rows and six clean controls pass independent indexed-logit,
+strict-load, frozen-state and Drive/local SHA verification. Source macros
+DGCNN/CurveNet/PointNeXt: ModelNet58.7979/64.0113/65.8320%; Scan main_split
+581 objects32.7826/52.0711/49.0878%. Exact GSDTTA weights remain unidentified;
+these are published alternatives, not paper reproduction. Clean Scan DGCNN
+68.6747% already exposes weaker source performance. The discrepancy audit
+records known checkpoint/training/preprocessing/data differences and unresolved
+causal attribution. Retain fixed alternatives for exploratory matched-source
+GSD-inspired guidance; no target-label tuning. Approved whole campaign cap8GPU
+hours, per-batch/corruption/model persistence. Existing r7 remains live; native
+no-build readiness and integration precede guidance smokes/full15.
+[Source results and diagnosis](gsd_multibackbone_source_results_20261018.md),
+[study](gsd_multibackbone_study_20261018.md),
 [asset provenance](gsd_multibackbone_provenance_20261018.json).
 
 **[Run/Inference/Open] 2026-10-18 — r7 no-background diagnostic completed:**

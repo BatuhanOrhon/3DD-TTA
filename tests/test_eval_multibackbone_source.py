@@ -44,6 +44,18 @@ class SourceRunnerContracts(unittest.TestCase):
             with self.subTest(extra=extra), self.assertRaises(ValueError):
                 runner.resolve_config(self.arguments("--preview", *extra))
 
+    def test_clean_control_uses_severity_zero_and_rejects_mixed_inputs(self):
+        clean = runner.resolve_config(self.arguments("--preview", "--corruptions", "original"))
+        self.assertEqual(clean["corruptions"], ["original"])
+        self.assertEqual(clean["severity"], 0)
+        self.assertEqual(clean["method"], "source_only")
+        self.assertEqual(runner.selected_data_path(clean, "original"), Path("/data/data_original.npy"))
+        default = runner.resolve_config(self.arguments("--preview"))
+        self.assertEqual(default["severity"], 5)
+        self.assertEqual(runner.selected_data_path(default, "gaussian"), Path("/data/data_gaussian_5.npy"))
+        with self.assertRaisesRegex(ValueError, "cannot be mixed"):
+            runner.resolve_config(self.arguments("--preview", "--corruptions", "original", "gaussian"))
+
     def test_manifest_checks_hash_size_and_path_before_use(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()
