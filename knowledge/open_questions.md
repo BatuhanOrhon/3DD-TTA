@@ -39,8 +39,12 @@
 - [x] ModelNet two-head full15: CurveNet+1.1750pp and PointNeXt+0.6402pp
   versus own source;74040 predictions, frozen/RNG/geometry and Drive/local SHA
   independently verified. Both improve6/worsen9 corruptions; one-seed descriptive.
-- [ ] Finish Scan two-head full15 (currently running), then independent full
-  cross-dataset validation/archive and matched-source interpretation.
+- [x] Finish Scan two-head full15: CurveNet+2.9375pp; PointNeXt-3.8784pp.
+  Full91470 predictions/675 shared batches and Drive/local4 final ZIPs,1350
+  batch receipts and60 corruption receipts independently verified/archived.
+  Mixed backbone effects are descriptive for seed0; no universal gain claimed.
+- [ ] Replicate the locked policy across seeds before repeatability claims;
+  explain Scan PointNeXt harm with matched controls, without test-label tuning.
 - [ ] Proposed next study: original3DD-TTA with the same accepted heads/data/
   preprocessing/seeds; a same-flow spectral0 control is needed for a more
   isolated spectral contribution claim. Not yet launched.

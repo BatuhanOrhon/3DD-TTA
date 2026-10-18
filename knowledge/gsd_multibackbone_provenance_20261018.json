@@ -1107,5 +1107,206 @@
       "utc": "20261018T220442Z",
       "drive_roundtrip_verified": true
     }
+  },
+  "guidance_all15_complete_20261018": {
+    "validation": {
+      "status": "complete",
+      "mode": "guidance_all15",
+      "models": [
+        {
+          "dataset": "modelnet40_c",
+          "backbone": "curvenet",
+          "status": "complete",
+          "n_predictions": 37020,
+          "accuracy_percent": 65.18638573743922,
+          "matched_full_source_percent": 64.01134521880066,
+          "delta_pp": 1.1750405186385677,
+          "archive": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205338_curvenet-seed0.zip",
+          "archive_sha256": "740a1d4b9c77aa658218d3df651648e1aa6694bfbf5292cafc3e46335b3b3c8f",
+          "shared_reconstruction_seconds": 3934.254280766021,
+          "allocated_runtime_seconds": 2075.541457002968
+        },
+        {
+          "dataset": "modelnet40_c",
+          "backbone": "pointnext",
+          "status": "complete",
+          "n_predictions": 37020,
+          "accuracy_percent": 66.4721772015127,
+          "matched_full_source_percent": 65.83198271204755,
+          "delta_pp": 0.640194489465145,
+          "archive": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205339_pointnext-seed0.zip",
+          "archive_sha256": "fd59c5242980bf28bd6f9bd87d8b98919e7076a9d1b263ea3e47719481eedc8a",
+          "shared_reconstruction_seconds": 3934.254280766021,
+          "allocated_runtime_seconds": 1992.985891573011
+        },
+        {
+          "dataset": "scanobjectnn_c",
+          "backbone": "curvenet",
+          "status": "complete",
+          "n_predictions": 8715,
+          "accuracy_percent": 55.00860585197934,
+          "matched_full_source_percent": 52.07114170969592,
+          "delta_pp": 2.9374641422834173,
+          "archive": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220304_curvenet-seed0.zip",
+          "archive_sha256": "8699efd791d5be265ee555b905ef60dbf78fecaa9aeb0f3b78bf904f23f7e4d7",
+          "shared_reconstruction_seconds": 924.6442762849729,
+          "allocated_runtime_seconds": 489.2559053245295
+        },
+        {
+          "dataset": "scanobjectnn_c",
+          "backbone": "pointnext",
+          "status": "complete",
+          "n_predictions": 8715,
+          "accuracy_percent": 45.20940906483075,
+          "matched_full_source_percent": 49.08777969018933,
+          "delta_pp": -3.8783706253585777,
+          "archive": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220305_pointnext-seed0.zip",
+          "archive_sha256": "f4cbc882b326bfa5f6e87fceb9bd0a8d53b517db027cf12c7285632f5d705e39",
+          "shared_reconstruction_seconds": 924.6442762849729,
+          "allocated_runtime_seconds": 466.6003542234921
+        }
+      ],
+      "shared_geometry_batches": 675,
+      "n_predictions": 91470
+    },
+    "phase_final_state": {
+      "mode": "guidance_all15",
+      "status": "complete",
+      "manifest_sha256": "c88e96de38aa3498f3e3989b286d52e1970a4f1a62d33f86d8e71bd8c9329e25",
+      "source_snapshot_sha256": "a43b60d5e62c3a25c6a302cb7509b0042b04846bfe40918570dbfe6bc3e01c5e",
+      "jobs": [
+        {
+          "name": "modelnet40_c-shared-two-heads",
+          "mode": "guidance_all15",
+          "command": [
+            "conda",
+            "run",
+            "--no-capture-output",
+            "-n",
+            "3dd_tta_env",
+            "python",
+            "-u",
+            "scripts/eval_multibackbone_guidance.py",
+            "--dataset",
+            "modelnet40_c",
+            "--dataset-root",
+            "/content/3DD-TTA/data/modelnet40_c",
+            "--label-path",
+            "/content/3DD-TTA/data/modelnet40_c/label.npy",
+            "--asset-root",
+            "/content/gsd_multibackbone_study_20261018/prepared_v6/assets",
+            "--asset-manifest-sha256",
+            "c88e96de38aa3498f3e3989b286d52e1970a4f1a62d33f86d8e71bd8c9329e25",
+            "--seed",
+            "0",
+            "--batch-size",
+            "70",
+            "--drive-root",
+            "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study",
+            "--corruptions",
+            "all",
+            "--max-batches",
+            "0",
+            "--result-root",
+            "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T205336Z_guidance_all15/jobs/modelnet40_c-shared-two-heads"
+          ],
+          "status": "complete",
+          "utc_start": "2026-10-18T20:53:36.961868+00:00",
+          "returncode": 0,
+          "archives": [
+            {
+              "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T205336Z_guidance_all15/jobs/modelnet40_c-shared-two-heads/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205338_curvenet-seed0.zip",
+              "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205338_curvenet-seed0/final.zip",
+              "bytes": 16992723,
+              "sha256": "740a1d4b9c77aa658218d3df651648e1aa6694bfbf5292cafc3e46335b3b3c8f"
+            },
+            {
+              "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T205336Z_guidance_all15/jobs/modelnet40_c-shared-two-heads/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205339_pointnext-seed0.zip",
+              "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205339_pointnext-seed0/final.zip",
+              "bytes": 16794360,
+              "sha256": "fd59c5242980bf28bd6f9bd87d8b98919e7076a9d1b263ea3e47719481eedc8a"
+            }
+          ],
+          "elapsed_seconds": 4165.242797369001
+        },
+        {
+          "name": "scanobjectnn_c-shared-two-heads",
+          "mode": "guidance_all15",
+          "command": [
+            "conda",
+            "run",
+            "--no-capture-output",
+            "-n",
+            "3dd_tta_env",
+            "python",
+            "-u",
+            "scripts/eval_multibackbone_guidance.py",
+            "--dataset",
+            "scanobjectnn_c",
+            "--dataset-root",
+            "/content/gsd_multibackbone_study_20261018/prepared_v6/assets/datasets/scanobjectnn_c",
+            "--label-path",
+            "/content/gsd_multibackbone_study_20261018/prepared_v6/assets/datasets/scanobjectnn_c/label.npy",
+            "--asset-root",
+            "/content/gsd_multibackbone_study_20261018/prepared_v6/assets",
+            "--asset-manifest-sha256",
+            "c88e96de38aa3498f3e3989b286d52e1970a4f1a62d33f86d8e71bd8c9329e25",
+            "--seed",
+            "0",
+            "--batch-size",
+            "70",
+            "--drive-root",
+            "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study",
+            "--corruptions",
+            "all",
+            "--max-batches",
+            "0",
+            "--result-root",
+            "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T205336Z_guidance_all15/jobs/scanobjectnn_c-shared-two-heads"
+          ],
+          "status": "complete",
+          "utc_start": "2026-10-18T22:03:02.206889+00:00",
+          "returncode": 0,
+          "archives": [
+            {
+              "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T205336Z_guidance_all15/jobs/scanobjectnn_c-shared-two-heads/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220304_curvenet-seed0.zip",
+              "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220304_curvenet-seed0/final.zip",
+              "bytes": 6684020,
+              "sha256": "8699efd791d5be265ee555b905ef60dbf78fecaa9aeb0f3b78bf904f23f7e4d7"
+            },
+            {
+              "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261018T205336Z_guidance_all15/jobs/scanobjectnn_c-shared-two-heads/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220305_pointnext-seed0.zip",
+              "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220305_pointnext-seed0/final.zip",
+              "bytes": 6633531,
+              "sha256": "f4cbc882b326bfa5f6e87fceb9bd0a8d53b517db027cf12c7285632f5d705e39"
+            }
+          ],
+          "elapsed_seconds": 1004.736603147001
+        }
+      ]
+    },
+    "evidence_receipt": {
+      "status": "complete",
+      "archive": {
+        "bytes": 183296,
+        "sha256": "ef34d122fcf38f36a9a85a497f3aee0fc1584d1876f797167f7ff310574f90a3",
+        "remote_path": "/content/gsd_multibackbone_study_20261018/guidance_all15_evidence_20261018T222327Z.zip",
+        "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T222327Z/guidance_all15_evidence_20261018T222327Z.zip"
+      },
+      "models": 4,
+      "verified_batch_receipts": 1350,
+      "verified_corruption_receipts": 60,
+      "utc": "20261018T222327Z"
+    },
+    "evidence_drive_download_verified": true,
+    "evidence_local_path": "result/preparation/multibackbone_20261018/guidance_all15_evidence_v1.zip",
+    "nested_analysis": {
+      "bytes": 45803,
+      "sha256": "ea3133e018bb4ae1860f773cac4b99aebcf2618e936d82e95e8c7d0d91b4d692"
+    },
+    "gpu_job_wall_seconds": 5815.593522024001,
+    "gpu_job_wall_cap_seconds": 28800,
+    "scope": "PointNeXt + CurveNet; DGCNN parked; original3DD and spectral0 not executed",
+    "runtime_preserved": true
   }
 }

@@ -14,11 +14,13 @@ hours, per-batch/corruption/model persistence. Existing r7 remains live. User co
 DGCNN parked. New isolated runner passes33 focused CPU tests; actual r7 loads
 4 audited native binaries without a JIT build, repeats8 strict CPU loads and
 validates4 matched-source links with CUDA uninitialized. Both-head CUDA smokes pass on both datasets (840 predictions); fixed full15
-seed0/B70 is now running, ModelNet then Scan. Batch-level Drive receipts and
+seed0/B70 is complete on both datasets. Batch-level Drive receipts and
 corruption/final ZIPs are verified. ModelNet full15 is now independently accepted: CurveNet64.0113->65.1864%
 (+1.1750pp), PointNeXt65.8320->66.4722% (+0.6402pp), both improve6/worsen9
-corruptions. Scan full15 is running. Original3DD-TTA remains a proposed next
-comparison. [Current guidance results](gsd_multibackbone_guidance_results_20261018.md).
+corruptions. Scan full15 is accepted: CurveNet52.0711->55.0086% (+2.9375pp),
+PointNeXt49.0878->45.2094% (-3.8784pp). All91470 predictions,1350 batch
+receipts and60 corruption receipts verify on Drive/locally. Fixed policy has
+mixed effects; one seed only. Original3DD-TTA remains a proposed next comparison. [Current guidance results](gsd_multibackbone_guidance_results_20261018.md).
 [Source results and diagnosis](gsd_multibackbone_source_results_20261018.md),
 [study](gsd_multibackbone_study_20261018.md),
 [asset provenance](gsd_multibackbone_provenance_20261018.json).

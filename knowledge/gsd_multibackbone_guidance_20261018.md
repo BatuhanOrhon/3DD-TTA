@@ -248,3 +248,32 @@ are verified on Drive and locally. Derived8837-byte analysis ZIP SHA
 Drive upload/download roundtrip and all member identities. Full identities,
 per-corruption table and interpretation are in the new guidance-results note.
 Scan full15 now runs; no extra GPU phase or config change.
+
+
+[Run/Artifact/Inference] 2026-10-18 22:23 UTC / 2026-10-19 local — complete
+two-backbone guidance phase accepted. Scan main_split581 full15: CurveNet
+52.0711->55.0086% (+2.9375pp), PointNeXt49.0878->45.2094% (-3.8784pp).
+Combined with ModelNet +1.1750/+0.6402pp, the fixed legacy policy benefits3/4
+matched cases descriptively and harms Scan PointNeXt. Single seed; no universal
+benefit, isolated spectral attribution or new optimality claim. Scan CurveNet
+improves7/worsens8 corruptions; PointNeXt improves5/worsens9/ties1.
+
+Independent91470-prediction/675-shared-batch analysis and actual Drive reads
+verify all4 final ZIPs,1350 batch receipts and60 corruption receipts. Frozen
+classifier/LION states, RNG/geometry guards, source/data/preprocessing linkage,
+CRC and all member hashes pass. Exact raw/source identities and per-corruption
+results: [complete report](gsd_multibackbone_guidance_results_20261018.md).
+Final immutable evidence183296 bytes, SHA
+`ef34d122fcf38f36a9a85a497f3aee0fc1584d1876f797167f7ff310574f90a3`, local
+`result/preparation/multibackbone_20261018/guidance_all15_evidence_v1.zip`;
+Drive preparation root `20261018T222327Z/` has the exact archive/receipt.
+All downloaded and nested member bytes verify. Full guidance5169.979s;
+whole GPU-job ledger5815.594s of28800s. Executed revision6/source hashes remain
+unchanged from accepted smokes; code batch fbb096b, prior accepted record e19cb75.
+No re-evaluation or test-label tuning followed the mixed result. Backups retain
+completed outputs, not raw decoded geometry/latent/RNG restart state.
+
+[Decision/Open] Original3DD-TTA with matched heads and same-flow spectral0
+remain subsequent proposals, not run. Replication could falsify the one-seed
+pattern; matched controls could attribute the benefit or harm. Exact paper
+weights remain unavailable. Preserve r7 and monitor; no teardown authorized.

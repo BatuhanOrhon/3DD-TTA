@@ -1,6 +1,6 @@
 # Two-backbone guidance results — 2026-10-18 UTC / 2026-10-19 local
 
-[Run] ModelNet40-C full15 complete; ScanObjectNN-C is running on the same r7.
+[Run] Both datasets full15 complete and independently verified on protected r7.
 These are **GSD-inspired latent spectral guidance + <backbone>**, using published
 alternative checkpoints. Exact GSDTTA checkpoint/protocol equivalence remains
 unverified. DGCNN is parked by explicit user decision. No new test-label tuning.
@@ -79,11 +79,94 @@ exact bytes/SHA, CRC and every analysis member match. Matching receipt is beside
 that ZIP on Drive. The analysis keeps the exact independent validator source,
 partial campaign state and source baseline index. Raw inference ZIPs are unchanged.
 
-## Next gate
 
-[Run/running] ScanObjectNN-C581 main_split full15 follows automatically in the
-same approved phase; run IDs220304-CurveNet/220305-PointNeXt. Finish, retrieve
-and independently verify its two results; then validate all1350 batch receipts
-and60 corruption receipts, archive the complete analysis, and update this note.
-Original3DD-TTA and same-flow spectral0 controls remain proposed subsequent work.
+
+## ScanObjectNN-C accepted full15
+
+[Run] All581 main_split objects, severity5,15 corruptions,8715 predictions per
+head. Same fixed seed0/B70 policy and revision6 snapshot as ModelNet; no
+parameters changed after observing results.
+
+| Backbone | Matched source (%) | Guidance (%) | Delta (pp) | Improved / worse / tied corruptions |
+|---|---:|---:|---:|---|
+| CurveNet | 52.0711 | 55.0086 | +2.9375 | 7 / 8 / 0 |
+| PointNeXt | 49.0878 | 45.2094 | -3.8784 | 5 / 9 / 1 |
+
+CurveNet corrects739 and harms483 events (net256); PointNeXt corrects751 and
+harms1089 (net-338). CurveNet gains most on Impulse+20.998pp and
+Background+17.728pp, with Rotation-4.991pp its largest loss. PointNeXt gains
+Gaussian+27.194pp but loses Rotation-16.007pp and several structural
+corruptions by roughly12–15pp. This is evidence against a universal backbone
+benefit from the fixed historical guidance policy. The positive CurveNet delta
+is descriptive for one seed; neither spectral causality nor an optimum is shown.
+
+| Corruption | CN source | CN guidance | CN delta pp | PN source | PN guidance | PN delta pp |
+|---|---:|---:|---:|---:|---:|---:|
+| uniform | 55.08 | 62.99 | +7.92 | 29.78 | 41.48 | +11.70 |
+| gaussian | 51.29 | 58.86 | +7.57 | 34.60 | 61.79 | +27.19 |
+| background | 14.80 | 32.53 | +17.73 | 43.37 | 40.79 | -2.58 |
+| impulse | 31.50 | 52.50 | +21.00 | 35.11 | 46.99 | +11.88 |
+| upsampling | 60.59 | 66.09 | +5.51 | 34.60 | 42.86 | +8.26 |
+| distortion_rbf | 67.64 | 65.92 | -1.72 | 58.00 | 43.89 | -14.11 |
+| distortion_rbf_inv | 68.16 | 66.44 | -1.72 | 58.00 | 43.03 | -14.97 |
+| density | 68.67 | 67.30 | -1.38 | 84.68 | 70.22 | -14.46 |
+| density_inc | 76.76 | 74.35 | -2.41 | 89.67 | 77.80 | -11.88 |
+| shear | 66.78 | 65.06 | -1.72 | 61.27 | 46.64 | -14.63 |
+| rotation | 64.03 | 59.04 | -4.99 | 49.05 | 33.05 | -16.01 |
+| cutout | 69.54 | 69.71 | +0.17 | 85.89 | 70.91 | -14.97 |
+| distortion | 69.02 | 68.16 | -0.86 | 58.52 | 44.06 | -14.46 |
+| occlusion | 9.29 | 7.92 | -1.38 | 7.57 | 8.43 | +0.86 |
+| lidar | 7.92 | 8.26 | +0.34 | 6.20 | 6.20 | +0.00 |
+
+Scan raw ZIPs under `result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/`:
+
+| Backbone / run ID | Bytes | SHA256 |
+|---|---:|---|
+| CurveNet / 20261018-220304_curvenet-seed0 | 6684020 | `8699efd791d5be265ee555b905ef60dbf78fecaa9aeb0f3b78bf904f23f7e4d7` |
+| PointNeXt / 20261018-220305_pointnext-seed0 | 6633531 | `f4cbc882b326bfa5f6e87fceb9bd0a8d53b517db027cf12c7285632f5d705e39` |
+
+Drive raw root is `MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/<run_id>/final.zip`.
+Each Scan head also has135 batch receipts and15 corruption ZIP receipts.
+
+## Complete campaign verification and recovery limits
+
+[Artifact] All91470 predictions,675 shared geometry batches,4 final archives,
+1350 batch receipts and60 corruption receipts independently pass. Batch files
+match local and Drive bytes; corruption ZIPs are physically rehashed on Drive.
+Full member identities, nested analysis, exact executed verification source,
+CRC, labels/IDs, logits, counts, source links, native guards and unchanged
+classifier/LION states pass.
+
+Immutable final evidence: local
+`result/preparation/multibackbone_20261018/guidance_all15_evidence_v1.zip`,
+183296 bytes, SHA `ef34d122fcf38f36a9a85a497f3aee0fc1584d1876f797167f7ff310574f90a3`.
+Actual Drive download verified from
+`MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T222327Z/guidance_all15_evidence_20261018T222327Z.zip`,
+with adjacent `receipt.json` and `.complete`. Nested complete-analysis ZIP is
+45803 bytes, SHA `ea3133e018bb4ae1860f773cac4b99aebcf2618e936d82e95e8c7d0d91b4d692`.
+It preserves60-row matched comparisons,4-row macro table, final phase state,
+exact independent analyzer and source validation. Current derived directory:
+`result/preparation/multibackbone_20261018/guidance_all15_analysis_final/`.
+
+Scan joint job elapsed1004.737s=16.746min; full guidance phase5169.979s=86.166min.
+Whole approved campaign GPU-job wall budget consumed5815.594s=96.927min of
+28800s, including initialization/IO and failed first parity attempt. This is
+job wall time, not accelerator kernel time, runtime lifetime or a billing total.
+Shared reconstruction must not be counted twice between heads.
+
+Batch backups contain indexed labels/predictions/all-class logits, loss and
+timing diagnostics, geometry/RNG hashes, config/source/environment/logs and
+SHA/byte receipts. Raw decoded coordinates, latents and actual RNG states are
+not saved. Weights are frozen and identified by checkpoint hashes; result ZIPs
+do not duplicate classifier weights. The artifacts preserve completed work;
+they do not implement automatic resumption or exact random-stream continuation.
+
+## Next study and remaining limits
+
+[Decision/Open] Keep DGCNN parked. Original3DD-TTA with the same accepted heads
+is the proposed next comparison, with a separate same-flow spectral0/SCD1 arm
+needed for isolated spectral attribution. Neither was launched in this task.
+No seed replication, new optimum or full GSDTTA reproduction is claimed.
+Protected session `tta-scanobjectnn-nobg-a100-r7-20261018` and its sole monitor
+remain live; task completion does not authorize runtime shutdown.
 [Protocol and operational log](gsd_multibackbone_guidance_20261018.md).
