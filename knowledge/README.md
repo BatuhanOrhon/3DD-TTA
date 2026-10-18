@@ -10,8 +10,11 @@ these are published alternatives, not paper reproduction. Clean Scan DGCNN
 records known checkpoint/training/preprocessing/data differences and unresolved
 causal attribution. Retain fixed alternatives for exploratory matched-source
 GSD-inspired guidance; no target-label tuning. Approved whole campaign cap8GPU
-hours, per-batch/corruption/model persistence. Existing r7 remains live; native
-no-build readiness and integration precede guidance smokes/full15.
+hours, per-batch/corruption/model persistence. Existing r7 remains live. User confirmed PointNeXt+CurveNet guidance only;
+DGCNN parked. New isolated runner passes33 focused CPU tests; actual r7 loads
+4 audited native binaries without a JIT build, repeats8 strict CPU loads and
+validates4 matched-source links with CUDA uninitialized. GPU smokes/full15
+remain next; original3DD-TTA is a proposed subsequent comparison.
 [Source results and diagnosis](gsd_multibackbone_source_results_20261018.md),
 [study](gsd_multibackbone_study_20261018.md),
 [asset provenance](gsd_multibackbone_provenance_20261018.json).

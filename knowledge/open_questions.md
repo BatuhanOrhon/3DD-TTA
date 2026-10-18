@@ -30,8 +30,13 @@
 - [ ] Obtain exact GSDTTA weights/protocol/corruption bytes to causally resolve
   paper gaps; severity alone is not established. Earlier Point-MAE/3DD severity1
   only matched Gaussian, not the full corruption profile. Do not conflate tables.
-- [ ] Integrate only validated frozen classifiers into the existing method;
-  evaluate matched source-only deltas on both datasets without label tuning.
+- [ ] Current steering: park DGCNN and prepare PointNeXt+CurveNet frozen
+  guidance on both datasets (user explicitly confirmed PointNeXt+CurveNet).
+  Compare to each own source-only row; fixed prior legacy800 configuration,
+  no new target-label tuning. CurveNet/ModelNet is not paper-equivalent.
+- [ ] Proposed next study: original3DD-TTA with the same accepted heads/data/
+  preprocessing/seeds; a same-flow spectral0 control is needed for a more
+  isolated spectral contribution claim. Not yet launched.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,
   checkpoint bytes and corruption bytes remain unknown. Published PointNeXt
   PB_T50_RS and alternative CurveNet OBJ_ONLY training differences must be shown.

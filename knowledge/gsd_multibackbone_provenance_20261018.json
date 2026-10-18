@@ -741,5 +741,66 @@
       "status": "complete",
       "utc": "20261018T202541Z"
     }
-  }
+  },
+  "native_guidance_audit_v2": {
+    "status": "complete",
+    "audit_status": "complete",
+    "local_archive": "/content/gsd_multibackbone_study_20261018/native_audits/gsd_native_20261018T203919266876Z.zip",
+    "drive_archive": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/gsd_native/gsd_native_20261018T203919266876Z/gsd_native_20261018T203919266876Z.zip",
+    "bytes": 801121,
+    "sha256": "c77d71e934e7b52f65493e49957f2ff3f45986babf4cd4b6f3d862b10932fc2e"
+  },
+  "preparation_v6": {
+    "state": {
+      "status": "complete",
+      "stage": "CPU-only strict state load and data validation; no GPU inference",
+      "command": [
+        "conda",
+        "run",
+        "--no-capture-output",
+        "-n",
+        "3dd_tta_env",
+        "python",
+        "-u",
+        "/content/gsd_multibackbone_study_20261018/prepared_v6/audit/preflight_guidance_cpu.py",
+        "/content/gsd_multibackbone_study_20261018/prepared_v6/assets",
+        "c88e96de38aa3498f3e3989b286d52e1970a4f1a62d33f86d8e71bd8c9329e25"
+      ],
+      "payload": {
+        "bytes": 5523990,
+        "sha256": "9dfca4fe1fe6595326a77f95646273826612f6553ce818366b4477551c207706",
+        "manifest": {
+          "bytes": 122879,
+          "sha256": "c88e96de38aa3498f3e3989b286d52e1970a4f1a62d33f86d8e71bd8c9329e25"
+        }
+      },
+      "drive_preparation_archive": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T204639Z/multibackbone_preparation_v6_delta.zip",
+      "source_snapshot": "a43b60d5e62c3a25c6a302cb7509b0042b04846bfe40918570dbfe6bc3e01c5e",
+      "utc": "20261018T204639Z",
+      "phase_sources": {
+        "bytes": 22008,
+        "sha256": "62ab0aa5113f1b424f5ffa7eee7e3288f4b1b1abc7da51fca47ebe05425aa33a"
+      },
+      "elapsed_seconds": 21.094801855000696
+    },
+    "cpu_archive": {
+      "bytes": 28303,
+      "sha256": "e7a69695ff9cc09650040fb2c607b67f598ef62b230521454f2c00a2e37167ee",
+      "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261018T204639Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T204639Z/cpu_preflight_20261018T204639Z.zip"
+    },
+    "preparation_archive": {
+      "bytes": 5523990,
+      "sha256": "9dfca4fe1fe6595326a77f95646273826612f6553ce818366b4477551c207706",
+      "remote_path": "/content/multibackbone_preparation_v6_delta.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T204639Z/multibackbone_preparation_v6_delta.zip"
+    }
+  },
+  "guidance_active_backbones": [
+    "curvenet",
+    "pointnext"
+  ],
+  "guidance_parked_backbones": [
+    "dgcnn"
+  ]
 }

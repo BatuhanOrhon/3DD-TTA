@@ -456,3 +456,69 @@ fixed published alternatives for already-approved exploratory matched-source
 GSD-inspired guidance; paper-reproduction gate remains open. First verify
 three GSD native backend identities/no-build import, then integration CPU tests,
 new immutable source deployment, GPU smokes and conditional full15.
+
+
+## User steering — focus the matched guidance question, 2026-10-18 20:43 UTC
+
+[User report/Decision] The user proposes parking inconsistent DGCNN source
+results, examining the prior selected guidance configuration on the remaining
+two backbones, then comparing original3DD-TTA with those same backbones as a
+later study step. The phrase “ModelNet and CurveNet backbone” is interpreted
+provisionally as PointNeXt+CurveNet (ModelNet is a dataset); an asynchronous
+clarification is pending. Preserve both ModelNet40-C and ScanObjectNN-C main_split.
+No guidance GPU job is currently running. Preparation is narrowed to two
+frozen heads; DGCNN source/clean raw evidence stays archived and is not rerun.
+
+[Inference] PointNeXt is close to GSDTTA on both datasets and CurveNet is close
+on Scan only; CurveNet/ModelNet still differs by-7.3687pp. Matched-checkpoint
+experimentation remains valid without paper-equivalence claims. Keep the
+previously selected legacy800/beta2/spectral1.17/SCD1/10–30 setting fixed;
+“optimal” is a historical selection label, not demonstrated optimality for
+these new backbones. Positive source-only deltas establish the package's
+end-to-end benefit. Later original3DD-TTA comparison and a same-flow spectral0
+control would distinguish baseline reconstruction from added spectral guidance;
+these follow-ups are proposals, not newly launched or included GPU runs.
+
+[User decision] 2026-10-18 20:44 UTC — clarification received: “Evet,
+PointNeXt + CurveNet”. Active guidance scope is exactly these two backbones
+on both previously requested datasets. DGCNN is parked. Existing approved
+campaign cap and persistence requirements remain in force.
+
+
+## 2026-10-18 20:47 UTC — two-head guidance integration CPU gate accepted
+
+[User decision] PointNeXt+CurveNet explicitly confirmed on both datasets;
+DGCNN parked, its six source/clean results preserved. Original3DD-TTA and a
+same-flow spectral0 comparator remain proposed next stages, not launched.
+
+[Code/Run] New opt-in shared reconstruction runner and scoped native binding
+pass33 focused CPU tests (plus10 unchanged FrozenClassifier checks earlier).
+Actual r7 Python3.8/torch2.1.2 CPU preflight loads all4 audited native binaries
+without JIT build, restores the original loader, leaves CUDA uninitialized,
+strict-loads six alternative and two original Point-MAE models, and verifies
+four selected matched-source rows against original all15 manifest/data bytes.
+The original Point-MAE/GSD entrypoints and equations remain unchanged. Real
+LION loading, B70 GPU memory/time and adaptation metrics remain the next smoke
+gate; CPU checks do not establish those.
+
+[Artifact] Revision6 manifest SHA
+`c88e96de38aa3498f3e3989b286d52e1970a4f1a62d33f86d8e71bd8c9329e25`;
+sourceZIP SHA `a43b60d5e62c3a25c6a302cb7509b0042b04846bfe40918570dbfe6bc3e01c5e`.
+Preparation delta5523990 bytes SHA
+`9dfca4fe1fe6595326a77f95646273826612f6553ce818366b4477551c207706`.
+Actual CPU proof ZIP28303 bytes SHA
+`e7a69695ff9cc09650040fb2c607b67f598ef62b230521454f2c00a2e37167ee`,
+local `result/preparation/multibackbone_20261018/cpu_preflight_v6.zip`;
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T204639Z/`.
+Source/preparation and CPU proof copies match Drive/local SHA; CRC, all nested
+phase source members and exact executed deployer bytes pass. Audit v2 native
+ZIP SHA `c77d71e934e7b52f65493e49957f2ff3f45986babf4cd4b6f3d862b10932fc2e`
+also passes all99 member hashes and Driveroundtrip. CPU phase elapsed21.095s.
+
+[Decision/Next] Retain fixed legacy800/beta2/spectral1.17/SCD1, normal10/BG30,
+seed0/B70, all other predeclared raw/eval/updated-decoder policies. Each head's
+full source preprocessing is separately RNG-isolated on the same decoded2048
+geometry. Batch shards and corruption/final ZIPs have immutable SHA-verified
+Drive receipts. Proceed to3-condition one-batch GPU smoke per dataset/head;
+only after artifacts/finite geometry/logits/losses/frozen states/RNG guards pass, run full15.
+Continue within the user's unchanged28800s GPU-work cap and preserve r7.
