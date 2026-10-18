@@ -6,8 +6,9 @@
   during combined Cell4, and r5 vanished during Cell2. r6 emitted no Cell4
   marker before its named server disappeared at about27 minutes. Fresh r7 uses
   the ten-cell notebook: Cell1 passed and Cell2 reached only the accepted,
-  deferred `fastrlock` wheel failure. Cell3 is BUSY awaiting Drive mount
-  completion; then execute Cells4–8
+  deferred `fastrlock` wheel failure. A TTY-backed CLI `drivemount` recovered
+  the first Cell3 mount failure; Drive/KNN and the exact Cell3 wrapper marker
+  now pass. Execute Cells4–8
   separately before Cells9–10 and inference. Do not count an orphaned local CLI
   wait as remote progress.
 - [ ] Finish the first fresh replay of the ten-cell setup notebook on r7. Local

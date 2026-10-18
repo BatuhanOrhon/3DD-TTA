@@ -593,8 +593,9 @@ only after that observation. No no-background result exists from r6.
 split setup phases. Fresh A100/High-RAM session
 `tta-scanobjectnn-nobg-a100-r7-20261018` completed Cell1; Cell2 created the
 Python3.8 environment and ended only at the explicitly deferred fastrlock wheel
-failure. Cell3 is submitted and BUSY without a completion marker; after Drive
-authorization/mount, require
+failure. The first Cell3 attempt ended with `ValueError: mount failed`; after
+user authorization, TTY-backed CLI `drivemount` succeeded and the Cell3 retry
+copied the KNN wheel with its exact wrapper marker. Next require
 separate Cell4–8 markers, complete Cells9–10, then evaluate and archive clean and
 Gaussian severity5 on the no-background581-example H5. Preserve r7 until the
 user explicitly declares the task complete and authorizes closure.

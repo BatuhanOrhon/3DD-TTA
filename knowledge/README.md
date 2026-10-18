@@ -11,8 +11,10 @@ failure. Next, mount/verify Drive with Cell3, then run Cells4–8 individually a
 require every exact wrapper
 and phase marker before Cells9–10 and the clean/Gaussian-s5 no-background
 diagnostic. Preserve r7 until the user explicitly declares the task complete
-and authorizes closure. Cell3 has been submitted and remains BUSY without a
-completion marker; the direct session URL was provided for Drive authorization.
+and authorizes closure. The first Cell3 attempt ended with `ValueError: mount
+failed`; the user then authorized the TTY-backed CLI `drivemount`. The mount and
+KNN wheel were verified, and the Cell3 retry emitted
+`SETUP_WRAPPER_CELL_3_COMPLETED`. Split Cell4/prepare is next.
 
 **[User decision/Code/Run pending] 2026-10-18 — long native setup split for
 future runtimes:** The user approved replacing the extracted setup notebook's

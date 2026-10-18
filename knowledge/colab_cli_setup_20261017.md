@@ -17,10 +17,12 @@ A100/High-RAM session `tta-scanobjectnn-nobg-a100-r7-20261018` was created from
 the canonical ten-cell notebook. Cell1 emitted its wrapper marker and the CLI
 reconnected to the same endpoint
 `gpu-a100-hm-kkb-euw4a2-1d8qxj97k4u94`; Cell2 created the environment and ended
-only at the explicitly deferred `fastrlock` wheel failure. Cell3 Drive/KNN
-validation has been submitted and remains BUSY without a completion marker;
-the direct session URL was supplied for authorization. Then run separate
-Cells4–8 with exact wrapper/phase markers. Cells9–10 and no-background inference remain
+only at the explicitly deferred `fastrlock` wheel failure. The first Cell3
+attempt ended with `ValueError: mount failed`; the user then authorized a
+TTY-backed CLI `drivemount`. `/content/drive/MyDrive` and the source KNN wheel
+were listed, and the Cell3 retry copied the wheel and emitted
+`SETUP_WRAPPER_CELL_3_COMPLETED`. Next run separate Cells4–8 with exact
+wrapper/phase markers. Cells9–10 and no-background inference remain
 pending. Keep r7 live until explicit task-complete and close authorization.
 
 [User decision/Code] The canonical extracted setup notebook now contains ten

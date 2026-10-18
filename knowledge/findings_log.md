@@ -4706,6 +4706,8 @@ tests successfully; Bash syntax, notebook JSON and scoped diff checks pass.
 Initial bare-Python discovery failed only because numpy/torch were absent. A
 fresh isolated uv environment with numpy, torch, scipy, h5py and PyYAML then ran
 the complete suite:266 tests passed. The skill quick validator also reports
-`Skill is valid!` in that environment. Cell3 is submitted on r7 and remains
-BUSY without a completion marker; the direct session URL was supplied for Drive
-authorization.
+`Skill is valid!` in that environment. The first Cell3 attempt on r7 ended with
+`ValueError: mount failed`. After user authorization, the TTY-backed CLI
+`drivemount` reported `Mounted at /content/drive`; independent listing verified
+MyDrive and the KNN wheel. The Cell3 retry then copied the wheel and emitted the
+exact `SETUP_WRAPPER_CELL_3_COMPLETED` marker. Split Cell4/prepare is next.
