@@ -4763,3 +4763,69 @@ though the remote helper emitted them. Cells5–8 now reuse the existing
 line-streaming `_tta_run_checked`; the Colab skill requires IOPub forwarding and
 independent browser-attachment verification. Focused tests were RED before both
 rules and GREEN afterward; the skill validator passes.
+
+
+## 2026-10-18 — multibackbone asset and classifier preparation
+
+[User decision/Code] `gsd-multibackbone-study` was created at exact
+`2684f11922d77696a26c2b954dcd0c43de5f5a6c`. The user has no author checkpoints
+and authorizes published dataset-trained alternatives. Concurrent edits to the
+Colab operator skill/setup record and their tests are preserved outside this
+study's commits.
+
+[Paper/Open] ICCV2025 GSDTTA Tables1–2 give all15 source macros of
+66.51/71.38/66.99 (ModelNet40-C) and55.72/53.06/50.66 (ScanObjectNN-C), in
+DGCNN/CurveNet/PointNeXt order. Main paper and supplement do not identify exact
+checkpoint bytes, variant or inference preprocessing. Six published alternatives
+were downloaded and strict CPU-loaded; none is asserted to be a GSDTTA paper
+checkpoint. Two misleadingly named Scan CurveNet candidates were rejected
+because their classifier heads have40 outputs rather than15. Full identities,
+source revisions and uncertainties are in
+[the study](gsd_multibackbone_study_20261018.md) and
+[provenance summary](gsd_multibackbone_provenance_20261018.json).
+
+[Run] The BFTT3D released ScanObjectNN-C clean581x1024 arrays have the same label
+order as official `main_split`, and every point is an exact coordinate member
+of its corresponding581x2048 H5 cloud (maximum nearest distance0). This verifies
+split/order membership, not GSDTTA corruption-byte or seed identity. Select its
+canonical15 severity5 arrays, excluding extra scale. Existing severity8 Drive
+arrays and the Gaussian-only receipt are not reused as all15.
+
+[Code/Run] Added a separate frozen classifier boundary and opt-in source/parity
+runners, leaving existing Point-MAE callers unchanged. Ten focused boundary CPU
+checks pass; real CUDA Point-MAE parity remains pending. PointNeXt's native batch
+extension compiled/imported in existing r7's CUDA12.1/GCC11.4 environment without
+GPU inference. A stalled local CLI stream was resolved only after completion
+state/binary verification, then a bounded recovery archive was sealed. Drive and
+local archive bytes478900/SHA-256
+`1043480475cfc0f4262ad175ce22a092921a90ffb5ea507ce1bf43af3c089bfd`, CRC and
+safe paths match. Raw evidence:
+`result/preparation/multibackbone_20261018/`. Actual runtime source is dirty
+`dev@a458cd4`, distinct from the planned local snapshot. The native binary SHA is
+recorded in the provenance summary.
+
+[Decision/Open] No accuracy experiment or GSD integration has run. First require
+real Point-MAE parity, six source smokes and full15 source diagnosis; subsequently
+compare “GSD-inspired latent spectral guidance + <backbone>” against the same
+checkpoint/preprocessing's source-only result. Whole planned GPU phase exceeds
+60min; comprehensive user approval is still pending. No numerical paper-parity
+claim follows from strict-load success. r7 must remain live pending explicit
+combined task-complete/close authorization.
+
+
+[Run/Diagnosis/Artifact] Multibackbone preparation addendum19:51 UTC: all26
+focused CPU tests pass. Real r7 Python3.8/torch2.1.2 CPU preflight strict-loads
+all6 models, with CUDA uninitialized and no forward calls. First preflight's
+wrong inferred ModelNet label shape was rejected; actual headers are2468x1,
+not2468. A fresh revision2 manifest fixes only observed metadata, preserves
+failed v1 and all data/code/weight bytes. Correct manifest SHA is
+`e6421333fdaab6fdd30167ea905f3d829d40de77f78fe91b696c035caa02a07a`.
+Passed CPU ZIP SHA is
+`782225ef24f418fe4cdf41c9752a378684f02f0eed66921a21391075f8941d7e`;
+Drive/local SHA and CRC match. Source snapshot SHA
+`683924c4e8caad6459dfdf48caccfd545185501d3ea04257ae7f114028e09dd5`
+describes base2684 plus the study overlay, distinct from dirty remote dev.
+The full249654807-byte payload and39060-byte revision2 delta are verified on
+Drive. Detailed recovery/failed-phase evidence is in the study note. GPU scope
+is concretely prepared at [the phase note](gsd_multibackbone_gpu_phase_20261018.md),
+but no long-GPU approval or GPU accuracy exists yet.

@@ -1,3 +1,17 @@
+**[User decision/Code/Run/Open] 2026-10-18 — multibackbone study started:**
+`gsd-multibackbone-study` starts at requested2684f11. Six published alternatives
+for DGCNN, CurveNet and PointNeXt strict-load on CPU; exact GSDTTA checkpoints
+remain unidentified. Released ScanObjectNN-C split/order is verified against all
+581 official `main_split` objects, and PointNeXt native compilation/import passes
+in existing r7. All26 focused CPU tests pass and actual r7 Python3.8/torch2.1.2
+strict-loads all6 models without CUDA initialization. The revision2 manifest
+and immutable preparation/CPU bundles are verified on Drive and locally.
+These are preparation results, not GPU accuracy. Real Point-MAE
+parity and source-only all15 diagnosis precede GSD-inspired guidance integration.
+The whole planned GPU phase exceeds60min and awaits comprehensive approval.
+[Current study](gsd_multibackbone_study_20261018.md),
+[asset provenance](gsd_multibackbone_provenance_20261018.json).
+
 **[Run/Inference/Open] 2026-10-18 — r7 no-background diagnostic completed:**
 Fresh A100/High-RAM session `tta-scanobjectnn-nobg-a100-r7-20261018` passed the
 ten-cell setup: Cells4–8 each emitted the exact wrapper marker and persistent

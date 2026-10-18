@@ -1,0 +1,272 @@
+{
+  "schema": "gsd-multibackbone-provenance-v1",
+  "base_commit": "2684f11922d77696a26c2b954dcd0c43de5f5a6c",
+  "accepted": {
+    "svwa_dgcnn_modelnet40.pth": {
+      "backbone": "dgcnn",
+      "dataset": "modelnet40_c",
+      "classes": 40,
+      "download_url": "https://drive.google.com/file/d/1RmuvcOR3nFE9TQIiS2DPwEk1PfNNCguA/view",
+      "bytes": 21771717,
+      "sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+      "strict_cpu_load": true,
+      "paper_checkpoint_identity_verified": false
+    },
+    "svwa_dgcnn_scanobjectnn.pth": {
+      "backbone": "dgcnn",
+      "dataset": "scanobjectnn_c",
+      "classes": 15,
+      "download_url": "https://drive.google.com/file/d/1ZkXrXj_U5t1OGr-_J7sGFPcuNVrA5fh-/view",
+      "bytes": 21694533,
+      "sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+      "strict_cpu_load": true,
+      "paper_checkpoint_identity_verified": false
+    },
+    "svwa_curvenet_modelnet40.pth": {
+      "backbone": "curvenet",
+      "dataset": "modelnet40_c",
+      "classes": 40,
+      "download_url": "https://drive.google.com/file/d/1jlDHnLwQfDRZwGl1DdpuAcoUqcO-OSBm/view",
+      "bytes": 26013253,
+      "sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+      "strict_cpu_load": true,
+      "paper_checkpoint_identity_verified": false
+    },
+    "3deformrs_curvenet_scanobjectnn_better.t7": {
+      "backbone": "curvenet",
+      "dataset": "scanobjectnn_c",
+      "classes": 15,
+      "download_url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/CurveNet/checkpoints/BetterCurveNetOnScanObjectnn/models/model.t7",
+      "bytes": 8680161,
+      "sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+      "strict_cpu_load": true,
+      "paper_checkpoint_identity_verified": false
+    },
+    "pointnext_modelnet40.pth": {
+      "backbone": "pointnext",
+      "dataset": "modelnet40_c",
+      "classes": 40,
+      "download_url": "https://drive.google.com/file/d/1TUOR3j3xqOoLNzEneiXccR5eRmeZxKq9/view",
+      "bytes": 54383385,
+      "sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+      "strict_cpu_load": true,
+      "paper_checkpoint_identity_verified": false
+    },
+    "pointnext_scanobjectnn.pth": {
+      "backbone": "pointnext",
+      "dataset": "scanobjectnn_c",
+      "classes": 15,
+      "download_url": "https://drive.google.com/file/d/1tFmyb3rmKMVzjv1qzlPXPplFRQnDiulr/view",
+      "bytes": 16491609,
+      "sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+      "strict_cpu_load": true,
+      "paper_checkpoint_identity_verified": false
+    }
+  },
+  "rejected": {
+    "3deformrs_curvenet_scanobjectnn.t7": {
+      "bytes": 8731489,
+      "sha256": "aacaa82e363be24dfbf576626d03917f2e7857e0a51a7d545a6315e06ddf200c",
+      "reason": "40-output head; ScanObjectNN requires 15"
+    },
+    "3deformrs_curvenet_scanobjectnn_v2.t7": {
+      "bytes": 8731489,
+      "sha256": "d6ed16693ec987dde65939e0091d3d487f3e64ad5049d85713e31bbf011ad1a6",
+      "reason": "40-output head; ScanObjectNN requires 15"
+    }
+  },
+  "source_revisions": {
+    "schema": "gsd-multibackbone-prepared-source-v1",
+    "openpoints_revision": "db31e0d94ede35bc672ef06d1b6e4073a9c269d5",
+    "openpoints_import_edits": {
+      "__init__.py": {
+        "original_sha256": "98b1d08723c32ca5aa9e9a6db070308fa96f390a99838cfb90f7616cd0ffadde",
+        "staged_sha256": "62fb98cd69cab6a05bf88a86f0702efa7848600b208fd56673f6fda3bbcefa3b",
+        "purpose": "Import only classification dependencies; mathematical modules unchanged"
+      },
+      "models/__init__.py": {
+        "original_sha256": "ba4cce6bd0f70e013bf409f19d944925e6858c4712817b0893b8750836927e12",
+        "staged_sha256": "a38f2798293dcdbb332fddfa15edd7918bd7941d24ab84b48063747e30efcffc",
+        "purpose": "Import only classification dependencies; mathematical modules unchanged"
+      },
+      "models/backbone/__init__.py": {
+        "original_sha256": "3f412106c067432af2f4bdbd61a6e495af21f8a63897c62d9d37cd2ce35e93d1",
+        "staged_sha256": "a40234ac4308bf582075dd26b7e2cb5764af754c632bb798362b0c2481a72833",
+        "purpose": "Import only classification dependencies; mathematical modules unchanged"
+      },
+      "models/classification/__init__.py": {
+        "original_sha256": "6759fa8cf99f75c1ed30767fae40b82eb60cfefb58afe21f43d5595a3223a65d",
+        "staged_sha256": "62e46891847caa4595e7eb6e0fa8aa85057b432c05623093a235b6298bb27c1f",
+        "purpose": "Import only classification dependencies; mathematical modules unchanged"
+      },
+      "utils/__init__.py": {
+        "original_sha256": "b21d295b03e0e0782b7e19f57b233adc00271b625fa0658504e8a63e6875ff8b",
+        "staged_sha256": "4ca8d55e2cd0583cd83ea0172fc8ee43e377790fb9c8a72932bdc48abdd439b9",
+        "purpose": "Import only classification dependencies; mathematical modules unchanged"
+      },
+      "loss/__init__.py": {
+        "original_sha256": "366afbb478136b138fcb45a0ec0eb68b55299a1f2b20d1d1168c22d3381a3999",
+        "staged_sha256": "d925e15fcd94e96fa9c0857642db1cff674391d6589ac28c68214d792c0c030e",
+        "purpose": "Import only classification dependencies; mathematical modules unchanged"
+      }
+    },
+    "svwa_extraction": "Exact ast.get_source_segment for DGCNN_cls, CurveNet, knn, get_graph_feature, curve_config; omit registration decorators and unrelated module imports",
+    "svwa_revision": "59935d68d0ef12811619ce4776e1dc4a711997d1",
+    "curve_scan_revision": "30a2385edbd6a0e7919caa01344cb47af81bb361",
+    "curve_scan_model": "BetterCurveNetOnScanObjectnn/curvenet_cls.py.backup; utility and walk from same pinned repository"
+  },
+  "scan_main_split_membership": {
+    "examples": 581,
+    "source_points": 2048,
+    "released_points": 1024,
+    "tolerance": 1e-06,
+    "max_nearest_distance": 0.0,
+    "all_points_are_same_object_h5_subset": true,
+    "objects_matching": 581
+  },
+  "native_recovery": {
+    "status": "complete",
+    "local_archive": "/content/multibackbone_native_20261018/audit_20261018T193557Z.zip",
+    "drive_archive": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T193557Z/audit_20261018T193557Z.zip",
+    "bytes": 478900,
+    "sha256": "1043480475cfc0f4262ad175ce22a092921a90ffb5ea507ce1bf43af3c089bfd",
+    "native": {
+      "status": "complete",
+      "phase": "CPU native compilation; GPU forward not run",
+      "binary": {
+        "path": "/content/multibackbone_native_20261018/native/pointnet2_batch_cuda.cpython-38-x86_64-linux-gnu.so",
+        "bytes": 12449056,
+        "sha256": "a2db745611c01ea03fab6e5d5e1d9e5f08837e847780dd27555eec561bc58aab"
+      },
+      "toolchain": {
+        "CC": "/usr/local/envs/3dd_tta_env/bin/x86_64-conda-linux-gnu-cc",
+        "CXX": "/usr/local/envs/3dd_tta_env/bin/x86_64-conda-linux-gnu-c++",
+        "CUDA_HOME": "/usr/local/envs/3dd_tta_env",
+        "TORCH_CUDA_ARCH_LIST": "8.0"
+      },
+      "utc": "2026-10-18T19:23:30.570899+00:00"
+    },
+    "source_files": 254,
+    "source_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4"
+  },
+  "gpu_inference_executed": false,
+  "preparation": {
+    "cpu_archive": {
+      "bytes": 4198,
+      "sha256": "782225ef24f418fe4cdf41c9752a378684f02f0eed66921a21391075f8941d7e",
+      "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261018T195047Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T195047Z/cpu_preflight_20261018T195047Z.zip"
+    },
+    "preparation_archive": {
+      "bytes": 39060,
+      "sha256": "032b10d264a2ebbe8bef1a4e715802d39f9f70fd3ab2ec3038620e9998eb8f82",
+      "remote_path": "/content/multibackbone_preparation_v2_delta.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T195047Z/multibackbone_preparation_v2_delta.zip"
+    },
+    "base_payload": {
+      "bytes": 249654807,
+      "sha256": "7cb6db90868a4151a9096324ebdd95ae4d3816433281a58f778403ed1c55df2b",
+      "manifest": {
+        "bytes": 118943,
+        "sha256": "b2118c5e1f42f3acc086d286a5a93c43df03792513c2fa4fbca8e6e248bd00c3"
+      }
+    },
+    "asset_manifest_v2": {
+      "bytes": 119620,
+      "sha256": "e6421333fdaab6fdd30167ea905f3d829d40de77f78fe91b696c035caa02a07a"
+    },
+    "source_snapshot_sha256": "683924c4e8caad6459dfdf48caccfd545185501d3ea04257ae7f114028e09dd5",
+    "isolated_asset_root": "/content/gsd_multibackbone_study_20261018/prepared_v2/assets",
+    "cpu_preflight_models": [
+      {
+        "dataset": "modelnet40_c",
+        "backbone": "dgcnn",
+        "checkpoint_load": {
+          "weights_only": true,
+          "strict": true,
+          "missing_keys": [],
+          "unexpected_keys": [],
+          "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494"
+        },
+        "state_sha256": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1",
+        "forward_executed": false
+      },
+      {
+        "dataset": "modelnet40_c",
+        "backbone": "curvenet",
+        "checkpoint_load": {
+          "weights_only": true,
+          "strict": true,
+          "missing_keys": [],
+          "unexpected_keys": [],
+          "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+        },
+        "state_sha256": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881",
+        "forward_executed": false
+      },
+      {
+        "dataset": "modelnet40_c",
+        "backbone": "pointnext",
+        "checkpoint_load": {
+          "weights_only": true,
+          "strict": true,
+          "missing_keys": [],
+          "unexpected_keys": [],
+          "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+        },
+        "state_sha256": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e",
+        "forward_executed": false
+      },
+      {
+        "dataset": "scanobjectnn_c",
+        "backbone": "dgcnn",
+        "checkpoint_load": {
+          "weights_only": true,
+          "strict": true,
+          "missing_keys": [],
+          "unexpected_keys": [],
+          "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe"
+        },
+        "state_sha256": "95e50111a0118af398b8066900f11b01f997ce293151bdbd38ccec74df4c3524",
+        "forward_executed": false
+      },
+      {
+        "dataset": "scanobjectnn_c",
+        "backbone": "curvenet",
+        "checkpoint_load": {
+          "weights_only": true,
+          "strict": true,
+          "missing_keys": [],
+          "unexpected_keys": [],
+          "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+        },
+        "state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6",
+        "forward_executed": false
+      },
+      {
+        "dataset": "scanobjectnn_c",
+        "backbone": "pointnext",
+        "checkpoint_load": {
+          "weights_only": true,
+          "strict": true,
+          "missing_keys": [],
+          "unexpected_keys": [],
+          "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a"
+        },
+        "state_sha256": "eb1bc53f326ee281c48176dcb404779653143e6f0c25f80cb513650b389fb540",
+        "forward_executed": false
+      }
+    ],
+    "cpu_environment": {
+      "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "torch": "2.1.2+cu121",
+      "cuda_initialized": false
+    },
+    "previous_failed_cpu_bundle": {
+      "bytes": 2752,
+      "sha256": "ddfa7c9d44b19d1ccbf477b37f32167e274379b994dac205265639db97ff4597",
+      "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261018T194915Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261018T194915Z/cpu_preflight_20261018T194915Z.zip"
+    }
+  }
+}

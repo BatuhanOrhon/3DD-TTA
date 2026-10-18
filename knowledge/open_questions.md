@@ -1,5 +1,33 @@
 # Open Questions and Research Backlog
 
+## 2026-10-18 - Multibackbone study gates
+
+- [x] Create `gsd-multibackbone-study` at requested2684f11; preserve concurrent
+  user edits. Audit main/supplement, six published alternatives and strict CPU
+  load compatibility. Exact GSDTTA checkpoint identity remains unavailable.
+- [x] Verify the selected released ScanObjectNN-C uses581-example `main_split`:
+  labels/order match and all1024 clean points per object exactly belong to its
+  corresponding official2048-point cloud. Do not substitute no-background data.
+- [x] Build/import PointNeXt native batch extension in prepared r7; archive
+  actual remote source/environment and verify Drive/local SHA and CRC.
+- [x] Seal/deploy the distinct local source snapshot and six-weight/data asset
+  manifest; real r7 Python3.8/torch2.1.2 CPU compatibility passes for all6, with
+  no CUDA initialization/forward. Revision2 corrects an inferred label shape;
+  failed v1 and passed v2 bundles are preserved with verified Drive/local SHA.
+- [ ] Record one comprehensive approval for the planned GPU phase above60min.
+  No GPU inference is authorized by elapsed time or by CPU preparation success.
+- [ ] Run Point-MAE real CUDA exact-logit/RNG/state parity, then six source-only
+  smokes and full15 evaluations. Diagnose per-corruption paper differences before
+  GSD integration; alternative identity alone is not a measured causal diagnosis.
+- [ ] Integrate only validated frozen classifiers into the existing method;
+  evaluate matched source-only deltas on both datasets without label tuning.
+- [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,
+  checkpoint bytes and corruption bytes remain unknown. Published PointNeXt
+  PB_T50_RS and alternative CurveNet OBJ_ONLY training differences must be shown.
+
+Study and identities: [research note](gsd_multibackbone_study_20261018.md),
+[provenance JSON](gsd_multibackbone_provenance_20261018.json).
+
 ## 2026-10-18 - ScanObjectNN Table3 provenance conclusion
 
 - [x] Complete the r7 no-background diagnostic. r4 and r6 vanished
