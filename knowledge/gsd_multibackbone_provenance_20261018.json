@@ -1310,7 +1310,7 @@
     "runtime_preserved": true
   },
   "original3dd_dgcnn_extension_20261019": {
-    "status": "prepared_pending_gpu_approval",
+    "status": "approved_smoke_running",
     "parent_commit": "acc27d3e16666cd4638744988a1cfd249fa45164",
     "preparation": {
       "bytes": 5464063,
@@ -1409,6 +1409,26 @@
       3.5
     ],
     "max_gpu_job_wall_seconds": 14400,
-    "runtime_preserved": true
+    "runtime_preserved": true,
+    "activation_receipt": {
+      "status": "approved",
+      "approval": {
+        "status": "approved",
+        "user_reply": "Devam et",
+        "plan_sha256": "e0eafe5938907d6de45803daa550f486567e86e532cd1f3cbb81362541b74f41",
+        "max_gpu_work_seconds": 14400,
+        "approved_execution_commit": "fd7a82d",
+        "scope": "Original3DD CN+PN both datasets, then DGCNN GSD and Original3DD both datasets; smokes plus all15; per-batch/corruption/model Drive saves; no runtime shutdown"
+      },
+      "archive": {
+        "bytes": 3756,
+        "sha256": "a85a588bfaf49e6c389da4525864aed6581dd13c934167f2544013783a8e0bee",
+        "remote_path": "/content/gsd_multibackbone_study_20261018/extension_approval_20261019T061550Z.zip",
+        "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T061550Z/extension_approval_20261019T061550Z.zip"
+      },
+      "utc": "20261019T061550Z"
+    },
+    "approval_evidence_local_path": "result/preparation/multibackbone_20261018/extension_approval_evidence_v1.zip",
+    "smoke_phase_path": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T061610Z_extension_smoke"
   }
 }

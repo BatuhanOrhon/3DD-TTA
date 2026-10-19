@@ -48,9 +48,10 @@
 - [x] User selects original3DD-TTA for CurveNet/PointNeXt then DGCNN GSD/
   original on both datasets. Revision7 preparation/47CPU tests and actualr7
   CPU strict8models/6source links/native4/noCUDA/DDIM5-35 proof accepted.
-- [ ] Launch the prepared extension after one informed >60min GPU approval:
-  seed0/full15,8newrows,182940predictions,estimate2.5–3.5h/cap4h. No new GPU
-  run yet. DGCNN now explicitly in scope; preserve its weaker source caveat.
+- [x] User approves prepared extension “Devam et”; immutable activation
+  receipt verified Drive/locally. CUDAsmokes launched06:16UTC.
+- [ ] Independently accept selected smokes, then execute fixed seed0/full15,
+  8newrows,182940predictions under approved estimate2.5–3.5h/cap4h. DGCNN now explicitly in scope; preserve its weaker source caveat.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,

@@ -5123,3 +5123,20 @@ Detailed commands/hashes/checkpoint links/stop/persistence/acceptance plan:
 Drive root `.../preparation/gsd_multibackbone_study/20261019T060200Z/`.
 Protected r7/monitor remain live; only stale local liveness client was replaced
 by a fresh successful bounded audit. No runtime rebuild/teardown or GPU run.
+
+
+[User decision/Run/running] 2026-10-19 06:16 UTC — user “Devam et”
+approves the prepared2.5–3.5h extension with14400s cap, selected smokes and
+conditional full15. Exact scopeSHA e0eafe5938907d6de45803daa550f486567e86e532cd1f3cbb81362541b74f41
+unchanged; accepted preparationcommit fd7a82d. Approvalactivation is persisted
+to Drive and locally,3756-byte immutable ZIP SHA
+`a85a588bfaf49e6c389da4525864aed6581dd13c934167f2544013783a8e0bee`,
+Drive preparation root20261019T061550Z; exact scope/approval/executed source
+bytes, CRC and Drive/local SHA pass. No additional launch approval is needed
+for this same phase within its cap.
+
+GPU smoke starts on protectedr7 via solemonitor97631: phase
+`/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T061610Z_extension_smoke/`.
+Firstjob original3DD CN+PN ModelNet/B32; remainingpredeclared6joborder and
+all8outputmodels unchanged. Full15 still requires independent smoke acceptance.
+Each batch/corruption/model writes verified Drive evidence. Runtime preserved.
