@@ -1,7 +1,18 @@
+**11:35UTC [Run/Open] Execution binding superseded:** r8 vanished after a
+native identity mismatch before successfulCPUproof; no new GPU evaluation.
+Current runtime is r9 (`tta-multibackbone-dgcnn-a100-r9-20261019`), setup in
+progress with monitor70119/63241 and bounded hostsleep prevention. Retain the
+scientific scope below, but rebind session/controller/scope hashes to r9 and
+restore the exact audited native binaries before proof/approval. The r8-specific
+controllers below are historical prepared artifacts and must not be launched.
+[Current state](gsd_multibackbone_recovery_20261019.md).
+
 # DGCNN continuation after r7 interruption — 2026-10-19
 
-**[Code/Open] Prepared, not approved or launched.** r8 setup is still running;
-all ten setup cells and the unchanged v7 strict CPU proof must pass first.
+**[Code/Run/Open] Prepared, not approved or launched.** All ten r8 setup cells
+and native GPU/data/checkpoint checks pass; complete evidence verifies on
+Drive/locally (SHA f1590dc9…be81f81). Unchanged v7 strict CPU proof is running
+and must pass before launch.
 The latest user confirmations authorize Google Drive consent, not this new
 GPU phase. Existing CN/PN and six source-only evaluations are retained.
 

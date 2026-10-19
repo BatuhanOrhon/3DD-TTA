@@ -1,12 +1,24 @@
+**[Run/Open] 2026-10-19 — r8 lost; r9 setup in progress:**
+r8 unexpectedly vanished after full setup but before successfulv7 CPUproof.
+No teardown. NewCPUproof correctly rejected a fresh native.so differing from
+pinnedr7 bytes; exactbinary restore prepared, not executed. Accepted32994DGCNN
+predictions and complete setup/native evidence remain onDrive/locally. Mac
+IdleSleep overlaps localmonitor gaps; server termination cause remains unknown.
+New `tta-multibackbone-dgcnn-a100-r9-20261019` is A100 High-RAM, same ten-cell
+setup; Cell1passed/Cell2running. Monitor70119/63241 uses SDKtimeout60; bounded
+hostsleep prevention active. No new researchGPU or remaining-phase approval.
+[Latest recovery/ownership](gsd_multibackbone_recovery_20261019.md).
+
 **[Run/Artifact/Open] 2026-10-19 — r7 DGCNN partial rescue verified:**
 32994indexed predictions/481batch receipts/13complete ModelNet corruptions and
 Occlusion910/2468 recovered through r8. Raw147769635byte ZIP SHAe4115951…f48bc8a
 and independent13512byte validationZIP SHA84aca14c…f8bf35 pass actualDrive/local
 roundtrip, manifests, logits/IDs/labels/source binding and frozen-classifier
 checks. No full15 or exact RNG resume; interrupted final LION state proof is
-missing. r8 A100/High-RAM remains live, monitor63286/69569 runs exact Cell8;
-Cells4–7/native markers and partial setup Drive/local archive verify. Cells9–10/v7 CPUproof and remaining GPU phase
-still pending. No new research
+missing. r8 A100/High-RAM completes all10 setup cells/nativeGPU checks;
+3045275byte complete evidence ZIP SHA f1590dc9…be81f81 passes actualDrive/local
+verification. Same63286/69569 now restores unchangedv7 assets/CPU strict proof;
+remaining GPU phase is prepared only, not approved or launched. No new research
 inference. [Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
 
 **[Run/Open] 2026-10-19 — r7 unexpectedly lost during DGCNN GSD:**

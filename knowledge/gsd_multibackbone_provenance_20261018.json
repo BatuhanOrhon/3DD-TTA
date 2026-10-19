@@ -2188,7 +2188,7 @@
       "hardware": "A100 High-RAM",
       "monitor_pid": 63286,
       "monitor_exec_session": 69569,
-      "monitor_state": "running_sole_owner_setup_cell8",
+      "monitor_state": "LOST_preserved",
       "drive_cli_exec_session": null,
       "drive_status": "recovery_raw_and_analysis_drive_local_verified",
       "partial_setup_evidence": {
@@ -2277,7 +2277,7 @@
       "remaining_plan_note": "knowledge/gsd_multibackbone_dgcnn_recovery_plan_20261019.md",
       "remaining_plan_status": "prepared_not_approved_not_launched",
       "remaining_scope_sha256": "ccb2e6ebad63beb1766182f25a1e00665edf4f701bb3a205f723047a9fe4b562",
-      "cell8_status": "running_20261019T103007Z",
+      "cell8_status": "complete_native_marker_and_exact_revalidation_wrapper_no_rebuild",
       "partial_native_setup_archive": {
         "bytes": 118027,
         "sha256": "f0d83589a168bc70cebef273d4531410acf8597bbd0eaa601fab53cffb65c020",
@@ -2289,7 +2289,58 @@
         "drive_local_sha_verified": true,
         "crc": "passed",
         "all_member_hashes": "passed"
-      }
+      },
+      "cell9_status": "complete_exact_wrapper",
+      "cell10_status": "complete_exact_wrapper_native_GPU_environment_passed",
+      "complete_setup_evidence": {
+        "status": "complete",
+        "utc": "20261019T105937Z",
+        "archive": {
+          "bytes": 3045275,
+          "sha256": "f1590dc98a1c8f44a34bb46af0c238f309bbf8b0b36fd659e8728d9b6be81f81",
+          "remote_path": "/content/cli_setup_r8_evidence_20261019T105937Z.zip",
+          "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/setup_r8_20261019T105937Z/cli_setup_r8_evidence_20261019T105937Z.zip"
+        },
+        "native_markers": [
+          "prepare",
+          "emd",
+          "chamfer",
+          "pointnet2",
+          "pvcnn-smoke"
+        ],
+        "setup_status": "passed",
+        "research_gpu_launched": false,
+        "local_archive": "result/preparation/cli_multibackbone_recovery_20261019_r8/cli_setup_r8_evidence_20261019T105937Z.zip",
+        "local_sha_verified": true,
+        "all_manifest_members": 31,
+        "crc": "passed",
+        "native_binaries": 3,
+        "actual_gpu": "NVIDIA A100-SXM4-80GB"
+      },
+      "runtime_status": "unexpectedly_lost",
+      "first_missing_utc": "2026-10-19T11:26:23.720165Z",
+      "cpu_proof_status": "failed_native_binary_identity_before_model_load",
+      "native_restore_status": "prepared_not_executed"
+    },
+    "r9_continuation_20261019": {
+      "session": "tta-multibackbone-dgcnn-a100-r9-20261019",
+      "endpoint": "gpu-a100-hm-kkb-euw4a0-1h0qzqfkhb7tr",
+      "hardware": "A100 High-RAM",
+      "monitor_pid": 70119,
+      "monitor_exec_session": 63241,
+      "request_timeout_seconds": 60,
+      "caffeinate_pid": 70055,
+      "caffeinate_exec_session": 51775,
+      "caffeinate_max_seconds": 10800,
+      "cell1_status": "exact_marker_complete_and_same_endpoint_reconnected",
+      "cell1_completed_utc": "2026-10-19T11:33:34Z",
+      "cell2_status": "running",
+      "research_gpu_launched": false,
+      "drive_status": "not_mounted",
+      "source_notebook_sha256": "f60db956118c25196f43ae02a00667485ddffbc73691e601134cb194f885559b",
+      "native_restore": "must_restore_exact_pinned_four_binaries_before_CPU_proof",
+      "source_snapshot_sha256": "f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf",
+      "asset_manifest_sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9"
     }
   }
 }

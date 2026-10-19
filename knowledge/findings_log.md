@@ -5402,3 +5402,37 @@ plus408smoke; estimate65–90min/cap120. Scope/controllers parse and actual pure
 command assertions pass; no user run approval or inference launch. Complete
 setup/strictCPUproof/immutable readiness before requesting the one >60min
 approval. Existing accepted results/partial rescue remain unchanged.
+
+
+## 2026-10-19 11:01 UTC — Complete r8 environment evidence accepted
+
+[Run/Artifact/Code/Open] All10setup cells complete (sole Cell2fastrlock
+deferred). Cell8 original stream lost, actualnative marker/serveridle verified;
+revalidation60s SDK request timeout emitsalready-complete skip and exactmarker,
+no rebuild/VM restart. Cell9passes10:45:43, Cell10nativeGPU/environment verifier
+passes10:48:22. NVIDIAA100-SXM4-80GB/Python3.8.20/Torch2.1.2+cu121/CUDA12.1,
+FPS/KNN/Chamfer/EMD/data/checkpoints pass. Complete3045275byteZIP SHA256
+f1590dc98a1c8f44a34bb46af0c238f309bbf8b0b36fd659e8728d9b6be81f81
+passes actualDrive/local CRC/all31entries/source-log equality. Includes3native
+.so bytes,5markers and full publicsource/env/toolchain/verification. Paths
+and timeout audit in recovery note. Same69569 begins unchangedv7 restoration/
+CPUproof11:01:00; no new researchGPU or approval activation. Next immutable
+CPUproof/readiness archive and one concrete >60min remaining-phase approval.
+
+
+## 2026-10-19 11:35 UTC — r8 lost after native identity guard; r9 setup
+
+[Run/Code/Artifact/Inference/Open] v7CPUproof rejects freshchamfer_3D.so vs
+pinnedr7bytes before model loads; source/payload identities pass. Failed30128byte
+ZIP SHA7f332f7936cfad75421f10c3fec372085a50fae054eb5c0f9e78caf9ea6765a4
+onDrive, localreceipt saved. Exact4native archive members validate offline;
+restoration source prepared, not executed. r8lastassigned11:03, firstmissing
+11:26 and repeated inventories empty; no teardown. HostIdleSleep11:03:30
+withwake11:30 overlaps monitor gap, but backend loss reason remainsunknown.
+Local3041193byte/8member lossZIP SHAaa219a45161dd1b0b28553bb1d7c846be87bb3644fc8d9a5c9ee4f664bf5cff2
+CRC/all identities pass, Drivependingnewmount. Complete setup/native3.so and
+32994DGCNNpredictions remain accepted/Drive-local safe. Under existing setup/
+retry authorization allocatedr9 A100HighRAM, Cell1passed/sameVMreconnect and
+Cell2running. Monitor70119/63241 envREQUEST_TIMEOUT60; caffeinate70055/51775
+bounded3h hostawake, no Colab fakework or lifetimeguarantee. No researchGPU or
+remaining-phase approval. Full paths/exacttimestamps in current recovery note.

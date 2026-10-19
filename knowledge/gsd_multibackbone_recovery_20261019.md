@@ -1,13 +1,15 @@
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
-**Current10:33UTC [Run/Artifact/Open]:** r7 partial DGCNN rescue accepted:
-32994indexed predictions/481batch receipts/13complete corruption archives plus
-Occlusion910/2468. ActualDrive/local raw and independent validation ZIPs verify.
-Not full15, no exact RNG resume or final interrupted LION state proof. Same r8
-monitor63286/69569 runs Cell8; Cells4–7 exact/native markers verify.
-Partial setup evidence118027bytes SHA f0d83589…65c020 passes actualDrive/local
-roundtrip. Cells9–10/v7 CPUproof and
-any further research GPU phase remain gated. No new accuracy inference launched.
+**Current11:35UTC [Run/Artifact/Open]:** r8 unexpectedly disappeared (first
+missing11:26UTC), no teardown issued. Accepted r7 partial predictions and r8
+complete setup archives remain verified onDrive/locally. v7 CPUproof failed
+before model loads because fresh chamfer_3D.so differed from pinned r7 bytes;
+restore code prepared but not executed before VM loss. Mac IdleSleep overlaps
+monitor gaps; backend loss cause unknown. New r9 A100/High-RAM, endpoint
+...euw4a0-1h0qzqfkhb7tr, monitor70119/63241 with REQUEST_TIMEOUT60; Cell1 passes,
+Cell2 running. Bounded host caffeinate70055/51775 prevents local idle sleep for
+3h during legitimate work. No new researchGPU inference or phase approval.
+Next Cell2, user Drive consent, ten-cell setup and pinned-native restore/proof.
 
 [User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
 session and mounting Drive to retrieve the interrupted study's evidence. This
@@ -309,3 +311,85 @@ Prepared final collector reuses the earlier setup audit flow, adds native
 markers/three compiled.so bytes, exactpublicCLIevents, manifest and Drivebackup;
 SHAfccfd27c…534f64, uploaded toVM, not executed. Remaining DGCNN scope is
 prepared only (scopeSHA ccb2e6eb…e4b562), no approval activation or GPU run.
+
+
+## 11:01 UTC — Complete r8 setup accepted; v7 CPUproof running
+
+[Run/Artifact/Code/Open] All ten ordered setup cells completed; Cell2 retains
+only the user-deferred fastrlock failure. Cell8's original CLI stream lost its
+last outputs, but independent server/kernel audit showed idle and actual
+pvcnn-smoke.complete present. First wrapper revalidation lost WebSocket during
+CLI cwd bootstrap before phase code. Installed SDK REQUEST_TIMEOUT defaults10s;
+logs show its connection opened later than the failure, not VM loss. Bounded
+external revalidation with supported REQUEST_TIMEOUT60 passed10:43:28, emitted
+exact wrapper and “already complete; skipping”, no native rebuild. Same local
+monitor was temporarily suspended during exclusive revalidation and resumed;
+no installed package/account changes, runtime restart or teardown.
+
+Cell9 completes10:45:43; Cell10 exact wrapper and SETUP_ENVIRONMENT_VERIFIED
+pass10:48:22. Actual NVIDIA A100-SXM4-80GB (85094825984bytes), Python3.8.20,
+Torch2.1.2+cu121/CUDA12.1; native CUDA tensor/FPS/KNN/Chamfer/EMD, ModelNet
+clean+all15severity5 arrays and checkpoints pass. Base remains
+`dev@a458cd46bba1288a3f41302548bc777700cbc7d4` with archived setup overrides;
+not equated with the local research branch or frozen v7 source.
+
+Actual complete setup evidence3045275bytes SHA256
+`f1590dc98a1c8f44a34bb46af0c238f309bbf8b0b36fd659e8728d9b6be81f81`,
+local `result/preparation/cli_multibackbone_recovery_20261019_r8/cli_setup_r8_evidence_20261019T105937Z.zip`,
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/setup_r8_20261019T105937Z/cli_setup_r8_evidence_20261019T105937Z.zip`.
+Fresh actualDrive download/SHA/CRC/safe paths/all31manifest entries pass.
+Includes3actual native.so binaries,5phase marker files, public exact execution
+sources/results, original source/override bytes, env/pip/toolchain/GPU exports,
+setup verification JSON and exact collector. All collector commands exit0;
+archived logs/collector bytes match local uploaded originals. No consentURLs/state.
+
+Same69569 starts `deploy_full_v7_r8.py`11:01:00, SHA962fff15…229a80d8.
+It must verify8uploaded parts/full247002524byte payload, unchanged622asset-file
+identities and exact source/native audit before CPU-only strict model/source/
+DDIM proof. No approval activation or inference. After actualDrive/local CPU
+archive verification, seal readiness scope/controller/source/asset receipts,
+update knowledge and request the single >60min GPU-phase approval.
+
+
+## 11:35 UTC — Unexpected r8 loss and host-sleep evidence; r9 allocated
+
+[Run/Code/Inference/Open] v7 payload247002524bytes/all622entries/source/native
+archive identities verify and are backed toDrive20261019T110110Z. InitialCPU
+proof fails before model loads: fresh-built `/content/3DD-TTA/third_party/
+ChamferDistancePytorch/tmp/chamfer_3D.so` differs from the r7-pinned binary.
+Guard correctly rejects; no manifest weakening or numerical inference. Failed
+CPU archive30128bytes SHA7f332f7936cfad75421f10c3fec372085a50fae054eb5c0f9e78caf9ea6765a4
+is onDrive at that preparation folder; local failedreceipt is saved, raw ZIP
+retrieval pending newDrive mount. Four exact pinned binaries were independently
+verified inside local801121byte native archive SHA c77d71e9…932fc2e.
+`restore_pinned_native_and_retry_cpu.py` SHA32ece53a…fa23eed preserves fresh
+binaries before replacement and retains all existing guards, but upload failed
+because r8 was gone: prepared only, not executed. Fresh r8 JIT binaries outside
+the already archived3native extensions were not recovered; do not claim otherwise.
+
+Last monitor assigned11:03:23, first observedmissing11:26:23; repeated independent
+server inventories show no assignments. No stop/release/restart command. Mac
+`pmset` reports IdleSleep11:03:30UTC, maintenance/darkwake intervals and userwake
+11:30:08; earlier sleeps overlap WS losses. This establishes paused local
+monitoring, not the server's termination cause or a guaranteed remedy.
+Local loss bundle3041193bytes/8members SHA256
+`aa219a45161dd1b0b28553bb1d7c846be87bb3644fc8d9a5c9ee4f664bf5cff2`,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_loss_and_host_sleep_evidence_v1.zip`;
+CRC/all7manifest identities pass; Drive copy pendingr9. Includes sanitized power
+log, failedreceipt/unexecuted restoration source, acceptedsetup/native bytes and
+partial-recovery validation. Accepted32994predictions/13full+Occlusion910 and
+four CNPN triplets remain safe and unchanged.
+
+Within existing user authorization for allocation/setup/retries, allocated
+`tta-multibackbone-dgcnn-a100-r9-20261019`, endpoint
+`gpu-a100-hm-kkb-euw4a0-1h0qzqfkhb7tr`, A100 High-RAM. Ten exact saved inputs
+copied to `result/preparation/cli_multibackbone_dgcnn_20261019_r9/`.
+Cell1 exactmarker11:33:34 passes, same endpoint reconnection verified; Cell2
+runs from11:34:24. New solemonitor70119/local63241 inherits supported SDK
+REQUEST_TIMEOUT60. Old r7/r8 monitors retainedLOST; no runtime teardown.
+Local `caffeinate -i -t 10800` PID70055/local51775 prevents host idle sleep only
+for the bounded supervision period; no persistent power setting, display clicks,
+Colab fake work or anti-idle loop. This cannot guarantee managed Colab lifetime.
+No new researchGPU evaluation; remaining phase still needs technical proof and
+one >60min approval. r8-specific scope/controller binding is historical and must
+be rebound to r9 before launch; frozen research v7 source/assets remain unchanged.

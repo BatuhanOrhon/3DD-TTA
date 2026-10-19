@@ -68,11 +68,17 @@
   Occlusion910,481batch receipts/32994predictions. Raw and independent validation
   immutable ZIPs pass actualDrive/local SHA, member/CRC and indexed-logit checks.
   Original r7-loss ZIP is backed up unchanged inside the raw recovery archive.
-- [ ] Finish fresh r8 setup: Cell1/2/3 verified (sole deferred fastrlock);
-  Cell4 running from10:08:35, Cells5–10 and strict v7 CPUproof pending.
-  Preserve same63286/69569 monitor and live r8; no new researchGPU inference.
+- [x] Finish fresh r8 ten-cell setup: sole deferred Cell2fastrlock, actual
+  A100-80GB/Python3.8.20/Torch2.1.2+cu121/nativeGPU/data/weights pass.
+  Complete3045275byte evidence SHA f1590dc9…be81f81 passes actualDrive/local.
+- [ ] Finish fresh r9 setup and restore exact pinned r7native binaries before
+  strict v7CPUproof. r8 vanished after setup/native-hash mismatch; no teardown.
+  r9sameA100, Cell1passed/Cell2running; monitor70119/63241, SDKtimeout60 and
+  bounded hostsleep prevention. Accepted results remain safe, no new researchGPU.
 - [ ] Predeclare interruption/RNG strategy and remaining DGCNN GPU scope/time;
-  exact mid-run continuation is unavailable. New >60min phase requires one
+  [Prepared scope](gsd_multibackbone_dgcnn_recovery_plan_20261019.md) retains13
+  full corruptions, freshOcclusion/LiDAR; exact mid-run continuation is unavailable.
+  New >60min phase requires one
   concrete approval after setup/proof/preparation, without repeating completed
   source/CNPN studies. Partial DGCNN is not a full15 result.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
