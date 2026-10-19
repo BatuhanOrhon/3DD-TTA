@@ -1,10 +1,12 @@
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
-**Current10:09UTC [Run/Artifact/Open]:** r7 partial DGCNN rescue accepted:
+**Current10:33UTC [Run/Artifact/Open]:** r7 partial DGCNN rescue accepted:
 32994indexed predictions/481batch receipts/13complete corruption archives plus
 Occlusion910/2468. ActualDrive/local raw and independent validation ZIPs verify.
 Not full15, no exact RNG resume or final interrupted LION state proof. Same r8
-monitor63286/69569 now runs Cell4 (started10:08:35); Cells5–10/v7 CPUproof and
+monitor63286/69569 runs Cell8; Cells4–7 exact/native markers verify.
+Partial setup evidence118027bytes SHA f0d83589…65c020 passes actualDrive/local
+roundtrip. Cells9–10/v7 CPUproof and
 any further research GPU phase remain gated. No new accuracy inference launched.
 
 [User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
@@ -273,3 +275,37 @@ SHA912a2113…08bb773. Complete Cells4–10 and strict v7 CPU proof before any
 research inference. Reassess remaining duration/scope and interruption/RNG
 strategy; obtain one concrete new approval if GPU phase exceeds60min. Completed
 CN/PN/source studies remain accepted and must not be rerun for artifact rescue.
+
+
+## 10:26 UTC — Setup Cells4–6 verified; PointNet++ running
+
+[Run/Code/Open] Cell4 exact marker10:19:14 and physicalprepare.complete pass;
+Cell5 EMD10:21:52/emd.complete and Cell6 Chamfer10:24:54/chamfer.complete pass.
+Each marker was checked through file service before the next cell. Same sole
+monitor69569 now runs exactCell7 from10:25:38. Public execution export through
+Cell4 matches exact wrapperSHA/no remote errors, auth URLs/state excluded.
+Whole setup evidence archive remains pending final10-cell verification.
+[Prepared remaining scope](gsd_multibackbone_dgcnn_recovery_plan_20261019.md)
+reuses13full corruptions, freshOcclusion+LiDAR seed0;65–90min/cap120,
+source/phase hashes and actual pure-command checks recorded. Prepared only;
+no approval activation, upload or researchGPU run. Complete setup/CPUproof and
+immutable readiness handoff before the one >60min approval request.
+
+
+## 10:33 UTC — Native setup partial evidence persisted
+
+[Run/Artifact/Open] PointNet++ Cell7 completes10:29:35UTC; physical
+pointnet2.complete verified before Cell8 starts10:30:07. Same69569 now builds
+PVCNN (5/14objects observed10:32:26), no researchGPU inference.
+Cells4–7 exact execution events/source hashes and marker observations, plus
+nested mount/earlier setup evidence, sealed in118027byte immutable ZIP SHA256
+`f0d83589a168bc70cebef273d4531410acf8597bbd0eaa601fab53cffb65c020`,
+local `result/preparation/cli_multibackbone_recovery_20261019_r8/r8_partial_setup_cells4to7_20261019_v1.zip`,
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/r8_partial_setup_cells4to7_20261019_v1.zip`.
+CLI file-service upload during the active cell launches no extra kernel cell;
+fresh actualDrive download/SHA/CRC/all7manifest entries pass. Status remains
+partial setup; final native binaries/complete environment proof awaitCell10.
+Prepared final collector reuses the earlier setup audit flow, adds native
+markers/three compiled.so bytes, exactpublicCLIevents, manifest and Drivebackup;
+SHAfccfd27c…534f64, uploaded toVM, not executed. Remaining DGCNN scope is
+prepared only (scopeSHA ccb2e6eb…e4b562), no approval activation or GPU run.

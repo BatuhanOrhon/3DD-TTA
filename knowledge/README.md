@@ -4,8 +4,9 @@ Occlusion910/2468 recovered through r8. Raw147769635byte ZIP SHAe4115951…f48bc
 and independent13512byte validationZIP SHA84aca14c…f8bf35 pass actualDrive/local
 roundtrip, manifests, logits/IDs/labels/source binding and frozen-classifier
 checks. No full15 or exact RNG resume; interrupted final LION state proof is
-missing. r8 A100/High-RAM remains live, monitor63286/69569 runs exact Cell4;
-Cells5–10/v7 CPUproof and remaining GPU phase still pending. No new research
+missing. r8 A100/High-RAM remains live, monitor63286/69569 runs exact Cell8;
+Cells4–7/native markers and partial setup Drive/local archive verify. Cells9–10/v7 CPUproof and remaining GPU phase
+still pending. No new research
 inference. [Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
 
 **[Run/Open] 2026-10-19 — r7 unexpectedly lost during DGCNN GSD:**

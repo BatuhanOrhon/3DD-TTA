@@ -5385,3 +5385,20 @@ live before local-client cleanup/retry; second passed, no inference repeated.
 Decision: retain partial evidence, complete fresh setup (Cell4 running10:08:35),
 then CPUproof and concrete remaining-phase/RNG plan/approval if>60min. Existing
 source/CNPN comparisons unchanged; no new researchGPU or runtime shutdown.
+
+
+## 2026-10-19 10:33 UTC — Setup Cells4–7 evidence Drive/local verified
+
+[Run/Artifact/Code/Open] Cells4prepare/5EMD/6Chamfer/7PointNet++ each pass
+exact wrapper and physical phase marker before advancement. Same63286/69569
+now runsCell8/PVCNN, no researchGPU. Partial setup ZIP118027bytes SHA256
+f0d83589a168bc70cebef273d4531410acf8597bbd0eaa601fab53cffb65c020
+passes actualDrive/file-service upload/freshdownload/CRC/all identities.
+Paths and exact times in current recovery note. Includes exact4execution
+events/sources and nested prior evidence, no consentURLs/state. Fullsetup/
+compiled binaries/proof pending finalCell10 collector. Prepared DGCNN scope
+reuses13full rows, newOcclusion/LiDAR RNG boundary,59386new full-eval events
+plus408smoke; estimate65–90min/cap120. Scope/controllers parse and actual pure
+command assertions pass; no user run approval or inference launch. Complete
+setup/strictCPUproof/immutable readiness before requesting the one >60min
+approval. Existing accepted results/partial rescue remain unchanged.

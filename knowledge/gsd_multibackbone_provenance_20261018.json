@@ -2188,7 +2188,7 @@
       "hardware": "A100 High-RAM",
       "monitor_pid": 63286,
       "monitor_exec_session": 69569,
-      "monitor_state": "running_sole_owner_setup_cell4",
+      "monitor_state": "running_sole_owner_setup_cell8",
       "drive_cli_exec_session": null,
       "drive_status": "recovery_raw_and_analysis_drive_local_verified",
       "partial_setup_evidence": {
@@ -2270,7 +2270,26 @@
         "analysis_sha256": "84aca14c813280630740c80d6245ec7f226b2560ffcacbc81432f60f36f8bf35",
         "analysis_drive_path": "MyDrive/thesis/result/preparation/gsd_multibackbone_study/r7_recovery_validation_20261019T100814Z/r7_partial_validation_20261019_v1.zip"
       },
-      "cell4_status": "running_20261019T100835Z"
+      "cell4_status": "complete_exact_wrapper_and_prepare_marker",
+      "cell5_status": "complete_exact_wrapper_and_emd_marker",
+      "cell6_status": "complete_exact_wrapper_and_chamfer_marker",
+      "cell7_status": "complete_exact_wrapper_and_pointnet2_marker",
+      "remaining_plan_note": "knowledge/gsd_multibackbone_dgcnn_recovery_plan_20261019.md",
+      "remaining_plan_status": "prepared_not_approved_not_launched",
+      "remaining_scope_sha256": "ccb2e6ebad63beb1766182f25a1e00665edf4f701bb3a205f723047a9fe4b562",
+      "cell8_status": "running_20261019T103007Z",
+      "partial_native_setup_archive": {
+        "bytes": 118027,
+        "sha256": "f0d83589a168bc70cebef273d4531410acf8597bbd0eaa601fab53cffb65c020",
+        "local_path": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_partial_setup_cells4to7_20261019_v1.zip",
+        "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/r8_partial_setup_cells4to7_20261019_v1.zip",
+        "source_events": 4,
+        "full_setup_complete": false,
+        "local_roundtrip": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_partial_setup_cells4to7_20261019_v1_drive_roundtrip.zip",
+        "drive_local_sha_verified": true,
+        "crc": "passed",
+        "all_member_hashes": "passed"
+      }
     }
   }
 }
