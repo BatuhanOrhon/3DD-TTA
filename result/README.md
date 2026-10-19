@@ -1,3 +1,15 @@
+## Three-backbone matched matrix — completed2026-10-19
+
+[Run/Artifact] All six dataset/backbone cases now cover source, original3DD
+and GSD-inspired terminal (18accuracy rows). LastDGCNN phase50671new events
+completed45.44min; all1527batch/32corruption/3final physicalDrive receipts and
+raw/analysis Drive-local SHA agree. ModelNetDGC GSD uses explicit13+2
+complete-corruption composition; old13 finalLION-state/RNG proof is absent.
+Exact derived CSVs: `preparation/dgcnn_residual_20261019/complete_matrix/`;
+accepted1105309byte analysis/receipt binder `final_acceptance_drive_roundtrip.zip`
+in the same preparation root, SHA227af658…1ead693f.
+[Full matrix and reproducibility limits](../knowledge/gsd_multibackbone_dgcnn_residual_20261019.md).
+
 ## Scan four-head GSD trajectory selection — accepted2026-10-19
 
 [Run/Artifact] ScanObjectNN-C main_split581/all15/s5/seed0, CurveNet,

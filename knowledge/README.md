@@ -1,3 +1,16 @@
+**[Run/Artifact] 2026-10-19 18:33UTC — requested multibackbone matrix complete:**
+Remaining DGCNN originals accepted65.586170% ModelNet/36.442915% Scan;
+ModelNetGSD13+2composite63.833063%, ScanGSDterminal36.075731%. Six cases,
+18source/original/GSD accuracy rows independently joined; all411615method-role
+predictions match own checkpoint/labels/IDs. GSDterminal beloworiginal6/6,
+abovesource5/6 inseed0; Scanprobmean beats original forCN/DGC, notPN.
+New3jobs50671events/1527batches completed45.44min. ActualDrive/local rawZIPs
+and1105309byte acceptedreceipt/analysis binder SHA227af658…1ead693f verify.
+Old13 ModelNet GSD finalLION/RNG limitation remains explicit in composite.
+No missing requested GPU cases remain; final report backup/lifecycle cleanup
+is being finalized under the user's earlier conditional shutdown instruction.
+[Complete values, provenance and limits](gsd_multibackbone_dgcnn_residual_20261019.md).
+
 **[Run/Artifact/Open] 2026-10-19 18:25UTC — DGCNN ModelNet original accepted:**
 Original65.586170%, source58.797947%, qualified GSDcomposite63.833063%:
 GSD is1.753106pp below original in seed0.37020indexed predictions/1170batches,

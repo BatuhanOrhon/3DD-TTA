@@ -5655,3 +5655,29 @@ Raw18629467bytes SHAf6339944…943e698e actualDrive/local; immutable11156byte
 analysis SHA6154f546…d25c3738 passes allmember andactualDrive roundtrip.
 Same r9 lastScanoriginal started18:24:12UTC; one3600s cap includes allthree.
 [Paths, protocols and acceptance](gsd_multibackbone_dgcnn_residual_20261019.md).
+
+
+### 2026-10-19 18:33UTC — all remaining DGCNN tests and six-case matrix accepted
+
+[Run/Artifact/Inference] Three new jobs50671events/1527batches complete in
+45.441790min (wholecap3600s). New Scanoriginal8715events36.442915%, source
+32.782559%, GSDterminal36.075731%: GSD-original-0.367183pp. MNoriginal
+65.586170% vsqualifiedGSD13+2composite63.833063% (-1.753106pp), source58.797947%.
+New Scanraw7006542bytes SHAbe908813…8d7674139 actualDrive/local verified.
+Allfrozenstates/source/native/DDIM/logits/IDs/labels/RNG/CSV/NPZ checks pass.
+Complete six-case/18accuracy matrix recomputed from411615joinedmethod-role
+events. GSDterminal beloworiginal6/6, abovesource5/6; fixed Scanprobabilitymean
+beats original forCurveNet+1.239243pp andDGCNN+0.883534pp, remains below for
+PointNeXt-2.868617pp. Single seed/whole-policy only; no spectral attribution.
+Old13 MN GSD lack finalLION/RNGresume proof; composite explicitly labelled.
+
+Phase38057byte evidence SHA87201e96…8df05f3 andfinal1105309byte accepted
+analysis/physicalreceipts binder SHA227af658…1ead693f pass actualDrive/local
+andallnestedmembers;1527batch/32corruption/3final receipts preserved.
+Local `result/preparation/dgcnn_residual_20261019/final_acceptance_drive_roundtrip.zip`;
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/dgcnn_residual3_accepted_20261019T183309Z/`.
+[Exact tables/paths/protocol/limits](gsd_multibackbone_dgcnn_residual_20261019.md).
+Decision: requested missing tests complete; no new GPU studies. Final report
+backup then lifecycle cleanup follows the user's conditional close instruction.
+Repeated seeds, isolated controls and exact paper checkpoint reproduction
+remain distinct unexecuted research questions, not missing requested cases.

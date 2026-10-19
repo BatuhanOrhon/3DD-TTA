@@ -1,5 +1,15 @@
 # Matched source, original 3DD-TTA and GSD comparison — 2026-10-19
 
+**18:33UTC final amendment [Run]:** all six matched cases are now covered.
+New DGCNN originals65.586170% ModelNet/36.442915% Scan; qualifiedModelNet GSD
+composite63.833063% andScan terminal36.075731%. Full source/original/GSD
+matrix has18accuracy rows. GSDterminal below original6/6 andabove source5/6
+for seed0. Scanprobabilitymean readouts beat original forCurveNet+1.239243pp
+andDGCNN+0.883534pp; PointNeXt remains-2.868617pp. Old13 ModelNetDGC GSD
+finalLION/RNG limits persist; no isolated spectral/paper reproduction claim.
+[Complete matrix, immutable evidence and limitations](gsd_multibackbone_dgcnn_residual_20261019.md).
+Historical pending/running statements below are superseded by this amendment.
+
 **18:25UTC amendment [Run]:** DGCNN ModelNet original65.586170% accepted;
 GSDcomposite63.833063% is1.753106pp lower. Only ScanoriginalDGCNN remains
 unfilled/running. [Latest source/state/raw acceptance](gsd_multibackbone_dgcnn_residual_20261019.md).
@@ -31,7 +41,7 @@ checkpoints, not established paper reproductions. Scan uses581 main_split.
 | ModelNet40-C | DGCNN | 58.7979 | 65.5862 | 63.8331 (13+2 composite) | -1.7531 |
 | ScanObjectNN-C | CurveNet | 52.0711 | 55.2381 | 55.0086 | -0.2295 |
 | ScanObjectNN-C | PointNeXt | 49.0878 | 49.6845 | 45.2094 | -4.4750 |
-| ScanObjectNN-C | DGCNN | 32.7826 | pending | 36.0757 (new trace) | pending |
+| ScanObjectNN-C | DGCNN | 32.7826 | 36.4429 | 36.0757 (new trace) | -0.3672 |
 
 ## ModelNet original3DD accepted evidence
 

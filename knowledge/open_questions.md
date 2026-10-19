@@ -79,16 +79,19 @@ See [trajectory study](gsd_scan_trajectory_selection_20261019.md).
   original by1.8855/1.8206pp;74040predictions and immutable matched analysis verify.
 - [x] Scan originalCNPN accepted55.2381/49.6845%; GSD is0.2295/4.4750pp
   below original. Combined91470 original predictions/4triplets verified.
-- [ ] Finish DGCNN GSD/original bothdatasets; full8newrows/182940predictions
-  and6whole-policy triplets remain incomplete. r7 vanished around08:05UTC
+- [x] Finish DGCNN GSD/original bothdatasets; full8newrows/182940predictions
+  and6whole-policy triplets now have full coverage (18:33UTC acceptance),
+  with the qualified13+2ModelNetGSD composite. Historical interruption: r7
+  vanished around08:05UTC
   after13 ModelNet GSD corruptions plus Occlusion490/2468 were observed.
   Drive shards recovered/verified13full+Occlusion910; reassess whole
   remaining GPU phase against approved4h cap; no exact RNG resume is available.
   DGCNN remains in scope; preserve its weaker source caveat. New Scan GSD
   full15 terminal36.075731% is accepted16:07UTC through the trajectory study;
   ModelNet GSD13+2 composite63.833063% accepted17:57UTC and ModelNet
-  original65.586170% accepted18:25UTC. Only Scan originalDGCNN remains
-  missing/running. No exact RNG resume/oldfinalLION proof for old13 GSD.
+  original65.586170% accepted18:25UTC; Scanoriginal36.442915% accepted
+  18:33UTC. No requested missing case remains. No exact RNGresume/oldfinal
+  LION proof for the old13 GSD; keep the composite qualifier.
 - [x] Preserve unexpected r7-loss evidence locally:62808byte immutable ZIP,
   CRC/member hashes verified. No runtime teardown requested; sole monitorLOST.
 - [x] Recover/verify physical r7 partial DGCNN evidence:13full corruptions plus

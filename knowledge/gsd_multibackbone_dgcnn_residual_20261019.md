@@ -144,3 +144,71 @@ running. Final physical all-receipt audit follows that last job.
 
 Scan original3DD started18:24:12UTC on same r9; no additionalGPU phase,
 checkpoint changes or repeats. New two-job elapsed2285.628s/3600s cap.
+
+
+## Final residual acceptance — 18:33UTC
+
+[Run/Artifact] All three requested jobs completed. Scan original3DD job
+18:24:12–18:31:33UTC,440.879817s (7.347997min),285batches/8715predictions:
+accuracy36.442915%, ownsource32.782559% (+3.660356pp). Its matched GSD terminal
+36.075731% is0.367183pp lower; GSD corrects635original errors and harms667
+correct events (net-32), improves5/worsens10corruptions. ModelNet GSD versus
+original corrects2460/harms3109 (net-649), improves4/worsens11corruptions.
+Whole-flow single-seed comparison only; neither case isolates spectral effects.
+
+Final new Scan raw `result/scanobjectnn_c/3dd_original/20261019-182414_dgcnn-seed0.zip`,
+7006542bytes SHA
+`be908813ec640822f1a9b28b1bc26b153a18607c03bd3aab8cfc7338d7674139`;
+actual Drive same dataset/method/run ID `final.zip`, identical SHA/size.
+Prior two new raw paths/hashes above remain immutable.
+
+All3jobs50671new events/1527batches pass strict checkpoint/source/preprocessing,
+frozenclassifier/LION, IDs/labels/finite logits, originalDDIM5/35/alphaTrue,
+RNG/head geometry guards and standard CSV/aggregate/batch NPZ consistency.
+All six cases now join source/original/GSD by original IDs, labels and own
+checkpoint/preprocessing:18accuracy rows,411615method-role prediction events.
+Reused CN/PN12raw ZIPs independently reproduce all prior four-case values;
+newDGCNN ScanGSD uses its accepted separate trajectory terminal, not a rerun.
+
+| Dataset | Backbone | Source % | Original3DD % | GSD terminal % | GSD-original pp |
+|---|---|---:|---:|---:|---:|
+| modelnet40_c | CurveNet | 64.011345 | 67.071853 | 65.186386 | -1.885467 |
+| modelnet40_c | DGCNN | 58.797947 | 65.586170 | 63.833063* | -1.753106 |
+| modelnet40_c | PointNeXt | 65.831983 | 68.292815 | 66.472177 | -1.820637 |
+| scanobjectnn_c | CurveNet | 52.071142 | 55.238095 | 55.008606 | -0.229489 |
+| scanobjectnn_c | DGCNN | 32.782559 | 36.442915 | 36.075731 | -0.367183 |
+| scanobjectnn_c | PointNeXt | 49.087780 | 49.684452 | 45.209409 | -4.475043 |
+
+*ModelNet DGCNN GSD is13recovered+2fresh complete-corruption composition;
+old13 final interrupted LION state missing, no exact RNG resume. Preserve all
+raw attempts and this limitation; do not call it one uninterrupted run.
+
+GSD terminal is below original in all6cases and exceeds own source in5/6.
+Fixed Scan probability mean from the separately accepted same-run trace gives
+CurveNet56.477338% (+1.239243pp vsoriginal), DGCNN37.326449% (+0.883534pp),
+PointNeXt46.815835% (-2.868617pp). These are whole-policy separate-run
+comparisons; within-trace readout deltas use their own terminal. Point-MAE's
+trajectory study remains separate with no matched source/original main_split
+row. No additional seed/control or paper reproduction claim.
+
+Total new job wall2726.507419s=45.441790min, within expected49.8–58.8min and
+shared3600s cap. Native/setup/accepted smoke/ScanGSD/source/CNPN/trajectory
+runs were not repeated. Phase started17:46:07UTC, ended18:31:33UTC.
+
+Phase evidence38057bytes SHA
+`87201e964410b88afcdb4bef2b8544a278736325908480e2820864f308df05f3`;
+local `phase_evidence_drive_roundtrip.zip` in residual preparation; Drive
+`MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T174607Z_dgcnn_residual3/phase_evidence.zip`.
+Final analysis package29705bytes SHA
+`b87a4e392532836674aaf3e01998b48e2cfa9e18e3585050942f1bc0155ba0c4`.
+Accepted analysis+actual physical receipts1105309bytes SHA
+`227af6582cc8fa0371db71a261f3d6392e783a22e7e73b44804d7ec81ead693f`;
+local `result/preparation/dgcnn_residual_20261019/final_acceptance_drive_roundtrip.zip`;
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/dgcnn_residual3_accepted_20261019T183309Z/dgcnn_residual3_accepted_20261019T183309Z.zip`.
+Actual Drive/local roundtrip, every member and nested analysis manifest,1527
+batch/32corruption/3final physical receipts and all new raw ZIPs verify.
+Derived exact CSVs: `all3_analysis/` and `complete_matrix/` in residual root.
+
+Requested remaining GPU tests are complete. Follow the user's earlier
+conditional shutdown instruction after final report backup and verification;
+archive the actual lifecycle result separately, with no new research inference.
