@@ -1,5 +1,37 @@
 # Open Questions and Research Backlog
 
+## 2026-10-19 20:44 UTC — reconciled completion and future tests
+
+[Run] All requested recent cases are complete:18 source/original3DD/GSD
+accuracy rows for three backbones/two datasets and12 GSD-only Scan readout
+rows for four heads. ModelNet DGCNN GSD retains its13+2 composition qualifier.
+Earlier incomplete/running/monitor-alive statements below describe their dated
+stage; they do not reopen completed cases or identify an active runtime.
+
+- [x] Recheck server inventory: zero active sessions. Confirm no task CLI,
+  monitor, evaluation worker or `caffeinate`; known former task PIDs absent.
+  Preserve the pre-existing idle interactive shell with no child processes.
+- [x] Recheck23 local ZIP SHA/CRC/path identities and independently recalculate
+  all18 method and12 readout accuracies from90/180 per-corruption count rows.
+- [x] Consolidate final positive and negative findings, policy confounds,
+  same-trace limits, paper gaps, exact artifact identities and closed lifecycle.
+- [ ] Run the previously proposed same-flow spectral0/SCD1 control for the new
+  backbones, holding the GSD batch/horizon/scheduler/style and assets fixed.
+  Existing original3DD comparisons change the whole reconstruction policy.
+- [ ] Repeat a locked method/readout policy with seeds1/2 before claiming
+  repeatability; retain paired input/noise evidence and native nondeterminism.
+- [ ] Obtain exact GSDTTA checkpoint/protocol/corruption identities before
+  claiming paper reproduction. This is an asset gap, not a missing accepted run.
+
+[Decision] The first two unchecked experiments are future validation, not
+unfinished requested jobs. A full uninterrupted ModelNet DGCNN GSD rerun is
+optional provenance cleanup, not missing corruption coverage. Matched full
+Point-MAE Scan source/original rows, original3DD trajectory selection and
+measured online early stopping are outside this completed recent scope.
+No runtime is allocated for any of these follow-ups.
+
+[Detailed synthesis and fresh evidence](gsd_multibackbone_final_findings_20261019.md).
+
 ## 2026-10-19 - Final operational closure
 
 - [x] Complete all three residual DGCNN jobs and the18-row six-case matrix;

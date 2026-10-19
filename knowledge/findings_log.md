@@ -5696,3 +5696,67 @@ boundedREQUEST_TIMEOUT20 succeeded. No new runtime or research inference.
 Postclosure receipt is local/Git-recorded; allresearch data backed onDrive
 beforeteardown. User's pre-existing modified/untracked files remain untouched.
 [Final report/evidence and lifecycle record](gsd_multibackbone_dgcnn_residual_20261019.md).
+
+
+### 2026-10-19 20:44 UTC — fresh closure audit and consolidated final interpretation
+
+[User report/Run/Code] User requested verification that no Colab runtime or
+background terminal remains, then detailed knowledge consolidation. Bounded
+`REQUEST_TIMEOUT=20 colab sessions` returned exit0 and no active server
+sessions. Local inspection found no task Colab CLI, monitor, evaluation worker
+or host-awake process; former PIDs34633/63286/70119/83891/85667 are absent.
+One existing interactive zsh onttys001 has no child processes and was preserved.
+No runtime allocation, research run or process termination was needed.
+Audit base is `gsd-multibackbone-study@422cb3c7d3b8daeaac3877a26e303df84ac91c86`;
+executed research v7/v8 snapshots remain distinct from this local HEAD and the
+remote global `dev@a458cd4` checkout. Protected user edits are outside the batch.
+
+[Run] Revalidated23 local ZIPs against accepted SHA-256, CRC and safe-path
+records. Independently recomputed the18 method accuracies from90 corruption
+count rows and12 Scan readout accuracies from180 rows; all agree. No raw ZIP,
+sealed CSV or historical attempt was altered. The prior Scan readout CSV was
+sealed before DGCNN original finished and still has empty original fields;
+the new synthesis explicitly joins the later accepted original reference.
+
+[Inference] Final whole-policy results: original3DD exceeds own source6/6;
+GSD terminal exceeds source5/6 and loses to original6/6. Scan PointNeXt loses
+3.878371pp versus source and4.475043pp versus original. Scan probability mean
+improves own terminal by1.342513/1.457258/1.250717/1.560528pp for
+CurveNet/PointNeXt/DGCNN/Point-MAE; minimum entropy also improves all four.
+Against separate original runs, probability mean gives+1.239243pp CurveNet,
++0.883534pp DGCNN and−2.868617pp PointNeXt. These remain seed0 observations.
+No matched full Point-MAE Scan source/original row or online speedup exists
+in this study. Preserve new same-trace CN/PN terminals separately from their
+earlier terminal-only attempts.
+
+[Code/Inference/Open] The comparison changes batch, horizon, decoder style
+and DDIM final-alpha/cuDNN policy, so spectral causality is not established.
+Two previously recorded validation studies remain unexecuted: same-flow
+spectral0/SCD1 control and additional locked-policy seeds1/2. Exact GSDTTA
+checkpoint/protocol/corruption identity is a separate unresolved asset gap.
+ModelNet CurveNet source remains7.3687pp below the target despite its small
+Scan gap; Scan DGCNN clean68.6747% already exposes weak source performance.
+The earlier Point-MAE severity1 full13 profile and no-background diagnostic
+do not support a severity-only fix or establish a three-head severity sweep.
+ModelNet DGCNN GSD retains13+2 complete-corruption coverage, missing old13
+final LION state and no exact RNG continuation. No mandatory rerun is inferred
+from that disclosed provenance limit.
+
+[Run] Immutable fresh local audit:
+`result/preparation/multibackbone_final_audit_20261019T204359Z.zip`,11731bytes,
+SHA `f277f3d56e7219ce8c5cc2c2c178efb25a479356d0df143677a60a0677102000`.
+Contains server/process result,23 archive identities, protected-file hashes,
+count tables and manifest. Prior final report/accepted analyses were physically
+Drive/local verified before teardown; this new post-teardown audit checks
+local copies and has no fresh Drive upload. Documentation is preserved in Git
+without creating a VM solely for backup. No GPU duration estimate applies.
+
+Decision: current requested experimental scope and cleanup are complete;
+future research controls remain open without an active runtime. Added the
+[detailed synthesis](gsd_multibackbone_final_findings_20261019.md) and reconciled
+README, open questions, scope, reproduction diagnosis, method synthesis and
+the relevant guidance/comparison/trajectory/residual notes. Historical entries
+are explicitly superseded, not erased. Next proposed experiment, if requested,
+is the matched spectral-off control followed by seed replication. Changed
+assets, missing IDs/state/provenance or failed count/hash checks would falsify
+acceptance; seed/control outcomes may falsify broader benefit hypotheses.

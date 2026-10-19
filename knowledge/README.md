@@ -1,3 +1,16 @@
+**[Run/Inference/Open] 2026-10-19 20:44UTC — final synthesis and fresh closure audit:**
+Server inventory again confirms zero active Colab sessions; no task monitor,
+evaluation worker or host-awake process remains. The existing interactive
+terminal has no child work and is preserved. Fresh local checks validate23 ZIP
+SHA/CRC/path identities,18 method accuracy values from90 corruption rows and
+12 Scan readout values from180 rows. No new GPU run or allocation occurred.
+[Final findings and handoff](gsd_multibackbone_final_findings_20261019.md)
+consolidates complete tables, per-corruption errors, source/paper gaps,
+same-trace versus separate-run limits, source/Drive provenance and the two
+unexecuted follow-ups: same-flow spectral-off control and seed replication.
+All earlier pending/running/live-session entries below are dated history;
+use this synthesis and the18:40 closure record for current operational state.
+
 **[Run/Artifact] 2026-10-19 18:40UTC — complete; Colab and task terminals closed:**
 All requested source/original/GSD cases for three backbones and bothdatasets
 are covered (18accuracy rows; qualified13+2ModelNetDGC GSD composite).

@@ -1,5 +1,16 @@
 # Matched source, original 3DD-TTA and GSD comparison — 2026-10-19
 
+**20:44UTC final reconciliation [Run/Inference/Open]:** all requested cases
+remain complete and all runtimes/task workers are closed. Fresh local SHA/CRC
+checks and90-row count recomputation reproduce the18 method accuracy values.
+The [final synthesis](gsd_multibackbone_final_findings_20261019.md) adds all
+source-relative deltas, per-corruption corrected/harmed counts, four-head Scan
+readouts and the subsequent DGCNN original reference. It preserves the
+ModelNet13+2 qualifier and old CN/PN terminals, distinguishes same-run readout
+effects from separate whole-policy comparisons, and records spectral-off and
+seed replication as unexecuted. Historical runtime-loss/pending entries below
+are superseded operationally, not deleted or rewritten as completed runs.
+
 **18:33UTC final amendment [Run]:** all six matched cases are now covered.
 New DGCNN originals65.586170% ModelNet/36.442915% Scan; qualifiedModelNet GSD
 composite63.833063% andScan terminal36.075731%. Full source/original/GSD

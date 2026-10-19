@@ -1,5 +1,36 @@
 # Reproduction Gap: Current Diagnosis
 
+## Current amendment — 2026-10-19
+
+[Run/Inference/Open] The dated September diagnosis below is retained as
+history. The multibackbone study now has complete source/original3DD/GSD
+coverage for six dataset/backbone cases (18 accuracy rows, seed0/severity5),
+plus four-head GSD-only Scan readouts. Exact GSDTTA reproduction is still
+unresolved: published alternative weights, training splits/preprocessing and
+corruption identities are not the authors' verified experimental assets.
+ModelNet CurveNet is7.3687pp below its paper source target, despite the small
+Scan CurveNet gap; numerical closeness for selected rows is not parity.
+Scan DGCNN clean68.6747% and corrupted32.7826% already indicate weakness before
+adaptation. Strict loads, labels and split membership pass; no single cause
+has been identified for the paper deficits.
+
+[Run/Inference] The earlier Point-MAE Scan severity diagnostic found severity1
+Gaussian60.59% close to reported59.0%, but its complete13-corruption mean49.28%
+remained below the corresponding reported69.0%. No-background only partly
+closed that Gaussian gap. Thus a global severity swap is not an established
+explanation; those Point-MAE tests are also not a three-backbone severity sweep.
+Continue to report main_split581/severity5 and exact checkpoint provenance.
+
+[Inference/Open] GSD terminal is below original3DD in all six current cases;
+Scan probability mean exceeds original for CurveNet/DGCNN, not PointNeXt.
+The flows differ in batch, horizons, decoder and scheduler, so none of these
+differences isolates spectral guidance. Same-flow spectral0 controls and seed
+replication remain unexecuted. ModelNet DGCNN GSD has full coverage via13+2
+attempts but lacks the old13 final LION state/RNG continuation proof.
+[Final tables, provenance, limitations and falsifiers](gsd_multibackbone_final_findings_20261019.md);
+[source discrepancy audit](gsd_multibackbone_source_results_20261018.md);
+[severity evidence](colab_scanobjectnn_severity5_20261017.md).
+
 [Code] 2026-09-23: GSD-only implementation is now authorized on a separate
 branch; see [the current audit/design](gsd_integration_20260922.md).
 Baseline `tta.py`, model, dataset, preprocessing, FPS and control equations

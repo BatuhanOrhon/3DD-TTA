@@ -1,5 +1,31 @@
 # Method Synthesis and Hypotheses
 
+## Multibackbone and trajectory evidence — 2026-10-19
+
+[Run/Inference] Fixed published alternatives now have complete all15 seed0
+source/original3DD/GSD terminal coverage on both datasets. Original improves
+its source in6/6 cases; GSD terminal improves source in5/6 but loses to
+original in6/6. Scan PointNeXt GSD terminal loses3.878371pp versus source and
+4.475043pp versus original. The transferred legacy Point-MAE guidance settings
+are not established optima for these heads. This is evidence of heterogeneous
+transfer, not a universal spectral benefit or a reproduced GSDTTA method.
+
+[Run/Inference] Fixed minimum entropy and equal probability mean over three
+clean probes plus terminal improve all four own Scan terminals in seed0.
+Mean gains are1.342513/1.457258/1.250717/1.560528pp for CurveNet/PointNeXt/
+DGCNN/Point-MAE. Compared with separate original3DD runs, mean gives
++1.239243pp CurveNet,+0.883534pp DGCNN and−2.868617pp PointNeXt. These are
+distinct comparisons: same-trajectory readout benefit versus whole-policy
+reconstruction differences. No full matched Point-MAE Scan source/original
+row, seed-stability claim or measured early-stop speedup is supplied.
+
+[Open/Decision] The original and GSD flows change batch32/70, horizons5–35/
+10–30, decoder style and DDIM final alpha. Isolate spectral guidance with a
+same-flow spectral0/SCD1 control before attributing accuracy to that component;
+then replicate the locked policy across seeds. Neither test was run in this
+study. Test labels were not used for inference or a new hyperparameter search.
+[Detailed final findings and evidence](gsd_multibackbone_final_findings_20261019.md).
+
 ## Unguided versus smooth-only - 2026-10-04
 
 [Run/Inference] All15/seeds0-2 unguided61.2021% versus fixed beta .5,

@@ -2,7 +2,12 @@
 
 Status: **complete and independently accepted** for the selected four-head Scan
 GSD-only trajectory study. Historical preparation/running entries are retained.
-Separate DGCNN original3DD/ModelNet completion remains open.
+Separate DGCNN original3DD/ModelNet completion was subsequently accepted at
+18:33UTC; r9 and task monitors were closed at18:40UTC. A20:44UTC server/process
+recheck confirms no active Colab session or task background worker. Earlier
+pending/live-session paragraphs below are historical, superseded by the
+[final synthesis](gsd_multibackbone_final_findings_20261019.md) and
+[residual acceptance](gsd_multibackbone_dgcnn_residual_20261019.md).
 
 The user selected **only the GSD-inspired guidance pipeline** for this study.
 Evaluate CurveNet, PointNeXt, DGCNN and Point-MAE on severity5, seed0,
@@ -305,3 +310,27 @@ The same `tta-multibackbone-dgcnn-a100-r9-20261019` session remains preserved;
 no stop/release/teardown was issued. Monitor70119/local session63241 remains
 sole execution owner. Bounded host awake assertion PID79381/session29840
 expires7200seconds after15:38UTC; managed Colab lifetime is not guaranteed.
+
+## Final cross-study interpretation and closure — 20:44 UTC
+
+[Run] The subsequently accepted Scan DGCNN original3DD row is36.442915%.
+The existing same-run GSD minimum-entropy37.131383% and probability-mean
+37.326449% therefore exceed that separate original run by0.688468pp and
+0.883534pp respectively. No trajectory was rerun to obtain these differences.
+The historical `matched_readout_comparison.csv` was sealed before the DGCNN
+original completed and contains blank original fields for that head; preserve
+that artifact. The final synthesis joins its accepted trace with the later
+original result explicitly rather than silently modifying the old CSV.
+
+[Inference] Probability mean exceeds original3DD for CurveNet and DGCNN but
+remains below it for PointNeXt. Both fixed readouts improve all four own
+terminals in seed0; this does not isolate spectral guidance, prove repeatable
+gains or supply missing full Point-MAE source/original Scan rows. Preserve the
+new CN/PN terminal values solely as the comparator for their same-run readouts.
+
+[Run/Open] Fresh local count-based verification reproduces all12 policy rows
+from180 corruption rows. The accepted659325byte binder retains its recorded
+SHA. Server inventory is empty, all task monitors/evaluation/host-awake workers
+are absent, and no extra trajectory or seed test was launched. Same-flow
+spectral-off controls and additional seeds remain unexecuted future studies.
+[Detailed findings, evidence and remaining gates](gsd_multibackbone_final_findings_20261019.md).

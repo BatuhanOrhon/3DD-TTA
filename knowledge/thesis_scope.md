@@ -1,5 +1,22 @@
 # Thesis Scope and Research Questions
 
+## Current empirical amendment — 2026-10-19
+
+[User report/Run] The requested multibackbone study and GSD-only four-head
+Scan readout study are complete. All Colab runtimes and task background workers
+are closed; fresh20:44UTC inventory confirms that state. The older empirical
+snapshot and candidate plans below describe their original dates and are not
+the current result inventory. See the
+[final synthesis](gsd_multibackbone_final_findings_20261019.md).
+
+[Inference/Open] There is no universal terminal GSD improvement over original:
+GSD loses all six whole-policy comparisons. Scan probability mean exceeds
+original for CurveNet and DGCNN but remains below it for PointNeXt. Both
+readouts improve all four own terminals for seed0 only. Additional seeds,
+same-flow spectral-off attribution and exact-paper assets remain open; the
+new backbone settings are transferred legacy values, not proven optima.
+This documentation/closure task does not launch those follow-up studies.
+
 ## Local/style composition planning request - 2026-10-04
 
 [User report/Decision] The user requested assessment plus an implementation

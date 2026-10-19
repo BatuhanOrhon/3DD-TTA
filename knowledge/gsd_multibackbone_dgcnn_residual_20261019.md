@@ -1,5 +1,15 @@
 # DGCNN residual three-job phase — 2026-10-19
 
+**Current status — 20:44UTC [Run]:** all three jobs and the18-row matrix
+remain accepted, with the stated13+2 ModelNet GSD limitation. Runtime cleanup
+completed18:40UTC; a fresh bounded server inventory again finds zero active
+sessions and no task monitor, evaluation or host-awake process. Fresh local
+verification passes23 ZIP SHA/CRC/path checks and all count-based matrix and
+trajectory recomputations. No new inference, allocation or process shutdown
+was necessary. Historical submitted/running text below is superseded by the
+final acceptance/cleanup sections and
+[detailed final synthesis](gsd_multibackbone_final_findings_20261019.md).
+
 [User report/Code/Open] User: “Hala canlıysa kalan testleri de çalıştırabilirsin”.
 Same live r9 is reused; no rebuild or duplicate completed ScanGSD/source/CNPN/
 trajectory evaluation. The earlier four-job59386-event proposal is superseded

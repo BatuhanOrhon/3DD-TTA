@@ -1,5 +1,15 @@
 # Two-backbone guidance results — 2026-10-18 UTC / 2026-10-19 local
 
+**2026-10-19 20:44UTC superseding status [Run/Inference/Open]:** this note
+preserves the original two-head GSD attempts. Original3DD and subsequent DGCNN
+GSD/original cases are now complete; DGCNN is no longer parked. All runtimes
+and task workers are closed. The later Scan trajectory experiment has distinct
+CN/PN terminals and must not overwrite the values below. See the
+[final synthesis](gsd_multibackbone_final_findings_20261019.md) for18 method
+values,12 readout values, updated comparisons and immutable evidence. The
+same-flow spectral0/SCD1 arm and additional seeds remain unexecuted; the
+historical next-study/live-r7 statements below are superseded accordingly.
+
 [Run] Both datasets full15 complete and independently verified on protected r7.
 These are **GSD-inspired latent spectral guidance + <backbone>**, using published
 alternative checkpoints. Exact GSDTTA checkpoint/protocol equivalence remains
