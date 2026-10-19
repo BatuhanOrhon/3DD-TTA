@@ -1,3 +1,7 @@
+**12:33UTC update [Run/Open]:** r9 Drive mount/expected directories and Cell3
+receipt verify; same70119/63241 resumed. Cell4 running; no new accuracy.
+Previous consent-waiting headers below are superseded.
+
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
 **Current11:35UTC [Run/Artifact/Open]:** r8 unexpectedly disappeared (first
@@ -411,3 +415,33 @@ No new GPU inference or remaining-phase approval. Session retained; accepted
 32994partial predictions and prior CN/PN results remain Drive/local verified.
 Next: user completes fresh r9 consent; submit Enter only to94406, verify actual
 Drive path, resume70119, complete setup/pinned-nativeCPUproof and archive.
+
+
+## 12:33 UTC — r9 Drive/Cell3 accepted; Cell4 running
+
+[User report/Run/Code/Open] User confirmed fresh12:27UTC request; sameTTY83619
+propagated credentials12:28:27 and mounted Drive. Actual preparation directory
+listing verifies archived inputs. Same70119/63241 resumed; liveness passed,
+checkedCell3 exactmarker12:31:02 and local downloaded receipt pass. Its
+redundant mount call waited120s then reported already-mounted, as onr8.
+Python3.8.20, remote dev@a458cd46bba1288a3f41302548bc777700cbc7d4, wheel5717bytes
+SHA809a43da…586cd0. Remote base is separate from frozen research snapshot.
+Cell4 running from12:31:11; pinned Torch2.1.2+cu121 and KNN installation pass,
+remaining dependencies/toolchain/native phases pending. No new research inference.
+
+Local mount bundle19598bytes SHA256
+`da9491d0f363ece83359a17d81e6c83302bbf3a356eaab3b18805a43235231e6`
+under `result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_drive_mount_verified_v1.zip`
+passes CRC/all member identities and is uploaded with the r8 loss bundle.
+Actual Drive backup/local roundtrip pending boundedCPU backup phase afterCell4.
+Prior failedr8 CPU ZIP30128bytes SHA7f332f79…6765a4 is now downloaded fromactual
+Drive; size/SHA/CRC pass. No rerun or reinterpretation of that failed proof.
+
+Remaining scope/controllers rebound to r9 v2, unchanged scientific scope and
+runner/source/assets, Python3.8 AST/count/approval-guard assertions pass. Scope
+SHA70b19135…e8aa6c; smoke63ffe4ee…6d2e72; remaininge304d301…83da18.
+[Concrete updated plan](gsd_multibackbone_dgcnn_recovery_plan_20261019.md).
+Assets-only restore now also copies unchanged recoveredraw DriveZIP to the
+controller-required VM path with size/SHA checks; exactsource SHA91c680d6…27baef,
+not executed. Pinned native CPU restore927abd09…692a5e unchanged. No long-phase
+approval is created; finish setup, backup and CPUproof before scoped request.

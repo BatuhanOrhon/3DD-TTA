@@ -1,18 +1,10 @@
-**11:35UTC [Run/Open] Execution binding superseded:** r8 vanished after a
-native identity mismatch before successfulCPUproof; no new GPU evaluation.
-Current runtime is r9 (`tta-multibackbone-dgcnn-a100-r9-20261019`), setup in
-progress with monitor70119/63241 and bounded hostsleep prevention. Retain the
-scientific scope below, but rebind session/controller/scope hashes to r9 and
-restore the exact audited native binaries before proof/approval. The r8-specific
-controllers below are historical prepared artifacts and must not be launched.
-[Current state](gsd_multibackbone_recovery_20261019.md).
-
 # DGCNN continuation after r7 interruption — 2026-10-19
 
-**[Code/Run/Open] Prepared, not approved or launched.** All ten r8 setup cells
-and native GPU/data/checkpoint checks pass; complete evidence verifies on
-Drive/locally (SHA f1590dc9…be81f81). Unchanged v7 strict CPU proof is running
-and must pass before launch.
+**[Code/Run/Open] Current r9 v2 scope: prepared, not approved or launched.**
+r9 Drive and Cells1–3 verify; Cell4 is running. Cells4–10, exact pinned native
+restoration and unchanged v7 strict CPU proof must pass before launch.
+Previous r8 setup evidence remains valid for that lost VM only, not r9.
+The v1 r8 controllers remain historical local files and must not be launched.
 The latest user confirmations authorize Google Drive consent, not this new
 GPU phase. Existing CN/PN and six source-only evaluations are retained.
 
@@ -72,8 +64,8 @@ This remains a whole-policy comparison, not isolated spectral attribution.
 
 ## Executable identities and guards
 
-Runtime: `tta-multibackbone-recovery-a100-r8-20261019`, endpoint
-`gpu-a100-hm-kkb-ass1c0-xawnnd6jnsdw`, A100 High-RAM.
+Runtime: `tta-multibackbone-dgcnn-a100-r9-20261019`, endpoint
+`gpu-a100-hm-kkb-euw4a0-1h0qzqfkhb7tr`, A100 High-RAM.
 Actual base `dev@a458cd46bba1288a3f41302548bc777700cbc7d4` is separate from
 the frozen research source ZIP SHA256
 `f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf`.
@@ -93,17 +85,17 @@ The existing frozen DGCNN contract uses FPS1024 and the checkpoint's audited
 input layout, with no new normalization or augmentation. LION reconstruction
 returns2048 points before that same classifier preprocessing. Dataset file
 identities and original label maps remain bound by the unchanged asset manifest
-and must pass the actual r8 CPU proof before launch.
+and must pass the actual r9 CPU proof before launch.
 
 Prepared local files under
-`result/preparation/cli_multibackbone_recovery_20261019_r8/`:
+`result/preparation/cli_multibackbone_dgcnn_20261019_r9/`:
 
-- Scope `dgcnn_recovery_scope_20261019_r8_v1.json`, SHA256
-  `ccb2e6ebad63beb1766182f25a1e00665edf4f701bb3a205f723047a9fe4b562`.
-- Smoke controller `dgcnn_recovery_smoke_r8_v1.py`, SHA256
-  `a868485cc486f4be4ca202a0ee3eeef7328e38170f62707097ccaa1fdf14d580`.
-- Remaining controller `dgcnn_recovery_remaining_r8_v1.py`, SHA256
-  `7f6029a293df28ad6343148ba545068970c317a444114a0971210577fd476983`.
+- Scope `dgcnn_recovery_scope_20261019_r9_v2.json`, SHA256
+  `70b19135cae29f8b4b8a2dc0cdde4231f15c93c5ef86ae8562a3d2c160e8aa6c`.
+- Smoke controller `dgcnn_recovery_smoke_r9_v2.py`, SHA256
+  `63ffe4ee11f6de10befddc8eed4b5f6b12225135ab4f69f6b11672a7b36d2e72`.
+- Remaining controller `dgcnn_recovery_remaining_r9_v2.py`, SHA256
+  `e304d301ad7cc9086853443e68661c40bf5f33387a504c8f94f792055d83da18`.
 
 Python3.8 parsing and actual pure command-construction assertions pass: four
 DGCNN-only jobs, correct selected corruptions/seed/batch/data paths. No GPU
@@ -113,7 +105,7 @@ budget ledger, and reject missing or mismatched explicit approval.
 
 After approval, persist the exact scope at the study root and the user's reply
 in `dgcnn_recovery_approval_20261019.json`; never precreate an approved receipt.
-Submit the two reviewed controllers, in order, through monitor63286/69569,
+Submit the two reviewed controllers, in order, through monitor70119/63241,
 with their exact hashes and markers:
 `MULTIBACKBONE_DGCNN_RECOVERY_SMOKE_COMPLETE` and
 `MULTIBACKBONE_DGCNN_RECOVERY_REMAINING_COMPLETE`.
@@ -146,5 +138,5 @@ Stop advancement for setup/proof/hash/native mismatch, failed smoke, OOM,
 nonfinite tensors, changed frozen states, receipt failure or exhausted cap.
 On disconnect audit the same endpoint/process/files before another cell;
 preserve partial Drive receipts instead of duplicating work. No runtime
-restart or shutdown is part of this plan. Keep r8 until the user explicitly
+restart or shutdown is part of this plan. Keep r9 until the user explicitly
 declares the task complete and authorizes closure.

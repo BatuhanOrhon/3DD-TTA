@@ -1586,3 +1586,12 @@ with known fastrlock deferral only. Then restore unchanged v7 assets and exact
 four pinned native binaries, pass CPU proof, verify Drive/local immutable
 evidence, rebind remaining scope to r9 and request its single >60min GPU-phase
 approval. No new accuracy inference; r9 preserved. See recovery note.
+
+
+### 2026-10-19 12:33 UTC — r9 consent gate passed
+
+[Run/Open] Fresh r9 consent/mount/Cell3 verified; supersedes11:46consent gate.
+Same70119/63241 now runsCell4. Next validate preparemarker, archive mount/loss
+ZIPs onactualDrive and localroundtrip, finishCells5–10, restore unchangedv7
+assets/four pinned natives and passCPUproof. Then request single >60min
+approval for r9v2scope70b19135…e8aa6c. No new accuracy or teardown.

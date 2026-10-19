@@ -5447,3 +5447,14 @@ checkedCell3; previous r8 confirmations are historical. Same monitor70119/63241
 temporarily suspended for exclusive mount, to resume after verified mount.
 Consent nonce is not archived. Full handoff and immutable accepted evidence:
 [recovery note](gsd_multibackbone_recovery_20261019.md#1146-utc--r9-cell2-complete-new-drive-consent-pending).
+
+
+### 2026-10-19 12:33 UTC — r9 Drive/Cell3 verified
+
+[User report/Run/Open] Timely fresh consent83619 propagated and mountedDrive;
+actualdirectory listing and downloadedCell3 receipt verify. ExactCell3 marker
+12:31:02, Python3.8.20/dev@a458cd4/wheel809a43da…586cd0. Same70119/63241 runs
+Cell4; no new accuracy. Mount bundle19598bytes SHAda9491d0…5231e6 localvalid;
+Drive backup/roundtrip pending afterCell4. Prior failedr8 CPU rawZIP now
+Drive/local size/SHA/CRCverified. r9v2 remaining scope preparedonly, no GPU
+approval. [Full handoff](gsd_multibackbone_recovery_20261019.md#1233-utc--r9-drivecell3-accepted-cell4-running).
