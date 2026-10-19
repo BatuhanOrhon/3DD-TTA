@@ -1,5 +1,14 @@
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
+**Current08:52UTC [Run/Code/Open]:** Third official CLI mount request83156
+waits for fresh Google consent. VM auth deadline extended from120s to900s,
+local automation deadline1200s, without modifying installed CLI or account.
+Prior80871/40124 requests ended (local timeout / remote mountfailed).
+Local monitor63286/exec69569 remains suspended during the interactive command;
+resume after mount, then Cell3/recovery/remaining setup. All8unchanged-asset
+parts are uploaded; no DGCNN evidence recovered and no research GPU run yet.
+Earlier08:33 pending-request references below are historical, superseded here.
+
 [User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
 session and mounting Drive to retrieve the interrupted study's evidence. This
 is the selected route; browser Drive access was not retried. The user's UI
@@ -67,3 +76,40 @@ resume this exact local PID withSIGCONT, retain exec-session69569 and submit
 Cell3 through its control protocol. Do not start a second r8 monitor or cell
 while the interactive mount is pending. r8 remains allocated, waiting for
 Google consent; this is not an idle-runtime closure authorization.
+
+## Drive mount timeout diagnosis — 08:52 UTC
+
+[Code/Run/Open] Installed CLI automation uses600s, but installed Colab VM
+`drive.mount` has an independent120000ms `request_auth` timeout. First mount
+80871 reached local reply timeout after user confirmation. Second40124
+returned remoteValueError/mountfailed (CLIexit0 is not success). Sanitized
+DriveFS diagnostics show account-context auth failure08:38:49UTC before user
+confirmation around08:41UTC; this is consistent with the120s remote deadline.
+Physical Drive directory remained absent. No data was deleted or replaced.
+Two CLI consoles inspected only mounts/process names/redacted error categories,
+then detached; no notebook research cell or credential file was read.
+
+A scoped local wrapper calls the installed CLI's existing auth flow, overriding
+only this exact runtime/path to `drive.mount(...,timeout_ms=900000)` and local
+execution1200s. Scope self-test passes and CLI public automation history proves
+the third actual remote invocation contains900000ms. Installed CLI, OAuth
+account and project notebook sources remain unchanged. Current TTY83156 is
+waiting for the newest Google consent; older URLs do not complete this request.
+No consent URL/transient OAuth state is archived.
+
+Immutable local diagnosis ZIP12956bytes SHA256
+`1fb90f4db8a829637349b291de0134a49c919fa12055cbfcc6e29fd75b42f070`,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_timeout_evidence_v1.zip`;
+CRC/10members/all9member identities pass. Drive backup pending. Actual original
+local traceback is unavailable beyond tool output; remote mount error/public
+commands and installed module source are preserved. The timeout change is not
+claimed successful until the expected Drive path and Cell3 receipts verify.
+
+An unchanged full-v7 asset payload is prepared:247002524bytes SHA256
+`ce9c797ccacb4eeffcc0a2836c65109213c9c7920a40a5145ef598b2adac1333`,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_assets_v7_full.zip`.
+All622 declared file identities plus the exact manifest verify;623ZIPmembers
+and CRC pass. All8upload parts reached r8; assembly/deployment/CPUpreflight
+remain unexecuted. Asset manifest78cdb538…60f9 and source snapshotf82cf505…deed4cf
+are unchanged. Prepared `deploy_full_v7_r8.py` reuses the prior CPU-preflight
+flow with fresh full-asset restore and pinned native archive verification.

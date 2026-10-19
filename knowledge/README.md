@@ -2,10 +2,11 @@
 User explicitly authorizes a new Colab CLI session and Drive connection after
 the browser/UI permission mismatch. `tta-multibackbone-recovery-a100-r8-20261019`
 is A100/High-RAM; Cell1 passes, Cell2 reaches only the user-deferred fastrlock
-failure. Official Drive consent is waiting in CLI80871; no data recovered or
-research GPU inference yet. Partial setup ZIP50859bytes/SHA9b803b9f…cf38f35
-verifies locally; Drive copy pending. Resume suspended local monitor63286/
-exec69569 after mount, then Cell3/recovery and Cells4–10.
+failure. Two mount requests ended at local600s/remote120s deadlines;
+current CLI83156 extends VM auth to900s/local1200s and awaits fresh consent.
+No data recovered or research GPU inference yet. Partial setup and timeout
+ZIPs verify locally; Drive copy pending. All8unchanged-v7 asset parts uploaded.
+Resume suspended monitor63286/exec69569 after mount, then Cell3/recovery/Cells4–10.
 [Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
 
 **[Run/Open] 2026-10-19 — r7 unexpectedly lost during DGCNN GSD:**

@@ -2189,8 +2189,8 @@
       "monitor_pid": 63286,
       "monitor_exec_session": 69569,
       "monitor_state": "temporarily_suspended_during_interactive_drivemount",
-      "drive_cli_exec_session": 80871,
-      "drive_status": "awaiting_user_google_consent",
+      "drive_cli_exec_session": 83156,
+      "drive_status": "third_request_awaiting_consent_after_timeout_diagnosis",
       "partial_setup_evidence": {
         "status": "partial_setup_local_verified_drive_pending",
         "archive": {
@@ -2206,7 +2206,33 @@
         "research_gpu_launched": false
       },
       "research_gpu_launched": false,
-      "actual_remote_research_snapshot_deployed": false
+      "actual_remote_research_snapshot_deployed": false,
+      "remote_auth_timeout_ms": 900000,
+      "local_cli_timeout_seconds": 1200,
+      "timeout_evidence": {
+        "status": "local_verified_drive_pending",
+        "archive": {
+          "local_path": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_timeout_evidence_v1.zip",
+          "bytes": 12956,
+          "sha256": "1fb90f4db8a829637349b291de0134a49c919fa12055cbfcc6e29fd75b42f070"
+        },
+        "members": 10,
+        "utc": "2026-10-19T08:52:15.508412+00:00"
+      },
+      "full_asset_payload": {
+        "status": "prepared_not_deployed",
+        "archive": {
+          "local_path": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_assets_v7_full.zip",
+          "bytes": 247002524,
+          "sha256": "ce9c797ccacb4eeffcc0a2836c65109213c9c7920a40a5145ef598b2adac1333"
+        },
+        "members": 623,
+        "asset_manifest_sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9",
+        "source_snapshot_sha256": "f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf",
+        "source_bits_unchanged": true
+      },
+      "asset_upload_parts_complete": 8,
+      "physical_drive_mount_verified": false
     }
   }
 }

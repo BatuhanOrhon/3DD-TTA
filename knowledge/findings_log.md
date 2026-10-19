@@ -5269,3 +5269,23 @@ stop/release requested; old r7 monitor remainsLOST. Next: obtain consent,
 verify Cell3, recover/hash-bind r7 batch/corruption artifacts on CPU, backup/
 download/verify then Cells4–10. Full DGCNN rerun requires duration/cap review;
 accepted4CNPN original triplets remain unchanged. See current recovery note.
+
+## 2026-10-19 08:52 UTC — Independent remote Drive auth deadline diagnosed
+
+[Code/Run/Open] r8 first interactive mount80871 timed out locally (600s).
+Second40124 returned remoteValueError/mountfailed despiteCLIexit0 and user
+consent. Installed `google.colab.drive.mount` has an independent120s auth
+request deadline. DriveFS auth failure08:38:49UTC precedes user confirmation
+around08:41, consistent with that remote timeout. Expected Drive path absent;
+no artifact recovered. Read-only CLI console inspections detached normally.
+Scoped local helper preserves installed CLI/account and extends only this
+mount call toVM900s/local1200s; self-test and actual remote command verify.
+Third TTY83156 awaits fresh consent; monitor63286/69569 remains suspended to
+avoid concurrent notebook probes, resume after mount. No researchGPUforward.
+Diagnosis ZIP12956bytes SHA2561fb90f4db8a829637349b291de0134a49c919fa12055cbfcc6e29fd75b42f070,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_timeout_evidence_v1.zip`;
+CRC/10members/all identities pass; no OAuth state/URL included. Drive copy
+pending. Unchanged v7 full asset payload247002524bytes SHAce9c797c…ac1333,
+623members,8upload parts complete; not deployed or executed. Next action is
+finish current Google consent, Enter83156, verify filesystem/Cell3 then CPU
+recovery; do not infer successful mount from user consent or exit0 alone.
