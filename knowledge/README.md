@@ -1,3 +1,11 @@
+**[Run/Artifact/Open] 2026-10-19 18:25UTC — DGCNN ModelNet original accepted:**
+Original65.586170%, source58.797947%, qualified GSDcomposite63.833063%:
+GSD is1.753106pp below original in seed0.37020indexed predictions/1170batches,
+actual originalDDIM/frozenstates/RNG/source binding andDrive/local rawSHA pass.
+Raw18629467bytes SHAf6339944…943e698e; analysis11156bytes SHA6154f546…d25c3738.
+Only Scan originalDGCNN remains; running since18:24:12UTC in same r9/63241.
+[Active residual scope and immutable evidence](gsd_multibackbone_dgcnn_residual_20261019.md).
+
 **[Run/Artifact/Open] 2026-10-19 17:57UTC — DGCNN ModelNet GSD coverage complete:**
 Fresh Occlusion/LiDAR4936predictions plus verified old13corruptions compose
 37020events/all15 at63.833063%, source58.797947% (+5.035116pp). Two attempts,

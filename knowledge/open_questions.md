@@ -86,8 +86,9 @@ See [trajectory study](gsd_scan_trajectory_selection_20261019.md).
   remaining GPU phase against approved4h cap; no exact RNG resume is available.
   DGCNN remains in scope; preserve its weaker source caveat. New Scan GSD
   full15 terminal36.075731% is accepted16:07UTC through the trajectory study;
-  ModelNet GSD13+2 composite63.833063% also accepted17:57UTC; only both
-  originalDGCNN rows remain missing. No exact RNG resume/oldfinalLION proof.
+  ModelNet GSD13+2 composite63.833063% accepted17:57UTC and ModelNet
+  original65.586170% accepted18:25UTC. Only Scan originalDGCNN remains
+  missing/running. No exact RNG resume/oldfinalLION proof for old13 GSD.
 - [x] Preserve unexpected r7-loss evidence locally:62808byte immutable ZIP,
   CRC/member hashes verified. No runtime teardown requested; sole monitorLOST.
 - [x] Recover/verify physical r7 partial DGCNN evidence:13full corruptions plus

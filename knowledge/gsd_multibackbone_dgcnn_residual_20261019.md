@@ -114,3 +114,33 @@ continues; no concurrentexec or mutation of raw attempts.
 
 Second job ModelNet original3DD all15 started17:54:46UTC, followed by Scan
 original all15. Same source/config/budget; no new source or smoke runs.
+
+
+## ModelNet original3DD accepted — 18:25UTC
+
+[Run/Artifact] Second job17:54:46–18:24:12UTC,1766.376976s (29.439616min),
+1170batches/37020predictions. Accuracy65.586170%; matchedsource58.797947%
+(+6.788223pp). The qualified GSD composite63.833063% is1.753106pp below
+original; both exceed own source in this seed, with whole-policy/two-attempt
+limits unchanged. No isolated spectral attribution.
+
+Raw `result/modelnet40_c/3dd_original/20261019-175448_dgcnn-seed0.zip`,
+18629467bytes SHA
+`f63399443e978a8ff673f8e6b0fffc840de963a457b0e28fae8495ff943e698e`.
+Actual Drive same dataset/method/run ID `final.zip` matches local raw bytes.
+Independent validation checks all15 original-ID/label/logit aggregates and
+batch shards, strict same checkpoint/source/preprocessing, frozenclassifier/
+LION, actual originalDDIM100/full5-or35/set_alpha_to_oneTrue, headRNG guards,
+source-matched corrected/harmed counts and exactCSV/NPZ agreement.
+
+Immutable partial-phase analysis11156bytes SHA
+`6154f546ba85f2b3bcb3a89cf7b26418a8286542ee5ed0e6200b8e74d25c3738`;
+local `modelnet_dgcnn_original_accepted_20261019T182520Z.zip` and
+`modelnet_original_acceptance_drive_roundtrip.zip` in residual preparation;
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/modelnet_dgcnn_original_accepted_20261019T182520Z.zip`.
+Actual Drive/local SHA/CRC and every member verify. This phase snapshot
+contains both complete jobs (41956new events); final Scan original remains
+running. Final physical all-receipt audit follows that last job.
+
+Scan original3DD started18:24:12UTC on same r9; no additionalGPU phase,
+checkpoint changes or repeats. New two-job elapsed2285.628s/3600s cap.

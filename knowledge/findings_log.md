@@ -5641,3 +5641,17 @@ Derived5487419byte bundle SHA6298278e…a47cd4ea passes actualDrive/local and
 allmembers; all15 arrays/provenance/limits retained separately from raw.
 Second job ModelNet original3DD started17:54:46UTC; finalScanoriginal follows.
 No original-vs-GSD conclusion yet. [Scope, rawpaths and evidence](gsd_multibackbone_dgcnn_residual_20261019.md).
+
+
+### 2026-10-19 18:25UTC — DGCNN ModelNet original3DD accepted; Scan last job running
+
+[Run/Artifact/Inference] ModelNet originalDGCNN37020predictions/1170batches
+completed29.439616min. Accuracy65.586170%, ownsource58.797947% (+6.788223pp),
+qualifiedGSD13+2composite63.833063% (GSD-original-1.753106pp). Samecheckpoint/
+preprocessing/data/source binding, strict frozenclassifier/LION, exactoriginal
+DDIM5/35/finalalphaTrue and allindexedCSV/NPZ/logit/RNG checks pass. No paper
+reproduction or isolatedspectral claim; old13 GSD finalLION/RNG limits persist.
+Raw18629467bytes SHAf6339944…943e698e actualDrive/local; immutable11156byte
+analysis SHA6154f546…d25c3738 passes allmember andactualDrive roundtrip.
+Same r9 lastScanoriginal started18:24:12UTC; one3600s cap includes allthree.
+[Paths, protocols and acceptance](gsd_multibackbone_dgcnn_residual_20261019.md).

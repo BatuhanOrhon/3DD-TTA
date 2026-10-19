@@ -1,5 +1,9 @@
 # Matched source, original 3DD-TTA and GSD comparison — 2026-10-19
 
+**18:25UTC amendment [Run]:** DGCNN ModelNet original65.586170% accepted;
+GSDcomposite63.833063% is1.753106pp lower. Only ScanoriginalDGCNN remains
+unfilled/running. [Latest source/state/raw acceptance](gsd_multibackbone_dgcnn_residual_20261019.md).
+
 **17:57UTC amendment [Run]:** DGCNN ModelNet GSD complete13+2 composite
 63.833063%,+5.035116pp over own source; all37020indexed events accepted.
 Old interrupted13 finalLION-state/RNG limitations remain. Both originalDGCNN
@@ -24,7 +28,7 @@ checkpoints, not established paper reproductions. Scan uses581 main_split.
 |---|---|---:|---:|---:|---:|
 | ModelNet40-C | CurveNet | 64.0113 | 67.0719 | 65.1864 | -1.8855 |
 | ModelNet40-C | PointNeXt | 65.8320 | 68.2928 | 66.4722 | -1.8206 |
-| ModelNet40-C | DGCNN | 58.7979 | pending | 63.8331 (13+2 composite) | pending |
+| ModelNet40-C | DGCNN | 58.7979 | 65.5862 | 63.8331 (13+2 composite) | -1.7531 |
 | ScanObjectNN-C | CurveNet | 52.0711 | 55.2381 | 55.0086 | -0.2295 |
 | ScanObjectNN-C | PointNeXt | 49.0878 | 49.6845 | 45.2094 | -4.4750 |
 | ScanObjectNN-C | DGCNN | 32.7826 | pending | 36.0757 (new trace) | pending |
