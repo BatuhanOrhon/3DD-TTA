@@ -5,7 +5,8 @@ pinnedr7 bytes; exactbinary restore prepared, not executed. Accepted32994DGCNN
 predictions and complete setup/native evidence remain onDrive/locally. Mac
 IdleSleep overlaps localmonitor gaps; server termination cause remains unknown.
 New `tta-multibackbone-dgcnn-a100-r9-20261019` is A100 High-RAM, same ten-cell
-setup; Drive/Cells1–3passed (known fastrlock deferral only); Cell4running.
+setup; Drive/Cells1–7passed (known fastrlock deferral only); Cell8running.
+Partialnative evidence including3binaries/4markers verifies onDrive/locally.
 Monitor70119/63241 uses SDKtimeout60; bounded
 hostsleep prevention active. No new researchGPU or remaining-phase approval.
 [Latest recovery/ownership](gsd_multibackbone_recovery_20261019.md).

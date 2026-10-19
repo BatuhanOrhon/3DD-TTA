@@ -1603,3 +1603,11 @@ approval for r9v2scope70b19135…e8aa6c. No new accuracy or teardown.
 supersedes pendingbackup12:33. Cell4/native/toolchain setup remainsrunning.
 Retain pip versionconflict warnings and require final actualimports/nativeGPU
 checks and pinned-nativeCPUproof before longphase approval. No model reruns.
+
+
+### 2026-10-19 12:53 UTC — r9 native progress
+
+[Run/Open] Cells4–7 exactwrapper+actualmarkers verify; native partialZIP
+668852b7…83be677 is Drive/localverified. Cell8 running, then9/10 and actual
+nativeGPU/data/checkpoints remain. Exactpinned4binaryrestore and unchangedCPU
+proof still required before r9v2 longGPUapproval. Same70119/63241 preserved.

@@ -1,3 +1,7 @@
+**12:53UTC update [Run/Artifact/Open]:** r9 Cells1–7/required markers verify;
+Cell8 PVCNN/nativeGPU stage running. Cells4–7 evidence/native binaries now
+actualDrive/local SHA/CRC/memberverified. No new accuracy.
+
 **12:33UTC update [Run/Open]:** r9 Drive mount/expected directories and Cell3
 receipt verify; same70119/63241 resumed. Cell4 running; no new accuracy.
 Previous consent-waiting headers below are superseded.
@@ -467,3 +471,24 @@ and CPUproof remain mandatory. CUDA12.1 package download/extraction is ongoing.
 No new inference. r9v2 actual pure command-construction self-checks pass in
 both smoke/full modes:4DGCNN-only jobs, exactbatch/seed/corruptions/method names,
 no model loads. These checks are not numerical/accuracy evidence.
+
+
+## 12:53 UTC — r9 Cells4–7 archived; PVCNN running
+
+[Run/Artifact/Open] Exact wrapper and actual phase markers verified:
+prepare12:41:43, EMD12:43:47, Chamfer12:46:10, PointNet++12:50:21UTC.
+Cell8 running from12:50:53 through same70119/63241, meaningful PVCNN heartbeat
+12:53:08. No duplicate cell, runtime restart or model inference.
+
+Partial setup archive2928313bytes SHA256
+`668852b767d56c1f7bc77d2882fda6b1d11c38b42504207ba534b27e083be677`
+contains3actual freshly compiled baseline native binaries,4actual marker files,
+exactCells4–7, current partial setup state and public execution sources/results
+with exact completion lines. GPU validation is explicitly pendingCells8/10.
+Local `result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_partial_setup_cells4to7_20261019_v1.zip`;
+actualDrive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/r9_partial_setup_cells4to7_20261019_v1.zip`.
+Uploaded only after confirming filename absent. Fresh actualDrive download to
+`r9_partial_setup_cells4to7_20261019_v1_drive_roundtrip.zip` passes
+size/SHA/CRC/safe paths/symlinks/allmanifest members. Inputs/current phases
+remain immutable; no consent URLs/state included. NextCell8 exactwrapper+
+pvcnn-smoke.complete, Cells9/10 then complete evidence and pinned-nativeCPUproof.

@@ -2348,7 +2348,7 @@
       "drive_completed_utc": "2026-10-19T12:28:37Z",
       "cell3_status": "exact_marker_complete_and_receipt_verified",
       "cell3_completed_utc": "2026-10-19T12:31:02Z",
-      "cell4_status": "running",
+      "cell4_status": "exact_marker_and_prepare_complete_verified",
       "mount_bundle": {
         "local_path": "result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_drive_mount_verified_v1.zip",
         "bytes": 19598,
@@ -2370,6 +2370,22 @@
         "local_path": "result/preparation/cli_multibackbone_dgcnn_20261019_r9/dgcnn_recovery_scope_20261019_r9_v2.json",
         "sha256": "70b19135cae29f8b4b8a2dc0cdde4231f15c93c5ef86ae8562a3d2c160e8aa6c",
         "command_construction_self_checks": "passed_four_jobs_both_modes_no_model_loads"
+      },
+      "cell4_completed_utc": "2026-10-19T12:41:43Z",
+      "cell5_status": "exact_marker_and_emd_complete_verified",
+      "cell5_completed_utc": "2026-10-19T12:43:47Z",
+      "cell6_status": "exact_marker_and_chamfer_complete_verified",
+      "cell6_completed_utc": "2026-10-19T12:46:10Z",
+      "cell7_status": "exact_marker_and_pointnet2_complete_verified",
+      "cell7_completed_utc": "2026-10-19T12:50:21Z",
+      "cell8_status": "running",
+      "partial_native_setup_archive": {
+        "bytes": 2928313,
+        "sha256": "668852b767d56c1f7bc77d2882fda6b1d11c38b42504207ba534b27e083be677",
+        "local_path": "result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_partial_setup_cells4to7_20261019_v1.zip",
+        "status": "Drive_and_local_roundtrip_verified",
+        "drive_path": "MyDrive/thesis/result/preparation/gsd_multibackbone_study/r9_partial_setup_cells4to7_20261019_v1.zip",
+        "all_members_verified": true
       }
     }
   }

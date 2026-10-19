@@ -5467,3 +5467,12 @@ Drive-download roundtrips verify mount19598bytes SHAda9491d0…5231e6 and
 r8loss3041193bytes SHAaa219a45…bf5cff2, including CRC/allmanifest members.
 Cell4 still installingCUDA packages; no new inference. Known pip conflict
 warnings retained for final actual verification. [Full paths/current state](gsd_multibackbone_recovery_20261019.md#1240-utc--mount-and-r8-loss-bundles-verified-on-actual-drive).
+
+
+### 2026-10-19 12:53 UTC — r9 native preparation stage archived
+
+[Run/Artifact/Open] Cells4–7 each pass exactwrapper plusactual requiredmarker;
+Cell8 PVCNN running. Partialsetup2928313bytes SHA668852b7…83be677 includes
+3actualbaseline binaries,4markers and exactexecution evidence. ActualDrive/
+local freshdownload SHA/CRC/safe paths/allmembers pass. No inference or GPU
+research approval. [Full paths/gates](gsd_multibackbone_recovery_20261019.md#1253-utc--r9-cells47-archived-pvcnn-running).
