@@ -124,3 +124,32 @@ synthetic batch records including remainder21, duplicate IDs, partial scope,
 prefixed sealed ZIPs and member tampering. These are synthetic CPU checks;
 actual r9 CUDA memory, model/checkpoint compatibility and full trajectory
 results remain pending the real GPU pilot and evaluation.
+
+
+## Sealed source and actual r9 CPU proof — 15:37UTC
+
+[Code/Run] Implementation commit `746bc3024f26de67a3cab410c1e15cfbdfa2eb2a`
+is pushed. A fresh `prepared_scan_trajectory_v8` preserves v7 and declares
+manifest `7c3b55fe7cf179a63ee47c4c62a1a02cacd68372a645b534dd31f4d8e616806c`,
+sourceZIP `f30c224d99e8d62263b55c47b0e6bfb6ac8e5575efcdae875a51aedce058948c`.
+Existing diffusion/guidance/native consumer source bytes are unchanged.
+Scan Point-MAE checkpoint351525407bytes SHA53f6c2e…b9535dac is now declared
+with the three existing frozen Scan checkpoints. The actual r9 strict CPU
+load passes all4 models, with no forward or CUDA initialization; the pinned
+four-backend no-build bootstrap also passes. CPUproof wall14.703seconds.
+
+Immutable CPUevidence51514bytes SHA
+`c15bbe0ccd25663d760ae314b646b8efcfa15be29fffbae68262ece075506c9a`
+and delta5487366bytes SHA
+`a050f0dcf0cc360354d6f0d1b2504abde7499d6d0efecfdc138a21e16005e008`
+pass actual Drive/local roundtrip. Local artifacts:
+`result/preparation/scan_trajectory_20261019/`; actual Drive prefix:
+`MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T153709Z_scan_trajectory_v8/`.
+
+[Run/Open] Pilot started15:37:49UTC in r9, shared Gaussian+Background first70
+IDs, four heads and four candidates. Phase
+`/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T153749Z_scan_trajectory_pilot`.
+Controller SHA27b7e74a…2d699e7; actual GPU result acceptance remains pending.
+Planned whole new GPU phase25–45min based on the16.75min prior two-head job;
+pilot recalibrates before fullrun. One shared3600s job-wall cap includes pilot
+and fullrun, never a per-call loophole. No long DGCNN completion launch.

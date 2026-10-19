@@ -5534,3 +5534,16 @@ phase25–45min, to be recalibrated by Gaussian+Background one-batch pilot; stop
 for comprehensive approval if the phase is expected to exceed60min.
 Separate pending full DGCNN completion is not activated by this scope selection.
 See [study and batches](gsd_scan_trajectory_selection_20261019.md).
+
+
+### 2026-10-19 15:37UTC — Scan trajectory sealed CPU proof accepted; pilot running
+
+[Code/Run/Open] Fresh source746bc30/v8 manifest7c3b55fe…616806c and
+sourceZIPf30c224d…058948c retain old guidance math/native bytes. Allfour
+Scan checkpoint strict CPU loads and pinned no-build imports pass without
+forward/CUDA initialization. CPUevidence51514bytes SHAc15bbe0c…5506c9a and
+delta5487366bytes SHAa050f0dc…005e008 pass actual Drive/local SHA roundtrip.
+Gaussian+Background first70ID shared four-head observer pilot started15:37:49
+UTC in existing r9; no trajectory accuracy accepted yet. Fullrun awaits
+purity/memory/independent-artifact review and whole-phase timing gate.
+[Exact identities and paths](gsd_scan_trajectory_selection_20261019.md).
