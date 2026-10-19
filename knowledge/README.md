@@ -1,14 +1,12 @@
-**[User decision/Run/Open] 2026-10-19 — fresh r8 CLI recovery allocated:**
-User explicitly authorizes a new Colab CLI session and Drive connection after
-the browser/UI permission mismatch. `tta-multibackbone-recovery-a100-r8-20261019`
-is A100/High-RAM; Cell1 passes, Cell2 reaches only the user-deferred fastrlock
-failure. Two mount requests ended at local600s/remote120s deadlines;
-timely consent then hit a hidden connection reset. Current CLI44538 uses
-a fresh HTTP pool for propagation and awaits renewed consent (1800s/2100s).
-No data recovered or research GPU inference yet. Partial setup and timeout
-ZIPs verify locally; Drive copy pending. All8unchanged-v7 asset parts uploaded.
-Resume suspended monitor63286/exec69569 after mount, then Cell3/recovery/Cells4–10.
-[Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
+**[Run/Open] 2026-10-19 — r8 Drive mount and Cell3 verified:**
+`tta-multibackbone-recovery-a100-r8-20261019` remains A100/High-RAM.
+Fresh HTTP propagation succeeds; actual research Drive path and exact Cell3
+marker pass. Monitor63286/69569 resumed; CPU-only parallel recovery running (1469files enumerated).
+VM base is dev@a458cd46, separate from pinned research v7. Cells4–10 and new
+researchGPU inference have not run. Local mount ZIP77324bytes SHA2ca5392e…28cb4
+and nested setup/diagnosis evidence pass actualDrive/local roundtrip.
+Next: recovered DGCNN shard download/verification, then
+remaining setup. [Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
 
 **[Run/Open] 2026-10-19 — r7 unexpectedly lost during DGCNN GSD:**
 Repeated server inventories report no active runtime around08:05UTC. Last

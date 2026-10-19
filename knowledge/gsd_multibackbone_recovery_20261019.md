@@ -1,13 +1,12 @@
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
-**Current09:39UTC [Run/Code/Open]:** TTY44538 awaits user-requested renewed consent.
-The previous timely confirmation failed in the CLI auth hook with a hidden
-ConnectionResetError; extending the auth window alone did not fix it.
-The new scoped helper clears its HTTP pool before the final propagation POST,
-uses45s HTTP deadlines, and surfaces exception types. Scope/header checks pass;
-actual mount remains unverified. Monitor63286/69569 stays suspended until this
-external mount completes. No r7 data recovered or new researchGPU inference.
-Earlier pending request IDs below are historical and superseded by44538.
+**Current10:03UTC [Run/Artifact/Open]:** Drive/Cell3 and immutable mount
+bundle actualDrive/local roundtrip verify. Same monitor63286/69569 runs CPU
+recoveryv2,1469files enumerated (500copied at10:03:07). Serial inventory was
+interrupted at9min10s in receipt read; no recovered coverage accepted yet.
+VM base dev@a458cd46, v7 not deployed; Cells4–10/new GPU inference pending.
+Next: recovery marker, actualDrive download, independent partial verification,
+then remaining setup. Earlier pending consent/inventory references are historical.
 
 [User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
 session and mounting Drive to retrieve the interrupted study's evidence. This
@@ -190,3 +189,46 @@ auth kernel1420426e interrupted after exact identity audit, all kernels idle
 before retry; only blocked local CLI66639 terminated. Same r8/setup preserved.
 Remote deadline approximately10:09UTC/13:09 Istanbul. Current URL/state excluded.
 No new research/artifact evidence; resume63286/69569 only after mount finishes.
+
+
+## 09:56 UTC — Drive and Cell3 verified; CPU recovery inventory running
+
+[User report/Run/Code/Open] Confirmation forTTY44538 arrived within its window.
+Fresh HTTP pool propagation succeeded09:48:39UTC, mount exact output completed;
+actual research directory lists both dataset folders. Resumed same local
+monitor63286/69569; due liveness probe passed before Cell3. Exact Cell3 preserved
+and completed09:52:16UTC (its redundant request-auth waited120s before returning
+already-mounted). Python3.8.20, remote dev@a458cd46bba1288a3f41302548bc777700cbc7d4,
+KNN wheel5717bytes SHA809a43da2eed950c65ba15e355e8cdbf975b6a948dced1f02414f26aba586cd0.
+Remote base differs from research snapshot; no deployed v7/proof or Cells4–10 yet.
+
+Local immutable mount bundle77324bytes/9members SHA256
+2ca5392ee2efb91eaf89fac2f53b09cc48ce7b7c9a690b7cd2802ee2e1828cb4,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_mount_verified_v1.zip`,
+contains safe auth success event, Cell3 receipt/wrapper, exact auth helper and
+three prior setup/diagnosis ZIPs. CRC/all member identities pass; uploaded toVM,
+Drive backup/roundtrip still pending `backup_verified_mount.py` (SHA022ed6e8…f5b9a2).
+No consent URL/state included. Inventory runs from09:52:30, serial receipt reads.
+Recoveryv2 prepared/uploaded, SHAf592ef85497d49dbd35625c5388595e1ca28d22384a8b9df13689a31b89971cd;
+only copy strategy changes to8 parallel reads with progress messages. Original
+Drive untouched, all receipt/archive/member guards retained, exact source included
+in its future recovery bundle. Python3.8 parsing/boundary assertions pass; not
+executed yet. No metric promotion or GPU inference until required gates pass.
+
+
+## 10:02 UTC — Mount evidence Drive/local roundtrip; parallel rescue running
+
+[Run/Artifact/Open] Mount ZIP77324bytes SHA2ca5392e…28cb4 now physically
+verified onDrive at `MyDrive/thesis/result/preparation/gsd_multibackbone_study/
+r8_mount_20261019T100157Z/r8_drive_mount_verified_v1.zip`; fresh CLI download
+`r8_drive_mount_verified_v1_drive_roundtrip.zip` matches exact bytes/SHA and
+CRC/all8manifest members. This backs up the nested prior setup/diagnosis ZIPs.
+
+Serial inventory was deliberately interrupted10:01:40UTC after9min10s in
+receipt read_text (not a kernel restart); no report/coverage accepted. All
+same guards are in recoveryv2. Same monitor launched v2 at10:02:19UTC; it lists
+1469files and emits actual parallel-copy counts (100copied at10:02:33).
+Original Drive remains untouched, no GPU inference. Local partial verifier
+SHAfd58f4f1…279172e prepared (parse passes), not yet executed. Next wait same
+69569 for recovery exact marker, download actualDrive archive, validate local
+SHA/manifests/indexed predictions before interpreting coverage or metrics.

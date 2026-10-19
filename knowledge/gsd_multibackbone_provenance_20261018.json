@@ -2188,9 +2188,9 @@
       "hardware": "A100 High-RAM",
       "monitor_pid": 63286,
       "monitor_exec_session": 69569,
-      "monitor_state": "temporarily_suspended_during_interactive_drivemount",
-      "drive_cli_exec_session": 44538,
-      "drive_status": "user_requested_renewed_consent_0939_utc",
+      "monitor_state": "running_sole_owner_recovery_v2",
+      "drive_cli_exec_session": null,
+      "drive_status": "physical_verified_cpu_recovery_v2_running",
       "partial_setup_evidence": {
         "status": "partial_setup_local_verified_drive_pending",
         "archive": {
@@ -2232,7 +2232,7 @@
         "source_bits_unchanged": true
       },
       "asset_upload_parts_complete": 8,
-      "physical_drive_mount_verified": false,
+      "physical_drive_mount_verified": true,
       "abandoned_auth_kernel_interrupted": "44896965-5879-40e6-9b5e-e277254b60f2",
       "setup_kernel_preserved": true,
       "last_failed_mount_kernel_interrupted": "ed674de6-1858-4042-936e-cf54c2f3bbb3",
@@ -2241,6 +2241,16 @@
         "bytes": 12625,
         "sha256": "a0a3fff927224cf1fac7a4a02ad3b3011b3cbaedf325ba0f71fa8c593601ae38",
         "drive_backup": "pending"
+      },
+      "remote_base_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+      "cell3_status": "complete_exact_marker",
+      "mount_bundle": {
+        "local_path": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_mount_verified_v1.zip",
+        "bytes": 77324,
+        "sha256": "2ca5392ee2efb91eaf89fac2f53b09cc48ce7b7c9a690b7cd2802ee2e1828cb4",
+        "drive_backup": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/r8_mount_20261019T100157Z/r8_drive_mount_verified_v1.zip",
+        "local_roundtrip": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_mount_verified_v1_drive_roundtrip.zip",
+        "local_sha_verified": true
       }
     }
   }

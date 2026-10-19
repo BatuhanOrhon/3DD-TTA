@@ -5341,3 +5341,29 @@ sameTTY, verify physical Drive before Cell3/CPU recovery. OAuth URL/state exclud
 and r8 endpoint. Prior auth call/local client ended after guard/audit; setup
 preserved. New consent deadline approximately10:09UTC. No inference or recovery;
 existing diagnosis evidence unchanged, consent URL/state excluded.
+
+
+## 2026-10-19 09:56 UTC — r8 Drive mount and Cell3 actually verified
+
+[User report/Run/Code/Open] User confirms latest request; fresh HTTP propagation
+succeeds09:48:39UTC and mount completes. Actual research directory and exact
+Cell3 marker verify09:52:16. Python3.8.20/remote dev@a458cd46/KNN wheel hash
+recorded in recovery note. Same monitor63286/69569 resumed and due liveness
+probe finished before Cell3. CPU inventory now running; no new researchGPU.
+Local immutable mount ZIP77324bytes/9members SHA2ca5392ee2efb91eaf89fac2f53b09cc48ce7b7c9a690b7cd2802ee2e1828cb4
+CRC/all identities pass; uploaded, Drive backup/roundtrip pending. Includes
+earlier setup/diagnosis ZIPs and safe success/receipt evidence. Next backup,
+parallel CPU recoveryv2 (all hash guards retained), download/verify, Cells4–10.
+No recovered coverage or accuracy accepted until physical archive validation.
+
+
+## 2026-10-19 10:02 UTC — Mount evidence accepted; r7 rescue copying
+
+[Run/Artifact/Open] Mount evidence77324bytes SHA2ca5392ee2efb91eaf89fac2f53b09cc48ce7b7c9a690b7cd2802ee2e1828cb4
+passes physicalDrive and fresh local download/CRC/all members. Drive directory
+r8_mount_20261019T100157Z under study preparation; full paths in recovery note.
+Serial read-only inventory intentionally interrupted after9min10s; v2 retains
+all receipt guards and copies8files concurrently. Active10:02:19 on same69569;
+1469files enumerated,100copied by10:02:33. No recovered result yet accepted and
+no GPU inference. Next exact recovery marker, actualDrive ZIP download and
+independent partial prediction validation, then remaining setup.

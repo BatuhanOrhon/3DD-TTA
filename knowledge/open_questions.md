@@ -66,11 +66,10 @@
   CRC/member hashes verified. No runtime teardown requested; sole monitorLOST.
 - [ ] Verify physical interrupted DGCNN Drive shard/corruption coverage and
   copy loss evidence to Drive. User authorizes fresh r8 CLI/Drive route;
-  Cell1/2 and timeout diagnosis evidence verify locally. Current Google
-  consent pending inTTY44538 (remote1800s/local2100s, fresh propagation HTTP
-  pool after timely consent exposed a hidden connection reset), then
-  Cell3/recovery/Cells4–10. Resume suspended local63286/
-  session69569 after mount;8unchanged asset parts uploaded, no researchGPUyet.
+  Cell1/2/3 and physical Drive verify; local mount/diagnosis evidence sealed.
+  Monitor63286/session69569 resumed; mount evidence Drive/local verified.
+  Recoveryv2 copying1469files; next download/verification, then Cells4–10. Eight unchanged
+  asset parts uploaded; no new researchGPU inference.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,
