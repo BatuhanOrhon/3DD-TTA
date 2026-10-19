@@ -5516,3 +5516,21 @@ verify; local rebinding ties16receiptfiles to sealedmembers. Evidence17855bytes
 SHAeacc97ac…07f4aa andbinding1631bytes SHAc519af6c…c8d81f passphysicalDrive/
 localSHA/CRC/memberchecks. No all15 accuracy claim; remainingfullphase pending
 explicitapproval. r9/monitor retainedlive. [Exact paths/source/cost/limits](gsd_multibackbone_dgcnn_smoke_20261019.md).
+
+
+## 2026-10-19 — Scan four-head trajectory implementation (GPU pending)
+
+[User report/Code/Open] User selected only GSD-inspired guidance for the new
+ScanObjectNN-C main_split581/all15/s5/seed0 four-head comparison. Existing
+CN/PN Scan archives contain terminal logits, no recoverable clean candidates.
+Fixed clean3/5/8 or Background8/15/23 plus terminal reuse class-count-independent
+minimum entropy (terminal-first ties) and equal probability mean. Shared probes
+use the exact terminal Scan inverse-bbox frame and restore RNG/model buffers;
+no GSD update change, labels in selection, new tuning or early stopping.
+52 focused local CPU tests pass, including existing source/guidance/original3DD
+and Point-MAE boundary regressions. Actual CUDA observation, memory, timing
+and fresh immutable Drive/local proof remain pending. Planned whole new GPU
+phase25–45min, to be recalibrated by Gaussian+Background one-batch pilot; stop
+for comprehensive approval if the phase is expected to exceed60min.
+Separate pending full DGCNN completion is not activated by this scope selection.
+See [study and batches](gsd_scan_trajectory_selection_20261019.md).

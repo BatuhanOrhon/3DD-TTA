@@ -1,3 +1,13 @@
+**[User report/Code/Open] 2026-10-19 — Scan trajectory study selected:**
+The user selected GSD-inspired guidance only for CurveNet, PointNeXt, DGCNN
+and Point-MAE on ScanObjectNN-C main_split. Fixed clean checkpoints plus
+terminal compare minimum entropy and equal probability mean on the same trace.
+Prior archives contain terminal logits only; no Scan trajectory accuracy is
+claimed. Four-head CPU implementation/purity and existing regressions pass52
+tests. New sealed-source CPU proof and real r9 GPU pilot precede all15 launch;
+the separate long DGCNN completion phase remains pending.
+[Current scope and acceptance gates](gsd_scan_trajectory_selection_20261019.md).
+
 **[Run/Code/Open] 2026-10-19 15:10UTC — r9 DGCNN GPU smoke tests accepted:**
 User authorized four short tests only. Bothdatasets × GSD-inspired/original3DD
 pass408predictions/8batches, frozenstates/RNG/source binding/no-build native

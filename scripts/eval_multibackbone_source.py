@@ -192,7 +192,11 @@ def load_classifier(config: dict, manifest: dict):
     backbone = config["backbone"]
     checkpoint = config["pointmae_checkpoint"] if backbone == "pointmae" else config["checkpoint"]
     checkpoint = _declared_asset(root, manifest, checkpoint)
-    payload = torch.load(checkpoint, map_location="cpu", weights_only=True)
+    if backbone == "pointmae":
+        from scripts.verify_multibackbone_pointmae_parity import CHECKPOINTS, load_pinned_legacy_checkpoint
+        payload = load_pinned_legacy_checkpoint(checkpoint, CHECKPOINTS[config["dataset"]][1])
+    else:
+        payload = torch.load(checkpoint, map_location="cpu", weights_only=True)
     if backbone in ("dgcnn", "curvenet"):
         scan_curve = backbone == "curvenet" and config["dataset"] == "scanobjectnn_c"
         package = "study_3deformrs" if scan_curve else "study_svwa"
@@ -230,9 +234,12 @@ def load_classifier(config: dict, manifest: dict):
         config["resolved_model_config"] = dict(options)
     if not isinstance(state, dict) or not all(isinstance(key, str) for key in state):
         raise ValueError("Checkpoint must contain a string-keyed state dictionary")
-    state = {(key[7:] if key.startswith("module.") else key): value for key, value in state.items()}
+    stripped = {(key[7:] if key.startswith("module.") else key): value for key, value in state.items()}
+    if len(stripped) != len(state):
+        raise ValueError("Checkpoint module-prefix stripping would overwrite a state entry")
+    state = stripped
     incompatible = model.load_state_dict(state, strict=True)
-    config["checkpoint_load"] = dict(weights_only=True, strict=True,
+    config["checkpoint_load"] = dict(weights_only=backbone != "pointmae", strict=True,
                                      missing_keys=list(incompatible.missing_keys), unexpected_keys=list(incompatible.unexpected_keys),
                                      checkpoint_sha256=file_identity(checkpoint)["sha256"])
     return FrozenClassifier(model.cuda(), backbone, config["num_classes"], input_layout=config["input_layout"])

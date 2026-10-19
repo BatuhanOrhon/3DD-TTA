@@ -1,5 +1,22 @@
 # Open Questions and Research Backlog
 
+## 2026-10-19 - Scan four-head trajectory selection
+
+- [x] User selected only GSD-inspired guidance, four frozen heads, Scan581
+  main_split/all15/s5/seed0. Fixed3/5/8 (Background8/15/23) plus terminal;
+  minimum entropy and equal class-probability mean; no label tuning/early stop.
+- [x] Implement shared probe decoding, terminal-matched Scan coordinates,
+  guarded Point-MAE legacy checkpoint loading and per-batch Drive trace data.
+  Local52 focused CPU tests pass; no real trajectory GPU result yet.
+- [ ] Seal fresh source/asset manifest preserving v7, verify actual r9 CPU proof,
+  then GPU pilot purity/memory/receipts and whole-phase duration estimate.
+- [ ] Complete four-head all15 observation, independently verify all8715 IDs
+  per head and12 policy rows plus Drive/local SHA-256. Compare same-run terminal.
+- [ ] Keep missing full DGCNN original3DD and ModelNet guidance separate from
+  this Scan observation task.
+
+See [trajectory study](gsd_scan_trajectory_selection_20261019.md).
+
 ## 2026-10-18 - Multibackbone study gates
 
 - [x] Create `gsd-multibackbone-study` at requested2684f11; preserve concurrent

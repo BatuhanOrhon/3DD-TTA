@@ -39,7 +39,10 @@ def configurations(argv=None) -> list:
     parser.add_argument("--drive-root")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--method", choices=("gsd", "original3dd"), default="gsd")
-    parser.add_argument("--backbones", nargs="+", choices=(*BACKBONES, "dgcnn"), default=list(BACKBONES))
+    parser.add_argument("--backbones", nargs="+", choices=(*BACKBONES, "dgcnn", "pointmae"), default=list(BACKBONES))
+    parser.add_argument("--trajectory-observe", action="store_true")
+    parser.add_argument("--pointmae-config")
+    parser.add_argument("--pointmae-checkpoint")
     parser.add_argument("--batch-size", type=int, choices=(32, 70))
     parser.add_argument("--max-batches", type=int, default=0)
     parser.add_argument("--corruptions", nargs="+", default=["all"])
@@ -48,6 +51,12 @@ def configurations(argv=None) -> list:
     if args.seed < 0 or args.max_batches < 0:
         raise ValueError("Seed and max-batches must be nonnegative")
     original = args.method == "original3dd"
+    if args.trajectory_observe and (args.dataset != "scanobjectnn_c" or original):
+        raise ValueError("Trajectory observation is restricted to ScanObjectNN-C GSD-inspired guidance")
+    if "pointmae" in args.backbones and not args.trajectory_observe:
+        raise ValueError("Point-MAE guidance is available only with --trajectory-observe")
+    if "pointmae" in args.backbones and not (args.pointmae_config and args.pointmae_checkpoint):
+        raise ValueError("Point-MAE requires --pointmae-config and --pointmae-checkpoint")
     batch_size = 32 if original else 70
     if args.batch_size is not None and args.batch_size != batch_size:
         raise ValueError("Method batch size is locked to " + str(batch_size))
@@ -62,6 +71,9 @@ def configurations(argv=None) -> list:
                                   "--asset-root", args.asset_root, "--result-root", args.result_root,
                                   "--corruptions", *args.corruptions])
         config = source.resolve_config(base)
+        if backbone == "pointmae":
+            config.update(pointmae_config=args.pointmae_config, pointmae_checkpoint=args.pointmae_checkpoint,
+                          checkpoint=args.pointmae_checkpoint)
         if "original" in config["corruptions"]:
             raise ValueError("Guidance uses the predeclared corrupted scope only")
         config.update(vars(args), method=METHOD, batch_size=batch_size, lion_loaded=True,
@@ -92,6 +104,18 @@ def configurations(argv=None) -> list:
         if backbone == "dgcnn":
             config["backbone_caveat"] = ("Published alternative, not paper checkpoint identity; ScanObjectNN DGCNN has weaker clean/source accuracy; "
                                           "exploratory comparison only to this fixed checkpoint's own source row")
+        if args.trajectory_observe:
+            config.update(trajectory_observation=True,
+                          shared_reconstruction="classifier-independent tta_gsd_reconstruct; isolated shared clean-output probes; decoded2048 retained",
+                          trajectory_selection=dict(normal_loop_counts=[3, 5, 8, 10], background_loop_counts=[8, 15, 23, 30],
+                                                    normal_candidate_names=["clean_03", "clean_05", "clean_08", "terminal"],
+                                                    background_candidate_names=["clean_08", "clean_15", "clean_23", "terminal"],
+                                                    policies=["terminal", "minimum_entropy", "probability_mean"], temperature=1.0,
+                                                    entropy="class-count normalized", tie_policy="terminal first, then earliest checkpoint",
+                                                    primary_comparator="same-run terminal", labels_used=False, early_stopping=False),
+                          timing_policy="CSV runtime=shared reconstruction including all probe work/" + str(len(args.backbones))
+                                        + " + own terminal preprocessing/classification; shared seconds count once",
+                          randomness_policy="seed-controlled shared diffusion; observer and head probes restore RNG; no common-draw claim across runs")
         for key in ("dataset_root", "label_path", "asset_root", "result_root", "drive_root"):
             if config.get(key):
                 config[key] = str(Path(config[key]).absolute())
@@ -139,7 +163,16 @@ def original_scheduler_record(scheduler, steps: int) -> dict:
     return dict(config=config, timesteps=timesteps, active_timesteps=timesteps[-steps:], final_alpha_cumprod=final_alpha)
 
 
-def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda", method=METHOD, scheduler_observer=None):
+def decoded_to_geometry(decoded, dataset: str, scale, center, ops):
+    """Use the same dataset frame for predicted-clean probes and terminal output."""
+    # The legacy rotation negates its input in place; probes must retain decoder bytes.
+    geometry = ops.rotateback_pointcloud(decoded.clone())
+    if dataset == "scanobjectnn_c":
+        return ops.unnormalize_data(geometry / 3.3885, scale, center)
+    return ops.normalize(geometry)[0]
+
+
+def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda", method=METHOD, scheduler_observer=None, observer_factory=None):
     """Exact existing dataset pre/postprocessing, before any terminal head FPS."""
     import torch
     normalized, center, scale = ops.normalize(raw)
@@ -160,14 +193,10 @@ def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, recons
             raise RuntimeError("Original reconstruction must report its actual scheduler once")
         metrics = {}
     else:
+        observation = {} if observer_factory is None else {"trajectory_observer": observer_factory(center, scale)}
         decoded, metrics = reconstruct(x=prepared, lion=lion, graph_spectral_module=graph,
-                                       steps_back_local=30 if corruption == "background" else 10, **PROTOCOL)
-    decoded = ops.rotateback_pointcloud(decoded)
-    if dataset == "scanobjectnn_c":
-        decoded /= 3.3885
-        geometry = ops.unnormalize_data(decoded, scale, center)
-    else:
-        geometry, _, _ = ops.normalize(decoded)
+                                       steps_back_local=30 if corruption == "background" else 10, **observation, **PROTOCOL)
+    geometry = decoded_to_geometry(decoded, dataset, scale, center, ops)
     if geometry.shape != (len(raw), 2048, 3) or not torch.isfinite(geometry).all():
         raise ValueError("Reconstruction must preserve finite decoded Bx2048x3 geometry")
     if not all(math.isfinite(value) for value in metrics.values()):
@@ -229,6 +258,8 @@ def copy_batch_shard(bundle, drive_root, corruption: str, batch: int, files: dic
 
 
 def matched_source(config: dict, manifest: dict, guidance: dict) -> dict:
+    if config.get("trajectory_observation") and config["backbone"] == "pointmae":
+        return dict(status="unavailable", reason="No validated full ScanObjectNN-C Point-MAE source-only row in this study; primary comparator is same-run terminal")
     path = source._declared_asset(Path(config["asset_root"]), manifest, guidance["matched_source_results"])
     validation = json.loads(path.read_text())
     rows = [row for row in validation.get("macro", []) if row["dataset"] == config["dataset"] and row["backbone"] == config["backbone"]]
@@ -367,8 +398,19 @@ def worker(directories: list) -> None:
                 started = time.monotonic()
                 raw = torch.from_numpy(np.array(values[start:end]))
                 scheduler_record = {}
+                observers = []
+                def observer_factory(center, scale):
+                    from shared_trajectory import SharedTrajectoryObserver
+                    def classify_decoded(decoded):
+                        geometry = decoded_to_geometry(decoded, common["dataset"], scale, center, ops)
+                        return classify_geometry(geometry, heads, configs, fps)[0]
+                    observer = SharedTrajectoryObserver(lion.vae, heads, classify_decoded,
+                                                        30 if corruption == "background" else 10)
+                    observers.append(observer)
+                    return observer
+                observer_options = {"observer_factory": observer_factory} if common.get("trajectory_observation") else {}
                 geometry, metrics = reconstruct_geometry(raw, common["dataset"], corruption, lion, graph, reconstruct, ops,
-                                                         method=common["method"], scheduler_observer=scheduler_record.update)
+                                                         method=common["method"], scheduler_observer=scheduler_record.update, **observer_options)
                 torch.cuda.synchronize()
                 reconstruction_seconds = time.monotonic() - started
                 reconstruction_rng = rng_hash()
@@ -382,6 +424,8 @@ def worker(directories: list) -> None:
                     all_logits.update(logits); head_diagnostics.update(diagnostic)
                 if rng_hash() != reconstruction_rng:
                     raise RuntimeError("Frozen heads advanced the reconstruction RNG")
+                if observers:
+                    observers[0].terminal(all_logits)
                 peak = max(peak, torch.cuda.max_memory_allocated() / 1024 ** 2)
                 shared = dict(geometry_sha256=tensor_hash(geometry), geometry_shape=list(geometry.shape),
                               reconstruction_rng_before_sha256=before_rng, reconstruction_rng_after_sha256=reconstruction_rng,
@@ -393,6 +437,8 @@ def worker(directories: list) -> None:
                         recorded = config.setdefault("scheduler_records", {}).setdefault(corruption, scheduler_record)
                         if recorded != scheduler_record:
                             raise RuntimeError("Original scheduler changed within a corruption")
+                if observers:
+                    shared["trajectory"] = observers[0].diagnostics()
                 pending = {}
                 seen += end - start
                 for name, logits in all_logits.items():
@@ -405,7 +451,8 @@ def worker(directories: list) -> None:
                     configs[name]["shared_reconstruction_seconds"] += reconstruction_seconds
                     configs[name].setdefault("completed_batches", {})[corruption] = batch + 1
                     diagnostics = dict(shared, **head_diagnostics[name], head_seconds=head_seconds[name])
-                    pending[name] = write_batch_shard(bundles[name], corruption, batch, payload, diagnostics)
+                    batch_payload = dict(payload, **observers[0].arrays(name)) if observers else payload
+                    pending[name] = write_batch_shard(bundles[name], corruption, batch, batch_payload, diagnostics)
                     update_row(rows[name], configs[name], corruption, seen, correct[name], elapsed[name], peak, "partial")
                     bundles[name].write_results(rows[name], "running")
                     bundles[name].write_config(configs[name])
