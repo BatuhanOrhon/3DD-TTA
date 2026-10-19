@@ -5170,3 +5170,17 @@ Exact controllerSHA ccd395b0fbda7662da17daa13542151fcbc410e9368d10f98775645238cd
 OriginalCNPN ModelNet first, then Scan, then DGCNN GSD/original pairs.
 Batch/corruption/model Drive persistence and whole14400s job cap remain active.
 No further approval required for this approved scope; no teardown authorized.
+
+
+[CPU/Artifact] 2026-10-19 — verification hardening during unchanged full GPU
+phase: finalizer review required exact NPZ+diagnostic receipt membership and
+comparison to phase-pinned sealed ZIP member identities, rather than mutable
+bundle-directory files alone. New `finalize_extension_all15_template_v2.py`
+implements both. Rechecked all24 actual smoke receipts against pinned sealed
+ZIPs: all contain exactly2 expected files and every byte identity matches.
+No missing/mismatched actual artifact or inference/source change occurred.
+Derived binding verifier+validation ZIP1399bytes SHA
+`693b2bc329802b53845d160424de4676ca8f513aa97c1e049b44ba8b3453657a`,
+local `result/preparation/multibackbone_20261018/smoke_sealed_member_binding_v1.zip`;
+Drive062114Z preparation folder has exact uploaded/downloaded bytes and CRC.
+This closes the generic receipt-verifier gap without repeating any GPU work.

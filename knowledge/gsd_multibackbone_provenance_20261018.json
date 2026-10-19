@@ -1564,6 +1564,13 @@
       "utc": "20261019T062114Z"
     },
     "full15_phase_path": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15",
-    "smoke_job_wall_seconds": 250.28698195899779
+    "smoke_job_wall_seconds": 250.28698195899779,
+    "smoke_sealed_member_binding": {
+      "status": "complete",
+      "bytes": 1399,
+      "sha256": "693b2bc329802b53845d160424de4676ca8f513aa97c1e049b44ba8b3453657a",
+      "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T062114Z/smoke_sealed_member_binding_v1.zip",
+      "drive_roundtrip_verified": true
+    }
   }
 }
