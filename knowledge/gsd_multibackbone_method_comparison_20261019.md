@@ -1,5 +1,14 @@
 # Matched source, original 3DD-TTA and GSD comparison — 2026-10-19
 
+**16:07UTC amendment [Run]:** the new four-head Scan trajectory study is
+accepted. DGCNN Scan GSD terminal36.075731% (+3.293173pp over own source)
+now fills that complete row. OriginalDGCNN bothdatasets and ModelNetGSD
+completion remain pending. Historical CN/PN rows in this table stay unchanged;
+new same-run terminals55.134825/45.358577 and probability mean56.477338/
+46.815835 belong to a separate trace. CurveNet mean is1.239243pp above prior
+original; PointNeXt remains2.868617pp below. No isolated spectral claim.
+[New trace, readout policies and immutable evidence](gsd_scan_trajectory_selection_20261019.md).
+
 [Run] Original3DD CurveNet+PointNeXt full15 independently accepted on both
 datasets. The r7 runtime unexpectedly disappeared around08:05UTC during
 DGCNN ModelNet GSD; remaining DGCNN results are incomplete. Existing four
@@ -13,7 +22,7 @@ checkpoints, not established paper reproductions. Scan uses581 main_split.
 | ModelNet40-C | DGCNN | 58.7979 | pending | pending | pending |
 | ScanObjectNN-C | CurveNet | 52.0711 | 55.2381 | 55.0086 | -0.2295 |
 | ScanObjectNN-C | PointNeXt | 49.0878 | 49.6845 | 45.2094 | -4.4750 |
-| ScanObjectNN-C | DGCNN | 32.7826 | pending | pending | pending |
+| ScanObjectNN-C | DGCNN | 32.7826 | pending | 36.0757 (new trace) | pending |
 
 ## ModelNet original3DD accepted evidence
 

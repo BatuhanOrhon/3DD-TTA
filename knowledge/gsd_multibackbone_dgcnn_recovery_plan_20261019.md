@@ -1,3 +1,14 @@
+**16:07UTC amendment [Run/Open]:** the selected four-head Scan trajectory
+study now independently accepts DGCNN Scan GSD terminal36.075731%,8715IDs.
+[Raw hashes and analysis](gsd_scan_trajectory_selection_20261019.md).
+The older59386-event scope below is now partly superseded: do not run its
+Scan GSD component again. Residual50671events comprise ModelNet GSD
+Occlusion/LiDAR4936, ModelNet original37020 and Scan original8715.
+No revised controller/budget/approval is activated. Before a continuation,
+prepare a revised scope and whole-phase duration estimate; preserve the
+accepted smoke admission and already complete Scan trace. Earlier65–90min
+estimate described the larger four-job scope, not this reduced residual.
+
 **15:10UTC amendment [Run/Open]:** four r9 GPU smokes nowaccepted under
 separate smoke-only user scope4c2c4854…a4b139;408predictions/8batches verified.
 [Acceptance and raw evidence](gsd_multibackbone_dgcnn_smoke_20261019.md).

@@ -5563,3 +5563,45 @@ same3600s accumulatedcap. FullScanall15 started15:41:44UTC in r9 using
 unchanged746bc30/v8 source/manifest. No benchmark outcome yet; no newlong
 DGCNNoriginal/ModelNet phase activated.
 [Evidence and gates](gsd_scan_trajectory_selection_20261019.md).
+
+
+### 2026-10-19 16:07UTC — full Scan four-head trajectory accepted
+
+[Run/Artifact/Inference] GSD-inspired only, main_split581/all15/s5/seed0;
+source746bc30, manifest7c3b55fe…616806c, sourceZIPf30c224d…058948c. All325
+executed project source files exactly match commit746bc30. Four same-run
+terminal/minentropy/probmean accuracy percentages:
+CurveNet55.134825/56.408491/56.477338;
+PointNeXt45.358577/46.769937/46.815835;
+DGCNN36.075731/37.131383/37.326449;
+Point-MAE34.125072/35.720023/35.685600.
+Mean deltas+1.342513/+1.457258/+1.250717/+1.560528pp; entropy deltas
++1.273666/+1.411360/+1.055651/+1.594951pp. Both fixed label-free readouts
+improve allfour terminals in this seed; additional seeds remain needed.
+CurveNet mean exceeds prior original3DD by1.239243pp; PointNeXt remains
+2.868617pp below its original and2.271945pp below source. Whole-flow,
+separate-run comparisons do not isolate spectral effects. No Point-MAE full
+matched main_split source/original row exists in this study. DGCNN remains
+exploratory with its weak fixed source checkpoint.
+
+Fulljob1413.941804s; pilot+full1479.594484s=24.659908min, peak35.484GiB.
+139440candidate predictions/135shared batches: strict frozenclassifier/LION,
+probe RNG/buffers/live latents, sharedhead geometry/trajectory, declaredsource,
+original IDs/labels,15classes, fourcandidates and allterminal CSV/NPZ counts
+pass. Actual Drive/local raw4ZIP hashes and sealedmembers verify.
+540batch/60corruption/4final physical receipts are preserved in accepted
+659325byte evidence SHAa85ca9c6e2925daf50e010b5ac9f688fcef99eab0300479bc9cb78c176852e97.
+Local `result/preparation/scan_trajectory_20261019/all15_accepted_evidence_drive_roundtrip.zip`;
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/scan_trajectory_all15_accepted_20261019T160659Z/`.
+[Full values, rawhashes and policy transitions](gsd_scan_trajectory_selection_20261019.md).
+
+Decision: accept the selected Scan trajectory study, retain unchanged policies;
+do not tune on these labels. New terminals differ modestly from earlier r7
+CN/PN runs; use same-run terminal for readout deltas. DGCNN Scan GSD36.075731%
+now fills that fullrow. Remaining DGCNN original bothdatasets and ModelNet
+Occlusion/LiDAR are unexecuted; old59386-event proposal includes redundant
+8715ScanGSD events and must be revised to50671 residual events before launch.
+No further GPU phase or teardown; same r9 monitor63241 remains owner.
+Falsifier: missing IDs/source/state/receipt binding or policy recomputation
+failure would invalidate acceptance; these checks pass. Repeatability and
+isolated guidance attribution remain open.

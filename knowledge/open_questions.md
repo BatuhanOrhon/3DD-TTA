@@ -7,14 +7,18 @@
   minimum entropy and equal class-probability mean; no label tuning/early stop.
 - [x] Implement shared probe decoding, terminal-matched Scan coordinates,
   guarded Point-MAE legacy checkpoint loading and per-batch Drive trace data.
-  Local52 focused CPU tests pass; no real trajectory GPU result yet.
+  Local52 focused CPU tests pass; actual four-head CUDA pilot and all15 now pass.
 - [x] Seal fresh v8 source/asset manifest preserving v7 and verify actual r9
   four-head CPU proof. GPU pilot passes2240candidate predictions, purity,
   memory35.484GiB, physical Drive receipts andlocalSHA. Whole-phase estimate
- 29.923min/upper42.505min; shared3600s job cap. All15 running15:41:44UTC.
-- [ ] Complete four-head all15 observation, independently verify all8715 IDs
-  per head and12 policy rows plus Drive/local SHA-256. Compare same-run terminal.
-- [ ] Keep missing full DGCNN original3DD and ModelNet guidance separate from
+  29.923min/upper42.505min; shared3600s job cap. Completed16:05:18UTC.
+- [x] Complete four-head all15 observation:135shared batches,8715 IDs/head,
+  139440candidate predictions and12 policy rows independently verified.
+  Both fixed policies improve allfour terminals for seed0; mean deltas
+  +1.3425/+1.4573/+1.2507/+1.5605pp (CN/PN/DGC/PMAE). RawZIPs and
+  540batch/60corruption/4final Drive receipts plus local SHA all pass.
+  Accepted evidence659325bytes SHAa85ca9c6…6852e97; GPUphase24.66min total.
+- [x] Keep missing full DGCNN original3DD and ModelNet guidance separate from
   this Scan observation task.
 
 See [trajectory study](gsd_scan_trajectory_selection_20261019.md).
@@ -80,7 +84,9 @@ See [trajectory study](gsd_scan_trajectory_selection_20261019.md).
   after13 ModelNet GSD corruptions plus Occlusion490/2468 were observed.
   Drive shards recovered/verified13full+Occlusion910; reassess whole
   remaining GPU phase against approved4h cap; no exact RNG resume is available.
-  DGCNN remains in scope; preserve its weaker source caveat.
+  DGCNN remains in scope; preserve its weaker source caveat. New Scan GSD
+  full15 terminal36.075731% is accepted16:07UTC through the trajectory study;
+  only ModelNet GSD completion and both originalDGCNN rows remain missing.
 - [x] Preserve unexpected r7-loss evidence locally:62808byte immutable ZIP,
   CRC/member hashes verified. No runtime teardown requested; sole monitorLOST.
 - [x] Recover/verify physical r7 partial DGCNN evidence:13full corruptions plus
@@ -90,11 +96,14 @@ See [trajectory study](gsd_scan_trajectory_selection_20261019.md).
 - [x] Finish fresh r8 ten-cell setup: sole deferred Cell2fastrlock, actual
   A100-80GB/Python3.8.20/Torch2.1.2+cu121/nativeGPU/data/weights pass.
   Complete3045275byte evidence SHA f1590dc9…be81f81 passes actualDrive/local.
-- [ ] Finish fresh r9 setup and restore exact pinned r7native binaries before
-  strict v7CPUproof. r8 vanished after setup/native-hash mismatch; no teardown.
-  r9sameA100, Cell1passed/Cell2running; monitor70119/63241, SDKtimeout60 and
-  bounded hostsleep prevention. Accepted results remain safe, no new researchGPU.
-- [ ] Predeclare interruption/RNG strategy and remaining DGCNN GPU scope/time;
+- [x] Finish fresh r9 setup, exact pinned r7native restoration and strict
+  v7CPUproof. All10cells/GPU/native/data pass; eightstrictCPUloads, sixmatched
+  source and no-build proof accepted. Newv8 four-head CPU/pilot/all15 also
+  accepted. No teardown; same monitor70119/63241, SDKtimeout60 and bounded
+  hostsleep prevention. See dated recovery and trajectory evidence.
+- [ ] Revise residual DGCNN scope/time to50671events, omitting now-accepted
+  Scan GSD8715events from the old59386-event proposal. Preserve the declared
+  interruption/RNG strategy and refresh controller/whole-phase duration gate;
   [Prepared scope](gsd_multibackbone_dgcnn_recovery_plan_20261019.md) retains13
   full corruptions, freshOcclusion/LiDAR; exact mid-run continuation is unavailable.
   New >60min phase requires one

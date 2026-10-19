@@ -1,3 +1,16 @@
+**[Run/Artifact] 2026-10-19 16:07UTC — Scan four-head trajectory complete:**
+GSD-only main_split581/all15/s5/seed0: terminal→probability mean CurveNet
+55.1348→56.4773%, PointNeXt45.3586→46.8158%, DGCNN36.0757→37.3264%,
+Point-MAE34.1251→35.6856%; minimum entropy also improves allfour and is
+highest for Point-MAE35.7200%. Same-run selection deltas only; one seed.
+139440candidate predictions/135shared batches, allstates/RNG/geometry/labels,
+raw4ZIP and540batch/60corruption/4final Drive receipts plus local SHA pass.
+Accepted659325byte binder SHAa85ca9c6…6852e97. GPUphase24.66min total.
+DGCNN Scan GSD is now complete; its original3DD bothdatasets and ModelNet
+GSD Occlusion/LiDAR remain open. Old59386-event proposal must omit the now
+covered8715Scan GSD events before reuse. r9 remains preserved/live.
+[Results, exact provenance and limits](gsd_scan_trajectory_selection_20261019.md).
+
 **[Run/Open] 2026-10-19 15:41UTC — Scan four-head trajectory all15 running:**
 Fresh746bc30/v8 source and actualCPU proof pass. CUDA pilot validates2240
 candidate predictions, sharedgeometry/RNG/frozenstates andDrive/local rawZIPs.

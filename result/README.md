@@ -1,3 +1,19 @@
+## Scan four-head GSD trajectory selection — accepted2026-10-19
+
+[Run/Artifact] ScanObjectNN-C main_split581/all15/s5/seed0, CurveNet,
+PointNeXt, DGCNN and Point-MAE. Same shared run compares terminal, minimum
+entropy and equal class-probability mean from three fixed clean probes plus
+terminal. Both selection policies exceed their own terminal for allfour
+heads in this seed; no generalization or full GSDTTA reproduction is claimed.
+Four canonical rawZIPs retain standard terminal CSV/aggregate NPZ schema,
+plus indexed B×4×15 candidate logits in every batch shard.135shared batches,
+139440candidate predictions and540actual Drive batch receipts pass local
+validation;60corruption and4final receipts and all raw/analysis SHA agree.
+Derived tables: `preparation/scan_trajectory_20261019/all15_analysis/`;
+accepted evidence `all15_accepted_evidence_drive_roundtrip.zip`,659325bytes,
+SHAa85ca9c6…6852e97 in the same preparation directory.
+[Exact values, raw hashes and Drive paths](../knowledge/gsd_scan_trajectory_selection_20261019.md).
+
 # Colab Result Archive
 
 ## GSD guidance composition v1 - implementation, no runs yet

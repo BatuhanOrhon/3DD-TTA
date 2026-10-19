@@ -1,6 +1,8 @@
 # ScanObjectNN-C GSD-inspired trajectory selection — 2026-10-19
 
-Status: implementation/preparation; no new trajectory GPU result accepted yet.
+Status: **complete and independently accepted** for the selected four-head Scan
+GSD-only trajectory study. Historical preparation/running entries are retained.
+Separate DGCNN original3DD/ModelNet completion remains open.
 
 The user selected **only the GSD-inspired guidance pipeline** for this study.
 Evaluate CurveNet, PointNeXt, DGCNN and Point-MAE on severity5, seed0,
@@ -195,3 +197,111 @@ controllerSHA94c512da…a80dba. Expected135shared batches,8715examples/head,
 139440candidate predictions. Batch receipts copy allcandidates to Drive,
 followed by per-corruption and per-head final immutable ZIPs.
 No full accuracy claim until independent local acceptance.
+
+## Full all15 results accepted — 16:07UTC
+
+[Run/Artifact] Severity5, seed0, ScanObjectNN-C main_split581×15:8715
+original-ID prediction events per head. Terminal and both fixed selection
+policies use the exact same four candidates in this run.
+
+| Backbone | Terminal % | Minimum entropy % | Probability mean % | Entropy delta pp | Mean delta pp |
+|---|---:|---:|---:|---:|---:|
+| CurveNet |55.134825|56.408491|56.477338|+1.273666|+1.342513|
+| PointNeXt |45.358577|46.769937|46.815835|+1.411360|+1.457258|
+| DGCNN |36.075731|37.131383|37.326449|+1.055651|+1.250717|
+| Point-MAE |34.125072|35.720023|35.685600|+1.594951|+1.560528|
+
+Both policies exceed terminal in all four heads for this seed. Probability
+mean is highest for CurveNet, PointNeXt and DGCNN; minimum entropy is highest
+for Point-MAE by0.034423pp. This ranking is descriptive, not a post-hoc policy
+recommendation or a seed-stability claim.
+
+Probability mean corrects/harms320/203 CurveNet terminal events (net+117),
+334/207 PointNeXt (+127),354/245 DGCNN (+109),258/122 Point-MAE (+136).
+Minimum entropy corrects/harms364/253,364/241,379/287,285/146
+(net+111,+123,+92,+139 respectively). Repeated objects across corruptions
+are not independent binomial samples. Probability mean improves/worsens/ties
+12/1/2 CurveNet corruptions,11/3/1 PointNeXt,12/3/0 DGCNN,14/1/0 Point-MAE;
+minimum entropy counts10/4/1,12/3/0,10/4/1,14/1/0 respectively.
+
+### Matched references and limits
+
+[Run/Inference] Source remains52.071142% CurveNet,49.087780% PointNeXt and
+32.782559% DGCNN. Probability mean changes these by+4.406196pp,-2.271945pp
+and+4.543890pp. DGCNN remains an exploratory weak published alternative,
+not an exact paper checkpoint. No complete Point-MAE source/original3DD
+main_split row was supplied by this study; its accepted comparison here
+is solely the same-run terminal.
+
+CurveNet probability mean56.477338% is1.239243pp above the prior accepted
+original3DD55.238095%; PointNeXt46.815835% is2.868617pp below its original
+49.684452%. These are different reconstruction-policy runs/batches/schedules;
+this does not isolate spectral effects. No original3DD trajectory selection
+was run, following the user's GSD-only scope.
+
+New CurveNet/PointNeXt terminals55.134825/45.358577 differ from prior separate
+r7 terminals55.008606/45.209409 by+0.126219/+0.149168pp. Same seed does not
+establish bitwise trajectory equality across processes; prior native encoder
+replay already demonstrated nondeterminism. Probe RNG, buffers and live inputs
+are unchanged in this run. Use new terminals for selection deltas; preserve
+prior raw results and never substitute the new attempt into their old trace.
+All325 executed project source files match implementation746bc30 exactly;
+none differ or are undeclared in that commit.
+
+DGCNN Scan GSD terminal is now a complete accepted row36.075731%,+3.293173pp
+above its own source. DGCNN original3DD on both datasets and ModelNet GSD
+Occlusion/LiDAR completion remain pending. The old59386-event proposal includes
+the now-covered8715Scan GSD events; do not run that proposal unchanged.
+Residual50671 prediction events need a freshly reviewed scope and duration
+estimate. No further GPU phase was activated.
+
+### Runtime and immutable evidence
+
+Full GPU job15:41:44–16:05:18UTC:1413.941804s (23.565697min). Shared
+reconstruction1227.026896s includes observer work and is counted once across
+heads. Pilot+full GPU job wall1479.594484s (24.659908min), below the whole-phase
+42.505min upper estimate and3600s cap. Peak allocated36335.369MiB (35.484GiB);
+135 shared batches,540 head-batch traces,139440 candidate predictions.
+No early stopping or pure inference speedup is measured.
+
+All frozen classifier/LION states, checkpoint/native/source identities, probe
+RNG/buffers/live latent-style preservation, finite15-class logits, per-corruption
+0..580 indices and labels, candidate timing/order and standard terminal
+CSV/aggregate NPZ/batch consistency independently pass. The four heads share
+identical batch trajectory and terminal geometry hashes. All seven standard
+files and complete bundle-member SHA manifests pass, including ZIP CRC.
+
+Local raw ZIPs under `result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/`:
+
+| Run ID | Bytes | SHA-256 |
+|---|---:|---|
+|20261019-154146_curvenet-seed0|10204604|`acb85642c3635275512cfca70a2da80f758c0f559b96641a9004a71c31805d14`|
+|20261019-154147_pointnext-seed0|10049066|`07ea076d8cff7da65cc0002364ed9c9ac50409f298b25865cf1617512e1826de`|
+|20261019-154148_dgcnn-seed0|10189173|`c50efad82090e8c777e219b3647defffa294f30ff1b0dbcd6317ff343dc2be58`|
+|20261019-154148_pointmae-seed0|10166160|`62bbbaa47a4ad6517177f315929bd677ada546d63dd14b9c0337e78bd731db64`|
+
+Drive raw root:
+`MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/<run_id>/final.zip`.
+Each is physically Drive-verified and downloaded to canonical local storage
+with identical size/SHA.540 batch,60 corruption and4 final physical Drive
+receipts were independently audited and preserved.
+
+Full-phase evidence153027bytes SHA
+`2090393e53395c21d764e00de1ce86da84bfdcaee1a27c977dbdd603f32725e5`;
+local `result/preparation/scan_trajectory_20261019/all15_phase_evidence_drive_roundtrip.zip`.
+Final analysis/physical-receipt binder659325bytes SHA
+`a85ca9c6e2925daf50e010b5ac9f688fcef99eab0300479bc9cb78c176852e97`;
+local `all15_accepted_evidence_drive_roundtrip.zip` in the same preparation root;
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/scan_trajectory_all15_accepted_20261019T160659Z/scan_trajectory_all15_accepted_20261019T160659Z.zip`.
+Nested local analysis package130110bytes SHA
+`ed60fbc1b1be633218be9c1af263692f2fa399fbf240b194ac16beb3480d01de`.
+Actual Drive/local roundtrip, all member manifests and nested analysis pass.
+
+Derived `all15_analysis/{validation.json,macro.csv,per_corruption.csv}` and
+`matched_readout_comparison.csv` retain exact values and paired errors.
+Final report backup stays separate from raw/accepted evidence.
+
+The same `tta-multibackbone-dgcnn-a100-r9-20261019` session remains preserved;
+no stop/release/teardown was issued. Monitor70119/local session63241 remains
+sole execution owner. Bounded host awake assertion PID79381/session29840
+expires7200seconds after15:38UTC; managed Colab lifetime is not guaranteed.
