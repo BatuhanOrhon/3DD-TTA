@@ -1310,7 +1310,7 @@
     "runtime_preserved": true
   },
   "original3dd_dgcnn_extension_20261019": {
-    "status": "modelnet_original_accepted_scan_original_running",
+    "status": "original_cn_pn_both_datasets_accepted_dgcnn_gsd_running",
     "parent_commit": "acc27d3e16666cd4638744988a1cfd249fa45164",
     "preparation": {
       "bytes": 5464063,
@@ -1775,6 +1775,377 @@
         "utc": "20261019T065632Z",
         "drive_roundtrip_verified": true
       }
-    }
+    },
+    "original_cn_pn_accepted": {
+      "validation": {
+        "status": "partial",
+        "mode": "extension_all15",
+        "models": [
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "method": "3dd_original",
+            "status": "complete",
+            "n_predictions": 37020,
+            "accuracy_percent": 67.07185305240411,
+            "matched_full_source_percent": 64.01134521880066,
+            "delta_pp": 3.0605078336034524,
+            "archive": "result/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0.zip",
+            "archive_sha256": "21c644db9568c9c98a38c484950e214a00b9d5c2251b74d6946dc9040c77e10c",
+            "shared_reconstruction_seconds": 1637.1221412838859,
+            "allocated_runtime_seconds": 1014.4562453888539
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "method": "3dd_original",
+            "status": "complete",
+            "n_predictions": 37020,
+            "accuracy_percent": 68.29281469475958,
+            "matched_full_source_percent": 65.83198271204755,
+            "delta_pp": 2.460831982712037,
+            "archive": "result/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0.zip",
+            "archive_sha256": "78ca52702d59c58f9418ef2146decb994af8838e8c2f3f18aae11c9b245cef38",
+            "shared_reconstruction_seconds": 1637.1221412838859,
+            "allocated_runtime_seconds": 851.3848757029155
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "curvenet",
+            "method": "3dd_original",
+            "status": "complete",
+            "n_predictions": 8715,
+            "accuracy_percent": 55.23809523809524,
+            "matched_full_source_percent": 52.07114170969592,
+            "delta_pp": 3.1669535283993184,
+            "archive": "result/scanobjectnn_c/3dd_original/20261019-065533_curvenet-seed0.zip",
+            "archive_sha256": "641b55130a83e85a6e6f006b7229e72de3f67e60480177218679fc052efe46f5",
+            "shared_reconstruction_seconds": 391.10830792302295,
+            "allocated_runtime_seconds": 243.82668628135798
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "pointnext",
+            "method": "3dd_original",
+            "status": "complete",
+            "n_predictions": 8715,
+            "accuracy_percent": 49.684452094090645,
+            "matched_full_source_percent": 49.08777969018933,
+            "delta_pp": 0.5966724039013158,
+            "archive": "result/scanobjectnn_c/3dd_original/20261019-065534_pointnext-seed0.zip",
+            "archive_sha256": "27344cbf4e23d8efedc6a79b8ab7fec9b5ada3fab331298de08a1c8330ee8e62",
+            "shared_reconstruction_seconds": 391.10830792302295,
+            "allocated_runtime_seconds": 201.1787220425358
+          }
+        ],
+        "shared_geometry_batches": 1455,
+        "n_predictions": 91470
+      },
+      "triplets": {
+        "status": "partial",
+        "summary": [
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "source_percent": 64.01134521880064,
+            "original_percent": 67.07185305240411,
+            "gsd_percent": 65.18638573743922,
+            "original_minus_source_pp": 3.0605078336034666,
+            "gsd_minus_source_pp": 1.175040518638582,
+            "gsd_minus_original_pp": -1.8854673149648846,
+            "gsd_corrected_original": 2250,
+            "gsd_harmed_original": 2948,
+            "gsd_improved_corruptions": 4,
+            "gsd_worsened_corruptions": 11,
+            "gsd_tied_corruptions": 0
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "source_percent": 65.83198271204755,
+            "original_percent": 68.29281469475958,
+            "gsd_percent": 66.4721772015127,
+            "original_minus_source_pp": 2.460831982712037,
+            "gsd_minus_source_pp": 0.640194489465145,
+            "gsd_minus_original_pp": -1.8206374932468918,
+            "gsd_corrected_original": 2273,
+            "gsd_harmed_original": 2947,
+            "gsd_improved_corruptions": 3,
+            "gsd_worsened_corruptions": 12,
+            "gsd_tied_corruptions": 0
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "curvenet",
+            "source_percent": 52.07114170969593,
+            "original_percent": 55.23809523809524,
+            "gsd_percent": 55.00860585197935,
+            "original_minus_source_pp": 3.1669535283993113,
+            "gsd_minus_source_pp": 2.9374641422834173,
+            "gsd_minus_original_pp": -0.22948938611589398,
+            "gsd_corrected_original": 524,
+            "gsd_harmed_original": 544,
+            "gsd_improved_corruptions": 5,
+            "gsd_worsened_corruptions": 9,
+            "gsd_tied_corruptions": 1
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "pointnext",
+            "source_percent": 49.08777969018933,
+            "original_percent": 49.684452094090645,
+            "gsd_percent": 45.20940906483075,
+            "original_minus_source_pp": 0.5966724039013158,
+            "gsd_minus_source_pp": -3.8783706253585777,
+            "gsd_minus_original_pp": -4.4750430292598935,
+            "gsd_corrected_original": 453,
+            "gsd_harmed_original": 843,
+            "gsd_improved_corruptions": 4,
+            "gsd_worsened_corruptions": 11,
+            "gsd_tied_corruptions": 0
+          }
+        ],
+        "inputs": [
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "role": "source",
+            "archive": "result/modelnet40_c/source_only/20261018-201913_curvenet-seed0.zip",
+            "sha256": "25736accdd0074535de3fcf0c5fc45c75ae51138a68b81b20ce10ae4e84d47eb",
+            "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "role": "original",
+            "archive": "result/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0.zip",
+            "sha256": "21c644db9568c9c98a38c484950e214a00b9d5c2251b74d6946dc9040c77e10c",
+            "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "role": "gsd",
+            "archive": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205338_curvenet-seed0.zip",
+            "sha256": "740a1d4b9c77aa658218d3df651648e1aa6694bfbf5292cafc3e46335b3b3c8f",
+            "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "role": "source",
+            "archive": "result/modelnet40_c/source_only/20261018-202209_pointnext-seed0.zip",
+            "sha256": "ea88626ea8fe6dbe01d658e95c7282142160ccc328570c7d4bc7800dcf47a36a",
+            "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "role": "original",
+            "archive": "result/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0.zip",
+            "sha256": "78ca52702d59c58f9418ef2146decb994af8838e8c2f3f18aae11c9b245cef38",
+            "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "role": "gsd",
+            "archive": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205339_pointnext-seed0.zip",
+            "sha256": "fd59c5242980bf28bd6f9bd87d8b98919e7076a9d1b263ea3e47719481eedc8a",
+            "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "curvenet",
+            "role": "source",
+            "archive": "result/scanobjectnn_c/source_only/20261018-202311_curvenet-seed0.zip",
+            "sha256": "67c7eaf13ccdff6659cb1ff32cfcf781933b68eadb7d8b75ef7973a736944e14",
+            "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "curvenet",
+            "role": "original",
+            "archive": "result/scanobjectnn_c/3dd_original/20261019-065533_curvenet-seed0.zip",
+            "sha256": "641b55130a83e85a6e6f006b7229e72de3f67e60480177218679fc052efe46f5",
+            "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "curvenet",
+            "role": "gsd",
+            "archive": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220304_curvenet-seed0.zip",
+            "sha256": "8699efd791d5be265ee555b905ef60dbf78fecaa9aeb0f3b78bf904f23f7e4d7",
+            "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "pointnext",
+            "role": "source",
+            "archive": "result/scanobjectnn_c/source_only/20261018-202404_pointnext-seed0.zip",
+            "sha256": "51c50a53d8cc6d6f45e58f03599d8cb8c8feab6257fac40846eea1cf67d3123e",
+            "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a"
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "pointnext",
+            "role": "original",
+            "archive": "result/scanobjectnn_c/3dd_original/20261019-065534_pointnext-seed0.zip",
+            "sha256": "27344cbf4e23d8efedc6a79b8ab7fec9b5ada3fab331298de08a1c8330ee8e62",
+            "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a"
+          },
+          {
+            "dataset": "scanobjectnn_c",
+            "backbone": "pointnext",
+            "role": "gsd",
+            "archive": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261018-220305_pointnext-seed0.zip",
+            "sha256": "f4cbc882b326bfa5f6e87fceb9bd0a8d53b517db027cf12c7285632f5d705e39",
+            "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a"
+          }
+        ],
+        "interpretation": "Single-seed whole-policy comparison with fixed published alternatives; no isolated spectral or paper reproduction claim"
+      },
+      "partial_phase_state": {
+        "mode": "extension_all15",
+        "status": "running",
+        "manifest_sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9",
+        "source_snapshot_sha256": "f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf",
+        "plan_sha256": "e0eafe5938907d6de45803daa550f486567e86e532cd1f3cbb81362541b74f41",
+        "jobs": [
+          {
+            "name": "modelnet40_c-original-two-heads",
+            "mode": "extension_all15",
+            "command": [
+              "conda",
+              "run",
+              "--no-capture-output",
+              "-n",
+              "3dd_tta_env",
+              "python",
+              "-u",
+              "scripts/eval_multibackbone_guidance.py",
+              "--method",
+              "original3dd",
+              "--backbones",
+              "curvenet",
+              "pointnext",
+              "--dataset",
+              "modelnet40_c",
+              "--dataset-root",
+              "/content/3DD-TTA/data/modelnet40_c",
+              "--label-path",
+              "/content/3DD-TTA/data/modelnet40_c/label.npy",
+              "--asset-root",
+              "/content/gsd_multibackbone_study_20261018/prepared_v7/assets",
+              "--asset-manifest-sha256",
+              "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9",
+              "--seed",
+              "0",
+              "--batch-size",
+              "32",
+              "--drive-root",
+              "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study",
+              "--corruptions",
+              "all",
+              "--max-batches",
+              "0",
+              "--result-root",
+              "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/modelnet40_c-original-two-heads"
+            ],
+            "status": "complete",
+            "utc_start": "2026-10-19T06:21:48.085322+00:00",
+            "returncode": 0,
+            "archives": [
+              {
+                "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/modelnet40_c-original-two-heads/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0.zip",
+                "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0/final.zip",
+                "bytes": 18330116,
+                "sha256": "21c644db9568c9c98a38c484950e214a00b9d5c2251b74d6946dc9040c77e10c"
+              },
+              {
+                "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/modelnet40_c-original-two-heads/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0.zip",
+                "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0/final.zip",
+                "bytes": 18139081,
+                "sha256": "78ca52702d59c58f9418ef2146decb994af8838e8c2f3f18aae11c9b245cef38"
+              }
+            ],
+            "elapsed_seconds": 2023.6974330010053
+          },
+          {
+            "name": "scanobjectnn_c-original-two-heads",
+            "mode": "extension_all15",
+            "command": [
+              "conda",
+              "run",
+              "--no-capture-output",
+              "-n",
+              "3dd_tta_env",
+              "python",
+              "-u",
+              "scripts/eval_multibackbone_guidance.py",
+              "--method",
+              "original3dd",
+              "--backbones",
+              "curvenet",
+              "pointnext",
+              "--dataset",
+              "scanobjectnn_c",
+              "--dataset-root",
+              "/content/gsd_multibackbone_study_20261018/prepared_v7/assets/datasets/scanobjectnn_c",
+              "--label-path",
+              "/content/gsd_multibackbone_study_20261018/prepared_v7/assets/datasets/scanobjectnn_c/label.npy",
+              "--asset-root",
+              "/content/gsd_multibackbone_study_20261018/prepared_v7/assets",
+              "--asset-manifest-sha256",
+              "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9",
+              "--seed",
+              "0",
+              "--batch-size",
+              "32",
+              "--drive-root",
+              "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study",
+              "--corruptions",
+              "all",
+              "--max-batches",
+              "0",
+              "--result-root",
+              "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/scanobjectnn_c-original-two-heads"
+            ],
+            "status": "complete",
+            "utc_start": "2026-10-19T06:55:31.784453+00:00",
+            "returncode": 0,
+            "archives": [
+              {
+                "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/scanobjectnn_c-original-two-heads/scanobjectnn_c/3dd_original/20261019-065533_curvenet-seed0.zip",
+                "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/3dd_original/20261019-065533_curvenet-seed0/final.zip",
+                "bytes": 7019419,
+                "sha256": "641b55130a83e85a6e6f006b7229e72de3f67e60480177218679fc052efe46f5"
+              },
+              {
+                "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/scanobjectnn_c-original-two-heads/scanobjectnn_c/3dd_original/20261019-065534_pointnext-seed0.zip",
+                "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/3dd_original/20261019-065534_pointnext-seed0/final.zip",
+                "bytes": 6967801,
+                "sha256": "27344cbf4e23d8efedc6a79b8ab7fec9b5ada3fab331298de08a1c8330ee8e62"
+              }
+            ],
+            "elapsed_seconds": 508.5932927860049
+          }
+        ]
+      },
+      "analysis_receipt": {
+        "status": "complete",
+        "coverage": "OriginalCNPN full15 both datasets, matched own source/priorGSD; DGCNN phase running",
+        "archive": {
+          "local_path": "result/preparation/multibackbone_20261018/original_two_backbone_matched_analysis_20261019T070752Z.zip",
+          "bytes": 22758,
+          "sha256": "8f3be7464f78c12dcf4eb588019fa131ba41f9241980eda71a21d2b7ccd35d64",
+          "drive_path": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/3dd_original/original_two_backbone_matched_analysis_20261019T070752Z.zip"
+        },
+        "utc": "20261019T070752Z",
+        "drive_roundtrip_verified": true
+      }
+    },
+    "primary_stream_silent": true,
+    "file_progress_monitor": "result/preparation/multibackbone_20261018/poll_extension_files.py"
   }
 }

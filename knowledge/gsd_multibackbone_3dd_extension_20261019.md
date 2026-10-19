@@ -285,3 +285,25 @@ source/oldGSD links and per-corruption results in
 Scan original CN/PN now running; DGCNN jobs follow unchanged within4h cap.
 Replicated seeds or matched same-flow controls could falsify/attribute the
 one-seed ordering. Preserve r7/monitor; no additional GPU policy/search.
+
+
+[Run/Artifact/Inference] 2026-10-19 07:06 UTC — Scan main_split581
+original3DD accepted: CurveNet55.2381% (source52.0711,+3.1670pp),
+PointNeXt49.6845% (source49.0878,+0.5967pp). PriorGSD55.0086/45.2094%
+is0.2295/4.4750pp lower than original. Whole-policy seed0 comparison only;
+small CurveNet difference is not stable superiority evidence. No settings
+changed after observations. Both original datasets now91470 predictions/1455
+shared batches independently pass frozen/RNG/scheduler/labels/logits/ZIP
+checks. Joint Scan job508.593s; ledger2782.578s before active DGCNN job.
+Immutable22758-byte combined analysis ZIP SHA
+`8f3be7464f78c12dcf4eb588019fa131ba41f9241980eda71a21d2b7ccd35d64`
+passes actualDrive upload/download, CRC/all members. Exact paths/raw SHAs and
+paired corruption analysis are in the current method-comparison note.
+
+Primary CLI stream became silent after07:01, but read-only file-service
+audits confirmed Scan had completed normally and DGCNN GSD ModelNet was
+active/advancing (run20261019-070402_dgcnn-seed0). Server still lists the
+exact r7/A100 endpoint. Do not rerun/duplicate or kill/restart the runtime;
+continue solemonitor plus immutable file-progress snapshots. At final phase
+completion, independently check .complete/state/ledger before repairing any
+stale local client and submitting the CPU finalizer.

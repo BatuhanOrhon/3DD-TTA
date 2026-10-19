@@ -54,8 +54,11 @@
   8final/24batch/24corruption receipts verified Drive/locally.
 - [x] ModelNet originalCNPN full15 accepted:67.0719/68.2928%, GSD below
   original by1.8855/1.8206pp;74040predictions and immutable matched analysis verify.
-- [ ] Finish remaining Scan original and DGCNN GSD/original full15 within
-  approved4h cap;8newrows/182940predictions total. Complete whole-policy triplets. DGCNN now explicitly in scope; preserve its weaker source caveat.
+- [x] Scan originalCNPN accepted55.2381/49.6845%; GSD is0.2295/4.4750pp
+  below original. Combined91470 original predictions/4triplets verified.
+- [ ] Finish DGCNN GSD/original bothdatasets under approved4h cap; complete
+  8newrows/182940predictions and full6whole-policy triplets. ActiveDGCNN GSD
+  ModelNet progress is verified through read-only file snapshots despite silentCLI. DGCNN now explicitly in scope; preserve its weaker source caveat.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,

@@ -1,3 +1,12 @@
+**[Run/Artifact] 2026-10-19 — original3DD CN/PN accepted on both datasets:**
+ModelNet67.0719/68.2928%; Scan main_split55.2381/49.6845%. Historical
+GSD is lower than original by1.8855/1.8206pp and0.2295/4.4750pp respectively,
+for seed0/whole-policy comparison only.91470 original predictions, matched
+source/GSD joins and immutable Drive/local evidence verify. DGCNN GSD is now
+running on ModelNet; ScanGSD and both originalDGCNN jobs follow. A silent
+primary CLI stream does not mean GPU stopped; file snapshots prove progress.
+[Current comparison](gsd_multibackbone_method_comparison_20261019.md).
+
 **[Run/Artifact] 2026-10-19 — original3DD ModelNet accepted:** CurveNet67.0719%
 and PointNeXt68.2928%, versus own source64.0113/65.8320 and prior
 GSD65.1864/66.4722. GSD is1.8855/1.8206pp lower than original for seed0;

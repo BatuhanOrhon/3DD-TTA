@@ -1,7 +1,7 @@
 # Matched source, original 3DD-TTA and GSD comparison — 2026-10-19
 
-[Run] Original3DD CurveNet+PointNeXt ModelNet full15 independently accepted.
-Scan original3DD is running; DGCNN GSD and original3DD follow. Existing four
+[Run] Original3DD CurveNet+PointNeXt full15 independently accepted on both
+datasets. DGCNN GSD is running; DGCNN original3DD follows. Existing four
 CurveNet/PointNeXt GSD rows are reused, not rerun. All are published-alternative
 checkpoints, not established paper reproductions. Scan uses581 main_split.
 
@@ -10,8 +10,8 @@ checkpoints, not established paper reproductions. Scan uses581 main_split.
 | ModelNet40-C | CurveNet | 64.0113 | 67.0719 | 65.1864 | -1.8855 |
 | ModelNet40-C | PointNeXt | 65.8320 | 68.2928 | 66.4722 | -1.8206 |
 | ModelNet40-C | DGCNN | 58.7979 | pending | pending | pending |
-| ScanObjectNN-C | CurveNet | 52.0711 | running | 55.0086 | pending |
-| ScanObjectNN-C | PointNeXt | 49.0878 | running | 45.2094 | pending |
+| ScanObjectNN-C | CurveNet | 52.0711 | 55.2381 | 55.0086 | -0.2295 |
+| ScanObjectNN-C | PointNeXt | 49.0878 | 49.6845 | 45.2094 | -4.4750 |
 | ScanObjectNN-C | DGCNN | 32.7826 | pending | pending | pending |
 
 ## ModelNet original3DD accepted evidence
@@ -69,8 +69,54 @@ still-running six-job campaign. Current derived CSVs:
 
 ## Remaining work
 
-[Run/running] Protectedr7 remains live. Scan original CN/PN run IDs
-20261019-065533_curvenet-seed0 /20261019-065534_pointnext-seed0; after both
-final ZIPs verify, the same approved controller advances to DGCNN GSD and
-original3DD. Finish8new model rows, then sealed-member Drive verification of
+[Run/running] Protectedr7 remains live. Scan original CN/PN final ZIPs
+are complete/verified; the same approved controller has advanced to DGCNN
+GSD on ModelNet, run ID20261019-070402_dgcnn-seed0. Scan GSD and then
+DGCNN original3DD on both datasets follow. Finish8new model rows, then sealed-member Drive verification of
 5040 batch/120corruption receipts and full6-triplet comparison. No tuning.
+
+## ScanObjectNN original3DD accepted evidence — 07:06 UTC
+
+[Run/Artifact] All581 main_split objects x15,8715 predictions/head. Original
+CurveNet55.2381% is+3.1670pp over own source; originalPointNeXt49.6845% is
++0.5967pp. GSD is0.2295/4.4750pp below original. CurveNet's small0.2295pp
+one-seed ordering is not a seed-stable superiority claim. GSD corrects524/453
+original errors but harms544/843 correct events (CurveNet/PointNeXt); improves
+5/4 corruptions, worsens9/11 and ties1/0.
+
+CurveNet GSD-minus-original largest gains Impulse+12.392pp, Uniform+1.033pp,
+Gaussian+1.033pp; losses Background-4.819pp, Rotation-4.131pp, RBF-2.582pp.
+PointNeXt gains Impulse+6.540pp, Gaussian+5.164pp, Uniform+1.033pp; losses
+Density-11.876pp, Cutout-11.015pp, Rotation-8.778pp. Whole policy differs as
+declared; no hyperparameters changed after seeing results.
+
+Raw ZIPs under `result/scanobjectnn_c/3dd_original/`:
+
+| Backbone / run ID | Bytes | SHA256 |
+|---|---:|---|
+| CurveNet / 20261019-065533_curvenet-seed0 | 7019419 | `641b55130a83e85a6e6f006b7229e72de3f67e60480177218679fc052efe46f5` |
+| PointNeXt / 20261019-065534_pointnext-seed0 | 6967801 | `27344cbf4e23d8efedc6a79b8ab7fec9b5ada3fab331298de08a1c8330ee8e62` |
+
+Drive uses the same dataset/method/run IDs with `final.zip` and receipts. Joint
+Scan original job508.593s=8.477min, reconstruction391.108s shared, never
+counted twice. Both original jobs combined2532.291s; new ledger after smoke
+and both jobs2782.578s/14400s, with DGCNN currently active.
+
+Independent combined original validation91470 predictions/1455 shared
+geometry batches, labels/IDs/logits/argmax/counts, frozen states, strict
+checkpoint/preprocessing/source matching, actual DDIM schedules and all ZIP
+member hashes pass. The4 complete triplets bind12 raw source/original/GSD
+ZIPs by their hashes, checkpoint identity and per-original-index labels.
+
+Immutable combined matched analysis22758bytes SHA
+`8f3be7464f78c12dcf4eb588019fa131ba41f9241980eda71a21d2b7ccd35d64`, local
+`result/preparation/multibackbone_20261018/original_two_backbone_matched_analysis_20261019T070752Z.zip`.
+Drive `MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/3dd_original/`
+with the same filename plus `.receipt.json`; actual roundtrip bytes, CRC and
+all manifest members match. Derived CSVs:
+`result/preparation/multibackbone_20261018/extension_original_both_datasets_triplets_final/`.
+
+[Inference] The historical fixed GSD policy is below this original reference
+in all4 currently complete matched cases, despite source improvements in3/4.
+This does not isolate spectral effects, prove an optimum or generalize beyond
+these fixed alternatives and seed0. DGCNN comparison remains pending.
