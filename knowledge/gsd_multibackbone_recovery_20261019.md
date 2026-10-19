@@ -1,13 +1,13 @@
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
-**Current09:21UTC [Run/Code/Open]:** TTY87017 awaits fresh Google consent.
+**Current09:32UTC [Run/Code/Open]:** TTY53559 awaits user-requested renewed consent.
 The previous timely confirmation failed in the CLI auth hook with a hidden
 ConnectionResetError; extending the auth window alone did not fix it.
 The new scoped helper clears its HTTP pool before the final propagation POST,
 uses45s HTTP deadlines, and surfaces exception types. Scope/header checks pass;
 actual mount remains unverified. Monitor63286/69569 stays suspended until this
 external mount completes. No r7 data recovered or new researchGPU inference.
-Earlier pending request IDs below are historical and superseded by87017.
+Earlier pending request IDs below are historical and superseded by53559.
 
 [User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
 session and mounting Drive to retrieve the interrupted study's evidence. This
@@ -170,3 +170,14 @@ Immutable local diagnosis ZIP12625bytes/9members SHA256
 CRC/all8manifest identities pass, Drive backup pending. Includes exact scoped
 helpers, safe request IDs, sanitized diagnosis and installed public CLI sources.
 No model evaluation rerun; accepted accuracy results remain unchanged.
+
+
+## 09:32 UTC — User-requested consent renewal
+
+[User decision/Run/Open] User requests a newly generated link. Interrupted only
+old waiting-auth kernel9452e052, verified all kernels idle, then terminated
+its local blocked CLI66108 (not the VM). Fresh unchanged helper now waits in
+TTY53559, remote30min/local35min, approximate consent deadline10:02UTC/13:02
+Istanbul. CLI returned a new URL; URL/state are not archived. Resume the same
+suspended63286/69569 after mount. r8 endpoint remains responsive; setup retained,
+no researchGPU run or artifact recovery. Earlier pendingTTY87017 superseded.

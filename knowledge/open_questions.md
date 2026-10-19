@@ -67,7 +67,7 @@
 - [ ] Verify physical interrupted DGCNN Drive shard/corruption coverage and
   copy loss evidence to Drive. User authorizes fresh r8 CLI/Drive route;
   Cell1/2 and timeout diagnosis evidence verify locally. Current Google
-  consent pending inTTY87017 (remote1800s/local2100s, fresh propagation HTTP
+  consent pending inTTY53559 (remote1800s/local2100s, fresh propagation HTTP
   pool after timely consent exposed a hidden connection reset), then
   Cell3/recovery/Cells4–10. Resume suspended local63286/
   session69569 after mount;8unchanged asset parts uploaded, no researchGPUyet.
