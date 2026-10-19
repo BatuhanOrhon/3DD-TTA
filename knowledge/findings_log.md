@@ -5605,3 +5605,24 @@ No further GPU phase or teardown; same r9 monitor63241 remains owner.
 Falsifier: missing IDs/source/state/receipt binding or policy recomputation
 failure would invalidate acceptance; these checks pass. Repeatability and
 isolated guidance attribution remain open.
+
+
+### 2026-10-19 17:44UTC — reduced DGCNN completion authorized and preflight accepted
+
+[User report/Code/Run/Open] User requested remaining tests if r9 remains live.
+Same r9 confirmed; scopecc77f0d3…ee2355b removes already accepted ScanGSD8715
+from obsolete four-job scope. Three jobs50671events: MN GSD Occlusion/LiDAR,
+MN originalall15, Scan originalall15. Whole expected49.8–58.8min based on
+actual full-original reconstruction and DGC smoke timings; one3600s cap.
+No additional long-run approval required under60min expected total. Existing
+four smoke-only authorization is preserved and admitted explicitly under new
+scope with unchangedv7 source/assets/runtime; no smoke/source/CNPN rerun.
+
+Preflight actualDrive/local14928byte evidence SHA4214776d…27f6158 verifies622
+assets/four native binaries/LION and prior smoke/ScanGSD identities; no active
+worker, exact global a458cd4 checkout remains separate from v7 researchsource.
+SourceZIPf82cf505…5cadeed4cf/manifest78cdb538…ced60f9 unchanged. Controller
+SHA707dc790…a6b1759e submitted to solemonitor63241. Old13 MN GSD corruptions
+are preserved; oldpartialOcclusion910 excluded from composite. No exact RNG
+resume and old13 finalLION-state limitation remain. NewGPU results pending.
+[Concrete scope/protocol/budget/evidence](gsd_multibackbone_dgcnn_residual_20261019.md).

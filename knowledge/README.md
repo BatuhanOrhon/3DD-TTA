@@ -1,3 +1,12 @@
+**[User report/Run/Open] 2026-10-19 17:44UTC — residual DGCNN phase starting:**
+User authorized remaining tests in still-live r9. Reduced three-job50671-event
+scope: MN GSD Occlusion/LiDAR, MN originalall15, Scan originalall15. Completed
+ScanGSD/source/CNPN/trajectory rows are retained. Expected49.8–58.8min total,
+shared3600s job cap. All622assets/four native/LION/accepted smoke reuse pass
+actualCPU/hash preflight;14928byte evidence SHA4214776d…27f6158 verifies
+actualDrive/local SHA. Same monitor63241; no newaccuracy accepted yet.
+[Current reduced scope and executed identities](gsd_multibackbone_dgcnn_residual_20261019.md).
+
 **[Run/Artifact] 2026-10-19 16:07UTC — Scan four-head trajectory complete:**
 GSD-only main_split581/all15/s5/seed0: terminal→probability mean CurveNet
 55.1348→56.4773%, PointNeXt45.3586→46.8158%, DGCNN36.0757→37.3264%,

@@ -101,9 +101,12 @@ See [trajectory study](gsd_scan_trajectory_selection_20261019.md).
   source and no-build proof accepted. Newv8 four-head CPU/pilot/all15 also
   accepted. No teardown; same monitor70119/63241, SDKtimeout60 and bounded
   hostsleep prevention. See dated recovery and trajectory evidence.
-- [ ] Revise residual DGCNN scope/time to50671events, omitting now-accepted
+- [x] Revise residual DGCNN scope/time to50671events, omitting now-accepted
   Scan GSD8715events from the old59386-event proposal. Preserve the declared
-  interruption/RNG strategy and refresh controller/whole-phase duration gate;
+  interruption/RNG strategy and refresh controller/whole-phase duration gate.
+  User authorized17:44UTC; expected49.8–58.8min/shared3600s cap. Exactv7
+  smoke admission and622asset/4native hash proof pass Drive/locally.
+  [Active reduced phase](gsd_multibackbone_dgcnn_residual_20261019.md);
   [Prepared scope](gsd_multibackbone_dgcnn_recovery_plan_20261019.md) retains13
   full corruptions, freshOcclusion/LiDAR; exact mid-run continuation is unavailable.
   New >60min phase requires one
