@@ -1,3 +1,12 @@
+**[Run/Artifact] 2026-10-19 18:40UTC — complete; Colab and task terminals closed:**
+All requested source/original/GSD cases for three backbones and bothdatasets
+are covered (18accuracy rows; qualified13+2ModelNetDGC GSD composite).
+Finalreport238340bytes SHA22ca2442…e27735f and allraw/analysis evidence
+verified actualDrive/local beforecleanup. User's prior conditional close
+instruction applied: r9terminated, serverinventory0active sessions, three
+monitors andhostawake process stopped. No requested GPU case remains.
+[Complete results, hashes, caveats and lifecycle](gsd_multibackbone_dgcnn_residual_20261019.md).
+
 **[Run/Artifact] 2026-10-19 18:33UTC — requested multibackbone matrix complete:**
 Remaining DGCNN originals accepted65.586170% ModelNet/36.442915% Scan;
 ModelNetGSD13+2composite63.833063%, ScanGSDterminal36.075731%. Six cases,

@@ -5681,3 +5681,18 @@ Decision: requested missing tests complete; no new GPU studies. Final report
 backup then lifecycle cleanup follows the user's conditional close instruction.
 Repeated seeds, isolated controls and exact paper checkpoint reproduction
 remain distinct unexecuted research questions, not missing requested cases.
+
+
+### 2026-10-19 18:40UTC — requested cleanup completed after full result backup
+
+[User report/Run] All three remaining tests and final18-row matrix were
+accepted, satisfying the user's prior conditional close instruction. Final
+238340byte report SHA22ca2442…e27735f verifies actualDrive/local, allmembers
+and pushed results commitbf28603. r9 stopped through ColabCLI (exit0,
+“Session terminated”); bounded serverinventory confirms0active sessions.
+All3monitor PIDs34633/63286/70119 and hostawakePID83891 stopped/absent.
+An unbounded verificationinventory hung; only localPID85667 was ended, then
+boundedREQUEST_TIMEOUT20 succeeded. No new runtime or research inference.
+Postclosure receipt is local/Git-recorded; allresearch data backed onDrive
+beforeteardown. User's pre-existing modified/untracked files remain untouched.
+[Final report/evidence and lifecycle record](gsd_multibackbone_dgcnn_residual_20261019.md).

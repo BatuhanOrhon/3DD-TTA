@@ -212,3 +212,37 @@ Derived exact CSVs: `all3_analysis/` and `complete_matrix/` in residual root.
 Requested remaining GPU tests are complete. Follow the user's earlier
 conditional shutdown instruction after final report backup and verification;
 archive the actual lifecycle result separately, with no new research inference.
+
+
+## Authorized cleanup complete — 18:40UTC
+
+[User report/Run] The user's earlier “Şimdi yapılacak başka bir testimiz
+kalmadıysa colab oturumlarının tamamını ve background terminallerini
+kapatabilirsin” condition is now satisfied by completion of all three named
+remaining tests, independent validation and final report backup.
+
+Final report238340bytes SHA
+`22ca24428687516bc82ddf5d002b76480c22a83479bac32fcde223f02e27735f`
+is backed up on actual Drive and locally verified, including every member and
+results commit `bf2860341c5da4b909930f2e89ed2daa4f317fbe`.
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/completed_multibackbone_report_20261019T183511Z.zip`;
+local `completed_multibackbone_report.zip` and `completed_report_drive_roundtrip.zip`
+in the residual preparation directory. All raw/accepted evidence above was
+safely archived before runtime termination.
+
+Stopped all three local monitors gracefully (exit0 each): r7PID34633/session97631,
+r8PID63286/session69569 and r9PID70119/session63241. r7/r8 server assignments
+were already lost; stopping monitors did not terminate another active runtime.
+`colab stop -s tta-multibackbone-dgcnn-a100-r9-20261019` returned exit0 and
+“Session terminated.” Bounded `REQUEST_TIMEOUT=20 colab sessions` confirms
+no active server sessions. One earlier unbounded inventory hung; only its
+local clientPID85667 was stopped before the bounded verification succeeded.
+Host awake assertionPID83891/session33491 stopped. All four known task PIDs
+are absent. No model/transfer/inspection work remains active.
+
+Post-shutdown closure receipt and immutable local evidence are preserved at
+`result/preparation/dgcnn_residual_20261019/closure_receipt.json` and
+`closure_evidence_local.zip`. This lifecycle-only artifact was produced after
+teardown and is local; research results and final report were verified on
+Drive beforehand. Current task is complete; no runtime is allocated.
+Closure evidence3536bytes SHA`79ba5df38cf29c9c42dfb4ac9d8c75a2196944fc1fd872aafe6ea17dcca615ba`.

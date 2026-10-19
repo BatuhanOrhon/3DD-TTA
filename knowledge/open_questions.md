@@ -1,5 +1,16 @@
 # Open Questions and Research Backlog
 
+## 2026-10-19 - Final operational closure
+
+- [x] Complete all three residual DGCNN jobs and the18-row six-case matrix;
+  verify all raw/analysis andfinalreport actualDrive/local SHA beforecleanup.
+- [x] Apply user conditional shutdown after requested tests complete: r9
+  terminated; server0active sessions; all3monitors/hostawakeprocess stopped.
+- [ ] Additional seeds/isolatedspectral controls and exactpapercheckpoint
+  reproduction remain future studies, separate from completed requested scope.
+
+[Final results and lifecycle](gsd_multibackbone_dgcnn_residual_20261019.md).
+
 ## 2026-10-19 - Scan four-head trajectory selection
 
 - [x] User selected only GSD-inspired guidance, four frozen heads, Scan581
