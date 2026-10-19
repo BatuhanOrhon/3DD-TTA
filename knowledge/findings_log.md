@@ -5225,3 +5225,27 @@ exact r7/A100 endpoint. Do not rerun/duplicate or kill/restart the runtime;
 continue solemonitor plus immutable file-progress snapshots. At final phase
 completion, independently check .complete/state/ledger before repairing any
 stale local client and submitting the CPU finalizer.
+
+## 2026-10-19 08:09 UTC — Unexpected r7 loss interrupts DGCNN GSD
+
+[Run/Code/Open] Approved4h original3DD/DGCNN extension, source batchfd7a82d /
+executed v7 snapshotf82cf505…deed4cf, accepted-result HEAD389dea3. r7 A100
+assignment disappeared from repeated server inventories around08:05UTC;
+backend cause unknown and no stop/release requested. Last read-only log
+08:03:20UTC proves13 complete ModelNet corruptions plus Occlusion batch6 /
+490 examples:32574 observed prediction events,475 batch Drive acknowledgements.
+Full DGCNN accuracy is incomplete; ScanGSD and both originalDGCNN jobs did not
+start. Accepted CN/PN original4rows and matched source/priorGSD artifacts remain
+unchanged and verified. Real RNG state was not saved; no exact mid-run resume.
+
+Local loss bundle `result/preparation/multibackbone_20261018/r7_runtime_loss_20261019T080916Z.zip`,
+62808bytes SHA25668986b855cfc1e1d30633aa5ace7d84a81ab0e302ed02fd8a140d12aa6853b3c;
+CRC/all15 manifest entries/16members pass. Drive backup and actual interrupted
+shard recovery pending: saved browser site permission blocksDrive, user asked
+to enable it. Completed-job ledger2782.578s excludes approximately61min active
+interrupted job; do not undercount. Only stale local CLI client58698 killed
+08:07:03UTC after runtime absence; monitor34633/97631 preserved, reportsLOST.
+Decision: rescue existing Drive evidence, retain source/checkpoint/protocol,
+reassess fresh remaining4-job duration/cap, no GPU rerun yet. Falsifier: a
+complete hash-verified DGCNN final artifact or surviving exact endpoint would
+supersede the partial/lost status; neither is currently observed.

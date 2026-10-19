@@ -1,3 +1,14 @@
+**[Run/Open] 2026-10-19 — r7 unexpectedly lost during DGCNN GSD:**
+Repeated server inventories report no active runtime around08:05UTC. Last
+file snapshot proves13 complete ModelNet corruptions plus Occlusion490/2468;
+DGCNN full15 and its remaining3 jobs are incomplete. Four accepted CN/PN
+source/original/GSD comparisons and their verified Drive/local artifacts remain
+valid. Local loss ZIP62808bytes SHA68986b85…6853b3c verifies; its Drive backup
+and DGCNN shard recovery await browser site permission. No runtime teardown
+was requested; local monitor remains alive/LOST, no new GPU run launched.
+[Current comparison and interruption evidence](gsd_multibackbone_method_comparison_20261019.md#unexpected-r7-loss--0805-utc).
+Older running notes below are superseded by this loss record.
+
 **[Run/Artifact] 2026-10-19 — original3DD CN/PN accepted on both datasets:**
 ModelNet67.0719/68.2928%; Scan main_split55.2381/49.6845%. Historical
 GSD is lower than original by1.8855/1.8206pp and0.2295/4.4750pp respectively,

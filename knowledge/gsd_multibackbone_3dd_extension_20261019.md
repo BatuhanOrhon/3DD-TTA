@@ -307,3 +307,26 @@ exact r7/A100 endpoint. Do not rerun/duplicate or kill/restart the runtime;
 continue solemonitor plus immutable file-progress snapshots. At final phase
 completion, independently check .complete/state/ledger before repairing any
 stale local client and submitting the CPU finalizer.
+
+## 08:05 UTC — Runtime loss; original4 rows retained, DGCNN partial
+
+[Run/Open] r7 disappeared while DGCNN ModelNet GSD was active. Two original
+CN/PN joint jobs (4model rows) are accepted on bothdatasets. Last file audit
+08:03:20UTC shows13 complete corruptions plus Occlusion490/2468, no traceback.
+Repeated server inventories around08:05UTC show no assignments; cause unknown,
+no runtime stop/release sent. Preserve exact execution snapshot and raw evidence;
+no runtime `.complete` or full-DGCNN acceptance exists. DGCNN ScanGSD and both
+originalDGCNN jobs were never launched. Sole local monitor34633/session97631
+remains alive/LOST; only orphaned localCLI58698 terminated after confirmedloss.
+
+Loss archive62808bytes SHA256
+`68986b855cfc1e1d30633aa5ace7d84a81ab0e302ed02fd8a140d12aa6853b3c`, local
+`result/preparation/multibackbone_20261018/r7_runtime_loss_20261019T080916Z.zip`.
+CRC and16member/manifests verify; Drive copy pending sitepermission. Original
+accepted4-row comparison and Drive/local evidence remain valid. Completed
+ledger2782.578s excludes interrupted approximately61min; include that work when
+reassessing approved4h budget. A fresh full attempt is distinct from exact
+mid-batch resume because only RNG hashes, not actual state, were persisted.
+Recover Drive coverage before a new plan; new runtime must replay ten setup
+cells/strict asset and native checks before GPU inference. No new run launched.
+[Loss evidence and outstanding gates](gsd_multibackbone_method_comparison_20261019.md#unexpected-r7-loss--0805-utc).

@@ -1310,7 +1310,7 @@
     "runtime_preserved": true
   },
   "original3dd_dgcnn_extension_20261019": {
-    "status": "original_cn_pn_both_datasets_accepted_dgcnn_gsd_running",
+    "status": "interrupted_runtime_lost_original_four_rows_accepted_dgcnn_partial",
     "parent_commit": "acc27d3e16666cd4638744988a1cfd249fa45164",
     "preparation": {
       "bytes": 5464063,
@@ -2146,6 +2146,40 @@
       }
     },
     "primary_stream_silent": true,
-    "file_progress_monitor": "result/preparation/multibackbone_20261018/poll_extension_files.py"
+    "file_progress_monitor": "result/preparation/multibackbone_20261018/poll_extension_files.py",
+    "runtime_loss_20261019": {
+      "status": "unexpected_loss",
+      "session": "tta-scanobjectnn-nobg-a100-r7-20261018",
+      "last_successful_observation_utc": "2026-10-19T08:03:20.885750Z",
+      "first_absent_inventory_utc_approx": "2026-10-19T08:05Z",
+      "fully_observed_corruptions": 13,
+      "partial_corruption": "occlusion",
+      "partial_n_examples": 490,
+      "observed_prediction_events": 32574,
+      "observed_batch_acknowledgements": 475,
+      "backend_reason": "unknown",
+      "teardown_requested": false,
+      "local_stale_client_terminated_pid": 58698,
+      "monitor_pid": 34633,
+      "monitor_exec_session": 97631,
+      "monitor_state": "LOST",
+      "evidence_receipt": {
+        "status": "local_verified_drive_pending",
+        "archive": {
+          "local_path": "result/preparation/multibackbone_20261018/r7_runtime_loss_20261019T080916Z.zip",
+          "bytes": 62808,
+          "sha256": "68986b855cfc1e1d30633aa5ace7d84a81ab0e302ed02fd8a140d12aa6853b3c"
+        },
+        "members": 16,
+        "utc": "20261019T080916Z",
+        "drive_backup": "pending user site permission",
+        "raw_inputs_preserved": true
+      },
+      "physical_partial_drive_recovery": "pending site permission",
+      "exact_rng_resume_available": false,
+      "last_completed_ledger_seconds": 2782.577707746008,
+      "interrupted_job_seconds_approx": 3660,
+      "new_gpu_launched": false
+    }
   }
 }

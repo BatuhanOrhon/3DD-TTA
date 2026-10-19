@@ -1,7 +1,8 @@
 # Matched source, original 3DD-TTA and GSD comparison — 2026-10-19
 
 [Run] Original3DD CurveNet+PointNeXt full15 independently accepted on both
-datasets. DGCNN GSD is running; DGCNN original3DD follows. Existing four
+datasets. The r7 runtime unexpectedly disappeared around08:05UTC during
+DGCNN ModelNet GSD; remaining DGCNN results are incomplete. Existing four
 CurveNet/PointNeXt GSD rows are reused, not rerun. All are published-alternative
 checkpoints, not established paper reproductions. Scan uses581 main_split.
 
@@ -67,13 +68,15 @@ still-running six-job campaign. Current derived CSVs:
 [Protocol/source/checkpoints/approval](gsd_multibackbone_3dd_extension_20261019.md).
 [Earlier GSD-only evidence](gsd_multibackbone_guidance_results_20261018.md).
 
-## Remaining work
+## Remaining work (updated after unexpected runtime loss)
 
-[Run/running] Protectedr7 remains live. Scan original CN/PN final ZIPs
-are complete/verified; the same approved controller has advanced to DGCNN
-GSD on ModelNet, run ID20261019-070402_dgcnn-seed0. Scan GSD and then
-DGCNN original3DD on both datasets follow. Finish8new model rows, then sealed-member Drive verification of
-5040 batch/120corruption receipts and full6-triplet comparison. No tuning.
+[Run/Open] r7 disappeared from repeated server inventories around08:05UTC.
+DGCNN ModelNet GSD is incomplete; Scan GSD and both originalDGCNN jobs did
+not start. Preserve all four accepted CN/PN original results and prior source/
+GSD rows. Recover interrupted-job Drive shards before designing a fresh
+DGCNN attempt. Real RNG state/latents/geometry were not saved, so this is
+completed-prediction recovery, not an exact mid-run resume. The full8-new-row,
+182940-prediction and6-triplet gates remain open. No new GPU run launched.
 
 ## ScanObjectNN original3DD accepted evidence — 07:06 UTC
 
@@ -120,3 +123,38 @@ all manifest members match. Derived CSVs:
 in all4 currently complete matched cases, despite source improvements in3/4.
 This does not isolate spectral effects, prove an optimum or generalize beyond
 these fixed alternatives and seed0. DGCNN comparison remains pending.
+
+## Unexpected r7 loss — 08:05 UTC
+
+[Run/Code/Open] Last successful read-only snapshot08:03:20.885750UTC:
+13 complete ModelNet corruptions and Occlusion batch6 (IDs420–490), at least
+32574 prediction events/475 batch acknowledgements. The runner prints each
+batch only after its Drive copy check; transition into Occlusion also implies
+13 completed corruption checkpoints. These acknowledgements are not a current
+physical Drive audit. The actual last persisted batch may be later. No full
+DGCNN GSD accuracy is accepted, and no DGCNN original job ran.
+
+The next file download timed out (request08:04:26.949426UTC,30s timeout);
+repeated server inventories then returned no assignments. Backend reason is
+unknown. No runtime stop/release was requested. At08:07:03UTC only stale local
+CLI clientPID58698 was SIGTERM'd after absence was established; the sole local
+monitorPID34633/exec-session97631 remains alive and reportsLOST. This local
+client cleanup did not terminate an assigned runtime.
+
+Local immutable loss evidence:
+`result/preparation/multibackbone_20261018/r7_runtime_loss_20261019T080916Z.zip`,
+62808bytes, SHA256
+`68986b855cfc1e1d30633aa5ace7d84a81ab0e302ed02fd8a140d12aa6853b3c`.
+CRC,16 safe members and all member hashes pass. It contains the last raw
+log/state, completed-job ledger, source/previousGSD/accepted-original indices,
+approval, exact executed controller/asset manifest and observed-loss report.
+Its Drive backup and interrupted DGCNN shard recovery remain pending: browser
+access is blocked by a saved site permission, and user has been asked to enable
+it. Existing accepted raw/analysis bundles already have independent Drive/local
+SHA verification and remain valid.
+
+Last completed-job budget2782.578s excludes the interrupted approximately
+61-minute DGCNN job. Do not report that stale ledger as total consumed time.
+A fresh full DGCNN attempt would repeat completed reconstruction because actual
+RNG state is absent. Reassess the whole remaining phase and existing4h cap
+before launching; completed CN/PN/source/GSD work must not be repeated.

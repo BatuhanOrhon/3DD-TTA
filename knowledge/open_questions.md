@@ -56,9 +56,16 @@
   original by1.8855/1.8206pp;74040predictions and immutable matched analysis verify.
 - [x] Scan originalCNPN accepted55.2381/49.6845%; GSD is0.2295/4.4750pp
   below original. Combined91470 original predictions/4triplets verified.
-- [ ] Finish DGCNN GSD/original bothdatasets under approved4h cap; complete
-  8newrows/182940predictions and full6whole-policy triplets. ActiveDGCNN GSD
-  ModelNet progress is verified through read-only file snapshots despite silentCLI. DGCNN now explicitly in scope; preserve its weaker source caveat.
+- [ ] Finish DGCNN GSD/original bothdatasets; full8newrows/182940predictions
+  and6whole-policy triplets remain incomplete. r7 vanished around08:05UTC
+  after13 ModelNet GSD corruptions plus Occlusion490/2468 were observed.
+  Recover Drive shards first (site permission pending), then reassess whole
+  remaining GPU phase against approved4h cap; no exact RNG resume is available.
+  DGCNN remains in scope; preserve its weaker source caveat.
+- [x] Preserve unexpected r7-loss evidence locally:62808byte immutable ZIP,
+  CRC/member hashes verified. No runtime teardown requested; sole monitorLOST.
+- [ ] Verify physical interrupted DGCNN Drive shard/corruption coverage and
+  copy loss evidence to Drive; blocked by saved browser site permission.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,
