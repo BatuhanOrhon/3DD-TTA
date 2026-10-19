@@ -65,7 +65,10 @@
 - [x] Preserve unexpected r7-loss evidence locally:62808byte immutable ZIP,
   CRC/member hashes verified. No runtime teardown requested; sole monitorLOST.
 - [ ] Verify physical interrupted DGCNN Drive shard/corruption coverage and
-  copy loss evidence to Drive; blocked by saved browser site permission.
+  copy loss evidence to Drive. User authorizes fresh r8 CLI/Drive route;
+  Cell1/2 partial setup evidence verifies locally. Official Google consent
+  pending (TTY80871), then Cell3/recovery/Cells4–10. Resume suspended local
+  monitor63286/session69569 after mount; no new research GPU run yet.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,

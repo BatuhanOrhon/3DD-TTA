@@ -1310,7 +1310,7 @@
     "runtime_preserved": true
   },
   "original3dd_dgcnn_extension_20261019": {
-    "status": "interrupted_runtime_lost_original_four_rows_accepted_dgcnn_partial",
+    "status": "r8_cli_recovery_awaiting_interactive_drive_consent",
     "parent_commit": "acc27d3e16666cd4638744988a1cfd249fa45164",
     "preparation": {
       "bytes": 5464063,
@@ -2180,6 +2180,33 @@
       "last_completed_ledger_seconds": 2782.577707746008,
       "interrupted_job_seconds_approx": 3660,
       "new_gpu_launched": false
+    },
+    "r8_recovery_20261019": {
+      "user_authorized_new_cli_session_and_drive": true,
+      "session": "tta-multibackbone-recovery-a100-r8-20261019",
+      "endpoint": "gpu-a100-hm-kkb-ass1c0-xawnnd6jnsdw",
+      "hardware": "A100 High-RAM",
+      "monitor_pid": 63286,
+      "monitor_exec_session": 69569,
+      "monitor_state": "temporarily_suspended_during_interactive_drivemount",
+      "drive_cli_exec_session": 80871,
+      "drive_status": "awaiting_user_google_consent",
+      "partial_setup_evidence": {
+        "status": "partial_setup_local_verified_drive_pending",
+        "archive": {
+          "local_path": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_setup_cells12_evidence_v1.zip",
+          "bytes": 50859,
+          "sha256": "9b803b9f53078050ee1d9bcd6655ba2df285ab8afdf85b9aa82536f92cf38f35"
+        },
+        "members": 27,
+        "utc": "2026-10-19T08:33:22.470577+00:00",
+        "cell1": "complete_exact_marker",
+        "cell2": "sole_user_deferred_fastrlock_failure",
+        "drive": "awaiting_interactive_user_consent",
+        "research_gpu_launched": false
+      },
+      "research_gpu_launched": false,
+      "actual_remote_research_snapshot_deployed": false
     }
   }
 }

@@ -1,3 +1,13 @@
+**[User decision/Run/Open] 2026-10-19 — fresh r8 CLI recovery allocated:**
+User explicitly authorizes a new Colab CLI session and Drive connection after
+the browser/UI permission mismatch. `tta-multibackbone-recovery-a100-r8-20261019`
+is A100/High-RAM; Cell1 passes, Cell2 reaches only the user-deferred fastrlock
+failure. Official Drive consent is waiting in CLI80871; no data recovered or
+research GPU inference yet. Partial setup ZIP50859bytes/SHA9b803b9f…cf38f35
+verifies locally; Drive copy pending. Resume suspended local monitor63286/
+exec69569 after mount, then Cell3/recovery and Cells4–10.
+[Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
+
 **[Run/Open] 2026-10-19 — r7 unexpectedly lost during DGCNN GSD:**
 Repeated server inventories report no active runtime around08:05UTC. Last
 file snapshot proves13 complete ModelNet corruptions plus Occlusion490/2468;

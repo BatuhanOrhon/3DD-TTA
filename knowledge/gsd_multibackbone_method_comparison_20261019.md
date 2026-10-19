@@ -158,3 +158,13 @@ Last completed-job budget2782.578s excludes the interrupted approximately
 A fresh full DGCNN attempt would repeat completed reconstruction because actual
 RNG state is absent. Reassess the whole remaining phase and existing4h cap
 before launching; completed CN/PN/source/GSD work must not be repeated.
+
+## r8 recovery route authorized — 08:33 UTC
+
+[User decision/Run/Open] Browser tool's saved-block report disagrees with the
+user's visible settings; user explicitly selects fresh Colab CLI/Drive as the
+recovery route. A100r8 is allocated and Cell1/2 evidence locally archived;
+official Google Drive consent is pending. No recovered DGCNN metric or new
+GPU inference exists yet. This supersedes browser-unblocking as the immediate
+recovery action, while all accepted CN/PN/source/GSD evidence stays unchanged.
+[Exact session/monitor/consent handoff](gsd_multibackbone_recovery_20261019.md).

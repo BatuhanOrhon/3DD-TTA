@@ -5249,3 +5249,23 @@ Decision: rescue existing Drive evidence, retain source/checkpoint/protocol,
 reassess fresh remaining4-job duration/cap, no GPU rerun yet. Falsifier: a
 complete hash-verified DGCNN final artifact or surviving exact endpoint would
 supersede the partial/lost status; neither is currently observed.
+
+## 2026-10-19 08:33 UTC — New r8 CLI recovery awaits Drive consent
+
+[User decision/Run/Open] User reports no Drive entry in browser blocklist and
+explicitly authorizes a new CLI session/Drive connection for artifact rescue.
+A100 High-RAM `tta-multibackbone-recovery-a100-r8-20261019`, endpoint
+`gpu-a100-hm-kkb-ass1c0-xawnnd6jnsdw`, allocated08:15UTC; no alternate GPU
+selected. Cell1 exact wrapper/reconnect passes; Cell2 only the previously
+user-deferred fastrlock0.8.4/Pip failure. Official CLI Drive mount80871 awaits
+user Google consent; no new research GPU run or artifact recovery claimed.
+Local evidence50859byte/27member ZIP SHA256
+`9b803b9f53078050ee1d9bcd6655ba2df285ab8afdf85b9aa82536f92cf38f35`,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_setup_cells12_evidence_v1.zip`;
+CRC/all member identities pass, consent state excluded, Drive backup pending.
+Local monitor63286/session69569 temporarily suspended during external Drive
+mount to prevent false-idle probing; resume exact PID after mount. No runtime
+stop/release requested; old r7 monitor remainsLOST. Next: obtain consent,
+verify Cell3, recover/hash-bind r7 batch/corruption artifacts on CPU, backup/
+download/verify then Cells4–10. Full DGCNN rerun requires duration/cap review;
+accepted4CNPN original triplets remain unchanged. See current recovery note.

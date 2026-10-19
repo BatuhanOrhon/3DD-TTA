@@ -1,0 +1,69 @@
+# r7 interruption recovery through fresh r8 — 2026-10-19
+
+[User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
+session and mounting Drive to retrieve the interrupted study's evidence. This
+is the selected route; browser Drive access was not retried. The user's UI
+shows no Drive block, while the browser tool reported a saved block; the
+origin of that disagreement remains unknown. Manual user downloads are not
+required while the authorized CLI route is available.
+
+Current session `tta-multibackbone-recovery-a100-r8-20261019`, endpoint
+`gpu-a100-hm-kkb-ass1c0-xawnnd6jnsdw`, A100 High-RAM, created08:15UTC.
+CLI0.7.4 uses existing OAuth2 credentials, no account changes. Usage at
+allocation481.18 compute units,6.77CU/hour. Sole r8 monitorPID63286,
+local exec-session69569. Old r7 monitorPID34633/session97631 remainsLOST;
+no runtime stop/release was requested for either session.
+
+Setup input `scripts/colab_environment_setup.ipynb`, SHA256
+`f60db956118c25196f43ae02a00667485ddffbc73691e601134cb194f885559b`; exact10 cell sources and wrappers are retained
+under `result/preparation/cli_multibackbone_recovery_20261019_r8/`.
+Cell1 passed its exact wrapper marker and same-endpoint reconnection after
+Conda restart. Cell2 completed at the sole user-deferred `fastrlock0.8.4`
+wheel/Pip failure. No other setup exception is accepted. Source clone follows
+the setup notebook's `dev` checkout; it must not be equated to local research
+HEAD`bf135e9`. Actual remote source identity is still to be recorded.
+
+At08:24UTC official CLI `drivemount` requested interactive Google consent;
+its local TTY exec-session80871 waits for the user to finish, then Enter.
+No OAuth URL, transient state or credential is stored in this research note.
+No Drive file has yet been retrieved and no new research GPU run launched.
+
+Next steps: finish Drive consent; verify Cell3 and mounted expected research
+path; run CPU-only inventory and scoped immutable recovery before Cells4–10.
+Do not modify `20261019-070402_dgcnn-seed0` on Drive. Verify receipt-bound
+batch bytes and corruption ZIP manifests, copy loss evidence into the new
+recovery archive, back it up to a fresh Drive preparation path, then download
+and independently verify local SHA/CRC/all members. Only then reassess a
+fresh remaining DGCNN GPU phase against the existing4h cap including lost
+work. Real RNG state was not saved; do not claim exact mid-run resume.
+
+Prepared CPU-only phases:
+- `inspect_drive_recovery.py`: SHA256
+  `76439c4bb233f2a1b1bc26b6cc46be51bc1bd6d0670c27f889e514a1fa727bf0`.
+- `recover_r7_drive.py`:6146bytes SHA256
+  `9ecddac23f968213aa11cf7a05475e24474ed57c11d65cebd9815ec079180986`.
+  Uploaded to `/content/recover_r7_drive.py`; loss ZIP62808bytes also uploaded.
+These are prepared commands, not completed recovery evidence.
+
+[Accepted comparisons and last r7 evidence](gsd_multibackbone_method_comparison_20261019.md).
+
+## Partial setup evidence and interactive handoff — 08:33 UTC
+
+[Run/Open] Local setup evidence archive50859bytes SHA256
+`9b803b9f53078050ee1d9bcd6655ba2df285ab8afdf85b9aa82536f92cf38f35`,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_setup_cells12_evidence_v1.zip`.
+CRC/27safe members/all26member identities verify; includes exact ten saved
+cells/wrappers, notebook, receipt manifest, public Cell1/2 execution events and
+prepared recovery code. Google consent URL/transient OAuth state are excluded.
+Drive backup remains pending consent; Cells3–10 and recovery are not complete.
+
+The monitor knows only its own exec commands; a separate interactive
+`drivemount` is not tracked as active work. Before its idle probe threshold,
+local r8 monitorPID63286 was temporarily suspended withSIGSTOP at08:32UTC to
+prevent a second notebook cell queueing behind Drive consent. It was not
+terminated, and no runtime lifecycle command was issued. Server inventory
+remains observable via CLI without notebook cells. After CLI80871 finishes,
+resume this exact local PID withSIGCONT, retain exec-session69569 and submit
+Cell3 through its control protocol. Do not start a second r8 monitor or cell
+while the interactive mount is pending. r8 remains allocated, waiting for
+Google consent; this is not an idle-runtime closure authorization.
