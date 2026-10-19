@@ -5487,3 +5487,17 @@ Source/env/native binaries archived; remote dev@a458cd4 differs fromresearch
 snapshotf82cf505…deed4cf. Same70119/63241 restores unchangedv7 assets/raw
 recovery; pinnednativeCPUproof and >60minGPUapproval stillpending. No new
 accuracy. [Full paths/evidence](gsd_multibackbone_recovery_20261019.md#1303-utc--r9-ten-cell-setup-accepted-unchanged-v7-restore-running).
+
+
+### 2026-10-19 13:13 UTC — r9 CPU proof/readiness accepted
+
+[Run/Code/Artifact/Open] Four exactpinnednatives restored withfreshbytes
+preserved; missing r7-specific multimethod1.9.1 andexactlegacyScanPointMAE
+asset restored after immutablefailedproofs. No broaderpipchanges. Unchanged
+CPUproofpasses8strictloads/6matchedsource/no-build/CUDA-uninitialized/DDIM5/35.
+Finalproof2978673bytes SHAa06fbba2…7df72a3 andreadiness11411412bytes
+SHAfa3cb67a…7222786 passactualDrive/local SHA/CRC/allmembers. No inference.
+SoleliveA100r9/monitor70119/63241, newboundedlocalawake73723/64954 retained.
+Distinct65–90min/shared120min remainingDGCNNphase readyforoneexplicitapproval;
+Driveconfirmationisnotthatapproval. [Full paths/failed-to-passed chain](gsd_multibackbone_recovery_20261019.md#1313-utc--cpu-proof-and-immutable-readiness-accepted),
+[concreteplan](gsd_multibackbone_dgcnn_recovery_plan_20261019.md).

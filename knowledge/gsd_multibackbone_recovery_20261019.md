@@ -1,3 +1,12 @@
+**Current13:13UTC [Run/Artifact/Open]: r9 technically ready; awaiting one scoped
+long GPU-phase approval.** All10setup, eightstrictCPU loads/sixmatchedsource,
+no-build/CUDA-uninitialized andoriginalDDIM5/35 pass. Completeproof and
+11411412byte readiness bundle SHAfa3cb67a…7222786 verify actualDrive/locally.
+Same70119/63241 remainslive; no newaccuracy/approvalactivation. Host bounded
+sleep assertion now73723/64954 until16:12UTC; no Colab lifetime guarantee.
+[Concrete remaining scope](gsd_multibackbone_dgcnn_recovery_plan_20261019.md).
+Previous running/setup headers below are chronological superseded states.
+
 **13:03UTC update [Run/Artifact/Open]:** r9 all10setup/nativeGPU/data/checkpoints
 pass. Full setup2984884byte evidence SHA82737111…d0601e verifies actualDrive/
 local all31members. Restoring unchangedv7assets; pinned-nativeCPUproof and
@@ -527,3 +536,61 @@ Same63241 starts assets-only restore13:03:12, SHA91c680d6…27baef: verify
 safe fresh extraction and unchanged raw r7 recovery copy. No inference.
 Then927abd09…692a5e exactnative restore/unchangedCPUproof; accepted archive
 and readiness scope/controller evidence must verify before longphase approval.
+
+
+## 13:13 UTC — CPU proof and immutable readiness accepted
+
+[Run/Code/Artifact/Open] Native restoration927abd09…692a5e preserved fresh
+r9 differing binaries before writing four exactr7 versions. PreservationZIP
+1497859bytes SHA464d1b55…cfdb5a and firstfailedCPU2978570bytes
+SHA86386489…515b8a areonDrive. CPU correctly failed atmissingmultimethod.
+Workingr7 build_pointnext_native_r7.py shows conditionalmultimethod==1.9.1,
+not partof standardbaseline10cells. Boundedhelper b28006d3…510754 proved
+absence, installedexactversion --no-deps and proved the solepipfreeze delta.
+Six strictmodels andModelNetPointMAE then passed; nextfailure wasmissing
+legacyScanPointMAE asset, not an unsuccessful multimethod repair. Secondfailed
+CPU2969893bytes SHA80d99eb7…89d83f is preserved, bothactualDrive/local
+size/SHA/CRC/safe paths/allmanifestchecks pass.
+
+Thirdhelper57a232ab…860d80 copies onlyabsent
+/content/3DD-TTA/pointnet_ckpts/scanobject_jt.pth fromactualDriveweights,
+requiring351525407bytes SHA53f6c2e4…535dac; no source/checkpoint substitution.
+UnchangedCPUproof completes13:08:55, finalwrapper13:08:57. Six strictsource
+heads+twolegacyPointMAE strictloads, sixmatchedsource bindings, auditedfour
+no-build natives, realoriginalDDIM5/35 records andCUDA-uninitialized checks
+pass. No classifier/LION forward orGPU inference. Priorfailed attempts and
+freshnativebyte evidence remain nested in the acceptedfinalproof chain.
+
+Finalproof2978673bytes SHA256
+`a06fbba2cfe53489103205c4cd814d89d58a2cacde6d5ca5855de47357df72a3`,
+local `result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_cpu_proof_final_20261019T130828Z.zip`,
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/legacy_scan_asset_cpu_retry_20261019T130828Z/cpu_retry_evidence.zip`.
+FreshactualDrive download/all5manifestmembers/safe paths/CRC/identitychecks
+pass; exactCPUreport/helper bytes match local originals. Source/assetmanifest
+f82cf505…deed4cf/78cdb538…60f9 remainunchanged, and recoveredraw147769635byte
+ZIPe4115951…f48bc8a copies unchanged tocontroller-required VMpath.
+
+Reviewable readinessZIP11411412bytes/22manifestmembers SHA256
+`fa3cb67acc8fa063a6433d1ecbe3aeef0145d8270c8ee7439ab48ff237222786`,
+local `result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_dgcnn_readiness_20261019_v2.zip`,
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/r9_dgcnn_readiness_20261019_v2.zip`.
+ActualDrive freshroundtrip SHA/size/CRC/safe paths/allmembers pass. Includes
+exactresearchsourceZIP, assetmanifest, fullsetup/CPUproof ZIPs/receipts, all
+executedrecovery controls and planned scope/smoke/remainingcontrollers plus
+reviewableplan. No approvalreceipt/activation exists. r9v2 scope70b19135…
+e8aa6c retains59386full+408smoke predictions, seed0/s5/main_split581,
+65–90min estimate/shared120min cap. 6.77CU/hour;449.47CU balance13:10.
+Expected7.33–10.16CU, cap13.54CU excluding continuedallocation/transfer.
+
+Serverinventory13:12 confirms sole liveA100/High-RAMr9 exactendpoint. Same
+monitor70119/63241 respondsASSIGNED_ONLY. Newboundedlocalawake assertion
+PID73723/local64954 from13:12UTC for3h verifiedbefore endingold70055; no
+persistentpower setting orfakeColabwork. Keeps local supervisionawake only,
+not managedlifetime guaranteed. Alloldlostmonitors retained.
+Nextrequireduserdecision: explicitapproval for distinctlongr9v2GPUphase under
+Colabskill. Latest “Onayladım” confirmsDriveonly. Afterapproval recordexactreply/
+scope, runsmokes, retrieveandindependentlyaccept, thenremaining4jobs withshared
+ledger7200s. Perbatch/corruption/model Drivepersist andlocalvalidation remain
+mandatory. Reuse13completedMN_GSD; rerunwholeOcclusion/LiDAR, excludepartial910
+fromcomposite anddisclose newRNGboundary/oldmissingfinalLIONhash. No exactresume,
+newpaperreproductionclaim, tuning, acceptedCNPN/source rerun orruntimeclosure.

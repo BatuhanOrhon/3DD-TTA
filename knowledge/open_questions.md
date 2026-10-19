@@ -1620,3 +1620,15 @@ archive verify. Next complete assetsrestore91c680d6…27baef then exactpinned
 4native restoration927abd09…692a5e/unchangedCPUproof and archive roundtrip.
 Only after reviewable readiness request single >60min r9v2 researchphase
 approval. Acceptedsource/CNPN/13DGCNNcorruptions retained; no new accuracy.
+
+
+### 2026-10-19 13:13 UTC — sole remaining launch gate: r9v2 approval
+
+[Run/Open] r9ten-cellsetup, fourpinnednative restoration, extraPointNeXt
+dependency/exactlegacyScanasset,8strictCPUloads/6sourcebindings/no-build/CUDA
+uninitialized/DDIM5/35 andfinalDrive/localproof/readiness allpass. No new
+accuracy. Supersedes earliertechnicalsetup/CPUgates. Requestoneexplicit
+65–90min/shared120min approval for r9v2scope70b19135…e8aa6c; afterreplysave
+activation thensmoke63ffe4ee…6d2e72/independentvalidation before remaining
+e304d301…83da18. Reuse13completeMN_GSD, wholeOcclusion/LiDAR freshseed0/newRNG
+boundary. Same70119/63241 retainsr9; no shutdown. See reviewableplan/recoverynote.

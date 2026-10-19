@@ -1,3 +1,14 @@
+**[Run/Artifact/Open] 2026-10-19 13:13UTC — r9 technically ready:**
+All10setup/nativeGPU/data/checkpoints and unchangedCPUproof (eightstrictloads,
+sixmatchedsource, no-build/CUDA-uninitialized/DDIM5/35) pass. FullCPUevidence
+SHAa06fbba2…7df72a3 andreadiness11411412byteZIP SHAfa3cb67a…7222786 verify
+actualDrive/locally. Same liveA100r9/monitor70119/63241 awaits one scoped
+65–90min/120min-cap remainingDGCNN GPU-phase approval; no newaccuracy yet.
+Acceptedsource/CNPN/13DGCNNcorruptions retained.
+[Reviewable scope](gsd_multibackbone_dgcnn_recovery_plan_20261019.md),
+[current ownership/evidence](gsd_multibackbone_recovery_20261019.md).
+Older running/setup headlines below are datedhistory, superseded here.
+
 **[Run/Open] 2026-10-19 — r8 lost; r9 setup in progress:**
 r8 unexpectedly vanished after full setup but before successfulv7 CPUproof.
 No teardown. NewCPUproof correctly rejected a fresh native.so differing from

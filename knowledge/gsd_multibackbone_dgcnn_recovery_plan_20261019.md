@@ -1,9 +1,14 @@
 # DGCNN continuation after r7 interruption — 2026-10-19
 
-**[Code/Run/Open] Current r9 v2 scope: prepared, not approved or launched.**
-r9 Drive and Cells1–3 verify; Cell4 is running. Cells4–10, exact pinned native
-restoration and unchanged v7 strict CPU proof must pass before launch.
-Previous r8 setup evidence remains valid for that lost VM only, not r9.
+**[Code/Run/Open] Current r9 v2 scope: technically ready, awaiting explicit long-phase approval.**
+All ten r9 setup cells/native GPU/data/checkpoint checks pass; full evidence
+2984884bytes SHA82737111…d0601e verifies on actualDrive/locally. Four exact
+pinned native binaries are restored with fresh bytes preserved. UnchangedCPU
+proof passes eight strict model loads, six matched-source bindings, no-build,
+CUDA-uninitialized and real originalDDIM5/35 checks. FinalCPU archive2978673bytes
+SHAa06fbba2…7df72a3 verifies actualDrive/local allmembers. One r7-specific
+Python dependency (multimethod1.9.1) and exact legacyScanPointMAE asset were
+restored after failed checks; both failed attempts remain immutable evidence.
 The v1 r8 controllers remain historical local files and must not be launched.
 The latest user confirmations authorize Google Drive consent, not this new
 GPU phase. Existing CN/PN and six source-only evaluations are retained.
@@ -85,7 +90,7 @@ The existing frozen DGCNN contract uses FPS1024 and the checkpoint's audited
 input layout, with no new normalization or augmentation. LION reconstruction
 returns2048 points before that same classifier preprocessing. Dataset file
 identities and original label maps remain bound by the unchanged asset manifest
-and must pass the actual r9 CPU proof before launch.
+and passed the actual r9 CPU proof; GPU smokes remain required.
 
 Prepared local files under
 `result/preparation/cli_multibackbone_dgcnn_20261019_r9/`:
@@ -128,6 +133,9 @@ in-job artifact persistence; hard cap120minutes across both controllers.
 Previous accepted jobs consumed2782.578s plus approximately61min interrupted
 DGCNN work, which must remain in the overall cost record. Setup/authorization
 time is separate and must not be presented as model-computation time.
+At13:10UTC the sole A100 assignment reports6.77CU/hour and449.47CU balance.
+Expected research-phase cost is approximately7.33–10.16CU, max13.54CU under
+the120min wall cap; download/analysis and continued allocation are additional.
 
 This new phase exceeds60min and needs one explicit scoped approval under the
 [Colab skill](../.codex/skills/colab-research-operator/SKILL.md), after the
@@ -140,3 +148,29 @@ On disconnect audit the same endpoint/process/files before another cell;
 preserve partial Drive receipts instead of duplicating work. No runtime
 restart or shutdown is part of this plan. Keep r9 until the user explicitly
 declares the task complete and authorizes closure.
+
+
+## r9 readiness evidence — 13:10 UTC
+
+Actual remote base/dirty setup bytes are archived separately from the frozen
+v7 research source. Exact executed controls and unchanged manifest are sealed
+in the r9 readiness bundle under the preparation result root. Main sources:
+
+- Complete setup archive
+  `result/preparation/cli_multibackbone_dgcnn_20261019_r9/cli_setup_r9_evidence_20261019T130224Z.zip`,
+  SHA256 `82737111c6b919f24f63d640ecd5e30f37bce29f070fdec19f16762a60d0601e`.
+- Final CPU proof
+  `result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_cpu_proof_final_20261019T130828Z.zip`,
+  SHA256 `a06fbba2cfe53489103205c4cd814d89d58a2cacde6d5ca5855de47357df72a3`.
+- Prior failed CPU archives SHA86386489…515b8a and80d99eb7…89d83f
+  remain nested in the final proof with exact helper/log/env change evidence.
+- Fresh native-byte preservation1497859bytes SHA464d1b55…cfdb5a is onDrive
+  before pinned replacements and is nested in the failed-proof chain.
+- Exact extra asset: ScanPointMAE351525407bytes
+  SHA53f6c2e4…535dac, physicalDriveweights/scanobject_jt.pth; CPU strictloadpass.
+
+No activation/approved receipt exists. On user approval, record the exact reply
+and scope SHA70b19135…e8aa6c, then run four smokes/independent verification,
+followed by the four remaining jobs under the same7200s budget. Retain and
+extend only bounded local sleep prevention for the approved supervision period;
+Colab lifetime cannot be guaranteed. All existing runtime state is preserved.
