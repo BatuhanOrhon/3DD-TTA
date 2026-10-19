@@ -5367,3 +5367,21 @@ all receipt guards and copies8files concurrently. Active10:02:19 on same69569;
 1469files enumerated,100copied by10:02:33. No recovered result yet accepted and
 no GPU inference. Next exact recovery marker, actualDrive ZIP download and
 independent partial prediction validation, then remaining setup.
+
+
+## 2026-10-19 10:09 UTC — r7 DGCNN partial evidence independently accepted
+
+[Run/Artifact/Code/Open] Parallel CPU rescue1469files completes10:04:56UTC.
+32994indexed predictions,481batch receipts,13complete corruption ZIPs plus
+Occlusion910/2468 validate;420more events than last local loss observation.
+Raw147769635bytes SHAe411595190ec043f964f42d84e4aeb4e23312d7403b4735310933a6f3f48bc8a
+and derived13512bytes SHA84aca14c813280630740c80d6245ec7f226b2560ffcacbc81432f60f36f8bf35
+pass actualDrive/local roundtrip/CRC/member and indexed prediction/source/
+frozen classifier checks. Exact local/Drive paths and verifier/source hashes
+in current recovery note. Original loss ZIP nested unchanged onDrive. Not
+full15, no actual RNG state or final interrupted LION state check. First tiny
+derived backup lost local WS during cwd bootstrap; audited kernel idle/server
+live before local-client cleanup/retry; second passed, no inference repeated.
+Decision: retain partial evidence, complete fresh setup (Cell4 running10:08:35),
+then CPUproof and concrete remaining-phase/RNG plan/approval if>60min. Existing
+source/CNPN comparisons unchanged; no new researchGPU or runtime shutdown.

@@ -59,17 +59,22 @@
 - [ ] Finish DGCNN GSD/original bothdatasets; full8newrows/182940predictions
   and6whole-policy triplets remain incomplete. r7 vanished around08:05UTC
   after13 ModelNet GSD corruptions plus Occlusion490/2468 were observed.
-  Recover Drive shards first (site permission pending), then reassess whole
+  Drive shards recovered/verified13full+Occlusion910; reassess whole
   remaining GPU phase against approved4h cap; no exact RNG resume is available.
   DGCNN remains in scope; preserve its weaker source caveat.
 - [x] Preserve unexpected r7-loss evidence locally:62808byte immutable ZIP,
   CRC/member hashes verified. No runtime teardown requested; sole monitorLOST.
-- [ ] Verify physical interrupted DGCNN Drive shard/corruption coverage and
-  copy loss evidence to Drive. User authorizes fresh r8 CLI/Drive route;
-  Cell1/2/3 and physical Drive verify; local mount/diagnosis evidence sealed.
-  Monitor63286/session69569 resumed; mount evidence Drive/local verified.
-  Recoveryv2 copying1469files; next download/verification, then Cells4–10. Eight unchanged
-  asset parts uploaded; no new researchGPU inference.
+- [x] Recover/verify physical r7 partial DGCNN evidence:13full corruptions plus
+  Occlusion910,481batch receipts/32994predictions. Raw and independent validation
+  immutable ZIPs pass actualDrive/local SHA, member/CRC and indexed-logit checks.
+  Original r7-loss ZIP is backed up unchanged inside the raw recovery archive.
+- [ ] Finish fresh r8 setup: Cell1/2/3 verified (sole deferred fastrlock);
+  Cell4 running from10:08:35, Cells5–10 and strict v7 CPUproof pending.
+  Preserve same63286/69569 monitor and live r8; no new researchGPU inference.
+- [ ] Predeclare interruption/RNG strategy and remaining DGCNN GPU scope/time;
+  exact mid-run continuation is unavailable. New >60min phase requires one
+  concrete approval after setup/proof/preparation, without repeating completed
+  source/CNPN studies. Partial DGCNN is not a full15 result.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,

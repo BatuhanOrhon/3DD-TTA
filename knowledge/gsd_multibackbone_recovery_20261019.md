@@ -1,12 +1,11 @@
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
-**Current10:03UTC [Run/Artifact/Open]:** Drive/Cell3 and immutable mount
-bundle actualDrive/local roundtrip verify. Same monitor63286/69569 runs CPU
-recoveryv2,1469files enumerated (500copied at10:03:07). Serial inventory was
-interrupted at9min10s in receipt read; no recovered coverage accepted yet.
-VM base dev@a458cd46, v7 not deployed; Cells4–10/new GPU inference pending.
-Next: recovery marker, actualDrive download, independent partial verification,
-then remaining setup. Earlier pending consent/inventory references are historical.
+**Current10:09UTC [Run/Artifact/Open]:** r7 partial DGCNN rescue accepted:
+32994indexed predictions/481batch receipts/13complete corruption archives plus
+Occlusion910/2468. ActualDrive/local raw and independent validation ZIPs verify.
+Not full15, no exact RNG resume or final interrupted LION state proof. Same r8
+monitor63286/69569 now runs Cell4 (started10:08:35); Cells5–10/v7 CPUproof and
+any further research GPU phase remain gated. No new accuracy inference launched.
 
 [User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
 session and mounting Drive to retrieve the interrupted study's evidence. This
@@ -232,3 +231,45 @@ Original Drive remains untouched, no GPU inference. Local partial verifier
 SHAfd58f4f1…279172e prepared (parse passes), not yet executed. Next wait same
 69569 for recovery exact marker, download actualDrive archive, validate local
 SHA/manifests/indexed predictions before interpreting coverage or metrics.
+
+
+## 10:09 UTC — r7 partial recovery accepted; remaining setup started
+
+[Run/Artifact/Code/Open] CPU recoveryv2 completed10:04:56UTC;1469files copied
+without writing the interrupted Drive directory. Physical archive/receipt/member
+hashes verify:13complete corruption archives,481complete batch receipts,
+13x2468 +Occlusion910 =32994prediction events. Last local observation was
+Occlusion490, so420additional persisted events were recovered. LiDAR has no
+batch; Occlusion remains1558short. Unreceipted directories:0. No full15 macro.
+
+Raw immutable archive147769635bytes SHA256
+`e411595190ec043f964f42d84e4aeb4e23312d7403b4735310933a6f3f48bc8a`,
+local `result/preparation/cli_multibackbone_recovery_20261019_r8/r7_dgcnn_partial_recovery_20261019T100223Z.zip`,
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T100223Z/r7_dgcnn_partial_recovery_20261019T100223Z.zip`.
+Includes all raw Drive bytes, exact executed recoveryv2 and original62808byte
+r7-loss ZIP. ActualDrive CLI download matchesSHA; outer and nested manifests/CRC,
+receipt-to-sealed-member binding, original IDs/labels/logits argmax/finite values,
+batch concatenation, per-corruption CSV counts, frozen classifier hashes and
+matched-source checkpoint/preprocessing pass independent local NumPy validation.
+No actual RNG state saved; interrupted run lacks final LION before/after hash,
+which remains a limitation rather than fabricated completion.
+
+Independent validation local directory `partial_validation_v1/` under the r8
+preparation folder; executed `verify_partial_recovery.py` SHA256
+fd58f4f12b07b7b28e6f1146ef734eef7c4c2c4672bff75c8e1eb5e08279172e.
+Derived immutableZIP13512bytes SHA256
+`84aca14c813280630740c80d6245ec7f226b2560ffcacbc81432f60f36f8bf35`,
+local `r7_partial_validation_20261019_v1.zip`, Drive
+`MyDrive/thesis/result/preparation/gsd_multibackbone_study/r7_recovery_validation_20261019T100814Z/r7_partial_validation_20261019_v1.zip`.
+Actual freshDrive/local roundtrip/CRC/all9manifest identities pass. Contains
+exact verifier/recovery/labels/source validation and interruption audit sources.
+
+First derived-backup CLI lost its WebSocket during the installed initial cwd
+bootstrap, before phase code. Server/kernel audit proves r8 alive/allidle and
+receipt absent; killed only stale local67934, retried same reviewed script via
+solemonitor, then exact marker/Drive receipt passed. No duplicate research/copy
+or runtime restart/teardown. Setup Cell4 exact saved wrapper begins10:08:35UTC,
+SHA912a2113…08bb773. Complete Cells4–10 and strict v7 CPU proof before any
+research inference. Reassess remaining duration/scope and interruption/RNG
+strategy; obtain one concrete new approval if GPU phase exceeds60min. Completed
+CN/PN/source studies remain accepted and must not be rerun for artifact rescue.

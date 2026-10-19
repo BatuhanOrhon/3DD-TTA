@@ -168,3 +168,15 @@ official Google Drive consent is pending. No recovered DGCNN metric or new
 GPU inference exists yet. This supersedes browser-unblocking as the immediate
 recovery action, while all accepted CN/PN/source/GSD evidence stays unchanged.
 [Exact session/monitor/consent handoff](gsd_multibackbone_recovery_20261019.md).
+
+
+## 10:09 UTC — DGCNN partial data rescued; full15 still pending
+
+[Run/Artifact/Open] r8 recovery independently verifies32994ModelNet GSD
+predictions:13complete corruptions +Occlusion910/2468,481batch receipts.
+Raw147769635byteZIP SHAe411595190ec043f964f42d84e4aeb4e23312d7403b4735310933a6f3f48bc8a
+and derived13512byteZIP SHA84aca14c813280630740c80d6245ec7f226b2560ffcacbc81432f60f36f8bf35
+are onDrive and locally byte-identical; paths/checks in the
+[recovery note](gsd_multibackbone_recovery_20261019.md). No LiDAR result or
+full15 macro; real RNG state/final interrupted LION hash absent. Existing4
+CNPN triplets unchanged. Same live r8 now runs setupCell4; no new inference.

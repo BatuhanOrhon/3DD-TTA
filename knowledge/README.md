@@ -1,12 +1,12 @@
-**[Run/Open] 2026-10-19 — r8 Drive mount and Cell3 verified:**
-`tta-multibackbone-recovery-a100-r8-20261019` remains A100/High-RAM.
-Fresh HTTP propagation succeeds; actual research Drive path and exact Cell3
-marker pass. Monitor63286/69569 resumed; CPU-only parallel recovery running (1469files enumerated).
-VM base is dev@a458cd46, separate from pinned research v7. Cells4–10 and new
-researchGPU inference have not run. Local mount ZIP77324bytes SHA2ca5392e…28cb4
-and nested setup/diagnosis evidence pass actualDrive/local roundtrip.
-Next: recovered DGCNN shard download/verification, then
-remaining setup. [Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
+**[Run/Artifact/Open] 2026-10-19 — r7 DGCNN partial rescue verified:**
+32994indexed predictions/481batch receipts/13complete ModelNet corruptions and
+Occlusion910/2468 recovered through r8. Raw147769635byte ZIP SHAe4115951…f48bc8a
+and independent13512byte validationZIP SHA84aca14c…f8bf35 pass actualDrive/local
+roundtrip, manifests, logits/IDs/labels/source binding and frozen-classifier
+checks. No full15 or exact RNG resume; interrupted final LION state proof is
+missing. r8 A100/High-RAM remains live, monitor63286/69569 runs exact Cell4;
+Cells5–10/v7 CPUproof and remaining GPU phase still pending. No new research
+inference. [Current recovery handoff](gsd_multibackbone_recovery_20261019.md).
 
 **[Run/Open] 2026-10-19 — r7 unexpectedly lost during DGCNN GSD:**
 Repeated server inventories report no active runtime around08:05UTC. Last
