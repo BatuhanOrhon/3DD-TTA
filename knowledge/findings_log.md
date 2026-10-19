@@ -5501,3 +5501,18 @@ SoleliveA100r9/monitor70119/63241, newboundedlocalawake73723/64954 retained.
 Distinct65–90min/shared120min remainingDGCNNphase readyforoneexplicitapproval;
 Driveconfirmationisnotthatapproval. [Full paths/failed-to-passed chain](gsd_multibackbone_recovery_20261019.md#1313-utc--cpu-proof-and-immutable-readiness-accepted),
 [concreteplan](gsd_multibackbone_dgcnn_recovery_plan_20261019.md).
+
+
+### 2026-10-19 15:10 UTC — four DGCNN GPU smoke tests accepted on r9
+
+[User report/Run/Code/Open] “Tamam bu testleri de çalıştır” authorizes only
+the4shortGPU tests, scope4c2c4854…a4b139/separate1800s ledger; no longphase
+activation. Existingr9A100, frozenv7source/assets/checkpoints/nativebytes.
+Gaussian+Background/seed0/s5, GSD B70/originalB32, Scanmain_split581.
+All4jobs complete15:04:33–15:07:08UTC:408predictions/8batches,154.552s jobwall.
+Independent rawlogit/ID/label/CSV/frozenstate/RNG/no-build/source/preprocessing/
+originalDDIM checks pass. ActualDrive4finalZIPs/8batch/8corruption receipts
+verify; local rebinding ties16receiptfiles to sealedmembers. Evidence17855bytes
+SHAeacc97ac…07f4aa andbinding1631bytes SHAc519af6c…c8d81f passphysicalDrive/
+localSHA/CRC/memberchecks. No all15 accuracy claim; remainingfullphase pending
+explicitapproval. r9/monitor retainedlive. [Exact paths/source/cost/limits](gsd_multibackbone_dgcnn_smoke_20261019.md).

@@ -1,3 +1,13 @@
+**[Run/Code/Open] 2026-10-19 15:10UTC — r9 DGCNN GPU smoke tests accepted:**
+User authorized four short tests only. Bothdatasets × GSD-inspired/original3DD
+pass408predictions/8batches, frozenstates/RNG/source binding/no-build native
+checks. All4modelrawZIPs and actualDrive8batch/8corruption receipts verify
+locally; immutableevidence SHAeacc97ac…07f4aa andbindingc519af6c…c8d81f pass
+Drive/local roundtrip. Jobwall154.55s. No all15 accuracy conclusion or longphase
+activation. r9 remainslive, same70119/63241.
+[Accepted smoke tests/evidence](gsd_multibackbone_dgcnn_smoke_20261019.md),
+[remaining fullphase proposal](gsd_multibackbone_dgcnn_recovery_plan_20261019.md).
+
 **[Run/Artifact/Open] 2026-10-19 13:13UTC — r9 technically ready:**
 All10setup/nativeGPU/data/checkpoints and unchangedCPUproof (eightstrictloads,
 sixmatchedsource, no-build/CUDA-uninitialized/DDIM5/35) pass. FullCPUevidence

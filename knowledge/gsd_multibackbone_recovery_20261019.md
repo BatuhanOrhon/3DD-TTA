@@ -1,3 +1,10 @@
+**Current15:10UTC [Run/Open]: four short DGCNN GPU tests accepted.**
+408predictions/8batches and4final/8batch/8corruption actualDrive receipts pass
+independent localvalidation. Evidenceeacc97ac…07f4aa/bindingc519af6c…c8d81f
+Drive/localverified. Smoke-only scope4c2c4854…a4b139; longphase notactivated.
+r9 remainslive/same70119/63241.
+[Exact smoke results/continuation](gsd_multibackbone_dgcnn_smoke_20261019.md).
+
 **Current13:13UTC [Run/Artifact/Open]: r9 technically ready; awaiting one scoped
 long GPU-phase approval.** All10setup, eightstrictCPU loads/sixmatchedsource,
 no-build/CUDA-uninitialized andoriginalDDIM5/35 pass. Completeproof and
@@ -594,3 +601,24 @@ ledger7200s. Perbatch/corruption/model Drivepersist andlocalvalidation remain
 mandatory. Reuse13completedMN_GSD; rerunwholeOcclusion/LiDAR, excludepartial910
 fromcomposite anddisclose newRNGboundary/oldmissingfinalLIONhash. No exactresume,
 newpaperreproductionclaim, tuning, acceptedCNPN/source rerun orruntimeclosure.
+
+
+## 15:10 UTC — r9 four short GPU tests accepted
+
+[User report/Run/Code/Open] User requests only thefour describedGPU smoke
+tests. Created separate explicit4c2c4854…a4b139 scope/1800s cap/controller
+c6ea2f89…dd4ba6; no fullphaseapproval file. Actualserver/kernel inventory
+confirms same liveA100r9/allthree kernels idle beforelaunch.
+Phase20261019T150433Z_dgcnn_recovery_smoke completes15:07:08, all4jobs exit0,
+408predictions/8batches,154.552s wall. Each completedmodel's actualDrivefinal
+ZIP downloaded to canonical localresult and SHA/CRC/memberverified.
+Independent analyzer1f95eb60…c0f3c56 validatesall frozenstate/RNG/native/
+checkpoint/preprocessing/ID/label/logit/CSV/originalDDIM checks.
+CPUfinalizer auditsphysicalDrive4finalZIPs/8batch/8corruption receipts, seals
+evidence17855bytes SHAeacc97ac…07f4aa. Receiptbinder8a76b586…fae2bed verifies
+16actualreceipt-file identities againstsealedrawmembers; binding1631bytes
+SHAc519af6c…c8d81f. BothactualDrive/localroundtrips pass.
+[All paths/hashes/scope/limits](gsd_multibackbone_dgcnn_smoke_20261019.md).
+No all15 accuracyclaim, newtuning, runtimeclosure or longphaseactivation.
+Futurefullphase canreuse identical acceptedsmokes through explicitcross-scope
+admission after its ownapproval; preserve original ledger/provenance.

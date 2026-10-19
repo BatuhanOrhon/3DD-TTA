@@ -1632,3 +1632,16 @@ accuracy. Supersedes earliertechnicalsetup/CPUgates. Requestoneexplicit
 activation thensmoke63ffe4ee…6d2e72/independentvalidation before remaining
 e304d301…83da18. Reuse13completeMN_GSD, wholeOcclusion/LiDAR freshseed0/newRNG
 boundary. Same70119/63241 retainsr9; no shutdown. See reviewableplan/recoverynote.
+
+
+### 2026-10-19 15:10 UTC — fresh DGCNN GPU smoke gate passed
+
+[Run/Open] All4smokejobs/408predictions/8batches pass independentstate/RNG/
+source/preprocessing/logit/receipt checks. User authorization4c2c4854…a4b139
+is smoke-only, max1800s; fullphase70b19135…e8aa6c remainsunapproved.
+Accepted rawZIPs/evidence/binding areactualDrive/localverified. No all15
+accuracy yet. Reuse acceptedfreshsmokes after explicitfullphaseapproval via
+transparent cross-scope admission with identicalsource/assets/configs, no
+need to repeat solely for authorizationfileidentity. Remaining4fulljobs/59386
+predictions andMN13+2 composition stillopen; same70119/63241 retainsr9.
+See [smoke acceptance](gsd_multibackbone_dgcnn_smoke_20261019.md).

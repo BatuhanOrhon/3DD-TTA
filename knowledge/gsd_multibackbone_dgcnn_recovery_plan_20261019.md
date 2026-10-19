@@ -1,3 +1,13 @@
+**15:10UTC amendment [Run/Open]:** four r9 GPU smokes nowaccepted under
+separate smoke-only user scope4c2c4854…a4b139;408predictions/8batches verified.
+[Acceptance and raw evidence](gsd_multibackbone_dgcnn_smoke_20261019.md).
+The remaining59386 full predictions stillawait explicitlongphaseapproval.
+Earlier instructions below to runsmokes afterapproval are superseded: reuse
+these identical acceptedtests with a transparentcross-scope admission; do not
+relabel their authorization or repeat solely for scopehashidentity. Original
+r9v2scope70b19135…e8aa6c and remainingcontroller e304d301…83da18 remain
+prepared/unapproved, with its smoke-admission gate to resolve before launch.
+
 # DGCNN continuation after r7 interruption — 2026-10-19
 
 **[Code/Run/Open] Current r9 v2 scope: technically ready, awaiting explicit long-phase approval.**

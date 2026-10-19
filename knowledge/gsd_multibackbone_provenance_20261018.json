@@ -2487,7 +2487,7 @@
       "caffeinate_started_utc": "2026-10-19T13:12:26Z",
       "caffeinate_prior_assertion_pid70055": "terminated_after_new_bounded_assertion_verified",
       "approval_activated": false,
-      "current_status": "technically_ready_awaiting_explicit_long_GPU_phase_approval",
+      "current_status": "four_short_GPU_smokes_accepted_remaining_full_phase_unapproved",
       "failed_CPU_attempts": [
         {
           "state": {
@@ -2571,7 +2571,66 @@
         }
       ],
       "current_monitor_state": "ASSIGNED_ONLY_live",
-      "no_runtime_teardown": true
+      "no_runtime_teardown": true,
+      "smoke_only_20261019": {
+        "status": "accepted_smoke_only",
+        "scope_sha256": "4c2c4854dcac8951f7a17934adc71dc219b65290e35ca2e8c7711014b2a4b139",
+        "phase_path": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T150433Z_dgcnn_recovery_smoke",
+        "models": 4,
+        "n_predictions": 408,
+        "batches": 8,
+        "corruptions": 8,
+        "raw_archives": [
+          {
+            "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T150433Z_dgcnn_recovery_smoke/jobs/modelnet40_c-gsd-dgcnn/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261019-150435_dgcnn-seed0.zip",
+            "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261019-150435_dgcnn-seed0/final.zip",
+            "bytes": 5499767,
+            "sha256": "c9d58983b883402f12c5897ae9015fe7c20b338ee73d9f9fc090d3fe6507884f"
+          },
+          {
+            "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T150433Z_dgcnn_recovery_smoke/jobs/scanobjectnn_c-gsd-dgcnn/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261019-150521_dgcnn-seed0.zip",
+            "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261019-150521_dgcnn-seed0/final.zip",
+            "bytes": 5474124,
+            "sha256": "d07874e21938e365d473adf830ed092b21015186c6199b839756cabd5695f681"
+          },
+          {
+            "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T150433Z_dgcnn_recovery_smoke/jobs/modelnet40_c-original-dgcnn/modelnet40_c/3dd_original/20261019-150606_dgcnn-seed0.zip",
+            "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/3dd_original/20261019-150606_dgcnn-seed0/final.zip",
+            "bytes": 5477884,
+            "sha256": "76fb728a112d8f0a192ba603b0e65771c5c284e7d00fff1dde968717cdacecf4"
+          },
+          {
+            "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T150433Z_dgcnn_recovery_smoke/jobs/scanobjectnn_c-original-dgcnn/scanobjectnn_c/3dd_original/20261019-150637_dgcnn-seed0.zip",
+            "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/scanobjectnn_c/3dd_original/20261019-150637_dgcnn-seed0/final.zip",
+            "bytes": 5466478,
+            "sha256": "3062f8bdb3d02fed60610b3c4da04b9e040d4a77efaa97983b444dd3a88cabb3"
+          }
+        ],
+        "job_wall_seconds": 154.5520916910009,
+        "evidence": {
+          "status": "complete",
+          "archive": {
+            "bytes": 17855,
+            "sha256": "eacc97ac11defcf72af87c418a6775e726e1c404b1cfd346fe2518cf3e07f4aa",
+            "remote_path": "/content/gsd_multibackbone_study_20261018/dgcnn_smoke_only_evidence_20261019T150837Z.zip",
+            "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T150837Z/dgcnn_smoke_only_evidence_20261019T150837Z.zip"
+          },
+          "models": 4,
+          "verified_batch_receipts": 8,
+          "verified_corruption_receipts": 8,
+          "utc": "20261019T150837Z"
+        },
+        "binding": {
+          "status": "Drive_local_roundtrip_verified",
+          "bytes": 1631,
+          "sha256": "c519af6cd376484a2da25b5a07fb68c2cc5badbd20019dfe57d0fece56c8d81f",
+          "drive_path": "MyDrive/thesis/result/preparation/gsd_multibackbone_study/dgcnn_smoke_sealed_member_binding_v1.zip"
+        },
+        "full_evaluations_authorized": false,
+        "full_evaluations_launched": false
+      },
+      "remaining_full_evaluations_authorized": false,
+      "remaining_full_evaluations_launched": false
     }
   }
 }
