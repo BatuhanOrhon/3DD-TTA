@@ -5098,3 +5098,28 @@ completed outputs, not raw decoded geometry/latent/RNG restart state.
 remain subsequent proposals, not run. Replication could falsify the one-seed
 pattern; matched controls could attribute the benefit or harm. Exact paper
 weights remain unavailable. Preserve r7 and monitor; no teardown authorized.
+
+
+[User decision/Code/CPU/Open] 2026-10-19 06:02 UTC — user requests original
+3DD-TTA for CurveNet/PointNeXt, then DGCNN with original3DD and GSD. DGCNN
+parking is superseded for this extension; retain its fixed weaker source model.
+Opt-in runner adds method/head selection while defaultGSD and unchangedtta.py
+math remain intact. Root47CPU tests pass. Actual r7 CPU gate strict-loads8
+models, binds6source rows, audits4no-build native binaries and actualDDIM
+5/35 schedules; CUDA uninitialized. CPU proof33902bytes SHA
+`c725f6cfe02de9a845562e7bb938f979e9c1a8709fe084d452ad0ebf04f5c769`;
+Drive/local roundtrip of delta5464063bytes also verifies. Revision7 manifest
+`78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9`;
+sourceZIP `f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf`.
+Parent acc27d3; exact execution source is the separately sealed overlay.
+
+Prepared6joint full jobs/8new model rows,182940predictions, seed0, severity5,
+ModelNet2468/Scan main_split581. OriginalB32/5–35/originaldecoder/alphaTrue
+versus GSD B70/10–30/updated/alphaFalse is whole-policy, not spectral causality.
+Estimate2.5–3.5h, new4h cap; single explicit duration approval still pending
+before any extension GPU smoke/full. Old four GSD rows are reused.
+Detailed commands/hashes/checkpoint links/stop/persistence/acceptance plan:
+[extension note](gsd_multibackbone_3dd_extension_20261019.md).
+Drive root `.../preparation/gsd_multibackbone_study/20261019T060200Z/`.
+Protected r7/monitor remain live; only stale local liveness client was replaced
+by a fresh successful bounded audit. No runtime rebuild/teardown or GPU run.

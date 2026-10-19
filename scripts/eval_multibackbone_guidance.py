@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shared legacy latent spectral reconstruction with two isolated frozen heads."""
+"""Shared reconstruction with isolated frozen heads and locked method policies."""
 from __future__ import annotations
 
 import argparse
@@ -20,12 +20,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts import eval_multibackbone_source as source
 
 METHOD = "gsd_inspired_latent_spectral_guidance"
+ORIGINAL_METHOD = "3dd_original"
 BACKBONES = ("curvenet", "pointnext")
 LION_SHA256 = "807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2"
 LION_CONFIG_SHA256 = "9d4a826f35fe9b3053210105eb4857811c8bfd53cd8c6a998f8ea7953e975816"
 PROTOCOL = dict(M_max=800, beta=2.0, gamma=0.01, eta=0.01, p=0.95, total=100,
                 loss_weights=dict(spectral=1.17, invariant=0.0, chamfer=1.0),
                 use_static_style=False, dynamic_graph=False, graph_update_interval=3)
+ORIGINAL_PROTOCOL = dict(gamma=0.01, eta=0.01, p=0.95, total=100, scd_normalize=False)
 
 
 def configurations(argv=None) -> list:
@@ -36,17 +38,25 @@ def configurations(argv=None) -> list:
     parser.add_argument("--asset-manifest-sha256")
     parser.add_argument("--drive-root")
     parser.add_argument("--seed", type=int, default=0)
-    parser.add_argument("--batch-size", type=int, choices=(70,), default=70)
+    parser.add_argument("--method", choices=("gsd", "original3dd"), default="gsd")
+    parser.add_argument("--backbones", nargs="+", choices=(*BACKBONES, "dgcnn"), default=list(BACKBONES))
+    parser.add_argument("--batch-size", type=int, choices=(32, 70))
     parser.add_argument("--max-batches", type=int, default=0)
     parser.add_argument("--corruptions", nargs="+", default=["all"])
     parser.add_argument("--preview", action="store_true")
     args = parser.parse_args(argv)
     if args.seed < 0 or args.max_batches < 0:
         raise ValueError("Seed and max-batches must be nonnegative")
+    original = args.method == "original3dd"
+    batch_size = 32 if original else 70
+    if args.batch_size is not None and args.batch_size != batch_size:
+        raise ValueError("Method batch size is locked to " + str(batch_size))
+    if len(set(args.backbones)) != len(args.backbones):
+        raise ValueError("Select unique backbone names")
     if not args.preview and not re.fullmatch(r"[0-9a-f]{64}", args.asset_manifest_sha256 or ""):
         raise ValueError("Actual guidance requires --asset-manifest-sha256")
     result = []
-    for backbone in BACKBONES:
+    for backbone in args.backbones:
         base = source.parse_args(["--preview", "--backbone", backbone, "--dataset", args.dataset,
                                   "--dataset-root", args.dataset_root, "--label-path", args.label_path,
                                   "--asset-root", args.asset_root, "--result-root", args.result_root,
@@ -54,7 +64,7 @@ def configurations(argv=None) -> list:
         config = source.resolve_config(base)
         if "original" in config["corruptions"]:
             raise ValueError("Guidance uses the predeclared corrupted scope only")
-        config.update(vars(args), method=METHOD, batch_size=70, lion_loaded=True,
+        config.update(vars(args), method=METHOD, batch_size=batch_size, lion_loaded=True,
                       corruptions=config["corruptions"], guidance_protocol=PROTOCOL,
                       display_name="GSD-inspired latent spectral guidance + " + backbone,
                       source_classifier_preprocessing=config["preprocessing"],
@@ -66,6 +76,22 @@ def configurations(argv=None) -> list:
                       seed_boundary="after all models/native/graph initialization; each head preprocess+forward isolated",
                       timing_policy="CSV runtime=shared reconstruction/2 + own preprocessing/classification; shared seconds count once across2heads",
                       memory_policy="peak whole shared process including LION and both heads; repeated perhead, never sum")
+        if len(args.backbones) != 2:
+            config["timing_policy"] = ("CSV runtime=shared reconstruction/" + str(len(args.backbones))
+                                       + " + own preprocessing/classification; shared seconds count once across"
+                                       + str(len(args.backbones)) + "heads")
+            config["memory_policy"] = "peak whole shared process including LION and selected heads; repeated perhead, never sum"
+        if original:
+            config.update(method=ORIGINAL_METHOD, guidance_protocol=ORIGINAL_PROTOCOL,
+                          display_name="Original 3DD-TTA (repository eval/raw) + " + backbone,
+                          shared_reconstruction="classifier-independent unchanged tta.tta_reconstruct; scheduler audited; decoded2048 retained",
+                          decoder_style="original", graph=None, scheduler_final_alpha_to_one=True,
+                          normal_reverse_steps=5, background_reverse_steps=35,
+                          cudnn_policy="benchmark=True and deterministic=False, deterministic algorithms off; validated repository original eval/raw policy",
+                          comparison_scope="whole reconstruction policy comparison; not isolated spectral attribution or paper reproduction")
+        if backbone == "dgcnn":
+            config["backbone_caveat"] = ("Published alternative, not paper checkpoint identity; ScanObjectNN DGCNN has weaker clean/source accuracy; "
+                                          "exploratory comparison only to this fixed checkpoint's own source row")
         for key in ("dataset_root", "label_path", "asset_root", "result_root", "drive_root"):
             if config.get(key):
                 config[key] = str(Path(config[key]).absolute())
@@ -97,15 +123,45 @@ def initialize_heads(configs: dict, manifest: dict, loader=None):
     return heads, dict(before_sha256=before, after_sha256=after, rng_unchanged=True)
 
 
-def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda"):
+def original_scheduler_record(scheduler, steps: int) -> dict:
+    """Assert the actual original DDIM defaults before any latent inference."""
+    config = dict(scheduler.config)
+    expected = dict(beta_end=0.02, beta_start=0.0001, beta_schedule="linear", clip_sample=False,
+                    num_train_timesteps=1000, prediction_type="epsilon", set_alpha_to_one=True)
+    if any(config.get(key) != value for key, value in expected.items()) or config.get("steps_offset", 0) != 0:
+        raise ValueError("Original DDIM scheduler config differs from locked policy")
+    timesteps = scheduler.timesteps.detach().cpu().tolist()
+    if timesteps != list(range(990, -1, -10)):
+        raise ValueError("Original DDIM timesteps differ from locked 100-step policy")
+    final_alpha = float(scheduler.final_alpha_cumprod)
+    if final_alpha != 1.0 or steps not in (5, 35):
+        raise ValueError("Original DDIM final alpha/horizon differs from locked policy")
+    return dict(config=config, timesteps=timesteps, active_timesteps=timesteps[-steps:], final_alpha_cumprod=final_alpha)
+
+
+def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda", method=METHOD, scheduler_observer=None):
     """Exact existing dataset pre/postprocessing, before any terminal head FPS."""
     import torch
     normalized, center, scale = ops.normalize(raw)
     prepared = torch.from_numpy(ops.upsample_all(normalized.numpy(), 2048)).float().to(device)
     prepared *= 3.3885
     prepared = ops.rotate_pointcloud(prepared)
-    decoded, metrics = reconstruct(x=prepared, lion=lion, graph_spectral_module=graph,
-                                   steps_back_local=30 if corruption == "background" else 10, **PROTOCOL)
+    if method == ORIGINAL_METHOD:
+        steps = 35 if corruption == "background" else 5
+        observed = []
+        def observe(scheduler):
+            record = original_scheduler_record(scheduler, steps)
+            observed.append(record)
+            if scheduler_observer is not None:
+                scheduler_observer(record)
+        decoded = reconstruct(x=prepared, lion=lion, steps_back_local=steps,
+                              scheduler_observer=observe, **ORIGINAL_PROTOCOL)
+        if len(observed) != 1:
+            raise RuntimeError("Original reconstruction must report its actual scheduler once")
+        metrics = {}
+    else:
+        decoded, metrics = reconstruct(x=prepared, lion=lion, graph_spectral_module=graph,
+                                       steps_back_local=30 if corruption == "background" else 10, **PROTOCOL)
     decoded = ops.rotateback_pointcloud(decoded)
     if dataset == "scanobjectnn_c":
         decoded /= 3.3885
@@ -220,8 +276,6 @@ def load_guidance_runtime(config: dict, manifest: dict):
         raise RuntimeError("Native readiness must explicitly attest no-build bootstrap")
     from default_config import cfg
     from models.lion import LION
-    from graph_spectral_v2 import GraphSpectralDNA
-    from tta_gsd_v2 import tta_gsd_reconstruct
     import utilities_3dd_tta as ops
     options = cfg.clone()
     options.merge_from_file(str(paths["lion_config"]))
@@ -229,13 +283,20 @@ def load_guidance_runtime(config: dict, manifest: dict):
     lion.load_model(str(paths["lion_checkpoint"]), use_ema=False)
     lion.vae.eval().requires_grad_(False)
     lion.priors.eval().requires_grad_(False)
-    graph = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, use_4d_gft=False, device="cuda")
-    return lion, graph, tta_gsd_reconstruct, ops, native_report, options.dump()
+    if config["method"] == ORIGINAL_METHOD:
+        from tta import tta_reconstruct
+        graph, reconstruct = None, tta_reconstruct
+    else:
+        from graph_spectral_v2 import GraphSpectralDNA
+        from tta_gsd_v2 import tta_gsd_reconstruct
+        graph = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, use_4d_gft=False, device="cuda")
+        reconstruct = tta_gsd_reconstruct
+    return lion, graph, reconstruct, ops, native_report, options.dump()
 
 
 def update_row(rows: list, config: dict, corruption: str, n: int, correct: int, seconds: float, memory: float, status: str):
     row = source.corruption_row(config["run_id"], config["seed"], corruption, n, correct, seconds, memory,
-                                status, method=METHOD, severity=5, dataset=config["dataset"])
+                                status, method=config.get("method", METHOD), severity=5, dataset=config["dataset"])
     if rows and rows[-1]["corruption"] == corruption:
         rows[-1] = row
     else:
@@ -248,7 +309,7 @@ def worker(directories: list) -> None:
     rows = {name: [] for name in bundles}
     heads, lion, active = {}, None, None
     try:
-        common = configs[BACKBONES[0]]
+        common = next(iter(configs.values()))
         root = Path(common["asset_root"])
         manifest = source.read_manifest(root, common["asset_manifest_sha256"])
         guidance = manifest["guidance"]
@@ -272,7 +333,7 @@ def worker(directories: list) -> None:
         def fps(points, number):
             indices = pointnet2_utils.furthest_point_sample(points.contiguous(), number)
             return pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), indices).transpose(1, 2).contiguous()
-        torch.backends.cudnn.benchmark = False
+        torch.backends.cudnn.benchmark = common["method"] == ORIGINAL_METHOD
         torch.backends.cudnn.deterministic = False
         torch.use_deterministic_algorithms(False)
         seed_hash = seed_inference(common["seed"])
@@ -296,16 +357,18 @@ def worker(directories: list) -> None:
             elapsed = {name: 0. for name in heads}
             correct = {name: 0 for name in heads}
             seen, peak = 0, 0.
-            for batch, start in enumerate(range(0, len(values), 70)):
+            for batch, start in enumerate(range(0, len(values), common["batch_size"])):
                 if common["max_batches"] and batch >= common["max_batches"]:
                     break
-                end = min(start + 70, len(values))
+                end = min(start + common["batch_size"], len(values))
                 torch.cuda.reset_peak_memory_stats()
                 torch.cuda.synchronize()
                 before_rng = rng_hash()
                 started = time.monotonic()
                 raw = torch.from_numpy(np.array(values[start:end]))
-                geometry, metrics = reconstruct_geometry(raw, common["dataset"], corruption, lion, graph, reconstruct, ops)
+                scheduler_record = {}
+                geometry, metrics = reconstruct_geometry(raw, common["dataset"], corruption, lion, graph, reconstruct, ops,
+                                                         method=common["method"], scheduler_observer=scheduler_record.update)
                 torch.cuda.synchronize()
                 reconstruction_seconds = time.monotonic() - started
                 reconstruction_rng = rng_hash()
@@ -324,6 +387,12 @@ def worker(directories: list) -> None:
                               reconstruction_rng_before_sha256=before_rng, reconstruction_rng_after_sha256=reconstruction_rng,
                               shared_reconstruction_seconds=reconstruction_seconds, guidance_metrics=metrics,
                               whole_process_peak_gpu_memory_mb=peak, seed=common["seed"], index_start=start, index_end=end)
+                if scheduler_record:
+                    shared["scheduler"] = scheduler_record
+                    for config in configs.values():
+                        recorded = config.setdefault("scheduler_records", {}).setdefault(corruption, scheduler_record)
+                        if recorded != scheduler_record:
+                            raise RuntimeError("Original scheduler changed within a corruption")
                 pending = {}
                 seen += end - start
                 for name, logits in all_logits.items():

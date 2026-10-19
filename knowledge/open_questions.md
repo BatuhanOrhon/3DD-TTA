@@ -45,9 +45,14 @@
   Mixed backbone effects are descriptive for seed0; no universal gain claimed.
 - [ ] Replicate the locked policy across seeds before repeatability claims;
   explain Scan PointNeXt harm with matched controls, without test-label tuning.
-- [ ] Proposed next study: original3DD-TTA with the same accepted heads/data/
-  preprocessing/seeds; a same-flow spectral0 control is needed for a more
-  isolated spectral contribution claim. Not yet launched.
+- [x] User selects original3DD-TTA for CurveNet/PointNeXt then DGCNN GSD/
+  original on both datasets. Revision7 preparation/47CPU tests and actualr7
+  CPU strict8models/6source links/native4/noCUDA/DDIM5-35 proof accepted.
+- [ ] Launch the prepared extension after one informed >60min GPU approval:
+  seed0/full15,8newrows,182940predictions,estimate2.5–3.5h/cap4h. No new GPU
+  run yet. DGCNN now explicitly in scope; preserve its weaker source caveat.
+- [ ] A same-flow spectral0 control and additional seeds remain separate
+  unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,
   checkpoint bytes and corruption bytes remain unknown. Published PointNeXt
   PB_T50_RS and alternative CurveNet OBJ_ONLY training differences must be shown.

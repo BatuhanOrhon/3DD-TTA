@@ -1,3 +1,14 @@
+**[User decision/Code/CPU/Open] 2026-10-19 — original3DD/DGCNN extension ready:**
+User requests original3DD with CurveNet+PointNeXt, then DGCNN with both
+original3DD and GSD on both datasets. Opt-in implementation passes47 CPU tests;
+actualr7 CPU proof passes8 strict loads,6source bindings,4native no-build and
+realDDIM5/35 checks with CUDA uninitialized. Revision7 source/preparation and
+CPU proof verify on Drive/locally. Prepared8new full15 rows,182940 predictions,
+seed0; estimate2.5–3.5h/cap4h awaits one GPU-duration approval. No extension
+GPU job started. DGCNN parking below is historical and superseded for this
+requested phase. r7/monitor remain live; no setup rebuild or shutdown.
+[Concrete plan, scope/hash and proof](gsd_multibackbone_3dd_extension_20261019.md).
+
 **[User decision/Code/Run/Open] 2026-10-18 — multibackbone source study complete:**
 `gsd-multibackbone-study` starts at requested2684f11. Real Point-MAE CUDA
 boundary parity passes on both datasets (max difference0.0). Six full15

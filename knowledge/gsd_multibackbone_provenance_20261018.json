@@ -1308,5 +1308,107 @@
     "gpu_job_wall_cap_seconds": 28800,
     "scope": "PointNeXt + CurveNet; DGCNN parked; original3DD and spectral0 not executed",
     "runtime_preserved": true
+  },
+  "original3dd_dgcnn_extension_20261019": {
+    "status": "prepared_pending_gpu_approval",
+    "parent_commit": "acc27d3e16666cd4638744988a1cfd249fa45164",
+    "preparation": {
+      "bytes": 5464063,
+      "sha256": "d97fe9e5b169db79b1dfe534c8db7150309f6693e521d1358174ba3ce1c27e3e",
+      "manifest": {
+        "bytes": 123403,
+        "sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9"
+      },
+      "source_snapshot": {
+        "bytes": 5498028,
+        "sha256": "f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf"
+      },
+      "plan_sha256": "e0eafe5938907d6de45803daa550f486567e86e532cd1f3cbb81362541b74f41",
+      "controllers": {
+        "gpu_phase_extension_smoke_v7_r7.py": {
+          "bytes": 9212,
+          "sha256": "6fb832b14bc27d3355cf836bb0b2119ab7d623b0ce0ac5c9faf585ed702591c5"
+        },
+        "gpu_phase_extension_all15_v7_r7.py": {
+          "bytes": 9212,
+          "sha256": "ccd395b0fbda7662da17daa13542151fcbc410e9368d10f98775645238cdb041"
+        }
+      },
+      "overlay": {
+        "scripts/eval_multibackbone_guidance.py": {
+          "bytes": 31319,
+          "sha256": "d06a19306aa64de812d3589f81cdcc7364c11c034f3de9c22bec9ae1967092e1"
+        },
+        "tests/test_eval_multibackbone_guidance.py": {
+          "bytes": 12462,
+          "sha256": "7d291e5d147144ec92f2a30c990627643ff11522fbd28cab5bf7c4a735c9ceea"
+        },
+        "tests/test_multibackbone_3dd_extension.py": {
+          "bytes": 10483,
+          "sha256": "9bc9e68f521435a1d5b79ea0b69a314ac7e63a9785181c6f1413acdcf538c677"
+        }
+      }
+    },
+    "actual_cpu_receipt": {
+      "state": {
+        "status": "complete",
+        "stage": "CPU-only strict state load and data validation; no GPU inference",
+        "command": [
+          "conda",
+          "run",
+          "--no-capture-output",
+          "-n",
+          "3dd_tta_env",
+          "python",
+          "-u",
+          "/content/gsd_multibackbone_study_20261018/prepared_v7/audit/preflight_guidance_cpu.py",
+          "/content/gsd_multibackbone_study_20261018/prepared_v7/assets",
+          "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9"
+        ],
+        "payload": {
+          "bytes": 5464063,
+          "sha256": "d97fe9e5b169db79b1dfe534c8db7150309f6693e521d1358174ba3ce1c27e3e",
+          "manifest": {
+            "bytes": 123403,
+            "sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9"
+          }
+        },
+        "drive_preparation_archive": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T060200Z/multibackbone_preparation_v7_delta.zip",
+        "source_snapshot": "f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf",
+        "utc": "20261019T060200Z",
+        "phase_sources": {
+          "bytes": 26751,
+          "sha256": "bb9f44dd4987ffad2b0046917bf03bda621ed502469e757dc59676898ec9e98f"
+        },
+        "elapsed_seconds": 21.329292995003925
+      },
+      "cpu_archive": {
+        "bytes": 33902,
+        "sha256": "c725f6cfe02de9a845562e7bb938f979e9c1a8709fe084d452ad0ebf04f5c769",
+        "remote_path": "/content/gsd_multibackbone_study_20261018/cpu_preflight_20261019T060200Z.zip",
+        "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T060200Z/cpu_preflight_20261019T060200Z.zip"
+      },
+      "preparation_archive": {
+        "bytes": 5464063,
+        "sha256": "d97fe9e5b169db79b1dfe534c8db7150309f6693e521d1358174ba3ce1c27e3e",
+        "remote_path": "/content/multibackbone_preparation_v7_delta.zip",
+        "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T060200Z/multibackbone_preparation_v7_delta.zip"
+      }
+    },
+    "local_cpu_archive": "result/preparation/multibackbone_20261018/cpu_preflight_v7.zip",
+    "cpu_drive_roundtrip_verified": true,
+    "preparation_drive_roundtrip_verified": true,
+    "local_cpu_tests": 47,
+    "cuda_initialized": false,
+    "strict_cpu_models": 8,
+    "matched_source_rows": 6,
+    "full_new_prediction_count": 182940,
+    "full_new_model_rows": 8,
+    "estimated_gpu_hours": [
+      2.5,
+      3.5
+    ],
+    "max_gpu_job_wall_seconds": 14400,
+    "runtime_preserved": true
   }
 }
