@@ -1310,7 +1310,7 @@
     "runtime_preserved": true
   },
   "original3dd_dgcnn_extension_20261019": {
-    "status": "smoke_accepted_full15_running",
+    "status": "modelnet_original_accepted_scan_original_running",
     "parent_commit": "acc27d3e16666cd4638744988a1cfd249fa45164",
     "preparation": {
       "bytes": 5464063,
@@ -1571,6 +1571,210 @@
       "sha256": "693b2bc329802b53845d160424de4676ca8f513aa97c1e049b44ba8b3453657a",
       "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T062114Z/smoke_sealed_member_binding_v1.zip",
       "drive_roundtrip_verified": true
+    },
+    "modelnet_original_accepted": {
+      "validation": {
+        "status": "partial",
+        "mode": "extension_all15",
+        "models": [
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "method": "3dd_original",
+            "status": "complete",
+            "n_predictions": 37020,
+            "accuracy_percent": 67.07185305240411,
+            "matched_full_source_percent": 64.01134521880066,
+            "delta_pp": 3.0605078336034524,
+            "archive": "result/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0.zip",
+            "archive_sha256": "21c644db9568c9c98a38c484950e214a00b9d5c2251b74d6946dc9040c77e10c",
+            "shared_reconstruction_seconds": 1637.1221412838859,
+            "allocated_runtime_seconds": 1014.4562453888539
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "method": "3dd_original",
+            "status": "complete",
+            "n_predictions": 37020,
+            "accuracy_percent": 68.29281469475958,
+            "matched_full_source_percent": 65.83198271204755,
+            "delta_pp": 2.460831982712037,
+            "archive": "result/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0.zip",
+            "archive_sha256": "78ca52702d59c58f9418ef2146decb994af8838e8c2f3f18aae11c9b245cef38",
+            "shared_reconstruction_seconds": 1637.1221412838859,
+            "allocated_runtime_seconds": 851.3848757029155
+          }
+        ],
+        "shared_geometry_batches": 1170,
+        "n_predictions": 74040
+      },
+      "triplets": {
+        "status": "partial",
+        "summary": [
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "source_percent": 64.01134521880064,
+            "original_percent": 67.07185305240411,
+            "gsd_percent": 65.18638573743922,
+            "original_minus_source_pp": 3.0605078336034666,
+            "gsd_minus_source_pp": 1.175040518638582,
+            "gsd_minus_original_pp": -1.8854673149648846,
+            "gsd_corrected_original": 2250,
+            "gsd_harmed_original": 2948,
+            "gsd_improved_corruptions": 4,
+            "gsd_worsened_corruptions": 11,
+            "gsd_tied_corruptions": 0
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "source_percent": 65.83198271204755,
+            "original_percent": 68.29281469475958,
+            "gsd_percent": 66.4721772015127,
+            "original_minus_source_pp": 2.460831982712037,
+            "gsd_minus_source_pp": 0.640194489465145,
+            "gsd_minus_original_pp": -1.8206374932468918,
+            "gsd_corrected_original": 2273,
+            "gsd_harmed_original": 2947,
+            "gsd_improved_corruptions": 3,
+            "gsd_worsened_corruptions": 12,
+            "gsd_tied_corruptions": 0
+          }
+        ],
+        "inputs": [
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "role": "source",
+            "archive": "result/modelnet40_c/source_only/20261018-201913_curvenet-seed0.zip",
+            "sha256": "25736accdd0074535de3fcf0c5fc45c75ae51138a68b81b20ce10ae4e84d47eb",
+            "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "role": "original",
+            "archive": "result/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0.zip",
+            "sha256": "21c644db9568c9c98a38c484950e214a00b9d5c2251b74d6946dc9040c77e10c",
+            "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "curvenet",
+            "role": "gsd",
+            "archive": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205338_curvenet-seed0.zip",
+            "sha256": "740a1d4b9c77aa658218d3df651648e1aa6694bfbf5292cafc3e46335b3b3c8f",
+            "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "role": "source",
+            "archive": "result/modelnet40_c/source_only/20261018-202209_pointnext-seed0.zip",
+            "sha256": "ea88626ea8fe6dbe01d658e95c7282142160ccc328570c7d4bc7800dcf47a36a",
+            "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "role": "original",
+            "archive": "result/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0.zip",
+            "sha256": "78ca52702d59c58f9418ef2146decb994af8838e8c2f3f18aae11c9b245cef38",
+            "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+          },
+          {
+            "dataset": "modelnet40_c",
+            "backbone": "pointnext",
+            "role": "gsd",
+            "archive": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261018-205339_pointnext-seed0.zip",
+            "sha256": "fd59c5242980bf28bd6f9bd87d8b98919e7076a9d1b263ea3e47719481eedc8a",
+            "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+          }
+        ],
+        "interpretation": "Single-seed whole-policy comparison with fixed published alternatives; no isolated spectral or paper reproduction claim"
+      },
+      "partial_phase_state": {
+        "mode": "extension_all15",
+        "status": "running",
+        "manifest_sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9",
+        "source_snapshot_sha256": "f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf",
+        "plan_sha256": "e0eafe5938907d6de45803daa550f486567e86e532cd1f3cbb81362541b74f41",
+        "jobs": [
+          {
+            "name": "modelnet40_c-original-two-heads",
+            "mode": "extension_all15",
+            "command": [
+              "conda",
+              "run",
+              "--no-capture-output",
+              "-n",
+              "3dd_tta_env",
+              "python",
+              "-u",
+              "scripts/eval_multibackbone_guidance.py",
+              "--method",
+              "original3dd",
+              "--backbones",
+              "curvenet",
+              "pointnext",
+              "--dataset",
+              "modelnet40_c",
+              "--dataset-root",
+              "/content/3DD-TTA/data/modelnet40_c",
+              "--label-path",
+              "/content/3DD-TTA/data/modelnet40_c/label.npy",
+              "--asset-root",
+              "/content/gsd_multibackbone_study_20261018/prepared_v7/assets",
+              "--asset-manifest-sha256",
+              "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9",
+              "--seed",
+              "0",
+              "--batch-size",
+              "32",
+              "--drive-root",
+              "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study",
+              "--corruptions",
+              "all",
+              "--max-batches",
+              "0",
+              "--result-root",
+              "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/modelnet40_c-original-two-heads"
+            ],
+            "status": "complete",
+            "utc_start": "2026-10-19T06:21:48.085322+00:00",
+            "returncode": 0,
+            "archives": [
+              {
+                "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/modelnet40_c-original-two-heads/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0.zip",
+                "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/3dd_original/20261019-062149_curvenet-seed0/final.zip",
+                "bytes": 18330116,
+                "sha256": "21c644db9568c9c98a38c484950e214a00b9d5c2251b74d6946dc9040c77e10c"
+              },
+              {
+                "local_archive": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/jobs/modelnet40_c-original-two-heads/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0.zip",
+                "drive_archive": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/3dd_original/20261019-062150_pointnext-seed0/final.zip",
+                "bytes": 18139081,
+                "sha256": "78ca52702d59c58f9418ef2146decb994af8838e8c2f3f18aae11c9b245cef38"
+              }
+            ],
+            "elapsed_seconds": 2023.6974330010053
+          }
+        ]
+      },
+      "analysis_receipt": {
+        "status": "complete",
+        "coverage": "ModelNet complete original CN+PN and own source/prior GSD; campaign still running",
+        "archive": {
+          "local_path": "result/preparation/multibackbone_20261018/modelnet_original_matched_analysis_20261019T065632Z.zip",
+          "bytes": 16321,
+          "sha256": "85ac78483c9ad5eb32e41aa7a40d6b5c9d82e4676ae76b6d957681d26418c5a8",
+          "drive_path": "/content/drive/MyDrive/thesis/result/gsd_multibackbone_study/modelnet40_c/3dd_original/modelnet_original_matched_analysis_20261019T065632Z.zip"
+        },
+        "utc": "20261019T065632Z",
+        "drive_roundtrip_verified": true
+      }
     }
   }
 }

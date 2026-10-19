@@ -266,3 +266,22 @@ Derived binding verifier+validation ZIP1399bytes SHA
 local `result/preparation/multibackbone_20261018/smoke_sealed_member_binding_v1.zip`;
 Drive062114Z preparation folder has exact uploaded/downloaded bytes and CRC.
 This closes the generic receipt-verifier gap without repeating any GPU work.
+
+
+[Run/Artifact/Inference] 2026-10-19 06:56 UTC — ModelNet original3DD full15
+accepted: CurveNet67.0719% (source64.0113,+3.0605pp), PointNeXt68.2928%
+(source65.8320,+2.4608pp). Previously accepted GSD65.1864/66.4722% is lower
+than original by1.8855/1.8206pp. Exact paired IDs show GSD corrects2250/2273
+but harms2948/2947 events relative to original. Single-seed whole-policy
+comparison, not isolated spectral causality; no setting changed.
+
+74040predictions/1170shared batches, frozen states/RNG, actual scheduler, all
+member hashes and Drive/local raw ZIP SHA pass. Joint original job2023.697s.
+Derived16321-byte matched analysis ZIP SHA
+`85ac78483c9ad5eb32e41aa7a40d6b5c9d82e4676ae76b6d957681d26418c5a8`
+passes actual Drive roundtrip and every manifest member. Full raw identities,
+source/oldGSD links and per-corruption results in
+[matched comparison](gsd_multibackbone_method_comparison_20261019.md).
+Scan original CN/PN now running; DGCNN jobs follow unchanged within4h cap.
+Replicated seeds or matched same-flow controls could falsify/attribute the
+one-seed ordering. Preserve r7/monitor; no additional GPU policy/search.

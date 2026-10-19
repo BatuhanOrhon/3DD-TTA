@@ -52,8 +52,10 @@
   receipt verified Drive/locally. CUDAsmokes launched06:16UTC.
 - [x] Independently accept selected smokes:996predictions/18shared batches,
   8final/24batch/24corruption receipts verified Drive/locally.
-- [ ] Finish fixed seed0/full15 (running06:21:48UTC),8newrows/182940predictions
-  within approved4h cap; retrieve/independently analyze whole-policy triplets. DGCNN now explicitly in scope; preserve its weaker source caveat.
+- [x] ModelNet originalCNPN full15 accepted:67.0719/68.2928%, GSD below
+  original by1.8855/1.8206pp;74040predictions and immutable matched analysis verify.
+- [ ] Finish remaining Scan original and DGCNN GSD/original full15 within
+  approved4h cap;8newrows/182940predictions total. Complete whole-policy triplets. DGCNN now explicitly in scope; preserve its weaker source caveat.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,

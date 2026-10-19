@@ -1,3 +1,10 @@
+**[Run/Artifact] 2026-10-19 — original3DD ModelNet accepted:** CurveNet67.0719%
+and PointNeXt68.2928%, versus own source64.0113/65.8320 and prior
+GSD65.1864/66.4722. GSD is1.8855/1.8206pp lower than original for seed0;
+whole-policy comparison, not isolated spectral effect.74040 predictions and
+Drive/local immutable raw+analysis hashes verify. Scan original is running,
+DGCNN GSD/original follow. [Current triplet results](gsd_multibackbone_method_comparison_20261019.md).
+
 **[User decision/Code/CPU/Open] 2026-10-19 — original3DD/DGCNN extension ready:**
 User requests original3DD with CurveNet+PointNeXt, then DGCNN with both
 original3DD and GSD on both datasets. Opt-in implementation passes47 CPU tests;
