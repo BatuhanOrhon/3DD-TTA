@@ -1,3 +1,12 @@
+**[Run/Open] 2026-10-19 15:41UTC — Scan four-head trajectory all15 running:**
+Fresh746bc30/v8 source and actualCPU proof pass. CUDA pilot validates2240
+candidate predictions, sharedgeometry/RNG/frozenstates andDrive/local rawZIPs.
+Acceptedanalysis+physicalreceipts SHA182a8f24…2e9cdd9 verifies locally.
+Wholephase estimate29.9min/upper42.5min; shared3600s cap includespilot.
+Four-head GSD-only Scan main_split581/all15/s5/seed0 started15:41:44UTC
+in r9. Terminal/minimumentropy/equalprobabilitymean results remainpending.
+[Live study and exact provenance](gsd_scan_trajectory_selection_20261019.md).
+
 **[User report/Code/Open] 2026-10-19 — Scan trajectory study selected:**
 The user selected GSD-inspired guidance only for CurveNet, PointNeXt, DGCNN
 and Point-MAE on ScanObjectNN-C main_split. Fixed clean checkpoints plus

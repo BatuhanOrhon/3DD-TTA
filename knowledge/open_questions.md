@@ -8,8 +8,10 @@
 - [x] Implement shared probe decoding, terminal-matched Scan coordinates,
   guarded Point-MAE legacy checkpoint loading and per-batch Drive trace data.
   Local52 focused CPU tests pass; no real trajectory GPU result yet.
-- [ ] Seal fresh source/asset manifest preserving v7, verify actual r9 CPU proof,
-  then GPU pilot purity/memory/receipts and whole-phase duration estimate.
+- [x] Seal fresh v8 source/asset manifest preserving v7 and verify actual r9
+  four-head CPU proof. GPU pilot passes2240candidate predictions, purity,
+  memory35.484GiB, physical Drive receipts andlocalSHA. Whole-phase estimate
+ 29.923min/upper42.505min; shared3600s job cap. All15 running15:41:44UTC.
 - [ ] Complete four-head all15 observation, independently verify all8715 IDs
   per head and12 policy rows plus Drive/local SHA-256. Compare same-run terminal.
 - [ ] Keep missing full DGCNN original3DD and ModelNet guidance separate from

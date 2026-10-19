@@ -5547,3 +5547,19 @@ Gaussian+Background first70ID shared four-head observer pilot started15:37:49
 UTC in existing r9; no trajectory accuracy accepted yet. Fullrun awaits
 purity/memory/independent-artifact review and whole-phase timing gate.
 [Exact identities and paths](gsd_scan_trajectory_selection_20261019.md).
+
+
+### 2026-10-19 15:41UTC — Scan trajectory GPU pilot accepted; all15 running
+
+[Run/Inference/Open] Four-head GSD-only observer passes Gaussian+Background
+first70IDs:2240candidate predictions/2sharedbatches,65.653s,35.484GiB peak.
+Four strict frozenclassifier/LION states and probe RNG/buffers/live latents
+pass; allhead indexedtrace hashes and originalmain_split labels match.
+FourrawZIPs and phase48595byte evidence SHA380a8046…1fcb036b verify actual
+Drive/local hashes. Acceptedanalysis+20physicalreceipts binder37464bytes
+SHA182a8f24…2e9cdd9 passes allmembers andactualDrive/local roundtrip.
+Wholeplannedphase central29.923min/upper42.505min includespilot, IO andmargin;
+same3600s accumulatedcap. FullScanall15 started15:41:44UTC in r9 using
+unchanged746bc30/v8 source/manifest. No benchmark outcome yet; no newlong
+DGCNNoriginal/ModelNet phase activated.
+[Evidence and gates](gsd_scan_trajectory_selection_20261019.md).

@@ -153,3 +153,45 @@ Controller SHA27b7e74a…2d699e7; actual GPU result acceptance remains pending.
 Planned whole new GPU phase25–45min based on the16.75min prior two-head job;
 pilot recalibrates before fullrun. One shared3600s job-wall cap includes pilot
 and fullrun, never a per-call loophole. No long DGCNN completion launch.
+
+
+## Actual four-head GPU pilot accepted — 15:41UTC
+
+[Run] Pilot completed15:38:54UTC:65.652680296seconds, two shared70-example
+batches,560 terminal predictions and2240 four-candidate predictions. Gaussian
+shared reconstruction9.959955540s; Background16.086486018s. Peakallocated
+36335.369MiB (35.484GiB) on A10080GB. Allfour strict classifier states and
+LION states remain equal; each probe preserves RNG, modelbuffers and live
+latent/style bytes. The four heads share identical indexed trajectory hashes.
+Original main_split labels match the declared local dataset; all15-class
+candidate shapes, terminal equality, policy recomputation and sealed manifests
+pass. Prefix140examples/head is smoke evidence, not benchmark accuracy.
+
+All4rawZIPs are under `result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/`:
+`20261019-153750_curvenet-seed0.zip` SHA153e1b9b…9906150;
+`20261019-153751_pointnext-seed0.zip` SHA10d4b0a0…c1e0c91;
+`20261019-153752_dgcnn-seed0.zip` SHA967db8cb…730c1b9;
+`20261019-153753_pointmae-seed0.zip` SHAbc268fa2…ed94f2.
+Exact full identities are in `result/preparation/scan_trajectory_20261019/gpu_pilot_receipt.json`.
+Allfour are downloaded from their actual Drive finalZIP and hash-verified.
+
+Pilot phase evidence48595bytes SHA380a8046…1fcb036b verifies Drive/locally.
+Accepted analysis/physical-receipt binder37464bytes SHA
+`182a8f2415a3b4bbd3b5b04d07c70733c7dc37b2401d5ef2dceac47e02e9cdd9`
+verifies actual Drive/local roundtrip and every sealed member, including
+8physical batch receipts,8corruption receipts and4final receipts.
+Local `pilot_accepted_evidence_drive_roundtrip.zip`; Drive
+`MyDrive/thesis/result/preparation/gsd_multibackbone_study/scan_trajectory_pilot_accepted_20261019T154120Z/`.
+
+[Inference/Run] Whole-phase estimate includes pilot,126normal+9Background
+batches: central1795.385s (29.923min), conservative2550.279s (42.505min).
+Upper adds40percent compute margin,3s/batch persistence and120s fixed overhead.
+Thus expected duration stays under60min; no new long-run approval required.
+The shared3600s job-wall cap still includes pilot and fullrun.
+
+Full all15 started15:41:44UTC in the same r9 session, source/manifest unchanged.
+Phase `/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T154144Z_scan_trajectory_all15`;
+controllerSHA94c512da…a80dba. Expected135shared batches,8715examples/head,
+139440candidate predictions. Batch receipts copy allcandidates to Drive,
+followed by per-corruption and per-head final immutable ZIPs.
+No full accuracy claim until independent local acceptance.
