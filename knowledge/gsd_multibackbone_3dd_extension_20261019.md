@@ -222,3 +222,33 @@ GPU smoke starts on protectedr7 via solemonitor97631: phase
 Firstjob original3DD CN+PN ModelNet/B32; remainingpredeclared6joborder and
 all8outputmodels unchanged. Full15 still requires independent smoke acceptance.
 Each batch/corruption/model writes verified Drive evidence. Runtime preserved.
+
+
+[Run/Artifact] 2026-10-19 06:21 UTC — all6selected extension CUDA smoke
+jobs/8model bundles pass independent996-prediction/18shared-geometry validation.
+Native4no-build, exact checkpoint/source preprocessing, finite geometry/logits,
+strict/frozen classifier+LION hashes and RNG isolation pass. Original method
+actual full/5-or35 DDIM schedules match the locked config. All24batch receipts,
+24corruption receipts and8final ZIPs physically match Drive/local SHA.
+Smokes remain partial prefixes, not full15 accuracies or gain evidence.
+Peak whole-process allocation: originalCNPN ModelNet35447.222MiB,
+Scan17931.125MiB; DGCNN GSD32366.378MiB, original14494.007MiB (maxdatasets).
+Cumulative smoke jobs250.287s of14400s new cap; fixed source/settings unchanged.
+
+Immutable smoke evidence21819bytes SHA
+`0b1a91476eb42a649225f8bf2c91ac004ccdab9eb7adf64afddcb4598de0808b`;
+local `result/preparation/multibackbone_20261018/extension_smoke_evidence_v1.zip`,
+Drive preparation root20261019T062114Z. Actual download, CRC, all nested
+manifest members, exact executed finalizer and analysis source verify.
+Nested analysis ZIP10896bytes SHA
+`a863fea56c71b469ff08c3794440be1f7ec0a39a0df1d490d212dfb83be62404`.
+Standalone analyzer revision3 fixes a not-yet-executed revision1 local variable
+shadow and adds declared partial/full job coverage checks; actual raw inference
+source is unchanged. No GPU rerun was needed for that CPU-only analyzer fix.
+
+[Run/running] Fixed full15 begins06:21:48UTC on protectedr7/monitor97631:
+`/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15/`.
+Exact controllerSHA ccd395b0fbda7662da17daa13542151fcbc410e9368d10f98775645238cdb041.
+OriginalCNPN ModelNet first, then Scan, then DGCNN GSD/original pairs.
+Batch/corruption/model Drive persistence and whole14400s job cap remain active.
+No further approval required for this approved scope; no teardown authorized.

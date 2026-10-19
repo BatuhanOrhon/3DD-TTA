@@ -50,8 +50,10 @@
   CPU strict8models/6source links/native4/noCUDA/DDIM5-35 proof accepted.
 - [x] User approves prepared extension “Devam et”; immutable activation
   receipt verified Drive/locally. CUDAsmokes launched06:16UTC.
-- [ ] Independently accept selected smokes, then execute fixed seed0/full15,
-  8newrows,182940predictions under approved estimate2.5–3.5h/cap4h. DGCNN now explicitly in scope; preserve its weaker source caveat.
+- [x] Independently accept selected smokes:996predictions/18shared batches,
+  8final/24batch/24corruption receipts verified Drive/locally.
+- [ ] Finish fixed seed0/full15 (running06:21:48UTC),8newrows/182940predictions
+  within approved4h cap; retrieve/independently analyze whole-policy triplets. DGCNN now explicitly in scope; preserve its weaker source caveat.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.
 - [ ] Exact SVWA Scan training log linkage and GSDTTA point count/FPS/normalization,

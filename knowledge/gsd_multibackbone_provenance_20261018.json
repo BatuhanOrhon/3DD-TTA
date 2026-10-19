@@ -1310,7 +1310,7 @@
     "runtime_preserved": true
   },
   "original3dd_dgcnn_extension_20261019": {
-    "status": "approved_smoke_running",
+    "status": "smoke_accepted_full15_running",
     "parent_commit": "acc27d3e16666cd4638744988a1cfd249fa45164",
     "preparation": {
       "bytes": 5464063,
@@ -1429,6 +1429,141 @@
       "utc": "20261019T061550Z"
     },
     "approval_evidence_local_path": "result/preparation/multibackbone_20261018/extension_approval_evidence_v1.zip",
-    "smoke_phase_path": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T061610Z_extension_smoke"
+    "smoke_phase_path": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T061610Z_extension_smoke",
+    "smoke_validation": {
+      "status": "verified_smoke",
+      "mode": "extension_smoke",
+      "models": [
+        {
+          "dataset": "modelnet40_c",
+          "backbone": "curvenet",
+          "method": "3dd_original",
+          "status": "partial",
+          "n_predictions": 96,
+          "accuracy_percent": 78.125,
+          "matched_full_source_percent": 64.01134521880066,
+          "delta_pp": null,
+          "archive": "result/modelnet40_c/3dd_original/20261019-061612_curvenet-seed0.zip",
+          "archive_sha256": "c00043db372acc3e7e662723c576362103236a50e25c9c2375d3ee90370a3ae4",
+          "shared_reconstruction_seconds": 10.14796419999766,
+          "allocated_runtime_seconds": 6.084031037000386
+        },
+        {
+          "dataset": "modelnet40_c",
+          "backbone": "pointnext",
+          "method": "3dd_original",
+          "status": "partial",
+          "n_predictions": 96,
+          "accuracy_percent": 76.04166666666666,
+          "matched_full_source_percent": 65.83198271204755,
+          "delta_pp": null,
+          "archive": "result/modelnet40_c/3dd_original/20261019-061613_pointnext-seed0.zip",
+          "archive_sha256": "d2c0269ccdc9f79bf0b93744730bb8f8b21611acfa4ddce0044af96a6818d697",
+          "shared_reconstruction_seconds": 10.14796419999766,
+          "allocated_runtime_seconds": 6.335964740992495
+        },
+        {
+          "dataset": "scanobjectnn_c",
+          "backbone": "curvenet",
+          "method": "3dd_original",
+          "status": "partial",
+          "n_predictions": 96,
+          "accuracy_percent": 48.95833333333333,
+          "matched_full_source_percent": 52.07114170969592,
+          "delta_pp": null,
+          "archive": "result/scanobjectnn_c/3dd_original/20261019-061653_curvenet-seed0.zip",
+          "archive_sha256": "eea7a2ed370e252022fefe568eb4b67fe16da264a3e9c21ab962548f49a54f1f",
+          "shared_reconstruction_seconds": 10.068690552005137,
+          "allocated_runtime_seconds": 6.067107400998793
+        },
+        {
+          "dataset": "scanobjectnn_c",
+          "backbone": "pointnext",
+          "method": "3dd_original",
+          "status": "partial",
+          "n_predictions": 96,
+          "accuracy_percent": 43.75,
+          "matched_full_source_percent": 49.08777969018933,
+          "delta_pp": null,
+          "archive": "result/scanobjectnn_c/3dd_original/20261019-061654_pointnext-seed0.zip",
+          "archive_sha256": "75d11136147146967adc374e937481f53eb07356a02b35b67248c4b82cf38975",
+          "shared_reconstruction_seconds": 10.068690552005137,
+          "allocated_runtime_seconds": 5.258064571997238
+        },
+        {
+          "dataset": "modelnet40_c",
+          "backbone": "dgcnn",
+          "method": "gsd_inspired_latent_spectral_guidance",
+          "status": "partial",
+          "n_predictions": 210,
+          "accuracy_percent": 63.8095238095238,
+          "matched_full_source_percent": 58.797947055645594,
+          "delta_pp": null,
+          "archive": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261019-061732_dgcnn-seed0.zip",
+          "archive_sha256": "6d8d9630cdfa525d3aa3a820d4d751f330fdd853a3088395c30e426e92c36fc3",
+          "shared_reconstruction_seconds": 28.12441417399532,
+          "allocated_runtime_seconds": 28.395227366003382
+        },
+        {
+          "dataset": "scanobjectnn_c",
+          "backbone": "dgcnn",
+          "method": "gsd_inspired_latent_spectral_guidance",
+          "status": "partial",
+          "n_predictions": 210,
+          "accuracy_percent": 38.57142857142858,
+          "matched_full_source_percent": 32.782558806655196,
+          "delta_pp": null,
+          "archive": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261019-061824_dgcnn-seed0.zip",
+          "archive_sha256": "57d38bd87ae56d4ca9c6bf09c71303123a11288d1398c346ef561416e2c8b28a",
+          "shared_reconstruction_seconds": 27.892649553999945,
+          "allocated_runtime_seconds": 28.161358935001772
+        },
+        {
+          "dataset": "modelnet40_c",
+          "backbone": "dgcnn",
+          "method": "3dd_original",
+          "status": "partial",
+          "n_predictions": 96,
+          "accuracy_percent": 78.125,
+          "matched_full_source_percent": 58.797947055645594,
+          "delta_pp": null,
+          "archive": "result/modelnet40_c/3dd_original/20261019-061915_dgcnn-seed0.zip",
+          "archive_sha256": "2438c1d2815a6974610ff6d242008013bec430398e2c67d79714049b668e795d",
+          "shared_reconstruction_seconds": 10.061148246000812,
+          "allocated_runtime_seconds": 10.36824077100755
+        },
+        {
+          "dataset": "scanobjectnn_c",
+          "backbone": "dgcnn",
+          "method": "3dd_original",
+          "status": "partial",
+          "n_predictions": 96,
+          "accuracy_percent": 44.79166666666667,
+          "matched_full_source_percent": 32.782558806655196,
+          "delta_pp": null,
+          "archive": "result/scanobjectnn_c/3dd_original/20261019-061949_dgcnn-seed0.zip",
+          "archive_sha256": "024f70e9f4dbb2fe65960c9ef4112619c945bd70ebbd39f175ac9155761b4112",
+          "shared_reconstruction_seconds": 10.009565064996423,
+          "allocated_runtime_seconds": 10.318499201996019
+        }
+      ],
+      "shared_geometry_batches": 18,
+      "n_predictions": 996
+    },
+    "smoke_evidence_receipt": {
+      "status": "complete",
+      "archive": {
+        "bytes": 21819,
+        "sha256": "0b1a91476eb42a649225f8bf2c91ac004ccdab9eb7adf64afddcb4598de0808b",
+        "remote_path": "/content/gsd_multibackbone_study_20261018/extension_smoke_evidence_20261019T062114Z.zip",
+        "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T062114Z/extension_smoke_evidence_20261019T062114Z.zip"
+      },
+      "models": 8,
+      "verified_batch_receipts": 24,
+      "verified_corruption_receipts": 24,
+      "utc": "20261019T062114Z"
+    },
+    "full15_phase_path": "/content/gsd_multibackbone_study_20261018/gpu_phases/20261019T062148Z_extension_all15",
+    "smoke_job_wall_seconds": 250.28698195899779
   }
 }

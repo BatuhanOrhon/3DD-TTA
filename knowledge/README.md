@@ -5,7 +5,8 @@ actualr7 CPU proof passes8 strict loads,6source bindings,4native no-build and
 realDDIM5/35 checks with CUDA uninitialized. Revision7 source/preparation and
 CPU proof verify on Drive/locally. Prepared8new full15 rows,182940 predictions,
 seed0; estimate2.5–3.5h/cap4h explicitly approved by user “Devam et”.
-Six-job CUDA smoke phase is running; full15 follows only after independent acceptance. DGCNN parking below is historical and superseded for this
+Six-job CUDA smokes accepted (996 predictions,8models,24batch/24corruption
+receipts verified); fixed full15 is running from06:21:48UTC, originalCNPN first. DGCNN parking below is historical and superseded for this
 requested phase. r7/monitor remain live; no setup rebuild or shutdown.
 [Concrete plan, scope/hash and proof](gsd_multibackbone_3dd_extension_20261019.md).
 
