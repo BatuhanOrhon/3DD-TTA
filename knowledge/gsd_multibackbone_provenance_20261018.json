@@ -2189,8 +2189,8 @@
       "monitor_pid": 63286,
       "monitor_exec_session": 69569,
       "monitor_state": "temporarily_suspended_during_interactive_drivemount",
-      "drive_cli_exec_session": 77142,
-      "drive_status": "fresh_30min_request_awaiting_consent_after_expired_previous_request",
+      "drive_cli_exec_session": 87017,
+      "drive_status": "fresh_http_pool_flow_awaiting_new_consent_after_connection_reset",
       "partial_setup_evidence": {
         "status": "partial_setup_local_verified_drive_pending",
         "archive": {
@@ -2234,7 +2234,14 @@
       "asset_upload_parts_complete": 8,
       "physical_drive_mount_verified": false,
       "abandoned_auth_kernel_interrupted": "44896965-5879-40e6-9b5e-e277254b60f2",
-      "setup_kernel_preserved": true
+      "setup_kernel_preserved": true,
+      "last_failed_mount_kernel_interrupted": "ed674de6-1858-4042-936e-cf54c2f3bbb3",
+      "connection_reset_evidence": {
+        "local_path": "result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_connection_reset_evidence_v1.zip",
+        "bytes": 12625,
+        "sha256": "a0a3fff927224cf1fac7a4a02ad3b3011b3cbaedf325ba0f71fa8c593601ae38",
+        "drive_backup": "pending"
+      }
     }
   }
 }

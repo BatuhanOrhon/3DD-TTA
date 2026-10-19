@@ -5303,3 +5303,23 @@ Google consent from09:05; Drive still physically unverified, monitor63286/
 69569 suspended during external mount, no GPU research or runtime teardown.
 Next: user consent/Enter77142, verify Drive/Cell3, then recover actual DGCNN
 shards. Prior accepted results and source snapshot remain unchanged.
+
+
+## 2026-10-19 09:21 UTC — Timely r8 Drive consent hit a hidden HTTP reset
+
+[User report/Code/Run/Open] Within-window consent forTTY77142 failed at
+09:09:56.523UTC with ConnectionResetError / Connection reset by peer inside
+the propagation hook; installed runtime suppresses this exception at DEBUG.
+Therefore timeout alone is insufficient for the latest failure. Stale HTTP
+pool is an unconfirmed explanation. Fresh-challenge same-request recovery
+returned dry-run false and sent no reply/cell. Guarded interrupt cleared only
+that auth kernel; setup kernel/runtime preserved and all idle before retry.
+Fresh helper clears only its HTTP pool before finalPOST, sets45s deadlines;
+scope/header checks pass, actual mount unverified. TTY87017 now awaits fresh
+consent; remote1800s/local2100s. Monitor63286/69569 remains suspended during
+external mount. No r7 shards retrieved or researchGPU run. Local9member/12625byte
+ZIP SHAa0a3fff927224cf1fac7a4a02ad3b3011b3cbaedf325ba0f71fa8c593601ae38,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_connection_reset_evidence_v1.zip`,
+CRC/all manifest identities pass; Drive copy pending. Sanitized evidence omits
+URLs/state/credentials. Next: user confirms newest URL, Enter87017, verify
+filesystem then Cell3/CPUrecovery; do not infer mount from consent/exit0.

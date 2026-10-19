@@ -1,13 +1,13 @@
 # r7 interruption recovery through fresh r8 — 2026-10-19
 
-**Current08:52UTC [Run/Code/Open]:** Third official CLI mount request83156
-waits for fresh Google consent. VM auth deadline extended from120s to900s,
-local automation deadline1200s, without modifying installed CLI or account.
-Prior80871/40124 requests ended (local timeout / remote mountfailed).
-Local monitor63286/exec69569 remains suspended during the interactive command;
-resume after mount, then Cell3/recovery/remaining setup. All8unchanged-asset
-parts are uploaded; no DGCNN evidence recovered and no research GPU run yet.
-Earlier08:33 pending-request references below are historical, superseded here.
+**Current09:21UTC [Run/Code/Open]:** TTY87017 awaits fresh Google consent.
+The previous timely confirmation failed in the CLI auth hook with a hidden
+ConnectionResetError; extending the auth window alone did not fix it.
+The new scoped helper clears its HTTP pool before the final propagation POST,
+uses45s HTTP deadlines, and surfaces exception types. Scope/header checks pass;
+actual mount remains unverified. Monitor63286/69569 stays suspended until this
+external mount completes. No r7 data recovered or new researchGPU inference.
+Earlier pending request IDs below are historical and superseded by87017.
 
 [User decision/Run/Open] User explicitly authorizes creating a fresh Colab CLI
 session and mounting Drive to retrieve the interrupted study's evidence. This
@@ -136,3 +136,37 @@ remote deadline approximately09:35/local09:40. Resume the same suspended
 monitor63286/69569 after mount; then Cell3 and CPU recovery. No Drive metric,
 file recovery or researchGPU inference is accepted. Earlier pendingTTY IDs
 in this note are superseded by77142. OAuth URLs/state are not archived.
+
+
+## 09:21 UTC — Timely consent exposed hidden connection reset
+
+[User report/Run/Code/Open] User approved the09:05 request within its30-minute
+window. At09:09:56.523UTC the final credential propagation raised
+ConnectionResetError / Connection reset by peer. Installed CLI runtime catches
+auth-hook exceptions at DEBUG level, leaving the screen at “Authorizing VM”
+and the remote mount waiting. Whitelist extraction from the diagnostic log
+confirms those constants; no credentials, consent URL or raw auth state is
+included. Thus the previous timeout diagnosis explains expired attempts but
+is insufficient for this timely attempt. A stale persistent HTTP connection
+is a hypothesis; the server-side reason for reset is not established.
+
+CPU-only same-request rescue used a fresh challenge; dry-run successfalse,
+so it sent no stdin reply and ran no cell/mount. Guarded interrupt targeted
+onlyed674de6-1858-4042-936e-cf54c2f3bbb3; setup kernel and runtime preserved,
+all kernels idle before retry. No account/scope/installed-package change.
+
+`mount_drive_fresh_connection.py` retains the installed official consent flow,
+remote1800s/local2100s, clears only its existing AuthorizedSession HTTP pool
+before final propagation, and bounds HTTP requests45s. Scope/header-preservation
+assert checks pass; SHA256839737e3a48cc3e90f6b67f4e831270dbb51b46171fc706379ff7167b27c0fb2.
+CurrentTTY87017 started09:20UTC; fresh consent expires approximately09:50UTC
+(12:50 Istanbul). The exact CLI URL was sent directly to the user, not archived.
+Do not send Enter until the user confirms this request; do not start a second
+mount or cell. Expected Drive path, Cell3, recovery and Cells4–10 remain gates.
+
+Immutable local diagnosis ZIP12625bytes/9members SHA256
+`a0a3fff927224cf1fac7a4a02ad3b3011b3cbaedf325ba0f71fa8c593601ae38`,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/r8_drive_connection_reset_evidence_v1.zip`;
+CRC/all8manifest identities pass, Drive backup pending. Includes exact scoped
+helpers, safe request IDs, sanitized diagnosis and installed public CLI sources.
+No model evaluation rerun; accepted accuracy results remain unchanged.
