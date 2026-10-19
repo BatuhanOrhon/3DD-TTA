@@ -1576,3 +1576,13 @@ See [updated decision and limits](gsd_trajectory_selection_20261011.md).
 - Handoff and copyable fresh-agent prompt:
   [new agent handoff](new_agent_handoff_20261017.md). Keep the 2026-10-11
   pre-run notes below as historical records rather than deleting them.
+
+
+### 2026-10-19 11:46 UTC — active r9 setup gate
+
+[Open] Complete fresh r9 Drive consent (localTTY94406), verify actual mount,
+resume suspended monitor70119/63241 and run Cells3–10 in order. Cell1/2 passed
+with known fastrlock deferral only. Then restore unchanged v7 assets and exact
+four pinned native binaries, pass CPU proof, verify Drive/local immutable
+evidence, rebind remaining scope to r9 and request its single >60min GPU-phase
+approval. No new accuracy inference; r9 preserved. See recovery note.

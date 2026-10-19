@@ -5436,3 +5436,14 @@ retry authorization allocatedr9 A100HighRAM, Cell1passed/sameVMreconnect and
 Cell2running. Monitor70119/63241 envREQUEST_TIMEOUT60; caffeinate70055/51775
 bounded3h hostawake, no Colab fakework or lifetimeguarantee. No researchGPU or
 remaining-phase approval. Full paths/exacttimestamps in current recovery note.
+
+
+### 2026-10-19 11:46 UTC — r9 Drive-consent gate
+
+[Run/Open] r9 Cell2 exactmarker completed11:40:39UTC; only known deferred
+fastrlock failure. Cell1/2 complete, Cells3–10 pending, no new accuracy.
+Fresh r9 interactive Drive authorization (TTY94406) must be completed before
+checkedCell3; previous r8 confirmations are historical. Same monitor70119/63241
+temporarily suspended for exclusive mount, to resume after verified mount.
+Consent nonce is not archived. Full handoff and immutable accepted evidence:
+[recovery note](gsd_multibackbone_recovery_20261019.md#1146-utc--r9-cell2-complete-new-drive-consent-pending).

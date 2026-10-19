@@ -393,3 +393,21 @@ Colab fake work or anti-idle loop. This cannot guarantee managed Colab lifetime.
 No new researchGPU evaluation; remaining phase still needs technical proof and
 one >60min approval. r8-specific scope/controller binding is historical and must
 be rebound to r9 before launch; frozen research v7 source/assets remain unchanged.
+
+
+## 11:46 UTC — r9 Cell2 complete; new Drive consent pending
+
+[Run/Open] Cell2 emitted its exact completion marker at11:40:39UTC, with
+only the previously user-deferred fastrlock pip failure. Cells3–10 remain
+unexecuted, so r9 is not yet a validated research environment. Fresh official
+Drive consent is waiting in localTTY94406 for r9 endpoint
+`gpu-a100-hm-kkb-euw4a0-1h0qzqfkhb7tr`; earlier r8 confirmations cannot
+authorize this new request. The nonce/consent URL is excluded from artifacts.
+Monitor70119/local63241 is temporarily SIGSTOP suspended solely for exclusive
+interactive CLI ownership; after successful mount resume this same monitor,
+then run checkedCell3 and continue in order. Host caffeinate70055 remains
+bounded to3h from11:32UTC; managed-runtime lifetime is not guaranteed.
+No new GPU inference or remaining-phase approval. Session retained; accepted
+32994partial predictions and prior CN/PN results remain Drive/local verified.
+Next: user completes fresh r9 consent; submit Enter only to94406, verify actual
+Drive path, resume70119, complete setup/pinned-nativeCPUproof and archive.
