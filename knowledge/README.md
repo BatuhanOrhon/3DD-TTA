@@ -3,7 +3,7 @@ User explicitly authorizes a new Colab CLI session and Drive connection after
 the browser/UI permission mismatch. `tta-multibackbone-recovery-a100-r8-20261019`
 is A100/High-RAM; Cell1 passes, Cell2 reaches only the user-deferred fastrlock
 failure. Two mount requests ended at local600s/remote120s deadlines;
-timely consent then hit a hidden connection reset. Current CLI53559 uses
+timely consent then hit a hidden connection reset. Current CLI44538 uses
 a fresh HTTP pool for propagation and awaits renewed consent (1800s/2100s).
 No data recovered or research GPU inference yet. Partial setup and timeout
 ZIPs verify locally; Drive copy pending. All8unchanged-v7 asset parts uploaded.

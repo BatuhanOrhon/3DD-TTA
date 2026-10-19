@@ -2189,8 +2189,8 @@
       "monitor_pid": 63286,
       "monitor_exec_session": 69569,
       "monitor_state": "temporarily_suspended_during_interactive_drivemount",
-      "drive_cli_exec_session": 53559,
-      "drive_status": "user_requested_renewed_consent_0932_utc",
+      "drive_cli_exec_session": 44538,
+      "drive_status": "user_requested_renewed_consent_0939_utc",
       "partial_setup_evidence": {
         "status": "partial_setup_local_verified_drive_pending",
         "archive": {
