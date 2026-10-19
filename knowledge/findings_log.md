@@ -5289,3 +5289,17 @@ pending. Unchanged v7 full asset payload247002524bytes SHAce9c797c…ac1333,
 623members,8upload parts complete; not deployed or executed. Next action is
 finish current Google consent, Enter83156, verify filesystem/Cell3 then CPU
 recovery; do not infer successful mount from user consent or exit0 alone.
+
+## 2026-10-19 09:05 UTC — r8 fresh Drive request after expired consent window
+
+[Run/Code/Open] Third extended mount returnedValueError09:01 after its15min
+VM deadline. One assistant-displayed URL also contained a transcription error;
+new consent URLs are copied from CLI verbatim, no invented causality. Fresh
+helper remote30min/local35min passes scope test, SHA605fc98d…8c4a2. First new
+call lost WebSocket; server/file service survived. Read-only kernel audit and
+guarded interrupt cleared only abandoned auth kernel44896965; setup kernel
+preserved, all kernels idle before retry. Current TTY77142 now awaits new
+Google consent from09:05; Drive still physically unverified, monitor63286/
+69569 suspended during external mount, no GPU research or runtime teardown.
+Next: user consent/Enter77142, verify Drive/Cell3, then recover actual DGCNN
+shards. Prior accepted results and source snapshot remain unchanged.

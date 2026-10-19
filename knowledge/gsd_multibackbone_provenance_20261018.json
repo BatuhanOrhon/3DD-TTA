@@ -2189,8 +2189,8 @@
       "monitor_pid": 63286,
       "monitor_exec_session": 69569,
       "monitor_state": "temporarily_suspended_during_interactive_drivemount",
-      "drive_cli_exec_session": 83156,
-      "drive_status": "third_request_awaiting_consent_after_timeout_diagnosis",
+      "drive_cli_exec_session": 77142,
+      "drive_status": "fresh_30min_request_awaiting_consent_after_expired_previous_request",
       "partial_setup_evidence": {
         "status": "partial_setup_local_verified_drive_pending",
         "archive": {
@@ -2207,8 +2207,8 @@
       },
       "research_gpu_launched": false,
       "actual_remote_research_snapshot_deployed": false,
-      "remote_auth_timeout_ms": 900000,
-      "local_cli_timeout_seconds": 1200,
+      "remote_auth_timeout_ms": 1800000,
+      "local_cli_timeout_seconds": 2100,
       "timeout_evidence": {
         "status": "local_verified_drive_pending",
         "archive": {
@@ -2232,7 +2232,9 @@
         "source_bits_unchanged": true
       },
       "asset_upload_parts_complete": 8,
-      "physical_drive_mount_verified": false
+      "physical_drive_mount_verified": false,
+      "abandoned_auth_kernel_interrupted": "44896965-5879-40e6-9b5e-e277254b60f2",
+      "setup_kernel_preserved": true
     }
   }
 }

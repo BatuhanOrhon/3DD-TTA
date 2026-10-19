@@ -67,8 +67,8 @@
 - [ ] Verify physical interrupted DGCNN Drive shard/corruption coverage and
   copy loss evidence to Drive. User authorizes fresh r8 CLI/Drive route;
   Cell1/2 and timeout diagnosis evidence verify locally. Current Google
-  consent pending inTTY83156 (remote900s/local1200s after earlier600s/120s
-  failures), then Cell3/recovery/Cells4–10. Resume suspended local63286/
+  consent pending inTTY77142 (remote1800s/local2100s after expired earlier
+  requests and a cleared abandoned-auth kernel), then Cell3/recovery/Cells4–10. Resume suspended local63286/
   session69569 after mount;8unchanged asset parts uploaded, no researchGPUyet.
 - [ ] A same-flow spectral0 control and additional seeds remain separate
   unexecuted studies for spectral attribution and repeatability.

@@ -113,3 +113,26 @@ and CRC pass. All8upload parts reached r8; assembly/deployment/CPUpreflight
 remain unexecuted. Asset manifest78cdb538…60f9 and source snapshotf82cf505…deed4cf
 are unchanged. Prepared `deploy_full_v7_r8.py` reuses the prior CPU-preflight
 flow with fresh full-asset restore and pinned native archive verification.
+
+## 09:05 UTC — Fresh30-minute auth request; Drive remains unverified
+
+[Run/Code/Open] User confirmation for third request arrived09:01:55UTC,
+after its15-minute remote deadline around08:59; it returned mountfailed.
+The assistant also identified a transcription error in one parameter of its
+last displayed consent URL; no causal claim that this alone explains failure.
+New URLs must be copied exactly from CLI output, with no manual scope edits.
+
+A new scoped wrapper retains the installed auth flow, remote1800000ms /
+local2100s. Scope self-test passes; source SHA256
+`605fc98dea93f0016971a976402571abd7c7f459f440c1cf2f6bf383c218c4a2`,
+`result/preparation/cli_multibackbone_recovery_20261019_r8/mount_drive_with_human_timeout_v2.py`.
+Its first invocation97774 lost the local WebSocket before presenting a URL.
+Server/file service remained available. Read-only kernel API audit showed
+setup kernel idle and only that abandoned auth kernel busy. A guarded kernel
+interrupt targeted only44896965-5879-40e6-9b5e-e277254b60f2; subsequent audit
+showed all kernels idle. No runtime restart/shutdown or setup-kernel change.
+Current fresh request **TTY77142**, started09:05UTC, awaits Google consent;
+remote deadline approximately09:35/local09:40. Resume the same suspended
+monitor63286/69569 after mount; then Cell3 and CPU recovery. No Drive metric,
+file recovery or researchGPU inference is accepted. Earlier pendingTTY IDs
+in this note are superseded by77142. OAuth URLs/state are not archived.
