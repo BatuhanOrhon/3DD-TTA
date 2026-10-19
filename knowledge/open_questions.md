@@ -1595,3 +1595,11 @@ Same70119/63241 now runsCell4. Next validate preparemarker, archive mount/loss
 ZIPs onactualDrive and localroundtrip, finishCells5–10, restore unchangedv7
 assets/four pinned natives and passCPUproof. Then request single >60min
 approval for r9v2scope70b19135…e8aa6c. No new accuracy or teardown.
+
+
+### 2026-10-19 12:40 UTC — r9 archival gate passed
+
+[Run/Open] r9mount andr8loss bundles nowactualDrive/localSHA/CRC/memberverified;
+supersedes pendingbackup12:33. Cell4/native/toolchain setup remainsrunning.
+Retain pip versionconflict warnings and require final actualimports/nativeGPU
+checks and pinned-nativeCPUproof before longphase approval. No model reruns.

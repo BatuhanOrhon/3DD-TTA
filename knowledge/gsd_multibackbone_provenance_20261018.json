@@ -2334,13 +2334,43 @@
       "caffeinate_max_seconds": 10800,
       "cell1_status": "exact_marker_complete_and_same_endpoint_reconnected",
       "cell1_completed_utc": "2026-10-19T11:33:34Z",
-      "cell2_status": "running",
+      "cell2_status": "exact_marker_complete_only_previously_deferred_fastrlock_failure",
       "research_gpu_launched": false,
-      "drive_status": "not_mounted",
+      "drive_status": "mounted_and_expected_research_directory_verified",
       "source_notebook_sha256": "f60db956118c25196f43ae02a00667485ddffbc73691e601134cb194f885559b",
       "native_restore": "must_restore_exact_pinned_four_binaries_before_CPU_proof",
       "source_snapshot_sha256": "f82cf5052b8100591df679b159acec9f172144c5f6a0a916c5a5255cadeed4cf",
-      "asset_manifest_sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9"
+      "asset_manifest_sha256": "78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9",
+      "cell2_completed_utc": "2026-10-19T11:40:39Z",
+      "drive_auth_exec_session": 83619,
+      "monitor_temporarily_suspended": false,
+      "drive_auth_requested_utc": "2026-10-19T12:27:15Z",
+      "drive_completed_utc": "2026-10-19T12:28:37Z",
+      "cell3_status": "exact_marker_complete_and_receipt_verified",
+      "cell3_completed_utc": "2026-10-19T12:31:02Z",
+      "cell4_status": "running",
+      "mount_bundle": {
+        "local_path": "result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_drive_mount_verified_v1.zip",
+        "bytes": 19598,
+        "sha256": "da9491d0f363ece83359a17d81e6c83302bbf3a356eaab3b18805a43235231e6",
+        "drive_backup": "verified_actual_Drive_download_SHA_CRC_all_members",
+        "drive_path": "MyDrive/thesis/result/preparation/gsd_multibackbone_study/r9_drive_mount_verified_v1.zip",
+        "roundtrip_local_path": "result/preparation/cli_multibackbone_dgcnn_20261019_r9/r9_drive_mount_verified_v1_drive_roundtrip.zip"
+      },
+      "r8_loss_bundle_roundtrip": {
+        "status": "Drive_and_local_roundtrip_verified",
+        "bytes": 3041193,
+        "sha256": "aa219a45161dd1b0b28553bb1d7c846be87bb3644fc8d9a5c9ee4f664bf5cff2",
+        "drive_path": "MyDrive/thesis/result/preparation/gsd_multibackbone_study/r8_loss_and_host_sleep_evidence_v1.zip",
+        "roundtrip_local_path": "result/preparation/cli_multibackbone_dgcnn_20261019_r9/r8_loss_and_host_sleep_evidence_v1_drive_roundtrip.zip",
+        "all_members_verified": true
+      },
+      "remaining_scope_r9_v2": {
+        "status": "prepared_not_approved_not_launched",
+        "local_path": "result/preparation/cli_multibackbone_dgcnn_20261019_r9/dgcnn_recovery_scope_20261019_r9_v2.json",
+        "sha256": "70b19135cae29f8b4b8a2dc0cdde4231f15c93c5ef86ae8562a3d2c160e8aa6c",
+        "command_construction_self_checks": "passed_four_jobs_both_modes_no_model_loads"
+      }
     }
   }
 }

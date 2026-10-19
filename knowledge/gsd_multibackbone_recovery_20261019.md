@@ -445,3 +445,25 @@ Assets-only restore now also copies unchanged recoveredraw DriveZIP to the
 controller-required VM path with size/SHA checks; exactsource SHA91c680d6…27baef,
 not executed. Pinned native CPU restore927abd09…692a5e unchanged. No long-phase
 approval is created; finish setup, backup and CPUproof before scoped request.
+
+
+## 12:40 UTC — Mount and r8-loss bundles verified on actual Drive
+
+[Run/Artifact/Open] During Cell4, used CLI file-service uploads to previously
+absent preparation filenames (no second notebook cell), then downloaded each
+actual Drive path to fresh local files. r9 mount ZIP19598bytes SHAda9491d0…5231e6
+and r8-loss ZIP3041193bytes SHAaa219a45…bf5cff2 pass size/SHA/CRC/allmanifest
+identities. Drive paths: `MyDrive/thesis/result/preparation/gsd_multibackbone_study/`
+plus `r9_drive_mount_verified_v1.zip` and
+`r8_loss_and_host_sleep_evidence_v1.zip`. Fresh local roundtrip files/receipts
+are in `result/preparation/cli_multibackbone_dgcnn_20261019_r9/`.
+The prepared `backup_mount_and_loss_evidence.py` was unnecessary and has NOT
+been executed; backup evidence is the actual file-service roundtrip instead.
+
+Cell4 remains running; pinnedrequirements andCLIP installation exit0. Pip
+warned about existing dask/importlib-metadata and scikit-image/networkx version
+conflicts; no unsolicited dependency change. Final actual imports/nativeGPU
+and CPUproof remain mandatory. CUDA12.1 package download/extraction is ongoing.
+No new inference. r9v2 actual pure command-construction self-checks pass in
+both smoke/full modes:4DGCNN-only jobs, exactbatch/seed/corruptions/method names,
+no model loads. These checks are not numerical/accuracy evidence.

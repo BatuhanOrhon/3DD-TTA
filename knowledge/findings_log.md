@@ -5458,3 +5458,12 @@ Cell4; no new accuracy. Mount bundle19598bytes SHAda9491d0…5231e6 localvalid;
 Drive backup/roundtrip pending afterCell4. Prior failedr8 CPU rawZIP now
 Drive/local size/SHA/CRCverified. r9v2 remaining scope preparedonly, no GPU
 approval. [Full handoff](gsd_multibackbone_recovery_20261019.md#1233-utc--r9-drivecell3-accepted-cell4-running).
+
+
+### 2026-10-19 12:40 UTC — r9 mount/r8 loss archival accepted
+
+[Run/Artifact/Open] CLI uploads into absent actualDrive filenames and fresh
+Drive-download roundtrips verify mount19598bytes SHAda9491d0…5231e6 and
+r8loss3041193bytes SHAaa219a45…bf5cff2, including CRC/allmanifest members.
+Cell4 still installingCUDA packages; no new inference. Known pip conflict
+warnings retained for final actual verification. [Full paths/current state](gsd_multibackbone_recovery_20261019.md#1240-utc--mount-and-r8-loss-bundles-verified-on-actual-drive).
