@@ -1,3 +1,8 @@
+**13:03UTC update [Run/Artifact/Open]:** r9 all10setup/nativeGPU/data/checkpoints
+pass. Full setup2984884byte evidence SHA82737111…d0601e verifies actualDrive/
+local all31members. Restoring unchangedv7assets; pinned-nativeCPUproof and
+remaining-phase approval still pending. No new accuracy.
+
 **12:53UTC update [Run/Artifact/Open]:** r9 Cells1–7/required markers verify;
 Cell8 PVCNN/nativeGPU stage running. Cells4–7 evidence/native binaries now
 actualDrive/local SHA/CRC/memberverified. No new accuracy.
@@ -492,3 +497,33 @@ Uploaded only after confirming filename absent. Fresh actualDrive download to
 size/SHA/CRC/safe paths/symlinks/allmanifest members. Inputs/current phases
 remain immutable; no consent URLs/state included. NextCell8 exactwrapper+
 pvcnn-smoke.complete, Cells9/10 then complete evidence and pinned-nativeCPUproof.
+
+
+## 13:03 UTC — r9 ten-cell setup accepted; unchanged v7 restore running
+
+[Run/Artifact/Open] Cell8 exactmarker/nativeGPU smoke andactualpvcnn-smoke
+marker12:57:53; Cell9 completed12:59:30; Cell10
+SETUP_ENVIRONMENT_VERIFIED/statuspassed/exactwrapper13:01:33UTC. Actual A100
+SXM4-80GB,Python3.8.20,Torch2.1.2+cu121/CUDA12.1, CUDA tensor/FPS/KNN/
+Chamfer/EMD checks, ModelNet clean+all15 and checkpoints pass. Allten exact
+wrapper lines independently present in public execution results. Actual remote
+base dev@a458cd46bba1288a3f41302548bc777700cbc7d4 plus archived setup overrides
+remains distinct from frozen researchsource f82cf505…deed4cf.
+
+`collect_r9_setup_evidence.py` SHA0cad3334…48db4f ran13:02:24–43UTC, all11
+collector commands exit0. FullZIP2984884bytes SHA256
+`82737111c6b919f24f63d640ecd5e30f37bce29f070fdec19f16762a60d0601e`,
+local `result/preparation/cli_multibackbone_dgcnn_20261019_r9/cli_setup_r9_evidence_20261019T130224Z.zip`,
+Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/setup_r9_20261019T130224Z/cli_setup_r9_evidence_20261019T130224Z.zip`.
+Fresh actualDrive download size/SHA/CRC/safe paths/symlinks/all31manifest
+identities pass. Includes3actual baseline native.so,5markers, env/toolchain/GPU
+exports, sourceoverride bytes/patches, verificationreport, exactcollector and
+public execution sources/results. Collector/history bytes equal local originals.
+No consentURLs/state. First Cell2 fastrlock deferral and nonfatal pip conflicts
+remain recorded; successful actual checks do not erase those warnings.
+
+Same63241 starts assets-only restore13:03:12, SHA91c680d6…27baef: verify
+247002524byte existingDrivepayload/622filemanifest/source/nativeaudit bytes,
+safe fresh extraction and unchanged raw r7 recovery copy. No inference.
+Then927abd09…692a5e exactnative restore/unchangedCPUproof; accepted archive
+and readiness scope/controller evidence must verify before longphase approval.

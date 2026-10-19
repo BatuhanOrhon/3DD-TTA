@@ -2378,7 +2378,7 @@
       "cell6_completed_utc": "2026-10-19T12:46:10Z",
       "cell7_status": "exact_marker_and_pointnet2_complete_verified",
       "cell7_completed_utc": "2026-10-19T12:50:21Z",
-      "cell8_status": "running",
+      "cell8_status": "exact_marker_pvcnn_smoke_complete_and_native_GPU_verified",
       "partial_native_setup_archive": {
         "bytes": 2928313,
         "sha256": "668852b767d56c1f7bc77d2882fda6b1d11c38b42504207ba534b27e083be677",
@@ -2386,6 +2386,44 @@
         "status": "Drive_and_local_roundtrip_verified",
         "drive_path": "MyDrive/thesis/result/preparation/gsd_multibackbone_study/r9_partial_setup_cells4to7_20261019_v1.zip",
         "all_members_verified": true
+      },
+      "cell8_completed_utc": "2026-10-19T12:57:53Z",
+      "cell9_status": "exact_marker_complete",
+      "cell9_completed_utc": "2026-10-19T12:59:30Z",
+      "cell10_status": "exact_marker_ENVIRONMENT_VERIFIED_and_actual_report_passed",
+      "cell10_completed_utc": "2026-10-19T13:01:33Z",
+      "all_ten_exact_markers_in_public_history": true,
+      "native_gpu_checks": "CUDA_tensor_FPS_KNN_Chamfer_EMD_passed",
+      "complete_setup_archive": "Drive_and_local_roundtrip_verified",
+      "complete_setup_receipt": {
+        "status": "complete",
+        "utc": "20261019T130224Z",
+        "archive": {
+          "bytes": 2984884,
+          "sha256": "82737111c6b919f24f63d640ecd5e30f37bce29f070fdec19f16762a60d0601e",
+          "remote_path": "/content/cli_setup_r9_evidence_20261019T130224Z.zip",
+          "drive_path": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/setup_r9_20261019T130224Z/cli_setup_r9_evidence_20261019T130224Z.zip"
+        },
+        "native_markers": [
+          "prepare",
+          "emd",
+          "chamfer",
+          "pointnet2",
+          "pvcnn-smoke"
+        ],
+        "setup_status": "passed",
+        "research_gpu_launched": false
+      },
+      "complete_setup_validation": {
+        "status": "complete",
+        "actual_Drive_download": true,
+        "all_manifest_members": 31,
+        "sha256": "82737111c6b919f24f63d640ecd5e30f37bce29f070fdec19f16762a60d0601e",
+        "bytes": 2984884,
+        "all_commands_exit0": true,
+        "all_safe_paths_crc_hashes": true,
+        "executed_collector_and_history_match_local": true,
+        "research_gpu_launched": false
       }
     }
   }

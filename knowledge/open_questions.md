@@ -1611,3 +1611,12 @@ checks and pinned-nativeCPUproof before longphase approval. No model reruns.
 668852b7…83be677 is Drive/localverified. Cell8 running, then9/10 and actual
 nativeGPU/data/checkpoints remain. Exactpinned4binaryrestore and unchangedCPU
 proof still required before r9v2 longGPUapproval. Same70119/63241 preserved.
+
+
+### 2026-10-19 13:03 UTC — r9 setup gate passed
+
+[Run/Open] All10cells/nativeGPU/data/checkpoints and fullsetup Drive/local
+archive verify. Next complete assetsrestore91c680d6…27baef then exactpinned
+4native restoration927abd09…692a5e/unchangedCPUproof and archive roundtrip.
+Only after reviewable readiness request single >60min r9v2 researchphase
+approval. Acceptedsource/CNPN/13DGCNNcorruptions retained; no new accuracy.

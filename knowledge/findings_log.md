@@ -5476,3 +5476,14 @@ Cell8 PVCNN running. Partialsetup2928313bytes SHA668852b7…83be677 includes
 3actualbaseline binaries,4markers and exactexecution evidence. ActualDrive/
 local freshdownload SHA/CRC/safe paths/allmembers pass. No inference or GPU
 research approval. [Full paths/gates](gsd_multibackbone_recovery_20261019.md#1253-utc--r9-cells47-archived-pvcnn-running).
+
+
+### 2026-10-19 13:03 UTC — r9 full environment accepted
+
+[Run/Artifact/Open] All10 exactsetupmarkers and actualnativeGPU/data/checkpoint
+checks pass. FullsetupZIP2984884bytes SHA82737111…d0601e actualDrive/local
+size/SHA/CRC/safe paths/all31members verify; all11collectorcommands exit0.
+Source/env/native binaries archived; remote dev@a458cd4 differs fromresearch
+snapshotf82cf505…deed4cf. Same70119/63241 restores unchangedv7 assets/raw
+recovery; pinnednativeCPUproof and >60minGPUapproval stillpending. No new
+accuracy. [Full paths/evidence](gsd_multibackbone_recovery_20261019.md#1303-utc--r9-ten-cell-setup-accepted-unchanged-v7-restore-running).
