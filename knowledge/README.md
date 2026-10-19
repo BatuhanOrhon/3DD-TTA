@@ -1,3 +1,12 @@
+**[Run/Artifact/Open] 2026-10-19 17:57UTC — DGCNN ModelNet GSD coverage complete:**
+Fresh Occlusion/LiDAR4936predictions plus verified old13corruptions compose
+37020events/all15 at63.833063%, source58.797947% (+5.035116pp). Two attempts,
+no exact RNG resume; interruptedold13 finalLION state unavailable. Allindexed
+counts/labels/logits/checkpoint and oldper-corruption classifier states pass.
+Derived5487419byte bundle SHA6298278e…a47cd4ea verifies actualDrive/local
+andallmembers. Same r9 runs ModelNet original3DD, then Scanoriginal; sole63241.
+[Composite, limitations and active residual phase](gsd_multibackbone_dgcnn_residual_20261019.md).
+
 **[User report/Run/Open] 2026-10-19 17:44UTC — residual DGCNN phase starting:**
 User authorized remaining tests in still-live r9. Reduced three-job50671-event
 scope: MN GSD Occlusion/LiDAR, MN originalall15, Scan originalall15. Completed

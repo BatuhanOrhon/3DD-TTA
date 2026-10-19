@@ -81,3 +81,36 @@ local `preflight_evidence_drive_roundtrip.zip` in the residual preparation root.
 Current status: three-job GPU phase submitted through the same sole monitor;
 ModelNet GSD Occlusion/LiDAR first, then ModelNet and Scan original3DD all15.
 No full new accuracy accepted until artifact validation.
+
+
+## ModelNet GSD subset and composite accepted — 17:57UTC
+
+[Run/Artifact] First job17:46:07–17:54:46UTC,519.250626s;72batches,
+4936new predictions. Occlusion/LiDAR two-file accuracy34.724473% versus same
+scope source22.042139% (+12.682334pp); do not compare this subset to source
+full15 macro. New raw `result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261019-174608_dgcnn-seed0.zip`,
+7036942bytes SHA3ebdb4e619960adacd3a8bfbca4c7274c50508cfac7a8cfb5f7d7565dfb1230d,
+passes actual Drive/local SHA, sealed members, all counts/labels/logits,
+strict checkpoint/source/preprocessing, frozen classifier/LION and RNG guards.
+
+Independent composition revalidates all1472 recovery manifest members,
+13nested corruption ZIP identities,468complete old batch receipts and
+32084old predictions. All13 classifier states pass; their initial LION state
+matches new before/after, but final interrupted old LION state remains missing.
+Old partialOcclusion910 is excluded. All15 complete files now contain37020
+predictions; composite accuracy63.833063%, +5.035116pp over matched source
+58.797947%. This is two-attempt complete coverage, not an uninterrupted seed0
+run. OriginalDGCNN comparison remains pending.
+
+Immutable derived bundle5487419bytes SHA
+`6298278eb5f0b0eab5c7adcbbacbf32a157b7d8ee03b94ce4049e0f9a47cd4ea`,
+local `result/preparation/dgcnn_residual_20261019/modelnet_dgcnn_gsd_composite_20261019T175630Z.zip`;
+actual Drive `MyDrive/thesis/result/preparation/gsd_multibackbone_study/modelnet_dgcnn_gsd_composite_20261019T175630Z.zip`.
+Contains all15 indexed composite prediction arrays, per-corruption counts,
+explicit attempt provenance/limits, independent analyzers and first-job raw
+identity/state binding. All member hashes/CRC and actual Drive/local roundtrip
+pass. Uploaded/downloaded through file service while the sole research cell
+continues; no concurrentexec or mutation of raw attempts.
+
+Second job ModelNet original3DD all15 started17:54:46UTC, followed by Scan
+original all15. Same source/config/budget; no new source or smoke runs.

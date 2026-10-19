@@ -5626,3 +5626,18 @@ SHA707dc790…a6b1759e submitted to solemonitor63241. Old13 MN GSD corruptions
 are preserved; oldpartialOcclusion910 excluded from composite. No exact RNG
 resume and old13 finalLION-state limitation remain. NewGPU results pending.
 [Concrete scope/protocol/budget/evidence](gsd_multibackbone_dgcnn_residual_20261019.md).
+
+
+### 2026-10-19 17:57UTC — DGCNN ModelNet GSD composite accepted; original running
+
+[Run/Artifact/Inference] Fresh Occlusion/LiDAR4936predictions/72batches pass
+full raw/source/state/RNG/labels validation; firstjob519.251s, raw7036942bytes
+SHA3ebdb4e6…dfb1230d actualDrive/local. Old13 revalidated32084events and468
+batch receipts; partialOcclusion910 excluded. Complete37020-event all15
+composite63.833063%, ownsource58.797947% (+5.035116pp). Two attempts and no
+exact RNG resume; old13 lack finalLION state proof, though oldinitial matches
+new before/after and all per-corruption classifiers remain frozen.
+Derived5487419byte bundle SHA6298278e…a47cd4ea passes actualDrive/local and
+allmembers; all15 arrays/provenance/limits retained separately from raw.
+Second job ModelNet original3DD started17:54:46UTC; finalScanoriginal follows.
+No original-vs-GSD conclusion yet. [Scope, rawpaths and evidence](gsd_multibackbone_dgcnn_residual_20261019.md).
