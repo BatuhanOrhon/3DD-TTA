@@ -6077,3 +6077,29 @@ acceptance, and new seeds may overturn broader benefit claims.
 `preparation/20261025T151222Z_completed_report/`; local completed-report
 roundtrip and receipt remain in the Agent A preparation root. This supplements
 the accepted raw/analysis evidence without rewriting any raw artifact.
+
+
+### 2026-10-25 17:11 UTC — Agent A authorized closure; Agent B preserved
+
+[User report/Run/Artifact] After Agent A completed and archived all9 policy
+rows at accepted commit9d0d170, user: “Kapatabiliriz, Agent B'nin oturumunu
+kapatmamaya dikkat et”. Sent stop only to owned
+`tta-mn-trajectory-a100-20261025-r1` / `gpu-a100-hm-euw4a0-axkeusdcat4y`.
+Requested monitor stop; monitor25910/TTY30907 exited0 at17:11:34UTC after
+its pending liveness probe ended returncode1 on the closed runtime. No research
+job was active or repeated. Fresh server/process checks verify own assignment,
+monitor25910 and child47297 absent; Agent B
+`tta-guidance-components-a100-20261025-r1` /
+`gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98` and monitor28301 remain present.
+Unknown CPU assignment and peer worktree/Drive were untouched.
+
+Local final report rehash still matches7242077bytes/SHA
+`004f7999933d25a60e109bbe2521ccba2aaf279d9894a4adddfbf46c198f4227`.
+Original Drive/raw/analysis archives remain immutable. New local evidence:
+`result/preparation/modelnet_trajectory_study_20261025/closure_authorization.json`,
+`closure_verification.json`, updated`runtime_owner.json` and monitor log.
+The verified Drive report predates closure; no additional Drive write or new
+runtime was needed. This entry supersedes prior live/preserve-A lifecycle
+statements; it does not change accuracy, source provenance or single-seed limits.
+No requested Agent A work remains; a future GPU phase requires a new runtime.
+Verification is assignment/process presence, not execution of Agent B cells.

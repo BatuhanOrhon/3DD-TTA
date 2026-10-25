@@ -11,8 +11,8 @@ fixed readouts in this seed. Means remain0.9887–1.0778pp below separate
 original3DD; no isolated spectral/seed-stability/1–2pp claim. Background and
 other negative per-corruption rows remain visible. Full source/state/ID/
 label/native/physical Drive-local SHA checks pass. No requested Agent A row
-remains missing; Agent B and seed/component studies are unchanged. Runtime/
-monitor are preserved live without teardown authorization.
+remains missing; Agent B and seed/component studies are unchanged. Own runtime/
+monitor closed with user authorization at17:11UTC; Agent B remains assigned.
 [Exact9 values, immutable artifacts and caveats](modelnet_multibackbone_trajectory_handoff_20261025.md).
 
 

@@ -59,7 +59,8 @@ and duration-gate notes below are superseded by the accepted result in the
   count/state/source/label checks. Preserve all old attempts and limitations.
   Completed: probability mean improves own terminals+0.734738/+0.913020/
   +0.886008pp (DGCNN/CurveNet/PointNeXt); all physical receipts and SHA pass.
-  One seed; own A100/monitor preserved live. No requested readout remains.
+  One seed; own A100/monitor closed with user authorization at17:11UTC.
+  Agent B exact assignment remains verified; no requested readout remains.
 
 [Next-agent knowledge/code/asset references](modelnet_multibackbone_trajectory_handoff_20261025.md).
 Logit averaging remains a separate open question, not part of this GPU scope.

@@ -6,8 +6,10 @@ PointNeXt66.3290→66.8206→67.2150. Mean gains+0.7347/+0.9130/+0.8860pp
 versus own terminals; each remains below separate original3DD. One seed only.
 All1620 batch/45 corruption/3 final physical Drive receipts, source/state/ID/
 label/native guards and actual Drive/local SHA pass. Full job86.9439min,
-smoke+full87.8851min, peak35.3838GiB. Own A100/monitor remain live; no teardown
-permission. No requested Agent A row remains missing; Agent B is unchanged.
+smoke+full87.8851min, peak35.3838GiB. At17:11 UTC, user-authorized Agent A
+runtime/monitor closure completed; fresh inventory verifies Agent B
+`tta-guidance-components-a100-20261025-r1` remains assigned. No requested
+Agent A row remains missing; immutable result/report evidence is preserved.
 [Complete results, raw identities, limits and lifecycle](modelnet_multibackbone_trajectory_handoff_20261025.md).
 
 **[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**

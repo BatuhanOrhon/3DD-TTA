@@ -2,7 +2,7 @@
 
 Date:2026-10-25. Evidence: [User report], [Code], [Run], [Open], [Inference].
 Audit base:`gsd-multibackbone-study@7017fa8` (inspect actual HEAD/status on resume).
-Status: **requested9 policy rows complete and verified; owned runtime/monitor preserved live**.
+Status: **requested9 policy rows complete and verified; owned runtime/monitor closed with user authorization; Agent B preserved**.
 
 ## Accepted full results — 2026-10-25 15:09 UTC
 
@@ -121,13 +121,24 @@ physical-receipt binder; raw3 model ZIPs remain separately immutable.
 
 ### Lifecycle, remaining uncertainty and next action
 
-[Run/User report/Open] Own runtime`tta-mn-trajectory-a100-20261025-r1`,
-endpoint`gpu-a100-hm-euw4a0-axkeusdcat4y`, sole monitorPID25910/TTY30907,
-remains live. GPU worker and phase have ended; archive/record work completes
-in this same runtime. Peer runtime/worktree/Drive files are untouched. No
-explicit task-completion plus teardown authorization has been given; preserve
-own runtime/monitor. Operational owner/counters are in`runtime_owner.json` and
-`all15_live_progress.json`. Controllercell153 is finished; do not rerun it.
+[Run/User report] At17:11 UTC on2026-10-25, after the completed task and
+verified archives, the user authorized closure: “Kapatabiliriz, Agent B'nin
+oturumunu kapatmamaya dikkat et”. Only own session
+`tta-mn-trajectory-a100-20261025-r1`, endpoint
+`gpu-a100-hm-euw4a0-axkeusdcat4y`, was stopped through the named Colab CLI
+stop command. MonitorPID25910/TTY30907 exited0 at17:11:34UTC; its pending
+liveness probe ended with returncode1 after closure, not a research failure.
+Fresh server/process verification confirms own runtime, monitor and child47297
+absent, while Agent B session`tta-guidance-components-a100-20261025-r1`,
+endpoint`gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98`, and monitor28301 remain.
+Peer worktree/Drive and unknown CPU assignment were untouched. Local
+`closure_authorization.json`, `closure_verification.json`, updated
+`runtime_owner.json` and monitor log under the preparation root retain the
+audit. Final report bytes/SHA were rechecked locally before recording closure.
+Accepted results commit:`9d0d1700deb4afcc018d3d769f17e17163884905`.
+No runtime execution remains for Agent A; future GPU work needs a new runtime.
+The immutable Drive report predates closure; closure evidence is local/Git.
+Controllercell153 is finished; do not rerun it.
 
 [Open/Decision] No requested readout row remains missing. Additional seeds,
 same-host spectral attribution and broader method/tuning experiments remain
