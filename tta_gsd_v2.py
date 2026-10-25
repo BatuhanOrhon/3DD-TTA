@@ -4,7 +4,7 @@ from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None, skip_inactive_components=False, prepared_state=None, state_observer=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -13,8 +13,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     - lion: Model instance containing VAE and local prior.
     - graph_spectral_module: Instance of GraphSpectralDNA for spectral computations.
     - steps_back_local: Percentage of total steps to use in reverse scheduling (e.g., 5).
-    - gamma: Step size for updating latent points (noisy_local / h_t).
-    - eta: Step size for updating shape latent (style_cond / z_0).
+    - gamma: Step size for updating style conditioning.
+    - eta: Step size for updating the local latent.
     - p: Proportion of points to consider in Chamfer Distance.
     - loss_weights: Dictionary of loss weights. Default: {"spectral": 1.0, "chamfer": 0.0}.
     - total: Total number of diffusion steps (default: 100).
@@ -28,6 +28,11 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     weight_spectral = loss_weights.get("spectral", 1.0)
     weight_chamfer = loss_weights.get("chamfer", 0.0)
     weight_invariant = loss_weights.get("invariant", 0.0)
+    if skip_inactive_components and (not 0 < p <= 1 or any(not torch.isfinite(torch.tensor(w)) or w < 0 for w in (weight_spectral, weight_chamfer, weight_invariant))):
+        raise ValueError('Component study requires finite nonnegative weights and 0 < p <= 1')
+    any_spectral = weight_spectral > 0.0 or weight_invariant > 0.0
+    graph_calls, chamfer_calls, backward_calls = 0, 0, 0
+    local_updates, style_updates = [], []
 
     # Initialize chamfer distance only if needed
     chamfer_dist = None
@@ -60,20 +65,31 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     if trajectory_observer is not None:
         encode_rng_start = trajectory_observer.encode_rng_start()
     with torch.no_grad():
-        latents = vae.encode(x)
-        if trajectory_observer is not None and encode_rng_start is not None:
-            trajectory_observer.replay_encode(vae, x, latents, encode_rng_start)
-        shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
-        latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)  # h_0 abstract
+        if prepared_state is None:
+            latents = vae.encode(x)
+            if trajectory_observer is not None and encode_rng_start is not None:
+                trajectory_observer.replay_encode(vae, x, latents, encode_rng_start)
+            shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
+            latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)  # h_0 abstract
+        else:
+            shape_latent, latent_point = (prepared_state[key].detach().clone() for key in ('shape_latent', 'local_latent'))
+            for value in (shape_latent, latent_point, prepared_state['noise']):
+                if value.ndim != 4 or value.shape[0] != num_samples or value.shape[2:] != (1, 1) or value.dtype != x.dtype or value.device != x.device or not torch.isfinite(value).all():
+                    raise ValueError('Invalid paired latent/noise tensor')
+            if latent_point.shape != (num_samples, 8192, 1, 1) or prepared_state['noise'].shape != latent_point.shape:
+                raise ValueError('Paired local latent/noise must be B x 8192 x 1 x 1')
         
         # LION returns a flattened tensor of size (B, 8192). 
         # The 50% IoU test proves this is unflattened correctly with .view()
         h_0 = latent_point.view(num_samples, num_latent_points, -1)
         
         # Pre-compute original full spectral components (H_orig) and eigenvectors (U_o)
-        if trajectory_observer is not None:
-            trajectory_observer.mark('graph_eigh')
-        H_orig, U_o, eigenvalues = graph_spectral_module(h_0)
+        H_orig, U_o, eigenvalues = None, None, None
+        if any_spectral or not skip_inactive_components:
+            if trajectory_observer is not None:
+                trajectory_observer.mark('graph_eigh')
+            H_orig, U_o, eigenvalues = graph_spectral_module(h_0)
+            graph_calls += 1
     
     # Global style conditioning
     if trajectory_observer is not None:
@@ -81,7 +97,12 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     style_cond = vae.global2style(shape_latent)
     
     # STEP 2: Noise Perturbation
-    noise = torch.randn_like(latent_point)
+    noise = torch.randn_like(latent_point) if prepared_state is None else prepared_state['noise'].detach().clone()
+    if prepared_state is not None:
+        from legacy_trajectory import _restore_rng
+        _restore_rng(prepared_state['rng_after_prepare'])
+    if state_observer is not None:
+        state_observer(dict(shape_latent=shape_latent, local_latent=latent_point, noise=noise))
     noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
     if trajectory_observer is not None:
         trajectory_observer.initial(input_points=x, shape_latent=shape_latent,
@@ -131,6 +152,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             if any_spectral:
                 if dynamic_graph and (i % graph_update_interval == 0):
                     _, U_current, eigenvalues = graph_spectral_module(h_bar_0)
+                    graph_calls += 1
                     signal_orig = h_0 if graph_spectral_module.use_4d_gft else h_0[:, :, :3]
                     H_orig_target = torch.bmm(U_current.transpose(1, 2), signal_orig).detach()
                     U_active = U_current
@@ -165,6 +187,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 pred_latent_point_reshaped = h_bar_0[:, :, :3]
                 h_0_spatial = h_0[:, :, :3]
                 dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+                chamfer_calls += 1
                 dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
                 dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
                 raw_loss_chamfer = dists1.sum() + dists2.sum()
@@ -198,6 +221,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             pred_latent_point_reshaped = h_bar_0[:, :, :3]
             h_0_spatial = h_0[:, :, :3]
             dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+            chamfer_calls += 1
             dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
             dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
             ch_loss = dists1.sum() + dists2.sum()
@@ -213,6 +237,10 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             
         if isinstance(total_loss, torch.Tensor) and total_loss.requires_grad:
             total_loss.backward()
+            backward_calls += 1
+            if skip_inactive_components:
+                local_updates.append(float((eta * noisy_latent_point.grad).norm().detach()))
+                style_updates.append(float((gamma * style_cond.grad).norm().detach()))
             
             # Update latent variables with gradient step
             noisy_latent_point = scheduler_output.prev_sample - eta * noisy_latent_point.grad
@@ -241,5 +269,9 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         'mean_raw_invariant': mean_invariant,
         'mean_raw_chamfer': mean_chamfer
     }
+    if skip_inactive_components:
+        metrics.update(graph_calls=graph_calls, chamfer_calls=chamfer_calls, guidance_backward_calls=backward_calls,
+                       mean_local_update_norm=sum(local_updates) / len(local_updates) if local_updates else 0.,
+                       mean_style_update_norm=sum(style_updates) / len(style_updates) if style_updates else 0.)
     
     return pred_points, metrics

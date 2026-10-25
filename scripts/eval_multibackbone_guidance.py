@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import copy
+import hashlib
 import importlib.util
 import json
 import math
@@ -28,6 +30,7 @@ PROTOCOL = dict(M_max=800, beta=2.0, gamma=0.01, eta=0.01, p=0.95, total=100,
                 loss_weights=dict(spectral=1.17, invariant=0.0, chamfer=1.0),
                 use_static_style=False, dynamic_graph=False, graph_update_interval=3)
 ORIGINAL_PROTOCOL = dict(gamma=0.01, eta=0.01, p=0.95, total=100, scd_normalize=False)
+COMPONENT_WEIGHTS = dict(combined=(1.0, 1.17), chamfer=(1.0, 0.0), spectral=(0.0, 1.17), unguided=(0.0, 0.0))
 
 
 def configurations(argv=None) -> list:
@@ -41,6 +44,11 @@ def configurations(argv=None) -> list:
     parser.add_argument("--method", choices=("gsd", "original3dd"), default="gsd")
     parser.add_argument("--backbones", nargs="+", choices=(*BACKBONES, "dgcnn", "pointmae"), default=list(BACKBONES))
     parser.add_argument("--trajectory-observe", action="store_true")
+    parser.add_argument("--component-arm", choices=tuple(COMPONENT_WEIGHTS))
+    for name in ("eta", "gamma", "p", "spectral-weight", "chamfer-weight"):
+        parser.add_argument("--" + name, type=float)
+    parser.add_argument("--index-manifest", type=Path)
+    parser.add_argument("--paired-state-root", type=Path)
     parser.add_argument("--pointmae-config")
     parser.add_argument("--pointmae-checkpoint")
     parser.add_argument("--batch-size", type=int, choices=(32, 70))
@@ -51,8 +59,18 @@ def configurations(argv=None) -> list:
     if args.seed < 0 or args.max_batches < 0:
         raise ValueError("Seed and max-batches must be nonnegative")
     original = args.method == "original3dd"
-    if args.trajectory_observe and (args.dataset != "scanobjectnn_c" or original):
-        raise ValueError("Trajectory observation is restricted to ScanObjectNN-C GSD-inspired guidance")
+    if args.trajectory_observe and original:
+        raise ValueError("Trajectory observation is restricted to GSD-inspired guidance")
+    if args.component_arm and (original or not args.trajectory_observe):
+        raise ValueError("Component arms require GSD-inspired trajectory observation")
+    overrides = {name: getattr(args, name) for name in ('eta', 'gamma', 'p', 'spectral_weight', 'chamfer_weight')}
+    if any(value is not None for value in overrides.values()) and not args.component_arm:
+        raise ValueError("Parameter overrides require an explicit component arm")
+    for name, value in overrides.items():
+        if value is not None and (not math.isfinite(value) or value < 0 or (name == 'p' and not 0 < value <= 1)):
+            raise ValueError("Invalid component parameter: " + name)
+    if args.paired_state_root and not args.component_arm:
+        raise ValueError("Paired states require an explicit component study arm")
     if "pointmae" in args.backbones and not args.trajectory_observe:
         raise ValueError("Point-MAE guidance is available only with --trajectory-observe")
     if "pointmae" in args.backbones and not (args.pointmae_config and args.pointmae_checkpoint):
@@ -71,13 +89,23 @@ def configurations(argv=None) -> list:
                                   "--asset-root", args.asset_root, "--result-root", args.result_root,
                                   "--corruptions", *args.corruptions])
         config = source.resolve_config(base)
+        if args.index_manifest:
+            selection = json.loads(args.index_manifest.read_text())
+            ids = selection.get('indices')
+            if (selection.get('dataset') != args.dataset or selection.get('n_examples') != config['n_examples']
+                    or selection.get('stage') not in ('smoke', 'development', 'heldout') or not isinstance(ids, list)
+                    or not ids or any(type(i) is not int or not 0 <= i < config['n_examples'] for i in ids)
+                    or ids != sorted(set(ids))):
+                raise ValueError('Invalid sorted original-ID selection manifest')
+            config.update(selected_original_ids=ids, evaluation_n_examples=len(ids), selection_manifest=selection,
+                          selection_manifest_identity=source.file_identity(args.index_manifest))
         if backbone == "pointmae":
             config.update(pointmae_config=args.pointmae_config, pointmae_checkpoint=args.pointmae_checkpoint,
                           checkpoint=args.pointmae_checkpoint)
         if "original" in config["corruptions"]:
             raise ValueError("Guidance uses the predeclared corrupted scope only")
         config.update(vars(args), method=METHOD, batch_size=batch_size, lion_loaded=True,
-                      corruptions=config["corruptions"], guidance_protocol=PROTOCOL,
+                      corruptions=config["corruptions"], guidance_protocol=copy.deepcopy(PROTOCOL),
                       display_name="GSD-inspired latent spectral guidance + " + backbone,
                       source_classifier_preprocessing=config["preprocessing"],
                       guidance_postprocessing="rotate back; Scan: divide3.3885 and inverse input bbox; ModelNet: bbox normalize",
@@ -116,7 +144,27 @@ def configurations(argv=None) -> list:
                           timing_policy="CSV runtime=shared reconstruction including all probe work/" + str(len(args.backbones))
                                         + " + own terminal preprocessing/classification; shared seconds count once",
                           randomness_policy="seed-controlled shared diffusion; observer and head probes restore RNG; no common-draw claim across runs")
-        for key in ("dataset_root", "label_path", "asset_root", "result_root", "drive_root"):
+        if args.component_arm:
+            protocol = config['guidance_protocol']
+            chamfer, spectral = COMPONENT_WEIGHTS[args.component_arm]
+            protocol.update(skip_inactive_components=True)
+            protocol['loss_weights'].update(chamfer=chamfer, spectral=spectral)
+            for key in ('eta', 'gamma', 'p'):
+                if overrides[key] is not None:
+                    protocol[key] = overrides[key]
+            for key in ('spectral', 'chamfer'):
+                value = overrides[key + '_weight']
+                if value is not None:
+                    if (protocol['loss_weights'][key] == 0) != (value == 0):
+                        raise ValueError('Weight override must preserve active components of the named arm')
+                    protocol['loss_weights'][key] = value
+            config.update(display_name='GSD-host component study ' + args.component_arm + ' + ' + backbone,
+                          component_study=True, component_parameters_modified=any(v is not None for v in overrides.values()),
+                          comparison_scope='same GSD host; matched states/noise only when verified from batch identities')
+            if args.paired_state_root:
+                config['randomness_policy'] = 'immutable shared z0/h0/noise cache; restore recorded post-preparation RNG; validate prepared-input and actual latent/noise hashes'
+                config['reconstruction_host'] = 'GSD paired-state component study; reference arm encodes, replay arms reuse exact encoded states/noise'
+        for key in ("dataset_root", "label_path", "asset_root", "result_root", "drive_root", "paired_state_root", "index_manifest"):
             if config.get(key):
                 config[key] = str(Path(config[key]).absolute())
         result.append(config)
@@ -172,7 +220,7 @@ def decoded_to_geometry(decoded, dataset: str, scale, center, ops):
     return ops.normalize(geometry)[0]
 
 
-def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda", method=METHOD, scheduler_observer=None, observer_factory=None):
+def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda", method=METHOD, scheduler_observer=None, observer_factory=None, protocol=None, paired_state_path=None):
     """Exact existing dataset pre/postprocessing, before any terminal head FPS."""
     import torch
     normalized, center, scale = ops.normalize(raw)
@@ -194,14 +242,60 @@ def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, recons
         metrics = {}
     else:
         observation = {} if observer_factory is None else {"trajectory_observer": observer_factory(center, scale)}
+        if paired_state_path is not None:
+            state, recorder = paired_preparation(paired_state_path, prepared)
+            observation.update(prepared_state=state, state_observer=recorder)
         decoded, metrics = reconstruct(x=prepared, lion=lion, graph_spectral_module=graph,
-                                       steps_back_local=30 if corruption == "background" else 10, **observation, **PROTOCOL)
+                                       steps_back_local=30 if corruption == "background" else 10, **observation, **(PROTOCOL if protocol is None else protocol))
     geometry = decoded_to_geometry(decoded, dataset, scale, center, ops)
     if geometry.shape != (len(raw), 2048, 3) or not torch.isfinite(geometry).all():
         raise ValueError("Reconstruction must preserve finite decoded Bx2048x3 geometry")
     if not all(math.isfinite(value) for value in metrics.values()):
         raise ValueError("Nonfinite guidance metrics")
     return geometry.detach(), metrics
+
+
+def paired_preparation(path: Path, prepared):
+    """Persist exact encoded states/noise and RNG without pickled objects."""
+    import numpy as np
+    import torch
+    from legacy_trajectory import _rng_state, _rng_state_hash, rng_hash, tensor_hash
+    path = Path(path)
+    expected_input, expected_rng = tensor_hash(prepared), rng_hash()
+    if path.is_symlink() or any(p.is_symlink() for p in path.parents):
+        raise ValueError('Paired state symlinks are forbidden')
+    if path.exists():
+        with np.load(path, allow_pickle=False) as archive:
+            metadata = json.loads(str(archive['metadata'].item()))
+            if metadata.get('schema_version') != 1 or metadata.get('input_sha256') != expected_input or metadata.get('rng_before_sha256') != expected_rng:
+                raise ValueError('Paired prepared-input/RNG identity mismatch')
+            state = {key: torch.from_numpy(archive[key].copy()).to(prepared.device) for key in ('shape_latent', 'local_latent', 'noise')}
+            py = metadata['python_rng']
+            rng = ((py[0], tuple(py[1]), py[2]),
+                   (metadata['numpy_rng'][0], archive['numpy_rng_keys'].copy(), *metadata['numpy_rng'][1:]),
+                   torch.from_numpy(archive['torch_rng_cpu'].copy()),
+                   [torch.from_numpy(archive['torch_rng_cuda_%d' % i].copy()) for i in range(metadata['cuda_devices'])])
+            if _rng_state_hash(rng) != metadata['rng_after_sha256']:
+                raise ValueError('Paired cached post-preparation RNG hash mismatch')
+            for key, value in state.items():
+                if tensor_hash(value) != metadata['tensor_hashes'].get(key):
+                    raise ValueError('Paired cached tensor hash mismatch: ' + key)
+            state['rng_after_prepare'] = rng
+        return state, None
+    path.parent.mkdir(parents=True, exist_ok=True)
+    def record(state):
+        rng = _rng_state()
+        py, numpy_rng, cpu, cuda = rng
+        metadata = dict(schema_version=1, input_sha256=expected_input, rng_before_sha256=expected_rng,
+                        rng_after_sha256=_rng_state_hash(rng), python_rng=py,
+                        numpy_rng=[numpy_rng[0], *numpy_rng[2:]], cuda_devices=len(cuda),
+                        tensor_hashes={key: tensor_hash(value) for key, value in state.items()})
+        arrays = {key: value.detach().cpu().numpy() for key, value in state.items()}
+        arrays.update(metadata=np.asarray(json.dumps(metadata)), numpy_rng_keys=numpy_rng[1], torch_rng_cpu=cpu.numpy())
+        arrays.update({'torch_rng_cuda_%d' % i: value.cpu().numpy() for i, value in enumerate(cuda)})
+        with path.open('xb') as stream:
+            np.savez_compressed(stream, **arrays)
+    return None, record
 
 
 def classify_geometry(geometry, heads: dict, configs: dict, fps):
@@ -259,7 +353,7 @@ def copy_batch_shard(bundle, drive_root, corruption: str, batch: int, files: dic
 
 def matched_source(config: dict, manifest: dict, guidance: dict) -> dict:
     if config.get("trajectory_observation") and config["backbone"] == "pointmae":
-        return dict(status="unavailable", reason="No validated full ScanObjectNN-C Point-MAE source-only row in this study; primary comparator is same-run terminal")
+        return dict(status="unavailable", reason="No validated matched full Point-MAE source-only row bound in this study for " + config['dataset'] + "; primary comparator is same-run terminal")
     path = source._declared_asset(Path(config["asset_root"]), manifest, guidance["matched_source_results"])
     validation = json.loads(path.read_text())
     rows = [row for row in validation.get("macro", []) if row["dataset"] == config["dataset"] and row["backbone"] == config["backbone"]]
@@ -320,7 +414,9 @@ def load_guidance_runtime(config: dict, manifest: dict):
     else:
         from graph_spectral_v2 import GraphSpectralDNA
         from tta_gsd_v2 import tta_gsd_reconstruct
-        graph = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, use_4d_gft=False, device="cuda")
+        active = config['guidance_protocol']['loss_weights']
+        graph = (None if config.get('component_study') and not (active['spectral'] or active['invariant']) else
+                 GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, use_4d_gft=False, device="cuda"))
         reconstruct = tta_gsd_reconstruct
     return lion, graph, reconstruct, ops, native_report, options.dump()
 
@@ -388,15 +484,17 @@ def worker(directories: list) -> None:
             elapsed = {name: 0. for name in heads}
             correct = {name: 0 for name in heads}
             seen, peak = 0, 0.
-            for batch, start in enumerate(range(0, len(values), common["batch_size"])):
+            selected_ids = np.asarray(common.get('selected_original_ids', list(range(common['n_examples']))), dtype=np.int64)
+            for batch, start in enumerate(range(0, len(selected_ids), common["batch_size"])):
                 if common["max_batches"] and batch >= common["max_batches"]:
                     break
-                end = min(start + common["batch_size"], len(values))
+                end = min(start + common["batch_size"], len(selected_ids))
+                batch_ids = selected_ids[start:end]
                 torch.cuda.reset_peak_memory_stats()
                 torch.cuda.synchronize()
                 before_rng = rng_hash()
                 started = time.monotonic()
-                raw = torch.from_numpy(np.array(values[start:end]))
+                raw = torch.from_numpy(np.array(values[batch_ids]))
                 scheduler_record = {}
                 observers = []
                 def observer_factory(center, scale):
@@ -405,12 +503,20 @@ def worker(directories: list) -> None:
                         geometry = decoded_to_geometry(decoded, common["dataset"], scale, center, ops)
                         return classify_geometry(geometry, heads, configs, fps)[0]
                     observer = SharedTrajectoryObserver(lion.vae, heads, classify_decoded,
-                                                        30 if corruption == "background" else 10)
+                                                        30 if corruption == "background" else 10, num_classes=common['num_classes'])
                     observers.append(observer)
                     return observer
                 observer_options = {"observer_factory": observer_factory} if common.get("trajectory_observation") else {}
+                paired_path = None
+                preparation_mode = 'fresh_encode'
+                if common.get('paired_state_root'):
+                    ids_sha = hashlib.sha256(batch_ids.tobytes()).hexdigest()
+                    paired_path = Path(common['paired_state_root']) / common['dataset'] / corruption / (ids_sha + '.npz')
+                    if paired_path.exists():
+                        preparation_mode = 'cached_replay'
                 geometry, metrics = reconstruct_geometry(raw, common["dataset"], corruption, lion, graph, reconstruct, ops,
-                                                         method=common["method"], scheduler_observer=scheduler_record.update, **observer_options)
+                                                         method=common["method"], scheduler_observer=scheduler_record.update,
+                                                         protocol=common['guidance_protocol'], paired_state_path=paired_path, **observer_options)
                 torch.cuda.synchronize()
                 reconstruction_seconds = time.monotonic() - started
                 reconstruction_rng = rng_hash()
@@ -431,6 +537,8 @@ def worker(directories: list) -> None:
                               reconstruction_rng_before_sha256=before_rng, reconstruction_rng_after_sha256=reconstruction_rng,
                               shared_reconstruction_seconds=reconstruction_seconds, guidance_metrics=metrics,
                               whole_process_peak_gpu_memory_mb=peak, seed=common["seed"], index_start=start, index_end=end)
+                shared['preparation_mode'] = preparation_mode
+                shared['paired_cache_io_in_reconstruction_time'] = paired_path is not None
                 if scheduler_record:
                     shared["scheduler"] = scheduler_record
                     for config in configs.values():
@@ -439,14 +547,16 @@ def worker(directories: list) -> None:
                             raise RuntimeError("Original scheduler changed within a corruption")
                 if observers:
                     shared["trajectory"] = observers[0].diagnostics()
+                if paired_path is not None:
+                    shared['paired_state'] = dict(path=str(paired_path), **source.file_identity(paired_path))
                 pending = {}
                 seen += end - start
                 for name, logits in all_logits.items():
                     prediction = logits.argmax(-1).cpu().numpy()
-                    payload = dict(index=np.arange(start, end, dtype=np.int64), label=np.array(labels[start:end], dtype=np.int64),
+                    payload = dict(index=batch_ids.copy(), label=np.array(labels[batch_ids], dtype=np.int64),
                                    prediction=prediction, logits=logits.cpu().numpy())
                     accumulated[name].append(payload)
-                    correct[name] += int((prediction == labels[start:end]).sum())
+                    correct[name] += int((prediction == labels[batch_ids]).sum())
                     elapsed[name] += reconstruction_seconds / len(heads) + head_seconds[name]
                     configs[name]["shared_reconstruction_seconds"] += reconstruction_seconds
                     configs[name].setdefault("completed_batches", {})[corruption] = batch + 1
@@ -475,7 +585,7 @@ def worker(directories: list) -> None:
         if lion_before != lion_after:
             raise RuntimeError("LION weights/buffers changed")
         for name, config in configs.items():
-            config.update(lion_state_after=lion_after, status="complete" if len(common["corruptions"]) == 15 and not common["max_batches"] else "partial")
+            config.update(lion_state_after=lion_after, status="complete" if len(common["corruptions"]) == 15 and not common["max_batches"] and len(selected_ids) == common['n_examples'] else "partial")
             source.snapshot_sources(bundles[name], config, manifest)
             bundles[name].write_results(rows[name], config["status"])
     except BaseException:
@@ -515,10 +625,15 @@ def main(argv=None) -> None:
         return
     bundles = []
     for config in configs:
-        bundle = source.RunBundle.create(Path(config["result_root"]), config["backbone"] + "-seed" + str(config["seed"]), config,
+        short_name = config['backbone'] + '-seed' + str(config['seed'])
+        if config.get('component_study'):
+            short_name = 'guidance-components-' + config['component_arm'] + '-' + short_name
+        bundle = source.RunBundle.create(Path(config["result_root"]), short_name, config,
                                           shlex.join([sys.executable, str(Path(__file__).resolve()), *arguments]))
         bundles.append(bundle)
         print("Run bundle:", bundle.path, flush=True)
+        if config.get('index_manifest'):
+            shutil.copyfile(config['index_manifest'], bundle.path / 'selection_manifest.json')
         (bundle.path / "notes.md").write_text("# Published alternative matched guidance study\n\n" + config["display_name"] + ". Not full GSDTTA or paper reproduction.\n"
             + config["timing_policy"] + ".\nBatch shards preserve interrupted-corruption progress; no auto resume.\nDrive corruption checkpoints capture log prefixes.\n")
         (bundle.path / "environment.txt").write_text(sys.version + "\n" + source.command_output(["nvidia-smi"]) + "\n" + source.command_output([sys.executable, "-m", "pip", "freeze"]))
