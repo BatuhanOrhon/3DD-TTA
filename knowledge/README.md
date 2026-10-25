@@ -1,11 +1,10 @@
-**[Run/Code/Open] 2026-10-25 — Agent A setup/CPU/smoke pass; full awaits cap amendment:**
-Own A100 ten-cell setup and actual-source3-head strict CPU/no-build proof pass,
-with Drive/local SHA evidence. Gaussian+Background smoke validates1680 candidate
-predictions/shared states/RNG/labels/receipts in56.47s. No full accuracy yet.
-Measured central106.91min/upper151.70min exceeds the original150min gate;
-full is stopped pending the user's explicit160min amendment. No answer yet.
-Runtime/sole monitor remain live; peer state is untouched.
-[Current gate, exact hashes and next action](modelnet_multibackbone_trajectory_handoff_20261025.md#current-gate--2026-10-25-1310-utc).
+**[User report/Run/Code/Open] 2026-10-25 13:36 UTC — Agent A full ModelNet observation running:**
+User explicitly removes elapsed-time limit for the unchanged scope. Same owned
+A100/monitor starts full all15 at13:34:43UTC;3 frozen heads,37020 inputs/head,
+terminal/minimum entropy/probability mean. Smoke physical acceptance and actual
+Drive/local SHA pass; no final full accuracy yet. Source/protocol stay fixed;
+peer state is untouched. The earlier150min duration gate is superseded.
+[Live phase, authorization and continuation](modelnet_multibackbone_trajectory_handoff_20261025.md).
 
 **[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**
 Agent A completes the locked ModelNet three-head readouts; Agent B studies

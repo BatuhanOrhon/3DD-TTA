@@ -2,7 +2,40 @@
 
 Date:2026-10-25. Evidence: [User report], [Code], [Run], [Open], [Inference].
 Audit base:`gsd-multibackbone-study@7017fa8` (inspect actual HEAD/status on resume).
-Status: **CPU extension/setup/smoke complete; all15 blocked at the registered duration gate pending a160min cap amendment**.
+Status: **all15 three-head ModelNet observation running after explicit removal of the duration limit; final results pending**.
+
+## Live full observation — 2026-10-25 13:36 UTC
+
+[User report/Run/Code/Open] User explicitly states “Onaylıyorum ne kadar
+sürdüğü önemli değil başlat”. This supersedes the150min cap and the pending
+160min question: elapsed-time restriction is removed for the unchanged
+Agent A scope, not for tuning or new experiments. Original authorization and
+ledger are preserved; `authorization_v2.json` records the exact instruction.
+The actual ledger retains56.473518321s of smoke and records no duration cap.
+
+Smoke physical acceptance is complete:6 batch/6 corruption/3 final receipts
+and all data/state/source checks pass. Accepted26172byte evidence ZIP SHA
+`da5799856d76d3d0f05716ab94cfd817fac70cc88c2bc9636ea2d530d91b9126`
+passes actual Drive/local SHA, CRC/path/member checks. New full driver SHA
+`b2e530d046c6dbc1b6ae20e3dc501e855dd54d48f4ffa7c21354968875af048e`
+has no elapsed-time kill timer; all source/data/state/receipt failure guards
+remain. The source manifest2326e8e0…e3a3a8 and locked guidance math are unchanged.
+
+Full phase `20261025T133443Z_mntraj_all15` starts13:34:43UTC in the same owned
+A100 session/endpoint, sole monitor25910/TTY30907. GSD-only ModelNet all15,
+severity5/seed0/B70, DGCNN+CurveNet+PointNeXt;540 shared batches/37020 inputs
+per head/444240 candidate predictions/9 policy rows expected. No full result
+yet. Batch/corruption/model evidence persists under the contracted own Drive
+root. Current live counters are in `all15_live_progress.json`; controller
+cell153 drains the same monitor and saves its primary output. Read that
+controller/progress before any new runtime execution; never start a duplicate.
+
+Local/Drive preparation roots and lifecycle contract below stay valid. Own
+runtime/monitor remain live and peer state is untouched; no teardown right.
+Next: monitor to completion, retrieve raw+physical Drive evidence, validate
+all original IDs/labels/states/source/native identities, independently score
+same-run terminal/minimum entropy/probability mean, archive and update memory.
+This record supersedes the stopped-budget gate below; it remains as history.
 
 ## Current gate — 2026-10-25 13:10 UTC
 

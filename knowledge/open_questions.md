@@ -51,7 +51,8 @@ This handoff documents the next scope; no research execution in this turn.
   the60min approval threshold to apply. Agent A now has explicit90–120min
   approval with a shared150min cap. Smoke consumed56.47s; central106.91min/
   conservative151.70min projection stops all15 pending an explicit160min
-  amendment. No all15 job launched.
+  amendment. Superseded: user explicitly removed the duration limit; full
+  all15 phase20261025T133443Z is running from13:34:43UTC, results pending.
 - [ ] Obtain9 same-run policy rows (3 terminal controls+6 missing readouts),
   full15/2468 IDs/severity5/seed0, actual Drive/local SHA and independent
   count/state/source/label checks. Preserve all old attempts and limitations.

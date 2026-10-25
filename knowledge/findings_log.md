@@ -6001,3 +6001,29 @@ never reset consumed time or treat silence as approval. Own runtime
 and sole monitor25910/TTY30907 remain live; host-awake36287 is bounded4h.
 No peer operation, new full accuracy or teardown. Next gate is the user's
 budget reply; any state/label/source/receipt mismatch invalidates smoke.
+
+
+### 2026-10-25 13:36 UTC — Agent A user removes duration limit; full observation launched
+
+[User report/Run/Code/Open] Exact instruction: “Onaylıyorum ne kadar sürdüğü
+önemli değil başlat”. Preserve original150min authorization/ledger and apply
+`authorization_v2.json`: no elapsed-time cap for the unchanged3-head ModelNet
+scope. Smoke56.473518321s remains consumed; no tuning, extra seed or ablation
+is added. Physical smoke acceptance26172byte ZIP SHAda579985…1b9126 passes
+Drive/local/member checks;6 batch/6 corruption/3 final receipts verified.
+
+Same owned A100 `tta-mn-trajectory-a100-20261025-r1` /
+`gpu-a100-hm-euw4a0-axkeusdcat4y`, sole25910/TTY30907, launches phase
+`20261025T133443Z_mntraj_all15` at13:34:43UTC. Fixed source665ed07,
+manifest2326e8e0…e3a3a8/snapshota0471733…7979015; driverb2e530d0…af048e
+removes only elapsed-time kill/gate, retaining failure/purity/provenance checks.
+Expected540 shared batches/111060 head-inputs/444240 candidate predictions,
+9 policy rows; no final result exists. Batch/corruption/model Drive saving is
+active. Live progress and primary output are under task preparation root;
+controllercell153 owns draining the same monitor. Do not duplicate execution.
+
+This supersedes the preceding stopped duration gate. Next: retrieve complete
+raw+physical receipts, validate same-run states/IDs/labels/source/native hashes,
+score policies and archive actual Drive/local SHA. Runtime/monitor stay live;
+peer state untouched and no teardown authorization exists. Any affected guard
+mismatch invalidates acceptance; single-seed limits remain.
