@@ -1,3 +1,25 @@
+**[Run/Decision/Open] 2026-10-25 — Agent B fixed development accepted:**
+All32 raw ZIPs/96 policy rows across both datasets, four arms/four heads,
+all15 corruptions and70 development IDs/dataset pass independent local analysis.
+C probability mean55.1905% nearly matches C+S entropy55.2024%; no accuracy
+separation is established. Fresh-encode smoke measured24.94% lower shared
+reconstruction time for C; cache-replay development timing is separately labeled.
+Freeze C probability mean with zero tuning; a registered three-seed reserved-ID
+confirmation is prepared, not yet run. Initial research phase34.89min under55min.
+Raw Drive/local archive SHA and all30 physical cache files verify. Own A100 and
+monitor remain live. [Results and limitations](guidance_component_development_results_20261025.md).
+
+**[Run/Code/Open] 2026-10-25 — Agent B paired development running (historical):**
+Own r1 completed the ten-cell setup,637-file sealed deployment and eight strict
+CPU checkpoint loads without CUDA initialization. Four-arm/two-dataset/four-head
+Gaussian+Background smoke passed32raw ZIPs/17920candidate predictions and actual
+Drive/local SHA checks. Same-flow all15 development now runs70fixed IDs/dataset,
+with common z0/h0/noise and post-preparation RNG cache. Four ModelNet jobs have
+completed; Scan follows. No full benchmark, seed-stability or accuracy gain claim.
+Measured active-phase expectation49.44min; separate uncertainty scenario57.64min;
+the original3300s hard active cap remains. Raw original projection is preserved.
+[Current study and evidence](guidance_component_study_handoff_20261025.md).
+
 **[User report/Code/Open] 2026-10-25 — Agent B activated:**
 User assigned this session to guidance components. Own `gsd-guidance-components`
 worktree starts at committed `4c5be0e`; original user edits and Agent A remain

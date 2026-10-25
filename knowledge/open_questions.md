@@ -13,16 +13,20 @@ method/eta/gamma/p development is in scope after fixed matched controls.
 - [x] Agent B: inventory/reuse prior Point-MAE component experiments and peer
   combined results only with compatible provenance; keep Agent A's locked
   ModelNet completion separate and untouched.
-- [ ] Run the fixed same-GSD-host C+S/C/S/U matrix with terminal/minimum
+- [x] Implement opt-in component switches, strict40/15-class observation and
+  fixed-ID/paired-state controls;43CPU tests and the accepted32-bundle GPU smoke pass.
+- [x] Run the fixed same-GSD-host C+S/C/S/U development matrix with terminal/minimum
   entropy/probability mean, paired preparation/noise where verified, both
   datasets and DGCNN/CurveNet/PointNeXt/Point-MAE. Start with a budgeted
-  development screen; complete full rows only after the scope/duration gate.
-- [ ] Verify inactive-component skip paths and measure real latency/throughput/
-  memory, including shared backward and probe cost. A zero spectral coefficient
-  currently does not eliminate graph/eigendecomposition work.
-- [ ] Register bounded tuning ranges/trials, development IDs/held-out IDs and
-  equal comparator opportunity; freeze a candidate before confirmation.
+  development screen;32 raw ZIPs/96 policy rows accepted. Full benchmark remains unrun.
+- [x] Verify opt-in inactive graph/Chamfer/backward skips and measure actual
+  shared reconstruction/job time and peak memory. Fresh-encode smoke is distinct
+  from development cache replay; standalone deployment latency remains unmeasured.
+- [x] Register development/held-out IDs and equal zero tuning opportunities;
+  freeze C probability mean before three-seed C/C+S reserved-ID confirmation.
   Use balanced case macros, report negative cases and seed uncertainty.
+- [ ] Complete the frozen confirmation and report each seed; no full benchmark,
+  broad stability or calibrated-spectral claim from the accepted seed0 screen.
 - [ ] Determine whether spectral guidance has incremental value conditional
   on Chamfer, whether spectral alone is useful, and whether a component can be
   removed for a measured accuracy/cost advantage. No necessity/optimality claim yet.

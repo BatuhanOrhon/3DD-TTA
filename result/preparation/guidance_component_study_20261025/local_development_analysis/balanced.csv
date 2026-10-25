@@ -1,0 +1,13 @@
+component_arm,policy,n_cases,accuracy_pct
+combined,terminal,8,53.86904761904762
+combined,minimum_entropy,8,55.20238095238095
+combined,probability_mean,8,55.107142857142854
+chamfer,terminal,8,54.416666666666664
+chamfer,minimum_entropy,8,54.80952380952382
+chamfer,probability_mean,8,55.19047619047619
+spectral,terminal,8,50.36904761904762
+spectral,minimum_entropy,8,52.55952380952381
+spectral,probability_mean,8,52.61904761904762
+unguided,terminal,8,50.654761904761905
+unguided,minimum_entropy,8,52.57142857142856
+unguided,probability_mean,8,52.8095238095238

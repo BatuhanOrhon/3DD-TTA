@@ -1,0 +1,160 @@
+{
+  "analysis": {
+    "no_per_corruption_routing": true,
+    "no_policy_reselection": true,
+    "primary": "Balanced mean across eight dataset/backbone cases of all15-corruption macro; per-seed C probability mean minus C+S probability mean",
+    "secondary": "Frozen C probability mean minus C+S minimum entropy, and each own-terminal effects",
+    "uncertainty": "Paired original-object-ID bootstrap within each dataset; report each of three seeds and range; no broad stability/equivalence/noninferiority or generalization claim"
+  },
+  "arms": [
+    "combined",
+    "chamfer"
+  ],
+  "backbones": [
+    "dgcnn",
+    "curvenet",
+    "pointnext",
+    "pointmae"
+  ],
+  "cache_namespace": "paired_confirmation_heldout_v1_seed{seed}",
+  "candidate": {
+    "component_arm": "chamfer",
+    "policy": "probability_mean"
+  },
+  "comparators": [
+    {
+      "component_arm": "combined",
+      "policy": "probability_mean",
+      "role": "primary same-readout spectral increment"
+    },
+    {
+      "component_arm": "combined",
+      "policy": "minimum_entropy",
+      "role": "secondary frozen development-best readout"
+    }
+  ],
+  "compute": {
+    "approval": "Reasonably expected<60min; no extra research approval required; entire three-seed phase registered together, no per-call subdivision",
+    "conservative_planned_seconds": 3258.9068691972025,
+    "expected_seconds": 2465.755724331002,
+    "hard_active_cap_seconds": 3300,
+    "initial_phase_separate_completed_ledger": "initial_gpu_phase_ledger.json",
+    "measured_development_selected_job_seconds": 821.9185747770007,
+    "new_ledger": "frozen_confirmation_ledger.json",
+    "setup_receipt_retry_reserve_seconds": 300,
+    "stage": "one complete evidence-gated frozen-confirmation phase; all three seeds together",
+    "with20pct_margin_seconds": 2958.9068691972025
+  },
+  "corruptions": "all15",
+  "counts": {
+    "candidate_predictions": 201600,
+    "case_policy_rows": 144,
+    "jobs": 12,
+    "raw_head_archives": 48,
+    "shared_batches": 180,
+    "terminal_head_input_events": 50400
+  },
+  "created_utc": "2026-10-25T14:05:41.127371+00:00",
+  "datasets": [
+    "modelnet40_c",
+    "scanobjectnn_c"
+  ],
+  "development_phase_archive": {
+    "bytes": 405066186,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/development_20261025T133358718403Z/development_phase_evidence.zip",
+    "local_path": "/content/studies/guidance-components/development_20261025T133358718403Z.zip",
+    "sha256": "8abd0ec00c71996407d0fabc3933a7984c2e9860c8844e2d2940bff1db15901d"
+  },
+  "development_validation": {
+    "bytes": 59041,
+    "sha256": "90c49b36674e65a0dd9fa041265e088a162a5ec48eb0a416dc19e4842c49ca6d"
+  },
+  "endpoint": "gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98",
+  "executed_project_source_commit": "62e9a2ba6e8691438285db169e6ee7fdcca7ae99",
+  "graph": {
+    "delta": 0.1,
+    "gamma": 0.6,
+    "isolate_policy": "legacy",
+    "k": 10,
+    "use_4d_gft": false
+  },
+  "hardware": "A100-SXM4-80GB High RAM",
+  "heldout_exposure": "Object-disjoint from this screen across all corruptions; benchmarks previously inspected; not external unseen test",
+  "id_manifests": {
+    "modelnet40_c": {
+      "bytes": 926,
+      "path": "modelnet40_c_heldout_ids.json",
+      "sha256": "395d32f0a3aa9139781cb9e7940d8d51e25fcb2c3b6c40cfe6fe04fe08a72d20"
+    },
+    "scanobjectnn_c": {
+      "bytes": 870,
+      "path": "scanobjectnn_c_heldout_ids.json",
+      "sha256": "bb970e98226a9993519ff0cf6ed8ea8faf53dbc88380ac99b0809ea46ee300fc"
+    }
+  },
+  "id_stage": "heldout",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "original_objects_per_dataset": 70,
+  "outputs": {
+    "drive": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025",
+    "remote": "/content/studies/guidance-components/frozen_confirmation_<UTC>"
+  },
+  "pairing": "Fresh seed-specific reserved-ID cache; exact prepared cloud/z0/h0/noise and post-preparation RNG shared across two arms; never reuse development cache",
+  "policies_recorded": [
+    "terminal",
+    "minimum_entropy",
+    "probability_mean"
+  ],
+  "protocol": {
+    "M_max": 800,
+    "background_steps": 30,
+    "batch_size": 70,
+    "beta": 2.0,
+    "ddim_final_alpha_to_one": false,
+    "ema": false,
+    "eta": 0.01,
+    "gamma": 0.01,
+    "lion_mode": "eval/raw",
+    "normal_steps": 10,
+    "p": 0.95,
+    "updated_style": true
+  },
+  "recovery": "Immutable per-batch/per-corruption/per-model receipts and raw ZIPs; source/plan/seed caches retained; verify Drive/localSHA; no silent resume/overwrite",
+  "runtime_lifecycle": "Keep VM and foreground monitor live; close only after explicit completion+teardown authorization",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selection_reason": "C probability mean55.190476%;C+S minimum entropy55.202381%; no established accuracy separation; select simpler measured-cost candidate without parameter tuning",
+  "session": "tta-guidance-components-a100-20261025-r1",
+  "severity": 5,
+  "source_snapshot_sha256": "f5bca11a543fd5463ef5a09b26cf216b2bd049523d61a97da24e184e5576d0c6",
+  "status": "frozen_before_any_confirmation_scoring",
+  "stop": [
+    "identity/state/RNG/ID/schema mismatch",
+    "nonfinite/OOM",
+    "missing physical Drive receipt",
+    "hard3300s cap; preserve partial outputs; no extension",
+    "updated whole-phase expected>60min requires comprehensive approval before further GPU work"
+  ],
+  "task": "Agent B guidance components",
+  "tuning": {
+    "comparator_trials": 0,
+    "parameters_unchanged": true,
+    "trials": 0
+  },
+  "weights": {
+    "chamfer": {
+      "chamfer": 1.0,
+      "invariant": 0.0,
+      "spectral": 0.0
+    },
+    "combined": {
+      "chamfer": 1.0,
+      "invariant": 0.0,
+      "spectral": 1.17
+    }
+  }
+}

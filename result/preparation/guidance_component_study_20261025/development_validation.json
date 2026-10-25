@@ -1,0 +1,15 @@
+{
+  "status": "validated",
+  "mode": "development",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "evidence": {
+    "bytes": 405066186,
+    "sha256": "8abd0ec00c71996407d0fabc3933a7984c2e9860c8844e2d2940bff1db15901d",
+    "local_path": "/content/studies/guidance-components/development_20261025T133358718403Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/development_20261025T133358718403Z/development_phase_evidence.zip"
+  },
+  "projected_development_seconds": null,
+  "spent_seconds": 2093.6846299030003,
+  "output": "/content/studies/guidance-components/development_20261025T133358718403Z",
+  "independent_smoke_acceptance_required": false
+}
