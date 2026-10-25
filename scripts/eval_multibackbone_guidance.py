@@ -20,6 +20,7 @@ import traceback
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts import eval_multibackbone_source as source
+from spectral_guidance_losses import SPECTRAL_LOSS_KINDS
 
 METHOD = "gsd_inspired_latent_spectral_guidance"
 ORIGINAL_METHOD = "3dd_original"
@@ -45,6 +46,7 @@ def configurations(argv=None) -> list:
     parser.add_argument("--backbones", nargs="+", choices=(*BACKBONES, "dgcnn", "pointmae"), default=list(BACKBONES))
     parser.add_argument("--trajectory-observe", action="store_true")
     parser.add_argument("--component-arm", choices=tuple(COMPONENT_WEIGHTS))
+    parser.add_argument("--spectral-loss-kind", choices=SPECTRAL_LOSS_KINDS, default=argparse.SUPPRESS)
     for name in ("eta", "gamma", "p", "spectral-weight", "chamfer-weight"):
         parser.add_argument("--" + name, type=float)
     parser.add_argument("--index-manifest", type=Path)
@@ -59,6 +61,9 @@ def configurations(argv=None) -> list:
     if args.seed < 0 or args.max_batches < 0:
         raise ValueError("Seed and max-batches must be nonnegative")
     original = args.method == "original3dd"
+    spectral_kind = getattr(args, 'spectral_loss_kind', None)
+    if spectral_kind is not None and (original or args.component_arm not in ('combined', 'spectral')):
+        raise ValueError('Spectral loss kinds require an explicit active-spectral component study')
     if args.trajectory_observe and original:
         raise ValueError("Trajectory observation is restricted to GSD-inspired guidance")
     if args.component_arm and (original or not args.trajectory_observe):
@@ -71,8 +76,8 @@ def configurations(argv=None) -> list:
             raise ValueError("Invalid component parameter: " + name)
     if args.paired_state_root and not args.component_arm:
         raise ValueError("Paired states require an explicit component study arm")
-    if "pointmae" in args.backbones and not args.trajectory_observe:
-        raise ValueError("Point-MAE guidance is available only with --trajectory-observe")
+    if "pointmae" in args.backbones and not (original or args.trajectory_observe):
+        raise ValueError("Point-MAE requires original3DD or GSD --trajectory-observe")
     if "pointmae" in args.backbones and not (args.pointmae_config and args.pointmae_checkpoint):
         raise ValueError("Point-MAE requires --pointmae-config and --pointmae-checkpoint")
     batch_size = 32 if original else 70
@@ -159,8 +164,10 @@ def configurations(argv=None) -> list:
                         raise ValueError('Weight override must preserve active components of the named arm')
                     protocol['loss_weights'][key] = value
             config.update(display_name='GSD-host component study ' + args.component_arm + ' + ' + backbone,
-                          component_study=True, component_parameters_modified=any(v is not None for v in overrides.values()),
+                          component_study=True, component_parameters_modified=any(v is not None for v in overrides.values()) or spectral_kind is not None,
                           comparison_scope='same GSD host; matched states/noise only when verified from batch identities')
+            if spectral_kind is not None:
+                protocol['spectral_loss_kind'] = spectral_kind
             if args.paired_state_root:
                 config['randomness_policy'] = 'immutable shared z0/h0/noise cache; restore recorded post-preparation RNG; validate prepared-input and actual latent/noise hashes'
                 config['reconstruction_host'] = 'GSD paired-state component study; reference arm encodes, replay arms reuse exact encoded states/noise'
@@ -352,8 +359,9 @@ def copy_batch_shard(bundle, drive_root, corruption: str, batch: int, files: dic
 
 
 def matched_source(config: dict, manifest: dict, guidance: dict) -> dict:
-    if config.get("trajectory_observation") and config["backbone"] == "pointmae":
-        return dict(status="unavailable", reason="No validated matched full Point-MAE source-only row bound in this study for " + config['dataset'] + "; primary comparator is same-run terminal")
+    if config["backbone"] == "pointmae":
+        suffix = '; primary comparator is same-run terminal' if config.get('trajectory_observation') else '; comparator: separate original3DD terminal whole-policy comparison'
+        return dict(status="unavailable", reason="No validated matched full Point-MAE source-only row bound in this study for " + config['dataset'] + suffix)
     path = source._declared_asset(Path(config["asset_root"]), manifest, guidance["matched_source_results"])
     validation = json.loads(path.read_text())
     rows = [row for row in validation.get("macro", []) if row["dataset"] == config["dataset"] and row["backbone"] == config["backbone"]]

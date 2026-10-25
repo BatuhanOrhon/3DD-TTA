@@ -3,8 +3,9 @@ import torch.nn.functional as F
 from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
 from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
+from spectral_guidance_losses import SPECTRAL_LOSS_KINDS, spectral_guidance_loss
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None, skip_inactive_components=False, prepared_state=None, state_observer=None):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None, skip_inactive_components=False, prepared_state=None, state_observer=None, spectral_loss_kind='legacy_l2'):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -24,6 +25,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     """
     if loss_weights is None:
         loss_weights = {"spectral_low": 1.0, "spectral_mid": 0.0, "spectral_high": 0.0, "chamfer": 0.0}
+    if spectral_loss_kind not in SPECTRAL_LOSS_KINDS:
+        raise ValueError('Unknown spectral loss kind: ' + str(spectral_loss_kind))
         
     weight_spectral = loss_weights.get("spectral", 1.0)
     weight_chamfer = loss_weights.get("chamfer", 0.0)
@@ -164,13 +167,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 H_pred = torch.bmm(U_active.transpose(1, 2), signal)
                 
             if weight_spectral > 0.0:
-                smooth_weights = torch.exp(-beta * eigenvalues) # (B, N)
-                smooth_weights[:, M_max:] = 0.0
-                smooth_weights = smooth_weights.unsqueeze(-1) # (B, N, 1)
-                
-                squared_diff = (H_pred - H_orig_target)**2
-                weighted_sq_diff = smooth_weights * squared_diff
-                raw_loss_spectral = weighted_sq_diff.sum() / (3 * num_latent_points)
+                raw_loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
                 history['raw_loss_spectral'].append(raw_loss_spectral.item())
             else:
                 history['raw_loss_spectral'].append(0.0)
@@ -208,13 +205,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 total_loss = total_loss + weight_invariant * loss_invariant
                 
             if weight_spectral > 0.0:
-                smooth_weights = torch.exp(-beta * eigenvalues) # (B, N)
-                smooth_weights[:, M_max:] = 0.0
-                smooth_weights = smooth_weights.unsqueeze(-1) # (B, N, 1)
-                
-                squared_diff = (H_pred - H_orig_target)**2
-                weighted_sq_diff = smooth_weights * squared_diff
-                loss_spectral = weighted_sq_diff.sum() / (3 * num_latent_points)
+                loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
                 total_loss = total_loss + weight_spectral * loss_spectral
             
         if weight_chamfer > 0.0:
