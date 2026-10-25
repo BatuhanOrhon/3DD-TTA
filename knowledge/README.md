@@ -3,7 +3,8 @@ Agent A owns `gsd-modelnet-trajectory` in its contracted separate worktree.
 Strict ModelNet40-class/2468-ID observation/analyzer support passes62 focused
 and332 full CPU tests; independent review finds no material issue. Own
 `tta-mn-trajectory-a100-20261025-r1` is in ten-cell setup under the current
-foreground monitor. No research GPU result or long-phase approval yet.
+foreground monitor. The user approved90–120min research, shared150min cap;
+setupcell4 is active. No research GPU result yet.
 [Execution record and next gates](modelnet_multibackbone_trajectory_handoff_20261025.md#agent-a-execution--2026-10-25-1202-utc).
 
 **[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**

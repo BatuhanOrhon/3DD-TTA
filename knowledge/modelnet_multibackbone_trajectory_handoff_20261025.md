@@ -4,6 +4,51 @@ Date:2026-10-25. Evidence: [User report], [Code], [Run], [Open], [Inference].
 Audit base:`gsd-multibackbone-study@7017fa8` (inspect actual HEAD/status on resume).
 Status: **next scope documented; implementation and GPU execution not started**.
 
+## Live Agent A state — 2026-10-25 12:25 UTC
+
+[User report/Code/Open] Source batch `665ed07e6443f491a7dd127a768e3fa3e7998eb7`
+is pushed to `origin/gsd-modelnet-trajectory`. User explicitly approved:
+“90–120 dk fazı, 150 dk üst sınırla onaylıyorum”. This covers the single
+smoke+all15+bounded-retry GPU phase with a shared9000s cap; no repeated
+approval is needed inside the unchanged scope. Setup/allocation are separate
+from research-job wall time; no research GPU job has started.
+
+The new sealed manifest is
+`2326e8e07f30bd46f5e29a7d9d169b45fa71d5a3aac7fd9c5ac4fb3f56e3a3a8`,
+source snapshot SHA
+`a04717337d6732b74bef18a956381f6979a83f208ca248dd2a113aeab7979015`,
+delta payload5501084bytes SHA
+`f202a8d4dffdb523fca34325175355bab6d46818503d4c7b69f6f52acdc1fe84`.
+Local proof validates627 asset files,325 source files, exact snapshot members
+and all3 matched source/checkpoint links. Old3 ModelNet GSD archives pass
+SHA/CRC and lack candidate logits. Failed local packaging attemptv1 is
+preserved; correctedv2 resolves the DGCNN extracted-directory reference to
+its accepted sealed ZIP. Actual remote source/native/data/checkpoint proof
+and new results remain pending.
+
+Own session/endpoint and sole monitor remain the same as below (PID25910,
+TTY30907). Cell1 completed; cell2 failed only at the previously deferred
+fastrlock build and the resulting Python3.8 environment was independently
+verified. First cell3 mount failed; a nonconcurrent interactive CLI Drive
+mount received explicit user consent and completed, then the unchanged cell3
+passed. Cell4 is installing dependencies; controllercell96 sequences4–10,
+verifying exact markers and native `.complete` state before advancing.
+A separate12:24UTC server inventory confirms the owned A100 assignment
+exists; peer A100 and unknown CPU assignments are untouched. Host sleep is
+boundedly inhibited for14400s (own local exec36287); it is not a guarantee
+against Colab-managed loss.
+
+Task-local `authorization.json`, `gpu_phase_proposal.json`,
+`preparation_identity.json`, `sealed_local_validation.json`,
+`existing_coverage_audit.json`, `runtime_owner.json`, `progress.md`,
+`monitor_output.log` and `setup/` preserve exact controls. Remote root is
+`/content/studies/mn-trajectory/`; Drive writes stay under
+`MyDrive/thesis/result/modelnet_trajectory_study_20261025/`.
+Next: finish setup, deploy/verify actual pinned source and native binaries,
+retrieve CPU proof through Drive/local SHA, then smoke and independently
+accepted full observation. Runtime and monitor must remain live; user has
+not authorized teardown.
+
 ## Agent A execution — 2026-10-25 12:02 UTC
 
 [Code/Open] User assigned this session to Agent A and requested continuous

@@ -45,9 +45,10 @@ This handoff documents the next scope; no research execution in this turn.
 - [x] Implement/verify the smallest40-class ModelNet observation extension,
   preserving accepted Scan/default terminal behavior and the fixed policy.
   Agent A CPU batch:62 focused/332 full tests pass; genuine GPU smoke pending.
-- [ ] Prepare one comprehensive whole-GPU-phase estimate/approval request:
+- [x] Prepare one comprehensive whole-GPU-phase estimate/approval request:
   old ModelNet full guidance took69.421min before extra probe work. Expect
-  the60min approval threshold to apply; no GPU phase approved by this handoff.
+  the60min approval threshold to apply. Agent A now has explicit90–120min
+  approval with a shared150min cap; no research GPU launched yet.
 - [ ] Obtain9 same-run policy rows (3 terminal controls+6 missing readouts),
   full15/2468 IDs/severity5/seed0, actual Drive/local SHA and independent
   count/state/source/label checks. Preserve all old attempts and limitations.

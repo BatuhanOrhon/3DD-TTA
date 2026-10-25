@@ -5940,3 +5940,33 @@ approval remains pending. Next: seal actual source/assets, verify native/data/
 checkpoint readiness, record comprehensive smoke/all15 budget, then obtain the
 required approval before research execution. Failed shape/ID/state/hash/Drive
 checks invalidate the affected result. Runtime remains live; no closure right.
+
+
+### 2026-10-25 12:25 UTC — Agent A source sealed, phase approved, setup active
+
+[User report/Code/Open] Source batch665ed07 is pushed only to Agent A's
+branch. Sealed manifest2326e8e…e3a3a8/source snapshota0471733…7979015/
+5501084byte deltaf202a8d4…dc1fe84 pass local627-file/325-source/snapshot
+and3 matched-source/checkpoint checks. All3 old ModelNet GSD archives pass
+SHA/CRC with no candidate logits; DGCNN's matrix directory pointer is resolved
+to its accepted ZIP. Failed local packagingv1 is retained, correctedv2 used.
+User explicitly approves “90–120 dk fazı, 150 dk üst sınırla onaylıyorum”;
+shared smoke/full/retry cap9000s is bound to that manifest in task-local
+`authorization.json` and `gpu_phase_proposal.json`.
+
+Own A100 `tta-mn-trajectory-a100-20261025-r1` remains on verified endpoint
+`gpu-a100-hm-euw4a0-axkeusdcat4y`, sole monitor25910/TTY30907. Setupcell1
+passes; known cell2 fastrlock failure is deferred with actual Python3.8 proof.
+After a failed mount, explicit user Drive consent completed via a separate
+nonconcurrent CLI automation; unchangedcell3 then passes. Cell4 is active;
+controllercell96 sequences remaining ordered phases and native markers.
+12:24UTC server inventory confirms own assignment, without mutating peer or
+unknown sessions. Bounded host sleep prevention is active for14400s.
+
+No research GPU job/accuracy result yet. Actual remote source/native/strictCPU
+proof, smoke review and full9 policy rows remain required. Task evidence root:
+`result/preparation/modelnet_trajectory_study_20261025/`; own remote and Drive
+roots follow the contract. Setup logs, owner state and prior failure remain
+preserved. Any source/data/checkpoint/state/purity/receipt mismatch stops the
+affected phase; no teardown authorization exists. Latest study state
+supersedes the earlier pending-approval execution entry, retaining its history.
