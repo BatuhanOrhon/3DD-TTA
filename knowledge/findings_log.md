@@ -6027,3 +6027,53 @@ raw+physical receipts, validate same-run states/IDs/labels/source/native hashes,
 score policies and archive actual Drive/local SHA. Runtime/monitor stay live;
 peer state untouched and no teardown authorization exists. Any affected guard
 mismatch invalidates acceptance; single-seed limits remain.
+
+
+### 2026-10-25 15:09 UTC — Agent A ModelNet three-head readouts accepted
+
+[Run/Artifact/Code/Inference/Open] Full phase20261025T133443Z_mntraj_all15
+completes all15/s5/seed0/2468 IDs/40classes on same owned A100.540 shared
+batches,111060 head-input events,444240 candidate predictions; all9 policies
+validate. Terminal/minimum entropy/equal probability mean (%):
+DGCNN63.814154511/64.219340897/64.548892491;
+CurveNet65.170178282/65.829281469/66.083198271;
+PointNeXt66.329011345/66.820637493/67.215018909.
+Mean own-terminal gains+0.734737979/+0.913019989/+0.886007563pp;
+entropy+0.405186386/+0.659103187/+0.491626148pp. All3 means highest of
+registered policies in this seed, but below separate original3DD by1.037277/
+0.988655/1.077796pp. No universal spectral superiority or1–2pp target claim.
+
+Mean improves/worsens/ties11/3/1,11/3/1,12/3/0 corruptions; PointNeXt
+Background loses3.606159pp (entropy loses4.740681pp). Preserve heterogeneous
+and negative rows. New terminals are compared within their own run; old
+terminal differences and DGCNN13+2 provenance stay historical, not rewritten.
+No tuning/logit mean/extra seeds/early stop/Scan/Point-MAE/source/original reruns.
+
+Manifest2326e8e0…e3a3a8/snapshota0471733…7979015/implementation665ed07;
+actual source, pinned4 native/no-build, CPU-GPU classifier hashes, frozen
+classifier/LION states, RNG/buffers/geometry, all IDs/labels/candidates/CSV
+counts and all raw/member hashes pass. Physical1620 batch/45 corruption/
+3 final Drive receipts verify. Accepted1696973byte binder SHA
+ff6837972ed38043d98430630af78342d2b26b8d323e61624aba08488a245308,
+1673 member/path/CRC checks, actual Drive/local roundtrip pass. Raw3 ZIP
+SHA1710fbe3…12996/6bce346c…b1340/8c8309f7…f8314 are in canonical
+`result/modelnet40_c/gsd_inspired_latent_spectral_guidance/`; all derived
+analysis/receipts in`result/preparation/modelnet_trajectory_study_20261025/`.
+Own Drive root is`MyDrive/thesis/result/modelnet_trajectory_study_20261025/`.
+
+Full job86.943923min, smoke+full87.885149min, peak35.383849GiB;
+setup/user wait/analysis/runtime lifetime excluded, no measured speedup.
+Explicit user duration-limit removal preserved original approval/ledger.
+Own runtime/endpoint and sole25910/TTY30907 remain live; GPU job ended.
+Peer state untouched; no teardown authorization. Requested Agent A scope is
+complete; remaining seeds, spectral attribution, logit mean and Agent B
+studies stay separate. Update the study/README/open questions with complete
+accepted results; changed state/data/source/hash evidence would invalidate
+acceptance, and new seeds may overturn broader benefit claims.
+
+[Run/Artifact] Final report/source/operator/knowledge bundle7242077bytes SHA
+004f7999933d25a60e109bbe2521ccba2aaf279d9894a4adddfbf46c198f4227,
+34member/CRC/path and actualDrive-localSHA pass. Own Drive backup is under
+`preparation/20261025T151222Z_completed_report/`; local completed-report
+roundtrip and receipt remain in the Agent A preparation root. This supplements
+the accepted raw/analysis evidence without rewriting any raw artifact.

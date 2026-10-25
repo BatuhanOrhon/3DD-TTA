@@ -1,5 +1,21 @@
 # Thesis Scope and Research Questions
 
+## Agent A requested ModelNet readouts completed — 2026-10-25
+
+[Run/Inference/Open] Agent A now completes the six formerly missing ModelNet
+minimum-entropy/probability-mean rows with three same-run terminals, all15/s5/
+seed0/2468 IDs/40classes. Probability mean gives DGCNN64.5489%,CurveNet
+66.0832%,PointNeXt67.2150% (+0.7347/+0.9130/+0.8860pp versus own terminals).
+Entropy also improves each own terminal; probability mean is highest among
+fixed readouts in this seed. Means remain0.9887–1.0778pp below separate
+original3DD; no isolated spectral/seed-stability/1–2pp claim. Background and
+other negative per-corruption rows remain visible. Full source/state/ID/
+label/native/physical Drive-local SHA checks pass. No requested Agent A row
+remains missing; Agent B and seed/component studies are unchanged. Runtime/
+monitor are preserved live without teardown authorization.
+[Exact9 values, immutable artifacts and caveats](modelnet_multibackbone_trajectory_handoff_20261025.md).
+
+
 ## Parallel component-study authorization — 2026-10-25
 
 [User report/Decision] A second future agent may investigate Chamfer-only,

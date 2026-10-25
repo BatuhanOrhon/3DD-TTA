@@ -1,10 +1,14 @@
-**[User report/Run/Code/Open] 2026-10-25 13:36 UTC — Agent A full ModelNet observation running:**
-User explicitly removes elapsed-time limit for the unchanged scope. Same owned
-A100/monitor starts full all15 at13:34:43UTC;3 frozen heads,37020 inputs/head,
-terminal/minimum entropy/probability mean. Smoke physical acceptance and actual
-Drive/local SHA pass; no final full accuracy yet. Source/protocol stay fixed;
-peer state is untouched. The earlier150min duration gate is superseded.
-[Live phase, authorization and continuation](modelnet_multibackbone_trajectory_handoff_20261025.md).
+**[Run/Artifact] 2026-10-25 15:09 UTC — Agent A ModelNet readouts complete:**
+All15/s5/seed0 three-head trace validates540 shared batches/444240 candidate
+predictions and9 policy rows. Terminal→entropy→probability mean (%):
+DGCNN63.8142→64.2193→64.5489;CurveNet65.1702→65.8293→66.0832;
+PointNeXt66.3290→66.8206→67.2150. Mean gains+0.7347/+0.9130/+0.8860pp
+versus own terminals; each remains below separate original3DD. One seed only.
+All1620 batch/45 corruption/3 final physical Drive receipts, source/state/ID/
+label/native guards and actual Drive/local SHA pass. Full job86.9439min,
+smoke+full87.8851min, peak35.3838GiB. Own A100/monitor remain live; no teardown
+permission. No requested Agent A row remains missing; Agent B is unchanged.
+[Complete results, raw identities, limits and lifecycle](modelnet_multibackbone_trajectory_handoff_20261025.md).
 
 **[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**
 Agent A completes the locked ModelNet three-head readouts; Agent B studies

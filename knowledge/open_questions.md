@@ -31,11 +31,12 @@ method/eta/gamma/p development is in scope after fixed matched controls.
 No GPU phase is activated by preparing these instructions. The prior same-flow
 spectral-off question is now assigned to B, but remains unexecuted.
 
-## 2026-10-25 — next ModelNet three-head trajectory scope
+## 2026-10-25 — ModelNet three-head trajectory scope completed
 
-[User report/Open] Next session: obtain the missing minimum-entropy and equal
-probability-mean rows for DGCNN, CurveNet and PointNeXt on ModelNet40-C.
-This handoff documents the next scope; no research execution in this turn.
+[Run/Artifact] Agent A completed all9 same-run policy rows and their full
+state/source/ID/label/physical Drive-local SHA validation. Historical planning
+and duration-gate notes below are superseded by the accepted result in the
+[study record](modelnet_multibackbone_trajectory_handoff_20261025.md).
 
 - [x] Reconcile accepted coverage: existing ModelNet three-head archives contain
   terminal logits but no candidate logits; Point-MAE ModelNet and all four
@@ -53,14 +54,21 @@ This handoff documents the next scope; no research execution in this turn.
   conservative151.70min projection stops all15 pending an explicit160min
   amendment. Superseded: user explicitly removed the duration limit; full
   all15 phase20261025T133443Z is running from13:34:43UTC, results pending.
-- [ ] Obtain9 same-run policy rows (3 terminal controls+6 missing readouts),
+- [x] Obtain9 same-run policy rows (3 terminal controls+6 missing readouts),
   full15/2468 IDs/severity5/seed0, actual Drive/local SHA and independent
   count/state/source/label checks. Preserve all old attempts and limitations.
+  Completed: probability mean improves own terminals+0.734738/+0.913020/
+  +0.886008pp (DGCNN/CurveNet/PointNeXt); all physical receipts and SHA pass.
+  One seed; own A100/monitor preserved live. No requested readout remains.
 
 [Next-agent knowledge/code/asset references](modelnet_multibackbone_trajectory_handoff_20261025.md).
 Logit averaging remains a separate open question, not part of this GPU scope.
 
 ## 2026-10-25 — logit mean versus probability mean
+
+[Run/Open] Agent A now also saves complete three-head ModelNet40-class
+candidate logits. Reuse those immutable traces for a separately requested
+offline comparison; no logit-mean policy was computed in this task.
 
 [User report/Open] **Could averaging classifier logits across the same GSD
 diffusion checkpoints yield higher accuracy than averaging class probabilities?**

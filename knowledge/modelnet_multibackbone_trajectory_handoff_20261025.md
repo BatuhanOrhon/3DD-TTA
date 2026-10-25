@@ -1,8 +1,144 @@
-# Next-session handoff: ModelNet three-head GSD trajectory readouts
+# ModelNet three-head GSD trajectory readouts — completed study
 
 Date:2026-10-25. Evidence: [User report], [Code], [Run], [Open], [Inference].
 Audit base:`gsd-multibackbone-study@7017fa8` (inspect actual HEAD/status on resume).
-Status: **all15 three-head ModelNet observation running after explicit removal of the duration limit; final results pending**.
+Status: **requested9 policy rows complete and verified; owned runtime/monitor preserved live**.
+
+## Accepted full results — 2026-10-25 15:09 UTC
+
+[Run/Artifact/Code] **Agent A's requested scope is complete.** Full phase
+`20261025T133443Z_mntraj_all15` completed without interruption on the owned
+A100 runtime. All15 severity5 corruptions,seed0,2468 original IDs each,
+40 classes,3 frozen heads:540 shared batches,111060 head-input events and
+444240 candidate predictions. These repeat2468 original objects across
+corruptions/heads/candidates; they are not independent sample counts.
+
+| Backbone | Same-run terminal % | Minimum entropy % | Probability mean % | Entropy Δpp | Mean Δpp |
+|---|---:|---:|---:|---:|---:|
+| DGCNN | 63.814155 | 64.219341 | 64.548892 | +0.405186 | +0.734738 |
+| CurveNet | 65.170178 | 65.829281 | 66.083198 | +0.659103 | +0.913020 |
+| PointNeXt | 66.329011 | 66.820637 | 67.215019 | +0.491626 | +0.886008 |
+
+[Run/Inference] Both fixed readouts improve their own terminal for all3 heads
+in this seed. Probability mean ranks highest of the3 registered policies,
+with +0.734738/+0.913020/+0.886008pp (DGCNN/CurveNet/PointNeXt). It corrects/
+harms1352/1080,1312/974 and1304/976 events. Minimum entropy gives
++0.405186/+0.659103/+0.491626pp, correcting/harming1417/1267,1410/1166 and
+1367/1185 events. No target label fitted a rule, threshold or hyperparameter.
+These gains do not establish the prospective1–2pp target or seed stability.
+
+[Run] Probability mean improves/worsens/ties11/3/1,11/3/1 and12/3/0
+corruption rows. Minimum entropy has8/7/0,9/5/1 and12/3/0. Mean's largest
+loss is DGCNN Occlusion−0.931929pp, CurveNet Background−0.931929pp,
+PointNeXt Background−3.606159pp. Minimum entropy loses4.740681pp on
+PointNeXt Background. Preserve this heterogeneity; no corruption-specific
+readout/horizon tuning or universal per-corruption win is inferred.
+
+[Run/Inference] Against historical separately run original3DD, the new means
+remain lower by1.037277/0.988655/1.077796pp. This is a descriptive whole-policy
+comparison; original changes batch/horizon/style/scheduler and does not
+isolate spectral contribution. Source/paper checkpoint gaps remain. New
+terminals differ from historical GSD terminals by−0.018909/−0.016207/
+−0.143166pp; equal seed does not establish cross-process identity. All readout
+deltas above use the new same-run terminal. The new DGCNN trace is complete
+and has its own final LION proof; it does not repair/relabel the historical
+13+2 composite or its missing old13 final state.
+
+### Exact protocol and validation
+
+[Code/Run] Locked combined GSD B70/M800/beta2/spectral1.17/chamfer1,
+eta(local)=gamma(style)=.01,p=.95,total100,normal10/Background30,
+raw/eval LION/EMAoff,updated style,DDIM finalalphaFalse,legacy graph/isolate
+policy. Clean probes3/5/8 or8/15/23 plus distinct ordinary terminal.
+Temperature1, class-normalized entropy with terminal-first/earliest-probe ties;
+equal probability mean. One head-independent diffusion trajectory and one
+decode per candidate are shared across3 isolated frozen heads. ModelNet's
+rotate-back/output-normalization path is retained. No logit mean, entropy
+weighting, tuning, extra seed, spectral-off arm, early stop, source/original
+rerun, Point-MAE or Scan full run was added.
+
+[Run] Independent raw/member SHA/CRC/path checks, all IDs/counts/labels,
+B70/last18 remainder,40-class finite candidates, terminal agreement,
+CPU/GPU classifier hashes, frozen classifier/LION states, shared geometry/
+trajectory, probe buffers/RNG/live inputs, actual native no-build bindings and
+source snapshot all pass. Physical Drive audit verifies1620 batch receipts,
+45 corruption receipts and3 final model receipts; actual Drive/local raw and
+analysis ZIP identities match. Accepted binder1696973bytes SHA
+`ff6837972ed38043d98430630af78342d2b26b8d323e61624aba08488a245308`,
+1673 safe/CRC/member-verified files. Standard seven-file inference schemas
+are retained; full candidate logits are stored in batch shards.
+
+### Source, artifacts and measured cost
+
+[Code/Run] Implementation665ed07, source snapshot
+`a04717337d6732b74bef18a956381f6979a83f208ca248dd2a113aeab7979015`,
+manifest`2326e8e07f30bd46f5e29a7d9d169b45fa71d5a3aac7fd9c5ac4fb3f56e3a3a8`.
+Actual remote base remains`dev@a458cd46bba1288a3f41302548bc777700cbc7d4`;
+the pinned snapshot/overlay identifies executed code separately. Four legacy
+native binaries are pinned, and fresh setup natives were preserved before
+restoration. Exact checkpoints/data/source identities are in the sealed
+manifest and raw configs. Code/CPU gates:62 focused/332 full tests and an
+independent read-only review; actual sealed-source strict CPU/native proof
+and1680-candidate GPU smoke precede full launch.
+
+| Backbone | Raw local ZIP under `result/modelnet40_c/gsd_inspired_latent_spectral_guidance/` | Bytes | SHA-256 |
+|---|---|---:|---|
+| DGCNN | `20261025-133445_mntraj-dgcnn-seed0.zip` | 44709995 | `1710fbe36deaffa42fa3a6bb495ea9cbeca6c9ab77bab6486b162c611ca12996` |
+| CurveNet | `20261025-133446_mntraj-curvenet-seed0.zip` | 43734611 | `6bce346cc41de5045b3fb0ef378aa20be1db8bfecd0ea952e52e82d6e62b1340` |
+| PointNeXt | `20261025-133447_mntraj-pointnext-seed0.zip` | 43108376 | `8c8309f735ef02a094e4a3052a390446567537c908bb7ec5b9ef4539b23f8314` |
+
+Local preparation root:
+`result/preparation/modelnet_trajectory_study_20261025/`.
+Read `all15_analysis/{validation.json,macro.csv,per_corruption.csv}`,
+`all15_local_acceptance.json`, `all15_final_local_acceptance.json`,
+`full_readout_findings.json`, `gpu_all15_receipt.json` and
+`all15_accepted_evidence_drive_roundtrip.zip`. Raw CSV accuracies use fractions;
+derived `accuracy_pct` is percent, deltas are absolute percentage points.
+
+Drive root:`MyDrive/thesis/result/modelnet_trajectory_study_20261025/`.
+Raw finals are under`runs/modelnet40_c/gsd_inspired_latent_spectral_guidance/`
+and each run ID's`final.zip`. Accepted binder is under
+`preparation/mntraj_all15_accepted_20261025T150536Z/`.
+
+[Run] Full job wall time=86.943923min; smoke+full=87.885149min.
+Whole-process peak allocated memory=35.383849GiB. These include this phase's
+job overhead and probe work; they exclude setup, user authorization wait,
+later CPU analysis and runtime lifetime/billing. No matched speedup or early-
+stop latency was measured. User explicitly removed the earlier150min duration
+cap with “Onaylıyorum ne kadar sürdüğü önemli değil başlat”; original approval,
+stopped duration estimate and ledger are preserved. No research scope changed.
+
+### Completed report backup
+
+[Run/Artifact] The final report/source/operator/analysis/knowledge evidence
+bundle is7242077bytes, SHA
+`004f7999933d25a60e109bbe2521ccba2aaf279d9894a4adddfbf46c198f4227`.
+Actual Drive/local SHA, CRC, safe paths and34 member identities pass.
+Local:`result/preparation/modelnet_trajectory_study_20261025/completed_report_drive_roundtrip.zip`.
+Drive:`MyDrive/thesis/result/modelnet_trajectory_study_20261025/preparation/20261025T151222Z_completed_report/mntraj_completed_report.zip`.
+The bundle contains the sealed executed source snapshot and the accepted
+physical-receipt binder; raw3 model ZIPs remain separately immutable.
+
+### Lifecycle, remaining uncertainty and next action
+
+[Run/User report/Open] Own runtime`tta-mn-trajectory-a100-20261025-r1`,
+endpoint`gpu-a100-hm-euw4a0-axkeusdcat4y`, sole monitorPID25910/TTY30907,
+remains live. GPU worker and phase have ended; archive/record work completes
+in this same runtime. Peer runtime/worktree/Drive files are untouched. No
+explicit task-completion plus teardown authorization has been given; preserve
+own runtime/monitor. Operational owner/counters are in`runtime_owner.json` and
+`all15_live_progress.json`. Controllercell153 is finished; do not rerun it.
+
+[Open/Decision] No requested readout row remains missing. Additional seeds,
+same-host spectral attribution and broader method/tuning experiments remain
+separate future work (Agent B's study is unchanged). Existing saved logits
+support a separately requested offline logit-mean comparison without new
+diffusion. One seed, prior benchmark exposure and head-specific source gaps
+limit generalization/novelty claims. Changed/missing IDs, labels, checkpoints,
+source/native state or receipt hashes would invalidate affected acceptance;
+replication or same-host component controls may overturn broader hypotheses.
+The historical records below remain dated history, superseded for current
+Agent A status by this completed result.
 
 ## Live full observation — 2026-10-25 13:36 UTC
 
