@@ -1,0 +1,21 @@
+{
+  "state": {
+    "status": "complete",
+    "session": "tta-guidance-components-a100-20261025-r1",
+    "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+    "research_gpu_launched": false,
+    "strict_loads": 8,
+    "cuda_initialized": false,
+    "elapsed_seconds": 22.314818077999917
+  },
+  "archive": {
+    "bytes": 24936,
+    "sha256": "2ee054d6ed9f5520177cf1e378749a7ebd1bda7e52799e7ec72c12d8f2687ffb",
+    "local_path": "/content/studies/guidance-components/cpu_preflight_20261025T130754325702Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/cpu_preflight_20261025T130754325702Z/cpu_preflight_evidence.zip"
+  },
+  "report_identity": {
+    "bytes": 19281,
+    "sha256": "c5faa5b9d9c9e0a9ea8ade28a0f3074229cc75770e56009f22950cc72fe2bb93"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "hard_active_phase_cap_seconds": 3300,
+  "limitations": "Timing projection, not speedup or accuracy evidence. Only two corruption timing probes. Setup/billing/CPU analysis time is separate. Hard cap remains55min; an overrun stops with partial evidence.",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "method": "Fixed startup lower bound from the last frozen-head constructor timestamp; scale all residual overhead by15/2; add10s/case for extra input reads; retain separate20% uncertainty margin.",
+  "original_linear_startup_projection_seconds": 4071.9959599061867,
+  "per_job": [
+    {
+      "arm": "combined",
+      "background_reconstruction_seconds": 16.203904545000114,
+      "dataset": "modelnet40_c",
+      "fixed_startup_lower_bound_seconds": 19.6729,
+      "normal_reconstruction_seconds": 10.019422823999776,
+      "projected_development_seconds": 340.60406861599995,
+      "residual_smoke_overhead_seconds": 20.59404593800039,
+      "smoke_job_seconds": 66.49027330700028,
+      "upper_with_20pct_margin_seconds": 408.72488233919995
+    },
+    {
+      "arm": "chamfer",
+      "background_reconstruction_seconds": 12.76225766800053,
+      "dataset": "modelnet40_c",
+      "fixed_startup_lower_bound_seconds": 19.731707,
+      "normal_reconstruction_seconds": 6.873132660999545,
+      "projected_development_seconds": 292.72342527449825,
+      "residual_smoke_overhead_seconds": 20.534080447000548,
+      "smoke_job_seconds": 59.90117777600062,
+      "upper_with_20pct_margin_seconds": 351.26811032939787
+    },
+    {
+      "arm": "spectral",
+      "background_reconstruction_seconds": 15.98964967899974,
+      "dataset": "modelnet40_c",
+      "fixed_startup_lower_bound_seconds": 19.7572,
+      "normal_reconstruction_seconds": 9.936635778999516,
+      "projected_development_seconds": 338.63491086500164,
+      "residual_smoke_overhead_seconds": 20.50335470400115,
+      "smoke_job_seconds": 66.18684016200041,
+      "upper_with_20pct_margin_seconds": 406.36189303800194
+    },
+    {
+      "arm": "unguided",
+      "background_reconstruction_seconds": 7.182198203999178,
+      "dataset": "modelnet40_c",
+      "fixed_startup_lower_bound_seconds": 19.685462,
+      "normal_reconstruction_seconds": 4.962375150999833,
+      "projected_development_seconds": 259.66144395050253,
+      "residual_smoke_overhead_seconds": 20.44273755100076,
+      "smoke_job_seconds": 52.27277290599977,
+      "upper_with_20pct_margin_seconds": 311.593732740603
+    },
+    {
+      "arm": "combined",
+      "background_reconstruction_seconds": 16.07916130600006,
+      "dataset": "scanobjectnn_c",
+      "fixed_startup_lower_bound_seconds": 19.259696,
+      "normal_reconstruction_seconds": 10.035091896000267,
+      "projected_development_seconds": 338.7134902450034,
+      "residual_smoke_overhead_seconds": 20.384446185999952,
+      "smoke_job_seconds": 65.75839538800028,
+      "upper_with_20pct_margin_seconds": 406.4561882940041
+    },
+    {
+      "arm": "chamfer",
+      "background_reconstruction_seconds": 12.751776789999894,
+      "dataset": "scanobjectnn_c",
+      "fixed_startup_lower_bound_seconds": 19.257944,
+      "normal_reconstruction_seconds": 6.897031126999536,
+      "projected_development_seconds": 291.55223427049685,
+      "residual_smoke_overhead_seconds": 20.397877027000458,
+      "smoke_job_seconds": 59.30462894399989,
+      "upper_with_20pct_margin_seconds": 349.86268112459624
+    },
+    {
+      "arm": "spectral",
+      "background_reconstruction_seconds": 15.923564237000392,
+      "dataset": "scanobjectnn_c",
+      "fixed_startup_lower_bound_seconds": 19.283875,
+      "normal_reconstruction_seconds": 9.948291690999213,
+      "projected_development_seconds": 337.2655980059891,
+      "residual_smoke_overhead_seconds": 20.370943345999958,
+      "smoke_job_seconds": 65.52667427399956,
+      "upper_with_20pct_margin_seconds": 404.7187176071869
+    },
+    {
+      "arm": "unguided",
+      "background_reconstruction_seconds": 7.206020229000387,
+      "dataset": "scanobjectnn_c",
+      "fixed_startup_lower_bound_seconds": 19.310341,
+      "normal_reconstruction_seconds": 5.006564827999682,
+      "projected_development_seconds": 260.4404828609971,
+      "residual_smoke_overhead_seconds": 20.51096187200016,
+      "smoke_job_seconds": 52.03388792900023,
+      "upper_with_20pct_margin_seconds": 312.5285794331965
+    }
+  ],
+  "projected_development_seconds": 2459.595654088489,
+  "projected_whole_active_phase_seconds": 2966.326265893489,
+  "raw_smoke_evidence": {
+    "bytes": 358337730,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/smoke_20261025T131125171211Z/smoke_phase_evidence.zip",
+    "local_path": "/content/studies/guidance-components/smoke_20261025T131125171211Z.zip",
+    "sha256": "2d05389f514d766f5d8cbbb9b590231ccccb050d41e78e6c73fe02b8dc09e2a1"
+  },
+  "smoke_spent_seconds": 506.7306118050001,
+  "status": "CPU_derived_from_accepted_smoke",
+  "upper_whole_with_20pct_development_margin_seconds": 3458.245396711187
+}

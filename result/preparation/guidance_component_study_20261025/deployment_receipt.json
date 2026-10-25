@@ -1,0 +1,66 @@
+{
+  "state": {
+    "status": "complete",
+    "session": "tta-guidance-components-a100-20261025-r1",
+    "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+    "research_gpu_launched": false,
+    "native_restore": {
+      "_pvcnn_backend": {
+        "target": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+        "before": {
+          "bytes": 685248,
+          "sha256": "bca21fef91e9832c7f3212524cda6cd8626eb0f18e6a3dcfc6f8573a6b24e566"
+        },
+        "pinned": {
+          "bytes": 685248,
+          "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0"
+        },
+        "preserved_adjacent_path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so.before_agent_b_deployment_20261025T130602852549Z"
+      },
+      "chamfer_3D": {
+        "target": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+        "before": {
+          "bytes": 1144176,
+          "sha256": "e6c6d35abccbb7fd7f609bb8d176f5965032b8042f86facde404a8c38e3e273c"
+        },
+        "pinned": {
+          "bytes": 1144176,
+          "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+        },
+        "preserved_adjacent_path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so.before_agent_b_deployment_20261025T130602852549Z"
+      },
+      "emd_ext": {
+        "target": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+        "before": {
+          "bytes": 559272,
+          "sha256": "a6bb6ae7b7966d4938f30bba9d1babd2a169f559c756aa58bffea7fbd463180f"
+        },
+        "pinned": {
+          "bytes": 559272,
+          "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154"
+        },
+        "preserved_adjacent_path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so.before_agent_b_deployment_20261025T130602852549Z"
+      },
+      "knn": {
+        "target": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+        "before": {
+          "bytes": 218200,
+          "sha256": "87839db3ba03ab32b9613588aa0f97ff8ddcf3c96d272ece9c7ba07b900b31b4"
+        },
+        "pinned": {
+          "bytes": 218200,
+          "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+        },
+        "preserved_adjacent_path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so.before_agent_b_deployment_20261025T130602852549Z"
+      }
+    },
+    "declared_files": 637,
+    "source_snapshot_sha256": "f5bca11a543fd5463ef5a09b26cf216b2bd049523d61a97da24e184e5576d0c6"
+  },
+  "archive": {
+    "bytes": 1421359,
+    "sha256": "07d769d35c38d9af490776a795bb699d24e0d88224165994649440a2eac668e7",
+    "local_path": "/content/studies/guidance-components/deployment_20261025T130602852549Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/deployment_20261025T130602852549Z/deployment_evidence.zip"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "accepted",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "validation": {
+    "bytes": 1283,
+    "sha256": "e4da9bb7b5a3be270d05c00919978d492a64630b141df869fe5471cb17757d35"
+  },
+  "timing_projection": {
+    "bytes": 5067,
+    "sha256": "5a07eaa5acc6f18f4eeb8c8caad8245cfddc1e462a84eee896d0f12fe1609b5b"
+  },
+  "raw_smoke_evidence": {
+    "bytes": 358337730,
+    "sha256": "2d05389f514d766f5d8cbbb9b590231ccccb050d41e78e6c73fe02b8dc09e2a1",
+    "local_path": "/content/studies/guidance-components/smoke_20261025T131125171211Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/smoke_20261025T131125171211Z/smoke_phase_evidence.zip"
+  },
+  "raw_head_archives": 32,
+  "candidate_predictions": 17920,
+  "scope": "smoke accepted only; same source/protocol; fixed all15/70-ID development within existing3300s cap; single-seed exploratory",
+  "timing_review": "Independent arithmetic agrees; fixed constructor startup counted once; preserve original projection; uncertainty margin is not a guarantee"
+}

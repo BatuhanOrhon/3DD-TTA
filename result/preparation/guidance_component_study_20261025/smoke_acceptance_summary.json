@@ -1,0 +1,288 @@
+{
+  "status": "accepted_technical_smoke",
+  "n_raw_head_archives": 32,
+  "n_candidate_predictions": 17920,
+  "n_terminal_events": 4480,
+  "corruptions": [
+    "gaussian",
+    "background"
+  ],
+  "selected_ids_per_dataset": 70,
+  "seed": 0,
+  "accuracy_scope": "smoke only; no benchmark claim",
+  "raw_inputs": [
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131126_guidance-components-combined-curvenet-seed0.zip",
+      "bytes": 5632449,
+      "sha256": "fc213d9a29f87712aaf833ed90d74ccf56fadcc4f9d1f5642587477daf330fc9"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131125_guidance-components-combined-dgcnn-seed0.zip",
+      "bytes": 5635931,
+      "sha256": "193195182dd6bee2d70f79eaea7e5edd0865e89902d68da6d9483db747fd475f"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131127_guidance-components-combined-pointmae-seed0.zip",
+      "bytes": 5638583,
+      "sha256": "7189b4208c215f9ce287a747ae2d81c569dc51a1967d25ff0bf2198f45feb4bf"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131126_guidance-components-combined-pointnext-seed0.zip",
+      "bytes": 5630290,
+      "sha256": "f7b67d27ef078d9235f763ce7bf7b013a5b2185fd209d7701bca8aa5f7c35af0"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131234_guidance-components-chamfer-pointmae-seed0.zip",
+      "bytes": 5638492,
+      "sha256": "8a37a8057680956fa69b305ce3b5bfb343d0e03577dceaeb75de6b61c81386a3"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131232_guidance-components-chamfer-curvenet-seed0.zip",
+      "bytes": 5632228,
+      "sha256": "50ade45189b260af57c3b8823d6fcd14e709dd36dc366ad6182d03369b3ea938"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131233_guidance-components-chamfer-pointnext-seed0.zip",
+      "bytes": 5630357,
+      "sha256": "c70e5fa36e81485bd4df432a61318ebd187d555542d8788935f6c4be95b97ae6"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131231_guidance-components-chamfer-dgcnn-seed0.zip",
+      "bytes": 5635558,
+      "sha256": "dd28e02399800575e6ec16eaca199fff0d8e364fe1f90e381edade1bb0dae8a2"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131332_guidance-components-spectral-curvenet-seed0.zip",
+      "bytes": 5632330,
+      "sha256": "990bc7879ac91aa54cb380db346bbd7af55b5b7a4238a37f59459ea261cffba5"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131334_guidance-components-spectral-pointmae-seed0.zip",
+      "bytes": 5637908,
+      "sha256": "8fe5c3c019ab32dbaca9c4eebf57fcd1f5c0a869abcda755576c55bfdcd64562"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131333_guidance-components-spectral-pointnext-seed0.zip",
+      "bytes": 5630248,
+      "sha256": "c185d1b11e739dca225acfa4881efbfecec818ac8218c5cf69b7b70ede52aeee"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131331_guidance-components-spectral-dgcnn-seed0.zip",
+      "bytes": 5635778,
+      "sha256": "412400ed1e6d103a870f37a2df179d4f53bee5a334b4baafc1e18103d59616bf"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131440_guidance-components-unguided-pointmae-seed0.zip",
+      "bytes": 5637683,
+      "sha256": "87a94b4cf7b0b53fee3ee8c613b81d08b251831b928d5ff34338b5af8436a68d"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131439_guidance-components-unguided-pointnext-seed0.zip",
+      "bytes": 5630056,
+      "sha256": "46ec3ad4527bfd2bbab70ef8730030a5123ab235c147f64cb9dabc279a6f259a"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131437_guidance-components-unguided-dgcnn-seed0.zip",
+      "bytes": 5635475,
+      "sha256": "c0cf4e3231f1c92abfb338dbe20bb94f79d40fb4fb9aaa5c1bd0fbef3c030cdd"
+    },
+    {
+      "path": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-131438_guidance-components-unguided-curvenet-seed0.zip",
+      "bytes": 5631980,
+      "sha256": "2d022b0ababb5b282ec287154577ccc450e89102c6924f781fbad37feca5bed3"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131531_guidance-components-combined-curvenet-seed0.zip",
+      "bytes": 5560992,
+      "sha256": "372043d43a29c646503ee8f4f984ef24743d972686fda0bd7e6bdd490443254f"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131531_guidance-components-combined-pointnext-seed0.zip",
+      "bytes": 5559023,
+      "sha256": "d67020c81d228bb81bd661e649b729b9263f88ef2f25e23b31ff15d1f7e42ddc"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131532_guidance-components-combined-pointmae-seed0.zip",
+      "bytes": 5560618,
+      "sha256": "1fe346eb82f7c9b17605a0a9cdfaee502897e8c1ffbf2be49fd3ba73ef8504a6"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131530_guidance-components-combined-dgcnn-seed0.zip",
+      "bytes": 5560786,
+      "sha256": "4b5fc9b3e540bb8f5f56fefc4df6240d16403e541e53a291df684de9cea76bae"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131638_guidance-components-chamfer-pointmae-seed0.zip",
+      "bytes": 5560524,
+      "sha256": "d805c8f2a2bb294f1a0e08f130b11e3da70522ec644ee01583c31f79fa462c51"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131635_guidance-components-chamfer-dgcnn-seed0.zip",
+      "bytes": 5560670,
+      "sha256": "41d011bbe9357560fb68cd7679b75d6d81782587d5c8bc29e23c54d2e5e75e36"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131636_guidance-components-chamfer-curvenet-seed0.zip",
+      "bytes": 5560904,
+      "sha256": "cc9451e47f521a6c47f640de254b04d533f68a39e9106c7aaa3dc0704d2c995f"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131637_guidance-components-chamfer-pointnext-seed0.zip",
+      "bytes": 5558956,
+      "sha256": "27e3d68e3141b001d6938a552d9ebd2eb618995e7ced73c3a8d74ebddca9749b"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131736_guidance-components-spectral-pointnext-seed0.zip",
+      "bytes": 5559067,
+      "sha256": "b9636ff29b9490ceffcd340a759baf97a5087c0239f1568ef5f0aaf9482cb6a3"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131737_guidance-components-spectral-pointmae-seed0.zip",
+      "bytes": 5560633,
+      "sha256": "679da8489c3b6157c88908691c7934cc31a5149d64c21956ea107b0fede712b6"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131736_guidance-components-spectral-curvenet-seed0.zip",
+      "bytes": 5561094,
+      "sha256": "536ef38a25f2a483b0118179f6b4facda6266c2d338bcef9849d555499615060"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131735_guidance-components-spectral-dgcnn-seed0.zip",
+      "bytes": 5560804,
+      "sha256": "cbf97fb5d5f326e4f3fe12ba42709c9fd1740c3a36be477c1bd8cc6e291d6836"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131842_guidance-components-unguided-pointnext-seed0.zip",
+      "bytes": 5558903,
+      "sha256": "aa3ebcefff7a694d65d7201f568f120a990cd43fec629e01057189bb33b9771d"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131841_guidance-components-unguided-curvenet-seed0.zip",
+      "bytes": 5560766,
+      "sha256": "6a4dd36e86b820d3bbe45c51b67164e188aaf4212cd179403618acce28d516dc"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131840_guidance-components-unguided-dgcnn-seed0.zip",
+      "bytes": 5560652,
+      "sha256": "578013df5d92cfb1f4b28aeaad8ed4b9b1f32e27ea9f4bbee0786b1482e4eedb"
+    },
+    {
+      "path": "result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-131843_guidance-components-unguided-pointmae-seed0.zip",
+      "bytes": 5560429,
+      "sha256": "84f807a835e4ba4c3958f2ca4fd5eecdda7d2cda4eba298105afb46b72680c0a"
+    }
+  ],
+  "phase_evidence_sha256": "2d05389f514d766f5d8cbbb9b590231ccccb050d41e78e6c73fe02b8dc09e2a1",
+  "timing_projection": {
+    "hard_active_phase_cap_seconds": 3300,
+    "limitations": "Timing projection, not speedup or accuracy evidence. Only two corruption timing probes. Setup/billing/CPU analysis time is separate. Hard cap remains55min; an overrun stops with partial evidence.",
+    "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+    "method": "Fixed startup lower bound from the last frozen-head constructor timestamp; scale all residual overhead by15/2; add10s/case for extra input reads; retain separate20% uncertainty margin.",
+    "original_linear_startup_projection_seconds": 4071.9959599061867,
+    "per_job": [
+      {
+        "arm": "combined",
+        "background_reconstruction_seconds": 16.203904545000114,
+        "dataset": "modelnet40_c",
+        "fixed_startup_lower_bound_seconds": 19.6729,
+        "normal_reconstruction_seconds": 10.019422823999776,
+        "projected_development_seconds": 340.60406861599995,
+        "residual_smoke_overhead_seconds": 20.59404593800039,
+        "smoke_job_seconds": 66.49027330700028,
+        "upper_with_20pct_margin_seconds": 408.72488233919995
+      },
+      {
+        "arm": "chamfer",
+        "background_reconstruction_seconds": 12.76225766800053,
+        "dataset": "modelnet40_c",
+        "fixed_startup_lower_bound_seconds": 19.731707,
+        "normal_reconstruction_seconds": 6.873132660999545,
+        "projected_development_seconds": 292.72342527449825,
+        "residual_smoke_overhead_seconds": 20.534080447000548,
+        "smoke_job_seconds": 59.90117777600062,
+        "upper_with_20pct_margin_seconds": 351.26811032939787
+      },
+      {
+        "arm": "spectral",
+        "background_reconstruction_seconds": 15.98964967899974,
+        "dataset": "modelnet40_c",
+        "fixed_startup_lower_bound_seconds": 19.7572,
+        "normal_reconstruction_seconds": 9.936635778999516,
+        "projected_development_seconds": 338.63491086500164,
+        "residual_smoke_overhead_seconds": 20.50335470400115,
+        "smoke_job_seconds": 66.18684016200041,
+        "upper_with_20pct_margin_seconds": 406.36189303800194
+      },
+      {
+        "arm": "unguided",
+        "background_reconstruction_seconds": 7.182198203999178,
+        "dataset": "modelnet40_c",
+        "fixed_startup_lower_bound_seconds": 19.685462,
+        "normal_reconstruction_seconds": 4.962375150999833,
+        "projected_development_seconds": 259.66144395050253,
+        "residual_smoke_overhead_seconds": 20.44273755100076,
+        "smoke_job_seconds": 52.27277290599977,
+        "upper_with_20pct_margin_seconds": 311.593732740603
+      },
+      {
+        "arm": "combined",
+        "background_reconstruction_seconds": 16.07916130600006,
+        "dataset": "scanobjectnn_c",
+        "fixed_startup_lower_bound_seconds": 19.259696,
+        "normal_reconstruction_seconds": 10.035091896000267,
+        "projected_development_seconds": 338.7134902450034,
+        "residual_smoke_overhead_seconds": 20.384446185999952,
+        "smoke_job_seconds": 65.75839538800028,
+        "upper_with_20pct_margin_seconds": 406.4561882940041
+      },
+      {
+        "arm": "chamfer",
+        "background_reconstruction_seconds": 12.751776789999894,
+        "dataset": "scanobjectnn_c",
+        "fixed_startup_lower_bound_seconds": 19.257944,
+        "normal_reconstruction_seconds": 6.897031126999536,
+        "projected_development_seconds": 291.55223427049685,
+        "residual_smoke_overhead_seconds": 20.397877027000458,
+        "smoke_job_seconds": 59.30462894399989,
+        "upper_with_20pct_margin_seconds": 349.86268112459624
+      },
+      {
+        "arm": "spectral",
+        "background_reconstruction_seconds": 15.923564237000392,
+        "dataset": "scanobjectnn_c",
+        "fixed_startup_lower_bound_seconds": 19.283875,
+        "normal_reconstruction_seconds": 9.948291690999213,
+        "projected_development_seconds": 337.2655980059891,
+        "residual_smoke_overhead_seconds": 20.370943345999958,
+        "smoke_job_seconds": 65.52667427399956,
+        "upper_with_20pct_margin_seconds": 404.7187176071869
+      },
+      {
+        "arm": "unguided",
+        "background_reconstruction_seconds": 7.206020229000387,
+        "dataset": "scanobjectnn_c",
+        "fixed_startup_lower_bound_seconds": 19.310341,
+        "normal_reconstruction_seconds": 5.006564827999682,
+        "projected_development_seconds": 260.4404828609971,
+        "residual_smoke_overhead_seconds": 20.51096187200016,
+        "smoke_job_seconds": 52.03388792900023,
+        "upper_with_20pct_margin_seconds": 312.5285794331965
+      }
+    ],
+    "projected_development_seconds": 2459.595654088489,
+    "projected_whole_active_phase_seconds": 2966.326265893489,
+    "raw_smoke_evidence": {
+      "bytes": 358337730,
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/smoke_20261025T131125171211Z/smoke_phase_evidence.zip",
+      "local_path": "/content/studies/guidance-components/smoke_20261025T131125171211Z.zip",
+      "sha256": "2d05389f514d766f5d8cbbb9b590231ccccb050d41e78e6c73fe02b8dc09e2a1"
+    },
+    "smoke_spent_seconds": 506.7306118050001,
+    "status": "CPU_derived_from_accepted_smoke",
+    "upper_whole_with_20pct_development_margin_seconds": 3458.245396711187
+  },
+  "derived_acceptance_zip": {
+    "bytes": 19261,
+    "sha256": "a868587767a1943f7e0dec8641ae64e733d7cb56aa11aac51dc0e2682ad998d0"
+  }
+}

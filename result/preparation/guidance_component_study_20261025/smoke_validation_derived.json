@@ -1,0 +1,25 @@
+{
+  "status": "validated",
+  "mode": "smoke",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "evidence": {
+    "bytes": 358337730,
+    "sha256": "2d05389f514d766f5d8cbbb9b590231ccccb050d41e78e6c73fe02b8dc09e2a1",
+    "local_path": "/content/studies/guidance-components/smoke_20261025T131125171211Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/smoke_20261025T131125171211Z/smoke_phase_evidence.zip"
+  },
+  "projected_development_seconds": 2459.595654088489,
+  "spent_seconds": 506.7306118050001,
+  "output": "/content/studies/guidance-components/smoke_20261025T131125171211Z",
+  "independent_smoke_acceptance_required": true,
+  "projection_method": "Fixed startup lower bound from the last frozen-head constructor timestamp; scale all residual overhead by15/2; add10s/case for extra input reads; retain separate20% uncertainty margin.",
+  "timing_projection": {
+    "bytes": 5067,
+    "sha256": "5a07eaa5acc6f18f4eeb8c8caad8245cfddc1e462a84eee896d0f12fe1609b5b"
+  },
+  "superseded_original_validation": {
+    "bytes": 737,
+    "sha256": "bec728b05d57b86e41c3ef96d15ca6cdbda026117d3df28031267f5fe884edf3"
+  },
+  "original_projected_development_seconds": 4071.9959599061867
+}

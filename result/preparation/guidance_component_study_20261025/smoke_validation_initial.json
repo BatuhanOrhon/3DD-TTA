@@ -1,0 +1,15 @@
+{
+  "status": "validated",
+  "mode": "smoke",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "evidence": {
+    "bytes": 358337730,
+    "sha256": "2d05389f514d766f5d8cbbb9b590231ccccb050d41e78e6c73fe02b8dc09e2a1",
+    "local_path": "/content/studies/guidance-components/smoke_20261025T131125171211Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/smoke_20261025T131125171211Z/smoke_phase_evidence.zip"
+  },
+  "projected_development_seconds": 4071.9959599061867,
+  "spent_seconds": 506.7306118050001,
+  "output": "/content/studies/guidance-components/smoke_20261025T131125171211Z",
+  "independent_smoke_acceptance_required": true
+}
