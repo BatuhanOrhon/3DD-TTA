@@ -122,3 +122,17 @@ corruptions and equal case weights: C+S terminal/entropy/probability mean
 S52.3724/54.3495/54.5153%; U52.5765/54.4133/54.6556%.
 The primary metric and already frozen candidate remain all15; this diagnostic
 does not trigger reselection. Table:`local_development_analysis/macro14_without_background.csv`.
+
+
+[Run/Code] Observer dispatch spans independently re-read from64 accepted smoke
++development raw ZIPs agree across four heads and are counted once. Supplemental
+`component_dispatch_costs.csv` contains all16 dataset/arm/stage rows and update
+norms. For development, mean per-dataset summed shared backward+update spans are
+C+S31.5695s, C30.9416s, S31.6770s, U0.1256s; mean graph/eigh spans46.6838s
+C+S and45.3979s S, absent in C/U. Probe spans are about35–36s per15 batches.
+These are unsynchronized host dispatch wall spans, not isolated CUDA event
+timings or an additive GPU decomposition. Terminal-decode spans also contain
+terminal classifier work; the synchronized runner reconstruction and separate
+terminal-head counters remain the cost totals. The shared backward executes
+once/step, not separately per active loss. Fine-grained CUDA profiling and
+standalone-head/B1 deployment latency are unmeasured.

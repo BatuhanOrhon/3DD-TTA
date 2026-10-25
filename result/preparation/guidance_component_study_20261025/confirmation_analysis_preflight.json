@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-25T14:47:17.160602+00:00",
+  "files": {
+    "analyze_frozen_confirmation_local.py": {
+      "bytes": 35014,
+      "sha256": "cea5daa6976195e6ee42898dca753d79e3df49a020557b8fef100ae68f44cf4f"
+    },
+    "collect_confirmation_cache_phase.py": {
+      "bytes": 2977,
+      "sha256": "54cf47cd5f2a3be811eb2c9e9f41e4ef65b22526c4b43cce06d7673ea047c6da"
+    },
+    "summarize_component_dispatch_cost.py": {
+      "bytes": 3325,
+      "sha256": "9136c1d24aa4d3a8a15cf037a3f476182e2f7c746fed9fca3078c41f76f533d1"
+    }
+  },
+  "confirmation_analysis": "CPU self-check and independent review passed; repeated seed cluster, cancellation, macro14 and strictseed tests; root added reviewed source-manifest anchor",
+  "cost_analysis": "Actual64acceptedrawZIPs validated, shared timings andmetrics agree across4heads,16rows countedonce",
+  "cache_collector": "CPU-only derived from successful30cachecollector;90record/perseed/ownedpath/source/receipt byte assertions; actualcollection pending completion",
+  "actual_confirmation_ingestion": "pending; no score inspected"
+}
