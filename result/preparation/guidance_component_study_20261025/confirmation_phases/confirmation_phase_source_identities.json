@@ -1,0 +1,22 @@
+{
+  "deploy_assets_template.py": {
+    "bytes": 14413,
+    "sha256": "89fef5cf42dc27db444c89926bdd3aefac8cb8b14727a747256a515c08ca32d0"
+  },
+  "frozen_confirmation_phase.py": {
+    "bytes": 19249,
+    "sha256": "c2c863fc9f54adfda0f90be4d4a843fb8f5d1470b4d6d73ad1491e642831dd06"
+  },
+  "frozen_confirmation_plan.json": {
+    "bytes": 5928,
+    "sha256": "c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45"
+  },
+  "gpu_components_template.py": {
+    "bytes": 31596,
+    "sha256": "80e441ad2bcfde94d4ea348b0455b5332d6aa0d37bf72eb7658f498f05f4720b"
+  },
+  "preflight_components_cpu.py": {
+    "bytes": 8952,
+    "sha256": "94e3ae0f460335d302c95f548b85e00743eb4bd4ea8bb061d7a8ebc18a354356"
+  }
+}

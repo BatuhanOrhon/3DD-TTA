@@ -5,7 +5,7 @@ C probability mean55.1905% nearly matches C+S entropy55.2024%; no accuracy
 separation is established. Fresh-encode smoke measured24.94% lower shared
 reconstruction time for C; cache-replay development timing is separately labeled.
 Freeze C probability mean with zero tuning; a registered three-seed reserved-ID
-confirmation is prepared, not yet run. Initial research phase34.89min under55min.
+confirmation began14:35UTC in the same owned VM, with all three seeds under one55min cap. Initial research phase34.89min completed under55min.
 Raw Drive/local archive SHA and all30 physical cache files verify. Own A100 and
 monitor remain live. [Results and limitations](guidance_component_development_results_20261025.md).
 

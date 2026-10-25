@@ -106,3 +106,19 @@ Preparation root: `result/preparation/guidance_component_study_20261025/`.
 matched missing Point-MAE Scan source/original rows and calibrated spectral
 search remain separate evidence gaps. No thesis contribution, equivalence or
 universal component-necessity claim follows from this screen.
+
+
+[Run/Open] Confirmation update14:36UTC: the plan-bound controller passed local
+watchdog/process-group/ledger self-checks, independent review and remote Python3.8
+self-check. Physical accepteddevelopment/source ZIPs and original plan hashes
+verify. The whole three-seed phase began14:35UTC through the existing sole
+monitor; first ModelNet C+S heldout batch and four Drive receipts are observed.
+Source manifest SHA`b95170f32c73967dd97b55057e57e9107d037b0ca8b8bd7a2fdcd39ed2337229`.
+This is execution progress, not an accepted confirmation result.
+
+[Run] Supplemental macro14 excludes Background only, retaining all other14
+corruptions and equal case weights: C+S terminal/entropy/probability mean
+54.1964/55.8036/55.5102%; C54.7832/55.5102/55.7526%;
+S52.3724/54.3495/54.5153%; U52.5765/54.4133/54.6556%.
+The primary metric and already frozen candidate remain all15; this diagnostic
+does not trigger reselection. Table:`local_development_analysis/macro14_without_background.csv`.

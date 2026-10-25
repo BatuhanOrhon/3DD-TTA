@@ -1,0 +1,15 @@
+{
+  "status": "CPU_controls_and_independent_review_passed",
+  "utc": "2026-10-25T14:35:29.522184+00:00",
+  "source_manifest_sha256": "b95170f32c73967dd97b55057e57e9107d037b0ca8b8bd7a2fdcd39ed2337229",
+  "frozen_plan_sha256": "c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45",
+  "checks": [
+    "Root unrestricted full GPU helper self-check: watchdog/on_start/SIGTERM/ledger guards passed",
+    "Frozen confirmation self-check local and remote Python3.8 passed",
+    "Five source members identities and Python3.8 AST verified",
+    "Independent source/budget/cache/validation review: no blocker",
+    "Physical accepteddevelopmentZIP and sourceZIP copied to ownDrive and verified before GPU"
+  ],
+  "new_scope": "one three-seed2-arm heldout confirmation phase;3300scap",
+  "core_project_source_changed": false
+}
