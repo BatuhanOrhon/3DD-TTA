@@ -1,0 +1,33 @@
+{
+  "status": "CPU_selfcheck_and_five_actual_registry_contracts_passed",
+  "files": {
+    "sensitivity_campaign_controller.py": {
+      "bytes": 52939,
+      "sha256": "e0244aa907540512727377df7cf341c21320b4e766bf62b541f8a783f86e1f17"
+    },
+    "test_sensitivity_controller.py": {
+      "bytes": 8532,
+      "sha256": "8b45f411e4071f475228c68269d219b28e574969d148a296f39897585b828a8f"
+    }
+  },
+  "checks": [
+    "approval rejection and exact-plan approval",
+    "19800s cumulative ledger retained after missing local copy; foreign plan rejected",
+    "packing reserve and nonfinite/exhausted budget rejected",
+    "14smoke and32development commands;30newGSDjobs+2original",
+    "calibrated weights and unchanged baseline CLI defaults",
+    "fresh smoke vs originalall15 caches and distinctseedconfirmation paths",
+    "frozen18or24job reconstruction; matchedC rates and optionaltunedC deduplication",
+    "physical acceptance hash mutation rejected",
+    "Python3.8 AST",
+    "calibration partial/failure artifacts copied into final stage archive",
+    "per-job caches copied/verified to owned Drive before next job",
+    "five actual-registry integration tests including future-stage20percent-margin and1200sreserve guard"
+  ],
+  "not_executed": [
+    "GPU",
+    "ColabCLI",
+    "actualrawbundleingestion",
+    "actualCPUpreflightreceiptcompatibility"
+  ]
+}

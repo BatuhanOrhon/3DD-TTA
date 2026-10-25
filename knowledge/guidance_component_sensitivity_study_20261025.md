@@ -209,3 +209,58 @@ this campaign and remain unchanged. A new GPU smoke must verify the original
 Point-MAE boundary and selected losses after the whole-campaign approval gate.
 Source/helper hash, gradient/RNG or locked-original-policy mismatches invalidate
 the affected future comparison.
+
+
+## Concrete CPU readiness and approval proposal — 2026-10-25
+
+[Code/Run/Open] Consumer commit`8169271c9058995e8dc128062848a253baa13f10`,
+source ZIP`73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8`,
+manifest`599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef`.
+Recoverable inherited v1 overlay is explicitly dirty relative to Git; the exact
+source ZIP and four-file delta are retained. Original tta.py, graph/native/model
+sources and checkpoint hashes remain unchanged.16actualstrict CPU loads cover
+GSD/original ×2datasets×4heads, including original Point-MAE. No forward orCUDA
+initialization occurred. Actual Drive/local CPU evidence11715bytes SHA256
+`eb7af9e0c8ae2e460f6307b071538a4832e8f9c3c4c3760991dc3553b137cde3` passes.
+54CPUcontracts,12exactdefaultgroups,2calibrationintegrationtests,5controller
+integrationtests/selfchecks and184head-config previews pass.
+
+Registered plan:`result/preparation/guidance_component_sensitivity_20261025/campaign_plan.json`,
+SHA256`4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1`.
+Nominal stages: calibration5min,smoke14min,development111.90min,
+maximumconfirmation120.71min: total4.1934h.20%margin plus1200s packing/retry
+reserve gives5.3654h; one cumulative19800s/5.5h hard cap covers every GPU stage.
+Original180/270s job estimates are provisional until actual smoke; reestimate
+before broader execution and after freezing candidates, preserving the cap.
+The controller stops if spent+1.2*remaining stage estimates+reserve cannot fit.
+Source, native, ID, state, RNG and receipt failures stop and preserve partial
+outputs; no silent new grid or resets. Caches persist after every accepted job.
+
+Actual calibration will also require exact scalar and coefficient-gradient
+legacy parity. Through the native prior, two old-inline backward repetitions
+measure a null floor; helper relativeL2 difference must be≤max(1e-5,3*floor)
+and≤1e-3, with floor≤1e-3. This predeclared repeatability check does not claim
+bitwise native/backbone/decoder/eigenspace equality across processes.
+
+[Open] One comprehensive duration approval was requested for this exact scope;
+no new GPU calibration, smoke or accuracy experiment has run. The CPU-only
+calibration preview uses synthetic in-memory coefficients and cannot authorize
+a GPU launch. Actual coefficients will be derived without labels and sealed.
+Own`tta-guidance-components-a100-20261025-r1`/monitor52794 remain live.
+
+[Paper/Code] Primary attribution was refreshed: original3DD uses selective
+Chamfer guidance with frozen classifier, whereas full GSDTTA includes learned
+spectral shifting and model self-training. These three new loss variants are
+GSD-inspired latent guidance, not implementation of full GSDTTA. Primary sources:
+[3DD-TTA](https://arxiv.org/abs/2411.14495),
+[GSDTTA](https://arxiv.org/abs/2507.18225). This bounds attribution, not accuracy.
+
+
+[Run/Open] Final CPU acceptance: real VM plan/registry/ID/source/16-load receipt
+integration passes, as do controller/calibrator selfchecks under Python3.8.
+The complete5,570,596byte readiness packageSHA256
+`e2af93ccaca4a6415489fb92a19ded2253ca916293fbffbb7e322e64568b7741`
+is physically verified on Drive and after local download, including exact plan
+bytes and ZIPCRC. Independent integration review found no material blocker.
+`readiness_validation.json` records all checks and the next exact action.
+User GPU-duration approval remains pending; no new research GPU executed.

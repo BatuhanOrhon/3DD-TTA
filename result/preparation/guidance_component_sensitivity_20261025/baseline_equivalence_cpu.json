@@ -1,0 +1,20 @@
+{
+  "default_configuration_groups": 12,
+  "default_configurations_exact": true,
+  "gpu_accuracy_evidence": false,
+  "legacy_losses_gradients_exact": true,
+  "old_manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "original_tta_unchanged": true,
+  "python38_syntax": true,
+  "real_gpu_legacy_inline_parity": "required before baseline reuse",
+  "source_hashes": {
+    "scripts/eval_multibackbone_guidance.py": "4c490de0262ca61f8966a5de2e487ba6ceb9e36973960c5d4bbdf0d53d240b46",
+    "spectral_guidance_losses.py": "937c73a00165b0cff0792776dba4c6ba25a66b08e82bf28c399657a3c02381b4",
+    "tests/test_spectral_guidance_losses.py": "0fa48d01a1e7a68e983af42888219d242adb47ce1fee04d5a048fcfce80f77f7",
+    "tta_gsd_v2.py": "71f8f75b07e3317cf55b301801b093b90dd926d077d2db99f0f3cbe291a284a3"
+  },
+  "source_snapshot_captures_loss_helper": true,
+  "status": "passed",
+  "test_modules": 8,
+  "tests_passed": 54
+}

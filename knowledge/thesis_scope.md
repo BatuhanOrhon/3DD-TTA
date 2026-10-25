@@ -1,3 +1,15 @@
+## Further loss/parameter comparison requested — 2026-10-25
+
+[User report/Decision/Open] User reopens Agent B after the bounded fixed study,
+requesting different GSD parameters and several loss calculations to strengthen
+the comparison with Chamfer/original3DD. The scientific question remains
+falsifiable; no universal superiority conclusion is selected in advance.
+[Registered campaign](guidance_component_sensitivity_study_20261025.md): equal6
+configs perC/C+S/S family, label-free scale calibration, original3DD as a distinct
+whole-policy comparator, then new object-disjoint140IDs/dataset/seeds0/1/2.
+CPU preparation is accepted; the >60min whole GPU campaign awaits explicit
+approval, not inherited from the prior short phases. Agent A remains untouched.
+
 # Thesis Scope and Research Questions
 
 ## Parallel component-study authorization — 2026-10-25

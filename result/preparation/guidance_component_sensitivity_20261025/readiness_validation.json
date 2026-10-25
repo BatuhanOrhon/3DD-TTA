@@ -1,0 +1,33 @@
+{
+  "approval_question_sent": true,
+  "checks": {
+    "actual_CPU_CUDA_initialized": false,
+    "actual_CPU_forward_executed": false,
+    "actual_remote_plan_registry_IDs_CPU_receipt_integration": true,
+    "actual_same_VM_CPU_strict_loads": 16,
+    "calibration_integration_tests": 2,
+    "controller_integration_tests": 5,
+    "core_tests": 54,
+    "exact_default_configuration_groups": 12,
+    "head_configurations_previewed": 184,
+    "independent_review": "No material integration blockers",
+    "local_and_remote_selfchecks": true,
+    "readiness_Drive_local_SHA_CRC": true
+  },
+  "hard_campaign_hours": 5.5,
+  "monitor_exec_session_id": 52794,
+  "next_action": "Only after explicitapproval create exactplan-boundROOT/sensitivity_gpu_approval.json, thenmonitorrun_calibrate_phase.py; independentlyaccept before smoke/development/newfreeze/confirmation",
+  "nominal_gpu_hours": 4.193383508897224,
+  "phase_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1",
+  "readiness_archive": {
+    "bytes": 5570596,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_CPU_readiness_20261025T180300706871Z/agent_b_sensitivity_readiness_package.zip",
+    "sha256": "e2af93ccaca4a6415489fb92a19ded2253ca916293fbffbb7e322e64568b7741"
+  },
+  "research_GPU_launched": false,
+  "session": "tta-guidance-components-a100-20261025-r1",
+  "status": "CPU_ready_awaiting_explicit_whole_campaign_GPU_approval",
+  "upper_margin_and_reserve_hours": 5.3653935440100025,
+  "user_GPU_approval_received": false,
+  "utc": "2026-10-25T18:07:27.784338+00:00"
+}

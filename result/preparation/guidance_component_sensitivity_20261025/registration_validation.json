@@ -1,0 +1,42 @@
+{
+  "confirmation_seeds": [
+    0,
+    1,
+    2
+  ],
+  "confirmation_unique_object_clusters": 280,
+  "gpu_approval": "required before any campaign GPU work",
+  "labels_read": false,
+  "maximum_confirmation_jobs": 24,
+  "new_development_dataset_jobs": 30,
+  "new_original_development_dataset_jobs": 2,
+  "original_development_validation": {
+    "bytes": 59041,
+    "sha256": "90c49b36674e65a0dd9fa041265e088a162a5ec48eb0a416dc19e4842c49ca6d"
+  },
+  "original_sets_preserved": true,
+  "registry": {
+    "bytes": 5895,
+    "sha256": "fbc88efdf32bf2d21145e34bdd478f6194e69acc47233808a15fa4b31db87b78"
+  },
+  "reused_baseline_dataset_jobs": 6,
+  "selections": {
+    "modelnet40_c": {
+      "confirmation": {
+        "bytes": 1739,
+        "sha256": "1604ecbe0ba362a0e392d397c83296d8ebc04957564e2e64d23171eae911d3de"
+      },
+      "excluded_previous_objects": 140,
+      "selected_new_objects": 140
+    },
+    "scanobjectnn_c": {
+      "confirmation": {
+        "bytes": 1632,
+        "sha256": "7dbe2e4880723c1b19b8bc89e00ae6a459ff76ea2a3a7e7291a895e80be52a71"
+      },
+      "excluded_previous_objects": 140,
+      "selected_new_objects": 140
+    }
+  },
+  "status": "registered_CPU_only"
+}

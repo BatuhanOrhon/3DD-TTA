@@ -1,0 +1,382 @@
+{
+  "counts": {
+    "development": 32,
+    "smoke": 14
+  },
+  "examples": [
+    {
+      "batch_size": 70,
+      "condition_id": "c-base",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-base",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-base",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-base",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-base",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-base",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-huber-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-huber-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-power-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-power-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 32,
+      "condition_id": "original3dd",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 32,
+      "condition_id": "original3dd",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "smoke"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-step-low",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-step-low",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-step-high",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-step-high",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-eta-low",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-eta-low",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-p80",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-p80",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-p99",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "c-p99",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r100",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r100",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-huber-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-huber-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-power-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-power-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r010-step-low",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "cs-l2-r010-step-low",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-l2-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-l2-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-l2-r100",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-l2-r100",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-huber-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-huber-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-power-r010",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-power-r010",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-l2-r010-step-low",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 70,
+      "condition_id": "s-l2-r010-step-low",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 32,
+      "condition_id": "original3dd",
+      "dataset": "modelnet40_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    },
+    {
+      "batch_size": 32,
+      "condition_id": "original3dd",
+      "dataset": "scanobjectnn_c",
+      "heads": 4,
+      "selected_objects": 70,
+      "stage": "development"
+    }
+  ],
+  "gpu_executed": false,
+  "head_configurations_checked": 184,
+  "plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1",
+  "projected_whole_seconds_with20pct_and_reserve": 19315.416758436008,
+  "spectral_weight_fixture": "SYNTHETIC IN-MEMORY ONLY; no GPU calibration/approval file generated",
+  "status": "passed_CPU_dry_configs_only"
+}

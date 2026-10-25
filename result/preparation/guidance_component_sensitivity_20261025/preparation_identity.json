@@ -1,0 +1,36 @@
+{
+  "manifest": {
+    "bytes": 128349,
+    "sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef"
+  },
+  "overlay": {
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 44412,
+      "sha256": "4c490de0262ca61f8966a5de2e487ba6ceb9e36973960c5d4bbdf0d53d240b46"
+    },
+    "spectral_guidance_losses.py": {
+      "bytes": 1452,
+      "sha256": "937c73a00165b0cff0792776dba4c6ba25a66b08e82bf28c399657a3c02381b4"
+    },
+    "tests/test_spectral_guidance_losses.py": {
+      "bytes": 12678,
+      "sha256": "0fa48d01a1e7a68e983af42888219d242adb47ce1fee04d5a048fcfce80f77f7"
+    },
+    "tta_gsd_v2.py": {
+      "bytes": 14351,
+      "sha256": "71f8f75b07e3317cf55b301801b093b90dd926d077d2db99f0f3cbe291a284a3"
+    }
+  },
+  "payload": {
+    "bytes": 5500929,
+    "sha256": "75464d84a1adf84e432ce5711feed242a345f2f1e198dc822104951acce90b3e"
+  },
+  "project_source_commit": "8169271c9058995e8dc128062848a253baa13f10",
+  "recoverable_overlay_base_manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "source_dirty": true,
+  "source_snapshot": {
+    "bytes": 5534725,
+    "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+  },
+  "status": "sealed_CPU_only"
+}

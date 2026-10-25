@@ -1,3 +1,16 @@
+**[User report/Code/Run/Open] 2026-10-25 — Agent B sensitivity prepared; GPU approval pending:**
+User requests further GSD parameter/loss evidence and an actual original3DD
+comparison. This does not establish or preselect Chamfer's universal superiority.
+L2/Huber/true per-mode power and original Point-MAE terminal boundary are ready;
+54CPU contracts,12exact default-config groups,2calibration integration tests,
+5controller integration tests and184head-config previews pass. Same owned A100
+passes16strict GSD/original CPU loads with CUDA/forward prohibited; actual
+Drive/local proofSHA verifies. Six configs/family include3acceptedbaselines;
+30new GSD dataset jobs plusoriginal control, then new140IDs/dataset and3seeds.
+One whole campaign expects4.19h, margin+reserve5.37h, cap5.5h; explicit duration
+approval was requested BEFORE any new GPU research. Runtime+monitor remain live.
+[Concrete scope, formulas and acceptance gates](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/Decision/Open] 2026-10-25 — Agent B frozen confirmation accepted:**
 C probability mean56.8929% versus C+S probability mean56.7222% across reserved70
 objects/dataset, all15/four heads/seeds0,1,2. Primary difference+0.1706pp,

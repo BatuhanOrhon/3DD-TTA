@@ -1,3 +1,24 @@
+## 2026-10-25 — further GSD loss and parameter sensitivity requested
+
+[User report/Open] Reopen the accepted bounded study for additional parameter/
+loss evidence and original3DD comparison; no definitive universal ranking.
+
+- [x] Register L2/Huber/true-power formulas and equal six-config budgets per
+  C/C+S/S family, including accepted baselines; no outcome-directed retry sweep.
+- [x] Reserve new140 object IDs/dataset excluding BOTH earlier70-ID sets;
+  54coreCPU/2calibration/5controller tests and184config previews pass.
+- [x] Seal consumer8169271 with v2source/native/protocol identities; actual
+  same-VM16strictload CPU/no-forward/no-CUDA proof and Drive roundtrip pass.
+- [ ] Obtain one approval for the whole approximately4.19h campaign,
+  upper scenario5.37h, hard5.5h; no new research GPU executed yet.
+- [ ] Validate actual label-free GPU calibration/parity, smoke then bounded
+  development; freeze before new140-ID three-seed confirmation.
+- [ ] Report loss/method/parameter failures, all15/macro14/percase/perseed,
+  measured cost and uncertainty. Full GSDTTA and universal proof remain outside
+  what this finite protocol can establish.
+
+[Scope, batch source and exact plan identity](guidance_component_sensitivity_study_20261025.md).
+
 # Open Questions and Research Backlog
 
 ## 2026-10-25 — parallel guidance component study selected

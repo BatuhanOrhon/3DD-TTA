@@ -1,0 +1,15 @@
+{
+  "state": {
+    "status": "complete",
+    "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+    "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+    "verified_files": 645,
+    "research_gpu_launched": false
+  },
+  "archive": {
+    "bytes": 42069,
+    "sha256": "1dd75de0f1955f303236d15a7401e92e97a7bbe089dcf372ba09ca728a498d6a",
+    "local_path": "/content/studies/guidance-components/sensitivity_deployment_20261025T174646919500Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_deployment_20261025T174646919500Z/sensitivity_deployment_evidence.zip"
+  }
+}

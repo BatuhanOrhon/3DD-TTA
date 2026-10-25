@@ -1,0 +1,10 @@
+{
+  "status": "CPU_ready_GPU_approval_pending",
+  "phase_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1",
+  "archive": {
+    "bytes": 5570596,
+    "sha256": "e2af93ccaca4a6415489fb92a19ded2253ca916293fbffbb7e322e64568b7741",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_CPU_readiness_20261025T180300706871Z/agent_b_sensitivity_readiness_package.zip"
+  },
+  "research_gpu_launched": false
+}

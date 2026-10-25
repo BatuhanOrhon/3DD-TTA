@@ -1,0 +1,13 @@
+{
+  "status": "accepted_CPU_only",
+  "archive": {
+    "bytes": 11715,
+    "sha256": "eb7af9e0c8ae2e460f6307b071538a4832e8f9c3c4c3760991dc3553b137cde3",
+    "local_path": "/content/studies/guidance-components/sensitivity_cpu_preflight_20261025T174648832925Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_cpu_preflight_20261025T174648832925Z/cpu_preflight_evidence.zip"
+  },
+  "strict_loads": 16,
+  "cuda_initialized": false,
+  "forward_executed": false,
+  "new_source_manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef"
+}
