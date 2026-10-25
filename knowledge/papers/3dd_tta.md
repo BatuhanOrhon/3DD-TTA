@@ -188,3 +188,14 @@ Official README pinned`107305f` printsModelNet66.1 although its rounded cells
 average65.44, separate from paper65.7/cellmean65.6933. Treat this as a reporting
 inconsistency, not a new validated result or a replacement target. No fresh
 model evaluation was performed.
+
+## Wider baseline-reporting context — 2026-10-25
+
+[Paper/Run/Inference/Open] [Expanded16-paper numerical audit](../pointcloud_tta_reporting_audit_20261025.md)
+separates original MATE classification-only source53.9/45.7/57.6 from its
+joint-trained57.6/45.6/59.3. Original3DD's MN/Shape source means match the
+latter numerically; this does not prove copied rows or checkpoint identity.
+CloudFixer's full15Point-MAE source53.70 is very close to our53.6899.
+The MATE64.3→SMART adaptation-only58.9→PG58.90 chain establishes a later
+rerun followed by explicit reuse, not universal independent reproduction.
+Original3DD exact Point-MAE reproduction remains unverified by later papers.

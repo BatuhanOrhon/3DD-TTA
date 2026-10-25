@@ -178,3 +178,28 @@ inference or stochasticity experiment was run. Exact authors' arrays, weights,
 preprocessing/aggregation and logs or clarification remain the falsifier.
 Raw literature and SHA/CRC receipt are linked from the audit; immutable historical
 results in the original root were not modified.
+
+## 2026-10-25 — source-family agreement and downstream reporting variation
+
+[Paper/Run/Inference/Open] The [expanded reporting audit](pointcloud_tta_reporting_audit_20261025.md)
+adds source references previously missing from the comparison: SVWA CurveNet
+ModelNet64.0 (suppTable3p3) versus our64.0113, and CloudFixer full15Point-MAE
+53.70 versus our53.6899. Our ModelNetDGC58.7979 also matches SVWA58.8;
+PointNeXt65.8320 remains1.1580pp belowGSD66.99 and1.1980 belowCF67.03.
+Thus all localbackbones must not be declared broken merely because selected
+GSD/3DD target rows differ. SVWA-linked ModelNet checkpoint-family consistency
+is supported; full paper/data/checkpoint identity is not established.
+
+Source training matters before adaptation: originalMATE53.9/45.7/57.6 differs
+from its joint-trained57.6/45.6/59.3. Original3DD Scan61.5 is not universally
+repeated in laterPoint-MAE papers. ScanDGC32.7826 remains belowSVWA37.9;
+its cause staysopen. Existing severity/split controls and canonicalModelNet
+byte-parity evidence are unchanged, and no random-draw variability was measured.
+
+The audit distinguishes explicit copied numbers, changed-protocol author
+reruns and unknown provenance. The MATE64.3→SMART58.9→PG58.90 chain shows why
+identical later methodnames need an immediate numerical donor, not just the
+originalcitation. CloudFixer six/all15, CF/CF-O, and PointCache/BayesMM7/8term
+means demonstrate non-random explanations for selected differences. These
+findings do not isolate the cause of our residual gap or prove other papers'
+results incorrect. Exact author assets/protocol/logs remain the falsifier.

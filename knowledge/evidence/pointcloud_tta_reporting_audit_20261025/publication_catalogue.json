@@ -1,0 +1,277 @@
+[
+  {
+    "paper_id": "3dd_tta",
+    "title": "Test-Time Adaptation of 3D Point Clouds via Denoising Diffusion Models",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/WACV2025/papers/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.pdf"
+    ],
+    "reported_macro_rows": 18,
+    "source_rows": 3,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "bayesmm",
+    "title": "Adapting Point Cloud Analysis via Multimodal Bayesian Distribution Learning",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/CVPR2026/papers/Zhu_Adapting_Point_Cloud_Analysis_via_Multimodal_Bayesian_Distribution_Learning_CVPR_2026_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Zhu_Adapting_Point_Cloud_CVPR_2026_supplemental.pdf"
+    ],
+    "reported_macro_rows": 64,
+    "source_rows": 16,
+    "datasets": [
+      "ModelNet-C (7 atomic corruptions)",
+      "ScanObjectNN S-OBJ_BG-C",
+      "ScanObjectNN S-OBJ_ONLY-C",
+      "ScanObjectNN S-PB_T50_RS-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "bftt3d",
+    "title": "Backpropagation-free Network for 3D Test-time Adaptation",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Backpropagation-free_Network_for_3D_Test-time_Adaptation_CVPR_2024_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2024/supplemental/Wang_Backpropagation-free_Network_for_CVPR_2024_supplemental.pdf"
+    ],
+    "reported_macro_rows": 45,
+    "source_rows": 7,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "classification_error_percent"
+    ]
+  },
+  {
+    "paper_id": "cloudfixer",
+    "title": "CloudFixer: Test-Time Adaptation for 3D Point Clouds via Diffusion-Guided Geometric Transformation",
+    "primary_urls": [
+      "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603-supp.pdf",
+      "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603.pdf"
+    ],
+    "reported_macro_rows": 104,
+    "source_rows": 9,
+    "datasets": [
+      "ModelNet40-C"
+    ],
+    "metrics": [
+      "macro_recall_percent",
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "gsdtta",
+    "title": "3D Test-time Adaptation via Graph Spectral Driven Point Shift",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/ICCV2025/papers/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf"
+    ],
+    "reported_macro_rows": 56,
+    "source_rows": 6,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "ln_tta",
+    "title": "Revisiting Layer Normalization for Point Cloud Test Time Adaptation",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/WACV2026/papers/Yazdanpanah_Revisiting_Layer_Normalization_for_Point_Cloud_Test_Time_Adaptation_WACV_2026_paper.pdf"
+    ],
+    "reported_macro_rows": 39,
+    "source_rows": 3,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "lott_pc",
+    "title": "Low-Rank Test-Time Training for Pre-Trained Point Cloud Models",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf"
+    ],
+    "reported_macro_rows": 37,
+    "source_rows": 12,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "mamvi",
+    "title": "MAMVI: 3D Test-Time Adaptation via Masked Multi-View Point Clouds",
+    "primary_urls": [
+      "https://arxiv.org/pdf/2606.12939"
+    ],
+    "reported_macro_rows": 50,
+    "source_rows": 3,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "mate",
+    "title": "MATE: Masked Autoencoders are Online 3D Test-Time Learners",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/ICCV2023/papers/Mirza_MATE_Masked_Autoencoders_are_Online_3D_Test-Time_Learners_ICCV_2023_paper.pdf"
+    ],
+    "reported_macro_rows": 31,
+    "source_rows": 7,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "modelnet40c_benchmark",
+    "title": "Benchmarking Robustness of 3D Point Cloud Recognition Against Common Corruptions",
+    "primary_urls": [
+      "https://arxiv.org/pdf/2201.12296v1"
+    ],
+    "reported_macro_rows": 24,
+    "source_rows": 6,
+    "datasets": [
+      "ModelNet40-C"
+    ],
+    "metrics": [
+      "classification_error_percent"
+    ]
+  },
+  {
+    "paper_id": "point_cache",
+    "title": "Point-Cache: Test-time Dynamic and Hierarchical Cache for Robust and Generalizable Point Cloud Analysis",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/CVPR2025/papers/Sun_Point-Cache_Test-time_Dynamic_and_Hierarchical_Cache_for_Robust_and_Generalizable_CVPR_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Sun_Point-Cache_Test-time_Dynamic_CVPR_2025_supplemental.pdf"
+    ],
+    "reported_macro_rows": 48,
+    "source_rows": 16,
+    "datasets": [
+      "ModelNet-C (7 atomic corruptions)",
+      "ScanObjectNN S-OBJ_BG-C",
+      "ScanObjectNN S-OBJ_ONLY-C",
+      "ScanObjectNN S-PB_T50_RS-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "purge_gate",
+    "title": "Purge-Gate: Backpropagation-Free Test-Time Adaptation for Point Clouds Classification via Token purging",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/ICCV2025/papers/Yazdanpanah_Purge-Gate_Backpropagation-Free_Test-Time_Adaptation_for_Point_Clouds_Classification_via_Token_ICCV_2025_paper.pdf"
+    ],
+    "reported_macro_rows": 33,
+    "source_rows": 3,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "sator",
+    "title": "SATOR: Backpropagation-Free 3D Test-Time Adaptation via Sample-Adaptive Token Routing",
+    "primary_urls": [
+      "https://arxiv.org/pdf/2610.21367"
+    ],
+    "reported_macro_rows": 48,
+    "source_rows": 3,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "smart_pc",
+    "title": "SMART-PC: Skeletal Model Adaptation for Robust Test-Time Training in Point Clouds",
+    "primary_urls": [
+      "https://raw.githubusercontent.com/mlresearch/v267/main/assets/bahri25a/bahri25a.pdf"
+    ],
+    "reported_macro_rows": 98,
+    "source_rows": 20,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "svwa",
+    "title": "Test-Time Adaptation in Point Clouds: Leveraging Sampling Variation with Weight Averaging",
+    "primary_urls": [
+      "https://openaccess.thecvf.com/content/WACV2025/papers/Bahri_Test-Time_Adaptation_in_Point_Clouds_Leveraging_Sampling_Variation_with_Weight_WACV_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/WACV2025/supplemental/Bahri_Test-Time_Adaptation_in_WACV_2025_supplemental.pdf"
+    ],
+    "reported_macro_rows": 86,
+    "source_rows": 11,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  },
+  {
+    "paper_id": "uni_adapter",
+    "title": "Adapt-As-You-Walk Through the Clouds: Training-Free Online Test-Time Adaptation of 3D Vision-Language Foundation Models",
+    "primary_urls": [
+      "https://ojs.aaai.org/index.php/AAAI/article/download/37888/41850"
+    ],
+    "reported_macro_rows": 42,
+    "source_rows": 3,
+    "datasets": [
+      "ModelNet40-C",
+      "ScanObjectNN-C",
+      "ShapeNet-C"
+    ],
+    "metrics": [
+      "top1_accuracy_percent"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "reported_macro_rows": 823,
+  "reporting_publications": 16,
+  "source_observations": 128,
+  "paired_original_later_cases": 77,
+  "native_metric_counts": {
+    "top1_accuracy_percent": 744,
+    "classification_error_percent": 69,
+    "macro_recall_percent": 10
+  },
+  "same_displayed_atomic_corruption_pairs": 48,
+  "atomic_corruption_mean_flags": 14,
+  "source_family_references_verified": [
+    "SVWA_CurveNet64.0_suppp3",
+    "CloudFixer_PointMAE53.70_full15"
+  ],
+  "batch_variants_retained": true,
+  "independently_verified_author_reruns": 0,
+  "model_inference_performed": false,
+  "colab_operations_performed": false
+}

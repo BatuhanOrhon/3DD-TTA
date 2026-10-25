@@ -1,3 +1,14 @@
+**[Paper/Code/Run/Inference/Open] 2026-10-25 — expanded source and citation matrices:**
+Six additional TTA originals and the corruption benchmark expand the numerical
+record to16 reporting publications,823 macro observations,128 source rows and77
+paired original→later cases. These include repeated tables/variants, not823
+independent experiments. ModelNet SVWA CurveNet source64.0 (supplementp3) now
+matches our64.0113; CloudFixer full15 Point-MAE53.70 matches our53.6899.
+Explicit reuse, changed-protocol reruns, uncertain provenance, six-versus15
+corruptions and seven-versus-eight-term averaging are distinguished.
+[Expanded audit and complete tables](pointcloud_tta_reporting_audit_20261025.md).
+No GPU/Colab work or peer-session operation.
+
 **[Paper/Code/Inference/Open] 2026-10-25 — 3DD citation/reproduction audit:**
 A bounded Scholar/SemanticScholar/OpenAlex and primary-paper search verifies15
 citing publications; five later3DD numerical rows are author-reported runs on

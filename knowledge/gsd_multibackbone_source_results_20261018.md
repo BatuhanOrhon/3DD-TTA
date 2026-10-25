@@ -139,3 +139,13 @@ Drive final archive roots:
 `MyDrive/thesis/result/gsd_multibackbone_study/<dataset>/source_only/<run_id>/`.
 Every corruption has a separate immutable checkpoint receipt in that root.
 [Study and detailed provenance](gsd_multibackbone_study_20261018.md).
+
+## 2026-10-25 — supplementary source reference recovered
+
+[Paper/Run/Inference/Open] [Expanded literature audit](pointcloud_tta_reporting_audit_20261025.md)
+confirms SVWA supplementPDFp3Table3 CurveNet ModelNet source64.0, very close
+to own64.0113. Together with DGCNN58.8/58.7979, this supports consistency with
+the selected SVWA source family. It does not resolve gaps to GSDTTA's different,
+unknown checkpoint/protocol assets (CurveNet71.38,DGC66.51). Source match is
+not independent training reproduction. ScanDGC32.7826 versusSVWA37.9 remains
+open. No new inference or change to the accepted source artifacts occurred.

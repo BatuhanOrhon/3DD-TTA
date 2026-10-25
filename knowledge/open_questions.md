@@ -1846,3 +1846,23 @@ See [smoke acceptance](gsd_multibackbone_dgcnn_smoke_20261019.md).
 Repeated PG/LN/SATOR source fingerprints and LoTT's all-severity57.6/59.3 row
 remain provenance-unspecified. Equal means are not proof of reuse or independent
 reruns. No GPU/runtime work or further experiment was launched.
+
+### 2026-10-25 — broader source families and numerical reporting provenance
+
+[Paper/Code/Run/Inference/Open] [Expanded16-publication audit and tables](pointcloud_tta_reporting_audit_20261025.md).
+
+- [x] Expand beyond3DD citations:823reported macro observations,128source rows,77paired reporting cases; native metrics and cohorts retained.
+- [x] Locate SVWA CurveNet source64.0 (suppTable3p3) and CloudFixer full15Point-MAE53.70; both close to own ModelNet source rows.
+- [x] Distinguish explicit inherited rows from author-reported reruns and unknown execution provenance; trace MATE64.3→SMART58.9→PG58.90.
+- [x] Audit PointCache/BayesMM shared48row fingerprints and7/8term averaging; preserve14arithmetic flags beyond rounding allowance.
+- [ ] Resolve remaining ScanDGC5.1174pp source gap toSVWA and source-training/checkpoint differences underlying other literature families; no causal attribution yet.
+- [ ] Obtain baseline-specific SATOR/MAMVI execution history, assets and logs for changed PG/LN/SVWA values.
+- [ ] Resolve LN-TTA generic MATE[17] prior-result attribution versus starred rerun flags for each method, including newer-than-MATE baselines.
+- [ ] Clarify SMART compact/detailed single-/double-star source and adaptation variants where table presentation compresses different reproduction extents.
+- [ ] Resolve original CloudFixer versus CF-O identity under GSD's plainCloudFixerlabel; do not infer variant from numerical closeness.
+- [ ] Obtain author clarification/raw reduction evidence for PointCache/BayesMM14displayed-mean inconsistencies and unknown copied-versus-rerun provenance.
+- [ ] Extend bounded discovery to unassessed TTAC/TMLR candidates if requested; no fabricated classification entries for PCoTTA or unrelated tasks.
+
+A source-family match does not establish exact original3DD/GSDTTA reproduction.
+No new runtime or accuracy experiment followed this literature review.
+- [ ] Reconcile the released Point-MAE source's actual training regime with original MATE classification-only versus joint-trained sources. Our MN53.6899/CF53.70 family versus3DD57.6=MATEJoint is a checkpoint-training hypothesis, not demonstrated identity or a causal explanation.

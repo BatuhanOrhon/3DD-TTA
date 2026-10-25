@@ -5956,3 +5956,40 @@ Independent ZIP SHA/CRC/path,107member-hash, extracted-validator and CSV-field
 checks pass:72rows,690facts,15publications. Canonical ZIP SHA256 is
 `04cc873fc3a696213a9657ae0551b31c1cef1eb1656260f286db86cd05c8217b`;
 the raw evidence remains local, without a Drive backup in this literature task.
+
+### 2026-10-25 — expanded source-only and cross-paper reporting audit
+
+[Paper/Code/Run/Inference/Open] From study`51dd03b`, three isolated research
+workers and coordinator reviewed16 numerical publications:15TTA papers plus
+original corruption benchmark. No model/Colab/GPU execution. The
+[expanded audit](pointcloud_tta_reporting_audit_20261025.md) records823 macro
+observations,128source rows and77paired original→later cases, retaining repeated
+compact/detailed tables and different training/batch/cohort variants.744rows are
+accuracy,69ordinary classificationerror,10macrorecall. Explicit100−error is
+separate; no mCE/recall conversion or independent-replication count is implied.
+
+[Paper/Run] Newly reviewed SVWAsuppTable3 PDFp3 sourceCurveNet64.0 agrees
+with our64.0113, complementing DGCNN58.8/58.7979. CloudFixer full15suppI3
+sourcePoint-MAE53.70 agrees with our53.6899. This supersedes the previous
+missing SVWA CurveNet comparison cell. DGCNN/CurveNet MN weights were selected
+from SVWA; numerical agreement is source-family validation, not independent
+training/asset-bitwise proof. ScanDGC32.7826 remains5.1174pp belowSVWA37.9.
+
+[Paper/Inference] BFTsupp explicitly reuses MATE/TENT errors fromMATE. MATE
+MNstandard64.3→SMART adaptation-only58.9→PG58.90 is a rerun then explicitly
+inherited result; SMARTfullretraining63.0 remains separate. SMART reports rerun
+SVWA57.1/37.4/50.5 vs original75.0/46.1/67.0 under changed settings. SATOR
+PG/LN changed means remain execution-provenance-unknown. CFsix/all15 and
+input-only/model-update variants must not be pooled. PointCache/BayesMM48paired
+rows have identical clean+7cells but generally7versus8term Avg;14/112displayed
+mean arithmetic flags are preserved, not repaired. These are reporting/protocol
+observations, not proof of copying, a bug, or a quantified cause of our gaps.
+
+[Artifact/Decision] Raw papers/extractions/vectors/validators are under
+`result/preparation/tta_literature_expansion_20261025/` and adjacent sealedZIP;
+committed CSV/readable tables and SHA/CRC receipt link all observations.
+No Drive transfer occurred in this literature-only phase. Earlier sealedaudit
+is retained; SATOR PDFtable offsets are corrected to6/7 in newrecords.
+Authors' exact assets/logs, explicit reuse/rerun declarations or corrected
+reductions would resolve/falsify specific open interpretations. No further
+GPU experiment, peer-runtime work or test-label tuning was authorized here.

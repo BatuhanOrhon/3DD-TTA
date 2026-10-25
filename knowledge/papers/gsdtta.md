@@ -110,3 +110,15 @@ weights/data hashes/seeds and precise point/severity contracts remain open.
 The actual ModelNet3DD PDF row hasRotation59.93/Cutout72.77; a web parser
 returned incorrect alternatives. Use the archived PDF/fingerprintCSV.
 Current local alternative-backbone studies remain unmatched to paper assets.
+
+## Wider source-family and CloudFixer-variant context — 2026-10-25
+
+[Paper/Code/Run/Inference/Open] [Expanded reporting audit](../pointcloud_tta_reporting_audit_20261025.md)
+recovers SVWA supplementary CurveNet ModelNet source64.0, agreeing with our
+64.0113. GSD71.38 is a different unresolved source family, not the only published
+CurveNet reference. BFTT3D ordinary-error conversions yield source71.53CurveNet
+and65.35DGCNN onModelNet, near GSD71.38/66.51 but without asset parity proof.
+GSD's CloudFixer baseline description includes classifier/model updates, whereas
+original CloudFixer distinguishes input-onlyCF fromCF-O. Do not automatically
+map GSD's plain label to frozen-classifier input-onlyCF or compare their deltas
+as matched. Exact baseline variant/assets/logs remain open.

@@ -1,0 +1,41 @@
+{
+  "schema": "pointcloud-tta-literature-bundle-receipt-v1",
+  "bundle_path": "/Users/batuhan/Desktop/projects/3DD-TTA/result/preparation/tta_literature_expansion_20261025T144349Z.zip",
+  "bundle_bytes": 88986715,
+  "bundle_sha256": "e5c57dfb54ad3e6448006821d937658b408d0e4255d819b2c65b9fb88348f578",
+  "bundle_crc32": "1816cdd5",
+  "zip_members": 158,
+  "zip_crc_and_safe_paths": "passed",
+  "every_manifested_member_sha256_size_crc32": "passed",
+  "validation": {
+    "status": "passed",
+    "reported_macro_rows": 823,
+    "reporting_publications": 16,
+    "source_observations": 128,
+    "paired_original_later_cases": 77,
+    "native_metric_counts": {
+      "top1_accuracy_percent": 744,
+      "classification_error_percent": 69,
+      "macro_recall_percent": 10
+    },
+    "same_displayed_atomic_corruption_pairs": 48,
+    "atomic_corruption_mean_flags": 14,
+    "source_family_references_verified": [
+      "SVWA_CurveNet64.0_suppp3",
+      "CloudFixer_PointMAE53.70_full15"
+    ],
+    "batch_variants_retained": true,
+    "independently_verified_author_reruns": 0,
+    "model_inference_performed": false,
+    "colab_operations_performed": false
+  },
+  "raw_evidence_directory": "/Users/batuhan/Desktop/projects/3DD-TTA/result/preparation/tta_literature_expansion_20261025",
+  "base_commit": "51dd03b00163e22e4641658bbc0d532b6154e7b7",
+  "drive_backup": false,
+  "gpu_or_colab_operations": false,
+  "notes": [
+    "Raw papers and archive are local ignored evidence, not transferred by Git push.",
+    "Native metrics, protocols and provenance remain separate; no independent author-run verification.",
+    "Validator runs with standard Python on an extracted archive; extraction builder additionally uses recorded PyMuPDF environment."
+  ]
+}
