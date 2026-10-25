@@ -2,7 +2,62 @@
 
 Date:2026-10-25. Evidence: [User report], [Code], [Run], [Open], [Inference].
 Audit base:`gsd-multibackbone-study@7017fa8` (inspect actual HEAD/status on resume).
-Status: **next scope documented; implementation and GPU execution not started**.
+Status: **CPU extension/setup/smoke complete; all15 blocked at the registered duration gate pending a160min cap amendment**.
+
+## Current gate — 2026-10-25 13:10 UTC
+
+[Run/Code/User report/Open] Own A100 setup and actual-source CPU proof are
+complete. Canonical cells1,3–10 passed; only the known cell2 fastrlock failure
+was deferred after Python3.8 verification. Actual device is NVIDIA
+A100-SXM4-80GB, Python3.8.20/PyTorch2.1.2+cu121/CUDA12.1, remote base
+`dev@a458cd46bba1288a3f41302548bc777700cbc7d4`. Setup's5 native markers,
+CUDA/FPS/KNN/Chamfer/EMD,15 ModelNet arrays and checkpoint identities pass.
+Drive/local setup ZIP21427bytes SHA
+`56b4b7e224fa7c0eaf6615837590ecd7fd63b07c638643e6367c9c52af26e5ce`;
+CRC/safe paths/all17 member identities pass. Fresh native binaries were
+preserved in own VM before restoring4 pinned reference binaries. Actual
+sealed-source3 strict classifier loads and matched-source bindings pass with
+CUDA uninitialized and no JIT build. CPU ZIP59303bytes SHA
+`8c39279aed60173f7d9a74890697d1b3744da86e976e3c8e62ef1680893728c1`
+passes actual Drive/local SHA and9-member/schema checks.
+
+The first smoke launch failed before model/job launch because the fresh
+`gpu_phases` parent was absent. The failed script is preserved asv1; creating
+parents with `exist_ok=False` for the attempt fixes it, and an actual fresh-root/
+overwrite-rejection self-check passes. No guidance code or protocol changed.
+Successful smoke phase `20261025T125937Z_mntraj_pilot` took56.473518321s:
+Gaussian+Background, IDs0–69 each,3 heads,1680 candidate predictions. All3
+raw ZIPs,6 physical batch receipts, indexed labels,40-class candidates,
+terminal agreement, frozen classifier/LION states, CPU/GPU classifier state
+identity, native bindings and cross-head shared trajectory/RNG/purity pass.
+This is execution evidence only, not benchmark accuracy.
+
+**Do not start all15 yet.** The registered duration formula estimates
+6414.616657s=106.910278min centrally and9101.873912s=151.697899min
+conservatively (40percent compute margin plus I/O). The latter exceeds the
+user's existing9000s/150min cap; the gate stopped correctly. A specific
+9000→9600s/160min amendment has been asked asynchronously but is not yet
+approved. The original approval remains valid only at150min; elapsed time
+is not consent. Scope/source/seed/protocol stay fixed, and56.473518321s
+remains consumed in the common ledger. No all15 job has launched.
+
+Data validation is independently sealed in
+`pilot_data_validation_drive_roundtrip.zip`,13587bytes SHA
+`996e95250c36007a5d9e2cc84488e5244d35e26aae87c050b8a5d648e4da9584`;
+actual Drive/local SHA and member checks pass. Drive root:
+`MyDrive/thesis/result/modelnet_trajectory_study_20261025/`, data package
+under `preparation/20261025T130859Z_pilot_data_validation/`.
+All local receipts, raw ZIPs, partial analyzer tables, timer inspection and
+failure logs remain under the task-local preparation root and canonical
+`result/modelnet40_c/gsd_inspired_latent_spectral_guidance/`.
+
+Own runtime/endpoint and sole monitor25910/TTY30907 remain live. The bounded
+host-awake process36287 is still active. Next action depends on the user's
+cap reply: if160min is explicitly approved, preserve original authorization,
+amend authorization+ledger+driver cap together without resetting consumed
+seconds, promote smoke only after physical Drive acceptance, then run all15.
+If the user retains150min, do not launch full under this registered gate.
+Never terminate this runtime/monitor or touch peer state without authorization.
 
 ## Live Agent A state — 2026-10-25 12:25 UTC
 

@@ -5970,3 +5970,34 @@ roots follow the contract. Setup logs, owner state and prior failure remain
 preserved. Any source/data/checkpoint/state/purity/receipt mismatch stops the
 affected phase; no teardown authorization exists. Latest study state
 supersedes the earlier pending-approval execution entry, retaining its history.
+
+
+### 2026-10-25 13:10 UTC — Agent A smoke validated; duration gate stops full launch
+
+[Run/Code/User report/Open] Own A100 setup completes all required native/data/
+checkpoint checks; only known cell2 fastrlock is deferred with actual Python3.8
+proof. Setup Drive/local ZIP21427bytes SHA56b4b7e2…26e5ce and17 member
+identities pass. Actual manifest2326e8e0…e3a3a8 proof passes3 strict classifier
+loads, matched source, no-build4 native bindings and CUDA-uninitialized CPU;
+59303byte CPU ZIP SHA8c39279a…3728c1 passes Drive/local/schema checks.
+
+First prelaunch script fails at absent `gpu_phases` parent before any model
+job; v1 retained. Fresh-parent creation plus no-overwrite self-check fixes it
+without algorithm/config change. Successful `20261025T125937Z_mntraj_pilot`
+is56.473518321s,2 shared B70 batches ×3 heads ×4 candidates=1680 predictions.
+Raw3 ZIPs/6 physical batch receipts, labels/IDs/40classes/terminal, frozen
+states/CPU-GPU classifier hashes/native identities and shared trace/RNG/purity
+all pass. This smoke is not benchmark accuracy. Physical Drive/local data
+validation ZIP13587bytes SHA996e9525…da9584/all members pass; exact roots and
+receipts are in `result/preparation/modelnet_trajectory_study_20261025/`.
+
+The registered duration gate now yields central106.910278min and conservative
+151.697899min, slightly above the approved150min cap. Full did not launch.
+A160min cap amendment is requested asynchronously; no reply/consent yet.
+Original150min approval remains,56.473518321s consumed, scope/source fixed.
+After explicit amendment, authorization/ledger/driver must change together;
+never reset consumed time or treat silence as approval. Own runtime
+`tta-mn-trajectory-a100-20261025-r1` / endpoint`gpu-a100-hm-euw4a0-axkeusdcat4y`
+and sole monitor25910/TTY30907 remain live; host-awake36287 is bounded4h.
+No peer operation, new full accuracy or teardown. Next gate is the user's
+budget reply; any state/label/source/receipt mismatch invalidates smoke.

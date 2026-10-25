@@ -1,11 +1,11 @@
-**[Code/Open] 2026-10-25 — Agent A CPU extension ready; own setup active:**
-Agent A owns `gsd-modelnet-trajectory` in its contracted separate worktree.
-Strict ModelNet40-class/2468-ID observation/analyzer support passes62 focused
-and332 full CPU tests; independent review finds no material issue. Own
-`tta-mn-trajectory-a100-20261025-r1` is in ten-cell setup under the current
-foreground monitor. The user approved90–120min research, shared150min cap;
-setupcell4 is active. No research GPU result yet.
-[Execution record and next gates](modelnet_multibackbone_trajectory_handoff_20261025.md#agent-a-execution--2026-10-25-1202-utc).
+**[Run/Code/Open] 2026-10-25 — Agent A setup/CPU/smoke pass; full awaits cap amendment:**
+Own A100 ten-cell setup and actual-source3-head strict CPU/no-build proof pass,
+with Drive/local SHA evidence. Gaussian+Background smoke validates1680 candidate
+predictions/shared states/RNG/labels/receipts in56.47s. No full accuracy yet.
+Measured central106.91min/upper151.70min exceeds the original150min gate;
+full is stopped pending the user's explicit160min amendment. No answer yet.
+Runtime/sole monitor remain live; peer state is untouched.
+[Current gate, exact hashes and next action](modelnet_multibackbone_trajectory_handoff_20261025.md#current-gate--2026-10-25-1310-utc).
 
 **[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**
 Agent A completes the locked ModelNet three-head readouts; Agent B studies

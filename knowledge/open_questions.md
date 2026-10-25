@@ -44,11 +44,14 @@ This handoff documents the next scope; no research execution in this turn.
   check and strict581/15-class analyzer; ModelNet output geometry differs.
 - [x] Implement/verify the smallest40-class ModelNet observation extension,
   preserving accepted Scan/default terminal behavior and the fixed policy.
-  Agent A CPU batch:62 focused/332 full tests pass; genuine GPU smoke pending.
+  Agent A CPU batch:62 focused/332 full tests pass; genuine1680-candidate
+  GPU smoke now passes state/RNG/ID/label/receipt checks.
 - [x] Prepare one comprehensive whole-GPU-phase estimate/approval request:
   old ModelNet full guidance took69.421min before extra probe work. Expect
   the60min approval threshold to apply. Agent A now has explicit90–120min
-  approval with a shared150min cap; no research GPU launched yet.
+  approval with a shared150min cap. Smoke consumed56.47s; central106.91min/
+  conservative151.70min projection stops all15 pending an explicit160min
+  amendment. No all15 job launched.
 - [ ] Obtain9 same-run policy rows (3 terminal controls+6 missing readouts),
   full15/2468 IDs/severity5/seed0, actual Drive/local SHA and independent
   count/state/source/label checks. Preserve all old attempts and limitations.
