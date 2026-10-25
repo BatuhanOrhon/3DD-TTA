@@ -1,0 +1,134 @@
+{
+  "arms": {
+    "chamfer": {
+      "chamfer": 1.0,
+      "spectral": 0.0
+    },
+    "combined": {
+      "chamfer": 1.0,
+      "spectral": 1.17
+    },
+    "spectral": {
+      "chamfer": 0.0,
+      "spectral": 1.17
+    },
+    "unguided": {
+      "chamfer": 0.0,
+      "spectral": 0.0
+    }
+  },
+  "attribution": "GSD-inspired latent spectral guidance; original3DD is a different host; single-seed development only",
+  "backbones": [
+    "dgcnn",
+    "curvenet",
+    "pointnext",
+    "pointmae"
+  ],
+  "base_commit": "4c5be0eaf0ac933923129fe26738e0db5f96744a",
+  "created_utc": "2026-10-25T11:56:23.204667+00:00",
+  "datasets": [
+    "modelnet40_c",
+    "scanobjectnn_c"
+  ],
+  "development_corruptions": "all15",
+  "development_head_input_events": 33600,
+  "heldout_status": "reserved; no scoring authorized by initial smoke/screen scope",
+  "initial_gpu_phase": {
+    "approval": "No >60min GPU phase authorized; stop/reassess before exceeding60min or expanding scope",
+    "basis": "Historical full Scan four-head trace23.566min/135 shared batches; screen120 shared batches across arms, inactive skips reduce work; exact smoke projection gates launch",
+    "cap_seconds": 3300,
+    "estimate_minutes": [
+      25,
+      45
+    ],
+    "includes": [
+      "smoke",
+      "fixed screen",
+      "bounded retries"
+    ],
+    "stage": "smoke then conditional fixed development screen"
+  },
+  "invariant_weight": 0.0,
+  "outputs": {
+    "drive": "MyDrive/thesis/result/guidance_component_study_20261025",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025",
+    "remote": "/content/studies/guidance-components"
+  },
+  "pairing": "Reuse exactly cached prepared shape/local latent and perturbation noise; verify input/noise IDs/hashes; distinguish replay timing from native encode timing",
+  "policies": [
+    "terminal",
+    "minimum_entropy",
+    "probability_mean"
+  ],
+  "protocol": {
+    "M_max": 800,
+    "background_steps": 30,
+    "batch_size": 70,
+    "beta": 2.0,
+    "ddim_final_alpha_to_one": false,
+    "ema": false,
+    "eta": 0.01,
+    "gamma": 0.01,
+    "lion_mode": "eval/raw",
+    "normal_steps": 10,
+    "p": 0.95,
+    "updated_style": true
+  },
+  "scan_split": "main_split",
+  "seed": 0,
+  "severity": 5,
+  "smoke_corruptions": [
+    "gaussian",
+    "background"
+  ],
+  "smoke_head_input_events": 4480,
+  "source_branch": "gsd-guidance-components",
+  "status": "prepared_cpu_and_setup_only",
+  "stop": [
+    "identity/state/RNG/shape mismatch",
+    "nonfinite/OOM",
+    "missing Drive receipt",
+    "time cap or projected whole phase exceeds60min"
+  ],
+  "subset_manifests": {
+    "modelnet40_c": {
+      "development": {
+        "bytes": 927,
+        "path": "modelnet40_c_development_ids.json",
+        "sha256": "e8e3deb3f1a76550e29299cb3b7cb7ac33b584402f9094b0a924e49507c92d91"
+      },
+      "heldout": {
+        "bytes": 926,
+        "path": "modelnet40_c_heldout_ids.json",
+        "sha256": "395d32f0a3aa9139781cb9e7940d8d51e25fcb2c3b6c40cfe6fe04fe08a72d20"
+      },
+      "smoke": {
+        "bytes": 921,
+        "path": "modelnet40_c_smoke_ids.json",
+        "sha256": "30f38f4d3edf00258561e337b7bc9d9168b6a55323b103f58601c7f28103d419"
+      }
+    },
+    "scanobjectnn_c": {
+      "development": {
+        "bytes": 888,
+        "path": "scanobjectnn_c_development_ids.json",
+        "sha256": "cf90a3f192168cf4ffb1f97de76b5b113c82515932a63e83cb6d44402fac077d"
+      },
+      "heldout": {
+        "bytes": 870,
+        "path": "scanobjectnn_c_heldout_ids.json",
+        "sha256": "bb970e98226a9993519ff0cf6ed8ea8faf53dbc88380ac99b0809ea46ee300fc"
+      },
+      "smoke": {
+        "bytes": 882,
+        "path": "scanobjectnn_c_smoke_ids.json",
+        "sha256": "94f348b8a4ef93700e8b94571b5f87d5a47e45b509e99d90e806acfa7f2ba7a4"
+      }
+    }
+  },
+  "tuning": {
+    "rule": "Register ranges, equal comparator opportunity and compute scope after fixed screen; freeze before heldout",
+    "status": "not_started",
+    "trials": 0
+  }
+}

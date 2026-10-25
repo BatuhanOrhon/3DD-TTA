@@ -10,7 +10,7 @@ method/eta/gamma/p development is in scope after fixed matched controls.
 - [x] Prepare [separate branch/worktree/runtime ownership](parallel_colab_agent_contract_20261025.md)
   and [two updated prompts](parallel_agent_prompts_20261025.md). Planning only;
   no task worktrees, runtimes or background monitors have been created here.
-- [ ] Agent B: inventory/reuse prior Point-MAE component experiments and peer
+- [x] Agent B: inventory/reuse prior Point-MAE component experiments and peer
   combined results only with compatible provenance; keep Agent A's locked
   ModelNet completion separate and untouched.
 - [ ] Run the fixed same-GSD-host C+S/C/S/U matrix with terminal/minimum
@@ -26,6 +26,8 @@ method/eta/gamma/p development is in scope after fixed matched controls.
 - [ ] Determine whether spectral guidance has incremental value conditional
   on Chamfer, whether spectral alone is useful, and whether a component can be
   removed for a measured accuracy/cost advantage. No necessity/optimality claim yet.
+
+[Code/Run/Open] Agent B activated2026-10-25 on `gsd-guidance-components` from `4c5be0e`. Twelve historical original-host component ZIPs pass fresh SHA/CRC checks; they are reference evidence, not matched current controls.70 development and70 object-disjoint heldout IDs/dataset are sealed. Own A100 runtime is in setup; no research inference launched. See task-local `result/preparation/guidance_component_study_20261025/` records.
 
 [Detailed Agent B batches, parameter semantics and gates](guidance_component_study_handoff_20261025.md).
 No GPU phase is activated by preparing these instructions. The prior same-flow

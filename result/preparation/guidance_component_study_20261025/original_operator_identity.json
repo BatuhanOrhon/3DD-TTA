@@ -1,0 +1,14 @@
+{
+  ".codex/skills/colab-research-operator/SKILL.md": {
+    "bytes": 19003,
+    "sha256": "b2d74d620d1963525325d13bfc248b47310d23ad0bdd9de85b1fbb9b01038e7e"
+  },
+  ".codex/skills/colab-research-operator/scripts/monitor_colab_runtime.py": {
+    "bytes": 10775,
+    "sha256": "fc40fbca58023c5029c87cd33fdb07245c6880e2a59091cf9f8cabb8c07d6422"
+  },
+  "AGENTS.md": {
+    "bytes": 1916,
+    "sha256": "271c79ae3ef8985607ddcf39c7922c79a8d4c1a42e96f2d2246e83773bc59c9b"
+  }
+}

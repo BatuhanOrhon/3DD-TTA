@@ -5916,3 +5916,8 @@ artifact changed. Whole proposed GPU phases expected >60min still need one
 concrete approval; this planning turn does not launch them. Acceptance requires
 matched identities/states/IDs/receipt hashes and measured cost; contrary arm/
 seed outcomes would refute a claimed spectral advantage or speed improvement.
+
+
+## Agent B activated — 2026-10-25
+
+[User report/Code/Open] User assigned this session to Agent B. Own branch/worktree was created from committed base `4c5be0eaf0ac933923129fe26738e0db5f96744a`; original user edits and Agent A worktree remain untouched. Existing Point-MAE original-host ablations are reused as historical context, not relabeled matched B70/M800 controls. Initial fixed screen:70 label-free development IDs/dataset across15 corruptions, four arms/four heads, three readouts;70 object-disjoint IDs reserved per dataset. Exact manifests and [execution plan](../result/preparation/guidance_component_study_20261025/execution_plan.md) are prepared. Whole initial research GPU phase estimate25–45min, cap55min including smoke/screen/retries; real smoke projection gates screen. No research GPU has run; no accuracy or speed result yet. Tuning and full benchmark remain future scoped decisions. Evidence artifacts: `result/preparation/guidance_component_study_20261025/`; separate Drive root per contract.

@@ -1,3 +1,13 @@
+**[User report/Code/Open] 2026-10-25 — Agent B activated:**
+User assigned this session to guidance components. Own `gsd-guidance-components`
+worktree starts at committed `4c5be0e`; original user edits and Agent A remain
+untouched. Historical12 component ZIP identities/CRC and70+70 object-disjoint
+ID manifests verify. Own A100/High-RAM runtime setup is active under one monitor;
+no research accuracy or speed result yet. Initial smoke+fixed development
+screen estimate25–45min/cap55min; smoke projection gates launch. Full benchmark,
+tuning/confirmation and >60min phases remain separately scoped decisions.
+[Active Agent B study](guidance_component_study_handoff_20261025.md).
+
 **[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**
 Agent A completes the locked ModelNet three-head readouts; Agent B studies
 matched C+S/C/S/unguided components with terminal/entropy/probability readouts

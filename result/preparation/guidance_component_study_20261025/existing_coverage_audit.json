@@ -1,0 +1,129 @@
+{
+  "status": "verified_historical_archive_identities_not_matched_current_controls",
+  "archives": [
+    {
+      "path": "result/modelnet40_c/gsd-guidance-ablations/smooth_only/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/20261003-141149_gsd-ablation-smooth_only-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-seed0.zip",
+      "sha256": "2977962bef49ca03db5dbe0567e686b336629e46dcdb8e2023ab3fa2e5e010c4",
+      "arm": "smooth_only",
+      "seed": 0,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd-guidance-ablations/smooth_only/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/20261003-152811_gsd-ablation-smooth_only-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-seed1.zip",
+      "sha256": "df7ce58e765a6f0849a3d5d98baca92ef5f1b193169ff02e0c871d0ea337c8ed",
+      "arm": "smooth_only",
+      "seed": 1,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd-guidance-ablations/smooth_only/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/20261003-164407_gsd-ablation-smooth_only-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-seed2.zip",
+      "sha256": "5156d61085d8ec8b2cd8a67fdeb59c06d250c45044e6bd81b3b669c0985017bd",
+      "arm": "smooth_only",
+      "seed": 2,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd-guidance-ablations/unguided/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/20261003-145004_gsd-ablation-unguided-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-seed0.zip",
+      "sha256": "21c2dec8939901e478faeff60bde096711b7cd21fe9091595778ccaaf522beab",
+      "arm": "unguided",
+      "seed": 0,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd-guidance-ablations/unguided/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/20261003-150745_gsd-ablation-unguided-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-seed1.zip",
+      "sha256": "944ccacfc69c54aeee7c27a405e78d2f52da9bbeeb00665278dd697c0bc12f84",
+      "arm": "unguided",
+      "seed": 1,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd-guidance-ablations/unguided/20260928-113047_gsd-cal-diagnose-reference-seed0-n64/20261003-152505_gsd-ablation-unguided-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-seed2.zip",
+      "sha256": "8c94774597aa6de650d9e44288e4a47091d888f77a39c22ca4e0c8cfce427d4f",
+      "arm": "unguided",
+      "seed": 2,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-133819_gsd-full-screen-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-scd-seed0.zip",
+      "sha256": "0f8ca9a56911faddcbb1b1a8f2d532c09eb946f999c901565e431e69dda44c1b",
+      "arm": "scd_only",
+      "seed": 0,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-140814_gsd-full-screen-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-scd-seed1.zip",
+      "sha256": "5eba8cf4c835ce458b5c0ebb7c6f3213faee29e378e8ea642337b8ff01f80801",
+      "arm": "scd_only",
+      "seed": 1,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-143811_gsd-full-screen-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-scd-seed2.zip",
+      "sha256": "7cb324d7ab4ffa0d7c671e1a9e4a9eec4b02bff62fa2330af7494b43e145d4f7",
+      "arm": "scd_only",
+      "seed": 2,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-150808_gsd-full-screen-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-beta0p5-rho0p001-seed0.zip",
+      "sha256": "3c848a49fd2be7974c7c49b5ba4e0eb3b56775d5020d9d8d34f1ff49847bcb80",
+      "arm": "beta_0.5_rho_0.001",
+      "seed": 0,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-162516_gsd-full-screen-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-beta0p5-rho0p001-seed1.zip",
+      "sha256": "6fcfc057a1f7323cc859c2fa65c33fcb443ad2707f6376b118d3b92da9536461",
+      "arm": "beta_0.5_rho_0.001",
+      "seed": 1,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    },
+    {
+      "path": "result/modelnet40_c/gsd_latent_spectral_smooth_v2/20260928-174206_gsd-full-screen-20260928-113047_gsd-cal-diagnose-reference-seed0-n64-beta0p5-rho0p001-seed2.zip",
+      "sha256": "2781d73b5f951d63889c25750e87862b4bb75db5940de99e23e4cb0b340019b7",
+      "arm": "beta_0.5_rho_0.001",
+      "seed": 2,
+      "reuse": "historical original-host reference only",
+      "batch_size": 32,
+      "guidance": null,
+      "reverse_steps": 5
+    }
+  ],
+  "archive_count": 12,
+  "crc_checked": true,
+  "scope": "12 prior original-host Point-MAE component archives; no accuracy rerun or causal reanalysis",
+  "decision": "Do not rerun these conditions; current B70/M800 paired-state C+S/C/S/U controls genuinely missing"
+}
