@@ -1866,3 +1866,14 @@ reruns. No GPU/runtime work or further experiment was launched.
 A source-family match does not establish exact original3DD/GSDTTA reproduction.
 No new runtime or accuracy experiment followed this literature review.
 - [ ] Reconcile the released Point-MAE source's actual training regime with original MATE classification-only versus joint-trained sources. Our MN53.6899/CF53.70 family versus3DD57.6=MATEJoint is a checkpoint-training hypothesis, not demonstrated identity or a causal explanation.
+
+### 2026-10-25 — reliability conclusion and causal limits
+
+[Inference/Decision/Open] [Final interpretation](tta_accuracy_reliability_conclusion_20261025.md).
+
+- [x] Record why source-family matches weaken a blanket local-evaluation failure explanation, while preserving case-specific open gaps.
+- [x] Distinguish documented protocol/reporting heterogeneity from unverified universal corruption regeneration.
+- [ ] Establish quantitative random-draw effects under a fixed protocol only if a separate experiment is requested; none measured here.
+- [ ] Resolve remaining local/paper asset and preprocessing differences before claiming exact reproduction or declaring every local setting correct.
+
+This conclusion adds no GPU work and does not change peer agents' authorizations.

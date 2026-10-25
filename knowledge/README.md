@@ -1,4 +1,9 @@
 **[Paper/Code/Run/Inference/Open] 2026-10-25 — expanded source and citation matrices:**
+[Final reliability interpretation](tta_accuracy_reliability_conclusion_20261025.md):
+source-family matches weaken a blanket local-failure explanation; documented
+protocol/provenance variation limits comparability. Universal random regeneration
+and complete local correctness are not established; residual gaps remain open.
+
 Six additional TTA originals and the corruption benchmark expand the numerical
 record to16 reporting publications,823 macro observations,128 source rows and77
 paired original→later cases. These include repeated tables/variants, not823

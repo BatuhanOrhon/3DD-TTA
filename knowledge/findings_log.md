@@ -5993,3 +5993,24 @@ is retained; SATOR PDFtable offsets are corrected to6/7 in newrecords.
 Authors' exact assets/logs, explicit reuse/rerun declarations or corrected
 reductions would resolve/falsify specific open interpretations. No further
 GPU experiment, peer-runtime work or test-label tuning was authorized here.
+
+### 2026-10-25 — final accuracy-reliability interpretation recorded
+
+[User report/Inference/Decision/Open] The user asks whether accuracy differences
+appear to be a literature-wide corruption-generation issue rather than our
+implementation. From committed audit`794ddb8`, recorded the
+[qualified conclusion](tta_accuracy_reliability_conclusion_20261025.md): three
+ModelNet source-family matches and internal validation weaken a blanket local
+failure explanation; documented training/protocol/subset/aggregation/reuse
+variation limits cross-paper comparability. Universal regeneration, complete
+local correctness and a quantitative causal explanation are not established.
+ScanDGC5.1174pp gap, exact author assets and isolated spectral benefit remain
+open. Canonical ModelNet byte parity and prior Scan controls are unchanged.
+
+[Artifact] No new search, accuracy measurement, GPU/Colab operation, author
+contact or Drive transfer. The original sealed88,986,715-byte literature ZIP
+SHA`e5c57dfb54ad3e6448006821d937658b408d0e4255d819b2c65b9fb88348f578`
+is retained unchanged; a separate small interpretation receipt under
+`result/preparation/tta_reliability_conclusion_20261025/` binds the new note to
+that evidence. Matching author assets/reruns, a demonstrated local defect or a
+controlled corruption-variance experiment could change specific conclusions.

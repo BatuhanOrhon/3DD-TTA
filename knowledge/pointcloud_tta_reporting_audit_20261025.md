@@ -154,3 +154,14 @@ For a thesis table, distinguish: original reported number; explicit inherited nu
 Falsifiers: authors' exact arrays/checkpoint hashes/configurations and raw logs could establish asset parity or explain a particular gap; an explicit baseline reuse/rerun declaration could resolve unknown edges; corrected author tables or a disclosed alternative reduction could resolve arithmetic flags. Without these, preserve both published values and the uncertainty.
 
 [Artifact] Research begins from study commit`51dd03b00163e22e4641658bbc0d532b6154e7b7`. Raw primary papers, extracted row coordinates, agent evidence, arithmetic checks and authoring scripts live under`result/preparation/tta_literature_expansion_20261025/`; its adjacent sealedZIP and committed receipt record exact SHA256/CRC/member identities. A local research archive is not a GPU result bundle. No Drive backup or Colab command was attempted; peer worktrees/runtimes and protected user files were not modified.
+
+## Final reliability interpretation — 2026-10-25
+
+[Inference/Decision/Open] The [conclusion and reporting decision](tta_accuracy_reliability_conclusion_20261025.md)
+separates evidence against a blanket local-evaluation failure from unresolved
+case-specific causes. Our three ModelNet source-family matches support internal
+consistency, while documented protocol/aggregation/reuse differences explain
+why paper means are not automatically comparable. Universal random regeneration,
+complete local correctness and a full causal explanation are not established.
+Canonical ModelNet byte parity and existing Scan controls remain valid; exact
+paper reproduction and isolated spectral benefit stay open. No new data or run.

@@ -203,3 +203,17 @@ originalcitation. CloudFixer six/all15, CF/CF-O, and PointCache/BayesMM7/8term
 means demonstrate non-random explanations for selected differences. These
 findings do not isolate the cause of our residual gap or prove other papers'
 results incorrect. Exact author assets/protocol/logs remain the falsifier.
+
+## 2026-10-25 — final interpretation, without closing unresolved gaps
+
+[Inference/Decision/Open] [Reliability conclusion](tta_accuracy_reliability_conclusion_20261025.md):
+ModelNet Point-MAE/DGCNN/CurveNet source-family agreement and existing internal
+checks weaken the claim that a generic local evaluation defect explains all
+paper gaps. Reviewed papers demonstrably differ in source training, adaptation
+protocol, corruption subset and averaging; some baseline numbers are inherited.
+This supports a protocol/provenance comparability issue, not a proof that our
+implementation is correct under every condition. ScanDGC and exact paper-asset
+parity remain open. Some Scan/Shape generation is documented, but universal
+regeneration and random draws as the quantitative cause are not established.
+Our canonical ModelNet data already match bytes. Preserve matched local results
+with their limits and do not relabel them exact paper reproductions. No new run.
