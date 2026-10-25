@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "matrix_rows": 72,
+  "publication_count": 15,
+  "full_primary_text_publications": 12,
+  "limited_primary_metadata_publications": 3,
+  "fingerprint_facts": 690,
+  "fingerprint_groups": 46,
+  "numeric_3dd_rows_including_original": 8,
+  "later_numeric_3dd_rows": 5,
+  "downloaded_files_sha_crc_verified": 49,
+  "retrieval_failures": [
+    {
+      "file": "sar_mdpi.html",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "file": "bayes_cvpr.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "semantic_venue.json",
+      "error": "HTTP Error 429: "
+    }
+  ],
+  "research_pdf_exclusion": "sapsb.pdf is a subscription-preview response, not the research article full text",
+  "model_inference_performed": false
+}

@@ -1,0 +1,3246 @@
+[
+  {
+    "repo": "Mehran-TAM/Uni-Adapter",
+    "sha": "cf0d8b17aefccbb8860643a24f3df050c7c2d844",
+    "tree": [
+      {
+        "path": "Assets",
+        "sha": "793bc8da80220def928ad1f44ca57bd83d95c143",
+        "type": "tree"
+      },
+      {
+        "path": "Assets/gitkeep",
+        "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+        "type": "blob"
+      },
+      {
+        "path": "LICENSE",
+        "sha": "c222714aa4957be4193526aa33a31e8466a9c41f",
+        "type": "blob"
+      },
+      {
+        "path": "README.md",
+        "sha": "2dc3c182388c90371fe813ca7f23ca783ea195a3",
+        "type": "blob"
+      },
+      {
+        "path": "Uni_Adapter.py",
+        "sha": "115b2fa109ab5716ed701bc5d101c949b92a9850",
+        "type": "blob"
+      },
+      {
+        "path": "data",
+        "sha": "4dc87a0ffbc01f66c8e8ce564f5e825712fd6d97",
+        "type": "tree"
+      },
+      {
+        "path": "data/__init__.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "type": "blob"
+      },
+      {
+        "path": "data/__pycache__",
+        "sha": "48b8a0b8e148b69a56e961af7a4cef8eb19fba29",
+        "type": "tree"
+      },
+      {
+        "path": "data/__pycache__/__init__.cpython-310.pyc",
+        "sha": "9a9dcfe7b3ad47d094531a24d6f9d075421ce35b",
+        "type": "blob"
+      },
+      {
+        "path": "data/__pycache__/data_utils.cpython-310.pyc",
+        "sha": "b87a4a68a06b35f69f44f9d1ffad0a041b9f9fe8",
+        "type": "blob"
+      },
+      {
+        "path": "data/__pycache__/tta_datasets.cpython-310.pyc",
+        "sha": "b979a272f684418fa6c5dab57830b7c4bdef4443",
+        "type": "blob"
+      },
+      {
+        "path": "data/data_utils.py",
+        "sha": "ebcf29b43b88fe3f5f24ed8eacc2dd00ba266ce7",
+        "type": "blob"
+      },
+      {
+        "path": "data/labels.json",
+        "sha": "faada6072e57004a2148b5208d5924e2174d3b43",
+        "type": "blob"
+      },
+      {
+        "path": "data/templates.json",
+        "sha": "ec26371fb4b113889165e90b15d8883d17ec9f94",
+        "type": "blob"
+      },
+      {
+        "path": "data/tta_datasets.py",
+        "sha": "349c118ae0368c236261cf55c7bea79bb9bcfc47",
+        "type": "blob"
+      },
+      {
+        "path": "main_test-time.py",
+        "sha": "f772c5ee85d3236a8fb8220baac7deb517ef6a43",
+        "type": "blob"
+      },
+      {
+        "path": "models",
+        "sha": "8473a23c7c6697a8d76d72c8d2bb0ef70cecc89b",
+        "type": "tree"
+      },
+      {
+        "path": "models/__pycache__",
+        "sha": "02e1b485d5dcc2b46699bc46f81b03c6f35b45bf",
+        "type": "tree"
+      },
+      {
+        "path": "models/__pycache__/losses.cpython-310.pyc",
+        "sha": "4dcac05326c573c34f08a0ad1ea5b8cc3a3fbfc2",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/point_encoder.cpython-310.pyc",
+        "sha": "d5a6f1725d2d98873a71d25fbc648d4fb4fd56ee",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/uni3d.cpython-310.pyc",
+        "sha": "ebf7514eacdf6de489c10bf6b9606c9bb684590d",
+        "type": "blob"
+      },
+      {
+        "path": "models/losses.py",
+        "sha": "025bd89d2f8fea3eb3c1d3db3c81133fe2f437c9",
+        "type": "blob"
+      },
+      {
+        "path": "models/openshape",
+        "sha": "a5965d5f1cc45eff55ca2c579554229078fedb55",
+        "type": "tree"
+      },
+      {
+        "path": "models/openshape/__init__.py",
+        "sha": "feed3945230f97fa50d87d1551879845077efa2e",
+        "type": "blob"
+      },
+      {
+        "path": "models/openshape/__pycache__",
+        "sha": "0e51d5618c8fdfbc642328b535a3430d4d4c3fbf",
+        "type": "tree"
+      },
+      {
+        "path": "models/openshape/__pycache__/__init__.cpython-310.pyc",
+        "sha": "a8cdaa64cc5e4a2a1e0079347f771e32c11e3932",
+        "type": "blob"
+      },
+      {
+        "path": "models/openshape/__pycache__/pointnet_util.cpython-310.pyc",
+        "sha": "32601d46c3c70fa4dce84846f427a26b9fa47a3d",
+        "type": "blob"
+      },
+      {
+        "path": "models/openshape/__pycache__/ppta.cpython-310.pyc",
+        "sha": "1bac79291b8d5c9c84350d61872acb44c47c704c",
+        "type": "blob"
+      },
+      {
+        "path": "models/openshape/config.yaml",
+        "sha": "3b185cf73af3cadba7fcdc571f822bc1e0557e24",
+        "type": "blob"
+      },
+      {
+        "path": "models/openshape/pointnet_util.py",
+        "sha": "8ddd587dcd562d8c96049ccf9bb7a0b53ba80d7d",
+        "type": "blob"
+      },
+      {
+        "path": "models/openshape/ppta.py",
+        "sha": "ee130f6127c4aee9aba6e623c3ec74ad3aa7ed3f",
+        "type": "blob"
+      },
+      {
+        "path": "models/point_encoder.py",
+        "sha": "8d559aafb55a6e317ff417abed59bbfb4be88614",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip",
+        "sha": "2b8d9b14018b23c1e0458325ab09dd13f15d57ef",
+        "type": "tree"
+      },
+      {
+        "path": "models/ulip/__init__.py",
+        "sha": "6d8022f62e45dfa3c3bd0c792966b956ff8d65df",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/__pycache__",
+        "sha": "63f28ac807eece9a450524f6d2e923e2fa7d9e81",
+        "type": "tree"
+      },
+      {
+        "path": "models/ulip/__pycache__/__init__.cpython-310.pyc",
+        "sha": "11bdd62ca4e7349158da9c6a4fb5553d7aada806",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/__pycache__/text_encoder.cpython-310.pyc",
+        "sha": "24121426cf8b0f70eca1f3b917b917a643db1de8",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/__pycache__/ulip_model.cpython-310.pyc",
+        "sha": "2f07bc62c9edd844a02cca249a2e1bea5b6a73e2",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert",
+        "sha": "007c6595f4b5063b6e0fd5f4f383de07a919bdc0",
+        "type": "tree"
+      },
+      {
+        "path": "models/ulip/pointbert/PointTransformer_8192point.yaml",
+        "sha": "f7b59621c34bb3c13ec40bea9a077058a9480746",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/__pycache__",
+        "sha": "3bb088bf1d6dd4ce1d68200303e123ebbdbdf5ea",
+        "type": "tree"
+      },
+      {
+        "path": "models/ulip/pointbert/__pycache__/dvae.cpython-310.pyc",
+        "sha": "edfd0e46d20bd902924fde2f2fa404bdf1820a44",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/__pycache__/misc.cpython-310.pyc",
+        "sha": "efa944aa078330b49b28ae285414439203696f81",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/__pycache__/point_encoder.cpython-310.pyc",
+        "sha": "ba7ad3a71f12eb2d16ab0d0d3d42dfd6f4d6774b",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/checkpoint.py",
+        "sha": "2ac680ab712235a4b8f4cc74f4c36b969ad6e57b",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/dvae.py",
+        "sha": "210f778815d3aa1b7104aa69a37be753dfbfb872",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/logger.py",
+        "sha": "847c1c7a2f50f310cd5daf96b928838c1c293525",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/misc.py",
+        "sha": "02071cb2e4f70b143c86c617f16d5922a88f24f6",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/pointbert/point_encoder.py",
+        "sha": "7107cd09b22a162ce496221970d7ca44db78f442",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/text_encoder.py",
+        "sha": "548f0ddb64b1a937d6bdccc0f99bdf0f21b54bc8",
+        "type": "blob"
+      },
+      {
+        "path": "models/ulip/ulip_model.py",
+        "sha": "5c5dcfde7cec0140b8c031ceb55d7e3afafd28d9",
+        "type": "blob"
+      },
+      {
+        "path": "models/uni3d.py",
+        "sha": "cc890c3a216c62e120eb613141ad227f5a11a469",
+        "type": "blob"
+      },
+      {
+        "path": "precomputed_text_features",
+        "sha": "04c9efab040928c18767dbfb0bcf9d084dc7a7a6",
+        "type": "tree"
+      },
+      {
+        "path": "precomputed_text_features/Uni3D",
+        "sha": "566f8f8f10878a4dcee9aaa64a01dfe5ddb4c9c7",
+        "type": "tree"
+      },
+      {
+        "path": "precomputed_text_features/Uni3D/text_features_giant.pt",
+        "sha": "747e7e2c05d37b85a19afeb92d555b1c3a6af31d",
+        "type": "blob"
+      },
+      {
+        "path": "precomputed_text_features/Uni3D/text_features_large.pt",
+        "sha": "0baa75fd5f2c95cc9da683516329a260ad5300a8",
+        "type": "blob"
+      },
+      {
+        "path": "precomputed_text_features/Uni3D/text_features_large_lvis.pt",
+        "sha": "93920e40d3153bcab62fdc2ce8000c8a48f6c3eb",
+        "type": "blob"
+      },
+      {
+        "path": "precomputed_text_features/Uni3D/text_features_large_scanobjectnn.pt",
+        "sha": "8b885fde8d8f91ded8ea764a928b6f6ae13a0d73",
+        "type": "blob"
+      },
+      {
+        "path": "precomputed_text_features/Uni3D/text_features_large_shapenetcorev2.pt",
+        "sha": "e44e33ace3b3ef3807e9ddd466c10ed54dd8fa6a",
+        "type": "blob"
+      },
+      {
+        "path": "utils",
+        "sha": "b9a9145223edc6812a065c115f7bab988b74979b",
+        "type": "tree"
+      },
+      {
+        "path": "utils/__init__.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__",
+        "sha": "ac3e6c87f060bd1aa94eeaf46f82db702690f522",
+        "type": "tree"
+      },
+      {
+        "path": "utils/__pycache__/__init__.cpython-310.pyc",
+        "sha": "a58fa62049ba332eaf0eec7956cc559baf85fac7",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/distributed.cpython-310.pyc",
+        "sha": "52786ee2c8b5f7a0a8e04387971fd81e2f7b0af5",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/hyperparams.cpython-310.pyc",
+        "sha": "1ac7d233c5e780e0d70d73a4cf9e2b1b48ff4a93",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/load_models.cpython-310.pyc",
+        "sha": "bf0c57d2fed5ea9b6d57bbbdb29e251ebdfa1405",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/logger.cpython-310.pyc",
+        "sha": "07f6a203e3fe2edb194e547c894738bb2956f931",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/math_utils.cpython-310.pyc",
+        "sha": "f44f0dd6de290eff65a4df01f238425747419496",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/params.cpython-310.pyc",
+        "sha": "86cea8e6c3ac82bee42a6882018f04cd109027de",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/tokenizer.cpython-310.pyc",
+        "sha": "29e9f9f9eaa5d55a0bc8dc8c8a7c51d695517b6c",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/utils.cpython-310.pyc",
+        "sha": "df31e0a5cf328b012dd9175ce1a9158f8c9abc6d",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bpe_simple_vocab_16e6.txt.gz",
+        "sha": "7b5088a527f720063f044eb928eee315f63b2fc0",
+        "type": "blob"
+      },
+      {
+        "path": "utils/distributed.py",
+        "sha": "6f6ec33b3985b14bc2a5e66655022a2deef13d81",
+        "type": "blob"
+      },
+      {
+        "path": "utils/hyperparams.py",
+        "sha": "fe944e920bd3f0d486f163bce75085817d435da4",
+        "type": "blob"
+      },
+      {
+        "path": "utils/load_models.py",
+        "sha": "cc310a08a6b3ed504a552d14b18a36b548f95e29",
+        "type": "blob"
+      },
+      {
+        "path": "utils/logger.py",
+        "sha": "6d9abed92568d459cbc8d6094ae3901935d89621",
+        "type": "blob"
+      },
+      {
+        "path": "utils/math_utils.py",
+        "sha": "849aaf355c5544a013a4f554f8f87af31da94907",
+        "type": "blob"
+      },
+      {
+        "path": "utils/params.py",
+        "sha": "ac4ed7d99102c1bb746b9998d57696af8384ae59",
+        "type": "blob"
+      },
+      {
+        "path": "utils/tokenizer.py",
+        "sha": "3bf421618ff722e97f9f6bb7d9da618021c67451",
+        "type": "blob"
+      },
+      {
+        "path": "utils/utils.py",
+        "sha": "3371c34d7fde314490b6e68598c481b21c86b35a",
+        "type": "blob"
+      },
+      {
+        "path": "visualize",
+        "sha": "94e0e45b719eb8e3cf92b11170b5a2e025a450b1",
+        "type": "tree"
+      },
+      {
+        "path": "visualize/__pycache__",
+        "sha": "502c817accf24d312c17274a978d969d7972d20f",
+        "type": "tree"
+      },
+      {
+        "path": "visualize/__pycache__/visualization.cpython-310.pyc",
+        "sha": "e6f9ddd938df6c72e4158bea53681f7174ebebc7",
+        "type": "blob"
+      },
+      {
+        "path": "visualize/visualization.py",
+        "sha": "c6acd656e0d2739d636f58cc5db16353e79e85ae",
+        "type": "blob"
+      }
+    ]
+  },
+  {
+    "repo": "AliBahri94/SVWA_TTA",
+    "sha": "59935d68d0ef12811619ce4776e1dc4a711997d1",
+    "tree": [
+      {
+        "path": ".gitignore",
+        "sha": "30598e05b8d29c0b771264de6cca519ff03f6a7d",
+        "type": "blob"
+      },
+      {
+        "path": "README.md",
+        "sha": "e44b7c61931cb0092b1efb478f2996e51c879983",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs",
+        "sha": "42ada9ace24164992083554f80e2e5a4a46b3d88",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines",
+        "sha": "069789bac7917d1fcccb9f3c80daf8b707e6e80b",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/tta_dua.yaml",
+        "sha": "4f7636ace7309ddb0203d68bb0e82cbebf64da98",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/tta_rotnet.yaml",
+        "sha": "7011f72c82df4d20e4e90b06c4a7bf1155be4a96",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/tta_shot.yaml",
+        "sha": "4f7636ace7309ddb0203d68bb0e82cbebf64da98",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/tta_t3a.yaml",
+        "sha": "4f7636ace7309ddb0203d68bb0e82cbebf64da98",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/tta_tent.yaml",
+        "sha": "4f7636ace7309ddb0203d68bb0e82cbebf64da98",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs",
+        "sha": "dad9ed52c9da9e41e377cbdabdfdc21558449fb4",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/dataset_configs/ModelNet40.yaml",
+        "sha": "48d5d8de1aac9905fe6dca55bc87ecc45513ade6",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ModelNet40FewShot.yaml",
+        "sha": "bf1aa8f6f2f77fd0e812c5e23a1f3ceb5a524784",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ScanObjectNN_hardest.yaml",
+        "sha": "95aa0839dce672c37da4edf1b8d6bde0957f357b",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ScanObjectNN_objectbg.yaml",
+        "sha": "925ca7c122e3e1aaf8e5fcbbecd4ba5cc05963e0",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ScanObjectNN_objectonly.yaml",
+        "sha": "619a5e16f4a2e6f8c0f4c7c9b65d262794191ca3",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ShapeNet-55.yaml",
+        "sha": "e8b9ee4399cf5819c18af801641e27c97b840b79",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ShapeNetCore.yaml",
+        "sha": "b50aa5022f0f55957ae727ba07d0067c7bde16c8",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/finetune",
+        "sha": "6873583b030afd8a841077a82073e65533264269",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/finetune/finetune_modelnet.yaml",
+        "sha": "810e56c9f0c4f86b931a151e9f016aeae099bbf2",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/finetune/finetune_modelnet_8k.yaml",
+        "sha": "3ec45ca88a53b9e7a73ea86bc02cd357aa345b25",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/finetune/finetune_scan_hardest.yaml",
+        "sha": "a2fbcc9fad2f7227579b0ff537af24289af9864d",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/finetune/finetune_scan_obj_w_bg.yaml",
+        "sha": "d37f87695ec2d84eecde6759f80bf4a103ed15c3",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/finetune/finetune_scan_objonly.yaml",
+        "sha": "2cef115819e8a32a4b7b406476da37c90b6b7f3a",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train",
+        "sha": "f820145c765f9c964f4519859c71fcdcee88d2bc",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_modelnet.yaml",
+        "sha": "96668d779fcfabd0912c0fb0d199fb5c019ed0ef",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_modelnet_rotnet.yaml",
+        "sha": "e1b4db0a683d03fbbaad60ca09ad0cca323a5f8a",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_scanobject.yaml",
+        "sha": "8a47e274ae55dcae85ee195dd9706085a724e2cd",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_scanobject_rotnet.yaml",
+        "sha": "80a58a48d32e8652cb7045993fea3c459e099b19",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_shapenet.yaml",
+        "sha": "3e1a996256fd5bc91e7465f81e72f0b72d15c4e3",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_shapenet_rotnet.yaml",
+        "sha": "102f6dfb326739ec42e564b7a1d5d43c228ad293",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_shapenetcore.yaml",
+        "sha": "d9fd5291d2f96fd86a6e90ea5538274e7c198023",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta",
+        "sha": "725bf4f2d49acc638fa07b5025b71b2b9b795873",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/tta/tta_modelnet.yaml",
+        "sha": "08d4bad294eb78206b7f9109ba44727a1e8dcc3b",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta/tta_scanobj.yaml",
+        "sha": "88063b304aef64d21532903e2de32323f48c68be",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta/tta_shapenet.yaml",
+        "sha": "17c88f18705d2764e96737f175cbd8d0d034483f",
+        "type": "blob"
+      },
+      {
+        "path": "commands.sh",
+        "sha": "a4980cef6711a8542908b96e9a2dd939e5be5766",
+        "type": "blob"
+      },
+      {
+        "path": "datasets",
+        "sha": "0487f720e813771b695156f03ff34714f0f83e71",
+        "type": "tree"
+      },
+      {
+        "path": "datasets/ModelNetDataset.py",
+        "sha": "341db0a970bef1daccfe8b241a55e96a71f86ca0",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ModelNetDatasetFewShot.py",
+        "sha": "8b558806a8b94f3d86a71971f26b732d542d5923",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/PartNormalDataset.py",
+        "sha": "ce00ee6e6bdec24cb68e9c147b5af3df4edeb9a5",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ScanObjectNNDataset.py",
+        "sha": "79f146930635600591bf31188864fe418010b7ae",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ShapeNet55Dataset.py",
+        "sha": "d4889dec5b83421e5afb3be7aa6f0f4014153796",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ShapeNetCoreDataset.py",
+        "sha": "b6dafc1de034fa643cd7d6b090f227501f16fa32",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__init__.py",
+        "sha": "9a894db9ebb95d1ca150779dced146b67941bddb",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__",
+        "sha": "0e1a54e491ee86de47a401ee59c6c6aeb0b210c0",
+        "type": "tree"
+      },
+      {
+        "path": "datasets/__pycache__/ModelNetDataset.cpython-37.pyc",
+        "sha": "1ef32c495a6ed626aa6803b8b7cda8654b24044f",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ModelNetDataset.cpython-38.pyc",
+        "sha": "e39ad7bca7e3c5ece6d985f4cf50e4042809b052",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ModelNetDatasetFewShot.cpython-37.pyc",
+        "sha": "28112b4272a1ef5520687bedb6c94c6cbee5a89a",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ModelNetDatasetFewShot.cpython-38.pyc",
+        "sha": "502861f1f37763ffb8e87941568bf84abaaf2b08",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/PartNormalDataset.cpython-37.pyc",
+        "sha": "fd3abf1fc3b4817fd7973cc595e7ee55515bd4fd",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/PartNormalDataset.cpython-38.pyc",
+        "sha": "e5e33af88c01ba4505b0e7d88d604c3dba184dff",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ScanObjectNNDataset.cpython-37.pyc",
+        "sha": "7e029de4c3ad65d14de6b139715e9cc84fda2a0a",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ScanObjectNNDataset.cpython-38.pyc",
+        "sha": "7f441dbdccfad54c65cf79771fca98436cdd096f",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ShapeNet55Dataset.cpython-37.pyc",
+        "sha": "584a0788c3d6bc422df51955b3a1930bdf57b5b1",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ShapeNet55Dataset.cpython-38.pyc",
+        "sha": "2a0e28bfc4e8e801586955e78824bd0b62dd4d50",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ShapeNetCoreDataset.cpython-37.pyc",
+        "sha": "71909613233208c05ccd4f4819d65734d553056f",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/ShapeNetCoreDataset.cpython-38.pyc",
+        "sha": "66f5fc7c3b7cc0ad7953a38914a6f530234c0c34",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/__init__.cpython-37.pyc",
+        "sha": "14a3342ee9ade9512abc8d0e8f41be46ee27f761",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/__init__.cpython-38.pyc",
+        "sha": "50fb3710e36b6c7a10d9a30090d5e58037cbb3ec",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/build.cpython-37.pyc",
+        "sha": "9bf0274b8d1c5f62f6ffafb78e93d8414ce71e5e",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/build.cpython-38.pyc",
+        "sha": "9b5711a8cc794f9155b1376c20b39676c7c0dd87",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/data_transforms.cpython-38.pyc",
+        "sha": "d3def1805dc5ca0cfe52224c0a04ef264e464d7c",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/io.cpython-37.pyc",
+        "sha": "d94408ad3488015d2e0705680ba1479f54320c0c",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/io.cpython-38.pyc",
+        "sha": "3b6fe4043abe4e2bb3d02bb01e3e5ea36010a756",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__pycache__/tta_datasets.cpython-38.pyc",
+        "sha": "71b7f4701dde1cadf1bbd9294ebc38336944927a",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/build.py",
+        "sha": "db9c4beebc3965828c578bbd3ba84786f1dc968d",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_corrupted_dataset.py",
+        "sha": "4fd28d87b7ad4d3d4f1c50c612d860894c2e5c08",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_corrupted_dataset_old.py",
+        "sha": "8b86072e4c3a63484cb3198536af1725eecdb6a4",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_corrupted_dataset_partnet.py",
+        "sha": "48854d5bd28ee9c20a66b642e99ab5e7db7ff9be",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_meshes.py",
+        "sha": "a376fcf02c702fcdb9c9a1a7a673e008c2433b64",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_mixed_corruptions.py",
+        "sha": "682758f8054942f70e01e0a35bab34c11ce8c328",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_seq_corruptions.py",
+        "sha": "051b88950b490664d066ecddd265f76a7413cfa3",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/data_transforms.py",
+        "sha": "edb06083d45226b5795b8a46dc9a370069d3a4ef",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/generate_few_shot_data.py",
+        "sha": "ad1566456d6a178bb10d924e0043fac6f322fcf5",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/io.py",
+        "sha": "44ccb95583360c214dbe2e608eeb0f9939bbd63e",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/tta_datasets.py",
+        "sha": "afc8fdfcabcb83b35cc114bd0d8bf892df653836",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/wrapper_create_corrupted_dataset.py",
+        "sha": "b145efc33ded58d36066052daadaefae297cdf18",
+        "type": "blob"
+      },
+      {
+        "path": "docs",
+        "sha": "6773d143c5f9a2f3cb3d723b281ac7bd4a9876bd",
+        "type": "tree"
+      },
+      {
+        "path": "docs/.nojekyll",
+        "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+        "type": "blob"
+      },
+      {
+        "path": "docs/index.html",
+        "sha": "d3ca95b09a23d54598cfd66df2dc87a0fc1e065c",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static",
+        "sha": "8934b13adb77f0581c3d6a2303405816bc5043d9",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/css",
+        "sha": "4e392051a957b74a21bcd55b6e485f68fe0e19c9",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/css/bulma-carousel.min.css",
+        "sha": "4d4b7d103e0013f64e4dedd2ad0b2947cc0d11a5",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/bulma-slider.min.css",
+        "sha": "09b4aeb2fb19d7d883a0b01cb1982cb382992f95",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/bulma.css.map.txt",
+        "sha": "ed3a9d377ba3c30e6eb8b2a35e08e8dc814a0725",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/bulma.min.css",
+        "sha": "a807a314caa0df0ddccacd6b732d83f5ffde7a89",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/fontawesome.all.min.css",
+        "sha": "cbeaa76a1f624412d148a03b600afa54b2684114",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/index.css",
+        "sha": "c4559011e814c2a731c474fb6a88afcc6ea7ea7e",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images",
+        "sha": "cc646144c9e56672d1498905639e29f0e512509b",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/images/corr.jpg",
+        "sha": "542281e5a028ab52ca5c7aadc8622a4923be67a1",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/fav.png",
+        "sha": "882722341b1dac5375d33935907497a6c6ddcace",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/favicon.ico",
+        "sha": "02f6b35f5cf8d7f6fb034bb1cc01530da1963285",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/mate_main.jpeg",
+        "sha": "10ee9be332e776140735001638ba0f4a680d9413",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/mate_teaser.jpeg",
+        "sha": "88b6d89f13c0aad9b040183f0599c1dfe07a548f",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/recon.pdf",
+        "sha": "3000445ec2ff6ac77ffc476835d4ab65b0bee930",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js",
+        "sha": "f0ceeedb13a850a4b755da155b02d71f6d0167c1",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/js/bulma-carousel.js",
+        "sha": "229edba242bb190698662cdce6bdacde9f0769fe",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/bulma-carousel.min.js",
+        "sha": "5fff0695f00cf9da60dd87aa72c51367b00e92ff",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/bulma-slider.js",
+        "sha": "c6718de5c5ae59d2c22141a147f5afba41af9cbb",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/bulma-slider.min.js",
+        "sha": "7e62685763cf7668cfa8857fac0b27af2c277286",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/fontawesome.all.min.js",
+        "sha": "9ee22fdb7753983bae3986b2436bdd167730cd5b",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/index.js",
+        "sha": "c08a79032592be8f5e7318991b0242323389469d",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/pdfs",
+        "sha": "82249a75cad18790fba481abb1553745a81deb1c",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/pdfs/sample.pdf",
+        "sha": "80f9dedb22582266a9daa4b5a74a2b7ef60f99a4",
+        "type": "blob"
+      },
+      {
+        "path": "figures",
+        "sha": "776d17d4287da7bd2f810306c20ccca1c1b9cc94",
+        "type": "tree"
+      },
+      {
+        "path": "figures/main_net.png",
+        "sha": "e1a0f067ff7d2ec6e56d6fa4581e26f7aa38cc79",
+        "type": "blob"
+      },
+      {
+        "path": "models",
+        "sha": "aac93b93029e131c7b884021ce94ee72569a5eb3",
+        "type": "tree"
+      },
+      {
+        "path": "models/Point_MAE.py",
+        "sha": "91a83a90281cb84d83b707d5998cd8119c50efce",
+        "type": "blob"
+      },
+      {
+        "path": "models/__init__.py",
+        "sha": "1027cf76a3d71fe84c389bb39e2d5809f8fac6c4",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__",
+        "sha": "70c55cfea0e2aab0220ad1e8bd73efe6c1985b7e",
+        "type": "tree"
+      },
+      {
+        "path": "models/__pycache__/Point_MAE.cpython-37.pyc",
+        "sha": "feb587245367caec17e598944a2ff156773f5edd",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/Point_MAE.cpython-38.pyc",
+        "sha": "fc3f900259377425043b72a46e13dd4b6601fb99",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/__init__.cpython-37.pyc",
+        "sha": "f9f26ea2573bcd0ab4a0fb4b74f542f3e6f6affc",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/__init__.cpython-38.pyc",
+        "sha": "daaa10ad8a5773c8f467fb1fa906b9b9682069c5",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/build.cpython-37.pyc",
+        "sha": "47ce620edf6db6575655a03bccb2756d3830e708",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/build.cpython-38.pyc",
+        "sha": "391377f01ebb2f7194dcd2d2b55365b63f92bdd9",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/curvenet_util.cpython-38.pyc",
+        "sha": "8feec4d3058ade3709a4e74023fc4caa3781c049",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/pointnet_utils.cpython-38.pyc",
+        "sha": "cab76d7f94feb571f443a53b05e8728ac5a4ddd1",
+        "type": "blob"
+      },
+      {
+        "path": "models/__pycache__/walk.cpython-38.pyc",
+        "sha": "55fe2aa63be28aa13ba09c16f54d4bd528d53123",
+        "type": "blob"
+      },
+      {
+        "path": "models/build.py",
+        "sha": "d0c8f5970610ed2f5ce4fd4e4aabe56bbdde0d1f",
+        "type": "blob"
+      },
+      {
+        "path": "models/curvenet_util.py",
+        "sha": "e2c3d8275e9ad24ed4b5ebd32b4e378ffed08cf4",
+        "type": "blob"
+      },
+      {
+        "path": "models/pointnet_utils.py",
+        "sha": "1ccb3a53fb60eee165b9fc9e54a204d432cc3fc0",
+        "type": "blob"
+      },
+      {
+        "path": "models/walk.py",
+        "sha": "ce664090fa7baf65d0a0b61874bc85ffe56c0639",
+        "type": "blob"
+      },
+      {
+        "path": "requirements.txt",
+        "sha": "60d6ddd4f17ec7fb89d87200cfddae6e79c63e04",
+        "type": "blob"
+      },
+      {
+        "path": "test.py",
+        "sha": "9ef03b6df35a075c3b64727a0ea46bf0050aedf2",
+        "type": "blob"
+      },
+      {
+        "path": "tools",
+        "sha": "a6102af1b6b51a67ab50a8e9b24e55535340be53",
+        "type": "tree"
+      },
+      {
+        "path": "tools/__init__.py",
+        "sha": "ba280002bf8ceba253f350025c2f8f0d9e7fe255",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__",
+        "sha": "5d3ac8866a6a50e22f3527a4492361b75691812e",
+        "type": "tree"
+      },
+      {
+        "path": "tools/__pycache__/__init__.cpython-37.pyc",
+        "sha": "8d7b410910f0b601304ff3a854b0d9712f99745e",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/__init__.cpython-38.pyc",
+        "sha": "a0ccffd3da36d4aa099df0fef94df5e212a0da0a",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/builder.cpython-37.pyc",
+        "sha": "7ca3bc448172457c2f5ee5abda3c23c7869b8af2",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/builder.cpython-38.pyc",
+        "sha": "2a1b7afa8f1222788139bf15ffa715b8bc212d7b",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/runner.cpython-37.pyc",
+        "sha": "43d97d42eac3da40485719eec72e014eef619185",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/runner.cpython-38.pyc",
+        "sha": "acceeb0f6eba0d32e5f3bff0f6a8f9bf6f9cf5a2",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/runner_finetune.cpython-38.pyc",
+        "sha": "e29c436401e6013b4dfa3d833ee334dec95fb4ef",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/runner_pretrain.cpython-38.pyc",
+        "sha": "832ef83117f7ed1c8fd4830e60d575fd1ffb533c",
+        "type": "blob"
+      },
+      {
+        "path": "tools/__pycache__/tta.cpython-38.pyc",
+        "sha": "d736e9092d381ad05302fc159c00513bde9aa1b5",
+        "type": "blob"
+      },
+      {
+        "path": "tools/builder.py",
+        "sha": "64fbd525ac5a8a3f5a5f5572dd3750f6591d3730",
+        "type": "blob"
+      },
+      {
+        "path": "tools/online-learning-plots.py",
+        "sha": "12bb9b0cd44a6c6b2b8f3b315d00180444de1e2f",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner.py",
+        "sha": "b8d49e038fb419488849c6e2292e7a28242a0845",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_finetune.py",
+        "sha": "a8b1db088804b958744e33d9c529be7167360b33",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_pretrain.py",
+        "sha": "4fc78f643f4d60938ff8807064b20b39248efcf8",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_pretrain_partnet.py",
+        "sha": "a98393b93cc15b245944d31078f1d963de13470a",
+        "type": "blob"
+      },
+      {
+        "path": "tools/stride_abl_shapenet.sh",
+        "sha": "ad7f54c29a03b88a6f35abafe7677d91ccdc00c0",
+        "type": "blob"
+      },
+      {
+        "path": "tools/stride_abl_shapenet_rotnet.sh",
+        "sha": "86695bc13c86ac370fed3c4f14c95813dc9cdeb8",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tent.py",
+        "sha": "9440c860d1d5da1fd52c3fb1ee91618e1b9378d5",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta.py",
+        "sha": "30379f9171f29eabf7d3b251b09399cf976da76e",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_abl.py",
+        "sha": "ae4ae74d592d4a4498ff9a7d58ec4ddd9906b0ae",
+        "type": "blob"
+      },
+      {
+        "path": "tools/ttt_new.py",
+        "sha": "56bc8b3ff2eb7cef14a2da297cbc58789091b452",
+        "type": "blob"
+      },
+      {
+        "path": "tools/visualize_pc.py",
+        "sha": "3ff6fc37e12cf102ed3c892da42f1703b91e0f74",
+        "type": "blob"
+      },
+      {
+        "path": "train.py",
+        "sha": "bbc04974c19acc03fd4098a4c44542feb87601d6",
+        "type": "blob"
+      },
+      {
+        "path": "tta_tent_results",
+        "sha": "0e5d34e38504a114d30822084252701bc6dce4ce",
+        "type": "tree"
+      },
+      {
+        "path": "tta_tent_results/20241101_160956_results",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "type": "blob"
+      },
+      {
+        "path": "ttt.py",
+        "sha": "5b3eeb59586c418fdd9cb32ff3aae16987ebdc66",
+        "type": "blob"
+      },
+      {
+        "path": "utils",
+        "sha": "ef3ffa10c94b8a208a268432459d5445a4e65029",
+        "type": "tree"
+      },
+      {
+        "path": "utils/AverageMeter.py",
+        "sha": "5118f4318741f01aecd82bcb8083dfac51ef3b7c",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__",
+        "sha": "bf8b51879bd5103414ce8c81a1628a2be0aaff4f",
+        "type": "tree"
+      },
+      {
+        "path": "utils/__pycache__/AverageMeter.cpython-38.pyc",
+        "sha": "f2e55b1d65816f3e524c818e529a2e544c15e9b3",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/checkpoint.cpython-37.pyc",
+        "sha": "ae42edd2b939b61155bceb2eeddb40f91a0bf821",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/checkpoint.cpython-38.pyc",
+        "sha": "384f221ef1bc85ccb0b3917baece9b41f4b04156",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/config.cpython-37.pyc",
+        "sha": "2bc6b065ae762822c6057a2436349c24119e8991",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/config.cpython-38.pyc",
+        "sha": "1abf16be98885bd0e8646f3a44991fe8ebef0182",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/dist_utils.cpython-37.pyc",
+        "sha": "f6662e5d8e99847a6a1f4f8253d6c0af12d9f38b",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/dist_utils.cpython-38.pyc",
+        "sha": "70e4cd1c41749b513f2f6efeb0cfe834dc1b4bf9",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/logger.cpython-37.pyc",
+        "sha": "c27b2e87d36900c6a38f6fdf5a51f5aeb641f0e4",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/logger.cpython-38.pyc",
+        "sha": "fd06da487837e05ab7d7e73dcd770c25d2071972",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/misc.cpython-37.pyc",
+        "sha": "df17964dc7fc01a176b249b7740e901d8c462540",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/misc.cpython-38.pyc",
+        "sha": "6285ed8b09133096973b6fc790a5f14a0db5dcbb",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/parser.cpython-37.pyc",
+        "sha": "aca982bc4e6d194d18a3aaf743f89b04fbee20b5",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/parser.cpython-38.pyc",
+        "sha": "d90ac1f0ecadd75a263bdf98d6437a05f92cbdf8",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/registry.cpython-37.pyc",
+        "sha": "2293729a6d099ebdfb04399c11b68aada34dae64",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/registry.cpython-38.pyc",
+        "sha": "081e7801e46b5ec52787804bf2630a50343c1159",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/rotnet_utils.cpython-38.pyc",
+        "sha": "f3e3d655b438335ef3ce4a5508a676feafb016ec",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/t3a.cpython-38.pyc",
+        "sha": "5d6e29cff76ced052bfc8cacfb9711adeb0d5c34",
+        "type": "blob"
+      },
+      {
+        "path": "utils/__pycache__/tent_shot.cpython-38.pyc",
+        "sha": "f6abfad2f7bf57001ef38e557f2910d304a449f5",
+        "type": "blob"
+      },
+      {
+        "path": "utils/checkpoint.py",
+        "sha": "41dc45626ec343fbde116e036ba6261747169d89",
+        "type": "blob"
+      },
+      {
+        "path": "utils/config.py",
+        "sha": "8c86d76d1f89ae98191fe326ed219b4cf9da3cb2",
+        "type": "blob"
+      },
+      {
+        "path": "utils/dist_utils.py",
+        "sha": "d870fece16c66a000b9fc372b9df6a369089c2a0",
+        "type": "blob"
+      },
+      {
+        "path": "utils/logger.py",
+        "sha": "8a6fb6871cf0cd6184888feb9b3215d44528634a",
+        "type": "blob"
+      },
+      {
+        "path": "utils/misc.py",
+        "sha": "2970d6ad29eb6ca6f25197400ab06a598bec9aa3",
+        "type": "blob"
+      },
+      {
+        "path": "utils/parser.py",
+        "sha": "50226724d64812568a1ed93e25fa07a2f77bfc4e",
+        "type": "blob"
+      },
+      {
+        "path": "utils/registry.py",
+        "sha": "025e4ee64fa4c5a04d52353f5976332ab26d9133",
+        "type": "blob"
+      },
+      {
+        "path": "utils/rotnet_utils.py",
+        "sha": "95e99079c1b9f415d1e943ce61a29f36d9ab750a",
+        "type": "blob"
+      },
+      {
+        "path": "utils/shot.py",
+        "sha": "d3081f56fc139e05a6ca0c43c36b9b17e8cf7348",
+        "type": "blob"
+      },
+      {
+        "path": "utils/t3a.py",
+        "sha": "8f511cd0cc7b4143ba19603163576e195cf376b2",
+        "type": "blob"
+      },
+      {
+        "path": "utils/tent_shot.py",
+        "sha": "7d0aca00d618a933959d07c3787d7c68481e921c",
+        "type": "blob"
+      }
+    ]
+  },
+  {
+    "repo": "MosyMosy/Purge-Gate",
+    "sha": "894d4b6372897986eb468038dc6ffbc93f89e38c",
+    "tree": [
+      {
+        "path": ".gitignore",
+        "sha": "3df95de8d4330d401b47e0fa42d6277fcb5f9c3a",
+        "type": "blob"
+      },
+      {
+        "path": "README.md",
+        "sha": "ae16d675e0364dee0b74de176e224a71326a0753",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs",
+        "sha": "86366c73349fa6c1255ba45b9f979f19e89dced4",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines",
+        "sha": "44390f185960f693e58a56f44fa6385aff711c2e",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/modelnet",
+        "sha": "21c86a7c44a9cf93466336f49d35172823ea5207",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_dua.yaml",
+        "sha": "b845b203074a17a2d501de4ef68dc64199434cb1",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_rotnet.yaml",
+        "sha": "eb2ac0185852bef60fa60463e4bae35a0bff2081",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_shot.yaml",
+        "sha": "7a2bc20cc0d220891c89847dd249d2d531c294da",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_t3a.yaml",
+        "sha": "7a2bc20cc0d220891c89847dd249d2d531c294da",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_tent.yaml",
+        "sha": "7a2bc20cc0d220891c89847dd249d2d531c294da",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject",
+        "sha": "4c57f74fb012545caadcd15183ef43e4383b6343",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_dua.yaml",
+        "sha": "31903185ec1ea976f81ae614363496612de8159d",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_rotnet.yaml",
+        "sha": "4c40c8dc7c44464bbf5072fcc3e30e6c5460fabc",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_shot.yaml",
+        "sha": "aa75d71f7070757bf2436592be9af15298666a6c",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_t3a.yaml",
+        "sha": "aa75d71f7070757bf2436592be9af15298666a6c",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_tent.yaml",
+        "sha": "aa75d71f7070757bf2436592be9af15298666a6c",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet",
+        "sha": "d18f8b6582ce93ce1630fe3a6c674ad548e292a6",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_dua.yaml",
+        "sha": "ac579df85784e8bedc1af3b457f2da37f12c1641",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_rotnet.yaml",
+        "sha": "28c26e502ab0ae5141f0fc923a8315915ee64793",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_shot.yaml",
+        "sha": "a2ff8b403d6946582a4ca0115e8dfd19759b6307",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_t3a.yaml",
+        "sha": "a2ff8b403d6946582a4ca0115e8dfd19759b6307",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_tent.yaml",
+        "sha": "a2ff8b403d6946582a4ca0115e8dfd19759b6307",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs",
+        "sha": "e2b8b979b095dcc02f056a108871428dc1356947",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/dataset_configs/ModelNet40.yaml",
+        "sha": "67a05af3f84dab554e08ce1b2a71e3fa412092db",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ScanObjectNN.yaml",
+        "sha": "f3af9e170b5e89bc2a59826b6ee3d62a5a8ae42e",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ShapeNetCore.yaml",
+        "sha": "f8b8c9aee015004900c1fd5d276b9ef407bac597",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train",
+        "sha": "884d2874e0b527a585d2f82ec929116660b52f72",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/pre_train/finetune_modelnet.yaml",
+        "sha": "ccaea49c1d0e1241c787f570941dab5e1a4b22cc",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/finetune_scanobj.yaml",
+        "sha": "678896313a7de3a1d0c5172b70c87e3f27ac3a0d",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/finetune_shapenet.yaml",
+        "sha": "6494aa5bbd1eb43602cb3ed19bb9fb782b5a9c97",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta",
+        "sha": "9b65ee24b7057c0f8296347579d805818eced20c",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/tta/tta_modelnet.yaml",
+        "sha": "f5f9b4f2cd97eb98feb4ee8811ef2fdbb0f109db",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta/tta_scanobj.yaml",
+        "sha": "49446774c2e1a6b34f1ba837ec0925043285cb49",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta/tta_shapenet.yaml",
+        "sha": "f649b3a0e9c7727d618c79773165ba359c37a241",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge",
+        "sha": "fb324f072efebd4cbe72128977abdb59fabd5397",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_modelnet.yaml",
+        "sha": "9bb9ed58cd386355fd9f49a05458bad5829a58dc",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_scanobject.yaml",
+        "sha": "1b025e5db2577ff6032cfdad3ab0aceaf4d9e779",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_shapenet.yaml",
+        "sha": "b364e19e62bbb2ec4049129d5dad0c69902df5e4",
+        "type": "blob"
+      },
+      {
+        "path": "commands.sh",
+        "sha": "1acbb1e7a4807a497c96e0ef2c8adf2492b55b40",
+        "type": "blob"
+      },
+      {
+        "path": "datasets",
+        "sha": "020969898688bcce332b29ec51dc6b5da5036fc3",
+        "type": "tree"
+      },
+      {
+        "path": "datasets/ModelNetDataset.py",
+        "sha": "341db0a970bef1daccfe8b241a55e96a71f86ca0",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ModelNetDatasetFewShot.py",
+        "sha": "8b558806a8b94f3d86a71971f26b732d542d5923",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/PartNormalDataset.py",
+        "sha": "ce00ee6e6bdec24cb68e9c147b5af3df4edeb9a5",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ScanObjectNNDataset.py",
+        "sha": "79f146930635600591bf31188864fe418010b7ae",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ShapeNet55Dataset.py",
+        "sha": "d4889dec5b83421e5afb3be7aa6f0f4014153796",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ShapeNetCoreDataset.py",
+        "sha": "b6dafc1de034fa643cd7d6b090f227501f16fa32",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__init__.py",
+        "sha": "9a894db9ebb95d1ca150779dced146b67941bddb",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/build.py",
+        "sha": "db9c4beebc3965828c578bbd3ba84786f1dc968d",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_corrupted_dataset.py",
+        "sha": "2764cf0e6733f68d2984526a4c095289083f47d5",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_corrupted_dataset_partnet.py",
+        "sha": "48854d5bd28ee9c20a66b642e99ab5e7db7ff9be",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_mixed_corruptions.py",
+        "sha": "682758f8054942f70e01e0a35bab34c11ce8c328",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_seq_corruptions.py",
+        "sha": "051b88950b490664d066ecddd265f76a7413cfa3",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/data_transforms.py",
+        "sha": "edb06083d45226b5795b8a46dc9a370069d3a4ef",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/generate_few_shot_data.py",
+        "sha": "ad1566456d6a178bb10d924e0043fac6f322fcf5",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/io.py",
+        "sha": "44ccb95583360c214dbe2e608eeb0f9939bbd63e",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/tta_datasets.py",
+        "sha": "afc8fdfcabcb83b35cc114bd0d8bf892df653836",
+        "type": "blob"
+      },
+      {
+        "path": "docs",
+        "sha": "6773d143c5f9a2f3cb3d723b281ac7bd4a9876bd",
+        "type": "tree"
+      },
+      {
+        "path": "docs/.nojekyll",
+        "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+        "type": "blob"
+      },
+      {
+        "path": "docs/index.html",
+        "sha": "d3ca95b09a23d54598cfd66df2dc87a0fc1e065c",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static",
+        "sha": "8934b13adb77f0581c3d6a2303405816bc5043d9",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/css",
+        "sha": "4e392051a957b74a21bcd55b6e485f68fe0e19c9",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/css/bulma-carousel.min.css",
+        "sha": "4d4b7d103e0013f64e4dedd2ad0b2947cc0d11a5",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/bulma-slider.min.css",
+        "sha": "09b4aeb2fb19d7d883a0b01cb1982cb382992f95",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/bulma.css.map.txt",
+        "sha": "ed3a9d377ba3c30e6eb8b2a35e08e8dc814a0725",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/bulma.min.css",
+        "sha": "a807a314caa0df0ddccacd6b732d83f5ffde7a89",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/fontawesome.all.min.css",
+        "sha": "cbeaa76a1f624412d148a03b600afa54b2684114",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/css/index.css",
+        "sha": "c4559011e814c2a731c474fb6a88afcc6ea7ea7e",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images",
+        "sha": "cc646144c9e56672d1498905639e29f0e512509b",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/images/corr.jpg",
+        "sha": "542281e5a028ab52ca5c7aadc8622a4923be67a1",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/fav.png",
+        "sha": "882722341b1dac5375d33935907497a6c6ddcace",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/favicon.ico",
+        "sha": "02f6b35f5cf8d7f6fb034bb1cc01530da1963285",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/mate_main.jpeg",
+        "sha": "10ee9be332e776140735001638ba0f4a680d9413",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/mate_teaser.jpeg",
+        "sha": "88b6d89f13c0aad9b040183f0599c1dfe07a548f",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/images/recon.pdf",
+        "sha": "3000445ec2ff6ac77ffc476835d4ab65b0bee930",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js",
+        "sha": "f0ceeedb13a850a4b755da155b02d71f6d0167c1",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/js/bulma-carousel.js",
+        "sha": "229edba242bb190698662cdce6bdacde9f0769fe",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/bulma-carousel.min.js",
+        "sha": "5fff0695f00cf9da60dd87aa72c51367b00e92ff",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/bulma-slider.js",
+        "sha": "c6718de5c5ae59d2c22141a147f5afba41af9cbb",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/bulma-slider.min.js",
+        "sha": "7e62685763cf7668cfa8857fac0b27af2c277286",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/fontawesome.all.min.js",
+        "sha": "9ee22fdb7753983bae3986b2436bdd167730cd5b",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/js/index.js",
+        "sha": "c08a79032592be8f5e7318991b0242323389469d",
+        "type": "blob"
+      },
+      {
+        "path": "docs/static/pdfs",
+        "sha": "82249a75cad18790fba481abb1553745a81deb1c",
+        "type": "tree"
+      },
+      {
+        "path": "docs/static/pdfs/sample.pdf",
+        "sha": "80f9dedb22582266a9daa4b5a74a2b7ef60f99a4",
+        "type": "blob"
+      },
+      {
+        "path": "extensions",
+        "sha": "7f5f1df8e959de5ff6e9d536bcff9b5f14243d07",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/chamfer_dist",
+        "sha": "2f0f3642eaa0b58a22ad91d9b017a4c83a3e7848",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/chamfer_dist/__init__.py",
+        "sha": "8b4f53c8661e655b3ff7fa8033973a6228481db3",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/chamfer.cu",
+        "sha": "4bde058614cdb4c5fcf29a96b941649e2e336f5a",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/chamfer_cuda.cpp",
+        "sha": "9fca161cc1c9c3d480be55586b2f561b6ac676b7",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/setup.py",
+        "sha": "04c658921066835b83c6e019f596eb3960f486a2",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/test.py",
+        "sha": "0ece5d26fcb13d66fd86e46a7722e90bea3dfe1a",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd",
+        "sha": "83d4fc37af1c6e71c99eb3b9c5a6b23c6d509c61",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/emd/.gitignore",
+        "sha": "8400d0080401d3edc7b61cb0d2edd8a0b60ea208",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/README.md",
+        "sha": "8165a45ff5aef56352d8797f23da443690b11021",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/__init__.py",
+        "sha": "430da7569e0b25d4462a68e1a97059b24cb1210a",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/cuda",
+        "sha": "5ff0f52e0bc349c2fe042f21af7baa0f1360c24c",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/emd/cuda/emd.cpp",
+        "sha": "b94db14e87dc8e2f9167952fe1e397661353e412",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/cuda/emd_kernel.cu",
+        "sha": "4744a81fdf64ed5150506171c14a6fde67df71f7",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/emd.py",
+        "sha": "17763069bae155d1713e0e4c5b180a0ce1714f4c",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/setup.py",
+        "sha": "f648c3e9e96e9324996a5c9637e5d3215718e9f6",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/test_emd_loss.py",
+        "sha": "20dfa02a67e775c12bb465e23119d085f8c19c9c",
+        "type": "blob"
+      },
+      {
+        "path": "intermediate_features",
+        "sha": "e97739a6dffbf8053abcebd461b3dfd2e334fa0b",
+        "type": "tree"
+      },
+      {
+        "path": "intermediate_features/modelnet_clean_intermediates.pth",
+        "sha": "dd749a256db80d35306ec68c65d2668ab08d0ef5",
+        "type": "blob"
+      },
+      {
+        "path": "intermediate_features/scanobject_clean_intermediates.pth",
+        "sha": "c1205b4343bc6515cf91ab8336660882205659c2",
+        "type": "blob"
+      },
+      {
+        "path": "intermediate_features/shapenetcore_clean_intermediates.pth",
+        "sha": "23b5e4a01ceb97afefb3bec20598d8581548efa9",
+        "type": "blob"
+      },
+      {
+        "path": "lab",
+        "sha": "dfe67a3072f6d38f651199807fb5d3f8c4782712",
+        "type": "tree"
+      },
+      {
+        "path": "lab/plot_batch_size.py",
+        "sha": "472e1ec61c2616f5878924cbfb9a63ceff0e3124",
+        "type": "blob"
+      },
+      {
+        "path": "lab/plot_bn_reset.py",
+        "sha": "cc0153429055545aed6cbd5110d2aa7e2fcf47a6",
+        "type": "blob"
+      },
+      {
+        "path": "lab/plot_purg_size.py",
+        "sha": "4dd5d69229e10ac7705818891ef0ce3b9c4a01f6",
+        "type": "blob"
+      },
+      {
+        "path": "lab/time_plot.py",
+        "sha": "348df7b1d61b9df1c30e759f67bbca1214dd9860",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge",
+        "sha": "a22f12b1884f8fdbab1e2e38e6692fa6ad5c061b",
+        "type": "tree"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background",
+        "sha": "95aad200d98a03a72e802480897ae8a8a28164cf",
+        "type": "tree"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/center.pth",
+        "sha": "349209903a56c2a7ba0ae1f90ad2496af43493ee",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/corrupted_.png",
+        "sha": "5712659f101c7b31393a417e599e75e73ebe3c3e",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/neighborhood.pth",
+        "sha": "7ba604670f4b2119a60516cb97a79e204c2c4796",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/pointcloud_14.ply",
+        "sha": "e94864bf0c90e4db896243592b010125d5c53bb5",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/pointcloud_3.ply",
+        "sha": "0254d47854065a12c32663d7b9693a65b5d86544",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/sorted_.png",
+        "sha": "15a83df2084a9f6936053e1e7e1b4cbb62d36e88",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/sorted__cls.png",
+        "sha": "545cde69f0f4da9390d7a19549ab97eeb8260a9e",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/sorted_index.pth",
+        "sha": "c2de83215004e0a3d3d9ab9302c965440932dd19",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_background/sorted_index_cls.pth",
+        "sha": "cc2c9585f64b760b8a5c2de92b72571cab8dbbab",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar",
+        "sha": "d7d1de0c791e6ee026d8832603fd5e9b10ed3201",
+        "type": "tree"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar/center.pth",
+        "sha": "8955ad310fc198f4c9d4d4f0b4d0d4f5c535b7bd",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar/neighborhood.pth",
+        "sha": "413f5605c8405d937c292ac8561101618a4fc1c6",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar/pointcloud_3.ply",
+        "sha": "cf574667435312dc011d34d579540c996b29b0da",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar/pointcloud_3.png",
+        "sha": "fa8734b2ba8fc41277b5b98c9724995382d0cfb8",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar/sorted_.png",
+        "sha": "7f8e5f7dc505d948eb803bcf2038a18dbfd5c73e",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar/sorted_index.pth",
+        "sha": "8b2b969634ad8b7ff83332f309b724f1aa5cf2f9",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_lidar/sorted_index_cls.pth",
+        "sha": "40eb982e1c9eef9ab52b5db9dacfae6d1593b911",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_occlusion",
+        "sha": "ec51be8120e80e4e29f8e49dc3ff8eb94a80d9be",
+        "type": "tree"
+      },
+      {
+        "path": "lab/visualize_purge/corrupted_plane_occlusion/pointcloud_3.ply",
+        "sha": "6492fb197fc1a01500b8134f3f71e0d7b5972056",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/original_plane",
+        "sha": "9adc286ab2a2c21d18c3f7da73bccbfaff499bf8",
+        "type": "tree"
+      },
+      {
+        "path": "lab/visualize_purge/original_plane/pointcloud_0.ply",
+        "sha": "9cea6234dbda224079c468f296ccaa0827c0d98f",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/original_plane/pointcloud_0.png",
+        "sha": "ca0f710fd55db8e5f1698cf8b47715105ed29ae4",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/visualize.py",
+        "sha": "2ebc9e5a824dcb4f1745dccf9dcd78df9d76c506",
+        "type": "blob"
+      },
+      {
+        "path": "lab/visualize_purge/visualize_purge.py",
+        "sha": "bffbcdfb115398a00212dfcaf0a33fe66914ffcd",
+        "type": "blob"
+      },
+      {
+        "path": "main.py",
+        "sha": "a55cc86c8b2e30e45a89a39e6a24925ce07b41e2",
+        "type": "blob"
+      },
+      {
+        "path": "models",
+        "sha": "1cb7ba35a332086c56bbfe439fda4a5b3670f7af",
+        "type": "tree"
+      },
+      {
+        "path": "models/Point_MAE.py",
+        "sha": "4f0d1b03bb6a7aeeab39a98e51d7cdd5d238a20d",
+        "type": "blob"
+      },
+      {
+        "path": "models/__init__.py",
+        "sha": "3b06642c39d8e4288e0e4ad0afb565761bbbad2d",
+        "type": "blob"
+      },
+      {
+        "path": "models/bftt3d_model_utils.py",
+        "sha": "ce376d3bdcec2e750394cc9ec3245dfa668f863e",
+        "type": "blob"
+      },
+      {
+        "path": "models/bftt3d_point_nn.py",
+        "sha": "d83c48387361a3c27b7adc1c4f9b55f26f477709",
+        "type": "blob"
+      },
+      {
+        "path": "models/build.py",
+        "sha": "d0c8f5970610ed2f5ce4fd4e4aabe56bbdde0d1f",
+        "type": "blob"
+      },
+      {
+        "path": "paper_fig",
+        "sha": "7786e1f0d036a336eeeddaf435484dd079af3818",
+        "type": "tree"
+      },
+      {
+        "path": "paper_fig/main_fig.jpg",
+        "sha": "450f60a38020ae62b4f6c9ac15e0d950b602e786",
+        "type": "blob"
+      },
+      {
+        "path": "requirements.txt",
+        "sha": "60d6ddd4f17ec7fb89d87200cfddae6e79c63e04",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta",
+        "sha": "aeb0cbf47ab5bd92acfd9be4df2c1da271bf05d0",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/bftt3d",
+        "sha": "8449f367ff75aa359cd4bb3dba4a0189924bc050",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/bftt3d/modelnet_20250301_214104.txt",
+        "sha": "c617a418eaf2b749980144852f2b309647767113",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/bftt3d/scanobject_20250301_213459.txt",
+        "sha": "600f73d33a49e74b21208a1a33db07a1e1bebd3e",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/bftt3d/shapenetcore_20250301_220213.txt",
+        "sha": "0a97f01d118abb277de75f0786beeba2b7f883bd",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/cls_prune",
+        "sha": "a2b4a2f279c0dd9401556a5c03ffadf1130a6ad2",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/cls_prune/modelnet_20250302_162024.txt",
+        "sha": "55cc7e55c1f4703f19811e3c5181d9219e490199",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/cls_prune/modelnet_20250302_163816.txt",
+        "sha": "b716cab25067a4642dc18ceea6b9075c8e7013e8",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/cls_prune/scanobject_20250302_161853.txt",
+        "sha": "e7030cbb8c8918c57490c54ed4ddd2c38218fb35",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/cls_prune/scanobject_20250302_163641.txt",
+        "sha": "e270ee7081aa542183e466f505333a2e7493eae8",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/cls_prune/shapenetcore_20250302_162343.txt",
+        "sha": "54e96b2c937e201bb03b6c8934212bac51d1b34e",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/cls_prune/shapenetcore_20250302_164135.txt",
+        "sha": "ffe4c4630ac6b7c9895a5757f8839799cc0cc250",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/prototype_prune",
+        "sha": "e02794ee3eb36b53b95416f6846936dc471f7e90",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/prototype_prune/modelnet_20250302_154237.txt",
+        "sha": "2f8067ac9668509c40be7aa0bbe0c1c6b98f301e",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/prototype_prune/modelnet_20250302_160136.txt",
+        "sha": "3007e881cf9ad651e4640f699003915dcb2dc403",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/prototype_prune/scanobject_20250302_154102.txt",
+        "sha": "c4804e6cd8abea953fd19214f57f21687d5bb6e1",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/prototype_prune/scanobject_20250302_155957.txt",
+        "sha": "76c97b5d077c6f2043a0a908cf69cbf57b418996",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/prototype_prune/shapenetcore_20250302_154607.txt",
+        "sha": "7c7e024f6d111ccfd51306ed9e34939b38a1c7a6",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/prototype_prune/shapenetcore_20250302_160505.txt",
+        "sha": "be126f15f496f42339a5e7a69d193216bbe48a92",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/shot",
+        "sha": "faa40ffc631119383feb6fd203097fad1e6da706",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/shot/modelnet_20250302_083949.txt",
+        "sha": "3223ec8a1394409b1295d7dfccc862605c63b59b",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/shot/scanobject_20250302_083924.txt",
+        "sha": "bc22b756f234b270d06c00415c6afa88ed9bbe5d",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/shot/shapenetcore_20250302_084057.txt",
+        "sha": "9cc481a1e809fde48549b0f29b21a33f86edb761",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/source_only",
+        "sha": "e5e80b6c36bc2fd981ff67aa0bbf9185bc2cbd54",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/source_only/modelnet_20250301_212843.txt",
+        "sha": "efcfbed98e96364f7abd6243594f284a98765859",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/source_only/scanobject_20250301_212815.txt",
+        "sha": "6c30c749456acc0584a2fc56f0986127fc178f40",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/source_only/shapenetcore_20250301_212925.txt",
+        "sha": "710803330f7d8beab2646bc64f99287f1ba511bf",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/t3a",
+        "sha": "12af0a66601567507944c9bab6018cd4e27dfb07",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/t3a/modelnet_20250302_083606.txt",
+        "sha": "727398fef615612a17301a9a5c5e57e4945f6ee6",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/t3a/scanobject_20250302_083551.txt",
+        "sha": "2369375e65ed212774e697745d2b22ac3cf255b4",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/t3a/shapenetcore_20250302_083647.txt",
+        "sha": "2c5e1d4e50a534468a885d707be2609e06248082",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/tent",
+        "sha": "7514522a028ff8bbe00d0b589fdd209cbb6ff35b",
+        "type": "tree"
+      },
+      {
+        "path": "results_final_tta/tent/modelnet_20250302_130306.txt",
+        "sha": "825016735421c856133336b03d108605fd98db2f",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/tent/scanobject_20250302_130156.txt",
+        "sha": "64c6d2b1bccd31f163e90d929ee690292491a3e5",
+        "type": "blob"
+      },
+      {
+        "path": "results_final_tta/tent/scanobject_20250302_131032.txt",
+        "sha": "8964cf3e6469f8bff50133b4385b39d37313a72a",
+        "type": "blob"
+      },
+      {
+        "path": "test.py",
+        "sha": "5598aec590b37ab0b997ae6ee2d60f705f4ba059",
+        "type": "blob"
+      },
+      {
+        "path": "test_prune-size.py",
+        "sha": "dabc128059448d2d716d91e0db81bd94bca6b058",
+        "type": "blob"
+      },
+      {
+        "path": "tools",
+        "sha": "2d5d51140af484f210a35f8ad90068fb6ee94210",
+        "type": "tree"
+      },
+      {
+        "path": "tools/__init__.py",
+        "sha": "ba280002bf8ceba253f350025c2f8f0d9e7fe255",
+        "type": "blob"
+      },
+      {
+        "path": "tools/builder.py",
+        "sha": "851687eea8306c6d02a9245928598be9c755e4ee",
+        "type": "blob"
+      },
+      {
+        "path": "tools/online-learning-plots.py",
+        "sha": "12bb9b0cd44a6c6b2b8f3b315d00180444de1e2f",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner.py",
+        "sha": "b8d49e038fb419488849c6e2292e7a28242a0845",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_finetune.py",
+        "sha": "d0b2d57c8dd1a54bee1e4c4628f894c3a10a69c5",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_pretrain.py",
+        "sha": "8efbbc024d15c39cf9e8cd05cd3e5790b57e5d84",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_pretrain_partnet.py",
+        "sha": "a98393b93cc15b245944d31078f1d963de13470a",
+        "type": "blob"
+      },
+      {
+        "path": "tools/stride_abl_shapenet.sh",
+        "sha": "ad7f54c29a03b88a6f35abafe7677d91ccdc00c0",
+        "type": "blob"
+      },
+      {
+        "path": "tools/stride_abl_shapenet_rotnet.sh",
+        "sha": "86695bc13c86ac370fed3c4f14c95813dc9cdeb8",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tent.py",
+        "sha": "9440c860d1d5da1fd52c3fb1ee91618e1b9378d5",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta.py",
+        "sha": "26de18b24b16e8f87676c5faf63035891e5df25e",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_BFTT3D.py",
+        "sha": "7f940656839d5805481a9c6918ff460e5431b521",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_abl.py",
+        "sha": "ae4ae74d592d4a4498ff9a7d58ec4ddd9906b0ae",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_purge.py",
+        "sha": "9c03cd517662a1473b1e15ee9a1a64cf0445d9a7",
+        "type": "blob"
+      },
+      {
+        "path": "tools/ttt_new.py",
+        "sha": "56bc8b3ff2eb7cef14a2da297cbc58789091b452",
+        "type": "blob"
+      },
+      {
+        "path": "tools/visualize_pc.py",
+        "sha": "3ff6fc37e12cf102ed3c892da42f1703b91e0f74",
+        "type": "blob"
+      },
+      {
+        "path": "train.py",
+        "sha": "8e6d8714640780642033797d73c614677ef5b286",
+        "type": "blob"
+      },
+      {
+        "path": "ttt.py",
+        "sha": "219e0e161dbb3509019d4159a6f282dad73547d5",
+        "type": "blob"
+      },
+      {
+        "path": "utils",
+        "sha": "c2e81d3bf0073d6978192a22c623f9cc3363c8ce",
+        "type": "tree"
+      },
+      {
+        "path": "utils/AverageMeter.py",
+        "sha": "5118f4318741f01aecd82bcb8083dfac51ef3b7c",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_JDA.py",
+        "sha": "79134eb5bb43316dd8567773ece0fe579b9d965d",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_TCA.py",
+        "sha": "4772f27bc773dafebb39f9d7836271a402f98d6d",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_setup.py",
+        "sha": "45ec57864f3a5df76235c846846b0656b02ea86b",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_utils_nn.py",
+        "sha": "18e773acc2b3af6d4952e51b4cd183ac52e11328",
+        "type": "blob"
+      },
+      {
+        "path": "utils/checkpoint.py",
+        "sha": "41dc45626ec343fbde116e036ba6261747169d89",
+        "type": "blob"
+      },
+      {
+        "path": "utils/config.py",
+        "sha": "8c86d76d1f89ae98191fe326ed219b4cf9da3cb2",
+        "type": "blob"
+      },
+      {
+        "path": "utils/dist_utils.py",
+        "sha": "d870fece16c66a000b9fc372b9df6a369089c2a0",
+        "type": "blob"
+      },
+      {
+        "path": "utils/logger.py",
+        "sha": "92f7e6d0ba088849440deeac9f7d36a7d2cb7577",
+        "type": "blob"
+      },
+      {
+        "path": "utils/misc.py",
+        "sha": "4f81f872b06ae73778ac8bdce35eb5b8eaf88148",
+        "type": "blob"
+      },
+      {
+        "path": "utils/parser.py",
+        "sha": "445bc71624c257a11ce017d0f30c31cdb644855a",
+        "type": "blob"
+      },
+      {
+        "path": "utils/registry.py",
+        "sha": "025e4ee64fa4c5a04d52353f5976332ab26d9133",
+        "type": "blob"
+      },
+      {
+        "path": "utils/rotnet_utils.py",
+        "sha": "95e99079c1b9f415d1e943ce61a29f36d9ab750a",
+        "type": "blob"
+      },
+      {
+        "path": "utils/shot.py",
+        "sha": "d3081f56fc139e05a6ca0c43c36b9b17e8cf7348",
+        "type": "blob"
+      },
+      {
+        "path": "utils/t3a.py",
+        "sha": "2ef16e7676f0b2b4c2ff46fb2f890fceff774dcd",
+        "type": "blob"
+      },
+      {
+        "path": "utils/tent_shot.py",
+        "sha": "f8b25b7ceeaa85b666f47cdaf5b85d14ef0a7bda",
+        "type": "blob"
+      }
+    ]
+  },
+  {
+    "repo": "MosyMosy/LN_TTA",
+    "sha": "871a963f7489795a0a6452736631427bf5f9ede1",
+    "tree": [
+      {
+        "path": ".gitignore",
+        "sha": "25ad52bf39062bf9d92628214dc7c919fdcbe011",
+        "type": "blob"
+      },
+      {
+        "path": ".vscode",
+        "sha": "489144a75c0998ed221a9ba6bff6ca02cf6f3ffd",
+        "type": "tree"
+      },
+      {
+        "path": ".vscode/settings.json",
+        "sha": "ba2a6c013c3059e4256ab303ebb1d55ca2621e9c",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab",
+        "sha": "0fbdf0eccb747d1b7b677e4830e5f0f33656fba9",
+        "type": "tree"
+      },
+      {
+        "path": "LN_lab/BNvsLN.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/B_d_heatmap.py",
+        "sha": "68db034e77849990959fb22ba66156873a02bc11",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/batch_size.py",
+        "sha": "85e39fcb8605ee9d3d8161459b68a687a48ce299",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/compined.py",
+        "sha": "0b73263026bfed48c06128ece21b04337d3ab5d7",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/memory.py",
+        "sha": "c70e4d3d44d0190a8823c7a7cdf1febc4c3b90a1",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/model_time.py",
+        "sha": "3dd0bf516e7b046653f18d080764a9b9ec7f7d3b",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/post_LN_B-d.py",
+        "sha": "4e1a13d002cf6cae3c87831978f570ee3cbfbc21",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/pre_LN.py",
+        "sha": "035c828021c829ef59799a9bfe60b79cc0dc3e73",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/pre_post_dist.py",
+        "sha": "a4c9e7201d60857b9f475e7672c95ff76d31fe2e",
+        "type": "blob"
+      },
+      {
+        "path": "LN_lab/pre_post_dist_grid.py",
+        "sha": "da66483f3207b2dac925eecb570d66436999da70",
+        "type": "blob"
+      },
+      {
+        "path": "README.md",
+        "sha": "6cb2e138baf9eb25609ce651f9a9c5310dff5007",
+        "type": "blob"
+      },
+      {
+        "path": "bench_results.txt",
+        "sha": "245546120cc2e717597d3c9e28c3904a0558cbdd",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs",
+        "sha": "8281f7e9a87aa50bd438a7461b2a10a251208d8c",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines",
+        "sha": "44390f185960f693e58a56f44fa6385aff711c2e",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/modelnet",
+        "sha": "21c86a7c44a9cf93466336f49d35172823ea5207",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_dua.yaml",
+        "sha": "b845b203074a17a2d501de4ef68dc64199434cb1",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_rotnet.yaml",
+        "sha": "eb2ac0185852bef60fa60463e4bae35a0bff2081",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_shot.yaml",
+        "sha": "7a2bc20cc0d220891c89847dd249d2d531c294da",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_t3a.yaml",
+        "sha": "7a2bc20cc0d220891c89847dd249d2d531c294da",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/modelnet/tta_tent.yaml",
+        "sha": "7a2bc20cc0d220891c89847dd249d2d531c294da",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject",
+        "sha": "4c57f74fb012545caadcd15183ef43e4383b6343",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_dua.yaml",
+        "sha": "31903185ec1ea976f81ae614363496612de8159d",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_rotnet.yaml",
+        "sha": "4c40c8dc7c44464bbf5072fcc3e30e6c5460fabc",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_shot.yaml",
+        "sha": "aa75d71f7070757bf2436592be9af15298666a6c",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_t3a.yaml",
+        "sha": "aa75d71f7070757bf2436592be9af15298666a6c",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/scanobject/tta_tent.yaml",
+        "sha": "aa75d71f7070757bf2436592be9af15298666a6c",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet",
+        "sha": "d18f8b6582ce93ce1630fe3a6c674ad548e292a6",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_dua.yaml",
+        "sha": "ac579df85784e8bedc1af3b457f2da37f12c1641",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_rotnet.yaml",
+        "sha": "28c26e502ab0ae5141f0fc923a8315915ee64793",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_shot.yaml",
+        "sha": "a2ff8b403d6946582a4ca0115e8dfd19759b6307",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_t3a.yaml",
+        "sha": "a2ff8b403d6946582a4ca0115e8dfd19759b6307",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/baselines/shapenet/tta_tent.yaml",
+        "sha": "a2ff8b403d6946582a4ca0115e8dfd19759b6307",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs",
+        "sha": "b2ecfef0956cdb6671f3c6553b5f21f7645d0a24",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/dataset_configs/ModelNet40.yaml",
+        "sha": "8909f0d2c78a3e5b6f7dc089a97a765893cc84a3",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ScanObjectNN.yaml",
+        "sha": "2b098184e4285d4473adf2cd4ab3d0ecf5607234",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ScanObjectNN_bg.yaml",
+        "sha": "5706b5e1df70ed41372a7029442ecbc87b5f1ee1",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ScanObjectNN_hd.yaml",
+        "sha": "6e373cc78040e2f2ad078c790ea2acf035b3ec65",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/dataset_configs/ShapeNetCore.yaml",
+        "sha": "a3b23b743f30e09b015d86219abc1199ee84d9c7",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train",
+        "sha": "fe13dfdd4ddc1538f08954d1cab256320e83ace7",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_modelnet.yaml",
+        "sha": "b76f689502884dad2adccbfa967c128690301313",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_modelnet_only_cls.yaml",
+        "sha": "eae369d1129c3960db3d1cc9bb868f820e11c159",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_scanobject.yaml",
+        "sha": "b025d1383170871272b36b8d6c0c000d579d2d27",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_shapenetcore.yaml",
+        "sha": "29ec13d3215003df789aa34d80c5f093c3fb95ca",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/pre_train/pretrain_shapenetcore_cls_only.yaml",
+        "sha": "8ac53f38906f1f2f826a9814458f92bd5715d169",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/smart_pc",
+        "sha": "cafcd7caf76784adff77f9bc954596fe4ac280e7",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/smart_pc/tta_modelnet.yaml",
+        "sha": "757f7390c2c828d814e274917e1bf6683bdbea92",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/smart_pc/tta_scanobj.yaml",
+        "sha": "0bc743cef8ee1826c502ed85c6d8b3b6f9a9d617",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/smart_pc/tta_shapenet.yaml",
+        "sha": "402b4258ec33dccd35306fcd9b68dd30e2ea8aae",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta",
+        "sha": "fc4a6da8e1cec0c843ee5208f643ccc8aff57d90",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/tta/tta_modelnet.yaml",
+        "sha": "5bcdbf1a13bc2d8eb1646fc1b84b4891100c06f1",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta/tta_scanobj.yaml",
+        "sha": "9769c6ee997506982cae4c38943894610ba83f49",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta/tta_shapenet.yaml",
+        "sha": "ba19fe595f88b98d8e2bd7cd7c07ba478d1589ec",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge",
+        "sha": "04fe8c444391444b3e115af6c026e0daa5c61f92",
+        "type": "tree"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_modelnet.yaml",
+        "sha": "dcb71b2ba417559931f436a0c4f6880065c77dae",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_modelnet_cls_only.yaml",
+        "sha": "2f78c5b4840d02908a56b0a9a343a36d789527c3",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_scanobject.yaml",
+        "sha": "b76296dc09fd80ccbeebe12c2ed45f8807b3764f",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_scanobject_bg.yaml",
+        "sha": "fdf6f6545136959c35972ffe2df650986584022a",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_scanobject_hd.yaml",
+        "sha": "9eff56c77d61d00d70f527339adb206c89dc2a32",
+        "type": "blob"
+      },
+      {
+        "path": "cfgs/tta_purge/tta_purge_shapenet.yaml",
+        "sha": "d272672f1d8550b1b441581d4920c81a42f93f0a",
+        "type": "blob"
+      },
+      {
+        "path": "commands_lntta.sh",
+        "sha": "c31fb3af337ebdcecfcba3b45086af9609950b23",
+        "type": "blob"
+      },
+      {
+        "path": "create_class_embeddings.py",
+        "sha": "b5ee3eaae4aaf3d7fe9e6d9c322d18b907b7df57",
+        "type": "blob"
+      },
+      {
+        "path": "datasets",
+        "sha": "6d8862557951f7c76a1eaa6a57f4d26d87c328ba",
+        "type": "tree"
+      },
+      {
+        "path": "datasets/ModelNetDataset.py",
+        "sha": "341db0a970bef1daccfe8b241a55e96a71f86ca0",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ModelNetDatasetFewShot.py",
+        "sha": "8b558806a8b94f3d86a71971f26b732d542d5923",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/PartNormalDataset.py",
+        "sha": "ce00ee6e6bdec24cb68e9c147b5af3df4edeb9a5",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ScanObjectNNDataset.py",
+        "sha": "10cb01a1a76b9953ccb7c95fdaa36b52455d3695",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ShapeNet55Dataset.py",
+        "sha": "d4889dec5b83421e5afb3be7aa6f0f4014153796",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/ShapeNetCoreDataset.py",
+        "sha": "b6dafc1de034fa643cd7d6b090f227501f16fa32",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/__init__.py",
+        "sha": "9a894db9ebb95d1ca150779dced146b67941bddb",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/build.py",
+        "sha": "db9c4beebc3965828c578bbd3ba84786f1dc968d",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_corrupted_dataset.py",
+        "sha": "7c61d057f8af2f83a49eff5b00e6b026f3e07b33",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_corrupted_dataset_partnet.py",
+        "sha": "48854d5bd28ee9c20a66b642e99ab5e7db7ff9be",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_mixed_corruptions.py",
+        "sha": "682758f8054942f70e01e0a35bab34c11ce8c328",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/create_seq_corruptions.py",
+        "sha": "051b88950b490664d066ecddd265f76a7413cfa3",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/data_transforms.py",
+        "sha": "edb06083d45226b5795b8a46dc9a370069d3a4ef",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/generate_few_shot_data.py",
+        "sha": "ad1566456d6a178bb10d924e0043fac6f322fcf5",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/io.py",
+        "sha": "44ccb95583360c214dbe2e608eeb0f9939bbd63e",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/label_list.py",
+        "sha": "375ee0e59443d383ec3c4857994c72bd0be74068",
+        "type": "blob"
+      },
+      {
+        "path": "datasets/tta_datasets.py",
+        "sha": "afc8fdfcabcb83b35cc114bd0d8bf892df653836",
+        "type": "blob"
+      },
+      {
+        "path": "extensions",
+        "sha": "7f5f1df8e959de5ff6e9d536bcff9b5f14243d07",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/chamfer_dist",
+        "sha": "2f0f3642eaa0b58a22ad91d9b017a4c83a3e7848",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/chamfer_dist/__init__.py",
+        "sha": "8b4f53c8661e655b3ff7fa8033973a6228481db3",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/chamfer.cu",
+        "sha": "4bde058614cdb4c5fcf29a96b941649e2e336f5a",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/chamfer_cuda.cpp",
+        "sha": "9fca161cc1c9c3d480be55586b2f561b6ac676b7",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/setup.py",
+        "sha": "04c658921066835b83c6e019f596eb3960f486a2",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/chamfer_dist/test.py",
+        "sha": "0ece5d26fcb13d66fd86e46a7722e90bea3dfe1a",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd",
+        "sha": "83d4fc37af1c6e71c99eb3b9c5a6b23c6d509c61",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/emd/.gitignore",
+        "sha": "8400d0080401d3edc7b61cb0d2edd8a0b60ea208",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/README.md",
+        "sha": "8165a45ff5aef56352d8797f23da443690b11021",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/__init__.py",
+        "sha": "430da7569e0b25d4462a68e1a97059b24cb1210a",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/cuda",
+        "sha": "5ff0f52e0bc349c2fe042f21af7baa0f1360c24c",
+        "type": "tree"
+      },
+      {
+        "path": "extensions/emd/cuda/emd.cpp",
+        "sha": "b94db14e87dc8e2f9167952fe1e397661353e412",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/cuda/emd_kernel.cu",
+        "sha": "4744a81fdf64ed5150506171c14a6fde67df71f7",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/emd.py",
+        "sha": "17763069bae155d1713e0e4c5b180a0ce1714f4c",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/setup.py",
+        "sha": "f648c3e9e96e9324996a5c9637e5d3215718e9f6",
+        "type": "blob"
+      },
+      {
+        "path": "extensions/emd/test_emd_loss.py",
+        "sha": "20dfa02a67e775c12bb465e23119d085f8c19c9c",
+        "type": "blob"
+      },
+      {
+        "path": "image.png",
+        "sha": "f14e07e17e5467fcfce78cacd2ce17da345b65e9",
+        "type": "blob"
+      },
+      {
+        "path": "main.py",
+        "sha": "a24442af1aa21a8e0d6812b3bf2fe75c11a9e2ac",
+        "type": "blob"
+      },
+      {
+        "path": "models",
+        "sha": "015b54dcc9fb26ef952509a13495a2db86502202",
+        "type": "tree"
+      },
+      {
+        "path": "models/Point_MAE.py",
+        "sha": "67ca9bcf826e2993cab6a155c7de1edfa588d6e2",
+        "type": "blob"
+      },
+      {
+        "path": "models/Point_MAE_smart_pc.py",
+        "sha": "08bc3410b51b06596f677c3faee02b3d61018d87",
+        "type": "blob"
+      },
+      {
+        "path": "models/__init__.py",
+        "sha": "e45e27d799aa102df7773ff60148652f0ef76f40",
+        "type": "blob"
+      },
+      {
+        "path": "models/bftt3d_model_utils.py",
+        "sha": "ce376d3bdcec2e750394cc9ec3245dfa668f863e",
+        "type": "blob"
+      },
+      {
+        "path": "models/bftt3d_point_nn.py",
+        "sha": "d83c48387361a3c27b7adc1c4f9b55f26f477709",
+        "type": "blob"
+      },
+      {
+        "path": "models/build.py",
+        "sha": "d0c8f5970610ed2f5ce4fd4e4aabe56bbdde0d1f",
+        "type": "blob"
+      },
+      {
+        "path": "requirements.txt",
+        "sha": "60d6ddd4f17ec7fb89d87200cfddae6e79c63e04",
+        "type": "blob"
+      },
+      {
+        "path": "results.tsv",
+        "sha": "04dfe83dede0e1b3e93686cbbeebead636ca501c",
+        "type": "blob"
+      },
+      {
+        "path": "test.py",
+        "sha": "5598aec590b37ab0b997ae6ee2d60f705f4ba059",
+        "type": "blob"
+      },
+      {
+        "path": "test_prune-size.py",
+        "sha": "dbf8f0d4db08d5877b0cefc89691244f0a0e2b72",
+        "type": "blob"
+      },
+      {
+        "path": "tools",
+        "sha": "455a64a4398a924554d2f59fd5168a4fe62b63d0",
+        "type": "tree"
+      },
+      {
+        "path": "tools/__init__.py",
+        "sha": "ba280002bf8ceba253f350025c2f8f0d9e7fe255",
+        "type": "blob"
+      },
+      {
+        "path": "tools/builder.py",
+        "sha": "851687eea8306c6d02a9245928598be9c755e4ee",
+        "type": "blob"
+      },
+      {
+        "path": "tools/online-learning-plots.py",
+        "sha": "12bb9b0cd44a6c6b2b8f3b315d00180444de1e2f",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner.py",
+        "sha": "b8d49e038fb419488849c6e2292e7a28242a0845",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_finetune.py",
+        "sha": "2e24bce245c9f4a0ca3e906bbeb7e08e70a23247",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_pretrain.py",
+        "sha": "33b0c7eab1f794cee0d334735a0be27a179c201a",
+        "type": "blob"
+      },
+      {
+        "path": "tools/runner_pretrain_partnet.py",
+        "sha": "b4696dde983a476644b1e368e217621a0a0a2908",
+        "type": "blob"
+      },
+      {
+        "path": "tools/stride_abl_shapenet.sh",
+        "sha": "ad7f54c29a03b88a6f35abafe7677d91ccdc00c0",
+        "type": "blob"
+      },
+      {
+        "path": "tools/stride_abl_shapenet_rotnet.sh",
+        "sha": "86695bc13c86ac370fed3c4f14c95813dc9cdeb8",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tent.py",
+        "sha": "b35899afc20741f628e506fdfbafad165f7a4437",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta.py",
+        "sha": "d15aaf8b3df477a3e969159e0200db2c6107f85e",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_BFTT3D.py",
+        "sha": "2aaf1904e47d4ce3f813fa1fbb2b3b86fb0eb2d6",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_abl.py",
+        "sha": "ae4ae74d592d4a4498ff9a7d58ec4ddd9906b0ae",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_cls_stat.py",
+        "sha": "0744962846f28577cfa8881a010e51bbb6d6bf66",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_intermediate.py",
+        "sha": "10e71221ece2d552bb234ca9ca417168b8b403d7",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_layer_prune.py",
+        "sha": "17a318314653a65c8e8d665e96b53504aff49e96",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_purge.py",
+        "sha": "baceca6a3adc2db5c621edc77a10828b4aaf0c8d",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_token_mask.py",
+        "sha": "59abb311f2aca35c3159ef39e4ef8d5769bc36c9",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_unclassified.py",
+        "sha": "b4e4a81d3bf716115901b55b53347cf2f3bd0ccf",
+        "type": "blob"
+      },
+      {
+        "path": "tools/tta_x.py",
+        "sha": "56c321cef3b4a810504a6fdd14f06e810947d4ed",
+        "type": "blob"
+      },
+      {
+        "path": "tools/ttt_new.py",
+        "sha": "56bc8b3ff2eb7cef14a2da297cbc58789091b452",
+        "type": "blob"
+      },
+      {
+        "path": "tools/visualize_pc.py",
+        "sha": "3ff6fc37e12cf102ed3c892da42f1703b91e0f74",
+        "type": "blob"
+      },
+      {
+        "path": "train.py",
+        "sha": "8e6d8714640780642033797d73c614677ef5b286",
+        "type": "blob"
+      },
+      {
+        "path": "ttt.py",
+        "sha": "219e0e161dbb3509019d4159a6f282dad73547d5",
+        "type": "blob"
+      },
+      {
+        "path": "utils",
+        "sha": "d1b3e11f78a67a1e6654f7e061ef8488e68004d4",
+        "type": "tree"
+      },
+      {
+        "path": "utils/AverageMeter.py",
+        "sha": "5118f4318741f01aecd82bcb8083dfac51ef3b7c",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_JDA.py",
+        "sha": "79134eb5bb43316dd8567773ece0fe579b9d965d",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_TCA.py",
+        "sha": "4772f27bc773dafebb39f9d7836271a402f98d6d",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_setup.py",
+        "sha": "45ec57864f3a5df76235c846846b0656b02ea86b",
+        "type": "blob"
+      },
+      {
+        "path": "utils/bftt3d_utils_nn.py",
+        "sha": "18e773acc2b3af6d4952e51b4cd183ac52e11328",
+        "type": "blob"
+      },
+      {
+        "path": "utils/checkpoint.py",
+        "sha": "41dc45626ec343fbde116e036ba6261747169d89",
+        "type": "blob"
+      },
+      {
+        "path": "utils/config.py",
+        "sha": "8c86d76d1f89ae98191fe326ed219b4cf9da3cb2",
+        "type": "blob"
+      },
+      {
+        "path": "utils/dist_utils.py",
+        "sha": "d870fece16c66a000b9fc372b9df6a369089c2a0",
+        "type": "blob"
+      },
+      {
+        "path": "utils/logger.py",
+        "sha": "92f7e6d0ba088849440deeac9f7d36a7d2cb7577",
+        "type": "blob"
+      },
+      {
+        "path": "utils/misc.py",
+        "sha": "4f81f872b06ae73778ac8bdce35eb5b8eaf88148",
+        "type": "blob"
+      },
+      {
+        "path": "utils/parser.py",
+        "sha": "01d6dd7ebbe6687257ea8f0886dbaab88ac4b1f4",
+        "type": "blob"
+      },
+      {
+        "path": "utils/registry.py",
+        "sha": "029a715691467cffd5c96196ab5662acaf2660ed",
+        "type": "blob"
+      },
+      {
+        "path": "utils/rotnet_utils.py",
+        "sha": "95e99079c1b9f415d1e943ce61a29f36d9ab750a",
+        "type": "blob"
+      },
+      {
+        "path": "utils/shot.py",
+        "sha": "d3081f56fc139e05a6ca0c43c36b9b17e8cf7348",
+        "type": "blob"
+      },
+      {
+        "path": "utils/t3a.py",
+        "sha": "2ef16e7676f0b2b4c2ff46fb2f890fceff774dcd",
+        "type": "blob"
+      },
+      {
+        "path": "utils/tent_shot.py",
+        "sha": "c167ee53a0ce92075c49852477d2e425d1900cfa",
+        "type": "blob"
+      },
+      {
+        "path": "visualize_point_cloud.py",
+        "sha": "190a30b61251d4fb94fc5fe222c306a0270bfc7a",
+        "type": "blob"
+      }
+    ]
+  }
+]
