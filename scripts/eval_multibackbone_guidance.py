@@ -51,8 +51,8 @@ def configurations(argv=None) -> list:
     if args.seed < 0 or args.max_batches < 0:
         raise ValueError("Seed and max-batches must be nonnegative")
     original = args.method == "original3dd"
-    if args.trajectory_observe and (args.dataset != "scanobjectnn_c" or original):
-        raise ValueError("Trajectory observation is restricted to ScanObjectNN-C GSD-inspired guidance")
+    if args.trajectory_observe and original:
+        raise ValueError("Trajectory observation is restricted to GSD-inspired guidance")
     if "pointmae" in args.backbones and not args.trajectory_observe:
         raise ValueError("Point-MAE guidance is available only with --trajectory-observe")
     if "pointmae" in args.backbones and not (args.pointmae_config and args.pointmae_checkpoint):
@@ -405,7 +405,8 @@ def worker(directories: list) -> None:
                         geometry = decoded_to_geometry(decoded, common["dataset"], scale, center, ops)
                         return classify_geometry(geometry, heads, configs, fps)[0]
                     observer = SharedTrajectoryObserver(lion.vae, heads, classify_decoded,
-                                                        30 if corruption == "background" else 10)
+                                                        30 if corruption == "background" else 10,
+                                                        num_classes=common["num_classes"])
                     observers.append(observer)
                     return observer
                 observer_options = {"observer_factory": observer_factory} if common.get("trajectory_observation") else {}
@@ -515,7 +516,9 @@ def main(argv=None) -> None:
         return
     bundles = []
     for config in configs:
-        bundle = source.RunBundle.create(Path(config["result_root"]), config["backbone"] + "-seed" + str(config["seed"]), config,
+        run_name = (("mntraj-" if config.get("trajectory_observation") and config["dataset"] == "modelnet40_c" else "")
+                    + config["backbone"] + "-seed" + str(config["seed"]))
+        bundle = source.RunBundle.create(Path(config["result_root"]), run_name, config,
                                           shlex.join([sys.executable, str(Path(__file__).resolve()), *arguments]))
         bundles.append(bundle)
         print("Run bundle:", bundle.path, flush=True)

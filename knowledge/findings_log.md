@@ -5916,3 +5916,27 @@ artifact changed. Whole proposed GPU phases expected >60min still need one
 concrete approval; this planning turn does not launch them. Acceptance requires
 matched identities/states/IDs/receipt hashes and measured cost; contrary arm/
 seed outcomes would refute a claimed spectral advantage or speed improvement.
+
+
+### 2026-10-25 12:02 UTC — Agent A ModelNet observation CPU batch
+
+[User report/Code/Open] User assigned Agent A and requested the foreground
+runtime monitor. Branch `gsd-modelnet-trajectory` in its contracted worktree
+starts from `4c5be0eaf0ac933923129fe26738e0db5f96744a`; user files and peer
+worktree/runtime are preserved. Added dataset-derived40-class observation,
+explicit ModelNet2468/40 analyzer validation and tests preserving Scan/default
+terminal and probe purity. Guidance/graph/geometry math is unchanged. New
+contracts failed before the implementation;62 focused and332 full CPU tests
+pass with SHA-verified historical ignored test inputs. Independent read-only
+review found no material issue. These are code checks, not accuracy evidence.
+
+Own session `tta-mn-trajectory-a100-20261025-r1` /
+`gpu-a100-hm-euw4a0-axkeusdcat4y` uses A100 High-RAM and the original current
+monitor script, TTY30907. Ten-cell setup is in progress (cell1 completed,
+cell2 active). Preparation/evidence:
+`result/preparation/modelnet_trajectory_study_20261025/`.
+No research GPU launched or new policy value measured; whole-phase >60min
+approval remains pending. Next: seal actual source/assets, verify native/data/
+checkpoint readiness, record comprehensive smoke/all15 budget, then obtain the
+required approval before research execution. Failed shape/ID/state/hash/Drive
+checks invalidate the affected result. Runtime remains live; no closure right.

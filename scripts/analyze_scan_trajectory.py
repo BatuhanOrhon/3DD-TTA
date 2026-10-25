@@ -1,4 +1,4 @@
-"""Independently score fixed Scan trajectory candidates; CPU-only, no label tuning."""
+"""Independently score fixed Scan/ModelNet trajectory candidates; CPU-only, no label tuning."""
 import argparse
 import csv
 import hashlib
@@ -61,16 +61,22 @@ class Bundle:
             self.archive.close()
 
 
-def analyze_bundle(path, allow_partial=False) -> dict:
+def analyze_bundle(path, allow_partial=False, *, dataset='scanobjectnn_c') -> dict:
+    protocols = {
+        'scanobjectnn_c': (581, 15, 'main_split'),
+        'modelnet40_c': (2468, 40, 'official_modelnet40_test'),
+    }
+    require(dataset in protocols, 'Unknown trajectory dataset')
+    n_examples, num_classes, split = protocols[dataset]
     bundle = Bundle(path)
     try:
         config = bundle.json('config.json')
         require(config.get('trajectory_observation') is True, 'Trajectory observation flag missing')
-        require(config.get('dataset') == 'scanobjectnn_c' and config.get('n_examples') == 581,
-                'Expected ScanObjectNN-C 581-example main split')
-        require(config.get('split') == 'main_split' and config.get('num_classes') == 15 and
+        require(config.get('dataset') == dataset and config.get('n_examples') == n_examples,
+                'Expected trajectory dataset %s with %d examples' % (dataset, n_examples))
+        require(config.get('split') == split and config.get('num_classes') == num_classes and
                 config.get('batch_size') == 70 and config.get('method') == 'gsd_inspired_latent_spectral_guidance',
-                'Expected GSD-inspired main_split, 15 classes and B70 protocol')
+                'Expected GSD-inspired %s, %d classes and B70 protocol' % (split, num_classes))
         require(config.get('severity') == 5 and config.get('seed') == 0, 'Expected severity5 seed0')
         require(config.get('status') in ('complete', 'partial'), 'Failed/running bundle is not accepted')
         require(config.get('classifier_state_before_sha256') is not None and
@@ -109,13 +115,13 @@ def analyze_bundle(path, allow_partial=False) -> dict:
                         data['candidate_loop_counts'].tolist() == steps + [horizon], 'Candidate ordering mismatch')
                 ids, labels, prediction = data['index'], data['label'], data['prediction']
                 n = len(ids)
-                require(n == min(70, 581 - number * 70), 'Batch size/remainder does not match fixed B70')
+                require(n == min(70, n_examples - number * 70), 'Batch size/remainder does not match fixed B70')
                 require(n > 0 and all(a.shape == (n,) and a.dtype.kind in 'iu'
                                      for a in (ids, labels, prediction)), 'Invalid indexed predictions')
-                require(((ids >= 0) & (ids < 581)).all() and ((labels >= 0) & (labels < 15)).all(),
+                require(((ids >= 0) & (ids < n_examples)).all() and ((labels >= 0) & (labels < num_classes)).all(),
                         'Out-of-range original ID or label')
-                require(data['logits'].shape == (n, 15) and data['trajectory_logits'].shape == (n, 4, 15)
-                        and np.isfinite(data['trajectory_logits']).all(), 'Invalid 15-class candidate logits')
+                require(data['logits'].shape == (n, num_classes) and data['trajectory_logits'].shape == (n, 4, num_classes)
+                        and np.isfinite(data['trajectory_logits']).all(), 'Invalid %d-class candidate logits' % num_classes)
                 require(np.array_equal(data['trajectory_logits'][:, 3], data['logits']) and
                         np.array_equal(data['logits'].argmax(1), prediction), 'Terminal predictions mismatch')
                 diagnostic_name = name.rsplit('/', 1)[0] + '/diagnostics.json'
@@ -140,11 +146,11 @@ def analyze_bundle(path, allow_partial=False) -> dict:
                 consumed.add(name)
             ids = np.concatenate([d['index'] for d in parts])
             labels = np.concatenate([d['label'] for d in parts])
-            require(np.array_equal(ids, np.arange(len(ids))) and len(ids) <= 581,
-                    'Original IDs must be an ordered unique prefix of 0..580')
+            require(np.array_equal(ids, np.arange(len(ids))) and len(ids) <= n_examples,
+                    'Original IDs must be an ordered unique prefix of 0..%d' % (n_examples - 1))
             if not allow_partial:
-                require(len(ids) == 581, 'Full acceptance requires every original ID')
-            complete = complete and len(ids) == 581
+                require(len(ids) == n_examples, 'Full acceptance requires every original ID')
+            complete = complete and len(ids) == n_examples
             selected = policies(np.concatenate([d['trajectory_logits'] for d in parts]), terminal=3)
             terminal_correct = selected['terminal'] == labels
             for policy in ('terminal', 'minimum_entropy', 'probability_mean'):
@@ -163,7 +169,7 @@ def analyze_bundle(path, allow_partial=False) -> dict:
                               accuracy_pct=float(np.mean([r['accuracy_pct'] for r in selected])),
                               delta_terminal_pp=float(np.mean([r['delta_terminal_pp'] for r in selected])),
                               corrected=sum(r['corrected'] for r in selected), harmed=sum(r['harmed'] for r in selected)))
-        return dict(status='complete' if complete else 'partial', input=str(path), backbone=config['backbone'],
+        return dict(status='complete' if complete else 'partial', input=str(path), dataset=dataset, backbone=config['backbone'],
                     per_corruption=rows, macro=macro, analyzed_members=manifests,
                     comparison='same-run terminal; no fitted thresholds or early stopping; single seed')
     finally:
@@ -175,8 +181,9 @@ def main(argv=None):
     parser.add_argument('bundles', nargs='+', type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--allow-partial', action='store_true')
+    parser.add_argument('--dataset', choices=('scanobjectnn_c', 'modelnet40_c'), default='scanobjectnn_c')
     args = parser.parse_args(argv)
-    reports = [analyze_bundle(p, args.allow_partial) for p in args.bundles]
+    reports = [analyze_bundle(p, args.allow_partial, dataset=args.dataset) for p in args.bundles]
     require(len({r['backbone'] for r in reports}) == len(reports), 'Duplicate backbone bundles')
     args.output.mkdir(parents=True, exist_ok=False)
     report = dict(status='complete' if all(r['status'] == 'complete' for r in reports) else 'partial',

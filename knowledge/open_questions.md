@@ -42,8 +42,9 @@ This handoff documents the next scope; no research execution in this turn.
   Scan trajectory policies already have results and should not be repeated.
 - [x] Trace current code barriers: Scan-only runner flag, observer15-class
   check and strict581/15-class analyzer; ModelNet output geometry differs.
-- [ ] Implement/verify the smallest40-class ModelNet observation extension,
+- [x] Implement/verify the smallest40-class ModelNet observation extension,
   preserving accepted Scan/default terminal behavior and the fixed policy.
+  Agent A CPU batch:62 focused/332 full tests pass; genuine GPU smoke pending.
 - [ ] Prepare one comprehensive whole-GPU-phase estimate/approval request:
   old ModelNet full guidance took69.421min before extra probe work. Expect
   the60min approval threshold to apply; no GPU phase approved by this handoff.

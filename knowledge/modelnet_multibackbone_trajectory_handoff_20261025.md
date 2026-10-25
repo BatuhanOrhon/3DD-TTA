@@ -4,6 +4,37 @@ Date:2026-10-25. Evidence: [User report], [Code], [Run], [Open], [Inference].
 Audit base:`gsd-multibackbone-study@7017fa8` (inspect actual HEAD/status on resume).
 Status: **next scope documented; implementation and GPU execution not started**.
 
+## Agent A execution — 2026-10-25 12:02 UTC
+
+[Code/Open] User assigned this session to Agent A and requested continuous
+monitoring. Own worktree is `/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/modelnet-trajectory`,
+branch `gsd-modelnet-trajectory`, derived from committed base
+`4c5be0eaf0ac933923129fe26738e0db5f96744a`. Original uncommitted operator
+skill/monitor files are read-only operational inputs; peer worktree/runtime
+remain untouched.
+
+The minimal ModelNet extension now passes 62 focused CPU tests and the full
+332-test suite after two ignored historical test prerequisites were copied
+from the original workspace and hash-checked. New tests first failed on the
+missing40-class observer argument and Scan-only runner restriction. Strict
+analyzer support is explicit (`--dataset modelnet40_c`); default Scan15/581
+acceptance is retained. ModelNet candidates are40 classes,2468 ordered IDs,
+B70 with18 in the last batch; wrong split/count/labels/dimensions/terminal
+and probe-state evidence are rejected. Guidance/graph/scheduler equations,
+geometry contracts and checkpoint/preprocessing paths are unchanged. Read-only
+independent review reported no material findings; no GPU accuracy yet.
+
+Own A100 High-RAM session `tta-mn-trajectory-a100-20261025-r1`, endpoint
+`gpu-a100-hm-euw4a0-axkeusdcat4y`, is executing the ten-cell canonical setup.
+Current original-workspace `monitor_colab_runtime.py` owns execution in local
+TTY session30907; cell1 completed and cell2 is active on the same endpoint.
+Task-local audit root: `result/preparation/modelnet_trajectory_study_20261025/`.
+`runtime_owner.json` records the actual monitor/source identities. Full-suite
+logs and SHA-verified test prerequisite receipt are in that root. No research
+GPU phase has started. Whole-phase approval is pending; prior69.421min
+ModelNet reconstruction implies the >60min gate for smoke+all15+retries.
+Preserve this runtime and monitor; no teardown authorization exists.
+
 ## Parallel assignment amendment — Agent A
 
 [User report/Decision] A second agent now owns guidance-component experiments.

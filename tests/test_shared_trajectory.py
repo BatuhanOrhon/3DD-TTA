@@ -27,27 +27,28 @@ class VAE(torch.nn.Module):
         return context.reshape(-1, 2, 3) + torch.rand(len(context), 2, 3)
 
 
-def collect(count=21, horizon=10):
+def collect(count=21, horizon=10, num_classes=15):
     vae = VAE().eval()
-    heads = {name: torch.nn.Sequential(torch.nn.BatchNorm1d(3), torch.nn.Linear(3, 15)).eval()
+    heads = {name: torch.nn.Sequential(torch.nn.BatchNorm1d(3), torch.nn.Linear(3, num_classes)).eval()
              for name in ('curvenet', 'pointnext', 'dgcnn', 'pointmae')}
     for model in [vae, *heads.values()]:
         for parameter in model.parameters():
             parameter.requires_grad_(False)
     def classify(points):
         return {name: head(points.mean(1)) for name, head in heads.items()}
-    observer = SharedTrajectoryObserver(vae, heads, classify, horizon)
+    options = {} if num_classes == 15 else dict(num_classes=num_classes)
+    observer = SharedTrajectoryObserver(vae, heads, classify, horizon, **options)
     latent = torch.randn(count, 6, 1, 1, requires_grad=True)
     style = torch.randn(count, 3, 1, 1, requires_grad=True)
     observer.initial(input_points=latent, style=style)
     return observer, latent, style, vae, heads
 
 
-def finish(observer, latent, style):
+def finish(observer, latent, style, num_classes=15):
     for i in range(observer.horizon):
         observer.clean(latent, style, i, (observer.horizon - i - 1) * 10)
     observer.final_state(latent, style, 0)
-    terminal = {name: torch.zeros(len(latent), 15) for name in observer.heads}
+    terminal = {name: torch.zeros(len(latent), num_classes) for name in observer.heads}
     observer.terminal(terminal)
 
 
@@ -71,6 +72,33 @@ class SharedObserverTests(unittest.TestCase):
                 self.assertEqual(arrays['candidate_loop_counts'].tolist(), observer.steps + [horizon])
             self.assertTrue(observer.diagnostics()['complete'])
             json.dumps(observer.diagnostics(), allow_nan=False)
+
+    def test_modelnet_40_class_probes_preserve_rng_buffers_and_gradient(self):
+        for horizon in (10, 30):
+            observer, latent, style, vae, heads = collect(count=18, horizon=horizon, num_classes=40)
+            loss = sum(head(latent[:, :3, 0, 0]).sum() for head in heads.values())
+            before = rng_hash(), model_buffer_hashes(dict(vae=vae, **heads))
+            finish(observer, latent, style, num_classes=40)
+            loss.backward()
+            self.assertIsNotNone(latent.grad)
+            self.assertEqual(before, (rng_hash(), model_buffer_hashes(dict(vae=vae, **heads))))
+            self.assertEqual(vae.calls, 3)
+            for name in heads:
+                self.assertEqual(observer.arrays(name)['trajectory_logits'].shape, (18, 4, 40))
+
+    def test_observer_rejects_class_count_mismatch_and_nonfinite_logits(self):
+        for classes, wrong in ((15, 40), (40, 15)):
+            observer, latent, style, _, heads = collect(num_classes=classes)
+            for bad in (torch.zeros(21, wrong), torch.full((21, classes), float('nan'))):
+                observer.classify_decoded = lambda points: {name: bad for name in heads}
+                before = rng_hash()
+                with self.assertRaisesRegex(ValueError, 'logits'):
+                    observer.clean(latent, style, 2, 70)
+                self.assertEqual(before, rng_hash())
+        for invalid in (0, 16, 39, 41):
+            with self.assertRaises(ValueError):
+                SharedTrajectoryObserver(observer.vae, heads, observer.classify_decoded, 10,
+                                         num_classes=invalid)
 
     def test_missing_checkpoint_and_bad_logits_fail_without_advancing_rng(self):
         observer, latent, style, _, _ = collect()
@@ -102,22 +130,24 @@ class AnalyzerTests(unittest.TestCase):
                     for p in root.rglob('*') if p.is_file() and p.name != 'bundle_manifest.json'}
         (root / 'bundle_manifest.json').write_text(json.dumps(manifest))
 
-    def fixture(self, root, full=False):
+    def fixture(self, root, full=False, dataset="scanobjectnn_c"):
+        modelnet = dataset == "modelnet40_c"
+        n_examples, classes = (2468, 40) if modelnet else (581, 15)
         from research_artifacts import CORRUPTIONS
         corruptions = list(CORRUPTIONS) if full else ['gaussian']
-        config = dict(trajectory_observation=True, dataset='scanobjectnn_c', n_examples=581,
-                      split='main_split', num_classes=15, batch_size=70, method='gsd_inspired_latent_spectral_guidance',
+        config = dict(trajectory_observation=True, dataset=dataset, n_examples=n_examples,
+                      split='official_modelnet40_test' if modelnet else 'main_split', num_classes=classes, batch_size=70, method='gsd_inspired_latent_spectral_guidance',
                       severity=5, seed=0, status='complete' if full else 'partial',
                       classifier_state_before_sha256='abc', classifier_state_after_sha256='abc',
                       lion_state_before={'vae': 'x'}, lion_state_after={'vae': 'x'},
                       corruptions=corruptions, backbone='dgcnn')
         (root / 'config.json').write_text(json.dumps(config))
-        count = 581 if full else 70
+        count = n_examples if full else 70
         for corruption in corruptions:
             for batch, start in enumerate(range(0, count, 70)):
                 end = min(start + 70, count)
-                observer, latent, style, _, _ = collect(end - start, 30 if corruption == 'background' else 10)
-                finish(observer, latent, style)
+                observer, latent, style, _, _ = collect(end - start, 30 if corruption == 'background' else 10, num_classes=classes)
+                finish(observer, latent, style, num_classes=classes)
                 directory = root / 'batches' / corruption / ('batch%04d' % batch)
                 directory.mkdir(parents=True)
                 data = observer.arrays('dgcnn')
@@ -150,6 +180,50 @@ class AnalyzerTests(unittest.TestCase):
             self.seal(root)
             with self.assertRaisesRegex(ValueError, 'Original IDs'):
                 analyze_bundle(root, True)
+
+    def test_modelnet_all15_has_2468_ids_40_classes_and_last_batch_18(self):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            directory = self.fixture(root, full=True, dataset='modelnet40_c')
+            result = analyze_bundle(root, dataset='modelnet40_c')
+            self.assertEqual(result['status'], 'complete')
+            self.assertEqual(result['dataset'], 'modelnet40_c')
+            self.assertEqual(len(result['per_corruption']), 45)
+            self.assertEqual(result['macro'][0]['n'], 37020)
+            self.assertEqual(result['macro'][0]['accuracy_pct'], 100.)
+            with np.load(directory / 'predictions.npz') as values:
+                self.assertEqual(values['trajectory_logits'].shape, (18, 4, 40))
+            with self.assertRaisesRegex(ValueError, 'dataset|Scan'):
+                analyze_bundle(root)
+            with self.assertRaisesRegex(ValueError, 'dataset|ModelNet'):
+                analyze_bundle(root, dataset='unknown')
+
+    def test_modelnet_schema_and_terminal_tampering_are_rejected(self):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            directory = self.fixture(root, dataset='modelnet40_c')
+            with self.assertRaisesRegex(ValueError, 'all15'):
+                analyze_bundle(root, dataset='modelnet40_c')
+            self.assertEqual(analyze_bundle(root, True, dataset='modelnet40_c')['status'], 'partial')
+            config_path = root / 'config.json'
+            original = json.loads(config_path.read_text())
+            for key, value in (('num_classes', 15), ('n_examples', 581), ('split', 'main_split')):
+                config_path.write_text(json.dumps(dict(original, **{key: value})))
+                self.seal(root)
+                with self.subTest(key=key), self.assertRaises(ValueError):
+                    analyze_bundle(root, True, dataset='modelnet40_c')
+            config_path.write_text(json.dumps(original))
+            path = directory / 'predictions.npz'
+            with np.load(path) as values:
+                original_arrays = {key: values[key].copy() for key in values.files}
+            for key, value in (('label', np.full(70, 40)),
+                               ('trajectory_logits', np.zeros((70, 4, 15))),
+                               ('logits', np.ones((70, 40))),
+                               ('index', np.arange(1, 71))):
+                np.savez_compressed(path, **dict(original_arrays, **{key: value}))
+                self.seal(root)
+                with self.subTest(key=key), self.assertRaises(ValueError):
+                    analyze_bundle(root, True, dataset='modelnet40_c')
 
     def test_terminal_or_probe_guard_corruption_rejected(self):
         with tempfile.TemporaryDirectory() as name:
