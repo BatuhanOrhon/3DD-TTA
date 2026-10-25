@@ -10,6 +10,14 @@ claim they were all the original inspiration or copied implementations.
 [Exact primary citations, differences and thesis wording](gsd_trajectory_attribution_20261025.md).
 Generic timestep ensembling/minimum-entropy selection is not a novelty claim.
 
+[User report/Open] 2026-10-25 follow-up: the
+[four-paper reading list](gsd_trajectory_attribution_20261025.md#reading-list-requested-by-the-user--2026-10-25)
+retains full titles, primary links and section pointers. The user requests
+considering logit mean as an alternative to the tested probability mean;
+[this within-trajectory comparison](open_questions.md#2026-10-25--logit-mean-versus-probability-mean)
+is recorded, not evaluated. Historical averaging over separate trajectories
+is not evidence for this checkpoint policy.
+
 Date: **2026-10-11**. Evidence: [User report], [Code], [Run], [Paper],
 [Inference], [Open]. Inspected baseline: gsd-smooth-spectrum at
 `f670c07440533f01e10fd149fad2480d36f9194c`.

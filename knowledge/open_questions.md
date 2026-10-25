@@ -1,5 +1,35 @@
 # Open Questions and Research Backlog
 
+## 2026-10-25 — logit mean versus probability mean
+
+[User report/Open] **Could averaging classifier logits across the same GSD
+diffusion checkpoints yield higher accuracy than averaging class probabilities?**
+
+- [ ] Compare `argmax(mean_j logits_j)` with the existing
+  `argmax(mean_j softmax(logits_j))` on exactly the same saved candidates,
+  original IDs, frozen checkpoint, temperature1 and terminal reference.
+  Preserve all15/macro14 distinctions, paired corrected/harmed counts and
+  per-corruption results. No new labels may fit weights or temperatures.
+- [ ] First reuse the archived Point-MAE ModelNet trace and four-head Scan
+  main_split trace where complete candidate logits exist; record missing
+  coverage rather than rerunning diffusion just for this comparison.
+- [ ] Inspect whether differing logit magnitudes across steps dominate the
+  logit mean. Any normalization or temperature variant is a distinct policy,
+  not a silent change to this fixed comparison.
+
+[Paper/Inference] The related Li et al. study averages timestep-specific
+classifier logits in a different representation-learning setup:
+[Understanding Representation Dynamics of Diffusion Models via Low-Dimensional Modeling](https://papers.nips.cc/paper_files/paper/2025/file/9a3b1949b6da9b8facfdc28e1b4722ed-Paper-Conference.pdf),
+NeurIPS2025, appendixB.4. It motivates this question but does not establish
+superiority in our frozen-head decoded-point-cloud setting.
+
+[Code/Open] Historical logit averaging of two separate legacy/offdiag
+trajectories is already recorded in `gsd_accuracy_research_plan_20261011.md`;
+that result does not answer this within-trajectory checkpoint comparison.
+Status: question recorded only; no new policy computation, experiment or
+accuracy result in this update. Retain the current single-seed limits.
+[Full paper reading list](gsd_trajectory_attribution_20261025.md#reading-list-requested-by-the-user--2026-10-25).
+
 ## 2026-10-25 — trajectory attribution and contribution boundary
 
 - [x] Trace the local proposal: dated2026-10-11 trajectory/advisor notes

@@ -1,5 +1,12 @@
 # ScanObjectNN-C GSD-inspired trajectory selection — 2026-10-19
 
+[User report/Paper/Open] 2026-10-25 reading follow-up: see the
+[full-title paper list and primary links](gsd_trajectory_attribution_20261025.md#reading-list-requested-by-the-user--2026-10-25)
+for timestep ensembling and entropy selection. The requested
+[logit-mean versus probability-mean comparison](open_questions.md#2026-10-25--logit-mean-versus-probability-mean)
+can reuse this study's saved candidate logits; it has not been evaluated.
+The accepted terminal/minimum-entropy/probability-mean results below are unchanged.
+
 Status: **complete and independently accepted** for the selected four-head Scan
 GSD-only trajectory study. Historical preparation/running entries are retained.
 Separate DGCNN original3DD/ModelNet completion was subsequently accepted at

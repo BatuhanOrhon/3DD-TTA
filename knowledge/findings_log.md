@@ -5801,3 +5801,30 @@ final findings, README and open questions. Broader novelty assessment and
 existing controls/seed replication remain open. A newly found exact method
 match or earlier local reference would revise contribution/provenance claims;
 this bounded review does not certify their absence.
+
+
+### 2026-10-25 — user reading list and logit-mean research question recorded
+
+[User report/Code/Paper/Open] At `gsd-multibackbone-study@921d329`, the user
+requests saving the four previously verified papers by full title and primary
+URL for later reading, and recording whether logit averaging could outperform
+probability averaging. Added a reading checklist and relevant section/equation
+pointers to `gsd_trajectory_attribution_20261025.md`; linked it from README and
+the ModelNet/Scan trajectory notes. No new literature-priority claim or user
+reading completion is inferred.
+
+The new `open_questions.md` entry specifies the same saved GSD candidates,
+frozen head, IDs and temperature1 for logit mean versus probability mean.
+Reuse available Point-MAE ModelNet/four-head Scan logits; report paired and
+per-corruption effects, logit-scale limits and all15/macro14 scope. Historical
+two-trajectory logit averaging is a different experiment and does not answer
+this question. Li et al.(NeurIPS2025, appendixB.4) is related motivation, not
+evidence that logit averaging wins in this pipeline.
+
+Documentation only: no new offline policy scoring, GPU execution, runtime
+allocation, inference-source change or accuracy result. Existing evidence stays
+at `result/preparation/trajectory_attribution_review_20261025T105306Z.zip`
+(SHA4c5b8d2b…c743fec3, local-only) and the accepted immutable trajectory
+archives. User files remain protected. Next action is the user's paper review
+or a separately requested saved-logit comparison; a nonpositive matched delta
+would refute any superiority hypothesis, and one seed cannot show stability.

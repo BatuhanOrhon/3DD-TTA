@@ -1,4 +1,10 @@
 **[Paper/Code/Inference/Open] 2026-10-25 — trajectory readout attribution reviewed:**
+[User report/Open] The four-paper
+[reading list with full titles, primary links and relevant sections](gsd_trajectory_attribution_20261025.md#reading-list-requested-by-the-user--2026-10-25)
+is ready for later review. The requested
+[logit-mean versus probability-mean question](open_questions.md#2026-10-25--logit-mean-versus-probability-mean)
+is recorded as untested on the saved GSD checkpoint traces; no run is launched.
+
 Primary literature includes timestep-prediction averaging (Rosnati et al.,2023),
 single-trajectory answer voting (Wang et al.,2025), visual timestep-logit
 ensembles (Li et al.,2025) and entropy-based point-cloud candidate selection

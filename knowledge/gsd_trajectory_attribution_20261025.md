@@ -5,6 +5,37 @@ Review base: `gsd-multibackbone-study@ee8d218a923259ac8695e94df5aabd492fd242e2`.
 Scope: literature/provenance review only; no new numerical experiment or Colab
 allocation. Existing results and immutable raw artifacts are unchanged.
 
+## Reading list requested by the user — 2026-10-25
+
+[User report/Paper] Preserve these full titles and primary links for the user's
+later reading. The earlier section-level attribution audit is complete; the
+unchecked boxes below refer to the user's planned reading, not missing sources.
+
+- [ ] **Robust semi-supervised segmentation with timestep ensembling diffusion models**
+  — Margherita Rosnati, Mélanie Roschewitz and Ben Glocker, ML4H2023.
+  [Proceedings](https://proceedings.mlr.press/v225/rosnati23a.html) ·
+  [PDF](https://proceedings.mlr.press/v225/rosnati23a/rosnati23a.pdf).
+  Start with section4, equation9: timestep-prediction aggregation.
+- [ ] **Time Is a Feature: Exploiting Temporal Dynamics in Diffusion Language Models**
+  — Wang et al.,2025.
+  [Paper, reviewed v3](https://arxiv.org/html/2508.09138v3) ·
+  [arXiv record](https://arxiv.org/abs/2508.09138).
+  Start with section4.1, equation4: single-trajectory intermediate-answer voting.
+- [ ] **Understanding Representation Dynamics of Diffusion Models via Low-Dimensional Modeling**
+  — Li et al., NeurIPS2025.
+  [Conference PDF](https://papers.nips.cc/paper_files/paper/2025/file/9a3b1949b6da9b8facfdc28e1b4722ed-Paper-Conference.pdf).
+  Start with appendixB.4: averaging classifier logits across diffusion timesteps.
+- [ ] **Purge-Gate: Backpropagation-Free Test-Time Adaptation for Point Clouds Classification via Token Purging**
+  — Yazdanpanah et al., ICCV2025.
+  [Paper](https://arxiv.org/html/2509.09785v1) ·
+  [arXiv record](https://arxiv.org/abs/2509.09785).
+  Start with section3.3.1, equations20–21: minimum-entropy candidate selection.
+
+[Open] The user also requests recording whether logit averaging could improve
+on the tested probability mean. This has not been evaluated on the saved
+sparse GSD trajectory candidates; see the
+[comparison question](open_questions.md#2026-10-25--logit-mean-versus-probability-mean).
+
 ## Question and local recommendation history
 
 [User report] The user asks whether probability averaging/minimum-entropy
