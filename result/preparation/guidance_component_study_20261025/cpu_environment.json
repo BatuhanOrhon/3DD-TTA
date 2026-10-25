@@ -1,0 +1,12 @@
+{
+  "python": "3.13.7 (main, Aug 14 2025, 11:12:11) [Clang 17.0.0 (clang-1700.0.13.3)]",
+  "executable": "/Users/batuhan/.cache/uv/archive-v0/RBQAGj2qZrI0osgE/bin/python",
+  "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+  "torch": "2.14.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "h5py": "3.16.0",
+  "pyyaml": "6.0.3",
+  "cuda_initialized": false,
+  "scope": "CPU fake-native and schema contracts; no model inference"
+}
