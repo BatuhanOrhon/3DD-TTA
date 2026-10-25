@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "paired_setting_rows": 147,
+  "numerical_publications": 16,
+  "paper_source_observations": 139,
+  "local_settings": 8,
+  "available_source_accuracies": 145,
+  "available_3dd_accuracies": 15,
+  "paper_3dd_rows": 8,
+  "local_3dd_rows": 7,
+  "supplementary_source_additions": 11,
+  "macro_recall_not_converted": 1,
+  "nonnumerical_or_limited_coverage": 11,
+  "new_model_evaluation": false
+}

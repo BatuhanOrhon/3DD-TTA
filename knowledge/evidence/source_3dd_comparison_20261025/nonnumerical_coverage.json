@@ -1,0 +1,68 @@
+[
+  {
+    "title": "ETTA: Efficient Test-Time Adaptation for Vision-Language Models through Dynamic Embedding Updates",
+    "primary_url": "https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_1137/paper.pdf",
+    "status": "no_matching_classification_source_or_3dd_row_in_reviewed_fulltext",
+    "evidence": "Other task; no relevant3DD point-cloud benchmark row"
+  },
+  {
+    "title": "Hierarchical Adaptive networks with Task vectors for Test-Time Adaptation",
+    "primary_url": "https://arxiv.org/abs/2508.09223",
+    "status": "no_matching_classification_source_or_3dd_row_in_reviewed_fulltext",
+    "evidence": "Other task; no relevant3DD point-cloud benchmark row"
+  },
+  {
+    "title": "Test-time Adaptation for Point Cloud Denoising under Unseen Noise",
+    "primary_url": "https://arxiv.org/abs/2610.27410",
+    "status": "no_matching_classification_source_or_3dd_row_in_reviewed_fulltext",
+    "evidence": "Geometric denoising; no3DD classification accuracy on3targetdatasets"
+  },
+  {
+    "title": "Test Time Adaptation Methods for Point Cloud Registration in Laparoscopic Surgery",
+    "primary_url": "https://arxiv.org/abs/2608.02883",
+    "status": "no_matching_classification_source_or_3dd_row_in_reviewed_fulltext",
+    "evidence": "Registration; no3DD classification accuracy on3targetdatasets"
+  },
+  {
+    "title": "RGBD-to-3D Object Mesh Refinement via Depth Matching and Symmetry Propagation",
+    "primary_url": "https://arxiv.org/abs/2610.11187",
+    "status": "no_matching_classification_source_or_3dd_row_in_reviewed_fulltext",
+    "evidence": "Mesh refinement; no3DD classification accuracy on3targetdatasets"
+  },
+  {
+    "title": "Beyond Global Editing: Per-Instance Disentangled Subspaces for Training-Free Hallucination Mitigation in LVLMs",
+    "primary_url": "https://arxiv.org/abs/2608.09344",
+    "status": "no_matching_classification_source_or_3dd_row_in_reviewed_fulltext",
+    "evidence": "LVLM hallucination task; no relevant3DD point-cloud benchmark row"
+  },
+  {
+    "title": "Test-Time Adaptation with Steering Primitives for Realigning Representations",
+    "primary_url": "https://queensu.scholaris.ca/server/api/core/bitstreams/b7e60c54-6ed2-4202-a9bd-b3d3046c21a3/content",
+    "status": "no_matching_classification_source_or_3dd_row_in_reviewed_fulltext",
+    "evidence": "Masters thesis other task. Companion arXiv2609.24111 searched but has no3DD reference: do not inherit thesis citation"
+  },
+  {
+    "title": "SA-P2SB: a structure-aware Schr\u00f6dinger bridge for scene-level point cloud denoising",
+    "primary_url": "https://link.springer.com/article/10.1007/s00371-026-04670-0",
+    "status": "fulltext_not_assessed;matching classification values unknown",
+    "evidence": "Publisher preview only; fulltext unavailable; relevant numerical rows unassessed"
+  },
+  {
+    "title": "Geometry-Guided Diffusion SAR Point Cloud Denoising",
+    "primary_url": "https://doi.org/10.3390/rs18152458",
+    "status": "fulltext_not_assessed;matching classification values unknown",
+    "evidence": "Primary fulltext HTTP403; reference metadata only; numerical rows unassessed"
+  },
+  {
+    "title": "Diffusion-Driven Point Cloud Adaption for Depth-Only 6D Pose Estimation in Cluttered Robotics Bin-Picking",
+    "primary_url": "https://doi.org/10.1109/ICECET65726.2026.11632335",
+    "status": "fulltext_not_assessed;matching classification values unknown",
+    "evidence": "IEEEHTTP202 challenge page; fulltext unavailable; numerical rows unassessed"
+  },
+  {
+    "title": "PCoTTA (NeurIPS2024)",
+    "primary_url": "https://arxiv.org/abs/2411.00632",
+    "status": "excluded_nonclassification",
+    "evidence": "Reviewed benchmarks concern reconstruction/denoising/registration, not target classification accuracy."
+  }
+]

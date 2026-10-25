@@ -1877,3 +1877,9 @@ No new runtime or accuracy experiment followed this literature review.
 - [ ] Resolve remaining local/paper asset and preprocessing differences before claiming exact reproduction or declaring every local setting correct.
 
 This conclusion adds no GPU work and does not change peer agents' authorizations.
+
+### 2026-10-25 — paired source / original3DD reporting view
+
+- [x] Publish all reviewed numerical papers' source-only and reported3DDaccuracy together with our selected4head/2dataset references;147settings in the [paired table](source_only_3dd_all_papers_20261025.md).
+- [x] Include eleven supplementary source observations omitted from the earlier main823-row extraction, retaining original evidence IDs and protocol distinctions.
+- [ ] Full15ScanPoint-MAE source/original3DD pair remains absent from the selected accepted-study inventory; no new GPU work is launched by this table request.

@@ -1,3 +1,10 @@
+**[Paper/Run/Code/Open] 2026-10-25 — paired source-only / original3DD tables:**
+[All reviewed numerical papers and our four heads](source_only_3dd_all_papers_20261025.md)
+now have a dedicated paired view:147setting rows,139paper source observations
+(including11supplementary additions) and8local settings. Original3DD values
+are populated only where reported; missing values stay missing. Seven-type,
+five-severity and macro-recall conditions remain distinct. No new GPU run.
+
 **[Paper/Code/Run/Inference/Open] 2026-10-25 — expanded source and citation matrices:**
 [Final reliability interpretation](tta_accuracy_reliability_conclusion_20261025.md):
 source-family matches weaken a blanket local-failure explanation; documented

@@ -6014,3 +6014,32 @@ is retained unchanged; a separate small interpretation receipt under
 `result/preparation/tta_reliability_conclusion_20261025/` binds the new note to
 that evidence. Matching author assets/reruns, a demonstrated local defect or a
 controlled corruption-variance experiment could change specific conclusions.
+
+### 2026-10-25 — requested source-only / original3DD paired table published
+
+[User report/Paper/Run/Code/Open] At user request, paired every source-only
+observation in the823-row matrix with an actual original3DD row when present,
+then added known GSDRSCNN/PGPointMamba sources(5) and Uni-Adapter other-VLFM
+appendix sources(6). The [paired overview](source_only_3dd_all_papers_20261025.md)
+and147-setting CSV preserve139paper source observations and8local head/dataset
+settings; one source is macro-recall, not accuracy. Fifteen3DDvalues comprise
+8paper rows from3DD/GSD/Uni and7accepted local terminal results. Missingfull15
+ScanPoint-MAE source/original3DD remains unavailable; GSD readouts are not
+substituted. LocalPoint-MAE MN uses historical eval/rawseed0 reference63.7061.
+
+[Paper/Code] Uni fullarXivPDFp13Table8 has ULIP-2 source45/33.05/42.22 and
+OpenShape67.43/30.10/54.35 (MN/Scan/Shape); no3DDrow. RSCNNsupp§1/caption
+ambiguity is retained. Old823/72matrices and raw research ZIPs remain unchanged;
+new focused view adds supplementary coverage without rewriting prior counts.
+Five-severity benchmark,7atomic-corruptionVLFM,6-typeCF andmacro-recall stay
+separate. Elevenother examined publications have no matching numeric scope
+or limitedaccess as explicitly recorded, never invented missing percentages.
+No new search, accuracy evaluation, GPU/Colab operation or Drive transfer.
+
+[Artifact] Focused table evidence starts from`29bb403`; raw derived ZIP
+`result/preparation/source_3dd_table_20261025.zip` is35,762bytes,
+SHA256`d5a38341e9b99fefa6b27519b0ce45083a8995f6aa3af24a0989fd41d2d84caf`.
+CRC/member hashes and extracted portable validator pass. Primary/evidence
+provenance could change a missing-cell classification if additional numerical
+3DDresults or matching author assets become available; no missing value is
+inferred from another method's accuracy.
