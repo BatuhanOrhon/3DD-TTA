@@ -165,3 +165,26 @@ FPS edge cases, unused mask RNG consumption and staged Colab diagnostics.
 Earlier statements that eval-mode accuracy impact is unmeasured are superseded
 by the matched all-15 seed-1/2 result in `../dropout_eval_mode_20260913.md`:
 eval/raw is the selected operational baseline; EMA remains an ablation.
+
+
+## Citation/reproduction addendum — 2026-10-25
+
+[Paper/Code/Inference/Open] The [primary citation audit](../3dd_tta_citation_reproduction_audit_20261025.md)
+verifies15 directly citing works within its bounded search. Only GSDTTA and
+Uni-Adapter provide later3DD numerical comparisons; both report running/
+implementing it with changed classifiers. GSD uses DGCNN (ModelNet71.69,
+Scan57.08); Uni uses Uni3D-Large (ModelNet56.06, Scan30.78, Shape55.30),
+B1/s5 and a reported step search. Uni shares three original3DD authors.
+No exact independent Point-MAE reproduction is established by these rows.
+Other actual citations may be related-work-only; SVWA/PG/LN are non-citing
+context in the inspected primary versions. See CSV for source/corruption rows,
+precise pages and missing variables.
+
+[Paper/Code] Original venue table locations are ShapeTable1 PDFp6/printed1571,
+ModelNetTable2 PDFp7/1572 and ScanTable3 PDFp8/1573. Target source/3DD rows
+agree with arXivv1. SupplementAppendixA p1 statesGaussianσ.03, supporting
+severity5 with released evaluator5; it does not supply author-array hashes.
+Official README pinned`107305f` printsModelNet66.1 although its rounded cells
+average65.44, separate from paper65.7/cellmean65.6933. Treat this as a reporting
+inconsistency, not a new validated result or a replacement target. No fresh
+model evaluation was performed.

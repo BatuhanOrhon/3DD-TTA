@@ -1,0 +1,520 @@
+[
+  {
+    "file": "scholar_title.html",
+    "url": "https://scholar.google.com/scholar?q=%22Test-Time+Adaptation+of+3D+Point+Clouds+via+Denoising+Diffusion+Models%22",
+    "retrieved_utc": "2026-10-25T12:38:34.210992+00:00",
+    "status": 200,
+    "final_url": "https://scholar.google.com/scholar?q=%22Test-Time+Adaptation+of+3D+Point+Clouds+via+Denoising+Diffusion+Models%22",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 154848,
+    "sha256": "ca0f84602cb9c1a6bdcf1b98e5327f0b74cbe372776a5e897acc3d6c640247f4",
+    "crc32": "e06bb8e0"
+  },
+  {
+    "file": "openalex_target.json",
+    "url": "https://api.openalex.org/works/https://doi.org/10.48550/arXiv.2411.14495",
+    "retrieved_utc": "2026-10-25T12:38:34.211189+00:00",
+    "status": 200,
+    "final_url": "https://api.openalex.org/works/https://doi.org/10.48550/arXiv.2411.14495",
+    "content_type": "application/json",
+    "bytes": 19408,
+    "sha256": "216814428f041627ff00593248431891e1a3a4513f24f620df2cc15280918d74",
+    "crc32": "020f499d"
+  },
+  {
+    "file": "semanticscholar_target.json",
+    "url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2411.14495?fields=title,citationCount,citations.title,citations.year,citations.externalIds,citations.url",
+    "retrieved_utc": "2026-10-25T12:38:34.211264+00:00",
+    "status": 200,
+    "final_url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2411.14495?fields=title,citationCount,citations.title,citations.year,citations.externalIds,citations.url",
+    "content_type": "application/json",
+    "bytes": 4475,
+    "sha256": "de3f484a7e7b48e29b9b9b44a10cdfe2f5be856d301198cd78a5ab44e2a8c2e7",
+    "crc32": "3fe84f12"
+  },
+  {
+    "file": "3dd_wacv.pdf",
+    "url": "https://openaccess.thecvf.com/content/WACV2025/papers/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.pdf",
+    "retrieved_utc": "2026-10-25T12:38:34.211328+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/WACV2025/papers/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.pdf",
+    "content_type": "application/pdf",
+    "bytes": 2197736,
+    "sha256": "96503b349f73ba2b41eb67e725361328717f11693804e968c63a3ae15bc72c7d",
+    "crc32": "36e2c01c"
+  },
+  {
+    "file": "gsd_iccv.pdf",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf",
+    "retrieved_utc": "2026-10-25T12:38:34.211487+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf",
+    "content_type": "application/pdf",
+    "bytes": 1909642,
+    "sha256": "7ba86ae3902628a7cae464008303342afecc17c61f3d09b7393049ced2ea978b",
+    "crc32": "95bdccbf"
+  },
+  {
+    "file": "purge_iccv.pdf",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Yazdanpanah_Purge-Gate_Backpropagation-Free_Test-Time_Adaptation_for_Point_Clouds_Classification_via_Token_ICCV_2025_paper.pdf",
+    "retrieved_utc": "2026-10-25T12:38:34.211551+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Yazdanpanah_Purge-Gate_Backpropagation-Free_Test-Time_Adaptation_for_Point_Clouds_Classification_via_Token_ICCV_2025_paper.pdf",
+    "content_type": "application/pdf",
+    "bytes": 1143739,
+    "sha256": "3c83b79242fa2795cee1fc874cd57673ef9117d639809a26e52c57de1cb13ef5",
+    "crc32": "d981f76a"
+  },
+  {
+    "file": "svwa_wacv.pdf",
+    "url": "https://openaccess.thecvf.com/content/WACV2025/papers/Bahri_Test-Time_Adaptation_in_Point_Clouds_Leveraging_Sampling_Variation_with_Weight_WACV_2025_paper.pdf",
+    "retrieved_utc": "2026-10-25T12:38:34.662022+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/WACV2025/papers/Bahri_Test-Time_Adaptation_in_Point_Clouds_Leveraging_Sampling_Variation_with_Weight_WACV_2025_paper.pdf",
+    "content_type": "application/pdf",
+    "bytes": 949838,
+    "sha256": "dc253d2179b943517a88a93230d636917fb879bef58b0f5f056fa25c26c07ab7",
+    "crc32": "b37b7e19"
+  },
+  {
+    "file": "lott_cvpr.pdf",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "retrieved_utc": "2026-10-25T12:38:34.887532+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "content_type": "application/pdf",
+    "bytes": 882463,
+    "sha256": "4ba7a72c70ff027fdad85e75412eb6d828a2070cb7417f06d03eab3afabf609a",
+    "crc32": "ebf9e7d1"
+  },
+  {
+    "file": "uni_aaai.pdf",
+    "url": "https://ojs.aaai.org/index.php/AAAI/article/download/37888/41850",
+    "retrieved_utc": "2026-10-25T12:38:34.907221+00:00",
+    "status": 200,
+    "final_url": "https://ojs.aaai.org/index.php/AAAI/article/download/37888/41850",
+    "content_type": "application/pdf",
+    "bytes": 1578655,
+    "sha256": "147ba3b4a702443a1fbd2ed81a3d6cac6d1dcd8b05cc55f5909bae63d5af263d",
+    "crc32": "118b3831"
+  },
+  {
+    "file": "etta_bmvc.pdf",
+    "url": "https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_1137/paper.pdf",
+    "retrieved_utc": "2026-10-25T12:38:35.479317+00:00",
+    "status": 200,
+    "final_url": "https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_1137/paper.pdf",
+    "content_type": "application/pdf",
+    "bytes": 554099,
+    "sha256": "954ae76cd437357cb2ec52460ce20e32eac44ac0b992397cf1b90effd0658704",
+    "crc32": "db19f358"
+  },
+  {
+    "file": "scholar_citedby.html",
+    "url": "https://scholar.google.com/scholar?cites=11097964353367270493&as_sdt=2005&sciodt=0,5&hl=tr",
+    "retrieved_utc": "2026-10-25T12:39:12.236151+00:00",
+    "status": 200,
+    "final_url": "https://scholar.google.com/scholar?cites=11097964353367270493&as_sdt=2005&sciodt=0,5&hl=tr",
+    "bytes": 168706,
+    "sha256": "d717e63fa380b287bb1856966c57841f3b577926e443de5ca7bb56b4e9058197",
+    "crc32": "93bd0b03"
+  },
+  {
+    "file": "openalex_citing.json",
+    "url": "https://api.openalex.org/works?filter=cites:W4409262973&per-page=100",
+    "retrieved_utc": "2026-10-25T12:39:12.236458+00:00",
+    "status": 200,
+    "final_url": "https://api.openalex.org/works?filter=cites:W4409262973&per-page=100",
+    "bytes": 65528,
+    "sha256": "4076684d74a771bff1f44baa33f9daba54cdd2097990bbd58342eab38da055ac",
+    "crc32": "9bf1c713"
+  },
+  {
+    "file": "ln_wacv.pdf",
+    "url": "https://openaccess.thecvf.com/content/WACV2026/papers/Yazdanpanah_Revisiting_Layer_Normalization_for_Point_Cloud_Test_Time_Adaptation_WACV_2026_paper.pdf",
+    "retrieved_utc": "2026-10-25T12:39:12.236535+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/WACV2026/papers/Yazdanpanah_Revisiting_Layer_Normalization_for_Point_Cloud_Test_Time_Adaptation_WACV_2026_paper.pdf",
+    "bytes": 791670,
+    "sha256": "e181e576efd6f74c2a1917b90784f19e9f2ee37f60fbca6a5840d151745816e1",
+    "crc32": "c795fed1"
+  },
+  {
+    "file": "sator_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2610.21367",
+    "retrieved_utc": "2026-10-25T12:39:12.236588+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2610.21367",
+    "bytes": 904014,
+    "sha256": "41bdbbfdc0098e9fc654bbed8020726de61f332382a8ff344007cfa10731d91c",
+    "crc32": "c5818222"
+  },
+  {
+    "file": "mamvi_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2606.12939",
+    "retrieved_utc": "2026-10-25T12:39:12.236637+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2606.12939",
+    "bytes": 2051404,
+    "sha256": "61ca04c141957128f2826491634a9857b77a55384fa9bb36cbfd58b2510da876",
+    "crc32": "f4e66690"
+  },
+  {
+    "file": "hatta_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2508.09223",
+    "retrieved_utc": "2026-10-25T12:39:12.236681+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2508.09223",
+    "bytes": 5071895,
+    "sha256": "ae33d8aea97e21c9bac918f4735cca66247bebe6c7bcfced05d2798dccf06b11",
+    "crc32": "9da394be"
+  },
+  {
+    "file": "surgical_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2608.02883",
+    "retrieved_utc": "2026-10-25T12:39:13.135248+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2608.02883",
+    "bytes": 16575632,
+    "sha256": "3ff5e1cadba019ab0486f7f6f51548a4afe0e9837392d7af38a726460a0ff26a",
+    "crc32": "cfd55265"
+  },
+  {
+    "file": "denoise_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2610.27410",
+    "retrieved_utc": "2026-10-25T12:39:13.250134+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2610.27410",
+    "bytes": 8300381,
+    "sha256": "a030e309968705ace1a3bcdf6b7ea353b970a1ec3bf51fabaee5aa8fb27be265",
+    "crc32": "d5446121"
+  },
+  {
+    "file": "gsd_supp.pdf",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wei_3D_Test-time_Adaptation_ICCV_2025_supplemental.pdf",
+    "retrieved_utc": "2026-10-25T12:41:41.740174+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wei_3D_Test-time_Adaptation_ICCV_2025_supplemental.pdf",
+    "bytes": 153337,
+    "sha256": "39301b0adefd9d570f88aa9fd6638ab0193c1e0ea12ae1184300709f3294ea8b",
+    "crc32": "a7daed04"
+  },
+  {
+    "file": "3dd_supp.pdf",
+    "url": "https://openaccess.thecvf.com/content/WACV2025/supplemental/Dastmalchi_Test-Time_Adaptation_of_WACV_2025_supplemental.pdf",
+    "retrieved_utc": "2026-10-25T12:41:41.740442+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/WACV2025/supplemental/Dastmalchi_Test-Time_Adaptation_of_WACV_2025_supplemental.pdf",
+    "bytes": 1255194,
+    "sha256": "7b697d4f5570db4560a9a3b3428e88c0f4042e7d37322b4f46f77221106cdcba",
+    "crc32": "d34cf1f9"
+  },
+  {
+    "file": "svwa_supp.pdf",
+    "url": "https://openaccess.thecvf.com/content/WACV2025/supplemental/Bahri_Test-Time_Adaptation_in_WACV_2025_supplemental.pdf",
+    "retrieved_utc": "2026-10-25T12:41:41.740521+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/WACV2025/supplemental/Bahri_Test-Time_Adaptation_in_WACV_2025_supplemental.pdf",
+    "bytes": 253525,
+    "sha256": "0683fe0b9bc7cb7f392e88dbeea904ab5bd03f2eb54778db31aaa68b0850f74a",
+    "crc32": "63ad681b"
+  },
+  {
+    "file": "ln_supp.pdf",
+    "url": "https://openaccess.thecvf.com/content/WACV2026/supplemental/Yazdanpanah_Revisiting_Layer_Normalization_WACV_2026_supplemental.pdf",
+    "retrieved_utc": "2026-10-25T12:41:41.740567+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/WACV2026/supplemental/Yazdanpanah_Revisiting_Layer_Normalization_WACV_2026_supplemental.pdf",
+    "bytes": 36582725,
+    "sha256": "d03cb009a9e7787edf7b15b74f56d8516a1a3473e8ecac691da3a390c9d731e9",
+    "crc32": "bfd58a03"
+  },
+  {
+    "file": "mesh_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2610.11187",
+    "retrieved_utc": "2026-10-25T12:41:41.740608+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2610.11187",
+    "bytes": 4427406,
+    "sha256": "34e38f4295f186ef716c6fd790656058385d92fac6fbb6978f019813bb64fb70",
+    "crc32": "0fa51ee8"
+  },
+  {
+    "file": "lvhm_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2608.09344",
+    "retrieved_utc": "2026-10-25T12:41:41.740646+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2608.09344",
+    "bytes": 643685,
+    "sha256": "57ebf439376bc7eb289f266bb18ee79cd4e3aaa3205cb512d44dc62b9c983c5e",
+    "crc32": "1308753c"
+  },
+  {
+    "file": "spear_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2609.24111",
+    "retrieved_utc": "2026-10-25T12:41:42.318631+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2609.24111",
+    "bytes": 1480264,
+    "sha256": "32038a545ec192b0ecda86c5daa9d97cb7f84dd7d565276fb90092c8e2f7c13f",
+    "crc32": "17de8c89"
+  },
+  {
+    "file": "spear_thesis.pdf",
+    "url": "https://queensu.scholaris.ca/server/api/core/bitstreams/b7e60c54-6ed2-4202-a9bd-b3d3046c21a3/content",
+    "retrieved_utc": "2026-10-25T12:41:43.895524+00:00",
+    "status": 200,
+    "final_url": "https://queensu.scholaris.ca/server/api/core/bitstreams/b7e60c54-6ed2-4202-a9bd-b3d3046c21a3/content",
+    "bytes": 1687137,
+    "sha256": "44062f90d982cbd631e2d5101933dd850e68f7b61b3c3f37aedf457e96ebfb19",
+    "crc32": "29398e6d"
+  },
+  {
+    "file": "sar_mdpi.html",
+    "url": "https://www.mdpi.com/2072-4292/18/15/2458",
+    "retrieved_utc": "2026-10-25T12:41:44.519477+00:00",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "sapsb_springer.html",
+    "url": "https://link.springer.com/article/10.1007/s00371-026-04670-0",
+    "retrieved_utc": "2026-10-25T12:41:44.611950+00:00",
+    "status": 200,
+    "final_url": "https://link.springer.com/article/10.1007/s00371-026-04670-0?error=cookies_not_supported&code=13d0b7f2-eb45-4384-862d-893af00fd4ca",
+    "bytes": 338179,
+    "sha256": "0cdd23229e14bfc37ab77e4fdbb17791a52c33b692f8c39f1902436eb619a52d",
+    "crc32": "b555c74f"
+  },
+  {
+    "file": "pose_ieee.html",
+    "url": "https://ieeexplore.ieee.org/document/11632335",
+    "retrieved_utc": "2026-10-25T12:41:44.831854+00:00",
+    "status": 202,
+    "final_url": "https://ieeexplore.ieee.org/document/11632335",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "crc32": "00000000"
+  },
+  {
+    "file": "bayes_cvpr.pdf",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Zhou_Adapting_Point_Cloud_Analysis_via_Multimodal_Bayesian_Distribution_Learning_CVPR_2026_paper.pdf",
+    "retrieved_utc": "2026-10-25T12:41:44.898842+00:00",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "file": "sapsb.pdf",
+    "url": "https://link.springer.com/content/pdf/10.1007/s00371-026-04670-0.pdf",
+    "retrieved_utc": "2026-10-25T12:43:07.774539+00:00",
+    "status": 200,
+    "final_url": "https://link.springer.com/article/10.1007/s00371-026-04670-0?error=cookies_not_supported&code=bae97c66-b7eb-4410-8d2d-ca0f29972663",
+    "bytes": 338145,
+    "sha256": "685e2bf1e24e13a6fd9bf1e18a6abafe6ea6d2fb569df8bb6cbfad6987d946a8",
+    "crc32": "8b2e1d0a"
+  },
+  {
+    "file": "bayes_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2603.22070",
+    "retrieved_utc": "2026-10-25T12:43:07.775024+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2603.22070",
+    "bytes": 3504900,
+    "sha256": "5772b88583c87b7a768f27b1ce5377147b8c7001066289b9c0802f62e5d21e4e",
+    "crc32": "ee95bc3e"
+  },
+  {
+    "file": "semantic_venue.json",
+    "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1109/WACV61041.2025.00160?fields=title,citationCount,citations.title,citations.year,citations.externalIds,citations.url",
+    "retrieved_utc": "2026-10-25T12:43:07.775106+00:00",
+    "error": "HTTP Error 429: "
+  },
+  {
+    "file": "gsd_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2507.18225",
+    "retrieved_utc": "2026-10-25T12:43:07.775157+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2507.18225",
+    "bytes": 1693954,
+    "sha256": "4a5914c9b35dac211b96dbbaf4096fc93ea651a9576a4d5e78eb4bd4fbbee285",
+    "crc32": "2bbbb991"
+  },
+  {
+    "file": "sator_html.html",
+    "url": "https://arxiv.org/html/2610.21367v1",
+    "retrieved_utc": "2026-10-25T12:43:07.775199+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/2610.21367v1",
+    "bytes": 432820,
+    "sha256": "50e122968d0cb549f4ced5ad046638dd49a1a683e028f2974c8b8b26ae569f63",
+    "crc32": "494753b5"
+  },
+  {
+    "file": "mamvi_html.html",
+    "url": "https://arxiv.org/html/2606.12939v1",
+    "retrieved_utc": "2026-10-25T12:43:07.775235+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/2606.12939v1",
+    "bytes": 351861,
+    "sha256": "3164f7f6a2a433f407eafeb0c7360054615108ca9e1b8e3429b50b14ef952a99",
+    "crc32": "9115eaac"
+  },
+  {
+    "file": "uni_README.md",
+    "url": "https://raw.githubusercontent.com/Mehran-TAM/Uni-Adapter/cf0d8b17aefccbb8860643a24f3df050c7c2d844/README.md",
+    "retrieved_utc": "2026-10-25T12:44:33.098009+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/Mehran-TAM/Uni-Adapter/cf0d8b17aefccbb8860643a24f3df050c7c2d844/README.md",
+    "bytes": 4782,
+    "sha256": "f371dca23e5a2fbf082fe8a2547e7b97afaa05215ebb175dc17678a1dcba44dd",
+    "crc32": "bebe75ac"
+  },
+  {
+    "file": "uni_tta_datasets.py",
+    "url": "https://raw.githubusercontent.com/Mehran-TAM/Uni-Adapter/cf0d8b17aefccbb8860643a24f3df050c7c2d844/data/tta_datasets.py",
+    "retrieved_utc": "2026-10-25T12:44:33.098383+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/Mehran-TAM/Uni-Adapter/cf0d8b17aefccbb8860643a24f3df050c7c2d844/data/tta_datasets.py",
+    "bytes": 10069,
+    "sha256": "aa27e9d2ea7feae5720ffb298d27a3de0135a61cc5292c8e9905015b897bc38a",
+    "crc32": "ff801391"
+  },
+  {
+    "file": "svwa_README.md",
+    "url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/README.md",
+    "retrieved_utc": "2026-10-25T12:44:33.098448+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/README.md",
+    "bytes": 4205,
+    "sha256": "978c56f47ccc26426921d655f86f3de58e7bf34983c48da6db0a489a809e081c",
+    "crc32": "a8a12b71"
+  },
+  {
+    "file": "svwa_tta.py",
+    "url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/tools/tta.py",
+    "retrieved_utc": "2026-10-25T12:44:33.098496+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/tools/tta.py",
+    "bytes": 96098,
+    "sha256": "8220c1a5cad5571ae6c65feb40e7595f568d93cb1e4d32c19cad9dbe018ea01c",
+    "crc32": "20b519ce"
+  },
+  {
+    "file": "svwa_generator.py",
+    "url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/datasets/create_corrupted_dataset.py",
+    "retrieved_utc": "2026-10-25T12:44:33.098537+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/datasets/create_corrupted_dataset.py",
+    "bytes": 32561,
+    "sha256": "62b818545c08e04f30cfb514b0ac917cf94f757e8eea324665a1d1dcefbe129a",
+    "crc32": "9b9a574f"
+  },
+  {
+    "file": "svwa_tta_datasets.py",
+    "url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/datasets/tta_datasets.py",
+    "retrieved_utc": "2026-10-25T12:44:33.098576+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/AliBahri94/SVWA_TTA/59935d68d0ef12811619ce4776e1dc4a711997d1/datasets/tta_datasets.py",
+    "bytes": 17189,
+    "sha256": "dd01521a8b680550fc6cfe95b91e1a330c3cde4ccbb3c5390b77cd581bbe2f0c",
+    "crc32": "613d7935"
+  },
+  {
+    "file": "pg_README.md",
+    "url": "https://raw.githubusercontent.com/MosyMosy/Purge-Gate/894d4b6372897986eb468038dc6ffbc93f89e38c/README.md",
+    "retrieved_utc": "2026-10-25T12:44:33.491871+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/MosyMosy/Purge-Gate/894d4b6372897986eb468038dc6ffbc93f89e38c/README.md",
+    "bytes": 3136,
+    "sha256": "a673928e9fb82a1ec5d661878093c4a5a78d673631e31b5d7eb83f235bd3b4a1",
+    "crc32": "51afe810"
+  },
+  {
+    "file": "pg_tta.py",
+    "url": "https://raw.githubusercontent.com/MosyMosy/Purge-Gate/894d4b6372897986eb468038dc6ffbc93f89e38c/tools/tta.py",
+    "retrieved_utc": "2026-10-25T12:44:33.510834+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/MosyMosy/Purge-Gate/894d4b6372897986eb468038dc6ffbc93f89e38c/tools/tta.py",
+    "bytes": 57534,
+    "sha256": "4090f56fc1c648de613bf6aa3a43b6c439d7159b84c685cd3d86d592957f223e",
+    "crc32": "e08656d2"
+  },
+  {
+    "file": "ln_README.md",
+    "url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/README.md",
+    "retrieved_utc": "2026-10-25T12:44:33.515171+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/README.md",
+    "bytes": 2168,
+    "sha256": "0a7d6a5d93dfa3e10daed65e9a572d57b6cf47fc9a217d7457b187c1ae6c1690",
+    "crc32": "2575cd29"
+  },
+  {
+    "file": "ln_tta.py",
+    "url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/tools/tta.py",
+    "retrieved_utc": "2026-10-25T12:44:33.519237+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/tools/tta.py",
+    "bytes": 83706,
+    "sha256": "3a3bf0c52e3b7019a6a70eda95965ae2e2825cccfec83ad815a015bd67f78062",
+    "crc32": "aa105c5b"
+  },
+  {
+    "file": "ln_commands.sh",
+    "url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/commands_lntta.sh",
+    "retrieved_utc": "2026-10-25T12:44:33.572886+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/commands_lntta.sh",
+    "bytes": 2011,
+    "sha256": "5f6a355aa64f96f0e21677ab94a7c69538aa90d7d9fc53635ef51670717803a0",
+    "crc32": "7b449ec8"
+  },
+  {
+    "file": "ln_tta_datasets.py",
+    "url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/datasets/tta_datasets.py",
+    "retrieved_utc": "2026-10-25T12:44:33.573902+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/MosyMosy/LN_TTA/871a963f7489795a0a6452736631427bf5f9ede1/datasets/tta_datasets.py",
+    "bytes": 17189,
+    "sha256": "dd01521a8b680550fc6cfe95b91e1a330c3cde4ccbb3c5390b77cd581bbe2f0c",
+    "crc32": "613d7935"
+  },
+  {
+    "file": "sar_crossref.json",
+    "url": "https://api.crossref.org/works/10.3390/rs18152458",
+    "retrieved_utc": "2026-10-25T12:45:14.817751+00:00",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.3390/rs18152458",
+    "bytes": 25223,
+    "sha256": "4b773206ab1d107bcbcde90b942129960685055aaa4ff05ddc056c36a02e1d4a",
+    "crc32": "9ee4580d"
+  },
+  {
+    "file": "pose_crossref.json",
+    "url": "https://api.crossref.org/works/10.1109/ICECET65726.2026.11632335",
+    "retrieved_utc": "2026-10-25T12:45:14.818043+00:00",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1109/ICECET65726.2026.11632335",
+    "bytes": 8223,
+    "sha256": "76d2f10c382858f6f9363f140ff7d7bfb9e7a533fd6907b1d0abfedaa548a063",
+    "crc32": "fc5ee5da"
+  },
+  {
+    "file": "uni_main.py",
+    "url": "https://raw.githubusercontent.com/Mehran-TAM/Uni-Adapter/cf0d8b17aefccbb8860643a24f3df050c7c2d844/main_test-time.py",
+    "retrieved_utc": "2026-10-25T12:45:14.818123+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/Mehran-TAM/Uni-Adapter/cf0d8b17aefccbb8860643a24f3df050c7c2d844/main_test-time.py",
+    "bytes": 3331,
+    "sha256": "0d025ef01646d7477e86cb8af2a2b1e40493e0f67bdb7c8a1a420639f20160a8",
+    "crc32": "3e46ec60"
+  },
+  {
+    "file": "uni_arxiv.pdf",
+    "url": "https://arxiv.org/pdf/2511.15311",
+    "retrieved_utc": "2026-10-25T12:51:15.126404+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2511.15311",
+    "bytes": 12804897,
+    "sha256": "d08e5d6a2325d78c1d398e6a48f3688862ca8e0feacbe8866a5f4898053e24ae",
+    "crc32": "9f10378e"
+  }
+]

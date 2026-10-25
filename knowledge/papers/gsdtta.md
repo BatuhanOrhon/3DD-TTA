@@ -95,3 +95,18 @@ Therefore use terms such as **GSD-inspired latent spectral guidance**, not “GS
 ## Thesis use
 
 GSDTTA supplies the structural prior and diagnostic vocabulary. A defensible synthesis must explicitly test whether LION latent spectra concentrate energy at low frequencies, whether spectral gradients correlate with accuracy gains, and whether the computational cost is justified.
+
+
+## Comparison-row provenance addendum — 2026-10-25
+
+[Paper/Code/Open] [Fresh primary audit](../3dd_tta_citation_reproduction_audit_20261025.md):
+§4.2 PDFp5 says common pretrained backbone weights across compared methods
+and results from running published code. The3DD rows in Tables1/2 PDFpp6/7
+are therefore **author-reported DGCNN reruns**, not originalPoint-MAE copies
+or independently artifact-verified exact reproductions. They report71.69
+ModelNet and57.08Scan; source66.51/55.72. CurveNet/PointNeXt3DD cells and
+ShapeNet3DD are NA. The supplement omits a dedicated3DD configuration;
+weights/data hashes/seeds and precise point/severity contracts remain open.
+The actual ModelNet3DD PDF row hasRotation59.93/Cutout72.77; a web parser
+returned incorrect alternatives. Use the archived PDF/fingerprintCSV.
+Current local alternative-backbone studies remain unmatched to paper assets.

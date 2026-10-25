@@ -1827,3 +1827,22 @@ transparent cross-scope admission with identicalsource/assets/configs, no
 need to repeat solely for authorizationfileidentity. Remaining4fulljobs/59386
 predictions andMN13+2 composition stillopen; same70119/63241 retainsr9.
 See [smoke acceptance](gsd_multibackbone_dgcnn_smoke_20261019.md).
+
+
+### 2026-10-25 — external reproduction provenance after citation audit
+
+[Paper/Code/Inference/Open] See the [bounded15-work citation audit](3dd_tta_citation_reproduction_audit_20261025.md).
+
+- [x] Attempt Google Scholar title/Cited-by and preserve actual responses and limitations.
+- [x] Verify actual3DD references and distinguish author-reported new-backbone runs from exact reproduction.
+- [x] Extract five later3DD rows, source rows for allthree datasets when present, and per-corruption fingerprints.
+- [ ] Locate an independently auditable rerun of original3DD Point-MAE using matching paper assets; none found within this search.
+- [ ] Obtain GSDTTA DGCNN3DD-specific hyperparameters, checkpoints, arrays, seeds and raw logs.
+- [ ] Obtain Uni-Adapter3DD baseline code, selected step settings and asset hashes; shared authors/newVLFM/B1/search prevent exact original reproduction inference.
+- [ ] Resolve paper severity/aggregation and data bytes: supplementGaussianσ.03 supports5, but explicit table-level label and author-array identity remain unavailable.
+- [ ] Quantify corruption-draw variability only under fixed assets/protocol if separately requested; do not claim it explains the residual source gap.
+- [ ] Complete inaccessible full-text numerical review for SA-P2SB, SAR denoising and robotics bin-picking if primary texts become available.
+
+Repeated PG/LN/SATOR source fingerprints and LoTT's all-severity57.6/59.3 row
+remain provenance-unspecified. Equal means are not proof of reuse or independent
+reruns. No GPU/runtime work or further experiment was launched.

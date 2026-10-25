@@ -1,0 +1,167 @@
+[
+  {
+    "id": "gsd2025",
+    "title": "3D Test-time Adaptation via Graph Spectral Driven Point Shift",
+    "authors": "Xin Wei; Qin Yang; Yijie Fang; Mingrui Zhu; Nannan Wang",
+    "year": 2025,
+    "primary_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf",
+    "local_file": "gsd_iccv.pdf",
+    "citation_evidence": "Reference[33] PDFp10; related workp8; §4.2p5 author rerun statement",
+    "numerical_scope": "3DD DGCNN ModelNet40-C and ScanObjectNN-C; no ShapeNet-C row",
+    "discovery": "SemanticScholar; exact-method search"
+  },
+  {
+    "id": "uni2026",
+    "title": "Adapt-As-You-Walk Through the Clouds: Training-Free Online Test-Time Adaptation of 3D Vision-Language Foundation Models",
+    "authors": "Mehran Tamjidi; Hamidreza Dastmalchi; Mohammadreza Alimoradijazi; Ali Cheraghian; Aijun An; Morteza Saberi",
+    "year": "2025 preprint /2026 AAAI",
+    "primary_url": "https://ojs.aaai.org/index.php/AAAI/article/download/37888/41850",
+    "local_file": "uni_aaai.pdf",
+    "citation_evidence": "Author-year Dastmalchietal2025, bibliographyPDFp8; baseline/implementationp5",
+    "numerical_scope": "3DD Uni3D-Large all3datasets; same authors overlap original",
+    "discovery": "SemanticScholar; exact-author search"
+  },
+  {
+    "id": "mamvi2026",
+    "title": "MAMVI: 3D Test-Time Adaptation via Masked Multi-View Point Clouds",
+    "authors": "Inseok Kong; Geunyoung Jung; Jiyoung Jung",
+    "year": 2026,
+    "primary_url": "https://arxiv.org/abs/2606.12939",
+    "local_file": "mamvi_arxiv.pdf",
+    "citation_evidence": "Reference[5] PDFp14; §1/2.1",
+    "numerical_scope": "Citation only; Tables1–3 no3DD row; source-only context extracted",
+    "discovery": "Scholar Citedby; SemanticScholar; OpenAlex"
+  },
+  {
+    "id": "sator2026",
+    "title": "SATOR: Backpropagation-Free 3D Test-Time Adaptation via Sample-Adaptive Token Routing",
+    "authors": "Inseok Kong; Geunyoung Jung; Jiyoung Jung",
+    "year": 2026,
+    "primary_url": "https://arxiv.org/abs/2610.21367",
+    "local_file": "sator_arxiv.pdf",
+    "citation_evidence": "Reference[5] PDFp9; §1/2.1",
+    "numerical_scope": "Citation only; Tables1–3 no3DD row; source-only context extracted",
+    "discovery": "Scholar Citedby; SemanticScholar"
+  },
+  {
+    "id": "lott2026",
+    "title": "Low-Rank Test-Time Training for Pre-Trained Point Cloud Models",
+    "authors": "Ouyangzi Ye; Feifei Shao; Kexin Li; Yawei Luo; Zikai Song; Ping Liu; Fengda Zhang; Hongwei Wang; Jun Xiao",
+    "year": 2026,
+    "primary_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "local_file": "lott_cvpr.pdf",
+    "citation_evidence": "Reference[5] PDFp9; related workp3",
+    "numerical_scope": "Citation only; Table1 no3DD row; allseverity MATE-SO source context",
+    "discovery": "Topic-specific exact-title search; not in3indexes retrieved"
+  },
+  {
+    "id": "etta2025",
+    "title": "ETTA: Efficient Test-Time Adaptation for Vision-Language Models through Dynamic Embedding Updates",
+    "authors": "Hamidreza Dastmalchi; Aijun An; Ali Cheraghian",
+    "year": 2025,
+    "primary_url": "https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_1137/paper.pdf",
+    "local_file": "etta_bmvc.pdf",
+    "citation_evidence": "Reference[9] PDFp11",
+    "numerical_scope": "Other task; no relevant3DD point-cloud benchmark row",
+    "discovery": "SemanticScholar; exact-author search"
+  },
+  {
+    "id": "hatta2026",
+    "title": "Hierarchical Adaptive networks with Task vectors for Test-Time Adaptation",
+    "authors": "Sameer Ambekar; Marta Hasny; Laura Daza; Daniel M. Lang; Julia A. Schnabel",
+    "year": "2025 preprint /2026 WACV",
+    "primary_url": "https://arxiv.org/abs/2508.09223",
+    "local_file": "hatta_arxiv.pdf",
+    "citation_evidence": "Reference[15] PDFp18 of retrieved latest version",
+    "numerical_scope": "Other task; no relevant3DD point-cloud benchmark row",
+    "discovery": "SemanticScholar"
+  },
+  {
+    "id": "ttad2026",
+    "title": "Test-time Adaptation for Point Cloud Denoising under Unseen Noise",
+    "authors": "Kun Jiang; Shida Fu; Fanhao Yi; Weiqing Li; Zhiyong Su",
+    "year": "2026 preprint /2027 journal",
+    "primary_url": "https://arxiv.org/abs/2610.27410",
+    "local_file": "denoise_arxiv.pdf",
+    "citation_evidence": "Reference[33] PDFp15; §2.2.1 (HTML numbering differs[7])",
+    "numerical_scope": "Geometric denoising; no3DD classification accuracy on3targetdatasets",
+    "discovery": "SemanticScholar"
+  },
+  {
+    "id": "surgery2026",
+    "title": "Test Time Adaptation Methods for Point Cloud Registration in Laparoscopic Surgery",
+    "authors": "Nina Bodelot; Soufiane Belharbi; Eric Granger",
+    "year": 2026,
+    "primary_url": "https://arxiv.org/abs/2608.02883",
+    "local_file": "surgical_arxiv.pdf",
+    "citation_evidence": "Reference[5] PDFp9",
+    "numerical_scope": "Registration; no3DD classification accuracy on3targetdatasets",
+    "discovery": "SemanticScholar; topic-specific search"
+  },
+  {
+    "id": "mesh2026",
+    "title": "RGBD-to-3D Object Mesh Refinement via Depth Matching and Symmetry Propagation",
+    "authors": "Ahyun Seo; Minsu Cho",
+    "year": 2026,
+    "primary_url": "https://arxiv.org/abs/2610.11187",
+    "local_file": "mesh_arxiv.pdf",
+    "citation_evidence": "Reference[5] PDFp15",
+    "numerical_scope": "Mesh refinement; no3DD classification accuracy on3targetdatasets",
+    "discovery": "SemanticScholar"
+  },
+  {
+    "id": "lvhm2026",
+    "title": "Beyond Global Editing: Per-Instance Disentangled Subspaces for Training-Free Hallucination Mitigation in LVLMs",
+    "authors": "Ali Cheraghian; Hamidreza Dastmalchi; Hamed Barzamini; Morteza Saberi; Mojtaba Golzan; Shafin Rahman; Hossein Rahmani",
+    "year": 2026,
+    "primary_url": "https://arxiv.org/abs/2608.09344",
+    "local_file": "lvhm_arxiv.pdf",
+    "citation_evidence": "Reference[11] PDFp16",
+    "numerical_scope": "LVLM hallucination task; no relevant3DD point-cloud benchmark row",
+    "discovery": "SemanticScholar"
+  },
+  {
+    "id": "spear_thesis2026",
+    "title": "Test-Time Adaptation with Steering Primitives for Realigning Representations",
+    "authors": "Muhammad Sudipto Siam Dip",
+    "year": 2026,
+    "primary_url": "https://queensu.scholaris.ca/server/api/core/bitstreams/b7e60c54-6ed2-4202-a9bd-b3d3046c21a3/content",
+    "local_file": "spear_thesis.pdf",
+    "citation_evidence": "Reference[9] PDFp82 (printedp72)",
+    "numerical_scope": "Masters thesis other task. Companion arXiv2609.24111 searched but has no3DD reference: do not inherit thesis citation",
+    "discovery": "Scholar Citedby"
+  },
+  {
+    "id": "sapsb2026",
+    "title": "SA-P2SB: a structure-aware Schrödinger bridge for scene-level point cloud denoising",
+    "authors": "Yuxin Zhang; Tao Zuo; Zhaowei Wu",
+    "year": 2026,
+    "primary_url": "https://link.springer.com/article/10.1007/s00371-026-04670-0",
+    "local_file": "sapsb_springer.html",
+    "citation_evidence": "Publisher accessible bibliography Reference43",
+    "numerical_scope": "Publisher preview only; fulltext unavailable; relevant numerical rows unassessed",
+    "discovery": "SemanticScholar; OpenAlex"
+  },
+  {
+    "id": "sar2026",
+    "title": "Geometry-Guided Diffusion SAR Point Cloud Denoising",
+    "authors": "Chengwei Zhang; Tao Jiang; Xinhao Xu; Wenjie Li; Fubo Zhang; Longyong Chen",
+    "year": 2026,
+    "primary_url": "https://doi.org/10.3390/rs18152458",
+    "local_file": "sar_crossref.json",
+    "citation_evidence": "Publisher-deposited Crossref reference ref_37 gives exact3DDDOI",
+    "numerical_scope": "Primary fulltext HTTP403; reference metadata only; numerical rows unassessed",
+    "discovery": "OpenAlex; exact-title search"
+  },
+  {
+    "id": "pose2026",
+    "title": "Diffusion-Driven Point Cloud Adaption for Depth-Only 6D Pose Estimation in Cluttered Robotics Bin-Picking",
+    "authors": "Samed Doğan; Nico Leuze; Nicolas Rodriguez-Pena; Nikolas Ivakko; Alfred Schöttl",
+    "year": 2026,
+    "primary_url": "https://doi.org/10.1109/ICECET65726.2026.11632335",
+    "local_file": "pose_crossref.json",
+    "citation_evidence": "Publisher-deposited Crossref reference ref46 gives exact3DDDOI",
+    "numerical_scope": "IEEEHTTP202 challenge page; fulltext unavailable; numerical rows unassessed",
+    "discovery": "SemanticScholar; OpenAlex"
+  }
+]

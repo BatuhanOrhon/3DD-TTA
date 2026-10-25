@@ -146,3 +146,35 @@ Investigate this alongside data/checkpoint identity if severity does not resolve
 the descriptive gap. A preprocessing-only identity control would separate that
 effect from LION reconstruction. Updated final style and SCD scaling are queued
 TTA candidates, with no newly measured accuracy gain.
+
+
+## 2026-10-25 — later literature does not establish exact baseline reproduction
+
+[Paper/Code/Run/Inference/Open] The [citation audit](3dd_tta_citation_reproduction_audit_20261025.md)
+starts from study base`4c5be0e` on isolated`gsd-3dd-citation-audit`. It verifies15
+primary/reference citations within a documented bounded search. GSDTTA reports
+rerunning3DD on DGCNN (ModelNet71.69/source66.51; Scan57.08/source55.72).
+Uni-Adapter reports implementing3DD on Uni3D-Large (ModelNet56.06/source59.15,
+Scan30.78/source38.07, Shape55.30/source57.92), B1/s5 and a timestep search;
+three authors overlap original3DD. Neither is an exact Point-MAE reproduction,
+and their raw data/checkpoint/log identities are unavailable. No later accessible
+study here establishes the original65.7/64.3/69.8 as an independently verified
+exact rerun. Citation-only studies and identical printed cells cannot supply it.
+
+[Paper/Code] Original main tables do not explicitly name a severity level;
+AppendixA Gaussianσ.03 supports5, as does the released evaluator. Pinned
+upstream`107305fd7baf40b359f31c07d235599198be7324` still has unseeded generator
+severity8 versus evaluator5. The already-repaired local generator and existing
+Scan s1full13/profile controls remain valid: randomness/severity is plausible
+but not a demonstrated complete cause. Canonical ModelNet byte parity was
+already established, so local random regeneration is not a sufficient explanation
+there. Original README printed66.1 also conflicts with its own displayed-cell
+mean65.44; preserve it separately from paper65.7 rather than choosing a target.
+
+[Run/Limit] SVWA's Gaussian32.5 and mean33.1 are confirmed in its primary paper;
+the existing checkpoint receipt shows different weights from our3DD asset.
+This is protocol-family evidence, not exact reproduction. No fresh checkpoint
+inference or stochasticity experiment was run. Exact authors' arrays, weights,
+preprocessing/aggregation and logs or clarification remain the falsifier.
+Raw literature and SHA/CRC receipt are linked from the audit; immutable historical
+results in the original root were not modified.

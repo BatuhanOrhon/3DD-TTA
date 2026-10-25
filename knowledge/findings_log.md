@@ -5916,3 +5916,35 @@ artifact changed. Whole proposed GPU phases expected >60min still need one
 concrete approval; this planning turn does not launch them. Acceptance requires
 matched identities/states/IDs/receipt hashes and measured cost; contrary arm/
 seed outcomes would refute a claimed spectral advantage or speed improvement.
+
+
+### 2026-10-25 — bounded3DD citation/reproduction audit completed
+
+[Paper/Code/Run/Inference/Open] On isolated`gsd-3dd-citation-audit` from committed
+study base`4c5be0eaf0ac933923129fe26738e0db5f96744a`, audited Scholar title/
+Cited-by, SemanticScholar/OpenAlex inventories,31 webqueries and primary texts/
+supplements/public pinned code. Verified15 citing publication identities;
+12 full primary texts and3 publisher-preview/reference-only cases. Five later
+numerical3DD rows occur in GSDTTA and Uni-Adapter. Their author-stated reruns
+use DGCNN/Uni3D-Large, respectively; Uni also shares original authors and has
+B1/s5/step search. No independently verified exact original Point-MAE rerun
+was found. Original paper remainsMN65.7/Scan64.3/Shape69.8, source57.6/61.5/59.3.
+
+[Paper/Code] Fresh SVWA primary/source checks support its ScanGaussian32.5/
+source33.1 cross-check; existing read-only checkpoint comparison receipt records
+225 common same-shaped tensors differing from released3DD. Repeated PG/LN/
+SATOR source fingerprints have unspecified rerun provenance. LoTT explicitly
+reports all-severity aggregation, so equal57.6/59.3 means do not prove reuse
+or s5 parity. Original3DD AppendixAσ.03 supports5; upstream generator8 versus
+evaluator5 is real, with seed call commented out. Existing s5/s1full13/split
+controls and canonical ModelNet byte parity prevent claiming random generation
+alone explains the remaining gaps. README66.1 also conflicts with its65.44
+rounded-cell mean. No new causal attribution or accuracy is claimed.
+
+[Artifact/Decision] [Full report, matrices, ledger and bundle receipt](3dd_tta_citation_reproduction_audit_20261025.md).
+Raw literature lives only in own`result/preparation/3dd_citation_audit_20261025T123834Z/`
+and adjacent sealedZIP; small evidence tables/manifests are committed. No GPU,
+Colab command, peer-runtime operation, external message or change to historical
+run artifacts occurred. Exact authors' arrays/checkpoints/protocol/logs, or an
+accessible exact originalPoint-MAE rerun, would change the conclusion. Current
+alternative-backbone studies do not establish exactGSDTTA reproduction.

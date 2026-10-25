@@ -1,3 +1,13 @@
+**[Paper/Code/Inference/Open] 2026-10-25 — 3DD citation/reproduction audit:**
+A bounded Scholar/SemanticScholar/OpenAlex and primary-paper search verifies15
+citing publications; five later3DD numerical rows are author-reported runs on
+DGCNN or Uni3D-Large. No independently verified exact Point-MAE reproduction
+was found. SVWA's Scan Gaussian32.5/source mean33.1 is a different-checkpoint
+cross-check; repeated source cells are not rerun proof. Generator severity8
+versus evaluator5 is real, but current severity controls do not close the paper
+gap. [Audit, protocol matrix and limits](3dd_tta_citation_reproduction_audit_20261025.md).
+No GPU/Colab operation; peer tasks remain separate.
+
 **[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**
 Agent A completes the locked ModelNet three-head readouts; Agent B studies
 matched C+S/C/S/unguided components with terminal/entropy/probability readouts

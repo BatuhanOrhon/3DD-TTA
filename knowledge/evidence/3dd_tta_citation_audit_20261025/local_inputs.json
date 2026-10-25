@@ -1,0 +1,10 @@
+{
+  "base_commit": "4c5be0eaf0ac933923129fe26738e0db5f96744a",
+  "branch": "gsd-3dd-citation-audit",
+  "parent_protocol_zip": "/Users/batuhan/Desktop/projects/3DD-TTA/result/preparation/3dd_protocol_citation_audit_20261025T123927Z.zip",
+  "parent_protocol_sha256": "1c14607ed9d6ba4b8abcb616301161d2158261ae0767010f3c74097c7e7cd638",
+  "historical_checkpoint_comparison_receipt": "/Users/batuhan/Desktop/projects/3DD-TTA/result/preparation/cli_scanobjectnn_s1_20261018/official_checkpoint_comparison_20261018.json",
+  "historical_checkpoint_receipt_sha256": "57a9552f99c237835e28455c14916a652c6f1bb0f996b3911fa0402cfd11e246",
+  "scope": "literature/public-source/local-derived-only; no GPU/Colab operation; no peer edit",
+  "script_note": "Authoring scripts preserve derivation with original local paths; validate_evidence.py is portable and needs only Python standard library."
+}
