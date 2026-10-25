@@ -1,3 +1,12 @@
+**[Paper/Code/Inference/Open] 2026-10-25 — trajectory readout attribution reviewed:**
+Primary literature includes timestep-prediction averaging (Rosnati et al.,2023),
+single-trajectory answer voting (Wang et al.,2025), visual timestep-logit
+ensembles (Li et al.,2025) and entropy-based point-cloud candidate selection
+(Purge-Gate,2025). Cite these related precedents; the dated local user proposal
+does not establish originality. No new accuracy run, runtime allocation or
+change to the closed lifecycle below.
+[Attribution audit and precise method differences](gsd_trajectory_attribution_20261025.md).
+
 **[Run/Inference/Open] 2026-10-19 20:44UTC — final synthesis and fresh closure audit:**
 Server inventory again confirms zero active Colab sessions; no task monitor,
 evaluation worker or host-awake process remains. The existing interactive

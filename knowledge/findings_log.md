@@ -5760,3 +5760,44 @@ are explicitly superseded, not erased. Next proposed experiment, if requested,
 is the matched spectral-off control followed by seed replication. Changed
 assets, missing IDs/state/provenance or failed count/hash checks would falsify
 acceptance; seed/control outcomes may falsify broader benefit hypotheses.
+
+
+### 2026-10-25 10:56 UTC — attribution review for trajectory averaging and entropy selection
+
+[User report/Code/Paper/Inference/Open] User asks whether the recommended
+GSD readouts copied prior work and requires relevant attribution. At review
+base `ee8d218a923259ac8695e94df5aabd492fd242e2`, dated2026-10-11 trajectory
+and advisor G-002 records identify the local idea as the user's proposal.
+They do not document a direct paper implementation or establish originality.
+The earlier review did not adequately cover diffusion-timestep ensembles;
+related work identified now must not be retroactively called the original
+inspiration. Existing candidate/probability/entropy code is unchanged.
+
+[Paper/Inference] Verified primary precedents: Rosnati/Roschewitz/Glocker,
+ML4H2023 section4/equation9 (timestep prediction-map mean); Wang et al.,
+2025 section4.1/equation4 (single-trajectory intermediate-answer voting);
+Li et al., NeurIPS2025 appendixB.4 (timestep classifier-logit ensembles);
+Purge-Gate, ICCV2025 section3.3.1/equations20–21 (minimum-entropy selection
+over token-purging candidates). Task, representation, training and aggregation
+differences from our frozen-head decoded-point-cloud readouts are explicit.
+DiffusionDet, DDA and MEMO are additional context, not exact implementations
+of our inference rule. Generic ensembling/entropy selection is not novel.
+
+[Code/Paper] Seven primary documents downloaded successfully; source URLs,
+resolved URLs, sizes and SHA identities retained. Immutable local evidence
+`result/preparation/trajectory_attribution_review_20261025T105306Z.zip`,
+8897535bytes/14members, SHA
+`4c5b8d2bd0b79e0253a1c3adb3057519d7bde0cf91bdb55eea67cc48c743fec3`;
+all source hashes, ZIP CRC and member hashes pass. Local-only literature
+archive; no fresh Drive upload, runtime query/allocation or GPU run. No new
+accuracy, runtime/memory result, inference-source change or numerical rerun.
+
+Decision: cite the relevant precursors, distinguish retrospective related-work
+discovery from recommendation provenance, and describe the present study as
+evaluation of established readout ideas in this GSD-inspired frozen-classifier
+setting. Added [attribution note](gsd_trajectory_attribution_20261025.md) with
+exact sections/equations and manuscript wording; linked original proposal,
+final findings, README and open questions. Broader novelty assessment and
+existing controls/seed replication remain open. A newly found exact method
+match or earlier local reference would revise contribution/provenance claims;
+this bounded review does not certify their absence.

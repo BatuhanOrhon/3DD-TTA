@@ -1,5 +1,15 @@
 # Diffusion trajectory selection, averaging and early stopping
 
+**2026-10-25 attribution amendment [Paper/Code/Inference/Open]:** the dated
+proposal below records the user's idea, not evidence of first invention.
+Rosnati et al.(ML4H2023, section4/equation9), Wang et al.(2025,
+section4.1/equation4), Li et al.(NeurIPS2025, appendixB.4) and Purge-Gate
+(ICCV2025, section3.3.1/equations20–21) provide relevant prediction-ensemble
+and entropy-selection precedents. These were audited retrospectively; do not
+claim they were all the original inspiration or copied implementations.
+[Exact primary citations, differences and thesis wording](gsd_trajectory_attribution_20261025.md).
+Generic timestep ensembling/minimum-entropy selection is not a novelty claim.
+
 Date: **2026-10-11**. Evidence: [User report], [Code], [Run], [Paper],
 [Inference], [Open]. Inspected baseline: gsd-smooth-spectrum at
 `f670c07440533f01e10fd149fad2480d36f9194c`.

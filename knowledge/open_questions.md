@@ -1,5 +1,24 @@
 # Open Questions and Research Backlog
 
+## 2026-10-25 — trajectory attribution and contribution boundary
+
+- [x] Trace the local proposal: dated2026-10-11 trajectory/advisor notes
+  explicitly record intermediate predictions, averaging and low-entropy
+  selection as the user's idea. This does not prove first invention.
+- [x] Verify primary timestep-aggregation precedents: Rosnati et al.(2023),
+  section4/equation9; Wang et al.(2025), section4.1/equation4; Li et al.(2025),
+  appendixB.4. Verify related minimum-entropy selection in Purge-Gate,
+  section3.3.1/equations20–21. Preserve differences from the frozen-head pipeline.
+- [ ] Incorporate these references into any future thesis/manuscript's method
+  and related-work bibliography; do not claim generic temporal averaging or
+  entropy selection as new. No manuscript bibliography was edited in this task.
+- [ ] Establish whether the particular GSD-inspired decoded-point-cloud
+  application has a distinct contribution through a broader prior-work review
+  and the previously open controls/seed replication. No absence/priority claim.
+
+[Primary citations, provenance and safe wording](gsd_trajectory_attribution_20261025.md).
+No new GPU work or runtime allocation; existing accepted results stay unchanged.
+
 ## 2026-10-19 20:44 UTC — reconciled completion and future tests
 
 [Run] All requested recent cases are complete:18 source/original3DD/GSD

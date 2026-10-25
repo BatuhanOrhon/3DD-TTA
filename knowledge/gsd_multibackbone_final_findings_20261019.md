@@ -1,5 +1,12 @@
 # Multibackbone study: final findings and closed-runtime handoff
 
+**2026-10-25 attribution addendum [Paper/Inference/Open]:** trajectory averaging
+and entropy-based candidate selection have relevant prior literature; the
+earlier local user proposal is not a first-invention claim. Cite the primary
+works and distinguish their tasks/operators from this pipeline using the
+[attribution review](gsd_trajectory_attribution_20261025.md). This changes no
+accuracy, source identity or runtime closure evidence reported below.
+
 ## Status and evidence boundary — 2026-10-19 20:44 UTC
 
 [User report] The user requested a fresh check that no Colab runtime or task
