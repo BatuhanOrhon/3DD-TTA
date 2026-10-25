@@ -1,3 +1,14 @@
+**[Run/Decision/Open] 2026-10-25 — Agent B frozen confirmation accepted:**
+C probability mean56.8929% versus C+S probability mean56.7222% across reserved70
+objects/dataset, all15/four heads/seeds0,1,2. Primary difference+0.1706pp,
+conditional95% interval[-0.0397,+0.3651]pp; no accuracy superiority/equivalence
+claim. Frozen C+S entropy secondary56.6984%; no tuning or policy reselection.
+All48raw ZIPs and90 physically downloaded cache NPZs pass independent local
+source/state/ID/RNG/receipt checks. Fresh-encode smoke shared reconstruction is
+24.94% lower for C; paired-cache confirmation costs are separately qualified.
+Whole three-seed phase41.7519min under55min. Own A100+monitor remain live.
+[Accepted confirmation, per-case signs and limitations](guidance_component_confirmation_results_20261025.md).
+
 **[Run/Decision/Open] 2026-10-25 — Agent B fixed development accepted:**
 All32 raw ZIPs/96 policy rows across both datasets, four arms/four heads,
 all15 corruptions and70 development IDs/dataset pass independent local analysis.

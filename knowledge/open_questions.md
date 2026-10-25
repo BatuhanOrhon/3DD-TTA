@@ -25,11 +25,14 @@ method/eta/gamma/p development is in scope after fixed matched controls.
 - [x] Register development/held-out IDs and equal zero tuning opportunities;
   freeze C probability mean before three-seed C/C+S reserved-ID confirmation.
   Use balanced case macros, report negative cases and seed uncertainty.
-- [ ] Complete the frozen confirmation and report each seed; no full benchmark,
+- [x] Complete the frozen confirmation and report each seed;48raw ZIPs/90cache NPZs accepted. No full benchmark,
   broad stability or calibrated-spectral claim from the accepted seed0 screen.
 - [ ] Determine whether spectral guidance has incremental value conditional
   on Chamfer, whether spectral alone is useful, and whether a component can be
   removed for a measured accuracy/cost advantage. No necessity/optimality claim yet.
+  Fixed coefficients now support lower-cost C probability mean with no established
+  accuracy gap; calibrated spectral/global necessity remain open. See the
+  [accepted frozen confirmation](guidance_component_confirmation_results_20261025.md).
 
 [Code/Run/Open] Agent B activated2026-10-25 on `gsd-guidance-components` from `4c5be0e`. Twelve historical original-host component ZIPs pass fresh SHA/CRC checks; they are reference evidence, not matched current controls.70 development and70 object-disjoint heldout IDs/dataset are sealed. Own A100 runtime is in setup; no research inference launched. See task-local `result/preparation/guidance_component_study_20261025/` records.
 

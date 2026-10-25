@@ -2,7 +2,9 @@
 
 Date:2026-10-25. Evidence: [User report], [Code], [Run], [Inference], [Open].
 Planning base:`gsd-multibackbone-study@47e69be`; inspect/pin actual committed
-base after this documentation batch. Status: planned only; no experiment launched.
+base after this documentation batch. That planning status is historical. Current
+Agent B fixed development and three-seed frozen confirmation are accepted; see
+[confirmation results](guidance_component_confirmation_results_20261025.md).
 
 ## Objective, evidence and attribution
 
@@ -262,3 +264,10 @@ Proceed with registered70 development IDs/dataset, all15, seed0, four arms/four 
 [Run/Decision/Open] All32 head ZIPs,96 case/policy rows,33600 terminal inputs and134400 candidate predictions pass independent local readout/state/source/ID validation. Exact Drive/local development archive SHA8abd0ec0...15901d and all30 cache NPZ bytes verify. Balanced C probability mean55.1905% nearly matches C+S minimum entropy55.2024%; no accuracy separation is established. At transferred weights, Chamfer improves over unguided in every case, whereas spectral increments vary by readout; standalone spectral update norms are much smaller and its coefficient was not calibrated. Fresh-encode instrumented smoke shared reconstruction is24.94% lower for C; cached development cost must not be called deployment latency. Initial active phase2093.6846s/34.8947min is complete under3300s.
 
 [Results, paired uncertainty, cost and immutable evidence](guidance_component_development_results_20261025.md). Frozen plan `result/preparation/guidance_component_study_20261025/frozen_confirmation_plan.json` SHA256`c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45`: no tuning, select C probability mean, compare same-policy C+S primarily and frozen C+S entropy secondarily; both datasets/all15/four heads/reserved70 original IDs/seeds0,1,2. One new whole confirmation phase expects41.10min;20% margin+300s reserve54.32min, hard55min cap across all seeds together. No confirmation score has been read. New phase gets its own ledger while completed initial evidence remains unchanged. Full benchmark and calibrated spectral search stay unrun. Own runtime/monitor remain live; peer/original files untouched.
+
+
+### Agent B frozen confirmation accepted — 2026-10-25
+
+[Run/Decision/Open] Reserved70original objects/dataset,all15/fourheads,seeds0/1/2,C/C+S produce48acceptedrawZIPs/50400terminalheadinputs/201600candidatepredictions. Independent local analysis and all90downloaded cache NPZ bytes verify source/native/checkpoints/classes/IDs/labels/state/probe/RNG/pairing/receipts. Frozen C probability mean56.8929% versus C+S probability mean56.7222%, difference+0.1706pp conditional95%CI[-0.0397,+0.3651]; all3seed signs positive, sixcasespositive/twonegative. Secondary versus frozen C+S entropy56.6984% is+0.1944pp CI[-0.0714,+0.4683], with negative seed1. No tuning/policy reselection/equivalence/generalization claim. Retain C probability mean as supported fixed-setting accuracy/cost option; calibrated spectral efficacy remains open. Fresh-encode smoke shared cost24.94% lower for C; confirmation replay costs are not deployment latency. Whole new three-seed phase2505.1130s/41.7519min under3300s, separate from completed initial34.8947min phase; no >60min research phase launched.
+
+[Final bounded-study evidence and limits](guidance_component_confirmation_results_20261025.md). Raw phase607716167bytes SHA`f3f0171c5d06bb88c95f6bd55b91b2097cce2337e5bdefa23022335d282b9070`;90cache archive387106113bytes SHA`6710a4e22a05daa64602cb13c2c559b789bfd2a200b1306ad2d7ddfb154e9569`. Full2468/581 evaluation, calibrated spectral tuning, independent-dataset/broadseed confirmation, matched70-IDsource/original3DD deltas and fine-grained CUDA/B1 deployment profiling remain unrun. Own A100 and foreground monitor staylive; runtime teardown is not authorized.

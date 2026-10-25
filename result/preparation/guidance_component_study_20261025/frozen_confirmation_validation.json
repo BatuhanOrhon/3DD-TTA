@@ -1,0 +1,20 @@
+{
+  "status": "validated",
+  "mode": "frozen_confirmation",
+  "frozen_plan_sha256": "c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "evidence": {
+    "bytes": 607716167,
+    "sha256": "f3f0171c5d06bb88c95f6bd55b91b2097cce2337e5bdefa23022335d282b9070",
+    "local_path": "/content/studies/guidance-components/frozen_confirmation_20261025T143534122308Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/frozen_confirmation_20261025T143534122308Z/frozen_confirmation_evidence.zip"
+  },
+  "output": "/content/studies/guidance-components/frozen_confirmation_20261025T143534122308Z",
+  "spent_seconds": 2505.1129742899993,
+  "independent_local_validation_pending": true
+}
