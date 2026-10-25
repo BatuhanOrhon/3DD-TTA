@@ -126,6 +126,15 @@ Raw literature and pinned code are stored under:
 
 The adjacent sealed ZIP and SHA/CRC/member validation are identified by the committed [bundle receipt](evidence/3dd_tta_citation_audit_20261025/bundle_receipt.json). Raw PDFs are local ignored artifacts; the small catalogue/matrices/manifests are committed. Git integration alone does not transfer the raw bundle: preserve/copy the sealed ZIP and recheck its receipt before removing this worktree. No Drive backup was attempted in this literature-only task.
 
+[Artifact] Coordinator review integrated audit commit `e661b33` into the study
+branch as `659610f`. An identical sealed ZIP is also preserved at
+`/Users/batuhan/Desktop/projects/3DD-TTA/result/preparation/3dd_citation_audit_20261025T123834Z.zip`.
+Both copies match receipt SHA256 `04cc873fc3a696213a9657ae0551b31c1cef1eb1656260f286db86cd05c8217b`.
+Independent coordinator checks passed ZIP size/CRC/safe paths, all107 manifested
+member hashes, the extracted validator and tracked/raw CSV field equivalence
+(committed CSVs use LF). This verifies archive consistency, not the authors'
+experimental assets or results.
+
 The nested`original_protocol_evidence.zip` was supplied by the coordinating root's independent read-only audit:66469bytes, SHA256`1c14607ed9d6ba4b8abcb616301161d2158261ae0767010f3c74097c7e7cd638`, CRC checked. Its arXiv-v1 extraction was cross-checked against venue PDF target rows here. Other public repository pins and URL/byte/SHA/CRC records are in the [retrieval manifest](evidence/3dd_tta_citation_audit_20261025/retrieval_manifest.json) and [GitHub inventory](evidence/3dd_tta_citation_audit_20261025/github_pin_inventory.json).
 
 [Decision/Open] Continue using the documented severity5 released-asset protocol and qualified source controls. To close exact-paper reproduction, obtain original paper evaluation arrays/checkpoint hashes, preprocessing/point-sampling and aggregation details, seeds and raw logs, or an explicit author clarification. Do not tune seeds, severity or checkpoints to reproduce an isolated paper cell. The current conclusion would change if an accessible later study supplied matching Point-MAE assets and an auditable exact rerun, or if the authors' actual assets explained the source fingerprints. None was found in this bounded audit.

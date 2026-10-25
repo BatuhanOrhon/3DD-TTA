@@ -5942,9 +5942,17 @@ alone explains the remaining gaps. README66.1 also conflicts with its65.44
 rounded-cell mean. No new causal attribution or accuracy is claimed.
 
 [Artifact/Decision] [Full report, matrices, ledger and bundle receipt](3dd_tta_citation_reproduction_audit_20261025.md).
-Raw literature lives only in own`result/preparation/3dd_citation_audit_20261025T123834Z/`
-and adjacent sealedZIP; small evidence tables/manifests are committed. No GPU,
+Raw literature lives in own`result/preparation/3dd_citation_audit_20261025T123834Z/`
+and adjacent sealedZIP; the coordinating root also preserves an identical sealed
+ZIP under its canonical `result/preparation/` directory. Small evidence
+tables/manifests are committed. No GPU,
 Colab command, peer-runtime operation, external message or change to historical
 run artifacts occurred. Exact authors' arrays/checkpoints/protocol/logs, or an
 accessible exact originalPoint-MAE rerun, would change the conclusion. Current
 alternative-backbone studies do not establish exactGSDTTA reproduction.
+
+[Artifact] Coordinator review accepted `e661b33` as study commit `659610f`.
+Independent ZIP SHA/CRC/path,107member-hash, extracted-validator and CSV-field
+checks pass:72rows,690facts,15publications. Canonical ZIP SHA256 is
+`04cc873fc3a696213a9657ae0551b31c1cef1eb1656260f286db86cd05c8217b`;
+the raw evidence remains local, without a Drive backup in this literature task.
