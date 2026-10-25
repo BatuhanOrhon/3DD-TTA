@@ -4,6 +4,25 @@ Date:2026-10-25. Evidence: [User report], [Code], [Run], [Open], [Inference].
 Audit base:`gsd-multibackbone-study@7017fa8` (inspect actual HEAD/status on resume).
 Status: **next scope documented; implementation and GPU execution not started**.
 
+## Parallel assignment amendment — Agent A
+
+[User report/Decision] A second agent now owns guidance-component experiments.
+Follow the [shared isolation contract](parallel_colab_agent_contract_20261025.md).
+The earlier instruction to continue directly in the base branch is superseded:
+derive `gsd-modelnet-trajectory` from the committed `gsd-multibackbone-study`
+base in `/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/modelnet-trajectory`.
+Use only task-owned Colab sessions named
+`tta-mn-trajectory-a100-<UTCdate>-r<N>`, not Agent B's
+`tta-guidance-components-a100-<UTCdate>-r<N>` sessions.
+
+Preserve the locked combined-guidance policy in this task. Do not run Agent B's
+Chamfer/spectral ablations or change its branch, runtime, monitor, environment,
+Drive files or approval. Use explicit own-session CLI operations and separate
+task-local preparation/Drive roots defined in the contract. A new worktree does
+not include the user's uncommitted operator skill/scripts; read their current
+original-workspace versions without modifying them. No workspace/session is
+created by this amendment. [Updated copyable prompt](parallel_agent_prompts_20261025.md).
+
 ## User-selected next task and accepted coverage
 
 [User report] Prepare a concise next-agent prompt after checking research

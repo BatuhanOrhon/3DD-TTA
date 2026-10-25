@@ -1,3 +1,15 @@
+**[User report/Code/Open] 2026-10-25 — two isolated future Colab agents:**
+Agent A completes the locked ModelNet three-head readouts; Agent B studies
+matched C+S/C/S/unguided components with terminal/entropy/probability readouts
+and separately budgeted development. Each derives a new branch/worktree from
+the committed study base and owns a clearly named runtime/monitor and distinct
+Drive paths. No worktree/runtime is created by this handoff. Real component
+speedups require skipped-computation verification and actual timing; spectral
+weight0 alone still constructs the graph. No new accuracy claim.
+[Ownership contract](parallel_colab_agent_contract_20261025.md),
+[Agent B study](guidance_component_study_handoff_20261025.md),
+[both copyable prompts](parallel_agent_prompts_20261025.md).
+
 **[User report/Code/Open] 2026-10-25 — next session: ModelNet three-head readouts:**
 The user selects the missing GSD minimum-entropy/probability-mean rows for
 DGCNN, CurveNet and PointNeXt on ModelNet40-C. Planning/handoff only; no new

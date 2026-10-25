@@ -1,5 +1,36 @@
 # Open Questions and Research Backlog
 
+## 2026-10-25 — parallel guidance component study selected
+
+[User report/Open] Assign a second isolated agent to test whether selective
+Chamfer, spectral guidance, both or neither gives the best supported
+accuracy/cost tradeoff across datasets and frozen heads. Small predeclared
+method/eta/gamma/p development is in scope after fixed matched controls.
+
+- [x] Prepare [separate branch/worktree/runtime ownership](parallel_colab_agent_contract_20261025.md)
+  and [two updated prompts](parallel_agent_prompts_20261025.md). Planning only;
+  no task worktrees, runtimes or background monitors have been created here.
+- [ ] Agent B: inventory/reuse prior Point-MAE component experiments and peer
+  combined results only with compatible provenance; keep Agent A's locked
+  ModelNet completion separate and untouched.
+- [ ] Run the fixed same-GSD-host C+S/C/S/U matrix with terminal/minimum
+  entropy/probability mean, paired preparation/noise where verified, both
+  datasets and DGCNN/CurveNet/PointNeXt/Point-MAE. Start with a budgeted
+  development screen; complete full rows only after the scope/duration gate.
+- [ ] Verify inactive-component skip paths and measure real latency/throughput/
+  memory, including shared backward and probe cost. A zero spectral coefficient
+  currently does not eliminate graph/eigendecomposition work.
+- [ ] Register bounded tuning ranges/trials, development IDs/held-out IDs and
+  equal comparator opportunity; freeze a candidate before confirmation.
+  Use balanced case macros, report negative cases and seed uncertainty.
+- [ ] Determine whether spectral guidance has incremental value conditional
+  on Chamfer, whether spectral alone is useful, and whether a component can be
+  removed for a measured accuracy/cost advantage. No necessity/optimality claim yet.
+
+[Detailed Agent B batches, parameter semantics and gates](guidance_component_study_handoff_20261025.md).
+No GPU phase is activated by preparing these instructions. The prior same-flow
+spectral-off question is now assigned to B, but remains unexecuted.
+
 ## 2026-10-25 — next ModelNet three-head trajectory scope
 
 [User report/Open] Next session: obtain the missing minimum-entropy and equal

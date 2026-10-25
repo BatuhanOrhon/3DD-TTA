@@ -1,5 +1,18 @@
 # Thesis Scope and Research Questions
 
+## Parallel component-study authorization — 2026-10-25
+
+[User report/Decision] A second future agent may investigate Chamfer-only,
+spectral-only, combined and unguided controls and bounded method/parameter
+development across ModelNet40-C/ScanObjectNN-C and four frozen heads. This
+extends the prior locked-readout-only next scope without changing Agent A's
+assignment. User requests a derived branch and separate worktree for each
+agent, clearly named owned Colab sessions and no interference with peer work.
+[Ownership contract](parallel_colab_agent_contract_20261025.md),
+[Agent B scientific/compute gates](guidance_component_study_handoff_20261025.md).
+This turn prepares prompts only. Results must support whichever arm performs
+best under matched/development-confirmation controls; no result is preselected.
+
 ## Next-session scope amendment — 2026-10-25
 
 [User report/Open] The next selected task is ModelNet40-C GSD-inspired

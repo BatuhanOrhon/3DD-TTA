@@ -5870,3 +5870,49 @@ verification remains dated19Oct; next agent must inspect current assignments.
 Drive persistence/model receipts and local SHA gates remain required for new
 runs. Missing candidate coverage/state/source/receipt evidence would prevent
 acceptance; no new result or speedup is asserted.
+
+
+### 2026-10-25 — parallel component-study assignment and isolation prompts prepared
+
+[User report/Code/Inference/Open] User selects a second future agent for
+guidance-component tests and bounded improvement trials while Agent A completes
+ModelNet readouts. Planning base `gsd-multibackbone-study@47e69be`. Current
+Git worktree inventory shows only the original checkout; no worktree, VM,
+monitor or experiment was created for either task in this turn. The user
+requires derived branches/separate worktrees, clear session names and strict
+protection of the other agent's Colab runtime.
+
+Added [ownership contract](parallel_colab_agent_contract_20261025.md):
+A=`gsd-modelnet-trajectory`/`modelnet-trajectory` worktree/
+`tta-mn-trajectory-a100-<UTCdate>-r<N>`;
+B=`gsd-guidance-components`/`guidance-components` worktree/
+`tta-guidance-components-a100-<UTCdate>-r<N>`. Both use independent output/
+Drive roots, explicit session/endpoint ownership and one monitor; no peer exec,
+setup, auth reset, stop-all, broad process cleanup or live-state sharing.
+Original uncommitted operator skill/monitor/setup changes remain read-only
+inputs, not automatically inherited by a new worktree or silently committed.
+
+[Code] `tta_gsd_v2.py` computes its graph even at spectral0; Chamfer creation
+is conditional, while both active losses share the backward. Actual eta updates
+local latent, gamma updates style, and lambdaa/p controls selective-Chamfer
+retention; graph gamma and loss weights are distinct. Speed benefits need
+verified skip paths and actual end-to-end/profile measurements. Existing older
+Point-MAE ablations and all six current terminal contrasts remain contextual,
+not an isolated spectral causal result or a universal readout win.
+
+[Decision/Open] Agent B's fixed same-host matrix is C+S(1,1.17), C(1,0),
+S(0,1.17), U(0,0), each with the same terminal/entropy/probability readouts.
+Screen both datasets/four frozen heads on registered small IDs; budget before
+expanding96 possible full policy rows/seed. Separate any bounded parameter/
+method development from fixed ablation and freeze candidates before prospective
+held-out/seed confirmation; balanced dataset/head macros and per-case failures
+remain visible. Label prior test-set exposure; do not select a favorable final
+test maximum as generalization or a universal necessity result.
+
+Added [Agent B handoff](guidance_component_study_handoff_20261025.md) and
+[both copyable prompts](parallel_agent_prompts_20261025.md); updated Agent A's
+handoff, README, open questions and scope. No inference code or accepted raw
+artifact changed. Whole proposed GPU phases expected >60min still need one
+concrete approval; this planning turn does not launch them. Acceptance requires
+matched identities/states/IDs/receipt hashes and measured cost; contrary arm/
+seed outcomes would refute a claimed spectral advantage or speed improvement.
