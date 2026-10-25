@@ -1,5 +1,13 @@
 # Multibackbone study: final findings and closed-runtime handoff
 
+**2026-10-25 next-scope addendum [User report/Code/Open]:** the user now selects
+ModelNet40-C three-head minimum-entropy/probability-mean completion as the
+next session's task. These6 readouts remain missing; historical accepted
+terminal/Scan results below are unchanged. Current observer/analyzer are
+Scan15-class-specific and terminal archives lack candidate logits. See the
+[next-agent handoff](modelnet_multibackbone_trajectory_handoff_20261025.md).
+No new implementation or Colab run has started.
+
 **2026-10-25 attribution addendum [Paper/Inference/Open]:** trajectory averaging
 and entropy-based candidate selection have relevant prior literature; the
 earlier local user proposal is not a first-invention claim. Cite the primary

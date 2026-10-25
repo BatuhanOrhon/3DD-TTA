@@ -5828,3 +5828,45 @@ at `result/preparation/trajectory_attribution_review_20261025T105306Z.zip`
 archives. User files remain protected. Next action is the user's paper review
 or a separately requested saved-logit comparison; a nonpositive matched delta
 would refute any superiority hypothesis, and one seed cannot show stability.
+
+
+### 2026-10-25 11:04 UTC — next ModelNet trajectory handoff audited
+
+[User report/Code/Run/Open] User requests a correct knowledge state and a
+concise next-agent prompt to obtain the missing ModelNet40-C minimum-entropy
+and probability-mean results with DGCNN/CurveNet/PointNeXt. Audit base
+`7017fa81254f0b2af86b446543b565be7014136a`, same research branch; user edits
+remain protected. This is handoff preparation, not experiment activation.
+
+Accepted six-case matrix and four-head Scan trace retain18/12 policy accuracy
+values. SHA/CRC-checked ModelNet CurveNet/PointNeXt GSD archives each contain
+555NPZ members with no `trajectory_logits`; DGCNN13+2 composite NPZs also
+lack candidate logits. Old terminal predictions cannot supply the six missing
+readouts. Existing Point-MAE ModelNet/Scan results and source/original rows
+must be reused, not repeated. Matching probe geometries/logits, if located
+elsewhere, should be audited before new reconstruction.
+
+[Code] Runner `--trajectory-observe` currently rejects ModelNet; shared
+observer enforces15 logits, and the analyzer enforces Scan581/15classes.
+Existing ModelNet output conversion rotates back and normalizes, unlike the
+Scan inverse-bbox contract. The handoff identifies strict40-class/schema/
+geometry extension and Scan/default-path regressions as gates, reusing current
+class-agnostic policies and reconstruction hooks. No code implementation yet.
+
+[Run/Inference/Open] Prior shared two-head ModelNet guidance took4165.243s
+(69.421min), including3934.254s shared reconstruction. New probe/head work
+requires a fresh whole-phase estimate and comprehensive >60min GPU approval;
+no permission is inferred from the historical campaign or this handoff request.
+Next target: seed0/s5/all15/2468 IDs/head, fixedB70 legacy policy,540 shared
+batches,3 terminal controls+6 newreadouts. Use each new trace's own terminal,
+not historical terminals, for selection deltas. Preserve full candidate logits
+for the separately parked logit-mean question; do not add that test implicitly.
+
+Decision: added [next-agent handoff](modelnet_multibackbone_trajectory_handoff_20261025.md),
+updated README/scope/open questions/final findings with new pending scope while
+preserving completed historical scope. No runtime query/allocation, GPU work,
+new accuracy, native rebuild or inference-source change. Last server-empty
+verification remains dated19Oct; next agent must inspect current assignments.
+Drive persistence/model receipts and local SHA gates remain required for new
+runs. Missing candidate coverage/state/source/receipt evidence would prevent
+acceptance; no new result or speedup is asserted.

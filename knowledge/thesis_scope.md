@@ -1,5 +1,16 @@
 # Thesis Scope and Research Questions
 
+## Next-session scope amendment — 2026-10-25
+
+[User report/Open] The next selected task is ModelNet40-C GSD-inspired
+minimum-entropy/equal-probability-mean evaluation for DGCNN, CurveNet and
+PointNeXt, with a same-run terminal control for each. Earlier requested
+terminal/Scan scopes remain complete. This turn only audits memory and
+prepares the [next-agent handoff](modelnet_multibackbone_trajectory_handoff_20261025.md);
+the40-class observation extension and GPU work are pending. Preserve the
+fixed policy, accepted alternative checkpoints and no-redundant-runs preference.
+Logit averaging, tuning and extra seeds are not added to this next GPU scope.
+
 ## Current empirical amendment — 2026-10-19
 
 [User report/Run] The requested multibackbone study and GSD-only four-head

@@ -1,5 +1,28 @@
 # Open Questions and Research Backlog
 
+## 2026-10-25 — next ModelNet three-head trajectory scope
+
+[User report/Open] Next session: obtain the missing minimum-entropy and equal
+probability-mean rows for DGCNN, CurveNet and PointNeXt on ModelNet40-C.
+This handoff documents the next scope; no research execution in this turn.
+
+- [x] Reconcile accepted coverage: existing ModelNet three-head archives contain
+  terminal logits but no candidate logits; Point-MAE ModelNet and all four
+  Scan trajectory policies already have results and should not be repeated.
+- [x] Trace current code barriers: Scan-only runner flag, observer15-class
+  check and strict581/15-class analyzer; ModelNet output geometry differs.
+- [ ] Implement/verify the smallest40-class ModelNet observation extension,
+  preserving accepted Scan/default terminal behavior and the fixed policy.
+- [ ] Prepare one comprehensive whole-GPU-phase estimate/approval request:
+  old ModelNet full guidance took69.421min before extra probe work. Expect
+  the60min approval threshold to apply; no GPU phase approved by this handoff.
+- [ ] Obtain9 same-run policy rows (3 terminal controls+6 missing readouts),
+  full15/2468 IDs/severity5/seed0, actual Drive/local SHA and independent
+  count/state/source/label checks. Preserve all old attempts and limitations.
+
+[Next-agent knowledge/code/asset references](modelnet_multibackbone_trajectory_handoff_20261025.md).
+Logit averaging remains a separate open question, not part of this GPU scope.
+
 ## 2026-10-25 — logit mean versus probability mean
 
 [User report/Open] **Could averaging classifier logits across the same GSD

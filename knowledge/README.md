@@ -1,3 +1,14 @@
+**[User report/Code/Open] 2026-10-25 — next session: ModelNet three-head readouts:**
+The user selects the missing GSD minimum-entropy/probability-mean rows for
+DGCNN, CurveNet and PointNeXt on ModelNet40-C. Planning/handoff only; no new
+implementation, runtime query/allocation or GPU run. Existing ModelNet raw
+terminal archives lack candidate logits. Runner observation is Scan-only;
+observer/analyzer assume15classes and need a strict40-class ModelNet extension.
+Previous ModelNet guidance already took69.421min before probes; prepare the
+whole-phase duration/approval gate before GPU work. Historical accepted scope
+below stays complete; the new six-readout scope is now pending.
+[Next-agent scope, code references and acceptance](modelnet_multibackbone_trajectory_handoff_20261025.md).
+
 **[Paper/Code/Inference/Open] 2026-10-25 — trajectory readout attribution reviewed:**
 [User report/Open] The four-paper
 [reading list with full titles, primary links and relevant sections](gsd_trajectory_attribution_20261025.md#reading-list-requested-by-the-user--2026-10-25)
