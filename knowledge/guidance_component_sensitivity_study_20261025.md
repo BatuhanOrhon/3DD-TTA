@@ -264,3 +264,19 @@ is physically verified on Drive and after local download, including exact plan
 bytes and ZIPCRC. Independent integration review found no material blocker.
 `readiness_validation.json` records all checks and the next exact action.
 User GPU-duration approval remains pending; no new research GPU executed.
+
+
+## Explicit approval and launch — 2026-10-26
+
+[User report/Run/Open] User replied **“Tamam onaylıyorum”** to the exact
+registered whole-campaign5.5h duration request. Recorded beforeGPU at
+2026-10-26T05:53:05.669817+00:00 with planSHA
+`4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1`;
+nominal4.1934h/margin5.3654h/hard19800s unchanged. Approval466bytes SHA
+`2f3e2a4f9efe9bdfe6a68e1345506f96f2a2f8aff848da849959f5e6005313da`
+exists identically in own runtime and Drive, local`gpu_approval.json`.
+SameA10080GB/endpoint and16-load CPU proof reverified; free disk151784640512bytes.
+Calibration wrapper submitted through solemonitor52794; actualGPU outcome and
+raw archive pending. No new accuracy result. Preserve single cumulative ledger,
+source/identity failure stops and runtime lifecycle contract. Next: accept
+calibration evidence, then registered14-job smoke beforedevelopment.

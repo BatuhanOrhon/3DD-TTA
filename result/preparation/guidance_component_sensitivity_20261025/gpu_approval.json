@@ -1,0 +1,9 @@
+{
+  "status": "approved",
+  "phase_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1",
+  "session": "tta-guidance-components-a100-20261025-r1",
+  "cap_seconds": 19800,
+  "user_reply": "Tamam onaylıyorum",
+  "recorded_utc": "2026-10-26T05:52:12.022746+00:00",
+  "approved_scope": "Registered whole sensitivity campaign: calibration, smoke, development, frozen confirmation; nominal4.1934h, margin5.3654h, hard5.5h; exact sealed plan"
+}

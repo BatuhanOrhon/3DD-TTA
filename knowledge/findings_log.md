@@ -5966,3 +5966,19 @@ Proceed with registered70 development IDs/dataset, all15, seed0, four arms/four 
 ## 2026-10-25 — Agent B additional sensitivity prepared; approval pending
 
 [User report/Code/Run/Open] User requests GSD parameter/loss tests and a stronger original3DD/Chamfer comparison. Fixed prior C−C+S+0.1706ppCI[-0.0397,+0.3651] is not superiority/equivalence; GSD-Chamfer is not original3DD. Addedopt-in legacyL2/Huberδ1/truepermodepower and actualoriginalPointMAEterminal boundary, preservingdefaultmath/configs.54CPUtests/12exactconfiggroups,2calibrationautogradtests,5controllerregistrytests/selfchecks,184head-configpreviews pass. SameownA10016strictGSD/originalcheckpointloadsnoforward/noCUDA pass; physicalCPUarchive11715bytesSHAeb7af9e0c8ae2e460f6307b071538a4832e8f9c3c4c3760991dc3553b137cde3 verifies. Source8169271,manifest599b8dcb...9cd8eef/sourceZIP73d9fbe1...acb37b8 are sealed. New140IDs/dataset exclude olddevelopment+oldconfirmation;3oldbaselinesretained,15newconfigs/30datasetjobs registered,actualoriginalcontrolandfreshconfirmationconditional. WholecampaignplanSHA4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1 expects4.1934h,20%+1200sreserve5.3654h,hard5.5h. One explicitGPUbudgetapprovalrequested; noGPUcalibration/smoke/accuracyrun launched. [Design,equations,gates](guidance_component_sensitivity_study_20261025.md).
+
+
+## Explicit approval and launch — 2026-10-26
+
+[User report/Run/Open] User replied **“Tamam onaylıyorum”** to the exact
+registered whole-campaign5.5h duration request. Recorded beforeGPU at
+2026-10-26T05:53:05.669817+00:00 with planSHA
+`4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1`;
+nominal4.1934h/margin5.3654h/hard19800s unchanged. Approval466bytes SHA
+`2f3e2a4f9efe9bdfe6a68e1345506f96f2a2f8aff848da849959f5e6005313da`
+exists identically in own runtime and Drive, local`gpu_approval.json`.
+SameA10080GB/endpoint and16-load CPU proof reverified; free disk151784640512bytes.
+Calibration wrapper submitted through solemonitor52794; actualGPU outcome and
+raw archive pending. No new accuracy result. Preserve single cumulative ledger,
+source/identity failure stops and runtime lifecycle contract. Next: accept
+calibration evidence, then registered14-job smoke beforedevelopment.

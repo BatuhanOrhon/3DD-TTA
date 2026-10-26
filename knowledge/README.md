@@ -1,3 +1,10 @@
+**[User report/Run/Open] 2026-10-26 — Agent B sensitivity approved; calibration launching:**
+User explicitly approved the registered5.5h whole-campaign cap (“Tamam onaylıyorum”).
+SameA10080GB/source/CPUproof and approvalDrivebytes verify; calibration submitted
+through solemonitor52794. No new accuracy result. Development follows accepted
+calibration and smoke; frozen new140IDs/dataset confirmation follows development.
+[Scope, approval and live evidence](guidance_component_sensitivity_study_20261025.md).
+
 **[User report/Code/Run/Open] 2026-10-25 — Agent B sensitivity prepared; GPU approval pending:**
 User requests further GSD parameter/loss evidence and an actual original3DD
 comparison. This does not establish or preselect Chamfer's universal superiority.
