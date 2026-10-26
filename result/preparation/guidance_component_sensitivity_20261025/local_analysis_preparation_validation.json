@@ -1,0 +1,11 @@
+{
+  "status": "CPU_fixture_verified_actual_smoke_development_ingestion_pending",
+  "fixture_tests": 5,
+  "fixture_seconds": 0.04,
+  "self_check": "passed",
+  "python38_ast": "passed",
+  "root_verified": true,
+  "calibration_independent_report": "calibration_root_revalidation.json",
+  "new_accuracy_runs": 0,
+  "limits": "Smoke/development archives do not yet exist; actual ingestion/freeze untested. Missing physical caches prevent acceptance."
+}
