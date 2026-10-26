@@ -280,3 +280,68 @@ Calibration wrapper submitted through solemonitor52794; actualGPU outcome and
 raw archive pending. No new accuracy result. Preserve single cumulative ledger,
 source/identity failure stops and runtime lifecycle contract. Next: accept
 calibration evidence, then registered14-job smoke beforedevelopment.
+
+
+## Calibration preserved; unexpected runtime loss — 2026-10-26
+
+[Run/Open] Actual calibration phase state completed in155.460578s; physical
+Drive archive5,806,352bytes SHA256
+`3431f2a15e67892429fcc663b7fd2c0d6e3d93083daee078dc4b3e884d61c8f2`
+was downloaded before runtime loss and passes localSHA/ZIPCRC. The retained
+ledger records155.866607s spent and no activeworker. Report coefficients:
+legacyL2=9373.767440639811,Huber=19729.987388376365,power=13.76292805636293.
+These are gradient scale coefficients, not accuracy outcomes; independent
+2100-row calibration/parity review remains pending. PrimaryCLI stream never
+returned the exactwrappermarker; it later reported Connection was lost.
+Repeated serverinventories showed ownr1A100 absent at07:36/07:37UTC; monitor
+52794 subsequently reportsLOST. No teardown was issued. No smoke/development
+orconfirmation from this campaign ran. Localhost scheduling/sleep gaps occur;
+servertermination cause remains unknown. A bounded21600s localcaffeinate
+assertion is active to reduce idlehostsleep; it does not guarantee Colablifetime.
+
+Newr2 allocation printedREADY but later inventory/status found no suchassignment;
+no setup/researchcell was submitted. A sameA100/HighRAM r3 allocation is being
+checked. No peer/unknownCPUassignment is touched. NewVM requiresall10setupcells
+and exactnative/assets/Drive recovery before campaigncontinuation. Approved
+19800s cumulativecap and trialscope persist; never resetspenttime or rerun
+acceptedcalibration silently. Rawlocal:`calibrate_evidence_drive_roundtrip.zip`
+and`calibrate_receipt.json` under sensitivitypreparationroot.
+
+
+## Independent calibration acceptance; recovery waits for stable host — 2026-10-26
+
+[Run/Code/Open] IndependentCPU validation and rootrevalidation accept actual
+5,806,352byte calibrationarchive. Every ZIPmember/source/native/frozenLION
+binding and registeredapproval verifies. All30physical cachedNPZ files were
+rehashed and joined to accepted latent/noise/input/RNG metadata. All2100/2100
+ratios are valid for eachloss, no tiny/nonfinitepair. Recomputed globalmedians
+exactly equal L2=9373.767440639811,Huber=19729.987388376365,power=13.76292805636293.
+30/30 scalar and directcoefficientgradients are exact, RNG unchanged; native
+helperrelativeL2 maxima local0.00025963/style0.00035591 pass individualdeclared
+repeatabilityfloor/caprules. These are first-stepgradientcalibrationresults,
+not accuracy evidence or fulltrajectoryequivalence. Rawreport99029bytes SHA
+`82ebc1fdb2784a0663968a20d46909e3020e127310f237971382c78c40e211e0`.
+Local`calibration_local_acceptance.json`, `calibration_root_revalidation.json`,
+`validate_calibration_local.py` retain independentchecks. No GPU repeat needed.
+Post-seal ledger downloaded beforeloss preserves155.866606843s spent; archive
+ledger155.460578268s is the earlierpre-seal snapshot. Use the largerknowncost.
+
+[Run/Open] r3A100HighRAM was actualserver-verified at10:06UTC, endpoint
+`gpu-a100-hm-euw4a0-ws8p7xzfs0gu`, solemonitor9752. Cell1installedConda and
+restarted; primaryCLI laterlostconnection, serverinventory at10:42UTC showed
+noA100. No reconnect or cell2+ passed; freshsetup is incomplete. r2also
+vanished beforeanysetupcell. At11:06UTC server reportedzero activeassignments;
+no runtime was stopped bythisagent. Bothmonitorprocesses remainrunning/LOST;
+no activeevaluationworker. No smoke/development/confirmationaccuracy exists.
+
+[Run/Inference/Open] `recovery_20261026/host_sleep_evidence.txt` retains161
+Macsleep/wakeevents today, including longMaintenancesleep/deepidle onbattery
+duringCLIstreamgaps. Local21600s caffeinate-i assertion didnotpreventthese
+sleeps. This establishesinterruptedlocal supervision, not the server'scause
+oftermination. Repeatedallocation alone is not a soundrecovery. An asynchronous
+question now asksuser toconfirmMacawake/stable beforeanotherallocation;
+existing5.5hGPUbudgetapproval staysvalid and is NOT beingrequestedagain.
+Oncehoststable: allocate sameA100HighRAM, replayall10setupcells, exactpinned
+native/assets/DriveCPUproof, restoreacceptedcalibration andspentledger with
+explicitmigrationprovenance; then registered14-jobsmoke. Do nottouchunknown
+orpeerassignments. Fullscopeandhardcap19800s remain unchanged.

@@ -1,3 +1,18 @@
+**[Run/Open] 2026-10-26 — Agent B calibration accepted; host/runtime recovery pending:**
+All2100label-free ratios,30physicalcaches anddeclaredparitychecks pass independent
+CPUreview+rootrevalidation. No newaccuracyresult. r1andtworeplacementA100s
+vanished withoutteardown; latestserverinventory0activeassignments. Macsleep
+recordsproveCLI supervisiongaps. Useraskedto confirmhostawake/stable before
+anotherallocation; existing19800sGPUapproval remainsvalid,155.87s spentretained.
+[Acceptedcalibration and exactrecoverygate](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Open] 2026-10-26 — Agent B calibration preserved; A100 lost unexpectedly:**
+CalibrationDrive/local archiveSHA/CRC verify;155.87s campaignspent, coefficients
+recorded, independentacceptancepending. r1disappeared withoutteardown andsole
+monitor52794reportsLOST. No newaccuracyrun. SameA100replacement/recovery is
+being prepared under unchanged19800s approvedcampaigncap.
+[Evidence and recovery state](guidance_component_sensitivity_study_20261025.md).
+
 **[User report/Run/Open] 2026-10-26 — Agent B sensitivity approved; calibration launching:**
 User explicitly approved the registered5.5h whole-campaign cap (“Tamam onaylıyorum”).
 SameA10080GB/source/CPUproof and approvalDrivebytes verify; calibration submitted

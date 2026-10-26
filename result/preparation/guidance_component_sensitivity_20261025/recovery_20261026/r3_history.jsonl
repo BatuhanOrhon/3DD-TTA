@@ -1,0 +1,2 @@
+{"timestamp": "2026-10-26T10:05:32.189485+00:00", "event_type": "session_created", "endpoint": "gpu-a100-hm-euw4a0-ws8p7xzfs0gu", "variant": "GPU", "accelerator": "A100", "machine_shape": "HIGH_RAM"}
+{"timestamp": "2026-10-26T10:42:31.756070+00:00", "event_type": "session_terminated", "reason": "pruned"}

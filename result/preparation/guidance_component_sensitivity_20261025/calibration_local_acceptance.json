@@ -1,0 +1,71 @@
+{
+  "archive": {
+    "bytes": 5806352,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_calibrate_20261026T055331472905Z/sensitivity_calibrate_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_calibrate_20261026T055331472905Z.zip",
+    "sha256": "3431f2a15e67892429fcc663b7fd2c0d6e3d93083daee078dc4b3e884d61c8f2"
+  },
+  "calibration_report_identity": {
+    "bytes": 99029,
+    "sha256": "82ebc1fdb2784a0663968a20d46909e3020e127310f237971382c78c40e211e0"
+  },
+  "campaign_spent_snapshot_seconds": 155.46057826800097,
+  "classifier_forwards": 0,
+  "coefficient_diagnostics": {
+    "huber": {
+      "coefficient": 19729.987388376365,
+      "ratio_max": 82052.61739700474,
+      "ratio_min": 10549.404489943208,
+      "tiny_chamfer_local": 0,
+      "tiny_spectral_local": 0,
+      "total_pairs": 2100,
+      "valid_pairs": 2100
+    },
+    "legacy_l2": {
+      "coefficient": 9373.767440639811,
+      "ratio_max": 16195.456747104488,
+      "ratio_min": 2791.4248948678055,
+      "tiny_chamfer_local": 0,
+      "tiny_spectral_local": 0,
+      "total_pairs": 2100,
+      "valid_pairs": 2100
+    },
+    "power": {
+      "coefficient": 13.76292805636293,
+      "ratio_max": 61.606285056206,
+      "ratio_min": 0.6401100427110566,
+      "tiny_chamfer_local": 0,
+      "tiny_spectral_local": 0,
+      "total_pairs": 2100,
+      "valid_pairs": 2100
+    }
+  },
+  "coefficients": {
+    "huber": 19729.987388376365,
+    "legacy_l2": 9373.767440639811,
+    "power": 13.76292805636293
+  },
+  "frozen_state_unchanged": true,
+  "labels_used": false,
+  "limits": "No GPU work repeated. Input tensor identity joins accepted preparation metadata; latent/noise NPZ bytes are rehashed. Native prior gradients satisfy the preregistered repeatability-floor rule, not bitwise identity.",
+  "n_input_events": 2100,
+  "native_relative_l2_maxima": {
+    "local": {
+      "helper": 0.00025962981716916837,
+      "repeat": 0.00026343406845311454
+    },
+    "style": {
+      "helper": 0.0003559113844041112,
+      "repeat": 0.0003661954271058456
+    }
+  },
+  "parity_batches": 30,
+  "phase_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1",
+  "physical_cache_npz": 30,
+  "receipt_identity": {
+    "bytes": 107247,
+    "sha256": "b5197775f0d9713043eb5860024c2b660301f56fab81e583cca6494f6c08ad27"
+  },
+  "scalar_and_direct_gradient_exact": true,
+  "status": "accepted_local_label_free_calibration"
+}

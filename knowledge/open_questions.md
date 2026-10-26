@@ -1868,3 +1868,13 @@ Calibration submitted05:53UTC via52794. Remaining gates: actual label-free
 calibration/parity;14-job smoke and measured original timing; independent
 development acceptance/freeze; new140-ID/dataset three-seed confirmation.
 No new accuracy or universal superiority claim; task/runtime closure unapproved.
+
+
+### 2026-10-26 — Agent B runtime recovery gate
+
+[Run/Open] Calibration independentlyaccepted, noGPUrepeatneeded. r1/r2/r3
+A100assignmentslost; no newaccuracyrun, latestserver0assignments. Macsleep
+logsproveCLIsupervisiongaps; serverterminationcauseunknown. Awaituserconfirming
+Macawake/stable, thenfresh10-cellsetup+exactnative/assets recovery. Existing
+5.5happroval staysvalid; carry155.866607sspent, notpre-seal155.460578s.
+See sensitivitynote and recovery_20261026/runtime_recovery.json.

@@ -1,0 +1,23 @@
+{
+  "status": "r3_LOST_after_cell1_no_live_assignment",
+  "utc": "2026-10-26T10:07:02.775245+00:00",
+  "lost_session": "tta-guidance-components-a100-20261025-r1",
+  "lost_endpoint": "gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98",
+  "old_monitor_exec_session_id": 52794,
+  "new_session": "tta-guidance-components-a100-20261026-r3",
+  "new_endpoint": "gpu-a100-hm-euw4a0-ws8p7xzfs0gu",
+  "new_monitor_exec_session_id": 9752,
+  "host_awake_exec_session_id": 21541,
+  "approved_total_cap_seconds": 19800,
+  "preserved_spent_seconds": 155.86660684299568,
+  "calibration_evidence_sha256": "3431f2a15e67892429fcc663b7fd2c0d6e3d93083daee078dc4b3e884d61c8f2",
+  "no_teardown_issued": true,
+  "new_accuracy_runs": 0,
+  "updated_utc": "2026-10-26T13:12:03.909145+00:00",
+  "r2_endpoint": "gpu-a100-hm-euw4a0-2ouxsujtt1p01",
+  "active_server_assignments": 0,
+  "r3_setup": "cell1 installed/restarting; no reconnect validation; not setup-complete",
+  "waiting_for": "User confirms local Mac awake/stable before another allocation",
+  "calibration_independent_validation": "accepted",
+  "calibration_report_sha256": "82ebc1fdb2784a0663968a20d46909e3020e127310f237971382c78c40e211e0"
+}
