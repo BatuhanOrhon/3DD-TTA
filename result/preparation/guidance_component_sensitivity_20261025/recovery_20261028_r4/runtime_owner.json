@@ -1,0 +1,13 @@
+{
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
+  "monitor_exec_session_id": 5314,
+  "host_awake_exec_session_id": 85660,
+  "updated_utc": "2026-10-28T13:21:01.870246+00:00",
+  "phase": "setup_cell1_restart_reconnecting",
+  "approved_cap_seconds": 19800,
+  "prior_spent_seconds": 155.86660684299568,
+  "approval_user_reply": "Tamam onayl\u0131yorum",
+  "continuation_user_reply": "Yeni oturum a\u00e7\u0131p \u00e7al\u0131\u015fmaya devam et",
+  "teardown_authorized": false
+}

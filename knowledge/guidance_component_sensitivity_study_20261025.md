@@ -345,3 +345,23 @@ Oncehoststable: allocate sameA100HighRAM, replayall10setupcells, exactpinned
 native/assets/DriveCPUproof, restoreacceptedcalibration andspentledger with
 explicitmigrationprovenance; then registered14-jobsmoke. Do nottouchunknown
 orpeerassignments. Fullscopeandhardcap19800s remain unchanged.
+
+
+## User-directed recovery r4 — 2026-10-28
+
+[User report/Run/Open] User directs “Yeni oturum açıp çalışmaya devam et”.
+Existing whole-campaign approval/cap19800s and spent155.866607s remain binding.
+Server inventory initially0active; new ownA100HighRAM session
+`tta-guidance-components-a100-20261028-r4`, endpoint
+`gpu-a100-hm-euw4a0-3s9zrjduwd03k`, actualA100-SXM4-80GB/175166460kBRAM
+verified. Solemonitor execsession5314; bounded21600s localhost-awake assertion
+execsession85660. These supervise legitimatework and do not guaranteeVMlifetime.
+Canonicaltennotebookcells unchanged; receipt-onlysessionliteral adapted in
+newsetupwrappers under`recovery_20261028_r4/setup`. Cell1ranseparately, restarted,
+and sameVMreconnectexactmarker passed13:21:02UTC. Cell2environment creation
+submitted13:21:20UTC. No researchGPU or newaccuracytest yet.
+
+Next: finishcells2–10 (onlyknownfastrlockfailuredeferred), mountDrive through
+CLI/userconsent ifrequested, exactpinnedassets/native restore and freshCPUproof,
+explicitplan/session/ledger migration preservingacceptedcalibrationbytes and
+approvedscope/spenttime, then14-jobsmoke. No teardown authorization.

@@ -1,3 +1,9 @@
+**[User report/Run/Open] 2026-10-28 — Agent B recovery r4 active:**
+Userdirectsnewsession+continuation. ActualA10080GBHighRAM verified; solemonitor5314.
+Cell1restart/sameVMreconnectpassed; cell2active. Acceptedcalibrationand155.87s
+spentarepreserved;19800sapprovedcampaigncapunchanged. No newaccuracytest yet.
+[Currentrecoveryandgates](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/Open] 2026-10-26 — Agent B calibration accepted; host/runtime recovery pending:**
 All2100label-free ratios,30physicalcaches anddeclaredparitychecks pass independent
 CPUreview+rootrevalidation. No newaccuracyresult. r1andtworeplacementA100s
