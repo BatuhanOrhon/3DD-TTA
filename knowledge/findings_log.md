@@ -6298,3 +6298,12 @@ inactive under-cap ledger. No estimator rerun, tuning, result selection or GPU
 operation; package identity is unbound until actual final local analysis passes.
 Source/tests/handoff and final_acceptance_preparation.json are inrecovery_20261028_r4.
 Actual confirmation remains running; final binding/acceptance is unexecuted.
+
+
+[Run/Open] 2026-10-28 19:09UTC: confirmation seeds0and1 completed all16jobs;
+third/final seed2 is now running, starting spectral-candidate ModelNet. Actual
+cumulative campaign spent12571.930780s at this boundary, below19800s cap; no
+configuration/readout/trial change or partial-score-based decision. Local ledger:
+recovery_20261028_r4/confirmation_live_ledger_seed1_end.json. Allremaining8jobs,
+96rawZIP/180physicalNPZ final acceptance and object-cluster analysis remain
+pending. Same ownedA100/solemonitor5314/host-awake support are preserved.
