@@ -1,0 +1,17 @@
+{
+  "active": null,
+  "attempts": [
+    {
+      "elapsed_seconds": 155.46057826800097,
+      "output": "/content/studies/guidance-components/sensitivity_calibrate_20261026T055331472905Z",
+      "stage": "calibrate",
+      "status": "complete",
+      "utc": "20261026T055331479455Z"
+    }
+  ],
+  "cap_seconds": 19800,
+  "phase_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1",
+  "schema_version": 1,
+  "session": "tta-guidance-components-a100-20261025-r1",
+  "spent_seconds": 155.86660684299568
+}

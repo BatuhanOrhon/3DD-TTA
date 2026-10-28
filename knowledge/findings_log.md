@@ -6067,3 +6067,27 @@ Next: finishcells2–10 (onlyknownfastrlockfailuredeferred), mountDrive through
 CLI/userconsent ifrequested, exactpinnedassets/native restore and freshCPUproof,
 explicitplan/session/ledger migration preservingacceptedcalibrationbytes and
 approvedscope/spenttime, then14-jobsmoke. No teardown authorization.
+
+
+[Run/Code/Open] r4cell2 createdPython3.8.20 and failedonlyatknownfastrlockwheel;
+explicitdefer remainsapplicable. Independentenvironmentmarker passed13:29:11UTC.
+Cell3Drive/KNN submitted13:30:04UTC. Ownership-onlycontinuationplanSHA
+`1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42`,
+controllerSHA`0095e5af256f4fb980f2666b089b86c7b126bad3994506054cf2f43b9ed2a3fc`;
+changesonlysession/ledgerownership andstrengthenedacceptedreport/spentfloor
+guards. Sealedassets/source/IDs/objectives/trials/readouts/capunchanged.
+TwoCPU migrationtests, controller selfcheck andPython3.8syntaxpass.
+Fresh8+16CPUproofs and actualDrive/recoveryinstallation remainpending.
+No newresearchGPUexecuted andnoaccuracyclaimed.
+
+
+[Run/User action required/Open] r4cell3 firstattempt failed`ValueError:mountfailed`
+at13:32:07UTC (exactmarkerabsent). TTYCLI`colab drivemount` execsession37218
+received actualDriveOAuthrequest for ownendpoint; actualGoogleconsentscreen
+opened inuserbrowser andasynchronousquestionasksuser tocompleteauthorization.
+Noaccountpermissionclickedbyagent; noauthURI/tokeniscopiedtorepository.
+Solemonitor5314remainsrunning, withprobesinhibitedafterfailedcell3; nosecond
+notebookcellwillbesubmittedwhilemountautomationwaits. Thisisinteractive
+accountconsent, notnewGPUbudgetapproval. Runtimepreserved/liveatlastinventory.
+Nextafteruserconfirms: sendnewline to37218, requiremountsuccess, reruncell3
+andverifyDrive/KNN; thencells4–10inorder. ResearchGPUstillnotstarted.

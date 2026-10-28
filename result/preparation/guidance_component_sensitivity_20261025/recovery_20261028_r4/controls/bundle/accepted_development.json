@@ -1,0 +1,30 @@
+{
+  "accepted_utc": "2026-10-25T14:09:02.736037+00:00",
+  "cache_roundtrip": {
+    "bytes": 678,
+    "sha256": "341a4b26aa745b33a47e77d1269f37bbdc78b21d48b088babe522e719e4c93ee"
+  },
+  "counts": {
+    "candidate_predictions": 134400,
+    "physical_cache_npz": 30,
+    "raw_archives": 32,
+    "terminal_head_inputs": 33600
+  },
+  "frozen_plan": {
+    "bytes": 5928,
+    "sha256": "c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45"
+  },
+  "local_validation": {
+    "bytes": 59041,
+    "sha256": "90c49b36674e65a0dd9fa041265e088a162a5ec48eb0a416dc19e4842c49ca6d"
+  },
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "phase_archive": {
+    "bytes": 405066186,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/development_20261025T133358718403Z/development_phase_evidence.zip",
+    "local_path": "/content/studies/guidance-components/development_20261025T133358718403Z.zip",
+    "sha256": "8abd0ec00c71996407d0fabc3933a7984c2e9860c8844e2d2940bff1db15901d"
+  },
+  "source_snapshot_sha256": "f5bca11a543fd5463ef5a09b26cf216b2bd049523d61a97da24e184e5576d0c6",
+  "status": "accepted"
+}

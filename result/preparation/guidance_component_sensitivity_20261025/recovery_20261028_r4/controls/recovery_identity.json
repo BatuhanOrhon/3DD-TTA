@@ -1,0 +1,81 @@
+{
+  "control_package": {
+    "bytes": 194334,
+    "sha256": "e8a5d704ef822647fde274b74835742fd0f14e61739972c5eb9e7cc4b9cc3524"
+  },
+  "endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
+  "files": {
+    "accepted_development.json": {
+      "bytes": 1192,
+      "sha256": "e978c558f4ec70244c5ad14030fc09191bf78435541466866744366fb73a078c"
+    },
+    "calibrate_spectral_losses.py": {
+      "bytes": 30194,
+      "sha256": "e97466cfc6236cd220348d8257626025d5c4648b4bb8db6c84a5e8dfdb28076f"
+    },
+    "calibration_local_acceptance.json": {
+      "bytes": 2497,
+      "sha256": "9023130dded72558e7631f1befffd99fd02353e2779033afa525b645a576c7fc"
+    },
+    "campaign_ledger.json": {
+      "bytes": 925,
+      "sha256": "de517aceb3996dce5bffd60d51cbfba4c25632882d1f48232e5608f77e3ea695"
+    },
+    "campaign_plan.json": {
+      "bytes": 8974,
+      "sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42"
+    },
+    "development_phase_receipt.json": {
+      "bytes": 1289412,
+      "sha256": "7ef2b62404b019a35027b38a65f146087a30d403cc260f129a3a1f83a17980d7"
+    },
+    "gpu_approval.json": {
+      "bytes": 1399,
+      "sha256": "ce20859a911774580aebb4286144314c7cccef132805ec207932bac49976f392"
+    },
+    "original_calibrate_receipt.json": {
+      "bytes": 107247,
+      "sha256": "b5197775f0d9713043eb5860024c2b660301f56fab81e583cca6494f6c08ad27"
+    },
+    "original_campaign_ledger.json": {
+      "bytes": 528,
+      "sha256": "6c0e3cb8cebdf4a43bc3383f1599b782f4a1d4129690eb2de1a7de387a5915b3"
+    },
+    "original_campaign_plan.json": {
+      "bytes": 7682,
+      "sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1"
+    },
+    "original_gpu_approval.json": {
+      "bytes": 466,
+      "sha256": "2f3e2a4f9efe9bdfe6a68e1345506f96f2a2f8aff848da849959f5e6005313da"
+    },
+    "sensitivity_campaign_controller.py": {
+      "bytes": 53848,
+      "sha256": "0095e5af256f4fb980f2666b089b86c7b126bad3994506054cf2f43b9ed2a3fc"
+    }
+  },
+  "fresh_preflight": {
+    "bytes": 8241,
+    "sha256": "3134c501f263c1010d67f5f5eeeb921450ef1e0b0e937fc49c43af104acf8c07"
+  },
+  "plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "provenance": {
+    "new_endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
+    "new_session": "tta-guidance-components-a100-20261028-r4",
+    "original_approval": {
+      "bytes": 466,
+      "sha256": "2f3e2a4f9efe9bdfe6a68e1345506f96f2a2f8aff848da849959f5e6005313da"
+    },
+    "original_endpoint": "gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98",
+    "original_ledger": {
+      "bytes": 528,
+      "sha256": "6c0e3cb8cebdf4a43bc3383f1599b782f4a1d4129690eb2de1a7de387a5915b3"
+    },
+    "original_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1",
+    "original_session": "tta-guidance-components-a100-20261025-r1",
+    "scope": "Ownership/control recovery only; sealed assets/objectives/trials/IDs/readouts/cap unchanged",
+    "spent_floor_seconds": 155.86660684299568,
+    "user_resume_instruction": "Yeni oturum açıp çalışmaya devam et"
+  },
+  "session": "tta-guidance-components-a100-20261028-r4"
+}

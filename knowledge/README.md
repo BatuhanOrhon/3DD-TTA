@@ -1,3 +1,10 @@
+**[Run/User action required/Open] 2026-10-28 — Agent B r4 awaits Drive consent:**
+A10080GBHighRAMlive; cell1sameVMrestart/reconnect andPython3.8.20pass
+(onlyknownfastrlockdeferred). ActualGoogleDriveauthorizationopened inuserbrowser;
+TTY37218awaitsuserconsent, monitor5314preservedwithoutconcurrentcells.
+CPUrecoverypackageverified; acceptedcalibrationand155.87sspentretained.
+No newaccuracytest. [Exactresumeaction](guidance_component_sensitivity_study_20261025.md).
+
 **[User report/Run/Open] 2026-10-28 — Agent B recovery r4 active:**
 Userdirectsnewsession+continuation. ActualA10080GBHighRAM verified; solemonitor5314.
 Cell1restart/sameVMreconnectpassed; cell2active. Acceptedcalibrationand155.87s

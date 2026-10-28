@@ -1,0 +1,18 @@
+{
+  "status": "CPU_reviewed_remote_install_pending",
+  "utc": "2026-10-28T13:31:19.610556+00:00",
+  "migration_tests": 2,
+  "controller_self_check": "passed",
+  "python38_AST": "passed",
+  "scope_unchanged": true,
+  "prior_spent_seconds": 155.86660684299568,
+  "cap_seconds": 19800,
+  "plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "controller_sha256": "0095e5af256f4fb980f2666b089b86c7b126bad3994506054cf2f43b9ed2a3fc",
+  "control_package": {
+    "bytes": 194334,
+    "sha256": "e8a5d704ef822647fde274b74835742fd0f14e61739972c5eb9e7cc4b9cc3524"
+  },
+  "no_research_GPU": true,
+  "limits": "Installer requiresall10setupcells,pinnednative/assetsandfresh8+16CPUproofs;actualDrivebytesstilltobechecked"
+}

@@ -3,11 +3,20 @@
   "endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
   "monitor_exec_session_id": 5314,
   "host_awake_exec_session_id": 85660,
-  "updated_utc": "2026-10-28T13:21:01.870246+00:00",
-  "phase": "setup_cell1_restart_reconnecting",
+  "updated_utc": "2026-10-28T13:34:21.466964+00:00",
+  "phase": "Drive_user_consent_pending",
   "approved_cap_seconds": 19800,
   "prior_spent_seconds": 155.86660684299568,
   "approval_user_reply": "Tamam onayl\u0131yorum",
   "continuation_user_reply": "Yeni oturum a\u00e7\u0131p \u00e7al\u0131\u015fmaya devam et",
-  "teardown_authorized": false
+  "teardown_authorized": false,
+  "cell1": "restart_and_sameVM_reconnect_verified",
+  "cell2": "Python3.8.20_verified_onlyknownfastrlockerror_deferred",
+  "new_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "research_GPU_started": false,
+  "drive_mount_exec_session_id": 37218,
+  "monitor_probe_inhibited_by_failed_cell3": true,
+  "drive_mount": "actualOAuthrequest_opened_in_user_browser;waiting_user_consent_thenTTYEnter",
+  "cell3_first_attempt": "ValueError_mount_failed;exactmarkerabsent",
+  "no_concurrent_notebook_exec": true
 }
