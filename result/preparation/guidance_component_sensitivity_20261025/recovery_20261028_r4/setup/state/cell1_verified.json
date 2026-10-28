@@ -1,0 +1,9 @@
+{
+  "conda": "conda 26.3.2",
+  "gpu": "NVIDIA A100-SXM4-80GB, 81920 MiB",
+  "meminfo": [
+    "MemTotal:       175166460 kB",
+    "MemFree:        168717796 kB",
+    "MemAvailable:   172640100 kB"
+  ]
+}
