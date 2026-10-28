@@ -495,3 +495,11 @@ all15/s570IDs/dataset/4heads/seed0;3baselinesreusedonlywithdeclaredparity.
 FirstC-step-lowModelNetjobhasproducedseveralcorruptionreceiptsusingoldpaired
 preparations. Actualdevelopmentacceptance/ranking/freezeand140-IDthree-seed
 confirmationremainpending. NoGPUscope/trial/readout/source/ID/capexpansion.
+
+
+[Code/CPU/Open] Futureconfirmation180NPZcollector preparedbyadaptingexisting
+artifactworkflow, sourceSHA`694f55a0e138c3d6af34be4f92ef5e44c8b3ac88537ef22aa90efb9e11d15c4f`.
+Itrequirescompletedconfirmation/inactiveledger/exactfreezeand180unique
+source+Drivecachepaths, neverGPUrecalculation. ThreeCPUfixturespass0.105s,
+Python3.8syntaxchecked. Actualcollectionunexecuted; actualconfirmationoutputs
+do notexist yet. Source/test/handoff underrecovery_20261028_r4.
