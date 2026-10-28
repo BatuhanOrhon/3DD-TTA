@@ -611,3 +611,41 @@ configuration/readout/trial change or partial-score-based decision. Local ledger
 recovery_20261028_r4/confirmation_live_ledger_seed1_end.json. Allremaining8jobs,
 96rawZIP/180physicalNPZ final acceptance and object-cluster analysis remain
 pending. Same ownedA100/solemonitor5314/host-awake support are preserved.
+
+
+## Confirmation numeric failure; reviewed recovery preparation — 2026-10-28 19:43 UTC
+
+[Run/Code/Open] Registeredslot20 (tunedC`c-step-high`,ModelNet,seed2,eta=gamma=.03)
+failed19:32:22UTC with`ValueError: Classifier input contains nonfinite XYZ coordinates`.
+Uniform/Gaussian both70-batches and Backgroundbatch0 completed; the failure is
+in Backgroundbatch1 (selectedpositions70–139), during a clean trajectory decode
+probe before classification. ModelNet/DGCNN preprocessing usesFPS with no
+normalization. Existing logs do not identify the exact first invalid tensor or
+original object; no unsupported detailed causal claim. Other source/state/data/
+native/RNG mismatch is not reported. No numerical clipping/fallback/parameter
+change or rerun was made. The finite-input guard correctly stopped the worker.
+
+20registeredjobs complete,slot20partial(status`running` retained in immutable
+producer state, overallattempt`failed`),slots21–23unrun. Raw failed phase
+1159246521bytes SHA`f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e`
+sealed on Drive19:33:34UTC; local raw roundtrip pending. Exact failedreceipt
+SHA5ab88805…9754,post-sealfailedledger60c8ba55…736b retains14114.660198s spent.
+No complete wrapper marker or confirmation validation exists; previous running
+headlines are superseded by this failure. Runtime andsolemonitor5314remain live.
+
+Independent policy review permits a separately reviewed new-output continuation
+of onlyUNRUN21(tunedC/Scan/seed2),22–23(originalMN/Scan/seed2), keeping failed20
+failed, immutable archives/freeze/source and one cumulative19800s cap. Conservative
+upper16384.444877s includes891.487232s futurework,20%margin and1200reserve.
+No continuation GPU has started: first preserve physical raw failedattempt+all180
+cachebytes; source/native/data/state/RNG/receipt mismatch remains a stop condition.
+The original complete-only controller/analyzer/templates stay unchanged and may
+not accept this as complete four-condition confirmation. Prepare separate
+failure-aware analysis: candidate vs matchedC already has all3seeds; candidate
+vsoriginal requires the two unrun original jobs. TunedC's three-seed balanced
+endpoint remains unavailable; no dropping the failedcase, two-seed primary
+average, setting substitution or hidden failed-slot replacement.
+Exact local evidence: recovery_20261028_r4/confirmation_failed_receipt.json,
+confirmation_failed_ledger.json,confirmation_failed_job020.log and
+confirmation_numeric_failure_diagnosis.json. The numerical failure is research
+evidence, not proof of either method's universal superiority.

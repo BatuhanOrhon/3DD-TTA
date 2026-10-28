@@ -1913,3 +1913,16 @@ through5314; existing19800s campaign approval unchanged. Must verify rawDrive/
 local archive plus180physical caches, exact freeze and object-cluster inference
 before any confirmatory ranking. Universal or original3DD superiority is unproven.
 See guidance_component_sensitivity_study_20261025.md for exact evidence.
+
+
+### Agent B numerical failure gate — 2026-10-28 19:43 UTC
+
+[Run/Open] Confirmation is failed/partial (20complete,slot20numericalfailure,
+21–23unrun), superseding the earlier running gate. StrongC .03/.03 failed
+ModelNetseed2Backgroundbatch1 before classifier on nonfiniteXYZ. Preservefailed
+raw f5868702…be5e,originalproducer/ledger/log and180physical caches first.
+Reviewedremaining-onlynewoutput continuation21–23 fits existing19800s cap;
+neverrerun/replace20 or alter parameters. Needfailure-aware source/ID/RNG/Drive
+analysis of complete paired grids; tunedC's three-seed endpoint is unavailable.
+Complete-only validation/acceptance must not be weakened or falsely claimed.
+See current sensitivity study note and confirmation_numeric_failure_diagnosis.json.

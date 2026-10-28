@@ -1,0 +1,142 @@
+Run bundle: /content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z/seed2/tuned-chamfer/modelnet40_c/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193100_guidance-components-chamfer-dgcnn-seed2
+Run bundle: /content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z/seed2/tuned-chamfer/modelnet40_c/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193101_guidance-components-chamfer-curvenet-seed2
+Run bundle: /content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z/seed2/tuned-chamfer/modelnet40_c/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193102_guidance-components-chamfer-pointnext-seed2
+Run bundle: /content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z/seed2/tuned-chamfer/modelnet40_c/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193103_guidance-components-chamfer-pointmae-seed2
+load emd_ext time: 0.004s
+utils/utils.py: USE_COMET=1, USE_WB=0
+2026-10-28 19:31:18.550 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): cls
+2026-10-28 19:31:18.551 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.aug_scale
+2026-10-28 19:31:18.551 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.aug_translate
+2026-10-28 19:31:18.551 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.augment
+2026-10-28 19:31:18.551 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.cls_data_ratio
+2026-10-28 19:31:18.551 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.data_path
+2026-10-28 19:31:18.552 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.is_load_pointflow2NS
+2026-10-28 19:31:18.552 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.load_point_stat
+2026-10-28 19:31:18.552 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.ratio_c
+2026-10-28 19:31:18.552 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.sample_curvature
+2026-10-28 19:31:18.552 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): data.sub_train_set
+2026-10-28 19:31:18.553 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): ddpm.pointnet_luo
+2026-10-28 19:31:18.553 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): ddpm.pointnet_plus
+2026-10-28 19:31:18.553 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): ddpm.pointnet_pp
+2026-10-28 19:31:18.553 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): ddpm.pvc
+2026-10-28 19:31:18.553 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): ddpm.use_pvc
+2026-10-28 19:31:18.554 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): eval.other_vae_ckpt_path
+2026-10-28 19:31:18.554 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): generate_mode_global
+2026-10-28 19:31:18.554 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): generate_mode_local
+2026-10-28 19:31:18.554 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.decoder_nneighbor
+2026-10-28 19:31:18.555 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.dgcnn_last_hid
+2026-10-28 19:31:18.555 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.encoder_nneighbor
+2026-10-28 19:31:18.555 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.knn
+2026-10-28 19:31:18.555 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.latent_as_pts
+2026-10-28 19:31:18.555 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.n5layer
+2026-10-28 19:31:18.555 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.outlier_input
+2026-10-28 19:31:18.556 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.perturb_input
+2026-10-28 19:31:18.556 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): latent_pts.perturb_input_scale
+2026-10-28 19:31:18.556 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): lns
+2026-10-28 19:31:18.556 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): lns_loss_weight
+2026-10-28 19:31:18.556 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): normal_pred_checkpoint
+2026-10-28 19:31:18.557 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): normal_predictor_yaml
+2026-10-28 19:31:18.557 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): normals
+2026-10-28 19:31:18.557 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): pointtransformer
+2026-10-28 19:31:18.557 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): save_sample_seq_and_quit
+2026-10-28 19:31:18.559 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): sde.transformer_norm_type
+2026-10-28 19:31:18.559 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): sde.transformer_temb2interlayer
+2026-10-28 19:31:18.560 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.add_sub_loss
+2026-10-28 19:31:18.560 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.add_voxel2z_global
+2026-10-28 19:31:18.560 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.bp_to_l0
+2026-10-28 19:31:18.561 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.center_local_points
+2026-10-28 19:31:18.561 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.downsample_input_ratio
+2026-10-28 19:31:18.561 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.encoder_weight_norm
+2026-10-28 19:31:18.561 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.encoder_weight_std
+2026-10-28 19:31:18.561 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.encoder_weight_uniform
+2026-10-28 19:31:18.561 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.extra_centers
+2026-10-28 19:31:18.562 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.global_only_epochs
+2026-10-28 19:31:18.562 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.hvae
+2026-10-28 19:31:18.562 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.key_point_gen
+2026-10-28 19:31:18.562 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.latent_flow_depth
+2026-10-28 19:31:18.562 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.latent_flow_hidden_dim
+2026-10-28 19:31:18.562 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_decoder_output_offset
+2026-10-28 19:31:18.563 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_decoder_type
+2026-10-28 19:31:18.563 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_decoder_type_1
+2026-10-28 19:31:18.563 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_enc_input
+2026-10-28 19:31:18.563 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_encoder_ap_ball_radius
+2026-10-28 19:31:18.563 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_encoder_ball_radius
+2026-10-28 19:31:18.563 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_encoder_condition_z0
+2026-10-28 19:31:18.564 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_encoder_type
+2026-10-28 19:31:18.564 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_encoder_type_1
+2026-10-28 19:31:18.564 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_loss_weight_max
+2026-10-28 19:31:18.564 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.local_prior_need_coords
+2026-10-28 19:31:18.564 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.loss_weight_refiner
+2026-10-28 19:31:18.564 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.num_level
+2026-10-28 19:31:18.564 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.num_neighbors
+2026-10-28 19:31:18.565 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.num_neighbors_per_level
+2026-10-28 19:31:18.565 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.prog_dec_gf
+2026-10-28 19:31:18.565 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.prog_dec_gf_list
+2026-10-28 19:31:18.565 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.prog_dec_ne
+2026-10-28 19:31:18.565 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.query_center_emd_from_enc
+2026-10-28 19:31:18.565 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.query_local_feat_dim
+2026-10-28 19:31:18.566 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.query_local_feat_layer
+2026-10-28 19:31:18.566 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.query_output_local_from_enc
+2026-10-28 19:31:18.566 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.refiner_bp
+2026-10-28 19:31:18.566 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.refiner_type
+2026-10-28 19:31:18.566 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): shapelatent.x0_target_fps
+2026-10-28 19:31:18.568 | WARNING  | third_party.yacs_config:key_is_deprecated:326 - Deprecated config key (ignoring): with_lns
+2026-10-28 19:31:18.568 | INFO     | utils.model_helper:import_model:106 - import: models.shapelatent_modules.PointNetPlusEncoder
+2026-10-28 19:31:18.588 | INFO     | models.shapelatent_modules:__init__:29 - [Encoder] zdim=128, out_sigma=True; force_att: 0
+2026-10-28 19:31:18.589 | INFO     | utils.model_helper:import_model:106 - import: models.latent_points_ada.PointTransPVC
+2026-10-28 19:31:18.589 | INFO     | models.latent_points_ada:__init__:38 - [Build Unet] extra_feature_channels=0, input_dim=3
+2026-10-28 19:31:18.721 | INFO     | utils.model_helper:import_model:106 - import: models.latent_points_ada.LatentPointDecPVC
+2026-10-28 19:31:18.721 | INFO     | models.latent_points_ada:__init__:241 - [Build Dec] point_dim=3, context_dim=1
+2026-10-28 19:31:18.722 | INFO     | models.latent_points_ada:__init__:38 - [Build Unet] extra_feature_channels=1, input_dim=3
+2026-10-28 19:31:18.848 | INFO     | models.vae_adain:__init__:50 - [Build Model] style_encoder: models.shapelatent_modules.PointNetPlusEncoder, encoder: models.latent_points_ada.PointTransPVC, decoder: models.latent_points_ada.LatentPointDecPVC
+2026-10-28 19:31:19.175 | INFO     | utils.model_helper:import_model:106 - import: models.score_sde.resnet.PriorSEDrop
+2026-10-28 19:31:19.178 | INFO     | models.score_sde.resnet:__init__:135 - [Build Resnet Prior] Has condition input: False; clipforge 0; learn_mixing_logit=1, 
+2026-10-28 19:31:19.179 | INFO     | models.score_sde.resnet:__init__:178 - [temb_fun] embedding_type=positional, embedding_scale=1.0, embedding_dim=128
+2026-10-28 19:31:19.868 | INFO     | models.latent_points_ada_localprior:__init__:43 - [Build Prior Model] nclass=4, embed_dim=64, use_att=True,extra_feature_channels=1, dropout=0.1, time_emb_scales=1.0 num_point=2048
+2026-10-28 19:31:19.869 | INFO     | models.latent_points_ada:__init__:38 - [Build Unet] extra_feature_channels=1, input_dim=3
+2026-10-28 19:31:20.016 | INFO     | utils.diffusion_pvd:__init__:36 - [Build Discrete Diffusion object] beta_start=0.0001, beta_end=0.02, mode=linear, num_steps=1000
+INFO finish loading from /content/3DD-TTA/lion_ckpts/epoch_10999_iters_2100999.pt
+2026-10-28 19:31:23,360 - Point_MAE - INFO - [Point_MAE] 
+2026-10-28 19:31:23,360 - Transformer - INFO - [args] {'mask_ratio': 0.9, 'mask_type': 'rand', 'trans_dim': 384, 'encoder_dims': 384, 'depth': 12, 'drop_path_rate': 0.1, 'num_heads': 6, 'decoder_depth': 4, 'decoder_num_heads': 6}
+2026-10-28 19:31:23,796 - Point_MAE - INFO - [Point_MAE] divide point cloud into G64 x S32 points ...
+modelnet40_c uniform batch 0 IDs 0 70 shared reconstruction seconds 6.681387877997622
+modelnet40_c uniform batch 1 IDs 70 140 shared reconstruction seconds 6.045630845001142
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193100_guidance-components-chamfer-dgcnn-seed2/corruption-uniform.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193101_guidance-components-chamfer-curvenet-seed2/corruption-uniform.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193102_guidance-components-chamfer-pointnext-seed2/corruption-uniform.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193103_guidance-components-chamfer-pointmae-seed2/corruption-uniform.receipt.json
+modelnet40_c gaussian batch 0 IDs 0 70 shared reconstruction seconds 6.036260370998207
+modelnet40_c gaussian batch 1 IDs 70 140 shared reconstruction seconds 6.046655033998832
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193100_guidance-components-chamfer-dgcnn-seed2/corruption-gaussian.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193101_guidance-components-chamfer-curvenet-seed2/corruption-gaussian.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193102_guidance-components-chamfer-pointnext-seed2/corruption-gaussian.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193103_guidance-components-chamfer-pointmae-seed2/corruption-gaussian.receipt.json
+modelnet40_c background batch 0 IDs 0 70 shared reconstruction seconds 12.61757956600195
+Traceback (most recent call last):
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/scripts/eval_multibackbone_guidance.py", line 699, in <module>
+    main()
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/scripts/eval_multibackbone_guidance.py", line 628, in main
+    worker(json.loads(arguments[1]))
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/scripts/eval_multibackbone_guidance.py", line 525, in worker
+    geometry, metrics = reconstruct_geometry(raw, common["dataset"], corruption, lion, graph, reconstruct, ops,
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/scripts/eval_multibackbone_guidance.py", line 255, in reconstruct_geometry
+    decoded, metrics = reconstruct(x=prepared, lion=lion, graph_spectral_module=graph,
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/tta_gsd_v2.py", line 147, in tta_gsd_reconstruct
+    trajectory_observer.clean(pred_latent_point, style_cond, i, t)
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/shared_trajectory.py", line 73, in clean
+    logits = self._logits(self.classify_decoded(decoded))
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/scripts/eval_multibackbone_guidance.py", line 512, in classify_decoded
+    return classify_geometry(geometry, heads, configs, fps)[0]
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/scripts/eval_multibackbone_guidance.py", line 316, in classify_geometry
+    logits[name] = classifier(points, features=features).detach()
+  File "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/studies/guidance-components/prepared_sensitivity_v2/assets/source_snapshot/classifier_backbones.py", line 48, in forward
+    raise ValueError("Classifier input contains nonfinite XYZ coordinates")
+ValueError: Classifier input contains nonfinite XYZ coordinates
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193100_guidance-components-chamfer-dgcnn-seed2/final.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193101_guidance-components-chamfer-curvenet-seed2/final.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193102_guidance-components-chamfer-pointnext-seed2/final.receipt.json
+Verified Drive checkpoint: /content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-193103_guidance-components-chamfer-pointmae-seed2/final.receipt.json

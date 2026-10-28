@@ -1,3 +1,11 @@
+**[Run/Open] 2026-10-28 — Agent B confirmation stopped on numerical failure:**
+20jobscomplete; tunedChamfereta=gamma.03/ModelNet/seed2 fails inBackgroundbatch1
+withnonfinite classifierXYZ. Failedrawarchiveis onDrive; localraw/180-cache
+retrieval and reviewedunrun-only21–23continuation are being prepared. Original
+failedslot20will not be replaced; no completefour-condition confirmation claim.
+SameA100/monitor5314live,14114.66sspent under19800sapprovedcap.
+[Failure evidence and exact recovery](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/Decision/Open] 2026-10-28 — Agent B development accepted; confirmation running:**
 All32new jobs/152raw ZIPs/19trial rows/30physical caches independently accepted.
 Development bestC56.7857%,bestCS55.3452%,originalterminal55.2381% is selection

@@ -1,0 +1,55 @@
+{
+  "status": "failed_partial_confirmation_preserved_on_drive_local_raw_pending",
+  "utc": "2026-10-28T19:44:46.813973+00:00",
+  "complete_jobs": 20,
+  "failed_registered_slot": 20,
+  "unrun_registered_slots": [
+    21,
+    22,
+    23
+  ],
+  "condition": "tuned-chamfer",
+  "trial_id": "c-step-high",
+  "dataset": "modelnet40_c",
+  "seed": 2,
+  "eta": 0.03,
+  "gamma": 0.03,
+  "p": 0.95,
+  "worker_error": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+  "last_completed_corruption_batches": [
+    "uniform/batch0",
+    "uniform/batch1",
+    "gaussian/batch0",
+    "gaussian/batch1",
+    "background/batch0"
+  ],
+  "failure_location": {
+    "corruption": "background",
+    "batch_index": 1,
+    "selection_positions": [
+      70,
+      140
+    ],
+    "boundary": "SharedTrajectoryObserver.clean -> VAE decoder -> classifier preprocessing/FPS -> FrozenClassifier finiteXYZ guard",
+    "exact_first_invalid_tensor_and_object": "not determined by existing saved logs"
+  },
+  "raw_phase_archive": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip"
+  },
+  "source_log": {
+    "bytes": 20297,
+    "sha256": "e27c4a3f4dbc7fa9aac6b2cebe08af20dd6d827746809a85ba6c5048e2697c4b"
+  },
+  "spent_seconds": 14114.660198396998,
+  "cap_seconds": 19800,
+  "failed_attempt_remains_failed": true,
+  "registered_complete_contrasts_pending_validation": [
+    "spectral-candidate vs matched-chamfer all3seeds"
+  ],
+  "original_contrast": "seed2 originals remain unrun",
+  "tuned_balanced_endpoint": "unavailable due numerical failure; no two-seed average or sample exclusion",
+  "next": "Preserve physical failure/raw180caches; reviewed newoutput continuation onlyslots21\u201323; independent failure-aware partialanalysis, not complete-only acceptance."
+}
