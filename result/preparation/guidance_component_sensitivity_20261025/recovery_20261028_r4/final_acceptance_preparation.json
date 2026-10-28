@@ -1,0 +1,28 @@
+{
+  "status": "prepared_not_bound_not_executed",
+  "utc": "2026-10-28T18:49:00Z",
+  "source_sha256": {
+    "accept_confirmation_template.py": "c6a4456ac6b0ad754804b795947b306860a108bfaa8b56def431c0207efc3312",
+    "bind_confirmation_acceptance.py": "417b9c8baddb2d384df4c94a8414b056355e196e389e962f8bf8429875de03d5",
+    "test_accept_confirmation.py": "d195689ec0f2dfd12b6c4a9c36953881736ed6985b02b249468686d198f8714d"
+  },
+  "root_synthetic_tests": {
+    "passed": 3,
+    "seconds": 0.025
+  },
+  "python38_ast": "passed",
+  "independent_review": "No material blockers. Finalc6a4456a source differs onlybythree exclusive writes; reversingthatblock reproducespreviousreviewed961186 hash exactly. No remoteoperation.",
+  "required_genuine_final_coverage": {
+    "jobs": 24,
+    "raw_archives": 96,
+    "physical_caches": 180,
+    "original_object_clusters": 280,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "prediction_events_per_contrast": 50400
+  },
+  "limits": "No finalconfirmation predictions, packagebinding or remoteacceptance have been inspected/executed. Template rejectsnull package identity."
+}

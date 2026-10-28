@@ -589,3 +589,16 @@ development to confirmation; SHA d1f31063…79de2,10456bytes,Python3.8 syntax
 checked. Shared logic already passed three fixtures and genuine7-part development
 transport. Actual confirmation split is not run and requires completion/inactive
 ledger; original raw ZIP and Drive identities must remain unchanged.
+
+
+[Code/CPU/Open] 2026-10-28 18:49UTC: final confirmation acceptance template
+prepared (SHAc6a4456a…3312), using actual analyzer/collector metadata schema.
+Root read source, reran three synthetic guard fixtures (0.025s), checkedPy3.8
+syntax; independent review found no blocker and confirmed the final exclusive-write
+delta by reversing it to reproduce the previously reviewed source hash. The CPU-only phase
+requires genuine accepted24-job/96-ZIP/180-cache/280-object results, exact frozen
+development/calibration/source bindings, original Drive raw/cache bytes and an
+inactive under-cap ledger. No estimator rerun, tuning, result selection or GPU
+operation; package identity is unbound until actual final local analysis passes.
+Source/tests/handoff and final_acceptance_preparation.json are inrecovery_20261028_r4.
+Actual confirmation remains running; final binding/acceptance is unexecuted.
