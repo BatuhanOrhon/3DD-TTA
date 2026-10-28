@@ -6205,3 +6205,20 @@ Itrequirescompletedconfirmation/inactiveledger/exactfreezeand180unique
 source+Drivecachepaths, neverGPUrecalculation. ThreeCPUfixturespass0.105s,
 Python3.8syntaxchecked. Actualcollectionunexecuted; actualconfirmationoutputs
 do notexist yet. Source/test/handoff underrecovery_20261028_r4.
+
+
+### Development acceptance preparation — 2026-10-28 16:51 UTC
+
+[Code/CPU/Open] The CPU acceptance/freeze template is prepared and independently
+reviewed (SHA8366ab2e…158ff6); root reran its three synthetic fixture tests, all
+passed in0.004s. It cannot execute until bound to a genuine accepted development
+package. Gates retain32new jobs/152raw ZIPs/19trial rows/30physical caches,
+source/history separation, exact freeze binding, immutable Drive evidence and
+the conservative maximum24-job confirmation budget under19800s. Independent
+read-only review also accepted24 genuine old ZIPs/30physical caches and checked
+all72 possible freeze pairs using synthetic scores (12three-condition,60four).
+Evidence: recovery_20261028_r4/development_acceptance_preparation.json plus
+source/tests/handoff and development_review_check_development.py/stdout.json.
+The GPU development phase is still running; no new ranking, winner or accuracy
+claim is established. Next: genuine completed archive acceptance, frozen choices
+and measured budget gate before the existing confirmation wrapper.

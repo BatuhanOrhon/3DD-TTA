@@ -1,0 +1,64 @@
+{
+  "status": "prepared_not_executed",
+  "utc": "2026-10-28T16:51:00Z",
+  "template_sha256": "8366ab2ec1bb6eeceaf7baac6fcc8d8617d2d2407e8e4f0f269fa7dc48158ff6",
+  "root_fixture_tests": {
+    "passed": 3,
+    "seconds": 0.004,
+    "synthetic": true
+  },
+  "independent_template_review": "No material blockers; final11905-byte source reviewed by r4_analysis_review",
+  "independent_development_input_review": {
+    "analyzer": {
+      "bytes": 47965,
+      "sha256": "b00a4017614befc8c610f70ed6969d3608b12bbe6628ff46e7aad97198d71f11"
+    },
+    "controller": {
+      "bytes": 53848,
+      "sha256": "0095e5af256f4fb980f2666b089b86c7b126bad3994506054cf2f43b9ed2a3fc"
+    },
+    "four_condition_pairs": 60,
+    "freeze_pair_rows_sha256": "c4a688ebdaf175557efe1022de0f1d144271cb62b0296f0ff6fbea0d6a5767ac",
+    "freeze_pairs": 72,
+    "frozen_head_contract_count": 8,
+    "limitation": "Completed new development artifacts not inspected; all freeze scores are synthetic. No remote actions or repository writes.",
+    "lion_state_count": 1,
+    "new_development_jobs": 32,
+    "new_development_trials": 16,
+    "numpy_version": "1.21.6",
+    "physical_cache_count": 30,
+    "physical_cache_identity_rows_sha256": "1dcf9f553c661e9847391d76e1b01da033cda557642bbb67e4d3be8df060e9ee",
+    "physically_verified_cache_count": 30,
+    "plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+    "reused_baseline_scores": [
+      {
+        "accuracy_pct": 55.19047619047619,
+        "family": "chamfer",
+        "n_cases": 8,
+        "policy": "probability_mean",
+        "trial_id": "c-base"
+      },
+      {
+        "accuracy_pct": 55.107142857142854,
+        "family": "combined",
+        "n_cases": 8,
+        "policy": "probability_mean",
+        "trial_id": "cs-base"
+      },
+      {
+        "accuracy_pct": 52.61904761904762,
+        "family": "spectral",
+        "n_cases": 8,
+        "policy": "probability_mean",
+        "trial_id": "s-base"
+      }
+    ],
+    "reused_pairing_cache_count": 30,
+    "reused_zip_count": 24,
+    "reused_zip_identity_rows_sha256": "bf56cff45411416f88b632bc077291e360699b4699f18f15a921aff36a1ed079",
+    "status": "passed",
+    "three_condition_pairs": 12,
+    "total_registered_trials": 19
+  },
+  "limits": "No genuine completed development bundle, frozen winner, package binding, remote acceptance or confirmation execution yet."
+}
