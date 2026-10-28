@@ -6276,3 +6276,12 @@ three seeds (280objects, not840), all15/macro14 and qualified policy costs.
 Evidence under recovery_20261028_r4/local_development_analysis_v1 and
 development_local_acceptance_verification.json; actual source remains8169271
 plus sealed73d9fbe1…b37b8/manifest599b8dcb…8eef, separate from local branch HEAD.
+
+
+[Run/Open] 2026-10-28 18:28UTC: frozen confirmation seed0 completed all8jobs
+(fourconditions×two datasets); seed1 spectral-candidate ModelNet is now active.
+No partial accuracy ranking has been selected or used to modify the freeze.
+Ledger retained locally as recovery_20261028_r4/confirmation_live_ledger_seed0_end.json;
+all per-corruption/final worker receipts remain on owned Drive. Solemonitor5314
+and bounded host-awake support remain active. Seeds1/2 and independent final
+96ZIP/180physical-cache acceptance are pending; no new superiority claim.
