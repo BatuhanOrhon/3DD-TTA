@@ -1,0 +1,21 @@
+{
+  "state": {
+    "status": "complete",
+    "session": "tta-guidance-components-a100-20261028-r4",
+    "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+    "research_gpu_launched": false,
+    "strict_loads": 16,
+    "cuda_initialized": false,
+    "elapsed_seconds": 23.153627986000174
+  },
+  "archive": {
+    "bytes": 11716,
+    "sha256": "d90e6308a985e4a25b85ff9c99d15b82ff11c76db7e94be2e5ced5c898172e9f",
+    "local_path": "/content/studies/guidance-components/sensitivity_cpu_preflight_20261028T151420046172Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_cpu_preflight_20261028T151420046172Z/cpu_preflight_evidence.zip"
+  },
+  "report_identity": {
+    "bytes": 37488,
+    "sha256": "1217f27293f848ee1f4778fb93b3ec4f2c66e021205f3f6ad7687d8b891c5fae"
+  }
+}

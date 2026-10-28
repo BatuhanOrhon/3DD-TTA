@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "utc": "20261028T151153789693Z",
+  "research_inference": false,
+  "setup_cells": 10,
+  "archive": {
+    "bytes": 56157,
+    "sha256": "924076c28b64af0c1b121703cacbf55fa8400a92e6c8deb0925d4015fcb2a517",
+    "local_path": "/content/studies/guidance-components/setup_evidence_20261028T151153789693Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/setup/setup_evidence_20261028T151153789693Z/setup_evidence_20261028T151153789693Z.zip"
+  }
+}

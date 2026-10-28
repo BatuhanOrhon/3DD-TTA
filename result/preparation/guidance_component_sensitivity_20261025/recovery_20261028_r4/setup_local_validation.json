@@ -1,0 +1,18 @@
+{
+  "status": "accepted_setup10_Drive_local_roundtrip",
+  "archive": {
+    "bytes": 56157,
+    "sha256": "924076c28b64af0c1b121703cacbf55fa8400a92e6c8deb0925d4015fcb2a517",
+    "local_path": "/content/studies/guidance-components/setup_evidence_20261028T151153789693Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/setup/setup_evidence_20261028T151153789693Z/setup_evidence_20261028T151153789693Z.zip"
+  },
+  "members": 12,
+  "native_GPU_checks": [
+    "CUDA tensor sum",
+    "FPS",
+    "KNN",
+    "Chamfer identical input",
+    "EMD finite output"
+  ],
+  "research_accuracy_runs": 0
+}

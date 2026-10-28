@@ -435,3 +435,32 @@ andanalysis_review_fixes.json under recovery_20261028_r4.
 withdiskmarker+physicalDriveprogressreceiptchecks. Cell8PVCNN/nativeGPUchecks
 submitted15:00:39UTC via5314. Dataset/checkpoints/setup10 andfreshCPUproofs
 remainpending; no newresearchaccuracyrun.
+
+
+## Accepted r4 recovery; registered GPU smoke launches — 2026-10-28
+
+[Run/Code/Open] All10canonicalsetupcellspassed (onlyknowncell2fastrlock
+deferred). ActualA10080GB,PyTorch2.1.2cu121/CUDA12.1/NumPy1.21.2/nativeGPU
+operations,ModelNetall15andcheckpointsverify. Setup56157byteDrive/localZIP
+SHA`924076c28b64af0c1b121703cacbf55fa8400a92e6c8deb0925d4015fcb2a517`,
+637filedeployment1421391bytesSHA`ee84885876c9008dc6b9a66ddc072f3fe92b6d1b1a185141832fa089b85f7c57`,
+8-headCPU24937bytesSHA`3058021bb9b91f7d517eece7899a11dcf244cf60f16ac42f12d207901032bd50`,
+16-loadCPU11716bytesSHA`d90e6308a985e4a25b85ff9c99d15b82ff11c76db7e94be2e5ced5c898172e9f`
+allactualDrive/localSHA,CRC,source/stateverify. Freshnativebyteswerepreserved
+beforeexactaudited4binaryrestore; nohiddenfresh-buildparityclaim.
+
+Recovery11845364bytesSHA`03c86fa0bfc15a84abe7b0e7d845b96d9f9f004816262f54655372b3b3bd954d`
+passedindependentlocal32membermanifest/CRC/plan/statechecks. Oldcalibration
+reportbytes/sessionretained,30actualdevelopmentNPZsrestoredfromDrive;
+post-seal155.866606843sspent/historycarried. Newownershipplan14033563…c4d42,
+consumer8169271/source73d9fbe1…b37b8/manifest599b8dcb…8eef unchanged.
+No newGPUapprovalneededforunchangedscopeand19800scap.
+
+Registered14jobGPUtechnicalsmoke now submittedthroughsolemonitor5314 in
+`tta-guidance-components-a100-20261028-r4`:7conditions×2datasets,Gaussian/
+Background,70fixedIDs/dataset,4heads,seed0; freshdistinctsmokecachenamespace.
+WrapperSHA`539b14b2fb540f0de44b73eb4d14f53cb84787090e8f16f8019f06eee52fed30`.
+Actualsuccess/accuracy/rawarchivepending. Completionneedsexactdirectmarkers,
+physicalDrive/localevidence+cachebytes, independentanalysis andmeasured
+wholecampaignprojectionbeforedevelopment. Localbounded21600sawakeprocess
+64591supportsCLI supervision; noVMlifetimeguarantee/teardownauthorization.

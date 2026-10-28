@@ -1,0 +1,14 @@
+{
+  "status": "accepted_CPU_recovery_Drive_local_identity",
+  "archive": {
+    "bytes": 11845364,
+    "sha256": "03c86fa0bfc15a84abe7b0e7d845b96d9f9f004816262f54655372b3b3bd954d",
+    "local_path": "/content/studies/guidance-components/recovery_r4.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_recovery_r4_20261028T151701298532Z/recovery_evidence.zip"
+  },
+  "manifest_members": 32,
+  "preserved_spent_seconds": 155.86660684299568,
+  "restored_cache_npz": 30,
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "research_GPU_started": false
+}

@@ -17,5 +17,8 @@
   "numpy1_tests_seconds": 0.292,
   "numpy2_tests_seconds": 0.168,
   "consumer_GSD_source_or_GPU_plan_changed": false,
-  "actual_confirmation_ingestion_pending": true
+  "actual_confirmation_ingestion_pending": true,
+  "independent_fix_rereview": "bothfindingsresolved_11testsNP1andNP2_30actualcachehashesverified",
+  "current_confirmation_analyzer_sha256": "61ad358eac251b1066447a3f61f8ea69f88f524b53dac30ecfe25a283f4c6a9a",
+  "current_confirmation_tests_sha256": "bc593d3b574f1872f19a961095f1843ba696a47702624c533dd28f29e1af05eb"
 }

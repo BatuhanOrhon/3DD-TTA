@@ -1,3 +1,10 @@
+**[Run/Open] 2026-10-28 — Agent B r4 technical GPU smoke launching:**
+All10setupcells,exactnative/assets,8+16strictCPUloads andphysicalDrive/local
+recoveryproofaccepted. Originalcalibration/30devcaches/155.87sspentretained.
+Registered14jobGaussian+Backgroundsmokesubmittedvia5314; resultspending.
+Newplan14033563…c4d42 preservesapproved19800scapandscientificscope.
+[Currentrunandacceptancegates](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/Open] 2026-10-28 — Agent B r4 Drive mounted; CUDA preparation running:**
 UsercompletedactualDriveconsent;CLI mountedDrive,cell3KNNcopy/exactmarkerpassed
 14:39UTC. SameA10080GBHighRAM/solemonitor5314nowruns cell4. Existingcalibration

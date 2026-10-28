@@ -1,0 +1,11 @@
+{
+  "status": "accepted_CPU16_Drive_local_hash_CRC_state_source",
+  "archive": {
+    "bytes": 11716,
+    "sha256": "d90e6308a985e4a25b85ff9c99d15b82ff11c76db7e94be2e5ced5c898172e9f",
+    "local_path": "/content/studies/guidance-components/sensitivity_cpu_preflight_20261028T151420046172Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_cpu_preflight_20261028T151420046172Z/cpu_preflight_evidence.zip"
+  },
+  "strict_loads": 16,
+  "cuda_initialized": false
+}

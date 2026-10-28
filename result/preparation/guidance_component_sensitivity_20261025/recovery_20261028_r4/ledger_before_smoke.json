@@ -1,0 +1,25 @@
+{
+  "active": null,
+  "attempts": [
+    {
+      "elapsed_seconds": 155.46057826800097,
+      "output": "/content/studies/guidance-components/sensitivity_calibrate_20261026T055331472905Z",
+      "stage": "calibrate",
+      "status": "complete",
+      "utc": "20261026T055331479455Z"
+    }
+  ],
+  "cap_seconds": 19800,
+  "lion_state": {
+    "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+  },
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "recovery": {
+    "original_ledger_sha256": "6c0e3cb8cebdf4a43bc3383f1599b782f4a1d4129690eb2de1a7de387a5915b3",
+    "original_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1"
+  },
+  "schema_version": 1,
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "spent_seconds": 155.86660684299568
+}
