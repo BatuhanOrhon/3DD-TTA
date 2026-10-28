@@ -1,3 +1,9 @@
+**[Run/Open] 2026-10-28 — Agent B r4 Drive mounted; CUDA preparation running:**
+UsercompletedactualDriveconsent;CLI mountedDrive,cell3KNNcopy/exactmarkerpassed
+14:39UTC. SameA10080GBHighRAM/solemonitor5314nowruns cell4. Existingcalibration
+and155.87sspentpreservedunder19800scap. No newaccuracyresult.
+[Currentsetup/recovery](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/User action required/Open] 2026-10-28 — Agent B r4 awaits Drive consent:**
 A10080GBHighRAMlive; cell1sameVMrestart/reconnect andPython3.8.20pass
 (onlyknownfastrlockdeferred). ActualGoogleDriveauthorizationopened inuserbrowser;

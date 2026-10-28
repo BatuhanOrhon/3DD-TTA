@@ -3,8 +3,8 @@
   "endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
   "monitor_exec_session_id": 5314,
   "host_awake_exec_session_id": 85660,
-  "updated_utc": "2026-10-28T13:34:21.466964+00:00",
-  "phase": "Drive_user_consent_pending",
+  "updated_utc": "2026-10-28T14:39:44.580390+00:00",
+  "phase": "setup_cell4_running",
   "approved_cap_seconds": 19800,
   "prior_spent_seconds": 155.86660684299568,
   "approval_user_reply": "Tamam onayl\u0131yorum",
@@ -14,9 +14,13 @@
   "cell2": "Python3.8.20_verified_onlyknownfastrlockerror_deferred",
   "new_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
   "research_GPU_started": false,
-  "drive_mount_exec_session_id": 37218,
-  "monitor_probe_inhibited_by_failed_cell3": true,
-  "drive_mount": "actualOAuthrequest_opened_in_user_browser;waiting_user_consent_thenTTYEnter",
+  "drive_mount_exec_session_id": 57259,
+  "monitor_probe_inhibited_by_failed_cell3": false,
+  "drive_mount": "complete_TTY57259_exit0",
   "cell3_first_attempt": "ValueError_mount_failed;exactmarkerabsent",
-  "no_concurrent_notebook_exec": true
+  "no_concurrent_notebook_exec": true,
+  "previous_drive_mount_exec_session_id": 37218,
+  "previous_drive_mount_outcome": "Timeout_afteruserrequeststart;remoteidleandDrive404verified",
+  "drive_consent_user_reply": "Drive eri\u015fim iznini tamamlad\u0131m",
+  "cell3": "DrivealreadyMounted_KNNcopied_exactmarker_verified14:39:26UTC"
 }
