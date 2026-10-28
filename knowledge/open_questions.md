@@ -1890,3 +1890,14 @@ approvalvalid;155.866607sspentcarried byreviewednewplan14033563…c4d42.
 Next: authTTYEnter→cell3retry→cells4–10→exactnative/assets/freshCPUproof→
 CPUrecoveryinstaller→14jobsmoke. New9+existing5localanalysischecks pass;
 ModelNetlabel.npy andnewactualstageartifactsremainpending. Noaccuracyclaim.
+
+
+### 2026-10-28 — Agent B sensitivity development active
+
+[Run/Open] Actual14jobtechnicalsmokeand56rawZIPs/4physicalcachesaccepted,
+Driveconsent/setup/recoverycomplete. 32all15developmentjobsrunningfrom15:48UTC
+inownr4/monitor5314. Registeredloss/rate/pchoicesunchanged;3oldbaselines
+reusedwithparity. Post-smoke1105.891987sspent;manualconservativeprojection
+19743.614653s<=19800scap. Next: retrieve/acceptallnewdevelopmentrows,freeze
+oneglobalspectralcandidateandCcomparators,thenregistered140-ID/dataset,
+3seedconfirmation. Noall15newaccuracy/superiorityclaimyet.

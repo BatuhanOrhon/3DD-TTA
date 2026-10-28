@@ -1,0 +1,16 @@
+{
+  "status": "accepted",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "archive": {
+    "bytes": 37355,
+    "sha256": "f285c4e5e32c5d5b4e910a0cdbbdc1d1c9c1d85e18272bb03e85d0eb6041c74e",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_smoke_local_acceptance_20261028T154811005337Z/agent_b_r4_smoke_local_acceptance.zip"
+  },
+  "raw_phase": {
+    "bytes": 627301980,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_smoke_20261028T151934123459Z/sensitivity_smoke_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_smoke_20261028T151934123459Z.zip",
+    "sha256": "523c2e634d6af682157b4e1e3e597e3173523c067b777a77d1d2e3243128fad3"
+  },
+  "upper_campaign_seconds": 19743.6146527073
+}

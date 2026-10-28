@@ -1,0 +1,13 @@
+{
+  "status": "physical_label_bytes_verified",
+  "bytes": 2596,
+  "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+  "remote_path": "/content/3DD-TTA/data/modelnet40_c/label.npy",
+  "canonical_source_archive": "MyDrive/thesis/dataset/modelnet40_c.zip",
+  "shape": [
+    2468,
+    1
+  ],
+  "dtype": "uint8",
+  "labels_used_for_calibration": false
+}

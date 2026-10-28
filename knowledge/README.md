@@ -1,3 +1,10 @@
+**[Run/Open] 2026-10-28 — Agent B sensitivity development running:**
+All14technicalGPUjobs/56rawZIPs/4physicalcaches independentlyaccepted with
+Drive/localSHA;acceptedcalibrationand30oldcachesretained. Currentwholecampaign
+spent18.43min;conservativemargin+reserveprojection5.484hfitsapproved5.5hcap.
+32all15developmentjobsnowrunninginr4/monitor5314; ranking/freeze/confirmation
+remainpending. [Acceptedproofsandlivephase](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/Open] 2026-10-28 — Agent B r4 technical GPU smoke launching:**
 All10setupcells,exactnative/assets,8+16strictCPUloads andphysicalDrive/local
 recoveryproofaccepted. Originalcalibration/30devcaches/155.87sspentretained.

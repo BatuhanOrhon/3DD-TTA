@@ -1,0 +1,12 @@
+{
+  "status": "verified",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "cache_count": 4,
+  "archive": {
+    "bytes": 17198671,
+    "sha256": "7bdd9ba956c742fc8b57795cb14768a69f9ffd38c9069069ab581d16db5857a3",
+    "local_path": "/content/studies/guidance-components/sensitivity_smoke_cache_20261028T153715561511Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_smoke_cache_20261028T153715561511Z/smoke_cache_evidence.zip"
+  }
+}

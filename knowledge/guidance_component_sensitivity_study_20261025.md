@@ -464,3 +464,34 @@ Actualsuccess/accuracy/rawarchivepending. Completionneedsexactdirectmarkers,
 physicalDrive/localevidence+cachebytes, independentanalysis andmeasured
 wholecampaignprojectionbeforedevelopment. Localbounded21600sawakeprocess
 64591supportsCLI supervision; noVMlifetimeguarantee/teardownauthorization.
+
+
+## Sensitivity smoke independently accepted; development running — 2026-10-28
+
+[Run/Code/Open] All14registeredtechnicaljobs completed in916.655641s;
+post-sealwholecampaignspent1105.891987s includingoldacceptedcalibration.
+Bothdatasets/Gaussian+Background/70developmentIDs/fourheads/seed0,7conditions
+(C/CS/Sbase,calibratedCSL2/Huber/power,actualoriginal3DD) yield56rawZIPs.
+Rawphase627301980bytesSHA`523c2e634d6af682157b4e1e3e597e3173523c067b777a77d1d2e3243128fad3`
+and4physicalcacheNPZcollection17198671bytesSHA
+`7bdd9ba956c742fc8b57795cb14768a69f9ffd38c9069069ab581d16db5857a3`
+matchactualDrive/localbytes. Independentlocalanalyzeracceptsall56rawsource/
+config/checkpoint/state/ID/label/trajectory/pairing/receiptguards,all4physical
+newcachesand30oldcalibrationcaches; rootNP1reconstructsall4newRNGhashes.
+Technicaltwo-corruptionresultsarenotall15ranking/finalaccuracyproof.
+
+Localacceptance37355bytesSHA
+`f285c4e5e32c5d5b4e910a0cdbbdc1d1c9c1d85e18272bb03e85d0eb6041c74e`
+physicallyDrive/localroundtripverified; ROOT/accepted_sensitivity_smoke.json
+passedcurrentplan/Drive/cumulativeledgergates15:48:13UTC. Conservative
+post-smokeprojectionusesmaxmeasurednew/oldjobratio1.025455,20%margin,1200s
+reserveandincreasedoriginalfutureallowances200s/devdataset,300s/confirmation
+datasetseed. Upper19743.614653s=5.48434h fitsunchanged19800scap; thisis
+anestimate,notruntimeguarantee. Recheckafterdevelopment/freeze.
+
+Registered32-jobdevelopment submitted15:48:34UTC viaownr4/solemonitor5314.
+30newGSDdatasetjobs(5newsettingsperfamily×2datasets),2actualoriginalcontrols,
+all15/s570IDs/dataset/4heads/seed0;3baselinesreusedonlywithdeclaredparity.
+FirstC-step-lowModelNetjobhasproducedseveralcorruptionreceiptsusingoldpaired
+preparations. Actualdevelopmentacceptance/ranking/freezeand140-IDthree-seed
+confirmationremainpending. NoGPUscope/trial/readout/source/ID/capexpansion.

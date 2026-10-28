@@ -1,0 +1,92 @@
+{
+  "status": "whole_campaign_reestimate_fits_approved_cap",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "spent_seconds": 1105.8919866269962,
+  "actual_smoke_elapsed_seconds": 916.6556405620004,
+  "new_vs_accepted_old_smoke_job_ratios": [
+    {
+      "condition": "c-base",
+      "dataset": "modelnet40_c",
+      "family": "chamfer",
+      "ratio": 1.0246758363003594
+    },
+    {
+      "condition": "c-base",
+      "dataset": "scanobjectnn_c",
+      "family": "chamfer",
+      "ratio": 1.025455024723712
+    },
+    {
+      "condition": "cs-base",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 1.0014653331254837
+    },
+    {
+      "condition": "cs-base",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 1.0047110501582666
+    },
+    {
+      "condition": "s-base",
+      "dataset": "modelnet40_c",
+      "family": "spectral",
+      "ratio": 1.0047420825232296
+    },
+    {
+      "condition": "s-base",
+      "dataset": "scanobjectnn_c",
+      "family": "spectral",
+      "ratio": 1.0055252303739173
+    },
+    {
+      "condition": "cs-l2-r010",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 1.0048322882884928
+    },
+    {
+      "condition": "cs-l2-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 1.0036024458413577
+    },
+    {
+      "condition": "cs-huber-r010",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 1.0018606582413667
+    },
+    {
+      "condition": "cs-huber-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 1.0069870740806435
+    },
+    {
+      "condition": "cs-power-r010",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 1.0026554185028609
+    },
+    {
+      "condition": "cs-power-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 1.0034551977532238
+    }
+  ],
+  "conservative_max_ratio": 1.025455024723712,
+  "original_future_budget_seconds": {
+    "development_per_dataset": 200,
+    "confirmation_per_dataset_seed": 300
+  },
+  "original_allowance_increase_seconds": 220,
+  "remaining_point_seconds": 14531.435555066919,
+  "margin_multiplier": 1.2,
+  "packing_retry_reserve_seconds": 1200,
+  "upper_seconds": 19743.6146527073,
+  "cap_seconds": 19800,
+  "limits": "Conservative projection,notguarantee;CPUsetup/analysis/download/billinglifetimeexcludedasalreadydeclared;recheckafterdevfreeze;scientificscopeunchanged"
+}

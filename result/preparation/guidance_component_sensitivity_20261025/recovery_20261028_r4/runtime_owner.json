@@ -3,8 +3,8 @@
   "endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
   "monitor_exec_session_id": 5314,
   "host_awake_exec_session_id": 64591,
-  "updated_utc": "2026-10-28T15:19:29.399880+00:00",
-  "phase": "sensitivity_smoke_GPU_submitted",
+  "updated_utc": "2026-10-28T15:48:35.455436+00:00",
+  "phase": "sensitivity_development_GPU_submitted",
   "approved_cap_seconds": 19800,
   "prior_spent_seconds": 155.86660684299568,
   "approval_user_reply": "Tamam onayl\u0131yorum",
@@ -35,5 +35,10 @@
   "legacy_cpu": "8strictacceptedSHA3058021bb9b91f7d517eece7899a11dcf244cf60f16ac42f12d207901032bd50",
   "sensitivity_cpu": "16strictacceptedSHAd90e6308a985e4a25b85ff9c99d15b82ff11c76db7e94be2e5ced5c898172e9f",
   "initial_campaign_spent_seconds": 155.86660684299568,
-  "recovery_archive_sha256": "03c86fa0bfc15a84abe7b0e7d845b96d9f9f004816262f54655372b3b3bd954d"
+  "recovery_archive_sha256": "03c86fa0bfc15a84abe7b0e7d845b96d9f9f004816262f54655372b3b3bd954d",
+  "smoke": "14jobs56rawarchivesacceptedphysical4NPZand30calibrationNPZ",
+  "smoke_raw_sha256": "523c2e634d6af682157b4e1e3e597e3173523c067b777a77d1d2e3243128fad3",
+  "campaign_spent_after_smoke_seconds": 1105.8919866269962,
+  "conservative_post_smoke_upper_seconds": 19743.6146527073,
+  "smoke_acceptance_sha256": "f285c4e5e32c5d5b4e910a0cdbbdc1d1c9c1d85e18272bb03e85d0eb6041c74e"
 }
