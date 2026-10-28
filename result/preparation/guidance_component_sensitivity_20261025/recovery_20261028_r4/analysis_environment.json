@@ -1,0 +1,15 @@
+{
+  "python": "/private/tmp/agent_b_numpy1_analysis_env/bin/python",
+  "python_version": "3.10.18",
+  "numpy": "1.21.6",
+  "scope": "CPUonlyimmutableartifactanalysis;notGPUconsumerenvironment",
+  "recreate": [
+    "uv venv --python /opt/homebrew/bin/python3.10 /private/tmp/agent_b_numpy1_analysis_env",
+    "uv pip install --python /private/tmp/agent_b_numpy1_analysis_env/bin/python numpy==1.21.6"
+  ],
+  "reason": "RemoteNumPy1pickleRNGserialization;NumPy2modulepathdiffers",
+  "actual_old_physical_cache_rng_matches": "30/30",
+  "confirmation_tests": 11,
+  "root_verified": true,
+  "consumer_source_plan_unchanged": true
+}

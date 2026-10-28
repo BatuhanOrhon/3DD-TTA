@@ -25,6 +25,35 @@ def outcome_fixture():
 
 
 class ConfirmationTests(unittest.TestCase):
+    def test_actual30_cache_rng_hashes_match_remote_serialization(self):
+        files=sorted((PREP.parent/'guidance_component_study_20261025/paired_cache_extracted/paired_state_v1_seed0').rglob('*.npz'))
+        self.assertEqual(len(files),30)
+        for path in files:
+            with np.load(path,allow_pickle=False) as cache:
+                metadata=json.loads(str(cache['metadata'].item()))
+                if np.__version__.split('.')[0]!='1':
+                    with self.assertRaisesRegex(ValueError,'requires NumPy1'):
+                        analysis.cache_rng_hash(cache,metadata)
+                    continue
+                self.assertEqual(analysis.cache_rng_hash(cache,metadata),metadata['rng_after_sha256'])
+
+    def test_classifier_contract_joins_controller_ledger_schema(self):
+        config=dict(classifier_state_before_sha256='a'*64,
+                    checkpoint_load=dict(checkpoint_sha256='b'*64),
+                    source_classifier_preprocessing=dict(npoints=2048),
+                    resolved_model_config=dict(backbone='pointmae'))
+        heads={('modelnet40_c','pointmae'):dict(state=config['classifier_state_before_sha256'],
+               checkpoint=config['checkpoint_load']['checkpoint_sha256'],
+               preprocessing=config['source_classifier_preprocessing'],resolved=config['resolved_model_config'])}
+        producer=dict(state_sha256=config['classifier_state_before_sha256'],
+                      checkpoint_sha256=config['checkpoint_load']['checkpoint_sha256'],
+                      preprocessing=config['source_classifier_preprocessing'],resolved_model_config=config['resolved_model_config'])
+        ledger=dict(classifier_contracts={'modelnet40_c/pointmae':producer})
+        analysis.validate_classifier_contracts(heads, ledger)
+        bad=copy.deepcopy(ledger);bad['classifier_contracts']['modelnet40_c/pointmae']['resolved_model_config']['backbone']='dgcnn'
+        with self.assertRaisesRegex(ValueError,'Classifier contract'):
+            analysis.validate_classifier_contracts(heads, bad)
+
     def test_identical_seeds_keep_object_interval_and280clusters(self):
         outcomes = outcome_fixture()
         for key, values in outcomes.items():

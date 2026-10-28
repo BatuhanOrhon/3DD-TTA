@@ -3,8 +3,8 @@
   "endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
   "monitor_exec_session_id": 5314,
   "host_awake_exec_session_id": 85660,
-  "updated_utc": "2026-10-28T14:39:44.580390+00:00",
-  "phase": "setup_cell4_running",
+  "updated_utc": "2026-10-28T14:55:46.968353+00:00",
+  "phase": "setup_cell7_PointNet++_build",
   "approved_cap_seconds": 19800,
   "prior_spent_seconds": 155.86660684299568,
   "approval_user_reply": "Tamam onayl\u0131yorum",
@@ -22,5 +22,8 @@
   "previous_drive_mount_exec_session_id": 37218,
   "previous_drive_mount_outcome": "Timeout_afteruserrequeststart;remoteidleandDrive404verified",
   "drive_consent_user_reply": "Drive eri\u015fim iznini tamamlad\u0131m",
-  "cell3": "DrivealreadyMounted_KNNcopied_exactmarker_verified14:39:26UTC"
+  "cell3": "DrivealreadyMounted_KNNcopied_exactmarker_verified14:39:26UTC",
+  "cell4": "CUDA12.1_GCC11.4_A100sm80_sources_patched_preparecomplete_markerverified14:51:09UTC",
+  "cell5": "EMDdiskmarker_Driveprogress_verified14:53:16UTC",
+  "cell6": "Chamferdiskmarker_Driveprogress_verified14:55:21UTC"
 }

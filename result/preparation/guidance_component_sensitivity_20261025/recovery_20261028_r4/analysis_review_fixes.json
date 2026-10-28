@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-28T15:01:48.414698+00:00",
+  "findings": [
+    {
+      "issue": "ledgerresolved_vsresolved_model_config",
+      "red_test": "ValueError genuineproducer-shapedcontract",
+      "fix": "exactproducerfieldresolved_model_config",
+      "green": "11tests"
+    },
+    {
+      "issue": "NumPy2picklemodulepath",
+      "red_test": "genuinecachehashca6756...vsb99477...",
+      "fix": "compatibleisolatedNumPy1environmentandexplicitunsupportedversionguard;nohashnormalization",
+      "green": "all30genuinecachehashesmatch;11testspass"
+    }
+  ],
+  "numpy1_tests_seconds": 0.292,
+  "numpy2_tests_seconds": 0.168,
+  "consumer_GSD_source_or_GPU_plan_changed": false,
+  "actual_confirmation_ingestion_pending": true
+}

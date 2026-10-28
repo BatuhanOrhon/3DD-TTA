@@ -44,3 +44,17 @@ PYTHONDONTWRITEBYTECODE=1 CACHED_PYTHON test_confirmation_analysis.py --prep NEW
 9tests pass0.179s. Checks cover actual migratedplan14033563...+original calibration archive ingestion, retained old provenance and failure restoration; actual140-ID original five-B32 seed2/remainder with wrongseed rejection; frozen3-condition dedup/tampering; joint bootstrap seed dependence/cancellation; balanced datasets/macro14; sealed labels/tampering; missing180cache receipts; shared cost counting. Existing5local-analyzer fixtures pass0.039s on patched helper and original self-check passes. Python3.8 AST and whitespace checks pass.
 
 Actual smoke/development/confirmation stage ingestion remains untested because those artifacts do not exist. The full confirmation acceptance path and physical180cache RNG checks must be exercised when genuine outputs arrive. This is the material remaining integration risk. Parent should append this preparation/check record to the existing sensitivity knowledge note; this staged handoff is the child's knowledge update draft.
+
+
+## Independent review corrections — 2026-10-28
+
+Use `/private/tmp/agent_b_numpy1_analysis_env/bin/python` for actual confirmation
+analysis (Python3.10.18/NumPy1.21.6). Remote caches use NumPy1 pickle module
+paths; NumPy2.5.4 produced0/30 matching hashes on genuine old caches. No hash
+bytes are normalized or metadata checks weakened. Compatible environment
+reproduces30/30 exactly; helper rejects unsupported NumPy2 explicitly.
+`analysis_environment.json` records recreation commands.
+Classifier ledger comparison now uses producer's`resolved_model_config` field.
+Both defects were reproduced with failing checks before correction. Root11
+CPUtests pass under compatible environment(.292s); NumPy2 run(.168s) verifies
+unsupported-version error behavior. Actual new-stage ingestion remains pending.

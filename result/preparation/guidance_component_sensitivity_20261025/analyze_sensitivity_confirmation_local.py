@@ -193,6 +193,13 @@ def cost_table(rows):
     return [dict(r,heads=len(r['heads'])) for r in grouped.values()]
 
 
+def cache_rng_hash(cache, metadata):
+    require(np.__version__.split('.')[0]=='1', 'Cache RNG verification requires NumPy1; use the pinned CPU analysis environment')
+    py,nr=metadata['python_rng'],metadata['numpy_rng']
+    state=((py[0],tuple(py[1]),py[2]),(nr[0],cache['numpy_rng_keys'].copy(),*nr[1:]),cache['torch_rng_cpu'].copy(),[cache['torch_rng_cuda_0'].copy()])
+    return hashlib.sha256(pickle.dumps(state,protocol=4)).hexdigest()
+
+
 def validate_physical_caches(records, paired, roots):
     physical=shared.physical_caches(records,roots)
     by_path={row['remote_path']:row for row in physical}
@@ -213,11 +220,16 @@ def validate_physical_caches(records, paired, roots):
                 require(array.dtype==np.float32 and array.ndim==4 and array.shape[0]==70 and array.shape[1]>0 and array.shape[2:]==(1,1) and np.isfinite(array).all()
                         and digest==metadata['tensor_hashes'][name]==initial[name], 'Cache latent/noise identity mismatch')
             require(cache['local_latent'].shape==cache['noise'].shape==(70,8192,1,1), 'Invalid local latent/noise shape')
-            py,nr=metadata['python_rng'],metadata['numpy_rng']
-            state=((py[0],tuple(py[1]),py[2]),(nr[0],cache['numpy_rng_keys'].copy(),*nr[1:]),cache['torch_rng_cpu'].copy(),[cache['torch_rng_cuda_0'].copy()])
-            require(hashlib.sha256(pickle.dumps(state,protocol=4)).hexdigest()==metadata['rng_after_sha256'], 'Cache post-preparation RNG differs')
+            require(cache_rng_hash(cache,metadata)==metadata['rng_after_sha256'], 'Cache post-preparation RNG differs')
             require(all(re.fullmatch('[0-9a-f]{64}',metadata[k]) for k in ('rng_before_sha256','rng_after_sha256')), 'Invalid cache RNG metadata')
     return physical
+
+
+def validate_classifier_contracts(heads, ledger):
+    for (dataset,head),contract in heads.items():
+        expected=dict(state_sha256=contract['state'],checkpoint_sha256=contract['checkpoint'],
+                      preprocessing=contract['preprocessing'],resolved_model_config=contract['resolved'])
+        require(ledger['classifier_contracts'][dataset+'/'+head]==expected, 'Classifier contract differs from cumulative campaign ledger')
 
 
 def run(args):
@@ -296,10 +308,7 @@ def run(args):
             key=cached['local_path'];require(key not in caches or caches[key]==cached,'Cache receipt changed across conditions');caches[key]=cached
     require(len(raw_rows)==24*len(conditions),'Wrong final raw archive count')
     require(lion==[calibration['lion_state_before']] and ledger['lion_state']==lion[0], 'LION changed from accepted calibration/campaign ledger')
-    for (dataset,head),contract in heads.items():
-        expected=dict(state_sha256=contract['state'],checkpoint_sha256=contract['checkpoint'],
-                      preprocessing=contract['preprocessing'],resolved=contract['resolved'])
-        require(ledger['classifier_contracts'][dataset+'/'+head]==expected, 'Classifier contract differs from cumulative campaign ledger')
+    validate_classifier_contracts(heads, ledger)
     physical=validate_physical_caches(list(caches.values()),paired,args.cache_root)
     shared.write_json(output/'cache_validation.json',physical)
     names=[c['id'] for c in conditions];comparators=[c for c in names if c!='spectral-candidate']

@@ -6120,3 +6120,20 @@ Accountpermissionwasuser-operated; existingGPUbudgetapprovalunchanged.
 No researchaccuracyrun yet. Next: acceptcell3Drive/KNN andrun4–10inorder,
 exactpinnedassets/freshCPUproofs, installreviewedownership-onlyrecovery,
 thenregistered14-jobsmoke. Oldcalibrationand155.866607sspentremainbinding.
+
+
+[Code/CPU/Run/Open] Independentanalysisreviewfoundtwofutureacceptanceblockers:
+ledgerkey`resolved`vsproducer`resolved_model_config`, andNumPy2pickleRNGmodule
+spellingdiffersfromremoteNumPy1. Both reproducedbeforefix: actualcontracttest
+failed; genuinecachehashmismatchfirstfile, independentreview0/30. Fixedexact
+producerfield; isolatedCPUanalysisPython3.10.18+NumPy1.21.6 nowmatches30/30
+genuineoldcacheRNGhashes, withoutrewritingrawbytesorweakeningchecks. Explicit
+NumPy1guardpreventsfalsecorruptionreports. Full11CPUtestspass(.292sNP1,
+.168sNP2unsupportedguard). GPUconsumer/source/manifest/planunchanged.
+Actualconfirmationacceptanceisstillunexecuted. Seeanalysis_environment.json
+andanalysis_review_fixes.json under recovery_20261028_r4.
+
+[Run/Open] r4EMDpassed14:53:16UTC,Chamfer14:55:21,PointNet++14:59:47, each
+withdiskmarker+physicalDriveprogressreceiptchecks. Cell8PVCNN/nativeGPUchecks
+submitted15:00:39UTC via5314. Dataset/checkpoints/setup10 andfreshCPUproofs
+remainpending; no newresearchaccuracyrun.
