@@ -6222,3 +6222,18 @@ source/tests/handoff and development_review_check_development.py/stdout.json.
 The GPU development phase is still running; no new ranking, winner or accuracy
 claim is established. Next: genuine completed archive acceptance, frozen choices
 and measured budget gate before the existing confirmation wrapper.
+
+
+### Bounded-memory artifact transport prepared — 2026-10-28 17:17 UTC
+
+[Code/CPU/Open] Localhost has16GiB RAM; installed ColabCLI0.7.4 download loads
+the entire base64 JSON response. Genuine smoke archive sizes project about4.7GiB
+of development raw ZIPs, so direct whole-archive retrieval risks excess memory.
+Prepared a CPU phase to stream the completed immutable Drive ZIP into<=256MiB
+transport parts and a local joiner requiring exact original receipt/plan/session,
+part SHA/order/offset/coverage and aggregate original SHA. Originals stay intact.
+Source SHA d3550929…62723 (split),667deec2…8773 (join). Root reviewed source,
+reran three synthetic fixtures (0.013s), and checked Python3.8 AST; independent
+review found no material blocker. Genuine transport remains unexecuted. See
+recovery_20261028_r4/chunk_transfer_preparation.json and chunk_transfer_HANDOFF.md.
+Scientific source, trial registry, frozen-ID plan and19800s cap are unchanged.

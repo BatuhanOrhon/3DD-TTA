@@ -1,0 +1,20 @@
+{
+  "status": "prepared_not_executed",
+  "utc": "2026-10-28T17:17:00Z",
+  "host_memory_bytes": 17179869184,
+  "reason": "Installed ColabCLI0.7.4 contents download materializes full base64 JSON in RAM; expected development raw archive about4.7GiB.",
+  "parts_max_bytes": 268435456,
+  "stream_buffer_bytes": 1048576,
+  "source_sha256": {
+    "split_stage_archive.py": "d355092956650f71fd130d51bd2b3d6720f5b6c8200361f240f2939eb9362723",
+    "join_stage_archive.py": "667deec2f69d54bac50ff354347b209bc6cf1ca4c3780bc507217f7f00698773",
+    "test_chunk_transfer.py": "6d97fd574d46a881800dfceee05afd016c35d6d78669fa5f14aa1ce86d9e131d"
+  },
+  "root_synthetic_tests": {
+    "passed": 3,
+    "seconds": 0.013
+  },
+  "python38_ast": "passed",
+  "independent_review": "No material blockers in split/join, receipt binding, source immutability and failure preservation",
+  "limits": "No genuine archive transport or confirmation adaptation has run."
+}
