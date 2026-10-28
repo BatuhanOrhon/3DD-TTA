@@ -1926,3 +1926,17 @@ neverrerun/replace20 or alter parameters. Needfailure-aware source/ID/RNG/Drive
 analysis of complete paired grids; tunedC's three-seed endpoint is unavailable.
 Complete-only validation/acceptance must not be weakened or falsely claimed.
 See current sensitivity study note and confirmation_numeric_failure_diagnosis.json.
+
+
+### Agent B finite sensitivity campaign recorded — 2026-10-28 20:35 UTC
+
+[Run/Decision/Open] Resolved: all24slotsrecorded(23pass+numericfailed20),
+remaining21–23complete,92full/4failedZIP/180physicalNPZ/source/state/ID/RNG/
+Drive-localacceptance. CompleteCS/matchedC/original3seedcontrastsvalidated;
+tunedCfullendpointlegitimatelyunavailable,notpendingautomaticrerun.
+Originalwholepolicy+.8016ppvsCS withconditionalpositiveCI; matchedlossablation
++.0516ppforC withCIcrossing0. No universalChamfercausality/equivalenceclaim.
+Openbutunrun: fullbenchmark/severity/seedgeneralization, exactfirstinvalidtensor/
+objectdiagnosis, andnewmatched-rategrids(CS.03notcovered); requireseparatescope.
+No scheduledGPUresearchremains; r4and5314liveuntil explicitcompletion+close
+authorization. See guidance_component_sensitivity_results_20261028.md.

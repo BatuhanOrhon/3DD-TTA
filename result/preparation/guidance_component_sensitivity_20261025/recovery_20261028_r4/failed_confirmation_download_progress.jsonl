@@ -1,0 +1,5 @@
+{"part": 1, "total": 5, "bytes": 268435456, "sha256": "e8f34826b01f2b687344c1f37270754557e1970e219669383e9988b3bfd93397", "elapsed_seconds": 14.190616084029898, "experimental_result_status": "failed"}
+{"part": 2, "total": 5, "bytes": 268435456, "sha256": "ecd62c662e5d925b0cb38d36a65442d5e857f31273c175c6b1531484cb4b3f62", "elapsed_seconds": 14.01142879202962, "experimental_result_status": "failed"}
+{"part": 3, "total": 5, "bytes": 268435456, "sha256": "54fbe9203f647b5c6c2e6e5a5b95d59c0e6064cf0f282f8c3677d82c413d6df4", "elapsed_seconds": 13.591601541964337, "experimental_result_status": "failed"}
+{"part": 4, "total": 5, "bytes": 268435456, "sha256": "0fa3e0bc2f43bf12b5f3d6e40adcae8a77b93b4cf91adf97970a36cd28078af0", "elapsed_seconds": 13.318802666151896, "experimental_result_status": "failed"}
+{"part": 5, "total": 5, "bytes": 85504697, "sha256": "b9795df916ee1c2b0ef425170c9081d43550bc379022852203ef6b9ba5f3fe34", "elapsed_seconds": 9.027426332933828, "experimental_result_status": "failed"}

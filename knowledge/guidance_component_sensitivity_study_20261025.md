@@ -649,3 +649,69 @@ Exact local evidence: recovery_20261028_r4/confirmation_failed_receipt.json,
 confirmation_failed_ledger.json,confirmation_failed_job020.log and
 confirmation_numeric_failure_diagnosis.json. The numerical failure is research
 evidence, not proof of either method's universal superiority.
+
+
+## Failure preserved; reviewed unrun-only continuation active — 2026-10-28 20:12 UTC
+
+[Run/Code/Open] Failedraw1159246521B/f5868702…be5e physicallydownloaded through
+5boundedparts and recombined with identicalSHA. Failure/cacheproof774792352B
+SHA2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898 matches
+actualDrive/localbytes,190memberSHA/CRC and180physicalNPZ extraction. Remote
+CPU verification checked all180input/latent/noise/post-RNG hashes underPy3.8/
+NumPy1.21.2/Torch2.1.2 withCUDAuninitialized before/after. Scoped to20completed
+workers plus180preparations; failedslot20 remains unvalidated for accuracy.
+Allfourfailedrawconfigs also matchknownnumericstack and unchangedclassifier/
+LIONstates, without audit-error flags. No source or scientificparameter changed.
+
+Reviewedremaining-onlyplan2362B SHA13ff25249aec97eafd6c1fb6db33cd5e3d8462b79331a7cfdfba0e4a06540f6c
+binds actual2900B preservationreceipt866135f4…486a and sourcewrapperac5bb60d…9931/
+runner eb44e15a…0b09d. Onlyslots21–23; failed20excluded. Native no-build
+bootstrap omission was found by review beforelaunch, fixed with targeted
+RED→GREEN regression; root8fixturespassed0.196s and independentdelta review
+accepted. Originalscientificcontroller/plan/freeze/failedarchive stayunchanged.
+NewCPUpreflight actuallyloaded12strictselectedheadconfigs withoutforward/CUDA
+andcheckedsource/data/checkpoint/nativeidentities; downloadedproofSHAd64cc5af…4ef8.
+
+Operatorwrapper submitted20:05:33UTC via5314; freshCPUproof passed and first
+remainingGPUworker began20:06:42UTC in newimmutableROOT/Driveoutput
+`sensitivity_confirmation_remaining_20261028T200610144036Z`. Slot21(tunedC/Scan/
+seed2)completed; slot22(originalMN/seed2)nowruns, then23(originalScan/seed2).
+Nofailed-slotretry, resultreplacement orwholefour-condition-complete claim.
+Conservativewholecampaignupper16384.444877s retains existing19800scap; original
+failedledger/history and postsealspent14114.660198s formthepreservedprefix.
+
+[Code/Open] Separatefailure-awareanalysis is beingvalidated. A rawZIPprefix
+I/Obug was found before scoring and confined to newadapter Bundle normalization.
+Failedraws omit onlydynamicexecutedsourceinventory entryshared_trajectory.py;
+allotherrequiredentriesmatch. Rootverifiedall4 embeddedwhole sourceZIPs exactly
+73d9fbe1…b37b8 and member6524B/dce0e8b2…f2fcda plusknowntracepaths. Explicit
+failed-provenance-only recovery may retainthisone missingentry fromexactarchived
+bytes, withmissingoriginalkey/recoveryproof recorded; anywrongbytes orother
+missingentry stops. Rawbytes/status andcomplete-onlyguards stayunchanged. No
+failedprefixaccuracy accepted, no estimatormath/readout change.
+Localproofs: failure_preservation_receipt.json,failure_preservation_local_validation.json,
+failed_worker_partial_metadata_local_validation.json and
+failed_shared_trajectory_source_inventory_proof.json underrecovery_20261028_r4.
+Finalremainingarchive/postsealledger/failure-aware independentanalysis and
+Drive/localpartialacceptance remainpending.
+
+
+## Sensitivity campaign accepted with explicit numerical failure — 2026-10-28 20:35 UTC
+
+[Run/Decision/Inference] All24registeredconfirmation slotsare recorded:23complete,
+failed20retained; reviewed21–23allpassed. Independentfailure-awareanalysisaccepts
+92full+4failedZIPs,180physicalNPZs and280objectclusters. Originalterminal53.763889%,
+matchedCprobmean53.013889%,CS-L2rho.1probmean52.962302%. Original−CS+.801587pp,
+conditional95%CI[+.148760,+1.557589]; wholepolicy/host/readoutcomparison,5/8cases.
+MatchedC−CS+.051587pp,CI[-.125,+.234127]crosses0; noisolatedCDsuperiority/equivalence.
+TunedCthree-seedendpointnullbecauseoneModelNetseed2Backgroundprobe numerical
+failure; no2seedmean/sampledrop/replacement. No universalwinnerclaim.
+
+Actualpartialacceptancebinder722266B/dc5b854e…68df storedonfreshDrive and
+physicallydownloaded withsameSHA/CRC/analysisbytes. Statusaccepted_partial_confirmation_with_numerical_failure,
+notfullfour-conditioncomplete. Finalpostsealspent14836.554263s<19800s. Original
+failedrawf5868702…be5e,remaining7b676a7b…ccd6d,cacheproof2a003500…b898 remainimmutable.
+AllplannedGPUworkrecorded; runtime+5314preservedwithoutteardownauthorization.
+Cleanresults,percasevalues,source/coverage/failure/CIlimits andexactproofpaths:
+knowledge/guidance_component_sensitivity_results_20261028.md and
+recovery_20261028_r4/final_local_verification.json.

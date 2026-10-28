@@ -1,0 +1,45 @@
+{
+  "status": "failed_attempt_raw_and180_cache_bytes_preserved_drive_and_local",
+  "utc": "2026-10-28T20:01:06.518227+00:00",
+  "experimental_result_status": "failed",
+  "raw_archive": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip"
+  },
+  "local_raw": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+  },
+  "cache_proof_archive": {
+    "bytes": 774792352,
+    "sha256": "2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_failure_proof_20261028T195350079068Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_failure_proof_20261028T195350079068Z/failed_confirmation_cache_evidence.zip"
+  },
+  "local_cache_archive": {
+    "bytes": 774792352,
+    "sha256": "2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898"
+  },
+  "cache_npz_files": 180,
+  "remote_CPU_metadata_RNG": {
+    "status": "verified_preserved_scope",
+    "scope": "20 completed jobs and180 physical preparation caches; incomplete job20 final state is not validated",
+    "classifier_and_lion_contracts_match_original_ledger": true,
+    "paired_preparation_trace_bindings_match": true,
+    "current_plan_and_CPU_proof_match": true,
+    "physical_source_and_Drive_cache_identities_match": true,
+    "cache_input_tensor_post_RNG_hashes_verified": 180,
+    "CPU_only": true,
+    "cuda_initialized": false,
+    "numpy_version": "1.21.2",
+    "torch_version": "2.1.2+cu121",
+    "incomplete_job20_final_state_validated": false
+  },
+  "partial_worker_metadata": {
+    "bytes": 1068,
+    "sha256": "f2fe3b65e10086985f8e6699e338c6bf75fbb038b17284b364cbecd66b381ba4"
+  },
+  "no_results_accepted_as_complete": true
+}

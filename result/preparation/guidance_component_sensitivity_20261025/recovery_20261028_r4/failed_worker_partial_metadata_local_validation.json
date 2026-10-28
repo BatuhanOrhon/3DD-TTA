@@ -1,0 +1,38 @@
+{
+  "status": "failed_worker_metadata_consistent_not_accuracy_accepted",
+  "heads": [
+    {
+      "backbone": "dgcnn",
+      "status": "failed",
+      "exact_known_numeric_signature": true,
+      "classifier_state_unchanged": true,
+      "lion_state_unchanged": true,
+      "audit_error_keys": []
+    },
+    {
+      "backbone": "curvenet",
+      "status": "failed",
+      "exact_known_numeric_signature": true,
+      "classifier_state_unchanged": true,
+      "lion_state_unchanged": true,
+      "audit_error_keys": []
+    },
+    {
+      "backbone": "pointnext",
+      "status": "failed",
+      "exact_known_numeric_signature": true,
+      "classifier_state_unchanged": true,
+      "lion_state_unchanged": true,
+      "audit_error_keys": []
+    },
+    {
+      "backbone": "pointmae",
+      "status": "failed",
+      "exact_known_numeric_signature": true,
+      "classifier_state_unchanged": true,
+      "lion_state_unchanged": true,
+      "audit_error_keys": []
+    }
+  ],
+  "limits": "Noaccuracy accepted frompartialZIPs; exactfirstinvalidtensor/objectnotarchived."
+}

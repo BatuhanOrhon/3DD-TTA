@@ -1,0 +1,403 @@
+{
+  "active": null,
+  "attempts": [
+    {
+      "elapsed_seconds": 155.46057826800097,
+      "output": "/content/studies/guidance-components/sensitivity_calibrate_20261026T055331472905Z",
+      "stage": "calibrate",
+      "status": "complete",
+      "utc": "20261026T055331479455Z"
+    },
+    {
+      "elapsed_seconds": 916.6556405620004,
+      "output": "/content/studies/guidance-components/sensitivity_smoke_20261028T151934123459Z",
+      "stage": "smoke",
+      "status": "complete",
+      "utc": "20261028T151934133596Z"
+    },
+    {
+      "elapsed_seconds": 6584.800419235,
+      "output": "/content/studies/guidance-components/sensitivity_development_20261028T154842310440Z",
+      "stage": "development",
+      "status": "complete",
+      "utc": "20261028T154842314800Z"
+    },
+    {
+      "elapsed_seconds": 6263.5134008469995,
+      "output": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z",
+      "stage": "confirmation",
+      "status": "failed",
+      "utc": "20261028T174801836798Z"
+    },
+    {
+      "elapsed_seconds": 713.0086564399971,
+      "output": "/content/studies/guidance-components/sensitivity_confirmation_remaining_20261028T200610144036Z",
+      "stage": "confirmation_remaining",
+      "status": "complete",
+      "utc": "20261028T200642611664Z"
+    }
+  ],
+  "cap_seconds": 19800,
+  "classifier_contracts": {
+    "modelnet40_c/curvenet": {
+      "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 40,
+        "dgcnn_head_dataset_name": "scanobject",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881"
+    },
+    "modelnet40_c/dgcnn": {
+      "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 40,
+        "dgcnn_head_dataset_name": "scanobject",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1"
+    },
+    "modelnet40_c/pointmae": {
+      "checkpoint_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "dataset": {
+          "test": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          },
+          "train": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "train"
+            }
+          },
+          "val": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          }
+        },
+        "grad_norm_clip": 10,
+        "max_epoch": 1,
+        "model": {
+          "NAME": "Point_MAE",
+          "cls_dim": 40,
+          "group_norm": false,
+          "group_size": 32,
+          "loss": "cdl2",
+          "num_group": 64,
+          "num_hid_cls_layers": 2,
+          "regularize": false,
+          "transformer_config": {
+            "decoder_depth": 4,
+            "decoder_num_heads": 6,
+            "depth": 12,
+            "drop_path_rate": 0.1,
+            "encoder_dims": 384,
+            "mask_ratio": 0.9,
+            "mask_type": "rand",
+            "num_heads": 6,
+            "trans_dim": 384
+          }
+        },
+        "normal": false,
+        "npoints": 1024,
+        "optimizer": {
+          "kwargs": {
+            "lr": 5e-05,
+            "weight_decay": 0.05
+          },
+          "type": "AdamW"
+        },
+        "scheduler": {
+          "type": "function"
+        },
+        "step_per_update": 1,
+        "total_bs": 32,
+        "tta_dataset_path": "./data/tta_datasets"
+      },
+      "state_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+    },
+    "modelnet40_c/pointnext": {
+      "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> XYZ features; no added normalization",
+      "resolved_model_config": {
+        "model": {
+          "NAME": "BaseCls",
+          "cls_args": {
+            "NAME": "ClsHead",
+            "mlps": [
+              512,
+              256
+            ],
+            "norm_args": {
+              "norm": "bn1d"
+            },
+            "num_classes": 40
+          },
+          "encoder_args": {
+            "NAME": "PointNextEncoder",
+            "act_args": {
+              "act": "relu"
+            },
+            "aggr_args": {
+              "feature_type": "dp_fj",
+              "reduction": "max"
+            },
+            "blocks": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "conv_args": {
+              "order": "conv-norm-act"
+            },
+            "expansion": 4,
+            "group_args": {
+              "NAME": "ballquery",
+              "normalize_dp": true
+            },
+            "in_channels": 3,
+            "norm_args": {
+              "norm": "bn"
+            },
+            "nsample": 32,
+            "radius": 0.15,
+            "radius_scaling": 1.5,
+            "sa_layers": 2,
+            "sa_use_res": true,
+            "strides": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              1
+            ],
+            "width": 64
+          }
+        }
+      },
+      "state_sha256": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e"
+    },
+    "scanobjectnn_c/curvenet": {
+      "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+      "preprocessing": "raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling",
+      "resolved_model_config": {
+        "classes": 15,
+        "dgcnn_head_dataset_name": "modelnet",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_3deformrs"
+      },
+      "state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6"
+    },
+    "scanobjectnn_c/dgcnn": {
+      "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 15,
+        "dgcnn_head_dataset_name": "modelnet",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "95e50111a0118af398b8066900f11b01f997ce293151bdbd38ccec74df4c3524"
+    },
+    "scanobjectnn_c/pointmae": {
+      "checkpoint_sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "dataset": {
+          "test": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          },
+          "train": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "train"
+            }
+          },
+          "val": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          }
+        },
+        "grad_norm_clip": 10,
+        "max_epoch": 100,
+        "model": {
+          "NAME": "Point_MAE",
+          "cls_dim": 15,
+          "group_norm": false,
+          "group_size": 32,
+          "loss": "cdl2",
+          "num_group": 128,
+          "num_hid_cls_layers": 2,
+          "regularize": false,
+          "transformer_config": {
+            "decoder_depth": 4,
+            "decoder_num_heads": 6,
+            "depth": 12,
+            "drop_path_rate": 0.1,
+            "encoder_dims": 384,
+            "mask_ratio": 0.9,
+            "mask_type": "rand",
+            "num_heads": 6,
+            "trans_dim": 384
+          }
+        },
+        "normal": false,
+        "npoints": 1024,
+        "optimizer": {
+          "kwargs": {
+            "lr": 0.0001,
+            "weight_decay": 0.05
+          },
+          "type": "AdamW"
+        },
+        "scheduler": {
+          "type": "function"
+        },
+        "step_per_update": 1,
+        "total_bs": 32,
+        "tta_dataset_path": "./data/tta_datasets"
+      },
+      "state_sha256": "fa16d1ff6ce236cd346aca49ef651ed14ae3c27f53395d509fcf26ea8bd562e1"
+    },
+    "scanobjectnn_c/pointnext": {
+      "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> height=y-min(y) -> centroid and unit-sphere XYZ normalization -> XYZ + unscaled height features",
+      "resolved_model_config": {
+        "model": {
+          "NAME": "BaseCls",
+          "cls_args": {
+            "NAME": "ClsHead",
+            "mlps": [
+              512,
+              256
+            ],
+            "norm_args": {
+              "norm": "bn1d"
+            },
+            "num_classes": 15
+          },
+          "encoder_args": {
+            "NAME": "PointNextEncoder",
+            "act_args": {
+              "act": "relu"
+            },
+            "aggr_args": {
+              "feature_type": "dp_fj",
+              "reduction": "max"
+            },
+            "blocks": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "conv_args": {
+              "order": "conv-norm-act"
+            },
+            "expansion": 4,
+            "group_args": {
+              "NAME": "ballquery",
+              "normalize_dp": true
+            },
+            "in_channels": 4,
+            "norm_args": {
+              "norm": "bn"
+            },
+            "nsample": 32,
+            "radius": 0.15,
+            "radius_scaling": 1.5,
+            "sa_layers": 2,
+            "sa_use_res": true,
+            "strides": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              1
+            ],
+            "width": 32
+          }
+        }
+      },
+      "state_sha256": "eb1bc53f326ee281c48176dcb404779653143e6f0c25f80cb513650b389fb540"
+    }
+  },
+  "lion_state": {
+    "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+  },
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "recovery": {
+    "original_ledger_sha256": "6c0e3cb8cebdf4a43bc3383f1599b782f4a1d4129690eb2de1a7de387a5915b3",
+    "original_plan_sha256": "4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1"
+  },
+  "schema_version": 1,
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "spent_seconds": 14836.554262508998
+}

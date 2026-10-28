@@ -1,0 +1,29 @@
+{
+  "status": "failed_attempt_transport_ready",
+  "experimental_result_status": "failed",
+  "stage": "confirmation",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "original_archive": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip"
+  },
+  "transport_manifest": {
+    "bytes": 3027,
+    "sha256": "99054b407e0d63c7249db7c12a1d8c8b0b3c742962eff21312dddd8460c748f7",
+    "path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/failed_transport_manifest.json"
+  },
+  "part_count": 5,
+  "failed_receipt_copy": {
+    "bytes": 3676445,
+    "sha256": "5ab88805d14edbc9713275816aa11bef1d5e80784ea385b477199f7d6b779754",
+    "path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/failed_phase_receipt.json"
+  },
+  "failed_ledger_copy": {
+    "bytes": 12181,
+    "sha256": "60c8ba55d787c8e1e9ea4fa34f27eeb3e9aa8522300252c6c74863e1cad2736b",
+    "path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/failed_campaign_ledger.json"
+  }
+}

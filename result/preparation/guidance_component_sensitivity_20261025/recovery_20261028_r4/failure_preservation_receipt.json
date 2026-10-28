@@ -1,0 +1,54 @@
+{
+  "status": "verified_failure_preserved",
+  "experimental_result_status": "failed",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "original_confirmation_archive": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip"
+  },
+  "original_receipt_identity": {
+    "bytes": 3676445,
+    "sha256": "5ab88805d14edbc9713275816aa11bef1d5e80784ea385b477199f7d6b779754"
+  },
+  "failed_ledger_identity": {
+    "bytes": 12181,
+    "sha256": "60c8ba55d787c8e1e9ea4fa34f27eeb3e9aa8522300252c6c74863e1cad2736b"
+  },
+  "failed_job_index": 20,
+  "numeric_failure_signature": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+  "physical_cache_count": 180,
+  "local_and_drive_original_archive_verified": true,
+  "physical_cache_complete": true,
+  "mismatch_detected": false,
+  "integrity_scope": "20 completed jobs and180 physical preparation caches; incomplete job20 final state is not validated",
+  "integrity_verification": {
+    "status": "verified_preserved_scope",
+    "scope": "20 completed jobs and180 physical preparation caches; incomplete job20 final state is not validated",
+    "classifier_and_lion_contracts_match_original_ledger": true,
+    "paired_preparation_trace_bindings_match": true,
+    "current_plan_and_CPU_proof_match": true,
+    "physical_source_and_Drive_cache_identities_match": true,
+    "cache_input_tensor_post_RNG_hashes_verified": 180,
+    "CPU_only": true,
+    "cuda_initialized": false,
+    "numpy_version": "1.21.2",
+    "torch_version": "2.1.2+cu121",
+    "incomplete_job20_final_state_validated": false
+  },
+  "archive": {
+    "bytes": 774792352,
+    "sha256": "2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_failure_proof_20261028T195350079068Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_failure_proof_20261028T195350079068Z/failed_confirmation_cache_evidence.zip"
+  },
+  "source_log_identity": {
+    "bytes": 20297,
+    "sha256": "e27c4a3f4dbc7fa9aac6b2cebe08af20dd6d827746809a85ba6c5048e2697c4b",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z/job_020.log"
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "completed_jobs": 5,
+    "condition_id": "tuned-chamfer",
+    "conditional_object_bootstrap_interval_pp": null,
+    "failed_registered_jobs": [
+      20
+    ],
+    "policy": "probability_mean",
+    "reason": "Frozen higher-rate tunedC failed; no two-seed mean, dropped dataset, zero substitution or retuned fallback",
+    "required_jobs": 6,
+    "status": "unavailable_due_numerical_failure",
+    "three_seed_balanced_accuracy_pct": null,
+    "unrun_registered_jobs": []
+  }
+]

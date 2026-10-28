@@ -1,0 +1,22 @@
+{
+  "analyze_failed_confirmation_local.py": {
+    "bytes": 44968,
+    "sha256": "3e26512945990cb25fe93d16e6a4eaba189d1a17cf5279f66cd159898a31e6c1"
+  },
+  "test_failure_analysis.py": {
+    "bytes": 16464,
+    "sha256": "0f054323164562f686a18fe1c565ffc34a9f998923f8b99a87d97333c47fc30f"
+  },
+  "preflight_genuine_metadata.py": {
+    "bytes": 5482,
+    "sha256": "58c9557a0ed381f958ee86ba9f7f8c9faf2643241ead2a828f7e87b335db81a9"
+  },
+  "HANDOFF.md": {
+    "bytes": 8411,
+    "sha256": "ff7e2ca7d87365715034584eff621a0cf326e5e6429c1927023870e99ee1017c"
+  },
+  "genuine_metadata_preflight_v5/preflight_validation.json": {
+    "bytes": 6017,
+    "sha256": "04647c1b82538fad2acfd205b38420390b558f70667db722eb6348f142fde710"
+  }
+}

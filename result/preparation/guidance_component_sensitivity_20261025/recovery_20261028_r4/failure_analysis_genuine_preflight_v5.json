@@ -1,0 +1,144 @@
+{
+  "analyzer_identity": {
+    "bytes": 44968,
+    "sha256": "3e26512945990cb25fe93d16e6a4eaba189d1a17cf5279f66cd159898a31e6c1"
+  },
+  "cache_archive": {
+    "bytes": 774792352,
+    "sha256": "2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898"
+  },
+  "cache_seed_clusters": 3,
+  "complete_only_gates_unchanged": true,
+  "full_stats_run": false,
+  "label_references": [
+    {
+      "bytes": 2596,
+      "dataset": "modelnet40_c",
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/local_dataset_labels/modelnet40_c/label.npy",
+      "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31"
+    },
+    {
+      "bytes": 4776,
+      "dataset": "scanobjectnn_c",
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/assets_v2/datasets/scanobjectnn_c/label.npy",
+      "sha256": "e54a388693c681ddc7e668827719f8145ae6301d6179e8a504930667677bcbc3"
+    }
+  ],
+  "n_original_object_clusters_prospective": 280,
+  "numerical_failure_signature": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+  "numpy_version": "1.21.6",
+  "original_archive": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+  },
+  "original_ledger": {
+    "bytes": 12181,
+    "sha256": "60c8ba55d787c8e1e9ea4fa34f27eeb3e9aa8522300252c6c74863e1cad2736b"
+  },
+  "original_phase_stays_failed": true,
+  "original_receipt": {
+    "bytes": 3676445,
+    "sha256": "5ab88805d14edbc9713275816aa11bef1d5e80784ea385b477199f7d6b779754"
+  },
+  "partial_failed_heads": 4,
+  "partial_failure_source_state_native_contracts_verified": true,
+  "partial_prefix_counts": [
+    {
+      "accuracy_used": false,
+      "backbone": "dgcnn",
+      "completed_prefix_batches": 5
+    },
+    {
+      "accuracy_used": false,
+      "backbone": "curvenet",
+      "completed_prefix_batches": 5
+    },
+    {
+      "accuracy_used": false,
+      "backbone": "pointnext",
+      "completed_prefix_batches": 5
+    },
+    {
+      "accuracy_used": false,
+      "backbone": "pointmae",
+      "completed_prefix_batches": 5
+    }
+  ],
+  "partial_source_inventory_blocker": null,
+  "physical_cache_count": 180,
+  "physical_cache_files_verified": 180,
+  "plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "remaining_phase_unavailable": true,
+  "scope": "Original failed header/source/approval/freeze plus4partialfailedprefix metadata and180physicalcachedinput/latent/noise/postRNG only; no fullsuccesspredictioninspection/scoring/reselection/statistics",
+  "source_inventory_recovered_from_snapshot": [
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    },
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    },
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    },
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    }
+  ],
+  "status": "genuine_original_failure_and_180_cache_metadata_preflight_passed_no_accuracy_acceptance"
+}

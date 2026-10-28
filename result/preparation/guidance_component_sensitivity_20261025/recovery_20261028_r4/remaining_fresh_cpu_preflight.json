@@ -1,0 +1,631 @@
+{
+  "asset_dataset_checkpoint_files_verified": true,
+  "limits": "LION state is pinned by checkpoint/config/source bytes before GPU and checked against preserved global hashes after every worker.",
+  "lion_checkpoint_config_bytes_verified": true,
+  "native": {
+    "bindings": {
+      "_pvcnn_backend": {
+        "bytes": 685248,
+        "path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+        "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0"
+      },
+      "chamfer_3D": {
+        "bytes": 1144176,
+        "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+        "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+      },
+      "emd_ext": {
+        "bytes": 559272,
+        "path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+        "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154"
+      },
+      "knn": {
+        "bytes": 218200,
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+        "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+      }
+    },
+    "imported_modules": [
+      "knn_cuda",
+      "models.lion",
+      "tta_gsd_v2",
+      "graph_spectral_v2",
+      "utilities_3dd_tta"
+    ],
+    "jit_requests": [
+      "knn",
+      "emd_ext",
+      "chamfer_3D",
+      "_pvcnn_backend"
+    ],
+    "native_audit_sha256": "ef85acef99672f22599dd340087c4d3ea37eb7e5e4df0696157f1f9c7dff98be",
+    "no_build": true,
+    "source_files_verified": 46
+  },
+  "native_binary_files_verified": true,
+  "status": "passed_CPU_no_forward_no_CUDA",
+  "strict_loads": [
+    {
+      "backbone": "dgcnn",
+      "contract": {
+        "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "resolved_model_config": {
+          "classes": 15,
+          "dgcnn_head_dataset_name": "modelnet",
+          "dropout": 0.5,
+          "emb_dims": 1024,
+          "k": 20,
+          "package": "study_svwa"
+        },
+        "state_sha256": "95e50111a0118af398b8066900f11b01f997ce293151bdbd38ccec74df4c3524"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "gsd"
+    },
+    {
+      "backbone": "curvenet",
+      "contract": {
+        "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+        "preprocessing": "raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling",
+        "resolved_model_config": {
+          "classes": 15,
+          "dgcnn_head_dataset_name": "modelnet",
+          "dropout": 0.5,
+          "emb_dims": 1024,
+          "k": 20,
+          "package": "study_3deformrs"
+        },
+        "state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "gsd"
+    },
+    {
+      "backbone": "pointnext",
+      "contract": {
+        "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> height=y-min(y) -> centroid and unit-sphere XYZ normalization -> XYZ + unscaled height features",
+        "resolved_model_config": {
+          "model": {
+            "NAME": "BaseCls",
+            "cls_args": {
+              "NAME": "ClsHead",
+              "mlps": [
+                512,
+                256
+              ],
+              "norm_args": {
+                "norm": "bn1d"
+              },
+              "num_classes": 15
+            },
+            "encoder_args": {
+              "NAME": "PointNextEncoder",
+              "act_args": {
+                "act": "relu"
+              },
+              "aggr_args": {
+                "feature_type": "dp_fj",
+                "reduction": "max"
+              },
+              "blocks": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "conv_args": {
+                "order": "conv-norm-act"
+              },
+              "expansion": 4,
+              "group_args": {
+                "NAME": "ballquery",
+                "normalize_dp": true
+              },
+              "in_channels": 4,
+              "norm_args": {
+                "norm": "bn"
+              },
+              "nsample": 32,
+              "radius": 0.15,
+              "radius_scaling": 1.5,
+              "sa_layers": 2,
+              "sa_use_res": true,
+              "strides": [
+                1,
+                2,
+                2,
+                2,
+                2,
+                1
+              ],
+              "width": 32
+            }
+          }
+        },
+        "state_sha256": "eb1bc53f326ee281c48176dcb404779653143e6f0c25f80cb513650b389fb540"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "gsd"
+    },
+    {
+      "backbone": "pointmae",
+      "contract": {
+        "checkpoint_sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "resolved_model_config": {
+          "dataset": {
+            "test": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "test"
+              }
+            },
+            "train": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "train"
+              }
+            },
+            "val": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "test"
+              }
+            }
+          },
+          "grad_norm_clip": 10,
+          "max_epoch": 100,
+          "model": {
+            "NAME": "Point_MAE",
+            "cls_dim": 15,
+            "group_norm": false,
+            "group_size": 32,
+            "loss": "cdl2",
+            "num_group": 128,
+            "num_hid_cls_layers": 2,
+            "regularize": false,
+            "transformer_config": {
+              "decoder_depth": 4,
+              "decoder_num_heads": 6,
+              "depth": 12,
+              "drop_path_rate": 0.1,
+              "encoder_dims": 384,
+              "mask_ratio": 0.9,
+              "mask_type": "rand",
+              "num_heads": 6,
+              "trans_dim": 384
+            }
+          },
+          "normal": false,
+          "npoints": 1024,
+          "optimizer": {
+            "kwargs": {
+              "lr": 0.0001,
+              "weight_decay": 0.05
+            },
+            "type": "AdamW"
+          },
+          "scheduler": {
+            "type": "function"
+          },
+          "step_per_update": 1,
+          "total_bs": 32,
+          "tta_dataset_path": "./data/tta_datasets"
+        },
+        "state_sha256": "fa16d1ff6ce236cd346aca49ef651ed14ae3c27f53395d509fcf26ea8bd562e1"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "gsd"
+    },
+    {
+      "backbone": "dgcnn",
+      "contract": {
+        "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "resolved_model_config": {
+          "classes": 40,
+          "dgcnn_head_dataset_name": "scanobject",
+          "dropout": 0.5,
+          "emb_dims": 1024,
+          "k": 20,
+          "package": "study_svwa"
+        },
+        "state_sha256": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1"
+      },
+      "dataset": "modelnet40_c",
+      "method": "original3dd"
+    },
+    {
+      "backbone": "curvenet",
+      "contract": {
+        "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "resolved_model_config": {
+          "classes": 40,
+          "dgcnn_head_dataset_name": "scanobject",
+          "dropout": 0.5,
+          "emb_dims": 1024,
+          "k": 20,
+          "package": "study_svwa"
+        },
+        "state_sha256": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881"
+      },
+      "dataset": "modelnet40_c",
+      "method": "original3dd"
+    },
+    {
+      "backbone": "pointnext",
+      "contract": {
+        "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> XYZ features; no added normalization",
+        "resolved_model_config": {
+          "model": {
+            "NAME": "BaseCls",
+            "cls_args": {
+              "NAME": "ClsHead",
+              "mlps": [
+                512,
+                256
+              ],
+              "norm_args": {
+                "norm": "bn1d"
+              },
+              "num_classes": 40
+            },
+            "encoder_args": {
+              "NAME": "PointNextEncoder",
+              "act_args": {
+                "act": "relu"
+              },
+              "aggr_args": {
+                "feature_type": "dp_fj",
+                "reduction": "max"
+              },
+              "blocks": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "conv_args": {
+                "order": "conv-norm-act"
+              },
+              "expansion": 4,
+              "group_args": {
+                "NAME": "ballquery",
+                "normalize_dp": true
+              },
+              "in_channels": 3,
+              "norm_args": {
+                "norm": "bn"
+              },
+              "nsample": 32,
+              "radius": 0.15,
+              "radius_scaling": 1.5,
+              "sa_layers": 2,
+              "sa_use_res": true,
+              "strides": [
+                1,
+                2,
+                2,
+                2,
+                2,
+                1
+              ],
+              "width": 64
+            }
+          }
+        },
+        "state_sha256": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e"
+      },
+      "dataset": "modelnet40_c",
+      "method": "original3dd"
+    },
+    {
+      "backbone": "pointmae",
+      "contract": {
+        "checkpoint_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "resolved_model_config": {
+          "dataset": {
+            "test": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "test"
+              }
+            },
+            "train": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "train"
+              }
+            },
+            "val": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "test"
+              }
+            }
+          },
+          "grad_norm_clip": 10,
+          "max_epoch": 1,
+          "model": {
+            "NAME": "Point_MAE",
+            "cls_dim": 40,
+            "group_norm": false,
+            "group_size": 32,
+            "loss": "cdl2",
+            "num_group": 64,
+            "num_hid_cls_layers": 2,
+            "regularize": false,
+            "transformer_config": {
+              "decoder_depth": 4,
+              "decoder_num_heads": 6,
+              "depth": 12,
+              "drop_path_rate": 0.1,
+              "encoder_dims": 384,
+              "mask_ratio": 0.9,
+              "mask_type": "rand",
+              "num_heads": 6,
+              "trans_dim": 384
+            }
+          },
+          "normal": false,
+          "npoints": 1024,
+          "optimizer": {
+            "kwargs": {
+              "lr": 5e-05,
+              "weight_decay": 0.05
+            },
+            "type": "AdamW"
+          },
+          "scheduler": {
+            "type": "function"
+          },
+          "step_per_update": 1,
+          "total_bs": 32,
+          "tta_dataset_path": "./data/tta_datasets"
+        },
+        "state_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+      },
+      "dataset": "modelnet40_c",
+      "method": "original3dd"
+    },
+    {
+      "backbone": "dgcnn",
+      "contract": {
+        "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "resolved_model_config": {
+          "classes": 15,
+          "dgcnn_head_dataset_name": "modelnet",
+          "dropout": 0.5,
+          "emb_dims": 1024,
+          "k": 20,
+          "package": "study_svwa"
+        },
+        "state_sha256": "95e50111a0118af398b8066900f11b01f997ce293151bdbd38ccec74df4c3524"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "original3dd"
+    },
+    {
+      "backbone": "curvenet",
+      "contract": {
+        "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+        "preprocessing": "raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling",
+        "resolved_model_config": {
+          "classes": 15,
+          "dgcnn_head_dataset_name": "modelnet",
+          "dropout": 0.5,
+          "emb_dims": 1024,
+          "k": 20,
+          "package": "study_3deformrs"
+        },
+        "state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "original3dd"
+    },
+    {
+      "backbone": "pointnext",
+      "contract": {
+        "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> height=y-min(y) -> centroid and unit-sphere XYZ normalization -> XYZ + unscaled height features",
+        "resolved_model_config": {
+          "model": {
+            "NAME": "BaseCls",
+            "cls_args": {
+              "NAME": "ClsHead",
+              "mlps": [
+                512,
+                256
+              ],
+              "norm_args": {
+                "norm": "bn1d"
+              },
+              "num_classes": 15
+            },
+            "encoder_args": {
+              "NAME": "PointNextEncoder",
+              "act_args": {
+                "act": "relu"
+              },
+              "aggr_args": {
+                "feature_type": "dp_fj",
+                "reduction": "max"
+              },
+              "blocks": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "conv_args": {
+                "order": "conv-norm-act"
+              },
+              "expansion": 4,
+              "group_args": {
+                "NAME": "ballquery",
+                "normalize_dp": true
+              },
+              "in_channels": 4,
+              "norm_args": {
+                "norm": "bn"
+              },
+              "nsample": 32,
+              "radius": 0.15,
+              "radius_scaling": 1.5,
+              "sa_layers": 2,
+              "sa_use_res": true,
+              "strides": [
+                1,
+                2,
+                2,
+                2,
+                2,
+                1
+              ],
+              "width": 32
+            }
+          }
+        },
+        "state_sha256": "eb1bc53f326ee281c48176dcb404779653143e6f0c25f80cb513650b389fb540"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "original3dd"
+    },
+    {
+      "backbone": "pointmae",
+      "contract": {
+        "checkpoint_sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac",
+        "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+        "resolved_model_config": {
+          "dataset": {
+            "test": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "test"
+              }
+            },
+            "train": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "train"
+              }
+            },
+            "val": {
+              "_base_": {
+                "DATA_PATH": "./data/modelnet40_normal_resampled",
+                "NAME": "ModelNet",
+                "NUM_CATEGORY": 40,
+                "N_POINTS": 8192,
+                "USE_NORMALS": false
+              },
+              "others": {
+                "subset": "test"
+              }
+            }
+          },
+          "grad_norm_clip": 10,
+          "max_epoch": 100,
+          "model": {
+            "NAME": "Point_MAE",
+            "cls_dim": 15,
+            "group_norm": false,
+            "group_size": 32,
+            "loss": "cdl2",
+            "num_group": 128,
+            "num_hid_cls_layers": 2,
+            "regularize": false,
+            "transformer_config": {
+              "decoder_depth": 4,
+              "decoder_num_heads": 6,
+              "depth": 12,
+              "drop_path_rate": 0.1,
+              "encoder_dims": 384,
+              "mask_ratio": 0.9,
+              "mask_type": "rand",
+              "num_heads": 6,
+              "trans_dim": 384
+            }
+          },
+          "normal": false,
+          "npoints": 1024,
+          "optimizer": {
+            "kwargs": {
+              "lr": 0.0001,
+              "weight_decay": 0.05
+            },
+            "type": "AdamW"
+          },
+          "scheduler": {
+            "type": "function"
+          },
+          "step_per_update": 1,
+          "total_bs": 32,
+          "tta_dataset_path": "./data/tta_datasets"
+        },
+        "state_sha256": "fa16d1ff6ce236cd346aca49ef651ed14ae3c27f53395d509fcf26ea8bd562e1"
+      },
+      "dataset": "scanobjectnn_c",
+      "method": "original3dd"
+    }
+  ]
+}

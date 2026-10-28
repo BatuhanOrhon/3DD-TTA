@@ -1,3 +1,20 @@
+**[Run/Decision] 2026-10-28 — Agent B sensitivity results accepted with one numerical failure:**
+23/24confirmationjobscomplete; failedtunedCslot20preserved,no replacement.
+Original53.7639%,matchedC53.0139%,selectedCS52.9623% onnew140IDs/dataset/all15/
+fourheads/threefixedseeds. Original−CS+.8016pp conditionalCI[+.1488,+1.5576];
+wholepolicycomparison. MatchedC−CS+.0516pp CI[-.125,+.2341],no isolatedloss
+superiority.92full+4failedZIP/180physicalcache/280object proof andactualDrive/local
+partialacceptancepass;14836.55sunder19800cap. No pendingGPU; r4+5314remainlive.
+[Accepted results and limitations](guidance_component_sensitivity_results_20261028.md).
+
+**[Run/Open] 2026-10-28 — Agent B failure preserved; only final originals remain:**
+Failedraw+180physicalcachebytes andCPUtensor/RNGproof matchDrive/localSHA.
+Reviewednew-output slots21–23 preservefailed20 andoriginalsource/freeze/cap.
+Slot21 passed; originalMN/seed2 runs, thenoriginalScan. Overall21success+1numeric
+failure sofar; tunedCthree-seedendpointstaysunavailable. Independentfailure-aware
+partialanalysis isbeingchecked; no completefour-conditionclaim. SameA100/5314live.
+[Current evidence and nextgate](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/Open] 2026-10-28 — Agent B confirmation stopped on numerical failure:**
 20jobscomplete; tunedChamfereta=gamma.03/ModelNet/seed2 fails inBackgroundbatch1
 withnonfinite classifierXYZ. Failedrawarchiveis onDrive; localraw/180-cache

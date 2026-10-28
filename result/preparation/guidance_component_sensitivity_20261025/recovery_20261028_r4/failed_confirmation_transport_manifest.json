@@ -1,0 +1,75 @@
+{
+  "status": "failed_attempt_transport_ready",
+  "experimental_result_status": "failed",
+  "schema_version": 1,
+  "stage": "confirmation",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "original_archive": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip"
+  },
+  "original_failed_receipt": {
+    "bytes": 3676445,
+    "sha256": "5ab88805d14edbc9713275816aa11bef1d5e80784ea385b477199f7d6b779754"
+  },
+  "original_failed_ledger": {
+    "bytes": 12181,
+    "sha256": "60c8ba55d787c8e1e9ea4fa34f27eeb3e9aa8522300252c6c74863e1cad2736b"
+  },
+  "completed_jobs": 20,
+  "incomplete_job_index": 20,
+  "recorded_incomplete_job_status": "running",
+  "unrun_job_indices": [
+    21,
+    22,
+    23
+  ],
+  "transport_root": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z",
+  "chunk_bytes": 268435456,
+  "part_count": 5,
+  "parts": [
+    {
+      "index": 0,
+      "name": "part00000.bin",
+      "offset": 0,
+      "bytes": 268435456,
+      "sha256": "e8f34826b01f2b687344c1f37270754557e1970e219669383e9988b3bfd93397",
+      "remote_path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/part00000.bin"
+    },
+    {
+      "index": 1,
+      "name": "part00001.bin",
+      "offset": 268435456,
+      "bytes": 268435456,
+      "sha256": "ecd62c662e5d925b0cb38d36a65442d5e857f31273c175c6b1531484cb4b3f62",
+      "remote_path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/part00001.bin"
+    },
+    {
+      "index": 2,
+      "name": "part00002.bin",
+      "offset": 536870912,
+      "bytes": 268435456,
+      "sha256": "54fbe9203f647b5c6c2e6e5a5b95d59c0e6064cf0f282f8c3677d82c413d6df4",
+      "remote_path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/part00002.bin"
+    },
+    {
+      "index": 3,
+      "name": "part00003.bin",
+      "offset": 805306368,
+      "bytes": 268435456,
+      "sha256": "0fa3e0bc2f43bf12b5f3d6e40adcae8a77b93b4cf91adf97970a36cd28078af0",
+      "remote_path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/part00003.bin"
+    },
+    {
+      "index": 4,
+      "name": "part00004.bin",
+      "offset": 1073741824,
+      "bytes": 85504697,
+      "sha256": "b9795df916ee1c2b0ef425170c9081d43550bc379022852203ef6b9ba5f3fe34",
+      "remote_path": "/content/studies/guidance-components/sensitivity_confirmation_failed_transport_20261028T195228805237Z/part00004.bin"
+    }
+  ]
+}
