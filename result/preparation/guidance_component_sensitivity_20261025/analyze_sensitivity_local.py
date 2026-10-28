@@ -21,6 +21,7 @@ import zipfile
 import numpy as np
 
 PLAN_SHA = '4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1'
+ORIGINAL_PLAN_SHA = PLAN_SHA
 REMOTE = PurePosixPath('/content/studies/guidance-components')
 DRIVE = '/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/'
 DATASETS = ('modelnet40_c', 'scanobjectnn_c')
@@ -119,13 +120,14 @@ def unpack_phase(archive_path, receipt_path, stage, plan, output):
     return receipt
 
 
-def load_context(prep):
-    plan_path = prep / 'campaign_plan.json'
-    require(identity(plan_path)['sha256'] == PLAN_SHA, 'Unapproved campaign plan')
+def load_context(prep, plan_path=None, plan_sha=None):
+    plan_path = prep / 'campaign_plan.json' if plan_path is None else Path(plan_path)
+    plan_sha = PLAN_SHA if plan_sha is None else plan_sha
+    require(identity(plan_path)['sha256'] == plan_sha, 'Unapproved campaign plan')
     plan = read_json(plan_path)
     for name, expected in plan['phase_sources'].items():
-        verify(prep / name, expected)
-    controller = load_module('sensitivity_controller_local', prep / 'sensitivity_campaign_controller.py')
+        verify(plan_path.parent / name, expected)
+    controller = load_module('sensitivity_controller_local', plan_path.parent / 'sensitivity_campaign_controller.py')
     calibration = load_module('sensitivity_calibration_local', prep / 'calibrate_spectral_losses.py')
     assets = prep / 'assets_v2'
     require(identity(assets / 'manifest.json')['sha256'] == plan['manifest_sha256']
@@ -201,6 +203,31 @@ def calibration_report(directory, receipt, context):
     records = report['cache_records']
     require(len(records) == 30 and len({r['local_path'] for r in records}) == 30, 'Calibration cache coverage mismatch')
     return report, records
+
+
+def unpack_calibration(prep, archive_path, receipt_path, plan, output):
+    """Validate the original calibration without relabeling its runtime/plan."""
+    global PLAN_SHA
+    if 'recovery' not in plan:
+        return unpack_phase(archive_path, receipt_path, 'calibrate', plan, output)
+    recovery = plan['recovery']
+    original_path = prep / 'campaign_plan.json'
+    require(identity(original_path)['sha256'] == recovery['original_plan_sha256'] == ORIGINAL_PLAN_SHA,
+            'Original calibration registration changed')
+    verify(archive_path, recovery['calibration_archive'])
+    acceptance_path = prep / 'calibration_local_acceptance.json'
+    verify(acceptance_path, recovery['independent_acceptance'])
+    acceptance = read_json(acceptance_path)
+    require(acceptance['status'] == 'accepted_local_label_free_calibration'
+            and acceptance['archive']['sha256'] == recovery['calibration_archive']['sha256'], 'Original calibration is not independently accepted')
+    current_sha = PLAN_SHA
+    try:
+        PLAN_SHA = ORIGINAL_PLAN_SHA
+        receipt = unpack_phase(archive_path, receipt_path, 'calibrate', read_json(original_path), output)
+    finally:
+        PLAN_SHA = current_sha
+    verify(output / 'calibration/calibration_report.json', recovery['calibration_report'])
+    return receipt
 
 
 def physical_caches(records, roots):
@@ -308,6 +335,8 @@ def copy_canonical(path, repository, config):
 def inspect_raw(path, job, stage, context, calibration, old, alignment, paired, head_states, lion_states, old_assets=None):
     plan, controller, _, assets, manifest, _, selections, Bundle, analyze_bundle, policies, all_corruptions = context
     dataset, trial = job['dataset'], job['trial']
+    seed = job.get('seed', 0)
+    require(type(seed) is int and seed in (0, 1, 2), 'Unregistered raw seed')
     original = trial['method'] == 'original3dd'
     corruptions = ('gaussian', 'background') if stage == 'smoke' else all_corruptions
     selected = selections[('development' if old else stage, dataset)]
@@ -319,7 +348,7 @@ def inspect_raw(path, job, stage, context, calibration, old, alignment, paired, 
         require({'command.txt', 'config.json', 'environment.txt', 'stdout.log', 'summary.csv', 'per_corruption.csv', 'notes.md'} <= bundle.names, 'Raw required files missing')
         config = bundle.json('config.json')
         head = config['backbone']
-        require(head in HEADS and config['dataset'] == dataset and config['seed'] == 0 and type(config['seed']) is int
+        require(head in HEADS and config['dataset'] == dataset and config['seed'] == seed and type(config['seed']) is int
                 and config['selected_original_ids'] == expected_ids.tolist() and config['status'] == 'partial'
                 and config['num_classes'] == (40 if dataset == DATASETS[0] else 15)
                 and config['n_examples'] == (2468 if dataset == DATASETS[0] else 581)
@@ -389,7 +418,7 @@ def inspect_raw(path, job, stage, context, calibration, old, alignment, paired, 
                         and data['logits'].shape == (n, config['num_classes']) and np.isfinite(data['logits']).all()
                         and np.array_equal(data['prediction'], data['logits'].argmax(-1)), 'Raw indexed logits/labels invalid')
                 diagnostic = bundle.json(prefix + 'diagnostics.json')
-                require(diagnostic['seed'] == 0 and diagnostic['rng_unchanged'] is True and diagnostic['geometry_shape'] == [n, 2048, 3], 'Batch geometry/RNG guard failed')
+                require(diagnostic['seed'] == seed and type(diagnostic['seed']) is int and diagnostic['rng_unchanged'] is True and diagnostic['geometry_shape'] == [n, 2048, 3], 'Batch geometry/RNG guard failed')
                 batch_key = corruption + '/batch%04d' % number
                 trace = dict(geometry_sha256=diagnostic['geometry_sha256'])
                 if original:
@@ -411,11 +440,11 @@ def inspect_raw(path, job, stage, context, calibration, old, alignment, paired, 
                             and metrics['chamfer_calls'] == 2 * horizon * int(weights['chamfer'] > 0)
                             and metrics['guidance_backward_calls'] == horizon, 'Component computation counts invalid')
                     cache = diagnostic['paired_state']; remote = PurePosixPath(cache['path'])
-                    cache_root = controller.cache_path('development' if old else stage, 0)
+                    cache_root = controller.cache_path('development' if old else stage, seed)
                     require(remote.parent.parent.parent == PurePosixPath(cache_root) and remote.parent.parent.name == dataset
                             and remote.parent.name == corruption and remote.name == hashlib.sha256(ids.tobytes()).hexdigest() + '.npz', 'Cache namespace/IDs mismatch')
                     trace.update(initial_hashes=diagnostic['trajectory']['initial_hashes'], paired_state=cache)
-                    pair_key = dataset, corruption, number
+                    pair_key = seed, dataset, corruption, number
                     # Smoke uses its own cache; baseline reuse participates only in development pairing.
                     if pair_key in paired:
                         same_preparation(paired[pair_key], trace)
@@ -478,9 +507,14 @@ def write_csv(path, rows):
 
 
 def run(args):
+    global PLAN_SHA
     prep = args.prep.resolve(); output = args.output.resolve()
     require(not output.exists(), 'Use a fresh local analysis output directory')
-    context = load_context(prep)
+    plan_path, plan_sha = getattr(args, 'plan', None), getattr(args, 'plan_sha256', None)
+    require((plan_path is None) == (plan_sha is None), 'Provide both migrated plan path and SHA256')
+    context = load_context(prep, plan_path, plan_sha)
+    if plan_sha is not None:
+        PLAN_SHA = plan_sha
     plan, controller, _, assets, manifest, registry, selections, *_ = context
     old_prep = args.old_prep.resolve() if args.old_prep else prep.parent / 'guidance_component_study_20261025'
     old_assets = old_prep / 'assets_v1'
@@ -491,7 +525,7 @@ def run(args):
         report, cache_records = calibration_report(output / 'phase', receipt, context)
     else:
         require(args.calibration_archive and args.calibration_receipt, 'Require calibration Drive-roundtrip ZIP and receipt')
-        cal_receipt = unpack_phase(args.calibration_archive, args.calibration_receipt, 'calibrate', plan, output / 'calibration_phase')
+        cal_receipt = unpack_calibration(prep, args.calibration_archive, args.calibration_receipt, plan, output / 'calibration_phase')
         report, calibration_caches = calibration_report(output / 'calibration_phase', cal_receipt, context)
         cache_records = []
     validation = dict(status='validated_pending_physical_cache', stage=args.stage, phase_plan_sha256=PLAN_SHA,
@@ -677,6 +711,8 @@ if __name__ == '__main__':
     else:
         parser = argparse.ArgumentParser(description=__doc__)
         parser.add_argument('--prep', type=Path, required=True)
+        parser.add_argument('--plan', type=Path)
+        parser.add_argument('--plan-sha256')
         parser.add_argument('--old-prep', type=Path)
         parser.add_argument('--stage', choices=('calibrate', 'smoke', 'development'), required=True)
         parser.add_argument('--phase-archive', type=Path, required=True)

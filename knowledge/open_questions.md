@@ -1878,3 +1878,15 @@ logsproveCLIsupervisiongaps; serverterminationcauseunknown. Awaituserconfirming
 Macawake/stable, thenfresh10-cellsetup+exactnative/assets recovery. Existing
 5.5happroval staysvalid; carry155.866607sspent, notpre-seal155.460578s.
 See sensitivitynote and recovery_20261026/runtime_recovery.json.
+
+
+### 2026-10-28 — Agent B r4 Drive-consent gate
+
+[User report/Run/Open] UserdirectsnewVMandcontinuation; r4A10080GBHighRAM
+serververified, monitor5314live. Cell1restart/reconnect andcell2Python3.8.20
+passed (onlyknownfastrlockdeferred). ActualDriveOAuthscreenopened; userconsent
+needed, TTY37218awaitsconfirmation. No concurrentnotebookexec. Existing19800s
+approvalvalid;155.866607sspentcarried byreviewednewplan14033563…c4d42.
+Next: authTTYEnter→cell3retry→cells4–10→exactnative/assets/freshCPUproof→
+CPUrecoveryinstaller→14jobsmoke. New9+existing5localanalysischecks pass;
+ModelNetlabel.npy andnewactualstageartifactsremainpending. Noaccuracyclaim.

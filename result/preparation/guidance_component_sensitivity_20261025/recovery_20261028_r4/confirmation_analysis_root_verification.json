@@ -1,0 +1,16 @@
+{
+  "status": "CPU_verified_actual_new_stage_ingestion_pending",
+  "utc": "2026-10-28T13:39:12.303444+00:00",
+  "confirmation_tests": 9,
+  "confirmation_test_seconds": 0.172,
+  "existing_tests": 5,
+  "existing_test_seconds": 0.033,
+  "shared_selfcheck": "passed",
+  "python38_ast": "passed",
+  "actual_original_calibration_and_migrated_plan_ingestion": "passed",
+  "physical_180_confirmation_cache_test": "missingkeepspending",
+  "source_helper_sha256": "b00a4017614befc8c610f70ed6969d3608b12bbe6628ff46e7aad97198d71f11",
+  "confirmation_analyzer_sha256": "0d18e94e675b1c64f538c7b7494853159141d4e4a826b98e8e299f89619dd76a",
+  "new_accuracy_runs": 0,
+  "required_later_physical_input": "ModelNetlabel.npy2596B SHA97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31 aftercell9"
+}
