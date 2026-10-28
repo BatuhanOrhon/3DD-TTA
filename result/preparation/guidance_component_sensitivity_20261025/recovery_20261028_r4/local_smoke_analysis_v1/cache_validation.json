@@ -1,0 +1,38 @@
+[
+  {
+    "bytes": 4297682,
+    "local_paths": [
+      "result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/smoke_cache_extracted/paired_sensitivity_smoke_v2_seed0/modelnet40_c/background/080c9e2d50c93dfdde922ef912da102ca8c37502fadc9e34d1e62a6669ddec9f.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_smoke_v2_seed0/modelnet40_c/background/080c9e2d50c93dfdde922ef912da102ca8c37502fadc9e34d1e62a6669ddec9f.npz",
+    "sha256": "5772cffcb46ef3a12dc663cb4b891603d016d58cbbc2b4bafc7894d59ec6e388"
+  },
+  {
+    "bytes": 4297911,
+    "local_paths": [
+      "result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/smoke_cache_extracted/paired_sensitivity_smoke_v2_seed0/modelnet40_c/gaussian/080c9e2d50c93dfdde922ef912da102ca8c37502fadc9e34d1e62a6669ddec9f.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_smoke_v2_seed0/modelnet40_c/gaussian/080c9e2d50c93dfdde922ef912da102ca8c37502fadc9e34d1e62a6669ddec9f.npz",
+    "sha256": "7520ade7b10d3e11188b9aa4589b0186aea34fd123746db5ea1891833f760d6f"
+  },
+  {
+    "bytes": 4297590,
+    "local_paths": [
+      "result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/smoke_cache_extracted/paired_sensitivity_smoke_v2_seed0/scanobjectnn_c/background/9fd151dcff1aaf68a9d4602a24853e614825fd7b6482c0233329edc4804e70b5.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_smoke_v2_seed0/scanobjectnn_c/background/9fd151dcff1aaf68a9d4602a24853e614825fd7b6482c0233329edc4804e70b5.npz",
+    "sha256": "e7227094f78bd817ba96a5b4855047ebdacae8b6051eb64ffbe28e18bbe3a54d"
+  },
+  {
+    "bytes": 4298177,
+    "local_paths": [
+      "result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/smoke_cache_extracted/paired_sensitivity_smoke_v2_seed0/scanobjectnn_c/gaussian/9fd151dcff1aaf68a9d4602a24853e614825fd7b6482c0233329edc4804e70b5.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_smoke_v2_seed0/scanobjectnn_c/gaussian/9fd151dcff1aaf68a9d4602a24853e614825fd7b6482c0233329edc4804e70b5.npz",
+    "sha256": "811c675ba5347fb9536655f28666530205a8913ff7c541f9ca14bf66de24145f"
+  }
+]

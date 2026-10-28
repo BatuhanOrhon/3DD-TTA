@@ -1,0 +1,95 @@
+{
+  "balanced_scores": [
+    {
+      "accuracy_pct": 55.982142857142854,
+      "family": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "c-base"
+    },
+    {
+      "accuracy_pct": 56.96428571428571,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-base"
+    },
+    {
+      "accuracy_pct": 56.517857142857146,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-l2-r010"
+    },
+    {
+      "accuracy_pct": 56.24999999999999,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-huber-r010"
+    },
+    {
+      "accuracy_pct": 56.25000000000001,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-power-r010"
+    },
+    {
+      "accuracy_pct": 44.732142857142854,
+      "family": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "s-base"
+    },
+    {
+      "accuracy_pct": 56.60714285714286,
+      "family": "original3dd",
+      "n_cases": 8,
+      "policy": "terminal",
+      "trial_id": "original3dd"
+    }
+  ],
+  "cache_files": 4,
+  "calibration_physical_cache_complete": true,
+  "cost_interpretation": "GSD prepared-state replay/comparison cost; not deployment latency. Original3DD fresh encode-inclusive; original terminal only.",
+  "full_benchmark": false,
+  "jobs": 14,
+  "label_references": [
+    {
+      "archive_identity": {
+        "bytes": 6580086,
+        "sha256": "4c97858741727d0634417ee8dd7c1510848a16f68efb89314047c42998e142bd"
+      },
+      "dataset": "modelnet40_c",
+      "full_sealed_label_file_verified": false,
+      "historical_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133400_guidance-components-combined-pointnext-seed0.zip"
+    },
+    {
+      "archive_identity": {
+        "bytes": 6057213,
+        "sha256": "a7fcfe9b71d714b1f446d7c4c53c10b47f3c563edbdd3359404288c387d7e278"
+      },
+      "dataset": "scanobjectnn_c",
+      "full_sealed_label_file_verified": true,
+      "historical_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134706_guidance-components-combined-dgcnn-seed0.zip"
+    }
+  ],
+  "labels_used_for_calibration": false,
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "phase_archive": {
+    "bytes": 627301980,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_smoke_20261028T151934123459Z/sensitivity_smoke_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_smoke_20261028T151934123459Z.zip",
+    "sha256": "523c2e634d6af682157b4e1e3e597e3173523c067b777a77d1d2e3243128fad3"
+  },
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "physical_cache_complete": true,
+  "physically_verified_cache_files": 4,
+  "raw_archives": 56,
+  "registered_trials": 7,
+  "selection_policy": "probability_mean",
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "stage": "smoke",
+  "status": "accepted"
+}

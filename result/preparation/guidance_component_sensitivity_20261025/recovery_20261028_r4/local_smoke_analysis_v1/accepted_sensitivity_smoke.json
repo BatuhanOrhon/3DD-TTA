@@ -1,0 +1,18 @@
+{
+  "archive": {
+    "bytes": 627301980,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_smoke_20261028T151934123459Z/sensitivity_smoke_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_smoke_20261028T151934123459Z.zip",
+    "sha256": "523c2e634d6af682157b4e1e3e597e3173523c067b777a77d1d2e3243128fad3"
+  },
+  "local_validation": {
+    "bytes": 3364,
+    "sha256": "194c2f45795efbcfd5d0fde008bae88a4355e12f4dab466ed03126f484b90259"
+  },
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "physical_cache_complete": true,
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "stage": "smoke",
+  "status": "accepted"
+}

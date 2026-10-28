@@ -1,0 +1,8 @@
+trial_id,family,policy,n_cases,accuracy_pct
+c-base,chamfer,probability_mean,8,55.982142857142854
+cs-base,combined,probability_mean,8,56.96428571428571
+cs-l2-r010,combined,probability_mean,8,56.517857142857146
+cs-huber-r010,combined,probability_mean,8,56.24999999999999
+cs-power-r010,combined,probability_mean,8,56.25000000000001
+s-base,spectral,probability_mean,8,44.732142857142854
+original3dd,original3dd,terminal,8,56.60714285714286
