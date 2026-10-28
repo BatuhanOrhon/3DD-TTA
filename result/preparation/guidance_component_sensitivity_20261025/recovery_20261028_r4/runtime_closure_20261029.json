@@ -1,0 +1,66 @@
+{
+  "status": "stopped",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "endpoint": "gpu-a100-hm-euw4a0-3s9zrjduwd03k",
+  "hardware": "A100 High RAM",
+  "local_date": "2026-10-29",
+  "timezone": "Europe/Istanbul",
+  "authorization": {
+    "quote": "Colab oturumu kapatıp sonuçları knowledge dosyalarına ekleyebilirsin",
+    "scope": "Close the completed Agent B campaign and record results; no further experiments."
+  },
+  "monitor": {
+    "unified_exec_session": 5314,
+    "pid": 94587,
+    "stop_requested_utc": "2026-10-28T22:02:52.408832+00:00",
+    "stopped_utc": "2026-10-28T22:02:52.511932+00:00",
+    "exit_code": 0,
+    "runtime_teardown_by_monitor": false
+  },
+  "runtime": {
+    "stop_command": "colab stop -s tta-guidance-components-a100-20261028-r4",
+    "stop_command_output": "Unavailable after tool-output truncation; closure independently verified by fresh server inventory.",
+    "verification_command": "colab sessions",
+    "verification_observed_by_utc": "2026-10-28T22:04:19+00:00",
+    "verification_exit_code": 0,
+    "verification_message": "[colab] No active sessions found on server.",
+    "exact_release_timestamp": null,
+    "cli_version": "0.7.4"
+  },
+  "artifact_preservation": {
+    "validation": "Four existing Drive-roundtrip archives rehashed locally before teardown; all sizes and SHA-256 values matched final_local_verification.json.",
+    "archives": [
+      {
+        "file": "confirmation_failed_evidence_drive_roundtrip.zip",
+        "bytes": 1159246521,
+        "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+      },
+      {
+        "file": "remaining_evidence_drive_roundtrip.zip",
+        "bytes": 150730036,
+        "sha256": "7b676a7b4d6fefc8f569e77cf962f599baa45c1f1bcb5cf0b490210e1cdccd6d"
+      },
+      {
+        "file": "failure_cache_evidence_drive_roundtrip.zip",
+        "bytes": 774792352,
+        "sha256": "2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898"
+      },
+      {
+        "file": "partial_acceptance_drive_roundtrip.zip",
+        "bytes": 722266,
+        "sha256": "dc5b854e27ecd96f1d04a5420332749e0b73a7574f011dadc7e4733fd46d68df"
+      }
+    ],
+    "drive_root": "MyDrive/thesis/result/guidance_component_study_20261025",
+    "prior_verification": "final_local_verification.json"
+  },
+  "research_status": "accepted_partial_confirmation_with_numerical_failure",
+  "successful_confirmation_jobs": 23,
+  "numerically_failed_slot": 20,
+  "planned_gpu_jobs_remaining": 0,
+  "campaign_seconds": 14836.554262508998,
+  "approved_campaign_cap_seconds": 19800,
+  "scientific_source_commit": "8169271c9058995e8dc128062848a253baa13f10",
+  "operator_branch_head_before_closure_docs": "03416e8",
+  "scientific_results_changed_by_closure": false
+}

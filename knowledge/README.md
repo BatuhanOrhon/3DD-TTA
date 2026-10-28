@@ -1,3 +1,14 @@
+**[Run/Decision] 2026-10-29 (2026-10-28 22:04 UTC) — Agent B runtime closed:**
+The user authorized closing the completed campaign. Monitor5314 exited cleanly;
+`colab stop -s tta-guidance-components-a100-20261028-r4` was issued and a fresh
+server inventory reported no active sessions. All four preserved archive hashes
+were reverified before teardown. No planned GPU work remains. Accepted results
+remain 23 successful confirmation jobs plus numerical failure20, with no replacement
+or universal Chamfer-superiority claim. Earlier live/running entries below are dated
+history superseded by this closure and the accepted results.
+[Results and limitations](guidance_component_sensitivity_results_20261028.md) ·
+[Closure evidence](../result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/runtime_closure_20261029.json).
+
 **[Run/Decision] 2026-10-28 — Agent B sensitivity results accepted with one numerical failure:**
 23/24confirmationjobscomplete; failedtunedCslot20preserved,no replacement.
 Original53.7639%,matchedC53.0139%,selectedCS52.9623% onnew140IDs/dataset/all15/

@@ -715,3 +715,29 @@ AllplannedGPUworkrecorded; runtime+5314preservedwithoutteardownauthorization.
 Cleanresults,percasevalues,source/coverage/failure/CIlimits andexactproofpaths:
 knowledge/guidance_component_sensitivity_results_20261028.md and
 recovery_20261028_r4/final_local_verification.json.
+
+
+## Agent B runtime closed after accepted campaign — 2026-10-29 local / 2026-10-28 22:04 UTC
+
+[User report/Run/Decision] The user authorized closing the completed campaign and
+recording its results: “Colab oturumu kapatıp sonuçları knowledge dosyalarına
+ekleyebilirsin”. Monitor5314 exited0 at22:02:52.511932UTC, then the explicit CLI
+stop targeted `tta-guidance-components-a100-20261028-r4` (A100 High RAM,
+endpoint `gpu-a100-hm-euw4a0-3s9zrjduwd03k`). A fresh server inventory by22:04:19UTC
+returned `No active sessions found on server.` The exact server release timestamp
+is not available. Four existing Drive-roundtrip archives were rehashed locally
+before teardown; all bytes/SHA-256 matched `final_local_verification.json`.
+
+Accepted scientific status remains `accepted_partial_confirmation_with_numerical_failure`:
+23 successful jobs plus preserved numerical failure20. No retry, replacement,
+new GPU work or changed metric/inference occurred during closure. Campaign time
+remains14836.554263s under the19800s approved cap. Original whole-policy mean
+53.763889% versus C+S52.962302% does not establish universal or isolated-loss
+Chamfer superiority; the matched C−CS interval still crosses zero. No scheduled
+GPU work remains. This entry supersedes prior live-runtime/monitor statements;
+future generalization or failure diagnosis remains separately scoped.
+
+[Accepted results](guidance_component_sensitivity_results_20261028.md) ·
+[Closure evidence](../result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/runtime_closure_20261029.json). Scientific source remains
+`8169271c9058995e8dc128062848a253baa13f10` plus the unchanged sealed snapshot;
+closure documentation starts from operator HEAD `03416e8`.
