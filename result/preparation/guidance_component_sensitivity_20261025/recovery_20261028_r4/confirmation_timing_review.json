@@ -1,0 +1,461 @@
+{
+  "conservative_point_basis_seconds": 7741.187193712468,
+  "current_7176_5_spent_scenario_upper_seconds": 17665.92463245496,
+  "existing_registered_floor_seconds": 7606.719779538006,
+  "finalization": "Requires genuine final development artifacts, selected freeze, actual ledger and any higher measured slowdown ratio.",
+  "gsd18job_scaled_seconds": 5941.187193712468,
+  "gsd18job_unscaled_seconds": 5793.708208034965,
+  "limitations": "Old CS jobs include fresh first-condition cache creation; C jobs replay. Retain maximum4 conditions/24jobs even if freeze deduplicates. Remaining doubled-artifact packing/I/O is not isolated by70-ID data and remains in20%margin+1200reserve. Original300s per dataset/seed is provisional. No guarantee of runtime or cap fit; no new research results inspected.",
+  "maxima": [
+    {
+      "arm": "combined",
+      "dataset": "modelnet40_c",
+      "maximizing_seed": 1,
+      "point140_max": 395.14006193700334,
+      "residual70_max": 73.31370014099593
+    },
+    {
+      "arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "maximizing_seed": 1,
+      "point140_max": 391.1849181399921,
+      "residual70_max": 70.58806600800744
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "maximizing_seed": 2,
+      "point140_max": 287.04338642800394,
+      "residual70_max": 72.59919502999583
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "maximizing_seed": 0,
+      "point140_max": 285.41215820599245,
+      "residual70_max": 70.25326656600737
+    }
+  ],
+  "maximum_conditions": 4,
+  "maximum_final_spent_to_fit_seconds": 9310.57536754504,
+  "maximum_jobs": 24,
+  "measured_formula": "E140=2*(shared70+terminal_heads70)+(wall70-shared70-terminal_heads70)",
+  "measured_point_minutes": 129.01978656187447,
+  "measured_point_seconds": 7741.187193712468,
+  "new_smoke_per_job_rows": [
+    {
+      "arm": "c-base",
+      "dataset": "modelnet40_c",
+      "point140": 82.82694336100121,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 39.93163550499867,
+      "seed": 0,
+      "shared70": 20.216363040000033,
+      "terminal_heads70": 1.23129088800124,
+      "wall70": 61.37928943299994
+    },
+    {
+      "arm": "c-base",
+      "dataset": "scanobjectnn_c",
+      "point140": 82.30385149900121,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 39.324607980998735,
+      "seed": 0,
+      "shared70": 20.23786826899959,
+      "terminal_heads70": 1.2517534900016472,
+      "wall70": 60.81422973999997
+    },
+    {
+      "arm": "cs-base",
+      "dataset": "modelnet40_c",
+      "point140": 93.74444639800004,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 39.430961015998946,
+      "seed": 0,
+      "shared70": 25.933824172999266,
+      "terminal_heads70": 1.2229185180012792,
+      "wall70": 66.58770370699949
+    },
+    {
+      "arm": "cs-base",
+      "dataset": "scanobjectnn_c",
+      "point140": 93.14377652500116,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 38.99259644899939,
+      "seed": 0,
+      "shared70": 25.830789972000275,
+      "terminal_heads70": 1.2448000660006073,
+      "wall70": 66.06818648700028
+    },
+    {
+      "arm": "s-base",
+      "dataset": "modelnet40_c",
+      "point140": 93.40006282200011,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 39.601344418000735,
+      "seed": 0,
+      "shared70": 25.67939140999988,
+      "terminal_heads70": 1.2199677919998066,
+      "wall70": 66.50070362000042
+    },
+    {
+      "arm": "s-base",
+      "dataset": "scanobjectnn_c",
+      "point140": 92.68501982199905,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 39.09242866800105,
+      "seed": 0,
+      "shared70": 25.549431643999924,
+      "terminal_heads70": 1.2468639329990765,
+      "wall70": 65.88872424500005
+    },
+    {
+      "arm": "cs-l2-r010",
+      "dataset": "modelnet40_c",
+      "point140": 94.0035491289982,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 39.61959782300255,
+      "seed": 0,
+      "shared70": 25.975108255999658,
+      "terminal_heads70": 1.2168673969981683,
+      "wall70": 66.81157347600038
+    },
+    {
+      "arm": "cs-l2-r010",
+      "dataset": "scanobjectnn_c",
+      "point140": 93.04868978099967,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 38.94188311100061,
+      "seed": 0,
+      "shared70": 25.80270686899985,
+      "terminal_heads70": 1.250696465999681,
+      "wall70": 65.99528644600014
+    },
+    {
+      "arm": "cs-huber-r010",
+      "dataset": "modelnet40_c",
+      "point140": 93.7751372039993,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 39.45284076000007,
+      "seed": 0,
+      "shared70": 25.944063530000676,
+      "terminal_heads70": 1.2170846919989344,
+      "wall70": 66.61398898199968
+    },
+    {
+      "arm": "cs-huber-r010",
+      "dataset": "scanobjectnn_c",
+      "point140": 93.31238909400236,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 39.123319241998615,
+      "seed": 0,
+      "shared70": 25.85129900800075,
+      "terminal_heads70": 1.243235918001119,
+      "wall70": 66.21785416800049
+    },
+    {
+      "arm": "cs-power-r010",
+      "dataset": "modelnet40_c",
+      "point140": 93.82514259699929,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 39.508523021000656,
+      "seed": 0,
+      "shared70": 25.944040483999743,
+      "terminal_heads70": 1.214269303999572,
+      "wall70": 66.66683280899997
+    },
+    {
+      "arm": "cs-power-r010",
+      "dataset": "scanobjectnn_c",
+      "point140": 93.06597300900103,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 38.905234286999985,
+      "seed": 0,
+      "shared70": 25.838166098999864,
+      "terminal_heads70": 1.2422032620006576,
+      "wall70": 65.9856036480005
+    },
+    {
+      "arm": "original3dd",
+      "dataset": "modelnet40_c",
+      "point140": 92.05567987099948,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 39.68040214899975,
+      "seed": 0,
+      "shared70": 20.157807097999466,
+      "terminal_heads70": 6.029831763000402,
+      "wall70": 65.86804100999962
+    },
+    {
+      "arm": "original3dd",
+      "dataset": "scanobjectnn_c",
+      "point140": 88.96248609999748,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 39.06089837200125,
+      "seed": 0,
+      "shared70": 20.167731844998343,
+      "terminal_heads70": 4.783062018999772,
+      "wall70": 64.01169223599936
+    }
+  ],
+  "new_smoke_raw_archives": {
+    "count": 56,
+    "identity_rows_sha256": "6ee43e63c21af62782ae4f9e80f48f0e955e645008adef14d8f7d235b13f8770"
+  },
+  "old_confirmation_per_seed_rows": [
+    {
+      "arm": "combined",
+      "dataset": "modelnet40_c",
+      "point140": 394.8909292240023,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 73.09444240399534,
+      "seed": 0,
+      "shared70": 151.7206949249994,
+      "terminal_heads70": 9.177548485004081,
+      "wall70": 233.99268581399883
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "point140": 286.8762104510006,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 72.42705571100123,
+      "seed": 0,
+      "shared70": 97.91589284399743,
+      "terminal_heads70": 9.308684526002253,
+      "wall70": 179.6516330810009
+    },
+    {
+      "arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "point140": 390.3291908919982,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 70.1103572100019,
+      "seed": 0,
+      "shared70": 150.765728467999,
+      "terminal_heads70": 9.343688372999168,
+      "wall70": 230.21977405100006
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "point140": 285.41215820599245,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 70.25326656600737,
+      "seed": 0,
+      "shared70": 98.15364723200037,
+      "terminal_heads70": 9.425798587992176,
+      "wall70": 177.8327123859999
+    },
+    {
+      "arm": "combined",
+      "dataset": "modelnet40_c",
+      "point140": 395.14006193700334,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 73.31370014099593,
+      "seed": 1,
+      "shared70": 151.733705765997,
+      "terminal_heads70": 9.1794751320067,
+      "wall70": 234.22688103899964
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "point140": 286.8202829049842,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 72.57035824701597,
+      "seed": 1,
+      "shared70": 97.90339552599835,
+      "terminal_heads70": 9.221566802985762,
+      "wall70": 179.69532057600009
+    },
+    {
+      "arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "point140": 391.1849181399921,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 70.58806600800744,
+      "seed": 1,
+      "shared70": 150.95390585999667,
+      "terminal_heads70": 9.34452020599565,
+      "wall70": 230.88649207399976
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "point140": 285.1026660099924,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 70.20290318600746,
+      "seed": 1,
+      "shared70": 98.02019478900183,
+      "terminal_heads70": 9.42968662299063,
+      "wall70": 177.65278459799993
+    },
+    {
+      "arm": "combined",
+      "dataset": "modelnet40_c",
+      "point140": 395.07727438700385,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 73.27430961899518,
+      "seed": 2,
+      "shared70": 151.72942900799717,
+      "terminal_heads70": 9.17205337600717,
+      "wall70": 234.17579200299951
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "point140": 287.04338642800394,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 72.59919502999583,
+      "seed": 2,
+      "shared70": 97.99032320800143,
+      "terminal_heads70": 9.23177249100263,
+      "wall70": 179.82129072899988
+    },
+    {
+      "arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "point140": 390.8374699040032,
+      "preparation_modes": [
+        "fresh_encode"
+      ],
+      "residual70": 70.20782031399722,
+      "seed": 2,
+      "shared70": 150.97288737300005,
+      "terminal_heads70": 9.341937422002957,
+      "wall70": 230.52264510900022
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "point140": 284.8614294300023,
+      "preparation_modes": [
+        "cached_replay"
+      ],
+      "residual70": 69.9078709999958,
+      "seed": 2,
+      "shared70": 98.03170150800179,
+      "terminal_heads70": 9.445077707001474,
+      "wall70": 177.38465021499906
+    }
+  ],
+  "old_confirmation_raw_archives": {
+    "count": 48,
+    "identity_rows_sha256": "cc322c9c250a65e5ff21ee2898b8bdc74b9b80595c2f3b25d60d45e133f4c570"
+  },
+  "original6job_provisional_seconds": 1800,
+  "original_ids_per_dataset": 140,
+  "point_formula": "ratio*3*sum_dataset[max_seed_E140_CS+2*max_seed_E140_C]+6*300",
+  "prior_smoke_max_ratio": 1.025455024723712,
+  "registered_development_rows": [
+    {
+      "arm": "combined",
+      "dataset": "modelnet40_c",
+      "registered140": 385.22799505299736,
+      "shared70": 151.42955820899715,
+      "wall70": 233.7984368440002
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "registered140": 277.74098949600193,
+      "shared70": 97.96262399900206,
+      "wall70": 179.77836549699987
+    },
+    {
+      "arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "registered140": 381.5010469059989,
+      "shared70": 150.9007669349985,
+      "wall70": 230.60027997100042
+    },
+    {
+      "arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "registered140": 275.9553552670004,
+      "shared70": 98.21386280200022,
+      "wall70": 177.7414924650002
+    }
+  ],
+  "registered_formula": "3*sum_dataset[(wall70_CS+shared70_CS)+2*(wall70_C+shared70_C)]+6*270",
+  "reproduced_registered_seconds": 7242.365194455003,
+  "sources": {
+    "current_plan": {
+      "bytes": 8974,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/controls/bundle/campaign_plan.json",
+      "sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42"
+    },
+    "new_smoke_state": {
+      "bytes": 471349,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_smoke_analysis_v1/phase/state.json",
+      "sha256": "6980f27f1097a5cf63c5309a312890b3fb64e79acb36bf90179123ca252fdca2"
+    },
+    "old_confirmation_state": {
+      "bytes": 1860898,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/state.json",
+      "sha256": "a2c628854f2496b1c4347c6c19ed404a605630100c30be6e23ea443e76e2235e"
+    },
+    "old_development_receipt": {
+      "bytes": 1289412,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_phase_receipt.json",
+      "sha256": "7ef2b62404b019a35027b38a65f146087a30d403cc260f129a3a1f83a17980d7"
+    },
+    "prior_smoke_projection": {
+      "bytes": 2543,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/post_smoke_budget_projection.json",
+      "sha256": "e413484a592975db1d9e29cff536171c556960f0da9e63e50ce5b13841b8d99c"
+    }
+  },
+  "status": "provisional_archived_evidence_calculation",
+  "three_seeds": true,
+  "upper_formula": "final_actual_campaign_spent_seconds+1.2*max(measured_point,registered_floor)+1200"
+}

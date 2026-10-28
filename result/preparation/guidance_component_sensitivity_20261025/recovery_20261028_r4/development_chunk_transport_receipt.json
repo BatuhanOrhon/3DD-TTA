@@ -1,0 +1,18 @@
+{
+  "status": "ready",
+  "stage": "development",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "original_archive": {
+    "bytes": 1614733520,
+    "sha256": "2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8",
+    "local_path": "/content/studies/guidance-components/sensitivity_development_20261028T154842310440Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_development_20261028T154842310440Z/sensitivity_development_evidence.zip"
+  },
+  "transport_manifest": {
+    "bytes": 3738,
+    "sha256": "89fb3641775dc016a372713cfd0697a0dfabe960424a925ebefe5c6708fb1566",
+    "path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/transport_manifest.json"
+  },
+  "part_count": 7
+}

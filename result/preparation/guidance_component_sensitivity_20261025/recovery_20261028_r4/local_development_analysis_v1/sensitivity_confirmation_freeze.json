@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "id": "spectral-candidate",
+      "role": "spectral_candidate",
+      "trial_id": "cs-l2-r010"
+    },
+    {
+      "id": "matched-chamfer",
+      "role": "matched_chamfer",
+      "trial_id": "matched-chamfer"
+    },
+    {
+      "id": "tuned-chamfer",
+      "role": "tuned_chamfer",
+      "trial_id": "c-step-high"
+    },
+    {
+      "id": "original3dd",
+      "role": "original3dd",
+      "trial_id": "original3dd"
+    }
+  ],
+  "development_acceptance": {
+    "bytes": 1053,
+    "sha256": "f94afc837e26a3ec33c8503f04cc9cfb7dafba44fd40cc19cff845eb7bad54ed"
+  },
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "selected_chamfer_trial_id": "c-step-high",
+  "selected_spectral_trial_id": "cs-l2-r010",
+  "status": "frozen"
+}

@@ -1,3 +1,11 @@
+**[Run/Decision/Open] 2026-10-28 — Agent B development accepted; confirmation running:**
+All32new jobs/152raw ZIPs/19trial rows/30physical caches independently accepted.
+Development bestC56.7857%,bestCS55.3452%,originalterminal55.2381% is selection
+evidence only. Exact4condition freeze saved with physical Drive/local proof;
+24-job all15/new140IDs per dataset/three-seed confirmation runs inr4/monitor5314.
+Updated wholecampaign upper5.076h fits approved5.5hcap. Confirmation and280-object
+cluster inference remain pending. [Evidence and live stage](guidance_component_sensitivity_study_20261025.md).
+
 **[Run/Open] 2026-10-28 — Agent B sensitivity development running:**
 All14technicalGPUjobs/56rawZIPs/4physicalcaches independentlyaccepted with
 Drive/localSHA;acceptedcalibrationand30oldcachesretained. Currentwholecampaign

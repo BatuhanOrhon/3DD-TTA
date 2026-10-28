@@ -1,0 +1,88 @@
+{
+  "status": "ready",
+  "schema_version": 1,
+  "stage": "development",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "original_archive": {
+    "bytes": 1614733520,
+    "sha256": "2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8",
+    "local_path": "/content/studies/guidance-components/sensitivity_development_20261028T154842310440Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_development_20261028T154842310440Z/sensitivity_development_evidence.zip"
+  },
+  "original_phase_receipt": {
+    "bytes": 4860755,
+    "sha256": "baca5c4d1e97f1e9cdf84a93ac1e96ab79bc9fc6f76c5b45ad907e8a6af83987"
+  },
+  "original_stage_validation": {
+    "bytes": 942,
+    "sha256": "a5c5e486dd12d4b9870e5351f9af0d450e6b470dc0bf5dd665cd116275ea2f3a"
+  },
+  "inactive_ledger_identity": {
+    "bytes": 11923,
+    "sha256": "ddbaab07fa00e46fe40124ade2822842fb10aa38951ddb2dd110cb49c51c52ab"
+  },
+  "chunk_bytes": 268435456,
+  "transport_root": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z",
+  "part_count": 7,
+  "parts": [
+    {
+      "index": 0,
+      "name": "part00000.bin",
+      "offset": 0,
+      "bytes": 268435456,
+      "sha256": "d52eb5f8081f1fd8770c04caa8de506f897f7b4039e89042d3d35f1004cae130",
+      "remote_path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/part00000.bin"
+    },
+    {
+      "index": 1,
+      "name": "part00001.bin",
+      "offset": 268435456,
+      "bytes": 268435456,
+      "sha256": "ada5d03124e7a4fb4cf8253ef83e0052a932926fa9ef667074f5d7e9c7eace3b",
+      "remote_path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/part00001.bin"
+    },
+    {
+      "index": 2,
+      "name": "part00002.bin",
+      "offset": 536870912,
+      "bytes": 268435456,
+      "sha256": "8b465ea8779921cba0ce8169e173f1fe0e06f8abcecbdce0b860bcbac727de36",
+      "remote_path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/part00002.bin"
+    },
+    {
+      "index": 3,
+      "name": "part00003.bin",
+      "offset": 805306368,
+      "bytes": 268435456,
+      "sha256": "96cf1d2759ba9d29f1665bbf8d8540bba1440dace67bdaf5a5ce0640f7dd6da1",
+      "remote_path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/part00003.bin"
+    },
+    {
+      "index": 4,
+      "name": "part00004.bin",
+      "offset": 1073741824,
+      "bytes": 268435456,
+      "sha256": "044cb4de18ad19066076bdefd57e04458e9832bf7802c6022772ea978cbbc342",
+      "remote_path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/part00004.bin"
+    },
+    {
+      "index": 5,
+      "name": "part00005.bin",
+      "offset": 1342177280,
+      "bytes": 268435456,
+      "sha256": "7b69e982b4df7537967eebcfb8923320629d0e86a06940e1bbf4321d70736c86",
+      "remote_path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/part00005.bin"
+    },
+    {
+      "index": 6,
+      "name": "part00006.bin",
+      "offset": 1610612736,
+      "bytes": 4120784,
+      "sha256": "86508239f58a85d59457457ccd9cbef4ab4229a5cbb003c632728615fadaee22",
+      "remote_path": "/content/studies/guidance-components/sensitivity_development_transport_20261028T174052515857Z/part00006.bin"
+    }
+  ]
+}

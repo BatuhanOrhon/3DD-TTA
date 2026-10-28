@@ -1,0 +1,45 @@
+{
+  "status": "independently_accepted_and_frozen",
+  "utc": "2026-10-28T17:49:00Z",
+  "raw_archive": {
+    "bytes": 1614733520,
+    "sha256": "2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8"
+  },
+  "transport_parts": 7,
+  "physical_drive_roundtrip": {
+    "bytes": 90496,
+    "sha256": "37f528f6604c4d1fdf9202a8307e0ae976be6242efbbaff568c3e2adab361b8d"
+  },
+  "accepted_development": {
+    "bytes": 1053,
+    "sha256": "f94afc837e26a3ec33c8503f04cc9cfb7dafba44fd40cc19cff845eb7bad54ed"
+  },
+  "freeze": {
+    "bytes": 798,
+    "sha256": "ea245f8a75ed729463e34757328875f6d7c789983ef10bac3c0c133b0750c360"
+  },
+  "validation": {
+    "bytes": 5417,
+    "sha256": "09cc88c73074c8f5454521dea7bcc0ce2f51a7ca38be643630edf438fdc684b8"
+  },
+  "post_development_budget": {
+    "bytes": 5570,
+    "sha256": "7aa4741bd9628fcc042067cfdd2d3fc50dd33fb54b8e06b299aee7c972110380"
+  },
+  "confirmation": {
+    "status": "running",
+    "session": "tta-guidance-components-a100-20261028-r4",
+    "monitor_exec_session": 5314,
+    "submitted_utc": "2026-10-28T17:47:55.886453Z",
+    "wrapper_sha256": "b507da40ea62dd6069e2d3682c56cb3dc08a61984f386d0a2d1a9ee32b11ebe8",
+    "conditions": 4,
+    "jobs": 24,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "original_ids_per_dataset": 140
+  },
+  "limits": "Development scores are selected on the same70IDs/dataset; confirmation is pending. Original3DD is a different whole policy, not matched spectral ablation. No universal superiority claim."
+}

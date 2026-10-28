@@ -1,0 +1,179 @@
+{
+  "balanced_scores": [
+    {
+      "accuracy_pct": 55.19047619047619,
+      "family": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "c-base"
+    },
+    {
+      "accuracy_pct": 53.71428571428571,
+      "family": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "c-step-low"
+    },
+    {
+      "accuracy_pct": 56.78571428571429,
+      "family": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "c-step-high"
+    },
+    {
+      "accuracy_pct": 54.154761904761905,
+      "family": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "c-eta-low"
+    },
+    {
+      "accuracy_pct": 54.202380952380956,
+      "family": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "c-p80"
+    },
+    {
+      "accuracy_pct": 54.64285714285714,
+      "family": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "c-p99"
+    },
+    {
+      "accuracy_pct": 55.107142857142854,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-base"
+    },
+    {
+      "accuracy_pct": 55.345238095238095,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-l2-r010"
+    },
+    {
+      "accuracy_pct": 54.57142857142858,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-l2-r100"
+    },
+    {
+      "accuracy_pct": 55.107142857142854,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-huber-r010"
+    },
+    {
+      "accuracy_pct": 54.773809523809526,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-power-r010"
+    },
+    {
+      "accuracy_pct": 53.67857142857143,
+      "family": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "cs-l2-r010-step-low"
+    },
+    {
+      "accuracy_pct": 52.61904761904762,
+      "family": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "s-base"
+    },
+    {
+      "accuracy_pct": 52.75,
+      "family": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "s-l2-r010"
+    },
+    {
+      "accuracy_pct": 52.88095238095237,
+      "family": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "s-l2-r100"
+    },
+    {
+      "accuracy_pct": 52.78571428571429,
+      "family": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "s-huber-r010"
+    },
+    {
+      "accuracy_pct": 52.79761904761904,
+      "family": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "s-power-r010"
+    },
+    {
+      "accuracy_pct": 52.66666666666666,
+      "family": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean",
+      "trial_id": "s-l2-r010-step-low"
+    },
+    {
+      "accuracy_pct": 55.238095238095234,
+      "family": "original3dd",
+      "n_cases": 8,
+      "policy": "terminal",
+      "trial_id": "original3dd"
+    }
+  ],
+  "cache_files": 30,
+  "calibration_physical_cache_complete": true,
+  "cost_interpretation": "GSD prepared-state replay/comparison cost; not deployment latency. Original3DD fresh encode-inclusive; original terminal only.",
+  "full_benchmark": false,
+  "jobs": 32,
+  "label_references": [
+    {
+      "archive_identity": {
+        "bytes": 6580086,
+        "sha256": "4c97858741727d0634417ee8dd7c1510848a16f68efb89314047c42998e142bd"
+      },
+      "dataset": "modelnet40_c",
+      "full_sealed_label_file_verified": false,
+      "historical_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133400_guidance-components-combined-pointnext-seed0.zip"
+    },
+    {
+      "archive_identity": {
+        "bytes": 6057213,
+        "sha256": "a7fcfe9b71d714b1f446d7c4c53c10b47f3c563edbdd3359404288c387d7e278"
+      },
+      "dataset": "scanobjectnn_c",
+      "full_sealed_label_file_verified": true,
+      "historical_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134706_guidance-components-combined-dgcnn-seed0.zip"
+    }
+  ],
+  "labels_used_for_calibration": false,
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "phase_archive": {
+    "bytes": 1614733520,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_development_20261028T154842310440Z/sensitivity_development_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_development_20261028T154842310440Z.zip",
+    "sha256": "2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8"
+  },
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "physical_cache_complete": true,
+  "physically_verified_cache_files": 30,
+  "raw_archives": 152,
+  "registered_trials": 19,
+  "selection_policy": "probability_mean",
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "stage": "development",
+  "status": "accepted"
+}

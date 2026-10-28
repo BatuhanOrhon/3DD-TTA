@@ -1901,3 +1901,15 @@ reusedwithparity. Post-smoke1105.891987sspent;manualconservativeprojection
 19743.614653s<=19800scap. Next: retrieve/acceptallnewdevelopmentrows,freeze
 oneglobalspectralcandidateandCcomparators,thenregistered140-ID/dataset,
 3seedconfirmation. Noall15newaccuracy/superiorityclaimyet.
+
+
+### Agent B sensitivity gate — 2026-10-28 17:49 UTC
+
+[Run/Decision/Open] Development accepted all19trial rows/152raw ZIPs/30physical
+caches; freezeCS calibratedL2rho.1,matchedC,tunedCeta=gamma.03,actualoriginal3DD.
+Development C56.7857%,CS55.3452%,original55.2381% is selection evidence only.
+New140IDs/dataset×three seeds×all15/fourheads confirmation is now running inr4
+through5314; existing19800s campaign approval unchanged. Must verify rawDrive/
+local archive plus180physical caches, exact freeze and object-cluster inference
+before any confirmatory ranking. Universal or original3DD superiority is unproven.
+See guidance_component_sensitivity_study_20261025.md for exact evidence.

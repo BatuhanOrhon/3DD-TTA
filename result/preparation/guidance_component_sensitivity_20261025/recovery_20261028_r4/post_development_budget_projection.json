@@ -1,0 +1,211 @@
+{
+  "status": "whole_campaign_reestimate_fits_approved_cap",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "spent_seconds": 7782.756118024996,
+  "cap_seconds": 19800,
+  "remaining_basis": "registered_maximum_24_jobs",
+  "conservative_max_ratio": 1.025455024723712,
+  "original_future_budget_seconds": {
+    "confirmation_per_dataset_seed": 300
+  },
+  "original_allowance_increase_seconds": 180,
+  "registered_floor_seconds": 7606.719779538006,
+  "measured_head_inclusive_seconds": 7741.187193712468,
+  "remaining_point_seconds": 7741.187193712468,
+  "margin_multiplier": 1.2,
+  "packing_retry_reserve_seconds": 1200,
+  "upper_seconds": 18272.180750479958,
+  "actual_development_elapsed_seconds": 6584.800419235,
+  "actual_development_max_ratio": 1.0012918125679848,
+  "actual_development_job_ratios": [
+    {
+      "trial": "c-step-low",
+      "dataset": "modelnet40_c",
+      "family": "chamfer",
+      "ratio": 1.0012806765839863
+    },
+    {
+      "trial": "c-step-low",
+      "dataset": "scanobjectnn_c",
+      "family": "chamfer",
+      "ratio": 0.9958006391605675
+    },
+    {
+      "trial": "c-step-high",
+      "dataset": "modelnet40_c",
+      "family": "chamfer",
+      "ratio": 1.0005721710268942
+    },
+    {
+      "trial": "c-step-high",
+      "dataset": "scanobjectnn_c",
+      "family": "chamfer",
+      "ratio": 0.9957769664325998
+    },
+    {
+      "trial": "c-eta-low",
+      "dataset": "modelnet40_c",
+      "family": "chamfer",
+      "ratio": 1.0012918125679848
+    },
+    {
+      "trial": "c-eta-low",
+      "dataset": "scanobjectnn_c",
+      "family": "chamfer",
+      "ratio": 0.9961473544049615
+    },
+    {
+      "trial": "c-p80",
+      "dataset": "modelnet40_c",
+      "family": "chamfer",
+      "ratio": 0.9989686950513305
+    },
+    {
+      "trial": "c-p80",
+      "dataset": "scanobjectnn_c",
+      "family": "chamfer",
+      "ratio": 0.9963497015637569
+    },
+    {
+      "trial": "c-p99",
+      "dataset": "modelnet40_c",
+      "family": "chamfer",
+      "ratio": 0.9994307706785697
+    },
+    {
+      "trial": "c-p99",
+      "dataset": "scanobjectnn_c",
+      "family": "chamfer",
+      "ratio": 0.9939565492834394
+    },
+    {
+      "trial": "cs-l2-r010",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 0.9708631106522526
+    },
+    {
+      "trial": "cs-l2-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 0.9685906298209582
+    },
+    {
+      "trial": "cs-l2-r100",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 0.9737415756030185
+    },
+    {
+      "trial": "cs-l2-r100",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 0.9701917506133838
+    },
+    {
+      "trial": "cs-huber-r010",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 0.9712257934663238
+    },
+    {
+      "trial": "cs-huber-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 0.970657918408202
+    },
+    {
+      "trial": "cs-power-r010",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 0.9710772958396076
+    },
+    {
+      "trial": "cs-power-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 0.9692206926596386
+    },
+    {
+      "trial": "cs-l2-r010-step-low",
+      "dataset": "modelnet40_c",
+      "family": "combined",
+      "ratio": 0.9711135227584612
+    },
+    {
+      "trial": "cs-l2-r010-step-low",
+      "dataset": "scanobjectnn_c",
+      "family": "combined",
+      "ratio": 0.9686898964046836
+    },
+    {
+      "trial": "s-l2-r010",
+      "dataset": "modelnet40_c",
+      "family": "spectral",
+      "ratio": 0.9976664690632308
+    },
+    {
+      "trial": "s-l2-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "spectral",
+      "ratio": 0.9982856299161335
+    },
+    {
+      "trial": "s-l2-r100",
+      "dataset": "modelnet40_c",
+      "family": "spectral",
+      "ratio": 0.9991630026294114
+    },
+    {
+      "trial": "s-l2-r100",
+      "dataset": "scanobjectnn_c",
+      "family": "spectral",
+      "ratio": 0.9988110239353403
+    },
+    {
+      "trial": "s-huber-r010",
+      "dataset": "modelnet40_c",
+      "family": "spectral",
+      "ratio": 0.9992948266839947
+    },
+    {
+      "trial": "s-huber-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "spectral",
+      "ratio": 0.999935143102451
+    },
+    {
+      "trial": "s-power-r010",
+      "dataset": "modelnet40_c",
+      "family": "spectral",
+      "ratio": 0.9984188502942448
+    },
+    {
+      "trial": "s-power-r010",
+      "dataset": "scanobjectnn_c",
+      "family": "spectral",
+      "ratio": 1.0000590065666835
+    },
+    {
+      "trial": "s-l2-r010-step-low",
+      "dataset": "modelnet40_c",
+      "family": "spectral",
+      "ratio": 0.998807592365185
+    },
+    {
+      "trial": "s-l2-r010-step-low",
+      "dataset": "scanobjectnn_c",
+      "family": "spectral",
+      "ratio": 0.9987186980553745
+    }
+  ],
+  "timing_review_identity": {
+    "bytes": 14188,
+    "sha256": "b51582600eb8526058e9e07c4525ba0b02c62bb605f16161242814b2b0d03828"
+  },
+  "final_ledger_identity": {
+    "bytes": 11923,
+    "sha256": "ddbaab07fa00e46fe40124ade2822842fb10aa38951ddb2dd110cb49c51c52ab"
+  },
+  "limitations": "Forecast,notguarantee. Includesactualpastspent; maximum24futurejobs even if deduplicated; oldCSfresh/cache-first andC-replay. Doubledartifactpacking uncertainty remains in20%margin and1200reserve. CPUsetup/analysis/transfer excluded as declared; scope/cap unchanged."
+}

@@ -6237,3 +6237,42 @@ reran three synthetic fixtures (0.013s), and checked Python3.8 AST; independent
 review found no material blocker. Genuine transport remains unexecuted. See
 recovery_20261028_r4/chunk_transfer_preparation.json and chunk_transfer_HANDOFF.md.
 Scientific source, trial registry, frozen-ID plan and19800s cap are unchanged.
+
+
+## Sensitivity development accepted; frozen confirmation running — 2026-10-28 17:49 UTC
+
+[Run/Code/Decision/Open] All32new development jobs completed in6584.800419s;
+post-seal cumulative campaign spent7782.756118s. Raw phase1614733520bytes SHA
+`2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8`
+was physically checked from Drive through7bounded parts and reconstructed with
+identical local SHA. Independent NumPy1 analysis accepted152raw ZIPs (128new,
+24historical),19registered trial rows,30physical dev/calibration caches and all
+source/state/ID/label/trajectory/policy guards. Raw and derived data stay separate.
+
+Development balanced all15/s5/70IDs per dataset/four heads/seed0 probability-mean
+scores: best tuned C(`c-step-high`,eta=gamma=.03)56.785714%; best spectral-containing
+CS(`cs-l2-r010`,calibratedL2rho=.1,eta=gamma=.01)55.345238%; actual original3DD
+terminal55.238095%. These are development selection scores, not confirmatory
+accuracy evidence or proof that original3DD is superior. Selected CS versus C
+adds the spectral term at matched settings; tunedC and original are distinct
+comparators. Original host/readout policy differs from GSD.
+
+The exact accepted JSON SHA f94afc83…54ed and frozen4condition JSON SHA
+ea245f8a…c360 bind spectral-candidate,matched-chamfer,tuned-chamfer,original3dd.
+Compact90496byte acceptance SHA37f528f6…61b8d passed physical Drive/local
+roundtrip and remote source/cache/freeze checks17:46:53UTC. Timing review
+includes doubled four-head cost and maximum24futurejobs: remaining7741.187194s;
+wholecampaign upper18272.180750s including20%futuremargin+1200reserve, below
+unchanged approved19800s. Actualdevmaxslowdown1.001292 is below retained1.025455.
+
+Registered confirmation submitted17:47:55UTC through solemonitor5314 in owned
+`tta-guidance-components-a100-20261028-r4`; wrapper SHAb507da40…ebe8. All15/four
+heads/new140IDs per dataset/seeds0,1,2,4frozenconditions/24jobs. First fresh-cache
+ModelNet batch is observed; actual confirmation results remain pending. No new
+GPU scope/ID/readout/trial/cap expansion, so existing Oct26 approval applies.
+No runtime teardown authorized. Next: retain all180physical new NPZs and raw
+confirmation Drive/local bytes, then object-cluster paired analysis across all
+three seeds (280objects, not840), all15/macro14 and qualified policy costs.
+Evidence under recovery_20261028_r4/local_development_analysis_v1 and
+development_local_acceptance_verification.json; actual source remains8169271
+plus sealed73d9fbe1…b37b8/manifest599b8dcb…8eef, separate from local branch HEAD.

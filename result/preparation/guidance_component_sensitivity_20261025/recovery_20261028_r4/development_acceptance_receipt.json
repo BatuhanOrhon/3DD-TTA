@@ -1,0 +1,33 @@
+{
+  "status": "accepted",
+  "confirmation_frozen": true,
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "archive": {
+    "bytes": 90496,
+    "sha256": "37f528f6604c4d1fdf9202a8307e0ae976be6242efbbaff568c3e2adab361b8d",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_development_local_acceptance_20261028T174647662009Z/agent_b_r4_development_local_acceptance.zip"
+  },
+  "raw_phase": {
+    "bytes": 1614733520,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_development_20261028T154842310440Z/sensitivity_development_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_development_20261028T154842310440Z.zip",
+    "sha256": "2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8"
+  },
+  "accepted_development": {
+    "bytes": 1053,
+    "sha256": "f94afc837e26a3ec33c8503f04cc9cfb7dafba44fd40cc19cff845eb7bad54ed"
+  },
+  "freeze": {
+    "bytes": 798,
+    "sha256": "ea245f8a75ed729463e34757328875f6d7c789983ef10bac3c0c133b0750c360"
+  },
+  "local_validation": {
+    "bytes": 5417,
+    "sha256": "09cc88c73074c8f5454521dea7bcc0ce2f51a7ca38be643630edf438fdc684b8"
+  },
+  "budget_projection": {
+    "bytes": 5570,
+    "sha256": "7aa4741bd9628fcc042067cfdd2d3fc50dd33fb54b8e06b299aee7c972110380"
+  },
+  "upper_campaign_seconds": 18272.180750479958
+}

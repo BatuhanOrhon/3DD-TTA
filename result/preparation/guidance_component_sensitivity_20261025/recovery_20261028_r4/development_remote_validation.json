@@ -1,0 +1,16 @@
+{
+  "status": "validated",
+  "stage": "development",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "spent_seconds": 7782.756118024996,
+  "output": "/content/studies/guidance-components/sensitivity_development_20261028T154842310440Z",
+  "evidence": {
+    "bytes": 1614733520,
+    "sha256": "2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8",
+    "local_path": "/content/studies/guidance-components/sensitivity_development_20261028T154842310440Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_development_20261028T154842310440Z/sensitivity_development_evidence.zip"
+  },
+  "independent_local_validation_pending": true
+}
