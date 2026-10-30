@@ -1,3 +1,11 @@
+**[User report/Decision] 2026-10-30 — Next-session literature task prepared:**
+The user requests a new agent/session to review current point-cloud TTA,
+especially forward citations of3DD-TTA, for useful guidance losses and
+accuracy/cost improvements. This turn prepares the
+[copyable research prompt](diffusion_guidance_literature_handoff_20261030.md);
+no new literature search, implementation or GPU experiment was performed.
+The completed mathematical audit and runtime closure below remain unchanged.
+
 **[Code/Run/Inference/Open] 2026-10-30 — Guidance mathematics/execution audit:**
 Sealed sources and32fixed+120newGSDconfigs match;29CPUtests pass. Smoothing was
 active as legacy raw-lambda/M800 fidelity, distinct from normalized all-mode
