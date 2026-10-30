@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-30T09:22:18.309177+00:00",
+  "scope": "CPU-only integration validation; no GPU/model accuracy rerun.",
+  "checks": {
+    "baseline": {
+      "tests": 326,
+      "seconds": 16.786,
+      "log_sha256": "9ff385d2cdda85f3ec56d6c6b8e2580e6cb15c13f860424fac9dab2cc205e0ad",
+      "status": "passed"
+    },
+    "integrated_suite": {
+      "tests": 345,
+      "seconds": 18.667,
+      "log_sha256": "cfdda643f4ac4883f7052352be49d595695790209867201269c96b6d58d2ef3f",
+      "status": "passed"
+    },
+    "calibration_fixtures": {
+      "tests": 2,
+      "seconds": 0.108,
+      "log_sha256": "bc03ae13a353545beb5a2053f28f99b943ca940d26f82f9726558dcbed102990",
+      "status": "passed"
+    },
+    "controller_fixtures": {
+      "tests": 5,
+      "seconds": 0.005,
+      "log_sha256": "42323e3a58e86c1b70470246e403250412b1f56fb1288dce101f7b2dd0a82302",
+      "status": "passed"
+    }
+  },
+  "prior_failures_resolved": [
+    "Clean base lacked two existing pinned runtime/test dependencies; restored exact bytes in bootstrap96e2eb1.",
+    "Old TTA whole-source AST identity conflicts with declared opt-in components/loss extensions; exact default numerical compatibility and historical graph bytes now checked."
+  ],
+  "artifact_fixture_limit": "Artifact-dependent analysis fixtures are custom CLI scripts requiring the sealed raw preparation bundle. Generic unittest discover in that folder is not supported; it encountered a hardcoded historical fixture import. No successful rerun of the complete archived artifact-fixture suite is claimed. Their original source/validation history remains preserved.",
+  "raw_preservation": "CSV CRLF and pinned author source bytes preserved; core.whitespace=cr-at-eol used only for whitespace validation, not normalization."
+}

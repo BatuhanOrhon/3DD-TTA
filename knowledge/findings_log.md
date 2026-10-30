@@ -6043,3 +6043,565 @@ CRC/member hashes and extracted portable validator pass. Primary/evidence
 provenance could change a missing-cell classification if additional numerical
 3DDresults or matching author assets become available; no missing value is
 inferred from another method's accuracy.
+
+## Agent B activated — 2026-10-25
+
+[User report/Code/Open] User assigned this session to Agent B. Own branch/worktree was created from committed base `4c5be0eaf0ac933923129fe26738e0db5f96744a`; original user edits and Agent A worktree remain untouched. Existing Point-MAE original-host ablations are reused as historical context, not relabeled matched B70/M800 controls. Initial fixed screen:70 label-free development IDs/dataset across15 corruptions, four arms/four heads, three readouts;70 object-disjoint IDs reserved per dataset. Exact manifests and [execution plan](../result/preparation/guidance_component_study_20261025/execution_plan.md) are prepared. Whole initial research GPU phase estimate25–45min, cap55min including smoke/screen/retries; real smoke projection gates screen. No research GPU has run; no accuracy or speed result yet. Tuning and full benchmark remain future scoped decisions. Evidence artifacts: `result/preparation/guidance_component_study_20261025/`; separate Drive root per contract.
+
+
+### Agent B CPU controls accepted — 2026-10-25
+
+[Code/Open] On own branch from `54ae61f`, opt-in C+S/C/S/U controls, strict ModelNet40/Scan15 observation/analyzer, nonprefix original-ID selections and immutable z0/h0/noise plus post-preparation RNG replay are implemented. Default combined/terminal equations and dataset coordinate contracts are preserved. Inactive graph/Chamfer/backward call counters verify genuine skipped computation in CPU fake-native tests. Component run IDs include task+arm. Final local seven-module suite passes43 tests; independent review found no blocking issue before the final run-ID test. Source checks include Python3.8 syntax and `git diff --check`. This is CPU contract evidence, not native CUDA/model accuracy. Smoke will measure encode-inclusive normal execution; development cache replay timing is separately labeled and cannot establish deployment speedup. No research GPU run yet; own runtime remains in setup. Raw CPU log: `result/preparation/guidance_component_study_20261025/local_cpu_tests.log`. GPU smoke plus physical Drive/local receipts remains the next acceptance gate.
+
+
+### Agent B ten-cell setup and phase safety accepted — 2026-10-25 13:06 UTC
+
+[Code/Run/Open] Own A100-SXM4-80GB/High-RAM session `tta-guidance-components-a100-20261025-r1`, endpoint `gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98`, completed all ten setup cells. Cell1 restart/reconnect passed; Cell2 only known fastrlock pip wheel error was deferred and Python3.8.20 verified; Drive consent was user-completed, Cell3 retry copied KNN wheel. Cell4 first CLI failed before sending setup code (kernel inventory idle); same-VM retry with REQUEST_TIMEOUT60 passed. EMD/Chamfer/PointNet++/PVCNN markers and actual GPU FPS/gather forward/backward/KNN/Chamfer/EMD checks passed. Cell10 returned status=passed for PyTorch2.1.2+cu121/CUDA12.1, data and checkpoints. No accuracy research has run.
+
+Setup ZIP56156bytes SHA`13338f05cf2fc67418911e3eafba7723a746f948ef6997aa36ee05f0acaa132a` matches actual Drive and downloaded local bytes/CRC/member identities. Local `result/preparation/guidance_component_study_20261025/setup/setup_evidence_drive_roundtrip.zip`; exact Drive path in adjacent setup_evidence_receipt.json. Current source62e9a2b plus reconstructible accepted v8 asset overlay is sealed: manifest`7012c30a...f625ed75`, source ZIP`f5bca11a...576d0c6`, delta`1646533c...07e5065c`; exact SHA/bytes in preparation_identity.json.43 tests pass from the sealed source too;32 head configurations pass CPU preview.
+
+Reviewed three task-local deployment/CPU/GPU phase scripts. Fixed controller cleanup on start-callback failure and SIGTERM, and fail-closed Drive-ledger restoration so retries cannot reset the shared3300s cap. Meaningful CPU subprocess regressions pass, including watchdog action during a blocked callback, external SIGTERM cleanup, retained123s/history and conflicting-ledger rejection. A Darwin dead-but-unreaped process-group EPERM was reproduced and corrected by reaping leaders before signaling remaining groups. Independent re-review reports no blocker. All this is CPU/control evidence; CUDA model smoke and physical result acceptance remain pending. Same monitor stays active; own runtime preserved, no peer operations or teardown. Next: sealed asset deployment/eight strict CPU loads, then the initially budgeted four-arm smoke; development needs independently accepted smoke and whole-phase projection within the cap.
+
+
+### Agent B initial GPU smoke starting — 2026-10-25 13:11 UTC
+
+[Code/Run/Open] Own sealed deployment validates637files and preserves fresh native bytes before restoring the audited four binaries. Deployment1421359bytes SHA07d769d35c38d9af490776a795bb699d24e0d88224165994649440a2eac668e7 and eight-load CPU proof24936bytes SHA2ee054d6ed9f5520177cf1e378749a7ebd1bda7e52799e7ec72c12d8f2687ffb match actual Drive/local SHA, CRC and source/native/class/checkpoint guards. PyTorch CUDA stayed uninitialized in CPU proof. Exact paths/receipts in `result/preparation/guidance_component_study_20261025/`.
+
+Begin the registered initial GPU phase in own r1 under the same single monitor: two datasets×four arms×four heads, Gaussian/Background×70fixedIDs, seed0,17,920candidate predictions expected. Smoke uses fresh encode (no paired cache) for real instrumented end-to-end timings. The prior25–45min whole smoke+development estimate and shared3300s cap include short retries; no >60min phase is authorized. Independent local smoke acceptance and updated whole-phase timing projection precede any all15/70-ID development launch. No accuracy result is accepted at launch; stop on identity/state/RNG/skip/source/receipt mismatch or budget gate. Runtime stays live; peer untouched.
+
+
+### Agent B smoke accepted; fixed development launching — 2026-10-25 13:33 UTC
+
+[Run/Code/Inference/Open] Eight smoke jobs completed: two datasets×four arms×four heads, Gaussian/Background×70 fixed IDs;32 raw head ZIPs,4480 terminal events and17920 candidate predictions. Same-run terminal/probe state/RNG/class/coverage/receipt/skip guards pass; all32 archives independently reanalyzed locally and copied byte-identically into canonical own-worktree result paths. Phase358337730bytes SHA2d05389f514d766f5d8cbbb9b590231ccccb050d41e78e6c73fe02b8dc09e2a1 matches actual Drive/local SHA/CRC. Smoke is fresh-encode, two-corruption technical/timing evidence, not full benchmark or causal cross-arm accuracy evidence.
+
+Initial controller runtime extrapolation incorrectly scaled ~19–20s fixed model startup7.5times per case, projecting67.87min development. The separately archived derived analysis counts only a conservative startup lower bound once (last-head constructor timestamp before first corruption, minus2s slack), scales all residual overhead15/2 and adds10s/case for extra input reads. Independent arithmetic agrees:40.993min expected development+8.445min smoke=49.439min active research;20% development uncertainty scenario totals57.637min. This is a projection, not a statistical bound or measured speedup. Original raw projection remains immutable in the phase archive and smoke_validation_initial.json. Derived report hash is bound by local_smoke_acceptance.zip and accepted_smoke.json. The existing3300s hard active-phase cap is unchanged; an overrun stops partial rather than silently extending. No expected>60min research phase is launched. CPU analysis, setup, idle/billing lifetime are separate from active research job-time metrics.
+
+Proceed with registered70 development IDs/dataset, all15, seed0, four arms/four heads/three readouts;96 descriptive policy rows and134400 candidate predictions expected. Exact z0/h0/noise and post-preparation RNG cache is shared between arms and must verify. Report cached-comparison cost separately from fresh-encode smoke time. Heldout IDs, tuning, seed replication and full2468/581 benchmarks remain unexecuted. Same own r1/monitor52794; peer untouched, no teardown. Local evidence: `result/preparation/guidance_component_study_20261025/{smoke_phase_receipt.json,local_smoke_analysis/,smoke_local_acceptance.zip}`; raw32 ZIPs under canonical dataset/method paths.
+
+
+## 2026-10-25 — Agent B matched fixed component development accepted
+
+[Run/Inference/Decision] On own A100,70 fixed development IDs per dataset across all15 corruptions/four frozen heads produce32 accepted raw ZIPs and96 case/policy rows. Balanced terminal/entropy/probability mean: C+S53.8690/55.2024/55.1071%, C54.4167/54.8095/55.1905%, S50.3690/52.5595/52.6190%, U50.6548/52.5714/52.8095%. C improves over U in all eight cases under each policy. Incremental spectral effect is mixed and small at this uncalibrated coefficient; no universal necessity claim. C probability mean is frozen without tuning for reserved-ID three-seed C/C+S confirmation. Its development accuracy is unresolved against C+S entropy. Fresh-encode two-corruption shared reconstruction is24.94% lower for C; development replay comparison costs are not deployment timing. Drive/local405066186byte phase archive and30 latent-cache NPZs verify exact SHA/CRC/source/state/IDs. Initial active phase34.8947min completed within55min. [Full evidence and limits](guidance_component_development_results_20261025.md). Confirmation remains unrun at this entry.
+
+
+## 2026-10-25 — Agent B frozen three-seed confirmation accepted
+
+[Run/Inference/Decision] Frozen C probability mean on70reservedobjectIDs/dataset/all15/fourheads,seeds0/1/2 averages56.8929%, versus C+S same-readout56.7222%;+0.1706pp conditional95%objectCI[-0.0397,+0.3651],6positive/2negativecases,436corrected/393harmed events. Perseed differences+0.1786/+0.1071/+0.2262pp. Secondary versus frozen C+S entropy56.6984% gives+0.1944pp CI[-0.0714,+0.4683], including negative seed1. All48rawZIPs and90physical Drive/local cache files verify. No tuning/reselection/accuracy-superiority/equivalence/generalization claim. C is the supported fixed-setting accuracy/cost candidate; spectral-only remains uncalibrated seed0development evidence. Fresh-encode smoke cost24.94% lower shared reconstruction for C; confirmation replay timings are not deployment latency. Three-seed phase41.7519min under55min, initialphase34.8947min separately retained. [Full tables, rawidentities and limitations](guidance_component_confirmation_results_20261025.md). Own runtime+monitor remainlive; full benchmark/calibration/matched70-IDsource deltas remain unrun.
+
+
+## 2026-10-25 — Agent B additional sensitivity prepared; approval pending
+
+[User report/Code/Run/Open] User requests GSD parameter/loss tests and a stronger original3DD/Chamfer comparison. Fixed prior C−C+S+0.1706ppCI[-0.0397,+0.3651] is not superiority/equivalence; GSD-Chamfer is not original3DD. Addedopt-in legacyL2/Huberδ1/truepermodepower and actualoriginalPointMAEterminal boundary, preservingdefaultmath/configs.54CPUtests/12exactconfiggroups,2calibrationautogradtests,5controllerregistrytests/selfchecks,184head-configpreviews pass. SameownA10016strictGSD/originalcheckpointloadsnoforward/noCUDA pass; physicalCPUarchive11715bytesSHAeb7af9e0c8ae2e460f6307b071538a4832e8f9c3c4c3760991dc3553b137cde3 verifies. Source8169271,manifest599b8dcb...9cd8eef/sourceZIP73d9fbe1...acb37b8 are sealed. New140IDs/dataset exclude olddevelopment+oldconfirmation;3oldbaselinesretained,15newconfigs/30datasetjobs registered,actualoriginalcontrolandfreshconfirmationconditional. WholecampaignplanSHA4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1 expects4.1934h,20%+1200sreserve5.3654h,hard5.5h. One explicitGPUbudgetapprovalrequested; noGPUcalibration/smoke/accuracyrun launched. [Design,equations,gates](guidance_component_sensitivity_study_20261025.md).
+
+
+## Explicit approval and launch — 2026-10-26
+
+[User report/Run/Open] User replied **“Tamam onaylıyorum”** to the exact
+registered whole-campaign5.5h duration request. Recorded beforeGPU at
+2026-10-26T05:53:05.669817+00:00 with planSHA
+`4f633535772d84a42e40e99b77becc60e844a3ecfbd0473678867be6109289c1`;
+nominal4.1934h/margin5.3654h/hard19800s unchanged. Approval466bytes SHA
+`2f3e2a4f9efe9bdfe6a68e1345506f96f2a2f8aff848da849959f5e6005313da`
+exists identically in own runtime and Drive, local`gpu_approval.json`.
+SameA10080GB/endpoint and16-load CPU proof reverified; free disk151784640512bytes.
+Calibration wrapper submitted through solemonitor52794; actualGPU outcome and
+raw archive pending. No new accuracy result. Preserve single cumulative ledger,
+source/identity failure stops and runtime lifecycle contract. Next: accept
+calibration evidence, then registered14-job smoke beforedevelopment.
+
+
+## Calibration preserved; unexpected runtime loss — 2026-10-26
+
+[Run/Open] Actual calibration phase state completed in155.460578s; physical
+Drive archive5,806,352bytes SHA256
+`3431f2a15e67892429fcc663b7fd2c0d6e3d93083daee078dc4b3e884d61c8f2`
+was downloaded before runtime loss and passes localSHA/ZIPCRC. The retained
+ledger records155.866607s spent and no activeworker. Report coefficients:
+legacyL2=9373.767440639811,Huber=19729.987388376365,power=13.76292805636293.
+These are gradient scale coefficients, not accuracy outcomes; independent
+2100-row calibration/parity review remains pending. PrimaryCLI stream never
+returned the exactwrappermarker; it later reported Connection was lost.
+Repeated serverinventories showed ownr1A100 absent at07:36/07:37UTC; monitor
+52794 subsequently reportsLOST. No teardown was issued. No smoke/development
+orconfirmation from this campaign ran. Localhost scheduling/sleep gaps occur;
+servertermination cause remains unknown. A bounded21600s localcaffeinate
+assertion is active to reduce idlehostsleep; it does not guarantee Colablifetime.
+
+Newr2 allocation printedREADY but later inventory/status found no suchassignment;
+no setup/researchcell was submitted. A sameA100/HighRAM r3 allocation is being
+checked. No peer/unknownCPUassignment is touched. NewVM requiresall10setupcells
+and exactnative/assets/Drive recovery before campaigncontinuation. Approved
+19800s cumulativecap and trialscope persist; never resetspenttime or rerun
+acceptedcalibration silently. Rawlocal:`calibrate_evidence_drive_roundtrip.zip`
+and`calibrate_receipt.json` under sensitivitypreparationroot.
+
+
+## Independent calibration acceptance; recovery waits for stable host — 2026-10-26
+
+[Run/Code/Open] IndependentCPU validation and rootrevalidation accept actual
+5,806,352byte calibrationarchive. Every ZIPmember/source/native/frozenLION
+binding and registeredapproval verifies. All30physical cachedNPZ files were
+rehashed and joined to accepted latent/noise/input/RNG metadata. All2100/2100
+ratios are valid for eachloss, no tiny/nonfinitepair. Recomputed globalmedians
+exactly equal L2=9373.767440639811,Huber=19729.987388376365,power=13.76292805636293.
+30/30 scalar and directcoefficientgradients are exact, RNG unchanged; native
+helperrelativeL2 maxima local0.00025963/style0.00035591 pass individualdeclared
+repeatabilityfloor/caprules. These are first-stepgradientcalibrationresults,
+not accuracy evidence or fulltrajectoryequivalence. Rawreport99029bytes SHA
+`82ebc1fdb2784a0663968a20d46909e3020e127310f237971382c78c40e211e0`.
+Local`calibration_local_acceptance.json`, `calibration_root_revalidation.json`,
+`validate_calibration_local.py` retain independentchecks. No GPU repeat needed.
+Post-seal ledger downloaded beforeloss preserves155.866606843s spent; archive
+ledger155.460578268s is the earlierpre-seal snapshot. Use the largerknowncost.
+
+[Run/Open] r3A100HighRAM was actualserver-verified at10:06UTC, endpoint
+`gpu-a100-hm-euw4a0-ws8p7xzfs0gu`, solemonitor9752. Cell1installedConda and
+restarted; primaryCLI laterlostconnection, serverinventory at10:42UTC showed
+noA100. No reconnect or cell2+ passed; freshsetup is incomplete. r2also
+vanished beforeanysetupcell. At11:06UTC server reportedzero activeassignments;
+no runtime was stopped bythisagent. Bothmonitorprocesses remainrunning/LOST;
+no activeevaluationworker. No smoke/development/confirmationaccuracy exists.
+
+[Run/Inference/Open] `recovery_20261026/host_sleep_evidence.txt` retains161
+Macsleep/wakeevents today, including longMaintenancesleep/deepidle onbattery
+duringCLIstreamgaps. Local21600s caffeinate-i assertion didnotpreventthese
+sleeps. This establishesinterruptedlocal supervision, not the server'scause
+oftermination. Repeatedallocation alone is not a soundrecovery. An asynchronous
+question now asksuser toconfirmMacawake/stable beforeanotherallocation;
+existing5.5hGPUbudgetapproval staysvalid and is NOT beingrequestedagain.
+Oncehoststable: allocate sameA100HighRAM, replayall10setupcells, exactpinned
+native/assets/DriveCPUproof, restoreacceptedcalibration andspentledger with
+explicitmigrationprovenance; then registered14-jobsmoke. Do nottouchunknown
+orpeerassignments. Fullscopeandhardcap19800s remain unchanged.
+
+
+## User-directed recovery r4 — 2026-10-28
+
+[User report/Run/Open] User directs “Yeni oturum açıp çalışmaya devam et”.
+Existing whole-campaign approval/cap19800s and spent155.866607s remain binding.
+Server inventory initially0active; new ownA100HighRAM session
+`tta-guidance-components-a100-20261028-r4`, endpoint
+`gpu-a100-hm-euw4a0-3s9zrjduwd03k`, actualA100-SXM4-80GB/175166460kBRAM
+verified. Solemonitor execsession5314; bounded21600s localhost-awake assertion
+execsession85660. These supervise legitimatework and do not guaranteeVMlifetime.
+Canonicaltennotebookcells unchanged; receipt-onlysessionliteral adapted in
+newsetupwrappers under`recovery_20261028_r4/setup`. Cell1ranseparately, restarted,
+and sameVMreconnectexactmarker passed13:21:02UTC. Cell2environment creation
+submitted13:21:20UTC. No researchGPU or newaccuracytest yet.
+
+Next: finishcells2–10 (onlyknownfastrlockfailuredeferred), mountDrive through
+CLI/userconsent ifrequested, exactpinnedassets/native restore and freshCPUproof,
+explicitplan/session/ledger migration preservingacceptedcalibrationbytes and
+approvedscope/spenttime, then14-jobsmoke. No teardown authorization.
+
+
+[Run/Code/Open] r4cell2 createdPython3.8.20 and failedonlyatknownfastrlockwheel;
+explicitdefer remainsapplicable. Independentenvironmentmarker passed13:29:11UTC.
+Cell3Drive/KNN submitted13:30:04UTC. Ownership-onlycontinuationplanSHA
+`1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42`,
+controllerSHA`0095e5af256f4fb980f2666b089b86c7b126bad3994506054cf2f43b9ed2a3fc`;
+changesonlysession/ledgerownership andstrengthenedacceptedreport/spentfloor
+guards. Sealedassets/source/IDs/objectives/trials/readouts/capunchanged.
+TwoCPU migrationtests, controller selfcheck andPython3.8syntaxpass.
+Fresh8+16CPUproofs and actualDrive/recoveryinstallation remainpending.
+No newresearchGPUexecuted andnoaccuracyclaimed.
+
+
+[Run/User action required/Open] r4cell3 firstattempt failed`ValueError:mountfailed`
+at13:32:07UTC (exactmarkerabsent). TTYCLI`colab drivemount` execsession37218
+received actualDriveOAuthrequest for ownendpoint; actualGoogleconsentscreen
+opened inuserbrowser andasynchronousquestionasksuser tocompleteauthorization.
+Noaccountpermissionclickedbyagent; noauthURI/tokeniscopiedtorepository.
+Solemonitor5314remainsrunning, withprobesinhibitedafterfailedcell3; nosecond
+notebookcellwillbesubmittedwhilemountautomationwaits. Thisisinteractive
+accountconsent, notnewGPUbudgetapproval. Runtimepreserved/liveatlastinventory.
+Nextafteruserconfirms: sendnewline to37218, requiremountsuccess, reruncell3
+andverifyDrive/KNN; thencells4–10inorder. ResearchGPUstillnotstarted.
+
+
+[Code/CPU/Open] r4localanalysis preparation isready. Sharedhelper nowaccepts
+explicitmigratedplan+hash whileoriginalcalibration isverifiedagainstitsown
+oldplan/session/archive/report/acceptance; seed0defaultsretained, registered
+seed1/2 andseed-specificpreparationpairingvalidated. Confirmationanalyzer
+requiresactual140-IDlabels, 180physicalcaches, exactdevelopmentfreeze and
+280objectclusters jointlyacrossseeds. Root9CPUchecks pass0.172s, previous5
+fixturechecks0.033s, selfcheck+Python3.8ASTpass; actualmigratedplan+original
+calibrationingestionpasses. Noactualnewsmoke/dev/confirmationdataexists, so
+thoseacceptancepathsremainunverified. ModelNetfullsealedlabel.npy mustbe
+downloadedaftercell9; Scanlabelsareinassets. Source, checksandCLIhandoffunder
+`result/preparation/guidance_component_sensitivity_20261025/`; nosealed
+researchconsumer/source/objectivechange. R4stillawaitsactualDriveuserconsent
+inTTY37218; asyncquestionpending. No newGPUapprovalrequest oraccuracyresult.
+
+
+## Drive consent completed; same r4 resumes — 2026-10-28
+
+[User report/Run/Open] User says “Başla”, then explicitlyconfirms
+“Drive erişim iznini tamamladım”. OldmountTTY37218exitedwithtimeout after
+itslongwait; remote2kernelswereidle andDriveMyDrive404, so no duplicateactive
+cellwasstarted. SameVMnewmountTTY57259receivedactualfreshconsent; usercompleted
+it, CLIreportedCredentialspropagated and`Mounted at /content/drive`, exit0.
+Cell3retry submitted14:37:23UTC viaunchangedsolemonitor5314; markerpending.
+Accountpermissionwasuser-operated; existingGPUbudgetapprovalunchanged.
+No researchaccuracyrun yet. Next: acceptcell3Drive/KNN andrun4–10inorder,
+exactpinnedassets/freshCPUproofs, installreviewedownership-onlyrecovery,
+thenregistered14-jobsmoke. Oldcalibrationand155.866607sspentremainbinding.
+
+
+[Code/CPU/Run/Open] Independentanalysisreviewfoundtwofutureacceptanceblockers:
+ledgerkey`resolved`vsproducer`resolved_model_config`, andNumPy2pickleRNGmodule
+spellingdiffersfromremoteNumPy1. Both reproducedbeforefix: actualcontracttest
+failed; genuinecachehashmismatchfirstfile, independentreview0/30. Fixedexact
+producerfield; isolatedCPUanalysisPython3.10.18+NumPy1.21.6 nowmatches30/30
+genuineoldcacheRNGhashes, withoutrewritingrawbytesorweakeningchecks. Explicit
+NumPy1guardpreventsfalsecorruptionreports. Full11CPUtestspass(.292sNP1,
+.168sNP2unsupportedguard). GPUconsumer/source/manifest/planunchanged.
+Actualconfirmationacceptanceisstillunexecuted. Seeanalysis_environment.json
+andanalysis_review_fixes.json under recovery_20261028_r4.
+
+[Run/Open] r4EMDpassed14:53:16UTC,Chamfer14:55:21,PointNet++14:59:47, each
+withdiskmarker+physicalDriveprogressreceiptchecks. Cell8PVCNN/nativeGPUchecks
+submitted15:00:39UTC via5314. Dataset/checkpoints/setup10 andfreshCPUproofs
+remainpending; no newresearchaccuracyrun.
+
+
+## Accepted r4 recovery; registered GPU smoke launches — 2026-10-28
+
+[Run/Code/Open] All10canonicalsetupcellspassed (onlyknowncell2fastrlock
+deferred). ActualA10080GB,PyTorch2.1.2cu121/CUDA12.1/NumPy1.21.2/nativeGPU
+operations,ModelNetall15andcheckpointsverify. Setup56157byteDrive/localZIP
+SHA`924076c28b64af0c1b121703cacbf55fa8400a92e6c8deb0925d4015fcb2a517`,
+637filedeployment1421391bytesSHA`ee84885876c9008dc6b9a66ddc072f3fe92b6d1b1a185141832fa089b85f7c57`,
+8-headCPU24937bytesSHA`3058021bb9b91f7d517eece7899a11dcf244cf60f16ac42f12d207901032bd50`,
+16-loadCPU11716bytesSHA`d90e6308a985e4a25b85ff9c99d15b82ff11c76db7e94be2e5ced5c898172e9f`
+allactualDrive/localSHA,CRC,source/stateverify. Freshnativebyteswerepreserved
+beforeexactaudited4binaryrestore; nohiddenfresh-buildparityclaim.
+
+Recovery11845364bytesSHA`03c86fa0bfc15a84abe7b0e7d845b96d9f9f004816262f54655372b3b3bd954d`
+passedindependentlocal32membermanifest/CRC/plan/statechecks. Oldcalibration
+reportbytes/sessionretained,30actualdevelopmentNPZsrestoredfromDrive;
+post-seal155.866606843sspent/historycarried. Newownershipplan14033563…c4d42,
+consumer8169271/source73d9fbe1…b37b8/manifest599b8dcb…8eef unchanged.
+No newGPUapprovalneededforunchangedscopeand19800scap.
+
+Registered14jobGPUtechnicalsmoke now submittedthroughsolemonitor5314 in
+`tta-guidance-components-a100-20261028-r4`:7conditions×2datasets,Gaussian/
+Background,70fixedIDs/dataset,4heads,seed0; freshdistinctsmokecachenamespace.
+WrapperSHA`539b14b2fb540f0de44b73eb4d14f53cb84787090e8f16f8019f06eee52fed30`.
+Actualsuccess/accuracy/rawarchivepending. Completionneedsexactdirectmarkers,
+physicalDrive/localevidence+cachebytes, independentanalysis andmeasured
+wholecampaignprojectionbeforedevelopment. Localbounded21600sawakeprocess
+64591supportsCLI supervision; noVMlifetimeguarantee/teardownauthorization.
+
+
+## Sensitivity smoke independently accepted; development running — 2026-10-28
+
+[Run/Code/Open] All14registeredtechnicaljobs completed in916.655641s;
+post-sealwholecampaignspent1105.891987s includingoldacceptedcalibration.
+Bothdatasets/Gaussian+Background/70developmentIDs/fourheads/seed0,7conditions
+(C/CS/Sbase,calibratedCSL2/Huber/power,actualoriginal3DD) yield56rawZIPs.
+Rawphase627301980bytesSHA`523c2e634d6af682157b4e1e3e597e3173523c067b777a77d1d2e3243128fad3`
+and4physicalcacheNPZcollection17198671bytesSHA
+`7bdd9ba956c742fc8b57795cb14768a69f9ffd38c9069069ab581d16db5857a3`
+matchactualDrive/localbytes. Independentlocalanalyzeracceptsall56rawsource/
+config/checkpoint/state/ID/label/trajectory/pairing/receiptguards,all4physical
+newcachesand30oldcalibrationcaches; rootNP1reconstructsall4newRNGhashes.
+Technicaltwo-corruptionresultsarenotall15ranking/finalaccuracyproof.
+
+Localacceptance37355bytesSHA
+`f285c4e5e32c5d5b4e910a0cdbbdc1d1c9c1d85e18272bb03e85d0eb6041c74e`
+physicallyDrive/localroundtripverified; ROOT/accepted_sensitivity_smoke.json
+passedcurrentplan/Drive/cumulativeledgergates15:48:13UTC. Conservative
+post-smokeprojectionusesmaxmeasurednew/oldjobratio1.025455,20%margin,1200s
+reserveandincreasedoriginalfutureallowances200s/devdataset,300s/confirmation
+datasetseed. Upper19743.614653s=5.48434h fitsunchanged19800scap; thisis
+anestimate,notruntimeguarantee. Recheckafterdevelopment/freeze.
+
+Registered32-jobdevelopment submitted15:48:34UTC viaownr4/solemonitor5314.
+30newGSDdatasetjobs(5newsettingsperfamily×2datasets),2actualoriginalcontrols,
+all15/s570IDs/dataset/4heads/seed0;3baselinesreusedonlywithdeclaredparity.
+FirstC-step-lowModelNetjobhasproducedseveralcorruptionreceiptsusingoldpaired
+preparations. Actualdevelopmentacceptance/ranking/freezeand140-IDthree-seed
+confirmationremainpending. NoGPUscope/trial/readout/source/ID/capexpansion.
+
+
+[Code/CPU/Open] Futureconfirmation180NPZcollector preparedbyadaptingexisting
+artifactworkflow, sourceSHA`694f55a0e138c3d6af34be4f92ef5e44c8b3ac88537ef22aa90efb9e11d15c4f`.
+Itrequirescompletedconfirmation/inactiveledger/exactfreezeand180unique
+source+Drivecachepaths, neverGPUrecalculation. ThreeCPUfixturespass0.105s,
+Python3.8syntaxchecked. Actualcollectionunexecuted; actualconfirmationoutputs
+do notexist yet. Source/test/handoff underrecovery_20261028_r4.
+
+
+### Development acceptance preparation — 2026-10-28 16:51 UTC
+
+[Code/CPU/Open] The CPU acceptance/freeze template is prepared and independently
+reviewed (SHA8366ab2e…158ff6); root reran its three synthetic fixture tests, all
+passed in0.004s. It cannot execute until bound to a genuine accepted development
+package. Gates retain32new jobs/152raw ZIPs/19trial rows/30physical caches,
+source/history separation, exact freeze binding, immutable Drive evidence and
+the conservative maximum24-job confirmation budget under19800s. Independent
+read-only review also accepted24 genuine old ZIPs/30physical caches and checked
+all72 possible freeze pairs using synthetic scores (12three-condition,60four).
+Evidence: recovery_20261028_r4/development_acceptance_preparation.json plus
+source/tests/handoff and development_review_check_development.py/stdout.json.
+The GPU development phase is still running; no new ranking, winner or accuracy
+claim is established. Next: genuine completed archive acceptance, frozen choices
+and measured budget gate before the existing confirmation wrapper.
+
+
+### Bounded-memory artifact transport prepared — 2026-10-28 17:17 UTC
+
+[Code/CPU/Open] Localhost has16GiB RAM; installed ColabCLI0.7.4 download loads
+the entire base64 JSON response. Genuine smoke archive sizes project about4.7GiB
+of development raw ZIPs, so direct whole-archive retrieval risks excess memory.
+Prepared a CPU phase to stream the completed immutable Drive ZIP into<=256MiB
+transport parts and a local joiner requiring exact original receipt/plan/session,
+part SHA/order/offset/coverage and aggregate original SHA. Originals stay intact.
+Source SHA d3550929…62723 (split),667deec2…8773 (join). Root reviewed source,
+reran three synthetic fixtures (0.013s), and checked Python3.8 AST; independent
+review found no material blocker. Genuine transport remains unexecuted. See
+recovery_20261028_r4/chunk_transfer_preparation.json and chunk_transfer_HANDOFF.md.
+Scientific source, trial registry, frozen-ID plan and19800s cap are unchanged.
+
+
+## Sensitivity development accepted; frozen confirmation running — 2026-10-28 17:49 UTC
+
+[Run/Code/Decision/Open] All32new development jobs completed in6584.800419s;
+post-seal cumulative campaign spent7782.756118s. Raw phase1614733520bytes SHA
+`2c4424e3cf017b8c1da99e77eb233fddb6c1d472efeb5df9552fd7b3c74fdea8`
+was physically checked from Drive through7bounded parts and reconstructed with
+identical local SHA. Independent NumPy1 analysis accepted152raw ZIPs (128new,
+24historical),19registered trial rows,30physical dev/calibration caches and all
+source/state/ID/label/trajectory/policy guards. Raw and derived data stay separate.
+
+Development balanced all15/s5/70IDs per dataset/four heads/seed0 probability-mean
+scores: best tuned C(`c-step-high`,eta=gamma=.03)56.785714%; best spectral-containing
+CS(`cs-l2-r010`,calibratedL2rho=.1,eta=gamma=.01)55.345238%; actual original3DD
+terminal55.238095%. These are development selection scores, not confirmatory
+accuracy evidence or proof that original3DD is superior. Selected CS versus C
+adds the spectral term at matched settings; tunedC and original are distinct
+comparators. Original host/readout policy differs from GSD.
+
+The exact accepted JSON SHA f94afc83…54ed and frozen4condition JSON SHA
+ea245f8a…c360 bind spectral-candidate,matched-chamfer,tuned-chamfer,original3dd.
+Compact90496byte acceptance SHA37f528f6…61b8d passed physical Drive/local
+roundtrip and remote source/cache/freeze checks17:46:53UTC. Timing review
+includes doubled four-head cost and maximum24futurejobs: remaining7741.187194s;
+wholecampaign upper18272.180750s including20%futuremargin+1200reserve, below
+unchanged approved19800s. Actualdevmaxslowdown1.001292 is below retained1.025455.
+
+Registered confirmation submitted17:47:55UTC through solemonitor5314 in owned
+`tta-guidance-components-a100-20261028-r4`; wrapper SHAb507da40…ebe8. All15/four
+heads/new140IDs per dataset/seeds0,1,2,4frozenconditions/24jobs. First fresh-cache
+ModelNet batch is observed; actual confirmation results remain pending. No new
+GPU scope/ID/readout/trial/cap expansion, so existing Oct26 approval applies.
+No runtime teardown authorized. Next: retain all180physical new NPZs and raw
+confirmation Drive/local bytes, then object-cluster paired analysis across all
+three seeds (280objects, not840), all15/macro14 and qualified policy costs.
+Evidence under recovery_20261028_r4/local_development_analysis_v1 and
+development_local_acceptance_verification.json; actual source remains8169271
+plus sealed73d9fbe1…b37b8/manifest599b8dcb…8eef, separate from local branch HEAD.
+
+
+[Run/Open] 2026-10-28 18:28UTC: frozen confirmation seed0 completed all8jobs
+(fourconditions×two datasets); seed1 spectral-candidate ModelNet is now active.
+No partial accuracy ranking has been selected or used to modify the freeze.
+Ledger retained locally as recovery_20261028_r4/confirmation_live_ledger_seed0_end.json;
+all per-corruption/final worker receipts remain on owned Drive. Solemonitor5314
+and bounded host-awake support remain active. Seeds1/2 and independent final
+96ZIP/180physical-cache acceptance are pending; no new superiority claim.
+
+
+[Code/CPU/Open] 2026-10-28 18:49UTC: final confirmation acceptance template
+prepared (SHAc6a4456a…3312), using actual analyzer/collector metadata schema.
+Root read source, reran three synthetic guard fixtures (0.025s), checkedPy3.8
+syntax; independent review found no blocker and confirmed the final exclusive-write
+delta by reversing it to reproduce the previously reviewed source hash. The CPU-only phase
+requires genuine accepted24-job/96-ZIP/180-cache/280-object results, exact frozen
+development/calibration/source bindings, original Drive raw/cache bytes and an
+inactive under-cap ledger. No estimator rerun, tuning, result selection or GPU
+operation; package identity is unbound until actual final local analysis passes.
+Source/tests/handoff and final_acceptance_preparation.json are inrecovery_20261028_r4.
+Actual confirmation remains running; final binding/acceptance is unexecuted.
+
+
+[Run/Open] 2026-10-28 19:09UTC: confirmation seeds0and1 completed all16jobs;
+third/final seed2 is now running, starting spectral-candidate ModelNet. Actual
+cumulative campaign spent12571.930780s at this boundary, below19800s cap; no
+configuration/readout/trial change or partial-score-based decision. Local ledger:
+recovery_20261028_r4/confirmation_live_ledger_seed1_end.json. Allremaining8jobs,
+96rawZIP/180physicalNPZ final acceptance and object-cluster analysis remain
+pending. Same ownedA100/solemonitor5314/host-awake support are preserved.
+
+
+## Confirmation numeric failure; reviewed recovery preparation — 2026-10-28 19:43 UTC
+
+[Run/Code/Open] Registeredslot20 (tunedC`c-step-high`,ModelNet,seed2,eta=gamma=.03)
+failed19:32:22UTC with`ValueError: Classifier input contains nonfinite XYZ coordinates`.
+Uniform/Gaussian both70-batches and Backgroundbatch0 completed; the failure is
+in Backgroundbatch1 (selectedpositions70–139), during a clean trajectory decode
+probe before classification. ModelNet/DGCNN preprocessing usesFPS with no
+normalization. Existing logs do not identify the exact first invalid tensor or
+original object; no unsupported detailed causal claim. Other source/state/data/
+native/RNG mismatch is not reported. No numerical clipping/fallback/parameter
+change or rerun was made. The finite-input guard correctly stopped the worker.
+
+20registeredjobs complete,slot20partial(status`running` retained in immutable
+producer state, overallattempt`failed`),slots21–23unrun. Raw failed phase
+1159246521bytes SHA`f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e`
+sealed on Drive19:33:34UTC; local raw roundtrip pending. Exact failedreceipt
+SHA5ab88805…9754,post-sealfailedledger60c8ba55…736b retains14114.660198s spent.
+No complete wrapper marker or confirmation validation exists; previous running
+headlines are superseded by this failure. Runtime andsolemonitor5314remain live.
+
+Independent policy review permits a separately reviewed new-output continuation
+of onlyUNRUN21(tunedC/Scan/seed2),22–23(originalMN/Scan/seed2), keeping failed20
+failed, immutable archives/freeze/source and one cumulative19800s cap. Conservative
+upper16384.444877s includes891.487232s futurework,20%margin and1200reserve.
+No continuation GPU has started: first preserve physical raw failedattempt+all180
+cachebytes; source/native/data/state/RNG/receipt mismatch remains a stop condition.
+The original complete-only controller/analyzer/templates stay unchanged and may
+not accept this as complete four-condition confirmation. Prepare separate
+failure-aware analysis: candidate vs matchedC already has all3seeds; candidate
+vsoriginal requires the two unrun original jobs. TunedC's three-seed balanced
+endpoint remains unavailable; no dropping the failedcase, two-seed primary
+average, setting substitution or hidden failed-slot replacement.
+Exact local evidence: recovery_20261028_r4/confirmation_failed_receipt.json,
+confirmation_failed_ledger.json,confirmation_failed_job020.log and
+confirmation_numeric_failure_diagnosis.json. The numerical failure is research
+evidence, not proof of either method's universal superiority.
+
+
+## Failure preserved; reviewed unrun-only continuation active — 2026-10-28 20:12 UTC
+
+[Run/Code/Open] Failedraw1159246521B/f5868702…be5e physicallydownloaded through
+5boundedparts and recombined with identicalSHA. Failure/cacheproof774792352B
+SHA2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898 matches
+actualDrive/localbytes,190memberSHA/CRC and180physicalNPZ extraction. Remote
+CPU verification checked all180input/latent/noise/post-RNG hashes underPy3.8/
+NumPy1.21.2/Torch2.1.2 withCUDAuninitialized before/after. Scoped to20completed
+workers plus180preparations; failedslot20 remains unvalidated for accuracy.
+Allfourfailedrawconfigs also matchknownnumericstack and unchangedclassifier/
+LIONstates, without audit-error flags. No source or scientificparameter changed.
+
+Reviewedremaining-onlyplan2362B SHA13ff25249aec97eafd6c1fb6db33cd5e3d8462b79331a7cfdfba0e4a06540f6c
+binds actual2900B preservationreceipt866135f4…486a and sourcewrapperac5bb60d…9931/
+runner eb44e15a…0b09d. Onlyslots21–23; failed20excluded. Native no-build
+bootstrap omission was found by review beforelaunch, fixed with targeted
+RED→GREEN regression; root8fixturespassed0.196s and independentdelta review
+accepted. Originalscientificcontroller/plan/freeze/failedarchive stayunchanged.
+NewCPUpreflight actuallyloaded12strictselectedheadconfigs withoutforward/CUDA
+andcheckedsource/data/checkpoint/nativeidentities; downloadedproofSHAd64cc5af…4ef8.
+
+Operatorwrapper submitted20:05:33UTC via5314; freshCPUproof passed and first
+remainingGPUworker began20:06:42UTC in newimmutableROOT/Driveoutput
+`sensitivity_confirmation_remaining_20261028T200610144036Z`. Slot21(tunedC/Scan/
+seed2)completed; slot22(originalMN/seed2)nowruns, then23(originalScan/seed2).
+Nofailed-slotretry, resultreplacement orwholefour-condition-complete claim.
+Conservativewholecampaignupper16384.444877s retains existing19800scap; original
+failedledger/history and postsealspent14114.660198s formthepreservedprefix.
+
+[Code/Open] Separatefailure-awareanalysis is beingvalidated. A rawZIPprefix
+I/Obug was found before scoring and confined to newadapter Bundle normalization.
+Failedraws omit onlydynamicexecutedsourceinventory entryshared_trajectory.py;
+allotherrequiredentriesmatch. Rootverifiedall4 embeddedwhole sourceZIPs exactly
+73d9fbe1…b37b8 and member6524B/dce0e8b2…f2fcda plusknowntracepaths. Explicit
+failed-provenance-only recovery may retainthisone missingentry fromexactarchived
+bytes, withmissingoriginalkey/recoveryproof recorded; anywrongbytes orother
+missingentry stops. Rawbytes/status andcomplete-onlyguards stayunchanged. No
+failedprefixaccuracy accepted, no estimatormath/readout change.
+Localproofs: failure_preservation_receipt.json,failure_preservation_local_validation.json,
+failed_worker_partial_metadata_local_validation.json and
+failed_shared_trajectory_source_inventory_proof.json underrecovery_20261028_r4.
+Finalremainingarchive/postsealledger/failure-aware independentanalysis and
+Drive/localpartialacceptance remainpending.
+
+
+## Sensitivity campaign accepted with explicit numerical failure — 2026-10-28 20:35 UTC
+
+[Run/Decision/Inference] All24registeredconfirmation slotsare recorded:23complete,
+failed20retained; reviewed21–23allpassed. Independentfailure-awareanalysisaccepts
+92full+4failedZIPs,180physicalNPZs and280objectclusters. Originalterminal53.763889%,
+matchedCprobmean53.013889%,CS-L2rho.1probmean52.962302%. Original−CS+.801587pp,
+conditional95%CI[+.148760,+1.557589]; wholepolicy/host/readoutcomparison,5/8cases.
+MatchedC−CS+.051587pp,CI[-.125,+.234127]crosses0; noisolatedCDsuperiority/equivalence.
+TunedCthree-seedendpointnullbecauseoneModelNetseed2Backgroundprobe numerical
+failure; no2seedmean/sampledrop/replacement. No universalwinnerclaim.
+
+Actualpartialacceptancebinder722266B/dc5b854e…68df storedonfreshDrive and
+physicallydownloaded withsameSHA/CRC/analysisbytes. Statusaccepted_partial_confirmation_with_numerical_failure,
+notfullfour-conditioncomplete. Finalpostsealspent14836.554263s<19800s. Original
+failedrawf5868702…be5e,remaining7b676a7b…ccd6d,cacheproof2a003500…b898 remainimmutable.
+AllplannedGPUworkrecorded; runtime+5314preservedwithoutteardownauthorization.
+Cleanresults,percasevalues,source/coverage/failure/CIlimits andexactproofpaths:
+knowledge/guidance_component_sensitivity_results_20261028.md and
+recovery_20261028_r4/final_local_verification.json.
+
+
+## Agent B runtime closed after accepted campaign — 2026-10-29 local / 2026-10-28 22:04 UTC
+
+[User report/Run/Decision] The user authorized closing the completed campaign and
+recording its results: “Colab oturumu kapatıp sonuçları knowledge dosyalarına
+ekleyebilirsin”. Monitor5314 exited0 at22:02:52.511932UTC, then the explicit CLI
+stop targeted `tta-guidance-components-a100-20261028-r4` (A100 High RAM,
+endpoint `gpu-a100-hm-euw4a0-3s9zrjduwd03k`). A fresh server inventory by22:04:19UTC
+returned `No active sessions found on server.` The exact server release timestamp
+is not available. Four existing Drive-roundtrip archives were rehashed locally
+before teardown; all bytes/SHA-256 matched `final_local_verification.json`.
+
+Accepted scientific status remains `accepted_partial_confirmation_with_numerical_failure`:
+23 successful jobs plus preserved numerical failure20. No retry, replacement,
+new GPU work or changed metric/inference occurred during closure. Campaign time
+remains14836.554263s under the19800s approved cap. Original whole-policy mean
+53.763889% versus C+S52.962302% does not establish universal or isolated-loss
+Chamfer superiority; the matched C−CS interval still crosses zero. No scheduled
+GPU work remains. This entry supersedes prior live-runtime/monitor statements;
+future generalization or failure diagnosis remains separately scoped.
+
+[Accepted results](guidance_component_sensitivity_results_20261028.md) ·
+[Closure evidence](../result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/runtime_closure_20261029.json). Scientific source remains
+`8169271c9058995e8dc128062848a253baa13f10` plus the unchanged sealed snapshot;
+closure documentation starts from operator HEAD `03416e8`.
+
+
+## Agent B executed guidance/math audit — 2026-10-30
+
+[User report/Code/Run/Inference/Open] Before the user's method decision, audited
+sealed fixed/sensitivity sources,32fixed+120newGSD head configs/576source bindings;
+29CPUregression/property tests pass. Beta2 smoothing is active, but uses restored
+raw-eigenvalue/hardM800 legacy fidelity, not September normalized full-spectrum
+smooth or full GSDTTA. No detached-gradient/transpose/missing-IGFT explanation found.
+Known self-only isolation defect persists; six actual cached-object CPU graph
+replays find one missed node in Scan/Gaussian, not CUDA prevalence or accuracy
+causality. Prior full offdiag control did not improve mean accuracy.
+S−U probabilitymean=-.190476pp,CI[-.535714,+.143155],single-seed development;
+best calibrated S52.880952% slightly exceeds U52.809524% on that same cohort.
+Final confirmation has no standaloneS/U arms. Historical normalized S>U+.1576pp
+is preserved with its build/draw confounds; broad combined gains include SCD.
+Latest grid fixes beta/M/graph and cannot reject all spectral formulations;
+earlier beta/M studies also retain their null/negative findings. Existing
+23pass/1numericfailure acceptance and all raw scores remain unchanged.
+No production edit/newGPU/runtime allocation. User method decision is next;
+no new experiment scheduled. [Full audit and evidence](guidance_mathematics_execution_audit_20261030.md).
+
+
+## Next-agent literature handoff prepared — 2026-10-30
+
+[User report/Decision/Open] User will open a separate session/agent for current
+3Dpoint-cloudTTA literature and forward citations of3DD-TTA, seeking improved
+loss/guidance/readout or accuracy/cost tradeoffs. Prepared
+[copyable prompt](diffusion_guidance_literature_handoff_20261030.md) with current
+AgentBworktree/source references, accepted results, attribution and no-new-GPU
+scope. This is handoff preparation, not a completed search or new method result.
+
+
+## Shared thesis integration and Agent B selected outcome — 2026-10-30
+
+[User report/Code/Run/Decision] User authorizes necessary completed agent work
+on origin/thesis-integration, preserving main/upstream and peer/user edits.
+Selective Agent B import retains code/tests, accepted reports, compact evidence,
+negative/null outcomes and the tuned-C numerical failure. Operational dumps
+remain on its source branch. Integrated345CPUtests and7extrafixtures pass;
+no GPU/model rerun. See [scope/manifest/limits](thesis_integration_agent_b_20261030.md)
+and [standing publication prompt](thesis_integration_workflow_20261030.md).

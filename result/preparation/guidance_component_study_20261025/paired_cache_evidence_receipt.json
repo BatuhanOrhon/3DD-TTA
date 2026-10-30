@@ -1,0 +1,12 @@
+{
+  "status": "verified",
+  "session": "tta-guidance-components-a100-20261025-r1",
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "cache_count": 30,
+  "archive": {
+    "bytes": 128993199,
+    "sha256": "2eee44c204d556e028ed3e9be15580b38e5ea688806bd2915280b0068d7bf3e8",
+    "local_path": "/content/studies/guidance-components/paired_cache_evidence_20261025T140108290998Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/paired_cache_evidence_20261025T140108290998Z/paired_cache_evidence.zip"
+  }
+}

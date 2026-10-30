@@ -1,0 +1,48 @@
+{
+  "status": "partial_failed_provenance_only_source_inventory_recovered_from_snapshot",
+  "heads": [
+    {
+      "backbone": "dgcnn",
+      "original_inventory_key_missing": "assets/source_snapshot/shared_trajectory.py",
+      "whole_embedded_source_zip_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+      "recovered_member": {
+        "bytes": 6524,
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "traceback_includes_expected_module_path": true
+    },
+    {
+      "backbone": "curvenet",
+      "original_inventory_key_missing": "assets/source_snapshot/shared_trajectory.py",
+      "whole_embedded_source_zip_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+      "recovered_member": {
+        "bytes": 6524,
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "traceback_includes_expected_module_path": true
+    },
+    {
+      "backbone": "pointnext",
+      "original_inventory_key_missing": "assets/source_snapshot/shared_trajectory.py",
+      "whole_embedded_source_zip_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+      "recovered_member": {
+        "bytes": 6524,
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "traceback_includes_expected_module_path": true
+    },
+    {
+      "backbone": "pointmae",
+      "original_inventory_key_missing": "assets/source_snapshot/shared_trajectory.py",
+      "whole_embedded_source_zip_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+      "recovered_member": {
+        "bytes": 6524,
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "traceback_includes_expected_module_path": true
+    }
+  ],
+  "raw_bytes_modified": false,
+  "accuracy_accepted": false,
+  "limits": "Onlythismissinginventorykey; allsourcebytehashmismatchesorothermissingkeysarestops. Completeonlyguardsunchanged."
+}

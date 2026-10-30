@@ -1,0 +1,2101 @@
+{
+  "aligned_original_ids_labels": true,
+  "balanced": [
+    {
+      "accuracy_pct": 54.88095238095238,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 54.88095238095238,
+      "per_seed_min_accuracy_pct": 54.88095238095238,
+      "policy": "terminal",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.13095238095238,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.13095238095238,
+      "per_seed_min_accuracy_pct": 55.13095238095238,
+      "policy": "terminal",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 55.32142857142857,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.32142857142857,
+      "per_seed_min_accuracy_pct": 55.32142857142857,
+      "policy": "terminal",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.11111111111111,
+      "aggregation": "three_seed_mean",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.32142857142857,
+      "per_seed_min_accuracy_pct": 54.88095238095238,
+      "policy": "terminal",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 56.654761904761905,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.7738095238095244,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.654761904761905,
+      "per_seed_min_accuracy_pct": 56.654761904761905,
+      "policy": "minimum_entropy",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 56.63095238095238,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.5,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.63095238095238,
+      "per_seed_min_accuracy_pct": 56.63095238095238,
+      "policy": "minimum_entropy",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.80952380952381,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.4880952380952386,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.80952380952381,
+      "per_seed_min_accuracy_pct": 56.80952380952381,
+      "policy": "minimum_entropy",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 56.69841269841269,
+      "aggregation": "three_seed_mean",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.5873015873015877,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.80952380952381,
+      "per_seed_min_accuracy_pct": 56.63095238095238,
+      "policy": "minimum_entropy",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 56.83333333333333,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.9523809523809526,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.83333333333333,
+      "per_seed_min_accuracy_pct": 56.83333333333333,
+      "policy": "probability_mean",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 56.464285714285715,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.333333333333334,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.464285714285715,
+      "per_seed_min_accuracy_pct": 56.464285714285715,
+      "policy": "probability_mean",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.86904761904763,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.5476190476190474,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.86904761904763,
+      "per_seed_min_accuracy_pct": 56.86904761904763,
+      "policy": "probability_mean",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 56.72222222222222,
+      "aggregation": "three_seed_mean",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.6111111111111114,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.86904761904763,
+      "per_seed_min_accuracy_pct": 56.464285714285715,
+      "policy": "probability_mean",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 55.13095238095238,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.13095238095238,
+      "per_seed_min_accuracy_pct": 55.13095238095238,
+      "policy": "terminal",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 54.80952380952381,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 54.80952380952381,
+      "per_seed_min_accuracy_pct": 54.80952380952381,
+      "policy": "terminal",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 55.6547619047619,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.6547619047619,
+      "per_seed_min_accuracy_pct": 55.6547619047619,
+      "policy": "terminal",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.19841269841269,
+      "aggregation": "three_seed_mean",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.6547619047619,
+      "per_seed_min_accuracy_pct": 54.80952380952381,
+      "policy": "terminal",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 57.285714285714285,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 2.1547619047619047,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.285714285714285,
+      "per_seed_min_accuracy_pct": 57.285714285714285,
+      "policy": "minimum_entropy",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 56.49999999999999,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.6904761904761907,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.49999999999999,
+      "per_seed_min_accuracy_pct": 56.49999999999999,
+      "policy": "minimum_entropy",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.9047619047619,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.2499999999999998,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.9047619047619,
+      "per_seed_min_accuracy_pct": 56.9047619047619,
+      "policy": "minimum_entropy",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 56.89682539682539,
+      "aggregation": "three_seed_mean",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.6984126984126984,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.285714285714285,
+      "per_seed_min_accuracy_pct": 56.49999999999999,
+      "policy": "minimum_entropy",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 57.01190476190476,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.880952380952381,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.01190476190476,
+      "per_seed_min_accuracy_pct": 57.01190476190476,
+      "policy": "probability_mean",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 56.57142857142857,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.7619047619047625,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.57142857142857,
+      "per_seed_min_accuracy_pct": 56.57142857142857,
+      "policy": "probability_mean",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 57.095238095238095,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.4404761904761907,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.095238095238095,
+      "per_seed_min_accuracy_pct": 57.095238095238095,
+      "policy": "probability_mean",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 56.89285714285714,
+      "aggregation": "three_seed_mean",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.6944444444444446,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.095238095238095,
+      "per_seed_min_accuracy_pct": 56.57142857142857,
+      "policy": "probability_mean",
+      "seed": null
+    }
+  ],
+  "balanced_policy_rows": 24,
+  "cache_evidence": "Raw metadata joined to phase-archived remote-verified Drive cache receipts; local latent-cache bytes not required or rehashed here",
+  "cache_receipt_count": 90,
+  "candidate_predictions": 201600,
+  "case_policy_rows": 144,
+  "classifier_contracts": [
+    {
+      "backbone": "curvenet",
+      "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 40,
+        "dgcnn_head_dataset_name": "scanobject",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881"
+    },
+    {
+      "backbone": "dgcnn",
+      "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 40,
+        "dgcnn_head_dataset_name": "scanobject",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1"
+    },
+    {
+      "backbone": "pointmae",
+      "checkpoint_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "dataset": {
+          "test": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          },
+          "train": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "train"
+            }
+          },
+          "val": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          }
+        },
+        "grad_norm_clip": 10,
+        "max_epoch": 1,
+        "model": {
+          "NAME": "Point_MAE",
+          "cls_dim": 40,
+          "group_norm": false,
+          "group_size": 32,
+          "loss": "cdl2",
+          "num_group": 64,
+          "num_hid_cls_layers": 2,
+          "regularize": false,
+          "transformer_config": {
+            "decoder_depth": 4,
+            "decoder_num_heads": 6,
+            "depth": 12,
+            "drop_path_rate": 0.1,
+            "encoder_dims": 384,
+            "mask_ratio": 0.9,
+            "mask_type": "rand",
+            "num_heads": 6,
+            "trans_dim": 384
+          }
+        },
+        "normal": false,
+        "npoints": 1024,
+        "optimizer": {
+          "kwargs": {
+            "lr": 5e-05,
+            "weight_decay": 0.05
+          },
+          "type": "AdamW"
+        },
+        "scheduler": {
+          "type": "function"
+        },
+        "step_per_update": 1,
+        "total_bs": 32,
+        "tta_dataset_path": "./data/tta_datasets"
+      },
+      "state_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+    },
+    {
+      "backbone": "pointnext",
+      "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> XYZ features; no added normalization",
+      "resolved_model_config": {
+        "model": {
+          "NAME": "BaseCls",
+          "cls_args": {
+            "NAME": "ClsHead",
+            "mlps": [
+              512,
+              256
+            ],
+            "norm_args": {
+              "norm": "bn1d"
+            },
+            "num_classes": 40
+          },
+          "encoder_args": {
+            "NAME": "PointNextEncoder",
+            "act_args": {
+              "act": "relu"
+            },
+            "aggr_args": {
+              "feature_type": "dp_fj",
+              "reduction": "max"
+            },
+            "blocks": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "conv_args": {
+              "order": "conv-norm-act"
+            },
+            "expansion": 4,
+            "group_args": {
+              "NAME": "ballquery",
+              "normalize_dp": true
+            },
+            "in_channels": 3,
+            "norm_args": {
+              "norm": "bn"
+            },
+            "nsample": 32,
+            "radius": 0.15,
+            "radius_scaling": 1.5,
+            "sa_layers": 2,
+            "sa_use_res": true,
+            "strides": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              1
+            ],
+            "width": 64
+          }
+        }
+      },
+      "state_sha256": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e"
+    },
+    {
+      "backbone": "curvenet",
+      "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling",
+      "resolved_model_config": {
+        "classes": 15,
+        "dgcnn_head_dataset_name": "modelnet",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_3deformrs"
+      },
+      "state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6"
+    },
+    {
+      "backbone": "dgcnn",
+      "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 15,
+        "dgcnn_head_dataset_name": "modelnet",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "95e50111a0118af398b8066900f11b01f997ce293151bdbd38ccec74df4c3524"
+    },
+    {
+      "backbone": "pointmae",
+      "checkpoint_sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "dataset": {
+          "test": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          },
+          "train": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "train"
+            }
+          },
+          "val": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          }
+        },
+        "grad_norm_clip": 10,
+        "max_epoch": 100,
+        "model": {
+          "NAME": "Point_MAE",
+          "cls_dim": 15,
+          "group_norm": false,
+          "group_size": 32,
+          "loss": "cdl2",
+          "num_group": 128,
+          "num_hid_cls_layers": 2,
+          "regularize": false,
+          "transformer_config": {
+            "decoder_depth": 4,
+            "decoder_num_heads": 6,
+            "depth": 12,
+            "drop_path_rate": 0.1,
+            "encoder_dims": 384,
+            "mask_ratio": 0.9,
+            "mask_type": "rand",
+            "num_heads": 6,
+            "trans_dim": 384
+          }
+        },
+        "normal": false,
+        "npoints": 1024,
+        "optimizer": {
+          "kwargs": {
+            "lr": 0.0001,
+            "weight_decay": 0.05
+          },
+          "type": "AdamW"
+        },
+        "scheduler": {
+          "type": "function"
+        },
+        "step_per_update": 1,
+        "total_bs": 32,
+        "tta_dataset_path": "./data/tta_datasets"
+      },
+      "state_sha256": "fa16d1ff6ce236cd346aca49ef651ed14ae3c27f53395d509fcf26ea8bd562e1"
+    },
+    {
+      "backbone": "pointnext",
+      "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> height=y-min(y) -> centroid and unit-sphere XYZ normalization -> XYZ + unscaled height features",
+      "resolved_model_config": {
+        "model": {
+          "NAME": "BaseCls",
+          "cls_args": {
+            "NAME": "ClsHead",
+            "mlps": [
+              512,
+              256
+            ],
+            "norm_args": {
+              "norm": "bn1d"
+            },
+            "num_classes": 15
+          },
+          "encoder_args": {
+            "NAME": "PointNextEncoder",
+            "act_args": {
+              "act": "relu"
+            },
+            "aggr_args": {
+              "feature_type": "dp_fj",
+              "reduction": "max"
+            },
+            "blocks": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "conv_args": {
+              "order": "conv-norm-act"
+            },
+            "expansion": 4,
+            "group_args": {
+              "NAME": "ballquery",
+              "normalize_dp": true
+            },
+            "in_channels": 4,
+            "norm_args": {
+              "norm": "bn"
+            },
+            "nsample": 32,
+            "radius": 0.15,
+            "radius_scaling": 1.5,
+            "sa_layers": 2,
+            "sa_use_res": true,
+            "strides": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              1
+            ],
+            "width": 32
+          }
+        }
+      },
+      "state_sha256": "eb1bc53f326ee281c48176dcb404779653143e6f0c25f80cb513650b389fb540"
+    }
+  ],
+  "cost": [
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 233.99268581399883,
+      "seed": 0,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 151.7206949249994,
+      "terminal_all_heads_seconds": 9.177548485004081,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36348.19970703125
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 179.6516330810009,
+      "seed": 0,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 97.91589284399743,
+      "terminal_all_heads_seconds": 9.308684526002253,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35221.64990234375
+    },
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 230.21977405100006,
+      "seed": 0,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 150.765728467999,
+      "terminal_all_heads_seconds": 9.343688372999168,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36336.1103515625
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 177.8327123859999,
+      "seed": 0,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 98.15364723200037,
+      "terminal_all_heads_seconds": 9.425798587992176,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35203.3955078125
+    },
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 234.22688103899964,
+      "seed": 1,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 151.733705765997,
+      "terminal_all_heads_seconds": 9.1794751320067,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36348.19970703125
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 179.69532057600009,
+      "seed": 1,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 97.90339552599835,
+      "terminal_all_heads_seconds": 9.221566802985762,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35221.64990234375
+    },
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 230.88649207399976,
+      "seed": 1,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 150.95390585999667,
+      "terminal_all_heads_seconds": 9.34452020599565,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36336.1103515625
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 177.65278459799993,
+      "seed": 1,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 98.02019478900183,
+      "terminal_all_heads_seconds": 9.42968662299063,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35203.3955078125
+    },
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 234.17579200299951,
+      "seed": 2,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 151.72942900799717,
+      "terminal_all_heads_seconds": 9.17205337600717,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36348.19970703125
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 179.82129072899988,
+      "seed": 2,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 97.99032320800143,
+      "terminal_all_heads_seconds": 9.23177249100263,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35221.64990234375
+    },
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 230.52264510900022,
+      "seed": 2,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 150.97288737300005,
+      "terminal_all_heads_seconds": 9.341937422002957,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36336.1103515625
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 177.38465021499906,
+      "seed": 2,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 98.03170150800179,
+      "terminal_all_heads_seconds": 9.445077707001474,
+      "timing_scope": "paired-state confirmation; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35203.3955078125
+    }
+  ],
+  "frozen_candidate": {
+    "component_arm": "chamfer",
+    "policy": "probability_mean"
+  },
+  "frozen_comparators": [
+    {
+      "component_arm": "combined",
+      "policy": "probability_mean",
+      "role": "primary same-readout spectral increment"
+    },
+    {
+      "component_arm": "combined",
+      "policy": "minimum_entropy",
+      "role": "secondary frozen development-best readout"
+    }
+  ],
+  "frozen_plan_sha256": "c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45",
+  "full_benchmark": false,
+  "head_inputs": 50400,
+  "limitations": [
+    "Object-disjoint from development but benchmarks previously inspected;70 IDs per dataset, not full2468/581 evaluation",
+    "No tuning, candidate selection, logit averaging or new GPU execution performed",
+    "All15 is primary; macro14 withoutBackground is diagnostic and does not define inference routing",
+    "Paired-cache replay times are not measured deployment latency; shared cost counted once across heads"
+  ],
+  "macro14_balanced": [
+    {
+      "accuracy_pct": 55.73979591836734,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.73979591836734,
+      "per_seed_min_accuracy_pct": 55.73979591836734,
+      "policy": "terminal",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.86734693877551,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.86734693877551,
+      "per_seed_min_accuracy_pct": 55.86734693877551,
+      "policy": "terminal",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.26275510204081,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.26275510204081,
+      "per_seed_min_accuracy_pct": 56.26275510204081,
+      "policy": "terminal",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.95663265306123,
+      "aggregation": "three_seed_mean",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.26275510204081,
+      "per_seed_min_accuracy_pct": 55.73979591836734,
+      "policy": "terminal",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 57.66581632653061,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.926020408163266,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.66581632653061,
+      "per_seed_min_accuracy_pct": 57.66581632653061,
+      "policy": "minimum_entropy",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 57.525510204081634,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.6581632653061225,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.525510204081634,
+      "per_seed_min_accuracy_pct": 57.525510204081634,
+      "policy": "minimum_entropy",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 57.99744897959184,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.7346938775510208,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.99744897959184,
+      "per_seed_min_accuracy_pct": 57.99744897959184,
+      "policy": "minimum_entropy",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 57.7295918367347,
+      "aggregation": "three_seed_mean",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.7729591836734695,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.99744897959184,
+      "per_seed_min_accuracy_pct": 57.525510204081634,
+      "policy": "minimum_entropy",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 57.80612244897959,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 2.0663265306122454,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.80612244897959,
+      "per_seed_min_accuracy_pct": 57.80612244897959,
+      "policy": "probability_mean",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 57.32142857142857,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.454081632653062,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.32142857142857,
+      "per_seed_min_accuracy_pct": 57.32142857142857,
+      "policy": "probability_mean",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 57.95918367346939,
+      "aggregation": "seed",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.6964285714285712,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.95918367346939,
+      "per_seed_min_accuracy_pct": 57.95918367346939,
+      "policy": "probability_mean",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 57.69557823129252,
+      "aggregation": "three_seed_mean",
+      "component_arm": "combined",
+      "delta_own_terminal_pp": 1.7389455782312926,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.95918367346939,
+      "per_seed_min_accuracy_pct": 57.32142857142857,
+      "policy": "probability_mean",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 55.85459183673469,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.85459183673469,
+      "per_seed_min_accuracy_pct": 55.85459183673469,
+      "policy": "terminal",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.484693877551024,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 55.484693877551024,
+      "per_seed_min_accuracy_pct": 55.484693877551024,
+      "policy": "terminal",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.53061224489795,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.53061224489795,
+      "per_seed_min_accuracy_pct": 56.53061224489795,
+      "policy": "terminal",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.95663265306123,
+      "aggregation": "three_seed_mean",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 0.0,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 56.53061224489795,
+      "per_seed_min_accuracy_pct": 55.484693877551024,
+      "policy": "terminal",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 58.22704081632653,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 2.372448979591837,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 58.22704081632653,
+      "per_seed_min_accuracy_pct": 58.22704081632653,
+      "policy": "minimum_entropy",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 57.5,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 2.0153061224489797,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.5,
+      "per_seed_min_accuracy_pct": 57.5,
+      "policy": "minimum_entropy",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 57.9719387755102,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.441326530612245,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.9719387755102,
+      "per_seed_min_accuracy_pct": 57.9719387755102,
+      "policy": "minimum_entropy",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 57.89965986394558,
+      "aggregation": "three_seed_mean",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.943027210884354,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 58.22704081632653,
+      "per_seed_min_accuracy_pct": 57.5,
+      "policy": "minimum_entropy",
+      "seed": null
+    },
+    {
+      "accuracy_pct": 57.9719387755102,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 2.1173469387755106,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.9719387755102,
+      "per_seed_min_accuracy_pct": 57.9719387755102,
+      "policy": "probability_mean",
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 57.62755102040816,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 2.1428571428571432,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 57.62755102040816,
+      "per_seed_min_accuracy_pct": 57.62755102040816,
+      "policy": "probability_mean",
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 58.13775510204081,
+      "aggregation": "seed",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.6071428571428572,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 58.13775510204081,
+      "per_seed_min_accuracy_pct": 58.13775510204081,
+      "policy": "probability_mean",
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 57.91241496598639,
+      "aggregation": "three_seed_mean",
+      "component_arm": "chamfer",
+      "delta_own_terminal_pp": 1.9557823129251706,
+      "n_cases": 8,
+      "per_seed_max_accuracy_pct": 58.13775510204081,
+      "per_seed_min_accuracy_pct": 57.62755102040816,
+      "policy": "probability_mean",
+      "seed": null
+    }
+  ],
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "no_policy_reselection": true,
+  "paired_balanced": [
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.48809523809523814,
+      "conditional_object_bootstrap_low_pp": -0.19047619047619047,
+      "contrast": "primary_same_readout",
+      "corrected_events": 154,
+      "delta_pp": 0.1785714285714286,
+      "harmed_events": 139,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 8400,
+      "n_seeds": 1,
+      "negative_cases": 4,
+      "per_seed_max_pp": 0.1785714285714286,
+      "per_seed_min_pp": 0.1785714285714286,
+      "positive_cases": 4,
+      "scope": "all15",
+      "seed": 0,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.44077380952380807,
+      "conditional_object_bootstrap_low_pp": -0.2261904761904762,
+      "contrast": "primary_same_readout",
+      "corrected_events": 133,
+      "delta_pp": 0.10714285714285714,
+      "harmed_events": 124,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 8400,
+      "n_seeds": 1,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.10714285714285715,
+      "per_seed_min_pp": 0.10714285714285715,
+      "positive_cases": 4,
+      "scope": "all15",
+      "seed": 1,
+      "tied_cases": 2
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.6666666666666667,
+      "conditional_object_bootstrap_low_pp": -0.22619047619047628,
+      "contrast": "primary_same_readout",
+      "corrected_events": 149,
+      "delta_pp": 0.22619047619047616,
+      "harmed_events": 130,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 8400,
+      "n_seeds": 1,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.2261904761904762,
+      "per_seed_min_pp": 0.2261904761904762,
+      "positive_cases": 5,
+      "scope": "all15",
+      "seed": 2,
+      "tied_cases": 1
+    },
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.3650793650793651,
+      "conditional_object_bootstrap_low_pp": -0.039682539682539715,
+      "contrast": "primary_same_readout",
+      "corrected_events": 436,
+      "delta_pp": 0.17063492063492064,
+      "harmed_events": 393,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 25200,
+      "n_seeds": 3,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.2261904761904762,
+      "per_seed_min_pp": 0.10714285714285715,
+      "positive_cases": 6,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.7976190476190476,
+      "conditional_object_bootstrap_low_pp": -0.09523809523809519,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 192,
+      "delta_pp": 0.35714285714285715,
+      "harmed_events": 162,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 8400,
+      "n_seeds": 1,
+      "negative_cases": 3,
+      "per_seed_max_pp": 0.35714285714285715,
+      "per_seed_min_pp": 0.35714285714285715,
+      "positive_cases": 5,
+      "scope": "all15",
+      "seed": 0,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.3571428571428571,
+      "conditional_object_bootstrap_low_pp": -0.5000000000000001,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 174,
+      "delta_pp": -0.05952380952380951,
+      "harmed_events": 179,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 8400,
+      "n_seeds": 1,
+      "negative_cases": 4,
+      "per_seed_max_pp": -0.05952380952380953,
+      "per_seed_min_pp": -0.05952380952380953,
+      "positive_cases": 3,
+      "scope": "all15",
+      "seed": 1,
+      "tied_cases": 1
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.7619047619047621,
+      "conditional_object_bootstrap_low_pp": -0.19047619047619052,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 202,
+      "delta_pp": 0.2857142857142857,
+      "harmed_events": 178,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 8400,
+      "n_seeds": 1,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.2857142857142857,
+      "per_seed_min_pp": 0.2857142857142857,
+      "positive_cases": 5,
+      "scope": "all15",
+      "seed": 2,
+      "tied_cases": 1
+    },
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.4682539682539683,
+      "conditional_object_bootstrap_low_pp": -0.07142857142857147,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 568,
+      "delta_pp": 0.19444444444444448,
+      "harmed_events": 519,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 25200,
+      "n_seeds": 3,
+      "negative_cases": 1,
+      "per_seed_max_pp": 0.35714285714285715,
+      "per_seed_min_pp": -0.05952380952380953,
+      "positive_cases": 7,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.4974489795918367,
+      "conditional_object_bootstrap_low_pp": -0.22959183673469385,
+      "contrast": "primary_same_readout",
+      "corrected_events": 129,
+      "delta_pp": 0.16581632653061223,
+      "harmed_events": 116,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 7840,
+      "n_seeds": 1,
+      "negative_cases": 3,
+      "per_seed_max_pp": 0.16581632653061223,
+      "per_seed_min_pp": 0.16581632653061223,
+      "positive_cases": 4,
+      "scope": "macro14",
+      "seed": 0,
+      "tied_cases": 1
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.6505102040816326,
+      "conditional_object_bootstrap_low_pp": -0.025510204081632643,
+      "contrast": "primary_same_readout",
+      "corrected_events": 120,
+      "delta_pp": 0.30612244897959184,
+      "harmed_events": 96,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 7840,
+      "n_seeds": 1,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.30612244897959184,
+      "per_seed_min_pp": 0.30612244897959184,
+      "positive_cases": 6,
+      "scope": "macro14",
+      "seed": 1,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.5615433673469371,
+      "conditional_object_bootstrap_low_pp": -0.24234693877551017,
+      "contrast": "primary_same_readout",
+      "corrected_events": 124,
+      "delta_pp": 0.17857142857142858,
+      "harmed_events": 110,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 7840,
+      "n_seeds": 1,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.17857142857142858,
+      "per_seed_min_pp": 0.17857142857142858,
+      "positive_cases": 4,
+      "scope": "macro14",
+      "seed": 2,
+      "tied_cases": 2
+    },
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.40816326530612246,
+      "conditional_object_bootstrap_low_pp": 0.012648809523809517,
+      "contrast": "primary_same_readout",
+      "corrected_events": 373,
+      "delta_pp": 0.21683673469387757,
+      "harmed_events": 322,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 23520,
+      "n_seeds": 3,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.30612244897959184,
+      "per_seed_min_pp": 0.16581632653061223,
+      "positive_cases": 6,
+      "scope": "macro14",
+      "seed": null,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.7653061224489794,
+      "conditional_object_bootstrap_low_pp": -0.1658163265306122,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 164,
+      "delta_pp": 0.30612244897959184,
+      "harmed_events": 140,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 7840,
+      "n_seeds": 1,
+      "negative_cases": 3,
+      "per_seed_max_pp": 0.30612244897959184,
+      "per_seed_min_pp": 0.30612244897959184,
+      "positive_cases": 5,
+      "scope": "macro14",
+      "seed": 0,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.5357142857142857,
+      "conditional_object_bootstrap_low_pp": -0.33163265306122447,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 153,
+      "delta_pp": 0.10204081632653061,
+      "harmed_events": 145,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 7840,
+      "n_seeds": 1,
+      "negative_cases": 3,
+      "per_seed_max_pp": 0.10204081632653061,
+      "per_seed_min_pp": 0.10204081632653061,
+      "positive_cases": 4,
+      "scope": "macro14",
+      "seed": 1,
+      "tied_cases": 1
+    },
+    {
+      "aggregation": "seed",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.5357142857142857,
+      "conditional_object_bootstrap_low_pp": -0.25510204081632654,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 163,
+      "delta_pp": 0.14030612244897955,
+      "harmed_events": 152,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 7840,
+      "n_seeds": 1,
+      "negative_cases": 4,
+      "per_seed_max_pp": 0.14030612244897958,
+      "per_seed_min_pp": 0.14030612244897958,
+      "positive_cases": 3,
+      "scope": "macro14",
+      "seed": 2,
+      "tied_cases": 1
+    },
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.4379251700680271,
+      "conditional_object_bootstrap_low_pp": -0.07227891156462589,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 480,
+      "delta_pp": 0.18282312925170072,
+      "harmed_events": 437,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 23520,
+      "n_seeds": 3,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.30612244897959184,
+      "per_seed_min_pp": 0.10204081632653061,
+      "positive_cases": 5,
+      "scope": "macro14",
+      "seed": null,
+      "tied_cases": 1
+    }
+  ],
+  "paired_preparation_verified": true,
+  "per_corruption_rows": 2160,
+  "phase_archive": {
+    "bytes": 607716167,
+    "sha256": "f3f0171c5d06bb88c95f6bd55b91b2097cce2337e5bdefa23022335d282b9070"
+  },
+  "raw_archives": [
+    {
+      "backbone": "pointmae",
+      "bytes": 6637804,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143541_guidance-components-combined-pointmae-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143541_guidance-components-combined-pointmae-seed0/final.zip",
+      "run_id": "20261025-143541_guidance-components-combined-pointmae-seed0",
+      "seed": 0,
+      "sha256": "8390ce0f84954ff36e60ffc712791335b4bcdfb08a1cbc0e115e9e565525ea42",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143541_guidance-components-combined-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6596203,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143539_guidance-components-combined-curvenet-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143539_guidance-components-combined-curvenet-seed0/final.zip",
+      "run_id": "20261025-143539_guidance-components-combined-curvenet-seed0",
+      "seed": 0,
+      "sha256": "37a3110a44098d0f9d3301cca9cfe27a74aff9f90383468aba9fd53b39ea7192",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143539_guidance-components-combined-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6623170,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143538_guidance-components-combined-dgcnn-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143538_guidance-components-combined-dgcnn-seed0/final.zip",
+      "run_id": "20261025-143538_guidance-components-combined-dgcnn-seed0",
+      "seed": 0,
+      "sha256": "ae690499ec8ccff5914703f6f75c21ab8aa65ba51cbf12b0ef22256347252801",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143538_guidance-components-combined-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6577385,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143540_guidance-components-combined-pointnext-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143540_guidance-components-combined-pointnext-seed0/final.zip",
+      "run_id": "20261025-143540_guidance-components-combined-pointnext-seed0",
+      "seed": 0,
+      "sha256": "3bb5dfdc5f04a1e8f7aad8648bfdac17334654c4665f269d15924c26a98482d1",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143540_guidance-components-combined-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6577165,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143934_guidance-components-chamfer-pointnext-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143934_guidance-components-chamfer-pointnext-seed0/final.zip",
+      "run_id": "20261025-143934_guidance-components-chamfer-pointnext-seed0",
+      "seed": 0,
+      "sha256": "3156273714b26d020388643d9eb4e21ce9a26432580b7be9a764740010400b17",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143934_guidance-components-chamfer-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6596119,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143933_guidance-components-chamfer-curvenet-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143933_guidance-components-chamfer-curvenet-seed0/final.zip",
+      "run_id": "20261025-143933_guidance-components-chamfer-curvenet-seed0",
+      "seed": 0,
+      "sha256": "827b1232699b2de3d9aa920cbd9bc1e71e04e534553bc92a6ea4106078636fbc",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143933_guidance-components-chamfer-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6637746,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143935_guidance-components-chamfer-pointmae-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143935_guidance-components-chamfer-pointmae-seed0/final.zip",
+      "run_id": "20261025-143935_guidance-components-chamfer-pointmae-seed0",
+      "seed": 0,
+      "sha256": "8d27ae5cd20675e1745e0558d255b78784fd97b994ba5733becf33390dab0bbc",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143935_guidance-components-chamfer-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6622249,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143932_guidance-components-chamfer-dgcnn-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143932_guidance-components-chamfer-dgcnn-seed0/final.zip",
+      "run_id": "20261025-143932_guidance-components-chamfer-dgcnn-seed0",
+      "seed": 0,
+      "sha256": "aea7538f2c6bf3655b969a7e69fad11035b1a052e9448f6a310cd15b0897a7c5",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143932_guidance-components-chamfer-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6057373,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144232_guidance-components-combined-dgcnn-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144232_guidance-components-combined-dgcnn-seed0/final.zip",
+      "run_id": "20261025-144232_guidance-components-combined-dgcnn-seed0",
+      "seed": 0,
+      "sha256": "b7ae43526041791f9c02fd9c5e9fc8720e34787b8391f0ec19ad4241bfd6e4d5",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144232_guidance-components-combined-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6041616,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144233_guidance-components-combined-pointnext-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144233_guidance-components-combined-pointnext-seed0/final.zip",
+      "run_id": "20261025-144233_guidance-components-combined-pointnext-seed0",
+      "seed": 0,
+      "sha256": "57361dc333e25a6a07148fcd4674c4bb25ec55c5465630582eb4179d624a1436",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144233_guidance-components-combined-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054909,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144234_guidance-components-combined-pointmae-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144234_guidance-components-combined-pointmae-seed0/final.zip",
+      "run_id": "20261025-144234_guidance-components-combined-pointmae-seed0",
+      "seed": 0,
+      "sha256": "63c407ae6ef5b06874afcf8cdc2d694c9e03d5ddbfff16632ef70fbec3905a03",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144234_guidance-components-combined-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6059408,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144233_guidance-components-combined-curvenet-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144233_guidance-components-combined-curvenet-seed0/final.zip",
+      "run_id": "20261025-144233_guidance-components-combined-curvenet-seed0",
+      "seed": 0,
+      "sha256": "b2adab49054ab24be14e2b3c6fedf550c67c6db34a0721fb93171a2fb509a26c",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144233_guidance-components-combined-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6041042,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144624_guidance-components-chamfer-pointnext-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144624_guidance-components-chamfer-pointnext-seed0/final.zip",
+      "run_id": "20261025-144624_guidance-components-chamfer-pointnext-seed0",
+      "seed": 0,
+      "sha256": "b390b041daa1641b2ecf78a34151fbed43d2d0195676cc1995b61e58138aad58",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144624_guidance-components-chamfer-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6056878,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144622_guidance-components-chamfer-dgcnn-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144622_guidance-components-chamfer-dgcnn-seed0/final.zip",
+      "run_id": "20261025-144622_guidance-components-chamfer-dgcnn-seed0",
+      "seed": 0,
+      "sha256": "4770d6c4339ac9458e264d938b2c0271b57e34a88e0e17be2736e521d14c14f3",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144622_guidance-components-chamfer-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6058813,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144623_guidance-components-chamfer-curvenet-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144623_guidance-components-chamfer-curvenet-seed0/final.zip",
+      "run_id": "20261025-144623_guidance-components-chamfer-curvenet-seed0",
+      "seed": 0,
+      "sha256": "89a1b5a5d526bdd5dfa245bb4e6e6dca26841df494b94393ce3c78b21011a391",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144623_guidance-components-chamfer-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054359,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144625_guidance-components-chamfer-pointmae-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144625_guidance-components-chamfer-pointmae-seed0/final.zip",
+      "run_id": "20261025-144625_guidance-components-chamfer-pointmae-seed0",
+      "seed": 0,
+      "sha256": "9ab1cb725d8f84c6d0970dde371c6faa211b0d9141e980bc20f3da3d36891aea",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed0/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-144625_guidance-components-chamfer-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6638634,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144922_guidance-components-combined-pointmae-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144922_guidance-components-combined-pointmae-seed1/final.zip",
+      "run_id": "20261025-144922_guidance-components-combined-pointmae-seed1",
+      "seed": 1,
+      "sha256": "f53c542d419d221662729d0e8ce1d7d8d7f4c8bc665a0e931253974749a51dfb",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144922_guidance-components-combined-pointmae-seed1.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6595522,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144921_guidance-components-combined-curvenet-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144921_guidance-components-combined-curvenet-seed1/final.zip",
+      "run_id": "20261025-144921_guidance-components-combined-curvenet-seed1",
+      "seed": 1,
+      "sha256": "d10d23a2ce196c7cba323936735384d0afee93b703af128db26bf5480e9b948f",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144921_guidance-components-combined-curvenet-seed1.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6623910,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144920_guidance-components-combined-dgcnn-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144920_guidance-components-combined-dgcnn-seed1/final.zip",
+      "run_id": "20261025-144920_guidance-components-combined-dgcnn-seed1",
+      "seed": 1,
+      "sha256": "c9f844fd322e4175aa3acbcbbdabf006add84151ea536440f8ee3bb2a285d004",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144920_guidance-components-combined-dgcnn-seed1.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6577702,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144922_guidance-components-combined-pointnext-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144922_guidance-components-combined-pointnext-seed1/final.zip",
+      "run_id": "20261025-144922_guidance-components-combined-pointnext-seed1",
+      "seed": 1,
+      "sha256": "3579557c3617449da62a7a954a4b17c91d08296e3c88d629ad585e23378ff8f5",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144922_guidance-components-combined-pointnext-seed1.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6576976,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145316_guidance-components-chamfer-pointnext-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145316_guidance-components-chamfer-pointnext-seed1/final.zip",
+      "run_id": "20261025-145316_guidance-components-chamfer-pointnext-seed1",
+      "seed": 1,
+      "sha256": "3aa37c8408cd6ed0c00c3278f88de4db22297e2c7952f43a94c934641cf3c253",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145316_guidance-components-chamfer-pointnext-seed1.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6622747,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145314_guidance-components-chamfer-dgcnn-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145314_guidance-components-chamfer-dgcnn-seed1/final.zip",
+      "run_id": "20261025-145314_guidance-components-chamfer-dgcnn-seed1",
+      "seed": 1,
+      "sha256": "ff8ddef1c84bea9849f7e61b95287f72f9204c7b622671400d79ee9e78ac735c",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145314_guidance-components-chamfer-dgcnn-seed1.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6595071,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145315_guidance-components-chamfer-curvenet-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145315_guidance-components-chamfer-curvenet-seed1/final.zip",
+      "run_id": "20261025-145315_guidance-components-chamfer-curvenet-seed1",
+      "seed": 1,
+      "sha256": "a252ac2b53bd3ef0a506836275d9bcdb1a4f4c9afa1e9e789ef5273fc1d5e7aa",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145315_guidance-components-chamfer-curvenet-seed1.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6638303,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145317_guidance-components-chamfer-pointmae-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145317_guidance-components-chamfer-pointmae-seed1/final.zip",
+      "run_id": "20261025-145317_guidance-components-chamfer-pointmae-seed1",
+      "seed": 1,
+      "sha256": "01398720bc905214184c604f4e74701993dfa704a83c51eb54a02531d666eaf0",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145317_guidance-components-chamfer-pointmae-seed1.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6041271,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145616_guidance-components-combined-pointnext-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145616_guidance-components-combined-pointnext-seed1/final.zip",
+      "run_id": "20261025-145616_guidance-components-combined-pointnext-seed1",
+      "seed": 1,
+      "sha256": "79fd42b3df5a9fd64a1d5fafe1e423a5c45f9fe7d6109caaa39313f577f786c5",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145616_guidance-components-combined-pointnext-seed1.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6057564,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145614_guidance-components-combined-dgcnn-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145614_guidance-components-combined-dgcnn-seed1/final.zip",
+      "run_id": "20261025-145614_guidance-components-combined-dgcnn-seed1",
+      "seed": 1,
+      "sha256": "4983974b97b23e5acce5f3c8a995340a1e64a670622f9787ddfebcf58ff5aaab",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145614_guidance-components-combined-dgcnn-seed1.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6059313,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145615_guidance-components-combined-curvenet-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145615_guidance-components-combined-curvenet-seed1/final.zip",
+      "run_id": "20261025-145615_guidance-components-combined-curvenet-seed1",
+      "seed": 1,
+      "sha256": "145dbd0036b74dacc9a94d289c3967e9d5a15e2e8f448846c44c38aa1f08da2b",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145615_guidance-components-combined-curvenet-seed1.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054982,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145616_guidance-components-combined-pointmae-seed1.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145616_guidance-components-combined-pointmae-seed1/final.zip",
+      "run_id": "20261025-145616_guidance-components-combined-pointmae-seed1",
+      "seed": 1,
+      "sha256": "0788129800b90778fa847bd5829c17b1d9c4b94b8f30ff6794850ab476535c3e",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-145616_guidance-components-combined-pointmae-seed1.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6058926,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150006_guidance-components-chamfer-curvenet-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150006_guidance-components-chamfer-curvenet-seed1/final.zip",
+      "run_id": "20261025-150006_guidance-components-chamfer-curvenet-seed1",
+      "seed": 1,
+      "sha256": "596ee3eb94f4512ccc795c875e34fa37225927797547413102fe93ebf1cad3c3",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150006_guidance-components-chamfer-curvenet-seed1.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054311,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150007_guidance-components-chamfer-pointmae-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150007_guidance-components-chamfer-pointmae-seed1/final.zip",
+      "run_id": "20261025-150007_guidance-components-chamfer-pointmae-seed1",
+      "seed": 1,
+      "sha256": "f97d4ebeb76e103464b00270b59e0abbc5a9303a61f8c6b9a0d0e4f0354593ae",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150007_guidance-components-chamfer-pointmae-seed1.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6040600,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150006_guidance-components-chamfer-pointnext-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150006_guidance-components-chamfer-pointnext-seed1/final.zip",
+      "run_id": "20261025-150006_guidance-components-chamfer-pointnext-seed1",
+      "seed": 1,
+      "sha256": "bd59334a3bf090c798bb18f11f64a1bd56911c4fa5db9d080104527e26eacefa",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150006_guidance-components-chamfer-pointnext-seed1.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6056905,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150005_guidance-components-chamfer-dgcnn-seed1.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150005_guidance-components-chamfer-dgcnn-seed1/final.zip",
+      "run_id": "20261025-150005_guidance-components-chamfer-dgcnn-seed1",
+      "seed": 1,
+      "sha256": "12c16cfc4d57d1096ec7b3b73f16cec7013f0bb506d3c9ebfb1eb559366ff110",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed1/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150005_guidance-components-chamfer-dgcnn-seed1.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6638314,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150305_guidance-components-combined-pointmae-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150305_guidance-components-combined-pointmae-seed2/final.zip",
+      "run_id": "20261025-150305_guidance-components-combined-pointmae-seed2",
+      "seed": 2,
+      "sha256": "b3c4e34e1547ae3eb460a1c335b24cbb99813fc02987aa8de2830b311046a16a",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150305_guidance-components-combined-pointmae-seed2.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6596447,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150303_guidance-components-combined-curvenet-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150303_guidance-components-combined-curvenet-seed2/final.zip",
+      "run_id": "20261025-150303_guidance-components-combined-curvenet-seed2",
+      "seed": 2,
+      "sha256": "77b234f8fb7141198506b66dd7f69777d9c423f9b404e1a38052f09a827653c1",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150303_guidance-components-combined-curvenet-seed2.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6577455,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150304_guidance-components-combined-pointnext-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150304_guidance-components-combined-pointnext-seed2/final.zip",
+      "run_id": "20261025-150304_guidance-components-combined-pointnext-seed2",
+      "seed": 2,
+      "sha256": "87111a3054467a17e03753ce456e6862406af0094c6abe5baf28005c930939aa",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150304_guidance-components-combined-pointnext-seed2.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6623445,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150302_guidance-components-combined-dgcnn-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150302_guidance-components-combined-dgcnn-seed2/final.zip",
+      "run_id": "20261025-150302_guidance-components-combined-dgcnn-seed2",
+      "seed": 2,
+      "sha256": "0f4dbee4f245f691ce8f1dfedb29b2baf0383748b20992514c98fee4960f64d7",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150302_guidance-components-combined-dgcnn-seed2.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6637310,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150659_guidance-components-chamfer-pointmae-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150659_guidance-components-chamfer-pointmae-seed2/final.zip",
+      "run_id": "20261025-150659_guidance-components-chamfer-pointmae-seed2",
+      "seed": 2,
+      "sha256": "2a25156d58a81733845b58706a0fcdfd379ff391f2b0c1142a83f6bfdfbbbf76",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150659_guidance-components-chamfer-pointmae-seed2.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6622780,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150657_guidance-components-chamfer-dgcnn-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150657_guidance-components-chamfer-dgcnn-seed2/final.zip",
+      "run_id": "20261025-150657_guidance-components-chamfer-dgcnn-seed2",
+      "seed": 2,
+      "sha256": "38086badab830b1142364065c4ab8f8b2b1c03dd373f7de5e66f63b4af8d0a18",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150657_guidance-components-chamfer-dgcnn-seed2.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6576871,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150658_guidance-components-chamfer-pointnext-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150658_guidance-components-chamfer-pointnext-seed2/final.zip",
+      "run_id": "20261025-150658_guidance-components-chamfer-pointnext-seed2",
+      "seed": 2,
+      "sha256": "30564d361a10a738dba5b688e106b74964240a46ea4ac787b9fdafdb86090855",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150658_guidance-components-chamfer-pointnext-seed2.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6595116,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150658_guidance-components-chamfer-curvenet-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150658_guidance-components-chamfer-curvenet-seed2/final.zip",
+      "run_id": "20261025-150658_guidance-components-chamfer-curvenet-seed2",
+      "seed": 2,
+      "sha256": "dbf89f361a014fa9b4081d1929d2401696ce34e363902f667f48b624d5cd6834",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150658_guidance-components-chamfer-curvenet-seed2.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054947,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150959_guidance-components-combined-pointmae-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150959_guidance-components-combined-pointmae-seed2/final.zip",
+      "run_id": "20261025-150959_guidance-components-combined-pointmae-seed2",
+      "seed": 2,
+      "sha256": "30320981e4b7e3531ad322671e9cbf6130827816802480617e68215634638c1d",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150959_guidance-components-combined-pointmae-seed2.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6057417,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150956_guidance-components-combined-dgcnn-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150956_guidance-components-combined-dgcnn-seed2/final.zip",
+      "run_id": "20261025-150956_guidance-components-combined-dgcnn-seed2",
+      "seed": 2,
+      "sha256": "55d37a72d74615543a9fafb809220b92bda33468e6e9ad5b3f4542a221770ec8",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150956_guidance-components-combined-dgcnn-seed2.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6041164,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150958_guidance-components-combined-pointnext-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150958_guidance-components-combined-pointnext-seed2/final.zip",
+      "run_id": "20261025-150958_guidance-components-combined-pointnext-seed2",
+      "seed": 2,
+      "sha256": "2fcc1abf6d3824b373a2ee31346e21d54beac0504bc33d223aa3707941efadfc",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150958_guidance-components-combined-pointnext-seed2.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6059431,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150957_guidance-components-combined-curvenet-seed2.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150957_guidance-components-combined-curvenet-seed2/final.zip",
+      "run_id": "20261025-150957_guidance-components-combined-curvenet-seed2",
+      "seed": 2,
+      "sha256": "3aa7dd1afcba58afd54149b39e6d1f593edbbf3473255e700deb366b1f5bd5bc",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-150957_guidance-components-combined-curvenet-seed2.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6058887,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151348_guidance-components-chamfer-curvenet-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151348_guidance-components-chamfer-curvenet-seed2/final.zip",
+      "run_id": "20261025-151348_guidance-components-chamfer-curvenet-seed2",
+      "seed": 2,
+      "sha256": "f03018d11427af60c91c2669a687eb2e8e57c4925300908b6e3c87efb84bb106",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151348_guidance-components-chamfer-curvenet-seed2.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054188,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151349_guidance-components-chamfer-pointmae-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151349_guidance-components-chamfer-pointmae-seed2/final.zip",
+      "run_id": "20261025-151349_guidance-components-chamfer-pointmae-seed2",
+      "seed": 2,
+      "sha256": "4a276ebc2e46d4d10bec1f0684af81c0b9a827b43276b05208e415da65be9acb",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151349_guidance-components-chamfer-pointmae-seed2.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6057052,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151347_guidance-components-chamfer-dgcnn-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151347_guidance-components-chamfer-dgcnn-seed2/final.zip",
+      "run_id": "20261025-151347_guidance-components-chamfer-dgcnn-seed2",
+      "seed": 2,
+      "sha256": "1733cfb6bf1fd763960e6d9f2235e81f2027cb73b45b77a97633cc9691088530",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151347_guidance-components-chamfer-dgcnn-seed2.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6040527,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151349_guidance-components-chamfer-pointnext-seed2.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151349_guidance-components-chamfer-pointnext-seed2/final.zip",
+      "run_id": "20261025-151349_guidance-components-chamfer-pointnext-seed2",
+      "seed": 2,
+      "sha256": "67c8e61d13f7a3cac7cd9508d81d26cfc6367bc2891d7297f9d0419936f24525",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/frozen_confirmation_extracted/seed2/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-151349_guidance-components-chamfer-pointnext-seed2.zip"
+    }
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "shared_batches": 180,
+  "source_snapshot_sha256": "f5bca11a543fd5463ef5a09b26cf216b2bd049523d61a97da24e184e5576d0c6",
+  "status": "complete_frozen_confirmation_subsets",
+  "uncertainty": {
+    "limitations": "Conditional on these three seeds/object subsets; repeated seeds do not create210 independent objects. No equivalence/noninferiority or broad seed-stability inference",
+    "n_original_object_clusters": 140,
+    "preserved": "same70 original-ID draws across all15 corruptions, four heads, two arms/policies AND all three seeds within each dataset; independent dataset draws",
+    "replicates": 2000,
+    "seed": 20261025,
+    "type": "conditional dataset-stratified original-object-ID cluster bootstrap"
+  }
+}

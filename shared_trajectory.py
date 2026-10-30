@@ -1,4 +1,4 @@
-"""Observe fixed Scan trajectories once per clean latent, without advancing RNG."""
+"""Observe fixed dataset-validated trajectories without advancing RNG."""
 import time
 
 import numpy as np
@@ -7,12 +7,15 @@ from legacy_trajectory import isolated_probe, model_buffer_hashes, rng_hash, ten
 
 
 class SharedTrajectoryObserver:
-    """One batch; callback owns Scan coordinates and each frozen head's preprocessing."""
+    """One batch; callback owns dataset coordinates and frozen-head preprocessing."""
 
-    def __init__(self, vae, heads: dict, classify_decoded, horizon: int):
+    def __init__(self, vae, heads: dict, classify_decoded, horizon: int, num_classes: int = 15):
         if horizon not in (10, 30) or not heads or 'vae' in heads:
             raise ValueError('Expected horizon 10/30 and nonempty classifier heads')
         self.vae, self.heads = vae, dict(heads)
+        if type(num_classes) is not int or num_classes not in (15, 40):
+            raise ValueError('Expected 15 Scan or 40 ModelNet classes')
+        self.num_classes = num_classes
         self.classify_decoded, self.horizon = classify_decoded, horizon
         self.steps = [3, 5, 8] if horizon == 10 else [8, 15, 23]
         self.models = dict(vae=vae, **heads)
@@ -43,11 +46,11 @@ class SharedTrajectoryObserver:
             raise ValueError('Trajectory classifier heads do not match')
         saved = {}
         for name, values in logits.items():
-            if not isinstance(values, torch.Tensor) or values.ndim != 2 or values.shape[1] != 15:
-                raise ValueError('Expected finite B x 15 trajectory logits')
+            if not isinstance(values, torch.Tensor) or values.ndim != 2 or values.shape[1] != self.num_classes:
+                raise ValueError('Expected finite B x %d trajectory logits' % self.num_classes)
             count = values.shape[0]
             if count == 0 or (self.count is not None and count != self.count) or not torch.isfinite(values).all():
-                raise ValueError('Expected consistent finite B x 15 trajectory logits')
+                raise ValueError('Expected consistent finite B x %d trajectory logits' % self.num_classes)
             self.count = count
             saved[name] = values.detach().cpu().numpy().copy()
         return saved

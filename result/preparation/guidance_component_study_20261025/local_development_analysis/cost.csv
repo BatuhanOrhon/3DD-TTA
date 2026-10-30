@@ -1,0 +1,9 @@
+dataset,component_arm,shared_batches,n_input_clouds,n_head_input_events,shared_reconstruction_seconds,terminal_all_heads_seconds,remote_job_plus_validation_seconds,whole_process_peak_gpu_memory_mb,fresh_encode_batches,cached_replay_batches,timing_scope
+modelnet40_c,combined,15,1050,4200,151.42955820899715,9.13619981500051,233.7984368440002,36348.19970703125,15,0,paired-state development; cache IO included; replay omits native encode; not deployment latency
+modelnet40_c,chamfer,15,1050,4200,97.96262399900206,9.235292044001653,179.77836549699987,35221.64990234375,0,15,paired-state development; cache IO included; replay omits native encode; not deployment latency
+modelnet40_c,spectral,15,1050,4200,144.41687642799934,9.212053445003221,226.12377607100007,36341.88037109375,0,15,paired-state development; cache IO included; replay omits native encode; not deployment latency
+modelnet40_c,unguided,15,1050,4200,66.25686778899944,8.852590421997775,147.5172397589995,5590.55615234375,0,15,paired-state development; cache IO included; replay omits native encode; not deployment latency
+scanobjectnn_c,combined,15,1050,4200,150.9007669349985,9.36254407999968,230.60027997100042,36336.1103515625,15,0,paired-state development; cache IO included; replay omits native encode; not deployment latency
+scanobjectnn_c,chamfer,15,1050,4200,98.21386280200022,9.426034103003076,177.7414924650002,35203.3955078125,0,15,paired-state development; cache IO included; replay omits native encode; not deployment latency
+scanobjectnn_c,spectral,15,1050,4200,143.64023282699964,9.349944960001267,222.72073666699998,36331.1748046875,0,15,paired-state development; cache IO included; replay omits native encode; not deployment latency
+scanobjectnn_c,unguided,15,1050,4200,66.65674086699983,8.986266723999506,145.52500388799945,5577.1376953125,0,15,paired-state development; cache IO included; replay omits native encode; not deployment latency

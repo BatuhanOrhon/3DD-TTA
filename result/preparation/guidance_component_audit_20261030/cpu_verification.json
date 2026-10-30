@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-10-30T08:39:38.159359+00:00",
+  "command": "uv run --offline --no-project --with torch --with numpy python -m unittest tests.test_guidance_components tests.test_spectral_guidance_losses tests.test_legacy_gsd_numerics tests.test_graph_spectral_smooth -v",
+  "observed_exit_code": 0,
+  "tests_passed": 29,
+  "observed_suite_seconds": 0.703,
+  "torch": "2.14.1",
+  "numpy": "2.5.4",
+  "scope": "Synthetic CPU regression/property checks; no CUDA/model inference; separate archived-source/cache audit in audit.json.",
+  "warning": "Existing smooth isolate test converts a requires_grad tensor to float; warning only, suite passed.",
+  "test_file_sha256": {
+    "tests/test_guidance_components.py": "e506164674e655922684af02b32ed08b9deb261b7bf9b4b5e682bdf894fce09c",
+    "tests/test_spectral_guidance_losses.py": "0fa48d01a1e7a68e983af42888219d242adb47ce1fee04d5a048fcfce80f77f7",
+    "tests/test_legacy_gsd_numerics.py": "a69f3548b09fb52f0592fcc91289f09e39d63f4caecb3b272e29cd06120766cc",
+    "tests/test_graph_spectral_smooth.py": "f8bf573b722cc278ce8deefa38412cdcb1c4672fd496a99cf5f5fa8a2cf5ec12"
+  }
+}

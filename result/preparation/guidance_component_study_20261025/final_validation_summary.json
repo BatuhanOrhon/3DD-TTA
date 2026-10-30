@@ -1,0 +1,54 @@
+{
+  "acceptance_archive": {
+    "bytes": 71057,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/local_frozen_confirmation_acceptance_20261025T152808474840Z/agent_b_frozen_confirmation_local_acceptance.zip",
+    "sha256": "f2b6b2e874b0cdb3c3d095ff46179f0c600e7443f1112ab4a357e26f1dfba704"
+  },
+  "fixed_development": {
+    "all15": true,
+    "arms": [
+      "combined",
+      "chamfer",
+      "spectral",
+      "unguided"
+    ],
+    "objects_per_dataset": 70,
+    "raw_zip_count": 32,
+    "seeds": [
+      0
+    ]
+  },
+  "frozen_confirmation": {
+    "all15": true,
+    "all90physicalcacheNPZverified": true,
+    "arms": [
+      "combined",
+      "chamfer"
+    ],
+    "objects_per_dataset": 70,
+    "raw_zip_count": 48,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "source_state_labels_IDs_RNG_purity_pairing_and_receipts": true
+  },
+  "independent_review": "No material errors/blockers in controls, analysis or final report",
+  "limitations": [
+    "Full benchmark and calibrated spectral search unrun",
+    "No superiority/equivalence/generalization or standalone deployment-latency claim",
+    "Matched70-IDsource/original3DD deltas unavailable"
+  ],
+  "manifest_members": 24,
+  "project_source_commit": "62e9a2ba6e8691438285db169e6ee7fdcca7ae99",
+  "runtime": {
+    "endpoint": "gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98",
+    "live": true,
+    "monitor_exec_session_id": 52794,
+    "session": "tta-guidance-components-a100-20261025-r1",
+    "teardown_authorized": false
+  },
+  "status": "accepted_complete_bounded_agent_b_study",
+  "utc": "2026-10-25T15:28:51.099528+00:00"
+}

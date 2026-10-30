@@ -1,0 +1,16 @@
+{
+  "status": "accepted",
+  "archive": {
+    "bytes": 36863,
+    "sha256": "7d03416df5afd023e38a09d90cebabd131d65b8befd5536fa7b2db0a355b3f74",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/local_development_acceptance_20261025T140914554014Z/agent_b_development_local_acceptance.zip"
+  },
+  "acceptance": {
+    "bytes": 1192,
+    "sha256": "e978c558f4ec70244c5ad14030fc09191bf78435541466866744366fb73a078c"
+  },
+  "frozen_plan": {
+    "bytes": 5928,
+    "sha256": "c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45"
+  }
+}

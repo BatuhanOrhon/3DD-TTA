@@ -2,6 +2,31 @@
 
 Evidence: [Code], [Run], [User decision], [Open].
 
+## 2026-10-25: Agent B fresh ten-cell replay passed
+
+[Run/User decision] Isolated session `tta-guidance-components-a100-20261025-r1`
+on endpoint `gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98` completed all ten canonical
+setup cells on A100-SXM4-80GB/High RAM. Cell1 ran separately and reconnected to
+the same VM. Cell2's known fastrlock wheel failure was the only deferred error;
+Python3.8.20 was verified. User-completed Drive consent and a Cell3 retry passed.
+Cell4's first CLI connection failed before sending setup code; an idle kernel
+audit permitted a same-VM retry with REQUEST_TIMEOUT60, which passed. Separate
+EMD/Chamfer/PointNet++/PVCNN completion markers and actual native GPU smoke passed.
+Cells9/10 verified ModelNet data, CUDA12.1/GCC11.4/PyTorch2.1.2+cu121 and weights.
+No full research notebook was executed during setup.
+
+[Run/Code] Setup evidence56156bytes SHA256
+`13338f05cf2fc67418911e3eafba7723a746f948ef6997aa36ee05f0acaa132a`
+matches actual Drive and downloaded local bytes, member identities and CRC.
+Receipt and exact extracted-cell wrappers are under
+`result/preparation/guidance_component_study_20261025/setup/`.
+For the later matched study, fresh setup binaries were first archived and then
+the accepted pinned four native binaries restored with no-build identity checks;
+that deliberate study binding is distinct from fresh-build setup success.
+[Current study](guidance_component_study_handoff_20261025.md) records complete
+source/native identities and the live runtime lifecycle. Historical r7 status
+below is retained as dated evidence, not the current Agent B status.
+
 ## Later 2026-10-18: Cell4 split for future runtimes
 
 ### First fresh replay: r7 active

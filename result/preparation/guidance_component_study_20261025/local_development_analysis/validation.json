@@ -1,0 +1,1168 @@
+{
+  "aligned_original_ids_labels": true,
+  "balanced": [
+    {
+      "accuracy_pct": 53.86904761904762,
+      "component_arm": "combined",
+      "n_cases": 8,
+      "policy": "terminal"
+    },
+    {
+      "accuracy_pct": 55.20238095238095,
+      "component_arm": "combined",
+      "n_cases": 8,
+      "policy": "minimum_entropy"
+    },
+    {
+      "accuracy_pct": 55.107142857142854,
+      "component_arm": "combined",
+      "n_cases": 8,
+      "policy": "probability_mean"
+    },
+    {
+      "accuracy_pct": 54.416666666666664,
+      "component_arm": "chamfer",
+      "n_cases": 8,
+      "policy": "terminal"
+    },
+    {
+      "accuracy_pct": 54.80952380952382,
+      "component_arm": "chamfer",
+      "n_cases": 8,
+      "policy": "minimum_entropy"
+    },
+    {
+      "accuracy_pct": 55.19047619047619,
+      "component_arm": "chamfer",
+      "n_cases": 8,
+      "policy": "probability_mean"
+    },
+    {
+      "accuracy_pct": 50.36904761904762,
+      "component_arm": "spectral",
+      "n_cases": 8,
+      "policy": "terminal"
+    },
+    {
+      "accuracy_pct": 52.55952380952381,
+      "component_arm": "spectral",
+      "n_cases": 8,
+      "policy": "minimum_entropy"
+    },
+    {
+      "accuracy_pct": 52.61904761904762,
+      "component_arm": "spectral",
+      "n_cases": 8,
+      "policy": "probability_mean"
+    },
+    {
+      "accuracy_pct": 50.654761904761905,
+      "component_arm": "unguided",
+      "n_cases": 8,
+      "policy": "terminal"
+    },
+    {
+      "accuracy_pct": 52.57142857142856,
+      "component_arm": "unguided",
+      "n_cases": 8,
+      "policy": "minimum_entropy"
+    },
+    {
+      "accuracy_pct": 52.8095238095238,
+      "component_arm": "unguided",
+      "n_cases": 8,
+      "policy": "probability_mean"
+    }
+  ],
+  "balanced_policy_rows": 12,
+  "cache_evidence": "Raw metadata joined to phase-archived remote-verified Drive cache receipts; local latent-cache bytes not required or rehashed here",
+  "cache_receipt_count": 30,
+  "candidate_predictions": 134400,
+  "case_policy_rows": 96,
+  "classifier_contracts": [
+    {
+      "backbone": "curvenet",
+      "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 40,
+        "dgcnn_head_dataset_name": "scanobject",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881"
+    },
+    {
+      "backbone": "dgcnn",
+      "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 40,
+        "dgcnn_head_dataset_name": "scanobject",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1"
+    },
+    {
+      "backbone": "pointmae",
+      "checkpoint_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "dataset": {
+          "test": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          },
+          "train": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "train"
+            }
+          },
+          "val": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          }
+        },
+        "grad_norm_clip": 10,
+        "max_epoch": 1,
+        "model": {
+          "NAME": "Point_MAE",
+          "cls_dim": 40,
+          "group_norm": false,
+          "group_size": 32,
+          "loss": "cdl2",
+          "num_group": 64,
+          "num_hid_cls_layers": 2,
+          "regularize": false,
+          "transformer_config": {
+            "decoder_depth": 4,
+            "decoder_num_heads": 6,
+            "depth": 12,
+            "drop_path_rate": 0.1,
+            "encoder_dims": 384,
+            "mask_ratio": 0.9,
+            "mask_type": "rand",
+            "num_heads": 6,
+            "trans_dim": 384
+          }
+        },
+        "normal": false,
+        "npoints": 1024,
+        "optimizer": {
+          "kwargs": {
+            "lr": 5e-05,
+            "weight_decay": 0.05
+          },
+          "type": "AdamW"
+        },
+        "scheduler": {
+          "type": "function"
+        },
+        "step_per_update": 1,
+        "total_bs": 32,
+        "tta_dataset_path": "./data/tta_datasets"
+      },
+      "state_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+    },
+    {
+      "backbone": "pointnext",
+      "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+      "dataset": "modelnet40_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> XYZ features; no added normalization",
+      "resolved_model_config": {
+        "model": {
+          "NAME": "BaseCls",
+          "cls_args": {
+            "NAME": "ClsHead",
+            "mlps": [
+              512,
+              256
+            ],
+            "norm_args": {
+              "norm": "bn1d"
+            },
+            "num_classes": 40
+          },
+          "encoder_args": {
+            "NAME": "PointNextEncoder",
+            "act_args": {
+              "act": "relu"
+            },
+            "aggr_args": {
+              "feature_type": "dp_fj",
+              "reduction": "max"
+            },
+            "blocks": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "conv_args": {
+              "order": "conv-norm-act"
+            },
+            "expansion": 4,
+            "group_args": {
+              "NAME": "ballquery",
+              "normalize_dp": true
+            },
+            "in_channels": 3,
+            "norm_args": {
+              "norm": "bn"
+            },
+            "nsample": 32,
+            "radius": 0.15,
+            "radius_scaling": 1.5,
+            "sa_layers": 2,
+            "sa_use_res": true,
+            "strides": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              1
+            ],
+            "width": 64
+          }
+        }
+      },
+      "state_sha256": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e"
+    },
+    {
+      "backbone": "curvenet",
+      "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling",
+      "resolved_model_config": {
+        "classes": 15,
+        "dgcnn_head_dataset_name": "modelnet",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_3deformrs"
+      },
+      "state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6"
+    },
+    {
+      "backbone": "dgcnn",
+      "checkpoint_sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "classes": 15,
+        "dgcnn_head_dataset_name": "modelnet",
+        "dropout": 0.5,
+        "emb_dims": 1024,
+        "k": 20,
+        "package": "study_svwa"
+      },
+      "state_sha256": "95e50111a0118af398b8066900f11b01f997ce293151bdbd38ccec74df4c3524"
+    },
+    {
+      "backbone": "pointmae",
+      "checkpoint_sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024); no added normalization",
+      "resolved_model_config": {
+        "dataset": {
+          "test": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          },
+          "train": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "train"
+            }
+          },
+          "val": {
+            "_base_": {
+              "DATA_PATH": "./data/modelnet40_normal_resampled",
+              "NAME": "ModelNet",
+              "NUM_CATEGORY": 40,
+              "N_POINTS": 8192,
+              "USE_NORMALS": false
+            },
+            "others": {
+              "subset": "test"
+            }
+          }
+        },
+        "grad_norm_clip": 10,
+        "max_epoch": 100,
+        "model": {
+          "NAME": "Point_MAE",
+          "cls_dim": 15,
+          "group_norm": false,
+          "group_size": 32,
+          "loss": "cdl2",
+          "num_group": 128,
+          "num_hid_cls_layers": 2,
+          "regularize": false,
+          "transformer_config": {
+            "decoder_depth": 4,
+            "decoder_num_heads": 6,
+            "depth": 12,
+            "drop_path_rate": 0.1,
+            "encoder_dims": 384,
+            "mask_ratio": 0.9,
+            "mask_type": "rand",
+            "num_heads": 6,
+            "trans_dim": 384
+          }
+        },
+        "normal": false,
+        "npoints": 1024,
+        "optimizer": {
+          "kwargs": {
+            "lr": 0.0001,
+            "weight_decay": 0.05
+          },
+          "type": "AdamW"
+        },
+        "scheduler": {
+          "type": "function"
+        },
+        "step_per_update": 1,
+        "total_bs": 32,
+        "tta_dataset_path": "./data/tta_datasets"
+      },
+      "state_sha256": "fa16d1ff6ce236cd346aca49ef651ed14ae3c27f53395d509fcf26ea8bd562e1"
+    },
+    {
+      "backbone": "pointnext",
+      "checkpoint_sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a",
+      "dataset": "scanobjectnn_c",
+      "preprocessing": "raw XYZ -> native PointNet2 FPS(1024) -> height=y-min(y) -> centroid and unit-sphere XYZ normalization -> XYZ + unscaled height features",
+      "resolved_model_config": {
+        "model": {
+          "NAME": "BaseCls",
+          "cls_args": {
+            "NAME": "ClsHead",
+            "mlps": [
+              512,
+              256
+            ],
+            "norm_args": {
+              "norm": "bn1d"
+            },
+            "num_classes": 15
+          },
+          "encoder_args": {
+            "NAME": "PointNextEncoder",
+            "act_args": {
+              "act": "relu"
+            },
+            "aggr_args": {
+              "feature_type": "dp_fj",
+              "reduction": "max"
+            },
+            "blocks": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "conv_args": {
+              "order": "conv-norm-act"
+            },
+            "expansion": 4,
+            "group_args": {
+              "NAME": "ballquery",
+              "normalize_dp": true
+            },
+            "in_channels": 4,
+            "norm_args": {
+              "norm": "bn"
+            },
+            "nsample": 32,
+            "radius": 0.15,
+            "radius_scaling": 1.5,
+            "sa_layers": 2,
+            "sa_use_res": true,
+            "strides": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              1
+            ],
+            "width": 32
+          }
+        }
+      },
+      "state_sha256": "eb1bc53f326ee281c48176dcb404779653143e6f0c25f80cb513650b389fb540"
+    }
+  ],
+  "cost": [
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 233.7984368440002,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 151.42955820899715,
+      "terminal_all_heads_seconds": 9.13619981500051,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36348.19970703125
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 179.77836549699987,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 97.96262399900206,
+      "terminal_all_heads_seconds": 9.235292044001653,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35221.64990234375
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "spectral",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 226.12377607100007,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 144.41687642799934,
+      "terminal_all_heads_seconds": 9.212053445003221,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36341.88037109375
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "unguided",
+      "dataset": "modelnet40_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 147.5172397589995,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 66.25686778899944,
+      "terminal_all_heads_seconds": 8.852590421997775,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 5590.55615234375
+    },
+    {
+      "cached_replay_batches": 0,
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 15,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 230.60027997100042,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 150.9007669349985,
+      "terminal_all_heads_seconds": 9.36254407999968,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36336.1103515625
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 177.7414924650002,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 98.21386280200022,
+      "terminal_all_heads_seconds": 9.426034103003076,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 35203.3955078125
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "spectral",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 222.72073666699998,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 143.64023282699964,
+      "terminal_all_heads_seconds": 9.349944960001267,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 36331.1748046875
+    },
+    {
+      "cached_replay_batches": 15,
+      "component_arm": "unguided",
+      "dataset": "scanobjectnn_c",
+      "fresh_encode_batches": 0,
+      "n_head_input_events": 4200,
+      "n_input_clouds": 1050,
+      "remote_job_plus_validation_seconds": 145.52500388799945,
+      "shared_batches": 15,
+      "shared_reconstruction_seconds": 66.65674086699983,
+      "terminal_all_heads_seconds": 8.986266723999506,
+      "timing_scope": "paired-state development; cache IO included; replay omits native encode; not deployment latency",
+      "whole_process_peak_gpu_memory_mb": 5577.1376953125
+    }
+  ],
+  "full_benchmark": false,
+  "head_inputs": 33600,
+  "limitations": [
+    "Previously benchmark-exposed development subsets;70 IDs per dataset, not full2468/581 evaluation",
+    "No tuning, candidate selection, logit averaging or new GPU execution performed",
+    "Paired-cache replay times are not measured deployment latency; shared cost counted once across heads"
+  ],
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "paired_balanced": [
+    {
+      "candidate": "combined",
+      "comparator": "chamfer",
+      "conditional_object_bootstrap_high_pp": -0.047619047619047644,
+      "conditional_object_bootstrap_low_pp": -1.0833333333333335,
+      "corrected": 238,
+      "delta_pp": -0.5476190476190477,
+      "harmed": 284,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 6,
+      "policy": "terminal",
+      "positive_cases": 2,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "combined",
+      "comparator": "chamfer",
+      "conditional_object_bootstrap_high_pp": 0.809821428571427,
+      "conditional_object_bootstrap_low_pp": -0.023809523809523777,
+      "corrected": 185,
+      "delta_pp": 0.39285714285714285,
+      "harmed": 152,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 2,
+      "policy": "minimum_entropy",
+      "positive_cases": 5,
+      "tied_cases": 1
+    },
+    {
+      "candidate": "combined",
+      "comparator": "chamfer",
+      "conditional_object_bootstrap_high_pp": 0.29761904761904767,
+      "conditional_object_bootstrap_low_pp": -0.4642857142857143,
+      "corrected": 130,
+      "delta_pp": -0.08333333333333334,
+      "harmed": 137,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 2,
+      "policy": "probability_mean",
+      "positive_cases": 4,
+      "tied_cases": 2
+    },
+    {
+      "candidate": "spectral",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 0.17857142857142855,
+      "conditional_object_bootstrap_low_pp": -0.7860119047619049,
+      "corrected": 210,
+      "delta_pp": -0.2857142857142857,
+      "harmed": 234,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 5,
+      "policy": "terminal",
+      "positive_cases": 3,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "spectral",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 0.3928571428571429,
+      "conditional_object_bootstrap_low_pp": -0.4166666666666667,
+      "corrected": 146,
+      "delta_pp": -0.011904761904761911,
+      "harmed": 147,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 4,
+      "policy": "minimum_entropy",
+      "positive_cases": 3,
+      "tied_cases": 1
+    },
+    {
+      "candidate": "spectral",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 0.14315476190476034,
+      "conditional_object_bootstrap_low_pp": -0.5357142857142857,
+      "corrected": 102,
+      "delta_pp": -0.1904761904761905,
+      "harmed": 118,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 4,
+      "policy": "probability_mean",
+      "positive_cases": 4,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "chamfer",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 4.571428571428571,
+      "conditional_object_bootstrap_low_pp": 2.9642857142857153,
+      "corrected": 582,
+      "delta_pp": 3.761904761904762,
+      "harmed": 266,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "terminal",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "chamfer",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 2.821428571428571,
+      "conditional_object_bootstrap_low_pp": 1.6428571428571432,
+      "corrected": 382,
+      "delta_pp": 2.238095238095238,
+      "harmed": 194,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "minimum_entropy",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "chamfer",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 2.9642857142857144,
+      "conditional_object_bootstrap_low_pp": 1.8092261904761906,
+      "corrected": 364,
+      "delta_pp": 2.380952380952381,
+      "harmed": 164,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "probability_mean",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "combined",
+      "comparator": "spectral",
+      "conditional_object_bootstrap_high_pp": 4.214285714285715,
+      "conditional_object_bootstrap_low_pp": 2.773214285714286,
+      "corrected": 580,
+      "delta_pp": 3.5,
+      "harmed": 286,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "terminal",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "combined",
+      "comparator": "spectral",
+      "conditional_object_bootstrap_high_pp": 3.2979166666666653,
+      "conditional_object_bootstrap_low_pp": 1.9761904761904765,
+      "corrected": 417,
+      "delta_pp": 2.642857142857143,
+      "harmed": 195,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "minimum_entropy",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "combined",
+      "comparator": "spectral",
+      "conditional_object_bootstrap_high_pp": 3.083333333333333,
+      "conditional_object_bootstrap_low_pp": 1.8928571428571432,
+      "corrected": 374,
+      "delta_pp": 2.488095238095238,
+      "harmed": 165,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "probability_mean",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "combined",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 3.964285714285714,
+      "conditional_object_bootstrap_low_pp": 2.475892857142857,
+      "corrected": 570,
+      "delta_pp": 3.2142857142857144,
+      "harmed": 300,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "terminal",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "combined",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 3.2619047619047623,
+      "conditional_object_bootstrap_low_pp": 1.9997023809523808,
+      "corrected": 416,
+      "delta_pp": 2.630952380952381,
+      "harmed": 195,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "minimum_entropy",
+      "positive_cases": 8,
+      "tied_cases": 0
+    },
+    {
+      "candidate": "combined",
+      "comparator": "unguided",
+      "conditional_object_bootstrap_high_pp": 2.845238095238095,
+      "conditional_object_bootstrap_low_pp": 1.713988095238095,
+      "corrected": 374,
+      "delta_pp": 2.2976190476190474,
+      "harmed": 181,
+      "n_cases": 8,
+      "n_predictions": 8400,
+      "negative_cases": 0,
+      "policy": "probability_mean",
+      "positive_cases": 8,
+      "tied_cases": 0
+    }
+  ],
+  "paired_preparation_verified": true,
+  "per_corruption_rows": 1440,
+  "phase_archive": {
+    "bytes": 405066186,
+    "sha256": "8abd0ec00c71996407d0fabc3933a7984c2e9860c8844e2d2940bff1db15901d"
+  },
+  "raw_archives": [
+    {
+      "backbone": "pointnext",
+      "bytes": 6580086,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133400_guidance-components-combined-pointnext-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133400_guidance-components-combined-pointnext-seed0/final.zip",
+      "run_id": "20261025-133400_guidance-components-combined-pointnext-seed0",
+      "sha256": "4c97858741727d0634417ee8dd7c1510848a16f68efb89314047c42998e142bd",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133400_guidance-components-combined-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6638237,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133401_guidance-components-combined-pointmae-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133401_guidance-components-combined-pointmae-seed0/final.zip",
+      "run_id": "20261025-133401_guidance-components-combined-pointmae-seed0",
+      "sha256": "14ad95932239d4cf696dc1870fee666bf0aabcc996850d56ef6d8b18e02f3287",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133401_guidance-components-combined-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6621776,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133358_guidance-components-combined-dgcnn-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133358_guidance-components-combined-dgcnn-seed0/final.zip",
+      "run_id": "20261025-133358_guidance-components-combined-dgcnn-seed0",
+      "sha256": "03c40c1a93353f5a554430da654fe342edfde7ca7d22abcffac61231d771dbab",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133358_guidance-components-combined-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6595199,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133359_guidance-components-combined-curvenet-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133359_guidance-components-combined-curvenet-seed0/final.zip",
+      "run_id": "20261025-133359_guidance-components-combined-curvenet-seed0",
+      "sha256": "93f268f4d6b515916709b4e5b47813c1bdd444ac8dff18e1f4f79a85cdff85a4",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/combined/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133359_guidance-components-combined-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6637365,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133755_guidance-components-chamfer-pointmae-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133755_guidance-components-chamfer-pointmae-seed0/final.zip",
+      "run_id": "20261025-133755_guidance-components-chamfer-pointmae-seed0",
+      "sha256": "a210db3186d9c1b074aed4eb68ebbd72bb5679cda01e82a161cbc9eb6f36fb0d",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133755_guidance-components-chamfer-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6594303,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133753_guidance-components-chamfer-curvenet-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133753_guidance-components-chamfer-curvenet-seed0/final.zip",
+      "run_id": "20261025-133753_guidance-components-chamfer-curvenet-seed0",
+      "sha256": "a5a3871ee789d4ac498e52eba4cc692c697e4a7c355d162810524b428c913371",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133753_guidance-components-chamfer-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6620945,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133752_guidance-components-chamfer-dgcnn-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133752_guidance-components-chamfer-dgcnn-seed0/final.zip",
+      "run_id": "20261025-133752_guidance-components-chamfer-dgcnn-seed0",
+      "sha256": "632a81a66a29363559d1026c7ab44a4d6950c3f049f4037d05d60d03ac43c21b",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133752_guidance-components-chamfer-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6578991,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133754_guidance-components-chamfer-pointnext-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133754_guidance-components-chamfer-pointnext-seed0/final.zip",
+      "run_id": "20261025-133754_guidance-components-chamfer-pointnext-seed0",
+      "sha256": "9e5026fc25a5b14c045f929fdba2a081425840d0a6059f04bca0701fcebb9d6f",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/chamfer/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133754_guidance-components-chamfer-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6622108,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134052_guidance-components-spectral-dgcnn-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134052_guidance-components-spectral-dgcnn-seed0/final.zip",
+      "run_id": "20261025-134052_guidance-components-spectral-dgcnn-seed0",
+      "sha256": "6ddf72b47679576727e1860ed13b22d44e7d9f37ca3fd42725ae2a05b62977c5",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/spectral/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134052_guidance-components-spectral-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6579845,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134054_guidance-components-spectral-pointnext-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134054_guidance-components-spectral-pointnext-seed0/final.zip",
+      "run_id": "20261025-134054_guidance-components-spectral-pointnext-seed0",
+      "sha256": "d4f250bc65acbf5cbc51069a6aff16db9e9bf97e8f83f67155453507e6aa25d1",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/spectral/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134054_guidance-components-spectral-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6637481,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134054_guidance-components-spectral-pointmae-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134054_guidance-components-spectral-pointmae-seed0/final.zip",
+      "run_id": "20261025-134054_guidance-components-spectral-pointmae-seed0",
+      "sha256": "08a9f2ad3f110fe17240300e78e3528de498d2a6d063f7310fc0677f5f1d3480",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/spectral/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134054_guidance-components-spectral-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6594960,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134053_guidance-components-spectral-curvenet-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134053_guidance-components-spectral-curvenet-seed0/final.zip",
+      "run_id": "20261025-134053_guidance-components-spectral-curvenet-seed0",
+      "sha256": "8ffbb79311ab9d11e964574688f77bd17d8286faa3d4568fdbb6e5c436d6e40c",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/spectral/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134053_guidance-components-spectral-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6578093,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134440_guidance-components-unguided-pointnext-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134440_guidance-components-unguided-pointnext-seed0/final.zip",
+      "run_id": "20261025-134440_guidance-components-unguided-pointnext-seed0",
+      "sha256": "c85d1b81776723f0d9e5e3e38abfed32e0736a6ef2295c1a35df7bdb5eced7f4",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/unguided/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134440_guidance-components-unguided-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6620793,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134438_guidance-components-unguided-dgcnn-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134438_guidance-components-unguided-dgcnn-seed0/final.zip",
+      "run_id": "20261025-134438_guidance-components-unguided-dgcnn-seed0",
+      "sha256": "df1c23ba69f33b976b60b21717df0e8144f5dd634cb8a91544c8e1a3b89bff06",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/unguided/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134438_guidance-components-unguided-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6593826,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134439_guidance-components-unguided-curvenet-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134439_guidance-components-unguided-curvenet-seed0/final.zip",
+      "run_id": "20261025-134439_guidance-components-unguided-curvenet-seed0",
+      "sha256": "5f3dee2fcbf9a92d6f12abf6a334a7524965e75a86fdfb02534d942fdf19f21d",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/unguided/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134439_guidance-components-unguided-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6635744,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134441_guidance-components-unguided-pointmae-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134441_guidance-components-unguided-pointmae-seed0/final.zip",
+      "run_id": "20261025-134441_guidance-components-unguided-pointmae-seed0",
+      "sha256": "e1b1b5a40a92701346cc0c3e7e0ce0a03c5d872ad11440cdf0ab2d12e55d69dc",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/modelnet40_c/unguided/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-134441_guidance-components-unguided-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6057213,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134706_guidance-components-combined-dgcnn-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134706_guidance-components-combined-dgcnn-seed0/final.zip",
+      "run_id": "20261025-134706_guidance-components-combined-dgcnn-seed0",
+      "sha256": "a7fcfe9b71d714b1f446d7c4c53c10b47f3c563edbdd3359404288c387d7e278",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134706_guidance-components-combined-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6041099,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134707_guidance-components-combined-pointnext-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134707_guidance-components-combined-pointnext-seed0/final.zip",
+      "run_id": "20261025-134707_guidance-components-combined-pointnext-seed0",
+      "sha256": "1e3bd78d535f09ba9fad468740fb43140b404b25ed7b411ccbbb19d6250f3815",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134707_guidance-components-combined-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6059372,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134707_guidance-components-combined-curvenet-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134707_guidance-components-combined-curvenet-seed0/final.zip",
+      "run_id": "20261025-134707_guidance-components-combined-curvenet-seed0",
+      "sha256": "e0d891711252c2a5cde9b22c97bd240829b415161af74981c879433b9fd69324",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134707_guidance-components-combined-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054714,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134708_guidance-components-combined-pointmae-seed0.zip",
+      "component_arm": "combined",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134708_guidance-components-combined-pointmae-seed0/final.zip",
+      "run_id": "20261025-134708_guidance-components-combined-pointmae-seed0",
+      "sha256": "72768dc71fe36e3b26af80a3e41fcde788763bd1d251b444b85afbc35d37b9d1",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/combined/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-134708_guidance-components-combined-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6058824,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135057_guidance-components-chamfer-curvenet-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135057_guidance-components-chamfer-curvenet-seed0/final.zip",
+      "run_id": "20261025-135057_guidance-components-chamfer-curvenet-seed0",
+      "sha256": "7f8901ef9d1209b1539ef5c44df25ff4d5e1610d1f366760b491e0e6814c9779",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135057_guidance-components-chamfer-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6040296,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135058_guidance-components-chamfer-pointnext-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135058_guidance-components-chamfer-pointnext-seed0/final.zip",
+      "run_id": "20261025-135058_guidance-components-chamfer-pointnext-seed0",
+      "sha256": "ccf3ffa49f8b39ad6b7e29d73305ad181f5bc4d5c54c3a835e0697af9411784d",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135058_guidance-components-chamfer-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6056465,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135056_guidance-components-chamfer-dgcnn-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135056_guidance-components-chamfer-dgcnn-seed0/final.zip",
+      "run_id": "20261025-135056_guidance-components-chamfer-dgcnn-seed0",
+      "sha256": "e853a63a2460e72ea32dc647ad31caf69df483509128b059d288f9b1ab61845f",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135056_guidance-components-chamfer-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054112,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135059_guidance-components-chamfer-pointmae-seed0.zip",
+      "component_arm": "chamfer",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135059_guidance-components-chamfer-pointmae-seed0/final.zip",
+      "run_id": "20261025-135059_guidance-components-chamfer-pointmae-seed0",
+      "sha256": "ecf701d2d8c71cb7ed0a881e3754f702c848c287d45218e266517a3bfbfd5972",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/chamfer/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135059_guidance-components-chamfer-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6040836,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135356_guidance-components-spectral-pointnext-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135356_guidance-components-spectral-pointnext-seed0/final.zip",
+      "run_id": "20261025-135356_guidance-components-spectral-pointnext-seed0",
+      "sha256": "3c57840bc33691c8320eb22c0ba26c6d2c838ea63a2877048699b40e12c12429",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/spectral/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135356_guidance-components-spectral-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6054719,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135357_guidance-components-spectral-pointmae-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135357_guidance-components-spectral-pointmae-seed0/final.zip",
+      "run_id": "20261025-135357_guidance-components-spectral-pointmae-seed0",
+      "sha256": "4798743d3ce4286c4e3f19ed31c9d56313c933e8cfb46ceb9ff78d8e62437c60",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/spectral/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135357_guidance-components-spectral-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6059401,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135355_guidance-components-spectral-curvenet-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135355_guidance-components-spectral-curvenet-seed0/final.zip",
+      "run_id": "20261025-135355_guidance-components-spectral-curvenet-seed0",
+      "sha256": "0a3d2ec0a9d29c03c27862c677fd413b5d38cf558d7130447f92c2214c9f4245",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/spectral/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135355_guidance-components-spectral-curvenet-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6057053,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135354_guidance-components-spectral-dgcnn-seed0.zip",
+      "component_arm": "spectral",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135354_guidance-components-spectral-dgcnn-seed0/final.zip",
+      "run_id": "20261025-135354_guidance-components-spectral-dgcnn-seed0",
+      "sha256": "644bd2486fd4afef33899564eef79e55d295565b75e309bef6efba5d4cae932d",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/spectral/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135354_guidance-components-spectral-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "pointmae",
+      "bytes": 6052867,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135739_guidance-components-unguided-pointmae-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135739_guidance-components-unguided-pointmae-seed0/final.zip",
+      "run_id": "20261025-135739_guidance-components-unguided-pointmae-seed0",
+      "sha256": "54357ad3c242326e3a86ff97fb1ca116ce6494f88db69183d595b2301d15d143",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/unguided/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135739_guidance-components-unguided-pointmae-seed0.zip"
+    },
+    {
+      "backbone": "pointnext",
+      "bytes": 6039388,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135739_guidance-components-unguided-pointnext-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135739_guidance-components-unguided-pointnext-seed0/final.zip",
+      "run_id": "20261025-135739_guidance-components-unguided-pointnext-seed0",
+      "sha256": "a37a53f92a8192ce78efebafd406171af3c50c9c37a817afe71b92a1bdd6b495",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/unguided/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135739_guidance-components-unguided-pointnext-seed0.zip"
+    },
+    {
+      "backbone": "dgcnn",
+      "bytes": 6055291,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135737_guidance-components-unguided-dgcnn-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135737_guidance-components-unguided-dgcnn-seed0/final.zip",
+      "run_id": "20261025-135737_guidance-components-unguided-dgcnn-seed0",
+      "sha256": "82665c094f8fad3ba5e7294d09e7d4e826f1e079e8fcdf06bd6842f66951ed3e",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/unguided/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135737_guidance-components-unguided-dgcnn-seed0.zip"
+    },
+    {
+      "backbone": "curvenet",
+      "bytes": 6057925,
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135738_guidance-components-unguided-curvenet-seed0.zip",
+      "component_arm": "unguided",
+      "dataset": "scanobjectnn_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135738_guidance-components-unguided-curvenet-seed0/final.zip",
+      "run_id": "20261025-135738_guidance-components-unguided-curvenet-seed0",
+      "sha256": "93b82a70f56ccf6ea36e780fc86e784079921437311e2addceefa6734c9a4149",
+      "source_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/development_extracted/runs/scanobjectnn_c/unguided/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261025-135738_guidance-components-unguided-curvenet-seed0.zip"
+    }
+  ],
+  "seed": 0,
+  "shared_batches": 120,
+  "source_snapshot_sha256": "f5bca11a543fd5463ef5a09b26cf216b2bd049523d61a97da24e184e5576d0c6",
+  "status": "complete_fixed_development_subsets",
+  "uncertainty": {
+    "limitations": "Conditional seed0 development uncertainty; no seed stability, independent confirmation or multiplicity-adjusted inference",
+    "preserved": "same resampled original IDs across all15 corruptions, four heads and four arms within each dataset",
+    "replicates": 2000,
+    "seed": 20261025,
+    "type": "conditional dataset-stratified original-object-ID cluster bootstrap"
+  }
+}

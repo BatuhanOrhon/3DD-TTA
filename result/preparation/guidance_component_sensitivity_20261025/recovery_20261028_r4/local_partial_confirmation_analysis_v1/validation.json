@@ -1,0 +1,253 @@
+{
+  "analysis_complete_conditions": [
+    "spectral-candidate",
+    "matched-chamfer",
+    "original3dd"
+  ],
+  "cache_evidence_archive": {
+    "bytes": 774792352,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_failure_proof_20261028T195350079068Z/failed_confirmation_cache_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_failure_proof_20261028T195350079068Z.zip",
+    "sha256": "2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898"
+  },
+  "calibration_acceptance": {
+    "bytes": 2497,
+    "sha256": "9023130dded72558e7631f1befffd99fd02353e2779033afa525b645a576c7fc"
+  },
+  "campaign_spent_seconds": 14836.554262508998,
+  "complete_raw_archives": 92,
+  "completed_jobs": 23,
+  "development_acceptance": {
+    "bytes": 1053,
+    "sha256": "f94afc837e26a3ec33c8503f04cc9cfb7dafba44fd40cc19cff845eb7bad54ed"
+  },
+  "failed_registered_jobs": [
+    20
+  ],
+  "failed_source_inventory_recovery_proofs": [
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "backbone": "dgcnn",
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "registered_job_index": 20,
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    },
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "backbone": "curvenet",
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "registered_job_index": 20,
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    },
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "backbone": "pointnext",
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "registered_job_index": 20,
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    },
+    {
+      "archived_source_snapshot": {
+        "bytes": 5534725,
+        "sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8"
+      },
+      "backbone": "pointmae",
+      "known_failure_trace_verified": true,
+      "missing_original_inventory_keys": [
+        "assets/source_snapshot/shared_trajectory.py"
+      ],
+      "recovered_member": {
+        "bytes": 6524,
+        "path": "source_snapshot/shared_trajectory.py",
+        "sha256": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda"
+      },
+      "registered_job_index": 20,
+      "scope": "Failed provenance only: original executed-source inventory lacks this key; archived sealed bytes and known pinned trace match. No raw mutation, failed-prefix accuracy or complete-result acceptance.",
+      "source_inventory_recovered_from_snapshot": true
+    }
+  ],
+  "final_ledger_identity": {
+    "bytes": 12459,
+    "sha256": "3cd95ac4c7c5c7f1739ee1a8f14fedd1de1e48d002b2ee9c1b69cde457b06f5f"
+  },
+  "final_unrun_slots": [],
+  "frozen_conditions": [
+    "spectral-candidate",
+    "matched-chamfer",
+    "tuned-chamfer",
+    "original3dd"
+  ],
+  "frozen_selection": {
+    "bytes": 798,
+    "sha256": "ea245f8a75ed729463e34757328875f6d7c789983ef10bac3c0c133b0750c360"
+  },
+  "frozen_stage": "confirmation",
+  "full_benchmark": false,
+  "label_references": [
+    {
+      "bytes": 2596,
+      "dataset": "modelnet40_c",
+      "path": "result/preparation/guidance_component_sensitivity_20261025/local_dataset_labels/modelnet40_c/label.npy",
+      "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31"
+    },
+    {
+      "bytes": 4776,
+      "dataset": "scanobjectnn_c",
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/assets_v2/datasets/scanobjectnn_c/label.npy",
+      "sha256": "e54a388693c681ddc7e668827719f8145ae6301d6179e8a504930667677bcbc3"
+    }
+  ],
+  "limits": "Failed tuned-C full3seed endpoint/CI is unavailable; no2seed averaging,dataset omission,zero substitution,retuned fallback or rerun of failedslot20. Successful tunedrows are diagnostics only. Primary endpoints useonly3complete frozenmethods withthe unchanged280object common-drawbootstrap across3fixedseeds. Originalcontrastchangeshost/batching/readout. Conditional/multiplecontrast/macro14/readoutintervals are not equivalence or universal-superiority evidence. Shared reconstructioncountedonce; classifiercostssum/peakmax; cachedinstrumentedcomparisons are not deploymentlatency. Campaignspentincludes failedwork andsealing. Any solemissing shared_trajectory executed-inventory entry is explicitlyderivedfrom exactarchivedsealedsourcebytes plusknownfailuretrace forfailedprovenanceonly; originalinventorygapandrawfailedstatusremain. Originalfailedexperiment remainsfailed.",
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "missing_original_executed_source_inventory_keys": [
+    "assets/source_snapshot/shared_trajectory.py"
+  ],
+  "n_original_object_clusters": 280,
+  "original_failed_ledger_identity": {
+    "bytes": 12181,
+    "sha256": "60c8ba55d787c8e1e9ea4fa34f27eeb3e9aa8522300252c6c74863e1cad2736b"
+  },
+  "original_failed_phase_archive": {
+    "bytes": 1159246521,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+  },
+  "original_receipt_identity": {
+    "bytes": 3676445,
+    "sha256": "5ab88805d14edbc9713275816aa11bef1d5e80784ea385b477199f7d6b779754"
+  },
+  "original_unrun_slots": [
+    21,
+    22,
+    23
+  ],
+  "partial_failed_raw_archives": 4,
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "physical_cache_complete": true,
+  "physical_cache_files": 180,
+  "physically_verified_cache_files": 180,
+  "primary_complete_jobs": 18,
+  "primary_complete_raw_archives": 72,
+  "primary_contrasts": [
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "spectral-candidate",
+      "candidate_policy": "probability_mean",
+      "comparator": "matched-chamfer",
+      "comparator_policy": "probability_mean",
+      "comparison": "same_host_same_readout",
+      "conditional_object_bootstrap_high_pp": 0.125,
+      "conditional_object_bootstrap_low_pp": -0.2341269841269841,
+      "corrected_events": 1010,
+      "delta_pp": -0.05158730158730161,
+      "harmed_events": 1036,
+      "n_cases": 8,
+      "n_original_object_clusters": 280,
+      "n_prediction_events": 50400,
+      "n_seeds": 3,
+      "negative_cases": 3,
+      "per_seed_max_pp": 0.0,
+      "per_seed_min_pp": -0.11309523809523811,
+      "positive_cases": 5,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "spectral-candidate",
+      "candidate_policy": "probability_mean",
+      "comparator": "original3dd",
+      "comparator_policy": "terminal",
+      "comparison": "whole_policy_different_host",
+      "conditional_object_bootstrap_high_pp": -0.14875992063492086,
+      "conditional_object_bootstrap_low_pp": -1.5575892857142857,
+      "corrected_events": 3094,
+      "delta_pp": -0.8015873015873016,
+      "harmed_events": 3498,
+      "n_cases": 8,
+      "n_original_object_clusters": 280,
+      "n_prediction_events": 50400,
+      "n_seeds": 3,
+      "negative_cases": 5,
+      "per_seed_max_pp": -0.5357142857142858,
+      "per_seed_min_pp": -1.0714285714285716,
+      "positive_cases": 3,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    }
+  ],
+  "prior_benchmark_exposure": true,
+  "registered_jobs": 24,
+  "remaining_phase_archive": {
+    "bytes": 150730036,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_remaining_20261028T200610144036Z/confirmation_remaining_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_remaining_20261028T200610144036Z.zip",
+    "sha256": "7b676a7b4d6fefc8f569e77cf962f599baa45c1f1bcb5cf0b490210e1cdccd6d"
+  },
+  "reviewed_recovery_plan": {
+    "bytes": 2362,
+    "sha256": "13ff25249aec97eafd6c1fb6db33cd5e3d8462b79331a7cfdfba0e4a06540f6c"
+  },
+  "selection_policy": "probability_mean",
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "source_inventory_recovered_from_snapshot": true,
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "spectral_family": "combined",
+  "stage": "confirmation_partial",
+  "status": "accepted_partial_confirmation_with_numerical_failure",
+  "unavailable_endpoints": [
+    {
+      "completed_jobs": 5,
+      "condition_id": "tuned-chamfer",
+      "conditional_object_bootstrap_interval_pp": null,
+      "failed_registered_jobs": [
+        20
+      ],
+      "policy": "probability_mean",
+      "reason": "Frozen higher-rate tunedC failed; no two-seed mean, dropped dataset, zero substitution or retuned fallback",
+      "required_jobs": 6,
+      "status": "unavailable_due_numerical_failure",
+      "three_seed_balanced_accuracy_pct": null,
+      "unrun_registered_jobs": []
+    }
+  ]
+}

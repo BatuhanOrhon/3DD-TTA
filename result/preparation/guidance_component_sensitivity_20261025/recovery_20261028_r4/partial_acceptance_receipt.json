@@ -1,0 +1,25 @@
+{
+  "status": "accepted_partial_confirmation_with_numerical_failure",
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "archive": {
+    "bytes": 722266,
+    "sha256": "dc5b854e27ecd96f1d04a5420332749e0b73a7574f011dadc7e4733fd46d68df",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_partial_confirmation_acceptance_20261028T203251841461Z/agent_b_r4_partial_confirmation_acceptance.zip"
+  },
+  "acceptance": {
+    "bytes": 1673,
+    "sha256": "b390d32d256298cfe433b25f917a8ac84f389c07217d50fc4da89f12f38b0458"
+  },
+  "local_validation": {
+    "bytes": 11049,
+    "sha256": "ebf7b3c03e81b4b730ef4e5c6eb5bfef468a08204835c39e33f2afe678ab703a"
+  },
+  "failed_registered_jobs": [
+    20
+  ],
+  "completed_jobs": 23,
+  "n_original_object_clusters": 280,
+  "physical_cache_files": 180,
+  "campaign_spent_seconds": 14836.554262508998,
+  "complete_four_condition_confirmation": false
+}

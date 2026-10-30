@@ -1,3 +1,184 @@
+**[User report/Code/Run/Decision] 2026-10-30 — Shared thesis integration:**
+`origin/thesis-integration` collects necessary completed code/knowledge from
+independent agent branches. The user authorizes selective verified normal pushes;
+main/upstream and peer work stay protected. Agent B's curated result/code/evidence
+import passes345CPU suite tests plus7calibration/controller fixtures. Both the
+base's citation audits and Agent B's dated scientific findings are retained.
+[Integration scope and limits](thesis_integration_agent_b_20261030.md) ·
+[Other-agent prompt and policy](thesis_integration_workflow_20261030.md).
+
+**[User report/Decision] 2026-10-30 — Next-session literature task prepared:**
+The user requests a new agent/session to review current point-cloud TTA,
+especially forward citations of3DD-TTA, for useful guidance losses and
+accuracy/cost improvements. This turn prepares the
+[copyable research prompt](diffusion_guidance_literature_handoff_20261030.md);
+no new literature search, implementation or GPU experiment was performed.
+The completed mathematical audit and runtime closure below remain unchanged.
+
+**[Code/Run/Inference/Open] 2026-10-30 — Guidance mathematics/execution audit:**
+Sealed sources and32fixed+120newGSDconfigs match;29CPUtests pass. Smoothing was
+active as legacy raw-lambda/M800 fidelity, distinct from normalized all-mode
+smooth and full GSDTTA. Known isolate defect persists but accuracy causality is
+unproven. S−U's small development deficit has a CI crossing0; calibrated S can
+slightly exceed U. Prior positive and null evidence are retained. No newGPU or
+algorithm change; user decides the method's role after this audit. Runtime
+closure below remains valid. [Read audit](guidance_mathematics_execution_audit_20261030.md).
+
+**[Run/Decision] 2026-10-29 (2026-10-28 22:04 UTC) — Agent B runtime closed:**
+The user authorized closing the completed campaign. Monitor5314 exited cleanly;
+`colab stop -s tta-guidance-components-a100-20261028-r4` was issued and a fresh
+server inventory reported no active sessions. All four preserved archive hashes
+were reverified before teardown. No planned GPU work remains. Accepted results
+remain 23 successful confirmation jobs plus numerical failure20, with no replacement
+or universal Chamfer-superiority claim. Earlier live/running entries below are dated
+history superseded by this closure and the accepted results.
+[Results and limitations](guidance_component_sensitivity_results_20261028.md) ·
+[Closure evidence](../result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/runtime_closure_20261029.json).
+
+**[Run/Decision] 2026-10-28 — Agent B sensitivity results accepted with one numerical failure:**
+23/24confirmationjobscomplete; failedtunedCslot20preserved,no replacement.
+Original53.7639%,matchedC53.0139%,selectedCS52.9623% onnew140IDs/dataset/all15/
+fourheads/threefixedseeds. Original−CS+.8016pp conditionalCI[+.1488,+1.5576];
+wholepolicycomparison. MatchedC−CS+.0516pp CI[-.125,+.2341],no isolatedloss
+superiority.92full+4failedZIP/180physicalcache/280object proof andactualDrive/local
+partialacceptancepass;14836.55sunder19800cap. No pendingGPU; r4+5314remainlive.
+[Accepted results and limitations](guidance_component_sensitivity_results_20261028.md).
+
+**[Run/Open] 2026-10-28 — Agent B failure preserved; only final originals remain:**
+Failedraw+180physicalcachebytes andCPUtensor/RNGproof matchDrive/localSHA.
+Reviewednew-output slots21–23 preservefailed20 andoriginalsource/freeze/cap.
+Slot21 passed; originalMN/seed2 runs, thenoriginalScan. Overall21success+1numeric
+failure sofar; tunedCthree-seedendpointstaysunavailable. Independentfailure-aware
+partialanalysis isbeingchecked; no completefour-conditionclaim. SameA100/5314live.
+[Current evidence and nextgate](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Open] 2026-10-28 — Agent B confirmation stopped on numerical failure:**
+20jobscomplete; tunedChamfereta=gamma.03/ModelNet/seed2 fails inBackgroundbatch1
+withnonfinite classifierXYZ. Failedrawarchiveis onDrive; localraw/180-cache
+retrieval and reviewedunrun-only21–23continuation are being prepared. Original
+failedslot20will not be replaced; no completefour-condition confirmation claim.
+SameA100/monitor5314live,14114.66sspent under19800sapprovedcap.
+[Failure evidence and exact recovery](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Decision/Open] 2026-10-28 — Agent B development accepted; confirmation running:**
+All32new jobs/152raw ZIPs/19trial rows/30physical caches independently accepted.
+Development bestC56.7857%,bestCS55.3452%,originalterminal55.2381% is selection
+evidence only. Exact4condition freeze saved with physical Drive/local proof;
+24-job all15/new140IDs per dataset/three-seed confirmation runs inr4/monitor5314.
+Updated wholecampaign upper5.076h fits approved5.5hcap. Confirmation and280-object
+cluster inference remain pending. [Evidence and live stage](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Open] 2026-10-28 — Agent B sensitivity development running:**
+All14technicalGPUjobs/56rawZIPs/4physicalcaches independentlyaccepted with
+Drive/localSHA;acceptedcalibrationand30oldcachesretained. Currentwholecampaign
+spent18.43min;conservativemargin+reserveprojection5.484hfitsapproved5.5hcap.
+32all15developmentjobsnowrunninginr4/monitor5314; ranking/freeze/confirmation
+remainpending. [Acceptedproofsandlivephase](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Open] 2026-10-28 — Agent B r4 technical GPU smoke launching:**
+All10setupcells,exactnative/assets,8+16strictCPUloads andphysicalDrive/local
+recoveryproofaccepted. Originalcalibration/30devcaches/155.87sspentretained.
+Registered14jobGaussian+Backgroundsmokesubmittedvia5314; resultspending.
+Newplan14033563…c4d42 preservesapproved19800scapandscientificscope.
+[Currentrunandacceptancegates](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Open] 2026-10-28 — Agent B r4 Drive mounted; CUDA preparation running:**
+UsercompletedactualDriveconsent;CLI mountedDrive,cell3KNNcopy/exactmarkerpassed
+14:39UTC. SameA10080GBHighRAM/solemonitor5314nowruns cell4. Existingcalibration
+and155.87sspentpreservedunder19800scap. No newaccuracyresult.
+[Currentsetup/recovery](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/User action required/Open] 2026-10-28 — Agent B r4 awaits Drive consent:**
+A10080GBHighRAMlive; cell1sameVMrestart/reconnect andPython3.8.20pass
+(onlyknownfastrlockdeferred). ActualGoogleDriveauthorizationopened inuserbrowser;
+TTY37218awaitsuserconsent, monitor5314preservedwithoutconcurrentcells.
+CPUrecoverypackageverified; acceptedcalibrationand155.87sspentretained.
+No newaccuracytest. [Exactresumeaction](guidance_component_sensitivity_study_20261025.md).
+
+**[User report/Run/Open] 2026-10-28 — Agent B recovery r4 active:**
+Userdirectsnewsession+continuation. ActualA10080GBHighRAM verified; solemonitor5314.
+Cell1restart/sameVMreconnectpassed; cell2active. Acceptedcalibrationand155.87s
+spentarepreserved;19800sapprovedcampaigncapunchanged. No newaccuracytest yet.
+[Currentrecoveryandgates](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Open] 2026-10-26 — Agent B calibration accepted; host/runtime recovery pending:**
+All2100label-free ratios,30physicalcaches anddeclaredparitychecks pass independent
+CPUreview+rootrevalidation. No newaccuracyresult. r1andtworeplacementA100s
+vanished withoutteardown; latestserverinventory0activeassignments. Macsleep
+recordsproveCLI supervisiongaps. Useraskedto confirmhostawake/stable before
+anotherallocation; existing19800sGPUapproval remainsvalid,155.87s spentretained.
+[Acceptedcalibration and exactrecoverygate](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Open] 2026-10-26 — Agent B calibration preserved; A100 lost unexpectedly:**
+CalibrationDrive/local archiveSHA/CRC verify;155.87s campaignspent, coefficients
+recorded, independentacceptancepending. r1disappeared withoutteardown andsole
+monitor52794reportsLOST. No newaccuracyrun. SameA100replacement/recovery is
+being prepared under unchanged19800s approvedcampaigncap.
+[Evidence and recovery state](guidance_component_sensitivity_study_20261025.md).
+
+**[User report/Run/Open] 2026-10-26 — Agent B sensitivity approved; calibration launching:**
+User explicitly approved the registered5.5h whole-campaign cap (“Tamam onaylıyorum”).
+SameA10080GB/source/CPUproof and approvalDrivebytes verify; calibration submitted
+through solemonitor52794. No new accuracy result. Development follows accepted
+calibration and smoke; frozen new140IDs/dataset confirmation follows development.
+[Scope, approval and live evidence](guidance_component_sensitivity_study_20261025.md).
+
+**[User report/Code/Run/Open] 2026-10-25 — Agent B sensitivity prepared; GPU approval pending:**
+User requests further GSD parameter/loss evidence and an actual original3DD
+comparison. This does not establish or preselect Chamfer's universal superiority.
+L2/Huber/true per-mode power and original Point-MAE terminal boundary are ready;
+54CPU contracts,12exact default-config groups,2calibration integration tests,
+5controller integration tests and184head-config previews pass. Same owned A100
+passes16strict GSD/original CPU loads with CUDA/forward prohibited; actual
+Drive/local proofSHA verifies. Six configs/family include3acceptedbaselines;
+30new GSD dataset jobs plusoriginal control, then new140IDs/dataset and3seeds.
+One whole campaign expects4.19h, margin+reserve5.37h, cap5.5h; explicit duration
+approval was requested BEFORE any new GPU research. Runtime+monitor remain live.
+[Concrete scope, formulas and acceptance gates](guidance_component_sensitivity_study_20261025.md).
+
+**[Run/Decision/Open] 2026-10-25 — Agent B frozen confirmation accepted:**
+C probability mean56.8929% versus C+S probability mean56.7222% across reserved70
+objects/dataset, all15/four heads/seeds0,1,2. Primary difference+0.1706pp,
+conditional95% interval[-0.0397,+0.3651]pp; no accuracy superiority/equivalence
+claim. Frozen C+S entropy secondary56.6984%; no tuning or policy reselection.
+All48raw ZIPs and90 physically downloaded cache NPZs pass independent local
+source/state/ID/RNG/receipt checks. Fresh-encode smoke shared reconstruction is
+24.94% lower for C; paired-cache confirmation costs are separately qualified.
+Whole three-seed phase41.7519min under55min. Own A100+monitor remain live.
+[Accepted confirmation, per-case signs and limitations](guidance_component_confirmation_results_20261025.md).
+
+**[Run/Decision/Open] 2026-10-25 — Agent B fixed development accepted:**
+All32 raw ZIPs/96 policy rows across both datasets, four arms/four heads,
+all15 corruptions and70 development IDs/dataset pass independent local analysis.
+C probability mean55.1905% nearly matches C+S entropy55.2024%; no accuracy
+separation is established. Fresh-encode smoke measured24.94% lower shared
+reconstruction time for C; cache-replay development timing is separately labeled.
+Freeze C probability mean with zero tuning; a registered three-seed reserved-ID
+confirmation began14:35UTC in the same owned VM, with all three seeds under one55min cap. Initial research phase34.89min completed under55min.
+Raw Drive/local archive SHA and all30 physical cache files verify. Own A100 and
+monitor remain live. [Results and limitations](guidance_component_development_results_20261025.md).
+
+**[Run/Code/Open] 2026-10-25 — Agent B paired development running (historical):**
+Own r1 completed the ten-cell setup,637-file sealed deployment and eight strict
+CPU checkpoint loads without CUDA initialization. Four-arm/two-dataset/four-head
+Gaussian+Background smoke passed32raw ZIPs/17920candidate predictions and actual
+Drive/local SHA checks. Same-flow all15 development now runs70fixed IDs/dataset,
+with common z0/h0/noise and post-preparation RNG cache. Four ModelNet jobs have
+completed; Scan follows. No full benchmark, seed-stability or accuracy gain claim.
+Measured active-phase expectation49.44min; separate uncertainty scenario57.64min;
+the original3300s hard active cap remains. Raw original projection is preserved.
+[Current study and evidence](guidance_component_study_handoff_20261025.md).
+
+**[User report/Code/Open] 2026-10-25 — Agent B activated:**
+User assigned this session to guidance components. Own `gsd-guidance-components`
+worktree starts at committed `4c5be0e`; original user edits and Agent A remain
+untouched. Historical12 component ZIP identities/CRC and70+70 object-disjoint
+ID manifests verify. Own A100/High-RAM runtime setup is active under one monitor;
+no research accuracy or speed result yet. Initial smoke+fixed development
+screen estimate25–45min/cap55min; smoke projection gates launch. Full benchmark,
+tuning/confirmation and >60min phases remain separately scoped decisions.
+[Active Agent B study](guidance_component_study_handoff_20261025.md).
+
 **[Paper/Run/Code/Open] 2026-10-25 — paired source-only / original3DD tables:**
 [All reviewed numerical papers and our four heads](source_only_3dd_all_papers_20261025.md)
 now have a dedicated paired view:147setting rows,139paper source observations

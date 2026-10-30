@@ -1,0 +1,39 @@
+{
+  "analysis_complete_conditions": [
+    "spectral-candidate",
+    "matched-chamfer",
+    "original3dd"
+  ],
+  "campaign_spent_seconds": 14836.554262508998,
+  "failed_registered_jobs": [
+    20
+  ],
+  "frozen_conditions": [
+    "spectral-candidate",
+    "matched-chamfer",
+    "tuned-chamfer",
+    "original3dd"
+  ],
+  "local_validation": {
+    "bytes": 11049,
+    "sha256": "ebf7b3c03e81b4b730ef4e5c6eb5bfef468a08204835c39e33f2afe678ab703a"
+  },
+  "n_original_object_clusters": 280,
+  "original_failed_phase_archive": {
+    "bytes": 1159246521,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+  },
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "physical_cache_complete": true,
+  "remaining_phase_archive": {
+    "bytes": 150730036,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_remaining_20261028T200610144036Z/confirmation_remaining_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_remaining_20261028T200610144036Z.zip",
+    "sha256": "7b676a7b4d6fefc8f569e77cf962f599baa45c1f1bcb5cf0b490210e1cdccd6d"
+  },
+  "stage": "confirmation_partial",
+  "status": "accepted_partial_confirmation_with_numerical_failure",
+  "tuned_chamfer_three_seed_endpoint": null
+}

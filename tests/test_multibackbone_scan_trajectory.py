@@ -44,8 +44,9 @@ class ScanTrajectoryRunnerTests(unittest.TestCase):
             self.assertFalse(config["trajectory_selection"]["labels_used"])
         self.assertEqual(configs[-1]["checkpoint"], "checkpoints/scanobject_jt.pth")
         self.assertEqual(runner.matched_source(configs[-1], {}, {})["status"], "unavailable")
-        for invalid in (("--trajectory-observe", "--dataset", "modelnet40_c"),
-                        ("--trajectory-observe", "--method", "original3dd"),
+        modelnet = runner.configurations(self.args('--trajectory-observe', '--dataset', 'modelnet40_c'))
+        self.assertTrue(all(c['num_classes'] == 40 and c['n_examples'] == 2468 for c in modelnet))
+        for invalid in (("--trajectory-observe", "--method", "original3dd"),
                         ("--backbones", "pointmae"), ("--trajectory-observe", "--backbones", "pointmae")):
             with self.subTest(invalid=invalid), self.assertRaises(ValueError):
                 runner.configurations(self.args(*invalid))
