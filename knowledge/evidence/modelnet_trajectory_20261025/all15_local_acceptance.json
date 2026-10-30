@@ -1,0 +1,61 @@
+{
+  "status": "complete",
+  "mode": "all15",
+  "manifest_sha256": "2326e8e07f30bd46f5e29a7d9d169b45fa71d5a3aac7fd9c5ac4fb3f56e3a3a8",
+  "models": [
+    {
+      "backbone": "dgcnn",
+      "run_id": "20261025-133445_mntraj-dgcnn-seed0",
+      "archive": {
+        "bytes": 44709995,
+        "sha256": "1710fbe36deaffa42fa3a6bb495ea9cbeca6c9ab77bab6486b162c611ca12996"
+      },
+      "n": 37020,
+      "batches": 540
+    },
+    {
+      "backbone": "curvenet",
+      "run_id": "20261025-133446_mntraj-curvenet-seed0",
+      "archive": {
+        "bytes": 43734611,
+        "sha256": "6bce346cc41de5045b3fb0ef378aa20be1db8bfecd0ea952e52e82d6e62b1340"
+      },
+      "n": 37020,
+      "batches": 540
+    },
+    {
+      "backbone": "pointnext",
+      "run_id": "20261025-133447_mntraj-pointnext-seed0",
+      "archive": {
+        "bytes": 43108376,
+        "sha256": "8c8309f735ef02a094e4a3052a390446567537c908bb7ec5b9ef4539b23f8314"
+      },
+      "n": 37020,
+      "batches": 540
+    }
+  ],
+  "shared_batches": 540,
+  "candidate_predictions": 444240,
+  "peak_allocated_mb": 36233.06103515625,
+  "shared_reconstruction_seconds": {
+    "background": 549.2125800129943,
+    "cutout": 305.47904025499884,
+    "density": 305.4141436329937,
+    "density_inc": 303.1720697050023,
+    "distortion": 305.4114141739974,
+    "distortion_rbf": 306.4558839370011,
+    "distortion_rbf_inv": 306.813630113008,
+    "gaussian": 305.92284184000346,
+    "impulse": 306.51224393199846,
+    "lidar": 300.7427156930007,
+    "occlusion": 301.90574660799757,
+    "rotation": 306.9380923869958,
+    "shear": 306.86852073499176,
+    "uniform": 304.87810800799707,
+    "upsampling": 301.09877118999884
+  },
+  "job_wall_seconds": 5216.635398845,
+  "actual_drive_local_roundtrip": true,
+  "original_labels_compared": true,
+  "cross_head_shared_trace_verified": true
+}

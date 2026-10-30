@@ -1,0 +1,43 @@
+{
+  "source_branch": "gsd-modelnet-trajectory",
+  "source_commit": "11a89c63be80e3f58940cbf9a55643f6520f1b37",
+  "copied_files": {
+    "preparation_identity.json": {
+      "source": "result/preparation/modelnet_trajectory_study_20261025/preparation_identity.json",
+      "bytes": 2023,
+      "sha256": "3de68c58cdb94833e2a39d8f845011de32281d5e8ca2f0194aab912dbd89c312"
+    },
+    "all15_local_acceptance.json": {
+      "source": "result/preparation/modelnet_trajectory_study_20261025/all15_local_acceptance.json",
+      "bytes": 1833,
+      "sha256": "425243eebc0ce80d425daf13008a034cc8e3bb2f19cd7af2a1f5abcc5b8a0872"
+    },
+    "all15_final_local_acceptance.json": {
+      "source": "result/preparation/modelnet_trajectory_study_20261025/all15_final_local_acceptance.json",
+      "bytes": 419,
+      "sha256": "4838d605c4ae5df5f7c3c7e9202c48112a4348699cfcaeeabd1f46a14543429c"
+    },
+    "completed_report_local_acceptance.json": {
+      "source": "result/preparation/modelnet_trajectory_study_20261025/completed_report_local_acceptance.json",
+      "bytes": 201,
+      "sha256": "81ce373af5437503be8ca26676803f0d7aea735e0d58e5f4b2e194647c9a0423"
+    },
+    "macro.csv": {
+      "source": "result/preparation/modelnet_trajectory_study_20261025/all15_analysis/macro.csv",
+      "bytes": 724,
+      "sha256": "0103ec28ca02d154569d563e3b3e4ee8313fbe596bdaa78df6df55c11a4aeff0"
+    },
+    "per_corruption.csv": {
+      "source": "result/preparation/modelnet_trajectory_study_20261025/all15_analysis/per_corruption.csv",
+      "bytes": 10980,
+      "sha256": "3e8792554086aea6b4ebdec043bcb0c7923ae367ddae017a812f22ebd1506997"
+    }
+  },
+  "archived_validation_identity": {
+    "bytes": 638487,
+    "sha256": "ef9ad842071fc7b0a1fa9232236638a291522678300e1c2c99a46ae47ddbf2e6"
+  },
+  "raw_location": "result/modelnet40_c/gsd_inspired_latent_spectral_guidance/",
+  "drive_root": "MyDrive/thesis/result/modelnet_trajectory_study_20261025/",
+  "lifecycle_as_of": "2026-10-25 only; Agent B later closure is documented separately; not current remote inventory"
+}

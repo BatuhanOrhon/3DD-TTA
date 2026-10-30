@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-30T09:32:20.857974+00:00",
+  "source_branch": "gsd-modelnet-trajectory",
+  "source_commit": "11a89c63be80e3f58940cbf9a55643f6520f1b37",
+  "source_initial_status": "",
+  "target": "origin/thesis-integration",
+  "target_base_commit": "2778a663cb8cfcce96d8837490e6a9386fb0665e",
+  "integration_branch": "integrate/agent-a-modelnet-20261030",
+  "strategy": "curated commit; source history is not marked merged",
+  "production_code_already_present": [
+    "shared_trajectory.py",
+    "scripts/eval_multibackbone_guidance.py",
+    "scripts/analyze_scan_trajectory.py"
+  ],
+  "production_decision": "Keep current Agent B superset, including nonprefix selections, component/seed extensions and automatic dataset detection; no production code/dependency/config import required.",
+  "selected_tests": {
+    "tests/test_shared_trajectory.py": [
+      "test_modelnet_40_class_probes_preserve_rng_buffers_and_gradient",
+      "test_observer_rejects_class_count_mismatch_and_nonfinite_logits",
+      "test_modelnet_schema_and_terminal_tampering_are_rejected",
+      "last18 batch assertion in existing full ModelNet coverage test"
+    ],
+    "tests/test_multibackbone_scan_trajectory.py": [
+      "test_modelnet_observation_resolves_three_frozen_40_class_heads",
+      "test_modelnet_probe_and_terminal_use_output_normalization"
+    ]
+  },
+  "knowledge_decision": "Reconcile accepted study, README, findings, open questions and relevant method/scope summaries by meaning; retain peer accepted findings and original planning snapshot.",
+  "compact_evidence": "knowledge/evidence/modelnet_trajectory_20261025/",
+  "excluded": [
+    {
+      "scope": "Historical CLI --dataset selector and mntraj naming-only prefix",
+      "reason": "Shared analyzer already safely infers dataset and runner retains component-aware naming; old whole files would remove newer peer work."
+    },
+    {
+      "scope": "Dated setup/live progress paragraphs between full launch and original planning",
+      "reason": "Keep on source branch; necessary failures/stopped gates preserved in compact execution_outcomes.json, final results and lifecycle retained."
+    },
+    {
+      "scope": "Raw ZIPs, weights, NPYs, caches and large per-batch validation/member dumps",
+      "reason": "Immutable local/Drive archives remain hash-addressed; compact CSVs/identities/acceptance and fresh CPU reanalysis are sufficient in Git."
+    },
+    {
+      "scope": "Uncommitted root Colab skill/setup/monitor edits and peer branches/worktrees",
+      "reason": "Outside Agent A completed source scope; not modified."
+    }
+  ],
+  "main_or_upstream_push": false,
+  "new_gpu_or_runtime_operation": false
+}

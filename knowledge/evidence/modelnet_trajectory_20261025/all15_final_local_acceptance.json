@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "archive": {
+    "bytes": 1696973,
+    "sha256": "ff6837972ed38043d98430630af78342d2b26b8d323e61624aba08488a245308"
+  },
+  "members": 1673,
+  "physical_batch_receipts": 1620,
+  "physical_corruption_receipts": 45,
+  "physical_model_receipts": 3,
+  "actual_drive_local_sha": true,
+  "candidate_predictions": 444240,
+  "head_input_events": 111060,
+  "shared_batches": 540,
+  "policy_rows": 9
+}

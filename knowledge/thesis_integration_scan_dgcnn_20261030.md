@@ -44,6 +44,14 @@ ordered preservation of all prior README/findings/open-question lines pass.
 README conflict was resolved by adding our8-line headline to the full target
 version; others' accepted positive/null/failed research records were retained.
 
+[Code/Run] Before push, Agent A advanced the target to
+`8a335e9854d32027c5f082cd2b76c50a8cf2100e`. The ordered-knowledge gate detected
+this change; a normal merge retained the new ModelNet results and tests.
+The combined tree then passed **350CPUtests in20.559s**, exit0. Repeat knowledge
+and link checks pass. Incoming raw CSV CRLF triggered the default whitespace
+check; bytes were preserved and `core.whitespace=cr-at-eol` validation passes.
+No force-push or historical-data normalization is used.
+
 [Artifact/Open] Local32-member evidence ZIP93963bytes, SHA256
 `e5cb6e1185cf695d96af7e2e10c3c5907eee3f8769ac3f682c2836b0daf381d3`:
 `result/preparation/scan_dgcnn_checkpoint_audit_20261030.zip`.

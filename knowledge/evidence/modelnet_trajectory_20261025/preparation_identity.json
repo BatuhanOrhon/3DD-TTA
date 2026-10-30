@@ -1,0 +1,59 @@
+{
+  "payload": {
+    "bytes": 5501084,
+    "sha256": "f202a8d4dffdb523fca34325175355bab6d46818503d4c7b69f6f52acdc1fe84"
+  },
+  "manifest": {
+    "bytes": 124827,
+    "sha256": "2326e8e07f30bd46f5e29a7d9d169b45fa71d5a3aac7fd9c5ac4fb3f56e3a3a8"
+  },
+  "source_snapshot": {
+    "bytes": 5513989,
+    "sha256": "a04717337d6732b74bef18a956381f6979a83f208ca248dd2a113aeab7979015"
+  },
+  "scope": {
+    "bytes": 3900,
+    "sha256": "b598c545cd648950e0beca47ef469c68650c55d10bedbcc4eeacb24b024d90d9"
+  },
+  "source_commit": "665ed07e6443f491a7dd127a768e3fa3e7998eb7",
+  "overlay": {
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 35647,
+      "sha256": "85d3da722b83efc910d2b428cbe517f44ca4ca1d025eb7a7ee6b2894c83600ca"
+    },
+    "scripts/eval_multibackbone_source.py": {
+      "bytes": 30722,
+      "sha256": "3be330870b27375f7378a287a41f00e10b4df3dac0ac34a12df69f84cf3b28e9"
+    },
+    "shared_trajectory.py": {
+      "bytes": 6526,
+      "sha256": "44410966f85aa25d38b7eaabb18d170672d17cce9232a6f82122bc01f0bbe006"
+    },
+    "scripts/analyze_scan_trajectory.py": {
+      "bytes": 12475,
+      "sha256": "42fc6b3096ba7b012b031c7977e86780bf9d5668173859f2d90c0e6576b67b6b"
+    },
+    "tests/test_shared_trajectory.py": {
+      "bytes": 13498,
+      "sha256": "dbc4497e5c81626ff41df57f7fc9869833d67fc6d5bf0464638a6917896193cf"
+    },
+    "tests/test_multibackbone_scan_trajectory.py": {
+      "bytes": 9046,
+      "sha256": "ff0309fe42ee0dc54029a3abc01aaf694e9d342262c43c674c03a3a144b74398"
+    }
+  },
+  "checkpoints": {
+    "checkpoints/svwa_dgcnn_modelnet40.pth": {
+      "bytes": 21771717,
+      "sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494"
+    },
+    "checkpoints/svwa_curvenet_modelnet40.pth": {
+      "bytes": 26013253,
+      "sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+    },
+    "checkpoints/pointnext_modelnet40.pth": {
+      "bytes": 54383385,
+      "sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+    }
+  }
+}

@@ -41,6 +41,14 @@
       "exit_code": 0,
       "log_sha256": "a31895f41ededa9da1ec8c99c81a7c1c137264dee9ef158784fdb3c086d67112",
       "log_location": "result/preparation/scan_dgcnn_checkpoint_audit_20261030/integrated_tests.log"
+    },
+    "after_agent_a_merge": {
+      "command": "uv run --offline --no-project --with torch --with numpy python -m unittest discover -s tests -v",
+      "tests": 350,
+      "seconds": 20.559,
+      "exit_code": 0,
+      "log_sha256": "e3100ce92311609e4d937b855ac6824f071e4c360d7502c8fbec74787264dfd3",
+      "log_location": "result/preparation/scan_dgcnn_checkpoint_audit_20261030/integrated_agent_a_tests.log"
     }
   },
   "additional_checks": [
@@ -48,7 +56,8 @@
     "all new research-note local links resolve",
     "target README/findings/open_questions prior lines preserved in order",
     "git diff --check passed",
-    "no production-code changes or new dependencies"
+    "no production-code changes or new dependencies",
+    "Latest remote knowledge all prior lines preserved after Agent A merge; current incoming diff is own additive11files only."
   ],
   "local_bundle": {
     "bundle": "result/preparation/scan_dgcnn_checkpoint_audit_20261030.zip",
@@ -68,5 +77,11 @@
     "No new model/GPU experiment or runtime operation",
     "No Drive result backup",
     "Baseline/integrated suite emitted pre-existing SyntaxWarnings for archived source escapes; both exited0."
-  ]
+  ],
+  "concurrent_remote_update": {
+    "included_commit": "8a335e9854d32027c5f082cd2b76c50a8cf2100e",
+    "integration_method": "Normal merge; resolve README by retaining all latest remote content plus own headline; preserve auto-merged findings/open questions.",
+    "detected_by": "Additive-knowledge gate detected remote ref advancement before push; initial assertion failed until latest remote was incorporated."
+  },
+  "whitespace_note": "Default diff --check flagged incoming Agent A CSV CRLF as whitespace; preserved original bytes. git -c core.whitespace=cr-at-eol diff --cached --check passes."
 }

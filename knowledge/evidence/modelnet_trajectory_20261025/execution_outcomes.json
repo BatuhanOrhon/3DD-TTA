@@ -1,0 +1,60 @@
+{
+  "status": "scope_complete",
+  "failed_or_stopped_attempts": {
+    "pilot_prelaunch_failure.json": {
+      "status": "failed_before_model_or_gpu_job_launch",
+      "reason": "Missing gpu_phases parent in fresh owned study directory",
+      "source_script_sha256": "e7d384fe26c854d8884d034aff32549423a46cf51efe789174b9ee62ed3e2584",
+      "gpu_job_seconds_consumed": 0,
+      "fix": "Create parent directories while retaining exist_ok=False for fresh immutable attempt",
+      "scope_unchanged": true
+    },
+    "pilot_duration_gate.json": {
+      "status": "awaiting_cap_amendment",
+      "existing_cap_seconds": 9000,
+      "requested_cap_seconds": 9600,
+      "central_estimate_seconds": 6414.616656897022,
+      "upper_estimate_seconds": 9101.873912327432,
+      "consumed_seconds": 56.47351832100003,
+      "data_and_state_checks": "passed",
+      "scope_change": false,
+      "full_gpu_launched": false
+    }
+  },
+  "other_preserved_outcomes": [
+    {
+      "stage": "local preparation v1",
+      "status": "failed",
+      "reason": "DGCNN archive path resolved to extracted directory; corrected to SHA-bound ZIP without GPU work"
+    },
+    {
+      "stage": "setup cell2",
+      "status": "known fastrlock failure deferred by user",
+      "later_status": "native CUDA, datasets and checkpoints passed before research"
+    },
+    {
+      "stage": "native binding preflight",
+      "status": "fresh setup binaries differed from pinned reference",
+      "resolution": "preserved fresh binaries; restored pinned four binaries and verified before smoke"
+    }
+  ],
+  "smoke": {
+    "candidate_predictions": 1680,
+    "seconds": 56.47351832100003,
+    "status": "accepted"
+  },
+  "full": {
+    "policy_rows": 9,
+    "shared_batches": 540,
+    "head_input_events": 111060,
+    "candidate_predictions": 444240,
+    "seconds": 5216.635398845,
+    "peak_allocated_mib": 36233.06103515625
+  },
+  "negative_or_null_results": "All 135 per-corruption rows retained, including zero deltas and regressions; all three probability means remain below historical separate original3DD. One seed does not establish repeatability.",
+  "duration_approval": {
+    "initial_cap_seconds": 9000,
+    "amendment": "User explicitly removed duration limit for unchanged scope",
+    "reply": "Onayl\u0131yorum ne kadar s\u00fcrd\u00fc\u011f\u00fc \u00f6nemli de\u011fil ba\u015flat"
+  }
+}

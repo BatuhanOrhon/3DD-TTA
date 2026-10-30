@@ -120,6 +120,30 @@ class ScanTrajectoryRunnerTests(unittest.TestCase):
                 self.assertEqual(legacy.call_args.args[1], "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac")
                 load.assert_not_called()
 
+    def test_modelnet_observation_resolves_three_frozen_40_class_heads(self):
+        configs = runner.configurations(self.args('--dataset', 'modelnet40_c', '--trajectory-observe',
+                                                 '--backbones', 'dgcnn', 'curvenet', 'pointnext'))
+        self.assertEqual(len(configs), 3)
+        for config in configs:
+            self.assertTrue(config['trajectory_observation'])
+            self.assertEqual((config['n_examples'], config['num_classes'], config['batch_size']), (2468, 40, 70))
+            self.assertEqual(config['split'], 'official_modelnet40_test')
+            self.assertEqual(config['trajectory_selection']['policies'],
+                             ['terminal', 'minimum_entropy', 'probability_mean'])
+            self.assertFalse(config['trajectory_selection']['labels_used'])
+
+    def test_modelnet_probe_and_terminal_use_output_normalization(self):
+        ops = self.operations()
+        decoded = torch.tensor([[[1., 2., 4.], [3., 7., 9.], [-2., 3., 1.]]])
+        before = decoded.clone()
+        center, scale = torch.full((1, 1, 3), 9.), torch.full((1, 1, 1), 5.)
+        geometry = runner.decoded_to_geometry(decoded, 'modelnet40_c', scale, center, ops)
+        expected = ops.normalize(ops.rotateback_pointcloud(decoded.clone()))[0]
+        self.assertTrue(torch.equal(decoded, before))
+        self.assertTrue(torch.equal(geometry, expected))
+        scan = runner.decoded_to_geometry(decoded, 'scanobjectnn_c', scale, center, ops)
+        self.assertFalse(torch.allclose(geometry, scan))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "actual_drive_local_sha": true,
+  "archive": {
+    "bytes": 7242077,
+    "sha256": "004f7999933d25a60e109bbe2521ccba2aaf279d9894a4adddfbf46c198f4227"
+  },
+  "members": 34
+}

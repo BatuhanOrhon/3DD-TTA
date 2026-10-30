@@ -7,6 +7,17 @@ not a solved reproduction. No new inference/GPU/runtime operation. Colab skill
 now requires task-specific names and explicit peer/unknown-session protection.
 [Selected integration and verification](thesis_integration_scan_dgcnn_20261030.md).
 
+**[Code/Run/Decision] 2026-10-30 — Agent A ModelNet results integrated:**
+Completed all15/severity5/seed0/2468-ID three-head readouts are now recorded:
+probability mean64.5489/66.0832/67.2150% (DGCNN/CurveNet/PointNeXt), with
++0.7347/+0.9130/+0.8860pp versus own terminals, still below separate
+original3DD. Regressions/ties and one-seed limits remain visible. Agent A
+runtime/monitor closed with permission onOct25; Agent B's later closure and
+results below remain intact. Shared production code already covers ModelNet;
+only missing behavior tests and compact scientific evidence are added.
+[Accepted study](modelnet_multibackbone_trajectory_handoff_20261025.md) ·
+[Selective integration scope](thesis_integration_agent_a_20261030.md).
+
 **[User report/Code/Run/Decision] 2026-10-30 — Shared thesis integration:**
 `origin/thesis-integration` collects necessary completed code/knowledge from
 independent agent branches. The user authorizes selective verified normal pushes;
