@@ -1,3 +1,25 @@
+**[Run/Artifact/Decision] 2026-10-30 — Chamfer variants complete; owned runtime closed:**
+Original fixed-10/30 Chamfer study accepts120 confirmation heads and120 fresh
+B70 Gaussian/background timing heads. Four-classifier accuracy mean (not an
+ensemble) H changes ModelNet+.3254pp and Scan+.0833pp; sparse/weighted lose
+accuracy. Sparse pipeline cost falls about21%; H/KL add7–8%, weighted less
+than1%, excluding startup, loading and archival. The separate Scan CurveNet-H
+posthoc check on reused140IDs/three seeds gives its own probability mean
+55.6667→55.9048%,+.2381pp conditional95%CI[-.1587,+.6349]; all seed deltas
+are positive but the primary interval includes0. Four-head+.1944pp and
+PointNeXt+.4127pp are secondary. Three fresh G+B timing repeats add8.5572%
+(median paired H/C ratios; C20.955446s/H22.759866s medians).
+All407 raw ZIPs/304physical caches and both final Drive archive roundtrips
+passed. Only the exact owned guidance session was closed;19:34:46UTC inventory
+shows no active session, peer untouched. No variants were combined or made
+default. Accepted GPU results belong to0fd2581/95a4997 (early failed/native
+archives to a1d298a); the merged tree has CPU-only verification and preserves
+strict calibration/source binding. The depth study below remains separate.
+[Final results, archive and closure](chamfer_guidance_final_handoff_20261030.md) ·
+[Original accuracy/cost](chamfer_guidance_variants_results_20261030.md) ·
+[CurveNet evidence/limits](scan_curvenet_entropy_followup_20261030.md) ·
+[Integration scope](thesis_integration_chamfer_guidance_variants_20261030.md).
+
 **[Run/Code/Inference/Decision] 2026-10-30 — Depth tuning accepted and runtime closed:**
 All32 development settings were attempted (27 finite/five numerical failures);
 all nine frozen confirmation jobs passed. On256 reserved objects/three fixed

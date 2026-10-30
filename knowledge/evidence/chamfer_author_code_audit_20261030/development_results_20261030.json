@@ -1,0 +1,120 @@
+{
+  "status": "development_complete_heldout_confirmation_pending",
+  "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2",
+  "analysis_provenance": {
+    "commit": "7506d15ffa11320ac24481611bf488790232a111",
+    "analyzer_sha256": "f2da4cdde2489e3fad227f7ec0677b28c0d5428365a763c5bf6d27778ba27af5",
+    "scope": "Complete fixed development70 objects/dataset seed0; heldout confirmation pending; no coefficient selection from accuracy"
+  },
+  "rows": [
+    {
+      "dataset": "modelnet40_c",
+      "arm": "semantic_h",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "arm_accuracy_pct": 62.78571428571429,
+      "delta_pp": 0.04761904761905189,
+      "ci95_delta_pp": [
+        -0.5714285714285714,
+        0.6428571428571428
+      ]
+    },
+    {
+      "dataset": "modelnet40_c",
+      "arm": "semantic_kl",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "arm_accuracy_pct": 63.0,
+      "delta_pp": 0.2619047619047632,
+      "ci95_delta_pp": [
+        -0.30952380952380953,
+        0.8571428571428573
+      ]
+    },
+    {
+      "dataset": "modelnet40_c",
+      "arm": "sparse",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "arm_accuracy_pct": 61.238095238095234,
+      "delta_pp": -1.5000000000000013,
+      "ci95_delta_pp": [
+        -2.261904761904762,
+        -0.761309523809527
+      ]
+    },
+    {
+      "dataset": "modelnet40_c",
+      "arm": "weighted",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "arm_accuracy_pct": 62.42857142857143,
+      "delta_pp": -0.309523809523804,
+      "ci95_delta_pp": [
+        -0.9761904761904763,
+        0.35714285714285715
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "arm": "semantic_h",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "arm_accuracy_pct": 40.285714285714285,
+      "delta_pp": -0.30952380952380953,
+      "ci95_delta_pp": [
+        -0.8095238095238096,
+        0.2148809523809492
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "arm": "semantic_kl",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "arm_accuracy_pct": 40.14285714285714,
+      "delta_pp": -0.4523809523809541,
+      "ci95_delta_pp": [
+        -0.9761904761904763,
+        0.0714285714285714
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "arm": "sparse",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "arm_accuracy_pct": 39.476190476190474,
+      "delta_pp": -1.1190476190476195,
+      "ci95_delta_pp": [
+        -1.7857142857142856,
+        -0.47619047619047616
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "arm": "weighted",
+      "objects": 70,
+      "paired_observations": 4200,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "arm_accuracy_pct": 39.666666666666664,
+      "delta_pp": -0.9285714285714286,
+      "ci95_delta_pp": [
+        -1.6904761904761905,
+        -0.19047619047619047
+      ]
+    }
+  ],
+  "analysis_identity": {
+    "bytes": 4706325,
+    "sha256": "b669aaec613f6bff16fa46f7ea882526c521c9c950625dcc8a8f00f48daa555b"
+  },
+  "scope": "70development objects/dataset, all15, seed0, fourheads; no coefficient selection from scores; no deployment speed claim from cache replay"
+}

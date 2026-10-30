@@ -147,6 +147,36 @@ class SourceRunnerContracts(unittest.TestCase):
                 with self.assertRaises(FileNotFoundError):
                     runner.snapshot_sources(bundle, config, manifest)
 
+    def test_nested_repo_sources_keep_asset_verification_and_canonical_snapshots(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory).resolve()
+            root, output = base / 'assets', base / 'bundle'
+            repo = root / 'source_snapshot'
+            repo.mkdir(parents=True)
+            output.mkdir()
+            files = ('research_artifacts.py', 'classifier_backbones.py', 'tta_gsd_v2.py')
+            for name in files:
+                (repo / name).write_text('# pinned ' + name + '\n')
+            manifest = {'files': {'source_snapshot/' + name: runner.file_identity(repo / name) for name in files}}
+            module = ModuleType('nested_sampler_fixture')
+            module.__file__ = str(repo / 'tta_gsd_v2.py')
+            config = {'asset_root': str(root)}
+            bundle = runner.RunBundle(output)
+            with patch.object(runner, 'REPO', repo), patch.dict(runner.sys.modules, {module.__name__: module}):
+                runner.snapshot_sources(bundle, config, manifest)
+                for name in files:
+                    expected = runner.file_identity(repo / name)
+                    self.assertEqual(config['executed_source_files']['assets/source_snapshot/' + name], expected)
+                    self.assertEqual(config['executed_source_files']['repo/' + name], expected)
+                    self.assertEqual((output / 'source_snapshot' / name).read_bytes(), (repo / name).read_bytes())
+                identity = manifest['files'].pop('source_snapshot/tta_gsd_v2.py')
+                with self.assertRaisesRegex(ValueError, 'absent from manifest'):
+                    runner.snapshot_sources(bundle, config, manifest)
+                manifest['files']['source_snapshot/tta_gsd_v2.py'] = identity
+                (repo / 'tta_gsd_v2.py').write_text('# tampered source\n')
+                with self.assertRaisesRegex(ValueError, 'SHA-256 mismatch'):
+                    runner.snapshot_sources(bundle, config, manifest)
+
 
 class SourceTensorContracts(unittest.TestCase):
     @classmethod

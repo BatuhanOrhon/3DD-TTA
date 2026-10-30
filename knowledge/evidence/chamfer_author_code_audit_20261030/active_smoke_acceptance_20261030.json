@@ -1,0 +1,734 @@
+{
+  "accuracy_claim": false,
+  "bundles": [
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "sha256": "5d0794fab6169b8e3398a9bb6a41c95c05eb17423925a2d35383aaf82bd85667"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "sha256": "7aed129258fea698233b9da94fb722817694028d8d1f98d1dcf2c707d4a55943"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "sha256": "c68fdbc7ce5cc94b147da52ac20ad2fdf3f1b4e044a1f75161808fdeafd96830"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "sha256": "df456e09f44891ba1041eb6270ca158b6d367fd8cd4c8147216e04a3e9110adf"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "sha256": "af8807359d4a4ef1282793e4bd8a282e4765e4077d04629388e461819c99b061"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "sha256": "bbc84556ec38123e4263a78c07555a200f1c946a3b0d59cd4f58d74bad1b6342"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "sha256": "834b0c3f0e5ebf19f15412eecd2bde802c1570a351c94ffa53e153a52e97dfd1"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "sha256": "27cedddf64c5d78eff8d3ef29f533483b4679e6cf0bfe93c69d61fb368b1ded0"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "sha256": "144691ccb8a951b163702dadddb1a0ff1dd514fa9ae0ce827a09d0a6a2d416e6"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "sha256": "b09e8150f99be483b9b98ed3590b619f721cb519b08e813ed60ce91d6b7a2ec9"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "sha256": "8642d1b976034f0c032dd5405450bb4b968eccf79b4fe79cdfa45ec506cc69c5"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "sha256": "792e20a5ab338ff375725b599792569ed70789f574cdd003002b80c4a3033ea6"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "sha256": "f334ae690c3f9e3a37f536f62c0cd156b137c941dafd2a3b3bc0fdbd3ed55924"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "sha256": "5eabda37de79b98a44d46e836fedbf6453115b162c77e17b714f9367a8cf401f"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "sha256": "9c88ee4a5284675d1f29e661c4a6fd6a5835f0543c14b6a8cb30e8201c9e7f21"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "sha256": "e61bccf4b3a468d7428b4d3ffe1bbef8a1017a076a5ed148e592678b117a7dff"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "sha256": "c70da57268df28d7f907305a63c5315dbd4c136fb7baf1dc2b18856ee6ba00c2"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "sha256": "eed36c872e5625052c2a4a63d48690d13ac6763687ec9c3e0591b50c56cc22a2"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "sha256": "415b012249e374bb8cd43d57a7da3d21fa938f6ad52b40e0f9343b02baf4fe31"
+    },
+    {
+      "arm": "semantic_h",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 0,
+          "semantic_losses": 2
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "sha256": "71779ec4b8648a040eb356933863ad087892c2694dc5100edddb72864c58ea18"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "sha256": "323e88b24c71ce1c4d6bc94b7663a06f308f094661741248cfa6983b5fb63ce8"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "sha256": "e2b8892af3bb47fb2110e458ea58bf1158b20dbac35746155aa8c05922a536ff"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "sha256": "83dffb65568f0c20f24f0a9f0f154ae5516822d6d2986508a6c0795988deb58a"
+    },
+    {
+      "arm": "weighted",
+      "batches": [
+        {
+          "corruption": "gaussian",
+          "guidance_backwards": 10,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 10,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        },
+        {
+          "corruption": "background",
+          "guidance_backwards": 30,
+          "ids_labels_match_C": true,
+          "initial_hashes_and_rng_match_C": true,
+          "prior_forwards": 30,
+          "reference_density_calls": 1,
+          "semantic_losses": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "sha256": "f8daadbae6119fe9672cc834903630a4c0fce1f9f62d65d1c16d31d12c81a86d"
+    }
+  ],
+  "calibration_report_sha256": "6c03ad4990197cc8f8a17d6ad4f8c5eaad88d359800b557dd55d1597fb8e5a25",
+  "geometry_evidence": "Finite geometry enforced by unchanged producing runtime; CPU verifies recorded shape/hash and finite four-candidate logits; raw coordinates are not stored",
+  "native_validation": "All calibration native identities match; additional PointNeXt pointnet2_batch_cuda exactly matches original all4head C. Existing _calibration full-map equality rejects this valid inventory superset and needs correction before final analysis.",
+  "recovery_binding_sha256": "46318318cf9dee035e5dc11b6e86bd52579f2128e3097badaabf9e6edff0b466",
+  "source_exception": "Only producer elif-to-if and source ZIP metadata; exact old/new bytes verified",
+  "sparse_initial": [
+    {
+      "dataset": "modelnet40_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "dgcnn",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    },
+    {
+      "dataset": "modelnet40_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "curvenet",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    },
+    {
+      "dataset": "modelnet40_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "pointmae",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    },
+    {
+      "dataset": "modelnet40_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "pointnext",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "dgcnn",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "curvenet",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "pointmae",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    },
+    {
+      "dataset": "scanobjectnn_c",
+      "guidance_backwards": [
+        4,
+        11
+      ],
+      "head": "pointnext",
+      "prior_forwards": [
+        10,
+        30
+      ]
+    }
+  ],
+  "status": "independent_cpu_active_smoke_accepted",
+  "trajectory_equality_required": false
+}

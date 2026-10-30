@@ -1,0 +1,41 @@
+{
+  "status": "sealed_local_source_only_not_deployed",
+  "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc",
+  "source_dirty": false,
+  "old_manifest": {
+    "bytes": 175773,
+    "sha256": "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777"
+  },
+  "new_manifest": {
+    "bytes": 176437,
+    "sha256": "95a0dc2a52d5d2e8cbf99767b5ba1e8ecd59fadcf0c0e7b23013ce836c7d0bb1"
+  },
+  "source_snapshot": {
+    "bytes": 5575083,
+    "sha256": "767e24acbb0fe3213ee24d8efdfc824f11fd051180bfc4bc14b6c393f6901f75"
+  },
+  "payload": {
+    "bytes": 5526319,
+    "sha256": "cf488114e26589516f092871bc7dbacc8c707682183a1892f79f8cbca2e7f4f1"
+  },
+  "files_before": 656,
+  "files_after": 658,
+  "source_files": 298,
+  "changed_asset_files": [
+    "source_snapshot.zip",
+    "source_snapshot/scan_curvenet_entropy_report.py",
+    "source_snapshot/scripts/analyze_chamfer_variants.py",
+    "source_snapshot/scripts/calibrate_scan_curvenet_entropy.py",
+    "source_snapshot/scripts/eval_multibackbone_guidance.py",
+    "source_snapshot/semantic_trajectory.py"
+  ],
+  "added_asset_files": [
+    "source_snapshot/scan_curvenet_entropy_report.py",
+    "source_snapshot/scripts/calibrate_scan_curvenet_entropy.py"
+  ],
+  "non_source_asset_identities_unchanged": true,
+  "datasets_and_guidance_metadata_unchanged": true,
+  "local_bulk_bytes_read": false,
+  "remote_execution": false,
+  "gpu_execution": false
+}

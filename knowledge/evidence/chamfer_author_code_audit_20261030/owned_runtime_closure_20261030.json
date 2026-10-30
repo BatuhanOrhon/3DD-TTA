@@ -1,0 +1,47 @@
+{
+  "GPU_studies": "Original86planned+native diagnostics and authorized13CurveNetworkers complete; no remaining GPU task",
+  "authorization": "User explicitly instructed to continue allnecessarywork,then closeonlyownruntimewithoutfurtherapproval",
+  "inventory_before": "Only own assigned endpoint present in fresh server inventory; protected peer independently absent, no peer action performed",
+  "monitor_exec_session": 36160,
+  "monitor_pid": 59645,
+  "monitor_stop": {
+    "action": "stop",
+    "exec_session": 36160,
+    "exit_code": 0,
+    "monitor_stopped_utc": "2026-10-30T19:34:38.529855+00:00",
+    "runtime_teardown_by_monitor": false
+  },
+  "observed_closed_by_utc": "2026-10-30T19:34:46Z",
+  "other_sessions": "No commands targeted protectedpeer or anyunknownruntime/monitor/process",
+  "owned_endpoint": "gpu-a100-hm-ass1c0-3nh8smksm50de",
+  "owned_session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "post_inventory": "No active sessions found on server. Own assignment absent; peer independently already absent before stop.",
+  "preconditions": {
+    "completion_teardown_authorization_20261030.json": {
+      "bytes": 1109,
+      "sha256": "6a5b87316febce8341de07bc01e0d646b95e18a7da775f918fbb0558a7016d67"
+    },
+    "final_cache_backup_receipt_20261030.json": {
+      "bytes": 1195,
+      "sha256": "712f8eaa50b07c3027bcff8bb66517188f3066ee3d22d0d4eb408af4ff087a58"
+    },
+    "final_raw_artifact_catalog_20261030.json": {
+      "bytes": 983925,
+      "sha256": "da5a145237f5cdb2bbd02a9e346850884a5a1b0fc24be52f5caa591dde67b3e4"
+    },
+    "final_summary_backup_receipt_20261030.json": {
+      "bytes": 2484,
+      "sha256": "c1ce20bbddf607c7171e127fa46cb08734f7fb0c922821d0aaeee32516d68c05"
+    }
+  },
+  "prepared_utc": "2026-10-30T19:34:36.027808+00:00",
+  "protected_peer": "tta-chamfer-depth-tuning-a100-20261030-r2",
+  "recorded_utc": "2026-10-30T19:35:25.987169+00:00",
+  "remaining_research_work": null,
+  "runtime_stop": {
+    "command": "colab stop -s tta-chamfer-guidance-variants-a100-20261030-r1",
+    "exit_code": 0,
+    "output": "Session terminated."
+  },
+  "status": "complete_owned_monitor_and_runtime_closed_after_verified_research_Drive_and_local_backups"
+}

@@ -1,0 +1,199 @@
+{
+  "actions": "No production edits, commit, GPU, remote, original-source overlay or raw-artifact changes by the reviewer",
+  "decoded_zero_issue": {
+    "files": [
+      "scripts/calibrate_scan_curvenet_entropy.py",
+      "scan_curvenet_entropy_report.py",
+      "tests/test_scan_curvenet_entropy_calibration.py"
+    ],
+    "fix": "Existing zero-H autograd.grad call now targets local/style/decoded XYZ; all three finite and exactly zero are required. Four diagnostic calls per checkpoint retained.",
+    "previous_gap": "Zero-times-H checked local/style but omitted decoded XYZ",
+    "status": "fixed_before_final_review"
+  },
+  "limitations": [
+    "CPU synthetic gradient tests do not prove native GPU viability or teacher benefit",
+    "Original Point-MAE numeric regression checks the already completed development artifacts, not new CurveNet-H accuracy"
+  ],
+  "native_gpu_status": "Pending: no native CurveNet/decoder backward, new calibration, speed or accuracy result is established by this CPU review",
+  "remaining_blockers": [],
+  "retained_controls": [
+    "Separate Scan/CurveNet/H-only2100-row report and semantic_h_curvenet key; legacy two-dataset4200-row\u00d73-candidate V1 remains strict",
+    "One detached original-X reference forward per batch; existing three clean probes plus terminal probability mean, no added vote",
+    "Frozen models, buffer/RNG guards, exact source/native/checkpoint proof and fixed-gradient-only coefficient rule",
+    "Positive decodedXYZ/local/style gradients and zero-times-H exact-zero proof required",
+    "New ownC/H comparison must share the new frozen source; original0fd C is not mixed"
+  ],
+  "review_scope": "Local Scan/CurveNet marginal-H-only follow-up; original remote0fd campaign unchanged",
+  "reviewed_source_files": {
+    "scan_curvenet_entropy_report.py": {
+      "bytes": 5702,
+      "sha256": "c4e574dd3fa8161c60bbbb4b8a04fcbf3287d808f2a0e8d9f9288f79b37b8b3f"
+    },
+    "scripts/analyze_chamfer_variants.py": {
+      "bytes": 31181,
+      "sha256": "36aa612b0612e58a24941b3a7d261943556b85b13d747d5b2c81fe95bc1f50f1"
+    },
+    "scripts/calibrate_scan_curvenet_entropy.py": {
+      "bytes": 13459,
+      "sha256": "f5d8d27d0baae3e7431778e77489f88e7efbaf85ad630f256a9fc62a3e51e644"
+    },
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 62347,
+      "sha256": "82292c1ea8425f30f472646a83480d1cc2ed72e8d219c76c7a3a78e674aac4bc"
+    },
+    "semantic_trajectory.py": {
+      "bytes": 7997,
+      "sha256": "6cefaab5fe55b4a9efc3d4984fd677dec5dc9774a4957c6195a79d1bb27471dc"
+    }
+  },
+  "reviewed_test_files": {
+    "tests/scan_curvenet_fixtures.py": {
+      "bytes": 1719,
+      "sha256": "3da8dbe9afc23f312eeca30084f1eddf0f9995459530a7dab189b467becc6b00"
+    },
+    "tests/test_chamfer_variants_analysis.py": {
+      "bytes": 27595,
+      "sha256": "f84dac1219fe28a470be279d842a5b60ef47fc95d3f62de56b34cc6dfcc64789"
+    },
+    "tests/test_scan_curvenet_entropy_calibration.py": {
+      "bytes": 8355,
+      "sha256": "7231e5df7e3e661f96204ed499bdde382c2205aa1d48a85867c0c053ec1b5d24"
+    },
+    "tests/test_scan_curvenet_semantic.py": {
+      "bytes": 5699,
+      "sha256": "7096f7526b8737ad8b94602cde8b2a742477417869ae7e8bbad5b9e21a4ea15e"
+    }
+  },
+  "status": "independent_read_only_review_passed",
+  "verification": {
+    "actual_original40bundle_analysis": {
+      "actual_normalized_identity": {
+        "bytes": 4706009,
+        "sha256": "e64ea8e213d0f10e8492adf54fec0dd9d885ef9f179f02b950770923e212f64e"
+      },
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 0,
+      "exact": true,
+      "excluded_field_value": {
+        "analyzer_sha256": "f2da4cdde2489e3fad227f7ec0677b28c0d5428365a763c5bf6d27778ba27af5",
+        "commit": "7506d15ffa11320ac24481611bf488790232a111",
+        "scope": "Complete fixed development70 objects/dataset seed0; heldout confirmation pending; no coefficient selection from accuracy"
+      },
+      "excluded_root_added_field": "analysis_provenance",
+      "expected_normalized_identity": {
+        "bytes": 4706009,
+        "sha256": "e64ea8e213d0f10e8492adf54fec0dd9d885ef9f179f02b950770923e212f64e"
+      },
+      "expected_report": {
+        "bytes": 4706325,
+        "path": "result/preparation/chamfer_guidance_variants_20261030/development_analysis.json",
+        "sha256": "b669aaec613f6bff16fa46f7ea882526c521c9c950625dcc8a8f00f48daa555b"
+      },
+      "manifest": {
+        "bytes": 59037,
+        "path": "result/preparation/chamfer_guidance_variants_20261030/gpu_development_receipt_local_raw_manifest.json",
+        "sha256": "8b990503c6a156cac91be83a676e9977165bfc3d12cd4aff643fa55bc93ad3d8"
+      },
+      "objects_per_dataset": 70,
+      "raw_bundles": 40,
+      "scope": "All report fields, per-corruption values, corrected/harmed original IDs, paired CIs and observed costs",
+      "seeds": [
+        0
+      ]
+    },
+    "default_pointmae_configuration": {
+      "exact": true,
+      "frozen_exit_code": 0,
+      "frozen_preview_command": [
+        "/Users/batuhan/.cache/uv/builds-v0/.tmp2cv05Y/bin/python",
+        "-S",
+        "result/preparation/chamfer_guidance_variants_20261030/revision_3/assets_v1/source_snapshot/scripts/eval_multibackbone_guidance.py",
+        "--preview",
+        "--dataset",
+        "scanobjectnn_c",
+        "--dataset-root",
+        "/data",
+        "--label-path",
+        "/data/labels.npy",
+        "--asset-root",
+        "/assets",
+        "--result-root",
+        "/results",
+        "--chamfer-experiment",
+        "semantic",
+        "--semantic-kind",
+        "marginal_entropy",
+        "--backbones",
+        "pointmae",
+        "--pointmae-config",
+        "/pointmae.yaml",
+        "--pointmae-checkpoint",
+        "/pointmae.pth"
+      ],
+      "frozen_source": {
+        "bytes": 59274,
+        "path": "result/preparation/chamfer_guidance_variants_20261030/revision_3/assets_v1/source_snapshot/scripts/eval_multibackbone_guidance.py",
+        "sha256": "30b5f54ff74fa6ca9a987ad98c24d1847db8388f815daa76a01618c25081dfd1"
+      },
+      "output": {
+        "bytes": 5332,
+        "path": "result/preparation/chamfer_guidance_variants_20261030/scan_curvenet_review_pointmae_default_preview_20261030.json",
+        "sha256": "5c070f0d96e61ba9a67734d1275b039711413d1179c93c0c33d2d4275618dd40"
+      }
+    },
+    "regression_checks": {
+      "bytes": 2896,
+      "path": "result/preparation/chamfer_guidance_variants_20261030/scan_curvenet_entropy_independent_review_regressions_20261030.json",
+      "sha256": "6c2c6101b1504d7e52aa7e23c9ac12bd54f17bc2b57ee8bba0f046ee4619fb3f"
+    },
+    "regression_log": {
+      "bytes": 123,
+      "path": "result/preparation/chamfer_guidance_variants_20261030/scan_curvenet_entropy_independent_review_regressions_20261030.log",
+      "sha256": "214b2ee1a0632b5e5ce81533e364399ee5e31802db717c83b861e07123fcacdf"
+    },
+    "tests": {
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "--no-project",
+        "--with",
+        "torch",
+        "--with",
+        "numpy",
+        "--with",
+        "scipy",
+        "--with",
+        "h5py",
+        "--with",
+        "pyyaml",
+        "--with",
+        "pytest",
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_scan_curvenet_semantic.py",
+        "tests/test_scan_curvenet_entropy_calibration.py",
+        "tests/test_semantic_trajectory.py",
+        "tests/test_chamfer_calibration_report.py",
+        "tests/test_chamfer_variants_analysis.py",
+        "tests/test_chamfer_calibration.py",
+        "tests/test_chamfer_variants_campaign.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "metadata": {
+        "bytes": 2360,
+        "path": "result/preparation/chamfer_guidance_variants_20261030/scan_curvenet_entropy_independent_review_tests_20261030.json",
+        "sha256": "280b334878d3891b3d0147bf1b0791d586179d3e9af32d792f10b3c3494373c6"
+      },
+      "passed": 95,
+      "raw_log": {
+        "bytes": 197,
+        "path": "result/preparation/chamfer_guidance_variants_20261030/scan_curvenet_entropy_independent_review_tests_20261030.log",
+        "sha256": "f49d0bb31e2acd1a0a8e2bc9d8aee08b2bb5aa977d8fcede2fbe5dccf7bcdefc"
+      },
+      "subtests_passed": 74
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "state": {
+    "status": "complete",
+    "stage": "deploy",
+    "purpose": "scan_curvenet_h_exploratory_posthoc",
+    "plan_sha256": "297badb31d81667e86467d84d0d2f35912b3e3546d234f7a75bdf5435b0f9d46",
+    "jobs": [],
+    "exploratory_posthoc": true,
+    "cpu_preflight": {
+      "status": "complete",
+      "cuda_initialized": false,
+      "strict_teacher_load": true,
+      "forward_executed": false,
+      "classifier_state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6",
+      "checkpoint_load": {
+        "weights_only": true,
+        "strict": true,
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "checkpoint_sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+      },
+      "native": {
+        "no_build": true,
+        "native_audit_sha256": "ef85acef99672f22599dd340087c4d3ea37eb7e5e4df0696157f1f9c7dff98be",
+        "bindings": {
+          "_pvcnn_backend": {
+            "path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+            "bytes": 685248,
+            "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0"
+          },
+          "chamfer_3D": {
+            "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+            "bytes": 1144176,
+            "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+          },
+          "emd_ext": {
+            "path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+            "bytes": 559272,
+            "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154"
+          },
+          "knn": {
+            "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+            "bytes": 218200,
+            "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+          }
+        },
+        "source_files_verified": 46,
+        "jit_requests": [
+          "knn",
+          "emd_ext",
+          "chamfer_3D",
+          "_pvcnn_backend"
+        ],
+        "imported_modules": [
+          "knn_cuda",
+          "models.lion",
+          "tta_gsd_v2",
+          "graph_spectral_v2",
+          "utilities_3dd_tta"
+        ]
+      }
+    },
+    "elapsed_seconds": 22.202216884001245
+  },
+  "archive": {
+    "bytes": 5694059,
+    "sha256": "fdd668b3f1467c0077e9754ed7ad3a4b84899062e9d827e15adb45f53168c789",
+    "local_path": "/content/studies/scan-curvenet-h-postcampaign-20261030/phases/deploy.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/scan_curvenet_h_postcampaign_20261030/phase-evidence/deploy/evidence.zip"
+  }
+}

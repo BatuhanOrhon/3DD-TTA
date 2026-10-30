@@ -21,6 +21,7 @@ import traceback
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts import eval_multibackbone_source as source
 from spectral_guidance_losses import SPECTRAL_LOSS_KINDS
+from chamfer_calibration_report import validate_calibration_report
 
 METHOD = "gsd_inspired_latent_spectral_guidance"
 ORIGINAL_METHOD = "3dd_original"
@@ -34,7 +35,68 @@ ORIGINAL_PROTOCOL = dict(gamma=0.01, eta=0.01, p=0.95, total=100, scd_normalize=
 COMPONENT_WEIGHTS = dict(combined=(1.0, 1.17), chamfer=(1.0, 0.0), spectral=(0.0, 1.17), unguided=(0.0, 0.0))
 
 
+def fixed_calibration_reference(path, expected_sha256, coefficient_key, *, guidance_head='pointmae'):
+    """Bind the immutable two-dataset gradient report before any GPU execution."""
+    path = Path(path).resolve()
+    identity = source.file_identity(path)
+    if not re.fullmatch('[0-9a-f]{64}', expected_sha256 or '') or identity['sha256'] != expected_sha256:
+        raise ValueError('Calibration report SHA-256 mismatch')
+    report = json.loads(path.read_text())
+    if guidance_head == 'curvenet':
+        from scan_curvenet_entropy_report import validate_report
+        validate_report(report)
+    else:
+        validate_calibration_report(report)
+    proofs = report.get('calibration_bundles', {})
+    if set(proofs) != ({'scanobjectnn_c'} if guidance_head == 'curvenet' else {'modelnet40_c', 'scanobjectnn_c'}):
+        raise ValueError('Calibration proof requires both datasets')
+    for proof in proofs.values():
+        if (not proof.get('executed_source_files') or not proof.get('native_extensions')
+                or not re.fullmatch('[0-9a-f]{64}', proof.get('asset_manifest_sha256', ''))
+                or not re.fullmatch('[0-9a-f]{64}', proof.get('config_identity', {}).get('sha256', ''))):
+            raise ValueError('Calibration source/native/asset identities missing')
+        for mapping in (proof['executed_source_files'], proof['native_extensions']):
+            for identity_value in mapping.values():
+                if (not isinstance(identity_value, dict) or type(identity_value.get('bytes')) is not int
+                        or identity_value['bytes'] < 0 or not re.fullmatch('[0-9a-f]{64}', identity_value.get('sha256', ''))):
+                    raise ValueError('Malformed calibrated source/native identity')
+    scalar = report.get('coefficients', {}).get(coefficient_key)
+    if not isinstance(scalar, (int, float)) or isinstance(scalar, bool) or not math.isfinite(scalar) or scalar <= 0:
+        raise ValueError('Invalid fixed calibrated coefficient')
+    result = dict(path=str(path), identity=identity, purpose=report['purpose'], schema_version=1,
+                coefficient_key=coefficient_key, resolved_scalar=float(scalar), formula=report['rule'],
+                calibration_bundles=proofs)
+    if guidance_head == 'curvenet':
+        result['teacher'] = report['teacher']
+    return result
+
+
+def validate_fixed_chamfer_variant_host(config):
+    """Keep calibrated 10/30 variants separate from the original-depth study."""
+    protocol = config.get('guidance_protocol', {})
+    experiment = config.get('chamfer_experiment')
+    nested = protocol.get('chamfer_experiment')
+    if experiment is None and nested is None:
+        return
+    if (not isinstance(experiment, dict) or experiment != nested
+            or experiment.get('variant') not in ('sparse', 'semantic', 'weighted')):
+        raise ValueError('Fixed Chamfer variant metadata and protocol must agree')
+    depth_keys = {'normal_reverse_steps', 'background_reverse_steps', 'steps_back_local', 'checkpoint_steps'}
+    if (config.get('method') != METHOD or config.get('chamfer_depth_study')
+            or depth_keys.intersection(config) or depth_keys.intersection(protocol)):
+        raise ValueError('Fixed Chamfer variants do not support depth-study overrides')
+    selection = config.get('trajectory_selection', {})
+    expected = dict(normal_loop_counts=[3, 5, 8, 10], background_loop_counts=[8, 15, 23, 30],
+                    normal_candidate_names=['clean_03', 'clean_05', 'clean_08', 'terminal'],
+                    background_candidate_names=['clean_08', 'clean_15', 'clean_23', 'terminal'])
+    if not config.get('trajectory_observation') or any(selection.get(key) != value for key, value in expected.items()):
+        raise ValueError('Fixed Chamfer variants require their original 10/30 checkpoints')
+
+
 def configurations(argv=None) -> list:
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    if sum(value == '--chamfer-experiment' or value.startswith('--chamfer-experiment=') for value in arguments) > 1:
+        raise ValueError('Select exactly one independent Chamfer-only experiment')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", choices=("modelnet40_c", "scanobjectnn_c"), required=True)
     for name in ("dataset-root", "label-path", "asset-root", "result-root"):
@@ -46,6 +108,14 @@ def configurations(argv=None) -> list:
     parser.add_argument("--backbones", nargs="+", choices=(*BACKBONES, "dgcnn", "pointmae"), default=list(BACKBONES))
     parser.add_argument("--trajectory-observe", action="store_true")
     parser.add_argument("--component-arm", choices=tuple(COMPONENT_WEIGHTS))
+    parser.add_argument('--chamfer-experiment', choices=('sparse', 'semantic', 'weighted'), default=argparse.SUPPRESS)
+    parser.add_argument('--sparse-interval', type=int, default=argparse.SUPPRESS)
+    parser.add_argument('--density-k', type=int, default=argparse.SUPPRESS)
+    parser.add_argument('--semantic-weight', type=float, default=argparse.SUPPRESS)
+    parser.add_argument('--semantic-kind', choices=('kl', 'marginal_entropy'), default=argparse.SUPPRESS)
+    parser.add_argument('--semantic-guidance-head', choices=('pointmae', 'curvenet'), default=argparse.SUPPRESS)
+    parser.add_argument('--calibration-report', type=Path, default=argparse.SUPPRESS)
+    parser.add_argument('--calibration-report-sha256', default=argparse.SUPPRESS)
     parser.add_argument("--spectral-loss-kind", choices=SPECTRAL_LOSS_KINDS, default=argparse.SUPPRESS)
     for name in ("eta", "gamma", "p", "spectral-weight", "chamfer-weight"):
         parser.add_argument("--" + name, type=float)
@@ -57,7 +127,59 @@ def configurations(argv=None) -> list:
     parser.add_argument("--max-batches", type=int, default=0)
     parser.add_argument("--corruptions", nargs="+", default=["all"])
     parser.add_argument("--preview", action="store_true")
-    args = parser.parse_args(argv)
+    args = parser.parse_args(arguments)
+    experiment = getattr(args, 'chamfer_experiment', None)
+    experimental_options = {'sparse_interval': 'sparse', 'density_k': 'weighted',
+                            'semantic_weight': 'semantic', 'semantic_kind': 'semantic', 'semantic_guidance_head': 'semantic'}
+    semantic_head = getattr(args, 'semantic_guidance_head', 'pointmae')
+    for option, variant in experimental_options.items():
+        if hasattr(args, option) and experiment != variant:
+            raise ValueError(option + ' requires its separate Chamfer-only experiment')
+    experiment_protocol = None
+    if experiment:
+        if args.method != 'gsd' or args.component_arm not in (None, 'chamfer'):
+            raise ValueError('Experiments require the separate Chamfer-only GSD host')
+        if getattr(args, 'spectral_loss_kind', None) is not None or args.spectral_weight not in (None, 0.) or args.chamfer_weight not in (None, 1.):
+            raise ValueError('Chamfer-only experiments lock C=1, S=0 and disable spectral losses')
+        args.component_arm, args.trajectory_observe = 'chamfer', True
+        experiment_protocol = dict(variant=experiment)
+        if experiment == 'sparse':
+            interval = getattr(args, 'sparse_interval', 3)
+            if interval < 1:
+                raise ValueError('Sparse interval must be positive')
+            experiment_protocol['interval'] = interval
+        elif experiment == 'weighted':
+            density_k = getattr(args, 'density_k', 10)
+            if density_k < 1:
+                raise ValueError('Density k must be positive')
+            experiment_protocol['density_k'] = density_k
+        else:
+            if semantic_head not in args.backbones:
+                raise ValueError('Semantic experiment requires selected frozen Point-MAE guidance head')
+            if semantic_head == 'curvenet' and (args.dataset != 'scanobjectnn_c' or getattr(args, 'semantic_kind', 'kl') != 'marginal_entropy'):
+                raise ValueError('CurveNet guidance is restricted to Scan marginal entropy')
+            if not args.preview and not hasattr(args, 'semantic_weight'):
+                raise ValueError('Actual semantic execution requires explicit --semantic-weight (0 is sham)')
+            weight = getattr(args, 'semantic_weight', 1.)
+            if not math.isfinite(weight) or weight < 0:
+                raise ValueError('Semantic weight must be finite and nonnegative')
+            experiment_protocol['semantic_weight'] = weight
+    calibration = None
+    if hasattr(args, 'calibration_report') or hasattr(args, 'calibration_report_sha256'):
+        if experiment not in ('semantic', 'weighted') or not (hasattr(args, 'calibration_report') and hasattr(args, 'calibration_report_sha256')):
+            raise ValueError('Both calibration report and SHA are required for semantic/weighted experiments')
+        key = ('semantic_h_curvenet' if semantic_head == 'curvenet' else 'weighted_scale' if experiment == 'weighted' else
+               'semantic_kl' if getattr(args, 'semantic_kind', 'kl') == 'kl' else 'semantic_h')
+        options = {'guidance_head': 'curvenet'} if semantic_head == 'curvenet' else {}
+        calibration = fixed_calibration_reference(args.calibration_report, args.calibration_report_sha256, key, **options)
+        scalar = calibration['resolved_scalar']
+        if experiment == 'semantic' and not math.isclose(experiment_protocol['semantic_weight'], scalar, rel_tol=1e-12):
+            raise ValueError('Semantic weight differs from fixed calibration report')
+        if experiment == 'weighted' and any(value is not None and not math.isclose(value, .01 * scalar, rel_tol=1e-12)
+                                             for value in (args.eta, args.gamma)):
+            raise ValueError('Weighted eta/gamma must equal baseline .01 times calibrated scale')
+    if semantic_head == 'curvenet' and not args.preview and experiment_protocol['semantic_weight'] > 0 and calibration is None:
+        raise ValueError('Positive CurveNet H execution requires its frozen label-free calibration report')
     if args.seed < 0 or args.max_batches < 0:
         raise ValueError("Seed and max-batches must be nonnegative")
     original = args.method == "original3dd"
@@ -166,15 +288,45 @@ def configurations(argv=None) -> list:
             config.update(display_name='GSD-host component study ' + args.component_arm + ' + ' + backbone,
                           component_study=True, component_parameters_modified=any(v is not None for v in overrides.values()) or spectral_kind is not None,
                           comparison_scope='same GSD host; matched states/noise only when verified from batch identities')
+            if not (protocol['loss_weights']['spectral'] or protocol['loss_weights']['invariant']):
+                config['graph'] = None
             if spectral_kind is not None:
                 protocol['spectral_loss_kind'] = spectral_kind
             if args.paired_state_root:
                 config['randomness_policy'] = 'immutable shared z0/h0/noise cache; restore recorded post-preparation RNG; validate prepared-input and actual latent/noise hashes'
                 config['reconstruction_host'] = 'GSD paired-state component study; reference arm encodes, replay arms reuse exact encoded states/noise'
-        for key in ("dataset_root", "label_path", "asset_root", "result_root", "drive_root", "paired_state_root", "index_manifest"):
+        if experiment:
+            config['guidance_protocol']['chamfer_experiment'] = dict(experiment_protocol)
+            config.update(chamfer_experiment=dict(experiment_protocol), graph=None,
+                          display_name='Chamfer-only ' + experiment + ' guidance + ' + backbone,
+                          comparison_scope='independent intervention versus unchanged Chamfer-only probability mean')
+            config['calibration_status'] = 'calibrated' if calibration else 'uncalibrated explicit experimental coefficient'
+            if calibration:
+                config['calibration_reference'] = copy.deepcopy(calibration)
+                if experiment == 'weighted':
+                    config['guidance_protocol'].update(eta=.01 * calibration['resolved_scalar'], gamma=.01 * calibration['resolved_scalar'])
+            if experiment == 'semantic':
+                config['semantic_guidance'] = dict(kind=getattr(args, 'semantic_kind', 'kl'), head=semantic_head,
+                                                 weight=experiment_protocol['semantic_weight'],
+                                                 normal_loop_counts=[5, 8], background_loop_counts=[15, 23],
+                                                 reference='cached detached corrupted raw X; existing Point-MAE preprocessing and native FPS start index 0; no alternate normalization',
+                                                 reference_forwards_per_batch=1, reference_votes=False, batch_marginal=False,
+                                                 loss_reduction='sum',
+                                                 loss_definition='symmetric KL between decoded baseline and detached X' if getattr(args, 'semantic_kind', 'kl') == 'kl' else 'per-object H((p_X+p_decoded_baseline)/2), detached X')
+                config['shared_reconstruction'] = 'Point-MAE-head-dependent Chamfer-only reconstruction; baseline probes reused; cached corrupted-X FPS reference for guidance only'
+                if semantic_head == 'curvenet':
+                    config['semantic_guidance']['reference'] = 'cached detached corrupted raw X; unchanged CurveNet centroid/L-infinity normalization and native FPS1024'
+                    config['shared_reconstruction'] = 'CurveNet-head-dependent Chamfer-only reconstruction; baseline probes reused; cached corrupted-X normalized FPS reference for guidance only'
+                    config['display_name'] = 'Chamfer-only marginal entropy with CurveNet guidance + ' + backbone
+        for key in ("dataset_root", "label_path", "asset_root", "result_root", "drive_root", "paired_state_root", "index_manifest", "calibration_report"):
             if config.get(key):
                 config[key] = str(Path(config[key]).absolute())
         result.append(config)
+    if experiment == 'semantic' and semantic_head == 'curvenet':
+        teacher = next(config for config in result if config['backbone'] == 'curvenet')
+        for config in result:
+            config['semantic_guidance'].update(teacher_checkpoint=teacher['checkpoint'], teacher_preprocessing=teacher['source_classifier_preprocessing'],
+                                               teacher_input_layout=teacher['input_layout'])
     return result
 
 
@@ -322,6 +474,37 @@ def classify_geometry(geometry, heads: dict, configs: dict, fps):
     return logits, diagnostics
 
 
+def classify_semantic_geometry(geometry, heads: dict, configs: dict, fps, guidance_head='pointmae'):
+    """Preserve baseline preprocessing and retain only guidance-head input grads."""
+    from semantic_trajectory import gradient_probe
+    from legacy_trajectory import tensor_hash
+    logits = {}
+    geometry_hash = tensor_hash(geometry)
+    for name, classifier in heads.items():
+        if name == guidance_head:
+            with gradient_probe([classifier]):
+                points, features = source.preprocess(geometry, configs[name], fps)
+                logits[name] = classifier(points, features=features)
+        else:
+            logits.update(classify_geometry(geometry, {name: classifier}, configs, fps)[0])
+    if tensor_hash(geometry) != geometry_hash:
+        raise RuntimeError('Semantic preprocessing mutated shared geometry')
+    return logits
+
+
+def semantic_reference(geometry, heads: dict, configs: dict, fps, guidance_head='pointmae'):
+    """One frozen deterministic-FPS corrupted-X forward, shared by both probes."""
+    from legacy_trajectory import tensor_hash
+    started = time.perf_counter()
+    logits, diagnostics = classify_geometry(geometry, {guidance_head: heads[guidance_head]}, configs, fps)
+    reference = logits[guidance_head].detach()
+    # Hashing synchronizes the returned logits before recording elapsed time.
+    record = dict(geometry_sha256=tensor_hash(geometry), logits_sha256=tensor_hash(reference),
+                  forward_calls=1, source='corrupted raw X, unchanged source preprocessing/FPS',
+                  rng_guard=diagnostics[guidance_head], reference_dispatch_seconds=time.perf_counter() - started)
+    return reference, record
+
+
 def write_batch_shard(bundle, corruption: str, batch: int, arrays: dict, diagnostics: dict) -> dict:
     import numpy as np
     directory = bundle.path / "batches" / corruption / ("batch%04d" % batch)
@@ -420,11 +603,13 @@ def load_guidance_runtime(config: dict, manifest: dict):
         from tta import tta_reconstruct
         graph, reconstruct = None, tta_reconstruct
     else:
-        from graph_spectral_v2 import GraphSpectralDNA
         from tta_gsd_v2 import tta_gsd_reconstruct
         active = config['guidance_protocol']['loss_weights']
-        graph = (None if config.get('component_study') and not (active['spectral'] or active['invariant']) else
-                 GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, use_4d_gft=False, device="cuda"))
+        if config.get('component_study') and not (active['spectral'] or active['invariant']):
+            graph = None
+        else:
+            from graph_spectral_v2 import GraphSpectralDNA
+            graph = GraphSpectralDNA(k=10, delta=0.1, gamma=0.6, use_4d_gft=False, device="cuda")
         reconstruct = tta_gsd_reconstruct
     return lion, graph, reconstruct, ops, native_report, options.dump()
 
@@ -438,9 +623,11 @@ def update_row(rows: list, config: dict, corruption: str, n: int, correct: int, 
         rows.append(row)
 
 
-def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=None) -> None:
+def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=None, observer_provider=None) -> None:
     bundles = {json.loads((Path(path) / "config.json").read_text())["backbone"]: source.RunBundle(Path(path)) for path in directories}
     configs = {name: json.loads((bundle.path / "config.json").read_text()) for name, bundle in bundles.items()}
+    for config in configs.values():
+        validate_fixed_chamfer_variant_host(config)
     rows = {name: [] for name in bundles}
     worker_started = time.monotonic()
     heads, lion, active = {}, None, None
@@ -467,6 +654,9 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
             raise RuntimeError("Guidance requires CUDA; no CPU inference fallback")
         lion, graph, reconstruct, ops, native_report, lion_config = (runtime_loader or load_guidance_runtime)(common, manifest)
         heads, guard = initialize_heads(configs, manifest)
+        if common.get('chamfer_experiment', {}).get('variant') == 'semantic':
+            # Include semantic implementation bytes even in an interrupted bundle.
+            import semantic_trajectory
         from pointnet2_ops import pointnet2_utils
         def fps(points, number):
             indices = pointnet2_utils.furthest_point_sample(points.contiguous(), number)
@@ -490,6 +680,31 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
             source.snapshot_sources(bundles[name], config, manifest)
             if common.get('chamfer_depth_study'):
                 config['executed_source_sha256'] = hashlib.sha256(json.dumps(config['executed_source_files'], sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+            if config.get('calibration_reference'):
+                reference = config['calibration_reference']
+                source.verify_identity(bundles[name].path / 'calibration_report.json', reference['identity'])
+                proof = reference['calibration_bundles'][config['dataset']]
+                if config.get('semantic_guidance', {}).get('head') == 'curvenet':
+                    teacher = reference['teacher']
+                    if (teacher['checkpoint'] != config['semantic_guidance']['teacher_checkpoint']
+                            or teacher['checkpoint_identity'] != manifest['files'][teacher['checkpoint']]
+                            or teacher['preprocessing'] != config['semantic_guidance']['teacher_preprocessing']):
+                        raise ValueError('Calibrated CurveNet teacher checkpoint/preprocessing differs')
+                if (proof['asset_manifest_sha256'] != config['asset_manifest_sha256']
+                        or (config['chamfer_experiment']['variant'] == 'semantic'
+                            and proof.get('classifier_state_sha256') != classifier_before.get(config['semantic_guidance']['head']))
+                        or proof.get('lion_state') != lion_before):
+                    raise ValueError('Calibrated assets or frozen classifier/LION states differ')
+                for extension, expected in proof['native_extensions'].items():
+                    current = config['native_extensions'].get(extension)
+                    if current is None:
+                        current = source.file_identity(Path(expected['path']))
+                    if any(current.get(key) != expected.get(key) for key in ('bytes', 'sha256')):
+                        raise ValueError('Calibrated native extension bytes differ: ' + extension)
+                for source_name, expected in proof['executed_source_files'].items():
+                    current = config['executed_source_files'].get(source_name)
+                    if source_name.startswith('repo/') and current is not None and current != expected:
+                        raise ValueError('Calibrated source bytes differ: ' + source_name)
             bundles[name].write_config(config)
         for corruption, values in arrays.items():
             active = corruption
@@ -510,6 +725,10 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
                 raw = torch.from_numpy(np.array(values[batch_ids]))
                 scheduler_record = {}
                 observers = []
+                reference, reference_record = None, None
+                if common.get('chamfer_experiment', {}).get('variant') == 'semantic':
+                    reference, reference_record = semantic_reference(raw.to('cuda'), heads, configs, fps,
+                                                                    guidance_head=common['semantic_guidance']['head'])
                 def observer_factory(center, scale):
                     from shared_trajectory import SharedTrajectoryObserver
                     def classify_decoded(decoded):
@@ -521,8 +740,28 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
                         checkpoints = {'checkpoint_steps': common['trajectory_selection'][scope + '_loop_counts'][:-1]}
                     else:
                         horizon, checkpoints = (30 if corruption == 'background' else 10), {}
-                    observer = SharedTrajectoryObserver(lion.vae, heads, classify_decoded, horizon,
-                                                        num_classes=common['num_classes'], **checkpoints)
+                    options = {}
+                    observer_class = SharedTrajectoryObserver
+                    if common.get('chamfer_experiment', {}).get('variant') == 'semantic':
+                        from semantic_trajectory import SemanticTrajectoryObserver
+                        observer_class = SemanticTrajectoryObserver
+                        def classify_semantic_decoded(decoded):
+                            geometry = decoded_to_geometry(decoded, common['dataset'], scale, center, ops)
+                            return classify_semantic_geometry(geometry, heads, configs, fps, guidance_head=common['semantic_guidance']['head'])
+                        options.update(classify_semantic_decoded=classify_semantic_decoded,
+                                       kind=common['semantic_guidance']['kind'],
+                                       reference_logits=reference, reference_record=reference_record)
+                        if common['semantic_guidance']['head'] != 'pointmae':
+                            options['guidance_head'] = common['semantic_guidance']['head']
+                    if observer_provider is None:
+                        observer = observer_class(lion.vae, heads, classify_decoded,
+                                                  horizon,
+                                                  num_classes=common['num_classes'], **checkpoints, **options)
+                    else:
+                        observer = observer_provider(vae=lion.vae, heads=heads, classify_decoded=classify_decoded,
+                                                     horizon=horizon,
+                                                     num_classes=common['num_classes'], original_ids=batch_ids.tolist(),
+                                                     corruption=corruption, **checkpoints, **options)
                     observers.append(observer)
                     return observer
                 observer_options = {"observer_factory": observer_factory} if common.get("trajectory_observation") else {}
@@ -654,12 +893,18 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
             bundles[name].write_config(config)
 
 
-def main(argv=None, *, configuration_factory=None, worker_entrypoint=None, worker_fn=None) -> None:
+def main(argv=None, *, configuration_factory=None, worker_entrypoint=None, worker_fn=None, worker_script=None) -> None:
+    if worker_script is not None:
+        if worker_entrypoint is not None:
+            raise ValueError('Select one explicit worker entrypoint')
+        worker_entrypoint = worker_script
     arguments = list(sys.argv[1:] if argv is None else argv)
     if arguments[:1] == ["--worker-bundles"]:
         (worker_fn or worker)(json.loads(arguments[1]))
         return
     configs = (configuration_factory or configurations)(arguments)
+    for config in configs:
+        validate_fixed_chamfer_variant_host(config)
     if configs[0]["preview"]:
         print(json.dumps(configs, indent=2, sort_keys=True))
         return
@@ -668,12 +913,23 @@ def main(argv=None, *, configuration_factory=None, worker_entrypoint=None, worke
         short_name = config['backbone'] + '-seed' + str(config['seed'])
         if config.get('component_study'):
             short_name = 'guidance-components-' + config['component_arm'] + '-' + short_name
+        if config.get('chamfer_experiment'):
+            tag = config['chamfer_experiment']['variant']
+            if tag == 'semantic':
+                weight_tag = str(config['semantic_guidance']['weight']).replace('.', 'p').replace('+', '').replace('-', 'm')
+                tag += '-' + config['semantic_guidance']['kind'] + '-w' + weight_tag
+            short_name = 'chamfer-' + tag + '-' + config['backbone'] + '-seed' + str(config['seed'])
         bundle = source.RunBundle.create(Path(config["result_root"]), short_name, config,
                                           shlex.join([sys.executable, str(Path(worker_entrypoint or __file__).resolve()), *arguments]))
         bundles.append(bundle)
         print("Run bundle:", bundle.path, flush=True)
         if config.get('index_manifest'):
             shutil.copyfile(config['index_manifest'], bundle.path / 'selection_manifest.json')
+        if config.get('calibration_reference'):
+            reference = config['calibration_reference']
+            destination = bundle.path / 'calibration_report.json'
+            shutil.copyfile(reference['path'], destination)
+            source.verify_identity(destination, reference['identity'])
         note = ("# Chamfer denoising-depth study\n\n" + config['display_name'] + ". Not a paper reproduction.\n" if config.get('chamfer_depth_study') else
                 "# Published alternative matched guidance study\n\n" + config["display_name"] + ". Not full GSDTTA or paper reproduction.\n")
         (bundle.path / "notes.md").write_text(note
@@ -727,6 +983,14 @@ def main(argv=None, *, configuration_factory=None, worker_entrypoint=None, worke
         raise failure
     if returncode:
         raise SystemExit(returncode)
+
+
+def experiment_main(variant, argv=None):
+    """Thin standalone entrypoints share the locked runner without globals."""
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    if any(value == '--chamfer-experiment' or value.startswith('--chamfer-experiment=') for value in arguments):
+        raise ValueError('The standalone script already selects exactly one experiment')
+    return main(['--chamfer-experiment', variant, *arguments])
 
 
 if __name__ == "__main__":

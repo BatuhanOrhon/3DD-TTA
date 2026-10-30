@@ -1,0 +1,112 @@
+{
+  "accounting": "Shared reconstruction counted once per actual group plus all4 terminal heads; primary summary is median of3 matched arm/C ratios, not ratio ofmedians",
+  "accounting_excludes": "Worker model/native initialization, bulk dataset loading, preflight, sealing and Drive delivery are outside perbatch costs.",
+  "analysis": {
+    "bytes": 68339,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_timing_acceptance_analysis.json",
+    "sha256": "7246e2c9bf7f2793eec009976825f1eb6e8d586c187d6ae5646638dda9f28cf3"
+  },
+  "controls": "Exact input/noise/scheduler/RNG, fixed native/source/checkpoint/state/IDs and coefficients; only explicitly reported encoded-state drift allowed in fresh timing",
+  "encoded_differences_reported": 40,
+  "exact_encoded_initial_states": false,
+  "full_acceptance": {
+    "bytes": 9001,
+    "sha256": "b3eeb4b368f3e1f994afca6c2eb607992f6a4b0b98bd04287fe92d3633e9a2e7"
+  },
+  "limitations": "Three measured timing repeats include probe/hash/runtime overhead; no accuracy, equal-time voting or single-head deployment inference. Geometry finiteness follows the verified runtime guard; raw coordinates are not stored.",
+  "manifest": {
+    "bytes": 24022,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/timing_receipt_local_raw_manifest.json",
+    "sha256": "c8d221cb58d0078d057a9e1695658fb13fd56dd521b53750ff2ea9be3a8a2d4a"
+  },
+  "native_calibration_acceptance": {
+    "bytes": 3216,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_calibration_acceptance.json",
+    "sha256": "44cceff55564de20d946bbfe4e02509156e0a93eabab1faf2e905fede1273adf"
+  },
+  "phase_archive": {
+    "bytes": 183436,
+    "drive_path": "/content/drive/MyDrive/thesis/result/scan_curvenet_h_postcampaign_20261030/phase-evidence/timing/evidence.zip",
+    "local_path": "/content/studies/scan-curvenet-h-postcampaign-20261030/phases/timing.zip",
+    "sha256": "1e106a454c0df905ba444355f431ecd8ac9b0164bb2b14f9c6a368e0fb2e2cd9"
+  },
+  "phase_receipt": {
+    "bytes": 33654,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/timing_receipt.json",
+    "sha256": "bba9c5b6c73dc8615d762ea32337a882f66b838ecd3f57defe9edc14cf26f019"
+  },
+  "raw_batches": 48,
+  "raw_heads": 24,
+  "repeats": 3,
+  "root_analysis": {
+    "bytes": 68339,
+    "sha256": "f893cafcade786e20641280ee483162e58f5a0e5c88b4fb307f4486fb84445b1"
+  },
+  "root_independent_agreement": "Exact JSON after sorting only encoded_state_differences rows; native condition set iteration changes row order, no values changed",
+  "source_manifest": {
+    "bytes": 176437,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/source_seal_95a4997/assets_v1/manifest.json",
+    "sha256": "95a0dc2a52d5d2e8cbf99767b5ba1e8ecd59fadcf0c0e7b23013ce836c7d0bb1"
+  },
+  "status": "independent_full_curvenet_timing_accepted",
+  "summaries": [
+    {
+      "arm": "semantic_h_curvenet",
+      "arm_seconds": [
+        22.75986589600143,
+        22.790043339002295,
+        22.73003749200143
+      ],
+      "baseline_seconds": [
+        20.965787219993217,
+        20.91184872800659,
+        20.955445965999388
+      ],
+      "dataset": "scanobjectnn_c",
+      "median_paired_arm_over_C": 1.085571729655701,
+      "paired_arm_over_C": [
+        1.085571729655701,
+        1.0898148525950409,
+        1.0846840257602415
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            14.221437874999538,
+            14.247821117001877,
+            14.213362616999802
+          ],
+          "baseline_seconds": [
+            13.414688122997177,
+            13.36892129300395,
+            13.403898458000185
+          ],
+          "median_paired_arm_over_C": 1.0603902037557205,
+          "paired_arm_over_C": [
+            1.0601392849841456,
+            1.0657420149864942,
+            1.0603902037557205
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            8.538428021001891,
+            8.542222222000419,
+            8.516674875001627
+          ],
+          "baseline_seconds": [
+            7.55109909699604,
+            7.542927435002639,
+            7.551547507999203
+          ],
+          "median_paired_arm_over_C": 1.1307530084459663,
+          "paired_arm_over_C": [
+            1.1307530084459663,
+            1.1324810288324656,
+            1.127805243359733
+          ]
+        }
+      }
+    }
+  ]
+}

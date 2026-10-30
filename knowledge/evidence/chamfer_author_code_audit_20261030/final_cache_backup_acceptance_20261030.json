@@ -1,0 +1,20 @@
+{
+  "CPU_archive_retry_evidence": "postcampaign_curvenet_h/cache_backup_retry_evidence_20261030.json",
+  "GPU_work": false,
+  "accepted_utc": "2026-10-30T19:33:55.221928+00:00",
+  "archive": {
+    "bytes": 1290931819,
+    "drive_path": "/content/drive/MyDrive/thesis/result/scan_curvenet_h_postcampaign_20261030/phase-evidence/paired_physical_caches_final_remote_20261030T1926Z.zip",
+    "local_path": "/content/studies/scan-curvenet-h-postcampaign-20261030/paired_physical_caches_final_remote_20261030T1926Z.zip",
+    "sha256": "ea98e68d50330bd4b988594089564c35010a4e86e674c4920c65e510e85bbebd"
+  },
+  "catalog": {
+    "bytes": 983925,
+    "sha256": "da5a145237f5cdb2bbd02a9e346850884a5a1b0fc24be52f5caa591dde67b3e4"
+  },
+  "created_utc": "2026-10-30T19:25:18.261362+00:00",
+  "local_roundtrip_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/paired_physical_caches_Drive_roundtrip_20261030T1926Z.zip",
+  "local_roundtrip_status": "complete_SHA_CRC_safe_paths_all304_member_SHA_verified",
+  "physical_caches": 304,
+  "status": "all304_remote_cache_bytes_SHA_and_Drive_archive_SHA_CRC_verified"
+}

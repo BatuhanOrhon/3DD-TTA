@@ -52,6 +52,15 @@ def finish(observer, latent, style):
 
 
 class SharedObserverTests(unittest.TestCase):
+    def test_initial_rng_records_sampler_boundary_without_advancing_it(self):
+        vae = VAE().eval()
+        head = torch.nn.Linear(3, 15).eval().requires_grad_(False)
+        observer = SharedTrajectoryObserver(vae, {'pointmae': head}, None, 10)
+        expected = rng_hash()
+        observer.initial(input_points=torch.zeros(1, 2, 3))
+        self.assertEqual(observer.diagnostics().get('initial_rng_sha256'), expected)
+        self.assertEqual(rng_hash(), expected)
+
     def test_shared_stochastic_probes_restore_rng_buffers_and_live_autograd(self):
         for horizon in (10, 30):
             observer, latent, style, vae, heads = collect(horizon=horizon)

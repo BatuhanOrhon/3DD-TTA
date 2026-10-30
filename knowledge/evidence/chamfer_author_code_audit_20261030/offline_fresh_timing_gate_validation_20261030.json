@@ -1,0 +1,44 @@
+{
+  "actual_evidence": {
+    "encoded_drift_corruptions": 15,
+    "exact_controls_corruptions": 15,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/existing_fresh_encode_pairing_evidence_modelnet70.json",
+    "sha256": "640cbe0751df6095b4dd485849c4e2b927a1123eb1a1872c48d4a006e9a21a97"
+  },
+  "base_offline_commit": "83dbe21148914e5610a289d6b8e69a04c4ae7c82",
+  "change": "Timing-only fresh_timing flag reports encoded shape/local/style/noisy_local hash differences; exact input/noise/timesteps/alpha/RNG and other prior checks retained.",
+  "commit_status": "not_committed_root_review_pending",
+  "compilation": "passed",
+  "diff_whitespace": "passed",
+  "files": {
+    "scripts/analyze_chamfer_variants.py": {
+      "bytes": 30014,
+      "sha256": "f2da4cdde2489e3fad227f7ec0677b28c0d5428365a763c5bf6d27778ba27af5"
+    },
+    "tests/test_chamfer_variants_analysis.py": {
+      "bytes": 25433,
+      "sha256": "a29a5c8aa7043cb654748add82ef11de7268ac7851ae73f7e209d046a971a8a5"
+    }
+  },
+  "limitation": "No actual later timing-run artifact acceptance is claimed. Existing real evidence is calibration versus development baseline fresh encoding, not matched runtime/accuracy comparison.",
+  "status": "verified_cpu_only_offline_timing_gate_fix",
+  "tests": {
+    "command": "/tmp/3dd-depth-cpu312-20261030/bin/python -m pytest tests/test_chamfer_variants_analysis.py tests/test_chamfer_variants_campaign.py tests/test_analyze_legacy_trajectory_macro14.py -q",
+    "coverage": [
+      "within-repeat and cross-repeat encoded drift reported",
+      "input/noise/timesteps/alpha/RNG tampering rejected in both scopes",
+      "accuracy retains exact encoded pairing for replay and fresh modes",
+      "same-group/head encoded mismatch rejected",
+      "existing duplicate/disjoint-source/group guards retained"
+    ],
+    "passed": 69
+  },
+  "unchanged": [
+    "Default accuracy full initial-state equality",
+    "Full paired native identity equality",
+    "Same-group/head full initial equality in _costs",
+    "GPU workers/sealed source0fd",
+    "All30 planned fresh timing jobs",
+    "Raw artifacts/calibration coefficients"
+  ]
+}

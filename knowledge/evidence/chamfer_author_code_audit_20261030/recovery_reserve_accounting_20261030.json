@@ -1,0 +1,15 @@
+{
+  "status": "verified_contingency_accounting",
+  "original_plan_sha256": "e4bf0104fe997157810820aad1b6f12e9f0f7e6b9915334329c16f4a754dcff4",
+  "initial_reserve_seconds": 1800,
+  "failed_stage_receipt": {
+    "path": "/content/studies/chamfer-guidance-variants/gpu_smoke_initial_receipt.json",
+    "bytes": 29125,
+    "sha256": "5d99f7e268c93199cf0b3406eacd59183986ce2a0aff04c043f9673e5eed7d17"
+  },
+  "recovery_started_epoch": 1793367074.4987886,
+  "accounted_until_epoch": 1793369008.218898,
+  "consumed_reserve_seconds": 1933.720109462738,
+  "remaining_reserve_seconds": 0.0,
+  "timing_basis": "Conservative earliest failure bound from actual original ledger started_epoch plus failed receipt elapsed_active_seconds. Controller monotonic stage start follows ledger creation, so this bound is earlier than actual failure and slightly over-consumes reserve. All diagnosis, metadata repair, CLI recovery and waiting since that bound consume the originally registered packing/retry contingency. Compute estimates,10%margin and original5h continuous deadline are unchanged."
+}

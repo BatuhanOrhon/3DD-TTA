@@ -1,0 +1,8216 @@
+{
+  "all_raw_batches": 600,
+  "all_raw_heads": 40,
+  "analysis_sha256": "b669aaec613f6bff16fa46f7ea882526c521c9c950625dcc8a8f00f48daa555b",
+  "bootstrap": {
+    "replicates": 2000,
+    "seed": 0
+  },
+  "calibration_report_sha256": "6c03ad4990197cc8f8a17d6ad4f8c5eaad88d359800b557dd55d1597fb8e5a25",
+  "cost_interpretation": "Cached development execution includes cache I/O; no deployment speed claim",
+  "full_analysis_recomputed_exact": true,
+  "head_deltas": {
+    "modelnet40_c/semantic_h": [
+      {
+        "delta_pp": 0.0,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.2857142857142857,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": -0.5714285714285714,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": 1.0476190476190477,
+        "head": "pointmae"
+      }
+    ],
+    "modelnet40_c/semantic_kl": [
+      {
+        "delta_pp": 0.19047619047619047,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.19047619047619047,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": 0.38095238095238093,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": 0.6666666666666666,
+        "head": "pointmae"
+      }
+    ],
+    "modelnet40_c/sparse": [
+      {
+        "delta_pp": -2.380952380952381,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.7619047619047619,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": -2.6666666666666665,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": -0.19047619047619047,
+        "head": "pointmae"
+      }
+    ],
+    "modelnet40_c/weighted": [
+      {
+        "delta_pp": -0.09523809523809523,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.19047619047619047,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": -0.6666666666666666,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": -0.2857142857142857,
+        "head": "pointmae"
+      }
+    ],
+    "scanobjectnn_c/semantic_h": [
+      {
+        "delta_pp": -0.38095238095238093,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.2857142857142857,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": -0.6666666666666666,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": 0.09523809523809523,
+        "head": "pointmae"
+      }
+    ],
+    "scanobjectnn_c/semantic_kl": [
+      {
+        "delta_pp": -0.2857142857142857,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.8571428571428571,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": -0.6666666666666666,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": 0.0,
+        "head": "pointmae"
+      }
+    ],
+    "scanobjectnn_c/sparse": [
+      {
+        "delta_pp": -1.4285714285714286,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.5714285714285714,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": -1.4285714285714286,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": -1.0476190476190477,
+        "head": "pointmae"
+      }
+    ],
+    "scanobjectnn_c/weighted": [
+      {
+        "delta_pp": -1.4285714285714286,
+        "head": "dgcnn"
+      },
+      {
+        "delta_pp": -0.8571428571428571,
+        "head": "curvenet"
+      },
+      {
+        "delta_pp": -1.4285714285714286,
+        "head": "pointnext"
+      },
+      {
+        "delta_pp": 0.0,
+        "head": "pointmae"
+      }
+    ]
+  },
+  "last_eight": [
+    {
+      "arm": "semantic_h",
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "91e6a12d185a82823c176a81395f3fe05e5e12a9c4b84372a31568bd72bbaf63",
+      "strict_batches": 15
+    },
+    {
+      "arm": "semantic_h",
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "6ba14171f38a6e42eebd579ceafe7f28aacb971056341f94a48933be2bd1c2c6",
+      "strict_batches": 15
+    },
+    {
+      "arm": "semantic_h",
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "984ac077d866c51c253a8d80297188d466f6a7b31e0b2d0a848703d5d82c0948",
+      "strict_batches": 15
+    },
+    {
+      "arm": "semantic_h",
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "d0f7940c52fe2040ff243363b05f04ef0504b856f607d75463514347ff990891",
+      "strict_batches": 15
+    },
+    {
+      "arm": "weighted",
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "cb1bd4f9e78e6ca993dd71ce7c224093489fe0aa839a5666029be1364c5b460e",
+      "strict_batches": 15
+    },
+    {
+      "arm": "weighted",
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "e1d901c73297e3a349d9974eb2d4da59a997e8061f77ccc47946065281d27393",
+      "strict_batches": 15
+    },
+    {
+      "arm": "weighted",
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "4690629e89c34828a008a5cd07dfb131250e6146b8d025e559baa9a01cf18d0e",
+      "strict_batches": 15
+    },
+    {
+      "arm": "weighted",
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "paired_actual_cache_rng_verified": true,
+      "sha256": "39cb893b9180380487f7ec2540d3706eed1ced3d62adc792288d0b6701ae3786",
+      "strict_batches": 15
+    }
+  ],
+  "limitation": "Seed0 benchmark-internal development70 per dataset; native execution is not bitwise deterministic; no HPO or external generalization claim",
+  "main_all15_probability_mean": [
+    {
+      "arm": "semantic_h",
+      "arm_accuracy_pct": 62.78571428571429,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "ci95_delta_pp": [
+        -0.5714285714285714,
+        0.6428571428571428
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "lidar",
+          "index": 301,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 1175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 2355,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 825,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 1848,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 1899,
+          "seed": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": 0.04761904761905189,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "lidar",
+          "index": 2256,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 1024,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 852,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 1587,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 825,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1716,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 205,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 2107,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "occlusion",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "occlusion",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 979,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 1415,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    },
+    {
+      "arm": "semantic_kl",
+      "arm_accuracy_pct": 63.0,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "ci95_delta_pp": [
+        -0.30952380952380953,
+        0.8571428571428573
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "lidar",
+          "index": 301,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "occlusion",
+          "index": 1024,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 1024,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 852,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1024,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 825,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1732,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 1848,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "occlusion",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 825,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1699,
+          "seed": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": 0.2619047619047632,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 519,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "occlusion",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 852,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 600,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 851,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 852,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 2256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 301,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1716,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 205,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "occlusion",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 979,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 1237,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    },
+    {
+      "arm": "sparse",
+      "arm_accuracy_pct": 61.238095238095234,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "ci95_delta_pp": [
+        -2.261904761904762,
+        -0.761309523809527
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "occlusion",
+          "index": 1011,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 1024,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 2256,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 825,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 1848,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 512,
+          "seed": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": -1.5000000000000013,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 519,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 2256,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 519,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1587,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1723,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 2256,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 1723,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 2256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 2355,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 1587,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 519,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 825,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1587,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1723,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 301,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 301,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 1848,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 205,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "occlusion",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 979,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1433,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    },
+    {
+      "arm": "weighted",
+      "arm_accuracy_pct": 62.42857142857143,
+      "baseline_accuracy_pct": 62.73809523809524,
+      "ci95_delta_pp": [
+        -0.9761904761904763,
+        0.35714285714285715
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "lidar",
+          "index": 301,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "occlusion",
+          "index": 1011,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 205,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 852,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 825,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 1011,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1732,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 1848,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 12,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 1011,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 1433,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 718,
+          "seed": 0
+        }
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": -0.309523809523804,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 718,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 1175,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 1914,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 1140,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "occlusion",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 1699,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 2085,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1660,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 2386,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 205,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 1445,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 1732,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1275,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1237,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1634,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 1691,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 1587,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 8,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 2454,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 82,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 519,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1284,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 2007,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 404,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 532,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 1899,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 658,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 2457,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 400,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 1848,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 1204,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2186,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 2319,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 512,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 1371,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 2021,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 276,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 676,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1596,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 1933,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 205,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "lidar",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 979,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 674,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 1372,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 1415,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    },
+    {
+      "arm": "semantic_h",
+      "arm_accuracy_pct": 40.285714285714285,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "ci95_delta_pp": [
+        -0.8095238095238096,
+        0.2148809523809492
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 387,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 70,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 300,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 10,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 29,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 70,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 360,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 28,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 478,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 360,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 432,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 278,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "rotation",
+          "index": 570,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 114,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 500,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 26,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 450,
+          "seed": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -0.30952380952380953,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 161,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 29,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 114,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 272,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 373,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 0,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 518,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 396,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 360,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 472,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 29,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 387,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 278,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 194,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 396,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 418,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    },
+    {
+      "arm": "semantic_kl",
+      "arm_accuracy_pct": 40.14285714285714,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "ci95_delta_pp": [
+        -0.9761904761904763,
+        0.0714285714285714
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 221,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 70,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 300,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 300,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 29,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 291,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 360,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 387,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 28,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 26,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 373,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 432,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 376,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 291,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 291,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 482,
+          "seed": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -0.4523809523809541,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 161,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 472,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 79,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "lidar",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 272,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 360,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 518,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 28,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 278,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 334,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 570,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 418,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    },
+    {
+      "arm": "sparse",
+      "arm_accuracy_pct": 39.476190476190474,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "ci95_delta_pp": [
+        -1.7857142857142856,
+        -0.47619047619047616
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 70,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 10,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 221,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 29,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 300,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 29,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 79,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 161,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 360,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 161,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 278,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 0,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 194,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 194,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 500,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 26,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "impulse",
+          "index": 221,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "occlusion",
+          "index": 387,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 291,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 518,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 450,
+          "seed": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -1.1190476190476195,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 161,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 0,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 85,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 373,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "lidar",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 85,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 489,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 272,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 300,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 396,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 70,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 114,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 0,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 28,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 518,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 79,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 472,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 570,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 291,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 300,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 478,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 278,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 376,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 28,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "lidar",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 373,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 194,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 478,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 387,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 221,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 418,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    },
+    {
+      "arm": "weighted",
+      "arm_accuracy_pct": 39.666666666666664,
+      "baseline_accuracy_pct": 40.595238095238095,
+      "ci95_delta_pp": [
+        -1.6904761904761905,
+        -0.19047619047619047
+      ],
+      "corrected_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "cutout",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 70,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 272,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 10,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 194,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 221,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 70,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "occlusion",
+          "index": 396,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 300,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "uniform",
+          "index": 79,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 493,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 221,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 278,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 0,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "impulse",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "rotation",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "uniform",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "upsampling",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 85,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 368,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 256,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 246,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 376,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 500,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 26,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "occlusion",
+          "index": 387,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 242,
+          "seed": 0
+        }
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -0.9285714285714286,
+      "harmed_ids": [
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 161,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 442,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "background",
+          "index": 504,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 29,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "density_inc",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "distortion_rbf_inv",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "gaussian",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 4,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "impulse",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "lidar",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 78,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "rotation",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "shear",
+          "index": 489,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 221,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 272,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 284,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 373,
+          "seed": 0
+        },
+        {
+          "backbone": "curvenet",
+          "corruption": "upsampling",
+          "index": 505,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "background",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "cutout",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density",
+          "index": 114,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "density_inc",
+          "index": 466,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion",
+          "index": 0,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 26,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "distortion_rbf_inv",
+          "index": 518,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "gaussian",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "impulse",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "lidar",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "occlusion",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 518,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "rotation",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 79,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 106,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "shear",
+          "index": 472,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "uniform",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 28,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "dgcnn",
+          "corruption": "upsampling",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 524,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "background",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "cutout",
+          "index": 291,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density",
+          "index": 478,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "density_inc",
+          "index": 477,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "distortion_rbf_inv",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "gaussian",
+          "index": 278,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "occlusion",
+          "index": 570,
+          "seed": 0
+        },
+        {
+          "backbone": "pointmae",
+          "corruption": "shear",
+          "index": 97,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 103,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 154,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 242,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 255,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 373,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 434,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 446,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 458,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 482,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "background",
+          "index": 507,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 247,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "cutout",
+          "index": 473,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density",
+          "index": 85,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "density_inc",
+          "index": 554,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion",
+          "index": 387,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 235,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf",
+          "index": 452,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 418,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "distortion_rbf_inv",
+          "index": 570,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 140,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "gaussian",
+          "index": 316,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "rotation",
+          "index": 450,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "shear",
+          "index": 262,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "uniform",
+          "index": 223,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 175,
+          "seed": 0
+        },
+        {
+          "backbone": "pointnext",
+          "corruption": "upsampling",
+          "index": 418,
+          "seed": 0
+        }
+      ],
+      "objects": 70,
+      "paired_observations": 4200,
+      "policy": "probability_mean",
+      "scope": "all15"
+    }
+  ],
+  "previous_32_and_34_caches_proof_sha256": "f4ef85c8063810f71994cb9963727b31b5e6424caea064dd7b1737bc624a4827",
+  "root_added_analysis_provenance": {
+    "analyzer_sha256": "f2da4cdde2489e3fad227f7ec0677b28c0d5428365a763c5bf6d27778ba27af5",
+    "commit": "7506d15ffa11320ac24481611bf488790232a111",
+    "scope": "Complete fixed development70 objects/dataset seed0; heldout confirmation pending; no coefficient selection from accuracy"
+  },
+  "status": "independent_full_development_accepted"
+}

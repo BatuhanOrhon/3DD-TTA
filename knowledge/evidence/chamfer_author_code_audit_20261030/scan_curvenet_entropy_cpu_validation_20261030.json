@@ -1,0 +1,44 @@
+{
+  "status": "local_cpu_verified_native_gpu_pending",
+  "utc": "2026-10-30T16:40:45.947805+00:00",
+  "source_files": {
+    "semantic_trajectory.py": {
+      "bytes": 7997,
+      "sha256": "6cefaab5fe55b4a9efc3d4984fd677dec5dc9774a4957c6195a79d1bb27471dc"
+    },
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 62347,
+      "sha256": "82292c1ea8425f30f472646a83480d1cc2ed72e8d219c76c7a3a78e674aac4bc"
+    },
+    "scripts/analyze_chamfer_variants.py": {
+      "bytes": 31181,
+      "sha256": "36aa612b0612e58a24941b3a7d261943556b85b13d747d5b2c81fe95bc1f50f1"
+    },
+    "scan_curvenet_entropy_report.py": {
+      "bytes": 5702,
+      "sha256": "c4e574dd3fa8161c60bbbb4b8a04fcbf3287d808f2a0e8d9f9288f79b37b8b3f"
+    },
+    "scripts/calibrate_scan_curvenet_entropy.py": {
+      "bytes": 13459,
+      "sha256": "f5d8d27d0baae3e7431778e77489f88e7efbaf85ad630f256a9fc62a3e51e644"
+    }
+  },
+  "test_command": "uv run --offline --no-project --with torch --with numpy --with scipy --with h5py --with pyyaml --with pytest python -m pytest tests -q",
+  "exit_code": 0,
+  "tests": 464,
+  "subtests": 348,
+  "warnings": 6,
+  "elapsed_seconds": 26.07,
+  "log": {
+    "bytes": 2028,
+    "sha256": "9987fc5dfc9ce9c69fa614da750a9bb86e713b35ee43ac71d8546915d2fa98d3"
+  },
+  "python38_ast": "pass",
+  "git_diff_check": "pass",
+  "independent_review": {
+    "bytes": 8215,
+    "sha256": "93cb3cdb08c391b9d7e56b27c77364a047d8b2517e8e451879e7d16ae01314e8"
+  },
+  "gpu_actions": "none for new phase; original frozen0fd campaign remains running",
+  "scope": "Scan CurveNet H only; old PointMAE defaults and two-dataset calibration V1 preserved; no spectral work or combined methods"
+}

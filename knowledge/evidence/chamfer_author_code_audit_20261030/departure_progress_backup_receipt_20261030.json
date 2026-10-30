@@ -1,0 +1,20 @@
+{
+  "status": "Drive_upload_roundtrip_size_sha_crc_verified",
+  "utc": "2026-10-30T16:58:15.271627+00:00",
+  "session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/progress_backup_20261030T1657Z.zip",
+  "snapshotted_confirmation_workers": 22,
+  "files": [
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/progress_backup_20261030T1657Z.zip",
+      "bytes": 6349499,
+      "sha256": "63012925c55dc70095e9041fcd77e34108a5b9a48f781e858d60067e08092e8c"
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/progress_backup_drive_roundtrip_20261030T1657Z.zip",
+      "bytes": 6349499,
+      "sha256": "63012925c55dc70095e9041fcd77e34108a5b9a48f781e858d60067e08092e8c"
+    }
+  ],
+  "limitations": "Snapshot of running campaign; complete raw job bundles independently backed to Drive per job; new CurveNet GPU phase not launched"
+}

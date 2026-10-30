@@ -2141,3 +2141,82 @@ pending. N10wasdevelopmentonlyunderpredeclaredmax3conditionconfirmation,
 so directN5/N10three-seedheldout superiority isnotestablishedbythisdesign.
 
 [Run/Decision/Open] 2026-10-30 final acceptance: the selected N8/eta=.003/gamma=.03/p=.95 candidate improves all15 PM over N5 by +2.230903pp [1.623047,2.864583] and over default N8 by +1.041667pp [.685764,1.40625] on256 reserved objects/three fixed seeds. All39 accepted reports/five infeasibility receipts,78 comparisons and422 caches reproduce independently. This closes the registered candidate-validation gate, not global optimality, full benchmark generalization or N5/N10 heldout superiority. N10 remains development-only and the development winner had a one-event margin. No further GPU job is pending. Raw and derived Drive roundtrips passed; only owned r2 was closed18:06UTC, with the protected peer still present unchanged. [Accepted results and remaining limits](chamfer_depth_tuning_results_20261030.md).
+
+## Chamfer-only independent guidance variants — 2026-10-30
+
+[User report/Decision/Open] Test sparse real backward, fixed-X semantic KL and
+marginal entropy as separate arms, and density-confidence weighted SCD;
+exclude spectral/graph calculations. Do these independently improve
+probability-mean all15 accuracy or the fresh reconstruction+classifier runtime
+frontier on paired objects/noise? Coefficients were frozen label-free;
+the accepted original study now gives a small conditional H signal and a sparse speed/accuracy tradeoff; weighted declines. Only independently useful arms may later combine.
+Causal confidence/stability early exit remains a future-only test with true
+loop exit/compaction and probe cost, not an implemented current intervention.
+See [design/evidence](chamfer_guidance_variants_20261030.md).
+
+
+## 2026-10-30 — literature review and prospective guidance experiments
+
+[Paper/Code/Inference/Open] [Review, source evidence and minimum A/B designs](diffusion_guidance_literature_review_20261030.md).
+
+- [x] Refresh forward-citation search; deduplicate3DD arXiv/WACV identity;
+  verify six relevant citing-paper PDF bibliographies and author code pins.
+  Record OpenAlex4, SemanticScholar429 and Scholar403; no exhaustive census.
+- [x] Reconcile actual17dd87c code with7143ede math audit and accepted fixed/
+  sensitivity evidence; preserve23successful jobs plus numerical failure.
+  Older approval/run-pending checkboxes below are historical, superseded by
+  the Oct28 result/Oct29 closure and Oct30 audit; they do not reopen that work.
+- [x] Propose same-schedule sparse backward/style control and sparse semantic
+  guidance/sham/readout controls; separate loss, host and inference policy.
+- [x] User selected implementation and explicitly approved the original five-hour
+  Chamfer-only campaign; it completed in4h42m. Earlier literature-only scope
+  is dated history and does not override this later authorization.
+- [x] Reserve/hash dev70 and held140 IDs per dataset; label-free coefficients,
+  exact paired initial tensors/RNG, source/asset/native and whole-phase budget
+  were fixed/verified. No practical noninferiority margin was predeclared;
+  sparse's acceptable accuracy cost remains a user choice.
+- [x] Verify actual decoder/preprocess/frozen-classifier input gradients and
+  exact0H contributions under frozen state/RNG; Point-MAE and later CurveNet
+  native gates pass. Discrete FPS/KNN/straight-through derivatives remain
+  the existing implemented partial/surrogate derivative, not full differentiation
+  through all selection indices.
+- [x] Establish all15/macro14, corrected/harmed and140-object/three-seed
+  conditional cluster intervals. Three fresh B70 G+B four-head pipeline repeats
+  pass; startup/loading/archival excluded, no cache-replay deployment claim.
+- [ ] B1/single-head and full15 deployment costs remain unmeasured; no new
+  experiment is implied by this open item.
+
+Existing H+JS sampling, entropy-weighted averaging, logit-mean and early-exit
+questions remain prior local proposals; this review does not mark them newly
+invented, implemented or experimentally validated.
+
+## 2026-10-30 — accepted variants and alternate source-model control
+
+[Run/Code/Decision/Open] Original H changes four-head MN+.3254pp, Scan+.0833pp
+(CIs conditional; no multiplicity correction); sparse loses1.3571/.9683pp
+while G+B inference pipeline costs fall about21%. Weighted accuracy declines
+and KL intervals include0. [Full accuracy/cost scope](chamfer_guidance_variants_results_20261030.md).
+The user requests only H on Scan with a stronger alternate source model.
+CurveNet was selected from historical source-only52.0711%; its native gate
+passes2100rows/30probes, fixedlambda3.15388558. Six matched C/H workers on the same140IDs/three seeds completed. Primary
+CurveNet probability mean55.6667→55.9048%,+.2381pp conditional95%CI
+[-.1587,+.6349]; all three seed deltas are positive but the interval includes0.
+Four-head+.1944pp and PointNeXt+.4127pp are secondary. This is explicitly
+posthoc/exploratory, not a fresh independent confirmation. New source+Scan calibration is a package, not pure
+teacher-quality causal attribution. No spectral guidance or combined method.
+After all required studies+Drive/local evidence complete, the user explicitly
+authorizes closing only our exact owned session without another question;
+peer/unknown sessions remain protected. [Current evidence](scan_curvenet_entropy_followup_20261030.md).
+
+[Run/Decision] Yukarıdaki CurveNet running durumu güncellendi:13worker,
+49head/90cache tamamlandı; CurveNet birincil+.2381pp CI[-.1587,+.6349],
+fresh G+B maliyet+%8.5572. Mevcut test kapsamı tamamdır; yeni benchmark,
+yöntem birleşimi veya source-model taraması başlatılmadı. Nihai Drive ve
+sahipli oturum kapanış kaydı son arşivleme adımıdır.
+
+[Run/Decision] Bu kapsamın deney, nihai Drive/local arşiv ve sahipli Colab
+kapanış adımları tamamlandı (19:34:46UTC doğrulama). Peer'e işlem yapılmadı.
+Açık kalan bilimsel sınırlar140nesne/3seed, keşifsel CurveNet CI0,
+fullbenchmark/B1/tek-headdeploy ve yöntem birleşimlerinin test edilmemesidir;
+bunlar mevcut görevin bekleyen GPU işi değildir.
+[Nihai teslim](chamfer_guidance_final_handoff_20261030.md).

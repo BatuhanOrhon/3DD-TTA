@@ -1,0 +1,201 @@
+[
+  {
+    "name": "sator.pdf",
+    "url": "https://arxiv.org/pdf/2610.21367v1",
+    "resolved_url": "https://arxiv.org/pdf/2610.21367v1",
+    "status": 200,
+    "bytes": 904014,
+    "sha256": "41bdbbfdc0098e9fc654bbed8020726de61f332382a8ff344007cfa10731d91c",
+    "utc": "2026-10-30T09:06:36.703191+00:00"
+  },
+  {
+    "name": "sator.html",
+    "url": "https://arxiv.org/html/2610.21367v1",
+    "resolved_url": "https://arxiv.org/html/2610.21367v1",
+    "status": 200,
+    "bytes": 432820,
+    "sha256": "50e122968d0cb549f4ced5ad046638dd49a1a683e028f2974c8b8b26ae569f63",
+    "utc": "2026-10-30T09:06:36.465474+00:00"
+  },
+  {
+    "name": "mamvi.pdf",
+    "url": "https://arxiv.org/pdf/2606.12939v1",
+    "resolved_url": "https://arxiv.org/pdf/2606.12939v1",
+    "status": 200,
+    "bytes": 2051404,
+    "sha256": "61ca04c141957128f2826491634a9857b77a55384fa9bb36cbfd58b2510da876",
+    "utc": "2026-10-30T09:06:37.088019+00:00"
+  },
+  {
+    "name": "mamvi.html",
+    "url": "https://arxiv.org/html/2606.12939v1",
+    "resolved_url": "https://arxiv.org/html/2606.12939v1",
+    "status": 200,
+    "bytes": 351861,
+    "sha256": "3164f7f6a2a433f407eafeb0c7360054615108ca9e1b8e3429b50b14ef952a99",
+    "utc": "2026-10-30T09:06:36.723573+00:00"
+  },
+  {
+    "name": "ttad.pdf",
+    "url": "https://arxiv.org/pdf/2610.27410v1",
+    "resolved_url": "https://arxiv.org/pdf/2610.27410v1",
+    "status": 200,
+    "bytes": 8300381,
+    "sha256": "a030e309968705ace1a3bcdf6b7ea353b970a1ec3bf51fabaee5aa8fb27be265",
+    "utc": "2026-10-30T09:06:40.101585+00:00"
+  },
+  {
+    "name": "uniadapter.pdf",
+    "url": "https://arxiv.org/pdf/2511.15311",
+    "resolved_url": "https://arxiv.org/pdf/2511.15311",
+    "status": 200,
+    "bytes": 12804897,
+    "sha256": "d08e5d6a2325d78c1d398e6a48f3688862ca8e0feacbe8866a5f4898053e24ae",
+    "utc": "2026-10-30T09:06:45.132843+00:00"
+  },
+  {
+    "name": "gsdtta.pdf",
+    "url": "https://arxiv.org/pdf/2507.18225v1",
+    "resolved_url": "https://arxiv.org/pdf/2507.18225v1",
+    "status": 200,
+    "bytes": 1693954,
+    "sha256": "4a5914c9b35dac211b96dbbaf4096fc93ea651a9576a4d5e78eb4bd4fbbee285",
+    "utc": "2026-10-30T09:06:37.831927+00:00"
+  },
+  {
+    "name": "cloudfixer.pdf",
+    "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603.pdf",
+    "resolved_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603.pdf",
+    "status": 200,
+    "bytes": 1408151,
+    "sha256": "5d180bd056c3f20272751ec48f9b2f6f8c2b7f2e49421b4e09f8f19eaecdbba9",
+    "utc": "2026-10-30T09:06:39.158086+00:00"
+  },
+  {
+    "name": "adaptive_guidance.pdf",
+    "url": "https://ojs.aaai.org/index.php/AAAI/article/download/32192/34347",
+    "error": "Remote end closed connection without response"
+  },
+  {
+    "name": "gda.pdf",
+    "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Tsai_GDA_Generalized_Diffusion_for_Robust_Test-time_Adaptation_CVPR_2024_paper.pdf",
+    "resolved_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Tsai_GDA_Generalized_Diffusion_for_Robust_Test-time_Adaptation_CVPR_2024_paper.pdf",
+    "status": 200,
+    "bytes": 8423101,
+    "sha256": "667a507feb5d7b2dd965cc005c0b7808e9b3e6013456b59c39b1c61c644a9bff",
+    "utc": "2026-10-30T09:06:44.708068+00:00"
+  },
+  {
+    "name": "original3dd.pdf",
+    "url": "https://openaccess.thecvf.com/content/WACV2025/papers/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.pdf",
+    "resolved_url": "https://openaccess.thecvf.com/content/WACV2025/papers/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.pdf",
+    "status": 200,
+    "bytes": 2197736,
+    "sha256": "96503b349f73ba2b41eb67e725361328717f11693804e968c63a3ae15bc72c7d",
+    "utc": "2026-10-30T09:06:41.696596+00:00"
+  },
+  {
+    "name": "lottpc.pdf",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "resolved_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "status": 200,
+    "bytes": 882463,
+    "sha256": "4ba7a72c70ff027fdad85e75412eb6d828a2070cb7417f06d03eab3afabf609a",
+    "utc": "2026-10-30T09:06:42.954209+00:00"
+  },
+  {
+    "name": "adaptive_guidance.html",
+    "url": "https://arxiv.org/html/2312.12487v1",
+    "resolved_url": "https://arxiv.org/html/2312.12487v1",
+    "status": 200,
+    "bytes": 332827,
+    "sha256": "f3cd666b38a48e8b1ddb8654d04153cd5ef2691b3c978c683d3084190ab9db64",
+    "utc": "2026-10-30T09:11:32.877824+00:00"
+  },
+  {
+    "name": "steeringtta.pdf",
+    "url": "https://openreview.net/pdf?id=iV0WBCDGcx",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "steeringtta.html",
+    "url": "https://arxiv.org/html/2510.14634v1",
+    "resolved_url": "https://arxiv.org/html/2510.14634v1",
+    "status": 200,
+    "bytes": 253943,
+    "sha256": "2f0071110c97c8fd96b69e7e1a35ef425d29cc29d7d5a5aff723aacd840fd397",
+    "utc": "2026-10-30T09:11:32.849354+00:00"
+  },
+  {
+    "name": "sator_abs.html",
+    "url": "https://arxiv.org/abs/2610.21367",
+    "resolved_url": "https://arxiv.org/abs/2610.21367",
+    "status": 200,
+    "bytes": 41751,
+    "sha256": "b85d61ed1c357635744947405599cd6bb52795dfe8353ca4a9e4cd5b3bb6e1d9",
+    "utc": "2026-10-30T09:11:32.638845+00:00"
+  },
+  {
+    "name": "mamvi_abs.html",
+    "url": "https://arxiv.org/abs/2606.12939",
+    "resolved_url": "https://arxiv.org/abs/2606.12939",
+    "status": 200,
+    "bytes": 41630,
+    "sha256": "5d3653e56495f440903985295146ff003da25e7113b66817f4122808d651a71d",
+    "utc": "2026-10-30T09:11:33.231680+00:00"
+  },
+  {
+    "name": "ttad_abs.html",
+    "url": "https://arxiv.org/abs/2610.27410",
+    "resolved_url": "https://arxiv.org/abs/2610.27410",
+    "status": 200,
+    "bytes": 44836,
+    "sha256": "8865bfaa5ab243e37f6344db3b729b63153459f28779eb458d7d93fa1b66a483",
+    "utc": "2026-10-30T09:11:33.225057+00:00"
+  },
+  {
+    "name": "uniadapter_abs.html",
+    "url": "https://arxiv.org/abs/2511.15311",
+    "resolved_url": "https://arxiv.org/abs/2511.15311",
+    "status": 200,
+    "bytes": 43535,
+    "sha256": "1c6c8dd53715ae0f499e572466fd00ad3eaf6930fd7d578a461993602ceaba21",
+    "utc": "2026-10-30T09:11:33.229395+00:00"
+  },
+  {
+    "name": "gsdtta_abs.html",
+    "url": "https://arxiv.org/abs/2507.18225",
+    "resolved_url": "https://arxiv.org/abs/2507.18225",
+    "status": 200,
+    "bytes": 42506,
+    "sha256": "5021c65d10219d3aabdc3781c916e929e79087468dbaadae968684d8d70dafd0",
+    "utc": "2026-10-30T09:11:33.293989+00:00"
+  },
+  {
+    "name": "gda_abs.html",
+    "url": "https://arxiv.org/abs/2404.00095",
+    "resolved_url": "https://arxiv.org/abs/2404.00095",
+    "status": 200,
+    "bytes": 43445,
+    "sha256": "cc978d6dac2ea1817f5bdb2de6b15a3e4c2ef187eae5b041704b98180fac796a",
+    "utc": "2026-10-30T09:11:33.645485+00:00"
+  },
+  {
+    "name": "cloudfixer_abs.html",
+    "url": "https://arxiv.org/abs/2407.16193",
+    "resolved_url": "https://arxiv.org/abs/2407.16193",
+    "status": 200,
+    "bytes": 43743,
+    "sha256": "a679a849bbfa3b6fc2307ebc95c82010f4a3d48f1ece893cd05cfb8029b83487",
+    "utc": "2026-10-30T09:11:33.641492+00:00"
+  },
+  {
+    "name": "original3dd_abs.html",
+    "url": "https://arxiv.org/abs/2411.14495",
+    "resolved_url": "https://arxiv.org/abs/2411.14495",
+    "status": 200,
+    "bytes": 43635,
+    "sha256": "41d9d981b365caba54a38385617165e7d58d9a15b528a0efc44bc41ed680e290",
+    "utc": "2026-10-30T09:11:33.637129+00:00"
+  }
+]

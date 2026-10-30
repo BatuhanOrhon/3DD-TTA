@@ -1,0 +1,57 @@
+{
+  "state": {
+    "status": "complete",
+    "research_gpu_launched": false,
+    "session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+    "manifest_sha256": "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777",
+    "source_snapshot_sha256": "fd8c163f07b82cc8ca05b7ab2a5532dfd821aa0af7c51062f23706716d8b1a69",
+    "cuda_initialized": false,
+    "declared_files": 656,
+    "changed_asset_files": [
+      "source_snapshot.zip",
+      "source_snapshot/scripts/eval_multibackbone_source.py"
+    ],
+    "manifest": {
+      "bytes": 175773,
+      "sha256": "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777"
+    },
+    "source_snapshot": {
+      "bytes": 5567350,
+      "sha256": "fd8c163f07b82cc8ca05b7ab2a5532dfd821aa0af7c51062f23706716d8b1a69"
+    },
+    "original_cpu_proof": {
+      "state": {
+        "status": "complete",
+        "session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+        "manifest_sha256": "a9f017789fda66de310931f63cde5e540985b96ac5097ae8fe729358e9d06da0",
+        "research_gpu_launched": false,
+        "strict_loads": 8,
+        "cuda_initialized": false,
+        "elapsed_seconds": 22.342895464999856
+      },
+      "archive": {
+        "bytes": 70504,
+        "sha256": "794d10d1165ce8d351be224e28d230417322ab04a0f985bac7b89ca121e4f56e",
+        "local_path": "/content/studies/chamfer-guidance-variants/cpu_preflight_20261030T131028018150Z.zip",
+        "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/cpu_preflight_20261030T131028018150Z/cpu_preflight_evidence.zip"
+      },
+      "report_identity": {
+        "bytes": 19287,
+        "sha256": "afd09572f4de67e7fef38c39c294a79d4122d2149fea43cc685a597f05693571"
+      }
+    },
+    "strict_head_loads_reused": 8,
+    "new_head_loads": 0,
+    "canonical_snapshot_probe": true,
+    "source_identity": {
+      "bytes": 30720,
+      "sha256": "dac97636355d7410831e5746a9ee02744c1bf2d203eba18c18a99a0d1c4bc42b"
+    }
+  },
+  "archive": {
+    "bytes": 5500079,
+    "sha256": "1dda3c561376238cbcec4d39a9c0bef32eac848e1cd3ef50409f0e87c131b17e",
+    "local_path": "/content/studies/chamfer-guidance-variants/metadata_source_repair.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/metadata_source_repair/evidence.zip"
+  }
+}

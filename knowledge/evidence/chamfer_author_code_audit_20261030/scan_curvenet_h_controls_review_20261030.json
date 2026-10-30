@@ -1,0 +1,94 @@
+{
+  "actions": "No production edits, commit, GPU, remote or runtime lifecycle actions by reviewer",
+  "controls_files": {
+    "README.md": {
+      "bytes": 6228,
+      "sha256": "259617164f3283e8a19760b5474693f5afb98019a4bb077e020d5be74e1432cd"
+    },
+    "cpu_test_receipt.json": {
+      "bytes": 1750,
+      "sha256": "55cde65a4b813f7b6fedfeb311856d1f6e079192e663a1fd8cdcfc61934de106"
+    },
+    "launch_scan_curvenet_h.py": {
+      "bytes": 2040,
+      "sha256": "ba9d611342e6fa9aea0b32f38ab1bd66ede080681c59b8928dedc99072bea14d"
+    },
+    "scan_curvenet_h_controls.py": {
+      "bytes": 29214,
+      "sha256": "fd766090fe343bb5eaa53dc76159cef59d83363f186c6e87155f063fc318ead2"
+    },
+    "test_scan_curvenet_h_controls.py": {
+      "bytes": 16543,
+      "sha256": "851fb6df5c3ba7cf429e41347907792e3d7381f2eb2311e151bf07c13e6f31b3"
+    }
+  },
+  "pending_actual_checks": [
+    "Real plan references and retained user authorization, parent physical collection and exact control hashes not populated yet",
+    "Linux native/checkpoint CPU deployment, real CurveNet GPU gradient proofs and observed runtime/accuracy are unexecuted",
+    "Final physical Drive/local retrieval and scientific analysis remain required; sole root owner decides sessionclosure after all work"
+  ],
+  "remaining_blockers": [],
+  "resolved_findings": [
+    {
+      "fix": "Top-level preparation_mode checked per job; existing strict offline _load/_paired_identity verifies12seed/head pairs plus indexedIDs/labels before stagecomplete; whole trajectories remain allowed to differ",
+      "problem": "No actual preparation-mode or C/H initial-state pairing gate before heldout completion"
+    },
+    {
+      "fix": "Allfive new/new and new/old root pairs reject equality and either ancestor relation;15negative subcases verified",
+      "problem": "New local/Drive roots could alias each other or cross-alias an original protected root"
+    }
+  ],
+  "source_seal": {
+    "changed_asset_files": [
+      "source_snapshot.zip",
+      "source_snapshot/scan_curvenet_entropy_report.py",
+      "source_snapshot/scripts/analyze_chamfer_variants.py",
+      "source_snapshot/scripts/calibrate_scan_curvenet_entropy.py",
+      "source_snapshot/scripts/eval_multibackbone_guidance.py",
+      "source_snapshot/semantic_trajectory.py"
+    ],
+    "commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc",
+    "local_declared_source_files_verified": 298,
+    "manifest": {
+      "bytes": 176437,
+      "sha256": "95a0dc2a52d5d2e8cbf99767b5ba1e8ecd59fadcf0c0e7b23013ce836c7d0bb1"
+    },
+    "new_assets": 658,
+    "non_source_asset_identities_exact": true,
+    "original_assets": 656,
+    "source_snapshot": {
+      "bytes": 5575083,
+      "sha256": "767e24acbb0fe3213ee24d8efdfc824f11fd051180bfc4bc14b6c393f6901f75"
+    }
+  },
+  "status": "independent_read_only_review_passed_after_both_scope_fixes",
+  "superseded_review": {
+    "bytes": 4374,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_review_20261030.json",
+    "sha256": "d2f1027e70ed012114032d098740f3aae24286b8e38f171ccc8d69f85bbc0c14"
+  },
+  "tests": {
+    "command": [
+      "/opt/homebrew/opt/python@3.13/bin/python3.13",
+      "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/test_scan_curvenet_h_controls.py"
+    ],
+    "exit_code": 0,
+    "python38_ast": true,
+    "raw_log": {
+      "bytes": 113,
+      "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_review_tests_final_20261030.log",
+      "sha256": "d839abcd3734c79f7676ae315997dc8db6d16bdcb7cc250bb6827f27bddd60dd"
+    },
+    "tests": 14
+  },
+  "verified_controls": [
+    "13workers/49rawheads: one Scan/CurveNet dev70 calibration, six C/H held140seed0/1/2 workers, six fresh timing workers with rotated C/H ordering",
+    "Calibration proof uses separately registered H-only schema/key, copied exact report bytes and stage sealing before positiveH",
+    "No spectral/graph objective; new job validation rejects actual nonzero counters",
+    "Separate new roots/assets/results/Drive/ledger/caches; no old configure/ledger writer or runtime teardown calls",
+    "Pinned predecessor proof requires completed original confirmation+timing and240raw+214physicalcache identities in localcollection acceptance",
+    "One continuous4200second clock includes interstage waits and archival,600second reserve; no per-stage cap reset",
+    "Original source/data/checkpoints preserved; sourceZIP extracted before unchangedasset hardlinks and full old/new declaredbyte verification",
+    "Bounded worker processgroup streaming, failedstage refusal, partialresults and failuretraces sealed/mirrored; launcherrequires childexit0 plus exactcompletionmarker"
+  ]
+}

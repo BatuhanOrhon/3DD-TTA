@@ -1,0 +1,337 @@
+{
+  "state": {
+    "status": "complete",
+    "purpose": "Exact pointwise gradient of zero-weight KL/H; no trajectory parity claim",
+    "plan_sha256": "e4bf0104fe997157810820aad1b6f12e9f0f7e6b9915334329c16f4a754dcff4",
+    "original_started_epoch": 1793366716.894181,
+    "original_deadline_epoch": 1793384716.894181,
+    "phase_limit_seconds": 300,
+    "jobs": [
+      {
+        "case": "KL0",
+        "original_arm": "sham_kl",
+        "command": [
+          "/usr/local/envs/3dd_tta_env/bin/python",
+          "-u",
+          "/content/studies/chamfer-guidance-variants/prepared_v2/assets/source_snapshot/scripts/eval_chamfer_semantic.py",
+          "--dataset",
+          "modelnet40_c",
+          "--dataset-root",
+          "/content/3DD-TTA/data/modelnet40_c",
+          "--label-path",
+          "/content/3DD-TTA/data/modelnet40_c/label.npy",
+          "--asset-root",
+          "/content/studies/chamfer-guidance-variants/prepared_v2/assets",
+          "--asset-manifest-sha256",
+          "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777",
+          "--result-root",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/KL0",
+          "--drive-root",
+          "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/results/native_zero_effect/KL0",
+          "--seed",
+          "0",
+          "--batch-size",
+          "70",
+          "--backbones",
+          "dgcnn",
+          "curvenet",
+          "pointnext",
+          "pointmae",
+          "--method",
+          "gsd",
+          "--component-arm",
+          "chamfer",
+          "--trajectory-observe",
+          "--eta",
+          "0.01",
+          "--gamma",
+          "0.01",
+          "--p",
+          "0.95",
+          "--spectral-weight",
+          "0",
+          "--chamfer-weight",
+          "1",
+          "--index-manifest",
+          "/content/studies/chamfer-guidance-variants/prepared_v2/assets/study/modelnet40_c_smoke_ids.json",
+          "--pointmae-config",
+          "source_snapshot/cfgs/tta_modelnet.yaml",
+          "--pointmae-checkpoint",
+          "checkpoints/modelnet_jt.pth",
+          "--paired-state-root",
+          "/content/studies/chamfer-guidance-variants/paired_states/smoke/seed0",
+          "--semantic-kind",
+          "kl",
+          "--semantic-weight",
+          "0",
+          "--corruptions",
+          "gaussian",
+          "background"
+        ],
+        "archives": [
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/KL0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-135951_chamfer-semantic-kl-w0p0-dgcnn-seed0.zip",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/KL0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-135952_chamfer-semantic-kl-w0p0-curvenet-seed0.zip",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/KL0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-135953_chamfer-semantic-kl-w0p0-pointnext-seed0.zip",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/KL0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-135954_chamfer-semantic-kl-w0p0-pointmae-seed0.zip"
+        ],
+        "sidecars": {
+          "tensors/KL0/zero_rows.json": {
+            "bytes": 1730,
+            "sha256": "8e0f5a5466e905a4db66451a97e2d9fcb243ed6bfb6fa4f25aaa42e02b09ceec"
+          }
+        }
+      },
+      {
+        "case": "H0",
+        "original_arm": "sham_h",
+        "command": [
+          "/usr/local/envs/3dd_tta_env/bin/python",
+          "-u",
+          "/content/studies/chamfer-guidance-variants/prepared_v2/assets/source_snapshot/scripts/eval_chamfer_semantic.py",
+          "--dataset",
+          "modelnet40_c",
+          "--dataset-root",
+          "/content/3DD-TTA/data/modelnet40_c",
+          "--label-path",
+          "/content/3DD-TTA/data/modelnet40_c/label.npy",
+          "--asset-root",
+          "/content/studies/chamfer-guidance-variants/prepared_v2/assets",
+          "--asset-manifest-sha256",
+          "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777",
+          "--result-root",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/H0",
+          "--drive-root",
+          "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/results/native_zero_effect/H0",
+          "--seed",
+          "0",
+          "--batch-size",
+          "70",
+          "--backbones",
+          "dgcnn",
+          "curvenet",
+          "pointnext",
+          "pointmae",
+          "--method",
+          "gsd",
+          "--component-arm",
+          "chamfer",
+          "--trajectory-observe",
+          "--eta",
+          "0.01",
+          "--gamma",
+          "0.01",
+          "--p",
+          "0.95",
+          "--spectral-weight",
+          "0",
+          "--chamfer-weight",
+          "1",
+          "--index-manifest",
+          "/content/studies/chamfer-guidance-variants/prepared_v2/assets/study/modelnet40_c_smoke_ids.json",
+          "--pointmae-config",
+          "source_snapshot/cfgs/tta_modelnet.yaml",
+          "--pointmae-checkpoint",
+          "checkpoints/modelnet_jt.pth",
+          "--paired-state-root",
+          "/content/studies/chamfer-guidance-variants/paired_states/smoke/seed0",
+          "--semantic-kind",
+          "marginal_entropy",
+          "--semantic-weight",
+          "0",
+          "--corruptions",
+          "gaussian",
+          "background"
+        ],
+        "archives": [
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/H0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-140038_chamfer-semantic-marginal_entropy-w0p0-dgcnn-seed0.zip",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/H0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-140039_chamfer-semantic-marginal_entropy-w0p0-curvenet-seed0.zip",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/H0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-140040_chamfer-semantic-marginal_entropy-w0p0-pointnext-seed0.zip",
+          "/content/studies/chamfer-guidance-variants/results/native_zero_effect/H0/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-140041_chamfer-semantic-marginal_entropy-w0p0-pointmae-seed0.zip"
+        ],
+        "sidecars": {
+          "tensors/H0/zero_rows.json": {
+            "bytes": 1787,
+            "sha256": "9ce9bc99018ff9cbf88b350767219bdc8d2008410a50546c4f7dcd0bdb9d1675"
+          }
+        }
+      }
+    ],
+    "zero_check_rows": [
+      {
+        "corruption": "gaussian",
+        "loop_count": 5,
+        "kind": "kl",
+        "batch_count": 2,
+        "raw_semantic_loss": 2.2505507469177246,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      },
+      {
+        "corruption": "gaussian",
+        "loop_count": 8,
+        "kind": "kl",
+        "batch_count": 2,
+        "raw_semantic_loss": 1.9452959299087524,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      },
+      {
+        "corruption": "background",
+        "loop_count": 15,
+        "kind": "kl",
+        "batch_count": 2,
+        "raw_semantic_loss": 7.675771236419678,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      },
+      {
+        "corruption": "background",
+        "loop_count": 23,
+        "kind": "kl",
+        "batch_count": 2,
+        "raw_semantic_loss": 7.536220550537109,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      },
+      {
+        "corruption": "gaussian",
+        "loop_count": 5,
+        "kind": "marginal_entropy",
+        "batch_count": 2,
+        "raw_semantic_loss": 1.3705989122390747,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      },
+      {
+        "corruption": "gaussian",
+        "loop_count": 8,
+        "kind": "marginal_entropy",
+        "batch_count": 2,
+        "raw_semantic_loss": 1.3174220323562622,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      },
+      {
+        "corruption": "background",
+        "loop_count": 15,
+        "kind": "marginal_entropy",
+        "batch_count": 2,
+        "raw_semantic_loss": 2.7448348999023438,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      },
+      {
+        "corruption": "background",
+        "loop_count": 23,
+        "kind": "marginal_entropy",
+        "batch_count": 2,
+        "raw_semantic_loss": 2.702584743499756,
+        "local": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "style": {
+          "finite": true,
+          "nonzero_count": 0,
+          "max_abs": 0.0,
+          "norm": 0.0
+        },
+        "leaf_grad_fields_unchanged": true,
+        "rng_unchanged": true
+      }
+    ],
+    "elapsed_seconds": 94.92337041200062
+  },
+  "archive": {
+    "bytes": 91382,
+    "sha256": "0bb7b512421b9a20e123491cd614ea860df010050ee2c2535756ccafdfa07be1",
+    "local_path": "/content/studies/chamfer-guidance-variants/native_zero_effect.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/native_zero_effect/evidence.zip"
+  }
+}

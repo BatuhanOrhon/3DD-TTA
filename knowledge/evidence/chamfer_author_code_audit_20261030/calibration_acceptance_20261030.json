@@ -1,0 +1,415 @@
+{
+  "bundles": [
+    {
+      "calls": [
+        {
+          "corruption": "uniform",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "gaussian",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "background",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "impulse",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "upsampling",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "distortion_rbf",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "distortion_rbf_inv",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "density",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "density_inc",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "shear",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "rotation",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "cutout",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "distortion",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "occlusion",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "lidar",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        }
+      ],
+      "corruptions": 15,
+      "dataset": "modelnet40_c",
+      "gradient_norms": {
+        "semantic_h": {
+          "local": {
+            "count": 2100,
+            "max": 50.77158967322107,
+            "median": 2.620443820572568,
+            "min": 1.5668190808902163e-05,
+            "zero_count": 0
+          },
+          "style": {
+            "count": 2100,
+            "max": 2.9656156337959922,
+            "median": 0.10756296961042697,
+            "min": 3.9514347425889126e-07,
+            "zero_count": 0
+          }
+        },
+        "semantic_kl": {
+          "local": {
+            "count": 2100,
+            "max": 237.31760505263884,
+            "median": 6.87281864023339,
+            "min": 6.702602034448516e-06,
+            "zero_count": 0
+          },
+          "style": {
+            "count": 2100,
+            "max": 21.825394796902543,
+            "median": 0.3204624785816525,
+            "min": 1.0556905096540986e-07,
+            "zero_count": 0
+          }
+        },
+        "weighted": {
+          "local": {
+            "count": 2100,
+            "max": 68.26984630581555,
+            "median": 22.85113025715369,
+            "min": 10.43279023809352,
+            "zero_count": 0
+          },
+          "style": {
+            "count": 2100,
+            "max": 13.938080562782323,
+            "median": 1.0401790759907352,
+            "min": 0.20582978216802958,
+            "zero_count": 0
+          }
+        }
+      },
+      "native": {
+        "chamfer": {
+          "bytes": 720640,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "d291f9c234f37a3a78b846515392bdea6d1b4b06af5d20cdf9627a6fe9a6d6d7"
+        },
+        "chamfer_3D": {
+          "bytes": 1144176,
+          "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+          "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+        },
+        "knn": {
+          "bytes": 218200,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+          "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+        },
+        "pointnet2_ops._ext": {
+          "bytes": 266256,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "e5807dcadaaeb879041d1f41ec3a7b8a3b870eca18ceb8619ab93e4c7f78a84f"
+        }
+      },
+      "objects": 70,
+      "raw_identity": {
+        "bytes": 7718856,
+        "sha256": "c44139df42179e0aaeb55dd7f9c761ce79ebef58fa03c588bbbd8964602a51fa"
+      },
+      "seed": 0,
+      "selection_status": "partial",
+      "source_repo_keys_verified": true
+    },
+    {
+      "calls": [
+        {
+          "corruption": "uniform",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "gaussian",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "background",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "impulse",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "upsampling",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "distortion_rbf",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "distortion_rbf_inv",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "density",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "density_inc",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "shear",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "rotation",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "cutout",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "distortion",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "occlusion",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        },
+        {
+          "corruption": "lidar",
+          "diagnostic_grad": 8,
+          "graph": 0,
+          "spectral": 0
+        }
+      ],
+      "corruptions": 15,
+      "dataset": "scanobjectnn_c",
+      "gradient_norms": {
+        "semantic_h": {
+          "local": {
+            "count": 2100,
+            "max": 11.905221867560122,
+            "median": 1.0718514783310957,
+            "min": 0.002054203964234003,
+            "zero_count": 0
+          },
+          "style": {
+            "count": 2100,
+            "max": 2.2384241986076763,
+            "median": 0.06667546974123972,
+            "min": 4.970204425622975e-05,
+            "zero_count": 0
+          }
+        },
+        "semantic_kl": {
+          "local": {
+            "count": 2100,
+            "max": 44.34091637582973,
+            "median": 1.9719258672339486,
+            "min": 5.922311648141716e-05,
+            "zero_count": 0
+          },
+          "style": {
+            "count": 2100,
+            "max": 11.440468821117424,
+            "median": 0.12841925555242023,
+            "min": 2.150886801161249e-06,
+            "zero_count": 0
+          }
+        },
+        "weighted": {
+          "local": {
+            "count": 2100,
+            "max": 58.941007965080175,
+            "median": 25.103647603563886,
+            "min": 12.082016121999326,
+            "zero_count": 0
+          },
+          "style": {
+            "count": 2100,
+            "max": 25.59645458663349,
+            "median": 1.1595653793965748,
+            "min": 0.20123936730273997,
+            "zero_count": 0
+          }
+        }
+      },
+      "native": {
+        "chamfer": {
+          "bytes": 720640,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "d291f9c234f37a3a78b846515392bdea6d1b4b06af5d20cdf9627a6fe9a6d6d7"
+        },
+        "chamfer_3D": {
+          "bytes": 1144176,
+          "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+          "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+        },
+        "knn": {
+          "bytes": 218200,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+          "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+        },
+        "pointnet2_ops._ext": {
+          "bytes": 266256,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "e5807dcadaaeb879041d1f41ec3a7b8a3b870eca18ceb8619ab93e4c7f78a84f"
+        }
+      },
+      "objects": 70,
+      "raw_identity": {
+        "bytes": 7129195,
+        "sha256": "ef716742d3dda538299ef0d87c263a84f0d87c91513413138267a18f335905b3"
+      },
+      "seed": 0,
+      "selection_status": "partial",
+      "source_repo_keys_verified": true
+    }
+  ],
+  "caches": [
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/smoke/seed0/modelnet40_c/background/969c58f94dc3107b692f639dc0d74139b24bd7aa14f882c85143e889274e8876.npz",
+      "rng_schema_verified": true,
+      "sha256": "66c96dffa026226c5dcd77379b2ed562f485b31c175d14be30d5b5feaaec98bb",
+      "tensor_hashes_verified": true
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/smoke/seed0/modelnet40_c/gaussian/969c58f94dc3107b692f639dc0d74139b24bd7aa14f882c85143e889274e8876.npz",
+      "rng_schema_verified": true,
+      "sha256": "53539d2dfb9e8454cf923c05037450810cc107f6a5f87f3fedf9f9280fda7fbe",
+      "tensor_hashes_verified": true
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/smoke/seed0/scanobjectnn_c/background/e554c8e4df1ecfd6485bd378aec1ee01299e0437a7a3615ee2f6985d787aab61.npz",
+      "rng_schema_verified": true,
+      "sha256": "02dd1616c34c7948f6b4833ce2c5137f80bc2126b075eb9284444db56560bf9f",
+      "tensor_hashes_verified": true
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/smoke/seed0/scanobjectnn_c/gaussian/e554c8e4df1ecfd6485bd378aec1ee01299e0437a7a3615ee2f6985d787aab61.npz",
+      "rng_schema_verified": true,
+      "sha256": "970c506e537c7f9995830041e45ccfa1243d236b8089b3d9afcab710cb166808",
+      "tensor_hashes_verified": true
+    }
+  ],
+  "coefficients": {
+    "semantic_h": 1.4715424107401223,
+    "semantic_kl": 0.6285361973358488,
+    "weighted_scale": 0.9171509895707142
+  },
+  "ratios": {
+    "semantic_h": {
+      "count": 4200,
+      "max": 2.530644022786703,
+      "median": 0.06795590753630018,
+      "min": 1.0516363756346178e-06,
+      "missing": 0,
+      "p90": 0.3436845573781204
+    },
+    "semantic_kl": {
+      "count": 4200,
+      "max": 11.151721885044243,
+      "median": 0.15909982658734056,
+      "min": 4.362072250176085e-07,
+      "missing": 0,
+      "p90": 1.179505805225022
+    },
+    "weighted": {
+      "count": 4200,
+      "max": 2.4435038230670205,
+      "median": 1.0903330109997096,
+      "min": 0.7221103430984382,
+      "missing": 0,
+      "p90": 1.2581287895061495
+    }
+  },
+  "report_recomputed_exact_except_local_path_relocation": true,
+  "status": "independent_cpu_calibration_accepted"
+}

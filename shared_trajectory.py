@@ -30,6 +30,7 @@ class SharedTrajectoryObserver:
         self.names = ['clean_%02d' % step for step in self.steps] + ['terminal']
         self.saved = {name: [] for name in heads}
         self.probes, self.initial_hashes, self.final_hashes = [], {}, {}
+        self.initial_rng_sha256 = None
         self.times, self.active, self.clock = {}, None, time.perf_counter()
         self.count, self.complete = None, False
 
@@ -47,6 +48,7 @@ class SharedTrajectoryObserver:
         if self.initial_hashes or not tensors:
             raise ValueError('Expected exactly one nonempty initial state')
         self.initial_hashes = {name: tensor_hash(value) for name, value in tensors.items()}
+        self.initial_rng_sha256 = rng_hash()
 
     def _logits(self, logits: dict) -> dict:
         import torch
@@ -121,6 +123,7 @@ class SharedTrajectoryObserver:
         return dict(complete=self.complete, horizon=self.horizon, candidate_names=self.names,
                     candidate_loop_counts=self.steps + [self.horizon], probes=self.probes,
                     initial_hashes=self.initial_hashes, final_hashes=self.final_hashes,
+                    initial_rng_sha256=self.initial_rng_sha256,
                     probe_rng_unchanged=all(p['rng_unchanged'] for p in self.probes),
                     probe_buffers_unchanged=all(p['buffers_unchanged'] for p in self.probes),
                     times=dict(self.times), timing='unsynchronized component dispatch wall seconds')

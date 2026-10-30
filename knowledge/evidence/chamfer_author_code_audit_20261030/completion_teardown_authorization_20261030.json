@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-10-30T16:56:16.398467+00:00",
+  "status": "explicit_completion_and_close_authorized",
+  "user_instruction": "Benim çıkmam gerek, devam et, sessionu yalnızca gerekli çalışmalar tamamlandıktan sonra bitir. Çalışmalar tamamlanınca benden onay almadan Colab sessionu öldür, bunu yaparken diğer agent'ın sessionunu öldürmemeye dikkat et. Eğer mümkünse şu ana kadarki ilerlemeni de drive'a kaydet.",
+  "owned_session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "owned_endpoint": "gpu-a100-hm-ass1c0-3nh8smksm50de",
+  "protected_peer": "tta-chamfer-depth-tuning-a100-20261030-r2",
+  "protected_endpoint": "gpu-a100-hm-ass1c0-79r779o7n5fk",
+  "condition": "Only after all required original campaign stages and authorized alternate CurveNet/H work end, successful/failed evidence and analyses are verified on Drive and locally. Close only owned exact session; never broad cleanup or peer operations. No new permission question.",
+  "progress_backup": "fresh immutable progress ZIP to existing owned Drive/phase-evidence directory; verify roundtrip bytes/SHA"
+}

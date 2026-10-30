@@ -1,0 +1,96 @@
+{
+  "CPU_archive": {
+    "bytes": 70504,
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/cpu_preflight_20261030T131028018150Z/cpu_preflight_evidence.zip",
+    "local_path": "/content/studies/chamfer-guidance-variants/cpu_preflight_20261030T131028018150Z.zip",
+    "sha256": "794d10d1165ce8d351be224e28d230417322ab04a0f985bac7b89ca121e4f56e"
+  },
+  "actual_assets_verified": 656,
+  "approval_status": "pending_explicit_user_reply",
+  "author_archives": [
+    {
+      "bytes": 19748784,
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/author_archives_revision2/author_code_audit_bundle_20261030.zip",
+      "members": 57,
+      "name": "author_code_audit_bundle_20261030.zip",
+      "sha256": "5efec81225596917a9801fa734b329e9b72eafe6d14788957ae6a2e60bc369f5"
+    },
+    {
+      "bytes": 30857123,
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/author_archives_revision2/diffusion_guidance_literature_20261030.zip",
+      "members": 44,
+      "name": "diffusion_guidance_literature_20261030.zip",
+      "sha256": "f1a1e6cd6ff120701aef6a2d550329aa15b0d3846e5c5636f203229eb8bc3122"
+    }
+  ],
+  "commands": {
+    "bytes": 237023,
+    "sha256": "9825e3d51b73b85f25fdf11876c885c86b43d2a3a5d063afcc2cda3985bb78ef"
+  },
+  "cuda_initialized_in_CPU_proof": false,
+  "date_UTC": "2026-10-30",
+  "deployment_archive": {
+    "bytes": 1467146,
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/deployment_20261030T130813100657Z/deployment_evidence.zip",
+    "local_path": "/content/studies/chamfer-guidance-variants/deployment_20261030T130813100657Z.zip",
+    "sha256": "71bfd21cb9e548656b4ed1c9b88a1174269e74c0898981164cce8a52489fe3af"
+  },
+  "endpoint": "gpu-a100-hm-ass1c0-3nh8smksm50de",
+  "launch_readiness_archive": {
+    "bytes": 2361,
+    "local_path": "result/preparation/chamfer_guidance_variants_20261030/launch_readiness_evidence_remote.zip",
+    "sha256": "a8e53ce347f966f2f4b98b47a71c54be70bf54513fb5615df4263525bc4338a4"
+  },
+  "local_monitor": {
+    "active": true,
+    "exec_session": 36160,
+    "pid": 59645
+  },
+  "manifest_sha256": "a9f017789fda66de310931f63cde5e540985b96ac5097ae8fe729358e9d06da0",
+  "pinned_native_archive": {
+    "bytes": 2761,
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/pinned_native_smoke/evidence.zip",
+    "local_path": "/content/studies/chamfer-guidance-variants/pinned_native_smoke.zip",
+    "sha256": "518c9aafaf719ced450f115ed119a1d6b57b0abd726290b79a785c081de7c2fb"
+  },
+  "plan": {
+    "bytes": 8207,
+    "sha256": "e4bf0104fe997157810820aad1b6f12e9f0f7e6b9915334329c16f4a754dcff4"
+  },
+  "research_GPU_started": false,
+  "restored_native_GPU_checks": [
+    "pinned KNN forward",
+    "pinned Chamfer forward/backward",
+    "pinned EMD forward/backward",
+    "pinned PVCNN grouping forward/backward"
+  ],
+  "session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "setup_acceptance": {
+    "acceptance": {
+      "bytes": 3510,
+      "sha256": "c64209b9b6d6f894ccf63f533808bfc61f227446e5e9eb6736d0d20069d9f637"
+    },
+    "native_phase_markers": [
+      "/content/3DD-TTA/.colab_setup/native/prepare.complete",
+      "/content/3DD-TTA/.colab_setup/native/emd.complete",
+      "/content/3DD-TTA/.colab_setup/native/chamfer.complete",
+      "/content/3DD-TTA/.colab_setup/native/pointnet2.complete",
+      "/content/3DD-TTA/.colab_setup/native/pvcnn-smoke.complete"
+    ],
+    "verification": {
+      "bytes": 9005,
+      "sha256": "95098b5e1668f238bfda2b1f7226da010a5b777e27366e58aaaf4c0bf66c1c2e"
+    }
+  },
+  "setup_raw_archive": {
+    "Drive_roundtrip_verified": true,
+    "bytes": 273259,
+    "drive_path": "MyDrive/thesis/result/chamfer_guidance_variants_20261030/phase-evidence/controls_revision2/setup_final_evidence_20261030.zip",
+    "members": 36,
+    "sha256": "bc0afb9f799f13f2ada99ec53d5b3d6e42f1eeff0ea9ddca559f242c07076c85"
+  },
+  "source_commit": "a1d298a4d64bd9b580253dfa53224aa69b94df33",
+  "source_snapshot_sha256": "d638c2e455a225d6597ff10eeda63778e3963711e05e542450ae5e47726e0551",
+  "status": "ready_awaiting_explicit_GPU_duration_approval",
+  "strict_CPU_heads": 8
+}

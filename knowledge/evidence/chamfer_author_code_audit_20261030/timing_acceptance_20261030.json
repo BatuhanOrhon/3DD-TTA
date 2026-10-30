@@ -1,0 +1,521 @@
+{
+  "accounting": "Shared reconstruction counted once per actual group plus all4 terminal heads; primary summary is median of3 matched arm/C ratios, not ratio ofmedians",
+  "accounting_excludes": "Worker model/native initialization, bulk dataset loading and asset/config preflight, final result sealing and Drive delivery are outside these per-batch synchronized reconstruction+terminal-head cost sums.",
+  "analysis": {
+    "bytes": 371793,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/independent_timing_acceptance_20261030_analysis.json",
+    "sha256": "d315319f81771d8db55bcb1916d890cefd1c8b5d65541b189797524346196a8f"
+  },
+  "controls": "Exact input/noise/scheduler/RNG, fixed native/source/checkpoint/state/IDs and coefficients; only explicitly reported encoded-state drift allowed in fresh timing",
+  "encoded_difference_distinct_group_comparisons": 56,
+  "encoded_difference_field_rows": {
+    "local_latent": 224,
+    "noisy_local": 224,
+    "shape_latent": 224,
+    "style": 224
+  },
+  "encoded_differences_reported": 224,
+  "exact_encoded_initial_states": false,
+  "helper_identity": {
+    "bytes": 9353,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/independent_timing_acceptance.py",
+    "sha256": "4b6c805f32fdc8793f33f113cf5e7c3c79d529880889ee68db14b2d5143b701e"
+  },
+  "limitations": "Three measured timing repeats include probe/hash/runtime overhead; no accuracy, equal-time voting or single-head deployment inference. Geometry finiteness follows the verified runtime guard; raw coordinates are not stored.",
+  "manifest": {
+    "bytes": 113913,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/gpu_timing_receipt_local_raw_manifest.json",
+    "sha256": "31893a65271c22b078d35627cd33a3646bcf0b48d61d4915dc308b7e48214f18"
+  },
+  "phase_receipt": {
+    "bytes": 187775,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/gpu_timing_receipt.json",
+    "sha256": "029b4896a0541a508ef956098f3bc10304e5b9334754e8a5e031c6b2608c7ca5"
+  },
+  "raw_batches": 240,
+  "raw_heads": 120,
+  "repeats": 3,
+  "root_report_exact": {
+    "bytes": 371793,
+    "normalization": "Only encoded_state_differences row ordering canonicalized; cross_repeat_baseline traversal uses a Python set. All costs, ratios, source/control values and drift row contents exactly equal.",
+    "path": "result/preparation/chamfer_guidance_variants_20261030/timing_analysis.json",
+    "sha256": "97805a93ff202eda3e920b489b36bd012221ca049530ab2003a742661b3b8765"
+  },
+  "source_manifest": {
+    "bytes": 175773,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/revision_3/assets_v1/manifest.json",
+    "sha256": "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777"
+  },
+  "status": "independent_full_original_timing_accepted",
+  "summaries": [
+    {
+      "arm": "sparse",
+      "arm_seconds": [
+        16.479303372001596,
+        16.456191272001888,
+        16.496248982006364
+      ],
+      "baseline_seconds": [
+        20.900361331998283,
+        20.875485273001686,
+        20.87142593400131
+      ],
+      "dataset": "modelnet40_c",
+      "median_paired_arm_over_C": 0.7884697833798651,
+      "paired_arm_over_C": [
+        0.7884697833798651,
+        0.7883022146213156,
+        0.7903747944280408
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            9.991824329001247,
+            9.991131885999494,
+            9.995262847998674
+          ],
+          "baseline_seconds": [
+            13.412191633997281,
+            13.401099659004103,
+            13.401936747002765
+          ],
+          "median_paired_arm_over_C": 0.7455456746257777,
+          "paired_arm_over_C": [
+            0.7449807310890136,
+            0.7455456746257777,
+            0.7458073438702085
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            6.487479043000349,
+            6.465059386002395,
+            6.5009861340076895
+          ],
+          "baseline_seconds": [
+            7.488169698001002,
+            7.474385613997583,
+            7.469489186998544
+          ],
+          "median_paired_arm_over_C": 0.8663637850958704,
+          "paired_arm_over_C": [
+            0.8663637850958704,
+            0.864961980807495,
+            0.8703387837180836
+          ]
+        }
+      }
+    },
+    {
+      "arm": "semantic_kl",
+      "arm_seconds": [
+        22.38837510999292,
+        22.484024781999324,
+        22.434980150999763
+      ],
+      "baseline_seconds": [
+        20.900361331998283,
+        20.875485273001686,
+        20.87142593400131
+      ],
+      "dataset": "modelnet40_c",
+      "median_paired_arm_over_C": 1.0749136269818198,
+      "paired_arm_over_C": [
+        1.0711956006098564,
+        1.0770539936179575,
+        1.0749136269818198
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            14.13534722899567,
+            14.174114594996354,
+            14.164165476002381
+          ],
+          "baseline_seconds": [
+            13.412191633997281,
+            13.401099659004103,
+            13.401936747002765
+          ],
+          "median_paired_arm_over_C": 1.0568745207046348,
+          "paired_arm_over_C": [
+            1.053917779788154,
+            1.0576829480909702,
+            1.0568745207046348
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            8.253027880997251,
+            8.30991018700297,
+            8.270814674997382
+          ],
+          "baseline_seconds": [
+            7.488169698001002,
+            7.474385613997583,
+            7.469489186998544
+          ],
+          "median_paired_arm_over_C": 1.1072798243544728,
+          "paired_arm_over_C": [
+            1.1021422074876897,
+            1.1117850504582834,
+            1.1072798243544728
+          ]
+        }
+      }
+    },
+    {
+      "arm": "semantic_h",
+      "arm_seconds": [
+        22.45241068400719,
+        22.464211976002844,
+        22.410518601998774
+      ],
+      "baseline_seconds": [
+        20.900361331998283,
+        20.875485273001686,
+        20.87142593400131
+      ],
+      "dataset": "modelnet40_c",
+      "median_paired_arm_over_C": 1.0742594507030236,
+      "paired_arm_over_C": [
+        1.0742594507030236,
+        1.0761048992262643,
+        1.0737416155879487
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            14.159941457000969,
+            14.16125303100489,
+            14.144659354999021
+          ],
+          "baseline_seconds": [
+            13.412191633997281,
+            13.401099659004103,
+            13.401936747002765
+          ],
+          "median_paired_arm_over_C": 1.055751501574753,
+          "paired_arm_over_C": [
+            1.055751501574753,
+            1.0567232086428104,
+            1.055419050396754
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            8.292469227006222,
+            8.302958944997954,
+            8.265859246999753
+          ],
+          "baseline_seconds": [
+            7.488169698001002,
+            7.474385613997583,
+            7.469489186998544
+          ],
+          "median_paired_arm_over_C": 1.1074093618925238,
+          "paired_arm_over_C": [
+            1.1074093618925238,
+            1.1108550419781216,
+            1.1066164017463707
+          ]
+        }
+      }
+    },
+    {
+      "arm": "weighted",
+      "arm_seconds": [
+        20.98217184099849,
+        21.03295970799445,
+        21.011288853991573
+      ],
+      "baseline_seconds": [
+        20.900361331998283,
+        20.875485273001686,
+        20.87142593400131
+      ],
+      "dataset": "modelnet40_c",
+      "median_paired_arm_over_C": 1.0067011674445498,
+      "paired_arm_over_C": [
+        1.0039143107480613,
+        1.0075435101475905,
+        1.0067011674445498
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            13.482642262995796,
+            13.506236968991288,
+            13.48912578499585
+          ],
+          "baseline_seconds": [
+            13.412191633997281,
+            13.401099659004103,
+            13.401936747002765
+          ],
+          "median_paired_arm_over_C": 1.0065057043350532,
+          "paired_arm_over_C": [
+            1.0052527305693975,
+            1.0078454240817876,
+            1.0065057043350532
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            7.499529578002694,
+            7.526722739003162,
+            7.522163068995724
+          ],
+          "baseline_seconds": [
+            7.488169698001002,
+            7.474385613997583,
+            7.469489186998544
+          ],
+          "median_paired_arm_over_C": 1.0070021975997017,
+          "paired_arm_over_C": [
+            1.0015170436114347,
+            1.0070021975997017,
+            1.007051872046199
+          ]
+        }
+      }
+    },
+    {
+      "arm": "sparse",
+      "arm_seconds": [
+        16.528611391004233,
+        16.525363034001202,
+        16.536195027005306
+      ],
+      "baseline_seconds": [
+        20.919912197001395,
+        20.95921205099512,
+        20.950160790991504
+      ],
+      "dataset": "scanobjectnn_c",
+      "median_paired_arm_over_C": 0.7893111271067577,
+      "paired_arm_over_C": [
+        0.790089902641819,
+        0.7884534491942695,
+        0.7893111271067577
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            9.998633527997299,
+            9.97544639100306,
+            9.973852844999783
+          ],
+          "baseline_seconds": [
+            13.380118232002133,
+            13.396873103996768,
+            13.378776149995247
+          ],
+          "median_paired_arm_over_C": 0.7454981481997011,
+          "paired_arm_over_C": [
+            0.7472754242247943,
+            0.7446100529254865,
+            0.7454981481997011
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            6.529977863006934,
+            6.5499166429981415,
+            6.562342182005523
+          ],
+          "baseline_seconds": [
+            7.539793964999262,
+            7.562338946998352,
+            7.571384640996257
+          ],
+          "median_paired_arm_over_C": 0.8661231252531915,
+          "paired_arm_over_C": [
+            0.8660684752554207,
+            0.8661231252531915,
+            0.8667294680120805
+          ]
+        }
+      }
+    },
+    {
+      "arm": "semantic_kl",
+      "arm_seconds": [
+        22.641990428994177,
+        22.65227206599957,
+        22.66067041000497
+      ],
+      "baseline_seconds": [
+        20.919912197001395,
+        20.95921205099512,
+        20.950160790991504
+      ],
+      "dataset": "scanobjectnn_c",
+      "median_paired_arm_over_C": 1.081646610547685,
+      "paired_arm_over_C": [
+        1.0823176605989588,
+        1.0807788007910375,
+        1.081646610547685
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            14.215761310999369,
+            14.223682730000291,
+            14.236727433006308
+          ],
+          "baseline_seconds": [
+            13.380118232002133,
+            13.396873103996768,
+            13.378776149995247
+          ],
+          "median_paired_arm_over_C": 1.0624540878120623,
+          "paired_arm_over_C": [
+            1.0624540878120623,
+            1.0617166124949602,
+            1.0641277851869408
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            8.426229117994808,
+            8.428589335999277,
+            8.42394297699866
+          ],
+          "baseline_seconds": [
+            7.539793964999262,
+            7.562338946998352,
+            7.571384640996257
+          ],
+          "median_paired_arm_over_C": 1.1145479454269578,
+          "paired_arm_over_C": [
+            1.1175675565022727,
+            1.1145479454269578,
+            1.1126026977134558
+          ]
+        }
+      }
+    },
+    {
+      "arm": "semantic_h",
+      "arm_seconds": [
+        22.62601041599919,
+        22.665098563000356,
+        22.66623832299956
+      ],
+      "baseline_seconds": [
+        20.919912197001395,
+        20.95921205099512,
+        20.950160790991504
+      ],
+      "dataset": "scanobjectnn_c",
+      "median_paired_arm_over_C": 1.0815537944390772,
+      "paired_arm_over_C": [
+        1.0815537944390772,
+        1.0813907749897613,
+        1.0819123800112296
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            14.223661888998322,
+            14.23060120000082,
+            14.249298506005289
+          ],
+          "baseline_seconds": [
+            13.380118232002133,
+            13.396873103996768,
+            13.378776149995247
+          ],
+          "median_paired_arm_over_C": 1.0630445592759135,
+          "paired_arm_over_C": [
+            1.0630445592759135,
+            1.0622330367341706,
+            1.065067413211062
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            8.402348527000868,
+            8.434497362999537,
+            8.416939816994272
+          ],
+          "baseline_seconds": [
+            7.539793964999262,
+            7.562338946998352,
+            7.571384640996257
+          ],
+          "median_paired_arm_over_C": 1.114400282820154,
+          "paired_arm_over_C": [
+            1.114400282820154,
+            1.115329188775301,
+            1.1116777466858103
+          ]
+        }
+      }
+    },
+    {
+      "arm": "weighted",
+      "arm_seconds": [
+        21.001814308005123,
+        21.053002137006843,
+        21.047990311999456
+      ],
+      "baseline_seconds": [
+        20.919912197001395,
+        20.95921205099512,
+        20.950160790991504
+      ],
+      "dataset": "scanobjectnn_c",
+      "median_paired_arm_over_C": 1.0044748860684038,
+      "paired_arm_over_C": [
+        1.0039150312980505,
+        1.0044748860684038,
+        1.0046696310345273
+      ],
+      "per_corruption": {
+        "background": {
+          "arm_seconds": [
+            13.434449760999996,
+            13.477371695003967,
+            13.474168216001999
+          ],
+          "baseline_seconds": [
+            13.380118232002133,
+            13.396873103996768,
+            13.378776149995247
+          ],
+          "median_paired_arm_over_C": 1.006008759684615,
+          "paired_arm_over_C": [
+            1.0040606165099435,
+            1.006008759684615,
+            1.0071301040496732
+          ]
+        },
+        "gaussian": {
+          "arm_seconds": [
+            7.567364547005127,
+            7.5756304420028755,
+            7.573822095997457
+          ],
+          "baseline_seconds": [
+            7.539793964999262,
+            7.562338946998352,
+            7.571384640996257
+          ],
+          "median_paired_arm_over_C": 1.0017575904885616,
+          "paired_arm_over_C": [
+            1.0036566757836953,
+            1.0017575904885616,
+            1.0003219298869064
+          ]
+        }
+      }
+    }
+  ],
+  "full_proof": {
+    "bytes": 39184,
+    "sha256": "d5a623ba9bc176309a7378ba0228f14935b25b100d5f9e83172077269432c303",
+    "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/independent_timing_acceptance_20261030.json"
+  }
+}

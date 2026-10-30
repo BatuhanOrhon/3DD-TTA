@@ -5,7 +5,7 @@ from diffusers import DDIMScheduler
 from utilities_3dd_tta import grad_freeze
 from spectral_guidance_losses import SPECTRAL_LOSS_KINDS, spectral_guidance_loss
 
-def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None, skip_inactive_components=False, prepared_state=None, state_observer=None, spectral_loss_kind='legacy_l2'):
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None, skip_inactive_components=False, prepared_state=None, state_observer=None, spectral_loss_kind='legacy_l2', chamfer_experiment=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
 
@@ -33,8 +33,17 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     weight_invariant = loss_weights.get("invariant", 0.0)
     if skip_inactive_components and (not 0 < p <= 1 or any(not torch.isfinite(torch.tensor(w)) or w < 0 for w in (weight_spectral, weight_chamfer, weight_invariant))):
         raise ValueError('Component study requires finite nonnegative weights and 0 < p <= 1')
+    if chamfer_experiment is not None:
+        from chamfer_guidance_variants import validate_chamfer_experiment
+        chamfer_experiment = validate_chamfer_experiment(
+            chamfer_experiment, skip_inactive=skip_inactive_components, chamfer_weight=weight_chamfer,
+            spectral_weight=weight_spectral, invariant_weight=weight_invariant,
+            graph=graph_spectral_module, dynamic_graph=dynamic_graph)
+        if chamfer_experiment['variant'] == 'semantic' and trajectory_observer is None:
+            raise ValueError('Semantic guidance requires a differentiable clean observer')
     any_spectral = weight_spectral > 0.0 or weight_invariant > 0.0
-    graph_calls, chamfer_calls, backward_calls = 0, 0, 0
+    graph_calls, chamfer_calls, backward_calls, spectral_loss_calls = 0, 0, 0, 0
+    prior_forward_calls, semantic_callback_calls, semantic_loss_calls = 0, 0, 0
     local_updates, style_updates = [], []
 
     # Initialize chamfer distance only if needed
@@ -93,6 +102,12 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 trajectory_observer.mark('graph_eigh')
             H_orig, U_o, eigenvalues = graph_spectral_module(h_0)
             graph_calls += 1
+        reference_weights = None
+        if chamfer_experiment is not None and chamfer_experiment['variant'] == 'weighted':
+            from chamfer_guidance_variants import reference_density_weights
+            if trajectory_observer is not None:
+                trajectory_observer.mark('reference_density')
+            reference_weights = reference_density_weights(h_0[:, :, :3], chamfer_experiment['density_k'])
     
     # Global style conditioning
     if trajectory_observer is not None:
@@ -122,6 +137,10 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     
     # Pre-calculate if ANY guidance is needed
     requires_guidance = weight_spectral > 0.0 or weight_invariant > 0.0 or weight_chamfer > 0.0
+    guidance_counts = None
+    if chamfer_experiment is not None and chamfer_experiment['variant'] == 'sparse':
+        from chamfer_guidance_variants import guidance_loop_counts
+        guidance_counts = guidance_loop_counts(len(timesteps_local), chamfer_experiment['interval'])
     
     for i, t in enumerate(timesteps_local):
         if trajectory_observer is not None:
@@ -131,23 +150,40 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
         noisy_latent_point = noisy_latent_point.detach()
         style_cond = style_cond.detach()
         
-        if requires_guidance:
+        step_requires_guidance = requires_guidance and (guidance_counts is None or i + 1 in guidance_counts)
+        if step_requires_guidance:
             noisy_latent_point.requires_grad = True
             style_cond.requires_grad = True
 
         # Predict noise with or without gradients
-        with torch.set_grad_enabled(requires_guidance):
+        with torch.set_grad_enabled(step_requires_guidance):
             noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
+            prior_forward_calls += 1
             scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
             
             # This is h_bar_0 in the abstract space
             pred_latent_point = scheduler_output.pred_original_sample
         h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
+        semantic_loss = None
         if trajectory_observer is not None:
-            trajectory_observer.clean(pred_latent_point, style_cond, i, t)
+            observed_loss = trajectory_observer.clean(pred_latent_point, style_cond, i, t)
+            if chamfer_experiment is not None and chamfer_experiment['variant'] == 'semantic':
+                semantic_callback_calls += 1
+                semantic_loss = observed_loss
             trajectory_observer.mark('guidance_losses_and_diagnostics')
         
         total_loss = 0.0
+        if semantic_loss is not None:
+            if (not isinstance(semantic_loss, torch.Tensor) or semantic_loss.ndim != 0
+                    or not semantic_loss.requires_grad or not torch.isfinite(semantic_loss)):
+                raise ValueError('Semantic clean observer must return a finite differentiable scalar or None')
+            total_loss = chamfer_experiment['semantic_weight'] * semantic_loss
+            semantic_loss_calls += 1
+        if not step_requires_guidance and guidance_counts is not None:
+            for values in history.values():
+                values.append(0.)
+            noisy_latent_point = scheduler_output.prev_sample
+            continue
         
         # STEP 4: Spectral Guidance Loss
         with torch.no_grad():
@@ -168,6 +204,7 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 
             if weight_spectral > 0.0:
                 raw_loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
+                spectral_loss_calls += 1
                 history['raw_loss_spectral'].append(raw_loss_spectral.item())
             else:
                 history['raw_loss_spectral'].append(0.0)
@@ -183,11 +220,15 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             if chamfer_dist is not None:
                 pred_latent_point_reshaped = h_bar_0[:, :, :3]
                 h_0_spatial = h_0[:, :, :3]
-                dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+                dists1, dists2, nearest_reference, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
                 chamfer_calls += 1
-                dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
-                dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
-                raw_loss_chamfer = dists1.sum() + dists2.sum()
+                if reference_weights is None:
+                    dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
+                    dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
+                    raw_loss_chamfer = dists1.sum() + dists2.sum()
+                else:
+                    from chamfer_guidance_variants import weighted_selective_chamfer
+                    raw_loss_chamfer = weighted_selective_chamfer(dists1, dists2, nearest_reference, reference_weights, p)
                 history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
             else:
                 history['raw_loss_chamfer'].append(0.0)
@@ -206,17 +247,29 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 
             if weight_spectral > 0.0:
                 loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
+                spectral_loss_calls += 1
                 total_loss = total_loss + weight_spectral * loss_spectral
             
         if weight_chamfer > 0.0:
             pred_latent_point_reshaped = h_bar_0[:, :, :3]
             h_0_spatial = h_0[:, :, :3]
-            dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+            dists1, dists2, nearest_reference, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
             chamfer_calls += 1
-            dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
-            dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
-            ch_loss = dists1.sum() + dists2.sum()
+            if reference_weights is None:
+                dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
+                dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
+                ch_loss = dists1.sum() + dists2.sum()
+            else:
+                from chamfer_guidance_variants import weighted_selective_chamfer
+                ch_loss = weighted_selective_chamfer(dists1, dists2, nearest_reference, reference_weights, p)
             total_loss = total_loss + weight_chamfer * ch_loss
+
+        component_probe = getattr(trajectory_observer, 'guidance_components', None)
+        if callable(component_probe) and weight_chamfer > 0.0:
+            component_probe(ch_loss=ch_loss, semantic_loss=semantic_loss,
+                            noisy_local=noisy_latent_point, style=style_cond,
+                            pred_latent=h_bar_0, h0=h_0, loop_count=i + 1, timestep=t,
+                            eta=eta, gamma=gamma, p=p)
 
         # STEP 5: Gradient Update (Guidance)
         if trajectory_observer is not None:
@@ -258,11 +311,16 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
     metrics = {
         'mean_raw_spectral': mean_spec,
         'mean_raw_invariant': mean_invariant,
-        'mean_raw_chamfer': mean_chamfer
+        'mean_raw_chamfer': mean_chamfer,
+        'spectral_loss_calls': spectral_loss_calls
     }
     if skip_inactive_components:
         metrics.update(graph_calls=graph_calls, chamfer_calls=chamfer_calls, guidance_backward_calls=backward_calls,
                        mean_local_update_norm=sum(local_updates) / len(local_updates) if local_updates else 0.,
                        mean_style_update_norm=sum(style_updates) / len(style_updates) if style_updates else 0.)
+    if chamfer_experiment is not None:
+        metrics.update(prior_forward_calls=prior_forward_calls, semantic_callback_calls=semantic_callback_calls,
+                       semantic_loss_calls=semantic_loss_calls,
+                       reference_density_calls=int(reference_weights is not None))
     
     return pred_points, metrics

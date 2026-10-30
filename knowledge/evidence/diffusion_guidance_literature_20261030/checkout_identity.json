@@ -1,0 +1,17 @@
+{
+  "base_commit": "17dd87c355fd779460297fb23f3dabbb40902d2c",
+  "files": {
+    "tta.py": "c9a901ddeef755359325ad177478f21156fbe1792b2cf4e9797ecfb9de65d4ec",
+    "tta_gsd_v2.py": "71f8f75b07e3317cf55b301801b093b90dd926d077d2db99f0f3cbe291a284a3",
+    "spectral_guidance_losses.py": "937c73a00165b0cff0792776dba4c6ba25a66b08e82bf28c399657a3c02381b4",
+    "graph_spectral_v2.py": "1cadd63642dc58bb0aa22969c08e00e4c9dd597696cf53107dbe081d3c68807e",
+    "graph_spectral.py": "5d17a16120f211f7f8b5f7aa8ffd02933224ea7a601e1990af94c36e0b0f9801",
+    "shared_trajectory.py": "dce0e8b2ef3ac4d555f3572ae0daa41b7c1afac3ad3f1cfdf82bdbc095f2fcda",
+    "legacy_trajectory.py": "bc6d77539445fc916aacaadf2b956e539daf19d2e328f47718a7abf724c280db",
+    "gsd_composition.py": "a252559a9dab5c6f71fd1407c9b3a63f33d76c2735ddc33ef5bf6a16220d8793",
+    "scripts/analyze_legacy_trajectory.py": "37932e4af9d524d45dadfbc7225d2365e4f9629439d97ea9f7e4e0698bf876ac",
+    "scripts/analyze_scan_trajectory.py": "27cdbb8d179af43503c9d62c7d95d90ca82a07d95b0d5e75d0289c5439e4129c",
+    "scripts/eval_multibackbone_guidance.py": "4c490de0262ca61f8966a5de2e487ba6ceb9e36973960c5d4bbdf0d53d240b46"
+  },
+  "production_code_changed": false
+}

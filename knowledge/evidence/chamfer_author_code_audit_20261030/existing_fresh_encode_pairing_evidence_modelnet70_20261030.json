@@ -1,0 +1,1092 @@
+{
+  "baseline_raw": [
+    {
+      "arm": "baseline",
+      "bytes": 6905520,
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142258_guidance-components-chamfer-dgcnn-seed0/final.zip",
+      "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142258_guidance-components-chamfer-dgcnn-seed0.zip",
+      "path": "/content/studies/chamfer-guidance-variants/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142258_guidance-components-chamfer-dgcnn-seed0.zip",
+      "repeat": 0,
+      "seed": 0,
+      "sha256": "9860d2b9ea29f70e289f9aa2bd42c6e7842b08ecaa8e318149d44490542b5381"
+    },
+    {
+      "arm": "baseline",
+      "bytes": 6878591,
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142259_guidance-components-chamfer-curvenet-seed0/final.zip",
+      "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142259_guidance-components-chamfer-curvenet-seed0.zip",
+      "path": "/content/studies/chamfer-guidance-variants/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142259_guidance-components-chamfer-curvenet-seed0.zip",
+      "repeat": 0,
+      "seed": 0,
+      "sha256": "f8bce7e6899d724f835b9f16ce775a361dcb9afc81de51ccc6ebd50c0e454f18"
+    },
+    {
+      "arm": "baseline",
+      "bytes": 6919245,
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142300_guidance-components-chamfer-pointmae-seed0/final.zip",
+      "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142300_guidance-components-chamfer-pointmae-seed0.zip",
+      "path": "/content/studies/chamfer-guidance-variants/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142300_guidance-components-chamfer-pointmae-seed0.zip",
+      "repeat": 0,
+      "seed": 0,
+      "sha256": "4e2bc6b30f25b658897c01777e68543ecf7f3b75ac1e2d7326004b080b5bfbec"
+    },
+    {
+      "arm": "baseline",
+      "bytes": 6860828,
+      "dataset": "modelnet40_c",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142300_guidance-components-chamfer-pointnext-seed0/final.zip",
+      "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142300_guidance-components-chamfer-pointnext-seed0.zip",
+      "path": "/content/studies/chamfer-guidance-variants/results/development/repeat0/seed0/modelnet40_c/baseline/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-142300_guidance-components-chamfer-pointnext-seed0.zip",
+      "repeat": 0,
+      "seed": 0,
+      "sha256": "d23e0a979585f973e008c061dfee909fbfed4b4505e2dc51852643a2abf646dd"
+    }
+  ],
+  "calibration_native_subset_all_exact": {
+    "chamfer": true,
+    "chamfer_3D": true,
+    "knn": true,
+    "pointnet2_ops._ext": true
+  },
+  "calibration_raw": {
+    "arm": "calibration",
+    "bytes": 7718856,
+    "dataset": "modelnet40_c",
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030/results/calibration/repeat0/seed0/modelnet40_c/calibration/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-140418_chamfer-semantic-kl-w0p0-pointmae-seed0/final.zip",
+    "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-140418_chamfer-semantic-kl-w0p0-pointmae-seed0.zip",
+    "path": "/content/studies/chamfer-guidance-variants/results/calibration/repeat0/seed0/modelnet40_c/calibration/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-140418_chamfer-semantic-kl-w0p0-pointmae-seed0.zip",
+    "repeat": 0,
+    "seed": 0,
+    "sha256": "c44139df42179e0aaeb55dd7f9c761ce79ebef58fa03c588bbbd8964602a51fa"
+  },
+  "corruptions": 15,
+  "counts": {
+    "alpha_bar": {
+      "different": 0,
+      "equal": 15,
+      "total": 15
+    },
+    "initial_rng_sha256": {
+      "different": 0,
+      "equal": 15,
+      "total": 15
+    },
+    "input_points": {
+      "different": 0,
+      "equal": 15,
+      "total": 15
+    },
+    "local_latent": {
+      "different": 15,
+      "equal": 0,
+      "total": 15
+    },
+    "noise": {
+      "different": 0,
+      "equal": 15,
+      "total": 15
+    },
+    "noisy_local": {
+      "different": 15,
+      "equal": 0,
+      "total": 15
+    },
+    "shape_latent": {
+      "different": 15,
+      "equal": 0,
+      "total": 15
+    },
+    "style": {
+      "different": 15,
+      "equal": 0,
+      "total": 15
+    },
+    "timesteps": {
+      "different": 0,
+      "equal": 15,
+      "total": 15
+    }
+  },
+  "dataset": "modelnet40_c",
+  "encoder_sampler_source_identities": {
+    "models/distributions.py": {
+      "baseline": {
+        "bytes": 1258,
+        "sha256": "2ffeeca381a37838cc4c0137db2939c2041f2cf0c34440772344877b23c5efff"
+      },
+      "calibration": {
+        "bytes": 1258,
+        "sha256": "2ffeeca381a37838cc4c0137db2939c2041f2cf0c34440772344877b23c5efff"
+      },
+      "equal": true,
+      "identity_origin": "executed_source_files"
+    },
+    "models/latent_points_ada.py": {
+      "baseline": {
+        "bytes": 11854,
+        "sha256": "b9c20d6e9b1f6ffd0c8987055b696aaea552489e1db7c3e1d0181d83fe1cc798"
+      },
+      "calibration": {
+        "bytes": 11854,
+        "sha256": "b9c20d6e9b1f6ffd0c8987055b696aaea552489e1db7c3e1d0181d83fe1cc798"
+      },
+      "equal": true,
+      "identity_origin": "executed_source_files"
+    },
+    "models/pvcnn2.py": {
+      "baseline": {
+        "bytes": 22811,
+        "sha256": "32484c97b0890e77913c138d9203faea65600b4d597acee832b199ffd88a3cfa"
+      },
+      "calibration": {
+        "bytes": 22811,
+        "sha256": "32484c97b0890e77913c138d9203faea65600b4d597acee832b199ffd88a3cfa"
+      },
+      "equal": true,
+      "identity_origin": "executed_source_files"
+    },
+    "models/pvcnn2_ada.py": {
+      "baseline": {
+        "bytes": 22933,
+        "sha256": "eb07f7eab33fe341524bca4a900c26cf1b49196fbe86a210a998159db371936b"
+      },
+      "calibration": {
+        "bytes": 22933,
+        "sha256": "eb07f7eab33fe341524bca4a900c26cf1b49196fbe86a210a998159db371936b"
+      },
+      "equal": true,
+      "identity_origin": "executed_source_files"
+    },
+    "models/shapelatent_modules.py": {
+      "baseline": {
+        "bytes": 2170,
+        "sha256": "c96acbde0a789425c1ca4b426871c2a1a9761cf15b0f9f05018d469cec9b9c21"
+      },
+      "calibration": {
+        "bytes": 2170,
+        "sha256": "c96acbde0a789425c1ca4b426871c2a1a9761cf15b0f9f05018d469cec9b9c21"
+      },
+      "equal": true,
+      "identity_origin": "executed_source_files"
+    },
+    "models/vae_adain.py": {
+      "baseline": {
+        "bytes": 14667,
+        "sha256": "a6b91bbc21b28f5c08651ef1ecdfbd6e31ef2318c22cf1b01ea8593aa46548b0"
+      },
+      "calibration": {
+        "bytes": 14667,
+        "sha256": "a6b91bbc21b28f5c08651ef1ecdfbd6e31ef2318c22cf1b01ea8593aa46548b0"
+      },
+      "equal": true,
+      "identity_origin": "executed_source_files"
+    },
+    "third_party/pvcnn/functional/src/voxelization/vox.cu": {
+      "baseline": {
+        "bytes": 4358,
+        "sha256": "12fc6d6fc3ba78c73c0eb5c0ab1871f5c505d71e4bf68dbd04f83381970a5b0c"
+      },
+      "calibration": {
+        "bytes": 4358,
+        "sha256": "12fc6d6fc3ba78c73c0eb5c0ab1871f5c505d71e4bf68dbd04f83381970a5b0c"
+      },
+      "equal": true,
+      "identity_origin": "asset_manifest.files"
+    },
+    "tta_gsd_v2.py": {
+      "baseline": {
+        "bytes": 18302,
+        "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c"
+      },
+      "calibration": {
+        "bytes": 18302,
+        "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c"
+      },
+      "equal": true,
+      "identity_origin": "executed_source_files"
+    }
+  },
+  "input_manifests": [
+    {
+      "path": "result/preparation/chamfer_guidance_variants_20261030/dev_job01_partial_receipt_local_raw_manifest.json",
+      "sha256": "6798029db8d398667ab2b126f12995afbdfef659603fbf547142505ae595319b"
+    },
+    {
+      "path": "result/preparation/chamfer_guidance_variants_20261030/gpu_calibration_receipt_local_raw_manifest.json",
+      "sha256": "6bb9c397ab7f2b1ac8f161c460d80d46cc9eff19d4554d000abe7e2cb1f86e0e"
+    }
+  ],
+  "interpretation": {
+    "differences_in_workload": "Calibration has label-free gradient diagnostics and isolated fixed-X reference with PointMAE only. Baseline reads4heads and writes prepared-state caches; their wall times are not a matched method speed comparison.",
+    "limitation": "Hash disagreement proves non-bitwise state differences, not magnitude or a uniquely isolated kernel cause. No accuracy comparison is made.",
+    "observed": "See exact per-field equality/difference counts; encoded-state differences are distinct from matching raw input/noise/scheduler/RNG controls.",
+    "pairing": "Strict cached accuracy pairing remains unchanged. Future timing offline acceptance must distinguish exact input/noise/scheduler/RNG controls from actual encoded-state hash drift if observed.",
+    "scope": "Existing fresh-encode comparison; not evidence that the planned30 later timing jobs already differ."
+  },
+  "objects": 70,
+  "per_corruption": [
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "background",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "4553c0d5233ef04cd9d2293952c7bfbaf209fa2b152eb07a41a625c670aff476",
+          "calibration": "4553c0d5233ef04cd9d2293952c7bfbaf209fa2b152eb07a41a625c670aff476",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "baf9efa3f862311716841a8c4b15670e624ed2d3e389ec85c8dc7c478beb7fd0",
+          "calibration": "baf9efa3f862311716841a8c4b15670e624ed2d3e389ec85c8dc7c478beb7fd0",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "cd823ff2ee7432957f623ce18149b53ea58788710fda242a9d40395d443a3f51",
+          "calibration": "c724e79634b9e80460bb734332c401a93e0f3fda5948e1b85194810e9370a088",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "bb06036fb67e3503b1592360bca75336171f567f0bc0af3084a8db54d8ea8949",
+          "calibration": "bb06036fb67e3503b1592360bca75336171f567f0bc0af3084a8db54d8ea8949",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "41c874cf78ab5a0a48c9c229872c81a917efd4b0eb34433100ed3da2c2cf4b2c",
+          "calibration": "1f3813d84e94fbfb910ab68c4b7fae87af4dd0cd53fe0b13696750a9c957b1cc",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "c32deef85d742ab4e85a8c772b0a80fcf6c85024569a29636ff4ac4454109456",
+          "calibration": "f74373e45c63aba8bc9fc3de7e5314e0cbace325edd08b1b0e598546a55dd8bd",
+          "equal": false
+        },
+        "style": {
+          "baseline": "c32deef85d742ab4e85a8c772b0a80fcf6c85024569a29636ff4ac4454109456",
+          "calibration": "f74373e45c63aba8bc9fc3de7e5314e0cbace325edd08b1b0e598546a55dd8bd",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "1aa05404da3186e6a7c12a85804d6cf8c8701adecf444aff65f1856f8ae8c249",
+          "calibration": "1aa05404da3186e6a7c12a85804d6cf8c8701adecf444aff65f1856f8ae8c249",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "b99477c2251de328acc0a498afbba4582089ef3cc0d43871dafa3087138f19b4",
+        "calibration": "b99477c2251de328acc0a498afbba4582089ef3cc0d43871dafa3087138f19b4",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "cutout",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "daf279fa4ffdfbeff068daf126791a0a62a1c356035489fc70c14d5f8b72d968",
+          "calibration": "daf279fa4ffdfbeff068daf126791a0a62a1c356035489fc70c14d5f8b72d968",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "e9a997fabf1d46019a7330131a5d6475e7f7bd290d4c64c86f951a345579d554",
+          "calibration": "e512685b6872e36b61fa7bc24e43889ef1784b09dff8e7900e3cf3b0d04f8fd3",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "eb0d136cc1839bce67e0a6518f8b59ebbcec1d8d24f48c2b7724203579cc9e76",
+          "calibration": "eb0d136cc1839bce67e0a6518f8b59ebbcec1d8d24f48c2b7724203579cc9e76",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "8cf181f518c6e6cf16a33d74008c40472372b007fc6344e9beba712ea9e9f8fb",
+          "calibration": "5491a956f91064f43ca7f8a91ee6cda21d6e441e45615c3b0f6f74241837d5e4",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "096efe3ebb8f80f677c3e5415e5835d46b23faeecb639bbe61ca964bdf768fd4",
+          "calibration": "56ca223a5fc98544e3474c71c57c123473ab665cc87a0e2841c752b2b32a03c2",
+          "equal": false
+        },
+        "style": {
+          "baseline": "096efe3ebb8f80f677c3e5415e5835d46b23faeecb639bbe61ca964bdf768fd4",
+          "calibration": "56ca223a5fc98544e3474c71c57c123473ab665cc87a0e2841c752b2b32a03c2",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "16abdf4d079daed56f39134dc5860543bd1e17843b3473dcda21adc2d27ff139",
+        "calibration": "16abdf4d079daed56f39134dc5860543bd1e17843b3473dcda21adc2d27ff139",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "density",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "8880e982324d2ca52f1dcb847329cca5f6ec16bcedb0d2373b35c7f133bbc333",
+          "calibration": "8880e982324d2ca52f1dcb847329cca5f6ec16bcedb0d2373b35c7f133bbc333",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "c0a01a0c79c8c857c1cb5b37196bca86ddb94cf8d28f034e3d809ff1c145516a",
+          "calibration": "8619102702704fb5b5b5fb4337a7d06a64dc1ca7361cae9330268d94fcb97044",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "8f2ccc42867e1739fea5c52040281fb10b3121cd2f6d84bbd0d37425e441f317",
+          "calibration": "8f2ccc42867e1739fea5c52040281fb10b3121cd2f6d84bbd0d37425e441f317",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "2009780c9004d4fa2f4edec5b735b9e28ae85bcfbadc0a24b8f0e3cbbf2702d3",
+          "calibration": "87a2394b36ce2f2fc6c4112ad8b2075e548bc1c1fe9339285160e703126c21d9",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "a16949a12711b196ffa7df88ab6807fed1dafb66f4d667f489202c0040c451ab",
+          "calibration": "4f41be00d7bed5fddcdb63cd097a18b9c5cba282f627af6b8eb2b3c48a6e221a",
+          "equal": false
+        },
+        "style": {
+          "baseline": "a16949a12711b196ffa7df88ab6807fed1dafb66f4d667f489202c0040c451ab",
+          "calibration": "4f41be00d7bed5fddcdb63cd097a18b9c5cba282f627af6b8eb2b3c48a6e221a",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "01a42e9378573ad26310859ca5cd78424c93e6220a0e66607051339ed60d7f31",
+        "calibration": "01a42e9378573ad26310859ca5cd78424c93e6220a0e66607051339ed60d7f31",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "density_inc",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "ba0e85ea65b73bb160b76bbff3349141cbc13cde3566f899e32ec27a5b78d1c0",
+          "calibration": "ba0e85ea65b73bb160b76bbff3349141cbc13cde3566f899e32ec27a5b78d1c0",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "58a22c3610e5cb4a572c60b37b8599e94ec1ad01a7f8462d680f0b1faff4dd51",
+          "calibration": "b9e93fa6802c5dbdb74402c02c21e63a92339b4debdeda70d673798a648a8cc6",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "64d6cc3dcf225bfe374732cad3dada6d1b89fb18a2a677f266b476835993f284",
+          "calibration": "64d6cc3dcf225bfe374732cad3dada6d1b89fb18a2a677f266b476835993f284",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "c233fd0925e15b54a2d8d50aa5f8c5eda6b9bfb581d1edc27e6538341849349f",
+          "calibration": "1233cb5abdde59235996a3099b355810af5652abab697ded8f1dd955cedf2416",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "92c9bc94df9837868ac112844f67850edbda62b68d50bb7ed9558d2367caa559",
+          "calibration": "7b706dc484b859b161da20fd5d66aba62c633ed181120f9e38c4d1ea8cafe621",
+          "equal": false
+        },
+        "style": {
+          "baseline": "92c9bc94df9837868ac112844f67850edbda62b68d50bb7ed9558d2367caa559",
+          "calibration": "7b706dc484b859b161da20fd5d66aba62c633ed181120f9e38c4d1ea8cafe621",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "60ea8330607ac0c472f28e13f928b73760aaa72ff1773e7af8d746d36798c24a",
+        "calibration": "60ea8330607ac0c472f28e13f928b73760aaa72ff1773e7af8d746d36798c24a",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "distortion",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "15bae183daeead00b70e4e8f34e4d78762e56219dd9e204b50da1a8a259ce6f7",
+          "calibration": "15bae183daeead00b70e4e8f34e4d78762e56219dd9e204b50da1a8a259ce6f7",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "5ed41a4847cc90fe57cea8ce39494d840dfb6d7d59df47937fb3a0aea9417b25",
+          "calibration": "d0b01e7c63c92ecad32a49950e4a73d1cface59d9f838e53efc7197547e35069",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "94e960dbec2556f5329339de8b6543f0c468d1463530ed1924a78038b571ee7a",
+          "calibration": "94e960dbec2556f5329339de8b6543f0c468d1463530ed1924a78038b571ee7a",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "e633febd4347486182973d32eb8ad56d971dafec0b8b4f0461f9f2de89f5f275",
+          "calibration": "e725acaf2e77ee9916297f3d9706d2ec32d00eddefcdd8f3fd31a550db642fec",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "d34df1019f05985fb90af39a0fefecaf487dbff3b1e3e2929307666389da172f",
+          "calibration": "a7dec7fdfec3392437336ef71a4e43bbe63139ceb9e88acd1b72f6f80c37ac7a",
+          "equal": false
+        },
+        "style": {
+          "baseline": "d34df1019f05985fb90af39a0fefecaf487dbff3b1e3e2929307666389da172f",
+          "calibration": "a7dec7fdfec3392437336ef71a4e43bbe63139ceb9e88acd1b72f6f80c37ac7a",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "930604e8669e8ef41e9ab10ce6dd8e7c7cd8dfc4f3e918576cdebe167d36f613",
+        "calibration": "930604e8669e8ef41e9ab10ce6dd8e7c7cd8dfc4f3e918576cdebe167d36f613",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "distortion_rbf",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "0edf85f92b5c17ced7347e5bdd4d626c505eabef614e3895788ca2e0e189916b",
+          "calibration": "0edf85f92b5c17ced7347e5bdd4d626c505eabef614e3895788ca2e0e189916b",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "dbb9479e3962b88a2ca5261204fd9d141f6c8cf3bdb1f04b13eae62103127b5c",
+          "calibration": "908c4f936fd3cad02a73d252eb544f9abb89c48dc04fc4e601148e977f708555",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "9db418fd3cd5aa1fecd0d9147ddc8a2970b4fb3dd2901f64295084dd5618c509",
+          "calibration": "9db418fd3cd5aa1fecd0d9147ddc8a2970b4fb3dd2901f64295084dd5618c509",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "4685a5128de5df835d87e926b0a1ebc1969c8229fff4a75ace28de7d7c6f5f16",
+          "calibration": "d5cf8e6a2428a429068ca2a821df95e8f4f3130e133e513495325ce345df7655",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "aa1b154a8681d1e186a5c49341bbf3f3e0fc0d7c3c825bf7051637607756bb59",
+          "calibration": "e7120dc819b0e72b36fb021493127f6ee1077f72d3a85bc3c262b7dee33c3509",
+          "equal": false
+        },
+        "style": {
+          "baseline": "aa1b154a8681d1e186a5c49341bbf3f3e0fc0d7c3c825bf7051637607756bb59",
+          "calibration": "e7120dc819b0e72b36fb021493127f6ee1077f72d3a85bc3c262b7dee33c3509",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "781a3bb0b58a0c1604f5ebd1504df13ae38048aea2c7869a9a642a66e18ae09a",
+        "calibration": "781a3bb0b58a0c1604f5ebd1504df13ae38048aea2c7869a9a642a66e18ae09a",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "distortion_rbf_inv",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "d00efed4cd46977ac8ecdf6a39f6e9913c492a15a113e044bf098a961cc6b18b",
+          "calibration": "d00efed4cd46977ac8ecdf6a39f6e9913c492a15a113e044bf098a961cc6b18b",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "82a8ffe000023c468c7ee3b1d10c223b4bc4b1c6a24a1331a6db56f8afe6efd3",
+          "calibration": "39ec426b54da5344112656bff93d0730ff4b868731021933688428df66341a44",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "dea9fc20d2a13c787f745cd6dbb2e555d9030804fceb459fbb84b155bee10337",
+          "calibration": "dea9fc20d2a13c787f745cd6dbb2e555d9030804fceb459fbb84b155bee10337",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "24d96017444c1797848cd8c908f41ea837be7782824b2f048cf1dc7e410b7b1f",
+          "calibration": "29fccca114e653e71beb4170cf76195e43c94004cab6f360edf0b35a2d0d3892",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "d64bdf8e2b31d63bb06ebe60c784427bbd74629dce93b4627c68161eb4a3d909",
+          "calibration": "671fe09af7a1d63f0f5e4f7282f061ec092a6ff557115b0bb3ae433321167d75",
+          "equal": false
+        },
+        "style": {
+          "baseline": "d64bdf8e2b31d63bb06ebe60c784427bbd74629dce93b4627c68161eb4a3d909",
+          "calibration": "671fe09af7a1d63f0f5e4f7282f061ec092a6ff557115b0bb3ae433321167d75",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "d1d422ad71c2ebfa8b9a6a9fad66652a12c86acb832015e23bd2d606ce295971",
+        "calibration": "d1d422ad71c2ebfa8b9a6a9fad66652a12c86acb832015e23bd2d606ce295971",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "gaussian",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "4802b8a3ff41c60dbeb76fc02c4d7dac3fe4ba81a05ca87300de6f911047d53e",
+          "calibration": "4802b8a3ff41c60dbeb76fc02c4d7dac3fe4ba81a05ca87300de6f911047d53e",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "ee3953af8fa473fc077afa7a5132bce7fb4ca1ac3b7da51ccbcdc2bbc03a28d2",
+          "calibration": "65bcdae30ff11cebdb013b759269b63db0949265ac567ac68169fa575affc503",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "d650b4e8294e6d30f9bb4c46f7fe8a2deb0fd548e5a73e71a62b97347e06a3a8",
+          "calibration": "d650b4e8294e6d30f9bb4c46f7fe8a2deb0fd548e5a73e71a62b97347e06a3a8",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "d1e066ecb9b7cf80c272d3acafc4f0d5e05f64fa8cfa03f775bb98d69a9e8856",
+          "calibration": "ba8b935616945455aee417e42eb0a8af73707fcb550f22c52891e670cf363d39",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "5459f292c05b152a85c8673cad165ef648d1d9a6271aa9a96837a26d0987def2",
+          "calibration": "dd8d6ebd7b01074dfce517c7f163467ba99d97637e651ebe8d2f253ee7ddf2a2",
+          "equal": false
+        },
+        "style": {
+          "baseline": "5459f292c05b152a85c8673cad165ef648d1d9a6271aa9a96837a26d0987def2",
+          "calibration": "dd8d6ebd7b01074dfce517c7f163467ba99d97637e651ebe8d2f253ee7ddf2a2",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "a9117775b60a4154c36c8569c653986bf1657c25c37a0c7d4a6a864f62d7b037",
+        "calibration": "a9117775b60a4154c36c8569c653986bf1657c25c37a0c7d4a6a864f62d7b037",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "impulse",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "471760114cce91b2f43655c4470685d9c73b0bf9e3e09d45c5a5ff36627e4d62",
+          "calibration": "471760114cce91b2f43655c4470685d9c73b0bf9e3e09d45c5a5ff36627e4d62",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "702d094c3cd695376ecae11d03235e48aaf52a23df2458b19ef8eeed545948db",
+          "calibration": "68473270bbe9dcbb50223d863571c1d39ce258ce233e7f517fe2312c01bef2b3",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "c9bb9135f3bf4d0e530a1f34f99277040708990812ac2bae73e0545d92642f7d",
+          "calibration": "c9bb9135f3bf4d0e530a1f34f99277040708990812ac2bae73e0545d92642f7d",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "d73fe736c65f52563c8320a1b42cd2b4be8aa86603c22229e55313234dd936e6",
+          "calibration": "e014e7d16e910c76169a4d26429f64dd8301e3b11e2826255a98cae070a854c2",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "0723ec5bd417a434ee9eb45620f29d9d7512ee262141c75fcf6b953e72a39474",
+          "calibration": "ba58d1c8aeac9deb2ed3f18615709a0ab4aa28b8af6cbddafb1090125d3cead2",
+          "equal": false
+        },
+        "style": {
+          "baseline": "0723ec5bd417a434ee9eb45620f29d9d7512ee262141c75fcf6b953e72a39474",
+          "calibration": "ba58d1c8aeac9deb2ed3f18615709a0ab4aa28b8af6cbddafb1090125d3cead2",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "27913257e30eb559ae014fc54e1d1829627277ccef48d746767b2e7cb116646f",
+        "calibration": "27913257e30eb559ae014fc54e1d1829627277ccef48d746767b2e7cb116646f",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "lidar",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "aff39a259f143607f625e3856053104579e59925263362c566ea7460280a2ecd",
+          "calibration": "aff39a259f143607f625e3856053104579e59925263362c566ea7460280a2ecd",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "8e7af74d0e80582a8895969bda902146651e4e11175bc496a8c87f65967761be",
+          "calibration": "99e516396cab52da5eac13c8161f0f2b2b655cf5afdb52cd70609d4f6d335f02",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "ce456195ddf88768406be5748af7d32f505e48434773726656b86c72304bcb1a",
+          "calibration": "ce456195ddf88768406be5748af7d32f505e48434773726656b86c72304bcb1a",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "0cbf2c3d146dbdcae5018e986017f347513be2bcb4d455077e50a125291b2971",
+          "calibration": "cf67ba51e0f6e460e0b684ba212e68375bb17a1ac40b01ac5c75ab4f68fc3d8c",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "eba595fecbf7837be32a82ed8332aceb1601304742c68308051e34659339183c",
+          "calibration": "f3776afe2e60e6cfb9dafcf125ec2c05808d4f7b82d604ce77533571ab1344a1",
+          "equal": false
+        },
+        "style": {
+          "baseline": "eba595fecbf7837be32a82ed8332aceb1601304742c68308051e34659339183c",
+          "calibration": "f3776afe2e60e6cfb9dafcf125ec2c05808d4f7b82d604ce77533571ab1344a1",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "f277397eabfe804610a9593d136a111f9e0d15ec44bec79ddcd254c9334a8922",
+        "calibration": "f277397eabfe804610a9593d136a111f9e0d15ec44bec79ddcd254c9334a8922",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "occlusion",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "b65e6357b4e04b5b64549b5a21ed472418aa44db77340649e84210ab56af85ae",
+          "calibration": "b65e6357b4e04b5b64549b5a21ed472418aa44db77340649e84210ab56af85ae",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "75df0731fbb2177ce019ca6cf0332f4579eef61270f1e8b360887986661fa34b",
+          "calibration": "87007e30059f75f1fe4b704bc1072b16fb5575f48a3284cae21fe27263c5606c",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "b0baf4f84b387ee2ef14a60d3a09bffcdfc24e23b727da4652aa6893e9bdd8cc",
+          "calibration": "b0baf4f84b387ee2ef14a60d3a09bffcdfc24e23b727da4652aa6893e9bdd8cc",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "63f9e3d1f4643e33ab9b2643d206bff9c3e54266f3431b5dd5dc5361df55f723",
+          "calibration": "92d063848f0262b6d913d4bb33710c1e2e7303396ca590d3bccbb925a077c04d",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "2f64d0255db4db4bbee680209f34acac1b3dcc5c41cd85ec4001d189ea4d0b61",
+          "calibration": "c8e6a516054e4cedbac6bd48a6963b77353f5eabfa42f08e0f3e1c38b8e8eb4b",
+          "equal": false
+        },
+        "style": {
+          "baseline": "2f64d0255db4db4bbee680209f34acac1b3dcc5c41cd85ec4001d189ea4d0b61",
+          "calibration": "c8e6a516054e4cedbac6bd48a6963b77353f5eabfa42f08e0f3e1c38b8e8eb4b",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "628140b84605c9d7b8dc3881f87416a5d0d29a2066528cbd7f8690676af2667e",
+        "calibration": "628140b84605c9d7b8dc3881f87416a5d0d29a2066528cbd7f8690676af2667e",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "rotation",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "22e13839552ec88cc5aef9929efb5a277e5abc549e39dc47b3044ed39a887f4b",
+          "calibration": "22e13839552ec88cc5aef9929efb5a277e5abc549e39dc47b3044ed39a887f4b",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "6938b514ef0f6c190f68435c38ad47b781722d7fa4b0f3117b776ba457212c34",
+          "calibration": "1bfb657c7aee21c8069cffe1d6ca590f8124738befc359a1ec7436759f80f845",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "12b3d420bdbb72c7d01306838f1f7a62de09c3b86ac7acc74fe93662867e2a06",
+          "calibration": "12b3d420bdbb72c7d01306838f1f7a62de09c3b86ac7acc74fe93662867e2a06",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "2df39721b10b612f4d850b913c1bbde53f7ce3de0a28ead8c2d61f3461dc6ed2",
+          "calibration": "208bd0c29cecff6fb2f593816ccce3918ac616ca9b73c8e109156d380bd96ab0",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "dccb31d3b3777c6523a9d8428a0c5481567d2859e9b0662b82f94f67a6156c15",
+          "calibration": "69c6397dc93f96e9b93760b89666a3bc5eb5396abb77cd80c09129bfc8e87f20",
+          "equal": false
+        },
+        "style": {
+          "baseline": "dccb31d3b3777c6523a9d8428a0c5481567d2859e9b0662b82f94f67a6156c15",
+          "calibration": "69c6397dc93f96e9b93760b89666a3bc5eb5396abb77cd80c09129bfc8e87f20",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "480f84f5f120903bd980122266d7a23c23daaeb31cbd40ba8791824cec64ddd1",
+        "calibration": "480f84f5f120903bd980122266d7a23c23daaeb31cbd40ba8791824cec64ddd1",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "shear",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "e4ca02bfd95ac9572cc1a814af976ccb06ccf0524a6e2601de9a794ff49d09d4",
+          "calibration": "e4ca02bfd95ac9572cc1a814af976ccb06ccf0524a6e2601de9a794ff49d09d4",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "ac516e8e8ba948defb9841c46f51d97edaba36b1f7353eaf2d044f7779d1dadc",
+          "calibration": "86d57d9916d5c1cedf8a72ef4eb95d5aef86624622859f64850bd607c34c2138",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "c1130d7db4fd93d5de393963e896565548df0b1c568f77abfb08fab524b9915f",
+          "calibration": "c1130d7db4fd93d5de393963e896565548df0b1c568f77abfb08fab524b9915f",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "c610455f69c8597d07d13702b2a4b0461b6a315b6c22c1c3bebbe9f0108905f5",
+          "calibration": "a8390295ebfb1616ada65da0168c6e02c956754c11d58c569b5e3233ebbed8fa",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "9d9fb5f8640a7a274683e3ed62c01239a03ec033acc43d18759a8a9f4a171cfd",
+          "calibration": "fd2bc174e2a49f21b783c5b37d2c5a3ff1ac17ee00c1f4de0ee6b3df4e9f0bd5",
+          "equal": false
+        },
+        "style": {
+          "baseline": "9d9fb5f8640a7a274683e3ed62c01239a03ec033acc43d18759a8a9f4a171cfd",
+          "calibration": "fd2bc174e2a49f21b783c5b37d2c5a3ff1ac17ee00c1f4de0ee6b3df4e9f0bd5",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "3c7c7c0e788598f5482da2cb7d10802d3c2940449d9934d3711c2488da5f94bd",
+        "calibration": "3c7c7c0e788598f5482da2cb7d10802d3c2940449d9934d3711c2488da5f94bd",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "uniform",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "7faaa99df54364d1080f04c12d6298bb0faa6d34f3a7f2ccb681b412f2ba0885",
+          "calibration": "7faaa99df54364d1080f04c12d6298bb0faa6d34f3a7f2ccb681b412f2ba0885",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "eb8447012bdc2270455a7eee83d7dd463f0260d55746ef3e06aec3b1891baa62",
+          "calibration": "c73bb0593e7521db1bb7b21575728198147172bbb189c00b4617df82d83520f8",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "8f4ade3c275d1bd9eb91daec4ec0f055029add6ef33d78272b76ad272a5c97cb",
+          "calibration": "8f4ade3c275d1bd9eb91daec4ec0f055029add6ef33d78272b76ad272a5c97cb",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "8d9e3973f3aaa5131b894104713e05e9f9eb5772c3a7d7d575cde59ce4714d29",
+          "calibration": "9c64276b2aa8addce6c75a2619c3a9e45ae46ac802ebbca869fe55576ab556c9",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "f8e6288522fb5b716506e854adfa9db41f7f22216467178072333cb977938e54",
+          "calibration": "30c924b61c6eaf95d39306773d3abaf8ebd32265ea71e143042adc58c0048982",
+          "equal": false
+        },
+        "style": {
+          "baseline": "f8e6288522fb5b716506e854adfa9db41f7f22216467178072333cb977938e54",
+          "calibration": "30c924b61c6eaf95d39306773d3abaf8ebd32265ea71e143042adc58c0048982",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "c0d2f082c63993196ac960a126735ac3248827be0efaf4d75fc66456a62a282f",
+        "calibration": "c0d2f082c63993196ac960a126735ac3248827be0efaf4d75fc66456a62a282f",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    },
+    {
+      "baseline_preparation_mode": "fresh_encode",
+      "batch": "batch0000",
+      "calibration_preparation_mode": "fresh_encode",
+      "corruption": "upsampling",
+      "four_baseline_heads_share_initial_state": true,
+      "initial_hashes": {
+        "alpha_bar": {
+          "baseline": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "calibration": "16a9ec786e38fe32d5395c7eacc48d3c761761f344ee5dbf8ce18ca8e1529c36",
+          "equal": true
+        },
+        "input_points": {
+          "baseline": "b97b46bdb2637af4ec29078fd55b445ee0cff756f329dcbf93dbad406db50e29",
+          "calibration": "b97b46bdb2637af4ec29078fd55b445ee0cff756f329dcbf93dbad406db50e29",
+          "equal": true
+        },
+        "local_latent": {
+          "baseline": "ea280befb9e8d1e7dd172c0c2b1bfd2cc078bcb6df82b51d3fb92e2011ea1a70",
+          "calibration": "c85c07a572dbe92117a34cb4010486f4e48fb21c146f0d88f7f3cf7b5c56047a",
+          "equal": false
+        },
+        "noise": {
+          "baseline": "0bdd8bee0344ba857a7ae2d95901cd64fbaa8c69cf840866294d79f45bdd9ec6",
+          "calibration": "0bdd8bee0344ba857a7ae2d95901cd64fbaa8c69cf840866294d79f45bdd9ec6",
+          "equal": true
+        },
+        "noisy_local": {
+          "baseline": "e39093ff52b2a46f21b4fd6f1af0934a39ec04b5f98748a26c6ca4b3aa376188",
+          "calibration": "5205704bd71129e5f7df4b4cba2cd891edf86bbace03c4cb946866281d34b129",
+          "equal": false
+        },
+        "shape_latent": {
+          "baseline": "24e75edfad9651843d06d44551cbf30ab22621328137e867c799eb2c6488ac64",
+          "calibration": "8443f2890b3809f5177246a99c24dfafe5cf408d8343d7aaa5737db2a54d9ef9",
+          "equal": false
+        },
+        "style": {
+          "baseline": "24e75edfad9651843d06d44551cbf30ab22621328137e867c799eb2c6488ac64",
+          "calibration": "8443f2890b3809f5177246a99c24dfafe5cf408d8343d7aaa5737db2a54d9ef9",
+          "equal": false
+        },
+        "timesteps": {
+          "baseline": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "calibration": "89a8f8df5ac325a1b89b1651ba168b7a1a64df523aa65188f4625f739e61f51c",
+          "equal": true
+        }
+      },
+      "initial_rng": {
+        "baseline": "a0d6a8469565e11cc44ae609a0150a8add777be8063177d8945d11872381eb9f",
+        "calibration": "a0d6a8469565e11cc44ae609a0150a8add777be8063177d8945d11872381eb9f",
+        "equal": true
+      },
+      "n": 70,
+      "reconstruction_rng_before_equal": true
+    }
+  ],
+  "pointmae_frozen_classifier_equal": true,
+  "same_config_controls": {
+    "asset_manifest_sha256": true,
+    "batch_size": true,
+    "corruptions": true,
+    "dataset": true,
+    "dataset_provenance": true,
+    "lion_state_after": true,
+    "lion_state_before": true,
+    "resolved_lion_config": true,
+    "seed": true,
+    "selected_original_ids": true,
+    "severity": true
+  },
+  "schema_version": 1,
+  "seed": 0,
+  "shared_source_identity_count": 162,
+  "shared_sources_all_exact": true,
+  "source": "Existing completed calibration PointMAE-only and completed baseline4head development70 artifacts; no new GPU or timing run.",
+  "status": "verified_existing_raw_fresh_encode_hash_comparison"
+}

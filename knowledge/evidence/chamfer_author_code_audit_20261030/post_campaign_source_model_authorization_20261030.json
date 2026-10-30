@@ -1,0 +1,11 @@
+{
+  "status": "user_authorized_post_campaign_phase_not_launched",
+  "recorded_utc": "2026-10-30T16:13:45.863668+00:00",
+  "user_instruction": "PointMae modelinin ScanObjectNN-C verisetinde source-only accuracy değeri oldukça düşük olduğu için yalnızca accuracy artışı sağlayan yöntemi bu verisetinde farklı bir source-model ile çalıştırıp bunun sonuçlarını da kaydetmeni istiyorum. Bu işlem için GPU onayı almana gerek yok, mevcuttaki adımlar bitip veriyi toparladıktan sonra bu çalışmayı da yapabilirsin.",
+  "scope": "After current confirmation,timing and evidence collection: ScanObjectNN-C only; positive semantic arm (current candidate marginal entropy), change the classifier producing guidance; matched Chamfer-only baseline and record accuracy/runtime. Choose alternate model from validated source-only records; no spectral or combined methods.",
+  "authorization": "User explicitly authorizes additional GPU phase without another approval request; original campaign5h cap remains unchanged and is not reset.",
+  "sequencing": "Do not launch extra phase before current planned phases and evidence collection finish.",
+  "source_model": null,
+  "source_model_status": "pending evidence-based selection",
+  "new_phase_runtime_estimate": "pending preparation and measured forecast"
+}

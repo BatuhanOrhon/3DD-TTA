@@ -1,0 +1,2244 @@
+{
+  "acceptance_script_identity": {
+    "bytes": 16418,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/independent_confirmation_acceptance.py",
+    "sha256": "85be2cf78ebbcc7876908572825930a645cffbcc7a0d4f32bf2c4fc6253c189d"
+  },
+  "analysis": {
+    "bytes": 17089717,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/independent_confirmation_acceptance_20261030_analysis.json",
+    "sha256": "e28a98bc14dd902dc7b4bde920e95599ee0f2328c0523d0ac85f52125b115e0c"
+  },
+  "analysis_implementation_identity": {
+    "bytes": 31181,
+    "path": "scripts/analyze_chamfer_variants.py",
+    "sha256": "36aa612b0612e58a24941b3a7d261943556b85b13d747d5b2c81fe95bc1f50f1"
+  },
+  "cache_manifest_identity": {
+    "bytes": 245773,
+    "sha256": "d96ce97c649cb7bb23f41b6ebc9552a5c9399098273ee76fe27ec879f01da0ed"
+  },
+  "caches": 214,
+  "calibration_identity": {
+    "bytes": 72065,
+    "sha256": "6c03ad4990197cc8f8a17d6ad4f8c5eaad88d359800b557dd55d1597fb8e5a25"
+  },
+  "head_signs": {
+    "modelnet40_c/semantic_h": [
+      {
+        "delta_pp": 0.4126984126984127,
+        "head": "dgcnn",
+        "sign": "+"
+      },
+      {
+        "delta_pp": 0.23809523809523808,
+        "head": "curvenet",
+        "sign": "+"
+      },
+      {
+        "delta_pp": 0.47619047619047616,
+        "head": "pointnext",
+        "sign": "+"
+      },
+      {
+        "delta_pp": 0.1746031746031746,
+        "head": "pointmae",
+        "sign": "+"
+      }
+    ],
+    "modelnet40_c/semantic_kl": [
+      {
+        "delta_pp": -0.06349206349206349,
+        "head": "dgcnn",
+        "sign": "-"
+      },
+      {
+        "delta_pp": 0.19047619047619047,
+        "head": "curvenet",
+        "sign": "+"
+      },
+      {
+        "delta_pp": 0.42857142857142855,
+        "head": "pointnext",
+        "sign": "+"
+      },
+      {
+        "delta_pp": 0.09523809523809523,
+        "head": "pointmae",
+        "sign": "+"
+      }
+    ],
+    "modelnet40_c/sparse": [
+      {
+        "delta_pp": -1.8412698412698412,
+        "head": "dgcnn",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.8412698412698413,
+        "head": "curvenet",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -1.5396825396825398,
+        "head": "pointnext",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -1.2063492063492063,
+        "head": "pointmae",
+        "sign": "-"
+      }
+    ],
+    "modelnet40_c/weighted": [
+      {
+        "delta_pp": -0.8095238095238095,
+        "head": "dgcnn",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.5396825396825397,
+        "head": "curvenet",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.7619047619047619,
+        "head": "pointnext",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.7936507936507936,
+        "head": "pointmae",
+        "sign": "-"
+      }
+    ],
+    "scanobjectnn_c/semantic_h": [
+      {
+        "delta_pp": 0.36507936507936506,
+        "head": "dgcnn",
+        "sign": "+"
+      },
+      {
+        "delta_pp": -0.20634920634920634,
+        "head": "curvenet",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.15873015873015872,
+        "head": "pointnext",
+        "sign": "-"
+      },
+      {
+        "delta_pp": 0.3333333333333333,
+        "head": "pointmae",
+        "sign": "+"
+      }
+    ],
+    "scanobjectnn_c/semantic_kl": [
+      {
+        "delta_pp": -0.23809523809523808,
+        "head": "dgcnn",
+        "sign": "-"
+      },
+      {
+        "delta_pp": 0.015873015873015872,
+        "head": "curvenet",
+        "sign": "+"
+      },
+      {
+        "delta_pp": -0.1111111111111111,
+        "head": "pointnext",
+        "sign": "-"
+      },
+      {
+        "delta_pp": 0.12698412698412698,
+        "head": "pointmae",
+        "sign": "+"
+      }
+    ],
+    "scanobjectnn_c/sparse": [
+      {
+        "delta_pp": -1.0793650793650793,
+        "head": "dgcnn",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.6349206349206349,
+        "head": "curvenet",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -1.3492063492063493,
+        "head": "pointnext",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.8095238095238095,
+        "head": "pointmae",
+        "sign": "-"
+      }
+    ],
+    "scanobjectnn_c/weighted": [
+      {
+        "delta_pp": -0.25396825396825395,
+        "head": "dgcnn",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.31746031746031744,
+        "head": "curvenet",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.9047619047619048,
+        "head": "pointnext",
+        "sign": "-"
+      },
+      {
+        "delta_pp": -0.5396825396825397,
+        "head": "pointmae",
+        "sign": "-"
+      }
+    ]
+  },
+  "limitations": "Finite geometry follows the verified producing-runtime guard; raw coordinates are not stored. Native execution is not bitwise deterministic. Cached costs do not prove deployment speed.",
+  "main_all15_probability_mean": [
+    {
+      "arm": "semantic_h",
+      "arm_accuracy_pct": 67.22619047619047,
+      "baseline_accuracy_pct": 66.90079365079366,
+      "ci95_delta_pp": [
+        0.07936507936507936,
+        0.5714285714285714
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": 0.3253968253968176
+    },
+    {
+      "arm": "semantic_kl",
+      "arm_accuracy_pct": 67.06349206349206,
+      "baseline_accuracy_pct": 66.90079365079366,
+      "ci95_delta_pp": [
+        -0.09523809523809526,
+        0.4048611111111105
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": 0.16269841269840324
+    },
+    {
+      "arm": "sparse",
+      "arm_accuracy_pct": 65.5436507936508,
+      "baseline_accuracy_pct": 66.90079365079366,
+      "ci95_delta_pp": [
+        -1.7818452380952383,
+        -0.9523809523809523
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": -1.3571428571428568
+    },
+    {
+      "arm": "weighted",
+      "arm_accuracy_pct": 66.17460317460318,
+      "baseline_accuracy_pct": 66.90079365079366,
+      "ci95_delta_pp": [
+        -1.0357142857142856,
+        -0.4325396825396825
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": -0.7261904761904803
+    },
+    {
+      "arm": "semantic_h",
+      "arm_accuracy_pct": 45.166666666666664,
+      "baseline_accuracy_pct": 45.08333333333333,
+      "ci95_delta_pp": [
+        -0.10714285714285712,
+        0.27777777777777773
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": 0.08333333333333526
+    },
+    {
+      "arm": "semantic_kl",
+      "arm_accuracy_pct": 45.03174603174603,
+      "baseline_accuracy_pct": 45.08333333333333,
+      "ci95_delta_pp": [
+        -0.2659722222222223,
+        0.17073412698412643
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -0.05158730158729696
+    },
+    {
+      "arm": "sparse",
+      "arm_accuracy_pct": 44.11507936507936,
+      "baseline_accuracy_pct": 45.08333333333333,
+      "ci95_delta_pp": [
+        -1.253968253968254,
+        -0.6903769841269846
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -0.9682539682539681
+    },
+    {
+      "arm": "weighted",
+      "arm_accuracy_pct": 44.57936507936508,
+      "baseline_accuracy_pct": 45.08333333333333,
+      "ci95_delta_pp": [
+        -0.7302579365079365,
+        -0.2619047619047619
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -0.5039682539682511
+    }
+  ],
+  "manifest_identity": {
+    "bytes": 245773,
+    "sha256": "d96ce97c649cb7bb23f41b6ebc9552a5c9399098273ee76fe27ec879f01da0ed"
+  },
+  "per_head": {
+    "curvenet": {
+      "bytes": 4688769,
+      "comparisons": [
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 68.80952380952381,
+          "baseline_accuracy_pct": 68.57142857142857,
+          "ci95_delta_pp": [
+            -0.2539682539682539,
+            0.7936507936507936
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.23809523809523725,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 69.91496598639456,
+          "baseline_accuracy_pct": 69.60884353741497,
+          "ci95_delta_pp": [
+            -0.1530612244897959,
+            0.8163265306122448
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.3061224489795955,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 68.76190476190476,
+          "baseline_accuracy_pct": 68.57142857142857,
+          "ci95_delta_pp": [
+            -0.36507936507936506,
+            0.7301587301587301
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.19047619047618536,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 69.8639455782313,
+          "baseline_accuracy_pct": 69.60884353741497,
+          "ci95_delta_pp": [
+            -0.27210884353741494,
+            0.7823129251700679
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.25510204081632404,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 67.73015873015873,
+          "baseline_accuracy_pct": 68.57142857142857,
+          "ci95_delta_pp": [
+            -1.476190476190476,
+            -0.19047619047619044
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.8412698412698427,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 69.37074829931973,
+          "baseline_accuracy_pct": 69.60884353741497,
+          "ci95_delta_pp": [
+            -0.8673469387755101,
+            0.4081632653061224
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.23809523809523725,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 68.03174603174604,
+          "baseline_accuracy_pct": 68.57142857142857,
+          "ci95_delta_pp": [
+            -1.0317460317460319,
+            -0.015873015873015917
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.53968253968254,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 69.28571428571428,
+          "baseline_accuracy_pct": 69.60884353741497,
+          "ci95_delta_pp": [
+            -0.8333333333333331,
+            0.2040816326530612
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.3231292517006823,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 55.76190476190476,
+          "baseline_accuracy_pct": 55.96825396825397,
+          "ci95_delta_pp": [
+            -0.6507936507936508,
+            0.25436507936507724
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.20634920634921006,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 56.904761904761905,
+          "baseline_accuracy_pct": 57.09183673469388,
+          "ci95_delta_pp": [
+            -0.6126700680272109,
+            0.2721088435374149
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.18707482993197688,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 55.98412698412698,
+          "baseline_accuracy_pct": 55.96825396825397,
+          "ci95_delta_pp": [
+            -0.4444444444444444,
+            0.47619047619047605
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.015873015873013596,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 57.2108843537415,
+          "baseline_accuracy_pct": 57.09183673469388,
+          "ci95_delta_pp": [
+            -0.3401360544217687,
+            0.5782312925170068
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.11904761904761862,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 55.333333333333336,
+          "baseline_accuracy_pct": 55.96825396825397,
+          "ci95_delta_pp": [
+            -1.2380952380952381,
+            -0.047619047619047644
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.6349206349206327,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 56.87074829931973,
+          "baseline_accuracy_pct": 57.09183673469388,
+          "ci95_delta_pp": [
+            -0.7653061224489796,
+            0.3571428571428571
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.22108843537415046,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 55.65079365079365,
+          "baseline_accuracy_pct": 55.96825396825397,
+          "ci95_delta_pp": [
+            -0.7619047619047621,
+            0.15873015873015872
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.31746031746031633,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 56.97278911564626,
+          "baseline_accuracy_pct": 57.09183673469388,
+          "ci95_delta_pp": [
+            -0.5612244897959182,
+            0.3405612244897936
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.11904761904761862,
+          "scope": "macro14"
+        }
+      ],
+      "path": "result/preparation/chamfer_guidance_variants_20261030/independent_confirmation_acceptance_20261030_curvenet.json",
+      "sha256": "819c91c8c9e8de9229c5cc2816707d57eb55e3da3305d74b01ae91ce23bcab53"
+    },
+    "dgcnn": {
+      "bytes": 4885476,
+      "comparisons": [
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 67.19047619047619,
+          "baseline_accuracy_pct": 66.77777777777779,
+          "ci95_delta_pp": [
+            -0.11111111111111116,
+            0.921031746031744
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.412698412698409,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 67.82312925170068,
+          "baseline_accuracy_pct": 67.41496598639456,
+          "ci95_delta_pp": [
+            -0.06802721088435373,
+            0.8843537414965987
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.40816326530611624,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 66.71428571428571,
+          "baseline_accuracy_pct": 66.77777777777779,
+          "ci95_delta_pp": [
+            -0.5873015873015873,
+            0.4289682539682518
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.06349206349206549,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 67.53401360544218,
+          "baseline_accuracy_pct": 67.41496598639456,
+          "ci95_delta_pp": [
+            -0.37414965986394555,
+            0.5782312925170068
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.11904761904761862,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 64.93650793650794,
+          "baseline_accuracy_pct": 66.77777777777779,
+          "ci95_delta_pp": [
+            -2.5400793650793654,
+            -1.2063492063492065
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -1.8412698412698436,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 66.53061224489795,
+          "baseline_accuracy_pct": 67.41496598639456,
+          "ci95_delta_pp": [
+            -1.5476190476190474,
+            -0.2891156462585034
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.8843537414966018,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 65.96825396825396,
+          "baseline_accuracy_pct": 66.77777777777779,
+          "ci95_delta_pp": [
+            -1.4444444444444444,
+            -0.22222222222222218
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.8095238095238155,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 66.95578231292517,
+          "baseline_accuracy_pct": 67.41496598639456,
+          "ci95_delta_pp": [
+            -1.0714285714285712,
+            0.08503401360544217
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.4591836734693877,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 38.857142857142854,
+          "baseline_accuracy_pct": 38.492063492063494,
+          "ci95_delta_pp": [
+            -0.17460317460317462,
+            0.9523809523809521
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.36507936507936267,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 38.80952380952381,
+          "baseline_accuracy_pct": 38.486394557823125,
+          "ci95_delta_pp": [
+            -0.17006802721088435,
+            0.8337585034013582
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.3231292517006823,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 38.25396825396825,
+          "baseline_accuracy_pct": 38.492063492063494,
+          "ci95_delta_pp": [
+            -0.7777777777777778,
+            0.30158730158730157
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.2380952380952428,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 38.265306122448976,
+          "baseline_accuracy_pct": 38.486394557823125,
+          "ci95_delta_pp": [
+            -0.7312925170068028,
+            0.28911564625850333
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.22108843537415046,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 37.41269841269841,
+          "baseline_accuracy_pct": 38.492063492063494,
+          "ci95_delta_pp": [
+            -1.6190476190476188,
+            -0.5238095238095238
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -1.07936507936508,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 38.01020408163265,
+          "baseline_accuracy_pct": 38.486394557823125,
+          "ci95_delta_pp": [
+            -1.0038265306122447,
+            0.05144557823129019
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.4761904761904745,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 38.23809523809524,
+          "baseline_accuracy_pct": 38.492063492063494,
+          "ci95_delta_pp": [
+            -0.794047619047619,
+            0.3492063492063492
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.2539682539682564,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 38.55442176870748,
+          "baseline_accuracy_pct": 38.486394557823125,
+          "ci95_delta_pp": [
+            -0.47619047619047616,
+            0.629251700680272
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.0680272108843527,
+          "scope": "macro14"
+        }
+      ],
+      "path": "result/preparation/chamfer_guidance_variants_20261030/independent_confirmation_acceptance_20261030_dgcnn.json",
+      "sha256": "0a3efa9ac51a52f766cb0c12dc9b1d98d8d8d02147d5729b2b2bf3d1aa27303e"
+    },
+    "pointmae": {
+      "bytes": 4040811,
+      "comparisons": [
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 65.17460317460318,
+          "baseline_accuracy_pct": 65.0,
+          "ci95_delta_pp": [
+            -0.15873015873015875,
+            0.5079365079365079
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.17460317460317176,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 65.85034013605441,
+          "baseline_accuracy_pct": 65.68027210884354,
+          "ci95_delta_pp": [
+            -0.11947278911564622,
+            0.49319727891156456
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.170068027210879,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 65.0952380952381,
+          "baseline_accuracy_pct": 65.0,
+          "ci95_delta_pp": [
+            -0.3015873015873015,
+            0.47658730158729945
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.09523809523809268,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 65.74829931972789,
+          "baseline_accuracy_pct": 65.68027210884354,
+          "ci95_delta_pp": [
+            -0.3401360544217686,
+            0.49319727891156456
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.06802721088434716,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 63.79365079365079,
+          "baseline_accuracy_pct": 65.0,
+          "ci95_delta_pp": [
+            -1.7142857142857144,
+            -0.6825396825396826
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -1.206349206349211,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 65.4421768707483,
+          "baseline_accuracy_pct": 65.68027210884354,
+          "ci95_delta_pp": [
+            -0.6632653061224489,
+            0.18707482993197277
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.23809523809523725,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 64.20634920634922,
+          "baseline_accuracy_pct": 65.0,
+          "ci95_delta_pp": [
+            -1.238095238095238,
+            -0.34920634920634924
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.7936507936507908,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 65.20408163265307,
+          "baseline_accuracy_pct": 65.68027210884354,
+          "ci95_delta_pp": [
+            -0.9013605442176871,
+            -0.0510204081632653
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.4761904761904745,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 39.26984126984127,
+          "baseline_accuracy_pct": 38.93650793650794,
+          "ci95_delta_pp": [
+            0.07936507936507937,
+            0.5873015873015873
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.3333333333333355,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 39.48979591836735,
+          "baseline_accuracy_pct": 39.20068027210885,
+          "ci95_delta_pp": [
+            0.03358843537414968,
+            0.5442176870748299
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.28911564625850317,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 39.06349206349206,
+          "baseline_accuracy_pct": 38.93650793650794,
+          "ci95_delta_pp": [
+            -0.2222222222222222,
+            0.46071428571428363
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.12698412698412542,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 39.30272108843537,
+          "baseline_accuracy_pct": 39.20068027210885,
+          "ci95_delta_pp": [
+            -0.25510204081632654,
+            0.44217687074829937
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.10204081632652628,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 38.12698412698413,
+          "baseline_accuracy_pct": 38.93650793650794,
+          "ci95_delta_pp": [
+            -1.2698412698412698,
+            -0.34880952380952596
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.80952380952381,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 38.53741496598639,
+          "baseline_accuracy_pct": 39.20068027210885,
+          "ci95_delta_pp": [
+            -1.105442176870748,
+            -0.22108843537414968
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.6632653061224514,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 38.3968253968254,
+          "baseline_accuracy_pct": 38.93650793650794,
+          "ci95_delta_pp": [
+            -0.9365079365079364,
+            -0.14285714285714285
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.53968253968254,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 38.775510204081634,
+          "baseline_accuracy_pct": 39.20068027210885,
+          "ci95_delta_pp": [
+            -0.8163265306122448,
+            -0.017006802721088433
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.42517006802721413,
+          "scope": "macro14"
+        }
+      ],
+      "path": "result/preparation/chamfer_guidance_variants_20261030/independent_confirmation_acceptance_20261030_pointmae.json",
+      "sha256": "519dfac97cb1e547deb83e37a89021a537766d53002259d0048ef473f8c3bbc6"
+    },
+    "pointnext": {
+      "bytes": 4689958,
+      "comparisons": [
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 67.73015873015873,
+          "baseline_accuracy_pct": 67.25396825396825,
+          "ci95_delta_pp": [
+            -7.744301232039299e-18,
+            0.9365079365079363
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.4761904761904745,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 68.24829931972789,
+          "baseline_accuracy_pct": 67.85714285714286,
+          "ci95_delta_pp": [
+            -0.05102040816326528,
+            0.8163265306122448
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.39115646258502945,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 67.68253968253968,
+          "baseline_accuracy_pct": 67.25396825396825,
+          "ci95_delta_pp": [
+            -0.03214285714285715,
+            0.9047619047619048
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.4285714285714226,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 68.45238095238095,
+          "baseline_accuracy_pct": 67.85714285714286,
+          "ci95_delta_pp": [
+            0.1526360544217687,
+            1.0544217687074828
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": 0.5952380952380931,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 65.71428571428571,
+          "baseline_accuracy_pct": 67.25396825396825,
+          "ci95_delta_pp": [
+            -2.254761904761905,
+            -0.873015873015873
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -1.5396825396825409,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 67.32993197278911,
+          "baseline_accuracy_pct": 67.85714285714286,
+          "ci95_delta_pp": [
+            -1.1734693877551021,
+            0.1020408163265306
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.527210884353746,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 66.4920634920635,
+          "baseline_accuracy_pct": 67.25396825396825,
+          "ci95_delta_pp": [
+            -1.4448412698412698,
+            -0.15873015873015875
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.7619047619047636,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 67.38095238095238,
+          "baseline_accuracy_pct": 67.85714285714286,
+          "ci95_delta_pp": [
+            -1.1054421768707483,
+            0.11904761904761894
+          ],
+          "dataset": "modelnet40_c",
+          "delta_pp": -0.4761904761904745,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 46.77777777777778,
+          "baseline_accuracy_pct": 46.93650793650794,
+          "ci95_delta_pp": [
+            -0.5555555555555555,
+            0.23809523809523803
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.15873015873015817,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h",
+          "arm_accuracy_pct": 47.22789115646259,
+          "baseline_accuracy_pct": 47.38095238095238,
+          "ci95_delta_pp": [
+            -0.5612244897959183,
+            0.23809523809523808
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.1530612244897922,
+          "scope": "macro14"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 46.82539682539682,
+          "baseline_accuracy_pct": 46.93650793650794,
+          "ci95_delta_pp": [
+            -0.5555555555555555,
+            0.3492063492063492
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.11111111111111183,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_kl",
+          "arm_accuracy_pct": 47.244897959183675,
+          "baseline_accuracy_pct": 47.38095238095238,
+          "ci95_delta_pp": [
+            -0.5952380952380952,
+            0.34013605442176864
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.1360544217687054,
+          "scope": "macro14"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 45.58730158730159,
+          "baseline_accuracy_pct": 46.93650793650794,
+          "ci95_delta_pp": [
+            -1.8412698412698412,
+            -0.7936507936507936
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -1.34920634920635,
+          "scope": "all15"
+        },
+        {
+          "arm": "sparse",
+          "arm_accuracy_pct": 46.71768707482993,
+          "baseline_accuracy_pct": 47.38095238095238,
+          "ci95_delta_pp": [
+            -1.1734693877551021,
+            -0.13605442176870747
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.6632653061224458,
+          "scope": "macro14"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 46.03174603174603,
+          "baseline_accuracy_pct": 46.93650793650794,
+          "ci95_delta_pp": [
+            -1.476190476190476,
+            -0.36507936507936506
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.9047619047619082,
+          "scope": "all15"
+        },
+        {
+          "arm": "weighted",
+          "arm_accuracy_pct": 46.85374149659864,
+          "baseline_accuracy_pct": 47.38095238095238,
+          "ci95_delta_pp": [
+            -1.105442176870748,
+            0.05102040816326528
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.5272108843537404,
+          "scope": "macro14"
+        }
+      ],
+      "path": "result/preparation/chamfer_guidance_variants_20261030/independent_confirmation_acceptance_20261030_pointnext.json",
+      "sha256": "b0db78d03107bc71820b9ba2001bf8270e13e988aa9849e2525497f22632a47a"
+    }
+  },
+  "per_head_aggregation": "Each head and arm uses6300decisions=140objects*15corruptions*3seeds; each per-seed row uses2100. Per-head CIs are computed anew from paired object clusters, never averaged across seed CIs or across heads.",
+  "per_head_per_seed": [
+    {
+      "accuracy_pct": 67.61904761904762,
+      "arm": "baseline",
+      "correct": 1420,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 66.66666666666667,
+      "arm": "sparse",
+      "correct": 1400,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 67.80952380952381,
+      "arm": "semantic_kl",
+      "correct": 1424,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 68.04761904761905,
+      "arm": "semantic_h",
+      "correct": 1429,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 67.04761904761905,
+      "arm": "weighted",
+      "correct": 1408,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 66.33333333333333,
+      "arm": "baseline",
+      "correct": 1393,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 63.80952380952381,
+      "arm": "sparse",
+      "correct": 1340,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 65.61904761904762,
+      "arm": "semantic_kl",
+      "correct": 1378,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 66.76190476190476,
+      "arm": "semantic_h",
+      "correct": 1402,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 65.42857142857143,
+      "arm": "weighted",
+      "correct": 1374,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 66.38095238095238,
+      "arm": "baseline",
+      "correct": 1394,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 64.33333333333333,
+      "arm": "sparse",
+      "correct": 1351,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 66.71428571428571,
+      "arm": "semantic_kl",
+      "correct": 1401,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 66.76190476190476,
+      "arm": "semantic_h",
+      "correct": 1402,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 65.42857142857143,
+      "arm": "weighted",
+      "correct": 1374,
+      "dataset": "modelnet40_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 69.42857142857143,
+      "arm": "baseline",
+      "correct": 1458,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 67.95238095238095,
+      "arm": "sparse",
+      "correct": 1427,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 68.9047619047619,
+      "arm": "semantic_kl",
+      "correct": 1447,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 69.33333333333333,
+      "arm": "semantic_h",
+      "correct": 1456,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 67.9047619047619,
+      "arm": "weighted",
+      "correct": 1426,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 67.80952380952381,
+      "arm": "baseline",
+      "correct": 1424,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 67.38095238095238,
+      "arm": "sparse",
+      "correct": 1415,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 68.76190476190476,
+      "arm": "semantic_kl",
+      "correct": 1444,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 68.47619047619048,
+      "arm": "semantic_h",
+      "correct": 1438,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 68.0952380952381,
+      "arm": "weighted",
+      "correct": 1430,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 68.47619047619048,
+      "arm": "baseline",
+      "correct": 1438,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 67.85714285714286,
+      "arm": "sparse",
+      "correct": 1425,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 68.61904761904762,
+      "arm": "semantic_kl",
+      "correct": 1441,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 68.61904761904762,
+      "arm": "semantic_h",
+      "correct": 1441,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 68.0952380952381,
+      "arm": "weighted",
+      "correct": 1430,
+      "dataset": "modelnet40_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 67.80952380952381,
+      "arm": "baseline",
+      "correct": 1424,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 66.28571428571429,
+      "arm": "sparse",
+      "correct": 1392,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 68.0,
+      "arm": "semantic_kl",
+      "correct": 1428,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 68.19047619047619,
+      "arm": "semantic_h",
+      "correct": 1432,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 66.9047619047619,
+      "arm": "weighted",
+      "correct": 1405,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 67.14285714285714,
+      "arm": "baseline",
+      "correct": 1410,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 65.38095238095238,
+      "arm": "sparse",
+      "correct": 1373,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 67.42857142857143,
+      "arm": "semantic_kl",
+      "correct": 1416,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 67.42857142857143,
+      "arm": "semantic_h",
+      "correct": 1416,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 66.0952380952381,
+      "arm": "weighted",
+      "correct": 1388,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 66.80952380952381,
+      "arm": "baseline",
+      "correct": 1403,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 65.47619047619048,
+      "arm": "sparse",
+      "correct": 1375,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 67.61904761904762,
+      "arm": "semantic_kl",
+      "correct": 1420,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 67.57142857142857,
+      "arm": "semantic_h",
+      "correct": 1419,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 66.47619047619048,
+      "arm": "weighted",
+      "correct": 1396,
+      "dataset": "modelnet40_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 65.61904761904762,
+      "arm": "baseline",
+      "correct": 1378,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 64.04761904761905,
+      "arm": "sparse",
+      "correct": 1345,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 65.38095238095238,
+      "arm": "semantic_kl",
+      "correct": 1373,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 65.19047619047619,
+      "arm": "semantic_h",
+      "correct": 1369,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 64.52380952380952,
+      "arm": "weighted",
+      "correct": 1355,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 65.23809523809524,
+      "arm": "baseline",
+      "correct": 1370,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 63.80952380952381,
+      "arm": "sparse",
+      "correct": 1340,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 65.28571428571429,
+      "arm": "semantic_kl",
+      "correct": 1371,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 65.19047619047619,
+      "arm": "semantic_h",
+      "correct": 1369,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 64.0,
+      "arm": "weighted",
+      "correct": 1344,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 64.14285714285714,
+      "arm": "baseline",
+      "correct": 1347,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 63.523809523809526,
+      "arm": "sparse",
+      "correct": 1334,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 64.61904761904762,
+      "arm": "semantic_kl",
+      "correct": 1357,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 65.14285714285714,
+      "arm": "semantic_h",
+      "correct": 1368,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 64.0952380952381,
+      "arm": "weighted",
+      "correct": 1346,
+      "dataset": "modelnet40_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.95238095238095,
+      "arm": "baseline",
+      "correct": 818,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 37.57142857142857,
+      "arm": "sparse",
+      "correct": 789,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.523809523809526,
+      "arm": "semantic_kl",
+      "correct": 809,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.76190476190476,
+      "arm": "semantic_h",
+      "correct": 814,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.95238095238095,
+      "arm": "weighted",
+      "correct": 818,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.0,
+      "arm": "baseline",
+      "correct": 798,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 37.04761904761905,
+      "arm": "sparse",
+      "correct": 778,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 37.666666666666664,
+      "arm": "semantic_kl",
+      "correct": 791,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 38.904761904761905,
+      "arm": "semantic_h",
+      "correct": 817,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 37.23809523809524,
+      "arm": "weighted",
+      "correct": 782,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 38.523809523809526,
+      "arm": "baseline",
+      "correct": 809,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 37.61904761904762,
+      "arm": "sparse",
+      "correct": 790,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.57142857142857,
+      "arm": "semantic_kl",
+      "correct": 810,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.904761904761905,
+      "arm": "semantic_h",
+      "correct": 817,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.523809523809526,
+      "arm": "weighted",
+      "correct": 809,
+      "dataset": "scanobjectnn_c",
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.76190476190476,
+      "arm": "baseline",
+      "correct": 1171,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.42857142857143,
+      "arm": "sparse",
+      "correct": 1164,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.666666666666664,
+      "arm": "semantic_kl",
+      "correct": 1169,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.76190476190476,
+      "arm": "semantic_h",
+      "correct": 1171,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.42857142857143,
+      "arm": "weighted",
+      "correct": 1164,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.904761904761905,
+      "arm": "baseline",
+      "correct": 1174,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 55.476190476190474,
+      "arm": "sparse",
+      "correct": 1165,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.476190476190474,
+      "arm": "semantic_kl",
+      "correct": 1186,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.0,
+      "arm": "semantic_h",
+      "correct": 1176,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.19047619047619,
+      "arm": "weighted",
+      "correct": 1180,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.23809523809524,
+      "arm": "baseline",
+      "correct": 1181,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.095238095238095,
+      "arm": "sparse",
+      "correct": 1157,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.80952380952381,
+      "arm": "semantic_kl",
+      "correct": 1172,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.523809523809526,
+      "arm": "semantic_h",
+      "correct": 1166,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 55.333333333333336,
+      "arm": "weighted",
+      "correct": 1162,
+      "dataset": "scanobjectnn_c",
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 47.523809523809526,
+      "arm": "baseline",
+      "correct": 998,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 46.04761904761905,
+      "arm": "sparse",
+      "correct": 967,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 47.333333333333336,
+      "arm": "semantic_kl",
+      "correct": 994,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 47.142857142857146,
+      "arm": "semantic_h",
+      "correct": 990,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 46.42857142857143,
+      "arm": "weighted",
+      "correct": 975,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 46.285714285714285,
+      "arm": "baseline",
+      "correct": 972,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 45.80952380952381,
+      "arm": "sparse",
+      "correct": 962,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 46.38095238095238,
+      "arm": "semantic_kl",
+      "correct": 974,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 46.23809523809524,
+      "arm": "semantic_h",
+      "correct": 971,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 46.0,
+      "arm": "weighted",
+      "correct": 966,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 47.0,
+      "arm": "baseline",
+      "correct": 987,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 44.904761904761905,
+      "arm": "sparse",
+      "correct": 943,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 46.76190476190476,
+      "arm": "semantic_kl",
+      "correct": 982,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 46.95238095238095,
+      "arm": "semantic_h",
+      "correct": 986,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 45.666666666666664,
+      "arm": "weighted",
+      "correct": 959,
+      "dataset": "scanobjectnn_c",
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 39.142857142857146,
+      "arm": "baseline",
+      "correct": 822,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.38095238095238,
+      "arm": "sparse",
+      "correct": 806,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.904761904761905,
+      "arm": "semantic_kl",
+      "correct": 817,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 39.285714285714285,
+      "arm": "semantic_h",
+      "correct": 825,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.61904761904762,
+      "arm": "weighted",
+      "correct": 811,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.904761904761905,
+      "arm": "baseline",
+      "correct": 817,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 38.0,
+      "arm": "sparse",
+      "correct": 798,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 39.23809523809524,
+      "arm": "semantic_kl",
+      "correct": 824,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 39.19047619047619,
+      "arm": "semantic_h",
+      "correct": 823,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 38.333333333333336,
+      "arm": "weighted",
+      "correct": 805,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 38.76190476190476,
+      "arm": "baseline",
+      "correct": 814,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.0,
+      "arm": "sparse",
+      "correct": 798,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 39.04761904761905,
+      "arm": "semantic_kl",
+      "correct": 820,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 39.333333333333336,
+      "arm": "semantic_h",
+      "correct": 826,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.23809523809524,
+      "arm": "weighted",
+      "correct": 803,
+      "dataset": "scanobjectnn_c",
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    }
+  ],
+  "pointmae_all15_semantic": [
+    {
+      "arm": "semantic_kl",
+      "arm_accuracy_pct": 65.0952380952381,
+      "baseline_accuracy_pct": 65.0,
+      "ci95_delta_pp": [
+        -0.3015873015873015,
+        0.47658730158729945
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": 0.09523809523809268
+    },
+    {
+      "arm": "semantic_h",
+      "arm_accuracy_pct": 65.17460317460318,
+      "baseline_accuracy_pct": 65.0,
+      "ci95_delta_pp": [
+        -0.15873015873015875,
+        0.5079365079365079
+      ],
+      "dataset": "modelnet40_c",
+      "delta_pp": 0.17460317460317176
+    },
+    {
+      "arm": "semantic_kl",
+      "arm_accuracy_pct": 39.06349206349206,
+      "baseline_accuracy_pct": 38.93650793650794,
+      "ci95_delta_pp": [
+        -0.2222222222222222,
+        0.46071428571428363
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": 0.12698412698412542
+    },
+    {
+      "arm": "semantic_h",
+      "arm_accuracy_pct": 39.26984126984127,
+      "baseline_accuracy_pct": 38.93650793650794,
+      "ci95_delta_pp": [
+        0.07936507936507937,
+        0.5873015873015873
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": 0.3333333333333355
+    }
+  ],
+  "raw_batches": 3600,
+  "raw_heads": 120,
+  "rng_method": "Exact protocol4 SHA; normalize only NumPy2 _core pickle global to producing NumPy1 core spelling and repair the single frame length",
+  "root_full_report_exact": {
+    "bytes": 17089717,
+    "equal_after_excluding_only": "analysis_provenance",
+    "path": "result/preparation/chamfer_guidance_variants_20261030/confirmation_analysis.json",
+    "sha256": "323f8568b7df63a619570e196b59ff6c7d9ab9c77ae40ed336716da2c3e79584"
+  },
+  "status": "independent_full_confirmation_accepted",
+  "uncertainty": "Within-dataset original-object bootstrap retains all included seed/corruption values; per-head CIs condition on the three included seeds, without treating seeds or heads as independent objects.",
+  "full_proof": {
+    "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/independent_confirmation_acceptance_20261030.json",
+    "bytes": 170262,
+    "sha256": "9484d1f1011af898889bb2ae2f142677a00a83449d6c30087e95e3643743c15b"
+  },
+  "executed_gpu_source": "0fd258110abf48dc92d739b288010ebfbee475b2",
+  "analysis_source": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc; original40development exact regression verified"
+}

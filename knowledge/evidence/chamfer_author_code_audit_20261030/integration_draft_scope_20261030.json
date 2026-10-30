@@ -1,0 +1,1772 @@
+{
+  "added_integration_only_files": [
+    "tests/test_chamfer_depth_variant_boundary.py",
+    "knowledge/thesis_integration_chamfer_guidance_variants_20261030.md",
+    "knowledge/evidence/chamfer_author_code_audit_20261030/integration_draft_scope_20261030.json"
+  ],
+  "branch": "integration/chamfer-guidance-variants-20261030",
+  "completion_status": "actual_scientific_collection_and_owned_runtime_closed",
+  "conflicts_resolved": [
+    {
+      "blocks": 6,
+      "path": "scripts/eval_multibackbone_guidance.py",
+      "resolution": "Retain peer depth dispatcher/timing APIs plus incoming opt-in observer/calibration APIs; reject mixed protocols"
+    }
+  ],
+  "deferred_shared_files": [
+    "knowledge/colab_cli_setup_20261017.md"
+  ],
+  "deferred_shared_reason": "Target setup note retained byte-for-byte; own setup evidence is already recorded in selected guidance preparation/final handoff. No setup-note replacement needed for completed scientific sync.",
+  "excluded_rules": [
+    "All raw ZIP/PDF/weights/checkpoints/cache NPZ and temporary operator/setup/kernel/monitor wrappers",
+    "Uncommitted source-worktree files and private CLI/setup history; final sync imports committed fe8a777 only"
+  ],
+  "execution_provenance": {
+    "accepted_original_gpu_source": "0fd258110abf48dc92d739b288010ebfbee475b2",
+    "calibration_binding": "Strict frozen-source binding retained; new integrated execution may require fresh seal and label-free calibration if archived report fails provenance",
+    "curvenet_gpu_source": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc",
+    "early_failed_smoke_and_native_diagnostics": "a1d298a",
+    "integration_tree": "CPU-only verified; no integrated GPU run"
+  },
+  "final_scientific_sync_pending": false,
+  "final_sync_pending": [],
+  "meaning_preserved_shared_depth_files": [
+    {
+      "path": "knowledge/README.md",
+      "target_complete_text_preserved": true,
+      "target_identity": {
+        "bytes": 96221,
+        "sha256": "94faabbe8f6eacd74d1e23962b0c755c82488dc37ec7527785220b24a4d94c80"
+      }
+    },
+    {
+      "path": "knowledge/findings_log.md",
+      "target_complete_text_preserved": true,
+      "target_identity": {
+        "bytes": 482291,
+        "sha256": "15d8defbeb0912cc5cee0bf0aadd21110ad8da3ed0de9bba2439f51bc9bb1da0"
+      }
+    },
+    {
+      "path": "knowledge/open_questions.md",
+      "target_complete_text_preserved": true,
+      "target_identity": {
+        "bytes": 150955,
+        "sha256": "88495818a09c79883c86ab92d32240477160bf6fe3216ca4581de399081d3917"
+      }
+    }
+  ],
+  "no_gpu_operations": true,
+  "owned_runtime_closed_by_utc": "2026-10-30T19:34:46Z",
+  "preserved_target_depth_files": [
+    {
+      "identity": {
+        "bytes": 7069,
+        "sha256": "8b7237e0d44fe51231791d0ede4e78fb2105648c4dd3c2e804a1fb42301563e6"
+      },
+      "path": "knowledge/chamfer_depth_tuning_approval_20261030.md"
+    },
+    {
+      "identity": {
+        "bytes": 10916,
+        "sha256": "802af1225bba992280e7855a89f80a6dc8ec88142f395cdb60cf267bbb3c2d44"
+      },
+      "path": "knowledge/chamfer_depth_tuning_results_20261030.md"
+    },
+    {
+      "identity": {
+        "bytes": 42029,
+        "sha256": "50752722c48210ef5ae6cf096887bfd2456d1b0838b13f4304b96a958f8989e6"
+      },
+      "path": "knowledge/chamfer_depth_tuning_study_20261030.md"
+    },
+    {
+      "identity": {
+        "bytes": 32199,
+        "sha256": "3965dd44ef93cb19090ed52cc3081f461385f4c316c85c80799812fa9c409586"
+      },
+      "path": "knowledge/colab_cli_setup_20261017.md"
+    },
+    {
+      "identity": {
+        "bytes": 3695,
+        "sha256": "9e300e14d0345b10aae608fa7896e50afa92b4b54fcf53be277b2fbf852bbb69"
+      },
+      "path": "knowledge/thesis_integration_depth_tuning_20261030.md"
+    },
+    {
+      "identity": {
+        "bytes": 8766,
+        "sha256": "397d3ce56497ae8aacea1173d40086e40f12142c9f2b43b9b0a68bd8a04fce5e"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/README.md"
+    },
+    {
+      "identity": {
+        "bytes": 27110,
+        "sha256": "bb13faedd3b647c67bfc9cbbe6aa1d54d5db8f37a4104d3d1596a0fc710c807e"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/analyze.py"
+    },
+    {
+      "identity": {
+        "bytes": 576,
+        "sha256": "32eab373dfa3c50b055b4d69a5e08dde3f29f107ed19494efd282f1c80e983a2"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/approval_v1.json"
+    },
+    {
+      "identity": {
+        "bytes": 8147,
+        "sha256": "89e43ba196e903f5da9c821f8fce22179f53ecb9164f5fe1888a5733ca7bd9a1"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/binding_v1.json"
+    },
+    {
+      "identity": {
+        "bytes": 24816,
+        "sha256": "7d2eba7c6717eb0a392ae1563a83192667a9b6f38598095f9f5887d3faf48404"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/campaign.py"
+    },
+    {
+      "identity": {
+        "bytes": 34069,
+        "sha256": "c0be698df8bdec50c14beeea5edceb701e941a7bec80096af8f7f980e5ad424a"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/continue_campaign.py"
+    },
+    {
+      "identity": {
+        "bytes": 1893,
+        "sha256": "3501a5984ab0bcf4873016684d9d55d66cd24fd8962134f3d4bc663cf20eca65"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/duration_estimate.json"
+    },
+    {
+      "identity": {
+        "bytes": 2316,
+        "sha256": "7aed693f7e77b3112274c7789c2a3052abafd3983fbd3f0ee610e1a1a03a5dfd"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/ids/modelnet40_c_development_ids.json"
+    },
+    {
+      "identity": {
+        "bytes": 3544,
+        "sha256": "c9a5d1718ff1017e0ff1ebee02a47640edda82658740e5dfd4c70edaa05897f0"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/ids/modelnet40_c_heldout_ids.json"
+    },
+    {
+      "identity": {
+        "bytes": 2988,
+        "sha256": "54443f5193d81c610bc082b6e398ca0fa96e52903c271969e2d4b2a2ff787844"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/ids/reservation.json"
+    },
+    {
+      "identity": {
+        "bytes": 14780,
+        "sha256": "5d5138f58f94fff480ad9bc4f444db62913b5b8e93517c7d231bb431a7371115"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/integration_scope.json"
+    },
+    {
+      "identity": {
+        "bytes": 1205,
+        "sha256": "8df0daacd99a03e3f0705cfd78a67e4afdc7d77f0505897f3652496e13d68872"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/integration_verification.json"
+    },
+    {
+      "identity": {
+        "bytes": 3195,
+        "sha256": "61e538e97c0035e6e80cba0784fa9d19f4145d824b49d6682e34f64fbdc29223"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/make_binding.py"
+    },
+    {
+      "identity": {
+        "bytes": 7435,
+        "sha256": "f3f9dec9a34ee82312a6e027bfcc92ba90dd9094605174748e6aa5a36b7303db"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/operations.py"
+    },
+    {
+      "identity": {
+        "bytes": 22243,
+        "sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/plan_v1.json"
+    },
+    {
+      "identity": {
+        "bytes": 485,
+        "sha256": "194d758319ed4f173d008235f3bf475b4f2c50b6f68bf68aa38536b1e2cee5a4"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/cpu_local_acceptance.json"
+    },
+    {
+      "identity": {
+        "bytes": 17076,
+        "sha256": "affb5025756bb661c9f84814510bc74118af1891ede02e86bce8e142a0c79bcb"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/cpu_preflight_receipt.json"
+    },
+    {
+      "identity": {
+        "bytes": 6729,
+        "sha256": "3ee88507f872215a2e90c38025cd35d3ca868c84dbb3c0d9f84b092283464131"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/accepted_summary.json"
+    },
+    {
+      "identity": {
+        "bytes": 16407,
+        "sha256": "a5431693fa4fa27f80aba59d5abd8b4f15b5f60164341972d2902f3c2b0b4708"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/aggregate_seed.csv"
+    },
+    {
+      "identity": {
+        "bytes": 27392,
+        "sha256": "cf1f61fa36634faae46be44a4c2daaaad7408d90aaec667d5fc4733290ddba15"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/cost_summary.json"
+    },
+    {
+      "identity": {
+        "bytes": 2803,
+        "sha256": "dc5cf51356e671da8f5e45a5c6daf84972cdaa766d0923489f824e92904ef20b"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/cpu_verification.json"
+    },
+    {
+      "identity": {
+        "bytes": 729,
+        "sha256": "75c9b1f4bf347daaca380bd3297e83db484bfa552a63393e32b02a18fe0a290d"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/derived_drive_acceptance.json"
+    },
+    {
+      "identity": {
+        "bytes": 28021,
+        "sha256": "69871695f4cdf7098e1328343de0801a967c76304284726f8119d82ccca24ce8"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/development_scores.json"
+    },
+    {
+      "identity": {
+        "bytes": 18168,
+        "sha256": "484cd77e2efcaadb16b6000e6274cf9325486a02bacfc42d3a8d644c227e705b"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/failures.json"
+    },
+    {
+      "identity": {
+        "bytes": 51885,
+        "sha256": "c49127c19bc8afa83a0d486a7e4593ebedbb60daf063c847ffa748fd6f7cf6a1"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/final_wall_ledger.jsonl"
+    },
+    {
+      "identity": {
+        "bytes": 3707,
+        "sha256": "14e26431d14569dd40a096a57f16280348beec0e0aad5f90fd679442b57bfcbe"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/frozen_confirmation.json"
+    },
+    {
+      "identity": {
+        "bytes": 820,
+        "sha256": "be7cefc4af0a8cd6d0cee6aecb282d1f02505c86c497d7dc6bc285f87744e3f5"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/independent_reanalysis_receipt.json"
+    },
+    {
+      "identity": {
+        "bytes": 691,
+        "sha256": "3d951870aa514e86aac11562a1f26f4e4d18fd8d9f3b7b970fc999e1f7d1cc6d"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/independent_review.json"
+    },
+    {
+      "identity": {
+        "bytes": 345,
+        "sha256": "7a0a468df7b2aa066a7db6628cb5e3ed3ee45c037c812d4a18a13ffcb32ed52e"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/inventory_after_close.txt"
+    },
+    {
+      "identity": {
+        "bytes": 471,
+        "sha256": "8aca79859357715e756b330c992448b9668953ab9ee7ad1f20dedccfc536ca52"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/inventory_before_close.txt"
+    },
+    {
+      "identity": {
+        "bytes": 52546,
+        "sha256": "2a4f00ef37e0c6d6095e33a60f13ebd970d777193e866353002c504cb76108e9"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/paired_comparisons.json"
+    },
+    {
+      "identity": {
+        "bytes": 126198,
+        "sha256": "6684e5f9be2e6216bb4852972cb6f6b792bb573d62e710c26a0f43d61d3a5029"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/per_corruption_seed.csv"
+    },
+    {
+      "identity": {
+        "bytes": 920,
+        "sha256": "6e459b56d635cbf1b6d8c19d9f54526c259a6970a3dadb88cc59abeebb2510b1"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/runtime_closure.json"
+    },
+    {
+      "identity": {
+        "bytes": 2756,
+        "sha256": "37bf3e7e6feca8b3fefb8b07999fa696e99e4d775a37a26f59aa1f42c087005a"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/snapshot_local_acceptance.json"
+    },
+    {
+      "identity": {
+        "bytes": 5309,
+        "sha256": "d7162a1914bd53cd2f578867ffd11f8579b8416a8cb55cc8595224f7556a2ca2"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/snapshot_receipt_drive.json"
+    },
+    {
+      "identity": {
+        "bytes": 313,
+        "sha256": "82845e5d3e1a263a62f3cc2a6df5c42557d4692083543c63ca43988c28e8e4ce"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/stop_owned_runtime_stdout.txt"
+    },
+    {
+      "identity": {
+        "bytes": 1087,
+        "sha256": "20149ba9213d59e76c444fab6d1e5a4bcffce02dc2a3f6eee0512a20a89d0e84"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/teardown_preconditions.json"
+    },
+    {
+      "identity": {
+        "bytes": 25844,
+        "sha256": "8739659229bbea5947b1022e6ec0ee9061bc1af14e272e0731b849900b0902be"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_complete/amended_scores.json"
+    },
+    {
+      "identity": {
+        "bytes": 2263,
+        "sha256": "28c50acbe9f26634875f1432415a6b6755d98c650adbbb0185fbe3b0b82f50f9"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_complete/registered_fraction.json"
+    },
+    {
+      "identity": {
+        "bytes": 831,
+        "sha256": "344319c1586e294d16534df3478b52524dd47fee1cc384a2b33b26e2f2bb91b2"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_complete/selection_validation.json"
+    },
+    {
+      "identity": {
+        "bytes": 2163,
+        "sha256": "aea46735f13fe561159efc47c457debf62693438dd78d38e169856b679dc0330"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_amendment_v1.json"
+    },
+    {
+      "identity": {
+        "bytes": 4588,
+        "sha256": "6d99f81cd9cbde61542dca54e1d0ebee8fc913dc8e53fdc157837fd22723268d"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_cpu_local_acceptance.json"
+    },
+    {
+      "identity": {
+        "bytes": 5463,
+        "sha256": "db27ad98fe3c322491148bf05c1672e8a16c4b3a7396e3eb50fdec893c19a737"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_proposal.json"
+    },
+    {
+      "identity": {
+        "bytes": 1038,
+        "sha256": "65992846e3e773fabd1ad276e7fddbef14d1dd18c32865db787ae3ad00db16e5"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_source_payload_identity.json"
+    },
+    {
+      "identity": {
+        "bytes": 804,
+        "sha256": "5d6e8d29eed1ab62a84b211f1705a793f6bb3dfb4fbe5bbcfbc8fc0f8a12453c"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_user_acknowledgment.json"
+    },
+    {
+      "identity": {
+        "bytes": 18079,
+        "sha256": "f6651b66958767d26410fe59f0caf29683086f34c167b8d86046b920cd5e843f"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/failed_console.log"
+    },
+    {
+      "identity": {
+        "bytes": 75,
+        "sha256": "7fea02f181359cb8a6cfce54d388ce67693c07ec97e1314fd31150c3a21587b1"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/failure.json"
+    },
+    {
+      "identity": {
+        "bytes": 576,
+        "sha256": "32eab373dfa3c50b055b4d69a5e08dde3f29f107ed19494efd282f1c80e983a2"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/original_gpu_approval_source.json"
+    },
+    {
+      "identity": {
+        "bytes": 718,
+        "sha256": "29b0deb251d27c7e20f83b00a78a2eecc58709f119977305eae92dbc80735b59"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/partial_archive_local_acceptance.json"
+    },
+    {
+      "identity": {
+        "bytes": 801,
+        "sha256": "eb0934fd2ef8df44e3e20d5f2fc41fd4e92552cd32854603ecebdb74ebb6761e"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/smoke_local_acceptance.json"
+    },
+    {
+      "identity": {
+        "bytes": 17108,
+        "sha256": "d75af9e0b8b39cdc0dc65d3f927d6f9f07ab25697adc71f62560edaf2b65147e"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/background_n5_batch0.json"
+    },
+    {
+      "identity": {
+        "bytes": 17109,
+        "sha256": "3fe614de8d2ea902e245ecf134926d863d5a7ce6eb5dab7407b413e20685e2c6"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/background_n8_batch0.json"
+    },
+    {
+      "identity": {
+        "bytes": 1931,
+        "sha256": "445e7a13270611342979bf2e0201bec4100cefb2b5a415178f474bdf3dd39b99"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/background_repeatability_audit.json"
+    },
+    {
+      "identity": {
+        "bytes": 3646,
+        "sha256": "d2cb70b7605331cc36c16c133b594a0450c0b026bba90da3ac010df62fa2cfde"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/scores.json"
+    },
+    {
+      "identity": {
+        "bytes": 583,
+        "sha256": "164b41cebd35da2b848d6c5c5f0d199595bd08c3ad4f5f241a342eb71e3c84dd"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/selection_validation.json"
+    },
+    {
+      "identity": {
+        "bytes": 5344,
+        "sha256": "d2fb8d7561371bb9ebd6c423008b4cb75552cd5ac2c350dec4b373fe721ecd48"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/stage_rates.json"
+    },
+    {
+      "identity": {
+        "bytes": 3343,
+        "sha256": "5b09762d4bdb1f23083773700c1906cd59b6ae93cef879abe21e1a3818bbe009"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/stage_depth_v1.json"
+    },
+    {
+      "identity": {
+        "bytes": 1184,
+        "sha256": "8be8524471ff8520554a47e7f5fb5e0d475fe66a6f78ccf8307081fafaec326a"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/stage_smoke_v1.json"
+    },
+    {
+      "identity": {
+        "bytes": 23949,
+        "sha256": "1dd51162de1c57ec312eceb27f2a68a72880e2e05f243c6143be39b638bb8c9d"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/test_campaign.py"
+    },
+    {
+      "identity": {
+        "bytes": 22665,
+        "sha256": "e76dd8cd4bee398127b558c36735576f295ed8bb92317fe240403f6101055681"
+      },
+      "path": "result/preparation/chamfer_depth_tuning_20261030/test_continue_campaign.py"
+    },
+    {
+      "identity": {
+        "bytes": 9665,
+        "sha256": "c81f9036fa98e6bd805655228361aae02fb7403e75b6c22f132e6b8a53ceedb9"
+      },
+      "path": "scripts/eval_chamfer_depth.py"
+    },
+    {
+      "identity": {
+        "bytes": 24334,
+        "sha256": "4b752bb025fb2ad62c4e677269bf3fd844dbcc406e37a476b357501e3806cbe8"
+      },
+      "path": "tests/test_chamfer_depth.py"
+    },
+    {
+      "identity": {
+        "bytes": 8030,
+        "sha256": "ce8b439d81b69afc8bd475b71dcdb5edc28e68aa2296dbb338c99d4c077df5e9"
+      },
+      "path": "tta.py"
+    }
+  ],
+  "selected_count": 100,
+  "selected_files": [
+    {
+      "draft_identity": {
+        "bytes": 3397,
+        "sha256": "3334c5905216fa7853ddd747170c85998d1d529eb329f23b35f7827df0203dfb"
+      },
+      "integration_adaptation": false,
+      "path": "chamfer_calibration_report.py",
+      "source_identity": {
+        "bytes": 3397,
+        "sha256": "3334c5905216fa7853ddd747170c85998d1d529eb329f23b35f7827df0203dfb"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 5080,
+        "sha256": "23fb6c4266b1051867543d91eb6cc6776f29a962844a4b7360c41580d3254ef0"
+      },
+      "integration_adaptation": false,
+      "path": "chamfer_guidance_variants.py",
+      "source_identity": {
+        "bytes": 5080,
+        "sha256": "23fb6c4266b1051867543d91eb6cc6776f29a962844a4b7360c41580d3254ef0"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 97826,
+        "sha256": "75852bb57e25263ed6e31b10e76fba70522500b676a4e49c4fab72d511409c8a"
+      },
+      "integration_adaptation": true,
+      "path": "knowledge/README.md",
+      "source_identity": {
+        "bytes": 97716,
+        "sha256": "365546cffb24842d10c1149448f13e87efbd239bfa01807b53159cf8440f6a71"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 4376,
+        "sha256": "fe446b2d64bae241f02ebcff620805bb1ae17097caed8d7a407695edd972b4f4"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/chamfer_author_code_consistency_audit_20261030.md",
+      "source_identity": {
+        "bytes": 4376,
+        "sha256": "fe446b2d64bae241f02ebcff620805bb1ae17097caed8d7a407695edd972b4f4"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 8114,
+        "sha256": "605f8787d693ba0b2eaf68db3a2e2a23af99f93077546a2a898f52d8b734b0e3"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/chamfer_guidance_final_handoff_20261030.md",
+      "source_identity": {
+        "bytes": 8114,
+        "sha256": "605f8787d693ba0b2eaf68db3a2e2a23af99f93077546a2a898f52d8b734b0e3"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 67103,
+        "sha256": "e8a9379ea17902dd8d2b682cd713ef2300f0cdaab08cbd59acce3b2ce7b65a46"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/chamfer_guidance_variants_20261030.md",
+      "source_identity": {
+        "bytes": 67103,
+        "sha256": "e8a9379ea17902dd8d2b682cd713ef2300f0cdaab08cbd59acce3b2ce7b65a46"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 18269,
+        "sha256": "6dc0eba70a608e41f1bb23101a3da9ced9030acc53a8c162d3ad8bbf75d690a9"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/chamfer_guidance_variants_results_20261030.md",
+      "source_identity": {
+        "bytes": 18269,
+        "sha256": "6dc0eba70a608e41f1bb23101a3da9ced9030acc53a8c162d3ad8bbf75d690a9"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 32202,
+        "sha256": "2d5aa3af4f0395dd294d8c244d0f853afb077eb771899fc3c5b274cce44156d5"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/diffusion_guidance_literature_review_20261030.md",
+      "source_identity": {
+        "bytes": 32202,
+        "sha256": "2d5aa3af4f0395dd294d8c244d0f853afb077eb771899fc3c5b274cce44156d5"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 21142,
+        "sha256": "ef3cff056e1cca01cf24f6e5b98c7fe49666982724f1b0d202a5dd5c7cb7a142"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/active_smoke_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 21142,
+        "sha256": "ef3cff056e1cca01cf24f6e5b98c7fe49666982724f1b0d202a5dd5c7cb7a142"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 8493,
+        "sha256": "88bcc2d5652287251f7ee4f4d4528202bbd3e69cd41c2acb5321886f7adeb24e"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/adaptive_guidance_audit.md",
+      "source_identity": {
+        "bytes": 8493,
+        "sha256": "88bcc2d5652287251f7ee4f4d4528202bbd3e69cd41c2acb5321886f7adeb24e"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 12645,
+        "sha256": "25794135aa447385b523014fdc91d11634d4cebaa23915ca80fb8365ccb3012d"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/calibration_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 12645,
+        "sha256": "25794135aa447385b523014fdc91d11634d4cebaa23915ca80fb8365ccb3012d"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 6238,
+        "sha256": "3a85947c94b5c2690770a565956ccf782564cfeaa48947c8d1927d7107e0a1a6"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/cloudfixer_mamvi_audit.md",
+      "source_identity": {
+        "bytes": 6238,
+        "sha256": "3a85947c94b5c2690770a565956ccf782564cfeaa48947c8d1927d7107e0a1a6"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1798,
+        "sha256": "4fb9505625f32d031ebd1b5d84199618826f866204f885c3c5d8f4c111c6ac79"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/cloudfixer_mamvi_retrieval.json",
+      "source_identity": {
+        "bytes": 1798,
+        "sha256": "4fb9505625f32d031ebd1b5d84199618826f866204f885c3c5d8f4c111c6ac79"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1109,
+        "sha256": "6a5b87316febce8341de07bc01e0d646b95e18a7da775f918fbb0558a7016d67"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/completion_teardown_authorization_20261030.json",
+      "source_identity": {
+        "bytes": 1109,
+        "sha256": "6a5b87316febce8341de07bc01e0d646b95e18a7da775f918fbb0558a7016d67"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 58259,
+        "sha256": "c55d710d8c6a7911626bb0f88a6486543b7dbedde089222ed9f3c30f0a1e6d90"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/confirmation_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 58259,
+        "sha256": "c55d710d8c6a7911626bb0f88a6486543b7dbedde089222ed9f3c30f0a1e6d90"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 22375,
+        "sha256": "c81ca85d5744618fac530658f0eeaf4eb573b9801f9564a8ffbf2e592fcc6228"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/confirmation_first3_structural_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 22375,
+        "sha256": "c81ca85d5744618fac530658f0eeaf4eb573b9801f9564a8ffbf2e592fcc6228"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 2696,
+        "sha256": "751f9ab9e704db8e57e65f3b32394656d6e4033c3223a93e42c1271bec88a46f"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/cpu_validation.json",
+      "source_identity": {
+        "bytes": 2696,
+        "sha256": "751f9ab9e704db8e57e65f3b32394656d6e4033c3223a93e42c1271bec88a46f"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 2788,
+        "sha256": "8e976268ced7e53645043300ced5ca63f7ac11dd507c3fa9361561c8607bdb99"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/cpu_validation_revision2.json",
+      "source_identity": {
+        "bytes": 2788,
+        "sha256": "8e976268ced7e53645043300ced5ca63f7ac11dd507c3fa9361561c8607bdb99"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1159,
+        "sha256": "a46dc3cd4908ccb7495895a0f60b46df0105282c11b9db6e584ac6f79d625e43"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/departure_progress_backup_receipt_20261030.json",
+      "source_identity": {
+        "bytes": 1159,
+        "sha256": "a46dc3cd4908ccb7495895a0f60b46df0105282c11b9db6e584ac6f79d625e43"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 187510,
+        "sha256": "3337cd0caf83f7fdc909bd972c1df9b1cc8bfe4c41a24f3afcdd4cb84107ecef"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/development_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 187510,
+        "sha256": "3337cd0caf83f7fdc909bd972c1df9b1cc8bfe4c41a24f3afcdd4cb84107ecef"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 3562,
+        "sha256": "e01794c150276aa1e838eebc01be3632d3f8069e0adcd7b755be9f6c89f8a9fa"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/development_results_20261030.json",
+      "source_identity": {
+        "bytes": 3562,
+        "sha256": "e01794c150276aa1e838eebc01be3632d3f8069e0adcd7b755be9f6c89f8a9fa"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 48464,
+        "sha256": "640cbe0751df6095b4dd485849c4e2b927a1123eb1a1872c48d4a006e9a21a97"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/existing_fresh_encode_pairing_evidence_modelnet70_20261030.json",
+      "source_identity": {
+        "bytes": 48464,
+        "sha256": "640cbe0751df6095b4dd485849c4e2b927a1123eb1a1872c48d4a006e9a21a97"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1195,
+        "sha256": "712f8eaa50b07c3027bcff8bb66517188f3066ee3d22d0d4eb408af4ff087a58"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/final_cache_backup_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 1195,
+        "sha256": "712f8eaa50b07c3027bcff8bb66517188f3066ee3d22d0d4eb408af4ff087a58"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1260,
+        "sha256": "d718cc77f9368b6dc59728409a36da9b1a6814016809002bd3248dc02b654f17"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/final_raw_artifact_catalog_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 1260,
+        "sha256": "d718cc77f9368b6dc59728409a36da9b1a6814016809002bd3248dc02b654f17"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 2484,
+        "sha256": "c1ce20bbddf607c7171e127fa46cb08734f7fb0c922821d0aaeee32516d68c05"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/final_summary_backup_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 2484,
+        "sha256": "c1ce20bbddf607c7171e127fa46cb08734f7fb0c922821d0aaeee32516d68c05"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 72065,
+        "sha256": "6c03ad4990197cc8f8a17d6ad4f8c5eaad88d359800b557dd55d1597fb8e5a25"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/frozen_calibration_report_20261030.json",
+      "source_identity": {
+        "bytes": 72065,
+        "sha256": "6c03ad4990197cc8f8a17d6ad4f8c5eaad88d359800b557dd55d1597fb8e5a25"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 11777,
+        "sha256": "a6fa9210cf668e7615e4e02185201a61cff68b692934873cc1579727449e2d87"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/gda_audit.md",
+      "source_identity": {
+        "bytes": 11777,
+        "sha256": "a6fa9210cf668e7615e4e02185201a61cff68b692934873cc1579727449e2d87"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 894,
+        "sha256": "a041f13d1eea8a3025d55af220ac8c4621c8efbdbb33cfb0d497c7672ea0207f"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/gpu_approval_20261030.json",
+      "source_identity": {
+        "bytes": 894,
+        "sha256": "a041f13d1eea8a3025d55af220ac8c4621c8efbdbb33cfb0d497c7672ea0207f"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 12794,
+        "sha256": "c4345a5752b50d83fd92a2d8655c986f357ec292fe75f4083b576e6c5d2e0de6"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/initial_parity_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 12794,
+        "sha256": "c4345a5752b50d83fd92a2d8655c986f357ec292fe75f4083b576e6c5d2e0de6"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 86188,
+        "sha256": "f6c563e949c30b8dc0bd174c209f59da27e9e4a174f54b27c969b14d3feda385"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/initial_smoke_failure_20261030.json",
+      "source_identity": {
+        "bytes": 86188,
+        "sha256": "f6c563e949c30b8dc0bd174c209f59da27e9e4a174f54b27c969b14d3feda385"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 4327,
+        "sha256": "375fd0642f1611557d6b1987fb9bd3f5dbe4106dd66a755666c604777fdcaac8"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/launch_readiness_20261030.json",
+      "source_identity": {
+        "bytes": 4327,
+        "sha256": "375fd0642f1611557d6b1987fb9bd3f5dbe4106dd66a755666c604777fdcaac8"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 11911,
+        "sha256": "46318318cf9dee035e5dc11b6e86bd52579f2128e3097badaabf9e6edff0b466"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/metadata_recovery_binding_20261030.json",
+      "source_identity": {
+        "bytes": 11911,
+        "sha256": "46318318cf9dee035e5dc11b6e86bd52579f2128e3097badaabf9e6edff0b466"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 2352,
+        "sha256": "42ac908c32f2725dbf03b1805c53604355d168f1b7a2c7c01bc0c8355274012f"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/metadata_source_repair_receipt_20261030.json",
+      "source_identity": {
+        "bytes": 2352,
+        "sha256": "42ac908c32f2725dbf03b1805c53604355d168f1b7a2c7c01bc0c8355274012f"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1133,
+        "sha256": "7dc61e1a2e9bd8c97764b463cee2913f0cdb859980fcc5bb071a503a5dfb8cb0"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/metadata_source_repair_scope_20261030.json",
+      "source_identity": {
+        "bytes": 1133,
+        "sha256": "7dc61e1a2e9bd8c97764b463cee2913f0cdb859980fcc5bb071a503a5dfb8cb0"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 34276,
+        "sha256": "fed9afcd7f5796d4a721aa949e38248b7e14d919343f6d1e52d52434a475bacd"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/native_repeat_diagnostic_20261030.json",
+      "source_identity": {
+        "bytes": 34276,
+        "sha256": "fed9afcd7f5796d4a721aa949e38248b7e14d919343f6d1e52d52434a475bacd"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 11228,
+        "sha256": "1db3130a53909f37bef18f82994c767c9ad3616b905eab72cf45c9d811388bf8"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/native_zero_effect_receipt_20261030.json",
+      "source_identity": {
+        "bytes": 11228,
+        "sha256": "1db3130a53909f37bef18f82994c767c9ad3616b905eab72cf45c9d811388bf8"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 9555,
+        "sha256": "59989c26b8525a77d529adb063b36f542b13c559cba29d98196450ad8f2eb6e2"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/offline_calibration_native_subset_validation_20261030.json",
+      "source_identity": {
+        "bytes": 9555,
+        "sha256": "59989c26b8525a77d529adb063b36f542b13c559cba29d98196450ad8f2eb6e2"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 2150,
+        "sha256": "2f0f10611c20fe1ddf690b174e6738631f46d36c73251ed69a496e20e0d10ea1"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/offline_fresh_timing_gate_validation_20261030.json",
+      "source_identity": {
+        "bytes": 2150,
+        "sha256": "2f0f10611c20fe1ddf690b174e6738631f46d36c73251ed69a496e20e0d10ea1"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 2207,
+        "sha256": "7ebe889dcaabc4b8b237067ac9dd59d2dd4e329e2a432db60250d6f3d63925ee"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/owned_runtime_closure_20261030.json",
+      "source_identity": {
+        "bytes": 2207,
+        "sha256": "7ebe889dcaabc4b8b237067ac9dd59d2dd4e329e2a432db60250d6f3d63925ee"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1320,
+        "sha256": "4948dd4ef0e83317f72ca4edbd8de401694d231e1f324dffb0171a288177bf8a"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/post_campaign_source_model_authorization_20261030.json",
+      "source_identity": {
+        "bytes": 1320,
+        "sha256": "4948dd4ef0e83317f72ca4edbd8de401694d231e1f324dffb0171a288177bf8a"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1740,
+        "sha256": "c3e7b79f44b9c6a90ec5d862ecd4992e7981f7f9d08316fe9086b2c883c8bbba"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/prepared_scope_revision2.json",
+      "source_identity": {
+        "bytes": 1740,
+        "sha256": "c3e7b79f44b9c6a90ec5d862ecd4992e7981f7f9d08316fe9086b2c883c8bbba"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1076,
+        "sha256": "fd8c08c7c37efd43526836866683be14dfaad2405590956d9c320711daefa0e9"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/recovery_reserve_accounting_20261030.json",
+      "source_identity": {
+        "bytes": 1076,
+        "sha256": "fd8c08c7c37efd43526836866683be14dfaad2405590956d9c320711daefa0e9"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 22837,
+        "sha256": "93e487a6206c45dc0e0f07fe42768da5bbed41e465032834a57c5c64eddbc123"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_alternate_teacher_source_evidence_20261030.json",
+      "source_identity": {
+        "bytes": 22837,
+        "sha256": "93e487a6206c45dc0e0f07fe42768da5bbed41e465032834a57c5c64eddbc123"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 3216,
+        "sha256": "44cceff55564de20d946bbfe4e02509156e0a93eabab1faf2e905fede1273adf"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_calibration_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 3216,
+        "sha256": "44cceff55564de20d946bbfe4e02509156e0a93eabab1faf2e905fede1273adf"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 2678,
+        "sha256": "8725d6aa8c1316e03e28e0c863c6262040caa98ee4af0107a1b62d15d164c63c"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_cpu_deploy_receipt_20261030.json",
+      "source_identity": {
+        "bytes": 2678,
+        "sha256": "8725d6aa8c1316e03e28e0c863c6262040caa98ee4af0107a1b62d15d164c63c"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1677,
+        "sha256": "b206c3a8c71dbce045c8efd772a5dbe26603c34f82cfc9bf864ec6b2340244f5"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_entropy_cpu_validation_20261030.json",
+      "source_identity": {
+        "bytes": 1677,
+        "sha256": "b206c3a8c71dbce045c8efd772a5dbe26603c34f82cfc9bf864ec6b2340244f5"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 8215,
+        "sha256": "93cb3cdb08c391b9d7e56b27c77364a047d8b2517e8e451879e7d16ae01314e8"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_entropy_independent_review_20261030.json",
+      "source_identity": {
+        "bytes": 8215,
+        "sha256": "93cb3cdb08c391b9d7e56b27c77364a047d8b2517e8e451879e7d16ae01314e8"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 478,
+        "sha256": "b14f063235724e535487fb514a57a059ee71e0a5a19ef90eda413769abfcd95c"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_final_physical_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 478,
+        "sha256": "b14f063235724e535487fb514a57a059ee71e0a5a19ef90eda413769abfcd95c"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 52546,
+        "sha256": "8e8dd33e15edc17487bbcc1636064bf3de1b4a1fdad5714d6dd777f62e2e5d07"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_frozen_calibration_20261030.json",
+      "source_identity": {
+        "bytes": 52546,
+        "sha256": "8e8dd33e15edc17487bbcc1636064bf3de1b4a1fdad5714d6dd777f62e2e5d07"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1750,
+        "sha256": "55cde65a4b813f7b6fedfeb311856d1f6e079192e663a1fd8cdcfc61934de106"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_h_controls_cpu_20261030.json",
+      "source_identity": {
+        "bytes": 1750,
+        "sha256": "55cde65a4b813f7b6fedfeb311856d1f6e079192e663a1fd8cdcfc61934de106"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 4759,
+        "sha256": "78caa1652a82c46bbdfbe3637ac8fce3336eb4dddee6e99a12a845474df15b0d"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_h_controls_review_20261030.json",
+      "source_identity": {
+        "bytes": 4759,
+        "sha256": "78caa1652a82c46bbdfbe3637ac8fce3336eb4dddee6e99a12a845474df15b0d"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1406,
+        "sha256": "b24253ce0bd76cc4fbe16b069afbcdb82dc5833132497a4b0dc16a15eebde865"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_h_source_comparison_20261030.json",
+      "source_identity": {
+        "bytes": 1406,
+        "sha256": "b24253ce0bd76cc4fbe16b069afbcdb82dc5833132497a4b0dc16a15eebde865"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 13831,
+        "sha256": "ceb43e817605038db7d420cfa4967a4ffdaa09854454aebccdcb15885ae5112a"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_heldout_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 13831,
+        "sha256": "ceb43e817605038db7d420cfa4967a4ffdaa09854454aebccdcb15885ae5112a"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 5723,
+        "sha256": "297badb31d81667e86467d84d0d2f35912b3e3546d234f7a75bdf5435b0f9d46"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_phase_plan_20261030.json",
+      "source_identity": {
+        "bytes": 5723,
+        "sha256": "297badb31d81667e86467d84d0d2f35912b3e3546d234f7a75bdf5435b0f9d46"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 690,
+        "sha256": "20a7a0cf19633dd35b63d2fe56cd9d751540ec41c7111dc8b127d8daded8f365"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_root_calibration_forecast_20261030.json",
+      "source_identity": {
+        "bytes": 690,
+        "sha256": "20a7a0cf19633dd35b63d2fe56cd9d751540ec41c7111dc8b127d8daded8f365"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 4808,
+        "sha256": "3ddfb09c9a16cb1ed53555520becb8b49c47aef73500fa5645e094d36d660471"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/scan_curvenet_timing_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 4808,
+        "sha256": "3ddfb09c9a16cb1ed53555520becb8b49c47aef73500fa5645e094d36d660471"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 900,
+        "sha256": "9a4ac416acbb03f5cc9d8e598a6f671e86b6e1a0f65699928fd474eb16b38aec"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/source_seal.json",
+      "source_identity": {
+        "bytes": 900,
+        "sha256": "9a4ac416acbb03f5cc9d8e598a6f671e86b6e1a0f65699928fd474eb16b38aec"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 15478,
+        "sha256": "7305271ba012fe78f80f26a7a514f581275cc54eb483138d1e49f86171e96b47"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/chamfer_author_code_audit_20261030/timing_acceptance_20261030.json",
+      "source_identity": {
+        "bytes": 15478,
+        "sha256": "7305271ba012fe78f80f26a7a514f581275cc54eb483138d1e49f86171e96b47"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 240,
+        "sha256": "ff479961313f709eedb36777b65e4df3437e8cf2494220905317a069283d9029"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/bundle_receipt.json",
+      "source_identity": {
+        "bytes": 240,
+        "sha256": "ff479961313f709eedb36777b65e4df3437e8cf2494220905317a069283d9029"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1201,
+        "sha256": "640040f53ae801d7024d0310c632f5de2ad89347200a1227e33d146807b4a6b7"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/checkout_identity.json",
+      "source_identity": {
+        "bytes": 1201,
+        "sha256": "640040f53ae801d7024d0310c632f5de2ad89347200a1227e33d146807b4a6b7"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 992,
+        "sha256": "9ad5aa4a85f7dc05fdfc329873e75af70941f2ef173518d779672514ca7d3cb6"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/citation_verification.json",
+      "source_identity": {
+        "bytes": 992,
+        "sha256": "9ad5aa4a85f7dc05fdfc329873e75af70941f2ef173518d779672514ca7d3cb6"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1020,
+        "sha256": "382f51aa8d0a8a38a4f1e862564d1e5b58e0a618d155560fda6748e684f36d05"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/index_retrieval.json",
+      "source_identity": {
+        "bytes": 1020,
+        "sha256": "382f51aa8d0a8a38a4f1e862564d1e5b58e0a618d155560fda6748e684f36d05"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 66960,
+        "sha256": "167a869894d7049a299e5f3d41b4fe50885506c19b7a1a9621d612288a6e514f"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/openalex_citing.json",
+      "source_identity": {
+        "bytes": 66960,
+        "sha256": "167a869894d7049a299e5f3d41b4fe50885506c19b7a1a9621d612288a6e514f"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 19439,
+        "sha256": "c36e124db227f850036161d7e09bb8d5e8379d9946b7eabc26823e759570df8c"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/openalex_target.json",
+      "source_identity": {
+        "bytes": 19439,
+        "sha256": "c36e124db227f850036161d7e09bb8d5e8379d9946b7eabc26823e759570df8c"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 7597,
+        "sha256": "69ff4e0c0bc559aaa0b11292e3e8c2383e76a4cd71fadee4d7a442be28f81f3a"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/retrieval_manifest.json",
+      "source_identity": {
+        "bytes": 7597,
+        "sha256": "69ff4e0c0bc559aaa0b11292e3e8c2383e76a4cd71fadee4d7a442be28f81f3a"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 5964,
+        "sha256": "a7e97d1fd27e01d4ce2bc5e4392e95bd03622c3b12c3bb9648e29c0a14a37a62"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/search_ledger.md",
+      "source_identity": {
+        "bytes": 5964,
+        "sha256": "a7e97d1fd27e01d4ce2bc5e4392e95bd03622c3b12c3bb9648e29c0a14a37a62"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1300,
+        "sha256": "3cd67094a9e0f2e2ae00999a5c7d5804450bb146d942fb4fd1b46a5d77b0d5a4"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/evidence/diffusion_guidance_literature_20261030/validation.json",
+      "source_identity": {
+        "bytes": 1300,
+        "sha256": "3cd67094a9e0f2e2ae00999a5c7d5804450bb146d942fb4fd1b46a5d77b0d5a4"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 516508,
+        "sha256": "b54076bec60f89981354ba1e69055445acc83e00a77b0eda133cc6cd469c1d88"
+      },
+      "integration_adaptation": true,
+      "path": "knowledge/findings_log.md",
+      "source_identity": {
+        "bytes": 490316,
+        "sha256": "3c4d209248b7005d026dac0ee9aaf31af620100edcad2d5082b804496a93e6ed"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 20829,
+        "sha256": "12ff149805333460589abb81710b6085db9ae5965f16e84fad9ba9a87ab9d12f"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/method_synthesis.md",
+      "source_identity": {
+        "bytes": 20829,
+        "sha256": "12ff149805333460589abb81710b6085db9ae5965f16e84fad9ba9a87ab9d12f"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 156220,
+        "sha256": "af6445aa72dbe805f6bcb94a7a0aeae580d36d5e75bdde5dbe7564b4688fc49d"
+      },
+      "integration_adaptation": true,
+      "path": "knowledge/open_questions.md",
+      "source_identity": {
+        "bytes": 151884,
+        "sha256": "f6873cad0b0b9c3753b1ca59244c467b29d9de6ccd80acaeb0668ddfd22081eb"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 17288,
+        "sha256": "9cb839fa2ccaed374ffded2295f4d3372e55aa8e94fd2a47a7fc26c5dd0c5a84"
+      },
+      "integration_adaptation": false,
+      "path": "knowledge/scan_curvenet_entropy_followup_20261030.md",
+      "source_identity": {
+        "bytes": 17288,
+        "sha256": "9cb839fa2ccaed374ffded2295f4d3372e55aa8e94fd2a47a7fc26c5dd0c5a84"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 5965,
+        "sha256": "914a6a5a7b2e9d7e89296f9c970f59a2402c0448a16c229e8368e185f3682410"
+      },
+      "integration_adaptation": true,
+      "path": "knowledge/thesis_integration_chamfer_guidance_variants_20261030.md",
+      "source_identity": null
+    },
+    {
+      "draft_identity": {
+        "bytes": 5702,
+        "sha256": "c4e574dd3fa8161c60bbbb4b8a04fcbf3287d808f2a0e8d9f9288f79b37b8b3f"
+      },
+      "integration_adaptation": false,
+      "path": "scan_curvenet_entropy_report.py",
+      "source_identity": {
+        "bytes": 5702,
+        "sha256": "c4e574dd3fa8161c60bbbb4b8a04fcbf3287d808f2a0e8d9f9288f79b37b8b3f"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 31181,
+        "sha256": "36aa612b0612e58a24941b3a7d261943556b85b13d747d5b2c81fe95bc1f50f1"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/analyze_chamfer_variants.py",
+      "source_identity": {
+        "bytes": 31181,
+        "sha256": "36aa612b0612e58a24941b3a7d261943556b85b13d747d5b2c81fe95bc1f50f1"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 17745,
+        "sha256": "dfcfb4140a9480d079bdd02f6924db72c3a95e22189837e3e919ab23865ec045"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/calibrate_chamfer_variants.py",
+      "source_identity": {
+        "bytes": 17745,
+        "sha256": "dfcfb4140a9480d079bdd02f6924db72c3a95e22189837e3e919ab23865ec045"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 13459,
+        "sha256": "f5d8d27d0baae3e7431778e77489f88e7efbaf85ad630f256a9fc62a3e51e644"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/calibrate_scan_curvenet_entropy.py",
+      "source_identity": {
+        "bytes": 13459,
+        "sha256": "f5d8d27d0baae3e7431778e77489f88e7efbaf85ad630f256a9fc62a3e51e644"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 311,
+        "sha256": "ada9566c97f0837d4d7ce3632a6834bef962305a85ad7b78fe952ffbbf69b45a"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/eval_chamfer_semantic.py",
+      "source_identity": {
+        "bytes": 311,
+        "sha256": "ada9566c97f0837d4d7ce3632a6834bef962305a85ad7b78fe952ffbbf69b45a"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 302,
+        "sha256": "7fe865c5ba1a729aa5eb072a2dda7da6c1a46ad55e206a893c638cb476993c32"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/eval_chamfer_sparse.py",
+      "source_identity": {
+        "bytes": 302,
+        "sha256": "7fe865c5ba1a729aa5eb072a2dda7da6c1a46ad55e206a893c638cb476993c32"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 305,
+        "sha256": "1baf4d94e0816a5389c422bf696a3ec53ff0b3257adf45ceea5d5a65f161d832"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/eval_chamfer_weighted.py",
+      "source_identity": {
+        "bytes": 305,
+        "sha256": "1baf4d94e0816a5389c422bf696a3ec53ff0b3257adf45ceea5d5a65f161d832"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 67344,
+        "sha256": "60a104d492595106a242cb1a11f019b0bfdb36e82210db3be2734e51f3685264"
+      },
+      "integration_adaptation": true,
+      "path": "scripts/eval_multibackbone_guidance.py",
+      "source_identity": {
+        "bytes": 62347,
+        "sha256": "82292c1ea8425f30f472646a83480d1cc2ed72e8d219c76c7a3a78e674aac4bc"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 30720,
+        "sha256": "dac97636355d7410831e5746a9ee02744c1bf2d203eba18c18a99a0d1c4bc42b"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/eval_multibackbone_source.py",
+      "source_identity": {
+        "bytes": 30720,
+        "sha256": "dac97636355d7410831e5746a9ee02744c1bf2d203eba18c18a99a0d1c4bc42b"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 9922,
+        "sha256": "7e1eb6756c2b2a9a1adee2a4f4ec22cba8bdfee5075b37785013e4f367de8235"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/prepare_chamfer_variants_assets.py",
+      "source_identity": {
+        "bytes": 9922,
+        "sha256": "7e1eb6756c2b2a9a1adee2a4f4ec22cba8bdfee5075b37785013e4f367de8235"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 15476,
+        "sha256": "adeb83d52ac70f708cf0978c71589585c776b21c8df12441d5893e33e6c7ef0b"
+      },
+      "integration_adaptation": false,
+      "path": "scripts/run_chamfer_variants_campaign.py",
+      "source_identity": {
+        "bytes": 15476,
+        "sha256": "adeb83d52ac70f708cf0978c71589585c776b21c8df12441d5893e33e6c7ef0b"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 7997,
+        "sha256": "6cefaab5fe55b4a9efc3d4984fd677dec5dc9774a4957c6195a79d1bb27471dc"
+      },
+      "integration_adaptation": false,
+      "path": "semantic_trajectory.py",
+      "source_identity": {
+        "bytes": 7997,
+        "sha256": "6cefaab5fe55b4a9efc3d4984fd677dec5dc9774a4957c6195a79d1bb27471dc"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 7222,
+        "sha256": "35f688c100bd7ddc9b8a5ec0dcb754251970b3d058b59ce1677e4a5dca24bc3d"
+      },
+      "integration_adaptation": true,
+      "path": "shared_trajectory.py",
+      "source_identity": {
+        "bytes": 6672,
+        "sha256": "1f3a7886fcde5487118db71755c5c9b374af26a8f0981d69304829ba91f13d9d"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 1719,
+        "sha256": "3da8dbe9afc23f312eeca30084f1eddf0f9995459530a7dab189b467becc6b00"
+      },
+      "integration_adaptation": false,
+      "path": "tests/scan_curvenet_fixtures.py",
+      "source_identity": {
+        "bytes": 1719,
+        "sha256": "3da8dbe9afc23f312eeca30084f1eddf0f9995459530a7dab189b467becc6b00"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 9082,
+        "sha256": "00e014063f6c36a87ac78993410c5afc57243d5285bc80105586bab4100c590c"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_chamfer_calibration.py",
+      "source_identity": {
+        "bytes": 9082,
+        "sha256": "00e014063f6c36a87ac78993410c5afc57243d5285bc80105586bab4100c590c"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 3016,
+        "sha256": "1279e98b9b380fce8055e754997b67080895facf03dc6f57e92b0366a7e5a160"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_chamfer_calibration_report.py",
+      "source_identity": {
+        "bytes": 3016,
+        "sha256": "1279e98b9b380fce8055e754997b67080895facf03dc6f57e92b0366a7e5a160"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 3409,
+        "sha256": "8ed5e638fa6d4878a7809c10fbdff6c2e1f1fcf28464d001cde24abe0cded111"
+      },
+      "integration_adaptation": true,
+      "path": "tests/test_chamfer_depth_variant_boundary.py",
+      "source_identity": null
+    },
+    {
+      "draft_identity": {
+        "bytes": 11308,
+        "sha256": "e66a8d236cbf3edecc18042b0bc9f15f3e39352ca118868e2cd2d099082e7a25"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_chamfer_guidance_variants.py",
+      "source_identity": {
+        "bytes": 11308,
+        "sha256": "e66a8d236cbf3edecc18042b0bc9f15f3e39352ca118868e2cd2d099082e7a25"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 27595,
+        "sha256": "f84dac1219fe28a470be279d842a5b60ef47fc95d3f62de56b34cc6dfcc64789"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_chamfer_variants_analysis.py",
+      "source_identity": {
+        "bytes": 27595,
+        "sha256": "f84dac1219fe28a470be279d842a5b60ef47fc95d3f62de56b34cc6dfcc64789"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 9796,
+        "sha256": "fa9bc84912bd920c6fb2ede9e297908a267bb6400e73276094aaa85b9eb666e1"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_chamfer_variants_campaign.py",
+      "source_identity": {
+        "bytes": 9796,
+        "sha256": "fa9bc84912bd920c6fb2ede9e297908a267bb6400e73276094aaa85b9eb666e1"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 20332,
+        "sha256": "82f775ea1afdd60ea62bc3f5192064c73b562d1a6d3af5bec381d467894cedf0"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_eval_multibackbone_source.py",
+      "source_identity": {
+        "bytes": 20332,
+        "sha256": "82f775ea1afdd60ea62bc3f5192064c73b562d1a6d3af5bec381d467894cedf0"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 14480,
+        "sha256": "5a9ab1a857bcc52753a70945f11761dc1811ba139bcba55c691d93156a106d07"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_legacy_gsd_restore.py",
+      "source_identity": {
+        "bytes": 14480,
+        "sha256": "5a9ab1a857bcc52753a70945f11761dc1811ba139bcba55c691d93156a106d07"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 7620,
+        "sha256": "93a80b99029f3bd34832c633b8d2087ebfc0963e154d2066f6271938f0227d6a"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_prepare_chamfer_variants_assets.py",
+      "source_identity": {
+        "bytes": 7620,
+        "sha256": "93a80b99029f3bd34832c633b8d2087ebfc0963e154d2066f6271938f0227d6a"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 8355,
+        "sha256": "7231e5df7e3e661f96204ed499bdde382c2205aa1d48a85867c0c053ec1b5d24"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_scan_curvenet_entropy_calibration.py",
+      "source_identity": {
+        "bytes": 8355,
+        "sha256": "7231e5df7e3e661f96204ed499bdde382c2205aa1d48a85867c0c053ec1b5d24"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 5699,
+        "sha256": "7096f7526b8737ad8b94602cde8b2a742477417869ae7e8bbad5b9e21a4ea15e"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_scan_curvenet_semantic.py",
+      "source_identity": {
+        "bytes": 5699,
+        "sha256": "7096f7526b8737ad8b94602cde8b2a742477417869ae7e8bbad5b9e21a4ea15e"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 16676,
+        "sha256": "7b73dc8a80d2047e1c1e03bf2a5da44e60aaff0ca412e1d361868dc2d04e2f8e"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_semantic_trajectory.py",
+      "source_identity": {
+        "bytes": 16676,
+        "sha256": "7b73dc8a80d2047e1c1e03bf2a5da44e60aaff0ca412e1d361868dc2d04e2f8e"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 15729,
+        "sha256": "4b92f5f8c73ddc760834d42da28d42e0609394d8fd709095dcc9ca62cf2968a4"
+      },
+      "integration_adaptation": false,
+      "path": "tests/test_shared_trajectory.py",
+      "source_identity": {
+        "bytes": 15729,
+        "sha256": "4b92f5f8c73ddc760834d42da28d42e0609394d8fd709095dcc9ca62cf2968a4"
+      }
+    },
+    {
+      "draft_identity": {
+        "bytes": 18302,
+        "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c"
+      },
+      "integration_adaptation": false,
+      "path": "tta_gsd_v2.py",
+      "source_identity": {
+        "bytes": 18302,
+        "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c"
+      }
+    }
+  ],
+  "source_code_changes_since_previous_draft": false,
+  "source_commit": "fe8a777dd3592beb35b30fbb17b3aa1cd3576bb9",
+  "staging_review_no_commit": true,
+  "staging_review_no_push": true,
+  "status": "parent_reviewed_selected_integration",
+  "target_commit": "daaa709dfc22538b79344abb2a58fc4defc7b493",
+  "verification": {
+    "all_selected_hashes_verified": true,
+    "combined": {
+      "skipped": 1,
+      "subtests": 373,
+      "tests": 479,
+      "warnings": 6
+    },
+    "depth_campaign_numpy2": {
+      "passed": 66,
+      "reason": "Pinned NumPy1 physical RNG requirement retained",
+      "rejected": 3
+    },
+    "depth_campaign_pinned_numpy1": {
+      "passed": 69,
+      "tests": 69
+    },
+    "diff_check": true,
+    "final_docs_only_no_broad_test_repeat": true,
+    "final_frozen_report_validators_pass": true,
+    "final_selected_json_parse_count": 55,
+    "peer_byte_preserved_count": 68,
+    "peer_shared_complete_text_preserved_count": 3,
+    "py38_ast": true,
+    "target_baseline": {
+      "subtests": 274,
+      "tests": 363,
+      "warnings": 7
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "approval_status": "pending_explicit_user_reply",
+  "asset_layout": "overlay_only_reuses_exact_base_bulk",
+  "bulk_assets_verified": false,
+  "commands": {
+    "bytes": 237023,
+    "sha256": "9825e3d51b73b85f25fdf11876c885c86b43d2a3a5d063afcc2cda3985bb78ef"
+  },
+  "controls": {
+    "bytes": 16697387,
+    "sha256": "3d07ca6a09ad8063e46bfa8c15431071c112f90c1d0df1f9e27720f5a16f1f62"
+  },
+  "cpu_configuration_preview": {
+    "bulk_assets_loaded": false,
+    "calibration_placeholders": "nonexecuting parser check uses explicit dummy coefficients; calibration proof binding tested separately; no coefficients selected",
+    "commands_sha256": "9825e3d51b73b85f25fdf11876c885c86b43d2a3a5d063afcc2cda3985bb78ef",
+    "head_configurations": 338,
+    "jobs": 86,
+    "research_GPU_started": false,
+    "source_commit": "a1d298a4d64bd9b580253dfa53224aa69b94df33",
+    "stages": {
+      "calibration": 2,
+      "confirmation": 30,
+      "development": 10,
+      "smoke": 14,
+      "timing": 30
+    },
+    "status": "passed_CPU_configuration_preview_only"
+  },
+  "manifest": {
+    "bytes": 175773,
+    "sha256": "a9f017789fda66de310931f63cde5e540985b96ac5097ae8fe729358e9d06da0"
+  },
+  "payload": {
+    "bytes": 5518615,
+    "sha256": "398891e17854e4025379bc484ea3e261e4185824801a2fdf9e6ccdf75d36fb95"
+  },
+  "plan": {
+    "bytes": 8207,
+    "sha256": "e4bf0104fe997157810820aad1b6f12e9f0f7e6b9915334329c16f4a754dcff4"
+  },
+  "project_source_commit": "a1d298a4d64bd9b580253dfa53224aa69b94df33",
+  "research_GPU_started": false,
+  "source_dirty": false,
+  "source_file_count": 296,
+  "source_snapshot": {
+    "bytes": 5567352,
+    "sha256": "d638c2e455a225d6597ff10eeda63778e3963711e05e542450ae5e47726e0551"
+  },
+  "status": "sealed_CPU_only"
+}

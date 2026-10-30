@@ -7051,3 +7051,541 @@ concurrentnotebookcell. Keep sole31219/hostawake43955 throughfinalarchive.
 [Run/User report/Decision] The user explicitly authorized closing only our r2 after necessary work and evidence verification, without another prompt. Final derived analysis/knowledge ZIP (4,244,184 bytes; SHA256 da3653f7b0d386d1e8b84002013d6c14eb8ea87e4ef7cbb7d72c953f9bee7731) was uploaded to Drive phase-evidence/final_local_analysis_20261030T1806Z.zip and downloaded back with matching bytes/SHA at18:05:23UTC. Full raw evidence had already passed Drive/local validation.
 
 [Run] Monitor31219 stopped at18:05:55UTC without teardown. Official command `colab stop -s tta-chamfer-depth-tuning-a100-20261030-r2` returned0 and Session terminated. Fresh server inventory at18:06:04UTC showed owned endpoint79r779o7n5fk absent and protected guidance-variants peer3nh8smksm50de still present unchanged. No peer runtime/process/monitor operation was performed. Closure/precondition/CLI output and before/after inventories are under the compact final evidence directory. No GPU work remains. Earlier live/pending statements are dated history.
+
+## 2026-10-30 — Chamfer-only isolated variants prepared, no research GPU evidence
+
+[User report/Code/Run/Open] Scope: sparse guidance backward, fixed-X semantic
+KL versus marginal entropy separately, density-confidence weighted SCD.
+Existing probability mean retained; zero spectral/graph execution is enforced.
+CPU mathematical/observer/archive acceptance tests are present; native
+CUDA/backward and actual accuracy/time effects remain pending. New
+benchmark-internal70/140object partitions are fixed without label selection.
+A100 tta-chamfer-guidance-variants-a100-20261030-r1 setup is active; peer
+runtime protected. User-approved local monitor handoff for Drive consent
+finished, monitor36160 restarted; no research GPU run or >60min approval yet.
+Next: calibrated gradient-scale freeze, exact source/command/asset receipts,
+setup completion, explicit approval for the concrete whole >60min GPU phase.
+Falsifier: matched heldout probability-mean accuracy or actual fresh runtime
+fails to benefit; retain harms/nulls/failures and do not combine such arms.
+See [full design/status](chamfer_guidance_variants_20261030.md).
+
+
+
+
+## Diffusion-guidance literature review and bounded experiment proposals — 2026-10-30
+
+[User report/Paper/Code/Inference/Open] Executed the handoff's literature/code
+review scope on isolated research branch derived from
+`gsd-guidance-components@17dd87c355fd779460297fb23f3dabbb40902d2c`. Original-root
+user edits and AgentB branch stayed unchanged. Read current knowledge/math audit,
+accepted fixed/sensitivity results and actual11source files; source SHA manifest
+preserved. Prior numerical results were read from accepted notes, not recomputed
+from raw inference archives in this turn. Executed scientific source remains
+8169271/sealed73d9fbe1…b37b8, distinct from this documentation base.
+
+[Paper] Deduplicated2411.14495/WACV DOI. Fresh OpenAlex target/cites returns4;
+SemanticScholar429 and Scholar403 remain explicit limits. Six relevant citing
+PDF bibliographies independently inspected: SATOR[5]p9, MAMVI[5]p14,
+TTAD[33]p15, LoTT-PC[5]p9, GSDTTA[33]p10 and Uni-Adapter author-yearp8.
+GDSD publisher-indexed text is additional qualified evidence; its full HTTP
+read429 means no new PDF audit. Prior15publication inventory remains a dated
+bounded source, not a new exhaustive count. Primary abstracts distinguish
+first preprint, updates and venue/accepted status, including SATOR WACV2027
+acceptance and TTAD's CAD2027 journal reference. SteeringTTA is ICML PUT
+Workshop2025, not an ICML main-track paper.
+
+[Code] SATOR e65983b's default BN_reset clears running statistics; frozen
+weights do not imply our frozen inference state. MAMVI0b55397 aggregates
+losses into one backward but still pays multi-view forward/activation cost;
+paper confidence mode increases LR for low confidence. CloudFixer f043e24
+uses detached denoiser targets for geometric parameters; detaching our whole
+clean latent would remove guidance. Author-code pin/excerpt receipt stored.
+
+[Inference/Decision] Shortlist A same-schedule sparse real guidance backward
+and B sparse semantic input guidance (frozen Point-MAE, two views/two times).
+Controls distinguish style schedule, semantic update, readout, host, extra
+compute and conditional spectral effects. Reliability-weighted SCD and causal
+early exit are secondary. Existing mean/entropy/H+JS ideas retain attribution.
+Proposed new70development/140confirmation IDs per dataset and seeds0/1/2,
+all15 primary/macro14 secondary, object-cluster CIs and fresh-input B1/B70
+timing are prospective, with no manifest/run created. Falsifiers: unacceptable
+matched accuracy loss or no real net speedup for A; no semantic terminal gain,
+confident-wrong collapse or excessive complete-flow cost for B. Numerical
+failure/incomplete endpoints must remain visible as in the accepted campaign.
+
+No production code, model forward/backward, Colab query/allocation or GPU run;
+only documentation and literature evidence. No improvement, exact reproduction
+or methodological novelty claim. See [full review](diffusion_guidance_literature_review_20261030.md)
+and `knowledge/evidence/diffusion_guidance_literature_20261030/`; raw literature
+is under `result/preparation/diffusion_guidance_literature_20261030/` in this
+research worktree, distinct from historical inference result paths. No Drive
+upload. A newly accessible primary work, a matched result, or a different
+measured cost profile can revise this priority order.
+
+
+## 2026-10-30 — Author-code gate and integrated CPU verification
+
+[User report/Code/Test/Inference/Open] User requested a pre-GPU author-code
+audit. CloudFixer/MAMVI/GDA source pins are checked; no official Adaptive
+Guidance sampler implementation found, with search scope preserved. Intentional
+input-guidance deviations are explicit; no static core-loss defect found.
+Acceptance bugs in runtime calibration formula checking and repeated timing
+analysis were fixed with regressions.436CPUtests/331subtests pass on local
+Torch2.15; remote Torch2.1.2/native gradients remain untested. Cell4 setup
+transport timeout was diagnosed, source preserved and exact replay is ongoing.
+Research GPU phase remains unstarted and >60min duration approval is pending.
+[Audit](chamfer_author_code_consistency_audit_20261030.md) ·
+[Scope, source verification and setup](chamfer_guidance_variants_20261030.md).
+
+
+## 2026-10-30 — Revision2 source and exact86job scope frozen, no GPU research
+
+[Code/Test/Run/Open] Actual-run-name boundary regression corrected decimal/
+scientific semantic tags without changing coefficients/math.437CPUtests/339
+subtests pass;86worker/338head argument previews pass. Sourcea1d298a, manifest
+a9f01778…, sourceZIPd638c2e4…, exactplan e4bf0104… and commands9825e3d5…
+are frozen in the compact prepared-scope receipt. Reviewable5happroval question
+is pending, no approvalfile or researchGPUjob exists. EMD/Chamfer/PointNet++
+setup passes, PVCNN active in ownedA100/monitor36160; setup/native/assets and
+strict8head proof remain distinct mandatory gates.
+[Current scope and hashes](chamfer_guidance_variants_20261030.md).
+
+
+## 2026-10-30 — Fresh ten-cell setup and complete preparation accepted
+
+[Run/Test/Open] Same ownedA100 ten-cell split verified (sole authorized
+cell2fastrlock deferral),656taskassets,8strictCPUhead loads/CUDAuninitialized,
+and restored pinned-native synthetic GPUforward/backward checks pass. Local/
+Drive raw archives and setup roundtrip matchSHA/CRC/memberhashes. Sourcea1d298a,
+plan e4bf0104… and86jobs remain fixed; no researchworker,coefficients,accuracy
+or time result exists. Explicitwhole5happroval pending; monitor36160/VMlive.
+Freshsplitnot-replayed status is superseded in colab_cli_setup_20261017.md.
+[Accepted readiness](evidence/chamfer_author_code_audit_20261030/launch_readiness_20261030.json) ·
+[Scientific scope and limits](chamfer_guidance_variants_20261030.md).
+
+
+## 2026-10-30 13:23:44 UTC — Exact five-hour campaign approved
+
+[User report/Decision/Run/Open] “5 saat üst sınırla onaylıyorum” approves
+sourcea1d298a/plane4bf0104…/86jobs/18000scontinuous research cap. Approval
+SHAa041f13d…207f is retained and uploaded to ownedVM/Drive. All preparation
+gates pass; initial8technical jobs launch via36160 next. No result claimed.
+[Approval](evidence/chamfer_author_code_audit_20261030/gpu_approval_20261030.json).
+
+
+## Initial native smoke stopped at exact sham parity — 2026-10-30 13:39 UTC
+
+[Run/Open] All8 initial technical workers completed their declared2IDs×Gaussian/
+Background×4heads;32raw head archives are independently readable and match
+actual Drive SHA. The stage failed its final semantic-weight0/C exact geometry/
+logit comparison at13:31UTC. Calibration, positive-weight semantic/weighted,
+development, confirmation and timing stages have not started. No accuracy or
+speed benefit is established by these technical outputs.
+
+[Run] Failed phase archive97160bytes SHA
+2354d2cda1113a086bc2216da9d7e69ee5d85d80429a3130a5819f89002c4e68;
+local `result/preparation/chamfer_guidance_variants_20261030/gpu_smoke_initial_failed_evidence.zip`,
+Drive `thesis/result/chamfer_guidance_variants_20261030/phase-evidence/gpu_smoke_initial/evidence.zip`.
+Read-only CPUfield audit archive6426bytes SHA
+e6b845bb89b3e6ff77123cf352626e8229443c90e2796ef555a4667e90b344ea,
+local `initial_failure_audit.zip` in the same preparation directory; actual
+Drive roundtrip size/SHA/CRC passed. Original failed files are preserved.
+
+[Run/Code/Inference] Initial input/encoded states/noise/style/initialRNG and final
+RNG match; frozen weights/native/config identities match. The first clean
+probe already differs before semantic activation; all terminal local/style
+hashes differ. Logit maximum absolute differences reach11.57 and some candidate
+argmaxes change. Native voxelization/devoxelization uses floating atomicAdd,
+but this is only a candidate cause, not yet demonstrated. A baseline-vs-baseline
+native replay with numeric intermediate arrays is needed before any acceptance
+rule or implementation change. Do not weaken exact parity speculatively.
+
+[Decision/Open] Original research clock started13:25:16.894181UTC; unchanged
+18000s continuous cap ends18:25:16.894181UTC, including debugging/waits. Monitor
+36160 and owned A100 remain live; no teardown authorization. Short bounded
+recovery diagnostics are within the authorized work; no failed directory may
+be overwritten or silently resumed. Reassess remaining whole-phase projection
+before launch. Source remains a1d298a; no algorithm fix has been made.
+
+
+## Native self-repeat and metadata repair — 2026-10-30 13:55 UTC
+
+[Run] Frozena1 source C1/C2/KL0 diagnostic completed140.5913s, all cached
+replays on identical2ModelNet IDs/Gaussian+Background. Raw47memberZIP
+47507841bytes SHA17314883a99194c5fb6ce17be9893e58e3323bf70852c89144a1d3927b25473d
+matches actual Drive/local size/SHA/CRC. Numeric audit retains actual perstep
+prior inputs/outputs, scheduler outputs, leaf gradients and decoded points;
+[compact evidence](evidence/chamfer_author_code_audit_20261030/native_repeat_diagnostic_20261030.json).
+
+[Run/Inference] C1/C2 initial tensors and first prior input/style are byte-exact,
+but first prior output maxabs differences are7.7614e-4 Gaussian and5.2428e-4
+Background. Differences precede every semantic callback and amplify through
+C-only gradients; terminal decoded relativeL2 differs.004808/.040121 and some
+predictions change. Thus exact whole-trajectory parity fails even for C/C in
+the observed execution policy. This does not establish zero semantic effect:
+no arbitrary epsilon or trajectory-equivalence acceptance is inferred. Next
+is exact native autograd(0*S) local/style-zero verification on live probes.
+
+[Code/Test/Run] Found independent artifact-schema bug: when REPO lies within
+assets/source_snapshot, an elif prevented canonical repo/* entries and perfile
+source copies. Commit0fd258110abf48dc92d739b288010ebfbee475b2 changes that elif
+to independent if after retained asset declaration/hash verification.438CPUtests/
+339subtests pass24.86s,6pre-existingwarnings. New regression rejects undeclared
+and tampered nested sources. No sampler/semantic/math code changed.
+
+[Run] New immutable prepared_v2 deployment verifies656files; exactly the helper
+and source ZIP asset hashes differ. All296runtime sources match except the
+one-word helper patch. Newmanifestef0412d3…19b777, sourceZIPfd8c163f…b1a69;
+CPUcanonical-source probe passes, CUDA stays uninitialized. Existing verified
+8strict head loads are explicitly reused, not claimed as rerun. DeploymentZIP
+5500079bytes SHA1dda3c561376238cbcec4d39a9c0bef32eac848e1cd3ef50409f0e87c131b17e
+matches Drive/local size/SHA/CRC. Original deployment/failedstage/approval remain
+immutable. Same originalcontinuous5h clock/deadline; recovery may consume the
+registered1800s packing/retry reserve, never extend18000s. Accuracy stages remain
+gated on pointwise zero-effect proof and reviewed metadata-only recovery.
+
+
+## Exact zero effect accepted; calibration running — 2026-10-30 14:04 UTC
+
+[Run] Native KL0/H0×Gaussian/Background live autograd(0*S) checks complete:
+8probe rows (normal5/8,Background15/23), B2; every local/style gradient is
+finite and has exactly zero count/max/norm. RNG and existing leaf .grad fields
+are unchanged. Default runner frozen-model and declared-ID checks pass.
+Raw91382byteZIP SHA0bb7b512421b9a20e123491cd614ea860df010050ee2c2535756ccafdfa07be1
+matches actual Drive/local SHA/CRC; receipt1db3130a…388bf8 retained. A CLI
+prelude Connection-was-lost attempt never submitted user code (history0matches,
+same owned endpoint verified); only its local CLI child was stopped and same
+reviewed phase retried. The persistent monitor and VM stayed live.
+
+[Decision/Inference] Initial exact whole-trajectory equality remains a failed
+historical outcome. C/C native drift establishes why that gate cannot pass
+under the observed policy; exact-zero contribution proves the semantic
+zero-weight scalar contributes no local/style update at the tested probes.
+This is not a trajectory-equivalence claim or arbitrary tolerance. Exact
+initial tensor/RNG/source/asset/frozen checks remain required for comparisons;
+three-seed uncertainty is conditional on native nondeterminism.
+
+[Run/Decision] Metadata-only recovery binding46318318…0b466 and controller
+9cfd4769…b00772 verify all296actual source files, the exact elif→if patch,
+unchanged bulk/checkpoints/IDs, original approval/plan/commands,32initialrawZIPs,
+CPUrepair and both native diagnostic receipts. Original failed stage/approval
+are immutable. Six CPU recovery tests pass including9bad-zero subcases.
+The original1800s packing/retry reserve is now consumed by actual recovery;
+pinned accounting fd8c08c7…aefa0e9 records0remaining without changing nominal
+compute estimates,10%margin or absolute18:25:16.894181UTC deadline.
+
+[Run/Open] Both label-free calibration jobs launched14:04:11UTC through sole
+monitor36160 on the same owned A100. Exactdev70/B70/seed0/all15,Point-MAE-only;
+coefficients use the predeclared gradient-ratio rule, not accuracy. ModelNet
+completed its15declared corruptions; Scan follows. No coefficient/report or
+new accuracy/speed benefit is accepted yet. Next: independently validate both
+raw calibration bundles and frozen report, then positive-weight technical
+smokes before independent development/confirmation/timing. Spectral/graph
+calls remain forbidden; no combination or early exit is enabled.
+
+
+## Calibration independently accepted; active smoke complete — 2026-10-30 14:18 UTC
+
+[Run/Test] Both70-object/all15/B70/seed0 calibration raw ZIPs match actualDrive/
+local SHA/CRC and strict selection/frozen/source checks. Independent CPU
+summarize_bundles recomputes the exact report after normalizing only local
+versus remote provenance paths. All12candidate×dataset×local/style groups
+contain2100finite strictly positive norms; graph/spectral calls0 in30batches.
+All4physically downloaded smoke cache NPZs pass actual tensor/RNG/byte checks.
+Report72065bytes SHA6c03ad4990197cc8f8a17d6ad4f8c5eaad88d359800b557dd55d1597fb8e5a25.
+
+[Run/Decision] Frozen coefficients: KL0.6285361973358488,
+H1.4715424107401223, weightedscale0.9171509895707142. Per-candidate4200ratios
+have medians .15909982658734056/.06795590753630018/1.0903330109997096;
+predeclared .1/median,.1/median,1/median reproduced. No accuracy-based choice.
+Calibration controls the pooled median, not every object's update: scaled
+maximum ratios can reach approximately7.01/3.72/2.24 respectively. Do not
+reinterpret .1 as a per-object cap or retune from future accuracy.
+
+[Run] Calibration took360.9799s (estimate900s); phaseZIP144129bytes SHA
+dceec26aa53ca5bda6e725c33fb244f999a738d0fd6fa9488dc3ee983f6b0b10
+matchesDrive/localSHA/CRC. Positive-weight KL/H/weighted6technical jobs
+completed281.0998s at14:17:41UTC; phaseZIP144117bytes SHA
+dc46ce76c330390ebfb169b99ed51447696f7c8ac77e1ed76b832090187cab5c
+also matchesDrive/localSHA/CRC. Its24rawhead ZIPs are downloading/awaiting
+independent acceptance before development. No small-smoke accuracy claim.
+SameA100/monitor36160, original18:25:16.894181UTC deadline, no teardown.
+
+
+## Technical acceptance passed; development running — 2026-10-30 14:23 UTC
+
+[Run/Test] All24positive-weight rawheads/48batches independently accepted with
+actualDrive/localSHA,size,CRC,2IDs×Gaussian+Background×4heads×bothdatasets.
+Frozen KL/H weights and W eta/gamma match the actual frozen calibration report;
+all graph/spectral calls0. Four-candidate probability mean/source preprocessing,
+semantic10/30callbacks+2losses+1Xforward and W1density+10/30backwards pass.
+Actualinitial tensors/RNG/IDs/labels exactly match oldC in every batch; only
+asset-source ZIP/helper identities differ by the exact reviewed metadata
+repair. Initial8sparse heads also verify4/11backwards and10/30prior forwards.
+Geometry finiteness was checked by the producing runtime; raw evidence retains
+shape/hash and finite logits, not geometry coordinates. No tiny-smoke accuracy
+conclusion. See active_smoke_acceptance_20261030.json.
+
+[Code/Open] Independent raw loading exposed an offline analyzer integration
+bug: Point-MAE-only calibration reports4native modules, while all4head runs
+add PointNeXt pointnet2_batch_cuda. Shared native bytes and LION/source match;
+the extra module exactly matches oldC. Runtime already validates the complete
+calibration-native subset correctly. Offline analyzer whole-map equality must
+be repaired/tested to allow additional run-only modules while still rejecting
+missing/tampered calibration modules. Full C/treatment native-map equality
+for paired accuracy remains strict. No GPU source/coefficient rerun is needed.
+
+[Run/Open] Development launched14:22:52UTC through36160: exact10jobs,
+5independent arms×2datasets×4heads,dev70/B70/seed0/all15. Actual same-source
+C caches initialize each stage; no coefficient or hyperparameter selection
+from scores. Then frozen heldout140×3seeds and3fresh timing repeats, unchanged
+original18:25:16.894181UTC deadline. Runtime/monitor remain live; no teardown.
+
+
+## Offline analysis repairs and first partial development result — 2026-10-30 14:36 UTC
+
+[Code/Test/Run] Offline analyzer commit83dbe21 fixes the observed4-native
+Point-MAE calibration→5-native four-head inventory mismatch: every calibration
+module must match run bytes/SHA, while extra run-only modules are allowed.
+Full baseline/treatment native equality remains strict.55targeted tests pass;
+all24actual positive smoke ZIPs now load. No GPU source/report/coefficient
+changed; the executing source remains sealed0fd2581.
+
+[Run/Code] Existing sameModelNetdev70/B70/seed0/all15 calibration and baseline
+fresh encodes show15/15exact input/noise/timesteps/alpha/RNG but15/15different
+z0/h0/style/noisy-local hashes. All4baseline heads agree internally. This is
+observed encode drift in existing runs with different calibration/readout
+workloads, not a claim about future timing data or performance. Configured
+encoders use floating CUDA atomic reductions; no bitwise guarantee is valid.
+
+[Code/Test] Offline commit75cec0a gives only fresh timing an explicit pairing
+mode: exact raw input/noise/scheduler/RNG plus unchanged provenance/IDs/config;
+encoded differences are reported with actual reference/compared hashes.
+Cached-accuracy and shared-geometry head checks retain full initial equality.
+69targeted tests pass including control-tamper rejection. All30fresh timing
+jobs and GPUsource0fd2581 remain unchanged. Timing supplies costs only, never
+accuracy inference. Actual timing artifacts remain pending.
+
+[Run/Inference/Open] First partial ModelNet C/sparse development comparison:
+70objects/seed0/all15/fourheads probability mean62.738095% C versus61.238095%
+sparse, delta−1.500000pp, conditional object-bootstrap95%interval
+[−2.261905,−.761310]pp (2000replicates,seed0). Strict complete initial-state/RNG
+pairing passes on all8raw heads. This is one dataset/one seed development
+only, not a full-study/heldout conclusion. Do not change interval/coefficient
+from this score. Other arms, Scan and140-object×3seed confirmation are pending.
+Derived local `result/preparation/chamfer_guidance_variants_20261030/development_modelnet_C_sparse_partial_analysis.json`;
+analysis83dbe21, GPUsource0fd2581. No speed percentage from fresh-C/cache-arm
+development timings; the3fresh repeats remain the speed endpoint.
+
+
+## Development complete; heldout confirmation executing — 2026-10-30 15:03 UTC
+
+[Run/Test] Exact10developmentjobs/40rawhead ZIPs/600head-batches and34physical
+caches are locally size/SHA/CRCverified. Root fullanalyze_campaign validates
+all40paired initial states/RNG/IDs/labels/source/native/frozen conditions;
+independent32-head/480-batch+all34cache proof plus root last8/120-batch guards
+cover the complete stage. Independent final numeric recheck remains pending.
+Phase1849.8476s,160829byteZIP SHA
+cca33a5a08c9866b3e12d95e4c8bff6aad7cffc04eec66244038ce1f7aa7b4c8
+matchesDrive/local. Full local CPU suite455tests/339subtests passes23.48s,
+6pre-existingwarnings after offline fixes; GPUsource remains0fd2581.
+
+[Run/Inference] Development probability mean (fourheadall15means,seed0,70IDs):
+ModelNetC62.738095%, ScanC40.595238%. Deltas pp (MN/Scan): sparse−1.500000/
+−1.119048; KL+.261905/−.452381; H+.047619/−.309524; weighted−.309524/−.928571.
+CIs and exactfractions are retained in development_results_20261030.json.
+No robust accuracy benefit is established. This is fixed development evidence,
+not heldout confirmation; no interval/weight/arm is retuned or dropped.
+Cached treatment timings cannot supply deployment speed against fresh C.
+
+[Run/Open] Submitted confirmation15:00:36UTC encountered only CLI prelude
+Connection-was-lost; history0matching user-code executions and sameownedVM
+proved no GPUworker launched. Only ownedlocalCLIchild79187 was terminated;
+monitor36160/VM stayedlive. Same reviewedwrapper retried15:02:00UTC; actual
+fourhead ModelNetC/seed0 runbundles began15:02:04UTC. Exact30jobs: bothdatasets,
+all5arms, reserved140IDs/B70/all15/seeds0,1,2. No score-based choices, spectral,
+combination or earlyexit. User says“Tamamdır devam et” after status; this keeps
+the original approval/cap, not a new five-hour clock. Absolute deadline remains
+18:25:16.894181UTC. Reassess measured140-object timings and remaining fullphase
+cost before further stages. SameA100 and solemonitor36160 remain live.
+
+
+## Final development recheck and first heldout structure accepted — 2026-10-30 15:24 UTC
+
+[Run/Test] Independent final40-head/600-batch development report exactly
+matches Root's2000bootstrap/seed0 report, including corrected/harmedIDs and
+CIs, excluding only Root-added analysis_provenance. All34cache proofs remain
+accepted. Earlier“independent final recheck pending” is superseded here.
+See development_acceptance_20261030.json.
+
+[Run/Test] First3heldout workers (ModelNetC/sparse/KL,seed0),12rawheads and
+360batches independently pass structural acceptance with no accuracy/argmax
+calculation. Actual140IDs match the frozen heldout manifest and are disjoint
+from dev70. Both70-object batches/all15 match30physical confirmation caches:
+input/z0/h0/noise and producer postprepare→samplerinitial→postreconstruction
+RNG are exact. Native/source/frozen/labels, sparse4/11backwards10/30forwards,
+KL2loss/1Xforward/3decodes/12probeheadforwards and graph/spectral0 pass.
+Raw audit c81ca85d…cc6228,22375bytes; producing NumPy1 protocol4 hash spelling
+conversion is explicit. First C/sparse/KL worker times305.5412/259.1948/318.3081s
+are whole-worker durations, not deployment inference speed measurements.
+
+[Run/Open] At15:23UTC4/30confirmationjobs complete; ModelNetseed0weighted
+runs. Job order is all5arms×bothdatasets for seed0, then seed1, then seed2;
+a conversational“seed1”progress label was corrected against the frozen argv.
+The source/coefficients/IDs/order remain unchanged; no clock reset or scope
+extension. SameVM/36160 remains live. Full3seed accuracy and30fresh timing jobs
+are pending; no gain/adoption conclusion yet.
+
+
+## Additional source-model control authorized after the current campaign — 2026-10-30
+
+[User report/Decision] The user requests a follow-up because Point-MAE source-only
+accuracy on ScanObjectNN-C is low: test only the accuracy-positive method
+(current candidate entropy guidance) on Scan with a different source-model and
+record results. Explicit instruction: no additional GPU approval question is
+needed; perform this after the existing phases finish and their data are
+collected. Verbatim authorization is retained in
+post_campaign_source_model_authorization_20261030.json.
+
+[Decision/Open] The added experiment changes the frozen classifier producing
+semantic guidance, not merely the classifier reading the existing Point-MAE-
+guided points. Select an alternate model using validated source-only evidence;
+retain matched C versus C+semantic accuracy and runtime controls, frozen model
+parameters, existing probability mean, no spectral/combined methods. Prepare
+and verify any required gradient-head/calibration/source changes before
+launch. Do not infer a new five-hour clock for the existing campaign: its
+original18:25:16.894181UTC deadline remains. The explicitly authorized follow-up
+is a separate bounded phase after current data collection, with its actual
+source/scope/duration recorded. It has not been implemented or launched yet.
+
+## 2026-10-30 — completion-conditioned owned runtime closure authorized
+
+[User report/Decision] The user leaves and directs autonomous continuation,
+a progress backup to Drive, and closing our own Colab runtime without another
+question ONLY AFTER all required original and alternate-model studies and
+verified evidence collection finish. This supersedes the previous keep-live
+closure state; no early teardown is authorized. Exact owned session/endpoint,
+protected peer and verbatim authorization are in
+`knowledge/evidence/chamfer_author_code_audit_20261030/completion_teardown_authorization_20261030.json`.
+No peer or unknown runtime/monitor may be stopped.
+
+## 2026-10-30 17:38UTC — heldout confirmation accepted; fresh timing active
+
+[Run/Code/Inference]30/30workers complete in9086.4653s. Phase archive232946bytes,
+SHA28e1e16a05b0b0fc9babc26b284010b80b790c59bc58edbdbdb0aa877a0ec9f5;
+Drive/local120raw and214physical cache bytes/CRC verified. Independent proof
+SHA9484d1f1011af898889bb2ae2f142677a00a83449d6c30087e95e3643743c15b
+accepts3600batches and exactly reproduces Root analysis. Four-head all15 H
+MN+.3254pp CI[+.0794,+.5714], Scan+.0833pp CI[-.1071,+.2778]; S/W negative
+on both/allfourheads. Per-head and limits are in the consolidated results note.
+No HPO or method combinations. Three fresh timing repeats launched17:35:16UTC
+through solemonitor36160, source0fd unchanged; no remote transfers during
+measurement. Later CurveNet/H remains pending until original data collection.
+
+## 2026-10-30 18:16UTC — original timing and complete collection accepted
+
+[Run/Code]30timingworkers/120heads/240batches complete in1918.9431s; phase
+ZIP207451bytes SHA81302e31025b7b639f02876863d8c6e7f467e65fd06827aced632a5aafbf4838
+passes Drive/local checks.240confirmation+timing raw ZIPs and214physical
+caches rehashed into454-record original_combined_physical_manifest. Independent
+timing proof finalSHAd5a623ba9bc176309a7378ba0228f14935b25b100d5f9e83172077269432c303
+matches Root costs/drift modulo record order. Median paired pipelinecostchange:
+S−21.153/−21.069%, H+7.426/+8.155%, KL+7.491/+8.165%, W+.670/+.447% (MN/Scan).
+Startup/data loading/archival excluded; G+B B70/all4heads, no full15 or
+singlehead deployment claim. Originalcontinuouswall4h42m under5h; ledger
+active14093.35s differs. New CurveNet/H-only deployment prepared, no new
+research GPU yet. Details in consolidated results note.
+
+## 2026-10-30 18:33UTC — alternate teacher native gate passed; C/H running
+
+[Run/Code] New95a4997/CurveNetH-only164s calibration,2100rows/30native
+zero/nonzero XYZ/local/style proofs independently accepted. Fixedlambda
+3.153885581354952; frozenreportSHA8e8dd33e15edc17487bbcc1636064bf3de1b4a1fdad5714d6dd777f62e2e5d07.
+CPU deploy archivefdd668b3...c789 verified; actual newplan297badb3...f9d46
+after original454physicaldata collection. Six new matched C/H workers now
+run on reused140Scan IDs/seed0,1,2, fourreadouts; no newaccuracyclaim yet.
+One0-usercode CLIprelude retry preserved sameVM/source/cap. Newdeadline
+19:33:23.664750UTC; old5hclock not reset. Details/evidence in CurveNet note.
+
+## 2026-10-30 19:08UTC — alternate CurveNet heldout accepted
+
+[Run/Inference]6newC/Hworkers complete in1897.8977s; phase188788bytes
+SHAb7268477715a285237812358097df3d56002657eb9ea26822b9762cd5c89074f
+passes Drive/local.24raw/720batches/90physicalcaches independently accepted,
+proofSHA2a31bba3fbce637ba2b98ca91c6b3799b6a967522248da8de696d3e23b0e2ed7.
+PrimaryCurveNet55.6667→55.9048%,+.2381pp CI[−.1587,+.6349]; all3seeds
+positive butCIcontains0. Secondaryfour-head+.1944pp; PointNext+.4127pp
+doesnotreplaceprimary. Sameheld140posthoc, noHPO/noGSL/noBNupdates.
+NewthreefreshC/Htimingrepeats run19:07:55UTC; no remote transferduring
+measurement. Newdeadline19:33:23.664750UTCunchanged. Finalcost and
+Drive/localsummary thenonlyownedruntimeclosurearepending.
+
+## 2026-10-30 — tüm deneyler ve fresh süre ölçümleri tamamlandı
+
+[Run] CurveNet takip aşamasının 13 worker/49 head ZIP ve90 fiziksel cache'i
+kabul edildi. Üç döndürülmüş fresh tekrar: dev70/B70/seed0,
+Gaussian+Background, ortak rekonstrüksiyon bir kez ve dört terminal classifier.
+C medyanı20.955446s, H medyanı22.759866s; birincil eşlenmiş H/C oranları
+1.08557173,1.08981485,1.08468403; medyan ek maliyet **%8.5572**.
+Gaussian ek maliyet medyanı%13.0753, Background%6.0390.
+Model/native kurulum, toplu veri yükleme, paketleme ve Drive aktarımı bu
+batch ölçümüne dahil değildir; tek classifier veya all15 deploy süresi değildir.
+
+[Run/Code]24 timing head/48 batch bağımsız kabul edildi. Input/noise/scheduler/
+RNG, kaynak95a4997,658asset, donmuş checkpoint/state ve katsayı tam eşleşir.
+40 head-batch encoded-state farkı açıkça kayıtlıdır; fresh encode bitwise
+paritesi iddia edilmez ve bu koşulardan accuracy çıkarılmaz. Root ve bağımsız
+tam JSON, yalnız encoded-difference satırlarının sırası normalize edilince
+birebir aynıdır. Guidance spectral/graph hesap sayıları sıfırdır; classifier
+mimarisinin kendi KNN/Curve işlemleri aynen korunur.
+[Süre kabulü](evidence/chamfer_author_code_audit_20261030/scan_curvenet_timing_acceptance_20261030.json).
+Timing phase ZIP183436bytes SHA1e106a454c0df905ba444355f431ecd8ac9b0164bb2b14f9c6a368e0fb2e2cd9.
+
+[Run] Yeni sürekli GPU saati18:23:23.664750→19:14:23.569UTC,
+yaklaşık3059.90s/51dakika;4200s sınırının altında. Ledger active_seconds
+2448.191s bekleme/aktarım aralarını içermez; bütçede sürekli süre kullanılır.
+Orijinal4saat42dakika/5saat bütçesi değiştirilmedi.
+
+[Inference/Decision] CurveNet kendi accuracy'sindeki +.2381pp farkın95%CI'si
+[−.1587,+.6349] olduğundan, %8.56 batch maliyetine karşı güçlü bir fayda
+kanıtlanmadı. PointNeXt/ortalama ikincil olumlu işaretleri birincil belirsizliği
+kaldırmaz. Şimdilik hiçbir varyant varsayılan yapılmadı veya birleştirilmedi.
+Tüm sonuçlar Chamfer-only ve mevcut dört-zamanlı probability mean üzerindedir.
+Kullanıcının talimatıyla kalan iş yalnız nihai Drive özeti, dosya doğrulaması
+ve sadece sahip olduğumuz runtime'ın kapatılmasıdır; yeni GPU işi yoktur.
+
+## 2026-10-30 — nihai Drive kabulü ve yalnız sahipli runtime kapanışı
+
+[Run/Artifact]407ham head ZIP+304NPZ'nin711yerel dosyası SHA/CRC/güvenli yol
+kontrolünden geçti; eksik/çakışma yok.304physicalcache ayrıca Drive'da
+`scan_curvenet_h_postcampaign_20261030/phase-evidence/paired_physical_caches_final_remote_20261030T1926Z.zip`:
+1290931819bytes SHAea98e68d50330bd4b988594089564c35010a4e86e674c4920c65e510e85bbebd.
+Geri indirilen ZIP'nin tam SHA/CRC'si ve304member SHA'sı ayrı doğrulandı.
+Nihai260member bilimsel özet aynı Drive klasöründe
+`final_research_summary_20261030T1930Z_verified.zip`:78981869bytes,
+SHA19e7c6735f0b60438c3347d68d87183b1ee6d886aaca084cb1605746742077f5.
+Geri indirme ve259member SHA/güvenli yol/CRC kabul edildi. Dört kurulum
+history üyesi paylaşılan özet kopyasından çıkarıldı; orijinal kaynak ZIP'leri
+ve ham araştırma kanıtları değiştirilmedi. Özet, kapanış öncesi bilimsel
+snapshot'tır; gerçek kapanış makbuzu aşağıdaki yerel/Git kaydıdır.
+Son roundtrip kabul makbuzları da Drive'a ayrıca başarıyla yüklendi.
+
+[Run] CLI'nin büyük doğrudan upload'ları400/brokenpipe verdi; başarı olarak
+raporlanmadı.304cache VM üzerinde CPU ile paketlenip SHA/CRC doğrulandı;
+özet5×16MiBparça ile yüklenip aynı byte'lara birleştirildi. Bir CPU archive
+CLI prelude bağlantı kaybı kullanıcı kodu çalışmadan önce kanıtlandı;
+yalnız sahipli lokal CLI5577 sonlandırılıp aynı script yeniden çalıştı.
+Bu arşiv işleri yeni GPU deneyi veya araştırma bütçesi uzatımı değildir.
+Private URL/token içeren ham CLI history paylaşılmadı.
+
+[User report/Run/Decision] Kullanıcının tamamlanınca yalnız kendi session'ımızı
+onaysız kapatma talimatı uygulandı. `tta-chamfer-guidance-variants-a100-20261030-r1`,
+endpoint`gpu-a100-hm-ass1c0-3nh8smksm50de`; izleyici36160/PID59645
+19:34:38.530UTC'de stop protokolüyle exit0 kapandı. Ardından yalnız tam bu
+adla `colab stop -s tta-chamfer-guidance-variants-a100-20261030-r1` exit0;
+19:34:46UTC itibarıyla sunucu envanteri aktif assignment göstermiyor.
+Peer zaten önceki envanterde yoktu; diğer agent'ın runtime/izleyicisine veya
+bilinmeyen süreçlere stop/exec/reconnect işlemi yapılmadı. Yeni GPU işi yoktur.
+[Cache yedeği](evidence/chamfer_author_code_audit_20261030/final_cache_backup_acceptance_20261030.json) ·
+[Özet yedeği](evidence/chamfer_author_code_audit_20261030/final_summary_backup_acceptance_20261030.json) ·
+[Kapanış kanıtı](evidence/chamfer_author_code_audit_20261030/owned_runtime_closure_20261030.json).

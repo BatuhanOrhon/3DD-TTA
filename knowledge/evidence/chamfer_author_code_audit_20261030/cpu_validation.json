@@ -1,0 +1,74 @@
+{
+  "command": "uv run --offline --no-project --with torch --with numpy --with scipy --with h5py --with pyyaml --with pytest python -m pytest tests -q",
+  "log": {
+    "bytes": 1965,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/cpu_full_pytest.log",
+    "sha256": "10ee7cd9948c58214f95e01b9ed079c4dd93f97e094f492c006a5ed291139818"
+  },
+  "numpy": "2.5.4",
+  "pytest": "9.2.0",
+  "python": "3.13.7",
+  "python38_grammar_checked": true,
+  "research_GPU_started": false,
+  "seconds": 23.21,
+  "source_files": {
+    "chamfer_calibration_report.py": {
+      "bytes": 3397,
+      "sha256": "3334c5905216fa7853ddd747170c85998d1d529eb329f23b35f7827df0203dfb"
+    },
+    "chamfer_guidance_variants.py": {
+      "bytes": 5080,
+      "sha256": "23fb6c4266b1051867543d91eb6cc6776f29a962844a4b7360c41580d3254ef0"
+    },
+    "scripts/analyze_chamfer_variants.py": {
+      "bytes": 28112,
+      "sha256": "87b963f14d6c35a485d447700a8027ed7fdaf3a6b4ce83aef2a3abc041c00ac1"
+    },
+    "scripts/calibrate_chamfer_variants.py": {
+      "bytes": 17745,
+      "sha256": "dfcfb4140a9480d079bdd02f6924db72c3a95e22189837e3e919ab23865ec045"
+    },
+    "scripts/eval_chamfer_semantic.py": {
+      "bytes": 311,
+      "sha256": "ada9566c97f0837d4d7ce3632a6834bef962305a85ad7b78fe952ffbbf69b45a"
+    },
+    "scripts/eval_chamfer_sparse.py": {
+      "bytes": 302,
+      "sha256": "7fe865c5ba1a729aa5eb072a2dda7da6c1a46ad55e206a893c638cb476993c32"
+    },
+    "scripts/eval_chamfer_weighted.py": {
+      "bytes": 305,
+      "sha256": "1baf4d94e0816a5389c422bf696a3ec53ff0b3257adf45ceea5d5a65f161d832"
+    },
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 59181,
+      "sha256": "b433be53606b4323b8733abed68a3b3e4698c6e23fc4f2415f73ba9c95cbbfcc"
+    },
+    "scripts/prepare_chamfer_variants_assets.py": {
+      "bytes": 9922,
+      "sha256": "7e1eb6756c2b2a9a1adee2a4f4ec22cba8bdfee5075b37785013e4f367de8235"
+    },
+    "scripts/run_chamfer_variants_campaign.py": {
+      "bytes": 15476,
+      "sha256": "adeb83d52ac70f708cf0978c71589585c776b21c8df12441d5893e33e6c7ef0b"
+    },
+    "semantic_trajectory.py": {
+      "bytes": 7796,
+      "sha256": "11ef7b8273941bdf17926243cb94e3db8dab9d29f1b3f642400682f62ca322be"
+    },
+    "shared_trajectory.py": {
+      "bytes": 6672,
+      "sha256": "1f3a7886fcde5487118db71755c5c9b374af26a8f0981d69304829ba91f13d9d"
+    },
+    "tta_gsd_v2.py": {
+      "bytes": 18302,
+      "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c"
+    }
+  },
+  "status": "passed_CPU_only",
+  "subtests": 331,
+  "target_runtime": "Python3.8/Torch2.1.2+cu121; native backward not yet verified",
+  "tests": 436,
+  "torch": "2.15.0",
+  "warnings": 6
+}

@@ -1,0 +1,446 @@
+{
+  "acceptance_helper_identity": {
+    "bytes": 11249,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_heldout_acceptance.py",
+    "sha256": "bcd738a453f15614e7fbf455ad8278f1e506fe7ee5127ef3cd1dbe954aaaa9de"
+  },
+  "calibration": {
+    "bytes": 52546,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/calibration.json",
+    "sha256": "8e8dd33e15edc17487bbcc1636064bf3de1b4a1fdad5714d6dd777f62e2e5d07"
+  },
+  "coefficient": 3.153885581354952,
+  "limitation": "Native execution is not bitwise deterministic. Cached costs do not prove deployment speed. Geometry finiteness follows the verified producing runtime; raw coordinates are not stored.",
+  "manifest": {
+    "bytes": 81493,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/heldout_receipt_local_raw_manifest.json",
+    "sha256": "0941808898830564b8a85814f5e9b7fada5eaf81d8d0780298a79dc3af4a7d3e"
+  },
+  "native_seed0_development_calibration_acceptance": {
+    "bytes": 3216,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_calibration_acceptance.json",
+    "sha256": "44cceff55564de20d946bbfe4e02509156e0a93eabab1faf2e905fede1273adf"
+  },
+  "new_caches": 90,
+  "no_original_C_or_cache_mixing": true,
+  "per_head_analyses": {
+    "curvenet": {
+      "bytes": 628178,
+      "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_heldout_acceptance_curvenet.json",
+      "probability_mean_comparisons": [
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 55.9047619047619,
+          "baseline_accuracy_pct": 55.666666666666664,
+          "ci95_delta_pp": [
+            -0.15873015873015872,
+            0.634920634920635
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.23809523809523725,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 57.006802721088434,
+          "baseline_accuracy_pct": 56.734693877551024,
+          "ci95_delta_pp": [
+            -0.08545918367346936,
+            0.6462585034013605
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.2721088435374108,
+          "scope": "macro14"
+        }
+      ],
+      "sha256": "c9922207a73c1b9c43c9c3c23fbb34e100378cca476d1d15ed12bd7019167729"
+    },
+    "dgcnn": {
+      "bytes": 676069,
+      "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_heldout_acceptance_dgcnn.json",
+      "probability_mean_comparisons": [
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 38.57142857142858,
+          "baseline_accuracy_pct": 38.38095238095238,
+          "ci95_delta_pp": [
+            -0.38095238095238093,
+            0.746031746031746
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.1904761904761909,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 38.62244897959184,
+          "baseline_accuracy_pct": 38.333333333333336,
+          "ci95_delta_pp": [
+            -0.25510204081632654,
+            0.8673469387755101
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.28911564625850317,
+          "scope": "macro14"
+        }
+      ],
+      "sha256": "223edf05f4febf9158a2960308a6059bae91d013c0c282d67ff73adb0224b170"
+    },
+    "pointmae": {
+      "bytes": 533637,
+      "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_heldout_acceptance_pointmae.json",
+      "probability_mean_comparisons": [
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 38.93650793650794,
+          "baseline_accuracy_pct": 39.0,
+          "ci95_delta_pp": [
+            -0.31746031746031744,
+            0.1746031746031746
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": -0.06349206349206549,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 39.20068027210885,
+          "baseline_accuracy_pct": 39.13265306122449,
+          "ci95_delta_pp": [
+            -0.17006802721088435,
+            0.2891156462585034
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.06802721088435826,
+          "scope": "macro14"
+        }
+      ],
+      "sha256": "6647ea147ec226bef14a576a9d165f93f4e1a08d2b230e91bc6ce7ebe63f741a"
+    },
+    "pointnext": {
+      "bytes": 620857,
+      "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_heldout_acceptance_pointnext.json",
+      "probability_mean_comparisons": [
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 47.11111111111111,
+          "baseline_accuracy_pct": 46.6984126984127,
+          "ci95_delta_pp": [
+            0.015873015873015876,
+            0.8257936507936486
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.412698412698409,
+          "scope": "all15"
+        },
+        {
+          "arm": "semantic_h_curvenet",
+          "arm_accuracy_pct": 47.56802721088435,
+          "baseline_accuracy_pct": 47.19387755102041,
+          "ci95_delta_pp": [
+            -0.03443877551020406,
+            0.7823129251700681
+          ],
+          "dataset": "scanobjectnn_c",
+          "delta_pp": 0.3741496598639482,
+          "scope": "macro14"
+        }
+      ],
+      "sha256": "dc92ee95e1c10b67af811b81f3889fa4cc2d05468a4b694f9106b97f1924b66c"
+    }
+  },
+  "per_seed_integer_counts": [
+    {
+      "accuracy_pct": 55.476190476190474,
+      "arm": "baseline",
+      "correct": 1165,
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.523809523809526,
+      "arm": "semantic_h_curvenet",
+      "correct": 1166,
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 55.61904761904762,
+      "arm": "baseline",
+      "correct": 1168,
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 56.0,
+      "arm": "semantic_h_curvenet",
+      "correct": 1176,
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 55.904761904761905,
+      "arm": "baseline",
+      "correct": 1174,
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 56.19047619047619,
+      "arm": "semantic_h_curvenet",
+      "correct": 1180,
+      "head": "curvenet",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.333333333333336,
+      "arm": "baseline",
+      "correct": 805,
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.904761904761905,
+      "arm": "semantic_h_curvenet",
+      "correct": 817,
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.42857142857143,
+      "arm": "baseline",
+      "correct": 807,
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 37.76190476190476,
+      "arm": "semantic_h_curvenet",
+      "correct": 793,
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 38.38095238095238,
+      "arm": "baseline",
+      "correct": 806,
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 39.04761904761905,
+      "arm": "semantic_h_curvenet",
+      "correct": 820,
+      "head": "dgcnn",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 47.19047619047619,
+      "arm": "baseline",
+      "correct": 991,
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 47.714285714285715,
+      "arm": "semantic_h_curvenet",
+      "correct": 1002,
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 46.095238095238095,
+      "arm": "baseline",
+      "correct": 968,
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 46.904761904761905,
+      "arm": "semantic_h_curvenet",
+      "correct": 985,
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 46.80952380952381,
+      "arm": "baseline",
+      "correct": 983,
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 46.714285714285715,
+      "arm": "semantic_h_curvenet",
+      "correct": 981,
+      "head": "pointnext",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 38.857142857142854,
+      "arm": "baseline",
+      "correct": 816,
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 38.76190476190476,
+      "arm": "semantic_h_curvenet",
+      "correct": 814,
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 0
+    },
+    {
+      "accuracy_pct": 39.095238095238095,
+      "arm": "baseline",
+      "correct": 821,
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 38.80952380952381,
+      "arm": "semantic_h_curvenet",
+      "correct": 815,
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 1
+    },
+    {
+      "accuracy_pct": 39.04761904761905,
+      "arm": "baseline",
+      "correct": 820,
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    },
+    {
+      "accuracy_pct": 39.23809523809524,
+      "arm": "semantic_h_curvenet",
+      "correct": 824,
+      "head": "pointmae",
+      "n": 2100,
+      "seed": 2
+    }
+  ],
+  "phase_archive": {
+    "bytes": 188788,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/heldout_phase.zip",
+    "sha256": "b7268477715a285237812358097df3d56002657eb9ea26822b9762cd5c89074f"
+  },
+  "phase_plan": {
+    "bytes": 5723,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/phase_plan.json",
+    "sha256": "297badb31d81667e86467d84d0d2f35912b3e3546d234f7a75bdf5435b0f9d46"
+  },
+  "phase_receipt": {
+    "bytes": 34471,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/heldout_receipt.json",
+    "sha256": "e024a3bcc3eb1338bdd94d71efb889814460fc8a843a7a918f20df0ad8862dfb"
+  },
+  "primary": "CurveNet own probability-mean C to H; exploratory posthoc heldout140 reuse",
+  "primary_all15_probability_mean": {
+    "arm": "semantic_h_curvenet",
+    "arm_accuracy_pct": 55.9047619047619,
+    "baseline_accuracy_pct": 55.666666666666664,
+    "ci95_delta_pp": [
+      -0.15873015873015872,
+      0.634920634920635
+    ],
+    "dataset": "scanobjectnn_c",
+    "delta_pp": 0.23809523809523725,
+    "scope": "all15"
+  },
+  "raw_batches": 720,
+  "raw_heads": 24,
+  "root_full_report_exact": {
+    "bytes": 2208381,
+    "excluded_only": "analysis_provenance",
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/root_heldout_analysis.json",
+    "sha256": "30003ae2f8015f5d77124283a8d3fe4efb3a1bf4f1ba8f5200c03a15f36899c9"
+  },
+  "secondary_all15_probability_mean": {
+    "dgcnn": {
+      "arm": "semantic_h_curvenet",
+      "arm_accuracy_pct": 38.57142857142858,
+      "baseline_accuracy_pct": 38.38095238095238,
+      "ci95_delta_pp": [
+        -0.38095238095238093,
+        0.746031746031746
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": 0.1904761904761909,
+      "scope": "all15"
+    },
+    "pointmae": {
+      "arm": "semantic_h_curvenet",
+      "arm_accuracy_pct": 38.93650793650794,
+      "baseline_accuracy_pct": 39.0,
+      "ci95_delta_pp": [
+        -0.31746031746031744,
+        0.1746031746031746
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": -0.06349206349206549,
+      "scope": "all15"
+    },
+    "pointnext": {
+      "arm": "semantic_h_curvenet",
+      "arm_accuracy_pct": 47.11111111111111,
+      "baseline_accuracy_pct": 46.6984126984127,
+      "ci95_delta_pp": [
+        0.015873015873015876,
+        0.8257936507936486
+      ],
+      "dataset": "scanobjectnn_c",
+      "delta_pp": 0.412698412698409,
+      "scope": "all15"
+    }
+  },
+  "secondary_four_head_all15_probability_mean": {
+    "arm_accuracy_pct": 45.13095238095238,
+    "baseline_accuracy_pct": 44.93650793650794,
+    "ci95_delta_pp": [
+      0.003968253968253953,
+      0.4048611111111105
+    ],
+    "delta_pp": 0.19444444444444708
+  },
+  "secondary_four_head_analysis": {
+    "bytes": 2208381,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_heldout_acceptance_analysis.json",
+    "sha256": "d9af69fb63b5cfc9ec24cd749d2312b21354a5479dfd65a4e70c4bbfe01a34a5"
+  },
+  "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc",
+  "source_manifest": {
+    "bytes": 176437,
+    "sha256": "95a0dc2a52d5d2e8cbf99767b5ba1e8ecd59fadcf0c0e7b23013ce836c7d0bb1"
+  },
+  "status": "independent_full_curvenet_heldout_accepted",
+  "uncertainty": "2000/s0 original-object bootstrap retains all3seeds/15corruptions;140objectclusters and6300decisions per head. CIs condition on included seeds. No coefficient selection or accuracy HPO.",
+  "full_proof": {
+    "bytes": 49818,
+    "sha256": "2a31bba3fbce637ba2b98ca91c6b3799b6a967522248da8de696d3e23b0e2ed7",
+    "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_heldout_acceptance.json"
+  }
+}

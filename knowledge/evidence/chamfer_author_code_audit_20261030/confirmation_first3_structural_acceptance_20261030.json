@@ -1,0 +1,384 @@
+{
+  "accuracy_calculated": false,
+  "arms": [
+    "baseline",
+    "sparse",
+    "semantic_kl"
+  ],
+  "batch_size": 70,
+  "batches_per_corruption": 2,
+  "bundle_records": [
+    {
+      "arm": "baseline",
+      "batches": 30,
+      "bytes": 8029398,
+      "head": "dgcnn",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150204_guidance-components-chamfer-dgcnn-seed0.zip",
+      "sha256": "e863d41411f395b01848390e00559b7872f13272a53c4c1d075ab91aac5ad867"
+    },
+    {
+      "arm": "baseline",
+      "batches": 30,
+      "bytes": 7977072,
+      "head": "curvenet",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150205_guidance-components-chamfer-curvenet-seed0.zip",
+      "sha256": "26837164be826df9a90dbba402af28c97180951c49448b9c380e10a9bb699973"
+    },
+    {
+      "arm": "baseline",
+      "batches": 30,
+      "bytes": 7941726,
+      "head": "pointnext",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150206_guidance-components-chamfer-pointnext-seed0.zip",
+      "sha256": "bb838221de0ac9614d15cf5f2f93f0a5ec39fd188ea1b3f52d1f2216d18dbe25"
+    },
+    {
+      "arm": "baseline",
+      "batches": 30,
+      "bytes": 8058210,
+      "head": "pointmae",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150207_guidance-components-chamfer-pointmae-seed0.zip",
+      "sha256": "b135f942e3536daa087ebb5cc644db30d1e9b9c798fee494ca1c72d0a2461c73"
+    },
+    {
+      "arm": "sparse",
+      "batches": 30,
+      "bytes": 8028427,
+      "head": "dgcnn",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150715_chamfer-sparse-dgcnn-seed0.zip",
+      "sha256": "a3a5561a3c4da82c85af63302618293ffe9cc36252386bcca60498f83b75c5fa"
+    },
+    {
+      "arm": "sparse",
+      "batches": 30,
+      "bytes": 7976273,
+      "head": "curvenet",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150716_chamfer-sparse-curvenet-seed0.zip",
+      "sha256": "4db3a2d97e8f96b5bd0c3fcaef1d3ec725da742d007b8fc099cfa1f7709419bd"
+    },
+    {
+      "arm": "sparse",
+      "batches": 30,
+      "bytes": 7940965,
+      "head": "pointnext",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150717_chamfer-sparse-pointnext-seed0.zip",
+      "sha256": "a2aa13e42dbe7bd77698872886bcbaa263423613864a15a0ae529862a61966e5"
+    },
+    {
+      "arm": "sparse",
+      "batches": 30,
+      "bytes": 8056685,
+      "head": "pointmae",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-150718_chamfer-sparse-pointmae-seed0.zip",
+      "sha256": "61476c082ae5d319418d4773bb162b6b03d816ddb153982f644f371f559b3ef6"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": 30,
+      "bytes": 8076019,
+      "head": "dgcnn",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-151138_chamfer-semantic-kl-w0p6285361973358488-dgcnn-seed0.zip",
+      "sha256": "03bdff0c9c25dec1a0ed599b44be673eab492e5853721bba68c4543f322b2302"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": 30,
+      "bytes": 8024233,
+      "head": "curvenet",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-151139_chamfer-semantic-kl-w0p6285361973358488-curvenet-seed0.zip",
+      "sha256": "b7070b3a9ffc38cfc78045a520937d280257cd10df2c0a149863a50f0460a6a1"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": 30,
+      "bytes": 7988659,
+      "head": "pointnext",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-151140_chamfer-semantic-kl-w0p6285361973358488-pointnext-seed0.zip",
+      "sha256": "13f34066abb9974a649646c93a0a247031d774df5ea8c6effe01be7fb9b547fb"
+    },
+    {
+      "arm": "semantic_kl",
+      "batches": 30,
+      "bytes": 8104967,
+      "head": "pointmae",
+      "objects": 140,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261030-151141_chamfer-semantic-kl-w0p6285361973358488-pointmae-seed0.zip",
+      "sha256": "df0b022178960dc9a1421de17aae359d0b5910b0c86826e1a8de131da8ee038b"
+    }
+  ],
+  "bundles": 12,
+  "cache_records": [
+    {
+      "array_hashes_verified": true,
+      "bytes": 4300265,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/background/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "a1a3b6fcd82a3855795563c799c7611d2f744d7c7f962bad8d5e07974cab6efe"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4298956,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/background/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "5a4d17a06751b1e41dd8674d22acde5a713684856c10f5254bfbf3b46441c2e3"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4301766,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/cutout/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "cf5854fdfd175bbc30a3a7d2612e03c17b985e82bd060f9ce304f83858b06f3e"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4300384,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/cutout/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "952302c6452a8f13fe2c35705375e1e17ff0f52321be2268111bd41e0c0f851e"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4301676,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/density/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "9db4c344d8f7c4c336df0eae9ca8b027c0f1c59f33c48eface0065f6bf256145"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299034,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/density/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "bd606b3751339c17d813be60ff3e4385b96fc9393ed3d2b2eae39e485646bf0c"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4301472,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/density_inc/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "fe34488d21d1090400c2fb852fa007be1b38570bbec6b5e40b7fe1c527d07778"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299447,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/density_inc/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "7fbf1b2f90c7bc3271797a0211678a92dfa75c4a2da0425b688d08d785dad324"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4300135,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/distortion/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "90e6b56484b88fb2586a29028b049a41fee3e70839fcafa0ff9670c9ff2d2220"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299776,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/distortion/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "77df4778849d465d29bfc0c521fbfee2e21b3036fe19cf02fc39dc2762a95835"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4300781,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/distortion_rbf/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "33fed762d1ebfc489b452e37f0dcc0c7e90bc82a37a0e2dbd27317e9da53fd2b"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4298679,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/distortion_rbf/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "d5a787b94abbbc8c65523bbdd107c69766d193a0331c2cd49baea4370c510ddb"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4300221,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/distortion_rbf_inv/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "848a350800661b13c3467bf29c4f579dc5286b61d2c7397dc2a7c99a2f7cb586"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4298905,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/distortion_rbf_inv/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "56a966774fef5ba6ff03d6820b52d00304af7a73b5b172666c88c06a60f591e7"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4300699,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/gaussian/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "66c23d130286259b8558b8739ab9acad39bb0e9798bcce6c422f8e181a396fbd"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299654,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/gaussian/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "63820e9d5f8b73a7d60595d209cc7362d3ec9179da194a5e7719cbef15af5467"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4300918,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/impulse/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "2af10614abcf47fa1244a54b59a5b43b811353121344da0221c41dec5999b7d9"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4298989,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/impulse/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "0f38c16a0835290911923ef01a4e97f53f1dc73dd391dc7938327804fb09587e"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4298606,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/lidar/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "67d471cf5fb69956ee587fcaf31dc78a5665a21aff45c90815d405c506aab256"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4297478,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/lidar/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "212d4e3351812ed826649b9ee2fc23cab3bcb334c77b8f86e814a4c9defcb952"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299328,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/occlusion/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "958a67ec86e0e723a9c70fdcf54a175c8bd39109f965493830c6ebc2d0b4a8c7"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4297599,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/occlusion/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "42d98425f27e330f435a91b7f7efc216e60ae85c9e74ec64a199a50374c6b3a3"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299114,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/rotation/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "896ffedd59ff1cb4ea971c71cc5f4bc84a7daca37513a718d8a3216da00519d0"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4298760,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/rotation/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "3b6102218473343cd0bf721ad8dba965e2656d9bbaa3643ad3ea89e54e2ccdf9"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299946,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/shear/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "782d030e9a44908cf81456356b253422c7a7a37d22b88cd771ee61737c1ba3ec"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299641,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/shear/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "c769a3f612c33d7428bf91c01231db9fa7aef7a3bc50646b2d7ffaaad0e8d0f0"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4301197,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/uniform/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "8e9f5a89a2b81665c084072b6869424dc949c6cc3a4fe5641d075125bc198809"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299904,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/uniform/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "802baaeadeaecc9bcac3afdb3017792e181405a81d1c7d1e0c0537b7fd8d655f"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4301212,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/upsampling/016323826252e9afba7c787cc853fca8716d29325762147f6de0550d0e002cce.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "062ff30141b1f72ff429b667c11432abfba7bb59b0cadd1233a93b2e71215c71"
+    },
+    {
+      "array_hashes_verified": true,
+      "bytes": 4299526,
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/physical_caches/paired_states/confirmation/seed0/modelnet40_c/upsampling/5f9b5891453b57ee133ac65dc8f0fa5aedfe114bdc22ddd401229438020a925e.npz",
+      "postprepare_rng_verified": true,
+      "sha256": "db52a7f9cc6ac902b46d3de5a39247fb1355fe5e52da8f203cdbff43d5ba0ef2"
+    }
+  ],
+  "corruptions": 15,
+  "counters": "sparse4/11 backwards and10/30 prior forwards; baseline/KL10/30 backwards; KL2 loss and1 X forward perbatch; graph/spectral0",
+  "cross_arm_initial_rng_labels_native_frozen_states": "exact",
+  "dataset": "modelnet40_c",
+  "development_identity": {
+    "bytes": 864,
+    "sha256": "47cd70cbc1511a99eb5716231f46a66d5cdd7819acff159b74b1c3ca5a0f6bd0"
+  },
+  "development_overlap": 0,
+  "extra_source_keys": {
+    "baseline": [],
+    "semantic_kl": [
+      "assets/source_snapshot/chamfer_guidance_variants.py",
+      "assets/source_snapshot/semantic_trajectory.py",
+      "repo/chamfer_guidance_variants.py",
+      "repo/semantic_trajectory.py"
+    ],
+    "sparse": [
+      "assets/source_snapshot/chamfer_guidance_variants.py",
+      "repo/chamfer_guidance_variants.py"
+    ]
+  },
+  "heads": [
+    "curvenet",
+    "dgcnn",
+    "pointmae",
+    "pointnext"
+  ],
+  "heldout_identity": {
+    "bytes": 1535,
+    "sha256": "7338471bd31326a51bd367e6cb167116d2205a6af41d0c1ce4df93c60b6841a5"
+  },
+  "objects": 140,
+  "physical_new_confirmation_caches": 30,
+  "physical_source_manifest": {
+    "bytes": 42707,
+    "sha256": "97ad4ae8db0d31bf4909ee33071da46e154651ae3caadb420e91e715b88d4bc2"
+  },
+  "raw_batches": 360,
+  "raw_source_manifest": {
+    "bytes": 11403,
+    "sha256": "9ccf66f10411bf94bb3906ac524b91b87223ab5b3b49f6adfc1cd3afa3f05a04"
+  },
+  "rng_before_boundary_note": "Cache rng_before is after input preprocessing; reconstruction_rng_before is before preprocessing. These distinct boundaries are not equated. Raw before hashes are exact across arms; cache postprepare matches actual initial and post-reconstruction hashes.",
+  "rng_hash_methods": [
+    "NumPy2 _core spelling converted to producer NumPy1 core; FRAME length repaired"
+  ],
+  "seed": 0,
+  "source_policy": "GPU source0fd metadata repair; read-only offline validator; no trajectory-exact claim under native nondeterminism",
+  "sources": "common executed source bytes exact; arm-specific imports individually matched frozen asset+sealed canonical source",
+  "status": "accepted_structural_pairing_only"
+}

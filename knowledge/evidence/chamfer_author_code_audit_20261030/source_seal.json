@@ -1,0 +1,26 @@
+{
+  "asset_layout": "overlay_only_reuses_exact_base_bulk",
+  "manifest": {
+    "bytes": 175773,
+    "sha256": "9fbdddc3692a0ad191f8a24e183da3bd320f80d0b6fcca132c2ac2938e13eaba"
+  },
+  "payload": {
+    "bytes": 5518571,
+    "sha256": "9dd062c24f30ee212048fa0af49fc2e26115b3a676f412dd17c500a1a27e3111"
+  },
+  "physical_bulk_verified_locally": false,
+  "preparation_identity": {
+    "bytes": 51898,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/preparation_identity.json",
+    "sha256": "0dea831615d611041bbc0054d77a168adccc1542fbe56176f017f98dfe8bd1ab"
+  },
+  "project_source_commit": "33ff8457b2269227ca0007c8e18e09648e59dbcf",
+  "source_bytes_recoverable": true,
+  "source_dirty": false,
+  "source_file_count": 296,
+  "source_snapshot": {
+    "bytes": 5567321,
+    "sha256": "920f0fa665848dfe198f4d072ebd7eaf40748249f4bb1ebeedb505dfc21d3f20"
+  },
+  "status": "sealed_CPU_only"
+}

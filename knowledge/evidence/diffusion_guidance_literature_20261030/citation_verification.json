@@ -1,0 +1,38 @@
+[
+  {
+    "paper": "sator",
+    "pdf_page": 9,
+    "reference": "[5]",
+    "source_sha256": "41bdbbfdc0098e9fc654bbed8020726de61f332382a8ff344007cfa10731d91c"
+  },
+  {
+    "paper": "mamvi",
+    "pdf_page": 14,
+    "reference": "5.",
+    "source_sha256": "61ca04c141957128f2826491634a9857b77a55384fa9bb36cbfd58b2510da876"
+  },
+  {
+    "paper": "ttad",
+    "pdf_page": 15,
+    "reference": "[33]",
+    "source_sha256": "a030e309968705ace1a3bcdf6b7ea353b970a1ec3bf51fabaee5aa8fb27be265"
+  },
+  {
+    "paper": "gsdtta",
+    "pdf_page": 10,
+    "reference": "[33]",
+    "source_sha256": "4a5914c9b35dac211b96dbbaf4096fc93ea651a9576a4d5e78eb4bd4fbbee285"
+  },
+  {
+    "paper": "uniadapter",
+    "pdf_page": 8,
+    "reference": "Dastmalchi",
+    "source_sha256": "d08e5d6a2325d78c1d398e6a48f3688862ca8e0feacbe8866a5f4898053e24ae"
+  },
+  {
+    "paper": "lottpc",
+    "pdf_page": 9,
+    "reference": "[5]",
+    "source_sha256": "4ba7a72c70ff027fdad85e75412eb6d828a2070cb7417f06d03eab3afabf609a"
+  }
+]

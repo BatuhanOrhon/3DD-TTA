@@ -1,0 +1,34 @@
+{
+  "status": "metadata_only_source_repair_sealed_not_deployed",
+  "parent_source_commit": "a1d298a4d64bd9b580253dfa53224aa69b94df33",
+  "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2",
+  "changed_runtime_sources": [
+    "scripts/eval_multibackbone_source.py"
+  ],
+  "old_source_identity": {
+    "bytes": 30722,
+    "sha256": "3be330870b27375f7378a287a41f00e10b4df3dac0ac34a12df69f84cf3b28e9"
+  },
+  "new_source_identity": {
+    "bytes": 30720,
+    "sha256": "dac97636355d7410831e5746a9ee02744c1bf2d203eba18c18a99a0d1c4bc42b"
+  },
+  "manifest": {
+    "bytes": 175773,
+    "sha256": "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777"
+  },
+  "source_snapshot": {
+    "bytes": 5567350,
+    "sha256": "fd8c163f07b82cc8ca05b7ab2a5532dfd821aa0af7c51062f23706716d8b1a69"
+  },
+  "payload": {
+    "bytes": 5518603,
+    "sha256": "d5b9a3af9a8679514ee300cb010041f594c82bca8604285f40f83809775bdfd9"
+  },
+  "receipt": {
+    "bytes": 51898,
+    "sha256": "2d3095f82874088d7575571e24a56ef5a9b3ec8b369a61d3cc8a1b683f43bf10"
+  },
+  "sampler_and_semantic_bytes_unchanged": true,
+  "bulk_and_selected_ids_unchanged": true
+}

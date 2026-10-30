@@ -1,0 +1,28 @@
+[
+  {
+    "name": "semanticscholar_target.json",
+    "url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2411.14495?fields=title,citationCount,citations.title,citations.year,citations.externalIds,citations.url",
+    "error": "HTTP Error 429: "
+  },
+  {
+    "name": "openalex_target.json",
+    "url": "https://api.openalex.org/works/https://doi.org/10.48550/arXiv.2411.14495",
+    "status": 200,
+    "bytes": 19439,
+    "sha256": "c36e124db227f850036161d7e09bb8d5e8379d9946b7eabc26823e759570df8c",
+    "utc": "2026-10-30T09:04:58.837095+00:00"
+  },
+  {
+    "name": "openalex_citing.json",
+    "url": "https://api.openalex.org/works?filter=cites:W4409262973&per-page=100",
+    "status": 200,
+    "bytes": 66960,
+    "sha256": "167a869894d7049a299e5f3d41b4fe50885506c19b7a1a9621d612288a6e514f",
+    "utc": "2026-10-30T09:04:59.390480+00:00"
+  },
+  {
+    "name": "scholar_citedby.html",
+    "url": "https://scholar.google.com/scholar?cites=11097964353367270493&hl=en",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

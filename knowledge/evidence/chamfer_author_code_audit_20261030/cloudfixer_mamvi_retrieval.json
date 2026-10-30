@@ -1,0 +1,42 @@
+[
+  {
+    "bytes": 26106,
+    "exact_git_blob_verified": true,
+    "file": "cloudfixer_adapt.py",
+    "git_blob_sha": "d2eb464ff86ae237113f5d199e1adaee37e023fc",
+    "sha256": "a56ef16f14603d49abecd8121b5df7913a6c47b2e0effad8d3d99ad37ff333b7",
+    "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/adapt.py"
+  },
+  {
+    "bytes": 100870,
+    "exact_git_blob_verified": true,
+    "file": "mamvi_tta.py",
+    "git_blob_sha": "ef24dca40cf7a9d8991d23955dabe1ca00c6e86d",
+    "sha256": "b50ade47aa784dc010d46e38007699f80e4055181b1549b82d04dab6194e0378",
+    "url": "https://github.com/iskong17/MAMVI/blob/0b553973b7123da6198b79bba4ff704b8eec914c/tools/tta.py"
+  },
+  {
+    "bytes": 48344,
+    "exact_git_blob_verified": true,
+    "file": "cloudfixer_pc_utils.py",
+    "git_blob_sha": "de28a9b88da3902a371d2c7cbd0fe044f08034f8",
+    "sha256": "a13d74e5579abe93e4809771c35d2f8f6b20c4cefa7568ccafc1bade07c51399",
+    "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/utils/pc_utils.py"
+  },
+  {
+    "bytes": 7221,
+    "exact_git_blob_verified": true,
+    "file": "cloudfixer_cfgs_adapt.py",
+    "git_blob_sha": "70b9aa5c802d8f3557844515af48f9d40d829270",
+    "sha256": "48713c599bfb6c2869a922556d386ff2481d4ef64a2d8e4953af45631d2b1484",
+    "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/cfgs/cfgs_adapt.py"
+  },
+  {
+    "bytes": 8911,
+    "exact_git_blob_verified": true,
+    "file": "mamvi_tent_shot.py",
+    "git_blob_sha": "1f106194fd4d698f76b5fb1dc944a85bb585f04b",
+    "sha256": "68de58b2eb2034fb0eb8eec641798950c0e2eee480ef49516b9e5a679b116cb9",
+    "url": "https://github.com/iskong17/MAMVI/blob/0b553973b7123da6198b79bba4ff704b8eec914c/utils/tent_shot.py"
+  }
+]

@@ -1,0 +1,1332 @@
+{
+  "archive": {
+    "bytes": 47507841,
+    "sha256": "17314883a99194c5fb6ce17be9893e58e3323bf70852c89144a1d3927b25473d"
+  },
+  "audit_identity": {
+    "bytes": 1696507,
+    "sha256": "44e3a0ad72f49b333749e84872d3461e1ddcc2d96812b032b46587fe9bda7c39"
+  },
+  "conclusions": [
+    "Repeated Chamfer-only C1/C2 runs diverge at the first prior output despite byte-exact initial tensors and prior input/style. This precedes every semantic probe and proves exact whole-trajectory parity is not attainable under the observed native execution policy.",
+    "Chamfer-only numerical drift amplifies through the actual first local/style gradients, later trajectories, decoded geometry and predictions; it is not merely a hash formatting difference.",
+    "C1/KL0 also diverges before semantic activation. Three unaligned full trajectories cannot isolate an additional zero-weight semantic contribution or justify an arbitrary numerical tolerance.",
+    "No source, GPU state, parity gate or coefficient was changed by this CPU audit."
+  ],
+  "comparisons": {
+    "background_C1_vs_C2": {
+      "first_differing_array_in_capture_order": "background_step01_prior_output",
+      "initial_all_byte_exact": true,
+      "terminal_predictions": {
+        "curvenet": {
+          "disagreements": 2,
+          "left": [
+            2,
+            28
+          ],
+          "right": [
+            33,
+            15
+          ]
+        },
+        "dgcnn": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointmae": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointnext": {
+          "disagreements": 0,
+          "left": [
+            7,
+            26
+          ],
+          "right": [
+            7,
+            26
+          ]
+        }
+      },
+      "first_prior_and_final": {
+        "background_step01_grad_local": {
+          "byte_exact": false,
+          "delta_l2": 1.5855150212877342,
+          "dtype": "float32",
+          "max_abs": 1.04805326461792,
+          "mean_abs": 0.0003182664833626947,
+          "per_object": [
+            {
+              "delta_l2": 1.5853137990906552,
+              "max_abs": 1.04805326461792
+            },
+            {
+              "delta_l2": 0.025259476277200335,
+              "max_abs": 0.006496429443359375
+            }
+          ],
+          "reference_l2": 144.25629790314832,
+          "relative_l2": 0.010990958761136564,
+          "rms": 0.012386836103810426,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16376
+        },
+        "background_step01_grad_style": {
+          "byte_exact": false,
+          "delta_l2": 0.04896577166338472,
+          "dtype": "float32",
+          "max_abs": 0.019634246826171875,
+          "mean_abs": 0.0013712990912608802,
+          "per_object": [
+            {
+              "delta_l2": 0.03554215834084498,
+              "max_abs": 0.019634246826171875
+            },
+            {
+              "delta_l2": 0.033680881447269655,
+              "max_abs": 0.013444900512695312
+            }
+          ],
+          "reference_l2": 100.96405900896333,
+          "relative_l2": 0.0004849822020233721,
+          "rms": 0.003060360728961545,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 256
+        },
+        "background_step01_prior_input": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 139.78154977276517,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 0
+        },
+        "background_step01_prior_output": {
+          "byte_exact": false,
+          "delta_l2": 0.0010681708083253659,
+          "dtype": "float32",
+          "max_abs": 0.0005242824554443359,
+          "mean_abs": 1.3652160362198629e-06,
+          "per_object": [
+            {
+              "delta_l2": 0.000907994639845481,
+              "max_abs": 0.0005242824554443359
+            },
+            {
+              "delta_l2": 0.0005626140860041995,
+              "max_abs": 0.0001685619354248047
+            }
+          ],
+          "reference_l2": 98.66920423694195,
+          "relative_l2": 1.0825777065762941e-05,
+          "rms": 8.34508444004192e-06,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 14607
+        },
+        "background_step01_prior_style": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 14.033124703121622,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 0
+        },
+        "background_terminal_decoded": {
+          "byte_exact": false,
+          "delta_l2": 5.535339453651775,
+          "dtype": "float32",
+          "max_abs": 1.15911865234375,
+          "mean_abs": 0.02416546205473935,
+          "per_object": [
+            {
+              "delta_l2": 2.7243294688824267,
+              "max_abs": 0.4454427510499954
+            },
+            {
+              "delta_l2": 4.818507218229804,
+              "max_abs": 1.15911865234375
+            }
+          ],
+          "reference_l2": 137.96613370853012,
+          "relative_l2": 0.040121001472331164,
+          "rms": 0.04993483943159076,
+          "shape": [
+            2,
+            2048,
+            3
+          ],
+          "total_values": 12288,
+          "unequal_values": 12288
+        }
+      }
+    },
+    "background_C1_vs_KL0": {
+      "first_differing_array_in_capture_order": "background_step01_prior_output",
+      "initial_all_byte_exact": true,
+      "terminal_predictions": {
+        "curvenet": {
+          "disagreements": 1,
+          "left": [
+            2,
+            28
+          ],
+          "right": [
+            33,
+            28
+          ]
+        },
+        "dgcnn": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointmae": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointnext": {
+          "disagreements": 0,
+          "left": [
+            7,
+            26
+          ],
+          "right": [
+            7,
+            26
+          ]
+        }
+      },
+      "first_prior_and_final": {
+        "background_step01_grad_local": {
+          "byte_exact": false,
+          "delta_l2": 2.2128807782428606,
+          "dtype": "float32",
+          "max_abs": 1.0481796264648438,
+          "mean_abs": 0.001119760091644273,
+          "per_object": [
+            {
+              "delta_l2": 1.5878748516888863,
+              "max_abs": 1.0481796264648438
+            },
+            {
+              "delta_l2": 1.541264024783141,
+              "max_abs": 0.6395409554243088
+            }
+          ],
+          "reference_l2": 144.25629790314832,
+          "relative_l2": 0.015339924914256139,
+          "rms": 0.01728813108002235,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16383
+        },
+        "background_step01_grad_style": {
+          "byte_exact": false,
+          "delta_l2": 0.1597973740561117,
+          "dtype": "float32",
+          "max_abs": 0.07098674774169922,
+          "mean_abs": 0.0036122102610534057,
+          "per_object": [
+            {
+              "delta_l2": 0.041186998403846584,
+              "max_abs": 0.018621444702148438
+            },
+            {
+              "delta_l2": 0.15439828987948803,
+              "max_abs": 0.07098674774169922
+            }
+          ],
+          "reference_l2": 100.96405900896333,
+          "relative_l2": 0.001582715429873172,
+          "rms": 0.00998733587850698,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 256
+        },
+        "background_step01_prior_input": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 139.78154977276517,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 0
+        },
+        "background_step01_prior_output": {
+          "byte_exact": false,
+          "delta_l2": 0.01802903579417603,
+          "dtype": "float32",
+          "max_abs": 0.0019106864929199219,
+          "mean_abs": 7.723232144840608e-05,
+          "per_object": [
+            {
+              "delta_l2": 0.008778912338150516,
+              "max_abs": 0.0010950267314910889
+            },
+            {
+              "delta_l2": 0.015747280077103763,
+              "max_abs": 0.0019106864929199219
+            }
+          ],
+          "reference_l2": 98.66920423694195,
+          "relative_l2": 0.0001827220147725274,
+          "rms": 0.00014085184214200023,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16366
+        },
+        "background_step01_prior_style": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 14.033124703121622,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 0
+        },
+        "background_terminal_decoded": {
+          "byte_exact": false,
+          "delta_l2": 4.924952276160866,
+          "dtype": "float32",
+          "max_abs": 1.3070324063301086,
+          "mean_abs": 0.02048456812894983,
+          "per_object": [
+            {
+              "delta_l2": 2.093263482062643,
+              "max_abs": 0.43461257219314575
+            },
+            {
+              "delta_l2": 4.457959501512444,
+              "max_abs": 1.3070324063301086
+            }
+          ],
+          "reference_l2": 137.96613370853012,
+          "relative_l2": 0.03569682025420393,
+          "rms": 0.044428476912305254,
+          "shape": [
+            2,
+            2048,
+            3
+          ],
+          "total_values": 12288,
+          "unequal_values": 12288
+        }
+      }
+    },
+    "background_C2_vs_KL0": {
+      "first_differing_array_in_capture_order": "background_step01_prior_output",
+      "initial_all_byte_exact": true,
+      "terminal_predictions": {
+        "curvenet": {
+          "disagreements": 1,
+          "left": [
+            33,
+            15
+          ],
+          "right": [
+            33,
+            28
+          ]
+        },
+        "dgcnn": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointmae": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointnext": {
+          "disagreements": 0,
+          "left": [
+            7,
+            26
+          ],
+          "right": [
+            7,
+            26
+          ]
+        }
+      },
+      "first_prior_and_final": {
+        "background_step01_grad_local": {
+          "byte_exact": false,
+          "delta_l2": 1.543816133417834,
+          "dtype": "float32",
+          "max_abs": 0.6395337879657745,
+          "mean_abs": 0.0008844966005810417,
+          "per_object": [
+            {
+              "delta_l2": 0.09430438229146391,
+              "max_abs": 0.026487112045288086
+            },
+            {
+              "delta_l2": 1.5409331384851896,
+              "max_abs": 0.6395337879657745
+            }
+          ],
+          "reference_l2": 144.26508411027035,
+          "relative_l2": 0.010701245855426832,
+          "rms": 0.012061063542326828,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16384
+        },
+        "background_step01_grad_style": {
+          "byte_exact": false,
+          "delta_l2": 0.16952816006920596,
+          "dtype": "float32",
+          "max_abs": 0.07262873649597168,
+          "mean_abs": 0.0034042366460198537,
+          "per_object": [
+            {
+              "delta_l2": 0.014973898460613718,
+              "max_abs": 0.007793426513671875
+            },
+            {
+              "delta_l2": 0.16886556612092812,
+              "max_abs": 0.07262873649597168
+            }
+          ],
+          "reference_l2": 100.9416065163737,
+          "relative_l2": 0.0016794676241031182,
+          "rms": 0.010595510004325372,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 256
+        },
+        "background_step01_prior_input": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 139.78154977276517,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 0
+        },
+        "background_step01_prior_output": {
+          "byte_exact": false,
+          "delta_l2": 0.018017631811229597,
+          "dtype": "float32",
+          "max_abs": 0.0019106864929199219,
+          "mean_abs": 7.718427616865142e-05,
+          "per_object": [
+            {
+              "delta_l2": 0.008763484312264161,
+              "max_abs": 0.001094907522201538
+            },
+            {
+              "delta_l2": 0.015742820547593517,
+              "max_abs": 0.0019106864929199219
+            }
+          ],
+          "reference_l2": 98.66920178787699,
+          "relative_l2": 0.00018260644136925953,
+          "rms": 0.00014076274852523122,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16363
+        },
+        "background_step01_prior_style": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 14.033124703121622,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 0
+        },
+        "background_terminal_decoded": {
+          "byte_exact": false,
+          "delta_l2": 5.01782826569344,
+          "dtype": "float32",
+          "max_abs": 0.7344601154327393,
+          "mean_abs": 0.021620947681000757,
+          "per_object": [
+            {
+              "delta_l2": 2.77898909599838,
+              "max_abs": 0.44357891380786896
+            },
+            {
+              "delta_l2": 4.178016288660703,
+              "max_abs": 0.7344601154327393
+            }
+          ],
+          "reference_l2": 137.63165654082619,
+          "relative_l2": 0.03645838749463125,
+          "rms": 0.0452663203116472,
+          "shape": [
+            2,
+            2048,
+            3
+          ],
+          "total_values": 12288,
+          "unequal_values": 12288
+        }
+      }
+    },
+    "gaussian_C1_vs_C2": {
+      "first_differing_array_in_capture_order": "gaussian_step01_prior_output",
+      "initial_all_byte_exact": true,
+      "terminal_predictions": {
+        "curvenet": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "dgcnn": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointmae": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointnext": {
+          "disagreements": 1,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            26
+          ]
+        }
+      },
+      "first_prior_and_final": {
+        "gaussian_step01_grad_local": {
+          "byte_exact": false,
+          "delta_l2": 0.6525259979593446,
+          "dtype": "float32",
+          "max_abs": 0.4255417585372925,
+          "mean_abs": 0.00013653481033160109,
+          "per_object": [
+            {
+              "delta_l2": 0.0012857410471074238,
+              "max_abs": 0.0002498924732208252
+            },
+            {
+              "delta_l2": 0.6525247312422714,
+              "max_abs": 0.4255417585372925
+            }
+          ],
+          "reference_l2": 41.80341336125333,
+          "relative_l2": 0.015609395154419538,
+          "rms": 0.005097859359057379,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16359
+        },
+        "gaussian_step01_grad_style": {
+          "byte_exact": false,
+          "delta_l2": 0.01876383237883479,
+          "dtype": "float32",
+          "max_abs": 0.01241658627986908,
+          "mean_abs": 0.00038019409839762375,
+          "per_object": [
+            {
+              "delta_l2": 0.000775777067731578,
+              "max_abs": 0.0005767345428466797
+            },
+            {
+              "delta_l2": 0.018747788549111348,
+              "max_abs": 0.01241658627986908
+            }
+          ],
+          "reference_l2": 3.937323099737631,
+          "relative_l2": 0.004765631852789816,
+          "rms": 0.0011727395236771744,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 256
+        },
+        "gaussian_step01_prior_input": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 159.297219463235,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 0
+        },
+        "gaussian_step01_prior_output": {
+          "byte_exact": false,
+          "delta_l2": 0.005255464166150563,
+          "dtype": "float32",
+          "max_abs": 0.000776141881942749,
+          "mean_abs": 1.5365096836639225e-05,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.005255464166150563,
+              "max_abs": 0.000776141881942749
+            }
+          ],
+          "reference_l2": 55.66625037643373,
+          "relative_l2": 9.441024194393126e-05,
+          "rms": 4.105831379805128e-05,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 8164
+        },
+        "gaussian_step01_prior_style": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 14.867725625814257,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 0
+        },
+        "gaussian_terminal_decoded": {
+          "byte_exact": false,
+          "delta_l2": 0.6937328137973989,
+          "dtype": "float32",
+          "max_abs": 0.08731412887573242,
+          "mean_abs": 0.003609647078974376,
+          "per_object": [
+            {
+              "delta_l2": 0.3659283648231384,
+              "max_abs": 0.05953824520111084
+            },
+            {
+              "delta_l2": 0.5893739464526072,
+              "max_abs": 0.08731412887573242
+            }
+          ],
+          "reference_l2": 144.27851856101498,
+          "relative_l2": 0.004808289000444798,
+          "rms": 0.006258231668618825,
+          "shape": [
+            2,
+            2048,
+            3
+          ],
+          "total_values": 12288,
+          "unequal_values": 12288
+        }
+      }
+    },
+    "gaussian_C1_vs_KL0": {
+      "first_differing_array_in_capture_order": "gaussian_step01_prior_output",
+      "initial_all_byte_exact": true,
+      "terminal_predictions": {
+        "curvenet": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "dgcnn": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointmae": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointnext": {
+          "disagreements": 1,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            31
+          ]
+        }
+      },
+      "first_prior_and_final": {
+        "gaussian_step01_grad_local": {
+          "byte_exact": false,
+          "delta_l2": 0.65251905239296,
+          "dtype": "float32",
+          "max_abs": 0.4255313277244568,
+          "mean_abs": 0.0001369159963628963,
+          "per_object": [
+            {
+              "delta_l2": 0.0015639036724702131,
+              "max_abs": 0.0004969239234924316
+            },
+            {
+              "delta_l2": 0.6525171782728099,
+              "max_abs": 0.4255313277244568
+            }
+          ],
+          "reference_l2": 41.80341336125333,
+          "relative_l2": 0.015609229006111872,
+          "rms": 0.005097805096820001,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16359
+        },
+        "gaussian_step01_grad_style": {
+          "byte_exact": false,
+          "delta_l2": 0.018736620471371708,
+          "dtype": "float32",
+          "max_abs": 0.01242738962173462,
+          "mean_abs": 0.0003814327669715567,
+          "per_object": [
+            {
+              "delta_l2": 0.0006486692067059749,
+              "max_abs": 0.0004239678382873535
+            },
+            {
+              "delta_l2": 0.018725388512618287,
+              "max_abs": 0.01242738962173462
+            }
+          ],
+          "reference_l2": 3.937323099737631,
+          "relative_l2": 0.004758720581661243,
+          "rms": 0.0011710387794607317,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 256
+        },
+        "gaussian_step01_prior_input": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 159.297219463235,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 0
+        },
+        "gaussian_step01_prior_output": {
+          "byte_exact": false,
+          "delta_l2": 0.005255464166150563,
+          "dtype": "float32",
+          "max_abs": 0.000776141881942749,
+          "mean_abs": 1.5365096836639225e-05,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.005255464166150563,
+              "max_abs": 0.000776141881942749
+            }
+          ],
+          "reference_l2": 55.66625037643373,
+          "relative_l2": 9.441024194393126e-05,
+          "rms": 4.105831379805128e-05,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 8164
+        },
+        "gaussian_step01_prior_style": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 14.867725625814257,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 0
+        },
+        "gaussian_terminal_decoded": {
+          "byte_exact": false,
+          "delta_l2": 0.6767945776889899,
+          "dtype": "float32",
+          "max_abs": 0.08899492025375366,
+          "mean_abs": 0.0034390010296192486,
+          "per_object": [
+            {
+              "delta_l2": 0.33095888943074503,
+              "max_abs": 0.061916887760162354
+            },
+            {
+              "delta_l2": 0.590353380523891,
+              "max_abs": 0.08899492025375366
+            }
+          ],
+          "reference_l2": 144.27851856101498,
+          "relative_l2": 0.004690889429965802,
+          "rms": 0.006105430181481522,
+          "shape": [
+            2,
+            2048,
+            3
+          ],
+          "total_values": 12288,
+          "unequal_values": 12288
+        }
+      }
+    },
+    "gaussian_C2_vs_KL0": {
+      "first_differing_array_in_capture_order": "gaussian_step01_grad_style",
+      "initial_all_byte_exact": true,
+      "terminal_predictions": {
+        "curvenet": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "dgcnn": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointmae": {
+          "disagreements": 0,
+          "left": [
+            7,
+            34
+          ],
+          "right": [
+            7,
+            34
+          ]
+        },
+        "pointnext": {
+          "disagreements": 1,
+          "left": [
+            7,
+            26
+          ],
+          "right": [
+            7,
+            31
+          ]
+        }
+      },
+      "first_prior_and_final": {
+        "gaussian_step01_grad_local": {
+          "byte_exact": false,
+          "delta_l2": 0.002256385427725946,
+          "dtype": "float32",
+          "max_abs": 0.0005561113357543945,
+          "mean_abs": 6.4715081610211556e-06,
+          "per_object": [
+            {
+              "delta_l2": 0.0015890258225971891,
+              "max_abs": 0.0003985464572906494
+            },
+            {
+              "delta_l2": 0.0016019588426589885,
+              "max_abs": 0.0005561113357543945
+            }
+          ],
+          "reference_l2": 41.80108076417583,
+          "relative_l2": 5.397911696244234e-05,
+          "rms": 1.7628011154108952e-05,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 16336
+        },
+        "gaussian_step01_grad_style": {
+          "byte_exact": false,
+          "delta_l2": 0.0013472779287346955,
+          "dtype": "float32",
+          "max_abs": 0.0007070302963256836,
+          "mean_abs": 3.022067403435358e-05,
+          "per_object": [
+            {
+              "delta_l2": 0.0008182031747547461,
+              "max_abs": 0.0004538893699645996
+            },
+            {
+              "delta_l2": 0.0010703744120992922,
+              "max_abs": 0.0007070302963256836
+            }
+          ],
+          "reference_l2": 3.9350691202079835,
+          "relative_l2": 0.00034237719531175266,
+          "rms": 8.420487054591847e-05,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 256
+        },
+        "gaussian_step01_prior_input": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 159.297219463235,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 0
+        },
+        "gaussian_step01_prior_output": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 55.66614531790264,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            8192,
+            1,
+            1
+          ],
+          "total_values": 16384,
+          "unequal_values": 0
+        },
+        "gaussian_step01_prior_style": {
+          "byte_exact": true,
+          "delta_l2": 0.0,
+          "dtype": "float32",
+          "max_abs": 0.0,
+          "mean_abs": 0.0,
+          "per_object": [
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            },
+            {
+              "delta_l2": 0.0,
+              "max_abs": 0.0
+            }
+          ],
+          "reference_l2": 14.867725625814257,
+          "relative_l2": 0.0,
+          "rms": 0.0,
+          "shape": [
+            2,
+            128,
+            1,
+            1
+          ],
+          "total_values": 256,
+          "unequal_values": 0
+        },
+        "gaussian_terminal_decoded": {
+          "byte_exact": false,
+          "delta_l2": 0.47968552105030227,
+          "dtype": "float32",
+          "max_abs": 0.0753316581249237,
+          "mean_abs": 0.0026149995795966183,
+          "per_object": [
+            {
+              "delta_l2": 0.29613029583413825,
+              "max_abs": 0.0753316581249237
+            },
+            {
+              "delta_l2": 0.3773659324773313,
+              "max_abs": 0.05375182628631592
+            }
+          ],
+          "reference_l2": 144.29537154080117,
+          "relative_l2": 0.0033243306138524735,
+          "rms": 0.004327290073511843,
+          "shape": [
+            2,
+            2048,
+            3
+          ],
+          "total_values": 12288,
+          "unequal_values": 12288
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cap_seconds": 18000,
+  "commands_sha256": "9825e3d51b73b85f25fdf11876c885c86b43d2a3a5d063afcc2cda3985bb78ef",
+  "plan_sha256": "e4bf0104fe997157810820aad1b6f12e9f0f7e6b9915334329c16f4a754dcff4",
+  "question_reference": "call_5f07a438c7ed48b7bfa95b075ce5c171",
+  "recorded_UTC": "2026-10-30T13:23:44.213042+00:00",
+  "reviewed_scope": {
+    "path": "gpu_approval_request.md",
+    "sha256": "2bd3d96d88d0175e3ee3ea16f34f5998caba52474ea853e1b28248ae1dd3d55a"
+  },
+  "scope": "Exact86job campaign, five independent Chamfer-only arms, both datasets/fourheads, dev70seed0/heldout140seeds0,1,2/3fresh timing repeats; no spectral, combinations or larger cap; setup separate",
+  "session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "source_commit": "a1d298a4d64bd9b580253dfa53224aa69b94df33",
+  "status": "approved",
+  "user_reply": "5 saat \u00fcst s\u0131n\u0131rla onayl\u0131yorum"
+}

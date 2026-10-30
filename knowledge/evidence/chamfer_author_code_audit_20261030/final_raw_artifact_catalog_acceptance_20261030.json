@@ -1,0 +1,34 @@
+{
+  "GPU_actions": false,
+  "actual_local_sha256": "passed",
+  "catalog": {
+    "bytes": 983925,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/final_raw_artifact_catalog_20261030.json",
+    "sha256": "da5a145237f5cdb2bbd02a9e346850884a5a1b0fc24be52f5caa591dde67b3e4"
+  },
+  "duplicate_records_deduplicated": 38,
+  "full_per_artifact_rows": "Ignored full catalog only; this tracked acceptance proof intentionally omits711rows.",
+  "input_record_count": 749,
+  "missing_direct_cache_Drive_paths_are_not_fabricated": true,
+  "preserved_failed_research_receipts": [
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/gpu_smoke_initial_failed_receipt.json",
+      "raw_records_retained": 32,
+      "stage": "smoke_initial",
+      "status": "failed"
+    }
+  ],
+  "raw_mutations": false,
+  "remote_actions": false,
+  "schema_version": 1,
+  "source_manifest_count": 10,
+  "status": "all_711_actual_local_artifacts_verified",
+  "total_unique_bytes": 3918498290,
+  "unique_counts": {
+    "physical_npz_caches": 304,
+    "raw_head_archives": 407,
+    "total": 711
+  },
+  "verification_failures": [],
+  "zip_crc_and_safe_members": "passed"
+}

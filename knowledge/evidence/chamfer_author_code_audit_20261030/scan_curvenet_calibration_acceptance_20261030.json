@@ -1,0 +1,87 @@
+{
+  "RNG_grad_buffers_frozen_guards": true,
+  "accuracy_or_HPO_claim": false,
+  "actual_graph_spectral_calls": 0,
+  "calibration_report_matches_ledger": true,
+  "coefficient": 3.153885581354952,
+  "corruptions": 15,
+  "limitation": "Native calibration proves this fixed gradient path on development70, not heldout benefit or future runtime.",
+  "loss_reduction": "sum for Chamfer and per-object semantic losses",
+  "native_probes": 30,
+  "nonzero_H_all3_targets_finite": true,
+  "objects": 70,
+  "phase_archive": {
+    "bytes": 180057,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/calibration_phase.zip",
+    "sha256": "2bdf4ec15dee0f71f49cf2428fdbda4925714fdaa82b9c3b1dee5b7d68f703b0"
+  },
+  "probe_minimum_norm_ranges": {
+    "h_decoded_min_norm": {
+      "max": 0.23387501348472686,
+      "min": 0.07645258457612691
+    },
+    "h_local_min_norm": {
+      "max": 0.23522461516228554,
+      "min": 0.07659565941082591
+    },
+    "h_style_min_norm": {
+      "max": 0.01640834745262324,
+      "min": 0.0019986545373430016
+    }
+  },
+  "ratio_rows": 2100,
+  "ratio_summary": {
+    "count": 2100,
+    "max": 0.17691614457326943,
+    "median": 0.03170692069210661,
+    "min": 0.0035948780628311805,
+    "missing": 0,
+    "p90": 0.07208124695247224
+  },
+  "raw_archive": {
+    "bytes": 6679016,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/scanobjectnn_c/gsd_inspired_latent_spectral_guidance/20261030-182325_chamfer-semantic-marginal_entropy-w0p0-curvenet-seed0.zip",
+    "sha256": "519aa57cadcca0795b6ee330a9de376d00756cd9bac291fcafe3830511ad10c8"
+  },
+  "report": {
+    "bytes": 52546,
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/calibration.json",
+    "sha256": "8e8dd33e15edc17487bbcc1636064bf3de1b4a1fdad5714d6dd777f62e2e5d07"
+  },
+  "report_recomputed_exact_after_only_path_relocation": true,
+  "row_norms": {
+    "local_candidate_grad_norm": {
+      "max": 3.1493308115137273,
+      "median": 0.7151144718525534,
+      "min": 0.07659565941082591
+    },
+    "style_candidate_grad_norm": {
+      "max": 1.0455288810557197,
+      "median": 0.038120296658985586,
+      "min": 0.0019986545373430016
+    },
+    "teacher_decoded_grad_norm": {
+      "max": 3.129676002198846,
+      "median": 0.7103427798464463,
+      "min": 0.07645258457612691
+    }
+  },
+  "seed": 0,
+  "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc",
+  "source_manifest": {
+    "bytes": 176437,
+    "sha256": "95a0dc2a52d5d2e8cbf99767b5ba1e8ecd59fadcf0c0e7b23013ce836c7d0bb1"
+  },
+  "status": "independent_native_curvenet_H_calibration_accepted",
+  "teacher": {
+    "checkpoint": "checkpoints/3deformrs_curvenet_scanobjectnn_better.t7",
+    "checkpoint_identity": {
+      "bytes": 8680161,
+      "sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+    },
+    "input_layout": "bcn",
+    "preprocessing": "raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling",
+    "state_sha256": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6"
+  },
+  "zero_H_all3_targets_finite_and_exact_zero": true
+}

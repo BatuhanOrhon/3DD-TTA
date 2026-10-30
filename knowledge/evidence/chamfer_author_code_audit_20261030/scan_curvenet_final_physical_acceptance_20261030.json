@@ -1,0 +1,9 @@
+{
+  "status": "independent_all_new_study_physical_and_timing_accepted",
+  "full_local_proof": {
+    "path": "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/independent_timing_final_acceptance.json",
+    "bytes": 108104,
+    "sha256": "2d40278f7dd1aaf39ebafabfe2d3cb0062ec4ae02553463abedb21d909416f88"
+  },
+  "scope": "All13newworkers/49rawheads/90physicalcaches verified; 4200s continuous cap accepted; timing limits and encoded drift explicit"
+}

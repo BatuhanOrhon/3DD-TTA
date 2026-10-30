@@ -303,3 +303,22 @@ establish seed stability. This is a promising small selector signal rather than
 a1–2pp result or a speed result. An exploratory entropy-weighted mean may be
 computed from saved logits, but tau must not be tuned/presented as confirmatory
 on this same evaluation. [Full analysis and limits](gsd_trajectory_implementation_20261011.md).
+
+
+## Literature-guided next hypotheses — 2026-10-30
+
+[Paper/Code/Inference/Open] The [new review](diffusion_guidance_literature_review_20261030.md)
+separates directly citing SATOR/MAMVI/TTAD/LoTT-PC/Uni-Adapter/GSDTTA from
+contextual CloudFixer/GDA/Adaptive Guidance/SteeringTTA. SATOR's published
+default also changes BN statistics; MAMVI updates normalization affine
+parameters. Their reported gains do not transfer to our fully frozen state.
+Primary code pins, PDF reference pages and access limits are preserved.
+
+[Inference] Prioritize (A) fixed-timestep sparse real guidance backward,
+with a matched style-update control, and (B) two-checkpoint semantic input
+consistency through a frozen Point-MAE, with KL-only/marginal-entropy and
+equal-readout/compute controls. Keep noise depth/host fixed within contrasts.
+Secondary reliability-weighted SCD and causal early exit remain proposals.
+Probability mean is a readout, not a gradient loss; SATOR keep-ratio is not a
+diffusion-step ratio. No production change, new model output or GPU run.
+No accuracy/speed improvement or novelty claim is established.

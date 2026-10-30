@@ -1,0 +1,43 @@
+{
+  "status": "passed_local_CPU_fake_children_only",
+  "tests": 14,
+  "command": [
+    "/opt/homebrew/opt/python@3.13/bin/python3.13",
+    "result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/test_scan_curvenet_h_controls.py"
+  ],
+  "returncode": 0,
+  "python38_AST": true,
+  "files": {
+    "scan_curvenet_h_controls.py": {
+      "bytes": 29214,
+      "sha256": "fd766090fe343bb5eaa53dc76159cef59d83363f186c6e87155f063fc318ead2"
+    },
+    "launch_scan_curvenet_h.py": {
+      "bytes": 2040,
+      "sha256": "ba9d611342e6fa9aea0b32f38ab1bd66ede080681c59b8928dedc99072bea14d"
+    },
+    "test_scan_curvenet_h_controls.py": {
+      "bytes": 16543,
+      "sha256": "851fb6df5c3ba7cf429e41347907792e3d7381f2eb2311e151bf07c13e6f31b3"
+    },
+    "cpu_tests.log": {
+      "bytes": 113,
+      "sha256": "99c1c42ca4509fdc0439780b82d920f4a3ed9fb1c82518a08f0b99662bf11df2"
+    }
+  },
+  "GPU_execution": false,
+  "remote_execution": false,
+  "upload": false,
+  "real_plan_created": false,
+  "deferred": [
+    "Actual Linux native/checkpoint CPU deployment preflight",
+    "GPU CurveNet calibration/gradient checks",
+    "Runtime and accuracy measurements"
+  ],
+  "source_seal_comparison": {
+    "bytes": 1406,
+    "sha256": "b24253ce0bd76cc4fbe16b069afbcdb82dc5833132497a4b0dc16a15eebde865"
+  },
+  "review_followup": "Top-level fresh/replay modes required; heldout stage requires strict full-initial-state/RNG/source/native pairing plus indexed ID/label equivalence for all12 seed/head C/H pairs before complete. Whole trajectory equality not required.",
+  "root_isolation_followup": "New local and Drive roots must be disjoint from each other and each old root, rejecting equality and both ancestor directions;15 negative subcases."
+}

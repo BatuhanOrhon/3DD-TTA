@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-30T09:18:58.479429+00:00",
+  "base_commit": "17dd87c355fd779460297fb23f3dabbb40902d2c",
+  "successful_downloads": 21,
+  "failed_downloads": [
+    {
+      "name": "adaptive_guidance.pdf",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "name": "steeringtta.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "verified_direct_citing_pdfs": 6,
+  "production_source_hashes_checked": 11,
+  "changed_tracked_files": [
+    "knowledge/README.md",
+    "knowledge/findings_log.md",
+    "knowledge/method_synthesis.md",
+    "knowledge/open_questions.md"
+  ],
+  "new_tracked_candidates": [
+    "knowledge/diffusion_guidance_literature_review_20261030.md",
+    "knowledge/evidence/diffusion_guidance_literature_20261030/checkout_identity.json",
+    "knowledge/evidence/diffusion_guidance_literature_20261030/citation_verification.json",
+    "knowledge/evidence/diffusion_guidance_literature_20261030/index_retrieval.json",
+    "knowledge/evidence/diffusion_guidance_literature_20261030/openalex_citing.json",
+    "knowledge/evidence/diffusion_guidance_literature_20261030/openalex_target.json",
+    "knowledge/evidence/diffusion_guidance_literature_20261030/retrieval_manifest.json"
+  ],
+  "report_words": 3476,
+  "no_model_forward_or_gpu": true
+}

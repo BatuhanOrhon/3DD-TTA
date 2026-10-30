@@ -1,0 +1,20 @@
+{
+  "status": "root_calibration_exact_and_forecast_accepted",
+  "normalization": "calibration proof bundle path only; source/native/IDs/numerical fields exact",
+  "report": {
+    "bytes": 52546,
+    "sha256": "8e8dd33e15edc17487bbcc1636064bf3de1b4a1fdad5714d6dd777f62e2e5d07"
+  },
+  "coefficient": {
+    "semantic_h_curvenet": 3.153885581354952
+  },
+  "native_probes": 30,
+  "rows": 2100,
+  "semantic_scaled_median": 0.1,
+  "semantic_scaled_max": 0.5579732774785426,
+  "elapsed_whole_seconds": 409.1820285320282,
+  "remaining_cap_seconds": 3790.817971467972,
+  "remaining_worker_nominal_seconds": 2280,
+  "margin_plus_reserve_required_seconds": 3108.0,
+  "original_clock_unchanged": true
+}

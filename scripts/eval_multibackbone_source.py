@@ -316,7 +316,7 @@ def snapshot_sources(bundle: RunBundle, config: dict, manifest: dict) -> None:
             _declared_asset(root, manifest, relative)
             verify_identity(path, manifest["files"][relative])
             observed["assets/" + relative] = file_identity(path)
-        elif REPO in path.parents:
+        if REPO in path.parents:
             relative = path.relative_to(REPO)
             destination = bundle.path / "source_snapshot" / relative
             destination.parent.mkdir(parents=True, exist_ok=True)

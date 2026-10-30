@@ -119,7 +119,9 @@ class RestoreContractTests(unittest.TestCase):
                     results.append((points, vae.final_context, vae.final_style, metrics, rng_hash()))
                 for left, right in zip(results[0][:3], results[1][:3]):
                     torch.testing.assert_close(left, right, rtol=0, atol=0)
-                self.assertEqual(results[0][3:], results[1][3:])
+                self.assertEqual(results[0][3], {key: results[1][3][key] for key in results[0][3]})
+                self.assertEqual(results[0][4], results[1][4])
+                self.assertEqual(results[1][3]['spectral_loss_calls'], 6 if spectral > 0 else 0)
 
     def test_fresh_output_refuses_existing_directory(self):
         module = importlib.import_module('legacy_gsd_artifacts')
