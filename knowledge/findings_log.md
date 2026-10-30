@@ -6667,3 +6667,16 @@ in its closure record is dated, superseded by Agent B's own later closure.
 See[selection/verification](thesis_integration_agent_a_20261030.md). Future
 replication could overturn generalization; changed source/asset/ID/hash evidence
 would invalidate affected acceptance. No requested Agent A row remains pending.
+
+
+## Point-MAE / ModelNet comparison rechecked from raw heads — 2026-10-30
+
+[User report/Run/Code/Inference] Independent17ZIP SHA/member/CRC/protocol/paired
+initial-state check and direct readout recount reproduce three phase tables.
+Development terminal CS−C+.857143pp becomes probability-mean tie; this earlier
+positive observation must not be omitted. First confirmation seed1 terminal
+CS−C+1.238095pp but three-seed mean−.063492pp. Latest calibrated confirmation
+terminal−.222222pp,probabilitymean+.047619pp; latestCSmean−originalterminal
++1.142857pp is a distinct whole-policy/readout comparison. No count/arm/source
+mismatch found; no new GPU or universal no-bug claim. See
+[phase-by-phase correction and evidence](pointmae_guidance_comparison_recheck_20261030.md).

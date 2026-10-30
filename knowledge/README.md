@@ -1,3 +1,10 @@
+**[Run/Code/Inference] 2026-10-30 — Point-MAE comparison recheck:**
+17raw head archives independently reproduce the historical and latest tables.
+An earlier development spectral terminal advantage became a probability-mean
+tie; latest calibrated CS is slightly higher only under probability mean.
+These phases/comparators must remain distinct. No new GPU or code correction.
+[Exact phase tables and code/protocol checks](pointmae_guidance_comparison_recheck_20261030.md).
+
 **[Code/Run/Inference/Open] 2026-10-30 — Scan DGCNN checkpoint audit:**
 [Focused investigation](scan_dgcnn_checkpoint_audit_20261030.md) verifies a fresh
 author download matches our evaluated15-class checkpoint byte-for-byte; strict

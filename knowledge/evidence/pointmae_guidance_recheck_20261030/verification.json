@@ -1,0 +1,646 @@
+{
+  "status": "passed",
+  "scope": "Recount immutable Point-MAE head ZIPs; CPU NumPy only, no inference.",
+  "raw_head_archives": 17,
+  "accepted_csv_rows_reproduced": 31,
+  "paired_guided_seed_groups": 7,
+  "independent_readout": "float64 softmax followed by equal probability mean; labels only score predictions",
+  "checks": "Outer SHA/bytes, all member hashes/CRC, terminal counts, finite logits, original IDs, disjoint cohorts, unchanged model states, paired labels/initial input-latent-noise hashes, pinned TTA source.",
+  "limitations": "No fresh GPU/native execution, no assertion of absence of every algorithm defect; original3DD uses a distinct host.",
+  "records": [
+    {
+      "phase": "fixed_development",
+      "condition": "combined",
+      "seed": 0,
+      "n": 1050,
+      "correct": {
+        "terminal": 712,
+        "probability_mean": 712
+      },
+      "accuracy_pct": {
+        "terminal": 67.80952380952381,
+        "probability_mean": 67.80952380952381
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133401_guidance-components-combined-pointmae-seed0.zip",
+      "archive_sha256": "14ad95932239d4cf696dc1870fee666bf0aabcc996850d56ef6d8b18e02f3287",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 1.17
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "fixed_development",
+      "condition": "chamfer",
+      "seed": 0,
+      "n": 1050,
+      "correct": {
+        "terminal": 703,
+        "probability_mean": 712
+      },
+      "accuracy_pct": {
+        "terminal": 66.95238095238095,
+        "probability_mean": 67.80952380952381
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-133755_guidance-components-chamfer-pointmae-seed0.zip",
+      "archive_sha256": "a210db3186d9c1b074aed4eb68ebbd72bb5679cda01e82a161cbc9eb6f36fb0d",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 0.0
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "combined",
+      "seed": 0,
+      "n": 1050,
+      "correct": {
+        "terminal": 662,
+        "probability_mean": 682
+      },
+      "accuracy_pct": {
+        "terminal": 63.04761904761905,
+        "probability_mean": 64.95238095238095
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143541_guidance-components-combined-pointmae-seed0.zip",
+      "archive_sha256": "8390ce0f84954ff36e60ffc712791335b4bcdfb08a1cbc0e115e9e565525ea42",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 1.17
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "chamfer",
+      "seed": 0,
+      "n": 1050,
+      "correct": {
+        "terminal": 663,
+        "probability_mean": 685
+      },
+      "accuracy_pct": {
+        "terminal": 63.142857142857146,
+        "probability_mean": 65.23809523809524
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-143935_guidance-components-chamfer-pointmae-seed0.zip",
+      "archive_sha256": "8d27ae5cd20675e1745e0558d255b78784fd97b994ba5733becf33390dab0bbc",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 0.0
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "combined",
+      "seed": 1,
+      "n": 1050,
+      "correct": {
+        "terminal": 661,
+        "probability_mean": 667
+      },
+      "accuracy_pct": {
+        "terminal": 62.95238095238095,
+        "probability_mean": 63.523809523809526
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-144922_guidance-components-combined-pointmae-seed1.zip",
+      "archive_sha256": "f53c542d419d221662729d0e8ce1d7d8d7f4c8bc665a0e931253974749a51dfb",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 1.17
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "chamfer",
+      "seed": 1,
+      "n": 1050,
+      "correct": {
+        "terminal": 648,
+        "probability_mean": 667
+      },
+      "accuracy_pct": {
+        "terminal": 61.714285714285715,
+        "probability_mean": 63.523809523809526
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-145317_guidance-components-chamfer-pointmae-seed1.zip",
+      "archive_sha256": "01398720bc905214184c604f4e74701993dfa704a83c51eb54a02531d666eaf0",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 0.0
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "combined",
+      "seed": 2,
+      "n": 1050,
+      "correct": {
+        "terminal": 654,
+        "probability_mean": 661
+      },
+      "accuracy_pct": {
+        "terminal": 62.285714285714285,
+        "probability_mean": 62.95238095238095
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150305_guidance-components-combined-pointmae-seed2.zip",
+      "archive_sha256": "b3c4e34e1547ae3eb460a1c335b24cbb99813fc02987aa8de2830b311046a16a",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 1.17
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "chamfer",
+      "seed": 2,
+      "n": 1050,
+      "correct": {
+        "terminal": 668,
+        "probability_mean": 671
+      },
+      "accuracy_pct": {
+        "terminal": 63.61904761904762,
+        "probability_mean": 63.904761904761905
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261025-150659_guidance-components-chamfer-pointmae-seed2.zip",
+      "archive_sha256": "2a25156d58a81733845b58706a0fcdfd379ff391f2b0c1142a83f6bfdfbbbf76",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 0.0
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "spectral-candidate",
+      "seed": 0,
+      "n": 2100,
+      "correct": {
+        "terminal": 1318,
+        "probability_mean": 1341
+      },
+      "accuracy_pct": {
+        "terminal": 62.76190476190476,
+        "probability_mean": 63.857142857142854
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-174810_guidance-components-combined-pointmae-seed0.zip",
+      "archive_sha256": "049e8ff4f30b3c32be82f21cba5506b58e5b6689a0c63b86f2ab104bbb237f1a",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 937.3767440639812
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "spectral_loss_kind": "legacy_l2",
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "matched-chamfer",
+      "seed": 0,
+      "n": 2100,
+      "correct": {
+        "terminal": 1319,
+        "probability_mean": 1340
+      },
+      "accuracy_pct": {
+        "terminal": 62.80952380952381,
+        "probability_mean": 63.80952380952381
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-180130_guidance-components-chamfer-pointmae-seed0.zip",
+      "archive_sha256": "5325703426f51362d23a2243e2a5f172402d6576c5da744b318bf9f4eaf2c2a2",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 0.0
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "original3dd",
+      "seed": 0,
+      "n": 2100,
+      "correct": {
+        "terminal": 1335
+      },
+      "accuracy_pct": {
+        "terminal": 63.57142857142857
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/3dd_original/20261028-182105_pointmae-seed0.zip",
+      "archive_sha256": "301fc26bcab995441f9b06fda1d305a466066188491032c4399784d1a7769932",
+      "protocol": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "p": 0.95,
+        "scd_normalize": false,
+        "total": 100
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "spectral-candidate",
+      "seed": 1,
+      "n": 2100,
+      "correct": {
+        "terminal": 1338,
+        "probability_mean": 1361
+      },
+      "accuracy_pct": {
+        "terminal": 63.714285714285715,
+        "probability_mean": 64.80952380952381
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-182800_guidance-components-combined-pointmae-seed1.zip",
+      "archive_sha256": "276fda7d9c4ed60ed82d586c5e85f1a7798dbd013b4f422df6055d188ea23848",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 937.3767440639812
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "spectral_loss_kind": "legacy_l2",
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "matched-chamfer",
+      "seed": 1,
+      "n": 2100,
+      "correct": {
+        "terminal": 1338,
+        "probability_mean": 1360
+      },
+      "accuracy_pct": {
+        "terminal": 63.714285714285715,
+        "probability_mean": 64.76190476190476
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-184121_guidance-components-chamfer-pointmae-seed1.zip",
+      "archive_sha256": "12708ed3912e37de902411b46bd28b6ace08b24e7f88787d6b50fc28e5802a52",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 0.0
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "original3dd",
+      "seed": 1,
+      "n": 2100,
+      "correct": {
+        "terminal": 1329
+      },
+      "accuracy_pct": {
+        "terminal": 63.285714285714285
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/3dd_original/20261028-190057_pointmae-seed1.zip",
+      "archive_sha256": "32055a6619ded500a5133e6773bf24d317b5a8717eaa8c617bb8c318b5a073c4",
+      "protocol": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "p": 0.95,
+        "scd_normalize": false,
+        "total": 100
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "spectral-candidate",
+      "seed": 2,
+      "n": 2100,
+      "correct": {
+        "terminal": 1320,
+        "probability_mean": 1355
+      },
+      "accuracy_pct": {
+        "terminal": 62.857142857142854,
+        "probability_mean": 64.52380952380952
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-190753_guidance-components-combined-pointmae-seed2.zip",
+      "archive_sha256": "11cd03c4a38c06ef5075c5bf8fb17f1821472819b935ebf604392e25326b1bdf",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 937.3767440639812
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "spectral_loss_kind": "legacy_l2",
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "matched-chamfer",
+      "seed": 2,
+      "n": 2100,
+      "correct": {
+        "terminal": 1333,
+        "probability_mean": 1354
+      },
+      "accuracy_pct": {
+        "terminal": 63.476190476190474,
+        "probability_mean": 64.47619047619048
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/gsd_inspired_latent_spectral_guidance/20261028-192115_guidance-components-chamfer-pointmae-seed2.zip",
+      "archive_sha256": "ae2920f43f852283eeab212801151f98e9709e8f7d3d864b184dba47d312d0b4",
+      "protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 0.0
+        },
+        "p": 0.95,
+        "skip_inactive_components": true,
+        "total": 100,
+        "use_static_style": false
+      }
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "original3dd",
+      "seed": 2,
+      "n": 2100,
+      "correct": {
+        "terminal": 1321
+      },
+      "accuracy_pct": {
+        "terminal": 62.904761904761905
+      },
+      "archive_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/modelnet40_c/3dd_original/20261028-201138_pointmae-seed2.zip",
+      "archive_sha256": "674c52b8b59c770eedde3d0a10d1b106972cdf67bde8e795df0b5614450926db",
+      "protocol": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "p": 0.95,
+        "scd_normalize": false,
+        "total": 100
+      }
+    }
+  ],
+  "means": [
+    {
+      "phase": "fixed_development",
+      "condition": "combined",
+      "policy": "terminal",
+      "correct": 712,
+      "n": 1050,
+      "accuracy_pct": 67.80952380952381
+    },
+    {
+      "phase": "fixed_development",
+      "condition": "combined",
+      "policy": "probability_mean",
+      "correct": 712,
+      "n": 1050,
+      "accuracy_pct": 67.80952380952381
+    },
+    {
+      "phase": "fixed_development",
+      "condition": "chamfer",
+      "policy": "terminal",
+      "correct": 703,
+      "n": 1050,
+      "accuracy_pct": 66.95238095238095
+    },
+    {
+      "phase": "fixed_development",
+      "condition": "chamfer",
+      "policy": "probability_mean",
+      "correct": 712,
+      "n": 1050,
+      "accuracy_pct": 67.80952380952381
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "combined",
+      "policy": "terminal",
+      "correct": 1977,
+      "n": 3150,
+      "accuracy_pct": 62.76190476190476
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "combined",
+      "policy": "probability_mean",
+      "correct": 2010,
+      "n": 3150,
+      "accuracy_pct": 63.80952380952381
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "chamfer",
+      "policy": "terminal",
+      "correct": 1979,
+      "n": 3150,
+      "accuracy_pct": 62.82539682539682
+    },
+    {
+      "phase": "fixed_confirmation",
+      "condition": "chamfer",
+      "policy": "probability_mean",
+      "correct": 2023,
+      "n": 3150,
+      "accuracy_pct": 64.22222222222223
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "spectral-candidate",
+      "policy": "terminal",
+      "correct": 3976,
+      "n": 6300,
+      "accuracy_pct": 63.111111111111114
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "spectral-candidate",
+      "policy": "probability_mean",
+      "correct": 4057,
+      "n": 6300,
+      "accuracy_pct": 64.39682539682539
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "matched-chamfer",
+      "policy": "terminal",
+      "correct": 3990,
+      "n": 6300,
+      "accuracy_pct": 63.333333333333336
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "matched-chamfer",
+      "policy": "probability_mean",
+      "correct": 4054,
+      "n": 6300,
+      "accuracy_pct": 64.34920634920636
+    },
+    {
+      "phase": "sensitivity_confirmation",
+      "condition": "original3dd",
+      "policy": "terminal",
+      "correct": 3985,
+      "n": 6300,
+      "accuracy_pct": 63.25396825396825
+    }
+  ]
+}
