@@ -1,0 +1,90 @@
+{
+  "accepted_utc": "2026-10-25T15:27:10.710806+00:00",
+  "cache_archive": {
+    "bytes": 387106113,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/confirmation_cache_evidence_20261025T151802564892Z/confirmation_cache_evidence.zip",
+    "local_path": "/content/studies/guidance-components/confirmation_cache_evidence_20261025T151802564892Z.zip",
+    "sha256": "6710a4e22a05daa64602cb13c2c559b789bfd2a200b1306ad2d7ddfb154e9569"
+  },
+  "counts": {
+    "candidate_predictions": 201600,
+    "physical_local_cache_npz": 90,
+    "raw_archives": 48,
+    "terminal_head_inputs": 50400
+  },
+  "frozen_plan_sha256": "c6ea3e01a03061afd227c82eb30eb128c2a4f1f342dbf937732dd5e61b122d45",
+  "local_cache_validation": {
+    "bytes": 791,
+    "sha256": "367a81661b4e7263fc9107032c01ce9a1f19410b89afc7cb66fbac4274af479c"
+  },
+  "local_validation": {
+    "bytes": 101463,
+    "sha256": "8766b99722753c0b5ab6b7b9b392cc4ee8566b44c9fc4d01fbc6eb1b459926ff"
+  },
+  "manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "no_policy_reselection": true,
+  "phase_archive": {
+    "bytes": 607716167,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/frozen_confirmation_20261025T143534122308Z/frozen_confirmation_evidence.zip",
+    "local_path": "/content/studies/guidance-components/frozen_confirmation_20261025T143534122308Z.zip",
+    "sha256": "f3f0171c5d06bb88c95f6bd55b91b2097cce2337e5bdefa23022335d282b9070"
+  },
+  "report": {
+    "bytes": 8264,
+    "sha256": "d164ccecb24343a57af89a46a2642482420f0a727e287e401629b25f83af6a25"
+  },
+  "runtime_teardown_authorized": false,
+  "source_snapshot_sha256": "f5bca11a543fd5463ef5a09b26cf216b2bd049523d61a97da24e184e5576d0c6",
+  "status": "accepted",
+  "summary": [
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "probability_mean",
+      "conditional_object_bootstrap_high_pp": 0.3650793650793651,
+      "conditional_object_bootstrap_low_pp": -0.039682539682539715,
+      "contrast": "primary_same_readout",
+      "corrected_events": 436,
+      "delta_pp": 0.17063492063492064,
+      "harmed_events": 393,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 25200,
+      "n_seeds": 3,
+      "negative_cases": 2,
+      "per_seed_max_pp": 0.2261904761904762,
+      "per_seed_min_pp": 0.10714285714285715,
+      "positive_cases": 6,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "chamfer",
+      "candidate_policy": "probability_mean",
+      "comparator": "combined",
+      "comparator_policy": "minimum_entropy",
+      "conditional_object_bootstrap_high_pp": 0.4682539682539683,
+      "conditional_object_bootstrap_low_pp": -0.07142857142857147,
+      "contrast": "secondary_frozen_readout",
+      "corrected_events": 568,
+      "delta_pp": 0.19444444444444448,
+      "harmed_events": 519,
+      "n_cases": 8,
+      "n_original_object_clusters": 140,
+      "n_prediction_events": 25200,
+      "n_seeds": 3,
+      "negative_cases": 1,
+      "per_seed_max_pp": 0.35714285714285715,
+      "per_seed_min_pp": -0.05952380952380953,
+      "positive_cases": 7,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    }
+  ],
+  "tuning_trials_per_arm": 0
+}

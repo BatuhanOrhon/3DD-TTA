@@ -74,17 +74,52 @@ class RestoreContractTests(unittest.TestCase):
         self.assertIsNone(contract['cli']['seed'])
 
     def test_core_sources_equal_pinned_branch(self):
-        for name in ('tta_gsd_v2.py', 'graph_spectral_v2.py'):
-            reference = subprocess.check_output(['git', 'show', REFERENCE + ':' + name], cwd=ROOT)
-            if name == 'graph_spectral_v2.py':
-                self.assertEqual((ROOT / name).read_bytes().replace(b'\r\n', b'\n'), reference.replace(b'\r\n', b'\n'))
-            else:
-                old = ast.parse(reference)
-                new = StripTrajectoryObserver().visit(ast.parse((ROOT / name).read_text(encoding='utf-8')))
-                old_fn = next(n for n in old.body if isinstance(n, ast.FunctionDef))
-                new_fn = next(n for n in new.body if isinstance(n, ast.FunctionDef))
-                new_fn.args = old_fn.args
-                self.assertEqual(ast.dump(old), ast.dump(new))
+        name = 'graph_spectral_v2.py'
+        reference = subprocess.check_output(['git', 'show', REFERENCE + ':' + name], cwd=ROOT)
+        self.assertEqual((ROOT / name).read_bytes().replace(b'\r\n', b'\n'), reference.replace(b'\r\n', b'\n'))
+
+    def test_default_reconstruction_matches_pinned_branch_numerically(self):
+        """Opt-in components/losses change source; retain the historical default math."""
+        import types
+        from unittest.mock import patch
+        import torch
+        from tests.test_legacy_gsd_numerics import VAE, Prior, Scheduler, chamfer, load_source
+        from legacy_trajectory import rng_hash
+
+        native = types.ModuleType('third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D')
+        native.chamfer_3DDist = lambda: chamfer
+        utilities = types.ModuleType('utilities_3dd_tta')
+        utilities.grad_freeze = lambda model: model.requires_grad_(False)
+        replacements = {native.__name__: native, 'utilities_3dd_tta': utilities,
+                        'diffusers': types.SimpleNamespace(DDIMScheduler=Scheduler)}
+        historical = types.ModuleType('historical_gsd')
+        reference = subprocess.check_output(['git', 'show', REFERENCE + ':tta_gsd_v2.py'], cwd=ROOT)
+        with patch.dict(sys.modules, replacements):
+            exec(compile(reference, REFERENCE + ':tta_gsd_v2.py', 'exec'), historical.__dict__)
+        current = load_source('tta_gsd_v2', replacements)
+        basis = torch.eye(2048).unsqueeze(0)
+        eigenvalues = torch.linspace(0, 4, 2048).unsqueeze(0)
+
+        class Graph:
+            use_4d_gft = False
+
+            def __call__(self, local):
+                return local[:, :, :3].detach(), basis, eigenvalues
+
+        for spectral, cd in ((1.17, 1.), (0., 1.), (1.17, 0.), (0., 0.)):
+            with self.subTest(spectral=spectral, chamfer=cd):
+                results = []
+                for module in (historical, current):
+                    torch.manual_seed(37)
+                    vae, prior = VAE(), Prior()
+                    points, metrics = module.tta_gsd_reconstruct(
+                        torch.zeros(1, 2048, 3), types.SimpleNamespace(vae=vae, priors=[None, prior]),
+                        Graph(), 3, .03, .02, .95, M_max=800,
+                        loss_weights=dict(spectral=spectral, chamfer=cd, invariant=0.))
+                    results.append((points, vae.final_context, vae.final_style, metrics, rng_hash()))
+                for left, right in zip(results[0][:3], results[1][:3]):
+                    torch.testing.assert_close(left, right, rtol=0, atol=0)
+                self.assertEqual(results[0][3:], results[1][3:])
 
     def test_fresh_output_refuses_existing_directory(self):
         module = importlib.import_module('legacy_gsd_artifacts')

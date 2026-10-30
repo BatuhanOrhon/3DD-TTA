@@ -1,4 +1,4 @@
-"""Independently score fixed Scan trajectory candidates; CPU-only, no label tuning."""
+"""Independently score strict Scan15/ModelNet40 trajectories; CPU-only."""
 import argparse
 import csv
 import hashlib
@@ -66,12 +66,28 @@ def analyze_bundle(path, allow_partial=False) -> dict:
     try:
         config = bundle.json('config.json')
         require(config.get('trajectory_observation') is True, 'Trajectory observation flag missing')
-        require(config.get('dataset') == 'scanobjectnn_c' and config.get('n_examples') == 581,
-                'Expected ScanObjectNN-C 581-example main split')
-        require(config.get('split') == 'main_split' and config.get('num_classes') == 15 and
+        contracts = {'scanobjectnn_c': (581, 15, 'main_split'),
+                     'modelnet40_c': (2468, 40, 'official_modelnet40_test')}
+        require(config.get('dataset') in contracts, 'Expected ScanObjectNN-C or ModelNet40-C')
+        total, classes, split = contracts[config['dataset']]
+        require(config.get('n_examples') == total and config.get('split') == split and config.get('num_classes') == classes and
                 config.get('batch_size') == 70 and config.get('method') == 'gsd_inspired_latent_spectral_guidance',
-                'Expected GSD-inspired main_split, 15 classes and B70 protocol')
-        require(config.get('severity') == 5 and config.get('seed') == 0, 'Expected severity5 seed0')
+                'Expected strict dataset count/split/classes and GSD-inspired B70 protocol')
+        require(config.get('severity') == 5 and type(config.get('seed')) is int and
+                (config['seed'] == 0 or config.get('component_study') and config['seed'] >= 0), 'Expected severity5 seed0 or registered component seed')
+        expected_ids = config.get('selected_original_ids', list(range(total)))
+        require(isinstance(expected_ids, list) and expected_ids and
+                all(type(i) is int and 0 <= i < total for i in expected_ids) and expected_ids == sorted(set(expected_ids)),
+                'Invalid selected original IDs')
+        if 'selected_original_ids' in config:
+            raw_selection = bundle.read('selection_manifest.json')
+            identity = config.get('selection_manifest_identity', {})
+            selection = json.loads(raw_selection)
+            require(identity.get('bytes') == len(raw_selection) and identity.get('sha256') == hashlib.sha256(raw_selection).hexdigest()
+                    and selection == config.get('selection_manifest') and selection.get('dataset') == config['dataset']
+                    and selection.get('n_examples') == total and selection.get('stage') in ('smoke', 'development', 'heldout')
+                    and selection.get('indices') == expected_ids and config.get('evaluation_n_examples') == len(expected_ids),
+                    'Selection manifest identity/content mismatch')
         require(config.get('status') in ('complete', 'partial'), 'Failed/running bundle is not accepted')
         require(config.get('classifier_state_before_sha256') is not None and
                 config['classifier_state_before_sha256'] == config.get('classifier_state_after_sha256'),
@@ -86,6 +102,7 @@ def analyze_bundle(path, allow_partial=False) -> dict:
                     'Full acceptance requires complete all15')
         rows, manifests = [], {}
         complete = config['status'] == 'complete' and set(corruptions) == set(CORRUPTIONS)
+        selection_complete = True
         all_batches = {n for n in bundle.names if n.startswith('batches/') and n.endswith('/predictions.npz')}
         consumed = set()
         for corruption in corruptions:
@@ -109,13 +126,13 @@ def analyze_bundle(path, allow_partial=False) -> dict:
                         data['candidate_loop_counts'].tolist() == steps + [horizon], 'Candidate ordering mismatch')
                 ids, labels, prediction = data['index'], data['label'], data['prediction']
                 n = len(ids)
-                require(n == min(70, 581 - number * 70), 'Batch size/remainder does not match fixed B70')
+                require(n == min(70, len(expected_ids) - number * 70), 'Batch size/remainder does not match fixed B70')
                 require(n > 0 and all(a.shape == (n,) and a.dtype.kind in 'iu'
                                      for a in (ids, labels, prediction)), 'Invalid indexed predictions')
-                require(((ids >= 0) & (ids < 581)).all() and ((labels >= 0) & (labels < 15)).all(),
+                require(((ids >= 0) & (ids < total)).all() and ((labels >= 0) & (labels < classes)).all(),
                         'Out-of-range original ID or label')
-                require(data['logits'].shape == (n, 15) and data['trajectory_logits'].shape == (n, 4, 15)
-                        and np.isfinite(data['trajectory_logits']).all(), 'Invalid 15-class candidate logits')
+                require(data['logits'].shape == (n, classes) and data['trajectory_logits'].shape == (n, 4, classes)
+                        and np.isfinite(data['trajectory_logits']).all(), 'Invalid dataset-class candidate logits')
                 require(np.array_equal(data['trajectory_logits'][:, 3], data['logits']) and
                         np.array_equal(data['logits'].argmax(1), prediction), 'Terminal predictions mismatch')
                 diagnostic_name = name.rsplit('/', 1)[0] + '/diagnostics.json'
@@ -140,16 +157,17 @@ def analyze_bundle(path, allow_partial=False) -> dict:
                 consumed.add(name)
             ids = np.concatenate([d['index'] for d in parts])
             labels = np.concatenate([d['label'] for d in parts])
-            require(np.array_equal(ids, np.arange(len(ids))) and len(ids) <= 581,
-                    'Original IDs must be an ordered unique prefix of 0..580')
+            require(np.array_equal(ids, np.asarray(expected_ids[:len(ids)])) and len(ids) <= len(expected_ids),
+                    'Original IDs must match the ordered unique declared selection')
             if not allow_partial:
-                require(len(ids) == 581, 'Full acceptance requires every original ID')
-            complete = complete and len(ids) == 581
+                require(len(ids) == total, 'Full acceptance requires every original ID')
+            complete = complete and len(ids) == total
+            selection_complete = selection_complete and len(ids) == len(expected_ids)
             selected = policies(np.concatenate([d['trajectory_logits'] for d in parts]), terminal=3)
             terminal_correct = selected['terminal'] == labels
             for policy in ('terminal', 'minimum_entropy', 'probability_mean'):
                 correct = selected[policy] == labels
-                rows.append(dict(backbone=config['backbone'], corruption=corruption, policy=policy,
+                rows.append(dict(dataset=config['dataset'], component_arm=config.get('component_arm'), backbone=config['backbone'], corruption=corruption, policy=policy,
                                  n=len(ids), correct=int(correct.sum()), accuracy_pct=100. * float(correct.mean()),
                                  delta_terminal_pp=100. * float(correct.mean() - terminal_correct.mean()),
                                  corrected=int((correct & ~terminal_correct).sum()),
@@ -158,12 +176,13 @@ def analyze_bundle(path, allow_partial=False) -> dict:
         macro = []
         for policy in ('terminal', 'minimum_entropy', 'probability_mean'):
             selected = [r for r in rows if r['policy'] == policy]
-            macro.append(dict(backbone=config['backbone'], policy=policy, corruptions=len(selected),
+            macro.append(dict(dataset=config['dataset'], component_arm=config.get('component_arm'), backbone=config['backbone'], policy=policy, corruptions=len(selected),
                               n=sum(r['n'] for r in selected),
                               accuracy_pct=float(np.mean([r['accuracy_pct'] for r in selected])),
                               delta_terminal_pp=float(np.mean([r['delta_terminal_pp'] for r in selected])),
                               corrected=sum(r['corrected'] for r in selected), harmed=sum(r['harmed'] for r in selected)))
-        return dict(status='complete' if complete else 'partial', input=str(path), backbone=config['backbone'],
+        return dict(status='complete' if complete else 'partial', selection_complete=selection_complete,
+                    dataset=config['dataset'], component_arm=config.get('component_arm'), input=str(path), backbone=config['backbone'],
                     per_corruption=rows, macro=macro, analyzed_members=manifests,
                     comparison='same-run terminal; no fitted thresholds or early stopping; single seed')
     finally:
@@ -177,7 +196,7 @@ def main(argv=None):
     parser.add_argument('--allow-partial', action='store_true')
     args = parser.parse_args(argv)
     reports = [analyze_bundle(p, args.allow_partial) for p in args.bundles]
-    require(len({r['backbone'] for r in reports}) == len(reports), 'Duplicate backbone bundles')
+    require(len({(r['dataset'], r['component_arm'], r['backbone']) for r in reports}) == len(reports), 'Duplicate dataset/arm/backbone bundles')
     args.output.mkdir(parents=True, exist_ok=False)
     report = dict(status='complete' if all(r['status'] == 'complete' for r in reports) else 'partial',
                   bundles=reports, macro=[row for r in reports for row in r['macro']])

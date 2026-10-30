@@ -1,0 +1,17 @@
+{
+  "status": "verified_local_drive_roundtrip",
+  "archive": {
+    "bytes": 387106113,
+    "sha256": "6710a4e22a05daa64602cb13c2c559b789bfd2a200b1306ad2d7ddfb154e9569",
+    "local_path": "/content/studies/guidance-components/confirmation_cache_evidence_20261025T151802564892Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/confirmation_cache_evidence_20261025T151802564892Z/confirmation_cache_evidence.zip"
+  },
+  "cache_files": 90,
+  "per_seed": {
+    "0": 30,
+    "1": 30,
+    "2": 30
+  },
+  "local_cache_directory": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_study_20261025/confirmation_cache_extracted",
+  "joined_to_actual_raw_phase_cache_records": true
+}

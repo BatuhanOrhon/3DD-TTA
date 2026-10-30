@@ -1,0 +1,59 @@
+{
+  "cap_seconds": 19800,
+  "deployment_directory": "/content/studies/guidance-components/reviewed_remaining_slots",
+  "excluded_failed_slots": [
+    20
+  ],
+  "failed_ledger_identity": {
+    "bytes": 12181,
+    "sha256": "60c8ba55d787c8e1e9ea4fa34f27eeb3e9aa8522300252c6c74863e1cad2736b"
+  },
+  "failure_policy": "No retry/replacement of20. Only exact finiteXYZ worker failure is recorded; all other errors stop. Preserve every original attempt and no whole-confirmation-complete claim.",
+  "failure_preservation_receipt": {
+    "bytes": 2900,
+    "sha256": "866135f4bf5f604283413fe4b82113d30e5c50c54ba7d18cc81072501e72486a"
+  },
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "margin_multiplier": 1.2,
+  "original_archive_identity": {
+    "bytes": 1159246521,
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+  },
+  "original_confirmation_archive": {
+    "bytes": 1159246521,
+    "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip",
+    "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+    "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+  },
+  "original_receipt_identity": {
+    "bytes": 3676445,
+    "sha256": "5ab88805d14edbc9713275816aa11bef1d5e80784ea385b477199f7d6b779754"
+  },
+  "packing_retry_reserve_seconds": 1200,
+  "phase_plan_sha256": "1403356329a8edfc717a505b2d27e2be683f314a99d310eaf6255af4202c4d42",
+  "point_seconds": [
+    291.4872319210008,
+    300.0,
+    300.0
+  ],
+  "prior_spent_seconds": 14114.660198396998,
+  "projected_upper_seconds": 16384.444876702197,
+  "registered_jobs": [
+    21,
+    22,
+    23
+  ],
+  "session": "tta-guidance-components-a100-20261028-r4",
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "sources": {
+    "remaining_slots_controller.py": {
+      "bytes": 25282,
+      "sha256": "eb44e15a22e1ccbb6e554f1423df3d1bf41201773f77e495ae308709eac0b09d"
+    },
+    "run_remaining_slots.py": {
+      "bytes": 1983,
+      "sha256": "ac5bb60d537befff8df029a3a7cce1ad1286d9d4e07e37d2c0059567b4309931"
+    }
+  },
+  "status": "prepared_for_explicit_source_review_not_launched"
+}

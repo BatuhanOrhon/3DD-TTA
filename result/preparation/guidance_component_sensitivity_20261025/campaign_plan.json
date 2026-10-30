@@ -1,0 +1,199 @@
+{
+  "accepted_development_path": "/content/studies/guidance-components/accepted_sensitivity_development.json",
+  "asset_root": "/content/studies/guidance-components/prepared_sensitivity_v2/assets",
+  "baseline_equivalence": {
+    "bytes": 937,
+    "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/baseline_equivalence_cpu.json",
+    "sha256": "45c115b1fa8897587c5e3a15906da52f1bb7415e39e2bd9c55190a305c6581a1"
+  },
+  "calibration": {
+    "command": [
+      "/usr/local/envs/3dd_tta_env/bin/python",
+      "-u",
+      "/content/studies/guidance-components/sensitivity_phases/calibrate_spectral_losses.py",
+      "--asset-root",
+      "/content/studies/guidance-components/prepared_sensitivity_v2/assets",
+      "--manifest-sha256",
+      "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+      "--cache-records",
+      "/content/studies/guidance-components/development_phase_receipt.json",
+      "--output",
+      "/content/studies/guidance-components/sensitivity_calibration_v2"
+    ],
+    "report_path": "/content/studies/guidance-components/sensitivity_calibration_v2/calibration_report.json"
+  },
+  "calibration_contract": {
+    "beta": 2.0,
+    "coefficient": "medianofperobjectRMSlocalC/Supdateratios;globalacross2100events;eta.01",
+    "huber_delta": 1.0,
+    "losses": [
+      "legacy_l2",
+      "huber",
+      "power"
+    ],
+    "minimum_valid_fraction": 0.9,
+    "mode_cutoff": 800,
+    "native_parity": {
+      "dLoss_dHpred_exact": true,
+      "inline_backward_repeats": 2,
+      "relative_difference_rule": "helper<=max(1e-5,3*inline_repeat_floor) AND helper<=1e-3 AND inline_repeat_floor<=1e-3",
+      "rng_unchanged": true,
+      "scalar_exact": true
+    },
+    "normalizer": "3N",
+    "rhos": [
+      0.1,
+      1.0
+    ],
+    "scalar_bounds": [
+      1e-12,
+      1000000000000.0
+    ],
+    "style": "reportedseparately,noscalarclaimtoequalizebothblocks",
+    "tiny_norm": 1e-12
+  },
+  "cap_seconds": 19800,
+  "confirmation_freeze_path": "/content/studies/guidance-components/sensitivity_confirmation_freeze.json",
+  "endpoint": "gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98",
+  "failure_rules": [
+    "Stoponunresolvedidentity/source/native/checkpoint/data/state/RNG/receipt mismatch",
+    "Recordnonfinite/OOMandpartialoutputs;nohiddenfailed-slotreplacement",
+    "No automatic overwriting/resume/extra sweep",
+    "One cumulativecampaignledger acrossallstages,notnewper-CLIbudgets",
+    "NoGPUbeforeexplicituserapprovalofexactplan",
+    "PreserveVMandmonitoruntiluserexplicitlyconfirms taskcomplete and authorizesclosing"
+  ],
+  "id_manifests": {
+    "confirmation": {
+      "modelnet40_c": {
+        "bytes": 1739,
+        "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/modelnet40_c_sensitivity_confirmation_ids.json",
+        "sha256": "1604ecbe0ba362a0e392d397c83296d8ebc04957564e2e64d23171eae911d3de"
+      },
+      "scanobjectnn_c": {
+        "bytes": 1632,
+        "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/scanobjectnn_c_sensitivity_confirmation_ids.json",
+        "sha256": "7dbe2e4880723c1b19b8bc89e00ae6a459ff76ea2a3a7e7291a895e80be52a71"
+      }
+    },
+    "development": {
+      "modelnet40_c": {
+        "bytes": 927,
+        "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/modelnet40_c_development_ids.json",
+        "sha256": "e8e3deb3f1a76550e29299cb3b7cb7ac33b584402f9094b0a924e49507c92d91"
+      },
+      "scanobjectnn_c": {
+        "bytes": 888,
+        "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/scanobjectnn_c_development_ids.json",
+        "sha256": "cf90a3f192168cf4ffb1f97de76b5b113c82515932a63e83cb6d44402fac077d"
+      }
+    },
+    "smoke": {
+      "modelnet40_c": {
+        "bytes": 921,
+        "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/modelnet40_c_smoke_ids.json",
+        "sha256": "30f38f4d3edf00258561e337b7bc9d9168b6a55323b103f58601c7f28103d419"
+      },
+      "scanobjectnn_c": {
+        "bytes": 882,
+        "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/scanobjectnn_c_smoke_ids.json",
+        "sha256": "94f348b8a4ef93700e8b94571b5f87d5a47e45b509e99d90e806acfa7f2ba7a4"
+      }
+    }
+  },
+  "manifest_sha256": "599b8dcb4f25d5297e26a69036aa124660adf38ff8ee51f106726f9379cd8eef",
+  "original_trial_id": "original3dd",
+  "packing_retry_reserve_seconds": 1200,
+  "phase_sources": {
+    "calibrate_spectral_losses.py": {
+      "bytes": 30194,
+      "sha256": "e97466cfc6236cd220348d8257626025d5c4648b4bb8db6c84a5e8dfdb28076f"
+    },
+    "sensitivity_campaign_controller.py": {
+      "bytes": 52939,
+      "sha256": "e0244aa907540512727377df7cf341c21320b4e766bf62b541f8a783f86e1f17"
+    }
+  },
+  "project_source_commit": "8169271c9058995e8dc128062848a253baa13f10",
+  "recoverable_source_overlay_base_manifest_sha256": "7012c30ad88222bbc5435d8508f781fc33385ed3976951c45f48da67f625ed75",
+  "schema_version": 1,
+  "scope": {
+    "backbones": [
+      "dgcnn",
+      "curvenet",
+      "pointnext",
+      "pointmae"
+    ],
+    "configurations_per_family": 6,
+    "confirmation_maximum_conditions": 4,
+    "confirmation_original_ids_per_dataset": 140,
+    "confirmation_seeds": [
+      0,
+      1,
+      2
+    ],
+    "corruptions": "all15",
+    "datasets": [
+      "modelnet40_c",
+      "scanobjectnn_c"
+    ],
+    "development_original_ids_per_dataset": 70,
+    "development_seeds": [
+      0
+    ],
+    "families": [
+      "chamfer",
+      "combined",
+      "spectral"
+    ],
+    "full_benchmark": false,
+    "gsd_policy": "batch70;normal10/background30;updatedstyle;finalalphaFalse;allthreefixedreadouts",
+    "heldout_prior_benchmark_exposure": true,
+    "new_configurations": 15,
+    "original_policy": "batch32;normal5/background35;originalstyle;finalalphaTrue;ordinaryterminal",
+    "reused_baseline_configurations": 3,
+    "selection_policy": "probability_mean",
+    "severity": 5
+  },
+  "session": "tta-guidance-components-a100-20261025-r1",
+  "smoke_trial_ids": [
+    "c-base",
+    "cs-base",
+    "s-base",
+    "cs-l2-r010",
+    "cs-huber-r010",
+    "cs-power-r010",
+    "original3dd"
+  ],
+  "source_dirty": true,
+  "source_snapshot_sha256": "73d9fbe16f51826cd13958861d21da81d04ab2c7157131ebd5756f248acb37b8",
+  "stage_expected_seconds": {
+    "calibrate": 300.0,
+    "confirmation": 7242.365194455003,
+    "development": 6713.815437575004,
+    "smoke": 840.0
+  },
+  "timing": {
+    "basis": "Five new configs/family times actualaccepted70-IDall15 jobcosts;140-IDGSD estimates double shared reconstruction plusfixedjob overhead; original3DD planning180s/devdatasetjob and270s/confirmationdatasetjob are provisional untilnewGPUsmoke",
+    "excludes": "Setup/CPUanalysis/transfer/idle andtotalVMbilling lifetime; preparedVM isreused",
+    "hard_hours": 5.5,
+    "includes": [
+      "calibration",
+      "allGPUparity/smokes",
+      "30newGSDdatasetjobs",
+      "2originalsubsetcontroljobs",
+      "up to24frozenconfirmationjobs",
+      "boundedretry/packingreserve"
+    ],
+    "manual_reestimate_gate": "After acceptedGPUsmoke and aftercandidatefreeze; stopbeforecontinuing ifupdatedwholecampaign cannotfitapprovedcap",
+    "nominal_hours": 4.193383508897224,
+    "nominal_seconds": 15096.180632030006,
+    "upper_scenario_hours": 5.3653935440100025,
+    "with20pct_margin_and_reserve_seconds": 19315.416758436008
+  },
+  "trial_registry": {
+    "bytes": 5895,
+    "path": "/content/studies/guidance-components/prepared_sensitivity_v2/assets/study/trial_registry.json",
+    "sha256": "fbc88efdf32bf2d21145e34bdd478f6194e69acc47233808a15fa4b31db87b78"
+  }
+}

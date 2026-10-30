@@ -1,0 +1,1622 @@
+[
+  {
+    "bytes": 4298284,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/background/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/background/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "df0d786bc34cc7fcadd559c5e697f3ed428906b17fbe12309bf5eef86d5dbe32"
+  },
+  {
+    "bytes": 4301169,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/background/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/background/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "d49f8cc747e5a1507fc0d5aa0e2795cf37f7c47d2084d959786cd7969e728241"
+  },
+  {
+    "bytes": 4300214,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/cutout/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/cutout/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "8354e1928cbc2d489629372dc6633ae14286f0a0e2eb6b0d58f6b828136b976d"
+  },
+  {
+    "bytes": 4301635,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/cutout/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/cutout/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "262d7da527ee5ab8a371590cb279159a02add5393619e8a6ca99120b6cab55f3"
+  },
+  {
+    "bytes": 4299279,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "776e47f6ce588a895c2fda03aecf82099ca77ac89c8ec0f368a96b25359a6f66"
+  },
+  {
+    "bytes": 4301983,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "7f2764026c59f0e8a09afb5c402fee27e3b70f07d176f52378a1b98cec30c1e8"
+  },
+  {
+    "bytes": 4300467,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density_inc/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density_inc/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "81323ab41df8f37cce087e853bd5c805db69fdede8830d5b251db7fb52399665"
+  },
+  {
+    "bytes": 4301971,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density_inc/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/density_inc/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "4b02dbe6b62683f847412caa0871311e9e0ae2e369d74a7fdf867426f6f45737"
+  },
+  {
+    "bytes": 4299249,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "868d335a8000bacfa6ecf4e535e5b93bf755564d17fe0ebcf0fa3ec56ba69200"
+  },
+  {
+    "bytes": 4301589,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "d9101ce96830ea097f0d3db412011c7326283dedd59d2e1414366542c7d65029"
+  },
+  {
+    "bytes": 4299645,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "9a7b1601026cc34849c9839fb6e045d58720c21d9ce4129114872fa6a943aa33"
+  },
+  {
+    "bytes": 4301073,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "0eb3f4a3ade3a201b51cf04439aa44cd3ad52230977b6d6930938e9a8423ef47"
+  },
+  {
+    "bytes": 4299470,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf_inv/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf_inv/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "009422727c722048dbd654674f1a32045343bde0d2ed83f9065eaa7da9b7ed12"
+  },
+  {
+    "bytes": 4300506,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf_inv/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/distortion_rbf_inv/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "026a425ad2aa082c57dd951646f174a1bad3f5530f77f726dfbb0a75ce9a6a32"
+  },
+  {
+    "bytes": 4299546,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/gaussian/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/gaussian/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "2129ee67b5241cb5a23925bf1e58267c89713203806281fde414927347d559c7"
+  },
+  {
+    "bytes": 4301896,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/gaussian/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/gaussian/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "6595303891f253edf06dbd9f972c274a64c922745071fa2572c14939ee7ac6fe"
+  },
+  {
+    "bytes": 4299568,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/impulse/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/impulse/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "cecddcefa8a929f8abba2f973cbe12563a6c348b1a5db04032f186716eb5890f"
+  },
+  {
+    "bytes": 4300728,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/impulse/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/impulse/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "1b36d765b17662296ea62c2348c54e9ba73575bce43bb5297c9de37c03c592eb"
+  },
+  {
+    "bytes": 4297774,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/lidar/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/lidar/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "14472f7430400bed669cc63daebd2f6c30aeb1b4c10514b3011ef484430a1030"
+  },
+  {
+    "bytes": 4300869,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/lidar/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/lidar/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "d947a45f6f4d449926ff8544e76fb596a69061db539db94cb377c3600d799f30"
+  },
+  {
+    "bytes": 4297346,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/occlusion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/occlusion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "2943726a88df67a5824149e9c87ca440741f88e1fd8edda137281450aab32fd1"
+  },
+  {
+    "bytes": 4302228,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/occlusion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/occlusion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "a6aedc569f57404398fead999a29b46e213213360fc0762516134916b8db9e1c"
+  },
+  {
+    "bytes": 4298487,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/rotation/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/rotation/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "af5b745d1ff45a05e16eb9a9a6c51d3f6f0234a73f49097b25d93321319d7660"
+  },
+  {
+    "bytes": 4299227,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/rotation/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/rotation/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "d6e07112b3f57bde220ae917b709b7eb7e2e39bb18f439b1d8fdd19cf9d5fb8e"
+  },
+  {
+    "bytes": 4298870,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/shear/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/shear/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "cf1c175c443600520f47ad3a7c75ca2027329445374e716fca57545cbc00225e"
+  },
+  {
+    "bytes": 4300256,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/shear/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/shear/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "9908de7dc9c322d519f7e486f964243bc6237159efc9b1462fbd21dba69b39cf"
+  },
+  {
+    "bytes": 4300184,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/uniform/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/uniform/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "90c32b5ce3d9e0acc69baac05c9279c57a08836098c0f5f814e2016412993237"
+  },
+  {
+    "bytes": 4301990,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/uniform/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/uniform/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "a99cb5547035193f529cc46349856f5c4797174155b52cca25e366b9bfe95317"
+  },
+  {
+    "bytes": 4299924,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/upsampling/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/upsampling/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "015729fd1dbb71b5c405c14030891f086d2fc867d7b411de7b59c31e0ee58719"
+  },
+  {
+    "bytes": 4301497,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/upsampling/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/modelnet40_c/upsampling/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "8313e3eb4143526782c8bb669899ef00972130e0d343d3b550981889846ee9b3"
+  },
+  {
+    "bytes": 4298077,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/background/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/background/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "f2fe05925af6b90b8036d9ac3004d79ef3e87e574a9223ad8b865e5724a25a0c"
+  },
+  {
+    "bytes": 4301314,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/background/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/background/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "7a4b9c8ec3a967ff5f8fa94d4c84219cd446c7983457bf33e62adea3b005668e"
+  },
+  {
+    "bytes": 4298591,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/cutout/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/cutout/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "e23e9773faa0de0cb409f9a14aa33a52bc2667fdd128ab9f2095ab9f4f1bb7b7"
+  },
+  {
+    "bytes": 4302145,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/cutout/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/cutout/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "4b0a7a9c315836935d42249a18cc5500cf42dd16c083b83ace39e26506f0aef9"
+  },
+  {
+    "bytes": 4297998,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "4bc0776cc45a18518715c4ef24cca0c0c2d495c380940f86894da998318da53d"
+  },
+  {
+    "bytes": 4301513,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "e7fa633437b15fc45db7dfb701db4734797abbd79004cc797eb8a0d381a3671f"
+  },
+  {
+    "bytes": 4297645,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density_inc/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density_inc/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "848a789743d2155aa80dda39a87dc3e75a1bb7e1eb11f0abb197ccfbf04b8b63"
+  },
+  {
+    "bytes": 4301914,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density_inc/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/density_inc/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "3a4a93ae44368ff6963dfe06808191cbdaea6123b7b2ecb71162d03f2e05796d"
+  },
+  {
+    "bytes": 4298216,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "c9a26bb1658d624168bdef664cc2fd3d2e2c13c2331dc913972ea77e00a87ccc"
+  },
+  {
+    "bytes": 4300903,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "d77981765f9fe74e0aaac1bd4afc9805c0bab0d5091cfc7f90eefec2773660e0"
+  },
+  {
+    "bytes": 4297136,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "c1c523e3b659886ec513b0a070604f73047e0972ad4cc7fac8f9e651256b2940"
+  },
+  {
+    "bytes": 4300854,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "45fca7ba10d91da078ebb92666e55001eca7a2fc8adbd379f6df76415c2a7df3"
+  },
+  {
+    "bytes": 4297042,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf_inv/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf_inv/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "4f75764af23828c10bdc5de7537eabb247528f26dfad8abb1f9b3bf0a750327d"
+  },
+  {
+    "bytes": 4300328,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf_inv/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/distortion_rbf_inv/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "742960d078ccaf44824c4862d6e28294803875d77d4a29085c2e726f1d0ad4ea"
+  },
+  {
+    "bytes": 4296224,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/gaussian/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/gaussian/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "29af33f0517178905e52131ec9446ccbc6e6cce2d59b32fd44234997e7ba67f9"
+  },
+  {
+    "bytes": 4301184,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/gaussian/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/gaussian/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "0a5bc89f01bc621af08004c391fa247aa4aca4d05a35c2ae9d2f516549e87676"
+  },
+  {
+    "bytes": 4293434,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/impulse/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/impulse/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "e5022ae2dd026206728ca1116aec08cc3fd13b9fcbd2bfbe7ba4c9edac2283a7"
+  },
+  {
+    "bytes": 4299999,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/impulse/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/impulse/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "59d1bc6842301d8be4cece1d821ce278cd42c76a80af52c0cdf0b02f2ef7e7ce"
+  },
+  {
+    "bytes": 4296348,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/lidar/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/lidar/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "c71cfc259200440eb15155f885fc49b7020a4e3a7850f4f4e1f196f2b71c5d1e"
+  },
+  {
+    "bytes": 4299820,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/lidar/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/lidar/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "29e06280f3aedb6cc149a8c67540856ec6c3df6cd87cfbf69936796ffb96746c"
+  },
+  {
+    "bytes": 4297416,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/occlusion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/occlusion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "25c245d4123daf00e8271d783614a1ba002dfcaa7ce29f72da99664d5abe9533"
+  },
+  {
+    "bytes": 4300576,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/occlusion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/occlusion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "a5b28146ce39359a93f78e5f5fda78e5881bb83cb18ddbbb8b5455a1f1459f92"
+  },
+  {
+    "bytes": 4298068,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/rotation/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/rotation/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "d06768ff5a4f08cd811dcffde60cc98220411081f8b8f6a7529f145562fcdbfe"
+  },
+  {
+    "bytes": 4299557,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/rotation/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/rotation/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "ccf9404f2989df2f147f3ad3cb1812caebf4b1317bbf8cf300f0ad0437ab7af7"
+  },
+  {
+    "bytes": 4298138,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/shear/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/shear/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "ef009cb5675f4bcfe9787fb890080804132cd4a3abd0d7ffebbff76c0aa06304"
+  },
+  {
+    "bytes": 4299875,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/shear/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/shear/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "f755371667d3896b2d339e708aec010fb3c4228c1d8ef7c83699a44569f0dace"
+  },
+  {
+    "bytes": 4297084,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/uniform/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/uniform/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "470487db971c1c4d370d8c4faf6f06bdc249f4b9e40e703d360f0b987de3e87b"
+  },
+  {
+    "bytes": 4301493,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/uniform/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/uniform/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "dadb3984114cbff8cf763b3b84dfb57990beec39311e0e4f31bb72ccd82ca59d"
+  },
+  {
+    "bytes": 4296723,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/upsampling/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/upsampling/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "bde482139475539213b9db13b2433c2b80ae887cea7297cb639346be88b0b8bd"
+  },
+  {
+    "bytes": 4301358,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/upsampling/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed0/scanobjectnn_c/upsampling/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "8dd508712f467a1d855a2f741d271934cc766c6739d7ac6db3fd308c8b925c84"
+  },
+  {
+    "bytes": 4297880,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/background/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/background/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "dab90616812097c1b80d930edd1700bed41d7364c5861d5877a2d7b2c2b071e2"
+  },
+  {
+    "bytes": 4301091,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/background/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/background/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "b969296d9669bcd26e1333ef0dac88e72b8617de4747b43e12a8879cbff26978"
+  },
+  {
+    "bytes": 4300606,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/cutout/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/cutout/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "b71b8f5e898c2ef750ed538225b5cd5709ceff8e97e88841c88171a64b62a253"
+  },
+  {
+    "bytes": 4301238,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/cutout/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/cutout/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "5a45fbb06b665a2f87a3e24782fa29d9055661b1a1553959f2d825d844219347"
+  },
+  {
+    "bytes": 4299865,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "6476d8ae7fb68b8d92cd7ec11f026cbbd5383725ccecde7466bc2a685615c796"
+  },
+  {
+    "bytes": 4302060,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "4fa097e6f29924bc474db7359c80fcf491081794b3e58fe2fec684f166de773c"
+  },
+  {
+    "bytes": 4300653,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density_inc/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density_inc/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "223f158ca6ea2a72d48ecd808f035940f5b90680880cec7fc5a15940826a8961"
+  },
+  {
+    "bytes": 4302009,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density_inc/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/density_inc/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "57c871d93aa286f7e312ca6172fb1dd6a2a4460bd4711e40382a7c4c1b91ddb3"
+  },
+  {
+    "bytes": 4298885,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "7d4ab53f1938a469b20e663e50c799dc3e6d82c3d3f2c2c25a6f2db7fcdbfc71"
+  },
+  {
+    "bytes": 4301765,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "675142ef9e41c41205d11ce2c265473880aebe5fbdb71a9bf01b6b7a15ed5b13"
+  },
+  {
+    "bytes": 4299486,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "72579cd32042ad5cf2e8188a9ce8259bbb2c554d406a6eab5a5fec49f693e65f"
+  },
+  {
+    "bytes": 4301428,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "13e5a2d89939ce3dbbde4415ecdcf5e636126660b2d8e1dd6d40cc1e73a73309"
+  },
+  {
+    "bytes": 4299811,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf_inv/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf_inv/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "5a5844df001a004085d2a937e38fe2dfda6e56e78982b5ade8053a94f8ee8cd0"
+  },
+  {
+    "bytes": 4300613,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf_inv/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/distortion_rbf_inv/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "ec85351d7cb10ba9037ec7142efbd1868e233830fc21ea2c6d17d560cf1409cf"
+  },
+  {
+    "bytes": 4300016,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/gaussian/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/gaussian/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "3b7e3b892708ecc8edfde5f224a6a318ee03206a10eefbc44dcfcd41193bcbfd"
+  },
+  {
+    "bytes": 4301761,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/gaussian/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/gaussian/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "3f9af97be40d1b9fb4f6e65b82aa85c6049cce0026ea36700296b096ba49ce2c"
+  },
+  {
+    "bytes": 4299595,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/impulse/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/impulse/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "356344fbc900da13ea5f40054684b260d5ef4ffe1444fbee24a17d6c23b93d15"
+  },
+  {
+    "bytes": 4300638,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/impulse/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/impulse/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "ea87eedc0b0dedcf3b720f20081ed76c7dc72d9e5f3b951c0983dc2662492b50"
+  },
+  {
+    "bytes": 4297573,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/lidar/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/lidar/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "a7ed31a28311d543c0f8e55ef5b1b825610e740cf03325dd58e159faffa5bf45"
+  },
+  {
+    "bytes": 4300626,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/lidar/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/lidar/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "36aba20b120985c6757d01d49a7370199878989a0e6aa06aa1516898c9f1edcc"
+  },
+  {
+    "bytes": 4297202,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/occlusion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/occlusion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "df84325a286a29674c8803248dcbdc28a4f469260f060313fa1c2d52dc9a60e1"
+  },
+  {
+    "bytes": 4302090,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/occlusion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/occlusion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "9b572fd6482aac04edcf7181e8ae7a2492b35d56297780587e28e44e567a8844"
+  },
+  {
+    "bytes": 4298545,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/rotation/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/rotation/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "0e3dfbdf65e2f462eaec074540fc8b50bdbe3ccc0051f65c69cc084c4b6c4a8e"
+  },
+  {
+    "bytes": 4299118,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/rotation/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/rotation/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "851b479c3d2fc1b3bc645734dba5f2eb8f7c7e694302f885da53fd44aae74c5e"
+  },
+  {
+    "bytes": 4298980,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/shear/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/shear/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "fcd876e2ba19bea2972261ddd50fecfdd0c1ee28bafc1a7343b571b2067974e2"
+  },
+  {
+    "bytes": 4299791,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/shear/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/shear/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "42fe17f51d2d72b2264a4d0af5481ac3be9f0a43f4d6c60113a8a41d70a6e695"
+  },
+  {
+    "bytes": 4300307,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/uniform/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/uniform/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "99a4915bad22f9f80831fecad1cb1477d59c07e82908de7c41a1a5b46f2f99eb"
+  },
+  {
+    "bytes": 4302057,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/uniform/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/uniform/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "a5a8dd89f9212c3e24af4015031309027a939594c8759f2e1ef5224b2d7710da"
+  },
+  {
+    "bytes": 4299829,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/upsampling/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/upsampling/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "299e0b507ceba24b8b1f31d09bdd49e44811634265daabbb317360a8eae45a71"
+  },
+  {
+    "bytes": 4301539,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/upsampling/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/modelnet40_c/upsampling/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "ba086926cb370dfe3fc33b390114b057b2e69dc7bf62272ddfd7a58238d4e9d7"
+  },
+  {
+    "bytes": 4297957,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/background/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/background/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "ce2902a8873a885635679f8805716c62c27a5b17dd80738396f63535a57b1ad6"
+  },
+  {
+    "bytes": 4300953,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/background/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/background/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "2390b5c0d60dfc960495e0e505f75ed5827cbe3d19e525f0b77442c1dbaeefc6"
+  },
+  {
+    "bytes": 4298098,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/cutout/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/cutout/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "d262a5028458fd5c218d511c8c7c0b35aa44bb6264207e9e2264ad3bfb062871"
+  },
+  {
+    "bytes": 4302072,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/cutout/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/cutout/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "46dcbc89412d672cfc5b2ec62302f6e004295ddc027e0894abad192df8240137"
+  },
+  {
+    "bytes": 4298207,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "194ea573f90feab2c76f5edc36a7d8b71f1504055c41fe21a4e2f5309ae50d39"
+  },
+  {
+    "bytes": 4301978,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "a9885f82b17f5771f99240b7987f66bceabc2536e1bf176a59968583427cd14d"
+  },
+  {
+    "bytes": 4297625,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density_inc/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density_inc/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "d4d2dc2f9e4ab86d4546d6266426dddea5211aa935d2acd6357e890ca33988cd"
+  },
+  {
+    "bytes": 4301789,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density_inc/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/density_inc/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "8e01b83da8fbd404a5538409861f854363ba62efddaaeac5c3dac2f18d536ecb"
+  },
+  {
+    "bytes": 4298210,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "f51a4ad7dc56bc9ca893fa379c0c0c09b19434d9657e7e10f64110c904a82785"
+  },
+  {
+    "bytes": 4300943,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "87d01851ce6b13643e986c357b0add78c9b840d1cd4a39045ca6884aaab35f46"
+  },
+  {
+    "bytes": 4297449,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "78bf76e462bc667387b4bea02caea2a3124643bfb4b61877d97c59b7d3111b6d"
+  },
+  {
+    "bytes": 4300649,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "ac3c576542ff212f20055a9676b83484338afe4c3f7abe93d8e2dcb20c4c673a"
+  },
+  {
+    "bytes": 4297141,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf_inv/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf_inv/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "84de3ba84792f004eb571c9158f02e4b8d9c34febc887a34b718364682c8d187"
+  },
+  {
+    "bytes": 4300957,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf_inv/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/distortion_rbf_inv/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "c34cf692b41e4008f1f7aacedbe484c1a6736bb61b72975ec00fd3673742b5e1"
+  },
+  {
+    "bytes": 4296471,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/gaussian/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/gaussian/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "213d649c49cd0717ed4e532e9768d2172ec9cb8b64a8686b56294ccba452302d"
+  },
+  {
+    "bytes": 4301566,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/gaussian/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/gaussian/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "464d4457d25fe7fd5c451a459ad3f9e3ce1182074dc305da2595cfbd2526e6d4"
+  },
+  {
+    "bytes": 4293342,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/impulse/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/impulse/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "a72c4ec4832c0e17d89aade334878702b01dc0f9a6ed9ce27ea42232664144ea"
+  },
+  {
+    "bytes": 4300144,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/impulse/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/impulse/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "25261a1019777790946fbc103081cb088304aaed0891448985b2cfee698c6168"
+  },
+  {
+    "bytes": 4296633,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/lidar/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/lidar/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "e22d99d14dbc2fc6cd6dc0e31c3bdc162e1683eb3afe7a17463962d498274c8e"
+  },
+  {
+    "bytes": 4299443,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/lidar/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/lidar/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "9fdb0f27db1bb20ee0a2aebf503c07415940bbc433f884f7fdd6cdbf355f4b29"
+  },
+  {
+    "bytes": 4297370,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/occlusion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/occlusion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "8b6381cefa74f1f479d8667c8b6aab75fe9060401f19eb1c7a41f287f308a7df"
+  },
+  {
+    "bytes": 4300254,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/occlusion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/occlusion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "06406fcb18e047e1b1d0c2b00f049d0439367614c1ae3f275732da5806cb9747"
+  },
+  {
+    "bytes": 4297851,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/rotation/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/rotation/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "f6db520c167fd9a79ae24be8c8faf9fbbb094ee59ff21d7861e4cdb09ac53a39"
+  },
+  {
+    "bytes": 4299466,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/rotation/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/rotation/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "3259a0f15b756e15482c2ca1690f79e4476ab2ec420a98b030d16cfedf5b4311"
+  },
+  {
+    "bytes": 4298025,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/shear/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/shear/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "e511dbc0b631fdafa8b8154440b527fdf472c75143a1eb9fbc8f37d3ea0988b0"
+  },
+  {
+    "bytes": 4299766,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/shear/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/shear/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "a33456d1fcbc4eb608cc3dec47b2656ea4037340b34dd186e8ce96b66a96eb3f"
+  },
+  {
+    "bytes": 4297222,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/uniform/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/uniform/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "01335e28fa115e97386ebc75ae8ea73b3ca69b86a95f70d6d3e4b07a2c02f0b8"
+  },
+  {
+    "bytes": 4301539,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/uniform/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/uniform/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "34cca6aa2e2cdfa0fcbf4c64635d310b41650336cad7e513cf026051ed795f0a"
+  },
+  {
+    "bytes": 4296674,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/upsampling/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/upsampling/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "b95c29dbb4e012b18752db95554f919cbd7bd4bc7b53bb7020f82e62a4f76867"
+  },
+  {
+    "bytes": 4301439,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/upsampling/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed1/scanobjectnn_c/upsampling/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "cfb1f686379868651b24d52af32276806a5c665615154a246330eecab1ffd1e7"
+  },
+  {
+    "bytes": 4298209,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/background/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/background/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "e99d6a433c6c631e56d3ddec35212d22492251d076e7eb98b1157517e615c3a0"
+  },
+  {
+    "bytes": 4301123,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/background/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/background/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "6b97cbe6ddfe09d99cae546fa8700913c9b31afee1e6f2cc81c200566c5e7450"
+  },
+  {
+    "bytes": 4300671,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/cutout/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/cutout/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "b37cbd37808274ac6eea74162b9f5a21c6b426abfe416f35500f8cc9a96b47d9"
+  },
+  {
+    "bytes": 4301737,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/cutout/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/cutout/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "0c6e7333fb303cb97fb469c0324f2ed1568ee8698944b0ec7cb3c2b94b3e0000"
+  },
+  {
+    "bytes": 4299724,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "5d30dbd95a6859bda704932cb255a1cd062c2de787b8541ff0b3f01668f78746"
+  },
+  {
+    "bytes": 4302126,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "27df1a781150293ea41107a623fe8db09653f1d25a00267a3fa84d8113def5f7"
+  },
+  {
+    "bytes": 4300398,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density_inc/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density_inc/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "756ae1a785308042e5e556248c400f0b489f369d98d84002f644bbc4b5866147"
+  },
+  {
+    "bytes": 4302179,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density_inc/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/density_inc/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "ca0b242029556832aafb68ccc2000d88ed795671b1ea3f62ad6d07f580f83741"
+  },
+  {
+    "bytes": 4299168,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "b54dc7692da56736913dd74b513fbd2ed52d0135e6f37fbe58b30a5a716dc7dd"
+  },
+  {
+    "bytes": 4301841,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "4e1f000cc054d6e01c978b1216786fc9d419139a065ac37399b8bc36ede84d90"
+  },
+  {
+    "bytes": 4299197,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "c67a87c61c2c459647b9f69cd232282190a83d4c9ed81c2d7ab561d6574952be"
+  },
+  {
+    "bytes": 4301417,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "3c510610c82d75d5724b17afa08729bce056d69aa8863476115b3cf3bb3bf047"
+  },
+  {
+    "bytes": 4299537,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf_inv/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf_inv/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "765a815a60834d512be72f4ec04a5c6a9a389c1d6e8d8220573a5610daf5e371"
+  },
+  {
+    "bytes": 4300358,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf_inv/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/distortion_rbf_inv/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "995d5b05fe4e87cdc982760a97fea73317a69c005e68d80665556cf701915fff"
+  },
+  {
+    "bytes": 4299758,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/gaussian/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/gaussian/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "10ea7d02f8af858f695e00871b5fe45254fe5600af6f0ed0912c63265cf9e6c4"
+  },
+  {
+    "bytes": 4301798,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/gaussian/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/gaussian/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "5b01b1833e8758c918c44c257c0c1d71a1dcae4f2cf8371d794d63be70ccae8d"
+  },
+  {
+    "bytes": 4299543,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/impulse/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/impulse/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "392c30fe487d7b95fb7eb90e9afea0c47861b97dfefe3ff47e9c6cf238a7e831"
+  },
+  {
+    "bytes": 4300888,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/impulse/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/impulse/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "8141d54bbde43b729ed7b97ee5f67f7c7c33c3ab29209bb020dccd40f1c08a43"
+  },
+  {
+    "bytes": 4297467,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/lidar/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/lidar/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "3ef5f59eab61354dabfd798d44bbe2908a0b741f9b064d1cf30f5d2792791ef6"
+  },
+  {
+    "bytes": 4300532,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/lidar/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/lidar/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "3d72eea88e69c163bd7d7befcd550533463b333f1de8c4d99c39f494373c6da2"
+  },
+  {
+    "bytes": 4297634,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/occlusion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/occlusion/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "855d9e4cd92325567a7f3a9be07cc4bbec069dde5863fdf94646e9d8371f2a87"
+  },
+  {
+    "bytes": 4302033,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/occlusion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/occlusion/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "4a081541ecfe85b54237e6698d9fe07b67d5f074634215e5167fb6ca74cb9c38"
+  },
+  {
+    "bytes": 4298516,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/rotation/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/rotation/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "6984ec2c7eccbae1327cbc329ef8ba2454ed3e13792bafbae4ac70c61665ab7d"
+  },
+  {
+    "bytes": 4299061,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/rotation/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/rotation/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "4d2f13779fb1ea1d3cda5eee381484919a031547c5b31c65e9ddaf66264ce116"
+  },
+  {
+    "bytes": 4298744,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/shear/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/shear/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "5b4a4af01011eaab54a1ecf27d3b174855412e397734359d92faca3c47e8fde8"
+  },
+  {
+    "bytes": 4299915,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/shear/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/shear/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "f9afdefd2464c1ea5137d474337fb31c14fc1de04c4d828d9db1a735ef13e5fd"
+  },
+  {
+    "bytes": 4300236,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/uniform/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/uniform/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "437c41a92aa886a1cf9239bc7f354186266db12ead4898914e2fdabbbe75a1b5"
+  },
+  {
+    "bytes": 4301758,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/uniform/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/uniform/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "45cc9ebb3c50edaf505d09add0da21e020ae225abcf199bd60453a9a4df2eaac"
+  },
+  {
+    "bytes": 4299776,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/upsampling/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/upsampling/98f620477fa0f6c7afcbbca547df6dd02dbf0f38a582609fb1268f036c9801be.npz",
+    "sha256": "26daa1683845907fbeaf1d7dc312935022c936ecbca66ada97d85793ceca1103"
+  },
+  {
+    "bytes": 4301448,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/upsampling/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/modelnet40_c/upsampling/ecee7398e21ca73fcec4049f18de533223d8c81f59dd2c998ab5a48a4f10b781.npz",
+    "sha256": "a6d1467f650b97b0c2e334d1ee9d827cdcd2043a178aadc82139c31746b9dfb7"
+  },
+  {
+    "bytes": 4297903,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/background/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/background/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "6e6b5f41a01413c06467c0b13069f38a16079ecd43b4f7bf853f534741ad65a2"
+  },
+  {
+    "bytes": 4301423,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/background/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/background/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "f2292493b8779a1cde7fa92475038bb6dde1a7d49496a85e3cca907cc860033c"
+  },
+  {
+    "bytes": 4298325,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/cutout/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/cutout/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "e70498e8ba125462da74324680269231bd6a5b227b879d2e1dbdf2a4f73b0396"
+  },
+  {
+    "bytes": 4302372,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/cutout/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/cutout/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "75c91441127050a429a6f547c0d5bdabc5d97107fc7cfcf5eb8060bb9afa8212"
+  },
+  {
+    "bytes": 4297876,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "4f10bcdc30d29c9e1dc58771c0485cf967c6df48bec5857bc99da18a192dc2a1"
+  },
+  {
+    "bytes": 4301737,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "f627cda1baab3635e5fde5595cb4421fdd24273703a6646c015a48ea08b76fcb"
+  },
+  {
+    "bytes": 4297789,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density_inc/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density_inc/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "8161589884f34f93501b064286c9225ce0a3276b3443487ffd16df04541dc3db"
+  },
+  {
+    "bytes": 4301911,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density_inc/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/density_inc/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "bb61bb5a6208261e4c9621c4e7188b01624f96468d04a8618101e535decfdbe9"
+  },
+  {
+    "bytes": 4298311,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "49687b9e0d6cbebed9af2e821c24db2c86270e09ef86b562cbeffcaa7fe28522"
+  },
+  {
+    "bytes": 4301118,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "edb7edf1682b58a30af98cd8f4b189634e9e31f34015ed9059afa1dc9fb1f62a"
+  },
+  {
+    "bytes": 4297370,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "f9b6fe109770cd6292bca1ba05101b26564959f95094f9304ea471a478a4eb75"
+  },
+  {
+    "bytes": 4300746,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "2f60966f101264ba9e4a275e9c1125a8d1a505c4704a2afa9f5345c5c635971f"
+  },
+  {
+    "bytes": 4297134,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf_inv/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf_inv/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "4c4e6cc7c805218810b214111073e2e65b47bfe9e96623e96cc34d4db59d22f1"
+  },
+  {
+    "bytes": 4300606,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf_inv/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/distortion_rbf_inv/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "efa3e11b246024bbbfea4b7a6b6038ca9881eb3a690a0c12c144c83795c43b15"
+  },
+  {
+    "bytes": 4295995,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/gaussian/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/gaussian/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "40f71d16a7ca6a525f9b356a90984e13b8e73a1f1cbe0b8f0f03f9865ed26e18"
+  },
+  {
+    "bytes": 4301591,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/gaussian/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/gaussian/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "f7180d15af038c8ac7fb8bd4f915293fe689d580b410ad731372585f5a8f2a98"
+  },
+  {
+    "bytes": 4293633,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/impulse/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/impulse/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "3bf6fe6dde9979b9d153c4a30eea7399a752442d1d7218086d9bf69c4711a126"
+  },
+  {
+    "bytes": 4299816,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/impulse/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/impulse/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "4a77a3f889644ffc233fb160fc1be0e091e161017c1ff6de5bb430ff4168aa02"
+  },
+  {
+    "bytes": 4296630,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/lidar/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/lidar/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "792de9674a8677753d50a2d92aa0fe8acc8010a54ebf18dfb6be57569daf544b"
+  },
+  {
+    "bytes": 4299698,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/lidar/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/lidar/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "b1805f56078282fafb9a0d690cd548d1ee64908c0dbc60499d4bf90f433e85aa"
+  },
+  {
+    "bytes": 4296864,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/occlusion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/occlusion/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "6d48e545e6edccf4975b85d6838a65b147fb150633ca645ce60611d977cd89d9"
+  },
+  {
+    "bytes": 4300761,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/occlusion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/occlusion/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "8430f041d30bcecd0c0135039ecc406d5533ec2d846c9c9b666275ab48813a2d"
+  },
+  {
+    "bytes": 4297684,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/rotation/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/rotation/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "7be4a0a7bacfd403f9c56fa4d93ea18ffe652b776a2e73a0a03fd8d1959a40d0"
+  },
+  {
+    "bytes": 4299868,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/rotation/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/rotation/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "e92bd3c753f75d7c8194a234d0b5f25a9d0952a35914c0b4be311ce22b4b7988"
+  },
+  {
+    "bytes": 4297785,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/shear/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/shear/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "064eed993b61d7ac47eb8a2df657efb120eeed9b3c0f7d0070249949ed002d82"
+  },
+  {
+    "bytes": 4299705,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/shear/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/shear/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "2dbf4257929c5cbbcc800efb9c019bcae2acd005f213ce467119696bff6b3c3b"
+  },
+  {
+    "bytes": 4297087,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/uniform/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/uniform/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "79433ccbe182da190652722e1cc680aec20a710c37e39d7052b6423c9e0aaa33"
+  },
+  {
+    "bytes": 4301290,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/uniform/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/uniform/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "b4b31ba9966d5e3f41e154c24495e2356590512dc1cfc0dc0026f14d31fad8b9"
+  },
+  {
+    "bytes": 4296641,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/upsampling/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/upsampling/2d603a911f91cf45ff874e72697e3e513af6d7194770b3743277cad650c82924.npz",
+    "sha256": "245dd8de304c239f300705378c599a591da7d07517e5266b7a121d9d2c79a046"
+  },
+  {
+    "bytes": 4301271,
+    "local_paths": [
+      "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/cache_evidence/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/upsampling/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz"
+    ],
+    "local_verified": true,
+    "remote_path": "/content/studies/guidance-components/paired_sensitivity_confirmation_v2_seed2/scanobjectnn_c/upsampling/53b641ea2bff183d96c36c270b24f0dbeee9e3efe9b22d941660fe767a765dc6.npz",
+    "sha256": "d35532e7d5b6490a33304d0fef05b4a422c141e849acf2e09596f7b5840c27f7"
+  }
+]

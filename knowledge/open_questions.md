@@ -1,3 +1,24 @@
+## 2026-10-25 — further GSD loss and parameter sensitivity requested
+
+[User report/Open] Reopen the accepted bounded study for additional parameter/
+loss evidence and original3DD comparison; no definitive universal ranking.
+
+- [x] Register L2/Huber/true-power formulas and equal six-config budgets per
+  C/C+S/S family, including accepted baselines; no outcome-directed retry sweep.
+- [x] Reserve new140 object IDs/dataset excluding BOTH earlier70-ID sets;
+  54coreCPU/2calibration/5controller tests and184config previews pass.
+- [x] Seal consumer8169271 with v2source/native/protocol identities; actual
+  same-VM16strictload CPU/no-forward/no-CUDA proof and Drive roundtrip pass.
+- [ ] Obtain one approval for the whole approximately4.19h campaign,
+  upper scenario5.37h, hard5.5h; no new research GPU executed yet.
+- [ ] Validate actual label-free GPU calibration/parity, smoke then bounded
+  development; freeze before new140-ID three-seed confirmation.
+- [ ] Report loss/method/parameter failures, all15/macro14/percase/perseed,
+  measured cost and uncertainty. Full GSDTTA and universal proof remain outside
+  what this finite protocol can establish.
+
+[Scope, batch source and exact plan identity](guidance_component_sensitivity_study_20261025.md).
+
 # Open Questions and Research Backlog
 
 ## 2026-10-25 — parallel guidance component study selected
@@ -10,22 +31,31 @@ method/eta/gamma/p development is in scope after fixed matched controls.
 - [x] Prepare [separate branch/worktree/runtime ownership](parallel_colab_agent_contract_20261025.md)
   and [two updated prompts](parallel_agent_prompts_20261025.md). Planning only;
   no task worktrees, runtimes or background monitors have been created here.
-- [ ] Agent B: inventory/reuse prior Point-MAE component experiments and peer
+- [x] Agent B: inventory/reuse prior Point-MAE component experiments and peer
   combined results only with compatible provenance; keep Agent A's locked
   ModelNet completion separate and untouched.
-- [ ] Run the fixed same-GSD-host C+S/C/S/U matrix with terminal/minimum
+- [x] Implement opt-in component switches, strict40/15-class observation and
+  fixed-ID/paired-state controls;43CPU tests and the accepted32-bundle GPU smoke pass.
+- [x] Run the fixed same-GSD-host C+S/C/S/U development matrix with terminal/minimum
   entropy/probability mean, paired preparation/noise where verified, both
   datasets and DGCNN/CurveNet/PointNeXt/Point-MAE. Start with a budgeted
-  development screen; complete full rows only after the scope/duration gate.
-- [ ] Verify inactive-component skip paths and measure real latency/throughput/
-  memory, including shared backward and probe cost. A zero spectral coefficient
-  currently does not eliminate graph/eigendecomposition work.
-- [ ] Register bounded tuning ranges/trials, development IDs/held-out IDs and
-  equal comparator opportunity; freeze a candidate before confirmation.
+  development screen;32 raw ZIPs/96 policy rows accepted. Full benchmark remains unrun.
+- [x] Verify opt-in inactive graph/Chamfer/backward skips and measure actual
+  shared reconstruction/job time and peak memory. Fresh-encode smoke is distinct
+  from development cache replay; standalone deployment latency remains unmeasured.
+- [x] Register development/held-out IDs and equal zero tuning opportunities;
+  freeze C probability mean before three-seed C/C+S reserved-ID confirmation.
   Use balanced case macros, report negative cases and seed uncertainty.
+- [x] Complete the frozen confirmation and report each seed;48raw ZIPs/90cache NPZs accepted. No full benchmark,
+  broad stability or calibrated-spectral claim from the accepted seed0 screen.
 - [ ] Determine whether spectral guidance has incremental value conditional
   on Chamfer, whether spectral alone is useful, and whether a component can be
   removed for a measured accuracy/cost advantage. No necessity/optimality claim yet.
+  Fixed coefficients now support lower-cost C probability mean with no established
+  accuracy gap; calibrated spectral/global necessity remain open. See the
+  [accepted frozen confirmation](guidance_component_confirmation_results_20261025.md).
+
+[Code/Run/Open] Agent B activated2026-10-25 on `gsd-guidance-components` from `4c5be0e`. Twelve historical original-host component ZIPs pass fresh SHA/CRC checks; they are reference evidence, not matched current controls.70 development and70 object-disjoint heldout IDs/dataset are sealed. Own A100 runtime is in setup; no research inference launched. See task-local `result/preparation/guidance_component_study_20261025/` records.
 
 [Detailed Agent B batches, parameter semantics and gates](guidance_component_study_handoff_20261025.md).
 No GPU phase is activated by preparing these instructions. The prior same-flow
@@ -1883,3 +1913,143 @@ This conclusion adds no GPU work and does not change peer agents' authorizations
 - [x] Publish all reviewed numerical papers' source-only and reported3DDaccuracy together with our selected4head/2dataset references;147settings in the [paired table](source_only_3dd_all_papers_20261025.md).
 - [x] Include eleven supplementary source observations omitted from the earlier main823-row extraction, retaining original evidence IDs and protocol distinctions.
 - [ ] Full15ScanPoint-MAE source/original3DD pair remains absent from the selected accepted-study inventory; no new GPU work is launched by this table request.
+
+### 2026-10-26 — Agent B sensitivity duration gate cleared
+
+[User report/Run/Open] Explicit “Tamam onaylıyorum” authorizes unchanged
+plan4f633535…9289c1 and cumulative19800s cap. Approval is physically identical
+in ownVM andDrive (SHA2f3e2a4f…5313da); sameA100/16-loadCPUproof verified.
+Calibration submitted05:53UTC via52794. Remaining gates: actual label-free
+calibration/parity;14-job smoke and measured original timing; independent
+development acceptance/freeze; new140-ID/dataset three-seed confirmation.
+No new accuracy or universal superiority claim; task/runtime closure unapproved.
+
+
+### 2026-10-26 — Agent B runtime recovery gate
+
+[Run/Open] Calibration independentlyaccepted, noGPUrepeatneeded. r1/r2/r3
+A100assignmentslost; no newaccuracyrun, latestserver0assignments. Macsleep
+logsproveCLIsupervisiongaps; serverterminationcauseunknown. Awaituserconfirming
+Macawake/stable, thenfresh10-cellsetup+exactnative/assets recovery. Existing
+5.5happroval staysvalid; carry155.866607sspent, notpre-seal155.460578s.
+See sensitivitynote and recovery_20261026/runtime_recovery.json.
+
+
+### 2026-10-28 — Agent B r4 Drive-consent gate
+
+[User report/Run/Open] UserdirectsnewVMandcontinuation; r4A10080GBHighRAM
+serververified, monitor5314live. Cell1restart/reconnect andcell2Python3.8.20
+passed (onlyknownfastrlockdeferred). ActualDriveOAuthscreenopened; userconsent
+needed, TTY37218awaitsconfirmation. No concurrentnotebookexec. Existing19800s
+approvalvalid;155.866607sspentcarried byreviewednewplan14033563…c4d42.
+Next: authTTYEnter→cell3retry→cells4–10→exactnative/assets/freshCPUproof→
+CPUrecoveryinstaller→14jobsmoke. New9+existing5localanalysischecks pass;
+ModelNetlabel.npy andnewactualstageartifactsremainpending. Noaccuracyclaim.
+
+
+### 2026-10-28 — Agent B sensitivity development active
+
+[Run/Open] Actual14jobtechnicalsmokeand56rawZIPs/4physicalcachesaccepted,
+Driveconsent/setup/recoverycomplete. 32all15developmentjobsrunningfrom15:48UTC
+inownr4/monitor5314. Registeredloss/rate/pchoicesunchanged;3oldbaselines
+reusedwithparity. Post-smoke1105.891987sspent;manualconservativeprojection
+19743.614653s<=19800scap. Next: retrieve/acceptallnewdevelopmentrows,freeze
+oneglobalspectralcandidateandCcomparators,thenregistered140-ID/dataset,
+3seedconfirmation. Noall15newaccuracy/superiorityclaimyet.
+
+
+### Agent B sensitivity gate — 2026-10-28 17:49 UTC
+
+[Run/Decision/Open] Development accepted all19trial rows/152raw ZIPs/30physical
+caches; freezeCS calibratedL2rho.1,matchedC,tunedCeta=gamma.03,actualoriginal3DD.
+Development C56.7857%,CS55.3452%,original55.2381% is selection evidence only.
+New140IDs/dataset×three seeds×all15/fourheads confirmation is now running inr4
+through5314; existing19800s campaign approval unchanged. Must verify rawDrive/
+local archive plus180physical caches, exact freeze and object-cluster inference
+before any confirmatory ranking. Universal or original3DD superiority is unproven.
+See guidance_component_sensitivity_study_20261025.md for exact evidence.
+
+
+### Agent B numerical failure gate — 2026-10-28 19:43 UTC
+
+[Run/Open] Confirmation is failed/partial (20complete,slot20numericalfailure,
+21–23unrun), superseding the earlier running gate. StrongC .03/.03 failed
+ModelNetseed2Backgroundbatch1 before classifier on nonfiniteXYZ. Preservefailed
+raw f5868702…be5e,originalproducer/ledger/log and180physical caches first.
+Reviewedremaining-onlynewoutput continuation21–23 fits existing19800s cap;
+neverrerun/replace20 or alter parameters. Needfailure-aware source/ID/RNG/Drive
+analysis of complete paired grids; tunedC's three-seed endpoint is unavailable.
+Complete-only validation/acceptance must not be weakened or falsely claimed.
+See current sensitivity study note and confirmation_numeric_failure_diagnosis.json.
+
+
+### Agent B finite sensitivity campaign recorded — 2026-10-28 20:35 UTC
+
+[Run/Decision/Open] Resolved: all24slotsrecorded(23pass+numericfailed20),
+remaining21–23complete,92full/4failedZIP/180physicalNPZ/source/state/ID/RNG/
+Drive-localacceptance. CompleteCS/matchedC/original3seedcontrastsvalidated;
+tunedCfullendpointlegitimatelyunavailable,notpendingautomaticrerun.
+Originalwholepolicy+.8016ppvsCS withconditionalpositiveCI; matchedlossablation
++.0516ppforC withCIcrossing0. No universalChamfercausality/equivalenceclaim.
+Openbutunrun: fullbenchmark/severity/seedgeneralization, exactfirstinvalidtensor/
+objectdiagnosis, andnewmatched-rategrids(CS.03notcovered); requireseparatescope.
+No scheduledGPUresearchremains; r4and5314liveuntil explicitcompletion+close
+authorization. See guidance_component_sensitivity_results_20261028.md.
+
+
+## Agent B runtime closed after accepted campaign — 2026-10-29 local / 2026-10-28 22:04 UTC
+
+[User report/Run/Decision] The user authorized closing the completed campaign and
+recording its results: “Colab oturumu kapatıp sonuçları knowledge dosyalarına
+ekleyebilirsin”. Monitor5314 exited0 at22:02:52.511932UTC, then the explicit CLI
+stop targeted `tta-guidance-components-a100-20261028-r4` (A100 High RAM,
+endpoint `gpu-a100-hm-euw4a0-3s9zrjduwd03k`). A fresh server inventory by22:04:19UTC
+returned `No active sessions found on server.` The exact server release timestamp
+is not available. Four existing Drive-roundtrip archives were rehashed locally
+before teardown; all bytes/SHA-256 matched `final_local_verification.json`.
+
+Accepted scientific status remains `accepted_partial_confirmation_with_numerical_failure`:
+23 successful jobs plus preserved numerical failure20. No retry, replacement,
+new GPU work or changed metric/inference occurred during closure. Campaign time
+remains14836.554263s under the19800s approved cap. Original whole-policy mean
+53.763889% versus C+S52.962302% does not establish universal or isolated-loss
+Chamfer superiority; the matched C−CS interval still crosses zero. No scheduled
+GPU work remains. This entry supersedes prior live-runtime/monitor statements;
+future generalization or failure diagnosis remains separately scoped.
+
+[Accepted results](guidance_component_sensitivity_results_20261028.md) ·
+[Closure evidence](../result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/runtime_closure_20261029.json). Scientific source remains
+`8169271c9058995e8dc128062848a253baa13f10` plus the unchanged sealed snapshot;
+closure documentation starts from operator HEAD `03416e8`.
+
+
+## Agent B executed guidance/math audit — 2026-10-30
+
+[User report/Code/Run/Inference/Open] Before the user's method decision, audited
+sealed fixed/sensitivity sources,32fixed+120newGSD head configs/576source bindings;
+29CPUregression/property tests pass. Beta2 smoothing is active, but uses restored
+raw-eigenvalue/hardM800 legacy fidelity, not September normalized full-spectrum
+smooth or full GSDTTA. No detached-gradient/transpose/missing-IGFT explanation found.
+Known self-only isolation defect persists; six actual cached-object CPU graph
+replays find one missed node in Scan/Gaussian, not CUDA prevalence or accuracy
+causality. Prior full offdiag control did not improve mean accuracy.
+S−U probabilitymean=-.190476pp,CI[-.535714,+.143155],single-seed development;
+best calibrated S52.880952% slightly exceeds U52.809524% on that same cohort.
+Final confirmation has no standaloneS/U arms. Historical normalized S>U+.1576pp
+is preserved with its build/draw confounds; broad combined gains include SCD.
+Latest grid fixes beta/M/graph and cannot reject all spectral formulations;
+earlier beta/M studies also retain their null/negative findings. Existing
+23pass/1numericfailure acceptance and all raw scores remain unchanged.
+No production edit/newGPU/runtime allocation. User method decision is next;
+no new experiment scheduled. [Full audit and evidence](guidance_mathematics_execution_audit_20261030.md).
+
+
+## Shared thesis integration and Agent B selected outcome — 2026-10-30
+
+[User report/Code/Run/Decision] User authorizes necessary completed agent work
+on origin/thesis-integration, preserving main/upstream and peer/user edits.
+Selective Agent B import retains code/tests, accepted reports, compact evidence,
+negative/null outcomes and the tuned-C numerical failure. Operational dumps
+remain on its source branch. Integrated345CPUtests and7extrafixtures pass;
+no GPU/model rerun. See [scope/manifest/limits](thesis_integration_agent_b_20261030.md)
+and [standing publication prompt](thesis_integration_workflow_20261030.md).

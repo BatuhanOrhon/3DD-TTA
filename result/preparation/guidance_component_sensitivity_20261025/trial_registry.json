@@ -1,0 +1,266 @@
+{
+  "primary_readout": "probability_mean",
+  "schema_version": 1,
+  "selection": "balanced all15 across eight cases; earlier registered trial breaks exact ties",
+  "trial_budget": "six configurations per GSD arm including one accepted baseline; no failed-slot replacement",
+  "trials": [
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "chamfer",
+      "gamma": 0.01,
+      "id": "c-base",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": true,
+      "spectral_loss_kind": null,
+      "spectral_weight": 0.0
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.003,
+      "family": "chamfer",
+      "gamma": 0.003,
+      "id": "c-step-low",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": null,
+      "spectral_weight": 0.0
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.03,
+      "family": "chamfer",
+      "gamma": 0.03,
+      "id": "c-step-high",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": null,
+      "spectral_weight": 0.0
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.003,
+      "family": "chamfer",
+      "gamma": 0.01,
+      "id": "c-eta-low",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": null,
+      "spectral_weight": 0.0
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "chamfer",
+      "gamma": 0.01,
+      "id": "c-p80",
+      "method": "gsd",
+      "p": 0.8,
+      "reuse": false,
+      "spectral_loss_kind": null,
+      "spectral_weight": 0.0
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "chamfer",
+      "gamma": 0.01,
+      "id": "c-p99",
+      "method": "gsd",
+      "p": 0.99,
+      "reuse": false,
+      "spectral_loss_kind": null,
+      "spectral_weight": 0.0
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "combined",
+      "gamma": 0.01,
+      "id": "cs-base",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": true,
+      "spectral_loss_kind": null,
+      "spectral_weight": 1.17
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "combined",
+      "gamma": 0.01,
+      "id": "cs-l2-r010",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "legacy_l2",
+      "spectral_weight": {
+        "loss_kind": "legacy_l2",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "combined",
+      "gamma": 0.01,
+      "id": "cs-l2-r100",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "legacy_l2",
+      "spectral_weight": {
+        "loss_kind": "legacy_l2",
+        "rho": 1.0
+      }
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "combined",
+      "gamma": 0.01,
+      "id": "cs-huber-r010",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "huber",
+      "spectral_weight": {
+        "loss_kind": "huber",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "combined",
+      "gamma": 0.01,
+      "id": "cs-power-r010",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "power",
+      "spectral_weight": {
+        "loss_kind": "power",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.003,
+      "family": "combined",
+      "gamma": 0.003,
+      "id": "cs-l2-r010-step-low",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "legacy_l2",
+      "spectral_weight": {
+        "loss_kind": "legacy_l2",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 0.0,
+      "eta": 0.01,
+      "family": "spectral",
+      "gamma": 0.01,
+      "id": "s-base",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": true,
+      "spectral_loss_kind": null,
+      "spectral_weight": 1.17
+    },
+    {
+      "chamfer_weight": 0.0,
+      "eta": 0.01,
+      "family": "spectral",
+      "gamma": 0.01,
+      "id": "s-l2-r010",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "legacy_l2",
+      "spectral_weight": {
+        "loss_kind": "legacy_l2",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 0.0,
+      "eta": 0.01,
+      "family": "spectral",
+      "gamma": 0.01,
+      "id": "s-l2-r100",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "legacy_l2",
+      "spectral_weight": {
+        "loss_kind": "legacy_l2",
+        "rho": 1.0
+      }
+    },
+    {
+      "chamfer_weight": 0.0,
+      "eta": 0.01,
+      "family": "spectral",
+      "gamma": 0.01,
+      "id": "s-huber-r010",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "huber",
+      "spectral_weight": {
+        "loss_kind": "huber",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 0.0,
+      "eta": 0.01,
+      "family": "spectral",
+      "gamma": 0.01,
+      "id": "s-power-r010",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "power",
+      "spectral_weight": {
+        "loss_kind": "power",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 0.0,
+      "eta": 0.003,
+      "family": "spectral",
+      "gamma": 0.003,
+      "id": "s-l2-r010-step-low",
+      "method": "gsd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": "legacy_l2",
+      "spectral_weight": {
+        "loss_kind": "legacy_l2",
+        "rho": 0.1
+      }
+    },
+    {
+      "chamfer_weight": 1.0,
+      "eta": 0.01,
+      "family": "original3dd",
+      "gamma": 0.01,
+      "id": "original3dd",
+      "method": "original3dd",
+      "p": 0.95,
+      "reuse": false,
+      "spectral_loss_kind": null,
+      "spectral_weight": 0.0
+    }
+  ]
+}

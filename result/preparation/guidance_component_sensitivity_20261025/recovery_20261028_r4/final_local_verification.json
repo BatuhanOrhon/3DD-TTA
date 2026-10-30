@@ -1,0 +1,114 @@
+{
+  "status": "accepted_partial_confirmation_with_numerical_failure",
+  "utc": "2026-10-28T20:38:04.587407+00:00",
+  "analysis_source": {
+    "bytes": 44968,
+    "sha256": "3e26512945990cb25fe93d16e6a4eaba189d1a17cf5279f66cd159898a31e6c1"
+  },
+  "validation": {
+    "bytes": 11049,
+    "sha256": "ebf7b3c03e81b4b730ef4e5c6eb5bfef468a08204835c39e33f2afe678ab703a"
+  },
+  "accepted_partial": {
+    "bytes": 1673,
+    "sha256": "b390d32d256298cfe433b25f917a8ac84f389c07217d50fc4da89f12f38b0458"
+  },
+  "physical_Drive_local_acceptance": {
+    "bytes": 722266,
+    "sha256": "dc5b854e27ecd96f1d04a5420332749e0b73a7574f011dadc7e4733fd46d68df"
+  },
+  "raw_archives": [
+    {
+      "bytes": 1159246521,
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_20261028T174801830751Z/sensitivity_confirmation_evidence.zip",
+      "local_path": "/content/studies/guidance-components/sensitivity_confirmation_20261028T174801830751Z.zip",
+      "sha256": "f586870206961f88d38daa7ed9da632fddfa51356075e114c5f3b98f020ebe5e"
+    },
+    {
+      "bytes": 150730036,
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_remaining_20261028T200610144036Z/confirmation_remaining_evidence.zip",
+      "local_path": "/content/studies/guidance-components/sensitivity_confirmation_remaining_20261028T200610144036Z.zip",
+      "sha256": "7b676a7b4d6fefc8f569e77cf962f599baa45c1f1bcb5cf0b490210e1cdccd6d"
+    },
+    {
+      "bytes": 774792352,
+      "drive_path": "/content/drive/MyDrive/thesis/result/guidance_component_study_20261025/phase-evidence/sensitivity_confirmation_failure_proof_20261028T195350079068Z/failed_confirmation_cache_evidence.zip",
+      "local_path": "/content/studies/guidance-components/sensitivity_confirmation_failure_proof_20261028T195350079068Z.zip",
+      "sha256": "2a003500c74feafbd6aa6ac03363ec57e6330a67707fc22c803865081d15b898"
+    }
+  ],
+  "registered_jobs": 24,
+  "completed_jobs": 23,
+  "failed_registered_jobs": [
+    20
+  ],
+  "complete_raw_archives": 92,
+  "failed_raw_archives": 4,
+  "physical_cache_files": 180,
+  "n_original_object_clusters": 280,
+  "per_method_prediction_events": 50400,
+  "root_recomputed_correct_counts": {
+    "spectral-candidate": 26693,
+    "matched-chamfer": 26719,
+    "original3dd": 27097
+  },
+  "root_recomputed_balanced_accuracy_pct": {
+    "spectral-candidate": 52.96230158730159,
+    "matched-chamfer": 53.013888888888886,
+    "original3dd": 53.763888888888886
+  },
+  "primary_contrasts": [
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "spectral-candidate",
+      "candidate_policy": "probability_mean",
+      "comparator": "matched-chamfer",
+      "comparator_policy": "probability_mean",
+      "comparison": "same_host_same_readout",
+      "conditional_object_bootstrap_high_pp": 0.125,
+      "conditional_object_bootstrap_low_pp": -0.2341269841269841,
+      "corrected_events": 1010,
+      "delta_pp": -0.05158730158730161,
+      "harmed_events": 1036,
+      "n_cases": 8,
+      "n_original_object_clusters": 280,
+      "n_prediction_events": 50400,
+      "n_seeds": 3,
+      "negative_cases": 3,
+      "per_seed_max_pp": 0.0,
+      "per_seed_min_pp": -0.11309523809523811,
+      "positive_cases": 5,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    },
+    {
+      "aggregation": "three_seed_mean",
+      "candidate": "spectral-candidate",
+      "candidate_policy": "probability_mean",
+      "comparator": "original3dd",
+      "comparator_policy": "terminal",
+      "comparison": "whole_policy_different_host",
+      "conditional_object_bootstrap_high_pp": -0.14875992063492086,
+      "conditional_object_bootstrap_low_pp": -1.5575892857142857,
+      "corrected_events": 3094,
+      "delta_pp": -0.8015873015873016,
+      "harmed_events": 3498,
+      "n_cases": 8,
+      "n_original_object_clusters": 280,
+      "n_prediction_events": 50400,
+      "n_seeds": 3,
+      "negative_cases": 5,
+      "per_seed_max_pp": -0.5357142857142858,
+      "per_seed_min_pp": -1.0714285714285716,
+      "positive_cases": 3,
+      "scope": "all15",
+      "seed": null,
+      "tied_cases": 0
+    }
+  ],
+  "independent_quantitative_review": "Derived-only stdlibCSV/JSON review independently matched counts, balanced/seed effects, CI signs and interpretation; no raw rescoring/bootstrap rerun.",
+  "campaign_spent_seconds": 14836.554262508998,
+  "cap_seconds": 19800,
+  "remaining_work": "Knowledge synchronization and Git persistence only; no pending GPU research. Runtime closure not authorized."
+}

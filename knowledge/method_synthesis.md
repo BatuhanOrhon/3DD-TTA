@@ -1,5 +1,27 @@
 # Method Synthesis and Hypotheses
 
+
+## Agent B executed guidance/math audit — 2026-10-30
+
+[User report/Code/Run/Inference/Open] Before the user's method decision, audited
+sealed fixed/sensitivity sources,32fixed+120newGSD head configs/576source bindings;
+29CPUregression/property tests pass. Beta2 smoothing is active, but uses restored
+raw-eigenvalue/hardM800 legacy fidelity, not September normalized full-spectrum
+smooth or full GSDTTA. No detached-gradient/transpose/missing-IGFT explanation found.
+Known self-only isolation defect persists; six actual cached-object CPU graph
+replays find one missed node in Scan/Gaussian, not CUDA prevalence or accuracy
+causality. Prior full offdiag control did not improve mean accuracy.
+S−U probabilitymean=-.190476pp,CI[-.535714,+.143155],single-seed development;
+best calibrated S52.880952% slightly exceeds U52.809524% on that same cohort.
+Final confirmation has no standaloneS/U arms. Historical normalized S>U+.1576pp
+is preserved with its build/draw confounds; broad combined gains include SCD.
+Latest grid fixes beta/M/graph and cannot reject all spectral formulations;
+earlier beta/M studies also retain their null/negative findings. Existing
+23pass/1numericfailure acceptance and all raw scores remain unchanged.
+No production edit/newGPU/runtime allocation. User method decision is next;
+no new experiment scheduled. [Full audit and evidence](guidance_mathematics_execution_audit_20261030.md).
+
+
 ## Multibackbone and trajectory evidence — 2026-10-19
 
 [Run/Inference] Fixed published alternatives now have complete all15 seed0

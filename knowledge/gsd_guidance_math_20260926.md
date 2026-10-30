@@ -324,3 +324,17 @@ searching accuracy on ModelNet40-C test examples. Use two separate stages:
 artifact record; beta q95 diagnostics and the calibration-only runner are not
 implemented. The 2026-09-27 Gaussian smoke prefix remains execution/diagnostic
 evidence only and must not be reused to pick beta or alpha.
+
+
+## Execution clarification — 2026-10-30
+
+[Code/Run/Inference] The September normalized/all-active-mode heat-filter design
+above is distinct from the October restored legacy raw-lambda/hardM800 branch.
+Agent B's October25–28 component/sensitivity campaigns deliberately execute the
+latter; source/config hashes were freshly checked. Smoothing was not omitted,
+but those tests cannot be presented as exhaustive tests of this document's
+normalized filter or the paper's explicit learned low-band shift. Earlier
+normalized-smooth runs and their small positive/null results remain evidence;
+no automatic rerun or accuracy benefit is inferred. See the
+[execution and mathematics audit](guidance_mathematics_execution_audit_20261030.md) for scope, known isolate defect,
+CPU real-cache witness, historical reconciliation and pending user decision.
