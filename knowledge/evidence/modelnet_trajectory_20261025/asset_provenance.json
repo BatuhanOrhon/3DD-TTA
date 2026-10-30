@@ -1,0 +1,617 @@
+{
+  "derivation": "Subset of original sealed manifest and raw configs; not a new execution manifest",
+  "manifest_identity": {
+    "bytes": 124827,
+    "sha256": "2326e8e07f30bd46f5e29a7d9d169b45fa71d5a3aac7fd9c5ac4fb3f56e3a3a8"
+  },
+  "source_commit": "665ed07e6443f491a7dd127a768e3fa3e7998eb7",
+  "source_snapshot_sha256": "a04717337d6732b74bef18a956381f6979a83f208ca248dd2a113aeab7979015",
+  "remote_existing_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+  "source_overlay": {
+    "classifier_backbones.py": {
+      "bytes": 4114,
+      "sha256": "bfb18eacf5d72e57818cdc44695eff006b953700ac2fc5354baac5dc565de729"
+    },
+    "scripts/analyze_scan_trajectory.py": {
+      "bytes": 12475,
+      "sha256": "42fc6b3096ba7b012b031c7977e86780bf9d5668173859f2d90c0e6576b67b6b"
+    },
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 35647,
+      "sha256": "85d3da722b83efc910d2b428cbe517f44ca4ca1d025eb7a7ee6b2894c83600ca"
+    },
+    "scripts/eval_multibackbone_source.py": {
+      "bytes": 30722,
+      "sha256": "3be330870b27375f7378a287a41f00e10b4df3dac0ac34a12df69f84cf3b28e9"
+    },
+    "scripts/multibackbone_native_bootstrap.py": {
+      "bytes": 6316,
+      "sha256": "8f8dc52042a65a499d488571ce69ad9e09598e959983a28df67212ec73c52c6b"
+    },
+    "scripts/verify_multibackbone_pointmae_parity.py": {
+      "bytes": 12004,
+      "sha256": "b575729a9579bc38051e7ceafa52e5a971b598baf6445076fa56c4e210ee5906"
+    },
+    "shared_trajectory.py": {
+      "bytes": 6526,
+      "sha256": "44410966f85aa25d38b7eaabb18d170672d17cce9232a6f82122bc01f0bbe006"
+    },
+    "tests/test_classifier_backbones.py": {
+      "bytes": 10642,
+      "sha256": "aac8ca4d88851ee7cca3d003b5ba77572d062edb8ca277a43e102c6d7e7f810d"
+    },
+    "tests/test_eval_multibackbone_guidance.py": {
+      "bytes": 12462,
+      "sha256": "7d291e5d147144ec92f2a30c990627643ff11522fbd28cab5bf7c4a735c9ceea"
+    },
+    "tests/test_eval_multibackbone_source.py": {
+      "bytes": 18324,
+      "sha256": "a3e2183381133026256a9cade396cb541f9881d96fda007a7f4484fa378cb7d4"
+    },
+    "tests/test_multibackbone_3dd_extension.py": {
+      "bytes": 10483,
+      "sha256": "9bc9e68f521435a1d5b79ea0b69a314ac7e63a9785181c6f1413acdcf538c677"
+    },
+    "tests/test_multibackbone_native_bootstrap.py": {
+      "bytes": 8654,
+      "sha256": "db350a345fe1ad9a54fe3319b01471aee035a9d12d88aa6b1e2a75ba981befed"
+    },
+    "tests/test_multibackbone_pointmae_parity.py": {
+      "bytes": 5608,
+      "sha256": "e1d20cdfc1cb6df5af55fc6eedabc4ced2ce91ce98913e0aae56aec78eaac017"
+    },
+    "tests/test_multibackbone_scan_trajectory.py": {
+      "bytes": 9046,
+      "sha256": "ff0309fe42ee0dc54029a3abc01aaf694e9d342262c43c674c03a3a144b74398"
+    },
+    "tests/test_shared_trajectory.py": {
+      "bytes": 13498,
+      "sha256": "dbc4497e5c81626ff41df57f7fc9869833d67fc6d5bf0464638a6917896193cf"
+    }
+  },
+  "modelnet": {
+    "files": {
+      "data_background_5.npy": {
+        "bytes": 31837328,
+        "dtype": "float32",
+        "sha256": "db05e75cffb4440323a064df9e23ebd526584daf027f9ad02e391a36b051a616",
+        "shape": [
+          2468,
+          1075,
+          3
+        ]
+      },
+      "data_cutout_5.npy": {
+        "bytes": 21442112,
+        "dtype": "float32",
+        "sha256": "b3ffb68ec412f54c89e02b5c128b3590eeaf16dd4ff08cc89f7039247a6c9c4b",
+        "shape": [
+          2468,
+          724,
+          3
+        ]
+      },
+      "data_density_5.npy": {
+        "bytes": 19220912,
+        "dtype": "float32",
+        "sha256": "bdde461b92427a0eaafc125eb93c8af89d979c0141d6ca5ae8e2bd61d6be65ba",
+        "shape": [
+          2468,
+          649,
+          3
+        ]
+      },
+      "data_density_inc_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "719fd79232fb6c6a72e83d4f5f219d499b253b2caadc55bd128110bb299ee86b",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_distortion_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "43b5849e878ba73bbda781491b689db3af5cd958dc8d57c2fd6b4460a584e19e",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_distortion_rbf_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "9cbcca3ee41e0f10e77b36aaa9b7021095aae860e81688009cbd8bab0055b596",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_distortion_rbf_inv_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "604c6acaacc4111dcef1cc22dee936c938e00cfafff9c7bb569d4b78a2439cce",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_gaussian_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "bf762a8f441a4234d0ca3e91da1f5101440acb7e5902c4854300041103f7171c",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_impulse_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "2174438eec71c4d98ebf23b48c5571805e280411a2a3a0ff51ee377462d50cfb",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_lidar_5.npy": {
+        "bytes": 22745216,
+        "dtype": "float32",
+        "sha256": "99ccaf1d62b5b308dd34d4fc1b09013cba8b73e9d1c8f0df1e94cfb812b9e91a",
+        "shape": [
+          2468,
+          768,
+          3
+        ]
+      },
+      "data_occlusion_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "5f37e9de373402007214fcb9fc90e00db4783f9801d0620f21bbeee6328cda2c",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_original.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_rotation_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "b75c5c8c0cb0ed57038d4677750a5e4fdad3aaf82de96357f33fe7c3a3bc4958",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_shear_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "78df0043e5cea431d10c817ac6a13e85e6e246fc64765e32546ecdd1d6614069",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_uniform_5.npy": {
+        "bytes": 30326912,
+        "dtype": "float32",
+        "sha256": "2cfbe01e02ae6745503eddf548db8f362656e92ec7efc6636281468547c73572",
+        "shape": [
+          2468,
+          1024,
+          3
+        ]
+      },
+      "data_upsampling_5.npy": {
+        "bytes": 60653696,
+        "dtype": "float32",
+        "sha256": "4984bfac96c7b559727fd0d967d115855eab30a315c3c3b2608cc43878fd782e",
+        "shape": [
+          2468,
+          2048,
+          3
+        ]
+      },
+      "label.npy": {
+        "bytes": 2596,
+        "dtype": "uint8",
+        "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+        "shape": [
+          2468,
+          1
+        ]
+      }
+    },
+    "n_examples": 2468,
+    "provenance": "r7 verified ModelNet40-C archive; actual NPY shape/dtype and identical SHA/bytes observed by bounded header audit",
+    "split": "official_modelnet40_test"
+  },
+  "lion_checkpoint": {
+    "bytes": 1508051672,
+    "path": "/content/3DD-TTA/lion_ckpts/epoch_10999_iters_2100999.pt",
+    "sha256": "807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2"
+  },
+  "lion_config": {
+    "bytes": 7860,
+    "path": "/content/3DD-TTA/lion_ckpts/unconditional_all55_cfg.yml",
+    "sha256": "9d4a826f35fe9b3053210105eb4857811c8bfd53cd8c6a998f8ea7953e975816"
+  },
+  "configs": [
+    {
+      "run_id": "20261025-133445_mntraj-dgcnn-seed0",
+      "dataset": "modelnet40_c",
+      "severity": 5,
+      "seed": 0,
+      "split": "official_modelnet40_test",
+      "n_examples": 2468,
+      "num_classes": 40,
+      "batch_size": 70,
+      "checkpoint": "checkpoints/svwa_dgcnn_modelnet40.pth",
+      "checkpoint_load": {
+        "checkpoint_sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+        "missing_keys": [],
+        "strict": true,
+        "unexpected_keys": [],
+        "weights_only": true
+      },
+      "classifier_state_before_sha256": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1",
+      "classifier_state_after_sha256": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1",
+      "lion_state_before": {
+        "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+        "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+      },
+      "lion_state_after": {
+        "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+        "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+      },
+      "guidance_protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 1.17
+        },
+        "p": 0.95,
+        "total": 100,
+        "use_static_style": false
+      },
+      "trajectory_selection": {
+        "background_candidate_names": [
+          "clean_08",
+          "clean_15",
+          "clean_23",
+          "terminal"
+        ],
+        "background_loop_counts": [
+          8,
+          15,
+          23,
+          30
+        ],
+        "early_stopping": false,
+        "entropy": "class-count normalized",
+        "labels_used": false,
+        "normal_candidate_names": [
+          "clean_03",
+          "clean_05",
+          "clean_08",
+          "terminal"
+        ],
+        "normal_loop_counts": [
+          3,
+          5,
+          8,
+          10
+        ],
+        "policies": [
+          "terminal",
+          "minimum_entropy",
+          "probability_mean"
+        ],
+        "primary_comparator": "same-run terminal",
+        "temperature": 1.0,
+        "tie_policy": "terminal first, then earliest checkpoint"
+      },
+      "sampling_policy": "native PointNet2 FPS1024, including repeated indices if input has fewer points",
+      "decoder_style": "updated",
+      "scheduler_final_alpha_to_one": false,
+      "graph": {
+        "delta": 0.1,
+        "gamma": 0.6,
+        "isolate_policy": "legacy",
+        "k": 10,
+        "use_4d_gft": false
+      },
+      "native_extensions": {
+        "chamfer": {
+          "bytes": 720640,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "8ce7bec07497ded0dd8970098f0da1e6602cfb331cbd3a1281aff5cb1f2f62e8"
+        },
+        "chamfer_3D": {
+          "bytes": 1144176,
+          "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+          "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+        },
+        "knn": {
+          "bytes": 218200,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+          "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+        },
+        "pointnet2_batch_cuda": {
+          "bytes": 12449056,
+          "path": "/content/studies/mn-trajectory/prepared_v9/assets/pointnet2_batch_cuda.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "a2db745611c01ea03fab6e5d5e1d9e5f08837e847780dd27555eec561bc58aab"
+        },
+        "pointnet2_ops._ext": {
+          "bytes": 266256,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "1442ffbbca95e1604d8d057da06bef7338d367516e0d84667bf856b8ad27b88e"
+        }
+      },
+      "paper_checkpoint_identity_verified": false
+    },
+    {
+      "run_id": "20261025-133446_mntraj-curvenet-seed0",
+      "dataset": "modelnet40_c",
+      "severity": 5,
+      "seed": 0,
+      "split": "official_modelnet40_test",
+      "n_examples": 2468,
+      "num_classes": 40,
+      "batch_size": 70,
+      "checkpoint": "checkpoints/svwa_curvenet_modelnet40.pth",
+      "checkpoint_load": {
+        "checkpoint_sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20",
+        "missing_keys": [],
+        "strict": true,
+        "unexpected_keys": [],
+        "weights_only": true
+      },
+      "classifier_state_before_sha256": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881",
+      "classifier_state_after_sha256": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881",
+      "lion_state_before": {
+        "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+        "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+      },
+      "lion_state_after": {
+        "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+        "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+      },
+      "guidance_protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 1.17
+        },
+        "p": 0.95,
+        "total": 100,
+        "use_static_style": false
+      },
+      "trajectory_selection": {
+        "background_candidate_names": [
+          "clean_08",
+          "clean_15",
+          "clean_23",
+          "terminal"
+        ],
+        "background_loop_counts": [
+          8,
+          15,
+          23,
+          30
+        ],
+        "early_stopping": false,
+        "entropy": "class-count normalized",
+        "labels_used": false,
+        "normal_candidate_names": [
+          "clean_03",
+          "clean_05",
+          "clean_08",
+          "terminal"
+        ],
+        "normal_loop_counts": [
+          3,
+          5,
+          8,
+          10
+        ],
+        "policies": [
+          "terminal",
+          "minimum_entropy",
+          "probability_mean"
+        ],
+        "primary_comparator": "same-run terminal",
+        "temperature": 1.0,
+        "tie_policy": "terminal first, then earliest checkpoint"
+      },
+      "sampling_policy": "native PointNet2 FPS1024, including repeated indices if input has fewer points",
+      "decoder_style": "updated",
+      "scheduler_final_alpha_to_one": false,
+      "graph": {
+        "delta": 0.1,
+        "gamma": 0.6,
+        "isolate_policy": "legacy",
+        "k": 10,
+        "use_4d_gft": false
+      },
+      "native_extensions": {
+        "chamfer": {
+          "bytes": 720640,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "8ce7bec07497ded0dd8970098f0da1e6602cfb331cbd3a1281aff5cb1f2f62e8"
+        },
+        "chamfer_3D": {
+          "bytes": 1144176,
+          "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+          "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+        },
+        "knn": {
+          "bytes": 218200,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+          "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+        },
+        "pointnet2_batch_cuda": {
+          "bytes": 12449056,
+          "path": "/content/studies/mn-trajectory/prepared_v9/assets/pointnet2_batch_cuda.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "a2db745611c01ea03fab6e5d5e1d9e5f08837e847780dd27555eec561bc58aab"
+        },
+        "pointnet2_ops._ext": {
+          "bytes": 266256,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "1442ffbbca95e1604d8d057da06bef7338d367516e0d84667bf856b8ad27b88e"
+        }
+      },
+      "paper_checkpoint_identity_verified": false
+    },
+    {
+      "run_id": "20261025-133447_mntraj-pointnext-seed0",
+      "dataset": "modelnet40_c",
+      "severity": 5,
+      "seed": 0,
+      "split": "official_modelnet40_test",
+      "n_examples": 2468,
+      "num_classes": 40,
+      "batch_size": 70,
+      "checkpoint": "checkpoints/pointnext_modelnet40.pth",
+      "checkpoint_load": {
+        "checkpoint_sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97",
+        "missing_keys": [],
+        "strict": true,
+        "unexpected_keys": [],
+        "weights_only": true
+      },
+      "classifier_state_before_sha256": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e",
+      "classifier_state_after_sha256": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e",
+      "lion_state_before": {
+        "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+        "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+      },
+      "lion_state_after": {
+        "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+        "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+      },
+      "guidance_protocol": {
+        "M_max": 800,
+        "beta": 2.0,
+        "dynamic_graph": false,
+        "eta": 0.01,
+        "gamma": 0.01,
+        "graph_update_interval": 3,
+        "loss_weights": {
+          "chamfer": 1.0,
+          "invariant": 0.0,
+          "spectral": 1.17
+        },
+        "p": 0.95,
+        "total": 100,
+        "use_static_style": false
+      },
+      "trajectory_selection": {
+        "background_candidate_names": [
+          "clean_08",
+          "clean_15",
+          "clean_23",
+          "terminal"
+        ],
+        "background_loop_counts": [
+          8,
+          15,
+          23,
+          30
+        ],
+        "early_stopping": false,
+        "entropy": "class-count normalized",
+        "labels_used": false,
+        "normal_candidate_names": [
+          "clean_03",
+          "clean_05",
+          "clean_08",
+          "terminal"
+        ],
+        "normal_loop_counts": [
+          3,
+          5,
+          8,
+          10
+        ],
+        "policies": [
+          "terminal",
+          "minimum_entropy",
+          "probability_mean"
+        ],
+        "primary_comparator": "same-run terminal",
+        "temperature": 1.0,
+        "tie_policy": "terminal first, then earliest checkpoint"
+      },
+      "sampling_policy": "native PointNet2 FPS1024, including repeated indices if input has fewer points",
+      "decoder_style": "updated",
+      "scheduler_final_alpha_to_one": false,
+      "graph": {
+        "delta": 0.1,
+        "gamma": 0.6,
+        "isolate_policy": "legacy",
+        "k": 10,
+        "use_4d_gft": false
+      },
+      "native_extensions": {
+        "chamfer": {
+          "bytes": 720640,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "8ce7bec07497ded0dd8970098f0da1e6602cfb331cbd3a1281aff5cb1f2f62e8"
+        },
+        "chamfer_3D": {
+          "bytes": 1144176,
+          "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+          "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+        },
+        "knn": {
+          "bytes": 218200,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+          "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+        },
+        "pointnet2_batch_cuda": {
+          "bytes": 12449056,
+          "path": "/content/studies/mn-trajectory/prepared_v9/assets/pointnet2_batch_cuda.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "a2db745611c01ea03fab6e5d5e1d9e5f08837e847780dd27555eec561bc58aab"
+        },
+        "pointnet2_ops._ext": {
+          "bytes": 266256,
+          "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+          "sha256": "1442ffbbca95e1604d8d057da06bef7338d367516e0d84667bf856b8ad27b88e"
+        }
+      },
+      "paper_checkpoint_identity_verified": false
+    }
+  ]
+}

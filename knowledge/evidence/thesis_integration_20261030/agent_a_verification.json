@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-30T09:32:20.869269+00:00",
+  "scope": "Merged-tree CPU suite and raw archive recomputation; no GPU rerun",
+  "checks": {
+    "full_cpu_suite": {
+      "status": "passed",
+      "tests": 350,
+      "seconds": 20.461,
+      "command": "python -m unittest discover -s tests",
+      "log_sha256": "6b27c5a6539dd60f6c8b2d08d8ff6ef0bdf258b4c0d23972ce7aea2a61de5bbc"
+    },
+    "targeted_trajectory_suites": {
+      "status": "passed",
+      "tests": 18,
+      "shared_observer_analyzer_tests": 12,
+      "runner_tests": 6
+    },
+    "raw_reanalysis": {
+      "status": "passed",
+      "macro_rows": 9,
+      "per_corruption_rows": 135,
+      "absolute_tolerance": 1e-10,
+      "receipt": "../modelnet_trajectory_20261025/integration_reanalysis.json"
+    },
+    "staged_scope": {
+      "status": "passed",
+      "files": 23,
+      "evidence_files_below_100kb": true,
+      "only_knowledge_and_tests": true
+    }
+  },
+  "initial_environment_attempts": [
+    {
+      "interpreter": "system Python3.13 and minimal citation venv",
+      "status": "failed imports before test execution",
+      "reason": "numpy missing"
+    },
+    {
+      "interpreter": "minimal numpy1 analysis venv",
+      "status": "failed imports before test execution",
+      "reason": "torch missing"
+    }
+  ],
+  "environment_recovery": "Reused existing cached dependency environment, no installed dependency change.",
+  "limitations": [
+    "No fresh GPU/native/checkpoint inference or external replication.",
+    "No live Drive query; original actual Drive/local receipts and locally rehashed immutable report/binder retained.",
+    "Peer runtime presence in closure proof is dated Oct25; shared Agent B later closure remains authoritative."
+  ],
+  "raw_preservation": "Original CSV bytes including CRLF retained; core.whitespace=cr-at-eol for whitespace check only.",
+  "environment": {
+    "python": "3.13.7",
+    "numpy": "2.5.4",
+    "torch": "2.14.1",
+    "device": "CPU"
+  }
+}

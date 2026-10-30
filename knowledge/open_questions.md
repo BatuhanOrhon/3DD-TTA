@@ -61,28 +61,29 @@ method/eta/gamma/p development is in scope after fixed matched controls.
 No GPU phase is activated by preparing these instructions. The prior same-flow
 spectral-off question is now assigned to B, but remains unexecuted.
 
-## 2026-10-25 — next ModelNet three-head trajectory scope
+## 2026-10-25 — ModelNet three-head trajectory scope completed
 
-[User report/Open] Next session: obtain the missing minimum-entropy and equal
-probability-mean rows for DGCNN, CurveNet and PointNeXt on ModelNet40-C.
-This handoff documents the next scope; no research execution in this turn.
+[Run/Code] Agent A completed all9 same-run policy rows on all15/severity5/
+seed0/2468 IDs. Shared integration on2026-10-30 freshly reproduces9 macro/
+135 corruption rows and retains all negative/zero deltas. The planning-only
+barriers at this location are superseded by the
+[accepted study](modelnet_multibackbone_trajectory_handoff_20261025.md).
 
-- [x] Reconcile accepted coverage: existing ModelNet three-head archives contain
-  terminal logits but no candidate logits; Point-MAE ModelNet and all four
-  Scan trajectory policies already have results and should not be repeated.
-- [x] Trace current code barriers: Scan-only runner flag, observer15-class
-  check and strict581/15-class analyzer; ModelNet output geometry differs.
-- [ ] Implement/verify the smallest40-class ModelNet observation extension,
-  preserving accepted Scan/default terminal behavior and the fixed policy.
-- [ ] Prepare one comprehensive whole-GPU-phase estimate/approval request:
-  old ModelNet full guidance took69.421min before extra probe work. Expect
-  the60min approval threshold to apply; no GPU phase approved by this handoff.
-- [ ] Obtain9 same-run policy rows (3 terminal controls+6 missing readouts),
-  full15/2468 IDs/severity5/seed0, actual Drive/local SHA and independent
-  count/state/source/label checks. Preserve all old attempts and limitations.
+- [x] Implement/verify40-class ModelNet observation and output geometry without
+  changing the fixed policy or accepted Scan/default terminal behavior.
+- [x] Record whole-phase approval, stopped duration gate and subsequent explicit
+  duration-limit removal; smoke+full87.885149min, no tuning/extra seed.
+- [x] Obtain9 full policy rows, original-ID/label/state/source/native guards,
+  physical Drive/local SHA and complete raw/report archives. No requested row
+  remains; Point-MAE ModelNet and four-head Scan were not repeated.
+- [x] Close only Agent A runtime/monitor with user permission after archival;
+  preserve Agent B as ofOct25. Agent B's later closure is separately recorded.
 
-[Next-agent knowledge/code/asset references](modelnet_multibackbone_trajectory_handoff_20261025.md).
-Logit averaging remains a separate open question, not part of this GPU scope.
+One seed; probability mean improves own terminals+0.734738/+0.913020/
++0.886008pp but all3 remain below separate original3DD. Per-corruption losses,
+historical source gaps and attribution limits remain. Logit averaging stays
+a separate open question; complete three-head40-class candidate logits now
+also exist for an offline comparison without repeating diffusion.
 
 ## 2026-10-25 — logit mean versus probability mean
 
@@ -94,8 +95,8 @@ diffusion checkpoints yield higher accuracy than averaging class probabilities?*
   original IDs, frozen checkpoint, temperature1 and terminal reference.
   Preserve all15/macro14 distinctions, paired corrected/harmed counts and
   per-corruption results. No new labels may fit weights or temperatures.
-- [ ] First reuse the archived Point-MAE ModelNet trace and four-head Scan
-  main_split trace where complete candidate logits exist; record missing
+- [ ] First reuse the archived Point-MAE and Agent A three-head ModelNet traces
+  and four-head Scan main_split trace where complete logits exist; record missing
   coverage rather than rerunning diffusion just for this comparison.
 - [ ] Inspect whether differing logit magnitudes across steps dominate the
   logit mean. Any normalization or temperature variant is a distinct policy,

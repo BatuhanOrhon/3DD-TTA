@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "utc": "2026-10-30T09:30:09.311893+00:00",
+  "scope": "CPU artifact recomputation on shared production analyzer; no GPU rerun",
+  "analyzer_base_commit": "2778a663cb8cfcce96d8837490e6a9386fb0665e",
+  "analyzer_identity": {
+    "bytes": 13849,
+    "sha256": "27cdbb8d179af43503c9d62c7d95d90ca82a07d95b0d5e75d0289c5439e4129c"
+  },
+  "csv_comparison": {
+    "macro.csv": {
+      "rows": 9,
+      "all_original_columns_match": true,
+      "absolute_numeric_tolerance": 1e-10,
+      "original": {
+        "bytes": 724,
+        "sha256": "0103ec28ca02d154569d563e3b3e4ee8313fbe596bdaa78df6df55c11a4aeff0"
+      },
+      "recomputed": {
+        "bytes": 872,
+        "sha256": "5b6c584e6b8b15e0817821ed74f7a71fcf94ec2079443486987ef110c42c5073"
+      }
+    },
+    "per_corruption.csv": {
+      "rows": 135,
+      "all_original_columns_match": true,
+      "absolute_numeric_tolerance": 1e-10,
+      "original": {
+        "bytes": 10980,
+        "sha256": "3e8792554086aea6b4ebdec043bcb0c7923ae367ddae017a812f22ebd1506997"
+      },
+      "recomputed": {
+        "bytes": 12892,
+        "sha256": "bb9f3de748ddad9ef66b95450990c493cdcd61afdf29061f4b1ba19109729f8f"
+      }
+    }
+  },
+  "raw_archives": [
+    {
+      "run_id": "20261025-133445_mntraj-dgcnn-seed0",
+      "bytes": 44709995,
+      "sha256": "1710fbe36deaffa42fa3a6bb495ea9cbeca6c9ab77bab6486b162c611ca12996",
+      "crc_pass": true
+    },
+    {
+      "run_id": "20261025-133446_mntraj-curvenet-seed0",
+      "bytes": 43734611,
+      "sha256": "6bce346cc41de5045b3fb0ef378aa20be1db8bfecd0ea952e52e82d6e62b1340",
+      "crc_pass": true
+    },
+    {
+      "run_id": "20261025-133447_mntraj-pointnext-seed0",
+      "bytes": 43108376,
+      "sha256": "8c8309f735ef02a094e4a3052a390446567537c908bb7ec5b9ef4539b23f8314",
+      "crc_pass": true
+    }
+  ],
+  "local_report_and_accepted_binder_rehashed": true,
+  "drive_revalidation": "Historical 2026-10-25 actual Drive/local receipts retained; no live Drive query in this integration"
+}

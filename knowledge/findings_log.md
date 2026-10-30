@@ -6605,3 +6605,44 @@ negative/null outcomes and the tuned-C numerical failure. Operational dumps
 remain on its source branch. Integrated345CPUtests and7extrafixtures pass;
 no GPU/model rerun. See [scope/manifest/limits](thesis_integration_agent_b_20261030.md)
 and [standing publication prompt](thesis_integration_workflow_20261030.md).
+
+
+### 2026-10-30 — Agent A selective integration and raw-artifact reanalysis
+
+[Code/Run/Decision] Source`gsd-modelnet-trajectory@11a89c63be80e3f58940cbf9a55643f6520f1b37`
+(clean initial worktree); implementation665ed07, accepted results9d0d170.
+Target`origin/thesis-integration@2778a66`. Shared Agent B code already implements
+ModelNet40 support; retain all component/selection/seed extensions. Import only
+five missing behavior tests plus last-batch assertion, accepted study sections
+and compact CSV/provenance/acceptance/failure/lifecycle evidence. Original peer
+knowledge and dated planning are retained, not replaced by stale source copies.
+
+Agent A complete all15/severity5/seed0/2468 IDs, three frozen heads,540 shared
+batches and444240 candidate predictions: terminal/entropy/mean (%):
+DGCNN63.814155/64.219341/64.548892;
+CurveNet65.170178/65.829281/66.083198;
+PointNeXt66.329011/66.820637/67.215019. Own-terminal mean gains are
++0.734738/+0.913020/+0.886008pp. All3 means remain below historical separate
+original3DD; PointNeXt Background mean loses3.606159pp (entropy4.740681pp).
+All135 corruption rows retain harms, gains and ties. No seed-stable benefit,
+isolated spectral effect or speedup is inferred. Full job86.943923min;
+smoke+full87.885149min; peak35.383849GiB. Setup/prelaunch failures and the
+stopped duration gate are preserved in compact execution outcomes, not erased.
+
+Fresh shared-analyzer CPU reanalysis of raw3 ZIPs reproduces all9 macro/135
+corruption rows within1e-10; raw3 and final report/binder local SHA+CRC pass.
+Historical physical Drive receipts remain valid evidence; Drive was not queried
+again. Raw/analysis roots remain`result/modelnet40_c/gsd_inspired_latent_spectral_guidance/`
+and`result/preparation/modelnet_trajectory_study_20261025/`, own Drive root
+`MyDrive/thesis/result/modelnet_trajectory_study_20261025/`. Git-visible compact
+copy:`knowledge/evidence/modelnet_trajectory_20261025/`.
+
+Integrated350CPU tests pass; first attempts with system/minimal Python failed
+imports (NumPy/Torch missing), then existing cached dependency environment
+passed. No production algorithm was changed or new GPU run/runtime operation
+performed. Large archives, caches, operational wrappers and repetitive live
+histories remain at source. Agent A closed with permissionOct25; peer presence
+in its closure record is dated, superseded by Agent B's own later closure.
+See[selection/verification](thesis_integration_agent_a_20261030.md). Future
+replication could overturn generalization; changed source/asset/ID/hash evidence
+would invalidate affected acceptance. No requested Agent A row remains pending.

@@ -1,0 +1,21 @@
+{
+  "status": "closed_verified",
+  "utc": "2026-10-25T17:13:07.554368+00:00",
+  "session": "tta-mn-trajectory-a100-20261025-r1",
+  "endpoint": "gpu-a100-hm-euw4a0-axkeusdcat4y",
+  "own_runtime_absent": true,
+  "own_monitor_absent": true,
+  "own_liveness_child_absent": true,
+  "peer_session": "tta-guidance-components-a100-20261025-r1",
+  "peer_endpoint": "gpu-a100-hm-kkb-ass1c2-36gbz99z2hf98",
+  "peer_runtime_present": true,
+  "peer_monitor_present": true,
+  "monitor_exit_code": 0,
+  "monitor_stopped_utc": "2026-10-25T17:11:34.244425+00:00",
+  "final_report": {
+    "bytes": 7242077,
+    "sha256": "004f7999933d25a60e109bbe2521ccba2aaf279d9894a4adddfbf46c198f4227"
+  },
+  "accepted_result_commit": "9d0d1700deb4afcc018d3d769f17e17163884905",
+  "research_rerun": false
+}

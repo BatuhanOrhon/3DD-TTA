@@ -106,6 +106,33 @@ class SharedObserverTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'classes'):
             collect(num_classes=16)
 
+    def test_modelnet_40_class_probes_preserve_rng_buffers_and_gradient(self):
+        for horizon in (10, 30):
+            observer, latent, style, vae, heads = collect(count=18, horizon=horizon, num_classes=40)
+            loss = sum(head(latent[:, :3, 0, 0]).sum() for head in heads.values())
+            before = rng_hash(), model_buffer_hashes(dict(vae=vae, **heads))
+            finish(observer, latent, style)
+            loss.backward()
+            self.assertIsNotNone(latent.grad)
+            self.assertEqual(before, (rng_hash(), model_buffer_hashes(dict(vae=vae, **heads))))
+            self.assertEqual(vae.calls, 3)
+            for name in heads:
+                self.assertEqual(observer.arrays(name)['trajectory_logits'].shape, (18, 4, 40))
+
+    def test_observer_rejects_class_count_mismatch_and_nonfinite_logits(self):
+        for classes, wrong in ((15, 40), (40, 15)):
+            observer, latent, style, _, heads = collect(num_classes=classes)
+            for bad in (torch.zeros(21, wrong), torch.full((21, classes), float('nan'))):
+                observer.classify_decoded = lambda points: {name: bad for name in heads}
+                before = rng_hash()
+                with self.assertRaisesRegex(ValueError, 'logits'):
+                    observer.clean(latent, style, 2, 70)
+                self.assertEqual(before, rng_hash())
+        for invalid in (0, 16, 39, 41):
+            with self.assertRaises(ValueError):
+                SharedTrajectoryObserver(observer.vae, heads, observer.classify_decoded, 10,
+                                         num_classes=invalid)
+
 
 class AnalyzerTests(unittest.TestCase):
     def seal(self, root):
@@ -173,6 +200,10 @@ class AnalyzerTests(unittest.TestCase):
             self.assertEqual(report['status'], 'complete')
             self.assertEqual(report['macro'][0]['n'], 37020)
             self.assertEqual(len(report['per_corruption']), 45)
+            self.assertEqual(report['macro'][0]['accuracy_pct'], 100.)
+            with np.load(root / 'batches' / 'background' / 'batch0035' / 'predictions.npz',
+                         allow_pickle=False) as values:
+                self.assertEqual(values['trajectory_logits'].shape, (18, 4, 40))
 
     def test_full_all15_analysis_and_guarded_partial_prefix(self):
         with tempfile.TemporaryDirectory() as name:
@@ -223,6 +254,33 @@ class AnalyzerTests(unittest.TestCase):
             (root / 'config.json').write_text('{}')
             with self.assertRaisesRegex(ValueError, 'SHA/size'):
                 analyze_bundle(root, True)
+
+    def test_modelnet_schema_and_terminal_tampering_are_rejected(self):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            directory = self.fixture(root, dataset='modelnet40_c')
+            with self.assertRaisesRegex(ValueError, 'all15'):
+                analyze_bundle(root)
+            self.assertEqual(analyze_bundle(root, True)['status'], 'partial')
+            config_path = root / 'config.json'
+            original = json.loads(config_path.read_text())
+            for key, value in (('num_classes', 15), ('n_examples', 581), ('split', 'main_split')):
+                config_path.write_text(json.dumps(dict(original, **{key: value})))
+                self.seal(root)
+                with self.subTest(key=key), self.assertRaises(ValueError):
+                    analyze_bundle(root, True)
+            config_path.write_text(json.dumps(original))
+            path = directory / 'predictions.npz'
+            with np.load(path) as values:
+                original_arrays = {key: values[key].copy() for key in values.files}
+            for key, value in (('label', np.full(70, 40)),
+                               ('trajectory_logits', np.zeros((70, 4, 15))),
+                               ('logits', np.ones((70, 40))),
+                               ('index', np.arange(1, 71))):
+                np.savez_compressed(path, **dict(original_arrays, **{key: value}))
+                self.seal(root)
+                with self.subTest(key=key), self.assertRaises(ValueError):
+                    analyze_bundle(root, True)
 
 
 if __name__ == '__main__':

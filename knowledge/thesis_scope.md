@@ -1,3 +1,13 @@
+## Agent A fixed ModelNet readouts integrated — 2026-10-30
+
+[Run/Inference] CompletedOct25 all15/2468-ID/seed0 three-head observation:
+probability mean exceeds own terminals by+0.7347/+0.9130/+0.8860pp, yet
+remains0.9887–1.0778pp below historical separate original3DD. Background
+regressions and other negative/zero rows are retained. No isolated spectral,
+seed-stability, speed or novelty claim. Agent A closed with permissionOct25;
+Agent B's subsequent studies/closure below remain unchanged.
+[Full results, protocol and compact evidence](modelnet_multibackbone_trajectory_handoff_20261025.md).
+
 ## Further loss/parameter comparison requested — 2026-10-25
 
 [User report/Decision/Open] User reopens Agent B after the bounded fixed study,
