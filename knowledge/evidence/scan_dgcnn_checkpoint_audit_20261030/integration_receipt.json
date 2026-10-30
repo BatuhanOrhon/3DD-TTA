@@ -1,0 +1,72 @@
+{
+  "utc": "2026-10-30T09:33:56.518948+00:00",
+  "source_branch": "gsd-multibackbone-study",
+  "source_base": "f57b170460360b029a5b0f2a0ebc130a41083206",
+  "source_commits": [
+    "817128a63f9a82701f05d9644908942f2825d6b8",
+    "5d0b89bafc3018ab7effe599f32113e2184e387b"
+  ],
+  "integration_base": "2778a663cb8cfcce96d8837490e6a9386fb0665e",
+  "integration_content_commits": [
+    "cb3623b8cb8247bf85a4375e4c4cabd691016070",
+    "82bd6c1d3f1ed5878792707b0e22e98f79455f4a"
+  ],
+  "target": "origin/thesis-integration",
+  "selection": "24-line task/session ownership skill addition; one static/CPU checkpoint audit; additive README/findings/open_questions; four compact evidence JSON files. No inference implementation change.",
+  "already_integrated": "f57b170 and prior numerical/literature evidence are ancestors of target; not imported again.",
+  "excluded": [
+    "pre-existing user monitor skill hunks, script and tests",
+    "pre-existing user research skill/integration policy edits",
+    "pre-existing user Colab setup note edits",
+    "downloaded checkpoints and full Drive/issues dumps",
+    "raw ZIPs and caches",
+    "peer branches/worktrees and all runtimes"
+  ],
+  "conflicts_resolved": [
+    "README top summary: preserve full target text and add own8-line headline. Other knowledge additions auto-merged without line removals."
+  ],
+  "checks": {
+    "baseline": {
+      "command": "uv run --offline --no-project --with torch --with numpy python -m unittest discover -s tests -v",
+      "tests": 345,
+      "seconds": 21.152,
+      "exit_code": 0,
+      "log_sha256": "7dca2e4ba1666d0986ff1b92716f2682f3d58dcdb86f3d78c1f11d982fa95f4a",
+      "log_location": "result/preparation/scan_dgcnn_checkpoint_audit_20261030/integration_baseline_tests.log"
+    },
+    "integrated_tree": {
+      "command": "uv run --offline --no-project --with torch --with numpy python -m unittest discover -s tests -v",
+      "tests": 345,
+      "seconds": 20.584,
+      "exit_code": 0,
+      "log_sha256": "a31895f41ededa9da1ec8c99c81a7c1c137264dee9ef158784fdb3c086d67112",
+      "log_location": "result/preparation/scan_dgcnn_checkpoint_audit_20261030/integrated_tests.log"
+    }
+  },
+  "additional_checks": [
+    "scientific input hashes and archived15-corruption counts/means/bound",
+    "all new research-note local links resolve",
+    "target README/findings/open_questions prior lines preserved in order",
+    "git diff --check passed",
+    "no production-code changes or new dependencies"
+  ],
+  "local_bundle": {
+    "bundle": "result/preparation/scan_dgcnn_checkpoint_audit_20261030.zip",
+    "bytes": 93963,
+    "sha256": "e5cb6e1185cf695d96af7e2e10c3c5907eee3f8769ac3f682c2836b0daf381d3",
+    "members": 32,
+    "crc_and_member_hashes_passed": true,
+    "drive_backup": "not performed; no runtime owned",
+    "excluded_from_bundle": [
+      "weights",
+      "full public Drive HTML and issues dumps",
+      "caches"
+    ]
+  },
+  "limits": [
+    "ScanDGCNN paper gap remains unresolved",
+    "No new model/GPU experiment or runtime operation",
+    "No Drive result backup",
+    "Baseline/integrated suite emitted pre-existing SyntaxWarnings for archived source escapes; both exited0."
+  ]
+}

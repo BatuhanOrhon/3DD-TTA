@@ -5,6 +5,7 @@ loading/head naming and last-batch omission do not explain the5.1174pp gap to
 SVWA. OBJ_ONLY training provenance and input contract remain leading hypotheses,
 not a solved reproduction. No new inference/GPU/runtime operation. Colab skill
 now requires task-specific names and explicit peer/unknown-session protection.
+[Selected integration and verification](thesis_integration_scan_dgcnn_20261030.md).
 
 **[User report/Code/Run/Decision] 2026-10-30 — Shared thesis integration:**
 `origin/thesis-integration` collects necessary completed code/knowledge from
