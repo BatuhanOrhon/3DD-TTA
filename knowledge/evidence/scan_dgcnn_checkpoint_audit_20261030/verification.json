@@ -1,0 +1,52 @@
+{
+  "status": "passed_static_and_cpu_audit",
+  "new_model_inference": false,
+  "gpu_run": false,
+  "colab_operations": false,
+  "paper_gap_resolved": false,
+  "source_base": "f57b170460360b029a5b0f2a0ebc130a41083206",
+  "skill_source_commit": "817128a63f9a82701f05d9644908942f2825d6b8",
+  "checks": [
+    "fresh author checkpoint SHA/size matches accepted input",
+    "15-class strict state load; no missing/unexpected/nonfinite entries",
+    "head-attribute inverse rename state identity",
+    "15 archived NPZs indices/argmax and macro re-reduced",
+    "last-batch bound insufficient to explain SVWA gap",
+    "2 alternate PyG checkpoints safe-deserialized, not promoted as same model",
+    "pre-existing user files/hunks preserved"
+  ],
+  "skill_validation": {
+    "existing_root_tests_passed": 8,
+    "pressure_review": "Read-only separate agent baseline found absent naming/ownership registry; updated wording passed peer+unknown+quota+historical-cleanup scenario. No CLI or session access."
+  },
+  "preserved_user_files_sha256": {
+    "knowledge/colab_cli_setup_20261017.md": "a8bb7d4cf6d9eb7ed396b25ce192bafbea63ad4dd7b4e512ddb2d4eae0cf4892",
+    "tests/test_colab_research_operator_skill.py": "dda138e81b3532b197df21da576773b2ac1e10da3fdc3c960874baad39531ecb",
+    "tests/test_colab_runtime_monitor.py": "6a23bcab278a60fd89e828bfd4b412ff080658560c2d5f2a26f392be049dae07",
+    ".codex/skills/colab-research-operator/scripts/monitor_colab_runtime.py": "fc40fbca58023c5029c87cd33fdb07245c6880e2a59091cf9f8cabb8c07d6422"
+  },
+  "source_documents": [
+    {
+      "file": "asset_audit.json",
+      "bytes": 12099,
+      "sha256": "485b0efedece0c5bbbdb79c6b698cef6592b18f79b08b15f301f1ec512f1f860"
+    },
+    {
+      "file": "current_download_receipt.json",
+      "bytes": 253,
+      "sha256": "37015d0e063521400a3ac8b5a20c290b55c5f6563030a91794d86a81a998c91c"
+    },
+    {
+      "file": "source_evidence.json",
+      "bytes": 21131,
+      "sha256": "8387f8aa4eb93eed631dfab0cd248f28d467c47d6b70a3540158a6fb5a1fa217"
+    }
+  ],
+  "limits": [
+    "Exact author arrays and checkpoint training log/initializer unverified",
+    "No new512/1024 or clean split sensitivity inference",
+    "No exact GSDTTA checkpoint identity",
+    "No result Drive backup; no runtime owned",
+    "Integration checks recorded separately after combined-tree validation"
+  ]
+}

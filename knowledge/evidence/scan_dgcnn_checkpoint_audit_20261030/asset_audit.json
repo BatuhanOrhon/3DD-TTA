@@ -1,0 +1,542 @@
+{
+  "scope": "CPU metadata/strict load/archived predictions only; no new inference",
+  "torch_version": "2.14.1",
+  "numpy_version": "2.5.4",
+  "cuda_initialized_before": false,
+  "checkpoints": [
+    {
+      "path": "result/preparation/multibackbone_20261018/runtime_assets/checkpoints/svwa_dgcnn_scanobjectnn.pth",
+      "bytes": 21694533,
+      "sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe",
+      "epoch": 100,
+      "metrics": {
+        "acc": 0.0
+      },
+      "best_metrics": {
+        "acc": 0.0
+      },
+      "state_entries": 70,
+      "strict_load": {
+        "missing": [],
+        "unexpected": []
+      },
+      "all_state_finite": true,
+      "head_shapes": {
+        "linear3_.weight": [
+          15,
+          256
+        ],
+        "linear3_.bias": [
+          15
+        ]
+      },
+      "optimizer_step_min": 14544.0,
+      "optimizer_step_max": 14544.0,
+      "bn_counters": {
+        "bn1.num_batches_tracked": 474130,
+        "bn2.num_batches_tracked": 474130,
+        "bn3.num_batches_tracked": 474130,
+        "bn4.num_batches_tracked": 474130,
+        "bn5.num_batches_tracked": 474130,
+        "conv1.1.num_batches_tracked": 474130,
+        "conv2.1.num_batches_tracked": 474130,
+        "conv3.1.num_batches_tracked": 474130,
+        "conv4.1.num_batches_tracked": 474130,
+        "conv5.1.num_batches_tracked": 474130,
+        "bn6.num_batches_tracked": 474130,
+        "bn7.num_batches_tracked": 474130
+      },
+      "head_alias_check": {
+        "missing": [],
+        "unexpected": [],
+        "all_states_equal_after_inverse_key_rename": true,
+        "interpretation": "Dataset selector changes final head attribute name only; no output permutation."
+      },
+      "steps_if_2309_train_bs16_epochs0_to100": 14544,
+      "zero_metrics_explanation": "Published runner_pretrain.py lines243-253 fixes a=0 and gates validation on a==1; zero acc metadata does not indicate actual measured zero accuracy.",
+      "bn_counter_caveat": "Scan training requires a pretrained initializer; inherited counters are possible. Excess counters do not prove target adaptation or corruption."
+    },
+    {
+      "path": "result/preparation/multibackbone_20261018/runtime_assets/checkpoints/svwa_dgcnn_modelnet40.pth",
+      "bytes": 21771717,
+      "sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494",
+      "epoch": 300,
+      "metrics": {
+        "acc": 0.0
+      },
+      "best_metrics": {
+        "acc": 0.0
+      },
+      "state_entries": 70,
+      "strict_load": {
+        "missing": [],
+        "unexpected": []
+      },
+      "all_state_finite": true,
+      "head_shapes": {
+        "linear3.weight": [
+          40,
+          256
+        ],
+        "linear3.bias": [
+          40
+        ]
+      },
+      "optimizer_step_min": 92407.0,
+      "optimizer_step_max": 92407.0,
+      "bn_counters": {
+        "bn1.num_batches_tracked": 92407,
+        "bn2.num_batches_tracked": 92407,
+        "bn3.num_batches_tracked": 92407,
+        "bn4.num_batches_tracked": 92407,
+        "bn5.num_batches_tracked": 92407,
+        "conv1.1.num_batches_tracked": 92407,
+        "conv2.1.num_batches_tracked": 92407,
+        "conv3.1.num_batches_tracked": 92407,
+        "conv4.1.num_batches_tracked": 92407,
+        "conv5.1.num_batches_tracked": 92407,
+        "bn6.num_batches_tracked": 92407,
+        "bn7.num_batches_tracked": 92407
+      }
+    }
+  ],
+  "archived_source": {
+    "path": "result/scanobjectnn_c/source_only/20261018-202249_dgcnn-seed0.zip",
+    "bytes": 5892210,
+    "sha256": "73af725a13e3be0f53f0f0b2658cc40e1e04b327c4d22bb014da1e2e9197f5b1",
+    "per_corruption": [
+      {
+        "corruption": "background",
+        "n": 581,
+        "correct": 197,
+        "accuracy_percent": 33.90705679862307,
+        "first576_accuracy_percent": 34.20138888888889,
+        "svwa_printed_percent": 27.0
+      },
+      {
+        "corruption": "cutout",
+        "n": 581,
+        "correct": 301,
+        "accuracy_percent": 51.80722891566265,
+        "first576_accuracy_percent": 52.083333333333336,
+        "svwa_printed_percent": 70.2
+      },
+      {
+        "corruption": "density_inc",
+        "n": 581,
+        "correct": 350,
+        "accuracy_percent": 60.24096385542169,
+        "first576_accuracy_percent": 60.59027777777778,
+        "svwa_printed_percent": 60.2
+      },
+      {
+        "corruption": "density",
+        "n": 581,
+        "correct": 293,
+        "accuracy_percent": 50.4302925989673,
+        "first576_accuracy_percent": 50.86805555555556,
+        "svwa_printed_percent": 70.6
+      },
+      {
+        "corruption": "distortion",
+        "n": 581,
+        "correct": 223,
+        "accuracy_percent": 38.38209982788296,
+        "first576_accuracy_percent": 38.54166666666667,
+        "svwa_printed_percent": 43.0
+      },
+      {
+        "corruption": "distortion_rbf_inv",
+        "n": 581,
+        "correct": 210,
+        "accuracy_percent": 36.144578313253014,
+        "first576_accuracy_percent": 36.28472222222222,
+        "svwa_printed_percent": 41.3
+      },
+      {
+        "corruption": "distortion_rbf",
+        "n": 581,
+        "correct": 206,
+        "accuracy_percent": 35.45611015490533,
+        "first576_accuracy_percent": 35.76388888888889,
+        "svwa_printed_percent": 41.5
+      },
+      {
+        "corruption": "gaussian",
+        "n": 581,
+        "correct": 161,
+        "accuracy_percent": 27.710843373493976,
+        "first576_accuracy_percent": 27.95138888888889,
+        "svwa_printed_percent": 39.9
+      },
+      {
+        "corruption": "impulse",
+        "n": 581,
+        "correct": 131,
+        "accuracy_percent": 22.547332185886404,
+        "first576_accuracy_percent": 22.743055555555554,
+        "svwa_printed_percent": 22.5
+      },
+      {
+        "corruption": "lidar",
+        "n": 581,
+        "correct": 37,
+        "accuracy_percent": 6.368330464716007,
+        "first576_accuracy_percent": 6.423611111111111,
+        "svwa_printed_percent": 9.3
+      },
+      {
+        "corruption": "occlusion",
+        "n": 581,
+        "correct": 48,
+        "accuracy_percent": 8.261617900172118,
+        "first576_accuracy_percent": 8.333333333333332,
+        "svwa_printed_percent": 8.7
+      },
+      {
+        "corruption": "rotation",
+        "n": 581,
+        "correct": 193,
+        "accuracy_percent": 33.218588640275385,
+        "first576_accuracy_percent": 33.50694444444444,
+        "svwa_printed_percent": 34.4
+      },
+      {
+        "corruption": "shear",
+        "n": 581,
+        "correct": 223,
+        "accuracy_percent": 38.38209982788296,
+        "first576_accuracy_percent": 38.54166666666667,
+        "svwa_printed_percent": 43.4
+      },
+      {
+        "corruption": "uniform",
+        "n": 581,
+        "correct": 120,
+        "accuracy_percent": 20.65404475043029,
+        "first576_accuracy_percent": 20.833333333333336,
+        "svwa_printed_percent": 26.7
+      },
+      {
+        "corruption": "upsampling",
+        "n": 581,
+        "correct": 164,
+        "accuracy_percent": 28.227194492254732,
+        "first576_accuracy_percent": 28.47222222222222,
+        "svwa_printed_percent": 29.6
+      }
+    ],
+    "all15_accuracy_percent": 32.78255880665519,
+    "first576_macro_percent": 33.00925925925926,
+    "svwa_printed_macro_percent": 37.9,
+    "svwa_displayed_cell_mean_percent": 37.88666666666666,
+    "any5_omission_absolute_bound_pp": 0.8605851979345955,
+    "bound_assumption": "Same individual predictions/labels; retaining576/581 changes only which five are omitted. Batch/FPS/RNG changes are outside this bound.",
+    "confusion_matrix_all15": [
+      [
+        38,
+        7,
+        16,
+        3,
+        9,
+        3,
+        0,
+        8,
+        90,
+        5,
+        53,
+        6,
+        2,
+        15,
+        0
+      ],
+      [
+        4,
+        131,
+        16,
+        32,
+        12,
+        14,
+        0,
+        18,
+        217,
+        15,
+        37,
+        3,
+        4,
+        96,
+        1
+      ],
+      [
+        4,
+        8,
+        61,
+        27,
+        7,
+        34,
+        1,
+        4,
+        138,
+        6,
+        60,
+        7,
+        6,
+        57,
+        0
+      ],
+      [
+        0,
+        8,
+        7,
+        323,
+        2,
+        63,
+        1,
+        49,
+        518,
+        28,
+        66,
+        3,
+        4,
+        51,
+        2
+      ],
+      [
+        0,
+        9,
+        1,
+        11,
+        309,
+        29,
+        0,
+        9,
+        659,
+        33,
+        46,
+        0,
+        1,
+        60,
+        3
+      ],
+      [
+        0,
+        1,
+        0,
+        3,
+        1,
+        37,
+        0,
+        1,
+        367,
+        20,
+        14,
+        0,
+        0,
+        6,
+        0
+      ],
+      [
+        3,
+        4,
+        7,
+        67,
+        13,
+        10,
+        122,
+        14,
+        306,
+        16,
+        33,
+        1,
+        3,
+        31,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        86,
+        0,
+        8,
+        0,
+        325,
+        166,
+        14,
+        15,
+        4,
+        4,
+        6,
+        1
+      ],
+      [
+        1,
+        2,
+        0,
+        3,
+        5,
+        15,
+        0,
+        3,
+        658,
+        27,
+        7,
+        1,
+        2,
+        11,
+        0
+      ],
+      [
+        0,
+        6,
+        2,
+        22,
+        8,
+        74,
+        0,
+        10,
+        423,
+        194,
+        58,
+        1,
+        0,
+        12,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        0,
+        25,
+        0,
+        3,
+        43,
+        23,
+        186,
+        1,
+        2,
+        32,
+        0
+      ],
+      [
+        4,
+        1,
+        16,
+        19,
+        6,
+        20,
+        2,
+        3,
+        61,
+        5,
+        84,
+        58,
+        4,
+        32,
+        0
+      ],
+      [
+        0,
+        10,
+        5,
+        16,
+        4,
+        18,
+        1,
+        4,
+        122,
+        22,
+        18,
+        2,
+        71,
+        66,
+        1
+      ],
+      [
+        1,
+        2,
+        1,
+        1,
+        8,
+        21,
+        0,
+        2,
+        215,
+        8,
+        51,
+        3,
+        2,
+        315,
+        0
+      ],
+      [
+        0,
+        8,
+        3,
+        3,
+        11,
+        5,
+        0,
+        1,
+        137,
+        2,
+        8,
+        5,
+        8,
+        35,
+        29
+      ]
+    ]
+  },
+  "alternatives": [
+    {
+      "path": "result/preparation/scan_dgcnn_checkpoint_audit_20261030/alternate_3deformrs/Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaseline/FinalModel.pth.tar",
+      "bytes": 10696227,
+      "sha256": "593b42e522a3dc02ee92bb2f593db8676eb7d26946540b02a2b0afebd270191c",
+      "payload_keys": [
+        "epoch",
+        "model_param",
+        "optimizer",
+        "scheduler"
+      ],
+      "state_entries": 51,
+      "head_shapes": {
+        "mlp.4.weight": [
+          15,
+          256
+        ],
+        "mlp.4.bias": [
+          15
+        ]
+      },
+      "same_implementation_as_svwa": false,
+      "contract": "PyG two DynamicEdgeConv stages, max pooling and log-softmax; OBJ_ONLY; random1024; centroid/L-infinity normalization. Not a drop-in SVWA checkpoint."
+    },
+    {
+      "path": "result/preparation/scan_dgcnn_checkpoint_audit_20261030/alternate_3deformrs/Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaselineV2/FinalModel.pth.tar",
+      "bytes": 10696227,
+      "sha256": "55f3896d209ac0f983106338edfa852fa9d04fa0750447bd96f83f04d25e74ed",
+      "payload_keys": [
+        "epoch",
+        "model_param",
+        "optimizer",
+        "scheduler"
+      ],
+      "state_entries": 51,
+      "head_shapes": {
+        "mlp.4.weight": [
+          15,
+          256
+        ],
+        "mlp.4.bias": [
+          15
+        ]
+      },
+      "same_implementation_as_svwa": false,
+      "contract": "PyG two DynamicEdgeConv stages, max pooling and log-softmax; OBJ_ONLY; random1024; centroid/L-infinity normalization. Not a drop-in SVWA checkpoint."
+    }
+  ],
+  "cuda_initialized_after": false
+}

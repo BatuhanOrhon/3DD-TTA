@@ -1,5 +1,26 @@
 # Findings Log
 
+## 2026-10-30 — Scan DGCNN published checkpoint verified; gap remains open
+
+[User report/Code/Run/Inference/Open] Static/CPU audit at source basef57b170
+redownloads the actual public SVWA ScanDGCNN file:21694533bytes,
+SHA7816a3cc…1343bfe, identical to accepted source.15-class head,70state entries,
+strict loading, finite tensors and inverse head-key rename pass. Zero stored
+metrics follow upstream disabled validation, not actual zero accuracy. Archived
+source32.7825588%; first576=33.0092593%; anyfive fixed-prediction omissions
+bounded0.8605852pp cannot close the5.1174412pp SVWA gap. Published training
+uses OBJ_ONLY/main_split_nobg and requires an initializer; exact file-linked
+training provenance remains unknown. Two alternative15-class 3DeformRS PyG
+weights downloaded/inspected, not substituted. No new model inference, GPU,
+Colab/runtime intervention, author contact or result Drive backup.
+[Full evidence, primary links and discriminating next steps](scan_dgcnn_checkpoint_audit_20261030.md).
+
+[Code/Run] Colab ownership skill change817128a adds task-specific session names,
+owner/endpoint/worktree/output records and preservation of peer/unknown sessions
+under quota/cleanup pressure. Existing root8skill tests and read-only pressure
+review pass. Existing user monitor edits/files remain excluded. User changed
+publication target to origin/thesis-integration; main/upstream must stay intact.
+
 ## 2026-09-28 — Colab GSD rerun blocked before calibration
 
 [User report] Three failures interrupted the fresh Colab attempt: a Diffusers

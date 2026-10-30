@@ -21,6 +21,26 @@ loss evidence and original3DD comparison; no definitive universal ranking.
 
 # Open Questions and Research Backlog
 
+## 2026-10-30 — Scan DGCNN source gap: checkpoint and input contract
+
+[User report/Code/Run/Open] [Focused audit](scan_dgcnn_checkpoint_audit_20261030.md)
+prioritizes model provenance while preserving accepted581-object main_split/s5.
+
+- [x] Redownload the public SVWA ScanDGCNN release: exact evaluated SHA matches;
+ 15-class head/70state entries strict-load; no missing/unexpected/nonfinite state.
+- [x] Explain zero stored validation metrics from the disabled upstream
+ validation branch; do not mistake them for measured zero accuracy.
+- [x] Bound last-batch omission: first576archive mean33.0093%; any5omissions
+ alter this fixed-prediction macro by at most0.8606pp, insufficient for5.1174pp.
+- [x] Recover published OBJ_ONLY/main_split_nobg training path and required
+ initializer; retrieve two alternative15-class PyG checkpoints without using
+ corrupted accuracy to select them. Different implementation, not a drop-in fix.
+- [ ] Establish file-linked training log/initializer, split and preprocessing;
+ verify exact Scan source point count. Author's512point issue is ModelNet TTA.
+- [ ] Scope a matched-author-evaluator diagnostic, then inspect the complete
+ OpenPoints DGCNN checkpoint/config before considering a new source condition.
+ Exact SVWA37.9/GSDTTA55.72 reproduction remains unresolved; preserve old rows.
+
 ## 2026-10-25 — parallel guidance component study selected
 
 [User report/Open] Assign a second isolated agent to test whether selective

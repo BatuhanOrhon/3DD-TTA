@@ -1,0 +1,284 @@
+{
+  "source_base": "f57b170460360b029a5b0f2a0ebc130a41083206",
+  "upstream_revision": "59935d68d0ef12811619ce4776e1dc4a711997d1",
+  "source_snippets": [
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/blob/59935d68d0ef12811619ce4776e1dc4a711997d1/cfgs/pre_train/pretrain_scanobject.yaml",
+      "sha256": "e7fe0b76759518fe41fe606cf697d8d7b5dfc7e5ed625624efb555b03049c4b1",
+      "bytes": 1436,
+      "ranges": [
+        {
+          "first_line": 17,
+          "last_line": 27,
+          "text": "            others: {subset: 'train'}},\n  val : { _base_: cfgs/dataset_configs/ScanObjectNN_objectonly.yaml,\n            others: {subset: 'test'}},\n  test : { _base_: cfgs/dataset_configs/ScanObjectNN_objectonly.yaml,\n            others: {subset: 'test'}}}\n\nmodel : {\n  NAME: DGCNN_cls,                   ## Point_MAE   ,   PointNet   ,   DGCNN_cls   ,   CurveNet\n  group_size: 32,\n  num_group: 128,\n  loss: cdl2,"
+        },
+        {
+          "first_line": 58,
+          "last_line": 65,
+          "text": "#total_bs : 32\ntotal_bs : 16                            ###for DGCNN   \nstep_per_update : 1\nmax_epoch : 100"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/blob/59935d68d0ef12811619ce4776e1dc4a711997d1/cfgs/dataset_configs/ScanObjectNN_objectonly.yaml",
+      "sha256": "a639ff8a0b5db2a165c48e8a787b2414d70b8d2893ed2a826e454554c7ea9e4b",
+      "bytes": 110,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 2,
+          "text": "NAME: ScanObjectNN\nROOT: /export/livia/home/vision/Abahri/projects/MATE/MATE/data/scanobjectnn/main_split_nobg"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/blob/59935d68d0ef12811619ce4776e1dc4a711997d1/commands.sh",
+      "sha256": "7a29ac60a840802557e33783d1e7b660fca52bb0447f2a7baba866d535a037c2",
+      "bytes": 1425,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 8,
+          "text": "#Pretraining      (Network has to be selected in pretrain_<dataset_name>.yaml)\nCUDA_VISIBLE_DEVICES=0 python train.py --only_cls --config cfgs/pre_train/pretrain_modelnet.yaml --dataset modelnet\n\nCUDA_VISIBLE_DEVICES=0 python train.py --only_cls --config cfgs/pre_train/pretrain_scanobject.yaml --dataset scanobject_nbg --ckpts models/pretrain.pth\n\nCUDA_VISIBLE_DEVICES=0 python train.py --only_cls --config cfgs/pre_train/pretrain_shapenetcore.yaml --dataset shapenetcore\n\n#TTT - Online"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/blob/59935d68d0ef12811619ce4776e1dc4a711997d1/train.py",
+      "sha256": "893e0e7c74539aded5d6d7a1a57a9b16ebba95b82721fba4334757e4c20a57db",
+      "bytes": 4596,
+      "ranges": [
+        {
+          "first_line": 100,
+          "last_line": 102,
+          "text": "    if args.dataset_name == 'scanobject' or args.dataset_name == 'scanobject_nbg':\n        assert args.ckpts is not None  # because for scan object we only finetune from pretrained weights\n"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/blob/59935d68d0ef12811619ce4776e1dc4a711997d1/tools/runner_pretrain.py",
+      "sha256": "0e12b8cdb49f2b77b11085edd344d2bdbd1554da63c395b0bc72f4935c352a78",
+      "bytes": 37289,
+      "ranges": [
+        {
+          "first_line": 95,
+          "last_line": 104,
+          "text": "        # parameter setting\n        start_epoch = 0\n        best_metrics = Acc_Metric(0.)\n        metrics = Acc_Metric(0.)\n\n        # resume ckpts\n        if args.resume:\n            start_epoch, best_metric = builder.resume_model(base_model, args, logger=logger)\n            best_metrics = Acc_Metric(best_metric)\n        elif args.start_ckpts is not None:"
+        },
+        {
+          "first_line": 128,
+          "last_line": 131,
+          "text": "        for epoch in range(start_epoch, config.max_epoch + 1):\n            if args.distributed:\n                train_sampler.set_epoch(epoch)\n            base_model.train()"
+        },
+        {
+          "first_line": 241,
+          "last_line": 256,
+          "text": "                       optimizer.param_groups[0]['lr']), logger=logger) \n            a = 0\n            if epoch % args.val_freq == 0 and epoch != 0 and a == 1:\n                # Validate the current model\n                metrics = validate(base_model, extra_train_dataloader, test_dataloader, epoch, val_writer, args, config,\n                                   logger=logger)\n\n                # Save ckeckpoints\n                if metrics.better_than(best_metrics):\n                    best_metrics = metrics\n                    builder.save_checkpoint(base_model, optimizer, epoch, metrics, best_metrics, 'ckpt-best', args,\n                                            logger=logger)\n            builder.save_checkpoint(base_model, optimizer, epoch, metrics, best_metrics, 'ckpt-last', args,\n                                    logger=logger)\n            if epoch % 25 == 0 and epoch >= 250:\n                builder.save_checkpoint(base_model, optimizer, epoch, metrics, best_metrics, f'ckpt-epoch-{epoch:03d}',"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/blob/59935d68d0ef12811619ce4776e1dc4a711997d1/datasets/tta_datasets.py",
+      "sha256": "dd01521a8b680550fc6cfe95b91e1a330c3cde4ccbb3c5390b77cd581bbe2f0c",
+      "bytes": 17189,
+      "ranges": [
+        {
+          "first_line": 95,
+          "last_line": 126,
+          "text": "class ScanObjectNN(Dataset):\n    def __init__(self, args, root, **kwargs):\n        super().__init__()\n        self.subset = args.split\n        self.root = root\n\n        if self.subset == 'train':\n            h5 = h5py.File(os.path.join(self.root, 'training_objectdataset.h5'), 'r')\n            self.points = np.array(h5['data']).astype(np.float32)\n            self.labels = np.array(h5['label']).astype(int)\n            h5.close()\n        elif self.subset == 'test':\n            self.points, self.labels = load_data(root, args.corruption, args.severity)\n        else:\n            raise NotImplementedError()\n\n        self.points = np.squeeze(self.points)\n        self.labels = np.squeeze(self.labels)\n        print(f'Successfully load ScanObjectNN shape of {self.points.shape}')\n\n    def __getitem__(self, idx):\n        pt_idxs = np.arange(0, self.points.shape[1])  # 2048\n        if self.subset == 'train':\n            np.random.shuffle(pt_idxs)\n\n        current_points = self.points[idx, pt_idxs].copy()\n\n        current_points = torch.from_numpy(current_points).float()\n        label = self.labels[idx]\n\n        return current_points, label\n"
+        }
+      ]
+    },
+    {
+      "url": "repository:scripts/eval_multibackbone_source.py@f57b170",
+      "sha256": "3be330870b27375f7378a287a41f00e10b4df3dac0ac34a12df69f84cf3b28e9",
+      "bytes": 30722,
+      "ranges": [
+        {
+          "first_line": 103,
+          "last_line": 127,
+          "text": "    scan = args.dataset == \"scanobjectnn_c\"\n    suffix = \"scanobjectnn\" if scan else \"modelnet40\"\n    checkpoint = (\"3deformrs_curvenet_scanobjectnn_better.t7\" if scan and args.backbone == \"curvenet\"\n                  else (\"pointnext_\" if args.backbone == \"pointnext\" else \"svwa_\" + args.backbone + \"_\") + suffix + \".pth\")\n    preprocessing = \"raw XYZ -> native PointNet2 FPS(1024); no added normalization\"\n    if scan and args.backbone == \"curvenet\":\n        preprocessing = \"raw XYZ -> centroid and L-infinity normalization -> native PointNet2 FPS(1024); transfer from random sampling\"\n    if args.backbone == \"pointnext\":\n        preprocessing = (\"raw XYZ -> native PointNet2 FPS(1024) -> height=y-min(y) -> centroid and unit-sphere XYZ normalization -> XYZ + unscaled height features\"\n                         if scan else \"raw XYZ -> native PointNet2 FPS(1024) -> XYZ features; no added normalization\")\n    if args.backbone == \"pointmae\" and not args.preview and not (args.pointmae_config and args.pointmae_checkpoint):\n        raise ValueError(\"Point-MAE requires --pointmae-config and --pointmae-checkpoint\")\n    config = dict(vars(args))\n    config.update(method=\"source_only\", severity=0 if selected == [\"original\"] else 5, corruptions=selected,\n                  n_examples=581 if scan else 2468, num_classes=15 if scan else 40,\n                  split=\"main_split\" if scan else \"official_modelnet40_test\",\n                  checkpoint=\"checkpoints/\" + checkpoint,\n                  input_layout=\"bcn\" if scan and args.backbone == \"curvenet\" else \"bnc\",\n                  preprocessing=preprocessing, n_points=1024, lion_loaded=False,\n                  paper_checkpoint_identity_verified=False,\n                  provenance_status=\"published alternative checkpoint; benchmark-transfer preprocessing, not exact GSDTTA reproduction\",\n                  pointnext_width=32 if scan else 64,\n                  dgcnn_head_dataset_name=\"modelnet\" if scan else \"scanobject\",\n                  dgcnn_head_quirk=\"source dataset_name selects only linear3/linear3_ parameter name; does not specify data split\",\n                  sampling_policy=\"native PointNet2 FPS1024, including repeated indices if input has fewer points\","
+        },
+        {
+          "first_line": 207,
+          "last_line": 223,
+          "text": "            model = module.CurveNet(num_classes=config[\"num_classes\"], k=20, setting=\"default\")\n            state = payload\n        else:\n            options = SimpleNamespace(cls_dim=config[\"num_classes\"], k=20, emb_dims=1024,\n                                      dropout=0.5, transformer_config=SimpleNamespace(dataset_name=config[\"dgcnn_head_dataset_name\"]))\n            model = module.DGCNN_cls(options) if backbone == \"dgcnn\" else module.CurveNet(options)\n            state = payload[\"base_model\"]\n        config[\"resolved_model_config\"] = dict(classes=config[\"num_classes\"], k=20, emb_dims=1024, dropout=0.5,\n                                                package=package, dgcnn_head_dataset_name=config[\"dgcnn_head_dataset_name\"])\n    elif backbone == \"pointnext\":\n        sys.path.insert(0, str(root))\n        from openpoints.utils import EasyConfig\n        from openpoints.models import build_model_from_cfg\n        filename = \"pointnext_scan_cfg.yaml\" if config[\"dataset\"] == \"scanobjectnn_c\" else \"pointnext_modelnet_cfg.yaml\"\n        options = EasyConfig()\n        options.load(str(_declared_asset(root, manifest, filename)), recursive=True)\n        options.model.encoder_args.width = config[\"pointnext_width\"]"
+        },
+        {
+          "first_line": 253,
+          "last_line": 265,
+          "text": "        scale = points.abs().amax(dim=(1, 2), keepdim=True)\n        if torch.any(scale == 0):\n            raise ValueError(\"Cannot L-infinity normalize a degenerate cloud\")\n        points = points / scale\n    points = fps(points, 1024)\n    features = None\n    if config[\"backbone\"] == \"pointnext\":\n        if config[\"dataset\"] == \"scanobjectnn_c\":\n            height = points[:, :, 1:2] - points[:, :, 1:2].amin(dim=1, keepdim=True)\n            points = points - points.mean(dim=1, keepdim=True)\n            scale = points.norm(dim=-1, keepdim=True).amax(dim=1, keepdim=True)\n            if torch.any(scale == 0):\n                raise ValueError(\"Cannot unit-sphere normalize a degenerate cloud\")"
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/blob/59935d68d0ef12811619ce4776e1dc4a711997d1/models/Point_MAE.py",
+      "sha256": "27fd8da7bf4c7577320448b3d261627cb09528a07315826a6e604f21e6387316",
+      "bytes": 95231,
+      "ranges": [
+        {
+          "first_line": 818,
+          "last_line": 871,
+          "text": "class DGCNN_cls(nn.Module):\n    def __init__(self, config):\n        super().__init__()\n        self.k = config.k\n        \n        self.cls_dim = config.cls_dim  \n        self.dataset_name = config.transformer_config.dataset_name     \n        \n        self.bn1 = nn.BatchNorm2d(64)\n        self.bn2 = nn.BatchNorm2d(64)\n        self.bn3 = nn.BatchNorm2d(128)\n        self.bn4 = nn.BatchNorm2d(256)\n        self.bn5 = nn.BatchNorm1d(config.emb_dims)\n\n        self.conv1 = nn.Sequential(nn.Conv2d(6, 64, kernel_size=1, bias=False), \n                                   self.bn1,\n                                   nn.LeakyReLU(negative_slope=0.2))\n        self.conv2 = nn.Sequential(nn.Conv2d(64*2, 64, kernel_size=1, bias=False),\n                                   self.bn2,\n                                   nn.LeakyReLU(negative_slope=0.2))\n        self.conv3 = nn.Sequential(nn.Conv2d(64*2, 128, kernel_size=1, bias=False),\n                                   self.bn3,\n                                   nn.LeakyReLU(negative_slope=0.2))\n        self.conv4 = nn.Sequential(nn.Conv2d(128*2, 256, kernel_size=1, bias=False),\n                                   self.bn4,\n                                   nn.LeakyReLU(negative_slope=0.2))\n        self.conv5 = nn.Sequential(nn.Conv1d(512, config.emb_dims, kernel_size=1, bias=False),\n                                   self.bn5,\n                                   nn.LeakyReLU(negative_slope=0.2))\n        self.linear1 = nn.Linear(config.emb_dims*2, 512, bias=False)\n        self.bn6 = nn.BatchNorm1d(512)\n        self.dp1 = nn.Dropout(p=config.dropout)\n        self.linear2 = nn.Linear(512, 256)\n        self.bn7 = nn.BatchNorm1d(256) \n        self.dp2 = nn.Dropout(p=config.dropout)\n        if (self.dataset_name == \"scanobject\"): \n            self.linear3 = nn.Linear(256, self.cls_dim)\n        if (self.dataset_name != \"scanobject\"): \n            self.linear3_ = nn.Linear(256, self.cls_dim)                        #### for loading shapenet \n         \n        self.loss_ce = nn.CrossEntropyLoss() \n        \n        \n    def load_model_from_ckpt(self, bert_ckpt_path, load_part_seg=None):\n        if bert_ckpt_path is not None:\n            ckpt = torch.load(bert_ckpt_path)\n            base_ckpt = {k.replace(\"module.\", \"\"): v for k, v in ckpt['base_model'].items()}\n\n            incompatible = self.load_state_dict(base_ckpt, strict=False)\n\n            if incompatible.missing_keys:\n                print_log('missing_keys', logger='Transformer')\n                print_log(\n                    get_missing_parameters_message(incompatible.missing_keys),"
+        }
+      ]
+    }
+  ],
+  "issue_comments": [
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/issues/2#issuecomment-3242788004",
+      "author": "AliBahri94",
+      "created_at": "2025-09-01T15:46:22Z",
+      "body": "Hi, \n\nFor DGCNN, in addition to the previous configs, please set the npoints: 512 instead of 1024. You should get the results of the main paper. We explained that in Table 4 in the Supplementary Material. "
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/issues/2#issuecomment-3245820353",
+      "author": "AliBahri94",
+      "created_at": "2025-09-02T15:27:08Z",
+      "body": "HI, thank you!\njust a question, you have a problem only with DGCNN?\n"
+    },
+    {
+      "url": "https://github.com/AliBahri94/SVWA_TTA/issues/2#issuecomment-3247283286",
+      "author": "LemonQC",
+      "created_at": "2025-09-03T00:56:10Z",
+      "body": "Yes\uff0ccurrently, I have reproduced the results of Point-MAE and PointNet on ModelNet-40C."
+    }
+  ],
+  "paper_snapshot_identities": [
+    {
+      "name": "svwa_wacv.pdf",
+      "bytes": 949838,
+      "sha256": "dc253d2179b943517a88a93230d636917fb879bef58b0f5f056fa25c26c07ab7"
+    },
+    {
+      "name": "svwa_supp.pdf",
+      "bytes": 253525,
+      "sha256": "0683fe0b9bc7cb7f392e88dbeea904ab5bd03f2eb54778db31aaa68b0850f74a"
+    }
+  ],
+  "public_folder_listing": [
+    {
+      "listing": "openpoints_dgcnn.html",
+      "id": "1DR300jJidTadrrfLsXjJWT51CeqhuZ_9",
+      "name": "scanobjectnn-train-dgcnn-ngpus1-seed4767-20220522-213201-6LdYSGosNJuBoBGh5f7b4P"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1jlDHnLwQfDRZwGl1DdpuAcoUqcO-OSBm",
+      "name": "modelnet_src_only_CurveNet.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1RmuvcOR3nFE9TQIiS2DPwEk1PfNNCguA",
+      "name": "modelnet_src_only_DGCNN.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1oUxAvU7W4UseMj6FRGemqPLyzZLZnU9L",
+      "name": "modelnet_src_only_PoinNet.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1U-AAzmQc7TouKfr9AcqHLV3fhlGVpN8b",
+      "name": "modelnet_src_only_PointMAE.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1ZkXrXj_U5t1OGr-_J7sGFPcuNVrA5fh-",
+      "name": "objectnn_src_only_DGCNN.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1kKmsqIT29mdTDvjemK2M7MBK5uGCWp5k",
+      "name": "objectnn_src_only_PointMAE.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1ajpKrKe1VvPof8LdgzGps3zG-wOBSft8",
+      "name": "objectnn_src_only_PointNet.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1pj7ChR9Hb8pG3QgCXNl8M_qndbI8xJJT",
+      "name": "shapenet_src_only_CurveNet.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "10nelyI0S35tpBzc57Gz1N58oS3tR_MEQ",
+      "name": "shapenet_src_only_DGCNN.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "187LhPB6n5GPpLVg6HzJqwbg-8p0nXzDC",
+      "name": "shapenet_src_only_PointMAE.pth"
+    },
+    {
+      "listing": "svwa.html",
+      "id": "1Azl7PxYKNMbpZU7IbwZFtijk_Avdtzxg",
+      "name": "shapenet_src_only_PointNet.pth"
+    }
+  ],
+  "alternative_fetch_manifest": {
+    "repo": "gaperezsa/3DeformRS",
+    "commit": "30a2385edbd6a0e7919caa01344cb47af81bb361",
+    "files": [
+      {
+        "path": "Pointnet2andDGCNN/Trainers/dgcnnTrain.py",
+        "url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/Pointnet2andDGCNN/Trainers/dgcnnTrain.py",
+        "bytes": 8816,
+        "sha256": "193953f7fa025a03575d8775f953a196061acbf4f7a129fc167d121f32c17bfd"
+      },
+      {
+        "path": "Pointnet2andDGCNN/Trainers/dgcnnTest.py",
+        "url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/Pointnet2andDGCNN/Trainers/dgcnnTest.py",
+        "bytes": 3623,
+        "sha256": "3ac4bcb090e41f59c4f10f67ba50c55349ce3df1c8e8981ed4c79dddb7b209e7"
+      },
+      {
+        "path": "Pointnet2andDGCNN/DataLoaders/ScanobjectDataset.py",
+        "url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/Pointnet2andDGCNN/DataLoaders/ScanobjectDataset.py",
+        "bytes": 6751,
+        "sha256": "7554c71226731fe6ab4bcc2997c9844d45813658e8fe215cd66e965620a1cfc8"
+      },
+      {
+        "path": "Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaseline/info.txt",
+        "url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaseline/info.txt",
+        "bytes": 674,
+        "sha256": "76fd4c32d88b5b662b5327b4f7a4144368c19c8f758f2534f63818a2ff49fefe"
+      },
+      {
+        "path": "Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaselineV2/info.txt",
+        "url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaselineV2/info.txt",
+        "bytes": 227,
+        "sha256": "9cd1c356d790c7b4992c2478dc0c8c3624522df1e727d89b7ddfb95121776a8e"
+      },
+      {
+        "path": "Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaseline/FinalModel.pth.tar",
+        "url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaseline/FinalModel.pth.tar",
+        "bytes": 10696227,
+        "sha256": "593b42e522a3dc02ee92bb2f593db8676eb7d26946540b02a2b0afebd270191c"
+      },
+      {
+        "path": "Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaselineV2/FinalModel.pth.tar",
+        "url": "https://raw.githubusercontent.com/gaperezsa/3DeformRS/30a2385edbd6a0e7919caa01344cb47af81bb361/Pointnet2andDGCNN/trainedModels/dgcnnScanobjectBaselineV2/FinalModel.pth.tar",
+        "bytes": 10696227,
+        "sha256": "55f3896d209ac0f983106338edfa852fa9d04fa0750447bd96f83f04d25e74ed"
+      }
+    ]
+  },
+  "audit_script": {
+    "path": "result/preparation/scan_dgcnn_checkpoint_audit_20261030/audit_existing_assets.py",
+    "sha256": "53feeaf98e89fb945f0d7b37beea43dcb64f2b506945e35297ce4a475324ae93"
+  },
+  "audit_command": "uv run --offline --no-project --with torch --with numpy python result/preparation/scan_dgcnn_checkpoint_audit_20261030/audit_existing_assets.py",
+  "runtime_ownership": {
+    "session": null,
+    "endpoint": null,
+    "monitor": null,
+    "colab_operations_performed": false
+  },
+  "raw_backup": {
+    "local_directory": "result/preparation/scan_dgcnn_checkpoint_audit_20261030",
+    "drive_backup": "not performed; no runtime owned; public source download is not a result backup"
+  }
+}
