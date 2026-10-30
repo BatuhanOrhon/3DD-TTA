@@ -68,6 +68,30 @@ changes may proceed within the user's setup task; interactive account consent
 remains user-operated. Runtime teardown follows the separate lifecycle contract
 below; creating a VM does not authorize its later cleanup.
 
+## Task-specific session names and agent ownership
+
+Before allocating a runtime, choose a unique session name that identifies the
+agent's actual task: `tta-<task>-<accelerator>-<UTCdate>-r<N>`. For example,
+`tta-scan-dgcnn-checkpoint-a100-20261030-r1`. Use distinct task slugs for parallel
+agents; generic names such as `test`, `research` or `colab` are insufficient.
+Check the server inventory for name collisions without executing cells on other
+sessions. Record the session name, endpoint, task/agent owner, branch/worktree,
+monitor/process identity and output/Drive destinations in the task's knowledge
+note. Always target the recorded name explicitly with `-s SESSION`.
+
+Another agent's runtime is protected: do not stop, release, delete, reconnect for
+execution, interrupt its kernel, or stop its monitor/background processes. Do
+not clean up all visible sessions or free GPU quota by terminating peer work.
+An idle indicator, `[?]`, an unfamiliar name or missing local bookkeeping does
+not establish ownership or authorize cleanup; preserve unknown sessions.
+Historical or broad cleanup instructions do not authorize closing another
+agent's current task. If the user explicitly requests intervention in a peer
+runtime, first identify the exact session and coordinate ownership handoff with
+that agent; teardown still requires the completion-and-close authorization below.
+Read-only server inventory does not transfer ownership. Reusing a prepared
+runtime requires a recorded assignment to the current task, not just visibility
+in the inventory. If no runtime is assigned, allocate a distinctly named one.
+
 ## Runtime lifecycle and teardown
 
 Treat every prepared Colab runtime as expensive, reusable task state. Do not
