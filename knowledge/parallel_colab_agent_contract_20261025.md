@@ -88,3 +88,16 @@ accepted batches; integration of diverged knowledge files happens after review.
 Related scopes: [A handoff](modelnet_multibackbone_trajectory_handoff_20261025.md),
 [B study](guidance_component_study_handoff_20261025.md),
 [copyable prompts](parallel_agent_prompts_20261025.md).
+
+
+## Shared publication authorization — 2026-10-30
+
+[User report/Decision] The user authorizes agents to integrate their completed,
+necessary code and knowledge into `origin/thesis-integration` in the user's fork,
+without asking again for merge/push permission. This supersedes the historical
+own-branch-only publication rule above. It does not authorize touching peer
+worktrees, branches, uncommitted edits or runtimes. Select necessary changes;
+retain negative/failed evidence, supporting tests and source identities. Use a
+clean integration checkout, preserve concurrent shared changes, verify and
+normal-push; fetch/reconcile/recheck on races, never force-push. Preserve `main`
+and `upstream`. The current research skill defines the detailed procedure.

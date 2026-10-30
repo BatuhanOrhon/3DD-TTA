@@ -14,6 +14,52 @@ Act as a rigorous academic researcher for this repository. Preserve continuity, 
 3. Inspect current Git branch, commit, status, and relevant source/history. Never assume an older note describes the checked-out implementation exactly.
 4. State the evidence labels being used: **[Paper]**, **[Code]**, **[Run]**, **[User report]**, **[Inference]**, or **[Open]**.
 
+## Shared thesis integration branch
+
+`origin/thesis-integration` is the shared branch for necessary, completed thesis
+code and research knowledge in the user's fork. `main` remains the upstream
+tracking baseline. Agents continue working in their own branches/worktrees;
+the integration branch collects reviewed outcomes, not every working file.
+
+The user gives standing authorization: after completing a scoped task, an
+agent may select the code and knowledge it judges necessary, integrate those
+changes into `origin/thesis-integration`, and push without another merge/push
+permission question. This supersedes older own-branch-only publication wording;
+it grants no access to another agent's runtime, edits or unfinished work.
+
+1. At task start and before publishing, fetch `origin`, inspect the current
+   `origin/thesis-integration` tree/history, and read its current research skill
+   and relevant knowledge. An older worktree can use
+   `git show origin/thesis-integration:.agents/skills/iterative-thesis-researcher/SKILL.md`.
+   Reconcile existing integrated work before proposing duplicates.
+2. Review the branch diff against the shared target. Promote only necessary
+   code, tests/configuration/dependencies, research notes and compact evidence
+   needed to understand or verify the completed result. Preserve negative/null/
+   failed outcomes and source/asset identities. Keep temporary setup wrappers,
+   redundant dumps, caches, raw archives and weights out of this integration
+   unless their inclusion is specifically required by the artifact protocol.
+   Never publish credentials. Necessary does not mean positive results only.
+3. Prepare the integration in an isolated clean checkout/branch based on the
+   latest remote target. If only part of the source branch is needed, use a
+   curated integration commit or suitable cherry-picks. Merge the whole branch
+   only when its entire incoming diff is necessary and verified. Do not mark
+   excluded work as merged or overwrite a shared file with an older whole copy.
+4. Reconcile shared knowledge by meaning: retain others' accepted findings,
+   preserve dated history and make current status unambiguous. Include required
+   imports, tests and supporting evidence with selected code. Run checks suited
+   to the integrated change and inspect the staged diff before publishing.
+5. Push only to the user's `origin/thesis-integration`, never to `upstream` or
+   `main` under this authorization. Use a normal fast-forward push. If rejected
+   because another agent advanced the target, fetch, incorporate their changes,
+   resolve conflicts and rerun affected checks before retrying; never force-push.
+6. Record source branch/commit, selected and excluded scope with reasons,
+   verification, and the resulting integration commit. Report no-op when the
+   necessary result is already integrated. Preserve agent branches, worktrees,
+   raw evidence and user edits; integration is not cleanup authorization.
+
+This publication policy does not authorize new GPU experiments, runtime
+teardown, scientific scope expansion or a claim of external replication.
+
 ## Research workflow
 
 ### 1. Frame the question
