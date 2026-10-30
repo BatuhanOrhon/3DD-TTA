@@ -1,0 +1,97 @@
+{
+  "configuration_counts": {
+    "fixed": 32,
+    "sensitivity": 120
+  },
+  "source_bindings_checked": 576,
+  "graph_probes": [
+    {
+      "cache": "result/preparation/guidance_component_study_20261025/paired_cache_extracted/paired_state_v1_seed0/modelnet40_c/gaussian/080c9e2d50c93dfdde922ef912da102ca8c37502fadc9e34d1e62a6669ddec9f.npz",
+      "cache_sha256": "de3fb4c582971588894ac34545f1aff0511b36a55d548390d0dd50dfbd90ae6a",
+      "dataset": "modelnet40_c",
+      "corruption": "gaussian",
+      "selected_batch_position": 0,
+      "retained_self_only_isolates": 0,
+      "self_only_vertex_indices": [],
+      "self_only_filter_diagonal": [],
+      "penalized_zero_row_vertices": 384,
+      "spectral_weight_mass": 482.0802001953125,
+      "eigenvalue_799": 1.3603276014328003,
+      "eigenvalue_800": 1.3603636026382446
+    },
+    {
+      "cache": "result/preparation/guidance_component_study_20261025/paired_cache_extracted/paired_state_v1_seed0/modelnet40_c/background/080c9e2d50c93dfdde922ef912da102ca8c37502fadc9e34d1e62a6669ddec9f.npz",
+      "cache_sha256": "65217823f02d1a6122a43a76722f923a158daa905f798a198e1d3ac35551a766",
+      "dataset": "modelnet40_c",
+      "corruption": "background",
+      "selected_batch_position": 0,
+      "retained_self_only_isolates": 0,
+      "self_only_vertex_indices": [],
+      "self_only_filter_diagonal": [],
+      "penalized_zero_row_vertices": 406,
+      "spectral_weight_mass": 469.7425537109375,
+      "eigenvalue_799": 1.2618554830551147,
+      "eigenvalue_800": 1.2635449171066284
+    },
+    {
+      "cache": "result/preparation/guidance_component_study_20261025/paired_cache_extracted/paired_state_v1_seed0/modelnet40_c/density_inc/080c9e2d50c93dfdde922ef912da102ca8c37502fadc9e34d1e62a6669ddec9f.npz",
+      "cache_sha256": "cdd5fcff2007325afbf84183e215edc15a1762cee8fa61a7b36da43c8c6c0e8c",
+      "dataset": "modelnet40_c",
+      "corruption": "density_inc",
+      "selected_batch_position": 0,
+      "retained_self_only_isolates": 0,
+      "self_only_vertex_indices": [],
+      "self_only_filter_diagonal": [],
+      "penalized_zero_row_vertices": 475,
+      "spectral_weight_mass": 434.8913269042969,
+      "eigenvalue_799": 1.6960049867630005,
+      "eigenvalue_800": 1.6963472366333008
+    },
+    {
+      "cache": "result/preparation/guidance_component_study_20261025/paired_cache_extracted/paired_state_v1_seed0/scanobjectnn_c/gaussian/9fd151dcff1aaf68a9d4602a24853e614825fd7b6482c0233329edc4804e70b5.npz",
+      "cache_sha256": "f5df875cb2b851587dcd297c7d081a1fd49d05dccc02352971ed958b7a71d0ee",
+      "dataset": "scanobjectnn_c",
+      "corruption": "gaussian",
+      "selected_batch_position": 0,
+      "retained_self_only_isolates": 1,
+      "self_only_vertex_indices": [
+        281
+      ],
+      "self_only_filter_diagonal": [
+        0.9993922114372253
+      ],
+      "penalized_zero_row_vertices": 478,
+      "spectral_weight_mass": 223.20570373535156,
+      "eigenvalue_799": 2.952782392501831,
+      "eigenvalue_800": 2.9541518688201904
+    },
+    {
+      "cache": "result/preparation/guidance_component_study_20261025/paired_cache_extracted/paired_state_v1_seed0/scanobjectnn_c/background/9fd151dcff1aaf68a9d4602a24853e614825fd7b6482c0233329edc4804e70b5.npz",
+      "cache_sha256": "9fc2f8ee434bc4e272561a8fc8ee2b37b29304ff0ac8260886c764f4604f1540",
+      "dataset": "scanobjectnn_c",
+      "corruption": "background",
+      "selected_batch_position": 0,
+      "retained_self_only_isolates": 0,
+      "self_only_vertex_indices": [],
+      "self_only_filter_diagonal": [],
+      "penalized_zero_row_vertices": 154,
+      "spectral_weight_mass": 44.821075439453125,
+      "eigenvalue_799": 7.759328365325928,
+      "eigenvalue_800": 7.759844779968262
+    },
+    {
+      "cache": "result/preparation/guidance_component_study_20261025/paired_cache_extracted/paired_state_v1_seed0/scanobjectnn_c/density_inc/9fd151dcff1aaf68a9d4602a24853e614825fd7b6482c0233329edc4804e70b5.npz",
+      "cache_sha256": "c8223fcbc9ebc78142fc7cc5dc0f6751b4e56e2b7ddecd221922b67de8742276",
+      "dataset": "scanobjectnn_c",
+      "corruption": "density_inc",
+      "selected_batch_position": 0,
+      "retained_self_only_isolates": 0,
+      "self_only_vertex_indices": [],
+      "self_only_filter_diagonal": [],
+      "penalized_zero_row_vertices": 417,
+      "spectral_weight_mass": 163.33187866210938,
+      "eigenvalue_799": 4.031754493713379,
+      "eigenvalue_800": 4.032455921173096
+    }
+  ]
+}

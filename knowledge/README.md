@@ -1,3 +1,12 @@
+**[Code/Run/Inference/Open] 2026-10-30 — Guidance mathematics/execution audit:**
+Sealed sources and32fixed+120newGSDconfigs match;29CPUtests pass. Smoothing was
+active as legacy raw-lambda/M800 fidelity, distinct from normalized all-mode
+smooth and full GSDTTA. Known isolate defect persists but accuracy causality is
+unproven. S−U's small development deficit has a CI crossing0; calibrated S can
+slightly exceed U. Prior positive and null evidence are retained. No newGPU or
+algorithm change; user decides the method's role after this audit. Runtime
+closure below remains valid. [Read audit](guidance_mathematics_execution_audit_20261030.md).
+
 **[Run/Decision] 2026-10-29 (2026-10-28 22:04 UTC) — Agent B runtime closed:**
 The user authorized closing the completed campaign. Monitor5314 exited cleanly;
 `colab stop -s tta-guidance-components-a100-20261028-r4` was issued and a fresh
