@@ -1,0 +1,301 @@
+{
+  "additional_integration_metadata": [
+    "integration_scope.json",
+    "integration_verification.json",
+    "knowledge/thesis_integration_depth_tuning_20261030.md",
+    "knowledge/README.md adds the integration-note link"
+  ],
+  "excluded_scope": [
+    "temporary operator/setup/monitor wrappers and allocation/progress dumps",
+    "bulk raw ZIPs/cache NPZs/checkpoints/weights (preserved locally and Drive)",
+    "superseded duplicate stage/final tables and intermediate ledger copies",
+    "no peer worktree, runtime, branch or user edits"
+  ],
+  "executed_payload_identity_is_distinct_from_combined_integration_tree": true,
+  "selected_files": {
+    "knowledge/README.md": {
+      "bytes": 96138,
+      "sha256": "e72f949b42403c704156903da5bdff06f2eba5016f09c1794e1066b6d5d6e929"
+    },
+    "knowledge/chamfer_depth_tuning_approval_20261030.md": {
+      "bytes": 7069,
+      "sha256": "8b7237e0d44fe51231791d0ede4e78fb2105648c4dd3c2e804a1fb42301563e6"
+    },
+    "knowledge/chamfer_depth_tuning_results_20261030.md": {
+      "bytes": 10916,
+      "sha256": "802af1225bba992280e7855a89f80a6dc8ec88142f395cdb60cf267bbb3c2d44"
+    },
+    "knowledge/chamfer_depth_tuning_study_20261030.md": {
+      "bytes": 42029,
+      "sha256": "50752722c48210ef5ae6cf096887bfd2456d1b0838b13f4304b96a958f8989e6"
+    },
+    "knowledge/colab_cli_setup_20261017.md": {
+      "bytes": 32199,
+      "sha256": "3965dd44ef93cb19090ed52cc3081f461385f4c316c85c80799812fa9c409586"
+    },
+    "knowledge/findings_log.md": {
+      "bytes": 482291,
+      "sha256": "15d8defbeb0912cc5cee0bf0aadd21110ad8da3ed0de9bba2439f51bc9bb1da0"
+    },
+    "knowledge/open_questions.md": {
+      "bytes": 150955,
+      "sha256": "88495818a09c79883c86ab92d32240477160bf6fe3216ca4581de399081d3917"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/README.md": {
+      "bytes": 8766,
+      "sha256": "397d3ce56497ae8aacea1173d40086e40f12142c9f2b43b9b0a68bd8a04fce5e"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/analyze.py": {
+      "bytes": 27110,
+      "sha256": "bb13faedd3b647c67bfc9cbbe6aa1d54d5db8f37a4104d3d1596a0fc710c807e"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/approval_v1.json": {
+      "bytes": 576,
+      "sha256": "32eab373dfa3c50b055b4d69a5e08dde3f29f107ed19494efd282f1c80e983a2"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/binding_v1.json": {
+      "bytes": 8147,
+      "sha256": "89e43ba196e903f5da9c821f8fce22179f53ecb9164f5fe1888a5733ca7bd9a1"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/campaign.py": {
+      "bytes": 24816,
+      "sha256": "7d2eba7c6717eb0a392ae1563a83192667a9b6f38598095f9f5887d3faf48404"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/continue_campaign.py": {
+      "bytes": 34069,
+      "sha256": "c0be698df8bdec50c14beeea5edceb701e941a7bec80096af8f7f980e5ad424a"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/duration_estimate.json": {
+      "bytes": 1893,
+      "sha256": "3501a5984ab0bcf4873016684d9d55d66cd24fd8962134f3d4bc663cf20eca65"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/ids/modelnet40_c_development_ids.json": {
+      "bytes": 2316,
+      "sha256": "7aed693f7e77b3112274c7789c2a3052abafd3983fbd3f0ee610e1a1a03a5dfd"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/ids/modelnet40_c_heldout_ids.json": {
+      "bytes": 3544,
+      "sha256": "c9a5d1718ff1017e0ff1ebee02a47640edda82658740e5dfd4c70edaa05897f0"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/ids/reservation.json": {
+      "bytes": 2988,
+      "sha256": "54443f5193d81c610bc082b6e398ca0fa96e52903c271969e2d4b2a2ff787844"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/make_binding.py": {
+      "bytes": 3195,
+      "sha256": "61e538e97c0035e6e80cba0784fa9d19f4145d824b49d6682e34f64fbdc29223"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/operations.py": {
+      "bytes": 7435,
+      "sha256": "f3f9dec9a34ee82312a6e027bfcc92ba90dd9094605174748e6aa5a36b7303db"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/plan_v1.json": {
+      "bytes": 22243,
+      "sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/cpu_local_acceptance.json": {
+      "bytes": 485,
+      "sha256": "194d758319ed4f173d008235f3bf475b4f2c50b6f68bf68aa38536b1e2cee5a4"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/cpu_preflight_receipt.json": {
+      "bytes": 17076,
+      "sha256": "affb5025756bb661c9f84814510bc74118af1891ede02e86bce8e142a0c79bcb"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/accepted_summary.json": {
+      "bytes": 6729,
+      "sha256": "3ee88507f872215a2e90c38025cd35d3ca868c84dbb3c0d9f84b092283464131"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/aggregate_seed.csv": {
+      "bytes": 16407,
+      "sha256": "a5431693fa4fa27f80aba59d5abd8b4f15b5f60164341972d2902f3c2b0b4708"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/cost_summary.json": {
+      "bytes": 27392,
+      "sha256": "cf1f61fa36634faae46be44a4c2daaaad7408d90aaec667d5fc4733290ddba15"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/cpu_verification.json": {
+      "bytes": 2803,
+      "sha256": "dc5cf51356e671da8f5e45a5c6daf84972cdaa766d0923489f824e92904ef20b"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/derived_drive_acceptance.json": {
+      "bytes": 729,
+      "sha256": "75c9b1f4bf347daaca380bd3297e83db484bfa552a63393e32b02a18fe0a290d"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/development_scores.json": {
+      "bytes": 28021,
+      "sha256": "69871695f4cdf7098e1328343de0801a967c76304284726f8119d82ccca24ce8"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/failures.json": {
+      "bytes": 18168,
+      "sha256": "484cd77e2efcaadb16b6000e6274cf9325486a02bacfc42d3a8d644c227e705b"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/final_wall_ledger.jsonl": {
+      "bytes": 51885,
+      "sha256": "c49127c19bc8afa83a0d486a7e4593ebedbb60daf063c847ffa748fd6f7cf6a1"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/frozen_confirmation.json": {
+      "bytes": 3707,
+      "sha256": "14e26431d14569dd40a096a57f16280348beec0e0aad5f90fd679442b57bfcbe"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/independent_reanalysis_receipt.json": {
+      "bytes": 820,
+      "sha256": "be7cefc4af0a8cd6d0cee6aecb282d1f02505c86c497d7dc6bc285f87744e3f5"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/independent_review.json": {
+      "bytes": 691,
+      "sha256": "3d951870aa514e86aac11562a1f26f4e4d18fd8d9f3b7b970fc999e1f7d1cc6d"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/inventory_after_close.txt": {
+      "bytes": 345,
+      "sha256": "7a0a468df7b2aa066a7db6628cb5e3ed3ee45c037c812d4a18a13ffcb32ed52e"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/inventory_before_close.txt": {
+      "bytes": 471,
+      "sha256": "8aca79859357715e756b330c992448b9668953ab9ee7ad1f20dedccfc536ca52"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/paired_comparisons.json": {
+      "bytes": 52546,
+      "sha256": "2a4f00ef37e0c6d6095e33a60f13ebd970d777193e866353002c504cb76108e9"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/per_corruption_seed.csv": {
+      "bytes": 126198,
+      "sha256": "6684e5f9be2e6216bb4852972cb6f6b792bb573d62e710c26a0f43d61d3a5029"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/runtime_closure.json": {
+      "bytes": 920,
+      "sha256": "6e459b56d635cbf1b6d8c19d9f54526c259a6970a3dadb88cc59abeebb2510b1"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/snapshot_local_acceptance.json": {
+      "bytes": 2756,
+      "sha256": "37bf3e7e6feca8b3fefb8b07999fa696e99e4d775a37a26f59aa1f42c087005a"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/snapshot_receipt_drive.json": {
+      "bytes": 5309,
+      "sha256": "d7162a1914bd53cd2f578867ffd11f8579b8416a8cb55cc8595224f7556a2ca2"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/stop_owned_runtime_stdout.txt": {
+      "bytes": 313,
+      "sha256": "82845e5d3e1a263a62f3cc2a6df5c42557d4692083543c63ca43988c28e8e4ce"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/teardown_preconditions.json": {
+      "bytes": 1087,
+      "sha256": "20149ba9213d59e76c444fab6d1e5a4bcffce02dc2a3f6eee0512a20a89d0e84"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_complete/amended_scores.json": {
+      "bytes": 25844,
+      "sha256": "8739659229bbea5947b1022e6ec0ee9061bc1af14e272e0731b849900b0902be"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_complete/registered_fraction.json": {
+      "bytes": 2263,
+      "sha256": "28c50acbe9f26634875f1432415a6b6755d98c650adbbb0185fbe3b0b82f50f9"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_complete/selection_validation.json": {
+      "bytes": 831,
+      "sha256": "344319c1586e294d16534df3478b52524dd47fee1cc384a2b33b26e2f2bb91b2"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_amendment_v1.json": {
+      "bytes": 2163,
+      "sha256": "aea46735f13fe561159efc47c457debf62693438dd78d38e169856b679dc0330"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_cpu_local_acceptance.json": {
+      "bytes": 4588,
+      "sha256": "6d99f81cd9cbde61542dca54e1d0ebee8fc913dc8e53fdc157837fd22723268d"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_proposal.json": {
+      "bytes": 5463,
+      "sha256": "db27ad98fe3c322491148bf05c1672e8a16c4b3a7396e3eb50fdec893c19a737"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_source_payload_identity.json": {
+      "bytes": 1038,
+      "sha256": "65992846e3e773fabd1ad276e7fddbef14d1dd18c32865db787ae3ad00db16e5"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/continuation_user_acknowledgment.json": {
+      "bytes": 804,
+      "sha256": "5d6e8d29eed1ab62a84b211f1705a793f6bb3dfb4fbe5bbcfbc8fc0f8a12453c"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/failed_console.log": {
+      "bytes": 18079,
+      "sha256": "f6651b66958767d26410fe59f0caf29683086f34c167b8d86046b920cd5e843f"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/failure.json": {
+      "bytes": 75,
+      "sha256": "7fea02f181359cb8a6cfce54d388ce67693c07ec97e1314fd31150c3a21587b1"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/original_gpu_approval_source.json": {
+      "bytes": 576,
+      "sha256": "32eab373dfa3c50b055b4d69a5e08dde3f29f107ed19494efd282f1c80e983a2"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/partial_archive_local_acceptance.json": {
+      "bytes": 718,
+      "sha256": "29b0deb251d27c7e20f83b00a78a2eecc58709f119977305eae92dbc80735b59"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/smoke_local_acceptance.json": {
+      "bytes": 801,
+      "sha256": "eb0934fd2ef8df44e3e20d5f2fc41fd4e92552cd32854603ecebdb74ebb6761e"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/background_n5_batch0.json": {
+      "bytes": 17108,
+      "sha256": "d75af9e0b8b39cdc0dc65d3f927d6f9f07ab25697adc71f62560edaf2b65147e"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/background_n8_batch0.json": {
+      "bytes": 17109,
+      "sha256": "3fe614de8d2ea902e245ecf134926d863d5a7ce6eb5dab7407b413e20685e2c6"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/background_repeatability_audit.json": {
+      "bytes": 1931,
+      "sha256": "445e7a13270611342979bf2e0201bec4100cefb2b5a415178f474bdf3dd39b99"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/scores.json": {
+      "bytes": 3646,
+      "sha256": "d2cb70b7605331cc36c16c133b594a0450c0b026bba90da3ac010df62fa2cfde"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/selection_validation.json": {
+      "bytes": 583,
+      "sha256": "164b41cebd35da2b848d6c5c5f0d199595bd08c3ad4f5f241a342eb71e3c84dd"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a/stage_rates.json": {
+      "bytes": 5344,
+      "sha256": "d2fb8d7561371bb9ebd6c423008b4cb75552cd5ac2c350dec4b373fe721ecd48"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/stage_depth_v1.json": {
+      "bytes": 3343,
+      "sha256": "5b09762d4bdb1f23083773700c1906cd59b6ae93cef879abe21e1a3818bbe009"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/stage_smoke_v1.json": {
+      "bytes": 1184,
+      "sha256": "8be8524471ff8520554a47e7f5fb5e0d475fe66a6f78ccf8307081fafaec326a"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/test_campaign.py": {
+      "bytes": 23949,
+      "sha256": "1dd51162de1c57ec312eceb27f2a68a72880e2e05f243c6143be39b638bb8c9d"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/test_continue_campaign.py": {
+      "bytes": 22665,
+      "sha256": "e76dd8cd4bee398127b558c36735576f295ed8bb92317fe240403f6101055681"
+    },
+    "scripts/eval_chamfer_depth.py": {
+      "bytes": 9665,
+      "sha256": "c81f9036fa98e6bd805655228361aae02fb7403e75b6c22f132e6b8a53ceedb9"
+    },
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 47609,
+      "sha256": "eda276eb80402d3a1a4fb1a9938b2c88efeaf9795c5ff0144c3bfef4649c0ba4"
+    },
+    "shared_trajectory.py": {
+      "bytes": 7074,
+      "sha256": "d96b97fb4faf037ef0e5f9508ca4332bd4f41638f7f8babb84bb2398ea4a4a5e"
+    },
+    "tests/test_chamfer_depth.py": {
+      "bytes": 24334,
+      "sha256": "4b752bb025fb2ad62c4e677269bf3fd844dbcc406e37a476b357501e3806cbe8"
+    },
+    "tta.py": {
+      "bytes": 8030,
+      "sha256": "ce8b439d81b69afc8bd475b71dcdb5edc28e68aa2296dbb338c99d4c077df5e9"
+    }
+  },
+  "selected_files_are_original_source_commit_bytes": true,
+  "source_branch": "experiment/chamfer-depth-tuning-20261030",
+  "source_commit": "e6d998e369dffb7f51d3d0312ca39bff584bc25b",
+  "target_base": "4da29b32f1027806ace77a6bbcf7e6468431883a"
+}

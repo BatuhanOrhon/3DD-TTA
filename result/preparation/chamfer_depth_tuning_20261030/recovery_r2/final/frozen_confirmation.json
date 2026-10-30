@@ -1,0 +1,160 @@
+{
+  "condition_roles": [
+    {
+      "config_id": "n5-e0.01-g0.01-p0.95",
+      "role": "depth5-default"
+    },
+    {
+      "config_id": "n8-e0.01-g0.01-p0.95",
+      "role": "stageA-best-default"
+    },
+    {
+      "config_id": "n8-e0.003-g0.03-p0.95",
+      "role": "best-tuned"
+    }
+  ],
+  "frozen_conditions": [
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 5,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 8,
+      "p": 0.95
+    },
+    {
+      "eta": 0.003,
+      "gamma": 0.03,
+      "normal_reverse_steps": 8,
+      "p": 0.95
+    }
+  ],
+  "jobs": [
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 5,
+        "p": 0.95
+      },
+      "config_id": "n5-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "confirmation-n5-e0.01-g0.01-p0.95-s0",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 5,
+        "p": 0.95
+      },
+      "config_id": "n5-e0.01-g0.01-p0.95",
+      "seed": 1,
+      "slot_id": "confirmation-n5-e0.01-g0.01-p0.95-s1",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 5,
+        "p": 0.95
+      },
+      "config_id": "n5-e0.01-g0.01-p0.95",
+      "seed": 2,
+      "slot_id": "confirmation-n5-e0.01-g0.01-p0.95-s2",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "confirmation-n8-e0.01-g0.01-p0.95-s0",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.01-g0.01-p0.95",
+      "seed": 1,
+      "slot_id": "confirmation-n8-e0.01-g0.01-p0.95-s1",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.01-g0.01-p0.95",
+      "seed": 2,
+      "slot_id": "confirmation-n8-e0.01-g0.01-p0.95-s2",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.003-g0.03-p0.95",
+      "seed": 0,
+      "slot_id": "confirmation-n8-e0.003-g0.03-p0.95-s0",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.003-g0.03-p0.95",
+      "seed": 1,
+      "slot_id": "confirmation-n8-e0.003-g0.03-p0.95-s1",
+      "split": "heldout",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.003-g0.03-p0.95",
+      "seed": 2,
+      "slot_id": "confirmation-n8-e0.003-g0.03-p0.95-s2",
+      "split": "heldout",
+      "technical_smoke": false
+    }
+  ],
+  "phase": "confirmation",
+  "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "reused_config_ids": [],
+  "schema_version": 1,
+  "score_input_sha256": "69871695f4cdf7098e1328343de0801a967c76304284726f8119d82ccca24ce8"
+}

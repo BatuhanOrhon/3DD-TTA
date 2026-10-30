@@ -1,0 +1,14 @@
+{
+  "accepted": 39,
+  "all_five_infeasibility_receipts_reproduced": true,
+  "all_raw_acceptance_and_cluster_CIs_equal_controller": true,
+  "charged_seconds_latest_ledger": 10073.248667657,
+  "development_settings": 32,
+  "frozen_stage_and_actual_score_input_sha_reproduced": true,
+  "independent_analyzer": "unchanged analyze.py plus continue_campaign.collect_scores, NumPy1.26.4",
+  "infeasible": 5,
+  "paired_comparisons": 78,
+  "recorded_at_utc": "2026-10-30T18:02:46.070574+00:00",
+  "status": "independently_reanalyzed_from_downloaded_raw",
+  "validation_harness_note": "Initial ad-hoc stage assertion omitted the registration wrapper score_input_sha256 field. Restored exactly that existing metadata field using digest(scores); complete stage equality passes. No research code/data/config changed or GPU rerun."
+}

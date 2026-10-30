@@ -1,0 +1,28 @@
+{
+  "byte_identity_checks": {
+    "all_nine_scientific_sources_match_frozen_binding": true,
+    "all_seven_original_phase_sources_match_plan": true,
+    "continuation_source_and_test_SHA_match_runtime_payload": true
+  },
+  "campaign_tests": {
+    "command": "python -m pytest -q result/preparation/chamfer_depth_tuning_20261030/test_campaign.py result/preparation/chamfer_depth_tuning_20261030/test_continue_campaign.py",
+    "passed": 69,
+    "seconds": 6.49
+  },
+  "excluded_raws_preserved_on_Drive_and_source_worktree": true,
+  "general_tests": {
+    "command": "python -m pytest -q tests",
+    "passed": 363,
+    "seconds": 21.33,
+    "subtests_passed": 274,
+    "warnings": 7
+  },
+  "integration_base": "4da29b32f1027806ace77a6bbcf7e6468431883a",
+  "production_defaults_changed": false,
+  "raw_reanalysis_reference": "recovery_r2/final/independent_reanalysis_receipt.json",
+  "runtime_closure_reference": "recovery_r2/final/runtime_closure.json",
+  "source_branch": "experiment/chamfer-depth-tuning-20261030",
+  "source_commit": "e6d998e369dffb7f51d3d0312ca39bff584bc25b",
+  "verified_at_utc": "2026-10-30T18:10:26.924261+00:00",
+  "whole_combined_tree_is_not_relabelled_as_executed_payload": true
+}

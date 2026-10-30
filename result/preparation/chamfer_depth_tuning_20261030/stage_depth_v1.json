@@ -1,0 +1,141 @@
+{
+  "condition_roles": null,
+  "frozen_conditions": null,
+  "jobs": [
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 1,
+        "p": 0.95
+      },
+      "config_id": "n1-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n1-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 2,
+        "p": 0.95
+      },
+      "config_id": "n2-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n2-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 3,
+        "p": 0.95
+      },
+      "config_id": "n3-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n3-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 4,
+        "p": 0.95
+      },
+      "config_id": "n4-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n4-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 5,
+        "p": 0.95
+      },
+      "config_id": "n5-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n5-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 6,
+        "p": 0.95
+      },
+      "config_id": "n6-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n6-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 7,
+        "p": 0.95
+      },
+      "config_id": "n7-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n7-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n8-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n9-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.01,
+        "normal_reverse_steps": 10,
+        "p": 0.95
+      },
+      "config_id": "n10-e0.01-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "depth-n10-e0.01-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    }
+  ],
+  "phase": "depth",
+  "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "reused_config_ids": [],
+  "schema_version": 1,
+  "score_input_sha256": null
+}

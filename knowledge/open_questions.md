@@ -2087,3 +2087,57 @@ terminal−.222222pp,probabilitymean+.047619pp; latestCSmean−originalterminal
 +1.142857pp is a distinct whole-policy/readout comparison. No count/arm/source
 mismatch found; no new GPU or universal no-bug claim. See
 [phase-by-phase correction and evidence](pointmae_guidance_comparison_recheck_20261030.md).
+
+
+## 2026-10-30 — Probability-mean optimal depth/rate operating point
+
+[User report/Code/Open] Does a bounded original-Chamfer depth1–10 search and
+local/style/p retuning improve reserved-ID probability-mean accuracy versus
+originaldepth5/default? [Design and precise next gates](chamfer_depth_tuning_study_20261030.md).
+CPU code/source checks pass; freshColab setup, actual CPU/native asset proof,
+final controller freeze and whole >60min phase approval precede research.
+Background35 stays fixed; report macro14/all15 and full costs. Three seeds
+repeat256objects, not768independent units. No accuracy conclusion exists yet.
+
+[Run/Open] 2026-10-30T12:40:21.602463+00:00: depth-study setup, actual native/CPU strict load and
+physical Drive/local proof now pass. The next required gate is one explicit
+whole-phase duration approval (estimate2.6h,10800s measured active budget),
+then technicalsmoke→development→frozen confirmation. No accuracy evidence yet.
+
+[User report/Run/Open] 2026-10-30: user duration approval is now recorded
+for unchanged plan3d6e42db…1e8a6. R1 unexpectedloss preceded research; r2
+setup/reverification is the current next gate, not another duration question.
+
+[Run/Open] 2026-10-30T14:25UTC: r2 canonicalcells1–7/Drive pass;
+cell8 nativeGPU phase active, then cells9/10 and fresh r2 CPU/Drive proof.
+User reaffirmed longphase authorization; monitor31219/hostawake43955 active.
+No researchGPU result yet; see current study record for transport recoveries.
+
+[Run/Open] 2026-10-30T14:45:31.040203+00:00: R2 all10setup/freshCPU/Drive proof and
+3technicalsmokes now accepted independently locally. Remainingregistered
+depth/rates/fraction/confirmation campaign running since14:44UTC, sole31219;
+next gate is accepted finalraw/physicalcache analysis, not morepermission.
+No optimaldepth or retunedaccuracy conclusion yet. Runtimepreserved.
+
+[Run/Open] 2026-10-30T15:21:02.903277+00:00: all10depth endpoints accepted; defaultPM
+selects8/9 on128dev objects/seed0;16newrate jobs active. Confirmationpending.
+Backgroundnegativecontrol varies despite verifiedsameinitialcache/RNG/35steps;
+sourceatomicAdds make nativeaccumulation variability plausible, not isolated.
+Reportmacro14 and native repeatability limit; do not invent a cache/codebug.
+Current source/plan/approval unchanged. See detailed depthstudy note/auditJSON.
+
+[User report/Run/Code/Open] 2026-10-30T16:04:57.392066+00:00: numericfailureatN8eta.03/
+gamma.003 Backgroundcleanprobeafter5acceptedrates; noall15score forfailed
+prefix. Userapprovedexplicitinfeasibilitycontinuation, same32developmentsettings/atmost9confirmationjobs
+and10800scap.69tests+realCPUproof/Drive/local pass; remaining
+exact10rates resumed16:03UTC insole31219. Unknown/source/ID/transporterrors
+stillstop;confirmationneedsfixedall3seeds. Rootcauseofnonfiniteprocessed
+candidate remainsunisolated. See fullstudy/partialarchive/amendmentrecords.
+
+[Run/Code/Open] 2026-10-30T16:42:07.533173+00:00: rategridcomplete16newattempts11finite/
+5numericinfeasible; exactlocalfractionselectionreproducesN8/N9eta.003gamma.03.
+Fractions3of6complete; finalselectedconditions/3seeds256objects remain
+pending. N10wasdevelopmentonlyunderpredeclaredmax3conditionconfirmation,
+so directN5/N10three-seedheldout superiority isnotestablishedbythisdesign.
+
+[Run/Decision/Open] 2026-10-30 final acceptance: the selected N8/eta=.003/gamma=.03/p=.95 candidate improves all15 PM over N5 by +2.230903pp [1.623047,2.864583] and over default N8 by +1.041667pp [.685764,1.40625] on256 reserved objects/three fixed seeds. All39 accepted reports/five infeasibility receipts,78 comparisons and422 caches reproduce independently. This closes the registered candidate-validation gate, not global optimality, full benchmark generalization or N5/N10 heldout superiority. N10 remains development-only and the development winner had a one-event margin. No further GPU job is pending. Raw and derived Drive roundtrips passed; only owned r2 was closed18:06UTC, with the protected peer still present unchanged. [Accepted results and remaining limits](chamfer_depth_tuning_results_20261030.md).

@@ -1,0 +1,11 @@
+{
+  "approved": true,
+  "user_statement": "Tamam devam et",
+  "approved_at_utc": "2026-10-30T13:23:37.775684+00:00",
+  "approval_context": "Affirmative reply to final3h whole-phase request; same scientific scope survives runtime recovery",
+  "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "source_snapshot_sha256": "166df3799834bc72541f1189407bf56d992a23bfdce9827db1c422d9ba5b3636",
+  "cumulative_wall_cap_seconds": 10800,
+  "original_session": "tta-chamfer-depth-tuning-a100-20261030-r1",
+  "research_spent_seconds_before_recovery": 0
+}

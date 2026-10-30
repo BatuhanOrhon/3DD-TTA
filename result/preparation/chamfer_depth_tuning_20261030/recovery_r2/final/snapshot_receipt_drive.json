@@ -1,0 +1,114 @@
+{
+  "status": "verified_immutable_snapshot",
+  "archive": {
+    "bytes": 1345860484,
+    "sha256": "c2a4e46885f4b8ba8e4e5930418170c9126c2c1b576df4d3751b8593dae1a82c",
+    "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/campaign_evidence.zip"
+  },
+  "parts": [
+    {
+      "name": "part0000.bin",
+      "bytes": 268435456,
+      "sha256": "c540f34fdba93e83e65b5f7f041fa33f62ccd496593f4dc61f3e994be61bb580",
+      "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z_parts/part0000.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/parts/part0000.bin"
+    },
+    {
+      "name": "part0001.bin",
+      "bytes": 268435456,
+      "sha256": "e41e411ac38ec328385b0d43f2a2036c4227afaae68c52f38bca62b050490799",
+      "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z_parts/part0001.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/parts/part0001.bin"
+    },
+    {
+      "name": "part0002.bin",
+      "bytes": 268435456,
+      "sha256": "ff19bbe9c253a6faac17180ee51df975e76dc6b452d7befa7b8a3cfc4b282190",
+      "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z_parts/part0002.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/parts/part0002.bin"
+    },
+    {
+      "name": "part0003.bin",
+      "bytes": 268435456,
+      "sha256": "0254f5650b517440587c06ab54dcb73c5c41986c397f4f818b96fbe3622f7411",
+      "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z_parts/part0003.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/parts/part0003.bin"
+    },
+    {
+      "name": "part0004.bin",
+      "bytes": 268435456,
+      "sha256": "faf0b57e6d5b5acf5f9cc03f4af7f8bf26c5d7f340fe7eccdfdb181d2ec61df9",
+      "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z_parts/part0004.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/parts/part0004.bin"
+    },
+    {
+      "name": "part0005.bin",
+      "bytes": 3683204,
+      "sha256": "1c3d2f62b046c5e1aa49db1a4251ac63572b10ec7d86e2c6a65788b861534260",
+      "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z_parts/part0005.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/parts/part0005.bin"
+    }
+  ],
+  "coverage": {
+    "registrations": {
+      "smoke": 3,
+      "depth": 10,
+      "rates": 16,
+      "fraction": 6,
+      "confirmation": 9
+    },
+    "accepted": [
+      "confirmation-n5-e0.01-g0.01-p0.95-s0",
+      "confirmation-n5-e0.01-g0.01-p0.95-s1",
+      "confirmation-n5-e0.01-g0.01-p0.95-s2",
+      "confirmation-n8-e0.003-g0.03-p0.95-s0",
+      "confirmation-n8-e0.003-g0.03-p0.95-s1",
+      "confirmation-n8-e0.003-g0.03-p0.95-s2",
+      "confirmation-n8-e0.01-g0.01-p0.95-s0",
+      "confirmation-n8-e0.01-g0.01-p0.95-s1",
+      "confirmation-n8-e0.01-g0.01-p0.95-s2",
+      "depth-n1-e0.01-g0.01-p0.95-s0",
+      "depth-n10-e0.01-g0.01-p0.95-s0",
+      "depth-n2-e0.01-g0.01-p0.95-s0",
+      "depth-n3-e0.01-g0.01-p0.95-s0",
+      "depth-n4-e0.01-g0.01-p0.95-s0",
+      "depth-n5-e0.01-g0.01-p0.95-s0",
+      "depth-n6-e0.01-g0.01-p0.95-s0",
+      "depth-n7-e0.01-g0.01-p0.95-s0",
+      "depth-n8-e0.01-g0.01-p0.95-s0",
+      "depth-n9-e0.01-g0.01-p0.95-s0",
+      "fraction-n8-e0.003-g0.03-p0.9-s0",
+      "fraction-n8-e0.003-g0.03-p0.96-s0",
+      "fraction-n8-e0.003-g0.03-p0.99-s0",
+      "fraction-n9-e0.003-g0.03-p0.9-s0",
+      "fraction-n9-e0.003-g0.03-p0.96-s0",
+      "fraction-n9-e0.003-g0.03-p0.99-s0",
+      "rates-n8-e0.003-g0.003-p0.95-s0",
+      "rates-n8-e0.003-g0.01-p0.95-s0",
+      "rates-n8-e0.003-g0.03-p0.95-s0",
+      "rates-n8-e0.01-g0.003-p0.95-s0",
+      "rates-n8-e0.01-g0.03-p0.95-s0",
+      "rates-n9-e0.003-g0.003-p0.95-s0",
+      "rates-n9-e0.003-g0.01-p0.95-s0",
+      "rates-n9-e0.003-g0.03-p0.95-s0",
+      "rates-n9-e0.01-g0.003-p0.95-s0",
+      "rates-n9-e0.01-g0.03-p0.95-s0",
+      "rates-n9-e0.03-g0.03-p0.95-s0",
+      "smoke-n1-e0.01-g0.01-p0.95-s0",
+      "smoke-n10-e0.01-g0.01-p0.95-s0",
+      "smoke-n5-e0.01-g0.01-p0.95-s0"
+    ],
+    "failed": [
+      "rates-n8-e0.03-g0.003-p0.95-s0",
+      "rates-n8-e0.03-g0.01-p0.95-s0",
+      "rates-n8-e0.03-g0.03-p0.95-s0",
+      "rates-n9-e0.03-g0.003-p0.95-s0",
+      "rates-n9-e0.03-g0.01-p0.95-s0"
+    ],
+    "unresolved": [],
+    "unattempted": [],
+    "physical_cache_files": 422,
+    "interpretation": "Attempt coverage and raw preservation only; final accuracy/CI require independent analysis."
+  }
+}

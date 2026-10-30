@@ -1,0 +1,73 @@
+{
+  "archive": {
+    "bytes": 1345860484,
+    "sha256": "c2a4e46885f4b8ba8e4e5930418170c9126c2c1b576df4d3751b8593dae1a82c"
+  },
+  "coverage": {
+    "accepted": [
+      "confirmation-n5-e0.01-g0.01-p0.95-s0",
+      "confirmation-n5-e0.01-g0.01-p0.95-s1",
+      "confirmation-n5-e0.01-g0.01-p0.95-s2",
+      "confirmation-n8-e0.003-g0.03-p0.95-s0",
+      "confirmation-n8-e0.003-g0.03-p0.95-s1",
+      "confirmation-n8-e0.003-g0.03-p0.95-s2",
+      "confirmation-n8-e0.01-g0.01-p0.95-s0",
+      "confirmation-n8-e0.01-g0.01-p0.95-s1",
+      "confirmation-n8-e0.01-g0.01-p0.95-s2",
+      "depth-n1-e0.01-g0.01-p0.95-s0",
+      "depth-n10-e0.01-g0.01-p0.95-s0",
+      "depth-n2-e0.01-g0.01-p0.95-s0",
+      "depth-n3-e0.01-g0.01-p0.95-s0",
+      "depth-n4-e0.01-g0.01-p0.95-s0",
+      "depth-n5-e0.01-g0.01-p0.95-s0",
+      "depth-n6-e0.01-g0.01-p0.95-s0",
+      "depth-n7-e0.01-g0.01-p0.95-s0",
+      "depth-n8-e0.01-g0.01-p0.95-s0",
+      "depth-n9-e0.01-g0.01-p0.95-s0",
+      "fraction-n8-e0.003-g0.03-p0.9-s0",
+      "fraction-n8-e0.003-g0.03-p0.96-s0",
+      "fraction-n8-e0.003-g0.03-p0.99-s0",
+      "fraction-n9-e0.003-g0.03-p0.9-s0",
+      "fraction-n9-e0.003-g0.03-p0.96-s0",
+      "fraction-n9-e0.003-g0.03-p0.99-s0",
+      "rates-n8-e0.003-g0.003-p0.95-s0",
+      "rates-n8-e0.003-g0.01-p0.95-s0",
+      "rates-n8-e0.003-g0.03-p0.95-s0",
+      "rates-n8-e0.01-g0.003-p0.95-s0",
+      "rates-n8-e0.01-g0.03-p0.95-s0",
+      "rates-n9-e0.003-g0.003-p0.95-s0",
+      "rates-n9-e0.003-g0.01-p0.95-s0",
+      "rates-n9-e0.003-g0.03-p0.95-s0",
+      "rates-n9-e0.01-g0.003-p0.95-s0",
+      "rates-n9-e0.01-g0.03-p0.95-s0",
+      "rates-n9-e0.03-g0.03-p0.95-s0",
+      "smoke-n1-e0.01-g0.01-p0.95-s0",
+      "smoke-n10-e0.01-g0.01-p0.95-s0",
+      "smoke-n5-e0.01-g0.01-p0.95-s0"
+    ],
+    "failed": [
+      "rates-n8-e0.03-g0.003-p0.95-s0",
+      "rates-n8-e0.03-g0.01-p0.95-s0",
+      "rates-n8-e0.03-g0.03-p0.95-s0",
+      "rates-n9-e0.03-g0.003-p0.95-s0",
+      "rates-n9-e0.03-g0.01-p0.95-s0"
+    ],
+    "interpretation": "Attempt coverage and raw preservation only; final accuracy/CI require independent analysis.",
+    "physical_cache_files": 422,
+    "registrations": {
+      "confirmation": 9,
+      "depth": 10,
+      "fraction": 6,
+      "rates": 16,
+      "smoke": 3
+    },
+    "unattempted": [],
+    "unresolved": []
+  },
+  "drive_archive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/campaign_evidence.zip",
+  "members_declared": 7267,
+  "parts": 6,
+  "receipt_sha256": "d7162a1914bd53cd2f578867ffd11f8579b8416a8cb55cc8595224f7556a2ca2",
+  "safe_extraction_CRC_and_all_member_SHA256": true,
+  "status": "verified_Drive_parts_to_local_archive_and_members"
+}

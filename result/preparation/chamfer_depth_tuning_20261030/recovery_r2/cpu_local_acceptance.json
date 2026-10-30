@@ -1,0 +1,12 @@
+{
+  "status": "accepted",
+  "verified_utc": "2026-10-30T14:36:05.589907+00:00",
+  "archive": {
+    "bytes": 1450663,
+    "sha256": "b46f4aed2e686b0cb89e2b2fef10a8daf2648570f9a550cdb7da8b60dbdc4719"
+  },
+  "physical_vm_and_drive_downloads_match": true,
+  "crc_paths_member_identities": true,
+  "classifier_state_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+  "source_snapshot_sha256": "166df3799834bc72541f1189407bf56d992a23bfdce9827db1c422d9ba5b3636"
+}

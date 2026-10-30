@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "command": "python -m pytest -q tests",
+      "numpy": "2.5.4",
+      "passed": 363,
+      "pytest": "9.2.0",
+      "python": "3.13.7",
+      "seconds": 23.23,
+      "subtests_passed": 274,
+      "torch": "2.15.0",
+      "warnings": 6
+    },
+    {
+      "command": "python -m pytest -q result/preparation/chamfer_depth_tuning_20261030/test_campaign.py result/preparation/chamfer_depth_tuning_20261030/test_continue_campaign.py",
+      "numpy": "1.26.4",
+      "passed": 69,
+      "python": "3.12",
+      "seconds": 5.89
+    }
+  ],
+  "files": {
+    "result/preparation/chamfer_depth_tuning_20261030/analyze.py": {
+      "bytes": 27110,
+      "sha256": "bb13faedd3b647c67bfc9cbbe6aa1d54d5db8f37a4104d3d1596a0fc710c807e"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/campaign.py": {
+      "bytes": 24816,
+      "sha256": "7d2eba7c6717eb0a392ae1563a83192667a9b6f38598095f9f5887d3faf48404"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/continue_campaign.py": {
+      "bytes": 34069,
+      "sha256": "c0be698df8bdec50c14beeea5edceb701e941a7bec80096af8f7f980e5ad424a"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/make_binding.py": {
+      "bytes": 3195,
+      "sha256": "61e538e97c0035e6e80cba0784fa9d19f4145d824b49d6682e34f64fbdc29223"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/operations.py": {
+      "bytes": 7435,
+      "sha256": "f3f9dec9a34ee82312a6e027bfcc92ba90dd9094605174748e6aa5a36b7303db"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/test_campaign.py": {
+      "bytes": 23949,
+      "sha256": "1dd51162de1c57ec312eceb27f2a68a72880e2e05f243c6143be39b638bb8c9d"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/test_continue_campaign.py": {
+      "bytes": 22665,
+      "sha256": "e76dd8cd4bee398127b558c36735576f295ed8bb92317fe240403f6101055681"
+    },
+    "scripts/eval_chamfer_depth.py": {
+      "bytes": 9665,
+      "sha256": "c81f9036fa98e6bd805655228361aae02fb7403e75b6c22f132e6b8a53ceedb9"
+    },
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 47609,
+      "sha256": "eda276eb80402d3a1a4fb1a9938b2c88efeaf9795c5ff0144c3bfef4649c0ba4"
+    },
+    "shared_trajectory.py": {
+      "bytes": 7074,
+      "sha256": "d96b97fb4faf037ef0e5f9508ca4332bd4f41638f7f8babb84bb2398ea4a4a5e"
+    },
+    "tests/test_chamfer_depth.py": {
+      "bytes": 24334,
+      "sha256": "4b752bb025fb2ad62c4e677269bf3fd844dbcc406e37a476b357501e3806cbe8"
+    },
+    "tta.py": {
+      "bytes": 8030,
+      "sha256": "ce8b439d81b69afc8bd475b71dcdb5edc28e68aa2296dbb338c99d4c077df5e9"
+    }
+  },
+  "recorded_at_utc": "2026-10-30T17:41:33.158742+00:00",
+  "scope": "CPU contract checks; no local real-model/native GPU inference",
+  "source_head": "19e9c9d05aca787a1c0cbdc66d410b083e06e72b"
+}

@@ -6680,3 +6680,374 @@ terminal−.222222pp,probabilitymean+.047619pp; latestCSmean−originalterminal
 +1.142857pp is a distinct whole-policy/readout comparison. No count/arm/source
 mismatch found; no new GPU or universal no-bug claim. See
 [phase-by-phase correction and evidence](pointmae_guidance_comparison_recheck_20261030.md).
+
+
+## 2026-10-30 — Original Chamfer depth/parameter study prepared
+
+[User report/Code/Run/Open] User requests probability-mean denoising depths1–10
+and bounded lambda(p), eta/style, gamma/local retuning. The isolated branch
+experiment/chamfer-depth-tuning-20261030 is based on4da29b3.
+The [registered design](chamfer_depth_tuning_study_20261030.md) uses
+ModelNet40-C/s5/all15/frozenPoint-MAE/originalB32 host, fixedBackground35,
+128newdevelopment+256reservedconfirmation objects and fixed0/1/2confirmation
+seeds. At most32sequential development settings, then3unique conditions×3seeds;
+no global optimum/unseen-benchmark claim. Parent independently passed363CPU
+tests; sealed source/asset identities and actual recoverable code are retained
+under result/preparation/chamfer_depth_tuning_20261030/.
+
+[Run/Open] New owned A100HighRAM session
+tta-chamfer-depth-tuning-a100-20261030-r1, endpoint
+gpu-a100-hm-euw4a0-22m9t1i56rxn3; monitor59557, bounded host-awake2535.
+Cell1 installed Conda, restarted and same-VM reconnect verified; canonical
+cell2 environment installation remains active. No research GPU accuracy run
+has started. Whole research estimate1.5–3h; final plan/source binding and one
+explicit >60min duration approval remain pending. No runtime teardown allowed.
+
+
+## 2026-10-30 — Depth runtime setup accepted; scientific preflight pending
+
+[Run/Code/Open] 2026-10-30T12:36:24.571007+00:00: fresh ownedA100SXM4-80GB ten-cell replay passes
+with nativeCUDA/FPS/KNN/Chamfer/EMD checks. Parent independently matches17
+ModelNet file hashes and exactPointMAE/LION checkpoints to sealed plan.
+Python3.8.20/Torch2.1.2+cu121/CUDA12.1/NumPy1.21.2; original dev preparation
+checkout a458cd4 is distinguished from separately sealed scientificsource.
+[Precise source/CLI failures/receipts/nextgate](chamfer_depth_tuning_study_20261030.md).
+CPU strict/source/native/Drive deployment now runs; no researchaccuracy or
+duration approval yet. Same owned session/monitor59557 remains live.
+
+
+## 2026-10-30 — Depth study ready; duration approval requested
+
+[Run/Code/Open] 2026-10-30T12:43:16.795190+00:00: actual strictPointMAE
+CPU/source/native/Drive preflight and parent physical VM/Drive roundtrip agree
+(SHA5422f43f…f44e,1450667bytes,17verifiedmembers). All10setupcells,363repo
+CPUtests,31campaignfixtures and13actualCLI previews pass. No researchforward
+or GPUaccuracy yet. [Reviewable whole-phase scope](chamfer_depth_tuning_approval_20261030.md):
+plan3d6e42db…1e8a6,source166df379…b3636,ModelNet/PointMAE,32maxdevelopment
+settings and3maxconditions×3seed confirmation. User was asked to approve
+approx9360s/10800s measured totalresearchbudget; approval remains pending.
+Same owned A100/monitor59557 retained; no main/upstream/integration push.
+
+
+[User report/Run/Open] 2026-10-30T13:23:37.775684+00:00: user approves whole9360s-
+estimated/10800s-budget phase ("Tamam devam et"). Beforelaunch, monitor59557
+and freshserverinventory identify r1 unexpectedly lost since13:04:29UTC. No
+teardown issued and no researchGPU launched/spent; setup/source/CPU proofs
+remain Drive/local verified. New same-hardware r2 recovery is authorized within
+this task; scientific plan/source/IDs/cap remain unchanged, explicit recovery
+metadata will distinguish actualsession from originalplannedr1.
+
+[Run/User report/Open] 2026-10-30T13:28:52.287656+00:00: r2 allocated on second
+A100HighRAM attempt after503/noassignment. Actualsession tta-chamfer-depth-tuning-a100-20261030-r2,
+endpoint gpu-a100-hm-ass1c0-79r779o7n5fk, solemonitor39617, boundedhostawake43955.
+Frozenplan still labels the originalplannedr1; explicit recoveryassignment
+records actualr2 and approvedplan/source identities without changing science
+or cap. Canonical fresh10cell setup precedes redeployment; no researchGPU yet.
+
+[User report/Code/Run/Open] 2026-10-30T13:47:43.878754+00:00:
+user requires active background supervision always. Parent acknowledges
+r1/r2 prior monitors ran with liveness_after86400, so automatic kernel probes
+were disabled; r1loss cause remains unknown (do not assert idle causality).
+New monitor31219 reuses canonical ownership/busy/identity guards and runs
+useful read-only Drive/disk/native/checkpoint/GPU status probes after540idle
+seconds, inventories every60s; boundedhostawake43955 remains. Two CPU tests
+pass, covering busy/peer rejection and actual health-report content.
+Oldr2monitor39617 exited0 with runtime_teardown=False after current work
+ended; currentA100 remains assigned. Scientific source/plan/cap unchanged.
+
+[User report/Run/Open] 2026-10-30T14:01:14.194391+00:00: user explicitly reaffirms the already
+approved longGPU phase; no repeated permission request for the unchanged
+10800s scientific scope. R2 DriveCLI reports Mounted at /content/drive exit0;
+independent CLI contents listing sees thesis/dataset, weights and KNNwheel.
+Two read-only verifyDrive clients failed at execution.py217 prelude before
+phase submission; only own local clients72539/72761 terminated, no kernel/VM
+restart or teardown. Read-only API inventory sees the recorded kernel idle
+and both recorded/fresh WSclient handshakes ready; cause of intermittent
+transport failure remains unknown. Monitor31219 and hostawake43955 retained;
+research spent0s. Actual mounted-path assertion retry precedes setupcell3.
+
+[Run/Open] 2026-10-30T14:04:03.429692+00:00: R2 realDrive assertion
+passed14:01:01UTC; canonicalcell3 copiedKNNwheel and exactmarker passed
+14:03:29UTC, after the expected120s precheck. Cell4 now installs pinned
+CUDA/PyTorch/toolchain. No CLI/global auth change, kernel restart or repeated
+Google consent was needed. Earlier read-only verification failures remain
+transport failures, not setup/data failures. ResearchGPU remains0s; unchanged
+10800s approval and monitor31219 remain active.
+
+[Code/Run/Open] 2026-10-30T14:10:06.363502+00:00: recoveryaudit confirmed
+Drive phase-evidence/depth_phase_v1.zip already exists fromR1. Unchanged
+deploymentwrapper would hit FileExistsError after otherwise successful fresh
+CPUdeployment. One operational guard now verifies/reuses identical archive
+bytes, creates only when absent and rejects mismatches. Real temporary-file
+regression failed on duplicatecopy before change and passes after, including
+unchangedmtime and mismatch/nooverwrite. RevisedwrapperSHA256
+9042757fb36412bc748bde074be32926583fc1e3658ad6acfb48554d348456ef.
+Scientific payload/controller/plan/source hashes unchanged; no researchGPU.
+
+[Run/Open] 2026-10-30T14:14:12.685490+00:00: R2 canonicalcell4
+exactmarker and prepare.complete phase passed14:13:51UTC. CUDA12.1/GCC11.4
+source/toolchain verification passed; logaudit finds only known dask versus
+importlib-metadata and scikit-image versus networkx resolver warnings, no
+new failed install/traceback. Requirements installed the deferredfastrlock0.8.
+EMDcell5 now running; native/data/checkpoint finalverification still pending.
+
+[Run/Open] 2026-10-30T14:22:49.316917+00:00: R2 EMD14:15:47UTC,
+Chamfer14:18:14UTC and PointNet++14:22:25UTC pass exactwrapper +physicalphase
+markers (EMD independently listed; cells6/7 assert marker in kernel). Native
+compiler warnings retained in primaryrawlog; no failed phase. Cell8 PVCNN
+and actual nativeGPU checks now running. No researchaccuracy job started.
+
+[Run/Open] 2026-10-30T14:32:52.961387+00:00: R2 cell8 nativeGPU
+passed14:29:51UTC, including actualA10080GB FPS/gather forward+backward and
+physicalpvcnn-smoke.complete. Cell9 CRC/path/extraction clean+corrupted
+ModelNet40-C passes14:31:48UTC. Cell10 weights/native/data finalverification
+now running. Monitor31219/hostawake43955 remain; scientificGPU spent0s.
+
+[Run/Open] 2026-10-30T14:35:28.725831+00:00: R2 all10canonical
+setup cells pass14:34:26UTC. DownloadedactualJSON status=passed, Python3.8.20/
+Torch2.1.2+cu121/CUDA12.1/NumPy1.21.2, A10080GB, dev@a458cd46. All native/
+dataset/checkpoint checks pass. Scientificdeploy wrapper9042757f now running;
+fresh native binaries backed up/readbackverified onDrive (707573bytes,
+SHA3952c24083d5b17f7b98a78aea5a975e15851a6b81328416e65751f8ccd18cd4)
+before restoring registered pinned binaries. CPUstrictload remains pending;
+researchGPU0s, approvedscope/cap unchanged, monitor31219 active.
+
+[Run/Code/Open] 2026-10-30T14:45:31.040203+00:00: fresh R2 CPUproof accepted locally:
+1450663bytes SHA b46f4aed2e686b0cb89e2b2fef10a8daf2648570f9a550cdb7da8b60dbdc4719;
+actualVM/Drive downloads, CRC/paths/every member/report agree. Strict frozen
+PointMAEstate7b212d65…0b875e and scientificsource166df379…b3636 unchanged.
+R2 executionmapping uploaded/readback-identical as registered_execution_recovery.json.
+TechnicalN1/N5/N10 smoke complete14:38:09UTC: 3accepted,0unavailable;
+Gaussian+Background,32sameIDs,2physicalpairedcacheNPZs. Independentremote
+and localNumPy1 analyses agree; portable11,156,426byte ZIP SHA
+eefbfeed47e5100b39d9e2147dd8afb67138b0013150517e40f8b4f255216c48
+verified actualVM/Drive/local, CRC/paths and82member identities. Local raw:
+result/preparation/chamfer_depth_tuning_20261030/recovery_r2/smoke_export/campaign; derived:result/preparation/chamfer_depth_tuning_20261030/recovery_r2/smoke_local_analysis.
+Smoke phase104.939852s measured; controller charges164.939852s including
+60s finalcopyreserve, notGPUbilling. Smoke scores never enter selection.
+CPUarchive call first failed at CLIprelude beforecellsubmission; ownlocal
+PID77686 stopped, files/state audited, CPU-only retry passed, noGPUrepeat.
+Registeredremaining phases started14:44:16UTC in sameR2/monitor31219,
+CLIchild78065. Reviewedoperationalwrapper f393cfd0…f3f3df invokes unchanged
+controller/analyzer for depth→rates→fraction→frozenconfirmation; source is
+SHA/readback-preserved onDrive beforeGPU. RealCPUsubprocess regression
+verifies firstfailure prevents laterwork;11command schedule has4GPUphases,
+4analyses,3registeredstage selections. No newparameters/science/cap.
+Each worker preservesraw/cache/controller receipts onDrive. Final analyses
+andcommandjournal are copied to freshDrive paths if allphases succeed.
+ExternalCPUanalysis wall is separate from conservative controllercharges;
+10800s stop-before-next-worker budget persists across all4phases.
+Current next action: poll31219, never queue another controller whileactive.
+After fullmarker/failure retrieve and independently validate finalraw/caches/
+analysis, record incomplete outcomes, then necessaryintegration. Runtime
+teardown remains unauthorized; no repeatedGPUapproval question.
+
+## Development depth stage accepted — 2026-10-30T15:21:02.903277+00:00
+
+[Run] All10depth/default jobs accepted15:13:19UTC, all15corruptions/s5,
+Point-MAE,128development originalIDs, seed0, p=.95/eta=gamma=.01.
+Independentremoteanalysis accepts13reports including3smokes,0unavailable;
+master proceeds to registered16newrate jobs at depths8 and9 at15:13:56UTC.
+Downloaded scores/aggregate/analysis/stage to result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a. Exact nextstage
+selection reproduced locally by the unchanged campaign.stage; inputscoreSHA
+d2cb70b7605331cc36c16c133b594a0450c0b026bba90da3ac010df62fa2cfde.
+Full developmentraw/cache local roundtrip remains pending; these downloaded
+derived artifacts supplement controller/Drive raw validation, not replace it.
+
+| Normal reverse steps | Development all15 probability-mean accuracy (%) |
+| --- | --- |
+| 1 | 55.885417 |
+| 2 | 58.645833 |
+| 3 | 61.614583 |
+| 4 | 63.020833 |
+| 5 | 64.166667 |
+| 6 | 64.375000 |
+| 7 | 64.218750 |
+| 8 | 65.000000 |
+| 9 | 64.531250 |
+| 10 | 64.322917 |
+
+[Run/Inference/Open] N8 versusN5 PM +0.833333pp; N10 versusN5 PM
++0.156250pp. TerminalN5=62.604167%, N10=63.906250% (+1.302083pp).
+Do not mix terminal andPM gains or claim heldout significance/globaloptimum.
+Three-seed256object confirmation is still pending. Macro14 PM N8=65.736607%,
+N9=65.234375%, N5=64.787946%; same top2 survive Background exclusion.
+Chargedbudget aftersmoke+depth=1967.970237s, including2x60scopyreserves;
+depth phase measured1743.030386s +60sreserve. No GPUbilling claim.
+
+[Run/Code/Inference/Open] Negativecontrol repeatability audit: Background
+remains35steps/defaultparams in everydepth arm, yet PM varies52.343750–
+57.812500% (7/128correct events; sampleSD1.638764pp across10arms). This is
+observedvariation, not an assumed bug. Actual N5/N8 Backgroundbatch0
+diagnostics match scheduler [340…0], [9,18,27,35] candidates, physicalcache,
+all initialtensor hashes, reconstruction/terminal RNGbefore+after; final
+local latent and decodedgeometry hashes differ. No cache/config/RNG mismatch
+was observed. Native originalChamfer CUDAbackward has atomicAdd at
+third_party/ChamferDistancePytorch/chamfer3D/chamfer3D.cu:166–171; floating
+point/native accumulation variability is plausible but operation-specific
+causality has not been isolated. No code repair or extraGPU test is invented.
+The10arms are a negativecontrol with identicalBackground settings, not
+identical full-process execution histories (priorUniform horizons differ).
+Continue registeredstudy; report conditional seeded/object intervals,
+macro14 and native repeatability limit without claiming bitwise repeatability.
+Audit JSON and actualtwo diagnostics retained in result/preparation/chamfer_depth_tuning_20261030/recovery_r2/stage_a.
+
+[Open] Monitor31219 remains sole owner of sameR2; masterf393cfd0…f3f3df
+runs rate→fraction→confirmation. Do not launch anothercontroller or retry
+any existing slot. Next material gate: complete all16newrate endpoints,
+independentCPU analysis, then6newfraction jobs. Approval unchanged10800s;
+no teardown authorization or integrationpublication yet.
+
+## Numerical endpoint failure and explicitly approved continuation — 2026-10-30T16:04:57.392066+00:00
+
+[Run] Originalwholephase stopped15:31:27UTC as registered, after5accepted
+ratejobs. Sixth rates-n8-e0.03-g0.003-p0.95-s0 failed inBackground35,
+firstbatch, during predicted-clean classification beforePoint-MAEforward:
+ValueError: Classifier input contains nonfinite XYZ coordinates. Uniform/
+Gaussian completed8batches; exact failingloop/intermediate tensors were not
+saved. Failedprefix terminal71.875% is NOT an all15/grid accuracy.
+
+[Run/Code/Inference/Open] Independentrawaudit verifies failedsealedZIP SHA
+0d4263a35afae664d9b79987f803da3e48bc3b9a1c2939faab3fae5d1c9f209d,
+28members/all27declaredidentities, exact9requiredsource members andfrozen
+scientific/checkpointbindings. Classifierbefore/after7b212d65…875e andLION
+VAE/prior states match, genuinely audited inworkerfinally. Relevant finite
+Backgroundcache1972336bytes SHA32fd41efac7849fcc42607a6fdb500511a7b31631f9f5169dd1b25764417c01a
+and serializedRNG/tensor identities match acceptedreference. No observed
+source/cache/model corruption. Guardreceives decoded→rotateback→bbox
+normalization→FPS input; no failingdecodedtensor wasretained, so rawdecoder/
+normalization/latent rootcause and exactloop remain unisolated. Do not infer
+high-eta causality asproved. See rawconsole/failure andpartialarchive.
+
+[Run] PortablepartialZIP296572461bytes SHA
+0b1e5fcaaded1f55846e6051e92e2e34ae9edc706e993b7ff06d58bb04413d36
+actualVM+Drive+local agree;2459memberSHA/CRC/path checks pass. Full62physical
+caches andall19attemptedslots extracted at result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/partial_export/campaign.
+IndependentlocalNumPy1 reanalysis returns18accepted/1unavailable,0confirmation
+comparisons. Drive: phase-evidence/partial_rates_20261030T153853003034Z.zip.
+Allcompleteddepth/rate andfailed evidence retained; no overwrite/reset/retry.
+FiveacceptedN8 eta/gamma all15PM: .003/.003=63.177083%, .003/.01=64.270833%,
+.003/.03=65.468750%, .01/.003=63.281250%, .01/.03=65.260417%. Theseare
+incomplete-grid exploratory results; no winnerselected orCIclaim.
+
+[User report/Decision/Code] Userexplicitly approves “Bu protokol değişikliğiyle
+devam et (önerilen)” for numerical-infeasible/nullaccuracy, no failedrepeat,
+remaining10rates→6fractions→atmost9frozenconfirmationjobs, same10800scap/
+math/IDs/seeds/grid. Ackrecorded15:46:23UTC, sourcebyteSHA5d6e8d29…a12453c,
+approvedproposalSHA db27ad98fe3c322491148bf05c1672e8a16c4b3a7396e3eb50fdec893c19a737.
+This is a post-failure exploratory amendment, not unchangedpreregistration.
+Other/unknown/source/RNG/ID/archive/transport/OOMerrors stillstop; every
+registeredpoint must beattempted beforeselection. Missingfirst-baseline
+confirmationreferenceproof intentionally stops forreview; failedseeds never
+get replaced or converted to complete successful-seed endpoints.
+
+[Code/Run] New continue_campaign.py34069bytes SHA
+c0be698df8bdec50c14beeea5edceb701e941a7bec80096af8f7f980e5ad424a;
+tests22665bytes SHAe76dd8cd4bee398127b558c36735576f295ed8bb92317fe240403f6101055681.
+69combinedCPU tests pass independently inparent,implementer,reviewer. Review
+fixed actualack/sourceapproval bindings, staleconfirmationreferences andfinal
+CPUcap guards. OriginalsourceapprovalSHA32eab373…983a2 andcanonicalROOT
+approvalSHAb94bf53b…ac125f are576bytes withidenticalparsedJSON; bothactual
+byteidentities preserved instead of rewritingtheack. No frozenmath/controller/
+oldplan file changed. Newsourcepayload19188bytes SHA
+e0bc00941f4a5d0ad9d9873c8d0b3ab88ad917318257bdf8c1e8de7274c93687
+isDrivepreserved under phase-evidence/continuation_control_v1/sources.zip.
+
+[Run] SameVM CPUamendment/preflight/realfailedclassification passes16:01:27UTC,
+zeroGPUforward. CPUevidence22758bytes SHA
+33b80439234e00f469c17caf0be4a3cf00260eacf03fc0ece70f82413b66e386
+actualVM/Drive/local CRC/member/source/amendment identity agrees. Sealed
+amendmentSHA aea46735f13fe561159efc47c457debf62693438dd78d38e169856b679dc0330.
+Oldcharged3079.138495s plus explicitconservative420s CPU/IOrecoveryallowance
+reduces remainingbudget to7300.861505s beforecontinuationphase costs;
+allowance is notmeasuredGPUbilling. FinalCPU240sreserve andstop-before-next
+worker limits preserve original10800scap; no newdurationapproval requested.
+
+[Run/Open] Reviewedcontinuation CLIchild85450 through solemonitor31219 started
+16:02:34UTC; firstremaining rates-n8-e0.03-g0.01-p0.95-s0 GPUworker starts
+16:03:33UTC after oldslot classification/newregistration Drive snapshot000065.
+Failed .03/.003 slot ispreserved andnotrerun. RuntimeR2 remainsassigned/live;
+monitor realhealth passed16:00:40UTC, hostawake43955 through19:24UTC.
+Next: poll31219, inspect numeric-infeasibility handling, waitfor allremaining
+registeredrate endpoints, fractionselection andfixedconfirmation. Retrieve
+finalraw/caches/analysis; never launch anothercontroller whileactive.
+
+[Run/Open] 2026-10-30T16:06:58.179318+00:00: livecontinuationfirstremaining
+N8eta.03/gamma.01 fails throughsameclassifier-input nonfinite guard16:04:27UTC.
+Newcontroller preservesfailedrawDrive snapshot000067, verifiesnumericproof/
+nullaccuracy andcopiesreceipt000068, thenadvances to the nextunattempted
+N8eta.03/gamma.03 at16:04:30UTC. Downloadedactualnumerical_infeasibility.json
+confirmsstatus=infeasible, accuracy_pct=null, failedloop/purityunknownexplicit;
+no duplicatefailedslot, no clipped/fallbackcandidate or partial-prefixscore.
+This is actualGPU/Drivepath evidence for the amendedhandler, beyondCPUtests.
+Remaininggrid/confirmation stillinprogress; no finaloptimum/CIclaim.
+
+[Run/Open] 2026-10-30T16:10:30.202116+00:00: secondremainingN8eta.03/gamma.03
+also matches narrow nonfiniteguard16:05:26UTC; failedraw andinfeasibility
+areDriveverified snapshots000071/000072. EntireN8rates group is now
+attempted: baseline reuse plus5newaccepted endpoints and3numerically
+infeasibleeta.03 points, no failedreplacement. N9firstnewrate (.003/.003)
+started16:05:30UTC andremainsrunning atlatestpoll. N9grid, fractionsand
+confirmationpending; no selection fromincompleteN9points. Nextpostcompletion
+action mustarchive continuation_analysis_final pluslatestledger/registered
+freeze/rawZIPs/physicalcaches; finalderivedanalysis needs itsownretrieval
+beyondper-jobDrive preservation. Runtime/monitor/hostawake retained.
+
+## Rate grid complete; fraction stage active — 2026-10-30T16:42:07.533173+00:00
+
+[Run/Code/Open] All16newrate settings atN8/N9 haveattemptedendpoints:11
+acceptedfinite,5explicitnumericinfeasible/nullaccuracy. With10originaldepth
+settings, amendedscoremap has26unique developmentconfigs:21accepted+5
+infeasible. Downloadedactual continuation_analysis_fraction/amended_scores.json
+SHA8739659229bbea5947b1022e6ec0ee9061bc1af14e272e0731b849900b0902be
+andregistered_fraction.json; parentunchangedamended_stage reproducesexact
+6newfractionjobselection andscoresSHA locally. Stored at
+result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_complete/.
+Fullnewrate raw/cache localroundtrip remainspendingfinalretrieval; perjob
+controller/Drivevalidation anddownloadedselectionreproduction aredistinct.
+
+Bothdepthsselecteta=.003(conditioningstyle),gamma=.03(local),p=.95 for
+rate-stagebest: N8PM65.468750%,N9PM65.364583% on128devobjects/seed0/all15.
+N8eta.03all3gamma values fail;N9eta.03gamma.003/.01fail butgamma.03passes.
+Do notclaimdeterministicglobaleta-threshold orisolatedmathrootcause; the
+Background35/native-repeatability limitation andnativehistorydifferences
+remainimportant. Noneofthesefailedpoints getszero/prefixaccuracy orrepeat.
+
+Fractionp=.90/.96/.99 atbothselecteddepth/rates began16:29:43UTC. All3N8
+fractionjobs completed by16:39:44UTC; N9p=.90isrunning. Threeof6new
+fractionjobs arecomplete, nofractionstagewinnerfrozenyet. Exactremaining
+N9p=.96/.99 thenindependentCPUanalysis/freeze, followedbyatmost9confirm
+jobs atseeds0/1/2 and256objects. N10remainsa developmentarm; itisnot an
+extraheldoutconfirmationcondition inthisregistered3conditiondesign.
+RuntimeR2/solemonitor31219/hostawake43955 remain; original10800scap
+andapprovedpostfailurepolicy unchanged. Currentnextaction: pollprimary31219,
+never duplicatecontroller; retrievefinalanalyses/ledger/raw/cache before
+concluding oruser-authorizedteardown. No finaloptimum/significanceclaim.
+
+[User report/Decision/Run/Open] 2026-10-30T16:55:23.468878+00:00: userleavesbutdirects
+autonomouscompletion; explicitly authorizes closing onlyownedr2 without
+furtherapproval AFTERnecessaryresearch/finalvalidation+retrieval complete.
+This conditionalcurrenttask authorization supersedes older no-teardown status.
+Protect peer tta-chamfer-guidance-variants-a100-20261030-r1 endpoint
+gpu-a100-hm-ass1c0-3nh8smksm50de; ownedr2endpoint79r779o7n5fk only.
+All32development endpoints finalized27finite/5infeasible;9confirmjobs at
+N5default,N8default,N8eta.003gamma.03p.95 seeds0/1/2 reserved256objects
+run since16:51:54UTC. No finalsuperiority yet. Extra localprogressrecord
+preparedforDrive viaContentAPIupload while primaryGPUcellcontinues; no
+concurrentnotebookcell. Keep sole31219/hostawake43955 throughfinalarchive.
+
+## Final depth study accepted — 2026-10-30
+
+[Run/Code] All 32 development settings were attempted: 27 finite and five numerical infeasibilities. All nine frozen confirmation jobs passed. The full Drive/local ZIP is 1,345,860,484 bytes, SHA256 c2a4e46885f4b8ba8e4e5930418170c9126c2c1b576df4d3751b8593dae1a82c. Safe extraction, CRC and all 7,267 declared member hashes pass, including 422 physical caches. Unchanged local NumPy1 analysis reproduces 39 accepted reports, five infeasibility receipts, 78 comparisons and the frozen stage with its actual score-input hash. CPU checks passed: 363 tests plus 274 subtests, and 69 controller tests.
+
+[Run/Inference] All15 Probability Mean means on 256 reserved objects and three fixed seeds are N5/default 66.510417%, N8/default 67.699653%, N8/eta=.003/gamma=.03/p=.95 68.741319%. Tuned N8 minus N5 is +2.230903pp, conditional95% CI [1.623047,2.864583]; default N8 minus N5 +1.189236pp [.512153,1.866319]; N8 retuning +1.041667pp [.685764,1.40625]. Tuned N8 minus N5 remains +1.832217pp [1.218378,2.474191] on macro14. Bootstrap resamples 256 object clusters jointly over corruptions and fixed seeds. Tuned N8 PM minus N5 terminal is a separate whole-policy comparison: +2.951389pp.
+
+[Run/Inference/Open] Final root ledger is 10,073.248667657/10,800 seconds; embedded controller analysis predates its final phase finish. These charges are not GPU billing. Matched development cache replay gives tuned N8 reconstruction +22.336% versus N5; no fresh end-to-end speedup claim. N10 was development-only and the selected development winner beat N9/p=.96 by one event. Historical p=.95 is distinct from paper p=.96. Native Background repeatability and the numerical failure root cause remain unresolved. No global optimum, full benchmark gain or GSD superiority claim. The local validation harness initially omitted registration-wrapper metadata; adding its existing score digest resolved the comparison without changing research code, configuration, data or GPU execution.
+
+[Decision] The registered candidate-validation gate is complete. Read the [accepted results](chamfer_depth_tuning_results_20261030.md); compact evidence is under result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/. Earlier pending entries are preserved history, superseded by this acceptance.
+
+## Owned runtime closed after verified completion — 2026-10-30T18:06:04.631230+00:00
+
+[Run/User report/Decision] The user explicitly authorized closing only our r2 after necessary work and evidence verification, without another prompt. Final derived analysis/knowledge ZIP (4,244,184 bytes; SHA256 da3653f7b0d386d1e8b84002013d6c14eb8ea87e4ef7cbb7d72c953f9bee7731) was uploaded to Drive phase-evidence/final_local_analysis_20261030T1806Z.zip and downloaded back with matching bytes/SHA at18:05:23UTC. Full raw evidence had already passed Drive/local validation.
+
+[Run] Monitor31219 stopped at18:05:55UTC without teardown. Official command `colab stop -s tta-chamfer-depth-tuning-a100-20261030-r2` returned0 and Session terminated. Fresh server inventory at18:06:04UTC showed owned endpoint79r779o7n5fk absent and protected guidance-variants peer3nh8smksm50de still present unchanged. No peer runtime/process/monitor operation was performed. Closure/precondition/CLI output and before/after inventories are under the compact final evidence directory. No GPU work remains. Earlier live/pending statements are dated history.

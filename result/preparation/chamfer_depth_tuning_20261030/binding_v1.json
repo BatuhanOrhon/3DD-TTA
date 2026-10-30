@@ -1,0 +1,247 @@
+{
+  "asset_root": "/content/studies/chamfer-depth-tuning/prepared/assets",
+  "dataset_root": "/content/3DD-TTA/data/modelnet40_c",
+  "expected_config": {
+    "asset_manifest": {
+      "guidance": {
+        "lion_checkpoint": {
+          "bytes": 1508051672,
+          "path": "/content/3DD-TTA/lion_ckpts/epoch_10999_iters_2100999.pt",
+          "sha256": "807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2"
+        },
+        "lion_config": {
+          "bytes": 7860,
+          "path": "/content/3DD-TTA/lion_ckpts/unconditional_all55_cfg.yml",
+          "sha256": "9d4a826f35fe9b3053210105eb4857811c8bfd53cd8c6a998f8ea7953e975816"
+        }
+      }
+    },
+    "asset_manifest_sha256": "30552944975518231718ceec7dca183202f9b368d43892342ce9490fb01705da",
+    "checkpoint_load": {
+      "checkpoint_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+      "strict": true
+    },
+    "dataset_provenance": {
+      "files": {
+        "data_background_5.npy": {
+          "bytes": 31837328,
+          "dtype": "float32",
+          "sha256": "db05e75cffb4440323a064df9e23ebd526584daf027f9ad02e391a36b051a616",
+          "shape": [
+            2468,
+            1075,
+            3
+          ]
+        },
+        "data_cutout_5.npy": {
+          "bytes": 21442112,
+          "dtype": "float32",
+          "sha256": "b3ffb68ec412f54c89e02b5c128b3590eeaf16dd4ff08cc89f7039247a6c9c4b",
+          "shape": [
+            2468,
+            724,
+            3
+          ]
+        },
+        "data_density_5.npy": {
+          "bytes": 19220912,
+          "dtype": "float32",
+          "sha256": "bdde461b92427a0eaafc125eb93c8af89d979c0141d6ca5ae8e2bd61d6be65ba",
+          "shape": [
+            2468,
+            649,
+            3
+          ]
+        },
+        "data_density_inc_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "719fd79232fb6c6a72e83d4f5f219d499b253b2caadc55bd128110bb299ee86b",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_distortion_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "43b5849e878ba73bbda781491b689db3af5cd958dc8d57c2fd6b4460a584e19e",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_distortion_rbf_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "9cbcca3ee41e0f10e77b36aaa9b7021095aae860e81688009cbd8bab0055b596",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_distortion_rbf_inv_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "604c6acaacc4111dcef1cc22dee936c938e00cfafff9c7bb569d4b78a2439cce",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_gaussian_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "bf762a8f441a4234d0ca3e91da1f5101440acb7e5902c4854300041103f7171c",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_impulse_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "2174438eec71c4d98ebf23b48c5571805e280411a2a3a0ff51ee377462d50cfb",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_lidar_5.npy": {
+          "bytes": 22745216,
+          "dtype": "float32",
+          "sha256": "99ccaf1d62b5b308dd34d4fc1b09013cba8b73e9d1c8f0df1e94cfb812b9e91a",
+          "shape": [
+            2468,
+            768,
+            3
+          ]
+        },
+        "data_occlusion_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "5f37e9de373402007214fcb9fc90e00db4783f9801d0620f21bbeee6328cda2c",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_original.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_rotation_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "b75c5c8c0cb0ed57038d4677750a5e4fdad3aaf82de96357f33fe7c3a3bc4958",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_shear_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "78df0043e5cea431d10c817ac6a13e85e6e246fc64765e32546ecdd1d6614069",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_uniform_5.npy": {
+          "bytes": 30326912,
+          "dtype": "float32",
+          "sha256": "2cfbe01e02ae6745503eddf548db8f362656e92ec7efc6636281468547c73572",
+          "shape": [
+            2468,
+            1024,
+            3
+          ]
+        },
+        "data_upsampling_5.npy": {
+          "bytes": 60653696,
+          "dtype": "float32",
+          "sha256": "4984bfac96c7b559727fd0d967d115855eab30a315c3c3b2608cc43878fd782e",
+          "shape": [
+            2468,
+            2048,
+            3
+          ]
+        },
+        "label.npy": {
+          "bytes": 2596,
+          "dtype": "uint8",
+          "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+          "shape": [
+            2468,
+            1
+          ]
+        }
+      },
+      "n_examples": 2468,
+      "provenance": "r7 verified ModelNet40-C archive; actual NPY shape/dtype and identical SHA/bytes observed by bounded header audit",
+      "split": "official_modelnet40_test"
+    },
+    "pointmae_checkpoint": "/content/studies/chamfer-depth-tuning/prepared/assets/checkpoints/modelnet_jt.pth",
+    "pointmae_config": "/content/studies/chamfer-depth-tuning/prepared/assets/source_snapshot/cfgs/tta_modelnet.yaml",
+    "source_snapshot_sha256": "166df3799834bc72541f1189407bf56d992a23bfdce9827db1c422d9ba5b3636"
+  },
+  "label_path": "/content/3DD-TTA/data/modelnet40_c/label.npy",
+  "pointmae_checkpoint": "/content/studies/chamfer-depth-tuning/prepared/assets/checkpoints/modelnet_jt.pth",
+  "pointmae_config": "/content/studies/chamfer-depth-tuning/prepared/assets/source_snapshot/cfgs/tta_modelnet.yaml",
+  "python": "/usr/local/envs/3dd_tta_env/bin/python",
+  "repo_root": "/content/studies/chamfer-depth-tuning/prepared/assets/source_snapshot",
+  "required_source_files": {
+    "assets/source_snapshot/classifier_backbones.py": {
+      "bytes": 4114,
+      "sha256": "bfb18eacf5d72e57818cdc44695eff006b953700ac2fc5354baac5dc565de729"
+    },
+    "assets/source_snapshot/legacy_trajectory.py": {
+      "bytes": 13563,
+      "sha256": "bc6d77539445fc916aacaadf2b956e539daf19d2e328f47718a7abf724c280db"
+    },
+    "assets/source_snapshot/research_artifacts.py": {
+      "bytes": 11885,
+      "sha256": "df60704d92e65141717a130d88e257bf816dadac1cb8646af0105918d910bab4"
+    },
+    "assets/source_snapshot/scripts/analyze_legacy_trajectory.py": {
+      "bytes": 25331,
+      "sha256": "37932e4af9d524d45dadfbc7225d2365e4f9629439d97ea9f7e4e0698bf876ac"
+    },
+    "assets/source_snapshot/scripts/eval_chamfer_depth.py": {
+      "bytes": 9665,
+      "sha256": "c81f9036fa98e6bd805655228361aae02fb7403e75b6c22f132e6b8a53ceedb9"
+    },
+    "assets/source_snapshot/scripts/eval_multibackbone_guidance.py": {
+      "bytes": 47609,
+      "sha256": "eda276eb80402d3a1a4fb1a9938b2c88efeaf9795c5ff0144c3bfef4649c0ba4"
+    },
+    "assets/source_snapshot/scripts/eval_multibackbone_source.py": {
+      "bytes": 30722,
+      "sha256": "3be330870b27375f7378a287a41f00e10b4df3dac0ac34a12df69f84cf3b28e9"
+    },
+    "assets/source_snapshot/shared_trajectory.py": {
+      "bytes": 7074,
+      "sha256": "d96b97fb4faf037ef0e5f9508ca4332bd4f41638f7f8babb84bb2398ea4a4a5e"
+    },
+    "assets/source_snapshot/tta.py": {
+      "bytes": 8030,
+      "sha256": "ce8b439d81b69afc8bd475b71dcdb5edc28e68aa2296dbb338c99d4c077df5e9"
+    }
+  }
+}

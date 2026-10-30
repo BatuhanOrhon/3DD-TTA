@@ -1,0 +1,12 @@
+{
+  "archive": {
+    "bytes": 4244184,
+    "sha256": "da3653f7b0d386d1e8b84002013d6c14eb8ea87e4ef7cbb7d72c953f9bee7731"
+  },
+  "declared_files": 36,
+  "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_local_analysis_20261030T1806Z.zip",
+  "local_path": "/Users/batuhan/.codex/worktrees/1e3f/3DD-TTA/result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/derived_evidence.zip",
+  "roundtrip_local_path": "/Users/batuhan/.codex/worktrees/1e3f/3DD-TTA/result/preparation/chamfer_depth_tuning_20261030/recovery_r2/final/derived_evidence_drive_roundtrip.zip",
+  "state": "verified_local_Drive_local_roundtrip",
+  "verified_at_utc": "2026-10-30T18:05:23.892633+00:00"
+}

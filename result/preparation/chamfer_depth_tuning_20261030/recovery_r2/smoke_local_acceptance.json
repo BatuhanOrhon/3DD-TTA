@@ -1,0 +1,28 @@
+{
+  "status": "accepted",
+  "verified_utc": "2026-10-30T14:45:31.040203+00:00",
+  "technical_smoke_jobs": 3,
+  "accepted": 3,
+  "unavailable": 0,
+  "smoke_ids_per_corruption": 32,
+  "corruptions": [
+    "gaussian",
+    "background"
+  ],
+  "physical_paired_caches": 2,
+  "local_independent_analysis": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/smoke_local_analysis",
+  "archive": {
+    "bytes": 11156426,
+    "sha256": "eefbfeed47e5100b39d9e2147dd8afb67138b0013150517e40f8b4f255216c48"
+  },
+  "physical_vm_drive_and_local_identities_match": true,
+  "crc_paths_all_82_members_verified": true,
+  "measured_smoke_phase_seconds": 104.93985165100003,
+  "charged_smoke_budget_seconds": 164.93985165100003,
+  "normal_depths": [
+    1,
+    5,
+    10
+  ],
+  "accuracy_selection_use": false
+}

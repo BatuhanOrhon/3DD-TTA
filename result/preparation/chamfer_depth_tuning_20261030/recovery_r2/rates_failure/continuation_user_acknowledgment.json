@@ -1,0 +1,14 @@
+{
+  "approved": true,
+  "user_statement": "Bu protokol de\u011fi\u015fikli\u011fiyle devam et (\u00f6nerilen)",
+  "recorded_at_utc": "2026-10-30T15:46:23.261640+00:00",
+  "approval_kind": "explicit numerical-failure protocol amendment; original GPU duration authorization persists",
+  "original_plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "original_gpu_approval_sha256": "32eab373dfa3c50b055b4d69a5e08dde3f29f107ed19494efd282f1c80e983a2",
+  "approved_proposal_sha256": "db27ad98fe3c322491148bf05c1672e8a16c4b3a7396e3eb50fdec893c19a737",
+  "cumulative_wall_cap_seconds": 10800,
+  "failed_slot_must_not_repeat": "rates-n8-e0.03-g0.003-p0.95-s0",
+  "remaining_rate_jobs": 10,
+  "max_remaining_gpu_attempts": 25,
+  "reviewed_controller_source_binding_pending": true
+}

@@ -9,15 +9,23 @@ from legacy_trajectory import isolated_probe, model_buffer_hashes, rng_hash, ten
 class SharedTrajectoryObserver:
     """One batch; callback owns dataset coordinates and frozen-head preprocessing."""
 
-    def __init__(self, vae, heads: dict, classify_decoded, horizon: int, num_classes: int = 15):
-        if horizon not in (10, 30) or not heads or 'vae' in heads:
+    def __init__(self, vae, heads: dict, classify_decoded, horizon: int, num_classes: int = 15,
+                 *, checkpoint_steps=None):
+        if (checkpoint_steps is None and horizon not in (10, 30)) or not heads or 'vae' in heads:
             raise ValueError('Expected horizon 10/30 and nonempty classifier heads')
         self.vae, self.heads = vae, dict(heads)
         if type(num_classes) is not int or num_classes not in (15, 40):
             raise ValueError('Expected 15 Scan or 40 ModelNet classes')
         self.num_classes = num_classes
         self.classify_decoded, self.horizon = classify_decoded, horizon
-        self.steps = [3, 5, 8] if horizon == 10 else [8, 15, 23]
+        if checkpoint_steps is None:
+            self.steps = [3, 5, 8] if horizon == 10 else [8, 15, 23]
+        else:
+            self.steps = list(checkpoint_steps)
+            if (type(horizon) is not int or horizon < 1 or not self.steps
+                    or any(type(step) is not int or not 1 <= step <= horizon for step in self.steps)
+                    or self.steps != sorted(set(self.steps))):
+                raise ValueError('Explicit checkpoints must be unique increasing integers within horizon')
         self.models = dict(vae=vae, **heads)
         self.names = ['clean_%02d' % step for step in self.steps] + ['terminal']
         self.saved = {name: [] for name in heads}
@@ -59,7 +67,7 @@ class SharedTrajectoryObserver:
         count = loop_index + 1
         if count not in self.steps:
             return
-        if self.complete or len(self.probes) >= 3 or count != self.steps[len(self.probes)]:
+        if self.complete or len(self.probes) >= len(self.steps) or count != self.steps[len(self.probes)]:
             raise ValueError('Missing, duplicate or reordered clean checkpoint')
         self.mark('trajectory_probe')
         before = rng_hash()
@@ -94,7 +102,7 @@ class SharedTrajectoryObserver:
         self.final_hashes = dict(latent=tensor_hash(latent), style=tensor_hash(style), timestep=int(timestep))
 
     def terminal(self, logits: dict) -> None:
-        if self.complete or len(self.probes) != 3 or not self.initial_hashes or not self.final_hashes:
+        if self.complete or len(self.probes) != len(self.steps) or not self.initial_hashes or not self.final_hashes:
             raise ValueError('Incomplete or duplicate trajectory terminal')
         saved = self._logits(logits)
         for name, values in saved.items():

@@ -1,0 +1,25 @@
+{
+  "conditional95_ci_pp": [
+    0.6857638888888888,
+    1.40625
+  ],
+  "coverage": [
+    39,
+    5,
+    44,
+    422
+  ],
+  "independently_reproduced_tuned_minus_default_n8_pm_pp": 1.0416666666666665,
+  "limitations_preserved": [
+    "256objectclusters/3fixedseeds",
+    "N10developmentonly",
+    "one-eventdevelopmentmargin",
+    "nativeBackgroundrepeatability",
+    "p.95historicalvs.paper.96",
+    "confirmationtimingpreparationconfounded"
+  ],
+  "reviewer": "depth_continuation_review",
+  "runtime_operations_performed": false,
+  "scope": "read-only independent scientific/freeze/coverage/ledger/object-bootstrap review",
+  "status": "clear_after_parent_raw_reanalysis_and_Drive_gate"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "archive_verified",
+  "verified_utc": "2026-10-30T15:47:17.159900+00:00",
+  "archive": {
+    "bytes": 296572461,
+    "sha256": "0b1e5fcaaded1f55846e6051e92e2e34ae9edc706e993b7ff06d58bb04413d36"
+  },
+  "physical_vm_drive_local_match": true,
+  "crc_paths_all_member_identities_pass": true,
+  "members": 2459,
+  "accepted_slots": 18,
+  "failed_slots": 1,
+  "physical_cache_files": 62,
+  "independent_local_reanalysis_pending": false,
+  "local_reanalysis": {
+    "accepted": 18,
+    "unavailable": 1,
+    "comparisons": 0,
+    "output": "result/preparation/chamfer_depth_tuning_20261030/recovery_r2/rates_failure/partial_local_analysis"
+  },
+  "verified_reanalysis_utc": "2026-10-30T15:50:18.314455+00:00"
+}

@@ -1,0 +1,7 @@
+
+[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Stopping session 'tta-chamfer-depth-tuning-a100-20261030-r2'...
+[colab] Session terminated.

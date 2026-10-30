@@ -38,7 +38,8 @@ def selective_chamfer_loss(dists1, dists2, num_points, *, normalize=False):
 
 def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     scheduler_observer=None, return_trajectory=False,
-                    scd_normalize=False):
+                    scd_normalize=False, prepared_state=None, state_observer=None,
+                    trajectory_observer=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -77,23 +78,49 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     grad_freeze(local_prior)
     grad_freeze(vae)
     
-    # Latent encoding
+    # The optional cache pairs z0/h0/epsilon, not the depth-dependent noisy h_t.
+    if trajectory_observer is not None:
+        trajectory_observer.mark('encode')
     with torch.no_grad():
-        latents = vae.encode(x)
-        shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)
-        latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)
+        if prepared_state is None:
+            latents = vae.encode(x)
+            shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)
+            latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)
+        else:
+            shape_latent, latent_point = (prepared_state[key].detach().clone()
+                                         for key in ('shape_latent', 'local_latent'))
+            for value in (shape_latent, latent_point, prepared_state['noise']):
+                if (value.ndim != 4 or value.shape[0] != num_samples or value.shape[2:] != (1, 1)
+                        or value.dtype != x.dtype or value.device != x.device or not torch.isfinite(value).all()):
+                    raise ValueError('Invalid paired latent/noise tensor')
+            if latent_point.shape != (num_samples, 8192, 1, 1) or prepared_state['noise'].shape != latent_point.shape:
+                raise ValueError('Paired local latent/noise must be B x 8192 x 1 x 1')
         latent_point_reshaped = latent_point.view(num_samples, 2048, -1)[:, :, :3]
         # latent_point_std = latent_point.std(dim=1).view(num_samples, 1, -1)
     
     # Global style conditioning
+    if trajectory_observer is not None:
+        trajectory_observer.mark('style_noise')
     style_cond = vae.global2style(shape_latent)
     
     # Add noise to the local latent vector
-    noise = torch.randn_like(latent_point)
+    noise = torch.randn_like(latent_point) if prepared_state is None else prepared_state['noise'].detach().clone()
+    if prepared_state is not None:
+        from legacy_trajectory import _restore_rng
+        _restore_rng(prepared_state['rng_after_prepare'])
+    if state_observer is not None:
+        state_observer(dict(shape_latent=shape_latent, local_latent=latent_point, noise=noise))
     noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
+    if trajectory_observer is not None:
+        trajectory_observer.initial(input_points=x, shape_latent=shape_latent,
+                                    local_latent=latent_point, style=style_cond, noise=noise,
+                                    noisy_local=noisy_latent_point, timesteps=timesteps_local,
+                                    alpha_bar=alpha_bar_local)
  
     # Reverse diffusion process using DDIMScheduler
     for i, t in enumerate(timesteps_local):
+        if trajectory_observer is not None:
+            trajectory_observer.mark('prior_scheduler')
         t_tensor = torch.ones(num_samples, dtype=torch.int64, device='cuda') * (t + 1)
         noisy_latent_point = noisy_latent_point.detach()
         noisy_latent_point.requires_grad = True
@@ -104,6 +131,10 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
         scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
         pred_latent_point = scheduler_output.pred_original_sample
+        if trajectory_observer is not None:
+            # Clean predictions and terminal both use the original encoded style.
+            trajectory_observer.clean(pred_latent_point, shape_latent, i, t)
+            trajectory_observer.mark('chamfer_backward_update')
         
         # Compute Selective Chamfer Distance
         pred_latent_point_reshaped = pred_latent_point.view(num_samples, 2048, -1)[:, :, :3]
@@ -121,6 +152,10 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         # Update latent variables with gradient step
         noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
         style_cond = style_cond - eta * style_cond.grad
+
+    if trajectory_observer is not None:
+        trajectory_observer.final_state(noisy_latent_point, shape_latent, timesteps_local[-1])
+        trajectory_observer.mark('terminal_decode')
 
     if return_trajectory:
         return SharedTrajectory(

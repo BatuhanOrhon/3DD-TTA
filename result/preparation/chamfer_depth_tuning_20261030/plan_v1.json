@@ -1,0 +1,919 @@
+{
+  "background_reverse_steps": 35,
+  "batch_size": 32,
+  "binding": {
+    "asset_root": "/content/studies/chamfer-depth-tuning/prepared/assets",
+    "dataset_root": "/content/3DD-TTA/data/modelnet40_c",
+    "expected_config": {
+      "asset_manifest": {
+        "guidance": {
+          "lion_checkpoint": {
+            "bytes": 1508051672,
+            "path": "/content/3DD-TTA/lion_ckpts/epoch_10999_iters_2100999.pt",
+            "sha256": "807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2"
+          },
+          "lion_config": {
+            "bytes": 7860,
+            "path": "/content/3DD-TTA/lion_ckpts/unconditional_all55_cfg.yml",
+            "sha256": "9d4a826f35fe9b3053210105eb4857811c8bfd53cd8c6a998f8ea7953e975816"
+          }
+        }
+      },
+      "asset_manifest_sha256": "30552944975518231718ceec7dca183202f9b368d43892342ce9490fb01705da",
+      "checkpoint_load": {
+        "checkpoint_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+        "strict": true
+      },
+      "dataset_provenance": {
+        "files": {
+          "data_background_5.npy": {
+            "bytes": 31837328,
+            "dtype": "float32",
+            "sha256": "db05e75cffb4440323a064df9e23ebd526584daf027f9ad02e391a36b051a616",
+            "shape": [
+              2468,
+              1075,
+              3
+            ]
+          },
+          "data_cutout_5.npy": {
+            "bytes": 21442112,
+            "dtype": "float32",
+            "sha256": "b3ffb68ec412f54c89e02b5c128b3590eeaf16dd4ff08cc89f7039247a6c9c4b",
+            "shape": [
+              2468,
+              724,
+              3
+            ]
+          },
+          "data_density_5.npy": {
+            "bytes": 19220912,
+            "dtype": "float32",
+            "sha256": "bdde461b92427a0eaafc125eb93c8af89d979c0141d6ca5ae8e2bd61d6be65ba",
+            "shape": [
+              2468,
+              649,
+              3
+            ]
+          },
+          "data_density_inc_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "719fd79232fb6c6a72e83d4f5f219d499b253b2caadc55bd128110bb299ee86b",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_distortion_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "43b5849e878ba73bbda781491b689db3af5cd958dc8d57c2fd6b4460a584e19e",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_distortion_rbf_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "9cbcca3ee41e0f10e77b36aaa9b7021095aae860e81688009cbd8bab0055b596",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_distortion_rbf_inv_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "604c6acaacc4111dcef1cc22dee936c938e00cfafff9c7bb569d4b78a2439cce",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_gaussian_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "bf762a8f441a4234d0ca3e91da1f5101440acb7e5902c4854300041103f7171c",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_impulse_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "2174438eec71c4d98ebf23b48c5571805e280411a2a3a0ff51ee377462d50cfb",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_lidar_5.npy": {
+            "bytes": 22745216,
+            "dtype": "float32",
+            "sha256": "99ccaf1d62b5b308dd34d4fc1b09013cba8b73e9d1c8f0df1e94cfb812b9e91a",
+            "shape": [
+              2468,
+              768,
+              3
+            ]
+          },
+          "data_occlusion_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "5f37e9de373402007214fcb9fc90e00db4783f9801d0620f21bbeee6328cda2c",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_original.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_rotation_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "b75c5c8c0cb0ed57038d4677750a5e4fdad3aaf82de96357f33fe7c3a3bc4958",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_shear_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "78df0043e5cea431d10c817ac6a13e85e6e246fc64765e32546ecdd1d6614069",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_uniform_5.npy": {
+            "bytes": 30326912,
+            "dtype": "float32",
+            "sha256": "2cfbe01e02ae6745503eddf548db8f362656e92ec7efc6636281468547c73572",
+            "shape": [
+              2468,
+              1024,
+              3
+            ]
+          },
+          "data_upsampling_5.npy": {
+            "bytes": 60653696,
+            "dtype": "float32",
+            "sha256": "4984bfac96c7b559727fd0d967d115855eab30a315c3c3b2608cc43878fd782e",
+            "shape": [
+              2468,
+              2048,
+              3
+            ]
+          },
+          "label.npy": {
+            "bytes": 2596,
+            "dtype": "uint8",
+            "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+            "shape": [
+              2468,
+              1
+            ]
+          }
+        },
+        "n_examples": 2468,
+        "provenance": "r7 verified ModelNet40-C archive; actual NPY shape/dtype and identical SHA/bytes observed by bounded header audit",
+        "split": "official_modelnet40_test"
+      },
+      "pointmae_checkpoint": "/content/studies/chamfer-depth-tuning/prepared/assets/checkpoints/modelnet_jt.pth",
+      "pointmae_config": "/content/studies/chamfer-depth-tuning/prepared/assets/source_snapshot/cfgs/tta_modelnet.yaml",
+      "source_snapshot_sha256": "166df3799834bc72541f1189407bf56d992a23bfdce9827db1c422d9ba5b3636"
+    },
+    "label_path": "/content/3DD-TTA/data/modelnet40_c/label.npy",
+    "pointmae_checkpoint": "/content/studies/chamfer-depth-tuning/prepared/assets/checkpoints/modelnet_jt.pth",
+    "pointmae_config": "/content/studies/chamfer-depth-tuning/prepared/assets/source_snapshot/cfgs/tta_modelnet.yaml",
+    "python": "/usr/local/envs/3dd_tta_env/bin/python",
+    "repo_root": "/content/studies/chamfer-depth-tuning/prepared/assets/source_snapshot",
+    "required_source_files": {
+      "assets/source_snapshot/classifier_backbones.py": {
+        "bytes": 4114,
+        "sha256": "bfb18eacf5d72e57818cdc44695eff006b953700ac2fc5354baac5dc565de729"
+      },
+      "assets/source_snapshot/legacy_trajectory.py": {
+        "bytes": 13563,
+        "sha256": "bc6d77539445fc916aacaadf2b956e539daf19d2e328f47718a7abf724c280db"
+      },
+      "assets/source_snapshot/research_artifacts.py": {
+        "bytes": 11885,
+        "sha256": "df60704d92e65141717a130d88e257bf816dadac1cb8646af0105918d910bab4"
+      },
+      "assets/source_snapshot/scripts/analyze_legacy_trajectory.py": {
+        "bytes": 25331,
+        "sha256": "37932e4af9d524d45dadfbc7225d2365e4f9629439d97ea9f7e4e0698bf876ac"
+      },
+      "assets/source_snapshot/scripts/eval_chamfer_depth.py": {
+        "bytes": 9665,
+        "sha256": "c81f9036fa98e6bd805655228361aae02fb7403e75b6c22f132e6b8a53ceedb9"
+      },
+      "assets/source_snapshot/scripts/eval_multibackbone_guidance.py": {
+        "bytes": 47609,
+        "sha256": "eda276eb80402d3a1a4fb1a9938b2c88efeaf9795c5ff0144c3bfef4649c0ba4"
+      },
+      "assets/source_snapshot/scripts/eval_multibackbone_source.py": {
+        "bytes": 30722,
+        "sha256": "3be330870b27375f7378a287a41f00e10b4df3dac0ac34a12df69f84cf3b28e9"
+      },
+      "assets/source_snapshot/shared_trajectory.py": {
+        "bytes": 7074,
+        "sha256": "d96b97fb4faf037ef0e5f9508ca4332bd4f41638f7f8babb84bb2398ea4a4a5e"
+      },
+      "assets/source_snapshot/tta.py": {
+        "bytes": 8030,
+        "sha256": "ce8b439d81b69afc8bd475b71dcdb5edc28e68aa2296dbb338c99d4c077df5e9"
+      }
+    }
+  },
+  "confirmation_roles": [
+    "depth5-default",
+    "stageA-best-default",
+    "best-tuned"
+  ],
+  "confirmation_seeds": [
+    0,
+    1,
+    2
+  ],
+  "cpu_preflight_receipt_path": "/content/studies/chamfer-depth-tuning/cpu_preflight_receipt.json",
+  "default": {
+    "eta": 0.01,
+    "gamma": 0.01,
+    "p": 0.95
+  },
+  "depth_values": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "drive_root": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030",
+  "duration": {
+    "budget_policy": "measured stop-before-next-worker budget; not a strict clock guarantee; retain acceptance/sealing overruns and stop without more GPU",
+    "cumulative_wall_cap_seconds": 10800.0,
+    "final_ledger_sealing_reserve_seconds": 60,
+    "includes": "research worker, probes, failed work, validation, sealing, transfer; charge actual phase wall plus60s final ledger-copy reserve",
+    "per_job_acceptance_copy_reserve_seconds": 180,
+    "whole_phase_estimate_seconds": 9360.0
+  },
+  "historical_benchmark_exposure": true,
+  "limitations": [
+    "finite sequential search, no global optimum",
+    "stage-reserved objects, not externally unseen"
+  ],
+  "max_dev_configs": 32,
+  "no_failure_replacement": true,
+  "p_values": [
+    0.9,
+    0.95,
+    0.96,
+    0.99
+  ],
+  "phase_sources": {
+    "research_artifacts.py": {
+      "bytes": 11885,
+      "sha256": "df60704d92e65141717a130d88e257bf816dadac1cb8646af0105918d910bab4"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/analyze.py": {
+      "bytes": 27110,
+      "sha256": "bb13faedd3b647c67bfc9cbbe6aa1d54d5db8f37a4104d3d1596a0fc710c807e"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/campaign.py": {
+      "bytes": 24816,
+      "sha256": "7d2eba7c6717eb0a392ae1563a83192667a9b6f38598095f9f5887d3faf48404"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/make_binding.py": {
+      "bytes": 3195,
+      "sha256": "61e538e97c0035e6e80cba0784fa9d19f4145d824b49d6682e34f64fbdc29223"
+    },
+    "result/preparation/chamfer_depth_tuning_20261030/operations.py": {
+      "bytes": 7435,
+      "sha256": "f3f9dec9a34ee82312a6e027bfcc92ba90dd9094605174748e6aa5a36b7303db"
+    },
+    "scripts/analyze_legacy_trajectory.py": {
+      "bytes": 25331,
+      "sha256": "37932e4af9d524d45dadfbc7225d2365e4f9629439d97ea9f7e4e0698bf876ac"
+    },
+    "scripts/analyze_scan_trajectory.py": {
+      "bytes": 13849,
+      "sha256": "27cdbb8d179af43503c9d62c7d95d90ca82a07d95b0d5e75d0289c5439e4129c"
+    }
+  },
+  "primary_readout": "probability_mean",
+  "rate_mapping": {
+    "eta": "style",
+    "gamma": "local"
+  },
+  "rate_values": [
+    0.003,
+    0.01,
+    0.03
+  ],
+  "remote_root": "/content/studies/chamfer-depth-tuning",
+  "runtime": "tta-chamfer-depth-tuning-a100-20261030-r1",
+  "schema_version": 1,
+  "selection": "all15 probability_mean; exact ties lower depth, then eta,gamma,p ascending",
+  "selections": {
+    "development": {
+      "identity": {
+        "bytes": 2316,
+        "sha256": "7aed693f7e77b3112274c7789c2a3052abafd3983fbd3f0ee610e1a1a03a5dfd"
+      },
+      "manifest": {
+        "dataset": "modelnet40_c",
+        "excluded_prior_cohorts": [
+          {
+            "bytes": 927,
+            "path": "result/preparation/guidance_component_study_20261025/modelnet40_c_development_ids.json",
+            "sha256": "e8e3deb3f1a76550e29299cb3b7cb7ac33b584402f9094b0a924e49507c92d91"
+          },
+          {
+            "bytes": 926,
+            "path": "result/preparation/guidance_component_study_20261025/modelnet40_c_heldout_ids.json",
+            "sha256": "395d32f0a3aa9139781cb9e7940d8d51e25fcb2c3b6c40cfe6fe04fe08a72d20"
+          },
+          {
+            "bytes": 1739,
+            "path": "result/preparation/guidance_component_sensitivity_20261025/modelnet40_c_sensitivity_confirmation_ids.json",
+            "sha256": "1604ecbe0ba362a0e392d397c83296d8ebc04957564e2e64d23171eae911d3de"
+          }
+        ],
+        "indices": [
+          17,
+          36,
+          37,
+          100,
+          123,
+          124,
+          129,
+          142,
+          143,
+          161,
+          167,
+          168,
+          186,
+          206,
+          229,
+          272,
+          275,
+          286,
+          289,
+          328,
+          336,
+          354,
+          359,
+          371,
+          382,
+          420,
+          438,
+          458,
+          465,
+          500,
+          510,
+          540,
+          562,
+          597,
+          624,
+          625,
+          632,
+          636,
+          640,
+          657,
+          672,
+          719,
+          727,
+          733,
+          791,
+          793,
+          843,
+          853,
+          855,
+          885,
+          911,
+          919,
+          932,
+          952,
+          999,
+          1024,
+          1042,
+          1056,
+          1080,
+          1103,
+          1109,
+          1132,
+          1145,
+          1225,
+          1226,
+          1276,
+          1295,
+          1310,
+          1344,
+          1347,
+          1352,
+          1357,
+          1366,
+          1379,
+          1391,
+          1473,
+          1477,
+          1491,
+          1506,
+          1511,
+          1542,
+          1557,
+          1561,
+          1563,
+          1583,
+          1610,
+          1611,
+          1617,
+          1644,
+          1661,
+          1667,
+          1691,
+          1702,
+          1725,
+          1760,
+          1788,
+          1792,
+          1842,
+          1855,
+          1868,
+          1891,
+          1901,
+          1906,
+          1995,
+          2007,
+          2040,
+          2104,
+          2116,
+          2122,
+          2139,
+          2161,
+          2167,
+          2204,
+          2215,
+          2241,
+          2260,
+          2281,
+          2295,
+          2329,
+          2352,
+          2353,
+          2367,
+          2371,
+          2374,
+          2386,
+          2396,
+          2414,
+          2421
+        ],
+        "n_examples": 2468,
+        "prior_benchmark_exposure": true,
+        "purpose": "stage-reserved; not externally unseen",
+        "selected_without_labels": true,
+        "selection_algorithm": "ascending SHA256(UTF8(seed:original_ID))",
+        "selection_seed": 20261030,
+        "split_unit": "original_object_id_across_all_corruptions",
+        "stage": "development"
+      }
+    },
+    "heldout": {
+      "identity": {
+        "bytes": 3544,
+        "sha256": "c9a5d1718ff1017e0ff1ebee02a47640edda82658740e5dfd4c70edaa05897f0"
+      },
+      "manifest": {
+        "dataset": "modelnet40_c",
+        "excluded_prior_cohorts": [
+          {
+            "bytes": 927,
+            "path": "result/preparation/guidance_component_study_20261025/modelnet40_c_development_ids.json",
+            "sha256": "e8e3deb3f1a76550e29299cb3b7cb7ac33b584402f9094b0a924e49507c92d91"
+          },
+          {
+            "bytes": 926,
+            "path": "result/preparation/guidance_component_study_20261025/modelnet40_c_heldout_ids.json",
+            "sha256": "395d32f0a3aa9139781cb9e7940d8d51e25fcb2c3b6c40cfe6fe04fe08a72d20"
+          },
+          {
+            "bytes": 1739,
+            "path": "result/preparation/guidance_component_sensitivity_20261025/modelnet40_c_sensitivity_confirmation_ids.json",
+            "sha256": "1604ecbe0ba362a0e392d397c83296d8ebc04957564e2e64d23171eae911d3de"
+          }
+        ],
+        "indices": [
+          8,
+          22,
+          26,
+          55,
+          76,
+          79,
+          104,
+          116,
+          117,
+          119,
+          128,
+          132,
+          134,
+          147,
+          166,
+          176,
+          178,
+          185,
+          200,
+          211,
+          214,
+          217,
+          239,
+          264,
+          288,
+          304,
+          314,
+          321,
+          325,
+          338,
+          357,
+          364,
+          384,
+          395,
+          397,
+          412,
+          427,
+          441,
+          446,
+          456,
+          488,
+          527,
+          534,
+          542,
+          583,
+          584,
+          592,
+          599,
+          600,
+          609,
+          629,
+          631,
+          639,
+          650,
+          658,
+          665,
+          674,
+          679,
+          683,
+          708,
+          724,
+          725,
+          735,
+          736,
+          742,
+          744,
+          750,
+          768,
+          774,
+          775,
+          777,
+          779,
+          785,
+          788,
+          795,
+          799,
+          812,
+          815,
+          818,
+          824,
+          827,
+          829,
+          841,
+          848,
+          849,
+          863,
+          866,
+          881,
+          883,
+          896,
+          904,
+          908,
+          920,
+          948,
+          955,
+          967,
+          985,
+          992,
+          997,
+          1022,
+          1032,
+          1034,
+          1040,
+          1046,
+          1051,
+          1057,
+          1060,
+          1073,
+          1079,
+          1084,
+          1097,
+          1111,
+          1129,
+          1133,
+          1141,
+          1147,
+          1201,
+          1203,
+          1205,
+          1213,
+          1219,
+          1229,
+          1233,
+          1251,
+          1254,
+          1258,
+          1274,
+          1293,
+          1296,
+          1346,
+          1349,
+          1362,
+          1370,
+          1392,
+          1401,
+          1416,
+          1418,
+          1419,
+          1427,
+          1432,
+          1433,
+          1442,
+          1451,
+          1461,
+          1474,
+          1475,
+          1476,
+          1479,
+          1489,
+          1493,
+          1503,
+          1516,
+          1527,
+          1546,
+          1554,
+          1569,
+          1574,
+          1576,
+          1590,
+          1594,
+          1601,
+          1616,
+          1624,
+          1625,
+          1629,
+          1632,
+          1643,
+          1655,
+          1670,
+          1682,
+          1696,
+          1697,
+          1712,
+          1713,
+          1715,
+          1731,
+          1742,
+          1764,
+          1766,
+          1768,
+          1773,
+          1793,
+          1800,
+          1801,
+          1843,
+          1852,
+          1853,
+          1859,
+          1865,
+          1879,
+          1884,
+          1889,
+          1897,
+          1902,
+          1930,
+          1934,
+          1936,
+          1944,
+          1948,
+          1954,
+          1966,
+          1971,
+          1976,
+          2000,
+          2010,
+          2016,
+          2028,
+          2030,
+          2032,
+          2036,
+          2048,
+          2063,
+          2068,
+          2084,
+          2086,
+          2098,
+          2109,
+          2143,
+          2152,
+          2153,
+          2156,
+          2186,
+          2187,
+          2199,
+          2209,
+          2212,
+          2214,
+          2219,
+          2236,
+          2245,
+          2246,
+          2252,
+          2256,
+          2257,
+          2273,
+          2274,
+          2314,
+          2327,
+          2328,
+          2336,
+          2338,
+          2341,
+          2347,
+          2351,
+          2359,
+          2375,
+          2377,
+          2385,
+          2389,
+          2398,
+          2402,
+          2411,
+          2423,
+          2428,
+          2465,
+          2467
+        ],
+        "n_examples": 2468,
+        "prior_benchmark_exposure": true,
+        "purpose": "stage-reserved; not externally unseen",
+        "selected_without_labels": true,
+        "selection_algorithm": "ascending SHA256(UTF8(seed:original_ID))",
+        "selection_seed": 20261030,
+        "split_unit": "original_object_id_across_all_corruptions",
+        "stage": "heldout"
+      }
+    }
+  },
+  "stage_a": [
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 1,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 2,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 3,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 4,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 5,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 6,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 7,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 8,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 9,
+      "p": 0.95
+    },
+    {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "normal_reverse_steps": 10,
+      "p": 0.95
+    }
+  ],
+  "status": "registered_CPU_only",
+  "technical_smoke": {
+    "corruptions": [
+      "gaussian",
+      "background"
+    ],
+    "defaults": {
+      "eta": 0.01,
+      "gamma": 0.01,
+      "p": 0.95
+    },
+    "depths": [
+      1,
+      5,
+      10
+    ],
+    "indices": [
+      17,
+      36,
+      37,
+      100,
+      123,
+      124,
+      129,
+      142,
+      143,
+      161,
+      167,
+      168,
+      186,
+      206,
+      229,
+      272,
+      275,
+      286,
+      289,
+      328,
+      336,
+      354,
+      359,
+      371,
+      382,
+      420,
+      438,
+      458,
+      465,
+      500,
+      510,
+      540
+    ],
+    "seed": 0,
+    "selects_settings": false
+  },
+  "top_depths": 2
+}

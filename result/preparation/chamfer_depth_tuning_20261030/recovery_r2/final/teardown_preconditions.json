@@ -1,0 +1,16 @@
+{
+  "closure_action_authorized": true,
+  "derived_Drive_local_roundtrip_verified": true,
+  "further_GPU_work_pending": false,
+  "independent_raw_reanalysis_passed": true,
+  "knowledge_updated": true,
+  "owned_endpoint": "gpu-a100-hm-ass1c0-79r779o7n5fk",
+  "owned_session": "tta-chamfer-depth-tuning-a100-20261030-r2",
+  "protected_endpoint": "gpu-a100-hm-ass1c0-3nh8smksm50de",
+  "protected_peer": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "raw_Drive_local_archive_and_all_members_verified": true,
+  "recorded_at_utc": "2026-10-30T18:05:45.081302+00:00",
+  "research_complete": true,
+  "scope": "ownedr2only; peer and unknown sessions/processes remain protected",
+  "user_statement": "Benim \u00e7\u0131kmam gerek, devam et, sessionu yaln\u0131zca gerekli \u00e7al\u0131\u015fmalar tamamland\u0131ktan sonra bitir. \u00c7al\u0131\u015fmalar tamamlan\u0131nca benden onay almadan Colab sessionu \u00f6ld\u00fcr, bunu yaparken di\u011fer agent'\u0131n sessionunu \u00f6ld\u00fcrmemeye dikkat et. E\u011fer m\u00fcmk\u00fcnse \u015fu ana kadarki ilerlemeni de drive'a kaydet."
+}

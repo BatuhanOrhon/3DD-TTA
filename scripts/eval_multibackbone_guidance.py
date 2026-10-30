@@ -438,10 +438,11 @@ def update_row(rows: list, config: dict, corruption: str, n: int, correct: int, 
         rows.append(row)
 
 
-def worker(directories: list) -> None:
+def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=None) -> None:
     bundles = {json.loads((Path(path) / "config.json").read_text())["backbone"]: source.RunBundle(Path(path)) for path in directories}
     configs = {name: json.loads((bundle.path / "config.json").read_text()) for name, bundle in bundles.items()}
     rows = {name: [] for name in bundles}
+    worker_started = time.monotonic()
     heads, lion, active = {}, None, None
     try:
         common = next(iter(configs.values()))
@@ -451,6 +452,8 @@ def worker(directories: list) -> None:
         dataset = source.dataset_manifest(manifest, common)
         for name, config in configs.items():
             config.update(asset_manifest=manifest, dataset_provenance=dataset, matched_source=matched_source(config, manifest, guidance))
+            if common.get('chamfer_depth_study'):
+                config['source_snapshot_sha256'] = manifest.get('source_snapshot_sha256')
         labels_path = Path(common["label_path"])
         labels = source.load_array(labels_path, dataset["files"][labels_path.name], common, labels=True)
         arrays = {}
@@ -462,13 +465,13 @@ def worker(directories: list) -> None:
         from legacy_trajectory import rng_hash, tensor_hash
         if not torch.cuda.is_available():
             raise RuntimeError("Guidance requires CUDA; no CPU inference fallback")
-        lion, graph, reconstruct, ops, native_report, lion_config = load_guidance_runtime(common, manifest)
+        lion, graph, reconstruct, ops, native_report, lion_config = (runtime_loader or load_guidance_runtime)(common, manifest)
         heads, guard = initialize_heads(configs, manifest)
         from pointnet2_ops import pointnet2_utils
         def fps(points, number):
             indices = pointnet2_utils.furthest_point_sample(points.contiguous(), number)
             return pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), indices).transpose(1, 2).contiguous()
-        torch.backends.cudnn.benchmark = common["method"] == ORIGINAL_METHOD
+        torch.backends.cudnn.benchmark = common["method"] == ORIGINAL_METHOD or bool(common.get('chamfer_depth_study'))
         torch.backends.cudnn.deterministic = False
         torch.use_deterministic_algorithms(False)
         seed_hash = seed_inference(common["seed"])
@@ -485,6 +488,8 @@ def worker(directories: list) -> None:
                                        deterministic_algorithms=torch.are_deterministic_algorithms_enabled(),
                                        gpu=torch.cuda.get_device_name(), python=sys.version), shared_reconstruction_seconds=0.)
             source.snapshot_sources(bundles[name], config, manifest)
+            if common.get('chamfer_depth_study'):
+                config['executed_source_sha256'] = hashlib.sha256(json.dumps(config['executed_source_files'], sort_keys=True, separators=(',', ':')).encode()).hexdigest()
             bundles[name].write_config(config)
         for corruption, values in arrays.items():
             active = corruption
@@ -510,8 +515,14 @@ def worker(directories: list) -> None:
                     def classify_decoded(decoded):
                         geometry = decoded_to_geometry(decoded, common["dataset"], scale, center, ops)
                         return classify_geometry(geometry, heads, configs, fps)[0]
-                    observer = SharedTrajectoryObserver(lion.vae, heads, classify_decoded,
-                                                        30 if corruption == "background" else 10, num_classes=common['num_classes'])
+                    if common.get('chamfer_depth_study'):
+                        scope = 'background' if corruption == 'background' else 'normal'
+                        horizon = common[scope + '_reverse_steps']
+                        checkpoints = {'checkpoint_steps': common['trajectory_selection'][scope + '_loop_counts'][:-1]}
+                    else:
+                        horizon, checkpoints = (30 if corruption == 'background' else 10), {}
+                    observer = SharedTrajectoryObserver(lion.vae, heads, classify_decoded, horizon,
+                                                        num_classes=common['num_classes'], **checkpoints)
                     observers.append(observer)
                     return observer
                 observer_options = {"observer_factory": observer_factory} if common.get("trajectory_observation") else {}
@@ -522,7 +533,7 @@ def worker(directories: list) -> None:
                     paired_path = Path(common['paired_state_root']) / common['dataset'] / corruption / (ids_sha + '.npz')
                     if paired_path.exists():
                         preparation_mode = 'cached_replay'
-                geometry, metrics = reconstruct_geometry(raw, common["dataset"], corruption, lion, graph, reconstruct, ops,
+                geometry, metrics = (geometry_reconstructor or reconstruct_geometry)(raw, common["dataset"], corruption, lion, graph, reconstruct, ops,
                                                          method=common["method"], scheduler_observer=scheduler_record.update,
                                                          protocol=common['guidance_protocol'], paired_state_path=paired_path, **observer_options)
                 torch.cuda.synchronize()
@@ -555,8 +566,14 @@ def worker(directories: list) -> None:
                             raise RuntimeError("Original scheduler changed within a corruption")
                 if observers:
                     shared["trajectory"] = observers[0].diagnostics()
+                if common.get('chamfer_depth_study'):
+                    shared['executed_source_sha256'] = common['executed_source_sha256']
+                    shared['asset_manifest_sha256'] = common['asset_manifest_sha256']
+                    shared['source_snapshot_sha256'] = common['source_snapshot_sha256']
+                    shared['checkpoint_load'] = common['checkpoint_load']
                 if paired_path is not None:
                     shared['paired_state'] = dict(path=str(paired_path), **source.file_identity(paired_path))
+                artifact_started = time.monotonic()
                 pending = {}
                 seen += end - start
                 for name, logits in all_logits.items():
@@ -570,17 +587,25 @@ def worker(directories: list) -> None:
                     configs[name].setdefault("completed_batches", {})[corruption] = batch + 1
                     diagnostics = dict(shared, **head_diagnostics[name], head_seconds=head_seconds[name])
                     batch_payload = dict(payload, **observers[0].arrays(name)) if observers else payload
+                    if common.get('chamfer_depth_study'):
+                        from scripts.analyze_legacy_trajectory import policies
+                        policy_started = time.monotonic()
+                        batch_payload.update(policies(batch_payload['trajectory_logits'], len(observers[0].names) - 1))
+                        diagnostics['trajectory_policy_seconds'] = time.monotonic() - policy_started
                     pending[name] = write_batch_shard(bundles[name], corruption, batch, batch_payload, diagnostics)
                     update_row(rows[name], configs[name], corruption, seen, correct[name], elapsed[name], peak, "partial")
                     bundles[name].write_results(rows[name], "running")
                     bundles[name].write_config(configs[name])
                 for name, files in pending.items():
                     copy_batch_shard(bundles[name], common.get("drive_root"), corruption, batch, files)
+                    if common.get('chamfer_depth_study'):
+                        configs[name].setdefault('batch_post_inference_policy_artifact_seconds', {}).setdefault(corruption, []).append(time.monotonic() - artifact_started)
                 print(common["dataset"], corruption, "batch", batch, "IDs", start, end, "shared reconstruction seconds", reconstruction_seconds, flush=True)
             for name in heads:
                 combined = {key: np.concatenate([part[key] for part in accumulated[name]]) for key in accumulated[name][0]}
                 np.savez_compressed(bundles[name].path / (corruption + "_predictions.npz"), **combined)
-                rows[name][-1]["status"] = "complete" if seen == common["n_examples"] else "partial"
+                expected = common.get('evaluation_n_examples', common['n_examples']) if common.get('chamfer_depth_study') else common['n_examples']
+                rows[name][-1]["status"] = "complete" if seen == expected else "partial"
                 after = source.state_hash(heads[name])
                 if after != classifier_before[name]:
                     raise RuntimeError("Frozen classifier state changed: " + name)
@@ -593,8 +618,13 @@ def worker(directories: list) -> None:
         if lion_before != lion_after:
             raise RuntimeError("LION weights/buffers changed")
         for name, config in configs.items():
-            config.update(lion_state_after=lion_after, status="complete" if len(common["corruptions"]) == 15 and not common["max_batches"] and len(selected_ids) == common['n_examples'] else "partial")
+            expected = common.get('evaluation_n_examples', common['n_examples']) if common.get('chamfer_depth_study') else common['n_examples']
+            config.update(lion_state_after=lion_after, status="complete" if len(common["corruptions"]) == 15 and not common["max_batches"] and len(selected_ids) == expected else "partial")
             source.snapshot_sources(bundles[name], config, manifest)
+            if common.get('chamfer_depth_study'):
+                final_source = hashlib.sha256(json.dumps(config['executed_source_files'], sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+                if final_source != config['executed_source_sha256']:
+                    raise RuntimeError('Executed depth-study source identities changed during inference')
             bundles[name].write_results(rows[name], config["status"])
     except BaseException:
         failure = traceback.format_exc()
@@ -614,6 +644,8 @@ def worker(directories: list) -> None:
                 for config in configs.values():
                     config["lion_state_audit_error"] = repr(error)
         for name, config in configs.items():
+            if config.get('chamfer_depth_study'):
+                config['worker_wall_seconds_including_artifact_io'] = time.monotonic() - worker_started
             if name in heads and config["status"] == "failed":
                 try:
                     config["classifier_state_after_sha256"] = source.state_hash(heads[name])
@@ -622,12 +654,12 @@ def worker(directories: list) -> None:
             bundles[name].write_config(config)
 
 
-def main(argv=None) -> None:
+def main(argv=None, *, configuration_factory=None, worker_entrypoint=None, worker_fn=None) -> None:
     arguments = list(sys.argv[1:] if argv is None else argv)
     if arguments[:1] == ["--worker-bundles"]:
-        worker(json.loads(arguments[1]))
+        (worker_fn or worker)(json.loads(arguments[1]))
         return
-    configs = configurations(arguments)
+    configs = (configuration_factory or configurations)(arguments)
     if configs[0]["preview"]:
         print(json.dumps(configs, indent=2, sort_keys=True))
         return
@@ -637,12 +669,14 @@ def main(argv=None) -> None:
         if config.get('component_study'):
             short_name = 'guidance-components-' + config['component_arm'] + '-' + short_name
         bundle = source.RunBundle.create(Path(config["result_root"]), short_name, config,
-                                          shlex.join([sys.executable, str(Path(__file__).resolve()), *arguments]))
+                                          shlex.join([sys.executable, str(Path(worker_entrypoint or __file__).resolve()), *arguments]))
         bundles.append(bundle)
         print("Run bundle:", bundle.path, flush=True)
         if config.get('index_manifest'):
             shutil.copyfile(config['index_manifest'], bundle.path / 'selection_manifest.json')
-        (bundle.path / "notes.md").write_text("# Published alternative matched guidance study\n\n" + config["display_name"] + ". Not full GSDTTA or paper reproduction.\n"
+        note = ("# Chamfer denoising-depth study\n\n" + config['display_name'] + ". Not a paper reproduction.\n" if config.get('chamfer_depth_study') else
+                "# Published alternative matched guidance study\n\n" + config["display_name"] + ". Not full GSDTTA or paper reproduction.\n")
+        (bundle.path / "notes.md").write_text(note
             + config["timing_policy"] + ".\nBatch shards preserve interrupted-corruption progress; no auto resume.\nDrive corruption checkpoints capture log prefixes.\n")
         (bundle.path / "environment.txt").write_text(sys.version + "\n" + source.command_output(["nvidia-smi"]) + "\n" + source.command_output([sys.executable, "-m", "pip", "freeze"]))
     group = bundles[0].path.name + "_" + configs[0]["dataset"]
@@ -653,7 +687,7 @@ def main(argv=None) -> None:
     process, failure, logs = None, None, []
     try:
         logs = [(bundle.path / "stdout.log").open("w") for bundle in bundles]
-        process = subprocess.Popen([sys.executable, "-u", str(Path(__file__).resolve()), "--worker-bundles", json.dumps([str(bundle.path) for bundle in bundles])],
+        process = subprocess.Popen([sys.executable, "-u", str(Path(worker_entrypoint or __file__).resolve()), "--worker-bundles", json.dumps([str(bundle.path) for bundle in bundles])],
                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, cwd=str(source.REPO))
         with process.stdout:
             for line in process.stdout:

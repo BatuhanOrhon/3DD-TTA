@@ -1,0 +1,160 @@
+{
+  "status": "prepared_not_approved_not_executed",
+  "original_plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "approval_scope": "existing10800s duration approval remains; this proposal changes numerical-failure handling only",
+  "already_accepted_smoke": 3,
+  "already_accepted_development_depth": 10,
+  "already_accepted_rates": 5,
+  "failed_slot_preserved": "rates-n8-e0.03-g0.003-p0.95-s0",
+  "remaining_rate_jobs": [
+    {
+      "config": {
+        "eta": 0.03,
+        "gamma": 0.01,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.03-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n8-e0.03-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.03,
+        "gamma": 0.03,
+        "normal_reverse_steps": 8,
+        "p": 0.95
+      },
+      "config_id": "n8-e0.03-g0.03-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n8-e0.03-g0.03-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.003,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.003-g0.003-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.003-g0.003-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.01,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.003-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.003-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.003-g0.03-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.003-g0.03-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.003,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.01-g0.003-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.01-g0.003-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.01,
+        "gamma": 0.03,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.01-g0.03-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.01-g0.03-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.03,
+        "gamma": 0.003,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.03-g0.003-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.03-g0.003-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.03,
+        "gamma": 0.01,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.03-g0.01-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.03-g0.01-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.03,
+        "gamma": 0.03,
+        "normal_reverse_steps": 9,
+        "p": 0.95
+      },
+      "config_id": "n9-e0.03-g0.03-p0.95",
+      "seed": 0,
+      "slot_id": "rates-n9-e0.03-g0.03-p0.95-s0",
+      "split": "development",
+      "technical_smoke": false
+    }
+  ],
+  "max_new_fraction_jobs": 6,
+  "max_new_confirmation_jobs": 9,
+  "max_remaining_gpu_attempts": 25,
+  "research_budget_seconds": 10800,
+  "charged_spent_seconds": 3079.138494549,
+  "remaining_charged_budget_seconds": 7720.861505451,
+  "math_source_ids_seeds_and_parameter_grid_changed": false,
+  "duplicate_or_replacement_jobs": false,
+  "proposed_numerical_failure_policy": {
+    "dev_requirement": "Every registered grid point must be attempted exactly once; all15/128 finite results required for an accuracy score. An observed NaN/Inf configuration is explicitly infeasible with accuracy=null, never zero or a prefix score. Untested points cannot be excluded.",
+    "numerical_error_match": "Only the observed nonfinite geometry/latent numerical error from frozen guidance may be classified; source/asset/checkpoint/ID/RNG/probe-purity, OOM, transport, archive and unknown errors still stop for review.",
+    "selection": "Use the unchanged primary all15 probability_mean and tie order among complete finite endpoints, after entire registered stage has accepted or explicitly numerical-infeasible status. Keep all failed rows and original selection exposure history.",
+    "confirmation": "Freeze at most3unique feasible conditions and seeds0/1/2 before predictions. Failed seeds remain unavailable; never substitute seeds/conditions or report successful-seed confidence intervals as full confirmation.",
+    "continuation": "Keep all existing bytes and failed slot untouched, execute only the10remaining rate points plus registered downstream stages within the existing cumulative budget; no extra points or repeated failures."
+  },
+  "limitations": [
+    "This is a post-failure exploratory protocol amendment, not the unchanged original preregistration.",
+    "The failure-specific continuation runner and its CPU safety/selection tests must be completed before any additional GPU launch."
+  ]
+}

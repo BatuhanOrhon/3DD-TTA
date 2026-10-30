@@ -1,0 +1,587 @@
+[
+  {
+    "bundle_sha256": "952478e2882cb39a18dfed6c493c279caa9b90cb8c4457946ba3953b68dc0dd1",
+    "config_id": "n5-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25221.1875,
+      "post_inference_policy_artifact_seconds": 5.350213095001891,
+      "probe_dispatch_seconds": 82.11352863299908,
+      "reconstruction_seconds": 269.43204924700694,
+      "terminal_head_seconds": 15.38170506800816,
+      "worker_wall_seconds_including_artifact_io": 324.8615936639999
+    }
+  },
+  {
+    "bundle_sha256": "e8ffe230ce8b264be82da5ab8fcdbdb0a5d22e11f5fdf484e8c4cc074d9d3599",
+    "config_id": "n5-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 1,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25221.1875,
+      "post_inference_policy_artifact_seconds": 5.877445032003379,
+      "probe_dispatch_seconds": 82.16465989100834,
+      "reconstruction_seconds": 269.43134061900673,
+      "terminal_head_seconds": 15.383355876998394,
+      "worker_wall_seconds_including_artifact_io": 325.5527523340006
+    }
+  },
+  {
+    "bundle_sha256": "f386fa05c5578331cc8a6ca694e239e7786cc7f37c2e6485dcd71111a0555828",
+    "config_id": "n5-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 2,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25221.375,
+      "post_inference_policy_artifact_seconds": 5.886429835996751,
+      "probe_dispatch_seconds": 82.08530872198571,
+      "reconstruction_seconds": 269.3768706719911,
+      "terminal_head_seconds": 15.385249133993057,
+      "worker_wall_seconds_including_artifact_io": 325.4109317950006
+    }
+  },
+  {
+    "bundle_sha256": "07d59bddd38dcfb81d312234a40fc41b70f926a01cc501fe62b8c7e23849e796",
+    "config_id": "n8-e0.003-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 5.205694015005065,
+      "probe_dispatch_seconds": 82.31911910400959,
+      "reconstruction_seconds": 302.7592360400049,
+      "terminal_head_seconds": 15.408001439007421,
+      "worker_wall_seconds_including_artifact_io": 358.0184893680016
+    }
+  },
+  {
+    "bundle_sha256": "aaf91b980ff5fea8910b54c210a3f2c78123f0b65ae8ca46709e3ddbb17a73b6",
+    "config_id": "n8-e0.003-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 1,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 5.188148045008347,
+      "probe_dispatch_seconds": 82.33124635699824,
+      "reconstruction_seconds": 302.90632313599053,
+      "terminal_head_seconds": 15.396121130994288,
+      "worker_wall_seconds_including_artifact_io": 358.31494995999856
+    }
+  },
+  {
+    "bundle_sha256": "a1f335623dbba1c4be728fb2f1570ce80d1f2478822947aa5f8a1480ea339a9b",
+    "config_id": "n8-e0.003-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 2,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25219.15625,
+      "post_inference_policy_artifact_seconds": 5.197347434994299,
+      "probe_dispatch_seconds": 82.19897311298519,
+      "reconstruction_seconds": 302.46716299200125,
+      "terminal_head_seconds": 15.389444932003244,
+      "worker_wall_seconds_including_artifact_io": 357.75858528499884
+    }
+  },
+  {
+    "bundle_sha256": "4b60792c0234b0fbef3ae330442bbeb656c17d0da3ba2e553ca57364785529ff",
+    "config_id": "n8-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 5.7483081910031615,
+      "probe_dispatch_seconds": 82.30115013899558,
+      "reconstruction_seconds": 302.8645134249982,
+      "terminal_head_seconds": 15.398375566015602,
+      "worker_wall_seconds_including_artifact_io": 358.80843065200133
+    }
+  },
+  {
+    "bundle_sha256": "a09a55c47bfd0f9bd1eb0c0f685c8cb0bafaea7c798e7eb53aad548cb79b7ee7",
+    "config_id": "n8-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 1,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 5.235014466992652,
+      "probe_dispatch_seconds": 82.29638727400197,
+      "reconstruction_seconds": 302.97799078799835,
+      "terminal_head_seconds": 15.40626285599501,
+      "worker_wall_seconds_including_artifact_io": 358.2984529960013
+    }
+  },
+  {
+    "bundle_sha256": "e50d477b48301cef325b906a28966950c9155264363a1684bc522855b96691fa",
+    "config_id": "n8-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 2,
+    "stage": "confirmation",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 5.140120813006433,
+      "probe_dispatch_seconds": 82.28788307998184,
+      "reconstruction_seconds": 302.7619137580041,
+      "terminal_head_seconds": 15.394924984990212,
+      "worker_wall_seconds_including_artifact_io": 358.0217190509993
+    }
+  },
+  {
+    "bundle_sha256": "47821ced89ab8c99060f8c69213156aa3286dd4287e804aba29be10fd7715f09",
+    "config_id": "n1-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25209.03076171875,
+      "post_inference_policy_artifact_seconds": 2.5146771469999294,
+      "probe_dispatch_seconds": 15.787723567003923,
+      "reconstruction_seconds": 72.8699844190005,
+      "terminal_head_seconds": 7.696911689001354,
+      "worker_wall_seconds_including_artifact_io": 114.17220867599917
+    }
+  },
+  {
+    "bundle_sha256": "75d5ffef70fee655ab9afc830dae21b9650b443368f0f6c67abe6d5872cb85ee",
+    "config_id": "n10-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.695094975005304,
+      "probe_dispatch_seconds": 41.247163823005394,
+      "reconstruction_seconds": 170.65661681099482,
+      "terminal_head_seconds": 7.707141422998575,
+      "worker_wall_seconds_including_artifact_io": 212.77540851499998
+    }
+  },
+  {
+    "bundle_sha256": "4d97181e96bb4e93dbbd16d20de9cff0c2fc10e4fe0fb9d42d7d39dc7d2882fb",
+    "config_id": "n2-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25206.49951171875,
+      "post_inference_policy_artifact_seconds": 2.7418605419952655,
+      "probe_dispatch_seconds": 28.440246397003648,
+      "reconstruction_seconds": 83.16169117700156,
+      "terminal_head_seconds": 7.687208707990067,
+      "worker_wall_seconds_including_artifact_io": 125.13228020499992
+    }
+  },
+  {
+    "bundle_sha256": "42acdb17c2fb7e761ef31801332109ac20ce9a2066e3342705e8cfd9b64a8ebb",
+    "config_id": "n3-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25206.49951171875,
+      "post_inference_policy_artifact_seconds": 2.6641743709978982,
+      "probe_dispatch_seconds": 41.18388916399999,
+      "reconstruction_seconds": 105.27198788000169,
+      "terminal_head_seconds": 7.685702878000484,
+      "worker_wall_seconds_including_artifact_io": 147.3921379249996
+    }
+  },
+  {
+    "bundle_sha256": "5e7ad39e47f8f61932042666ef107a9ec07b5a9cc57e7ecb2bb3b2f792731a4c",
+    "config_id": "n4-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25206.49951171875,
+      "post_inference_policy_artifact_seconds": 2.706690647997675,
+      "probe_dispatch_seconds": 41.216613818999576,
+      "reconstruction_seconds": 114.73657754499618,
+      "terminal_head_seconds": 7.690877585998351,
+      "worker_wall_seconds_including_artifact_io": 156.95412461899923
+    }
+  },
+  {
+    "bundle_sha256": "5fdf50e5dee2944f10e3696f3e597d760f960db7fead674cbda45405afbd4134",
+    "config_id": "n5-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.6654639259995747,
+      "probe_dispatch_seconds": 41.27123725500405,
+      "reconstruction_seconds": 124.19441801299581,
+      "terminal_head_seconds": 7.701077888996224,
+      "worker_wall_seconds_including_artifact_io": 166.31638101099998
+    }
+  },
+  {
+    "bundle_sha256": "c7ad429ab2b9692bfb8a7062ba2bf41a6edde2c844469e634303dba1297e56c4",
+    "config_id": "n6-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.6508729860024687,
+      "probe_dispatch_seconds": 41.23602793200371,
+      "reconstruction_seconds": 133.3387457220042,
+      "terminal_head_seconds": 7.700203612001133,
+      "worker_wall_seconds_including_artifact_io": 175.3802179940003
+    }
+  },
+  {
+    "bundle_sha256": "7b458d60a55bad6080c263229e121aa882bc985fca10571c0bab0518aec79922",
+    "config_id": "n7-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.579255746999479,
+      "probe_dispatch_seconds": 41.25256970799819,
+      "reconstruction_seconds": 142.7798919609986,
+      "terminal_head_seconds": 7.701447188000202,
+      "worker_wall_seconds_including_artifact_io": 184.86356221999995
+    }
+  },
+  {
+    "bundle_sha256": "8a99ef84441b05a5ef2f7ea030eb415e8d2a0930bbc72a49f05f7bc195f26bc8",
+    "config_id": "n8-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.676151498004401,
+      "probe_dispatch_seconds": 41.287532492005084,
+      "reconstruction_seconds": 152.26055079400066,
+      "terminal_head_seconds": 7.706640251998579,
+      "worker_wall_seconds_including_artifact_io": 194.41438715700042
+    }
+  },
+  {
+    "bundle_sha256": "3dc965e5c042232bf1e50cd8ab6fb7611dcb54dac08f02a87f8a9b6c78a0de77",
+    "config_id": "n9-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.6098332560022754,
+      "probe_dispatch_seconds": 41.24225819799722,
+      "reconstruction_seconds": 161.48341094499665,
+      "terminal_head_seconds": 7.704885708000802,
+      "worker_wall_seconds_including_artifact_io": 203.62133185999937
+    }
+  },
+  {
+    "bundle_sha256": "d7c562b878f5d904e19b575eeff2b496b846e3f2afc89e9d5723ab5f606057b5",
+    "config_id": "n8-e0.003-g0.03-p0.9",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.709947003999332,
+      "probe_dispatch_seconds": 41.25115451498641,
+      "reconstruction_seconds": 151.99684963699474,
+      "terminal_head_seconds": 7.691493429996626,
+      "worker_wall_seconds_including_artifact_io": 194.1459274739991
+    }
+  },
+  {
+    "bundle_sha256": "2fa03d0cc142da15c33fcf9b9e9a3c599393a2c87bad45291fe644d4d91feee6",
+    "config_id": "n8-e0.003-g0.03-p0.96",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.7221126240001468,
+      "probe_dispatch_seconds": 41.31513550100135,
+      "reconstruction_seconds": 152.2539579479926,
+      "terminal_head_seconds": 7.710911072010276,
+      "worker_wall_seconds_including_artifact_io": 194.50993348800148
+    }
+  },
+  {
+    "bundle_sha256": "a0b2ca7b7664e0a3052c9366cf6ac85cca41a83bd6ad29e26b7289dfa27961a2",
+    "config_id": "n8-e0.003-g0.03-p0.99",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.5944737050085678,
+      "probe_dispatch_seconds": 41.238407435992485,
+      "reconstruction_seconds": 152.17907511601334,
+      "terminal_head_seconds": 7.691285757000514,
+      "worker_wall_seconds_including_artifact_io": 194.26403323900013
+    }
+  },
+  {
+    "bundle_sha256": "41e95e2d6d3f6298a8c151bb8ac3e1172af36e287712fbcb447e0ade36c6dfc6",
+    "config_id": "n9-e0.003-g0.03-p0.9",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.596054240004378,
+      "probe_dispatch_seconds": 41.293593045993475,
+      "reconstruction_seconds": 161.6905131629901,
+      "terminal_head_seconds": 7.701608533005128,
+      "worker_wall_seconds_including_artifact_io": 203.8218407050008
+    }
+  },
+  {
+    "bundle_sha256": "ee621222b3e4d3fb14a7cafd99ea43596383e0331d2ff1bd8c8ea361a9d639b1",
+    "config_id": "n9-e0.003-g0.03-p0.96",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.6868600110065017,
+      "probe_dispatch_seconds": 41.28360997300297,
+      "reconstruction_seconds": 161.6663344879944,
+      "terminal_head_seconds": 7.695388122001532,
+      "worker_wall_seconds_including_artifact_io": 203.8025795880003
+    }
+  },
+  {
+    "bundle_sha256": "33b992439c55d9e352f1470d2cac372e198bd81665a251d0df38e7053265d4bc",
+    "config_id": "n9-e0.003-g0.03-p0.99",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.651009614004579,
+      "probe_dispatch_seconds": 41.2262659370117,
+      "reconstruction_seconds": 161.3908384929964,
+      "terminal_head_seconds": 7.690122047011755,
+      "worker_wall_seconds_including_artifact_io": 203.51703163500133
+    }
+  },
+  {
+    "bundle_sha256": "1d4997209551634cd93d84fefec25964f32dee947cc5626b2c507a96f2b3d46b",
+    "config_id": "n8-e0.003-g0.003-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.64438052999958,
+      "probe_dispatch_seconds": 41.25368649500342,
+      "reconstruction_seconds": 152.1948481939944,
+      "terminal_head_seconds": 7.706254891999379,
+      "worker_wall_seconds_including_artifact_io": 194.2877775800007
+    }
+  },
+  {
+    "bundle_sha256": "4750598c02635c3ea7aa98baaa206239dfa7a4794dd8fa418cef95ffd5ec1b24",
+    "config_id": "n8-e0.003-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.635593285998766,
+      "probe_dispatch_seconds": 41.23310853699513,
+      "reconstruction_seconds": 152.00133350500164,
+      "terminal_head_seconds": 7.697423548002007,
+      "worker_wall_seconds_including_artifact_io": 194.07173220099958
+    }
+  },
+  {
+    "bundle_sha256": "e041b0316094763aed4ecf4660919246ba52dfd7ca630bc0a88de1704c23f4d0",
+    "config_id": "n8-e0.003-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 2.726945505997719,
+      "probe_dispatch_seconds": 41.20839096400596,
+      "reconstruction_seconds": 151.93463165600224,
+      "terminal_head_seconds": 7.6918289870081935,
+      "worker_wall_seconds_including_artifact_io": 194.11455942700013
+    }
+  },
+  {
+    "bundle_sha256": "168c23af0fa9c3cb72e0f7dca803b388bec5cadfb7fdce53243908ee0feeef73",
+    "config_id": "n8-e0.01-g0.003-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25219.15625,
+      "post_inference_policy_artifact_seconds": 2.6162700509958086,
+      "probe_dispatch_seconds": 41.26926173200263,
+      "reconstruction_seconds": 152.10485252100534,
+      "terminal_head_seconds": 7.69729044599535,
+      "worker_wall_seconds_including_artifact_io": 194.11522423000042
+    }
+  },
+  {
+    "bundle_sha256": "ba099a78775d86cbc5329b0e3ad825a2ec00db0c3c9b7ce789151dd1ed9eb313",
+    "config_id": "n8-e0.01-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25219.15625,
+      "post_inference_policy_artifact_seconds": 2.584383119003178,
+      "probe_dispatch_seconds": 41.25895518899415,
+      "reconstruction_seconds": 152.20726323500003,
+      "terminal_head_seconds": 7.695771525999589,
+      "worker_wall_seconds_including_artifact_io": 194.2187407930005
+    }
+  },
+  {
+    "bundle_sha256": "eaf4538ec05ec267cfc123ef2c4ad294a1bf2aee1aac6ebdb6846dd36e4144a3",
+    "config_id": "n9-e0.003-g0.003-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.620919912995305,
+      "probe_dispatch_seconds": 41.253780197994274,
+      "reconstruction_seconds": 161.426414447993,
+      "terminal_head_seconds": 7.707105264997153,
+      "worker_wall_seconds_including_artifact_io": 203.51488716600034
+    }
+  },
+  {
+    "bundle_sha256": "cac3c75aad33ea921edbe54a69f99c4c62802fe105905b9987bce05b06a85ce1",
+    "config_id": "n9-e0.003-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.6090205750078894,
+      "probe_dispatch_seconds": 41.24393658799272,
+      "reconstruction_seconds": 161.5934439070097,
+      "terminal_head_seconds": 7.703917789005573,
+      "worker_wall_seconds_including_artifact_io": 203.5833956030001
+    }
+  },
+  {
+    "bundle_sha256": "9a94335818996dc2ded1db3154667ea87319e31110ecc7da8d62e91ccce298e6",
+    "config_id": "n9-e0.003-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.71349471800022,
+      "probe_dispatch_seconds": 41.24371575599798,
+      "reconstruction_seconds": 161.40260932501042,
+      "terminal_head_seconds": 7.696714264000548,
+      "worker_wall_seconds_including_artifact_io": 203.54909705199861
+    }
+  },
+  {
+    "bundle_sha256": "f0a7cfb26ce04f82a6ac512f1c34b3fb15bf38b6c8e7b32cc4f4b2a41bb53a0f",
+    "config_id": "n9-e0.01-g0.003-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.6119872050076083,
+      "probe_dispatch_seconds": 41.282616826001686,
+      "reconstruction_seconds": 161.57004189600593,
+      "terminal_head_seconds": 7.706870909007193,
+      "worker_wall_seconds_including_artifact_io": 203.68146597399937
+    }
+  },
+  {
+    "bundle_sha256": "27b6853ee332767c953600565a35fb554e927d61a698c0809a1e0339dc1616a9",
+    "config_id": "n9-e0.01-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.6141553620091145,
+      "probe_dispatch_seconds": 41.2137051280115,
+      "reconstruction_seconds": 161.45472953301032,
+      "terminal_head_seconds": 7.698860450995198,
+      "worker_wall_seconds_including_artifact_io": 203.4736651330004
+    }
+  },
+  {
+    "bundle_sha256": "f0a7860f3ba4196ef2c15d094e0623f9a4e4c4c0aef18127347f4798062b5dfc",
+    "config_id": "n9-e0.03-g0.03-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "development",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 2.612725336006406,
+      "probe_dispatch_seconds": 41.24205701300707,
+      "reconstruction_seconds": 161.58295855300094,
+      "terminal_head_seconds": 7.694984738003768,
+      "worker_wall_seconds_including_artifact_io": 203.68153123600132
+    }
+  },
+  {
+    "bundle_sha256": "72866ec4c693e661a859663e232eee3112643a74bcd291bad43d6a1d6bed527d",
+    "config_id": "n1-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "smoke",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25209.03076171875,
+      "post_inference_policy_artifact_seconds": 0.09778876400014269,
+      "probe_dispatch_seconds": 1.0809733200003393,
+      "reconstruction_seconds": 9.494342942000003,
+      "terminal_head_seconds": 0.25742590600020776,
+      "worker_wall_seconds_including_artifact_io": 31.529039711000223
+    }
+  },
+  {
+    "bundle_sha256": "e1ae2b4dbbf0df38adeec734ddf6b990c5bbc9f91f2b9cc3016296b476666c56",
+    "config_id": "n10-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "smoke",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.421875,
+      "post_inference_policy_artifact_seconds": 0.10570874900076888,
+      "probe_dispatch_seconds": 1.5951384130003134,
+      "reconstruction_seconds": 10.931594358000439,
+      "terminal_head_seconds": 0.2571310020002784,
+      "worker_wall_seconds_including_artifact_io": 32.95725598399986
+    }
+  },
+  {
+    "bundle_sha256": "f10ce0cd5defcfd9ce05376eb4a2902f8942bcf551f5a25fbb78d450c549aff8",
+    "config_id": "n5-e0.01-g0.01-p0.95",
+    "cost_policy": "reconstruction includes preparation and all probe work; terminal head added once; probe dispatch is overlapping diagnostic, not added twice",
+    "seed": 0,
+    "stage": "smoke",
+    "total_cost": {
+      "peak_gpu_memory_mb": 25218.40625,
+      "post_inference_policy_artifact_seconds": 0.0917403089997606,
+      "probe_dispatch_seconds": 1.6058222370002113,
+      "reconstruction_seconds": 10.08923454700016,
+      "terminal_head_seconds": 0.2572299789999306,
+      "worker_wall_seconds_including_artifact_io": 32.16384284000014
+    }
+  }
+]

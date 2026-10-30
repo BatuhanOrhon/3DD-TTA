@@ -1,0 +1,14 @@
+{
+  "status": "registered_selection_reproduced_locally",
+  "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "scores_sha256": "d2cb70b7605331cc36c16c133b594a0450c0b026bba90da3ac010df62fa2cfde",
+  "selected_depths": [
+    8,
+    9
+  ],
+  "new_rate_jobs": 16,
+  "accepted_reports_including_smoke": 13,
+  "unavailable": 0,
+  "charged_seconds_after_smoke_depth": 1967.9702373150003,
+  "raw_local_validation": "smoke raw/cache fully checked; development analyzer/score/stage artifacts downloaded, full development raw/cache roundtrip remains pending"
+}

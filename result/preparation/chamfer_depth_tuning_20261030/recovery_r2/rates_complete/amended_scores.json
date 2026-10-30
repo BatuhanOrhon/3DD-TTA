@@ -1,0 +1,577 @@
+[
+  {
+    "accuracy_pct": 55.885416666666664,
+    "bundle_sha256": "47821ced89ab8c99060f8c69213156aa3286dd4287e804aba29be10fd7715f09",
+    "config_id": "n1-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 64.32291666666667,
+    "bundle_sha256": "75d5ffef70fee655ab9afc830dae21b9650b443368f0f6c67abe6d5872cb85ee",
+    "config_id": "n10-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 58.645833333333336,
+    "bundle_sha256": "4d97181e96bb4e93dbbd16d20de9cff0c2fc10e4fe0fb9d42d7d39dc7d2882fb",
+    "config_id": "n2-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 61.614583333333336,
+    "bundle_sha256": "42acdb17c2fb7e761ef31801332109ac20ce9a2066e3342705e8cfd9b64a8ebb",
+    "config_id": "n3-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 63.020833333333336,
+    "bundle_sha256": "5e7ad39e47f8f61932042666ef107a9ec07b5a9cc57e7ecb2bb3b2f792731a4c",
+    "config_id": "n4-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 64.16666666666667,
+    "bundle_sha256": "5fdf50e5dee2944f10e3696f3e597d760f960db7fead674cbda45405afbd4134",
+    "config_id": "n5-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 64.375,
+    "bundle_sha256": "c7ad429ab2b9692bfb8a7062ba2bf41a6edde2c844469e634303dba1297e56c4",
+    "config_id": "n6-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 64.21875,
+    "bundle_sha256": "7b458d60a55bad6080c263229e121aa882bc985fca10571c0bab0518aec79922",
+    "config_id": "n7-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 65.0,
+    "bundle_sha256": "8a99ef84441b05a5ef2f7ea030eb415e8d2a0930bbc72a49f05f7bc195f26bc8",
+    "config_id": "n8-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 64.53125,
+    "bundle_sha256": "3dc965e5c042232bf1e50cd8ab6fb7611dcb54dac08f02a87f8a9b6c78a0de77",
+    "config_id": "n9-e0.01-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 63.177083333333336,
+    "bundle_sha256": "1d4997209551634cd93d84fefec25964f32dee947cc5626b2c507a96f2b3d46b",
+    "config_id": "n8-e0.003-g0.003-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 64.27083333333333,
+    "bundle_sha256": "4750598c02635c3ea7aa98baaa206239dfa7a4794dd8fa418cef95ffd5ec1b24",
+    "config_id": "n8-e0.003-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 65.46875,
+    "bundle_sha256": "e041b0316094763aed4ecf4660919246ba52dfd7ca630bc0a88de1704c23f4d0",
+    "config_id": "n8-e0.003-g0.03-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 63.28125,
+    "bundle_sha256": "168c23af0fa9c3cb72e0f7dca803b388bec5cadfb7fdce53243908ee0feeef73",
+    "config_id": "n8-e0.01-g0.003-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 65.26041666666667,
+    "bundle_sha256": "ba099a78775d86cbc5329b0e3ad825a2ec00db0c3c9b7ce789151dd1ed9eb313",
+    "config_id": "n8-e0.01-g0.03-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 63.4375,
+    "bundle_sha256": "eaf4538ec05ec267cfc123ef2c4ad294a1bf2aee1aac6ebdb6846dd36e4144a3",
+    "config_id": "n9-e0.003-g0.003-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 63.802083333333336,
+    "bundle_sha256": "cac3c75aad33ea921edbe54a69f99c4c62802fe105905b9987bce05b06a85ce1",
+    "config_id": "n9-e0.003-g0.01-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 65.36458333333333,
+    "bundle_sha256": "9a94335818996dc2ded1db3154667ea87319e31110ecc7da8d62e91ccce298e6",
+    "config_id": "n9-e0.003-g0.03-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 63.541666666666664,
+    "bundle_sha256": "f0a7cfb26ce04f82a6ac512f1c34b3fb15bf38b6c8e7b32cc4f4b2a41bb53a0f",
+    "config_id": "n9-e0.01-g0.003-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 65.20833333333333,
+    "bundle_sha256": "27b6853ee332767c953600565a35fb554e927d61a698c0809a1e0339dc1616a9",
+    "config_id": "n9-e0.01-g0.03-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": 64.73958333333333,
+    "bundle_sha256": "f0a7860f3ba4196ef2c15d094e0623f9a4e4c4c0aef18127347f4798062b5dfc",
+    "config_id": "n9-e0.03-g0.03-p0.95",
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "seed": 0,
+    "stage": "development",
+    "status": "accepted"
+  },
+  {
+    "accuracy_pct": null,
+    "bundle_sha256": "0d4263a35afae664d9b79987f803da3e48bc3b9a1c2939faab3fae5d1c9f209d",
+    "cache_proofs": [
+      {
+        "bytes": 1973524,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "422970785e805c7bacc11a67d589565fe532e2559e637291f2a0415579dd8640"
+      },
+      {
+        "bytes": 1973499,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "822fdd34078a08baeb48010b65354b78d92d1aebac59f8c4cdc81dea0acc6a68"
+      },
+      {
+        "bytes": 1973082,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "37455c13381ecd47f0b4184b29d3cc90d617259156586be85ee194c29455fe87"
+      },
+      {
+        "bytes": 1971855,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "179a9a3ea14ea975ad668c1b66694ffb72bd77af0f444463f29f378ece4f2063"
+      },
+      {
+        "bytes": 1973643,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "4605cd63450bd51a975387022585ddd04794105c6ad0df77d3194a48fe9fbf06"
+      },
+      {
+        "bytes": 1973420,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "70b34dbb67f4573767f37871459e351e5412379f42610a183b8b4113b6b29384"
+      },
+      {
+        "bytes": 1972911,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "34f1a51616d41f85413cbef778eda90898cb0eff0fbf1badd362f7f765c966d8"
+      },
+      {
+        "bytes": 1971621,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "1ff50675725a12ed85b2943da54f85ffb7690e259d6a37c57698d50908efe317"
+      },
+      {
+        "bytes": 1972336,
+        "relative_path": "paired/seed0/modelnet40_c/background/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "32fd41efac7849fcc42607a6fdb500511a7b31631f9f5169dd1b25764417c01a"
+      }
+    ],
+    "classification": "post-failure exploratory protocol amendment",
+    "config_id": "n8-e0.03-g0.003-p0.95",
+    "console_identity": {
+      "bytes": 18079,
+      "sha256": "f6651b66958767d26410fe59f0caf29683086f34c167b8d86046b920cd5e843f"
+    },
+    "evidence_limit": "Frozen guard and traceback prove guidance-path predicted-clean classifier-input nonfinite rejection. Decoder/latent root cause is not isolated; failing probe arrays and after-probe purity were not captured.",
+    "failed_batch": 0,
+    "failed_corruption": "background",
+    "failed_probe_buffer_equality": null,
+    "failed_probe_loop_count": null,
+    "failed_probe_rng_equality": null,
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "reason": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+    "seed": 0,
+    "stage": "development",
+    "status": "infeasible"
+  },
+  {
+    "accuracy_pct": null,
+    "bundle_sha256": "0ba3d50a00384da4f473f96f445af4faa24b885e1c97e61af5fc68678851531c",
+    "cache_proofs": [
+      {
+        "bytes": 1973524,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "422970785e805c7bacc11a67d589565fe532e2559e637291f2a0415579dd8640"
+      },
+      {
+        "bytes": 1973499,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "822fdd34078a08baeb48010b65354b78d92d1aebac59f8c4cdc81dea0acc6a68"
+      },
+      {
+        "bytes": 1973082,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "37455c13381ecd47f0b4184b29d3cc90d617259156586be85ee194c29455fe87"
+      },
+      {
+        "bytes": 1971855,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "179a9a3ea14ea975ad668c1b66694ffb72bd77af0f444463f29f378ece4f2063"
+      },
+      {
+        "bytes": 1973643,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "4605cd63450bd51a975387022585ddd04794105c6ad0df77d3194a48fe9fbf06"
+      },
+      {
+        "bytes": 1973420,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "70b34dbb67f4573767f37871459e351e5412379f42610a183b8b4113b6b29384"
+      },
+      {
+        "bytes": 1972911,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "34f1a51616d41f85413cbef778eda90898cb0eff0fbf1badd362f7f765c966d8"
+      },
+      {
+        "bytes": 1971621,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "1ff50675725a12ed85b2943da54f85ffb7690e259d6a37c57698d50908efe317"
+      },
+      {
+        "bytes": 1972336,
+        "relative_path": "paired/seed0/modelnet40_c/background/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "32fd41efac7849fcc42607a6fdb500511a7b31631f9f5169dd1b25764417c01a"
+      },
+      {
+        "bytes": 1972638,
+        "relative_path": "paired/seed0/modelnet40_c/background/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "891020bde64ef0081a6c62d8d6d8e84a9d331fb59045acb7bed4758133308f4a"
+      }
+    ],
+    "classification": "post-failure exploratory protocol amendment",
+    "config_id": "n8-e0.03-g0.01-p0.95",
+    "console_identity": {
+      "bytes": 18167,
+      "sha256": "6dbf695060352a8f40c04ea910bb98aa6cf22cbf9c71f850b436670868311102"
+    },
+    "evidence_limit": "Frozen guard and traceback prove guidance-path predicted-clean classifier-input nonfinite rejection. Decoder/latent root cause is not isolated; failing probe arrays and after-probe purity were not captured.",
+    "failed_batch": 1,
+    "failed_corruption": "background",
+    "failed_probe_buffer_equality": null,
+    "failed_probe_loop_count": null,
+    "failed_probe_rng_equality": null,
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "reason": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+    "seed": 0,
+    "stage": "development",
+    "status": "infeasible"
+  },
+  {
+    "accuracy_pct": null,
+    "bundle_sha256": "d7046fa197da269c4dad304650c52c770a96821ebc99b29dde0e84d850788423",
+    "cache_proofs": [
+      {
+        "bytes": 1973524,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "422970785e805c7bacc11a67d589565fe532e2559e637291f2a0415579dd8640"
+      },
+      {
+        "bytes": 1973499,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "822fdd34078a08baeb48010b65354b78d92d1aebac59f8c4cdc81dea0acc6a68"
+      },
+      {
+        "bytes": 1973082,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "37455c13381ecd47f0b4184b29d3cc90d617259156586be85ee194c29455fe87"
+      },
+      {
+        "bytes": 1971855,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "179a9a3ea14ea975ad668c1b66694ffb72bd77af0f444463f29f378ece4f2063"
+      },
+      {
+        "bytes": 1973643,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "4605cd63450bd51a975387022585ddd04794105c6ad0df77d3194a48fe9fbf06"
+      },
+      {
+        "bytes": 1973420,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "70b34dbb67f4573767f37871459e351e5412379f42610a183b8b4113b6b29384"
+      },
+      {
+        "bytes": 1972911,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "34f1a51616d41f85413cbef778eda90898cb0eff0fbf1badd362f7f765c966d8"
+      },
+      {
+        "bytes": 1971621,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "1ff50675725a12ed85b2943da54f85ffb7690e259d6a37c57698d50908efe317"
+      },
+      {
+        "bytes": 1972336,
+        "relative_path": "paired/seed0/modelnet40_c/background/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "32fd41efac7849fcc42607a6fdb500511a7b31631f9f5169dd1b25764417c01a"
+      },
+      {
+        "bytes": 1972638,
+        "relative_path": "paired/seed0/modelnet40_c/background/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "891020bde64ef0081a6c62d8d6d8e84a9d331fb59045acb7bed4758133308f4a"
+      }
+    ],
+    "classification": "post-failure exploratory protocol amendment",
+    "config_id": "n8-e0.03-g0.03-p0.95",
+    "console_identity": {
+      "bytes": 18165,
+      "sha256": "4604255867e210fdb1c7d4d06a27e1943cb03210605da44fd03b0cad1be2ca1f"
+    },
+    "evidence_limit": "Frozen guard and traceback prove guidance-path predicted-clean classifier-input nonfinite rejection. Decoder/latent root cause is not isolated; failing probe arrays and after-probe purity were not captured.",
+    "failed_batch": 1,
+    "failed_corruption": "background",
+    "failed_probe_buffer_equality": null,
+    "failed_probe_loop_count": null,
+    "failed_probe_rng_equality": null,
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "reason": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+    "seed": 0,
+    "stage": "development",
+    "status": "infeasible"
+  },
+  {
+    "accuracy_pct": null,
+    "bundle_sha256": "ed637e807d0fcd4563a4197c3c390c11377638ca2a3b8679b0d919abe8a583ce",
+    "cache_proofs": [
+      {
+        "bytes": 1973524,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "422970785e805c7bacc11a67d589565fe532e2559e637291f2a0415579dd8640"
+      },
+      {
+        "bytes": 1973499,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "822fdd34078a08baeb48010b65354b78d92d1aebac59f8c4cdc81dea0acc6a68"
+      },
+      {
+        "bytes": 1973082,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "37455c13381ecd47f0b4184b29d3cc90d617259156586be85ee194c29455fe87"
+      },
+      {
+        "bytes": 1971855,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "179a9a3ea14ea975ad668c1b66694ffb72bd77af0f444463f29f378ece4f2063"
+      },
+      {
+        "bytes": 1973643,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "4605cd63450bd51a975387022585ddd04794105c6ad0df77d3194a48fe9fbf06"
+      },
+      {
+        "bytes": 1973420,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "70b34dbb67f4573767f37871459e351e5412379f42610a183b8b4113b6b29384"
+      },
+      {
+        "bytes": 1972911,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "34f1a51616d41f85413cbef778eda90898cb0eff0fbf1badd362f7f765c966d8"
+      },
+      {
+        "bytes": 1971621,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "1ff50675725a12ed85b2943da54f85ffb7690e259d6a37c57698d50908efe317"
+      },
+      {
+        "bytes": 1972336,
+        "relative_path": "paired/seed0/modelnet40_c/background/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "32fd41efac7849fcc42607a6fdb500511a7b31631f9f5169dd1b25764417c01a"
+      },
+      {
+        "bytes": 1972638,
+        "relative_path": "paired/seed0/modelnet40_c/background/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "891020bde64ef0081a6c62d8d6d8e84a9d331fb59045acb7bed4758133308f4a"
+      }
+    ],
+    "classification": "post-failure exploratory protocol amendment",
+    "config_id": "n9-e0.03-g0.003-p0.95",
+    "console_identity": {
+      "bytes": 18167,
+      "sha256": "64103a94c0a5550edfbaa6e3ed2f4cc4320372a0afcc49551d11b00e2518d5e4"
+    },
+    "evidence_limit": "Frozen guard and traceback prove guidance-path predicted-clean classifier-input nonfinite rejection. Decoder/latent root cause is not isolated; failing probe arrays and after-probe purity were not captured.",
+    "failed_batch": 1,
+    "failed_corruption": "background",
+    "failed_probe_buffer_equality": null,
+    "failed_probe_loop_count": null,
+    "failed_probe_rng_equality": null,
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "reason": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+    "seed": 0,
+    "stage": "development",
+    "status": "infeasible"
+  },
+  {
+    "accuracy_pct": null,
+    "bundle_sha256": "3335f5fa03b44fecd03fd670c0724e0a0405f9899a8fdea7d1386b1bbb32d9a7",
+    "cache_proofs": [
+      {
+        "bytes": 1973524,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "422970785e805c7bacc11a67d589565fe532e2559e637291f2a0415579dd8640"
+      },
+      {
+        "bytes": 1973499,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "822fdd34078a08baeb48010b65354b78d92d1aebac59f8c4cdc81dea0acc6a68"
+      },
+      {
+        "bytes": 1973082,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "37455c13381ecd47f0b4184b29d3cc90d617259156586be85ee194c29455fe87"
+      },
+      {
+        "bytes": 1971855,
+        "relative_path": "paired/seed0/modelnet40_c/uniform/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "179a9a3ea14ea975ad668c1b66694ffb72bd77af0f444463f29f378ece4f2063"
+      },
+      {
+        "bytes": 1973643,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "4605cd63450bd51a975387022585ddd04794105c6ad0df77d3194a48fe9fbf06"
+      },
+      {
+        "bytes": 1973420,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "70b34dbb67f4573767f37871459e351e5412379f42610a183b8b4113b6b29384"
+      },
+      {
+        "bytes": 1972911,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+        "sha256": "34f1a51616d41f85413cbef778eda90898cb0eff0fbf1badd362f7f765c966d8"
+      },
+      {
+        "bytes": 1971621,
+        "relative_path": "paired/seed0/modelnet40_c/gaussian/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+        "sha256": "1ff50675725a12ed85b2943da54f85ffb7690e259d6a37c57698d50908efe317"
+      },
+      {
+        "bytes": 1972336,
+        "relative_path": "paired/seed0/modelnet40_c/background/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+        "sha256": "32fd41efac7849fcc42607a6fdb500511a7b31631f9f5169dd1b25764417c01a"
+      },
+      {
+        "bytes": 1972638,
+        "relative_path": "paired/seed0/modelnet40_c/background/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+        "sha256": "891020bde64ef0081a6c62d8d6d8e84a9d331fb59045acb7bed4758133308f4a"
+      }
+    ],
+    "classification": "post-failure exploratory protocol amendment",
+    "config_id": "n9-e0.03-g0.01-p0.95",
+    "console_identity": {
+      "bytes": 18166,
+      "sha256": "ba2c630c51c137ab9d230eb39ef8c2ce4fb55ed52a9cc5ce3e916fda107ff79e"
+    },
+    "evidence_limit": "Frozen guard and traceback prove guidance-path predicted-clean classifier-input nonfinite rejection. Decoder/latent root cause is not isolated; failing probe arrays and after-probe purity were not captured.",
+    "failed_batch": 1,
+    "failed_corruption": "background",
+    "failed_probe_buffer_equality": null,
+    "failed_probe_loop_count": null,
+    "failed_probe_rng_equality": null,
+    "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+    "readout": "probability_mean",
+    "reason": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+    "seed": 0,
+    "stage": "development",
+    "status": "infeasible"
+  }
+]

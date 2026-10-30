@@ -1,0 +1,47 @@
+{
+  "approved": true,
+  "user_statement": "Bu protokol de\u011fi\u015fikli\u011fiyle devam et (\u00f6nerilen)",
+  "approved_at_utc": "2026-10-30T15:46:23.261640+00:00",
+  "sealed_at_utc": "2026-10-30T15:59:29.403146+00:00",
+  "classification": "post-failure exploratory protocol amendment",
+  "original_plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "source_snapshot_sha256": "166df3799834bc72541f1189407bf56d992a23bfdce9827db1c422d9ba5b3636",
+  "cumulative_wall_cap_seconds": 10800,
+  "proposal_identity": {
+    "bytes": 5463,
+    "sha256": "db27ad98fe3c322491148bf05c1672e8a16c4b3a7396e3eb50fdec893c19a737"
+  },
+  "acknowledgment_identity": {
+    "bytes": 804,
+    "sha256": "5d6e8d29eed1ab62a84b211f1705a793f6bb3dfb4fbe5bbcfbc8fc0f8a12453c"
+  },
+  "original_gpu_approval_identity": {
+    "bytes": 576,
+    "sha256": "b94bf53bbc6828e45f7c53db05fc5470c9db2779e22f50e7cc1b6b1429ac125f"
+  },
+  "original_gpu_approval_source_identity": {
+    "bytes": 576,
+    "sha256": "32eab373dfa3c50b055b4d69a5e08dde3f29f107ed19494efd282f1c80e983a2"
+  },
+  "continuation_sources": {
+    "continue_campaign.py": {
+      "bytes": 34069,
+      "sha256": "c0be698df8bdec50c14beeea5edceb701e941a7bec80096af8f7f980e5ad424a"
+    },
+    "test_continue_campaign.py": {
+      "bytes": 22665,
+      "sha256": "e76dd8cd4bee398127b558c36735576f295ed8bb92317fe240403f6101055681"
+    }
+  },
+  "base_ledger_identity": {
+    "bytes": 21429,
+    "sha256": "e404b69a124c22b517ef5c9b4c0911f300f02057e0495c112974f3b9e18ca637"
+  },
+  "recovery_charge_seconds": 420.0,
+  "recovery_charge_policy": "Conservative420s allowance for completed CPU artifact export, parallel VM/Drive transfers and independent local raw/cache verification; not GPU billing or measured worker time. Actual remote archive phase75.743879s; local/transfer end-to-end wall was not fully instrumented. This charge reduces remaining GPU allowance; no cap increase.",
+  "remaining_rate_jobs": 10,
+  "max_remaining_gpu_attempts": 25,
+  "numerical_failure_accuracy": null,
+  "failed_slot_must_not_repeat": "rates-n8-e0.03-g0.003-p0.95-s0",
+  "mathematical_source_ids_seeds_grid_unchanged": true
+}

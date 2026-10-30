@@ -1,0 +1,100 @@
+{
+  "status": "accepted",
+  "verified_utc": "2026-10-30T16:02:34.273180+00:00",
+  "archive": {
+    "bytes": 22758,
+    "sha256": "33b80439234e00f469c17caf0be4a3cf00260eacf03fc0ece70f82413b66e386"
+  },
+  "physical_vm_drive_local_match": true,
+  "crc_paths_all_member_identities": true,
+  "report": {
+    "status": "passed",
+    "session": "tta-chamfer-depth-tuning-a100-20261030-r2",
+    "endpoint": "gpu-a100-hm-ass1c0-79r779o7n5fk",
+    "scientific_source_unchanged": true,
+    "gpu_forward_executed": false,
+    "amendment_identity": {
+      "bytes": 2163,
+      "sha256": "aea46735f13fe561159efc47c457debf62693438dd78d38e169856b679dc0330"
+    },
+    "continuation_sources": {
+      "continue_campaign.py": {
+        "bytes": 34069,
+        "sha256": "c0be698df8bdec50c14beeea5edceb701e941a7bec80096af8f7f980e5ad424a"
+      },
+      "test_continue_campaign.py": {
+        "bytes": 22665,
+        "sha256": "e76dd8cd4bee398127b558c36735576f295ed8bb92317fe240403f6101055681"
+      }
+    },
+    "classified_existing_failure": {
+      "status": "infeasible",
+      "accuracy_pct": null,
+      "config_id": "n8-e0.03-g0.003-p0.95",
+      "seed": 0,
+      "stage": "development",
+      "readout": "probability_mean",
+      "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+      "bundle_sha256": "0d4263a35afae664d9b79987f803da3e48bc3b9a1c2939faab3fae5d1c9f209d",
+      "reason": "ValueError: Classifier input contains nonfinite XYZ coordinates",
+      "classification": "post-failure exploratory protocol amendment",
+      "failed_corruption": "background",
+      "failed_batch": 0,
+      "failed_probe_loop_count": null,
+      "failed_probe_rng_equality": null,
+      "failed_probe_buffer_equality": null,
+      "evidence_limit": "Frozen guard and traceback prove guidance-path predicted-clean classifier-input nonfinite rejection. Decoder/latent root cause is not isolated; failing probe arrays and after-probe purity were not captured.",
+      "console_identity": {
+        "bytes": 18079,
+        "sha256": "f6651b66958767d26410fe59f0caf29683086f34c167b8d86046b920cd5e843f"
+      },
+      "cache_proofs": [
+        {
+          "bytes": 1973524,
+          "relative_path": "paired/seed0/modelnet40_c/uniform/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+          "sha256": "422970785e805c7bacc11a67d589565fe532e2559e637291f2a0415579dd8640"
+        },
+        {
+          "bytes": 1973499,
+          "relative_path": "paired/seed0/modelnet40_c/uniform/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+          "sha256": "822fdd34078a08baeb48010b65354b78d92d1aebac59f8c4cdc81dea0acc6a68"
+        },
+        {
+          "bytes": 1973082,
+          "relative_path": "paired/seed0/modelnet40_c/uniform/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+          "sha256": "37455c13381ecd47f0b4184b29d3cc90d617259156586be85ee194c29455fe87"
+        },
+        {
+          "bytes": 1971855,
+          "relative_path": "paired/seed0/modelnet40_c/uniform/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+          "sha256": "179a9a3ea14ea975ad668c1b66694ffb72bd77af0f444463f29f378ece4f2063"
+        },
+        {
+          "bytes": 1973643,
+          "relative_path": "paired/seed0/modelnet40_c/gaussian/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+          "sha256": "4605cd63450bd51a975387022585ddd04794105c6ad0df77d3194a48fe9fbf06"
+        },
+        {
+          "bytes": 1973420,
+          "relative_path": "paired/seed0/modelnet40_c/gaussian/d4550dbf98a2a3fb4720808006482ae62db3be60b767c89b345d027543372711.npz",
+          "sha256": "70b34dbb67f4573767f37871459e351e5412379f42610a183b8b4113b6b29384"
+        },
+        {
+          "bytes": 1972911,
+          "relative_path": "paired/seed0/modelnet40_c/gaussian/20a0526d40af3c98f47e0ebbb67e5f414056ac67c4354a14a902f456ecfb4aea.npz",
+          "sha256": "34f1a51616d41f85413cbef778eda90898cb0eff0fbf1badd362f7f765c966d8"
+        },
+        {
+          "bytes": 1971621,
+          "relative_path": "paired/seed0/modelnet40_c/gaussian/a0ff119b07410e67e95eb21a89415112f5633fec0af2d76a3a8148842b85c136.npz",
+          "sha256": "1ff50675725a12ed85b2943da54f85ffb7690e259d6a37c57698d50908efe317"
+        },
+        {
+          "bytes": 1972336,
+          "relative_path": "paired/seed0/modelnet40_c/background/7876ac5aba56c7e24920cbb7db26c249e491df86eb1232aa4ec91044ed669c20.npz",
+          "sha256": "32fd41efac7849fcc42607a6fdb500511a7b31631f9f5169dd1b25764417c01a"
+        }
+      ]
+    }
+  }
+}

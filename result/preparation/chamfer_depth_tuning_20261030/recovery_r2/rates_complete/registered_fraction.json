@@ -1,0 +1,92 @@
+{
+  "condition_roles": null,
+  "frozen_conditions": null,
+  "jobs": [
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 8,
+        "p": 0.9
+      },
+      "config_id": "n8-e0.003-g0.03-p0.9",
+      "seed": 0,
+      "slot_id": "fraction-n8-e0.003-g0.03-p0.9-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 8,
+        "p": 0.96
+      },
+      "config_id": "n8-e0.003-g0.03-p0.96",
+      "seed": 0,
+      "slot_id": "fraction-n8-e0.003-g0.03-p0.96-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 8,
+        "p": 0.99
+      },
+      "config_id": "n8-e0.003-g0.03-p0.99",
+      "seed": 0,
+      "slot_id": "fraction-n8-e0.003-g0.03-p0.99-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 9,
+        "p": 0.9
+      },
+      "config_id": "n9-e0.003-g0.03-p0.9",
+      "seed": 0,
+      "slot_id": "fraction-n9-e0.003-g0.03-p0.9-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 9,
+        "p": 0.96
+      },
+      "config_id": "n9-e0.003-g0.03-p0.96",
+      "seed": 0,
+      "slot_id": "fraction-n9-e0.003-g0.03-p0.96-s0",
+      "split": "development",
+      "technical_smoke": false
+    },
+    {
+      "config": {
+        "eta": 0.003,
+        "gamma": 0.03,
+        "normal_reverse_steps": 9,
+        "p": 0.99
+      },
+      "config_id": "n9-e0.003-g0.03-p0.99",
+      "seed": 0,
+      "slot_id": "fraction-n9-e0.003-g0.03-p0.99-s0",
+      "split": "development",
+      "technical_smoke": false
+    }
+  ],
+  "phase": "fraction",
+  "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "reused_config_ids": [
+    "n8-e0.003-g0.03-p0.95",
+    "n9-e0.003-g0.03-p0.95"
+  ],
+  "schema_version": 1,
+  "score_input_sha256": "8739659229bbea5947b1022e6ec0ee9061bc1af14e272e0731b849900b0902be"
+}

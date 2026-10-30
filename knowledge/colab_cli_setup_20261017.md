@@ -1,3 +1,19 @@
+## 2026-10-30 — New depth-study A100 ten-cell replay passes
+
+[Run/Open] Owned tta-chamfer-depth-tuning-a100-20261030-r1 completes all10
+canonical cells by12:35:03UTC, including native GPU checks, dataset and weights.
+Only the known cell2 fastrlock build failure was deferred; requirements later
+installed fastrlock0.8. Existing dask/importlib-metadata and scikit-image/networkx
+pip conflict warnings are recorded, without claiming global pip consistency.
+Intermittent CLI prelude connection losses were audited before retries; no
+duplicate setup/research process, CLI update, auth-state edit or peer operation.
+Cells6–8 preserve canonical code and append physical-marker asserts.
+The actual dev@a458cd4 preparation checkout, full runtime versions,17dataset
+identities and both checkpoint identities are preserved in the
+[depth study record](chamfer_depth_tuning_study_20261030.md) and its downloaded
+setup verification JSON. Scientific sealed-source CPU deployment is pending;
+this setup replay is not an accuracy result or research-GPU launch approval.
+
 # Colab CLI setup on Mac — 2026-10-17
 
 Evidence: [Code], [Run], [User decision], [Open].
@@ -487,3 +503,5 @@ does not explain every loss. The backend exposed no definitive termination
 reason. Keep primary `colab exec` output, exact completion markers, persistent
 phase markers and server inventory as separate evidence rather than claiming a
 single liveness signal.
+
+[Run/Decision] 2026-10-30 depth-study r2 canonicalten-cellsetup/native/CPU checks supported a completed44-attempt research campaign. Solemonitor31219 observed streamedprogress and read-only genuinehealth, never queuedfakecellswhileGPUbusy. Final1,345,860,484-byte evidenceZIP was splitinto256MiBparts for CLIContentsAPI downloads on16GBMac; all7267member identities/CRC and422physicalcachefiles verify locally. Derivedanalysis/knowledge alsoDrive-roundtrips. Onlyowneddepth-tuningr2closed18:06UTC underexplicitcompletion-and-closeauthorization; freshinventorypreservedotheragentguidance-variantsr1endpoint. See[accepteddepthresults](chamfer_depth_tuning_results_20261030.md) andclosure receipts. No claimthatmonitorpreventsbackendquota/lifetimeloss; originalr1loss remainsunexplained.

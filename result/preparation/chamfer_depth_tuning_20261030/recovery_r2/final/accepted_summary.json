@@ -1,0 +1,225 @@
+{
+  "accepted_at_utc": "2026-10-30T18:04:05.800235+00:00",
+  "archive": {
+    "bytes": 1345860484,
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_tuning_20261030/phase-evidence/final_snapshot_20261030T174831414018Z/campaign_evidence.zip",
+    "local_path": "/content/studies/chamfer-depth-tuning/exports/final_snapshot_20261030T174831414018Z.zip",
+    "sha256": "c2a4e46885f4b8ba8e4e5930418170c9126c2c1b576df4d3751b8593dae1a82c"
+  },
+  "cap_seconds": 10800,
+  "charged_seconds_latest_ledger": 10073.248667657,
+  "conditions": {
+    "n5-e0.01-g0.01-p0.95": {
+      "all15": {
+        "minimum_entropy": {
+          "mean_pct": 66.60590277777777,
+          "sample_sd_pp": 0.3695103585727868,
+          "seed_0_1_2_pct": [
+            67.00520833333333,
+            66.53645833333333,
+            66.27604166666667
+          ]
+        },
+        "probability_mean": {
+          "mean_pct": 66.51041666666667,
+          "sample_sd_pp": 0.29577647634376425,
+          "seed_0_1_2_pct": [
+            66.71875,
+            66.640625,
+            66.171875
+          ]
+        },
+        "terminal": {
+          "mean_pct": 65.78993055555556,
+          "sample_sd_pp": 0.42339404160615457,
+          "seed_0_1_2_pct": [
+            66.11979166666667,
+            65.9375,
+            65.3125
+          ]
+        }
+      },
+      "macro14": {
+        "minimum_entropy": {
+          "mean_pct": 67.30840773809524,
+          "sample_sd_pp": 0.3305311689716662,
+          "seed_0_1_2_pct": [
+            67.68973214285714,
+            67.13169642857143,
+            67.10379464285714
+          ]
+        },
+        "probability_mean": {
+          "mean_pct": 67.05729166666667,
+          "sample_sd_pp": 0.25163224067091866,
+          "seed_0_1_2_pct": [
+            67.29910714285714,
+            67.07589285714286,
+            66.796875
+          ]
+        },
+        "terminal": {
+          "mean_pct": 65.95982142857143,
+          "sample_sd_pp": 0.3107011363186423,
+          "seed_0_1_2_pct": [
+            66.23883928571429,
+            66.015625,
+            65.625
+          ]
+        }
+      }
+    },
+    "n8-e0.003-g0.03-p0.95": {
+      "all15": {
+        "minimum_entropy": {
+          "mean_pct": 68.79340277777777,
+          "sample_sd_pp": 0.7422255716356145,
+          "seed_0_1_2_pct": [
+            68.046875,
+            69.53125,
+            68.80208333333333
+          ]
+        },
+        "probability_mean": {
+          "mean_pct": 68.74131944444444,
+          "sample_sd_pp": 0.44828997686372846,
+          "seed_0_1_2_pct": [
+            68.38541666666667,
+            69.24479166666667,
+            68.59375
+          ]
+        },
+        "terminal": {
+          "mean_pct": 67.64756944444444,
+          "sample_sd_pp": 0.4733092319519274,
+          "seed_0_1_2_pct": [
+            67.265625,
+            68.17708333333333,
+            67.5
+          ]
+        }
+      },
+      "macro14": {
+        "minimum_entropy": {
+          "mean_pct": 68.98251488095238,
+          "sample_sd_pp": 0.6698365915190049,
+          "seed_0_1_2_pct": [
+            68.24776785714286,
+            69.55915178571429,
+            69.140625
+          ]
+        },
+        "probability_mean": {
+          "mean_pct": 68.88950892857143,
+          "sample_sd_pp": 0.3955760847867673,
+          "seed_0_1_2_pct": [
+            68.58258928571429,
+            69.3359375,
+            68.75
+          ]
+        },
+        "terminal": {
+          "mean_pct": 67.5688244047619,
+          "sample_sd_pp": 0.4786870994217893,
+          "seed_0_1_2_pct": [
+            67.13169642857143,
+            68.08035714285714,
+            67.49441964285714
+          ]
+        }
+      }
+    },
+    "n8-e0.01-g0.01-p0.95": {
+      "all15": {
+        "minimum_entropy": {
+          "mean_pct": 67.69965277777777,
+          "sample_sd_pp": 0.5339070942597867,
+          "seed_0_1_2_pct": [
+            67.08333333333333,
+            68.02083333333333,
+            67.99479166666667
+          ]
+        },
+        "probability_mean": {
+          "mean_pct": 67.69965277777777,
+          "sample_sd_pp": 0.4725922773894517,
+          "seed_0_1_2_pct": [
+            67.265625,
+            68.203125,
+            67.63020833333333
+          ]
+        },
+        "terminal": {
+          "mean_pct": 67.20486111111111,
+          "sample_sd_pp": 0.35547908384450083,
+          "seed_0_1_2_pct": [
+            67.265625,
+            67.52604166666667,
+            66.82291666666667
+          ]
+        }
+      },
+      "macro14": {
+        "minimum_entropy": {
+          "mean_pct": 68.48958333333333,
+          "sample_sd_pp": 0.5024904263110144,
+          "seed_0_1_2_pct": [
+            67.91294642857143,
+            68.72209821428571,
+            68.83370535714286
+          ]
+        },
+        "probability_mean": {
+          "mean_pct": 68.28497023809524,
+          "sample_sd_pp": 0.3959039556137043,
+          "seed_0_1_2_pct": [
+            67.85714285714286,
+            68.63839285714286,
+            68.359375
+          ]
+        },
+        "terminal": {
+          "mean_pct": 67.5688244047619,
+          "sample_sd_pp": 0.2651893123025169,
+          "seed_0_1_2_pct": [
+            67.578125,
+            67.82924107142857,
+            67.29910714285714
+          ]
+        }
+      }
+    }
+  },
+  "confirmation_object_clusters": 256,
+  "confirmation_seeds": [
+    0,
+    1,
+    2
+  ],
+  "cost_accounting": "worker/failure/validation/CPU/Drive wall plus conservative reserves and recovery charge; not GPU billing",
+  "coverage": {
+    "accepted": 39,
+    "confirmation": 9,
+    "development_attempts": 32,
+    "development_finite": 27,
+    "development_infeasible": 5,
+    "physical_caches": 422,
+    "smoke": 3,
+    "total_attempts": 44
+  },
+  "dataset": "ModelNet40-C severity5 all15",
+  "development_objects": 128,
+  "limits": [
+    "stage-reserved objects on historically exposed benchmark, not external unseen evaluation",
+    "conditional 256-object cluster intervals retain three fixed seeds and all corruptions jointly",
+    "finite sequential32-setting search, no global optimum; N10 development-only",
+    "original Chamfer CUDA atomic accumulation/native repeatability caveat, no proven root cause",
+    "five numerical failures retained null without retry; postfailure approved exploratory amendment",
+    "p=.95 historical original-code control, not exact paper p=.96"
+  ],
+  "model": "frozen Point-MAE; raw/eval LION EMAoff",
+  "plan_sha256": "3d6e42dbfc49966fc8d9b5ed79a133355a06dac63bde8e061a6fe624dfb1e8a6",
+  "primary_readout": "probability_mean",
+  "source_snapshot_sha256": "166df3799834bc72541f1189407bf56d992a23bfdce9827db1c422d9ba5b3636",
+  "status": "accepted_after_independent_local_raw_reanalysis"
+}

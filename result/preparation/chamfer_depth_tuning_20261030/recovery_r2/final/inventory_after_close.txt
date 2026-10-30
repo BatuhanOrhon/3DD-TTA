@@ -1,0 +1,6 @@
+
+[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[tta-chamfer-guidance-variants-a100-20261030-r1] gpu-a100-hm-ass1c0-3nh8smksm50de | Hardware: A100 | Shape: High-RAM | Variant: GPU

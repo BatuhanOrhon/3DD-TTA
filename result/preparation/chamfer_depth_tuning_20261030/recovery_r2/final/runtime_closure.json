@@ -1,0 +1,23 @@
+{
+  "command": [
+    "colab",
+    "stop",
+    "-s",
+    "tta-chamfer-depth-tuning-a100-20261030-r2"
+  ],
+  "monitor_runtime_teardown": false,
+  "monitor_stop_utc": "2026-10-30T18:05:55.230067+00:00",
+  "owned_absent_from_fresh_server_inventory": true,
+  "owned_endpoint": "gpu-a100-hm-ass1c0-79r779o7n5fk",
+  "owned_session": "tta-chamfer-depth-tuning-a100-20261030-r2",
+  "peer_endpoint": "gpu-a100-hm-ass1c0-3nh8smksm50de",
+  "peer_present_unchanged_in_fresh_server_inventory": true,
+  "peer_session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "preconditions_receipt": "teardown_preconditions.json",
+  "raw_and_derived_artifacts_verified_before_teardown": true,
+  "requested_at_utc": "2026-10-30T18:06:02.342348+00:00",
+  "returncode": 0,
+  "status": "closed_owned_runtime_peer_preserved",
+  "user_completion_and_close_authorization_recorded": true,
+  "verified_at_utc": "2026-10-30T18:06:04.631230+00:00"
+}

@@ -1,0 +1,61 @@
+{
+  "status": "observed_negative_control_variation",
+  "checked_utc": "2026-10-30T15:19:31.221296+00:00",
+  "normal_depth_ranking_macro14": [
+    [
+      "n8-e0.01-g0.01-p0.95",
+      65.73660714285714
+    ],
+    [
+      "n9-e0.01-g0.01-p0.95",
+      65.234375
+    ],
+    [
+      "n6-e0.01-g0.01-p0.95",
+      65.06696428571429
+    ],
+    [
+      "n10-e0.01-g0.01-p0.95",
+      64.95535714285714
+    ],
+    [
+      "n5-e0.01-g0.01-p0.95",
+      64.78794642857143
+    ],
+    [
+      "n7-e0.01-g0.01-p0.95",
+      64.67633928571429
+    ],
+    [
+      "n4-e0.01-g0.01-p0.95",
+      63.783482142857146
+    ],
+    [
+      "n3-e0.01-g0.01-p0.95",
+      61.941964285714285
+    ],
+    [
+      "n2-e0.01-g0.01-p0.95",
+      58.984375
+    ],
+    [
+      "n1-e0.01-g0.01-p0.95",
+      55.80357142857143
+    ]
+  ],
+  "background_probability_mean_min_pct": 52.34375,
+  "background_probability_mean_max_pct": 57.8125,
+  "background_probability_mean_sample_sd_pct": 1.6387638252658618,
+  "same_scheduler_initial_latents_noise_rng_and_cache": true,
+  "final_local_hashes_and_decoded_geometry_differ": true,
+  "compared_jobs": [
+    "depth-n5-e0.01-g0.01-p0.95-s0",
+    "depth-n8-e0.01-g0.01-p0.95-s0"
+  ],
+  "compared_batch": "background/batch0000",
+  "configuration_mismatch_detected": false,
+  "code_observation": "Frozen original Chamfer CUDA backward uses atomicAdd (third_party/ChamferDistancePytorch/chamfer3D/chamfer3D.cu:166-171)",
+  "inference": "GPU floating point/native accumulation variability is plausible; the responsible operation is not causally isolated.",
+  "decision": "Continue registered exploration/confirmation; report native repeatability limitation and macro14. No code repair or additional GPU experiment is inferred.",
+  "limitations": "The ten arms are a Background negative control with the same35-step settings, not identical full-process execution histories. No native repeated-process causal isolation was run."
+}

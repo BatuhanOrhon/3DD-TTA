@@ -1,0 +1,32 @@
+{
+  "payload": {
+    "bytes": 19188,
+    "sha256": "e0bc00941f4a5d0ad9d9873c8d0b3ab88ad917318257bdf8c1e8de7274c93687"
+  },
+  "files": {
+    "continue_campaign.py": {
+      "bytes": 34069,
+      "sha256": "c0be698df8bdec50c14beeea5edceb701e941a7bec80096af8f7f980e5ad424a"
+    },
+    "test_continue_campaign.py": {
+      "bytes": 22665,
+      "sha256": "e76dd8cd4bee398127b558c36735576f295ed8bb92317fe240403f6101055681"
+    },
+    "continuation_proposal.json": {
+      "bytes": 5463,
+      "sha256": "db27ad98fe3c322491148bf05c1672e8a16c4b3a7396e3eb50fdec893c19a737"
+    },
+    "continuation_user_acknowledgment.json": {
+      "bytes": 804,
+      "sha256": "5d6e8d29eed1ab62a84b211f1705a793f6bb3dfb4fbe5bbcfbc8fc0f8a12453c"
+    },
+    "original_gpu_approval_source.json": {
+      "bytes": 576,
+      "sha256": "32eab373dfa3c50b055b4d69a5e08dde3f29f107ed19494efd282f1c80e983a2"
+    },
+    "continuation_amendment_v1.json": {
+      "bytes": 2163,
+      "sha256": "aea46735f13fe561159efc47c457debf62693438dd78d38e169856b679dc0330"
+    }
+  }
+}

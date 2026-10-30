@@ -1,0 +1,47 @@
+{
+  "status": "projection_not_measurement",
+  "planned_phase_estimate_seconds": 9360,
+  "cumulative_stop_before_next_worker_budget_seconds": 10800,
+  "max_development_configs": 32,
+  "max_confirmation_jobs": 9,
+  "technical_smoke_jobs": 3,
+  "observed_reference_csv": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/preparation/guidance_component_sensitivity_20261025/recovery_20261028_r4/local_partial_confirmation_analysis_v1/costs.csv",
+  "reference_csv_sha256": "4f514477eca983a78499d87c11b3e6747e14f574845c487452ef7d023c904fbd",
+  "observations": [
+    {
+      "seed": 0,
+      "objects": 140,
+      "batches": 75,
+      "normal_steps": 5,
+      "background_steps": 35,
+      "batch_size": 32,
+      "heads": 4,
+      "reconstruction_seconds": 99.14310397199733,
+      "four_head_seconds": 29.012172770006146
+    },
+    {
+      "seed": 1,
+      "objects": 140,
+      "batches": 75,
+      "normal_steps": 5,
+      "background_steps": 35,
+      "batch_size": 32,
+      "heads": 4,
+      "reconstruction_seconds": 99.60188280601142,
+      "four_head_seconds": 29.142088413995225
+    },
+    {
+      "seed": 2,
+      "objects": 140,
+      "batches": 75,
+      "normal_steps": 5,
+      "background_steps": 35,
+      "batch_size": 32,
+      "heads": 4,
+      "reconstruction_seconds": 99.9442064909781,
+      "four_head_seconds": 29.17844927097758
+    }
+  ],
+  "uncertainty": "New variable horizons, extra clean decode/FPS/Point-MAE probes, model/source hashing, cache/Drive sealing and startup have not been timed in the new VM. Budget includes their actual phase time and conservative reserve; post-worker CPU/IO overrun remains possible and is retained, with no further GPU work.",
+  "resume_policy": "No failure replacement or duplicate slots. Stop for source/asset/native mismatch, numerical failure, timeout or exhausted budget; preserve partial evidence."
+}

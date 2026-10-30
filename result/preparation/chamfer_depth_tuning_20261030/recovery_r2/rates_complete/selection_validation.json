@@ -1,0 +1,30 @@
+{
+  "status": "complete_rate_grid_selection_reproduced_locally",
+  "recorded_utc": "2026-10-30T16:40:37.696695+00:00",
+  "development_configurations_attempted": 26,
+  "accepted": 21,
+  "numerically_infeasible": 5,
+  "new_rate_attempts": 16,
+  "new_rates_accepted": 11,
+  "new_rates_infeasible": 5,
+  "selected_rate_by_depth": {
+    "8": {
+      "eta": 0.003,
+      "gamma": 0.03,
+      "p": 0.95
+    },
+    "9": {
+      "eta": 0.003,
+      "gamma": 0.03,
+      "p": 0.95
+    }
+  },
+  "new_fraction_jobs": 6,
+  "scores_identity": {
+    "bytes": 25844,
+    "sha256": "8739659229bbea5947b1022e6ec0ee9061bc1af14e272e0731b849900b0902be"
+  },
+  "numerical_failures_approval": "post-failure exploratory amendment",
+  "full_new_rate_raw_and_cache_local_roundtrip_pending": true,
+  "frozen_worker_math_ids_seeds_and_grid_unchanged": true
+}

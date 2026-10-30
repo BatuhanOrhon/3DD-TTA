@@ -1,3 +1,17 @@
+**[Run/Code/Inference/Decision] 2026-10-30 — Depth tuning accepted and runtime closed:**
+All32 development settings were attempted (27 finite/five numerical failures);
+all nine frozen confirmation jobs passed. On256 reserved objects/three fixed
+seeds, N5/default, N8/default and N8/eta=.003/gamma=.03/p=.95 have all15 PM means
+66.510417%,67.699653%,68.741319%. Tuned N8−N5: +2.230903pp, conditional95% CI
+[1.623047,2.864583]; N8 retuning: +1.041667pp [.685764,1.40625]. Independent
+raw/cache/failure/CI validation and full raw plus derived Drive roundtrips pass.
+Owned r2 closed18:06UTC; the protected peer remained present unchanged.
+No GPU work remains. N10 was development-only; global optimality/full benchmark
+transfer and native Background repeatability remain separate questions.
+[Accepted results and limits](chamfer_depth_tuning_results_20261030.md) ·
+[Protocol and execution history](chamfer_depth_tuning_study_20261030.md) ·
+[Selective integration and checks](thesis_integration_depth_tuning_20261030.md).
+
 **[Run/Code/Inference] 2026-10-30 — Point-MAE comparison recheck:**
 17raw head archives independently reproduce the historical and latest tables.
 An earlier development spectral terminal advantage became a probability-mean
