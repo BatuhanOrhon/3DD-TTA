@@ -809,7 +809,6 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
                     shared['executed_source_sha256'] = common['executed_source_sha256']
                     shared['asset_manifest_sha256'] = common['asset_manifest_sha256']
                     shared['source_snapshot_sha256'] = common['source_snapshot_sha256']
-                    shared['checkpoint_load'] = common['checkpoint_load']
                 if paired_path is not None:
                     shared['paired_state'] = dict(path=str(paired_path), **source.file_identity(paired_path))
                 artifact_started = time.monotonic()
@@ -827,6 +826,7 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
                     diagnostics = dict(shared, **head_diagnostics[name], head_seconds=head_seconds[name])
                     batch_payload = dict(payload, **observers[0].arrays(name)) if observers else payload
                     if common.get('chamfer_depth_study'):
+                        diagnostics['checkpoint_load'] = configs[name]['checkpoint_load']
                         from scripts.analyze_legacy_trajectory import policies
                         policy_started = time.monotonic()
                         batch_payload.update(policies(batch_payload['trajectory_logits'], len(observers[0].names) - 1))
