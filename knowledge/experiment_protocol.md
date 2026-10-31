@@ -1,5 +1,16 @@
 # Experiment and Reproducibility Protocol
 
+## Current operational baseline — 2026-10-31
+
+[User report/Decision/Code] New thesis comparisons start from
+[`chamfer_pm_n8_v1`](current_baseline.md): Chamfer + equal Probability Mean,
+normal8/Background35, eta=.003, gamma=.03, p=.95, batch32, original decode,
+DDIM100/final-alpha1, raw eval LION/EMA off, frozen heads. Explicit data IDs,
+seeds, source/asset hashes and new output directories remain mandatory.
+Original3DD and older C/H/GSD protocols remain distinct historical controls.
+The accepted evidence is140objects/dataset/three seeds, not a full benchmark.
+Changing a rate/horizon/host/loss is a new method condition, not this baseline.
+
 ## GSD development calibration extension - 2026-09-27
 
 [User report/Code] The approved [calibration plan](gsd_calibration_execution_20260927.md)

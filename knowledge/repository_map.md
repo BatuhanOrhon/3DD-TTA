@@ -1,5 +1,15 @@
 # Repository Map
 
+## Current baseline entrypoint — 2026-10-31
+
+[Code/Decision] `scripts/eval_chamfer_baseline.py` selects the operational
+`chamfer_pm_n8_v1` policy and method `3dd_chamfer_pm_baseline`, using the
+frozen transfer validator/worker in `scripts/eval_chamfer_depth.py`.
+The shared multibackbone worker reports PM in standard CSV/NPZ predictions
+only when this policy is selected; terminal logits/predictions remain
+diagnostics. Historical entrypoints retain their defaults.
+[Settings, usage and evidence](current_baseline.md).
+
 ## GSD v1 branch additions - 2026-09-23
 
 [Code] On `gsd-development` from `79cc027`, the new files below supersede

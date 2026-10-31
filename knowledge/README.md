@@ -1,3 +1,15 @@
+**[User report/Decision/Code] 2026-10-31 — Yeni tez baseline'ı seçildi:**
+Kullanıcı, kabul edilen transfer sonuçlarından sonra **Chamfer + Probability
+Mean, normal8/Background35, η=.003, γ=.03, λ=.95, B32** ayarını yeni
+operasyonel baseline olarak onayladı. Yeni çalışmaların başlangıç noktası
+[`scripts/eval_chamfer_baseline.py`](../scripts/eval_chamfer_baseline.py);
+ana CSV artık bu girişte PM ölçer, terminal ayrıca korunur. Normal2/4/6+8
+ve Background9/18/27+35 eşit olasılık ortalamasıdır. Önce
+[güncel baseline sözleşmesi ve komutlarını](current_baseline.md) okuyun.
+Bu karar aşağıdaki “varsayılan değiştirilmedi” tarihsel durumunu günceller;
+orijinal makale/deney yolları ve sınırlı140nesne/üçseed kanıtı korunur.
+Yeni GPU çalışması veya runtime kapatma yapılmadı.
+
 **[Run/Code/Decision] 2026-10-31 — Sabit N8 transfer bulgusu kabul edildi:**
 İki veri seti × dört source modelde normal8/Background35, η=.003, γ=.03,
 p=.95 ve Probability Mean; mevcut140 nesne/veri seti, all15/severity5,

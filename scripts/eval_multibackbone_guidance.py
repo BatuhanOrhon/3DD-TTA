@@ -818,8 +818,6 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
                     prediction = logits.argmax(-1).cpu().numpy()
                     payload = dict(index=batch_ids.copy(), label=np.array(labels[batch_ids], dtype=np.int64),
                                    prediction=prediction, logits=logits.cpu().numpy())
-                    accumulated[name].append(payload)
-                    correct[name] += int((prediction == labels[batch_ids]).sum())
                     elapsed[name] += reconstruction_seconds / len(heads) + head_seconds[name]
                     configs[name]["shared_reconstruction_seconds"] += reconstruction_seconds
                     configs[name].setdefault("completed_batches", {})[corruption] = batch + 1
@@ -831,6 +829,12 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
                         policy_started = time.monotonic()
                         batch_payload.update(policies(batch_payload['trajectory_logits'], len(observers[0].names) - 1))
                         diagnostics['trajectory_policy_seconds'] = time.monotonic() - policy_started
+                    if configs[name].get('csv_policy') == 'probability_mean':
+                        # Keep terminal diagnostics while reporting the promoted baseline readout.
+                        payload.update(terminal_prediction=prediction, prediction=batch_payload['probability_mean'])
+                        batch_payload.update(payload)
+                    accumulated[name].append(payload)
+                    correct[name] += int((payload['prediction'] == labels[batch_ids]).sum())
                     pending[name] = write_batch_shard(bundles[name], corruption, batch, batch_payload, diagnostics)
                     update_row(rows[name], configs[name], corruption, seen, correct[name], elapsed[name], peak, "partial")
                     bundles[name].write_results(rows[name], "running")
@@ -930,7 +934,8 @@ def main(argv=None, *, configuration_factory=None, worker_entrypoint=None, worke
             destination = bundle.path / 'calibration_report.json'
             shutil.copyfile(reference['path'], destination)
             source.verify_identity(destination, reference['identity'])
-        note = ("# Chamfer denoising-depth study\n\n" + config['display_name'] + ". Not a paper reproduction.\n" if config.get('chamfer_depth_study') else
+        note = ("# Thesis operational baseline\n\n" + config['display_name'] + ". CSV accuracy uses probability mean; terminal outputs retained.\n" if config.get('operational_baseline') else
+                "# Chamfer denoising-depth study\n\n" + config['display_name'] + ". Not a paper reproduction.\n" if config.get('chamfer_depth_study') else
                 "# Published alternative matched guidance study\n\n" + config["display_name"] + ". Not full GSDTTA or paper reproduction.\n")
         (bundle.path / "notes.md").write_text(note
             + config["timing_policy"] + ".\nBatch shards preserve interrupted-corruption progress; no auto resume.\nDrive corruption checkpoints capture log prefixes.\n")

@@ -483,13 +483,23 @@ class WorkerCompositionTests(unittest.TestCase):
             with self.subTest(dataset=dataset):
                 self.run_worker(dataset=dataset,transfer=True)
 
-    def run_worker(self,dataset='modelnet40_c',transfer=False):
+    def test_baseline_reports_probability_mean_and_retains_terminal_diagnostics(self):
+        for dataset in ('modelnet40_c','scanobjectnn_c'):
+            with self.subTest(dataset=dataset):
+                self.run_worker(dataset=dataset,transfer=True,baseline=True)
+
+    def run_worker(self,dataset='modelnet40_c',transfer=False,baseline=False):
         from scripts import eval_chamfer_depth as depth
         from scripts import eval_multibackbone_guidance as shared
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary).resolve()
             args=TransferConfigTests().transfer_args(root,dataset) if transfer else self.args(root)+['--normal-reverse-steps','1']
-            configs=depth.configurations(args)
+            if baseline:
+                from scripts import eval_chamfer_baseline
+                args.remove('--transfer-study')
+                configs=eval_chamfer_baseline.configurations(args)
+            else:
+                configs=depth.configurations(args)
             bundles=[]
             for config in configs:
                 config['asset_manifest_sha256']='a'*64
@@ -507,7 +517,11 @@ class WorkerCompositionTests(unittest.TestCase):
             def snapshots(bundle, config, manifest):
                 config['executed_source_files'] = {'repo/shared_trajectory.py': {'sha256':'c'*64,'bytes':1}}
             def classify(geometry, heads, configs, fps):
-                return ({n:torch.zeros(len(geometry),configs[n]['num_classes']) for n in heads},
+                logits={n:torch.zeros(len(geometry),configs[n]['num_classes']) for n in heads}
+                if baseline:
+                    # Three clean predictions favor class0, terminal favors class1.
+                    for values in logits.values():values[:,1 if len(heads)==1 else 0]=2.
+                return (logits,
                         {n:{'rng_unchanged':True} for n in heads})
             geometry_calls=[]
             def geometry(raw, dataset, corruption, lion, graph, reconstruct, ops, **kwargs):
@@ -546,10 +560,23 @@ class WorkerCompositionTests(unittest.TestCase):
                 stack.enter_context(patch.object(shared,'classify_geometry',side_effect=classify))
                 stack.enter_context(patch.object(shared,'decoded_to_geometry',side_effect=lambda decoded,*a:decoded))
                 stack.enter_context(redirect_stdout(StringIO()))
-                depth.worker([str(bundle.path) for bundle in bundles])
+                (eval_chamfer_baseline.worker if baseline else depth.worker)([str(bundle.path) for bundle in bundles])
             self.assertEqual(len(geometry_calls),15)
             for bundle in bundles:
                 self.check_bundle(bundle,config)
+                if baseline:
+                    import csv
+                    with (bundle.path/'per_corruption.csv').open() as stream:
+                        rows=list(csv.DictReader(stream))
+                    self.assertEqual(len(rows),15)
+                    self.assertTrue(all(float(row['accuracy'])==1. for row in rows))
+                    with (bundle.path/'summary.csv').open() as stream:
+                        self.assertEqual(float(next(csv.DictReader(stream))['macro_accuracy']),1.)
+                    for corruption in config['corruptions']:
+                        with np.load(bundle.path/(corruption+'_predictions.npz'),allow_pickle=False) as payload:
+                            self.assertEqual(payload['prediction'].tolist(),[0,0,0])
+                            self.assertEqual(payload['terminal_prediction'].tolist(),[1,1,1])
+                            self.assertEqual(payload['logits'].argmax(-1).tolist(),[1,1,1])
 
     def check_bundle(self,bundle,config):
         import hashlib
@@ -570,7 +597,77 @@ class WorkerCompositionTests(unittest.TestCase):
                 self.assertEqual(payload['index'].tolist(),selected)
                 self.assertEqual(payload['trajectory_logits'].shape,(3,4 if corruption=='background' or config.get('transfer_study') else 2,config['num_classes']))
                 self.assertEqual(payload['probability_mean'].shape,(3,))
-                np.testing.assert_array_equal(payload['prediction'],payload['terminal'])
+                if config.get('operational_baseline'):
+                    np.testing.assert_array_equal(payload['prediction'],payload['probability_mean'])
+                    np.testing.assert_array_equal(payload['terminal_prediction'],payload['terminal'])
+                else:
+                    np.testing.assert_array_equal(payload['prediction'],payload['terminal'])
+
+
+class BaselineEntryTests(unittest.TestCase):
+    def test_named_baseline_replay_and_legacy_depth_reject_incompatible_payloads(self):
+        from scripts import eval_chamfer_baseline as baseline
+        from scripts import eval_chamfer_depth as depth
+        from scripts import eval_multibackbone_guidance as shared
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            config,=depth.configurations(DepthConfigTests().args(root))
+            config['run_id']='legacy-worker-fixture'
+            path=root/'worker';path.mkdir()
+            replay=['--worker-bundles',json.dumps([str(path)])]
+            for baseline_replay in (True,False):
+                config['csv_policy']='terminal' if baseline_replay else 'probability_mean'
+                (path/'config.json').write_text(json.dumps(config))
+                with self.subTest(baseline_replay=baseline_replay),patch.object(shared.source,'read_manifest',side_effect=AssertionError('asset access')):
+                    with self.assertRaises(ValueError):
+                        if baseline_replay:baseline.main(replay)
+                        else:depth.worker([str(path)])
+
+    def test_baseline_preview_uses_selected_policy_without_native_imports(self):
+        with tempfile.TemporaryDirectory() as directory:
+            args=DepthConfigTests().args(Path(directory))
+            result=subprocess.run([sys.executable,'-S',str(ROOT/'scripts/eval_chamfer_baseline.py'),*args],
+                                  capture_output=True,text=True)
+            self.assertEqual(result.returncode,0,result.stderr)
+            configs=json.loads(result.stdout)
+            self.assertEqual(len(configs),4)
+            for config in configs:
+                self.assertEqual(config['method'],'3dd_chamfer_pm_baseline')
+                self.assertEqual(config['operational_baseline'],'chamfer_pm_n8_v1')
+                self.assertEqual(config['csv_policy'],'probability_mean')
+                self.assertEqual(config['normal_reverse_steps'],8)
+                self.assertEqual(config['background_reverse_steps'],35)
+                self.assertEqual(config['guidance_protocol'],dict(gamma=.03,eta=.003,p=.95,total=100,scd_normalize=False))
+                self.assertEqual(config['trajectory_selection']['normal_loop_counts'],[2,4,6,8])
+                self.assertEqual(config['trajectory_selection']['background_loop_counts'],[9,18,27,35])
+
+    def test_baseline_rejects_changed_policy_and_mixed_worker_payloads_before_assets(self):
+        from scripts import eval_chamfer_baseline as baseline
+        from scripts import eval_chamfer_depth as depth
+        from scripts import eval_multibackbone_guidance as shared
+        import copy
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            args=DepthConfigTests().args(root)
+            for extra in (['--normal-reverse-steps','10'],['--eta','.01'],['--gamma','.01'],
+                          ['--p','.96'],['--chamfer-experiment','semantic']):
+                with self.subTest(extra=extra),redirect_stderr(StringIO()),self.assertRaises((ValueError,SystemExit)):
+                    baseline.configurations(args+extra)
+            configs=baseline.configurations(args)
+            cases=[]
+            for update in (dict(operational_baseline='unknown'),dict(csv_policy='terminal'),
+                           dict(method=depth.METHOD)):
+                cases.append([dict(copy.deepcopy(configs[0]),**update)])
+            mixed=copy.deepcopy(configs[:2])
+            mixed[1].pop('operational_baseline');mixed[1].update(method=depth.METHOD,csv_policy='terminal')
+            cases.append(mixed)
+            for case in cases:
+                directories=[]
+                for i,config in enumerate(case):
+                    path=root/str(i);path.mkdir(exist_ok=True)
+                    (path/'config.json').write_text(json.dumps(config));directories.append(str(path))
+                with self.subTest(case=case),patch.object(shared.source,'read_manifest',side_effect=AssertionError('asset access')):
+                    with self.assertRaises(ValueError):depth.worker(directories)
 
 
 if __name__ == '__main__':

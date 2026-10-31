@@ -1,5 +1,16 @@
 # Method Synthesis and Hypotheses
 
+## Current operational baseline — 2026-10-31
+
+[User report/Decision/Code] The user promotes the accepted whole N8 Chamfer
+and equal Probability Mean policy (8/35, eta=.003, gamma=.03, p=.95, B32,
+original style/final-alpha1/raw LION) for subsequent thesis work.
+Use [the exact baseline contract and entrypoint](current_baseline.md).
+GSD and calibrated10/30 semantic/sparse/weighted variants remain separate
+experimental comparators; their historical coefficients cannot be silently
+transferred to this host. Promotion does not establish global optimality,
+isolated spectral/depth attribution, or full-data accuracy.
+
 ## Agent A fixed ModelNet readouts integrated — 2026-10-30
 
 [Run/Inference] CompletedOct25 all15/2468-ID/seed0 three-head observation:

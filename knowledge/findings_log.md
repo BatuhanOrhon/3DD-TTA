@@ -7650,3 +7650,33 @@ the next agent must verify them before work. No branch switch or research run.
 [Run/Code/Inference/Decision] All8jobs (2technical +6research),all15/s5/140IDsperdataset/3fixedseeds/4heads pass without numerical failure or retry. Fixed8/35/.003/.03/.95PM gives ModelNet Point-MAE/DGCNN/CurveNet/PointNeXt66.000000/69.571429/71.761905/70.920635%, Scan41.857143/40.317460/57.888889/50.698413%. All8main-C all15 deltas+1.000000…+3.761905pp have conditional95%object intervals above0. MainH differences allpositive but MNPoint-MAE interval includes0; MNPoint-MAE macro14C also includes0. ScanPointNeXt PM-ownterminal CIcrosses0, one seedregresses; its originalseed0 endpoint51%ties. Corruptionregressions/whole-policy confounds and unavailable Point-MAE originals preserved. No global optimality/default change/full-data claim.
 
 [Run] Independent acceptance32headZIP/454physicalcache/7540snapshotfiles, plus secondreview1800researchshards and76jointCIs. Actual2412.154642s under3300scap. Researchsource4a5c137/b229;actualplan9154038b; fullraw1368701809bytesSHAeb9386ee10694c56674bff745c26ba1bd6cc6887f6577146cc0cc6db705a6a8d;derived22398314bytesSHA32d7ce6964c9db5939d0b000f37daa6bf80712333f8409df13c3da10b3d1596b. BothrealDrive/localroundtripspass. Selectedcombinedcode8666db8basedona82200a passes491CPU+399subtests,134separateNumPy1checks;newlocalanalysis11checks pass. Ownruntime remainslive; no newGPUphase orcleanupgrantinferred. [Acceptedresults](chamfer_depth_transfer_results_20261031.md) and[artifactindex](../result/preparation/chamfer_depth_transfer_20261031/accepted_evidence.json).
+
+
+## 2026-10-31 — User promotes N8 Chamfer + Probability Mean operational baseline
+
+[User report/Decision/Code] Following accepted transfer integration d96617f,
+the user explicitly selects the complete N8/Background35, eta=.003, gamma=.03,
+p=.95, B32/original-style/final-alpha1/raw-eval/EMA-off policy as the baseline
+for future thesis work. New isolated branch baseline/chamfer-pm-n8-20261031
+adds scripts/eval_chamfer_baseline.py, profile chamfer_pm_n8_v1 and artifact
+method3dd_chamfer_pm_baseline. Equal T1 PM uses clean2/4/6+terminal8 and
+clean9/18/27+terminal35. Standard CSV/NPZ predictions now report PM for this
+entrypoint; terminal_prediction and terminal logits remain diagnostics.
+Original reproduction/depth/variant defaults and frozen archives remain intact.
+
+[Code/Run] Independent review identified a saved-worker replay guard gap
+and two example asset path errors; regression tests first reproduced both
+incompatible payload routes, then passed with baseline identity enforcement
+and legacy PM-metadata rejection. Final general CPU suite495passed/61skipped/
+412subtests,6existing warnings; the separate pinned Py3.12/NumPy1 raw/controller/
+operator/oldcampaign suite78passed covers the60conditional skips (one optional
+historical fixture remains unavailable). No sampler/model/preprocessing edits.
+
+[Inference/Open] This is operational promotion, not new accuracy evidence:
+140previously exposed IDs/dataset, all15/s5/seeds0/1/2/four heads, with all
+negative/null/subgroup and original-comparison limits retained. No global
+optimality, isolated N8 effect, full benchmark or new calibrated-variant claim.
+No new GPU inference was launched. The user additionally authorizes closing
+only owned tta-depth-transfer-a100-20261031-r1 after publication; closure
+is pending and peer/unknown runtimes stay protected.
+[Current contract and commands](current_baseline.md).

@@ -13,6 +13,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts import eval_multibackbone_guidance as shared
 
 METHOD = '3dd_chamfer_depth_study'
+BASELINE_METHOD = '3dd_chamfer_pm_baseline'
+BASELINE_ID = 'chamfer_pm_n8_v1'
 TRANSFER_BACKBONES = ('pointmae', 'dgcnn', 'curvenet', 'pointnext')
 TRANSFER_PROTOCOL = dict(gamma=.03, eta=.003, p=.95, total=100, scd_normalize=False)
 
@@ -116,13 +118,16 @@ def configurations(argv=None) -> list[dict]:
 
 def validate_transfer_config(config: dict) -> None:
     """Reject modified worker payloads before loading any assets or GPU code."""
+    baseline = config.get('operational_baseline')
+    if baseline is not None and baseline != BASELINE_ID:
+        raise ValueError('Unknown operational baseline')
     dataset = config.get('dataset')
     classes, examples = (15, 581) if dataset == 'scanobjectnn_c' else (40, 2468)
-    expected = dict(method=METHOD, chamfer_depth_study=True, transfer_study=True,
+    expected = dict(method=BASELINE_METHOD if baseline else METHOD, chamfer_depth_study=True, transfer_study=True,
                     normal_reverse_steps=8, background_reverse_steps=35, batch_size=32,
                     decoder_style='original', scheduler_final_alpha_to_one=True, lion_ema=False,
                     graph=None, trajectory_observation=True, max_batches=0,
-                    primary_policy='probability_mean', csv_policy='terminal',
+                    primary_policy='probability_mean', csv_policy='probability_mean' if baseline else 'terminal',
                     num_classes=classes, n_examples=examples, guidance_protocol=TRANSFER_PROTOCOL)
     if (dataset not in ('modelnet40_c', 'scanobjectnn_c')
             or config.get('backbone') not in TRANSFER_BACKBONES
@@ -174,7 +179,8 @@ def reconstruct_geometry(raw, dataset, corruption, lion, graph, reconstruct, ops
                          observer_factory=None, protocol=None, paired_state_path=None):
     import torch
     allowed_dataset = dataset == 'modelnet40_c' or (dataset == 'scanobjectnn_c' and depth_config.get('transfer_study'))
-    if not allowed_dataset or method != METHOD or graph is not None or observer_factory is None or paired_state_path is None:
+    expected_method = BASELINE_METHOD if depth_config.get('operational_baseline') == BASELINE_ID else METHOD
+    if not allowed_dataset or method != expected_method or graph is not None or observer_factory is None or paired_state_path is None:
         raise ValueError('Depth study requires ModelNet or opt-in Scan transfer, original host, observer and paired states')
     normalized, center, scale = ops.normalize(raw)
     prepared = torch.from_numpy(ops.upsample_all(normalized.numpy(), 2048)).float().to(device)
@@ -213,7 +219,8 @@ def worker(directories: list) -> None:
         names = [c.get('backbone') for c in configs]
         if len(set(names)) != len(names):
             raise ValueError('Transfer worker requires unique heads')
-        common_keys = ('dataset', 'num_classes', 'n_examples', 'seed', 'corruptions', 'technical_smoke',
+        common_keys = ('method', 'operational_baseline', 'csv_policy',
+                       'dataset', 'num_classes', 'n_examples', 'seed', 'corruptions', 'technical_smoke',
                        'guidance_protocol', 'trajectory_selection', 'paired_state_root', 'selected_original_ids',
                        'selection_manifest_identity', 'asset_root', 'asset_manifest_sha256', 'dataset_root', 'label_path')
         for current in configs:
@@ -221,7 +228,8 @@ def worker(directories: list) -> None:
             if any(current.get(key) != config.get(key) for key in common_keys):
                 raise ValueError('Transfer worker bundles must share data, candidate and reconstruction')
     elif (len(configs) != 1 or config.get('method') != METHOD or not config.get('chamfer_depth_study')
-            or config.get('backbone') != 'pointmae'):
+            or config.get('backbone') != 'pointmae' or config.get('operational_baseline') is not None
+            or config.get('csv_policy', 'terminal') != 'terminal'):
         raise ValueError('Invalid depth-study worker bundle')
     def runtime_loader(common, manifest):
         original = copy.deepcopy(common)

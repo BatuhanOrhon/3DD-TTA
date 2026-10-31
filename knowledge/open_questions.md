@@ -1,3 +1,17 @@
+## 2026-10-31 — Operational baseline promotion
+
+[User report/Decision/Code] The user selects
+[Chamfer + PM N8/.003/.03/.95](current_baseline.md) after the accepted
+140-object/three-seed transfer. This updates earlier no-default-change notes.
+
+- [x] Adopt the exact8/35/B32/original-style/raw-LION policy through a named
+  entrypoint; report PM accuracy and retain terminal diagnostics.
+- [x] Preserve original reproduction, historical CSVs, calibration records,
+  GSD findings and the source/data identities of accepted GPU evidence.
+- [ ] Establish full-data and externally unseen performance, per-model/global
+  optimality and an unknown-corruption horizon policy if future work requires
+  those claims. Promotion alone does not answer them or launch those tests.
+
 ## 2026-10-25 — further GSD loss and parameter sensitivity requested
 
 [User report/Open] Reopen the accepted bounded study for additional parameter/

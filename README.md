@@ -20,6 +20,20 @@ We propose a training-free, online 3D TTA method called **3DD-TTA** (3D Denoisin
 - **Strong performance**: Achieves state-of-the-art results on ShapeNet, ModelNet40, and ScanObjectNN.
 
 
+## Thesis fork: current baseline
+
+The thesis baseline is **Chamfer + Probability Mean**, profile
+`chamfer_pm_n8_v1`: normal8/Background35 reverse steps, eta=.003,
+gamma=.03, lambda=.95, batch32, original decoder style and raw LION/EMA off.
+Average probabilities equally at clean2/4/6+terminal8 (Background:
+clean9/18/27+terminal35). Use **`scripts/eval_chamfer_baseline.py`** for
+ModelNet40-C or ScanObjectNN-C with the selected frozen source heads.
+Its standard CSV reports probability mean; terminal predictions are retained.
+See the [baseline contract and commands](knowledge/current_baseline.md) and
+[accepted transfer results and limits](knowledge/chamfer_depth_transfer_results_20261031.md).
+This is the fork's operational baseline, supported on140objects/three seeds;
+the original implementation and paper result tables below remain comparators.
+
 ## Google Colab setup
 
 For each new Colab runtime, use the ten setup cells in
@@ -90,7 +104,7 @@ This code will:
 The output will automatically be saved in the `./outputs/qualitative` folder.
 
 
-## Quantitative Evaluation of 3dd_tta Model
+## Original 3DD-TTA quantitative evaluation (historical comparator)
 To evaluate the model quantitatively, use the following command:
 ```
 python main_3dd_tta.py --batch_size=32 --pointmae_ckpt=./pointnet_ckpts/modelnet_jt.pth --diff_ckpt=./lion_ckpts/epoch_10999_iters_2100999.pt --dataset_name=modelnet-c --dataset_root=./data/modelnet40_c
