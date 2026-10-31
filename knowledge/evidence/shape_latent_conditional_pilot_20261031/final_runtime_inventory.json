@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-31T21:26:55.589018+00:00",
+  "session": "tta-shape-conditional-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-euw4a0-2jl6gm4ux3xzj",
+  "server_assignment_present": true,
+  "monitor_pid": 85488,
+  "monitor_live": true,
+  "teardown_authorized": false,
+  "teardown_issued": false,
+  "gpu_research_complete": true
+}

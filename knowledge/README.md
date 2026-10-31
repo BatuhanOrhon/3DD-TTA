@@ -1,3 +1,16 @@
+**[Run/Inference/Decision] 2026-10-31 UTC / 2026-11-01 Türkiye — iki z başlangıcı test edildi:**
+[Sonuçlar ve sınırlar](shape_latent_conditional_results_20261031.md).
+32exposed/dörtbozulma/seed0/Point-MAE: encoder off%42.1875, prior%43.75,
+guided%42.96875; SCD off/prior%42.96875, guided%41.40625. Guided−kendi-off
++.78125/−1.5625puan; bütün yedi koşullu95%CI0içerir. İki başlangıçta küçük
+native gradient gate geçer, fakat final clean-z MSE kendi başlangıcına göre
+%4.55/%4.58artar. Guidance prior driftini yaklaşık%1azaltır, net yakınsama
+veya güvenilir accuracy kazancı sağlamaz. Default/global-off korunur.
+Teknik807/pilot874dosya ham/source/RNG/decoder/PM yerel bağımsız exactkabul
+geçer; operator API failures ve native repeat farkları saklanır. Scientific
+faz970.09s, whole53.99dk; prospective59dkcap. Kendi conditionalr1 ve
+monitor85488 korunuyor; ek source/CPU/derived arşiv ve yayın kaydı raporda.
+
 **[Paper/Code/Inference/Open] 2026-10-31 — temiz-z gradienti için yeni literatür denetimi:**
 [Koşullu denoising gradienti ve global diffusiona aktarımı](shape_latent_gradient_research_20261031.md).
 10primary tam metin+official Diffusion-TTA pinned kod incelendi. Önceki

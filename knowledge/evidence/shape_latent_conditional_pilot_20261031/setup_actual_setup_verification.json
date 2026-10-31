@@ -1,0 +1,136 @@
+{
+  "status": "passed",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "torch": "2.1.2+cu121",
+  "torch_cuda": "12.1",
+  "numpy": "1.21.2",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_memory_bytes": 85094825984,
+  "meminfo": [
+    "MemTotal:       175166460 kB",
+    "MemFree:        85549972 kB",
+    "MemAvailable:   171108068 kB"
+  ],
+  "remote_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+  "remote_branch": "dev",
+  "remote_status": " M Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/pointnet2_utils.py\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/ball_query.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/ball_query_gpu.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/bindings.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/group_points.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/group_points_gpu.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/interpolate.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/interpolate_gpu.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/sampling.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/pointnet2_ops/_ext-src/src/sampling_gpu.o\n M Pointnet2_PyTorch/pointnet2_ops_lib/setup.py\n M extensions/chamfer_dist/__pycache__/__init__.cpython-38.pyc\n M extensions/chamfer_dist/build/lib.linux-x86_64-cpython-38/chamfer.cpython-38-x86_64-linux-gnu.so\n M extensions/chamfer_dist/build/temp.linux-x86_64-cpython-38/chamfer.o\n M extensions/chamfer_dist/build/temp.linux-x86_64-cpython-38/chamfer_cuda.o\n M extensions/chamfer_dist/dist/chamfer-2.0.0-py3.8-linux-x86_64.egg\n M extensions/emd/cuda/emd_kernel.cu\n M models/__pycache__/pvcnn2.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/__init__.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/backend.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/ball_query.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/devoxelization.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/grouping.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/interpolatation.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/loss.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/sampling.cpython-38.pyc\n M third_party/pvcnn/functional/__pycache__/voxelization.cpython-38.pyc\n M utils/__pycache__/checker.cpython-38.pyc\n M utils/__pycache__/data_helper.cpython-38.pyc\n M utils/__pycache__/eval_helper.cpython-38.pyc\n M utils/__pycache__/evaluation_metrics_fast.cpython-38.pyc\n M utils/__pycache__/exp_helper.cpython-38.pyc\n M utils/__pycache__/vis_helper.cpython-38.pyc\n?? .colab_setup/\n?? Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/.ninja_deps\n?? Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/.ninja_log\n?? Pointnet2_PyTorch/pointnet2_ops_lib/build/temp.linux-x86_64-cpython-38/build.ninja\n?? Pointnet2_PyTorch/pointnet2_ops_lib/dist/\n?? data/modelnet40_c.zip\n?? data/modelnet40_c/\n?? extensions/chamfer_dist/build/temp.linux-x86_64-cpython-38/.ninja_deps\n?? extensions/chamfer_dist/build/temp.linux-x86_64-cpython-38/.ninja_log\n?? extensions/chamfer_dist/build/temp.linux-x86_64-cpython-38/build.ninja\n?? scripts/\n",
+  "imports": {
+    "knn_cuda": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/__init__.py",
+    "emd_cuda": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/emd_ext-0.0.0-py3.8-linux-x86_64.egg/emd_cuda.cpython-38-x86_64-linux-gnu.so",
+    "chamfer": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+    "pointnet2_ops._ext": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+    "clip": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/clip/__init__.py",
+    "open3d": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/open3d/__init__.py",
+    "h5py": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/h5py/__init__.py",
+    "diffusers": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/diffusers/__init__.py",
+    "timm": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/timm/__init__.py",
+    "models.pvcnn2": "/content/3DD-TTA/models/pvcnn2.py",
+    "utils.eval_helper": "/content/3DD-TTA/utils/eval_helper.py"
+  },
+  "native_checks": [
+    "CUDA tensor sum",
+    "FPS",
+    "KNN",
+    "Chamfer identical input",
+    "EMD finite output"
+  ],
+  "assets": {
+    "env.yaml": {
+      "bytes": 673,
+      "sha256": "3595f77517fb709090939f9219836782e3e54d673230648b056f639e8cb8c890"
+    },
+    "requirements.txt": {
+      "bytes": 3542,
+      "sha256": "04c70b2e89db7e0019494e95835f3cd1e3c13c910472e8c7f29efd49ce329725"
+    },
+    "scripts/build_cuda_extensions_colab.sh": {
+      "bytes": 7414,
+      "sha256": "bd2baffb888de47e14f4119bd69df999450fd6d26d2ea2898e73d03c816a3bb6"
+    },
+    "/content/KNN_CUDA-0.2-py3-none-any.whl": {
+      "bytes": 5717,
+      "sha256": "809a43da2eed950c65ba15e355e8cdbf975b6a948dced1f02414f26aba586cd0"
+    },
+    "pointnet_ckpts/modelnet_jt.pth": {
+      "bytes": 351656113,
+      "sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75"
+    },
+    "lion_ckpts/epoch_10999_iters_2100999.pt": {
+      "bytes": 1508051672,
+      "sha256": "807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2"
+    },
+    "data/modelnet40_c/data_original.npy": {
+      "bytes": 30326912,
+      "sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c"
+    },
+    "data/modelnet40_c.zip": {
+      "bytes": 1970686633,
+      "sha256": "ee8dbb0345ced72e6ae4bdf3589a50942b46cd92b441909adf800fc046ebb00c"
+    },
+    "data/modelnet40_c/label.npy": {
+      "bytes": 2596,
+      "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31"
+    },
+    "data/modelnet40_c/data_background_5.npy": {
+      "bytes": 31837328,
+      "sha256": "db05e75cffb4440323a064df9e23ebd526584daf027f9ad02e391a36b051a616"
+    },
+    "data/modelnet40_c/data_cutout_5.npy": {
+      "bytes": 21442112,
+      "sha256": "b3ffb68ec412f54c89e02b5c128b3590eeaf16dd4ff08cc89f7039247a6c9c4b"
+    },
+    "data/modelnet40_c/data_density_5.npy": {
+      "bytes": 19220912,
+      "sha256": "bdde461b92427a0eaafc125eb93c8af89d979c0141d6ca5ae8e2bd61d6be65ba"
+    },
+    "data/modelnet40_c/data_density_inc_5.npy": {
+      "bytes": 30326912,
+      "sha256": "719fd79232fb6c6a72e83d4f5f219d499b253b2caadc55bd128110bb299ee86b"
+    },
+    "data/modelnet40_c/data_distortion_5.npy": {
+      "bytes": 30326912,
+      "sha256": "43b5849e878ba73bbda781491b689db3af5cd958dc8d57c2fd6b4460a584e19e"
+    },
+    "data/modelnet40_c/data_distortion_rbf_5.npy": {
+      "bytes": 30326912,
+      "sha256": "9cbcca3ee41e0f10e77b36aaa9b7021095aae860e81688009cbd8bab0055b596"
+    },
+    "data/modelnet40_c/data_distortion_rbf_inv_5.npy": {
+      "bytes": 30326912,
+      "sha256": "604c6acaacc4111dcef1cc22dee936c938e00cfafff9c7bb569d4b78a2439cce"
+    },
+    "data/modelnet40_c/data_gaussian_5.npy": {
+      "bytes": 30326912,
+      "sha256": "bf762a8f441a4234d0ca3e91da1f5101440acb7e5902c4854300041103f7171c"
+    },
+    "data/modelnet40_c/data_impulse_5.npy": {
+      "bytes": 30326912,
+      "sha256": "2174438eec71c4d98ebf23b48c5571805e280411a2a3a0ff51ee377462d50cfb"
+    },
+    "data/modelnet40_c/data_lidar_5.npy": {
+      "bytes": 22745216,
+      "sha256": "99ccaf1d62b5b308dd34d4fc1b09013cba8b73e9d1c8f0df1e94cfb812b9e91a"
+    },
+    "data/modelnet40_c/data_occlusion_5.npy": {
+      "bytes": 30326912,
+      "sha256": "5f37e9de373402007214fcb9fc90e00db4783f9801d0620f21bbeee6328cda2c"
+    },
+    "data/modelnet40_c/data_rotation_5.npy": {
+      "bytes": 30326912,
+      "sha256": "b75c5c8c0cb0ed57038d4677750a5e4fdad3aaf82de96357f33fe7c3a3bc4958"
+    },
+    "data/modelnet40_c/data_shear_5.npy": {
+      "bytes": 30326912,
+      "sha256": "78df0043e5cea431d10c817ac6a13e85e6e246fc64765e32546ecdd1d6614069"
+    },
+    "data/modelnet40_c/data_uniform_5.npy": {
+      "bytes": 30326912,
+      "sha256": "2cfbe01e02ae6745503eddf548db8f362656e92ec7efc6636281468547c73572"
+    },
+    "data/modelnet40_c/data_upsampling_5.npy": {
+      "bytes": 60653696,
+      "sha256": "4984bfac96c7b559727fd0d967d115855eab30a315c3c3b2608cc43878fd782e"
+    }
+  },
+  "modelnet_corruption_arrays": 15
+}

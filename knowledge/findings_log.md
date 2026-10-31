@@ -8040,3 +8040,38 @@ last confirmed owned proximalr1 live19:11–19:13UTC. No teardown/allocation
 issued; exact disappearance time/cause unknown. Earlier live-runtime notes
 are superseded operationally, while all accepted raw/source/derived archives
 and scientific results remain preserved.
+
+## 2026-10-31 UTC / 2026-11-01 local — Two-start conditional-gradient pilot accepted
+
+[Run/Code/Inference/Decision] [Results](shape_latent_conditional_results_20261031.md)
+test encoder original_style versus final SCD updated_style, same detached
+firstpass h*, original h0/noise/anchor/own-z PM decoder.32exposed objects ×
+four corruptions/seed0/Point-MAE. Encoder off42.1875%, prior43.75%,
+guided42.96875%; SCD off/prior42.96875%, guided41.40625%. Guided−own-off
++.78125pp CI[−2.34375,4.6875] /−1.5625pp CI[−4.6875,1.5625]. All seven
+conditional object-cluster intervals include0; no reliable gain or default
+promotion. Encoder guided ties firstpass42.96875%; numerical repeat limits
+matter for one-event differences.
+
+[Run/Inference] Actual small CUDA condition/global-chain derivative gate
+passes both starts, relative finite-difference errors3.16–6.49% under10%
+tolerance. Conditional clean-gradient first-step cosine medians .141/.126
+are weakly positive and decay across steps. Final clean-z MSE .134194536/
+.133730226 vs starting .128359380/.127878650: +4.546%/+4.576%. Guidance
+reduces drift vs matched prior by .994%/.916%, and held-out energy by about
+.13%, but does not converge closer than the initial latent. SCD start itself
+reduces encoder MSE only .375%. Clean targets are posthoc only; no selector,
+coefficient or step tuning with oracle/labels. Surrogate is not likelihood.
+
+[Run/Code/Open] Canonical10/native/data/checkpoint/strictCPU gates,807-file
+technical and874-file pilot Drive/local SHA/CRC, physical state/RNG/global
+DDIM/correction/own-z decoder and independent exact PM/outcomes/latents
+recount pass. Two operator API errors preserved; completed firstpass reused
+rather than rerun. Native repeat predictions vary even for exact input/z/
+h0/noise/source/model/RNG; bootstrap excludes this variance. Seven prior
+production identities unchanged; new code is an exploratory source audit.
+Scientific ledger970.088193s; whole registered-to-research-end3239.514669s,
+under prospective59min/1165s caps; timing amendment preceded full pilot and
+did not change science. Own conditionalr1/monitor85488 preserved, no teardown.
+More seeds/unseen confirmation or a pure conditional-energy step without
+global prior remain unrun choices, not automatic scope expansion.

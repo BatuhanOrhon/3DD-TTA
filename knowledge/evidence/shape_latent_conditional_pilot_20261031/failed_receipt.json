@@ -1,0 +1,21 @@
+{
+  "status": "failed",
+  "stage": "smoke",
+  "archive": {
+    "bytes": 36783790,
+    "sha256": "9ecdeec539eff2d7923ba30c9d639e9b72d68c10ef16db48b1fd0d5d4cd074b4",
+    "local_path": "/content/studies/shape-conditional/phase_smoke_20261031T204950971163Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_conditional_pilot_20261031/phase-evidence/phase_smoke_20261031T204950971163Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 57.980364,
+    "completed": [],
+    "research_started_utc": "2026-10-31T20:49:50.971141+00:00",
+    "failed": {
+      "stage": "smoke",
+      "path": "/content/studies/shape-conditional/phase_smoke_20261031T204950971163Z"
+    }
+  },
+  "output": "/content/studies/shape-conditional/phase_smoke_20261031T204950971163Z",
+  "cache_root": "/content/studies/shape-conditional/phase_smoke_20261031T204950971163Z/paired"
+}

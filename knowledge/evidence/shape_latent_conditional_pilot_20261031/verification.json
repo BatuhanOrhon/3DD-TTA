@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "pilot_manifest": {
+    "status": "passed",
+    "archive_sha256": "13ab784c339e5514b2a897cc9e45a5ed4754cd8b280fd04c84d29a394669b609",
+    "files": 874,
+    "destination": "result/preparation/shape_latent_conditional_pilot_20261031/operator/pilot_extracted"
+  },
+  "technical_manifest": {
+    "status": "passed",
+    "archive_sha256": "262e39804c3947d2a1021a6d1ea9884a7dbf6eb1f94223f32686d2033242747f",
+    "files": 807,
+    "destination": "result/preparation/shape_latent_conditional_pilot_20261031/operator/smoke_recovery_v2_extracted"
+  },
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_head": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_snapshot": {
+    "bytes": 1169445,
+    "sha256": "2b3982cdf21aa60894df368f186b5dba01931a01658ba5474176ccda26b8a5f7"
+  },
+  "asset_manifest": {
+    "bytes": 137095,
+    "sha256": "d6231c4aa807ddd72af17c5c9482ef26ead1f9a179124ae66fe9d26655d70054"
+  },
+  "actual_executed_source_sha256": "4f20bd289925050d5561d65dfb865c12a73404bae842da4ddb445d81bb5ab6de",
+  "prototype_only": true,
+  "production_changes": false,
+  "independent_remote_json_outcomes_latents_exact_match": true,
+  "whole_registered_to_research_end_seconds": 3239.514669,
+  "research_end_utc": "2026-10-31T21:06:01.059334+00:00",
+  "research_elapsed_seconds": 970.088193,
+  "research_cap_seconds": 1165,
+  "prospective_whole_cap_seconds": 3540,
+  "runtime": "tta-shape-conditional-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-euw4a0-2jl6gm4ux3xzj",
+  "monitor_pid": 85488,
+  "teardown_issued": false,
+  "native_gradient_scope": "one Gaussian object, two starts, local/global paths, two finite-difference scales",
+  "limits": [
+    "32 exposed objects/four corruptions/seed0; not held-out confirmation.",
+    "Conditional bootstrap excludes seed/native numerical repeat variance.",
+    "Replay worker time excludes shared firstpass and posthoc energy diagnostics are extra cost.",
+    "No default/method promotion."
+  ]
+}

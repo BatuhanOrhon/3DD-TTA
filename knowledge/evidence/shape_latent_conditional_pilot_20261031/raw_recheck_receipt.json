@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-31T21:21:21.230543+00:00",
+  "raw_archives": [
+    {
+      "archive": "smoke_failed_raw.zip",
+      "files": 135,
+      "sha256": "9ecdeec539eff2d7923ba30c9d639e9b72d68c10ef16db48b1fd0d5d4cd074b4",
+      "unchanged": true
+    },
+    {
+      "archive": "smoke_recovery_v2_raw.zip",
+      "files": 807,
+      "sha256": "262e39804c3947d2a1021a6d1ea9884a7dbf6eb1f94223f32686d2033242747f",
+      "unchanged": true
+    },
+    {
+      "archive": "pilot_raw.zip",
+      "files": 874,
+      "sha256": "13ab784c339e5514b2a897cc9e45a5ed4754cd8b280fd04c84d29a394669b609",
+      "unchanged": true
+    }
+  ],
+  "analysis_outputs_separate_from_raw": true
+}

@@ -1,0 +1,20 @@
+{
+  "status": "verified",
+  "utc": "2026-10-31T21:18:16.757431+00:00",
+  "final_directory": "/content/drive/MyDrive/thesis/result/shape_latent_conditional_pilot_20261031/final-archive-20261031T211816Z",
+  "source_payload": {
+    "path": "/content/drive/MyDrive/thesis/result/shape_latent_conditional_pilot_20261031/final-archive-20261031T211816Z/conditional_assets_v2.zip",
+    "bytes": 29981439,
+    "sha256": "8afc9e8e795660606a77a360e29d49f9b6d22b34ec0584a914f8e41b346a095b"
+  },
+  "operator_cpu_setup": {
+    "path": "/content/drive/MyDrive/thesis/result/shape_latent_conditional_pilot_20261031/final-archive-20261031T211816Z/operator_cpu_setup.zip",
+    "bytes": 1564492,
+    "sha256": "f9678499b29f3a239de3950cbeaf325cb469dd7e10111a331f14c09d37f23894"
+  },
+  "members": 57,
+  "gpu_work_performed": false,
+  "teardown_issued": false,
+  "download_roundtrip_verified": true,
+  "all_members_verified": 57
+}

@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_conditional_pilot_20261031/final-archive-20261031T211816Z/conditional_derived_v1.zip",
+  "bytes": 1132781,
+  "sha256": "64f1150e5354c490f0dc287fbe45b9859e9855cca4b95946895b5b0a20d21264",
+  "members": 143,
+  "gpu_work_performed": false,
+  "download_roundtrip_verified": true,
+  "all_members_verified": 143
+}

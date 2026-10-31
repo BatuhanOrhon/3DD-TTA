@@ -1,0 +1,25 @@
+{
+  "payload": {
+    "bytes": 29981439,
+    "sha256": "8afc9e8e795660606a77a360e29d49f9b6d22b34ec0584a914f8e41b346a095b"
+  },
+  "manifest": {
+    "bytes": 137095,
+    "sha256": "d6231c4aa807ddd72af17c5c9482ef26ead1f9a179124ae66fe9d26655d70054"
+  },
+  "source_snapshot": {
+    "bytes": 1169445,
+    "sha256": "2b3982cdf21aa60894df368f186b5dba01931a01658ba5474176ccda26b8a5f7"
+  },
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "prototype_files": {
+    "shape_latent_conditional.py": {
+      "bytes": 4754,
+      "sha256": "ca809a6cf2a95b285600359b66f251c812fa0241b4b5cb55e9e16ee45a7de4d7"
+    },
+    "eval_shape_conditional.py": {
+      "bytes": 10249,
+      "sha256": "87b88218b8b341ef79ad420e9446fbcbc503f3305521accb870a80de56043eb5"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-31T21:26:55.589018+00:00",
+  "new_local_links": 16,
+  "json_parse": "passed",
+  "audit_python38_syntax": "passed",
+  "seven_existing_production_files_unchanged": true,
+  "source_branch_head_preserved": true,
+  "raw_science_verified": true,
+  "remote_local_recount_exact": true,
+  "extra_drive_download_roundtrip": true,
+  "full_repository_tests": "not repeated; no production/default change",
+  "gpu_scope_complete": true,
+  "derived_drive_download_roundtrip": true,
+  "source_and_operator_roundtrip": true,
+  "final_server_assignment_present": true,
+  "monitor_live": true,
+  "csv_line_endings": "original derived CSV CRLF bytes preserved; whitespace check uses cr-at-eol"
+}

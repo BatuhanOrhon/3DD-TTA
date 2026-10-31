@@ -1,0 +1,158 @@
+{
+  "status": "complete_posthoc_only",
+  "encoder_reference_mse": 0.1283593802547532,
+  "scd_start_mse": 0.1278786495671801,
+  "encoder_to_scd_cosine": {
+    "median": 0.024282296695510318,
+    "mean": 0.028460533006694017,
+    "positive_fraction": 0.5390625,
+    "defined": 128,
+    "undefined": 0
+  },
+  "arms": {
+    "encoder_guided3": {
+      "start_mse": 0.12835938025475319,
+      "final_mse": 0.13419453585787644,
+      "aggregate_ratio_to_encoder": 1.045459518358084,
+      "aggregate_ratio_to_own_start": 1.0454595183580841,
+      "median_per_event_mse_ratio": 1.0544036835970085,
+      "median_displacement_norm": 1.1322933042175947,
+      "movement_cosine_to_clean": {
+        "median": 0.0711619126337343,
+        "mean": 0.06033549731965603,
+        "positive_fraction": 0.6640625,
+        "defined": 128,
+        "undefined": 0
+      },
+      "negative_clean_gradient_alignment": [
+        {
+          "step": 0,
+          "median": 0.1411440545230341,
+          "mean": 0.10738117136818184,
+          "positive_fraction": 0.6953125,
+          "defined": 128,
+          "undefined": 0
+        },
+        {
+          "step": 1,
+          "median": 0.0692015664970538,
+          "mean": 0.05394911514380031,
+          "positive_fraction": 0.6171875,
+          "defined": 128,
+          "undefined": 0
+        },
+        {
+          "step": 2,
+          "median": 0.0068268821217831125,
+          "mean": 0.010759561455895213,
+          "positive_fraction": 0.5234375,
+          "defined": 128,
+          "undefined": 0
+        }
+      ]
+    },
+    "encoder_none": {
+      "start_mse": 0.12835938025475319,
+      "final_mse": 0.12835938025475319,
+      "aggregate_ratio_to_encoder": 0.9999999999999998,
+      "aggregate_ratio_to_own_start": 1.0,
+      "median_per_event_mse_ratio": 1.0,
+      "median_displacement_norm": 0.0,
+      "movement_cosine_to_clean": {
+        "median": null,
+        "mean": null,
+        "positive_fraction": null,
+        "defined": 0,
+        "undefined": 128
+      }
+    },
+    "encoder_prior3": {
+      "start_mse": 0.12835938025475319,
+      "final_mse": 0.1355415058814932,
+      "aggregate_ratio_to_encoder": 1.0559532588306808,
+      "aggregate_ratio_to_own_start": 1.055953258830681,
+      "median_per_event_mse_ratio": 1.0653472497821785,
+      "median_displacement_norm": 0.9800030782114386,
+      "movement_cosine_to_clean": {
+        "median": 0.0027816996055076227,
+        "mean": 0.007804756923476866,
+        "positive_fraction": 0.5078125,
+        "defined": 128,
+        "undefined": 0
+      }
+    },
+    "scd_guided3": {
+      "start_mse": 0.1278786495671801,
+      "final_mse": 0.13373022565379605,
+      "aggregate_ratio_to_encoder": 1.0418422509393812,
+      "aggregate_ratio_to_own_start": 1.045758819837567,
+      "median_per_event_mse_ratio": 1.0556467371180625,
+      "median_displacement_norm": 1.1356868493183299,
+      "movement_cosine_to_clean": {
+        "median": 0.06838059555925521,
+        "mean": 0.060809222967744776,
+        "positive_fraction": 0.6640625,
+        "defined": 128,
+        "undefined": 0
+      },
+      "negative_clean_gradient_alignment": [
+        {
+          "step": 0,
+          "median": 0.12600250466864474,
+          "mean": 0.09396165697417448,
+          "positive_fraction": 0.6484375,
+          "defined": 128,
+          "undefined": 0
+        },
+        {
+          "step": 1,
+          "median": 0.06590735092653063,
+          "mean": 0.058153947344622196,
+          "positive_fraction": 0.6328125,
+          "defined": 128,
+          "undefined": 0
+        },
+        {
+          "step": 2,
+          "median": -0.013772138449351158,
+          "mean": 0.0090768187860997,
+          "positive_fraction": 0.4765625,
+          "defined": 128,
+          "undefined": 0
+        }
+      ]
+    },
+    "scd_none": {
+      "start_mse": 0.1278786495671801,
+      "final_mse": 0.1278786495671801,
+      "aggregate_ratio_to_encoder": 0.9962548067260918,
+      "aggregate_ratio_to_own_start": 1.0,
+      "median_per_event_mse_ratio": 1.0,
+      "median_displacement_norm": 0.0,
+      "movement_cosine_to_clean": {
+        "median": null,
+        "mean": null,
+        "positive_fraction": null,
+        "defined": 0,
+        "undefined": 128
+      }
+    },
+    "scd_prior3": {
+      "start_mse": 0.1278786495671801,
+      "final_mse": 0.1349668895176165,
+      "aggregate_ratio_to_encoder": 1.051476637311192,
+      "aggregate_ratio_to_own_start": 1.0554294244928875,
+      "median_per_event_mse_ratio": 1.0652485841188641,
+      "median_displacement_norm": 0.980459094021148,
+      "movement_cosine_to_clean": {
+        "median": 0.002478262945949427,
+        "mean": 0.00993314533255436,
+        "positive_fraction": 0.515625,
+        "defined": 128,
+        "undefined": 0
+      }
+    }
+  },
+  "oracle_used_in_inference": false,
+  "limits": "Same paired clean posterior sample, not unique valid latent or accuracy guarantee; no parameter/step selection."
+}

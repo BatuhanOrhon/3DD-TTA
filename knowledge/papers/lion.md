@@ -113,3 +113,20 @@ Existing quadratic proximal path is no_grad and did not test this. LION's
 native local DDPM score suffices to explore CWGF's condition-gradient idea;
 LCM speed and known-operator convergence claims do not transfer. No new
 implementation, native backward measurement, GPU result or default change.
+
+## 2026-10-31 UTC / 2026-11-01 local — actual conditional z-gradient evaluated
+
+[Code/Run/Inference] [Two-start result](../shape_latent_conditional_results_20261031.md)
+uses original_style encoder z and last SCD updated_style as distinct global
+initializations; current global2style identity makes this mapping explicit.
+Shared detached terminal h* supplies full-channel four-time epsilon-MSE;
+sequential condition VJPs plus global clean-estimate VJP preserve frozen
+weights and paired state. Small actual CUDA finite differences pass, while
+final guided clean-z MSE increases4.55%/4.58% versus respective starts.
+First-step clean-condition negative-gradient cosine medians .141/.126 are
+weak and decay; global guidance reduces drift vs prior but does not establish
+clean recovery. Accuracy+.78125/−1.5625pp versus own controls, all conditional
+intervals include0. SCD start gives no reliable advantage; no default change.
+Native same-state/RNG prediction variation and h* self-confirming bias remain
+limits. This does not invalidate the separate positive clean-z oracle or
+establish a calibrated p(h|z) likelihood, novelty or high-accuracy method.

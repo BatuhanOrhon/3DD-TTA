@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "rows": [
+    {
+      "start": "encoder_z",
+      "path": "condition",
+      "trials": [
+        {
+          "fraction": 0.001,
+          "delta": 0.009961481094360352,
+          "finite_difference": 0.0016604247502982616,
+          "autograd": 0.0017661256715655327,
+          "relative_error": 0.05984903734147945,
+          "passed": true
+        },
+        {
+          "fraction": 0.01,
+          "delta": 0.09961481094360351,
+          "finite_difference": 0.001688248012214899,
+          "autograd": 0.0017661256715655327,
+          "relative_error": 0.04409519696387242,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "start": "encoder_z",
+      "path": "global_chain",
+      "trials": [
+        {
+          "fraction": 0.001,
+          "delta": 0.010052210807800293,
+          "finite_difference": 0.0016424731584265828,
+          "autograd": 0.0016961479559540749,
+          "relative_error": 0.03164511523836978,
+          "passed": true
+        },
+        {
+          "fraction": 0.01,
+          "delta": 0.10052210807800294,
+          "finite_difference": 0.0016411389224231243,
+          "autograd": 0.0016961479559540749,
+          "relative_error": 0.03243174237120619,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "start": "scd_z",
+      "path": "condition",
+      "trials": [
+        {
+          "fraction": 0.001,
+          "delta": 0.009959759712219239,
+          "finite_difference": 0.0018462324514985085,
+          "autograd": 0.001775651122443378,
+          "relative_error": 0.039749547736611296,
+          "passed": true
+        },
+        {
+          "fraction": 0.01,
+          "delta": 0.09959759712219239,
+          "finite_difference": 0.0016955717001110315,
+          "autograd": 0.001775651122443378,
+          "relative_error": 0.04509862400343231,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "start": "scd_z",
+      "path": "global_chain",
+      "trials": [
+        {
+          "fraction": 0.001,
+          "delta": 0.010050360679626466,
+          "finite_difference": 0.0015953307738527656,
+          "autograd": 0.0017060332465916872,
+          "relative_error": 0.06488881325149028,
+          "passed": true
+        },
+        {
+          "fraction": 0.01,
+          "delta": 0.10050360679626465,
+          "finite_difference": 0.0016288384795188904,
+          "autograd": 0.0017060332465916872,
+          "relative_error": 0.04524810241946721,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "models_unchanged": true,
+  "rng_unchanged": true,
+  "source_config": "/content/studies/shape-conditional/phase_smoke_recovery_v2_20261031T205234149589Z/raw/firstpass/modelnet40_c/3dd_shape_conditional_pilot/20261031-204951_pointmae-seed0/config.json",
+  "peak_memory_bytes": 1953943552,
+  "torch": "2.1.2+cu121",
+  "gpu": "NVIDIA A100-SXM4-80GB"
+}

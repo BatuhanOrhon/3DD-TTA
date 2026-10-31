@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "stage": "smoke",
+  "archive": {
+    "bytes": 186869678,
+    "sha256": "262e39804c3947d2a1021a6d1ea9884a7dbf6eb1f94223f32686d2033242747f",
+    "local_path": "/content/studies/shape-conditional/phase_smoke_recovery_v2_20261031T205234149589Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_conditional_pilot_20261031/phase-evidence/phase_smoke_recovery_v2_20261031T205234149589Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 429.116418,
+    "completed": [
+      "smoke"
+    ],
+    "research_started_utc": "2026-10-31T20:49:50.971141+00:00",
+    "reviewed_failure": {
+      "bytes": 36783790,
+      "sha256": "9ecdeec539eff2d7923ba30c9d639e9b72d68c10ef16db48b1fd0d5d4cd074b4",
+      "local_path": "/content/studies/shape-conditional/phase_smoke_20261031T204950971163Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_conditional_pilot_20261031/phase-evidence/phase_smoke_20261031T204950971163Z.zip"
+    },
+    "smoke_acceptance": "passed"
+  },
+  "output": "/content/studies/shape-conditional/phase_smoke_recovery_v2_20261031T205234149589Z",
+  "cache_root": "/content/studies/shape-conditional/phase_smoke_recovery_v2_20261031T205234149589Z/paired"
+}

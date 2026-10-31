@@ -1,0 +1,9 @@
+{
+  "reason": "Fresh canonical setup and large technical archive transfer exceed initial timing estimate; prospective pilot-only controller amendment, before pilot and independent of accuracy values.",
+  "previous_whole_cap_seconds": 3300,
+  "new_whole_cap_seconds": 3540,
+  "scientific_source_or_parameters_changed": false,
+  "research_cap_seconds_unchanged": 1165,
+  "expected_pilot_plus_archive_seconds": 420,
+  "approval": "Current user authorized short tests; whole planned phase remains under60min. No >60min expansion."
+}

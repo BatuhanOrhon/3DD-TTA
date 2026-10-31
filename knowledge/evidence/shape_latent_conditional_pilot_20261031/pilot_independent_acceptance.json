@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "acceptance_exact_match": true,
+  "outcomes_exact_match": true,
+  "paired_latents_exact_match": true,
+  "raw_sha256": "13ab784c339e5514b2a897cc9e45a5ed4754cd8b280fd04c84d29a394669b609"
+}

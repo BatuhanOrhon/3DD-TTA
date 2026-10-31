@@ -2453,3 +2453,24 @@ reprioritizes prior clean-free candidate B; no new method/GPU run.
   close it; supersedes preceding keep-live/pending-close operational items.
 - [ ] Native repeated-control variance and unseen/seed-stable gain remain
   unresolved; previous conditional bootstrap omits numerical repeat variance.
+
+## 2026-10-31 UTC / 2026-11-01 local — Conditional pilot completed, objective still open
+
+[Run/Inference/Decision/Open] [Accepted result](shape_latent_conditional_results_20261031.md)
+supersedes preceding pilot-pending gates.
+- [x] Both encoder-z and final-SCD-z starts, shared detached h*, fixed none/
+  prior3/guided3 controls, same h0/noise/anchor/frozen model/own-z PM readout.
+- [x] Canonical10/strictCPU and actual small CUDA derivative tests; failures
+  retained and completed firstpass reused byte-identically in recovery.
+- [x]32objects/fourcorruptions/seed0; Drive/local raw874-file physical acceptance,
+  PM/latent independent exact recount and all seven object-cluster contrasts.
+- [x] Measure clean-z MSE/cosines separately from accuracy; both final guided
+  outputs farther than their starts, all accuracy intervals include0.
+- [x] Observe existing technical/pilot native repeat differences; no extra run.
+- [ ] A gradient/integration that reliably improves clean-z recovery and frozen
+  classifier accuracy remains unproven; this prototype is not default.
+- [ ] Pure conditional-energy small step without global prior may isolate the
+  weak direction from DDIM drift; unimplemented, no coefficient/grid selected.
+- [ ] Seed/unseen confirmation and full deployment cost/native repeat variance
+  remain unresolved. No automatic GPU continuation.
+- [ ] Runtime remains protected until explicit task-complete plus close consent.

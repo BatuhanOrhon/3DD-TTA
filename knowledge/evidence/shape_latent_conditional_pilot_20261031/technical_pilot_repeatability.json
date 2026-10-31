@@ -1,0 +1,380 @@
+{
+  "firstpass/gaussian": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": true,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 19,
+    "pilot_correct": 18,
+    "changed_predictions": 2,
+    "max_abs_trajectory_logit_difference": 2.310385227203369
+  },
+  "firstpass/background": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": true,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 18,
+    "pilot_correct": 19,
+    "changed_predictions": 3,
+    "max_abs_trajectory_logit_difference": 4.8974609375
+  },
+  "encoder_none/gaussian": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": true,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 19,
+    "pilot_correct": 18,
+    "changed_predictions": 3,
+    "max_abs_trajectory_logit_difference": 2.820523738861084
+  },
+  "encoder_none/background": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": true,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 19,
+    "pilot_correct": 18,
+    "changed_predictions": 1,
+    "max_abs_trajectory_logit_difference": 5.143802165985107
+  },
+  "scd_none/gaussian": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 18,
+    "pilot_correct": 20,
+    "changed_predictions": 2,
+    "max_abs_trajectory_logit_difference": 2.660287857055664
+  },
+  "scd_none/background": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 17,
+    "pilot_correct": 17,
+    "changed_predictions": 0,
+    "max_abs_trajectory_logit_difference": 7.378789901733398
+  },
+  "encoder_prior3/gaussian": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": true,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 21,
+    "pilot_correct": 21,
+    "changed_predictions": 1,
+    "max_abs_trajectory_logit_difference": 3.0873517990112305
+  },
+  "encoder_prior3/background": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": true,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 19,
+    "pilot_correct": 17,
+    "changed_predictions": 3,
+    "max_abs_trajectory_logit_difference": 3.99082088470459
+  },
+  "scd_prior3/gaussian": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 21,
+    "pilot_correct": 21,
+    "changed_predictions": 0,
+    "max_abs_trajectory_logit_difference": 3.486757755279541
+  },
+  "scd_prior3/background": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 18,
+    "pilot_correct": 17,
+    "changed_predictions": 1,
+    "max_abs_trajectory_logit_difference": 4.840461730957031
+  },
+  "encoder_guided3/gaussian": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 19,
+    "pilot_correct": 20,
+    "changed_predictions": 2,
+    "max_abs_trajectory_logit_difference": 3.072469711303711
+  },
+  "encoder_guided3/background": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 17,
+    "pilot_correct": 17,
+    "changed_predictions": 2,
+    "max_abs_trajectory_logit_difference": 5.847843170166016
+  },
+  "scd_guided3/gaussian": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 21,
+    "pilot_correct": 20,
+    "changed_predictions": 2,
+    "max_abs_trajectory_logit_difference": 3.4542384147644043
+  },
+  "scd_guided3/background": {
+    "config_equal": {
+      "classifier_state_before_sha256": true,
+      "classifier_state_after_sha256": true,
+      "lion_state_before": true,
+      "lion_state_after": true,
+      "executed_source_sha256": true,
+      "source_snapshot_sha256": true,
+      "asset_manifest_sha256": true,
+      "selected_original_ids": true
+    },
+    "equal": {
+      "reconstruction_rng_before_sha256": true,
+      "reconstruction_rng_after_sha256": true,
+      "initial_hashes": false,
+      "initial_rng": true,
+      "imported_input_h0_noise": {
+        "input_points": true,
+        "local_latent": true,
+        "noise": true
+      }
+    },
+    "smoke_correct": 18,
+    "pilot_correct": 17,
+    "changed_predictions": 4,
+    "max_abs_trajectory_logit_difference": 6.150829315185547
+  }
+}
