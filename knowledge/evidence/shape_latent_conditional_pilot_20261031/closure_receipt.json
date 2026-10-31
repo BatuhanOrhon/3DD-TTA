@@ -1,0 +1,27 @@
+{
+  "status": "closed_server_verified",
+  "requested_utc": "2026-10-31T21:33:56.066254+00:00",
+  "session": "tta-shape-conditional-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-euw4a0-2jl6gm4ux3xzj",
+  "owner": "/root",
+  "authorization": "User explicitly requested closing this completed Colab task and knowledge-only integration.",
+  "archive_precondition": "completion, raw/source/operator/derived and publication Drive roundtrip receipts verified before stop",
+  "command": [
+    "colab",
+    "stop",
+    "-s",
+    "tta-shape-conditional-a100-20261031-r1"
+  ],
+  "exit_code": 0,
+  "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Stopping session 'tta-shape-conditional-a100-20261031-r1'...\n[colab] Session terminated.\n",
+  "stderr": "",
+  "peer_stop_commands_issued": false,
+  "verified_utc": "2026-10-31T21:34:18.925273+00:00",
+  "server_assignment_present_after": false,
+  "server_inventory_after": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] No active sessions found on server.\n",
+  "monitor_pid": 85488,
+  "monitor_live_after": false,
+  "monitor_shutdown": "SIGTERM to exact owned monitor PID after runtime closure",
+  "raw_artifacts_preserved": true,
+  "no_active_server_sessions": true
+}

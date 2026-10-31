@@ -225,3 +225,56 @@ supersede eder. [Final roundtrip](evidence/shape_latent_conditional_pilot_202610
 [Run] Yayın öncesi son server inventory, aynı A100/High-RAM endpoint atamasını
 ve read-only monitor85488 sürecini doğruladı. GPU araştırması tamamlandı;
 oturum korunur. [Inventory makbuzu](evidence/shape_latent_conditional_pilot_20261031/final_runtime_inventory.json).
+
+[Run/Decision] Seçili45knowledge/evidence dosyası, önceki kabul edilmiş ortak
+kayıtlar korunarak normal fast-forward ile `origin/thesis-integration` dalına
+`8c1d544f65fc56a0360967234bbbf6c933d81d72` commit’iyle yayınlandı; uzak SHA ve
+temiz yayın checkout’ı doğrulandı. Orijinal branch/HEAD ve yedi production
+kimliği korundu. `operator/publication_receipt.json` aynı final-archive Drive
+dizininden geri indirildi;5,448byte SHA
+`bad5777e9bf12632628fb35e7aef82e4db26da0e152f2135bf6cd9b7cc8ef388` exact.
+Bu final sidecar, capsule içindeki yayın-pending snapshot’ını supersede eder.
+
+## Referans accuracy kapsamı yeniden denetlendi
+
+[Run/Code/Inference] Kullanıcının %60+ SCD referansı sorusu üzerine önceki
+refresh baseline’ının kabul edilmiş outcome matrisi yeniden toplandı; yeni
+inference/GPU çalıştırılmadı. Aynı classifier/LION state kimlikleri doğrulandı.
+
+| Aynı önceki baseline tahminlerinin kapsamı | Doğru/toplam | Accuracy % |
+|---|---:|---:|
+| 64 nesne, 15 bozulma |585/960|60.937500|
+| Aynı 64 nesne, yalnız yeni pilotun 4 bozulması |117/256|45.703125|
+| Yeni pilotla aynı 32 nesne, 15 bozulma |283/480|58.958333|
+| Yeni pilotla aynı 32 nesne, aynı 4 bozulma |55/128|42.968750|
+| Yeni pilot ilk SCD geçişi, aynı 32×4 |55/128|42.968750|
+
+[Inference] %60.9375→%42.96875 farkı eski tahminler üzerinde yalnız kapsam
+değiştirilerek de aynen oluşur. Önceki64 nesnede dört bozulmaya geçiş
+−15.234375puan, ardından32 nesneye geçiş −2.734375puan: toplam −17.96875puan.
+Bu sıralamaya bağlı betimsel ayrıştırmadır; nedensel corruption etkisi değildir.
+Rotation/LiDAR yeni ortalamanın yarısıdır; all15’te toplam2/15 ağırlıktadır.
+Son %42.97 tüm ModelNet40-C SCD accuracy’si diye sunulmamalı; küçük32×4
+pilotunun kendi matched referansıdır. Önceki %60.94 de64-object development
+sonucudur, tam veri benchmark’ı değildir. Aggregate eşitlik tek tek tahminlerin
+veya native hesapların byte-identik olduğu anlamına gelmez.
+[Hesap, ID/row eşlemesi ve kaynak SHA’ları](evidence/shape_latent_conditional_pilot_20261031/reference_scope_recheck.json).
+
+## Kullanıcı isteğiyle tamamlandı ve kapatıldı — 2026-10-31 21:34 UTC
+
+[User report/Run/Decision] Kullanıcı Colab oturumunu kapatmamızı, gözlemleri
+knowledge kayıtlarına ekleyip yalnız knowledge dosyalarını integration dalına
+birleştirmemizi istedi. Tamamlanan `tta-shape-conditional-a100-20261031-r1`
+oturumuna CLI stop uygulandı; exit0/Session terminated ve21:34:18UTC server
+envanterinde atamanın yokluğu doğrulandı. Kendi read-only monitor85488 durdu.
+Önceki canlı/koruma notları tarihsel durumdur; bu kapanış onları supersede eder.
+[CLI ve envanter kapanış makbuzu](evidence/shape_latent_conditional_pilot_20261031/closure_receipt.json).
+
+[Run/Decision] Ham/source/operator/türetilmiş ve önceki yayın Drive roundtrip
+kabulü kapanıştan önce yeniden kontrol edildi. Kanıtlar yerelde ve Drive'da
+korunur. Bu kapanış yeni deneme değildir; iki başlangıçtaki null sonuç ve
+native varyans sınırları değişmedi. Temiz-z yakınsaması hâlâ açık araştırma
+sorusudur. Sonraki saf-enerji/ek-seed/tam-veri denemesi otomatik başlatılmadı.
+Yalnız gerekli knowledge kayıtları seçilir; implementation/test/config veya
+büyük ham dosyalar bu follow-up entegrasyonuna alınmaz. Orijinal branch/HEAD
+ve mevcut kod değişiklikleri korunur.

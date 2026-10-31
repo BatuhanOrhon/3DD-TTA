@@ -1,3 +1,8 @@
+[Current Run/Decision] 2026-10-31 21:34 UTC: completed study closed on explicit
+user request. CLI stop/server absence and owned monitor shutdown verified.
+[Final observations, scope and closure](shape_latent_conditional_results_20261031.md).
+Earlier running/keep-live statements below are historical, superseded operationally.
+
 # Conditional z-gradient: encoder versus final SCD start — 2026-10-31
 
 [Latest Run/Decision] Scientific phase complete; both starts and all seven

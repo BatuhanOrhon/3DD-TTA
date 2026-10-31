@@ -2474,3 +2474,19 @@ supersedes preceding pilot-pending gates.
 - [ ] Seed/unseen confirmation and full deployment cost/native repeat variance
   remain unresolved. No automatic GPU continuation.
 - [ ] Runtime remains protected until explicit task-complete plus close consent.
+
+## 2026-10-31 21:34 UTC / 2026-11-01 local — Scope question resolved; runtime closed
+
+[Run/Inference/Decision] [Final conditional record](shape_latent_conditional_results_20261031.md).
+
+- [x] Explain60.9375% versus42.96875% using the same old accepted predictions:
+ 64/all15 →64/same4=45.703125% →32/same4=42.96875%; current firstpass matches
+ the aggregate. Keep both subset scope and native repeat limits explicit.
+- [x] User explicitly requested closure of the completed task. Own conditionalr1
+ CLI stop and server absence verified; monitor85488 stopped. Supersedes the
+ earlier protected-runtime/pending-close item for this exact session.
+- [x] Existing raw/source/operator/derived and publication receipt backups
+ verified before closure; original dirty source worktree preserved.
+- [ ] A useful clean-z gradient/integration remains unproven. Pure energy steps,
+ additional seeds, unseen/full-data confirmation and native repeat diagnosis
+ remain possible future work; none was launched or selected here.

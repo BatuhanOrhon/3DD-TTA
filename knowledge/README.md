@@ -1,3 +1,16 @@
+**[Run/Inference/Decision] 2026-10-31 21:34 UTC / 2026-11-01 Türkiye — conditional pilot kapatıldı:**
+Kullanıcı tamamlanan Colab görevini kapatıp yalnız knowledge kayıtlarını
+birleştirmemizi istedi. `tta-shape-conditional-a100-20261031-r1` CLI ile
+kapatıldı; sunucu ataması yok, monitor85488 durdu. Ham/source/operator/
+türetilmiş arşivler ve önceki yayın makbuzu kapanıştan önce doğrulanmıştı.
+[Sonuçlar, kapsam denetimi ve kapanış](shape_latent_conditional_results_20261031.md).
+Eski %60.9375 baseline aynı32 nesne/dört bozulmayla tekrar toplandığında
+%42.96875 olur; yeni ilk SCD geçişi de55/128=%42.96875. Bu küçük pilotun
+referansıdır; tam ModelNet40-C accuracy’si değildir. İki z başlangıcındaki
+guidance için güvenilir kazanç/temiz-z yakınsaması gösterilmedi; default kapalı.
+Aşağıdaki canlı/pending kayıtlar tarihsel olup bu kapanışla superseded edilir.
+Yeni GPU deneyi planlanmadı; yalnız knowledge entegrasyonu yapılır.
+
 **[Run/Inference/Decision] 2026-10-31 UTC / 2026-11-01 Türkiye — iki z başlangıcı test edildi:**
 [Sonuçlar ve sınırlar](shape_latent_conditional_results_20261031.md).
 32exposed/dörtbozulma/seed0/Point-MAE: encoder off%42.1875, prior%43.75,

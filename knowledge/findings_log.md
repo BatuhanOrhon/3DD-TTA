@@ -8075,3 +8075,25 @@ under prospective59min/1165s caps; timing amendment preceded full pilot and
 did not change science. Own conditionalr1/monitor85488 preserved, no teardown.
 More seeds/unseen confirmation or a pure conditional-energy step without
 global prior remain unrun choices, not automatic scope expansion.
+
+## 2026-10-31 21:34 UTC / 2026-11-01 local — Conditional study closed; knowledge-only handoff
+
+[User report/Run/Code/Inference/Decision] User requested closing the completed
+Colab task, recording observations and integrating only knowledge. Exact own
+session `tta-shape-conditional-a100-20261031-r1` / endpoint
+`gpu-a100-hm-euw4a0-2jl6gm4ux3xzj` stopped via CLI;21:34:18UTC inventory has
+no active sessions, owned monitor85488 stopped. No peer teardown or GPU rerun.
+Raw/source/operator/derived and publication Drive roundtrips were verified
+before closure; immutable artifacts remain local and Drive.
+
+[Results and scope audit](shape_latent_conditional_results_20261031.md): two
+z starts tested; no reliable accuracy/clean recovery gain, default unchanged.
+Old60.9375% baseline becomes42.96875% on the exact current32×4 by reaggregation
+alone; current firstpass55/128 also42.96875%. Do not report this subset value
+as full ModelNet40-C accuracy or interpret equal totals as identical predictions.
+Source branch `integration/chamfer-guidance-variants-20261030`, HEAD
+`a82200adbe117ce56a134dc3c22601cb73dc2654` and existing code edits preserved.
+Previous accepted research integration is `8c1d544f65fc56a0360967234bbbf6c933d81d72`.
+Select only necessary knowledge Markdown and two compact JSON proofs for this
+follow-up; no implementation/test/config/raw/weight files. Final SHA is recorded
+in the local operator knowledge-closure publication receipt after normal push.

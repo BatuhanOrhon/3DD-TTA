@@ -34,3 +34,14 @@ worktree. Final remote SHA/receipt is written after publication at
 `result/preparation/shape_latent_conditional_pilot_20261031/operator/publication_receipt.json`.
 Runtime remains owned/live unless a later actual server inventory says
 otherwise; no teardown authorization or command is part of this integration.
+
+## Knowledge-only closure follow-up
+
+[User report/Run/Decision] After completion, user explicitly requested runtime
+closure and integration of knowledge files only. Add the accepted scope
+reaggregation, closure proof, current headlines/checklists and final archive/
+prior-publication observations. Base is `8c1d544f65fc56a0360967234bbbf6c933d81d72`.
+No new code/test/config changes, experiment, default promotion or raw archive.
+Existing source worktree remains on a82200a with its dirty changes preserved.
+Exact final follow-up SHA is recorded after push in
+`result/preparation/shape_latent_conditional_pilot_20261031/operator/knowledge_closure_publication_receipt.json`.

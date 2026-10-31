@@ -554,3 +554,24 @@ under prospective59min/1165s caps; timing amendment preceded full pilot and
 did not change science. Own conditionalr1/monitor85488 preserved, no teardown.
 More seeds/unseen confirmation or a pure conditional-energy step without
 global prior remain unrun choices, not automatic scope expansion.
+
+## 2026-10-31 21:34 UTC / 2026-11-01 local — Baseline scope and closed conditional study
+
+[Run/Code/Inference/Decision] [Conditional results](shape_latent_conditional_results_20261031.md)
+retain the two-start null result: native derivatives pass, but guided final
+clean-z MSE increases about4.55%/4.58% over each start; all seven accuracy
+contrast intervals include0. SCD initialization has no reliable advantage.
+
+Reaggregating the already accepted refresh baseline gives585/960=60.9375%
+on64objects/all15,117/256=45.703125% on64/the same4 corruptions, and55/128=
+42.96875% on the exact current32/the same4. Current firstpass also55/128.
+The apparent17.96875pp drop is reproduced by scope alone on old predictions;
+rotation/lidar carry2/4 instead of2/15 weight. This does not certify full-data
+performance or equality of individual/native predictions. Keep absolute
+accuracy comparisons on matched IDs/corruptions/severity/readout/seeds.
+
+[User report/Run/Decision] Completed conditionalr1 was explicitly closed at
+user request; CLI stop succeeded and21:34:18UTC server inventory has no
+assignment. Owned monitor85488 stopped; all existing raw/source/derived
+roundtrips were verified beforehand. Earlier keep-live statements are dated
+history. No new GPU/seed/grid or default change; clean-z recovery remains open.

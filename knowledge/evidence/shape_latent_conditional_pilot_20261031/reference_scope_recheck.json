@@ -1,0 +1,138 @@
+{
+  "status": "verified",
+  "utc": "2026-10-31T21:31:39.879666+00:00",
+  "question": "Why latest SCD reference is 42.97 rather than 60+ percent?",
+  "method": "Reaggregate existing accepted baseline outcomes only; no inference rerun",
+  "old_outcomes_sha256": "41a5f6e570f989936b6ec1ecc4be44fa27a643b9f1addd40e6cdf22ff6819d04",
+  "new_outcomes_sha256": "d3eda2fd1dffafaca179ae346065eada940bca15732eb3ac7843fafc0a578ae2",
+  "old_config_path": "result/preparation/shape_latent_refresh_pilot_20261031/operator/pilot_extracted/raw/baseline/modelnet40_c/3dd_shape_posterior_refresh_pilot/20261031-165244_pointmae-seed0/config.json",
+  "old_config_sha256": "4fd26b105da5a6b34b37a029995afcf9b95c0727924b0e89ea297db4f43f68e2",
+  "current_reference_manifest_sha256": "9d6383e63b21fdea9bf0fff7a1dfcf3559cecae877f8da0c6566bec11820adc2",
+  "original_ids": [
+    17,
+    37,
+    123,
+    124,
+    143,
+    168,
+    186,
+    206,
+    272,
+    275,
+    336,
+    382,
+    458,
+    500,
+    597,
+    636,
+    640,
+    657,
+    672,
+    727,
+    733,
+    791,
+    855,
+    885,
+    911,
+    919,
+    932,
+    999,
+    1056,
+    1225,
+    1226,
+    1276
+  ],
+  "old_column_positions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "old_corruption_rows": [
+    1,
+    2,
+    10,
+    14
+  ],
+  "corruptions": [
+    "gaussian",
+    "background",
+    "rotation",
+    "lidar"
+  ],
+  "scopes": {
+    "previous64_all15": {
+      "correct": 585,
+      "total": 960,
+      "accuracy_percent": 60.9375
+    },
+    "previous64_same4": {
+      "correct": 117,
+      "total": 256,
+      "accuracy_percent": 45.703125
+    },
+    "previous32_all15": {
+      "correct": 283,
+      "total": 480,
+      "accuracy_percent": 58.958333333333336
+    },
+    "previous32_same4": {
+      "correct": 55,
+      "total": 128,
+      "accuracy_percent": 42.96875
+    },
+    "current32_same4_firstpass": {
+      "correct": 55,
+      "total": 128,
+      "accuracy_percent": 42.96875
+    }
+  },
+  "old_same32_per_corruption": {
+    "gaussian": 62.5,
+    "background": 56.25,
+    "rotation": 28.125,
+    "lidar": 25.0
+  },
+  "current_firstpass_per_corruption": {
+    "gaussian": 56.25,
+    "background": 59.375,
+    "rotation": 28.125,
+    "lidar": 28.125
+  },
+  "classifier_lion_state_match": true,
+  "scope_effect_pp": -17.96875,
+  "aggregate_same_subset_delta_pp": 0.0,
+  "limits": [
+    "Equal aggregate accuracy does not imply equal predictions or bitwise native inference.",
+    "64 development objects is not full ModelNet40-C; 32-object subset is not a benchmark estimate.",
+    "No new full-data or multi-seed run."
+  ]
+}

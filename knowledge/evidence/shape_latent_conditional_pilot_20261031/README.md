@@ -42,3 +42,12 @@ All seven accuracy contrasts include0 in their conditional object-cluster
 95% interval. New global guidance moves final z farther from paired clean z
 than each initial condition, despite slightly reducing held-out energy and
 the drift versus prior3. No benchmark/seed-stability/speed/default claim.
+
+Post-completion additions:
+
+- `reference_scope_recheck.json`: reaggregates the old accepted64/all15
+  baseline onto exact current32/same4 IDs; both old/new aggregates55/128.
+  Includes array/config hashes and explicit row/column mapping; no GPU rerun.
+- `closure_receipt.json`: explicit user closure authorization, exact owned
+  session CLI stop, server inventory absence and monitor shutdown. Supersedes
+  historical live-runtime inventory/completion receipts operationally.
