@@ -1,0 +1,101 @@
+{
+  "source_worktree": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_head": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "accepted_integration": "e8523e023f53650a057ddb1b2fa097bdf17078dd",
+  "files": {
+    "models/vae_adain.py": {
+      "lines": [
+        106,
+        119,
+        129
+      ],
+      "observation": "encode_global posterior; global2style uses optional style_mlp; local encoder accepts style",
+      "bytes": 14667,
+      "sha256": "a6b91bbc21b28f5c08651ef1ecdfbd6e31ef2318c22cf1b01ea8593aa46548b0",
+      "same_as_accepted_integration_e8523e0": true
+    },
+    "models/latent_points_ada_localprior.py": {
+      "lines": [
+        72,
+        83
+      ],
+      "observation": "8192-flat local latent reshaped to2048x4; condition_input passed as PVCNN style without detach",
+      "bytes": 4113,
+      "sha256": "1769fb9d3e29c5bac5c77aef5b832cbc061d365ba76b2fcec98b980af45c9c45",
+      "same_as_accepted_integration_e8523e0": true
+    },
+    "models/latent_points_ada.py": {
+      "lines": [
+        255,
+        271
+      ],
+      "observation": "decoder residual multiplied by config skip_weight, with local XYZ skip",
+      "bytes": 11854,
+      "sha256": "b9c20d6e9b1f6ffd0c8987055b696aaea552489e1db7c3e1d0181d83fe1cc798",
+      "same_as_accepted_integration_e8523e0": true
+    },
+    "lion_ckpts/unconditional_all55_cfg.yml": {
+      "lines": [
+        93,
+        127,
+        128,
+        130,
+        210
+      ],
+      "observation": "unit-weight noising setting; skip .01; z128; style_mlp empty; mixed_prediction false",
+      "bytes": 7860,
+      "sha256": "9d4a826f35fe9b3053210105eb4857811c8bfd53cd8c6a998f8ea7953e975816",
+      "same_as_accepted_integration_e8523e0": true
+    },
+    "utils/diffusion_pvd.py": {
+      "lines": [
+        43,
+        52,
+        61,
+        65
+      ],
+      "observation": "schedule index0..999; denoiser t1..1000; use_p2_weight false gives loss_weight1",
+      "bytes": 24980,
+      "sha256": "63b6b812c3fa9032a20ea64b64fb280651355f4aca8a37a0cb5623195b2d7c5a",
+      "same_as_accepted_integration_e8523e0": true
+    },
+    "tta.py": {
+      "lines": [
+        110,
+        133,
+        139,
+        167
+      ],
+      "observation": "existing per-step style gradient path; detach/re-enable gradient; selected decoder style must match own arm",
+      "bytes": 8851,
+      "sha256": "7b58407da924dc09431f6940698772711efdee6fcada5f54ab97057538a8a37b",
+      "same_as_accepted_integration_e8523e0": true
+    },
+    "shape_latent_proximal.py": {
+      "lines": [
+        13,
+        40,
+        45,
+        49
+      ],
+      "observation": "accepted quadratic proposal explicitly no_grad; no conditional-energy/global-prior backward tested",
+      "bytes": 4614,
+      "sha256": "53fc1cce010394a86c68c90f86adaf9bc396173544ea921e8890565be0d74fa7",
+      "same_as_accepted_integration_e8523e0": true
+    }
+  },
+  "official_code": {
+    "repository": "mihirp1998/Diffusion-TTA",
+    "commit": "eedeb6e01f358e5645ecbcf42fdb4b3e7b1a9917",
+    "path": "diff_tta/models/tta.py",
+    "git_blob_sha": "4bd01e0cf0c62e919af1d0d5e4c92cec1255b100",
+    "condition_graph_strings_verified": true,
+    "execution": "not run"
+  },
+  "limits": [
+    "Inspection only; native conditional gradient and finite differences not measured.",
+    "No production/config/test file changed for this literature task.",
+    "Existing dirty changes preserved; no full branch merge."
+  ]
+}

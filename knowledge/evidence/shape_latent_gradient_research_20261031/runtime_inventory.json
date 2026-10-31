@@ -1,0 +1,12 @@
+{
+  "checked_utc": "2026-10-31T19:47:53.105450+00:00",
+  "command": [
+    "colab",
+    "sessions"
+  ],
+  "returncode": 0,
+  "stdout": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] No active sessions found on server.\n",
+  "stderr": "",
+  "teardown_issued": false,
+  "allocation_issued": false
+}

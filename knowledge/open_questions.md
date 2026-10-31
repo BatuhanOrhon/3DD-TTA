@@ -2433,3 +2433,23 @@ supersedes the preceding pending gates.
 - [ ] End-to-end two-pass cost and native repeat variance remain unmeasured.
 - [ ] Keep own runtime until explicit task-complete plus close authorization.
 Final archival is accepted; publication verification and receipts are linked in the completed result record.
+
+## 2026-10-31 — Clean-z condition gradient, fresh literature audit
+
+[Paper/Code/Inference/Open] [Report](shape_latent_gradient_research_20261031.md)
+reprioritizes prior clean-free candidate B; no new method/GPU run.
+- [x] Inspect10primary full texts, explicit conditional-gradient equations and
+  pinned Diffusion-TTA condition→prediction→MSE code with byte identities.
+- [x] Separate CWGF condition-gradient idea from its full LCM/known-A pipeline;
+  distinguish learned ANaLOG heads, P2L condition variable and SDS detach.
+- [ ] Register a bounded conditional-energy direction diagnostic: detached
+  baseline h* versus corrupted h_d, matched(t,epsilon), independent held-out
+  bank, shuffled controls, finite-difference/frozen-state/RNG gates.
+- [ ] Establish that direction carries clean-z information; no per-example
+  oracle objective/selector/step tuning. MSE gain alone is insufficient.
+- [ ] If supported, implement global clean-estimate Jacobian transport and
+  matched fresh-baseline accuracy/cost study; schedule/weights/budget unselected.
+- [x] Recheck runtime: CLI19:47:53UTC reports no active session. We did not
+  close it; supersedes preceding keep-live/pending-close operational items.
+- [ ] Native repeated-control variance and unseen/seed-stable gain remain
+  unresolved; previous conditional bootstrap omits numerical repeat variance.

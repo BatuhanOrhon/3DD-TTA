@@ -95,3 +95,21 @@ Oracle3 nearly recovers the paired clean latent but remains diagnostic; no
 formal upper-bound or compatibility-cause claim. Own-z decoder/h0/noise/RNG
 and frozen model/source gates pass. Existing smoke/pilot predictions vary
 despite matching states/RNG; no robust baseline gain or default promotion.
+
+## 2026-10-31 — conditional local prior as a z-gradient source, untested
+
+[Paper/Code/Inference/Open] [New review](../shape_latent_gradient_research_20261031.md)
+source-binds the earlier conditional-energy proposal to Diffusion-TTA,
+Diffusion Classifier and CWGF§3.2/Eq.21. Local ε_h(h_t,t;z) passes z as style
+without detach; fixed detached h* permits real J_z ε_h-transpose residual
+updates with frozen parameters. Stop-gradient on ε prediction would remove
+this condition gradient. Full-channel MSE and native timestep indexing must
+be preserved; finite-t weighted energy is not exact conditional likelihood.
+
+[Proposal/Open] Baseline-derived h* can favor the old wrong z; evaluate
+energy specificity/held-out noise, posthoc clean-direction alignment and
+actual CUDA derivatives before global clean-estimate Jacobian transport.
+Existing quadratic proximal path is no_grad and did not test this. LION's
+native local DDPM score suffices to explore CWGF's condition-gradient idea;
+LCM speed and known-operator convergence claims do not transfer. No new
+implementation, native backward measurement, GPU result or default change.

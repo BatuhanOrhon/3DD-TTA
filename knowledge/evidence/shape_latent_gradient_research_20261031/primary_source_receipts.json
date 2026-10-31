@@ -1,0 +1,142 @@
+{
+  "schema": "primary-source-audit-v1",
+  "sources": [
+    {
+      "id": "diffusion_tta",
+      "requested_url": "https://arxiv.org/html/2311.16102v2",
+      "effective_url": "https://arxiv.org/html/2311.16102v2",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 291114,
+      "sha256": "04956dcc51715f9286d2a0e3111f8eb221c1ee7b1b25cbe9c8019d9658faad2b",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/diffusion_tta.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:16.103274+00:00"
+    },
+    {
+      "id": "diffusion_classifier",
+      "requested_url": "https://arxiv.org/html/2303.16203v2",
+      "effective_url": "https://arxiv.org/html/2303.16203v2",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 308014,
+      "sha256": "2ea6b979128427325ed8ece033178d66bc6d46b37a89a1951ae7f2b26fa28f6c",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/diffusion_classifier.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:16.323240+00:00"
+    },
+    {
+      "id": "p2l",
+      "requested_url": "https://arxiv.org/html/2310.01110v1",
+      "effective_url": "https://arxiv.org/html/2310.01110v1",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 504382,
+      "sha256": "6f946b8a6d17439159842440b122f02bf3b81db8c75b228da5ba3739f93c6bbe",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/p2l.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:16.158778+00:00"
+    },
+    {
+      "id": "p2l_icml_metadata",
+      "requested_url": "https://proceedings.mlr.press/v235/chung24b.html",
+      "effective_url": "https://proceedings.mlr.press/v235/chung24b.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15642,
+      "sha256": "2be89b52af0a5f35afd9077160ec56ab484a3ac54701aebcf4946d6102d496f3",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/p2l_icml_metadata.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:16.583548+00:00"
+    },
+    {
+      "id": "latino_pro",
+      "requested_url": "https://arxiv.org/html/2503.12615v1",
+      "effective_url": "https://arxiv.org/html/2503.12615v1",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 861068,
+      "sha256": "882d050a976a0ea32190769f191d5d95519742f6698afda6f60ba4fe1d4ae622",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/latino_pro.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:19.691306+00:00"
+    },
+    {
+      "id": "cwgf",
+      "requested_url": "https://arxiv.org/pdf/2605.07907v1",
+      "effective_url": "https://arxiv.org/pdf/2605.07907v1",
+      "content_type": "application/pdf",
+      "bytes": 9263965,
+      "sha256": "69d1c6edc8c3cc16b1350af1f126c76dd0ed81f56f2384b86789f1822d5bb500",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/cwgf.pdf",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:19.599797+00:00"
+    },
+    {
+      "id": "analog",
+      "requested_url": "https://arxiv.org/html/2609.31933v1",
+      "effective_url": "https://arxiv.org/html/2609.31933v1",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 733597,
+      "sha256": "08b1c0b9371f9fd436053d70ce92311a57aa9d73dd841c37d95e7d1df000a197",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/analog.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:19.161553+00:00"
+    },
+    {
+      "id": "dps",
+      "requested_url": "https://arxiv.org/html/2209.14687v4",
+      "effective_url": "https://arxiv.org/html/2209.14687v4",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 654104,
+      "sha256": "c8a6581b9ff4ccf8a173e218413ec8f6d1aa0a9196de33279222a0b8126a4c08",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/dps.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:19.855375+00:00"
+    },
+    {
+      "id": "dmplug",
+      "requested_url": "https://arxiv.org/html/2405.16749v2",
+      "effective_url": "https://arxiv.org/html/2405.16749v2",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 680060,
+      "sha256": "42357fb1a7c99ae27fae55816f6d99ae1912c1a6cb72258594fa042a313cca1a",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/dmplug.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:20.193487+00:00"
+    },
+    {
+      "id": "cloudfixer",
+      "requested_url": "https://arxiv.org/html/2407.16193v1",
+      "effective_url": "https://arxiv.org/html/2407.16193v1",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 671475,
+      "sha256": "6be0714716b48e37d9721ff5a3093e643c43a3957b40103d70425a7759871ad8",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/cloudfixer.html",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:20.520588+00:00"
+    },
+    {
+      "id": "conditional_likelihood_caution",
+      "requested_url": "https://raw.githubusercontent.com/mlresearch/v255/main/assets/cross24a/cross24a.pdf",
+      "effective_url": "https://raw.githubusercontent.com/mlresearch/v255/main/assets/cross24a/cross24a.pdf",
+      "content_type": "application/octet-stream",
+      "bytes": 3026766,
+      "sha256": "171887d5e1cfcfe853a85bae49120a36305aeda42acfd1f618af7ca2aa23171b",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/conditional_likelihood_caution.pdf",
+      "status": "retrieved",
+      "retrieved_utc": "2026-10-31T19:46:21.181649+00:00"
+    },
+    {
+      "id": "difftta_code",
+      "requested_url": "https://github.com/mihirp1998/Diffusion-TTA/blob/eedeb6e01f358e5645ecbcf42fdb4b3e7b1a9917/diff_tta/models/tta.py",
+      "commit": "eedeb6e01f358e5645ecbcf42fdb4b3e7b1a9917",
+      "github_blob_sha": "4bd01e0cf0c62e919af1d0d5e4c92cec1255b100",
+      "bytes": 9134,
+      "sha256": "6fea62cee1129f59e1282fe6e63327900db10b0b93925b163ce25b781447a2da",
+      "local_path": "result/preparation/shape_latent_gradient_research_20261031/primary_sources/difftta_tta_pinned.py",
+      "status": "retrieved",
+      "mechanism": "GitHub connector; UTF-8 decoded content saved locally",
+      "computed_git_blob_sha": "4bd01e0cf0c62e919af1d0d5e4c92cec1255b100"
+    }
+  ],
+  "limits": [
+    "Raw primary sources remain local result artifacts; no third-party full text is promoted to Git.",
+    "Downloaded bytes establish provenance, not scientific replication."
+  ]
+}

@@ -8012,3 +8012,31 @@ Both raw phases remain unchanged after analysis. The sealed capsule intentionall
 retains its then-pending publication notes; these final receipts supersede them.
 See compact `final_archive_receipt.json` and `derived_roundtrip_receipt.json`.
 No GPU work remains and no runtime teardown was issued.
+
+## 2026-10-31 — Conditional denoising gradient: literature/code audit, unrun
+
+[User report/Paper/Code/Inference/Open] [Focused research](shape_latent_gradient_research_20261031.md)
+reviews10 primary full texts, ICML metadata and pinned official Diffusion-TTA
+code. The earlier clean-free B candidate is reprioritized after weak
+mean/proxy pilots: fixed detached h* plus actual local noise-prediction
+energy gradient through condition z, with frozen weights. CWGF§3.2/Eq.21
+provides a score-matching condition-gradient connection; arbitrary few-t
+MSE is still a surrogate, not exact conditional likelihood. Diffusion-TTA/
+Classifier support continuous conditioning and paired-noise variance control.
+P2L condition C maps to LION z; its diffusion latent maps to local h.
+
+[Inference/Proposal] Diagnose held-out energy specificity, direction versus
+paired clean z, corrupted-h/self-confirmation controls and actual CUDA
+finite differences first; only then transport via global clean-estimate
+Jacobian to noisy global z in a DPS-inspired sampler. Clean targets/labels
+remain posthoc diagnostics, never inference objectives or per-example step
+selection. Original h0/noise/anchor/own-z decoder/frozen state and whole
+pipeline cost must remain explicit. The old proximal no_grad half-target
+experiment did not test this gradient. No method implementation, GPU run,
+accuracy gain, convergence or novelty claim; operational default unchanged.
+
+[Run/Open] New CLI19:47:53UTC server inventory has no active sessions, after
+last confirmed owned proximalr1 live19:11–19:13UTC. No teardown/allocation
+issued; exact disappearance time/cause unknown. Earlier live-runtime notes
+are superseded operationally, while all accepted raw/source/derived archives
+and scientific results remain preserved.

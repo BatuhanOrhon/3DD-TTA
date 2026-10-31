@@ -1,0 +1,23 @@
+{
+  "schema": "literature-docs-validation-v1",
+  "checked_utc": "2026-10-31T19:52:52.382511+00:00",
+  "status": "passed",
+  "primary_receipts_verified": 12,
+  "primary_fulltext_papers": 10,
+  "official_pinned_git_blob_verified": true,
+  "audited_production_files_unchanged": 7,
+  "audited_production_files_match_accepted_integration": true,
+  "new_local_links_verified": 11,
+  "json_parse": "passed",
+  "git_diff_check": "passed",
+  "source_branch_head_preserved": true,
+  "runtime_server_empty": true,
+  "gpu_runs": 0,
+  "production_changes": 0,
+  "test_suite": "not rerun: documentation-only research task",
+  "limits": [
+    "No actual LION autograd/finite difference measurement.",
+    "No clean-z convergence or accuracy result for proposed gradient.",
+    "Physical sources establish provenance, not external replication."
+  ]
+}

@@ -1,3 +1,16 @@
+**[Paper/Code/Inference/Open] 2026-10-31 — temiz-z gradienti için yeni literatür denetimi:**
+[Koşullu denoising gradienti ve global diffusiona aktarımı](shape_latent_gradient_research_20261031.md).
+10primary tam metin+official Diffusion-TTA pinned kod incelendi. Önceki
+clean-free B adayı yeniden önceliklendi: donmuş local p(h|z) denoising
+enerjisinin z-condition Jacobian'ından gerçek gradient. CWGF§3.2/Eq.21,
+Diffusion-TTA ve Diffusion Classifier dayanakları; P2L alternatif geometry
+condition-gradientini destekler. Hiçbiri LION'da temiz-z/accuracy garantisi
+vermez. Önce yön/h* yanlılığı/ortak-noise ve native türev teşhisi, sonra
+DPS-inspired noisy global guidance öneriliyor; yöntem/GPU henüz yok.
+19:47:53UTC CLI server envanterinde aktif session yok; kendi proximalr1 artık
+görünmüyor, biz kapatmadık. Önceki ham/derived/source arşivleri doğrulanmış
+ve korunuyor; eski canlı-runtime kayıtları bu gözlemle superseded.
+
 **[Run/Inference/Decision] 2026-10-31 — global proximal pilot tamamlandı:**
 [Sonuç ve sınırlar](shape_latent_proximal_results_20261031.md).
 32 exposed nesne/dört bozulma/seed0: original %45.3125, mean %46.875,
