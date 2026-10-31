@@ -1,3 +1,8 @@
+> **Superseded after execution, 2026-10-31:** Bu devirdeki setup/smoke/pilot
+> işleri tamamlandı. [Kabul edilmiş sonuç ve güncel durum](shape_latent_proximal_results_20261031.md)
+> önce okunmalı; tamamlanmış GPU işlerini tekrar çalıştırma. Aşağıdaki metin
+> özgün başlangıç promptu ve tarihsel yürütme kaydı olarak korunur.
+
 # Yeni oturum başlangıç promptu: global shape latent proximal guidance
 
 Bu dosyanın tamamı yeni Codex oturumuna başlangıç promptu olarak verilebilir.

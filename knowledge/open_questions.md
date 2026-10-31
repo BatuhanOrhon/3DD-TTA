@@ -2419,3 +2419,17 @@ supersede the preceding pilot-pending items.
 ## 2026-10-31 — Proximal pilot handoff: execution remains pending
 
 [Open/Code/Run] The current five-arm global DDIM pilot has no GPU result. See [the complete new-session prompt](shape_latent_proximal_handoff_20261031.md). Own replacement A100 tta-shape-proximal-a100-20261031-r1 is live; Cell1/2 and uploads completed, with only the user-deferred Cell2 fastrlock failure. Python/Drive/Cell3–10/strictCPU are pending. Fix the outside install wrapper's stale old-session assertion before deployment. The new four-by-32 distance/cluster-bootstrap summary is also pending. Baseline/global-off remains operational; prior refresh results are already published1bacabf. User requested continuity through a fresh Codex session, without runtime teardown.
+
+## 2026-10-31 — Proximal study completed; no automatic expansion
+
+[Run/Inference/Decision/Open] [Accepted result](shape_latent_proximal_results_20261031.md)
+supersedes the preceding pending gates.
+- [x] Same VM canonical setup and strict CPU deployment; stale wrapper assertion fixed.
+- [x] GB32 technical smoke and fixed four-corruption32/five-arm pilot under one2400s cap.
+- [x] Drive+local raw and independent physical vector/state/source/RNG/PM exact recount.
+- [x] Clean-z distance, six paired object-cluster contrasts and per-corruption outcomes.
+- [x] Preserve negative/null/oracle limits and observed smoke/pilot numerical variation.
+- [ ] Reliable unseen/seed-stable baseline benefit remains unproven; no auto new run.
+- [ ] End-to-end two-pass cost and native repeat variance remain unmeasured.
+- [ ] Keep own runtime until explicit task-complete plus close authorization.
+Final archival is accepted; publication verification and receipts are linked in the completed result record.

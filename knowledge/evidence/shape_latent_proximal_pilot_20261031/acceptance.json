@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "arms": {
+    "mean": {
+      "macro_percent": 46.875,
+      "per_corruption_percent": {
+        "gaussian": 62.5,
+        "background": 59.375,
+        "rotation": 34.375,
+        "lidar": 31.25
+      },
+      "reconstruction_and_terminal_seconds": 16.166776855000535,
+      "run_id": "20261031-185531_pointmae-seed0"
+    },
+    "oracle3": {
+      "macro_percent": 50.0,
+      "per_corruption_percent": {
+        "gaussian": 75.0,
+        "background": 56.25,
+        "rotation": 31.25,
+        "lidar": 37.5
+      },
+      "reconstruction_and_terminal_seconds": 16.377721031000874,
+      "run_id": "20261031-185737_pointmae-seed0"
+    },
+    "original": {
+      "macro_percent": 45.3125,
+      "per_corruption_percent": {
+        "gaussian": 65.625,
+        "background": 56.25,
+        "rotation": 28.125,
+        "lidar": 31.25
+      },
+      "reconstruction_and_terminal_seconds": 16.213910462999593,
+      "run_id": "20261031-185449_pointmae-seed0"
+    },
+    "prior3": {
+      "macro_percent": 42.1875,
+      "per_corruption_percent": {
+        "gaussian": 65.625,
+        "background": 50.0,
+        "rotation": 28.125,
+        "lidar": 25.0
+      },
+      "reconstruction_and_terminal_seconds": 16.40457849500035,
+      "run_id": "20261031-185613_pointmae-seed0"
+    },
+    "proxy3": {
+      "macro_percent": 46.09375,
+      "per_corruption_percent": {
+        "gaussian": 62.5,
+        "background": 59.375,
+        "rotation": 31.25,
+        "lidar": 31.25
+      },
+      "reconstruction_and_terminal_seconds": 16.40408088699769,
+      "run_id": "20261031-185655_pointmae-seed0"
+    }
+  },
+  "paired_comparisons": {
+    "mean-original": {
+      "delta_pp": 1.5625,
+      "corrected": 4,
+      "harmed": 2
+    },
+    "prior3-original": {
+      "delta_pp": -3.125,
+      "corrected": 1,
+      "harmed": 5
+    },
+    "proxy3-original": {
+      "delta_pp": 0.78125,
+      "corrected": 4,
+      "harmed": 3
+    },
+    "proxy3-prior3": {
+      "delta_pp": 3.90625,
+      "corrected": 6,
+      "harmed": 1
+    },
+    "oracle3-original": {
+      "delta_pp": 4.6875,
+      "corrected": 7,
+      "harmed": 1
+    },
+    "oracle3-proxy3": {
+      "delta_pp": 3.90625,
+      "corrected": 7,
+      "harmed": 2
+    }
+  },
+  "identity": {
+    "asset_manifest_sha256": "690caa62d2a2603ebf9480cc86e3a66f5d13fca77ec1dbe34a810cd19fde15f5",
+    "source_snapshot_sha256": "1b2fa5b423e407e5ce1339060af63751a46d23cb95a5dffc74b1524451523c82",
+    "classifier_state_before_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+    "lion_state_before": {
+      "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+      "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+    },
+    "executed_source_sha256": "98148d90cb7fe7d5995669bd8ed5b6bfb3c9a47c30d7e78309afedd5b55542b9"
+  },
+  "physical_cache_files": 4,
+  "limits": "32exposed objects/fourfixed corruptions/seed0; oracle3 diagnostic only; imported shared states; replay excludes firstpass/proxy preparation; no unseen confirmation."
+}

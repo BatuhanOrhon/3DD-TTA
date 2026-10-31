@@ -1,0 +1,616 @@
+{
+  "status": "complete",
+  "corruptions": [
+    "gaussian",
+    "background",
+    "rotation",
+    "lidar"
+  ],
+  "original_ids": [
+    17,
+    37,
+    123,
+    124,
+    143,
+    168,
+    186,
+    206,
+    272,
+    275,
+    336,
+    382,
+    458,
+    500,
+    597,
+    636,
+    640,
+    657,
+    672,
+    727,
+    733,
+    791,
+    855,
+    885,
+    911,
+    919,
+    932,
+    999,
+    1056,
+    1225,
+    1226,
+    1276
+  ],
+  "arms": {
+    "mean": {
+      "worker_wall_seconds": 38.29627452800014,
+      "reconstruction_and_terminal_seconds": 16.166776855000535,
+      "peak_gpu_mib": 25223.078125,
+      "global_calls_per_batch": 0,
+      "correct": 60,
+      "total": 128,
+      "accuracy_percent": 46.875
+    },
+    "oracle3": {
+      "worker_wall_seconds": 38.54018338500009,
+      "reconstruction_and_terminal_seconds": 16.377721031000874,
+      "peak_gpu_mib": 25223.296875,
+      "global_calls_per_batch": 3,
+      "correct": 64,
+      "total": 128,
+      "accuracy_percent": 50.0
+    },
+    "original": {
+      "worker_wall_seconds": 38.343693789999634,
+      "reconstruction_and_terminal_seconds": 16.213910462999593,
+      "peak_gpu_mib": 25223.078125,
+      "global_calls_per_batch": 0,
+      "correct": 58,
+      "total": 128,
+      "accuracy_percent": 45.3125
+    },
+    "prior3": {
+      "worker_wall_seconds": 38.59894493799948,
+      "reconstruction_and_terminal_seconds": 16.40457849500035,
+      "peak_gpu_mib": 25223.28125,
+      "global_calls_per_batch": 3,
+      "correct": 54,
+      "total": 128,
+      "accuracy_percent": 42.1875
+    },
+    "proxy3": {
+      "worker_wall_seconds": 38.565116955999656,
+      "reconstruction_and_terminal_seconds": 16.40408088699769,
+      "peak_gpu_mib": 25223.28125,
+      "global_calls_per_batch": 3,
+      "correct": 59,
+      "total": 128,
+      "accuracy_percent": 46.09375
+    }
+  },
+  "paired_comparisons": {
+    "mean-original": {
+      "delta_pp": 1.5625,
+      "corrected": 4,
+      "harmed": 2,
+      "cluster_ci95_pp": [
+        -2.34375,
+        5.46875
+      ],
+      "per_corruption": {
+        "gaussian": {
+          "delta_pp": -3.125,
+          "corrected": 0,
+          "harmed": 1
+        },
+        "background": {
+          "delta_pp": 3.125,
+          "corrected": 1,
+          "harmed": 0
+        },
+        "rotation": {
+          "delta_pp": 6.25,
+          "corrected": 2,
+          "harmed": 0
+        },
+        "lidar": {
+          "delta_pp": 0.0,
+          "corrected": 1,
+          "harmed": 1
+        }
+      }
+    },
+    "prior3-original": {
+      "delta_pp": -3.125,
+      "corrected": 1,
+      "harmed": 5,
+      "cluster_ci95_pp": [
+        -7.03125,
+        0.0
+      ],
+      "per_corruption": {
+        "gaussian": {
+          "delta_pp": 0.0,
+          "corrected": 1,
+          "harmed": 1
+        },
+        "background": {
+          "delta_pp": -6.25,
+          "corrected": 0,
+          "harmed": 2
+        },
+        "rotation": {
+          "delta_pp": 0.0,
+          "corrected": 0,
+          "harmed": 0
+        },
+        "lidar": {
+          "delta_pp": -6.25,
+          "corrected": 0,
+          "harmed": 2
+        }
+      }
+    },
+    "proxy3-original": {
+      "delta_pp": 0.78125,
+      "corrected": 4,
+      "harmed": 3,
+      "cluster_ci95_pp": [
+        -3.125,
+        4.6875
+      ],
+      "per_corruption": {
+        "gaussian": {
+          "delta_pp": -3.125,
+          "corrected": 0,
+          "harmed": 1
+        },
+        "background": {
+          "delta_pp": 3.125,
+          "corrected": 1,
+          "harmed": 0
+        },
+        "rotation": {
+          "delta_pp": 3.125,
+          "corrected": 1,
+          "harmed": 0
+        },
+        "lidar": {
+          "delta_pp": 0.0,
+          "corrected": 2,
+          "harmed": 2
+        }
+      }
+    },
+    "proxy3-prior3": {
+      "delta_pp": 3.90625,
+      "corrected": 6,
+      "harmed": 1,
+      "cluster_ci95_pp": [
+        0.0,
+        7.8125
+      ],
+      "per_corruption": {
+        "gaussian": {
+          "delta_pp": -3.125,
+          "corrected": 0,
+          "harmed": 1
+        },
+        "background": {
+          "delta_pp": 9.375,
+          "corrected": 3,
+          "harmed": 0
+        },
+        "rotation": {
+          "delta_pp": 3.125,
+          "corrected": 1,
+          "harmed": 0
+        },
+        "lidar": {
+          "delta_pp": 6.25,
+          "corrected": 2,
+          "harmed": 0
+        }
+      }
+    },
+    "oracle3-original": {
+      "delta_pp": 4.6875,
+      "corrected": 7,
+      "harmed": 1,
+      "cluster_ci95_pp": [
+        0.0,
+        10.15625
+      ],
+      "per_corruption": {
+        "gaussian": {
+          "delta_pp": 9.375,
+          "corrected": 3,
+          "harmed": 0
+        },
+        "background": {
+          "delta_pp": 0.0,
+          "corrected": 1,
+          "harmed": 1
+        },
+        "rotation": {
+          "delta_pp": 3.125,
+          "corrected": 1,
+          "harmed": 0
+        },
+        "lidar": {
+          "delta_pp": 6.25,
+          "corrected": 2,
+          "harmed": 0
+        }
+      }
+    },
+    "oracle3-proxy3": {
+      "delta_pp": 3.90625,
+      "corrected": 7,
+      "harmed": 2,
+      "cluster_ci95_pp": [
+        -0.78125,
+        8.59375
+      ],
+      "per_corruption": {
+        "gaussian": {
+          "delta_pp": 12.5,
+          "corrected": 4,
+          "harmed": 0
+        },
+        "background": {
+          "delta_pp": -3.125,
+          "corrected": 0,
+          "harmed": 1
+        },
+        "rotation": {
+          "delta_pp": 0.0,
+          "corrected": 1,
+          "harmed": 1
+        },
+        "lidar": {
+          "delta_pp": 6.25,
+          "corrected": 2,
+          "harmed": 0
+        }
+      }
+    }
+  },
+  "latent_distances": {
+    "original": {
+      "all": {
+        "absolute_mse": 0.12835938025475319,
+        "aggregate_mse_ratio": 1.0,
+        "mean_per_event_ratio": 1.0,
+        "median_per_event_ratio": 1.0,
+        "zero_baseline_error_count": 0,
+        "median_movement_l2": 0.0,
+        "mean_movement_l2": 0.0,
+        "median_defined_cosine": null,
+        "mean_defined_cosine": null,
+        "undefined_cosine_count": 128
+      },
+      "per_corruption": {
+        "gaussian": {
+          "absolute_mse": 0.1137075611761775,
+          "aggregate_mse_ratio": 1.0,
+          "mean_per_event_ratio": 1.0,
+          "median_per_event_ratio": 1.0,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 0.0,
+          "mean_movement_l2": 0.0,
+          "median_defined_cosine": null,
+          "mean_defined_cosine": null,
+          "undefined_cosine_count": 32
+        },
+        "background": {
+          "absolute_mse": 0.11599669832084153,
+          "aggregate_mse_ratio": 1.0,
+          "mean_per_event_ratio": 1.0,
+          "median_per_event_ratio": 1.0,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 0.0,
+          "mean_movement_l2": 0.0,
+          "median_defined_cosine": null,
+          "mean_defined_cosine": null,
+          "undefined_cosine_count": 32
+        },
+        "rotation": {
+          "absolute_mse": 0.09971723513245728,
+          "aggregate_mse_ratio": 1.0,
+          "mean_per_event_ratio": 1.0,
+          "median_per_event_ratio": 1.0,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 0.0,
+          "mean_movement_l2": 0.0,
+          "median_defined_cosine": null,
+          "mean_defined_cosine": null,
+          "undefined_cosine_count": 32
+        },
+        "lidar": {
+          "absolute_mse": 0.1840160263895365,
+          "aggregate_mse_ratio": 1.0,
+          "mean_per_event_ratio": 1.0,
+          "median_per_event_ratio": 1.0,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 0.0,
+          "mean_movement_l2": 0.0,
+          "median_defined_cosine": null,
+          "mean_defined_cosine": null,
+          "undefined_cosine_count": 32
+        }
+      }
+    },
+    "mean": {
+      "all": {
+        "absolute_mse": 0.11804054448579299,
+        "aggregate_mse_ratio": 0.9196098037519304,
+        "mean_per_event_ratio": 0.932198851531204,
+        "median_per_event_ratio": 0.8844462672152069,
+        "zero_baseline_error_count": 0,
+        "median_movement_l2": 1.778014726325631,
+        "mean_movement_l2": 2.0188063497937545,
+        "median_defined_cosine": 0.3900403253499072,
+        "mean_defined_cosine": 0.3590545147829724,
+        "undefined_cosine_count": 0
+      },
+      "per_corruption": {
+        "gaussian": {
+          "absolute_mse": 0.09099333811614742,
+          "aggregate_mse_ratio": 0.8002399943761271,
+          "mean_per_event_ratio": 0.8533832846295821,
+          "median_per_event_ratio": 0.8016251320441647,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.7325632277031562,
+          "mean_movement_l2": 1.726134743513019,
+          "median_defined_cosine": 0.5323525525259496,
+          "mean_defined_cosine": 0.4278075218054225,
+          "undefined_cosine_count": 0
+        },
+        "background": {
+          "absolute_mse": 0.1000999783480077,
+          "aggregate_mse_ratio": 0.862955409912925,
+          "mean_per_event_ratio": 0.8530518618725358,
+          "median_per_event_ratio": 0.780675217773778,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 3.0533608702377855,
+          "mean_movement_l2": 3.119729160585374,
+          "median_defined_cosine": 0.5559000932163454,
+          "mean_defined_cosine": 0.5362822779570335,
+          "undefined_cosine_count": 0
+        },
+        "rotation": {
+          "absolute_mse": 0.09674906666858264,
+          "aggregate_mse_ratio": 0.9702341479892425,
+          "mean_per_event_ratio": 1.0443347991768333,
+          "median_per_event_ratio": 0.9728894632122191,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.194379744770627,
+          "mean_movement_l2": 1.2418240164329746,
+          "median_defined_cosine": 0.23890801880581683,
+          "mean_defined_cosine": 0.2314074610326351,
+          "undefined_cosine_count": 0
+        },
+        "lidar": {
+          "absolute_mse": 0.1843197948104342,
+          "aggregate_mse_ratio": 1.0016507715488576,
+          "mean_per_event_ratio": 0.9780254604458647,
+          "median_per_event_ratio": 0.9717782255645129,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.8998317276307914,
+          "mean_movement_l2": 1.9875374786436497,
+          "median_defined_cosine": 0.27128397924581615,
+          "mean_defined_cosine": 0.24072079833679844,
+          "undefined_cosine_count": 0
+        }
+      }
+    },
+    "prior3": {
+      "all": {
+        "absolute_mse": 0.1349224452932477,
+        "aggregate_mse_ratio": 1.0511303889553603,
+        "mean_per_event_ratio": 1.0932732053262981,
+        "median_per_event_ratio": 1.0471050571879716,
+        "zero_baseline_error_count": 0,
+        "median_movement_l2": 0.9829888876408274,
+        "mean_movement_l2": 0.9855899203671143,
+        "median_defined_cosine": 0.02126775811412942,
+        "mean_defined_cosine": 0.01890202100854876,
+        "undefined_cosine_count": 0
+      },
+      "per_corruption": {
+        "gaussian": {
+          "absolute_mse": 0.12085461209659665,
+          "aggregate_mse_ratio": 1.0628546672401633,
+          "mean_per_event_ratio": 1.1326402826960345,
+          "median_per_event_ratio": 1.0720579734462437,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.0031082125013264,
+          "mean_movement_l2": 0.9966020445997208,
+          "median_defined_cosine": 0.0075373746860664115,
+          "mean_defined_cosine": 0.0071451672672218835,
+          "undefined_cosine_count": 0
+        },
+        "background": {
+          "absolute_mse": 0.12251731557551863,
+          "aggregate_mse_ratio": 1.0562138177126505,
+          "mean_per_event_ratio": 1.0940854737191048,
+          "median_per_event_ratio": 1.063036180822956,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 0.962480853789915,
+          "mean_movement_l2": 0.9765356076338781,
+          "median_defined_cosine": 0.00585225495789159,
+          "mean_defined_cosine": 0.01661311922230417,
+          "undefined_cosine_count": 0
+        },
+        "rotation": {
+          "absolute_mse": 0.10545027346651474,
+          "aggregate_mse_ratio": 1.0574929532135753,
+          "mean_per_event_ratio": 1.1058338747810912,
+          "median_per_event_ratio": 1.0566506405006468,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.000136943418291,
+          "mean_movement_l2": 1.0024489509882815,
+          "median_defined_cosine": 0.055154628917552725,
+          "mean_defined_cosine": 0.04054810502967495,
+          "undefined_cosine_count": 0
+        },
+        "lidar": {
+          "absolute_mse": 0.19086758003436077,
+          "aggregate_mse_ratio": 1.0372334615590517,
+          "mean_per_event_ratio": 1.0405331901089625,
+          "median_per_event_ratio": 1.038865857815392,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 0.9728365604942205,
+          "mean_movement_l2": 0.9667730782465775,
+          "median_defined_cosine": 0.02126775811412942,
+          "mean_defined_cosine": 0.011301692514994036,
+          "undefined_cosine_count": 0
+        }
+      }
+    },
+    "proxy3": {
+      "all": {
+        "absolute_mse": 0.11498263128932464,
+        "aggregate_mse_ratio": 0.8957867439147814,
+        "mean_per_event_ratio": 0.8967021603622323,
+        "median_per_event_ratio": 0.8689104597162676,
+        "zero_baseline_error_count": 0,
+        "median_movement_l2": 1.5614922421768365,
+        "mean_movement_l2": 1.7711194496642728,
+        "median_defined_cosine": 0.3983760660814111,
+        "mean_defined_cosine": 0.3607775398746367,
+        "undefined_cosine_count": 0
+      },
+      "per_corruption": {
+        "gaussian": {
+          "absolute_mse": 0.0910037423670369,
+          "aggregate_mse_ratio": 0.8003314944556457,
+          "mean_per_event_ratio": 0.8330979072134667,
+          "median_per_event_ratio": 0.7857835891197023,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.5223341650339997,
+          "mean_movement_l2": 1.5117694660419183,
+          "median_defined_cosine": 0.528992264150067,
+          "mean_defined_cosine": 0.42957520977229646,
+          "undefined_cosine_count": 0
+        },
+        "background": {
+          "absolute_mse": 0.09258220740729967,
+          "aggregate_mse_ratio": 0.798145195057376,
+          "mean_per_event_ratio": 0.7845399476020922,
+          "median_per_event_ratio": 0.7124164577268699,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 2.6800029540362207,
+          "mean_movement_l2": 2.732628909713401,
+          "median_defined_cosine": 0.5592541157604907,
+          "mean_defined_cosine": 0.5363508475206848,
+          "undefined_cosine_count": 0
+        },
+        "rotation": {
+          "absolute_mse": 0.09553911761743192,
+          "aggregate_mse_ratio": 0.9581003473524367,
+          "mean_per_event_ratio": 1.0108502296626916,
+          "median_per_event_ratio": 0.9609620315033718,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.0544319079955358,
+          "mean_movement_l2": 1.094465735912756,
+          "median_defined_cosine": 0.24134550510089608,
+          "mean_defined_cosine": 0.2364885714474362,
+          "undefined_cosine_count": 0
+        },
+        "lidar": {
+          "absolute_mse": 0.18080545776553011,
+          "aggregate_mse_ratio": 0.9825527771303458,
+          "mean_per_event_ratio": 0.9583205569706783,
+          "median_per_event_ratio": 0.9524465901929029,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 1.6842217908258479,
+          "mean_movement_l2": 1.7456136869890158,
+          "median_defined_cosine": 0.26763961603043573,
+          "mean_defined_cosine": 0.24069553075812924,
+          "undefined_cosine_count": 0
+        }
+      }
+    },
+    "oracle3": {
+      "all": {
+        "absolute_mse": 0.0021069211154553054,
+        "aggregate_mse_ratio": 0.016414235650512855,
+        "mean_per_event_ratio": 0.01709228813765025,
+        "median_per_event_ratio": 0.01633734138220263,
+        "zero_baseline_error_count": 0,
+        "median_movement_l2": 3.478889025770913,
+        "mean_movement_l2": 3.3867300283343735,
+        "median_defined_cosine": 0.9992987081391358,
+        "mean_defined_cosine": 0.9988704974111707,
+        "undefined_cosine_count": 0
+      },
+      "per_corruption": {
+        "gaussian": {
+          "absolute_mse": 0.00188239274977037,
+          "aggregate_mse_ratio": 0.016554684053541584,
+          "mean_per_event_ratio": 0.017682149628666995,
+          "median_per_event_ratio": 0.016692131061703204,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 3.070840763815269,
+          "mean_movement_l2": 3.157917413409118,
+          "median_defined_cosine": 0.9991299855096691,
+          "mean_defined_cosine": 0.9985715830371856,
+          "undefined_cosine_count": 0
+        },
+        "background": {
+          "absolute_mse": 0.0019104533927557688,
+          "aggregate_mse_ratio": 0.0164698945781331,
+          "mean_per_event_ratio": 0.01711451706606784,
+          "median_per_event_ratio": 0.016360551266741966,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 3.385416607542071,
+          "mean_movement_l2": 3.2257787566439533,
+          "median_defined_cosine": 0.99920233965012,
+          "mean_defined_cosine": 0.998862763064186,
+          "undefined_cosine_count": 0
+        },
+        "rotation": {
+          "absolute_mse": 0.0016464288028506563,
+          "aggregate_mse_ratio": 0.016510975265847046,
+          "mean_per_event_ratio": 0.017286555123604816,
+          "median_per_event_ratio": 0.01632023484254569,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 2.9980271906481297,
+          "mean_movement_l2": 2.992335017587942,
+          "median_defined_cosine": 0.9990142227476535,
+          "mean_defined_cosine": 0.9985661753924482,
+          "undefined_cosine_count": 0
+        },
+        "lidar": {
+          "absolute_mse": 0.002988409516444427,
+          "aggregate_mse_ratio": 0.016239941569645554,
+          "mean_per_event_ratio": 0.016285930732261346,
+          "median_per_event_ratio": 0.01625411558581586,
+          "zero_baseline_error_count": 0,
+          "median_movement_l2": 4.3766112418465895,
+          "mean_movement_l2": 4.170888925696481,
+          "median_defined_cosine": 0.9995778315180276,
+          "mean_defined_cosine": 0.999481468150863,
+          "undefined_cosine_count": 0
+        }
+      }
+    }
+  },
+  "bootstrap": {
+    "unit": "original object; all corruption rows together",
+    "draws": 10000,
+    "seed": 20261031
+  },
+  "definitions": {
+    "absolute_mse": "mean over events and 128 latent coordinates",
+    "aggregate_mse_ratio": "sum arm squared errors / sum original squared errors",
+    "per_event_ratio": "arm squared error / original squared error; undefined denominators excluded and counted",
+    "cosine": "cos(final_z-z0, clean_z-z0); zero norms excluded and counted"
+  },
+  "limits": "Exploratory exposed32/fixedcorruptions/seed0; conditional CI; no multiple-comparison correction; clean targets posthoc except oracle3 diagnostic; cross-runtime clean encoder numerical caveat; replay omits baseline firstpass/proxy encoder; no deployment speed claim.",
+  "accepted_identity": {
+    "bytes": 3071,
+    "sha256": "dde097244806ff0f55a23e7dbb9bf77f4f4d6c015a095e53e612d1bd5afb64d5"
+  }
+}

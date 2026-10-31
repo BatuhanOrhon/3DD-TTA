@@ -40,13 +40,19 @@ Reuse existing accepted asset/CPU/phase operator patterns in the new ignored roo
 - [x] Fresh whole-change reviewer, substantive fixes with regressions;4operator checks.
 - [x] Allocate replacement A100; canonicalCell1/reconnect and Cell2 complete,
   only user-deferred fastrlock wheel failure. Uploadassetsv1/operatorv2 complete.
-- [ ] VerifyCell2 Python; realDrive mount; canonicalCell3–10/native/data/checkpoint gates.
-- [ ] Fix external install wrapper's stale session assertion; check against v2ZIPregistration.
-- [ ] StrictCPU deployment and realdiffusers CPUalgebra gate on replacement VM.
-- [ ] Current runtime GB32 technical gate, then four-corruption5arm pilot under2400s.
-- [ ] Prepare remaining four-corruption32-object five-arm distance/cluster-bootstrap summary.
-- [ ] Independent raw+latent-distance+PM/object-bootstrap recount, Drive/local/source
+- [x] VerifyCell2 Python; realDrive mount; canonicalCell3–10/native/data/checkpoint gates.
+- [x] Fix external install wrapper's stale session assertion; check against v2ZIPregistration.
+- [x] StrictCPU deployment and realdiffusers CPUalgebra gate on replacement VM.
+- [x] Current runtime GB32 technical gate, then four-corruption5arm pilot under2400s.
+- [x] Prepare remaining four-corruption32-object five-arm distance/cluster-bootstrap summary.
+- [x] Independent raw+latent-distance+PM/object-bootstrap recount, Drive/local/source
   archival, knowledge update and selective normal integration publication.
 
 Ruling: user delegated this hypothesis test; no new design approval loop.
 Existing user branch/dirty state stays. No runtime teardown authorized.
+
+[Run] Execution complete; see shape_latent_proximal_results_20261031.md.
+Independent acceptance/distance/cluster analysis passed. Last archival and
+selective publication receipt remain the final documentation gates; no GPU work.
+
+[Run] Final source/operator/derived Drive roundtrip accepted; selective publication is the final gate.

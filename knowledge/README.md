@@ -1,3 +1,15 @@
+**[Run/Inference/Decision] 2026-10-31 — global proximal pilot tamamlandı:**
+[Sonuç ve sınırlar](shape_latent_proximal_results_20261031.md).
+32 exposed nesne/dört bozulma/seed0: original %45.3125, mean %46.875,
+prior3 %42.1875, proxy3 %46.09375, oracle3 %50. Proxy3−original +.78125puan,
+%95 object-cluster aralığı [−3.125,+4.6875]; güvenilir üstünlük yok.
+Proxy3 temiz-z toplu MSE'yi %10.4213 azaltır; prior3'e göre mesafe ve accuracy
+nokta tahmini daha iyi, accuracy aralığı sıfıra değer. Mean accuracy'de bir olay
+öndedir. Oracle yalnız teşhistir. Tüm ham/source/state/RNG/PM bağımsız kabul
+geçti; smoke/pilot sayısal tekrar farkı ayrıca korunur. Bilimsel faz 478.45s.
+Default/global-off korunur; yeni GPU işi yok, runtime kapatılmadı.
+Ek source/operator/derived Drive roundtrip geçti; seçici Git yayını tamamlanıyor.
+
 **[User report/Code/Run/Open] 2026-10-31 — yeni oturuma devir, proximal GPU pilotu başlamadı:**
 [Tam başlangıç promptu ve adım adım devam](shape_latent_proximal_handoff_20261031.md).
 Önceki refresh sonucu `1bacabf` ile integration'da. Eski refresh runtime'ı

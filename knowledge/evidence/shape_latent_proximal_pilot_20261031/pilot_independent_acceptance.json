@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "raw_sha256": "f00225f0e404d8d7eb410030e5cb2abc2718122e9ee5d794168efccb64336293",
+  "manifest_members": 617,
+  "prediction_shards": 20,
+  "outcomes_shape": [
+    4,
+    32
+  ],
+  "remote_acceptance_exact": true,
+  "remote_outcomes_exact": true
+}

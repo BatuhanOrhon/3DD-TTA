@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "base": "2c4728ed225fcca0e64222d6eb6212ff9e70c34e",
+  "full_cpu_tests": 568,
+  "subtests": 412,
+  "numpy1_tests": 60,
+  "remaining_skip": "Historical sealed CurveNet source fixture absent in clean publication checkout; unrelated to proximal method.",
+  "full_environment": "Python3.13.7 NumPy2.5.4 Torch2.15.0 CPU; tests directory only",
+  "numpy1_environment": "Python3.12.10 NumPy1.26.4 CPU",
+  "actual_raw_analysis": "NumPy1.21.6; accepted physical source/state/RNG/DDIM/proximal/PM checks and exactremoteoutcomes",
+  "gpu_scope": "Executed sealed a822dirty snapshot; integrated tree itself CPU-verified only"
+}

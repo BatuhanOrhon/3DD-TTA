@@ -1,0 +1,67 @@
+{
+  "session": "tta-shape-proximal-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-zwl345mh6780",
+  "owner": "/root",
+  "study": "shape_latent_proximal_pilot_20261031",
+  "previous_completed_publication": "1bacabfe20a70bf94e9a3c8a5988084d0ae48d3f",
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_dirty": true,
+  "manifest": {
+    "bytes": 136298,
+    "sha256": "690caa62d2a2603ebf9480cc86e3a66f5d13fca77ec1dbe34a810cd19fde15f5"
+  },
+  "source_snapshot": {
+    "bytes": 1164003,
+    "sha256": "1b2fa5b423e407e5ce1339060af63751a46d23cb95a5dffc74b1524451523c82"
+  },
+  "research_cap_seconds": 2400,
+  "arms": [
+    "original",
+    "mean",
+    "prior3",
+    "proxy3",
+    "oracle3"
+  ],
+  "scope": "32exposedModelNetIDs/4corruptions/seed0/Point-MAE;5arms;GBtechnical;globalDDIM3;oracle3diagnosticonly;lambda1fixed;importedfrozenstates",
+  "operator_files": {
+    "deploy_assets_template.py": {
+      "bytes": 14413,
+      "sha256": "89fef5cf42dc27db444c89926bdd3aefac8cb8b14727a747256a515c08ca32d0"
+    },
+    "deploy_runtime.py": {
+      "bytes": 6673,
+      "sha256": "3c97fb1b5e8d5f221b19c75298cc36133b9c721197a91aeed1158421527b148f"
+    },
+    "deploy_wrapper.py": {
+      "bytes": 353,
+      "sha256": "2aa8199c7d016f58b1543e114c6dc25c3509bbfcb4fbd3ed37fb9ddebc871bcb"
+    },
+    "asset_identity_v1.json": {
+      "bytes": 508,
+      "sha256": "80a0bd0429a4659c430b0a977a0ae420b6e517c0036c0ad1a2c71e3db603e62f"
+    },
+    "run_phase.py": {
+      "bytes": 8098,
+      "sha256": "e7322759a7e9254780dfa31ac8d8ccd53e3d7fcb758b8c91942a1f41dba879f5"
+    },
+    "analyze_phase.py": {
+      "bytes": 15688,
+      "sha256": "0c938d6d747fad14ed4e0201b12d30d684446119ce1de3cb6cc50616abd5cee5"
+    },
+    "modelnet40_c_development_ids.json": {
+      "bytes": 389,
+      "sha256": "4745ba9bc83ebf25f663c92f219d12df2b2c4858adc1badeeb37181fcfc6e9dc"
+    },
+    "run_smoke_wrapper.py": {
+      "bytes": 369,
+      "sha256": "31a56726457808d9f5bb4a8a2f566e0068e60eec3b3afb3ecdbacb4b672dc568"
+    },
+    "run_pilot_wrapper.py": {
+      "bytes": 369,
+      "sha256": "51098712d3660f87c149ed59fe87789d29eded44ea758dbd64b1f75da8dd3326"
+    }
+  },
+  "replacement_reason": "Previousownedrefresh assignment absent17:50UTC;noagentteardown;newGPUstudyhadnotstarted",
+  "operator_version": 2
+}

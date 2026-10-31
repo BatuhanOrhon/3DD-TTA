@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "bytes": 2045023,
+  "sha256": "322f3ff3ba16ed2f412b4b1e425be1d62cdd0d9fef62c00acceeec9dcc099094",
+  "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/final-archive-20261031T190545Z/proximal_derived_v1.zip",
+  "local_roundtrip": "result/preparation/shape_latent_proximal_pilot_20261031/operator/derived_drive_roundtrip.zip",
+  "manifest_members": 68,
+  "raw_extractions_unchanged": true
+}

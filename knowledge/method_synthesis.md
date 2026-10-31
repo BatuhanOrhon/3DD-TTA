@@ -463,3 +463,31 @@ matches, posthoc target only. Actual probe/final z hashes and physical states
 verify. Two-pass cost required; replay timing not deployment speedup. Further
 seeds/unseen confirmation/conditional-energy or global-prior guidance remain
 separate unrun choices, not automatic continuation.
+
+## 2026-10-31 — Global proximal pilot accepted: distance improves, baseline gain unproven
+
+[Run/Inference/Decision] [Completed result](shape_latent_proximal_results_20261031.md).
+32 exposed ModelNet40-C objects × four fixed corruptions/seed0/Point-MAE:
+original58/128=45.3125%, mean60=46.875%, prior3 54=42.1875%,
+proxy3 59=46.09375%, oracle3 64=50%. Proxy3−original+.78125pp,
+conditional object-cluster95%CI[−3.125,+4.6875]; proxy3−prior3+3.90625pp,
+CI[0,+7.8125]. All six intervals include/touch0. Proxy3 aggregate clean-z
+MSE ratio .895787 vs original; .852213 vs prior3. Weak exploratory mechanism
+support, no reliable baseline gain or promotion; mean has one more correct event.
+Oracle ratio .016414 is clean-information diagnosis, not deployable TTA/upper bound.
+
+[Run/Code/Open] Pilot20shards/617-filemanifest and smoke10shards/567files accepted
+Drive+local SHA/CRC and exact independent NumPy1 acceptance/outcome recount.
+Physical global vectors/half-target/DDIM, imported lineage/h0/noise/anchor,
+private Gaussian/RNG, own-z probes/final, source and frozen models pass.
+Same source/state/RNG smoke/pilot still change some predictions; paired
+bootstrap excludes that numerical repeat variance and seed/unseen transfer.
+No extra GPU repeat, grid or full-data run. Scientific ledger478.451071s
+including smoke, local transition, pilot and remote raw archive;2400s cap.
+Raw pilot SHA f00225f0e404d8d7eb410030e5cb2abc2718122e9ee5d794168efccb64336293.
+Source a822dirty346files; manifest690caa62…e15f5/sourceZIP1b2fa5b4…23c82;
+actual executed98148d90…542b9. Own proximalr1 preserved; no teardown.
+
+[Decision/Open] Operational global diffusion remains off. End-to-end method
+requires baseline firstpass/proxy encoder plus second local trajectory; replay
+worker timing does not establish deployment speed. Final source/operator/derived archival is accepted; this scoped result is selected for verified normal integration publication.

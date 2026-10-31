@@ -1,0 +1,41 @@
+{
+  "status": "complete",
+  "files": {
+    "proximal_assets_v1.zip": {
+      "bytes": 29970678,
+      "sha256": "347ef9c3c5304f2a168046cced7298b828fc387e93093b8de29d076c7276f6fa",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/final-archive-20261031T190545Z/proximal_assets_v1.zip"
+    },
+    "source_snapshot.zip": {
+      "bytes": 1164003,
+      "sha256": "1b2fa5b423e407e5ce1339060af63751a46d23cb95a5dffc74b1524451523c82",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/final-archive-20261031T190545Z/source_snapshot.zip"
+    },
+    "proximal_operator_v2.zip": {
+      "bytes": 18507,
+      "sha256": "1f8a7da3fce912f694fe912233503e92217e2d09b7de4c54f7d60eaf09203220",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/final-archive-20261031T190545Z/proximal_operator_v2.zip"
+    },
+    "proximal_derived_v1.zip": {
+      "bytes": 2045023,
+      "sha256": "322f3ff3ba16ed2f412b4b1e425be1d62cdd0d9fef62c00acceeec9dcc099094",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/final-archive-20261031T190545Z/proximal_derived_v1.zip"
+    },
+    "research_ledger.json": {
+      "bytes": 175,
+      "sha256": "40cc2df7bbae16ab6dd2851aa396abd8f392f66f975d01f3be9fa253163f74c7",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/final-archive-20261031T190545Z/research_ledger.json"
+    }
+  },
+  "ledger": {
+    "spent_seconds": 478.451071,
+    "completed": [
+      "smoke",
+      "pilot"
+    ],
+    "research_started_utc": "2026-10-31T18:50:29.446863+00:00",
+    "smoke_acceptance": "passed"
+  },
+  "git_publication": "pending at immutable capsule seal",
+  "runtime_preserved": true
+}

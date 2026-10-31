@@ -7971,3 +7971,44 @@ bulundu; sealedv2registration/run_phase doğru yeni adı kullanır. Dış assert
 geçen19new/69relatedCPUtest+16subtest/4operatorcheck bunu kapsamaz; yeni
 GPU/deployment başarısı iddia edilmez. Distance/bootstrap4×32/fivearm analizi
 de kalan iştir. Yerel source/hamlar ve dirtybranch korunur; runtime teardown yok.
+
+## 2026-10-31 — Global proximal pilot accepted: distance improves, baseline gain unproven
+
+[Run/Inference/Decision] [Completed result](shape_latent_proximal_results_20261031.md).
+32 exposed ModelNet40-C objects × four fixed corruptions/seed0/Point-MAE:
+original58/128=45.3125%, mean60=46.875%, prior3 54=42.1875%,
+proxy3 59=46.09375%, oracle3 64=50%. Proxy3−original+.78125pp,
+conditional object-cluster95%CI[−3.125,+4.6875]; proxy3−prior3+3.90625pp,
+CI[0,+7.8125]. All six intervals include/touch0. Proxy3 aggregate clean-z
+MSE ratio .895787 vs original; .852213 vs prior3. Weak exploratory mechanism
+support, no reliable baseline gain or promotion; mean has one more correct event.
+Oracle ratio .016414 is clean-information diagnosis, not deployable TTA/upper bound.
+
+[Run/Code/Open] Pilot20shards/617-filemanifest and smoke10shards/567files accepted
+Drive+local SHA/CRC and exact independent NumPy1 acceptance/outcome recount.
+Physical global vectors/half-target/DDIM, imported lineage/h0/noise/anchor,
+private Gaussian/RNG, own-z probes/final, source and frozen models pass.
+Same source/state/RNG smoke/pilot still change some predictions; paired
+bootstrap excludes that numerical repeat variance and seed/unseen transfer.
+No extra GPU repeat, grid or full-data run. Scientific ledger478.451071s
+including smoke, local transition, pilot and remote raw archive;2400s cap.
+Raw pilot SHA f00225f0e404d8d7eb410030e5cb2abc2718122e9ee5d794168efccb64336293.
+Source a822dirty346files; manifest690caa62…e15f5/sourceZIP1b2fa5b4…23c82;
+actual executed98148d90…542b9. Own proximalr1 preserved; no teardown.
+
+[Decision/Open] Operational global diffusion remains off. End-to-end method
+requires baseline firstpass/proxy encoder plus second local trajectory; replay
+worker timing does not establish deployment speed. Final source/operator/derived
+archival and selective integration publication are being completed.
+
+## Final archival acceptance — 2026-10-31
+
+[Run] Source/assets/operator/derived copies were verified on Drive at
+`MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/final-archive-20261031T190545Z/`.
+The 2,045,023-byte derived/source/operator capsule has SHA256
+`322f3ff3ba16ed2f412b4b1e425be1d62cdd0d9fef62c00acceeec9dcc099094`;
+Drive download roundtrip, all68 member identities and raw extraction recheck pass.
+Both raw phases remain unchanged after analysis. The sealed capsule intentionally
+retains its then-pending publication notes; these final receipts supersede them.
+See compact `final_archive_receipt.json` and `derived_roundtrip_receipt.json`.
+No GPU work remains and no runtime teardown was issued.

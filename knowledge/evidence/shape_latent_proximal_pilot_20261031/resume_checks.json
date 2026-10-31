@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-31T18:19:59.214980+00:00",
+  "worktree": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA",
+  "branch": "integration/chamfer-guidance-variants-20261030",
+  "head": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "remote_target": "2c4728ed225fcca0e64222d6eb6212ff9e70c34e",
+  "session": "tta-shape-proximal-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-zwl345mh6780",
+  "cell2_python": "3.8.20",
+  "cell2_marker": "ORACLE_CELL2_ENV_VERIFIED",
+  "wrapper_binding": "RED-to-GREEN actual v2 ZIP registration; ZIPs unchanged",
+  "cpu_contract_tests": 23,
+  "summary_selfchecks": 2,
+  "scientific_gpu_started": false
+}

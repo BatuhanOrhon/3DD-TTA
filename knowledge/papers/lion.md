@@ -83,3 +83,15 @@ Clean-mean direction is mixed (median squared-error ratio .9535, mean ratio
 experiment, not validation of LION's fine-tuned denoising encoders or a proven
 new generative prior. Two-pass deployment cost and native/seed variability
 remain; no method/default/globaldiffusion activation follows automatically.
+
+## 2026-10-31 — proximal global DDIM evaluated
+
+[Run/Inference] [Fixed five-arm pilot](../shape_latent_proximal_results_20261031.md)
+uses real global DDIM20/10/0 with half-target clean-estimate guidance. Proxy3
+aggregate clean-z MSE falls10.4213% vs original, but accuracy+.78125pp has
+conditional95%CI[−3.125,+4.6875]. Relative to prior3, both distance and point
+accuracy improve; CI touches0. Direct mean has one more correct event.
+Oracle3 nearly recovers the paired clean latent but remains diagnostic; no
+formal upper-bound or compatibility-cause claim. Own-z decoder/h0/noise/RNG
+and frozen model/source gates pass. Existing smoke/pilot predictions vary
+despite matching states/RNG; no robust baseline gain or default promotion.

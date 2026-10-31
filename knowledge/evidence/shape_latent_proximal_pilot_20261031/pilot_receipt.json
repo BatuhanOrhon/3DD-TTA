@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "stage": "pilot",
+  "archive": {
+    "bytes": 86140365,
+    "sha256": "f00225f0e404d8d7eb410030e5cb2abc2718122e9ee5d794168efccb64336293",
+    "local_path": "/content/studies/shape-proximal/phase_pilot_20261031T185449177416Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_proximal_pilot_20261031/phase-evidence/phase_pilot_20261031T185449177416Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 478.451071,
+    "completed": [
+      "smoke",
+      "pilot"
+    ],
+    "research_started_utc": "2026-10-31T18:50:29.446863+00:00",
+    "smoke_acceptance": "passed"
+  },
+  "output": "/content/studies/shape-proximal/phase_pilot_20261031T185449177416Z",
+  "cache_root": "/content/studies/shape-proximal/phase_pilot_20261031T185449177416Z/paired"
+}
