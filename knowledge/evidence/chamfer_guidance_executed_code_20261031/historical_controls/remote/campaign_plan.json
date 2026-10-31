@@ -1,0 +1,193 @@
+{
+  "approval_policy": "explicit user reply for exact whole5h research phase; no research GPU before approval",
+  "asset_manifest": {
+    "bytes": 175773,
+    "path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/manifest.json",
+    "sha256": "a9f017789fda66de310931f63cde5e540985b96ac5097ae8fe729358e9d06da0"
+  },
+  "asset_root": "/content/studies/chamfer-guidance-variants/prepared_v1/assets",
+  "calibration_report": "/content/studies/chamfer-guidance-variants/calibration.json",
+  "cap_seconds": 18000,
+  "checkpoint_identities": {
+    "checkpoints/3deformrs_curvenet_scanobjectnn_better.t7": {
+      "bytes": 8680161,
+      "sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+    },
+    "checkpoints/modelnet_jt.pth": {
+      "bytes": 351656113,
+      "sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75"
+    },
+    "checkpoints/pointnext_modelnet40.pth": {
+      "bytes": 54383385,
+      "sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+    },
+    "checkpoints/pointnext_scanobjectnn.pth": {
+      "bytes": 16491609,
+      "sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a"
+    },
+    "checkpoints/scanobject_jt.pth": {
+      "bytes": 351525407,
+      "sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac"
+    },
+    "checkpoints/svwa_curvenet_modelnet40.pth": {
+      "bytes": 26013253,
+      "sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+    },
+    "checkpoints/svwa_dgcnn_modelnet40.pth": {
+      "bytes": 21771717,
+      "sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494"
+    },
+    "checkpoints/svwa_dgcnn_scanobjectnn.pth": {
+      "bytes": 21694533,
+      "sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe"
+    }
+  },
+  "cost_policy": "continuous research wall clock cap18000s from first GPU worker including stage waits; setup/allocation separate; monetary price unknown",
+  "datasets": {
+    "modelnet40_c": {
+      "dataset_root": "/content/3DD-TTA/data/modelnet40_c",
+      "label_path": "/content/3DD-TTA/data/modelnet40_c/label.npy",
+      "pointmae_checkpoint": "checkpoints/modelnet_jt.pth",
+      "pointmae_config": "source_snapshot/cfgs/tta_modelnet.yaml"
+    },
+    "scanobjectnn_c": {
+      "dataset_root": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/datasets/scanobjectnn_c",
+      "label_path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/datasets/scanobjectnn_c/label.npy",
+      "pointmae_checkpoint": "checkpoints/scanobject_jt.pth",
+      "pointmae_config": "source_snapshot/cfgs/tta_scanobj.yaml"
+    }
+  },
+  "drive_root": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030",
+  "lion_checkpoint": {
+    "bytes": 1508051672,
+    "path": "/content/3DD-TTA/lion_ckpts/epoch_10999_iters_2100999.pt",
+    "sha256": "807f6732ad087a1ffdaeeaa456e32b4130c9a8a1708446cabc0059654a0a86c2"
+  },
+  "native_archive": {
+    "audit_status": "complete",
+    "bytes": 801121,
+    "drive_archive": "/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/gsd_native/gsd_native_20261018T203919266876Z/gsd_native_20261018T203919266876Z.zip",
+    "local_archive": "/content/gsd_multibackbone_study_20261018/native_audits/gsd_native_20261018T203919266876Z.zip",
+    "sha256": "c77d71e934e7b52f65493e49957f2ff3f45986babf4cd4b6f3d862b10932fc2e",
+    "status": "complete"
+  },
+  "phase_sources": {
+    "asset_deployment_requirements.json": {
+      "bytes": 5722,
+      "sha256": "fe05859dcd9daa7c6b38a220c36a6b046d492934c14f0eea4f87858e9bde0ef0"
+    },
+    "chamfer_phase_common.py": {
+      "bytes": 5448,
+      "sha256": "6480f93c54101492d0b1a294951926ab689e8eda4dcd80dbad9d54fc30fd8ea6"
+    },
+    "deploy_assets_template.py": {
+      "bytes": 14413,
+      "sha256": "89fef5cf42dc27db444c89926bdd3aefac8cb8b14727a747256a515c08ca32d0"
+    },
+    "deploy_chamfer_assets.py": {
+      "bytes": 3632,
+      "sha256": "19a6b01e83bd49a1240f469de07aaa0d9980e081019f0f89407c51197b7b18f7"
+    },
+    "gpu_chamfer_phase.py": {
+      "bytes": 19671,
+      "sha256": "e03582aff64156efd120d12a93af33c6a7a3e478aae865cfff832b3d39349770"
+    },
+    "launch_cpu_preflight.py": {
+      "bytes": 642,
+      "sha256": "29deb79153c6e8284839dda73ec502192f0b0c3c14185989bd3e3c9a5107f76f"
+    },
+    "launch_deploy.py": {
+      "bytes": 611,
+      "sha256": "c07c7873cdef512cd9fc67a66dfd8d6cd62f11cb963fd50b7c7abad1ddbad522"
+    },
+    "launch_gpu_calibration.py": {
+      "bytes": 1134,
+      "sha256": "d5d3ab6158e111d00112328c61ebbab205d5a8c79fd65babdf2b7fe6ea4faf6e"
+    },
+    "launch_gpu_confirmation.py": {
+      "bytes": 1137,
+      "sha256": "bb1b9202cb1626c5d225df858360de593a2660b569ea1fd78a98ed2c830cf05f"
+    },
+    "launch_gpu_development.py": {
+      "bytes": 1134,
+      "sha256": "130dca06ce037696178264e31eb3b78b0c214f5df15c69515df7c58b38dc9659"
+    },
+    "launch_gpu_smoke_active.py": {
+      "bytes": 1137,
+      "sha256": "7f8550e4e43af6ddb768c0a187015ab6572a9ef8dcaaf046599977c9fd1daeca"
+    },
+    "launch_gpu_smoke_initial.py": {
+      "bytes": 1140,
+      "sha256": "f0437574a76d2f0ad173230df562b00f0e3b71dea426f306215f0b7a0c651e08"
+    },
+    "launch_gpu_timing.py": {
+      "bytes": 1119,
+      "sha256": "5483f6c3c7b6830ef4f747a8587a0fd22674f00ea701d26a45c34cd1c8bda47d"
+    },
+    "preflight_chamfer_cpu.py": {
+      "bytes": 419,
+      "sha256": "408871e81a5b96101418dadb8db302ef06059bf31423bb7b1e1026cf14470bf5"
+    },
+    "preflight_components_cpu.py": {
+      "bytes": 8951,
+      "sha256": "93642d008bf3bff7fad3a0c7dd8cd70d6683e7f48e4400411ed4c3ebfd904260"
+    },
+    "support_identity.json": {
+      "bytes": 2584,
+      "sha256": "095e16ab3a163b6f12821332748975c8a61b4819306bac49e55b005f10219b31"
+    }
+  },
+  "python": "/usr/local/envs/3dd_tta_env/bin/python",
+  "research_root": "/content/studies/chamfer-guidance-variants",
+  "schema_version": 1,
+  "selections": {
+    "confirmation": {
+      "modelnet40_c": {
+        "bytes": 1535,
+        "path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/study/modelnet40_c_heldout_ids.json",
+        "sha256": "7338471bd31326a51bd367e6cb167116d2205a6af41d0c1ce4df93c60b6841a5"
+      },
+      "scanobjectnn_c": {
+        "bytes": 1426,
+        "path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/study/scanobjectnn_c_heldout_ids.json",
+        "sha256": "de6cc89f006d4212acf8370c44017896869b363f286b6ecbea16eed004f0002c"
+      }
+    },
+    "development": {
+      "modelnet40_c": {
+        "bytes": 864,
+        "path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/study/modelnet40_c_development_ids.json",
+        "sha256": "47cd70cbc1511a99eb5716231f46a66d5cdd7819acff159b74b1c3ca5a0f6bd0"
+      },
+      "scanobjectnn_c": {
+        "bytes": 814,
+        "path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/study/scanobjectnn_c_development_ids.json",
+        "sha256": "b3a09d870084df0fb9ce41ecbc3b7b94ad72fee14d0fab1d3ec20e8848dd6130"
+      }
+    },
+    "smoke": {
+      "modelnet40_c": {
+        "bytes": 210,
+        "path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/study/modelnet40_c_smoke_ids.json",
+        "sha256": "206a8426c46a6f8d2f300ee952575cab0d1b1950964d32b7f72f2db42166d1f1"
+      },
+      "scanobjectnn_c": {
+        "bytes": 209,
+        "path": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/study/scanobjectnn_c_smoke_ids.json",
+        "sha256": "3a36219bbf72183f09317e6b990178b91c8f818cee0e9bb6103978d5dab1142d"
+      }
+    }
+  },
+  "session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "source_commit": "a1d298a4d64bd9b580253dfa53224aa69b94df33",
+  "source_receipt": {
+    "bytes": 51898,
+    "path": "/content/studies/chamfer-guidance-variants/remote/preparation_identity.json",
+    "sha256": "73947dc5eed7e511815df2b9debc2109010ae9531c322e6ece579f532448d3f1"
+  },
+  "source_root": "/content/studies/chamfer-guidance-variants/prepared_v1/assets/source_snapshot",
+  "source_snapshot": {
+    "bytes": 5567352,
+    "sha256": "d638c2e455a225d6597ff10eeda63778e3963711e05e542450ae5e47726e0551"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "algorithm_or_GPU_execution": false,
+  "base_integration_commit": "8dca8573de0152acc00dc1963afcb49a020f54a8",
+  "broad_tests": "Not repeated: production implementation unchanged; historical479+373/pinned69 tests remain separately labeled",
+  "copied_files": 46,
+  "credential_scan": "No proxy token/OAuth token/private key pattern matched copied sources/plans",
+  "date": "2026-10-31",
+  "local_Markdown_links_checked": 42,
+  "manifest_identity": {
+    "bytes": 18816,
+    "sha256": "e8fb9c6b799bb724a67d9b634844fb4227e7385791a9501811b8d25643c95085"
+  },
+  "new_agent_launched": false,
+  "original_source_members_verified_against_sealed_asset_manifests": 20,
+  "plan_JSON_parse_passed": 3,
+  "preserved_original_trailing_whitespace_lines": 62,
+  "production_code_changes": false,
+  "python38_AST_passed": 43,
+  "remaining_controls_verified_against_retained_local_source_bytes": 26,
+  "scope": "Method-paper-result index, historical audit copies and short current-branch starter prompt; no new bug finding or fresh broad literature survey",
+  "staged_copied_bytes_match_manifest": true,
+  "status": "static_documentation_and_byte_identity_checks_passed",
+  "whitespace_check": "All edited/new documentation and other copies pass; two frozen tta_gsd_v2.py copies intentionally retain original trailing whitespace to preserve sealed SHA"
+}

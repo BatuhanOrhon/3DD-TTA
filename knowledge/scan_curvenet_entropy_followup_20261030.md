@@ -1,5 +1,11 @@
 # Scan CurveNet entropy-guidance follow-up — 2026-10-30
 
+[Run] Güncel durum31.10.2026: native H-only kalibrasyon,24heldout head,
+24fresh timing head ve arşiv kontrolleri tamamlandı; sahipli runtime kapalı.
+CurveNet birincil+.2381pp CI[-.1587,+.6349], G+B maliyet+8.5572%.
+Aşağıdaki hazırlık/running ifadeleri tarihsel aşamalardır; nihai kabul aşağıda.
+[Makale–kod–sonuç rehberi](chamfer_guidance_methods_results_20261031.md).
+
 [User report/Decision] Prepare a stronger alternate semantic guidance model for
 ScanObjectNN-C after the entire current campaign, timing and raw-data collection
 finish. The user authorizes this follow-up without another GPU approval question.

@@ -172,3 +172,15 @@ Use these identifiers in output directories and tables:
 | `pxp_symmetric` | Symmetric projection |
 
 Never reuse a method ID when the semantic algorithm changes; add a suffix or version in `config.json`.
+
+## 2026-10-31 — completed Chamfer variants and executable-history references
+
+[Code] Current entry scripts, sampler/observer/loss, report validators,
+calibrators, asset preparation and analysis are indexed in
+[chamfer_guidance_methods_results_20261031.md](chamfer_guidance_methods_results_20261031.md).
+`run_chamfer_variants_campaign.py` prepares CPU plans; actual historical GPU
+controllers/outer launchers and local acceptance scripts are now retained as
+byte-identical audit copies in
+[the executed-code index](evidence/chamfer_guidance_executed_code_20261031/README.md).
+These copies are not a portable/new-runtime execution package. Frozen0fd/95
+payloads must be distinguished from the later CPU-verified integration tree.

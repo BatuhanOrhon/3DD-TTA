@@ -1,0 +1,377 @@
+{
+  "base_integration_commit": "8dca8573de0152acc00dc1963afcb49a020f54a8",
+  "files": [
+    {
+      "bytes": 18302,
+      "original_path": "revision_3/assets_v1/source_snapshot/tta_gsd_v2.py",
+      "path": "original_0fd2581/tta_gsd_v2.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 5080,
+      "original_path": "revision_3/assets_v1/source_snapshot/chamfer_guidance_variants.py",
+      "path": "original_0fd2581/chamfer_guidance_variants.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "23fb6c4266b1051867543d91eb6cc6776f29a962844a4b7360c41580d3254ef0",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 7796,
+      "original_path": "revision_3/assets_v1/source_snapshot/semantic_trajectory.py",
+      "path": "original_0fd2581/semantic_trajectory.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "11ef7b8273941bdf17926243cb94e3db8dab9d29f1b3f642400682f62ca322be",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 6672,
+      "original_path": "revision_3/assets_v1/source_snapshot/shared_trajectory.py",
+      "path": "original_0fd2581/shared_trajectory.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "1f3a7886fcde5487118db71755c5c9b374af26a8f0981d69304829ba91f13d9d",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 3397,
+      "original_path": "revision_3/assets_v1/source_snapshot/chamfer_calibration_report.py",
+      "path": "original_0fd2581/chamfer_calibration_report.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "3334c5905216fa7853ddd747170c85998d1d529eb329f23b35f7827df0203dfb",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 59274,
+      "original_path": "revision_3/assets_v1/source_snapshot/scripts/eval_multibackbone_guidance.py",
+      "path": "original_0fd2581/scripts/eval_multibackbone_guidance.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "30b5f54ff74fa6ca9a987ad98c24d1847db8388f815daa76a01618c25081dfd1",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 30720,
+      "original_path": "revision_3/assets_v1/source_snapshot/scripts/eval_multibackbone_source.py",
+      "path": "original_0fd2581/scripts/eval_multibackbone_source.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "dac97636355d7410831e5746a9ee02744c1bf2d203eba18c18a99a0d1c4bc42b",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 17745,
+      "original_path": "revision_3/assets_v1/source_snapshot/scripts/calibrate_chamfer_variants.py",
+      "path": "original_0fd2581/scripts/calibrate_chamfer_variants.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "dfcfb4140a9480d079bdd02f6924db72c3a95e22189837e3e919ab23865ec045",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 28112,
+      "original_path": "revision_3/assets_v1/source_snapshot/scripts/analyze_chamfer_variants.py",
+      "path": "original_0fd2581/scripts/analyze_chamfer_variants.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "87b963f14d6c35a485d447700a8027ed7fdaf3a6b4ce83aef2a3abc041c00ac1",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2"
+    },
+    {
+      "bytes": 18302,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/tta_gsd_v2.py",
+      "path": "curvenet_95a4997/tta_gsd_v2.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 5080,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/chamfer_guidance_variants.py",
+      "path": "curvenet_95a4997/chamfer_guidance_variants.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "23fb6c4266b1051867543d91eb6cc6776f29a962844a4b7360c41580d3254ef0",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 7997,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/semantic_trajectory.py",
+      "path": "curvenet_95a4997/semantic_trajectory.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "6cefaab5fe55b4a9efc3d4984fd677dec5dc9774a4957c6195a79d1bb27471dc",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 6672,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/shared_trajectory.py",
+      "path": "curvenet_95a4997/shared_trajectory.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "1f3a7886fcde5487118db71755c5c9b374af26a8f0981d69304829ba91f13d9d",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 3397,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/chamfer_calibration_report.py",
+      "path": "curvenet_95a4997/chamfer_calibration_report.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "3334c5905216fa7853ddd747170c85998d1d529eb329f23b35f7827df0203dfb",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 62347,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/scripts/eval_multibackbone_guidance.py",
+      "path": "curvenet_95a4997/scripts/eval_multibackbone_guidance.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "82292c1ea8425f30f472646a83480d1cc2ed72e8d219c76c7a3a78e674aac4bc",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 30720,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/scripts/eval_multibackbone_source.py",
+      "path": "curvenet_95a4997/scripts/eval_multibackbone_source.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "dac97636355d7410831e5746a9ee02744c1bf2d203eba18c18a99a0d1c4bc42b",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 17745,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/scripts/calibrate_chamfer_variants.py",
+      "path": "curvenet_95a4997/scripts/calibrate_chamfer_variants.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "dfcfb4140a9480d079bdd02f6924db72c3a95e22189837e3e919ab23865ec045",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 31181,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/scripts/analyze_chamfer_variants.py",
+      "path": "curvenet_95a4997/scripts/analyze_chamfer_variants.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "36aa612b0612e58a24941b3a7d261943556b85b13d747d5b2c81fe95bc1f50f1",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 5702,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/scan_curvenet_entropy_report.py",
+      "path": "curvenet_95a4997/scan_curvenet_entropy_report.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "c4e574dd3fa8161c60bbbb4b8a04fcbf3287d808f2a0e8d9f9288f79b37b8b3f",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 13459,
+      "original_path": "postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot/scripts/calibrate_scan_curvenet_entropy.py",
+      "path": "curvenet_95a4997/scripts/calibrate_scan_curvenet_entropy.py",
+      "role": "sealed_source_member_not_a_per_function_execution_claim",
+      "sha256": "f5d8d27d0baae3e7431778e77489f88e7efbaf85ad630f256a9fc62a3e51e644",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc"
+    },
+    {
+      "bytes": 14413,
+      "original_path": "remote/deploy_assets_template.py",
+      "path": "historical_controls/remote/deploy_assets_template.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "89fef5cf42dc27db444c89926bdd3aefac8cb8b14727a747256a515c08ca32d0"
+    },
+    {
+      "bytes": 5448,
+      "original_path": "remote/chamfer_phase_common.py",
+      "path": "historical_controls/remote/chamfer_phase_common.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "6480f93c54101492d0b1a294951926ab689e8eda4dcd80dbad9d54fc30fd8ea6"
+    },
+    {
+      "bytes": 19671,
+      "original_path": "remote/gpu_chamfer_phase.py",
+      "path": "historical_controls/remote/gpu_chamfer_phase.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "e03582aff64156efd120d12a93af33c6a7a3e478aae865cfff832b3d39349770"
+    },
+    {
+      "bytes": 19360,
+      "original_path": "remote/metadata_recovery_v3/gpu_chamfer_metadata_recovery_v3.py",
+      "path": "historical_controls/remote/metadata_recovery_v3/gpu_chamfer_metadata_recovery_v3.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "9cfd4769bb86cd0badcaeb9e312be4b5d283f24ad03d3ea9619268d8a4b00772"
+    },
+    {
+      "bytes": 29214,
+      "original_path": "postcampaign_curvenet_h/scan_curvenet_h_controls.py",
+      "path": "historical_controls/postcampaign_curvenet_h/scan_curvenet_h_controls.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "fd766090fe343bb5eaa53dc76159cef59d83363f186c6e87155f063fc318ead2"
+    },
+    {
+      "bytes": 2040,
+      "original_path": "postcampaign_curvenet_h/launch_scan_curvenet_h.py",
+      "path": "historical_controls/postcampaign_curvenet_h/launch_scan_curvenet_h.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "ba9d611342e6fa9aea0b32f38ab1bd66ede080681c59b8928dedc99072bea14d"
+    },
+    {
+      "bytes": 16418,
+      "original_path": "independent_confirmation_acceptance.py",
+      "path": "historical_controls/independent_confirmation_acceptance.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "85be2cf78ebbcc7876908572825930a645cffbcc7a0d4f32bf2c4fc6253c189d"
+    },
+    {
+      "bytes": 9353,
+      "original_path": "independent_timing_acceptance.py",
+      "path": "historical_controls/independent_timing_acceptance.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "4b6c805f32fdc8793f33f113cf5e7c3c79d529880889ee68db14b2d5143b701e"
+    },
+    {
+      "bytes": 11249,
+      "original_path": "postcampaign_curvenet_h/independent_heldout_acceptance.py",
+      "path": "historical_controls/postcampaign_curvenet_h/independent_heldout_acceptance.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "bcd738a453f15614e7fbf455ad8278f1e506fe7ee5127ef3cd1dbe954aaaa9de"
+    },
+    {
+      "bytes": 10877,
+      "original_path": "postcampaign_curvenet_h/independent_timing_acceptance.py",
+      "path": "historical_controls/postcampaign_curvenet_h/independent_timing_acceptance.py",
+      "role": "historical_campaign_or_local_acceptance_source_audit_copy",
+      "sha256": "9bcaace289991feee12f5dc03b697a8ea63b513ef0d100e0c6bc037f35757be1"
+    },
+    {
+      "bytes": 9251,
+      "original_path": "diagnose_native_repeat_phase.py",
+      "path": "historical_controls/diagnose_native_repeat_phase.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "fa8296139dbe7501cfa09a285ec3f947ba6fe7f90c4c72ebc73de5cc42795e9a"
+    },
+    {
+      "bytes": 6721,
+      "original_path": "diagnose_native_repeat_worker.py",
+      "path": "historical_controls/diagnose_native_repeat_worker.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "8fe98816ec72358b6842882fc491d12baa70e6b44c20bf83e0f149da6b17bf7e"
+    },
+    {
+      "bytes": 11292,
+      "original_path": "native_zero_effect_phase.py",
+      "path": "historical_controls/native_zero_effect_phase.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "c3e989b59f6705b0c26a379a40e58c3411ecb7b3fd36566f38dced3a5e154128"
+    },
+    {
+      "bytes": 3419,
+      "original_path": "native_zero_effect_worker.py",
+      "path": "historical_controls/native_zero_effect_worker.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "d6cfd0a323feb389b94eb7a5f1a3ca686b15c3b438e8536c14bfd96915f85d17"
+    },
+    {
+      "bytes": 1898,
+      "original_path": "launch_metadata_v3_calibration.py",
+      "path": "historical_controls/launch_metadata_v3_calibration.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "de58fbd1bbb36d0632c474298b439b2e0fe7fb42ec9c0dbfff85568aaee65861"
+    },
+    {
+      "bytes": 1901,
+      "original_path": "launch_metadata_v3_smoke_active.py",
+      "path": "historical_controls/launch_metadata_v3_smoke_active.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "1212394ec11267ace0c22014a60a63a9629eca82c101fdc873954290d3c6c403"
+    },
+    {
+      "bytes": 1898,
+      "original_path": "launch_metadata_v3_development.py",
+      "path": "historical_controls/launch_metadata_v3_development.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "86943e8d3f980b02276f26d8b236428ef6eb01e0b4084947fbe860d6ca96ed63"
+    },
+    {
+      "bytes": 1901,
+      "original_path": "launch_metadata_v3_confirmation.py",
+      "path": "historical_controls/launch_metadata_v3_confirmation.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "fc06cb2629cab8905fc2b4be6d155cbc9ec8563051e9118b3b0c94ac6287dfb4"
+    },
+    {
+      "bytes": 1883,
+      "original_path": "launch_metadata_v3_timing.py",
+      "path": "historical_controls/launch_metadata_v3_timing.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "ecb3952641f15c44b8e0cb23cd2963399fe8213f35feaf370e4403e3139f54b7"
+    },
+    {
+      "bytes": 1668,
+      "original_path": "postcampaign_curvenet_h/launch_postcampaign_deploy.py",
+      "path": "historical_controls/postcampaign_curvenet_h/launch_postcampaign_deploy.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "f4a1132c38def7f0ffe38d6faab3bfb55365faa57d67a39984dbfc83a6acccce"
+    },
+    {
+      "bytes": 1556,
+      "original_path": "postcampaign_curvenet_h/launch_postcampaign_calibration.py",
+      "path": "historical_controls/postcampaign_curvenet_h/launch_postcampaign_calibration.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "b51a7deed101039ca66efe9eed46d367857c2894a3a700b4b319773b7d9d25fe"
+    },
+    {
+      "bytes": 1544,
+      "original_path": "postcampaign_curvenet_h/launch_postcampaign_heldout.py",
+      "path": "historical_controls/postcampaign_curvenet_h/launch_postcampaign_heldout.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "6d7d8967a14243e6531c93a93372bf7e7a92851442ba7dca9026b2ade1e91cdd"
+    },
+    {
+      "bytes": 1541,
+      "original_path": "postcampaign_curvenet_h/launch_postcampaign_timing.py",
+      "path": "historical_controls/postcampaign_curvenet_h/launch_postcampaign_timing.py",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "9d60018a0420f268b66a51657b6e038a78c6acd32f4d730dfc4217b88ecbfd7b"
+    },
+    {
+      "bytes": 8207,
+      "original_path": "remote/campaign_plan.json",
+      "path": "historical_controls/remote/campaign_plan.json",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "e4bf0104fe997157810820aad1b6f12e9f0f7e6b9915334329c16f4a754dcff4"
+    },
+    {
+      "bytes": 11911,
+      "original_path": "remote/metadata_recovery_v3/metadata_recovery_v3.json",
+      "path": "historical_controls/remote/metadata_recovery_v3/metadata_recovery_v3.json",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "46318318cf9dee035e5dc11b6e86bd52579f2128e3097badaabf9e6edff0b466"
+    },
+    {
+      "bytes": 5723,
+      "original_path": "postcampaign_curvenet_h/phase_plan.json",
+      "path": "historical_controls/postcampaign_curvenet_h/phase_plan.json",
+      "role": "historical_controller_launcher_or_bound_plan_audit_copy",
+      "sha256": "297badb31d81667e86467d84d0d2f35912b3e3546d234f7a75bdf5435b0f9d46"
+    }
+  ],
+  "limitations": "Selected source members and actual orchestration/acceptance scripts only; full source, assets, native binaries, raw ZIPs, caches and historical plan inputs remain in verified Drive artifacts. These copies are for reading, not an executable new-runtime bundle. No old approval authorizes a new run.",
+  "prepared_date": "2026-10-31",
+  "schema_version": 1,
+  "snapshots": [
+    {
+      "full_asset_manifest": {
+        "bytes": 175773,
+        "sha256": "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777"
+      },
+      "name": "original_0fd2581",
+      "source_commit": "0fd258110abf48dc92d739b288010ebfbee475b2",
+      "source_snapshot_zip": {
+        "bytes": 5567350,
+        "sha256": "fd8c163f07b82cc8ca05b7ab2a5532dfd821aa0af7c51062f23706716d8b1a69"
+      }
+    },
+    {
+      "full_asset_manifest": {
+        "bytes": 176437,
+        "sha256": "95a0dc2a52d5d2e8cbf99767b5ba1e8ecd59fadcf0c0e7b23013ce836c7d0bb1"
+      },
+      "name": "curvenet_95a4997",
+      "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc",
+      "source_snapshot_zip": {
+        "bytes": 5575083,
+        "sha256": "767e24acbb0fe3213ee24d8efdfc824f11fd051180bfc4bc14b6c393f6901f75"
+      }
+    }
+  ],
+  "status": "byte_identical_audit_copies_verified_no_code_executed"
+}

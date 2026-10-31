@@ -7589,3 +7589,25 @@ bilinmeyen süreçlere stop/exec/reconnect işlemi yapılmadı. Yeni GPU işi yo
 [Cache yedeği](evidence/chamfer_author_code_audit_20261030/final_cache_backup_acceptance_20261030.json) ·
 [Özet yedeği](evidence/chamfer_author_code_audit_20261030/final_summary_backup_acceptance_20261030.json) ·
 [Kapanış kanıtı](evidence/chamfer_author_code_audit_20261030/owned_runtime_closure_20261030.json).
+
+## 2026-10-31 — paper/implementation/result archive and next-agent handoff
+
+[User report/Code/Run/Open] User requests all reviewed methods with references,
+results and actual implementation scripts on origin/thesis-integration, followed
+by a short current-branch prompt for code-error audit and another literature
+pass. Base shared target8dca857; original source branchfe8a777 is preserved.
+The new [methods/results index](chamfer_guidance_methods_results_20261031.md)
+maps AG, CloudFixer, MAMVI and GDA to independent sparse/KL/H/weighted and
+CurveNet-H outcomes; reviewed-but-untested papers remain distinct. Fixed the
+stale running headline, preserving dated historical gates.43Python+3JSON
+historical payload/controller/launcher/acceptance/plan copies match original
+bytes and a SHA manifest; source ZIP member copies are checked against sealed
+asset manifests. Full payload/raw407ZIP/cache304NPZ/native/weights remain in
+previously accepted Drive/local archives. No new mathematical claim, source
+bug finding, algorithm change, GPU/Colab operation or agent execution occurred.
+The [prompt](chamfer_guidance_audit_literature_handoff_20261031.md) requires
+file:line/effected-source evidence, separates intentional adaptation from bug
+and true negative outcome, and asks for at most3new literature-backed candidates.
+Decision: publish this documentation/audit-source supplement by normal FF only;
+verification is static syntax/SHA/JSON/link/privacy/diff checking, not fresh
+inference. Research correctness and novel candidates remain the next task.

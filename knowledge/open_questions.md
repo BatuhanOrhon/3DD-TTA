@@ -2220,3 +2220,21 @@ Açık kalan bilimsel sınırlar140nesne/3seed, keşifsel CurveNet CI0,
 fullbenchmark/B1/tek-headdeploy ve yöntem birleşimlerinin test edilmemesidir;
 bunlar mevcut görevin bekleyen GPU işi değildir.
 [Nihai teslim](chamfer_guidance_final_handoff_20261030.md).
+
+## 2026-10-31 — next requested audit and literature work
+
+- [x] Link all reviewed methods/paper references to actual independent
+  implementations, heldout accuracy/CI, timing and untested status in
+  [the consolidated index](chamfer_guidance_methods_results_20261031.md).
+- [x] Retain actual frozen0fd/95 core scripts and historical phase/native/
+  calibration/analysis orchestration as byte-identical SHA-inventoried audit
+  copies, separate from later integrated code. No raw/credentials published.
+- [x] Prepare a short [current-branch starter prompt](chamfer_guidance_audit_literature_handoff_20261031.md).
+- [ ] Audit actual executed revisions for defects affecting results; demand
+  file:line, affected-source/archive and a minimal CPU falsifier. Finding no
+  defect is a valid outcome; intentional paper transfer is not itself a bug.
+- [ ] Refresh primary literature/3DD forward citations and author GitHub evidence;
+  propose at most3new frozen-model Chamfer-only-compatible accuracy/time ideas.
+- [ ] Present audit and proposed minimum experiments before production changes
+  or GPU execution. Existing spectral exclusion/mean/frozen-state and peer
+  runtime protection remain in force. No new GPU phase is authorized here.

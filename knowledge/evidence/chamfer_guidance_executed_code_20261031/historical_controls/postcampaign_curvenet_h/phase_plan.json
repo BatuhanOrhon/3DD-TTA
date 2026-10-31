@@ -1,0 +1,121 @@
+{
+  "allowed_asset_changes": [
+    "source_snapshot.zip",
+    "source_snapshot/scan_curvenet_entropy_report.py",
+    "source_snapshot/scripts/analyze_chamfer_variants.py",
+    "source_snapshot/scripts/calibrate_scan_curvenet_entropy.py",
+    "source_snapshot/scripts/eval_multibackbone_guidance.py",
+    "source_snapshot/semantic_trajectory.py"
+  ],
+  "asset_root": "/content/studies/scan-curvenet-h-postcampaign-20261030/prepared_v1/assets",
+  "authorization": {
+    "bytes": 1578,
+    "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/remote/authorization.json",
+    "sha256": "7ec7a128f0095199724c72fd6626d96d569ca7f306068ed278810e5d1b748ee6"
+  },
+  "base_asset_root": "/content/studies/chamfer-guidance-variants/prepared_v2/assets",
+  "base_manifest": {
+    "bytes": 175773,
+    "path": "/content/studies/chamfer-guidance-variants/prepared_v2/assets/manifest.json",
+    "sha256": "ef0412d365e29ca569c938f65f93fdc03098e42cc4fed45948f02bbf4e19b777"
+  },
+  "cache_policy": "fresh_C_then_exact_H_replay",
+  "calibration_report": "/content/studies/scan-curvenet-h-postcampaign-20261030/calibration.json",
+  "cap_seconds": 4200,
+  "control_sources": {
+    "launch_scan_curvenet_h.py": {
+      "bytes": 2040,
+      "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/remote/launch_scan_curvenet_h.py",
+      "sha256": "ba9d611342e6fa9aea0b32f38ab1bd66ede080681c59b8928dedc99072bea14d"
+    },
+    "scan_curvenet_h_controls.py": {
+      "bytes": 29214,
+      "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/remote/scan_curvenet_h_controls.py",
+      "sha256": "fd766090fe343bb5eaa53dc76159cef59d83363f186c6e87155f063fc318ead2"
+    }
+  },
+  "data_root": "/content/studies/scan-curvenet-h-postcampaign-20261030/prepared_v1/assets/datasets/scanobjectnn_c",
+  "dataset": "scanobjectnn_c",
+  "drive_root": "/content/drive/MyDrive/thesis/result/scan_curvenet_h_postcampaign_20261030",
+  "endpoint": {
+    "interpretation": "Exploratory posthoc source-model check; reused heldout IDs, no independent confirmation claim",
+    "label_free_development_only": true,
+    "no_accuracy_HPO": true,
+    "primary": "CurveNet own probability_mean C\u2192H accuracy on reused held140 IDs across seeds0/1/2",
+    "secondary": "Four-head mean and nonteacher transfer; configured pipeline runtime from full four-head reports"
+  },
+  "helper_dependencies": {
+    "chamfer_phase_common.py": {
+      "bytes": 5448,
+      "path": "/content/studies/chamfer-guidance-variants/remote/chamfer_phase_common.py",
+      "sha256": "6480f93c54101492d0b1a294951926ab689e8eda4dcd80dbad9d54fc30fd8ea6"
+    },
+    "support_identity.json": {
+      "bytes": 2584,
+      "path": "/content/studies/chamfer-guidance-variants/remote/support_identity.json",
+      "sha256": "095e16ab3a163b6f12821332748975c8a61b4819306bac49e55b005f10219b31"
+    }
+  },
+  "helpers": {
+    "house": {
+      "bytes": 14413,
+      "path": "/content/studies/chamfer-guidance-variants/remote/deploy_assets_template.py",
+      "sha256": "89fef5cf42dc27db444c89926bdd3aefac8cb8b14727a747256a515c08ca32d0"
+    },
+    "streamer": {
+      "bytes": 19671,
+      "path": "/content/studies/chamfer-guidance-variants/remote/gpu_chamfer_phase.py",
+      "sha256": "e03582aff64156efd120d12a93af33c6a7a3e478aae865cfff832b3d39349770"
+    }
+  },
+  "label_path": "/content/studies/scan-curvenet-h-postcampaign-20261030/prepared_v1/assets/datasets/scanobjectnn_c/label.npy",
+  "manifest": {
+    "bytes": 176437,
+    "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/remote/asset_manifest.json",
+    "sha256": "95a0dc2a52d5d2e8cbf99767b5ba1e8ecd59fadcf0c0e7b23013ce836c7d0bb1"
+  },
+  "parent_collection": {
+    "bytes": 1241,
+    "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/remote/parent_collection.json",
+    "sha256": "65bbc30249ea5e3bae9df8b4effaaa8a0fa2d0a4729a262e9e1b6d3396b1c0a5"
+  },
+  "parent_drive_root": "/content/drive/MyDrive/thesis/result/chamfer_guidance_variants_20261030",
+  "parent_root": "/content/studies/chamfer-guidance-variants",
+  "pointmae_checkpoint": "checkpoints/scanobject_jt.pth",
+  "pointmae_config": "source_snapshot/cfgs/tta_scanobj.yaml",
+  "purpose": "scan_curvenet_h_exploratory_posthoc",
+  "python": "/usr/local/envs/3dd_tta_env/bin/python",
+  "research_root": "/content/studies/scan-curvenet-h-postcampaign-20261030",
+  "reserve_seconds": 600,
+  "schema_version": 1,
+  "selections": {
+    "development": {
+      "bytes": 814,
+      "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/prepared_v1/assets/study/scanobjectnn_c_development_ids.json",
+      "sha256": "b3a09d870084df0fb9ce41ecbc3b7b94ad72fee14d0fab1d3ec20e8848dd6130"
+    },
+    "heldout": {
+      "bytes": 1426,
+      "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/prepared_v1/assets/study/scanobjectnn_c_heldout_ids.json",
+      "sha256": "de6cc89f006d4212acf8370c44017896869b363f286b6ecbea16eed004f0002c"
+    }
+  },
+  "session": "tta-chamfer-guidance-variants-a100-20261030-r1",
+  "source_commit": "95a49977ef7c3124bde5faa57e3ef36b4393ebcc",
+  "source_receipt": {
+    "bytes": 52214,
+    "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/remote/source_receipt.json",
+    "sha256": "f93c24a5b59badcb1531075ed453b40cbcbed69cfd5c3ccccd7bf5f7215dc668"
+  },
+  "source_root": "/content/studies/scan-curvenet-h-postcampaign-20261030/prepared_v1/assets/source_snapshot",
+  "source_snapshot": {
+    "bytes": 5575083,
+    "path": "/content/studies/scan-curvenet-h-postcampaign-20261030/remote/source_snapshot.zip",
+    "sha256": "767e24acbb0fe3213ee24d8efdfc824f11fd051180bfc4bc14b6c393f6901f75"
+  },
+  "stage_estimates_seconds": {
+    "calibration": 360,
+    "heldout": 1980,
+    "timing": 300
+  }
+}

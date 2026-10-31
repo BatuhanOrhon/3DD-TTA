@@ -1,0 +1,326 @@
+import torch
+import torch.nn.functional as F
+from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
+from diffusers import DDIMScheduler
+from utilities_3dd_tta import grad_freeze
+from spectral_guidance_losses import SPECTRAL_LOSS_KINDS, spectral_guidance_loss
+
+def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma, eta, p, loss_weights=None, beta=2.0, M_max=1200, total=100, use_static_style=False, dynamic_graph=False, graph_update_interval=1, trajectory_observer=None, skip_inactive_components=False, prepared_state=None, state_observer=None, spectral_loss_kind='legacy_l2', chamfer_experiment=None):
+    """
+    Test-Time Adaptation (TTA) reconstruction using DDIMScheduler with Graph Spectral (and optional Chamfer) guidance.
+
+    Args:
+    - x: Input point cloud data (B, N, 3).
+    - lion: Model instance containing VAE and local prior.
+    - graph_spectral_module: Instance of GraphSpectralDNA for spectral computations.
+    - steps_back_local: Percentage of total steps to use in reverse scheduling (e.g., 5).
+    - gamma: Step size for updating style conditioning.
+    - eta: Step size for updating the local latent.
+    - p: Proportion of points to consider in Chamfer Distance.
+    - loss_weights: Dictionary of loss weights. Default: {"spectral": 1.0, "chamfer": 0.0}.
+    - total: Total number of diffusion steps (default: 100).
+
+    Returns:
+    - pred_points: Reconstructed point cloud.
+    """
+    if loss_weights is None:
+        loss_weights = {"spectral_low": 1.0, "spectral_mid": 0.0, "spectral_high": 0.0, "chamfer": 0.0}
+    if spectral_loss_kind not in SPECTRAL_LOSS_KINDS:
+        raise ValueError('Unknown spectral loss kind: ' + str(spectral_loss_kind))
+        
+    weight_spectral = loss_weights.get("spectral", 1.0)
+    weight_chamfer = loss_weights.get("chamfer", 0.0)
+    weight_invariant = loss_weights.get("invariant", 0.0)
+    if skip_inactive_components and (not 0 < p <= 1 or any(not torch.isfinite(torch.tensor(w)) or w < 0 for w in (weight_spectral, weight_chamfer, weight_invariant))):
+        raise ValueError('Component study requires finite nonnegative weights and 0 < p <= 1')
+    if chamfer_experiment is not None:
+        from chamfer_guidance_variants import validate_chamfer_experiment
+        chamfer_experiment = validate_chamfer_experiment(
+            chamfer_experiment, skip_inactive=skip_inactive_components, chamfer_weight=weight_chamfer,
+            spectral_weight=weight_spectral, invariant_weight=weight_invariant,
+            graph=graph_spectral_module, dynamic_graph=dynamic_graph)
+        if chamfer_experiment['variant'] == 'semantic' and trajectory_observer is None:
+            raise ValueError('Semantic guidance requires a differentiable clean observer')
+    any_spectral = weight_spectral > 0.0 or weight_invariant > 0.0
+    graph_calls, chamfer_calls, backward_calls, spectral_loss_calls = 0, 0, 0, 0
+    prior_forward_calls, semantic_callback_calls, semantic_loss_calls = 0, 0, 0
+    local_updates, style_updates = [], []
+
+    # Initialize chamfer distance only if needed
+    chamfer_dist = None
+    if weight_chamfer > 0.0:
+        chamfer_dist = chamfer_grad()
+        
+    num_samples, num_points = x.size()[0], x.size()[1]
+    num_latent_points = 2048  # VAE latent space fixed at 2048 points
+    
+    scheduler = DDIMScheduler(
+        beta_end=0.02, beta_schedule="linear", beta_start=0.0001, 
+        clip_sample=False, num_train_timesteps=1000, prediction_type="epsilon",
+        set_alpha_to_one=False
+    )
+    scheduler.set_timesteps(total, device=x.device)
+    
+    steps_back_local = int((total * steps_back_local) // 100)
+    timesteps_local = scheduler.timesteps[-steps_back_local:]
+    alpha_bar_local = scheduler.alphas_cumprod[timesteps_local[0]]
+
+    # Freeze gradients for VAE and local prior
+    vae = lion.vae
+    local_prior = lion.priors[1]
+    grad_freeze(local_prior)
+    grad_freeze(vae)
+    
+    # Latent encoding (STEP 1)
+    if trajectory_observer is not None:
+        trajectory_observer.mark('encode')
+    if trajectory_observer is not None:
+        encode_rng_start = trajectory_observer.encode_rng_start()
+    with torch.no_grad():
+        if prepared_state is None:
+            latents = vae.encode(x)
+            if trajectory_observer is not None and encode_rng_start is not None:
+                trajectory_observer.replay_encode(vae, x, latents, encode_rng_start)
+            shape_latent = latents[2][0][0].unsqueeze(2).unsqueeze(3)  # z_0 abstract
+            latent_point = latents[2][1][0].unsqueeze(2).unsqueeze(3)  # h_0 abstract
+        else:
+            shape_latent, latent_point = (prepared_state[key].detach().clone() for key in ('shape_latent', 'local_latent'))
+            for value in (shape_latent, latent_point, prepared_state['noise']):
+                if value.ndim != 4 or value.shape[0] != num_samples or value.shape[2:] != (1, 1) or value.dtype != x.dtype or value.device != x.device or not torch.isfinite(value).all():
+                    raise ValueError('Invalid paired latent/noise tensor')
+            if latent_point.shape != (num_samples, 8192, 1, 1) or prepared_state['noise'].shape != latent_point.shape:
+                raise ValueError('Paired local latent/noise must be B x 8192 x 1 x 1')
+        
+        # LION returns a flattened tensor of size (B, 8192). 
+        # The 50% IoU test proves this is unflattened correctly with .view()
+        h_0 = latent_point.view(num_samples, num_latent_points, -1)
+        
+        # Pre-compute original full spectral components (H_orig) and eigenvectors (U_o)
+        H_orig, U_o, eigenvalues = None, None, None
+        if any_spectral or not skip_inactive_components:
+            if trajectory_observer is not None:
+                trajectory_observer.mark('graph_eigh')
+            H_orig, U_o, eigenvalues = graph_spectral_module(h_0)
+            graph_calls += 1
+        reference_weights = None
+        if chamfer_experiment is not None and chamfer_experiment['variant'] == 'weighted':
+            from chamfer_guidance_variants import reference_density_weights
+            if trajectory_observer is not None:
+                trajectory_observer.mark('reference_density')
+            reference_weights = reference_density_weights(h_0[:, :, :3], chamfer_experiment['density_k'])
+    
+    # Global style conditioning
+    if trajectory_observer is not None:
+        trajectory_observer.mark('style_noise')
+    style_cond = vae.global2style(shape_latent)
+    
+    # STEP 2: Noise Perturbation
+    noise = torch.randn_like(latent_point) if prepared_state is None else prepared_state['noise'].detach().clone()
+    if prepared_state is not None:
+        from legacy_trajectory import _restore_rng
+        _restore_rng(prepared_state['rng_after_prepare'])
+    if state_observer is not None:
+        state_observer(dict(shape_latent=shape_latent, local_latent=latent_point, noise=noise))
+    noisy_latent_point = torch.sqrt(alpha_bar_local) * latent_point + noise * torch.sqrt(1 - alpha_bar_local)
+    if trajectory_observer is not None:
+        trajectory_observer.initial(input_points=x, shape_latent=shape_latent,
+                                    local_latent=latent_point, style=style_cond, noise=noise,
+                                    noisy_local=noisy_latent_point, timesteps=timesteps_local,
+                                    alpha_bar=alpha_bar_local)
+ 
+    # Reverse diffusion process using DDIMScheduler (STEP 3)
+    history = {'raw_loss_spectral': [], 'raw_loss_invariant': [], 'raw_loss_chamfer': []}
+    
+    # Initialize active targets
+    U_active = U_o
+    H_orig_target = H_orig
+    
+    # Pre-calculate if ANY guidance is needed
+    requires_guidance = weight_spectral > 0.0 or weight_invariant > 0.0 or weight_chamfer > 0.0
+    guidance_counts = None
+    if chamfer_experiment is not None and chamfer_experiment['variant'] == 'sparse':
+        from chamfer_guidance_variants import guidance_loop_counts
+        guidance_counts = guidance_loop_counts(len(timesteps_local), chamfer_experiment['interval'])
+    
+    for i, t in enumerate(timesteps_local):
+        if trajectory_observer is not None:
+            trajectory_observer.mark('prior_scheduler')
+        t_tensor = torch.ones(num_samples, dtype=torch.int64, device=x.device) * (t + 1)
+        
+        noisy_latent_point = noisy_latent_point.detach()
+        style_cond = style_cond.detach()
+        
+        step_requires_guidance = requires_guidance and (guidance_counts is None or i + 1 in guidance_counts)
+        if step_requires_guidance:
+            noisy_latent_point.requires_grad = True
+            style_cond.requires_grad = True
+
+        # Predict noise with or without gradients
+        with torch.set_grad_enabled(step_requires_guidance):
+            noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
+            prior_forward_calls += 1
+            scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
+            
+            # This is h_bar_0 in the abstract space
+            pred_latent_point = scheduler_output.pred_original_sample
+        h_bar_0 = pred_latent_point.view(num_samples, num_latent_points, -1)
+        semantic_loss = None
+        if trajectory_observer is not None:
+            observed_loss = trajectory_observer.clean(pred_latent_point, style_cond, i, t)
+            if chamfer_experiment is not None and chamfer_experiment['variant'] == 'semantic':
+                semantic_callback_calls += 1
+                semantic_loss = observed_loss
+            trajectory_observer.mark('guidance_losses_and_diagnostics')
+        
+        total_loss = 0.0
+        if semantic_loss is not None:
+            if (not isinstance(semantic_loss, torch.Tensor) or semantic_loss.ndim != 0
+                    or not semantic_loss.requires_grad or not torch.isfinite(semantic_loss)):
+                raise ValueError('Semantic clean observer must return a finite differentiable scalar or None')
+            total_loss = chamfer_experiment['semantic_weight'] * semantic_loss
+            semantic_loss_calls += 1
+        if not step_requires_guidance and guidance_counts is not None:
+            for values in history.values():
+                values.append(0.)
+            noisy_latent_point = scheduler_output.prev_sample
+            continue
+        
+        # STEP 4: Spectral Guidance Loss
+        with torch.no_grad():
+            any_spectral = weight_spectral > 0.0 or weight_invariant > 0.0
+            if any_spectral:
+                if dynamic_graph and (i % graph_update_interval == 0):
+                    _, U_current, eigenvalues = graph_spectral_module(h_bar_0)
+                    graph_calls += 1
+                    signal_orig = h_0 if graph_spectral_module.use_4d_gft else h_0[:, :, :3]
+                    H_orig_target = torch.bmm(U_current.transpose(1, 2), signal_orig).detach()
+                    U_active = U_current
+                elif not dynamic_graph:
+                    H_orig_target = H_orig
+                    U_active = U_o
+
+                signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
+                H_pred = torch.bmm(U_active.transpose(1, 2), signal)
+                
+            if weight_spectral > 0.0:
+                raw_loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
+                spectral_loss_calls += 1
+                history['raw_loss_spectral'].append(raw_loss_spectral.item())
+            else:
+                history['raw_loss_spectral'].append(0.0)
+
+            if weight_invariant > 0.0:
+                power_pred_raw = torch.norm(H_pred[:, :M_max, :], dim=-1)
+                power_orig_raw = torch.norm(H_orig_target[:, :M_max, :], dim=-1)
+                raw_loss_invariant = F.mse_loss(power_pred_raw, power_orig_raw, reduction='mean')
+                history['raw_loss_invariant'].append(raw_loss_invariant.item())
+            else:
+                history['raw_loss_invariant'].append(0.0)
+
+            if chamfer_dist is not None:
+                pred_latent_point_reshaped = h_bar_0[:, :, :3]
+                h_0_spatial = h_0[:, :, :3]
+                dists1, dists2, nearest_reference, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+                chamfer_calls += 1
+                if reference_weights is None:
+                    dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
+                    dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
+                    raw_loss_chamfer = dists1.sum() + dists2.sum()
+                else:
+                    from chamfer_guidance_variants import weighted_selective_chamfer
+                    raw_loss_chamfer = weighted_selective_chamfer(dists1, dists2, nearest_reference, reference_weights, p)
+                history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
+            else:
+                history['raw_loss_chamfer'].append(0.0)
+            
+        if weight_spectral > 0.0 or weight_invariant > 0.0:
+            # U_active and H_orig_target are already correctly updated from the no_grad block above.
+            # We just need to compute H_pred with gradients enabled.
+            signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
+            H_pred = torch.bmm(U_active.transpose(1, 2), signal)
+            
+            if weight_invariant > 0.0:
+                power_pred = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
+                power_orig = torch.norm(H_orig_target[:, :graph_spectral_module.M, :], dim=-1)
+                loss_invariant = F.mse_loss(power_pred, power_orig, reduction='mean')
+                total_loss = total_loss + weight_invariant * loss_invariant
+                
+            if weight_spectral > 0.0:
+                loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
+                spectral_loss_calls += 1
+                total_loss = total_loss + weight_spectral * loss_spectral
+            
+        if weight_chamfer > 0.0:
+            pred_latent_point_reshaped = h_bar_0[:, :, :3]
+            h_0_spatial = h_0[:, :, :3]
+            dists1, dists2, nearest_reference, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
+            chamfer_calls += 1
+            if reference_weights is None:
+                dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
+                dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
+                ch_loss = dists1.sum() + dists2.sum()
+            else:
+                from chamfer_guidance_variants import weighted_selective_chamfer
+                ch_loss = weighted_selective_chamfer(dists1, dists2, nearest_reference, reference_weights, p)
+            total_loss = total_loss + weight_chamfer * ch_loss
+
+        component_probe = getattr(trajectory_observer, 'guidance_components', None)
+        if callable(component_probe) and weight_chamfer > 0.0:
+            component_probe(ch_loss=ch_loss, semantic_loss=semantic_loss,
+                            noisy_local=noisy_latent_point, style=style_cond,
+                            pred_latent=h_bar_0, h0=h_0, loop_count=i + 1, timestep=t,
+                            eta=eta, gamma=gamma, p=p)
+
+        # STEP 5: Gradient Update (Guidance)
+        if trajectory_observer is not None:
+            trajectory_observer.mark('guidance_backward_update')
+        if noisy_latent_point.grad is not None:
+            noisy_latent_point.grad.zero_()
+        if style_cond.grad is not None:
+            style_cond.grad.zero_()
+            
+        if isinstance(total_loss, torch.Tensor) and total_loss.requires_grad:
+            total_loss.backward()
+            backward_calls += 1
+            if skip_inactive_components:
+                local_updates.append(float((eta * noisy_latent_point.grad).norm().detach()))
+                style_updates.append(float((gamma * style_cond.grad).norm().detach()))
+            
+            # Update latent variables with gradient step
+            noisy_latent_point = scheduler_output.prev_sample - eta * noisy_latent_point.grad
+            style_cond = style_cond - gamma * style_cond.grad
+        else:
+            # If no loss was computed or loss is 0 (both weights 0), just proceed with normal DDIM step
+            noisy_latent_point = scheduler_output.prev_sample
+
+    # STEP 6: Final Decoding
+    final_style = shape_latent if use_static_style else style_cond
+    if trajectory_observer is not None:
+        trajectory_observer.final_state(noisy_latent_point, final_style, timesteps_local[-1])
+        trajectory_observer.mark('terminal_decode')
+    pred_points = vae.decoder(
+        None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
+        style=final_style.squeeze(3).squeeze(2)
+    )
+    
+    # Calculate means
+    mean_spec = sum(history['raw_loss_spectral']) / len(history['raw_loss_spectral']) if history['raw_loss_spectral'] else 0.0
+    mean_invariant = sum(history['raw_loss_invariant']) / len(history['raw_loss_invariant']) if history['raw_loss_invariant'] else 0.0
+    mean_chamfer = sum(history['raw_loss_chamfer']) / len(history['raw_loss_chamfer']) if history['raw_loss_chamfer'] else 0.0
+    
+    metrics = {
+        'mean_raw_spectral': mean_spec,
+        'mean_raw_invariant': mean_invariant,
+        'mean_raw_chamfer': mean_chamfer,
+        'spectral_loss_calls': spectral_loss_calls
+    }
+    if skip_inactive_components:
+        metrics.update(graph_calls=graph_calls, chamfer_calls=chamfer_calls, guidance_backward_calls=backward_calls,
+                       mean_local_update_norm=sum(local_updates) / len(local_updates) if local_updates else 0.,
+                       mean_style_update_norm=sum(style_updates) / len(style_updates) if style_updates else 0.)
+    if chamfer_experiment is not None:
+        metrics.update(prior_forward_calls=prior_forward_calls, semantic_callback_calls=semantic_callback_calls,
+                       semantic_loss_calls=semantic_loss_calls,
+                       reference_density_calls=int(reference_weights is not None))
+    
+    return pred_points, metrics

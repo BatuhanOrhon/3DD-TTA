@@ -1,3 +1,16 @@
+**[User report/Code/Run/Open] 2026-10-31 — yöntem–makale–sonuç ve yeni agent teslimi:**
+Denenen sparse, ayrı KL/H, weighted ve CurveNet-H uygulamaları birincil
+makaleler, mevcut scriptler, accuracy/CI ve gerçek süre sınırlarıyla
+[tek rehberde](chamfer_guidance_methods_results_20261031.md) birleştirildi.
+İncelenip uygulanmayan adaylar ayrı kaydedildi.43Python+3JSON tarihsel kaynak/
+controller/plan dosyası byte-identik SHA manifest ile Git'e alındı;
+[yürütülen kaynak audit paketi](evidence/chamfer_guidance_executed_code_20261031/README.md).
+[Kısa başlangıç promptu](chamfer_guidance_audit_literature_handoff_20261031.md)
+mevcut branch'te önce olası implementasyon hatalarını denetleme, sonra güncel
+3DD-TTA forward-citation/literatür taraması ve yeni öneriler görevini tanımlar.
+Bu teslim yeni hata tespiti, algoritma değişikliği, Colab/GPU veya yeni agent
+çalıştırması değildir. Önceki gerçek runtime kapanışı ve tüm sonuçlar korunur.
+
 **[Run/Artifact/Decision] 2026-10-30 — Chamfer variants complete; owned runtime closed:**
 Original fixed-10/30 Chamfer study accepts120 confirmation heads and120 fresh
 B70 Gaussian/background timing heads. Four-classifier accuracy mean (not an

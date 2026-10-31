@@ -1,7 +1,10 @@
 # Chamfer-only guidance: doğruluk ve süre çalışması
 
-2026-10-30. Durum: geliştirme ve140nesne/üç-seed doğrulaması kabul edildi;
-fresh süre ölçümü kabul edildi; CurveNet accuracy kontrolü kabul edildi; son süre tekrarları çalışıyor. Geliştirme ve doğrulama tabloları ayrı tutulur.
+Güncel durum (2026-10-31): geliştirme,140nesne/üç-seed doğrulama, fresh süre
+ölçümü ve CurveNet accuracy/timing kabulü tamamlandı; sahipli Colab kapalı.
+Geliştirme/doğrulama tabloları ve aşağıdaki tarihli ilerleme kayıtları ayrı
+korunur. [Makale–uygulama–sonuç rehberi](chamfer_guidance_methods_results_20261031.md)
+ve [çalıştırılmış script kopyaları](evidence/chamfer_guidance_executed_code_20261031/README.md).
 [Çalıştırma günlüğü ve arşiv kimlikleri](chamfer_guidance_variants_20261030.md).
 [Makale ve yazar kodu karşılaştırması](chamfer_author_code_consistency_audit_20261030.md).
 

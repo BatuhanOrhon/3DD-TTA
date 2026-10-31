@@ -1,5 +1,11 @@
 # Author-code consistency audit before GPU tests — 2026-10-30
 
+[Code/Run] Güncelleme31.10.2026: bu audit,30Ekim **GPU öncesi** gate kaydıdır.
+Daha sonra native/kalibrasyon/accuracy/timing/arşiv kabulü tamamlandı; sahipli
+runtime kapalıdır. Bu tarihsel metindeki pending gate'ler güncel bekleyen iş
+değildir. [Makale–uygulama–sonuç eşlemesi](chamfer_guidance_methods_results_20261031.md)
+ve [gerçek kaynak kopyaları](evidence/chamfer_guidance_executed_code_20261031/README.md).
+
 [User report/Decision] After implementation, inspect relevant author GitHub
 repositories for inconsistent transfers before research tests. Existing CPU
 unit tests already ran; no research GPU test has started. This gate is separate

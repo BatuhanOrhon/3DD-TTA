@@ -1,5 +1,12 @@
 # Diffusion guidance: güncel literatür, kod karşılığı ve iki minimum deney
 
+[Code/Run] Güncelleme31.10.2026: aşağıdaki inceleme **deney öncesi tarihsel
+öneridir**. Sonraki kullanıcı seçimiyle fixed-X/decoded semantik loss,
+Chamfer-only probability mean ve ayrı sparse/KL/H/weighted deneyleri tamamlandı.
+Aşağıdaki “henüz yok/uygulanmadı” ifadeleri yazıldıkları aşamaya aittir.
+Güncel [makale–kod–sonuç rehberi](chamfer_guidance_methods_results_20261031.md)
+uygulananı, uygulanmayanı ve yeni agent görevini ayırır.
+
 Tarama tarihi: **30 Ekim 2026**. Etiketler: **[Paper]** birincil makale,
 **[Code]** incelenen kaynak, **[Run]** mevcut kabul edilmiş deney kaydı,
 **[Inference]** aktarım/öneri, **[Open]** henüz bilinmeyen.

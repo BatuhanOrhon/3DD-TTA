@@ -123,3 +123,13 @@ entegrasyondaki shared runner/guard yeni kaynak byte'larına sahiptir ve
 GPU'da yeniden denenmedi. Kalibrasyon/kaynak doğrulaması gevşetilmedi;
 entegrasyon üzerinde yeni GPU koşusu kaynak kontrolü reddederse yeni seal
 ve etiketsiz kalibrasyon gerektirir. Bu teslim yeni GPU koşusu başlatmaz.
+
+## 2026-10-31 — makale ve çalıştırılmış script indeksi
+
+[Code/Run/Open] [Yeni rehber](chamfer_guidance_methods_results_20261031.md)
+her adayı makalesine, somut uyarlamasına, mevcut giriş scriptine ve kabul edilen
+sonucuna bağlar. [SHA-manifestli audit kopyaları](evidence/chamfer_guidance_executed_code_20261031/README.md)
+0fd/95kaynak farkını ve gerçek controller/launcher/kabul scriptlerini korur.
+[Kısa sonraki-agent promptu](chamfer_guidance_audit_literature_handoff_20261031.md)
+kod denetimi ve yeni literatür taraması içindir; bug bulunduğu veya yeni
+GPU işi başlatıldığı anlamına gelmez.

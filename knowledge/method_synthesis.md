@@ -322,3 +322,17 @@ Secondary reliability-weighted SCD and causal early exit remain proposals.
 Probability mean is a readout, not a gradient loss; SATOR keep-ratio is not a
 diffusion-step ratio. No production change, new model output or GPU run.
 No accuracy/speed improvement or novelty claim is established.
+
+## 2026-10-31 — literature hypotheses now have separate outcomes
+
+[Paper/Code/Run/Inference] The earlier30October proposal-only entry is historical.
+Sparse backward, fixed-X symmetric KL, fixed-X marginal H and density-weighted
+latent SCD were independently implemented on the fixed10/30 Chamfer-only
+probability-mean host. Sparse is about21%faster with accuracy loss; weighted
+loses accuracy on both datasets; KL intervals include0. H changes four-head
+MN+.3254pp/Scan+.0833pp; CurveNet-primary Scan+.2381pp CI[-.1587,+.6349]
+remains exploratory. No spectral computation or method combination was added.
+The [paper/code/results index](chamfer_guidance_methods_results_20261031.md)
+records intentional deviations from AG/CloudFixer/MAMVI/GDA and untested papers.
+Causal early exit remains unimplemented. The next requested task is independent
+code/provenance auditing and another literature review, not a new GPU phase.
