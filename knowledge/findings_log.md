@@ -7620,3 +7620,33 @@ now names `/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA` and local branch
 `integration/chamfer-guidance-variants-20261030`, separately from publication
 target `origin/thesis-integration`. Both were verified with Git before editing;
 the next agent must verify them before work. No branch switch or research run.
+
+## 2026-10-31 — Frozen N8 transfer prepared; new GPU results pending
+
+[User report/Code/Run/Open] User requests promoting necessary accepted depth code/knowledge and testing only N8/eta=.003/gamma=.03/p=.95 on other source models and ScanObjectNN-C. daaa709 is already retained by latest origin/thesis-integration8dca857, so previous integration is a confirmed no-op. New isolated branch experiment/chamfer-depth-transfer-20261031 prepares original-Chamfer8/35, fixed probability mean clean2/4/6+terminal and9/18/27+35, both datasets/four independent heads, no parameter search or global baseline-default change.
+
+[Code/Run] Entry point, immutable eight-job controller, CPU raw validator and source/native/eight-head preflight operators are prepared. General CPU suite491passed/61explicit skips/399subtests; pinned NumPy1 physical/campaign suite134passed; independent post-fix review60tests passes and clears two acceptance-gate regressions. Original sampler/archive math is unchanged. No real native/model transfer result yet. Full-data historical comparisons mostly cover only seed0 and different protocols; candidate-only transfer cannot establish global optimality.
+
+[Run/Open] Owned A100 HighRAM tta-depth-transfer-a100-20261031-r1 / endpoint3ttqahttkpsyl completed canonicalcell1 restart/reconnect andcell2 Python3.8.20 check (only known deferredfastrlock failure). Real Drive account consent is pending in the user browser/CLI78954. Auth-aware monitor48454 andhostawake13547 remain live, no parallel kernel probes during authorization. Proposed full2468/581objects/all15/three-seed phase is estimated5–6h with8h conservative cap; scope/duration decision and actual setup/CPUproof remain pending. Previous10800s GPU approval is not reused. [Current study](chamfer_depth_transfer_study_20261031.md).
+
+
+## 2026-10-31T10:04UTC — Drive verified; bounded cohort transfer selected
+
+[User report/Run/Decision/Open] Actual Drive consent completed; independent mount/required-asset marker and CLIexit0 accepted10:02:57UTC on owned depth-transferr1. User challenged the5–6h provisional full-data scope; first phase narrowed to existing140IDs/dataset,all15/four heads/three seeds, exact frozen8/.003/.03/.95, estimated30–50min/3300s cap. No automatic full benchmark or new parameter sweep. Latest approval is recorded as Google account permission, not8h GPU or teardown approval. Actual setup3–10, CPU/source/native proof and real plan remain pending. No new accuracy result; sourceZIPb229 unchanged, cohorts physically pinned. [Current scope and gates](chamfer_depth_transfer_study_20261031.md).
+
+
+## 2026-10-31T10:39UTC — New transfer runtime setup accepted
+
+[Run/Code/Open] Allten canonicalcells passonowneddepth-transferr1; onlyknowncell2fastrlockbuildfailuredeferred,fastrlock0.8laterinstalled. RealA100-SXM4-80GB/Python3.8.20/Torch2.1.2+cu121/NumPy1.21.2/nativeCUDAFPS-KNN-Chamfer-EMD/dataandcheckpointchecks pass; actualdownloadedsetupreceiptSHA c844f08672a84af4330e1d76cb2984ffc7397a6361a2f792c3fe62d7f452f059. Originalsetupdev@a458cd46 withrecordednativepatchesisdistinctfromfrozenresearch4a5c137/b229. Actualasset/native/eight-headCPUdeploymentnowrunning, no accuracyinferenceyet. Currentreduced140×3seed/four-head/3300sphaseandhistoricalcomparisonlimitsremainfixed. [Executionrecord](chamfer_depth_transfer_study_20261031.md).
+
+
+## 2026-10-31T10:44UTC — Frozen140-cohort transfer campaign running
+
+[Run/Code/Decision/Open] Realstrict8headCPUproof/source/native/data/setupandactualDrive/localarchive91cba850…49ea6pass. Actualplan9154038b…93554freezes2smokes+6research,140exactIDs/dataset/all15/fourheads/seeds0/1/2,8/35/.003/.03/.95PM/B32. Under60minrequestedtaskauthorization45ba8935…15bbb grants3300sphaseonly,noold3h/new8happrovalclaimorautomaticfullbenchmark. Solemonitor48454/CLI44281startsownedr1campaign10:44UTC; noacceptedaccuracyendpointyet. [Exactrecordandlimits](chamfer_depth_transfer_study_20261031.md).
+
+
+## 2026-10-31 — Frozen N8 transfer accepted on both datasets/all four heads
+
+[Run/Code/Inference/Decision] All8jobs (2technical +6research),all15/s5/140IDsperdataset/3fixedseeds/4heads pass without numerical failure or retry. Fixed8/35/.003/.03/.95PM gives ModelNet Point-MAE/DGCNN/CurveNet/PointNeXt66.000000/69.571429/71.761905/70.920635%, Scan41.857143/40.317460/57.888889/50.698413%. All8main-C all15 deltas+1.000000…+3.761905pp have conditional95%object intervals above0. MainH differences allpositive but MNPoint-MAE interval includes0; MNPoint-MAE macro14C also includes0. ScanPointNeXt PM-ownterminal CIcrosses0, one seedregresses; its originalseed0 endpoint51%ties. Corruptionregressions/whole-policy confounds and unavailable Point-MAE originals preserved. No global optimality/default change/full-data claim.
+
+[Run] Independent acceptance32headZIP/454physicalcache/7540snapshotfiles, plus secondreview1800researchshards and76jointCIs. Actual2412.154642s under3300scap. Researchsource4a5c137/b229;actualplan9154038b; fullraw1368701809bytesSHAeb9386ee10694c56674bff745c26ba1bd6cc6887f6577146cc0cc6db705a6a8d;derived22398314bytesSHA32d7ce6964c9db5939d0b000f37daa6bf80712333f8409df13c3da10b3d1596b. BothrealDrive/localroundtripspass. Selectedcombinedcode8666db8basedona82200a passes491CPU+399subtests,134separateNumPy1checks;newlocalanalysis11checks pass. Ownruntime remainslive; no newGPUphase orcleanupgrantinferred. [Acceptedresults](chamfer_depth_transfer_results_20261031.md) and[artifactindex](../result/preparation/chamfer_depth_transfer_20261031/accepted_evidence.json).

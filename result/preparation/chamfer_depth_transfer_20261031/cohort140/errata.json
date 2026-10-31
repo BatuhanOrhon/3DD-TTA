@@ -1,0 +1,86 @@
+{
+  "applies_to": {
+    "path": "/Users/batuhan/.codex/worktrees/depth-transfer-20261031/3DD-TTA/result/preparation/chamfer_depth_transfer_20261031/cohort140/historical_baselines.json",
+    "sha256": "531570b25d7e5bc0b2d6bb1b04a970d486ed0095da8462e4c64a38d02328499b"
+  },
+  "corrections": [
+    {
+      "backbone": "pointmae",
+      "corrected_reason": "Full all15 original PointMAE seed0/1/2 archives exist, but store aggregate CSVs only and no indexed predictions; current140-ID subset cannot be reconstructed. Available Oct28 140-ID original runs use a different cohort.",
+      "dataset": "modelnet40_c",
+      "json_pointer": "/unavailable/0/reason"
+    },
+    {
+      "backbone": "pointmae",
+      "corrected_reason": "No full all15 original PointMAE archive for the target data/protocol was located. Main archive contains only a Gaussian partial smoke; available Oct28 all15 140-ID original runs use a different cohort. Current140-ID original endpoint remains unavailable.",
+      "dataset": "scanobjectnn_c",
+      "json_pointer": "/unavailable/4/reason"
+    }
+  ],
+  "evidence": {
+    "modelnet_original_full_seed_archives": [
+      {
+        "archived_members": [
+          "command.txt",
+          "config.json",
+          "environment.txt",
+          "notes.md",
+          "per_corruption.csv",
+          "stdout.log",
+          "summary.csv"
+        ],
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA/result/modelnet40_c/3dd_original/20260913-163817_3dd-original-all15-eval-raw-seed0.zip",
+        "prediction_npz_members": 0,
+        "seed": 0
+      },
+      {
+        "archived_members": [
+          "command.txt",
+          "config.json",
+          "environment.txt",
+          "notes.md",
+          "per_corruption.csv",
+          "stdout.log",
+          "summary.csv"
+        ],
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA/result/modelnet40_c/3dd_original/20260913-173819_3dd-original-all15-eval-raw-seed1.zip",
+        "prediction_npz_members": 0,
+        "seed": 1
+      },
+      {
+        "archived_members": [
+          "command.txt",
+          "config.json",
+          "environment.txt",
+          "notes.md",
+          "per_corruption.csv",
+          "stdout.log",
+          "summary.csv"
+        ],
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA/result/modelnet40_c/3dd_original/20260913-183818_3dd-original-all15-eval-raw-seed2.zip",
+        "prediction_npz_members": 0,
+        "seed": 2
+      }
+    ],
+    "other_cohort_archive_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components/result/scanobjectnn_c/3dd_original",
+    "prior_different_cohort_check": "20261028-201509_pointmae-seed2.zip config selection_manifest indices differ from sealed20261030 cohort; no scores transferred.",
+    "scan_main_pointmae_original_archives": [
+      {
+        "corruptions": [
+          "gaussian"
+        ],
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA/result/scanobjectnn_c/3dd_original/20260912-154840_3dd-original-gaussian-smoke-seed0-device-fix.zip",
+        "status": "partial"
+      }
+    ],
+    "scan_searched_root": "/Users/batuhan/Desktop/projects/3DD-TTA/result/scanobjectnn_c/3dd_original"
+  },
+  "status": "metadata_correction_no_numerical_or_eligibility_change",
+  "unchanged": [
+    "all numerical values",
+    "all raw artifact identities",
+    "original receipt bytes",
+    "original baseline eligibility",
+    "outcome NPZ bytes"
+  ]
+}

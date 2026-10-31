@@ -1,3 +1,17 @@
+**[Run/Code/Decision] 2026-10-31 — Sabit N8 transfer bulgusu kabul edildi:**
+İki veri seti × dört source modelde normal8/Background35, η=.003, γ=.03,
+p=.95 ve Probability Mean; mevcut140 nesne/veri seti, all15/severity5,
+seed0/1/2 ile test edildi. Sekiz endpoint'in tamamı eski C kontrolünden
++1.000–+3.762pp yüksek; sekiz koşullu all15 güven aralığı da0'ın üstünde.
+ModelNet Point-MAE'nin H/macro14 karşılaştırmaları ve Scan PointNeXt'in
+PM−terminal katkısı kesin değil; PointNeXt Scan originalseed0 ile51%eşit.
+Bu, bütün ayar paketinin keşifsel transfer kanıtıdır; global optimum veya tam
+benchmark iddiası değildir ve varsayılan değiştirilmedi. Kampanya40m12s,
+8/8iş,32headZIP/454cache; ham ve analiz Drive roundtrip'leri ve bağımsız
+sayısal kontrol geçti. [Sonuçlar ve sınırlar](chamfer_depth_transfer_results_20261031.md) ·
+[Protokol ve kayıt](chamfer_depth_transfer_study_20261031.md) ·
+[Seçici integration kapsamı](thesis_integration_depth_transfer_20261031.md).
+
 **[User report/Code/Run/Open] 2026-10-31 — yöntem–makale–sonuç ve yeni agent teslimi:**
 Denenen sparse, ayrı KL/H, weighted ve CurveNet-H uygulamaları birincil
 makaleler, mevcut scriptler, accuracy/CI ve gerçek süre sınırlarıyla

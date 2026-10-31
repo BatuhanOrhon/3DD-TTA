@@ -1,0 +1,268 @@
+{
+  "candidate_all15_probability_mean": [
+    {
+      "backbone": "pointmae",
+      "dataset": "modelnet40_c",
+      "mean_accuracy_pct": 66.0,
+      "sample_sd_pp": 0.5039526306789679,
+      "seed_accuracy_pct": [
+        66.57142857142857,
+        65.61904761904762,
+        65.80952380952381
+      ]
+    },
+    {
+      "backbone": "dgcnn",
+      "dataset": "modelnet40_c",
+      "mean_accuracy_pct": 69.57142857142857,
+      "sample_sd_pp": 0.6666666666666684,
+      "seed_accuracy_pct": [
+        70.04761904761905,
+        69.85714285714286,
+        68.80952380952381
+      ]
+    },
+    {
+      "backbone": "curvenet",
+      "dataset": "modelnet40_c",
+      "mean_accuracy_pct": 71.76190476190476,
+      "sample_sd_pp": 0.0824786098842217,
+      "seed_accuracy_pct": [
+        71.71428571428572,
+        71.85714285714285,
+        71.71428571428572
+      ]
+    },
+    {
+      "backbone": "pointnext",
+      "dataset": "modelnet40_c",
+      "mean_accuracy_pct": 70.92063492063492,
+      "sample_sd_pp": 0.2622652641564786,
+      "seed_accuracy_pct": [
+        70.9047619047619,
+        71.19047619047619,
+        70.66666666666667
+      ]
+    },
+    {
+      "backbone": "pointmae",
+      "dataset": "scanobjectnn_c",
+      "mean_accuracy_pct": 41.857142857142854,
+      "sample_sd_pp": 0.31225897734771485,
+      "seed_accuracy_pct": [
+        41.80952380952381,
+        42.19047619047619,
+        41.57142857142857
+      ]
+    },
+    {
+      "backbone": "dgcnn",
+      "dataset": "scanobjectnn_c",
+      "mean_accuracy_pct": 40.317460317460316,
+      "sample_sd_pp": 0.2622652641564833,
+      "seed_accuracy_pct": [
+        40.14285714285714,
+        40.19047619047619,
+        40.61904761904762
+      ]
+    },
+    {
+      "backbone": "curvenet",
+      "dataset": "scanobjectnn_c",
+      "mean_accuracy_pct": 57.888888888888886,
+      "sample_sd_pp": 0.4769834667084703,
+      "seed_accuracy_pct": [
+        57.714285714285715,
+        58.42857142857143,
+        57.52380952380952
+      ]
+    },
+    {
+      "backbone": "pointnext",
+      "dataset": "scanobjectnn_c",
+      "mean_accuracy_pct": 50.69841269841269,
+      "sample_sd_pp": 0.26226526415648094,
+      "seed_accuracy_pct": [
+        51.0,
+        50.523809523809526,
+        50.57142857142857
+      ]
+    }
+  ],
+  "caveats_values_rounded_to_6_decimals": [
+    {
+      "all15_delta_pp": 0.174603,
+      "case": "Scan PointNeXt PM minus own same-run terminal",
+      "conditional95CI_pp": [
+        -0.460317,
+        0.825397
+      ],
+      "interpretation": "Interval includes zero; one negative seed. Background delta -2.857143pp; macro14 point delta +.391156pp.",
+      "seed_delta_pp": [
+        0.571429,
+        -0.095238,
+        0.047619
+      ]
+    },
+    {
+      "all15_delta_pp": 0.825397,
+      "case": "ModelNet Point-MAE PM minus main Point-MAE-teacher H",
+      "conditional95CI_pp": [
+        -0.047619,
+        1.698413
+      ],
+      "interpretation": "Both intervals include zero despite all three all15 seed differences positive.",
+      "macro14_conditional95CI_pp": [
+        -0.493197,
+        1.054422
+      ],
+      "macro14_delta_pp": 0.272109
+    },
+    {
+      "all15_delta_pp": 1.0,
+      "case": "ModelNet Point-MAE PM minus main C",
+      "conditional95CI_pp": [
+        0.126984,
+        1.857143
+      ],
+      "interpretation": "Excluding Background removes interval exclusion of zero. Background whole-policy difference +8.809524pp.",
+      "macro14_conditional95CI_pp": [
+        -0.323129,
+        1.22449
+      ],
+      "macro14_delta_pp": 0.442177
+    },
+    {
+      "all15_delta_pp": 2.285714,
+      "case": "ModelNet CurveNet candidate seed0 minus original seed0",
+      "conditional95CI_pp": [
+        0.714286,
+        3.809524
+      ],
+      "interpretation": "Macro14 interval includes zero; Background whole-policy difference +14.285714pp.",
+      "macro14_conditional95CI_pp": [
+        -0.204082,
+        2.959184
+      ],
+      "macro14_delta_pp": 1.428571
+    },
+    {
+      "all15_delta_pp": 0.0,
+      "candidate_accuracy_pct": 51.0,
+      "case": "Scan PointNeXt candidate seed0 minus original seed0",
+      "conditional95CI_pp": [
+        -1.619048,
+        1.571429
+      ],
+      "historical_accuracy_pct": 51.0,
+      "interpretation": "Tie. Original seed0 used once, never triplicated; Point-MAE current-cohort original endpoints unavailable."
+    }
+  ],
+  "checked_headline_interpretation": {
+    "all12_Scan_CurveNet_teacher_H_seed_deltas_positive": true,
+    "all24_main_C_seed_deltas_positive": true,
+    "all24_main_PointMAE_H_seed_deltas_positive": true,
+    "all4_Scan_vs_CurveNet_teacher_H_all15_positive_CI_excludes_zero": true,
+    "all8_PM_minus_own_terminal_point_estimates_positive": true,
+    "all8_vs_main_C_all15_positive_CI_excludes_zero": true,
+    "all8_vs_main_PointMAE_H_point_estimates_positive": true,
+    "eligible_original_seed0_contrasts": 6,
+    "main_PointMAE_H_all15_intervals_excluding_zero": 7,
+    "original_seed0_positive_contrasts": 5,
+    "original_seed0_tied_contrasts": 1,
+    "own_terminal_all15_intervals_excluding_zero": 7,
+    "own_terminal_seed_deltas_positive": 23,
+    "own_terminal_seed_deltas_total": 24
+  },
+  "corruption_drivers": {
+    "historical": "Background is a large positive whole-policy contributor; macro14 still improves against main C/H on every head in point estimate, with ModelNet Point-MAE uncertainty retained.",
+    "primary": "Uniform/Gaussian/upsampling often improve PM versus terminal, with head-specific regressions. Background PM effect is negative for ModelNet Point-MAE/PointNeXt and Scan Point-MAE/PointNeXt."
+  },
+  "evidence_labels": [
+    "Code",
+    "Run",
+    "Inference"
+  ],
+  "inputs": {
+    "historical_outcomes_path": "result/preparation/chamfer_depth_transfer_20261031/cohort140/historical_baseline_outcomes.npz",
+    "historical_receipt_path": "result/preparation/chamfer_depth_transfer_20261031/cohort140/historical_baselines.json",
+    "independent_analysis_path": "result/preparation/chamfer_depth_transfer_20261031/independent_analysis_20261031T113702Z",
+    "snapshot_validation_path": "result/preparation/chamfer_depth_transfer_20261031/retrieval_20261031T112631Z/local_snapshot_validation.json"
+  },
+  "limitations": [
+    "Object-cluster intervals are conditional on historically exposed140 objects, frozen policies/checkpoints, fixed corruptions and three fixed seeds; per-comparison intervals are uncorrected.",
+    "Historical C/H host differs in batch32vs70, normal8vs10/background35vs30, rates, decoder style and final alpha. No isolated step/rate/style/loss causality or common-random-draw claim.",
+    "Original comparisons have only six eligible non-Point-MAE seed0 endpoints; no replicated original reference or model ensemble.",
+    "No universal/model-specific optimum, full2468/581-object benchmark transfer or externally unseen validation is established.",
+    "Physical native/checkpoint/cache/source acceptance and full archive readback remain parent-provided validation evidence; this audit independently recounted research prediction outcomes and statistics."
+  ],
+  "numerical_checks": {
+    "absolute_tolerance": 1e-10,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20261030,
+    "candidate_all15_mean_and_sample_sd_endpoints": 8,
+    "computation": "Independent vectorized bootstrap: average paired correctness effects across included fixed seeds/corruptions per original object, jointly resample140 object clusters, calculate linear2.5/97.5percentiles. Compare with saved joint-scope intervals.",
+    "historical_joint_intervals": 60,
+    "primary_joint_own_terminal_intervals": 16,
+    "result": "All means, sample SDs and joint-scope delta/CI endpoints matched",
+    "scopes": [
+      "all15",
+      "macro14"
+    ]
+  },
+  "raw_recount": {
+    "cohort_objects_per_dataset": 140,
+    "computation": "Read all actual research trajectory_logits shards; independently compute float64 stable temperature1 softmax, equal four-candidate probability mean and terminal argmax. Compare all saved probability_mean predictions, all24 report PM/terminal outcome matrices, ordered original IDs and labels.",
+    "corruptions_per_head": 15,
+    "fixed_seeds": [
+      0,
+      1,
+      2
+    ],
+    "frozen_cohort_files": {
+      "modelnet40_c": {
+        "bytes": 1535,
+        "sha256": "7338471bd31326a51bd367e6cb167116d2205a6af41d0c1ce4df93c60b6841a5"
+      },
+      "scanobjectnn_c": {
+        "bytes": 1426,
+        "sha256": "de6cc89f006d4212acf8370c44017896869b363f286b6ecbea16eed004f0002c"
+      }
+    },
+    "research_head_zips": 24,
+    "research_prediction_shards": 1800,
+    "result": "All exactly matched; no surviving-seed substitution",
+    "technical_smoke_heads_excluded": 8
+  },
+  "recorded_at_utc": "2026-10-31T11:41:29.286271+00:00",
+  "reviewer": "depth_transfer_review",
+  "scope": "Read-only numerical audit of completed frozen candidate; no research/runtime/Git action and no source edits",
+  "source_bindings": {
+    "actual_plan": {
+      "identity": {
+        "bytes": 657925,
+        "sha256": "9154038be293c5ec9482a7010c4c7e0f1777763ab9421e58ab40d1ee54793554"
+      },
+      "path": "cohort140/actual_plan_v2.json",
+      "verification": "independently hashed physical local plan"
+    },
+    "analysis_operator": {
+      "identity": {
+        "bytes": 21772,
+        "sha256": "b80e362b2907623bbc940a5b25a2501e417da0a5daa5aa88ebcbd21ccb8804f9"
+      },
+      "path": "operator/analyze_retrieved.py",
+      "verification": "independently hashed current file; matches saved independent_analysis.json operator identity"
+    },
+    "full_raw_archive": {
+      "bytes": 1368701809,
+      "sha256": "eb9386ee10694c56674bff745c26ba1bd6cc6887f6577146cc0cc6db705a6a8d",
+      "verification": "read parent local_snapshot_validation.json; full archive SHA/7540-member/454-cache/32-head acceptance not independently rerun here"
+    },
+    "source_snapshot": {
+      "sha256": "b2293ca319b5dd1128b7a608b4e2085e28e07b75b53c11ba4fb07e845fae736d",
+      "verification": "parent-provided completed source validation; snapshot ZIP not rehashed by this numerical audit"
+    }
+  },
+  "status": "independent_numerical_audit_passed"
+}

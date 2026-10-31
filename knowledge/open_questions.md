@@ -2238,3 +2238,26 @@ bunlar mevcut görevin bekleyen GPU işi değildir.
 - [ ] Present audit and proposed minimum experiments before production changes
   or GPU execution. Existing spectral exclusion/mean/frozen-state and peer
   runtime protection remain in force. No new GPU phase is authorized here.
+
+## 2026-10-31 — Frozen N8 transfer prepared; new GPU results pending
+
+[User report/Code/Run/Open] User requests promoting necessary accepted depth code/knowledge and testing only N8/eta=.003/gamma=.03/p=.95 on other source models and ScanObjectNN-C. daaa709 is already retained by latest origin/thesis-integration8dca857, so previous integration is a confirmed no-op. New isolated branch experiment/chamfer-depth-transfer-20261031 prepares original-Chamfer8/35, fixed probability mean clean2/4/6+terminal and9/18/27+35, both datasets/four independent heads, no parameter search or global baseline-default change.
+
+[Code/Run] Entry point, immutable eight-job controller, CPU raw validator and source/native/eight-head preflight operators are prepared. General CPU suite491passed/61explicit skips/399subtests; pinned NumPy1 physical/campaign suite134passed; independent post-fix review60tests passes and clears two acceptance-gate regressions. Original sampler/archive math is unchanged. No real native/model transfer result yet. Full-data historical comparisons mostly cover only seed0 and different protocols; candidate-only transfer cannot establish global optimality.
+
+[Run/Open] Owned A100 HighRAM tta-depth-transfer-a100-20261031-r1 / endpoint3ttqahttkpsyl completed canonicalcell1 restart/reconnect andcell2 Python3.8.20 check (only known deferredfastrlock failure). Real Drive account consent is pending in the user browser/CLI78954. Auth-aware monitor48454 andhostawake13547 remain live, no parallel kernel probes during authorization. Proposed full2468/581objects/all15/three-seed phase is estimated5–6h with8h conservative cap; scope/duration decision and actual setup/CPUproof remain pending. Previous10800s GPU approval is not reused. [Current study](chamfer_depth_transfer_study_20261031.md).
+
+
+## 2026-10-31 — Frozen N8 transfer: reduced first phase
+
+[Decision/Run/Open] See [current study](chamfer_depth_transfer_study_20261031.md). Drive mount independently passed10:02:57UTC. First phase is140existingIDs/dataset/all15/four heads/seeds0/1/2, fixed8/.003/.03/.95 and PM; expected30–50min/55min cap. Earlier full-data8h proposal remains unapproved; no automatic continuation.
+
+- [x] Accepted old depth code/knowledge already integrated at daaa709, retained by8dca857.
+- [x] Freeze transfer source and exact existing140-ID cohorts; verify actual Drive mount.
+- [x] Finish canonicalcells3–10 and actual native/data/checkpoint verification (10:39UTC).
+- [x] Retrieve strict eight-head CPU proof/Drive roundtrip; bind actual140-cohort plan9154038b and task authorization45ba8935 (10:44UTC launch).
+- [x] Accept both technical smokes and all six bounded candidate jobs;8/8accepted, no failure/retry,2412.154642s.
+- [x] Independently validate32headZIPs/454caches/1800researchshards/76jointCIs and historical whole-policy comparisons; preserve null/negative cases and no global-optimum/full-benchmark inference.
+- [x] Persist fullraw andderived Driveroundtrip/local evidence; selected integration code/records prepared with verified combined-tree checks.
+- [ ] Confirm transfer on full data or a newly reserved cohort before a global baseline/optimality claim; no automatic GPU continuation.
+- [ ] Resolve current owned-runtime completion-and-close permission separately; Driveroundtrips already complete.

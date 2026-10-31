@@ -1,0 +1,111 @@
+{
+  "status": "accepted_full_raw_and_derived_Drive_local_roundtrips",
+  "accepted_at_utc": "2026-10-31T11:44:43.111075+00:00",
+  "session": "tta-depth-transfer-a100-20261031-r1",
+  "runtime_state": "live; current task cleanup permission not inferred",
+  "source_commit": "4a5c137403fd747d465b2532c2f45419744dd0eb",
+  "source_snapshot_sha256": "b2293ca319b5dd1128b7a608b4e2085e28e07b75b53c11ba4fb07e845fae736d",
+  "asset_manifest_sha256": "de27d8a56b3ef9d19c3c266a610111ef49d3b70150e7ee7528ca32d227be375e",
+  "plan_sha256": "9154038be293c5ec9482a7010c4c7e0f1777763ab9421e58ab40d1ee54793554",
+  "raw_archive": {
+    "bytes": 1368701809,
+    "sha256": "eb9386ee10694c56674bff745c26ba1bd6cc6887f6577146cc0cc6db705a6a8d",
+    "local_path": "/content/studies/chamfer-depth-transfer/exports/cohort140_final_20261031T112440743655Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/phase-evidence/cohort140_final_20261031T112440743655Z/campaign_evidence.zip"
+  },
+  "raw_parts": [
+    {
+      "name": "part0000.bin",
+      "bytes": 268435456,
+      "sha256": "530f3d1d566c2a844c4822271c15195efd1921b521b188ed6226e9313dfb1ee6",
+      "local_path": "/content/studies/chamfer-depth-transfer/exports/cohort140_final_20261031T112440743655Z_parts/part0000.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/phase-evidence/cohort140_final_20261031T112440743655Z/parts/part0000.bin"
+    },
+    {
+      "name": "part0001.bin",
+      "bytes": 268435456,
+      "sha256": "518bc272934fde63b04e19875f74e87652e9d8b64fa1e79e290d3434c6f87f80",
+      "local_path": "/content/studies/chamfer-depth-transfer/exports/cohort140_final_20261031T112440743655Z_parts/part0001.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/phase-evidence/cohort140_final_20261031T112440743655Z/parts/part0001.bin"
+    },
+    {
+      "name": "part0002.bin",
+      "bytes": 268435456,
+      "sha256": "c65b1592626deec4165792da6e53a81980a594e5c72eb9c67f1e7c1e831922a1",
+      "local_path": "/content/studies/chamfer-depth-transfer/exports/cohort140_final_20261031T112440743655Z_parts/part0002.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/phase-evidence/cohort140_final_20261031T112440743655Z/parts/part0002.bin"
+    },
+    {
+      "name": "part0003.bin",
+      "bytes": 268435456,
+      "sha256": "755976e3e4e348ab32859154662cf79a3c8f348d262d31e5cb6d1c49321ab2d1",
+      "local_path": "/content/studies/chamfer-depth-transfer/exports/cohort140_final_20261031T112440743655Z_parts/part0003.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/phase-evidence/cohort140_final_20261031T112440743655Z/parts/part0003.bin"
+    },
+    {
+      "name": "part0004.bin",
+      "bytes": 268435456,
+      "sha256": "59cf3a3d55552fd2f0ca3c4d78a2445ddf448771a2d5b7c2e09ba89410cb17c5",
+      "local_path": "/content/studies/chamfer-depth-transfer/exports/cohort140_final_20261031T112440743655Z_parts/part0004.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/phase-evidence/cohort140_final_20261031T112440743655Z/parts/part0004.bin"
+    },
+    {
+      "name": "part0005.bin",
+      "bytes": 26524529,
+      "sha256": "5c0849e7280321d6f12d228a9fbec5116fc6f6bb970897f93f5bfd70b7dd0e53",
+      "local_path": "/content/studies/chamfer-depth-transfer/exports/cohort140_final_20261031T112440743655Z_parts/part0005.bin",
+      "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/phase-evidence/cohort140_final_20261031T112440743655Z/parts/part0005.bin"
+    }
+  ],
+  "raw_snapshot_files": 7540,
+  "physical_cache_files": 454,
+  "accepted_final_head_bundles": 32,
+  "coverage": {
+    "controller_status": "complete",
+    "accepted": [
+      "cohort140-modelnet40_c-seed0",
+      "cohort140-modelnet40_c-seed1",
+      "cohort140-modelnet40_c-seed2",
+      "cohort140-scanobjectnn_c-seed0",
+      "cohort140-scanobjectnn_c-seed1",
+      "cohort140-scanobjectnn_c-seed2",
+      "smoke-modelnet40_c-seed0",
+      "smoke-scanobjectnn_c-seed0"
+    ],
+    "failed": [],
+    "unresolved": [],
+    "unattempted": [],
+    "physical_cache_files": 454,
+    "raw_zip_files": 64,
+    "interpretation": "Physical preservation only; final independent validation/accuracy inference still required."
+  },
+  "actual_campaign_wall_seconds": 2412.1546422730007,
+  "derived_archive": {
+    "status": "actual_remote_hash_and_Drive_local_SHA_CRC_all_members_passed",
+    "local_path": "/Users/batuhan/.codex/worktrees/depth-transfer-20261031/3DD-TTA/result/preparation/chamfer_depth_transfer_20261031/derived_bundle_20261031T114245Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/derived_bundle_20261031T114245Z.zip",
+    "bytes": 22398314,
+    "sha256": "32d7ce6964c9db5939d0b000f37daa6bf80712333f8409df13c3da10b3d1596b",
+    "members": 25,
+    "raw_archive_sha256": "eb9386ee10694c56674bff745c26ba1bd6cc6887f6577146cc0cc6db705a6a8d",
+    "roundtrip_local_path": "/Users/batuhan/.codex/worktrees/depth-transfer-20261031/3DD-TTA/result/preparation/chamfer_depth_transfer_20261031/derived_bundle_20261031T114245Z_drive_roundtrip.zip"
+  },
+  "independent_numerical_review": {
+    "bytes": 10181,
+    "sha256": "e062a672a14be36568669149d6a20c267583a58861699f9afe7f691446dc5c0f"
+  },
+  "code_curation_commit": "8666db8",
+  "verification": {
+    "combined_CPU_passed": 491,
+    "explicit_separate_or_optional_skips": 61,
+    "subtests_passed": 399,
+    "NumPy1_physical_controller_archive_passed": 134,
+    "local_analysis_operator_passed": 11
+  },
+  "limitations": [
+    "140historically exposed objects per dataset; not full benchmark",
+    "historical whole-policy contrasts do not isolate N/rates/style effects",
+    "no global/per-model optimality or universal superiority claim",
+    "Point-MAE original current-cohort endpoints unavailable; originalotherheadsseed0only"
+  ]
+}

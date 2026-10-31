@@ -1,0 +1,40 @@
+{
+  "registered_before_new_research_GPU": true,
+  "candidate": "originalChamfer8/35,eta=.003,gamma=.03,p=.95,PMtemperature1 clean2/4/6+terminal8 and9/18/27+terminal35",
+  "primary": {
+    "contrasts": "perdataset/head candidate PM minus own same-run terminal",
+    "heads": [
+      "pointmae",
+      "dgcnn",
+      "curvenet",
+      "pointnext"
+    ],
+    "datasets": [
+      "modelnet40_c",
+      "scanobjectnn_c"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "scope": "all15/severity5/140exactIDs"
+  },
+  "secondary": {
+    "C_H": "both historicalteacher phases and their ownC controls, exact IDs/labels, full three seeds; separate whole-policy contrasts, no select-bestpreviousseed/teacher",
+    "original3DD": "six nonPointMAE exact140 subsets; compare candidate seed0 with originalseed0 only; PointMAE endpoints unavailable per errata",
+    "macro14": "sensitivity excludingBackground; keepall15primary"
+  },
+  "uncertainty": {
+    "method": "resample140originalobjects jointly overcorruptions andfixedseeds; reuse acceptedcomparehelper",
+    "repetitions": 10000,
+    "bootstrap_seed": 20261030,
+    "confidence_level": 0.95,
+    "multiplicity": "uncorrected percomparison conditionalintervals; exploratorytransfer, no universal/globaloptimality claim"
+  },
+  "timing": "count shared reconstruction once; separate reconstruction/readout/startup/archive/wall. Historical host/style/scheduler/batch/native variability confounds causal speed claims.",
+  "historical_receipt_sha256": "531570b25d7e5bc0b2d6bb1b04a970d486ed0095da8462e4c64a38d02328499b",
+  "historical_errata_sha256": "641666ed30c471774ae9e23ba2eccb2d12334892797ab9775ab7cdf0c5732b99",
+  "data_exposure": "Existing benchmarkcohorts alreadyexposed; not externally unseen validation",
+  "failure_policy": "retainfailed/incomplete endpoints unavailable; no surviving-seed replacement or outcome-driven retuning"
+}
