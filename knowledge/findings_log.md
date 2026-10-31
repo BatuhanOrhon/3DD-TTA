@@ -7950,3 +7950,24 @@ used. All exploratory/one-seed limits remain; no auto expansion.
 wrote inside extraction1; immutable ZIP intact. Fresh manifest-verified v2 with
 separate derived output accepted. No failed/partial GPU arm. Own named runtime
 kept, explicit task-complete+close authorization absent.
+
+# 2026-10-31 — Proximal shape pilot: yeni Codex oturumuna devir
+
+[User report/Decision/Code/Run/Open] Kullanıcı bağımsız başlangıç promptu ve
+mevcut durumun knowledge'a kaydını istedi. [Tam devir promptu](shape_latent_proximal_handoff_20261031.md)
+worktree/branch/HEAD, önceki1bacabf yayınını, kaynak/asset kimliklerini,
+beşkol hipotezi ve setup→CPUgate→GBsmoke→4koşulpilot→bağımsız analiz→yayın
+sırasını içerir. Önceki sonuçlar güvenilir gain göstermedi; yeni GPU sonucu yok.
+
+[Run] Son18:06UTC kontrolde yeni `tta-shape-proximal-a100-20261031-r1`
+A100/High-RAM/`gpu-a100-hm-ass1c0-zwl345mh6780` canlı. CanonicalCell1/2 ve
+ikiZIPupload bitti; Cell2 yalnız kullanıcı tarafından ertelenmiş fastrlock
+hatası verdi. VerifyPython/Drive/Cell3–10/strictCPU/GPUscientificphase bekler.
+Eski refresh VM17:50UTC'de kayboldu; biz kapatmadık, neden bilinmiyor.
+
+[Code/Open] Devir sırasında dış install wrapper'ın eski session assertion'ı
+bulundu; sealedv2registration/run_phase doğru yeni adı kullanır. Dış assertion
+çalıştırmadan önce düzeltilmeli ve gerçek ZIP'e karşı doğrulanmalı. Önceden
+geçen19new/69relatedCPUtest+16subtest/4operatorcheck bunu kapsamaz; yeni
+GPU/deployment başarısı iddia edilmez. Distance/bootstrap4×32/fivearm analizi
+de kalan iştir. Yerel source/hamlar ve dirtybranch korunur; runtime teardown yok.

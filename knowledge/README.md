@@ -1,3 +1,25 @@
+**[User report/Code/Run/Open] 2026-10-31 — yeni oturuma devir, proximal GPU pilotu başlamadı:**
+[Tam başlangıç promptu ve adım adım devam](shape_latent_proximal_handoff_20261031.md).
+Önceki refresh sonucu `1bacabf` ile integration'da. Eski refresh runtime'ı
+envanterden kayboldu; kapatma komutu verilmedi. Yeni kendi A100 oturumu
+`tta-shape-proximal-a100-20261031-r1` / `gpu-a100-hm-ass1c0-zwl345mh6780`
+envanterde canlı. Cell1 ve Cell2 tamamlandı; Cell2 yalnız ertelenmesine izin
+verilen fastrlock hatasını verdi. Python doğrulaması/Drive/Cell3–10/strictCPU
+bekliyor. Assets v1/operator v2 upload tamamlandı; install wrapper'daki eski
+session assertion'ı çalıştırmadan önce düzeltilmeli. Yeni19test geçmesi GPU
+sonucu değildir. Kullanıcı aynı görevi yeni Codex oturumunda sürdürecek;
+bu turda yeni bilimsel iş başlatılmadı, runtime kapatılmadı.
+
+**[User report/Code/Run/Open] 2026-10-31 — yeni global guidance pilotu hazırlanıyor:**
+Önceki refresh çalışması1bacabf ile integration'a gönderilip doğrulandı.
+[Kullanıcının yetkilendirdiği yeni tasarım](shape_latent_proximal_pilot_20261031.md)
+original/mean/prior3/proxy3/oracle3 karşılaştırır; aynı eski oturumu kullanma
+beklentisi aşağıdaki runtime kaybı ve yeni devir kaydıyla superseded edilmiştir.
+Global diffusion üç adım açık; proxy/clean-oracle temiz tahminleri için sabit
+quadratic guidance, oracle yalnız teşhis.32exposed nesne/dört bozulma/seed0;
+19yeni/69ilgili CPUtest+16subtest ve4operator check geçti. Yeni GPU fazı henüz
+başlamadı;2400s tek sınır. Önceki+.8333puan belirsiz sonucu/default korunur.
+
 **[Run/Inference/Decision] 2026-10-31 — üç-kol posterior refresh pilotu tamamlandı:**
 [Sonuçlar ve sınırlar](shape_latent_refresh_results_20261031.md).
 64exposed/all15/seed0/Point-MAE: baseline%60.9375, mean_refresh%61.7708
