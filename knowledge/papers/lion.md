@@ -71,3 +71,15 @@ fine-tuning results do not validate this frozen test-time cycle. Local
 p(h|z) also supplies a possible noise-prediction surrogate energy direction
 in z; not a calibrated conditional posterior with a few selected timesteps.
 Global DDM stays off, no new implementation or GPU evaluation.
+
+## 2026-10-31 — frozen global encoder refresh evaluated
+
+[Code/Run/Inference] [Three-arm result](../shape_latent_refresh_results_20261031.md):
+newmean+oldsigma*sameeps gives+.833333pp, full posterior+.3125pp on64all15
+seed0Point-MAE; all conditional original-object intervals include0. Both use
+LION-frame baseline decoded X*, fixed h0/local noise/anchor; global DDM0.
+Clean-mean direction is mixed (median squared-error ratio .9535, mean ratio
+1.0454); AE-only control has1.0076/1.1105. This is a frozen TTA extension
+experiment, not validation of LION's fine-tuned denoising encoders or a proven
+new generative prior. Two-pass deployment cost and native/seed variability
+remain; no method/default/globaldiffusion activation follows automatically.

@@ -446,3 +446,20 @@ not exact conditional likelihood. Third: DMPlug-inspired differentiable
 short global seed optimization, deferred until a useful data direction exists.
 PSLD/RED-Diff/DMPlug/SILO/REED-VAE/MCLC/DiLO inform tradeoffs; no method is
 implemented, combined, made default, or claimed novel. No new GPU launch.
+
+## 2026-10-31 — mean refresh tested, weak positive without reliable gain
+
+[Run/Inference/Decision] [Matched three-arm pilot](shape_latent_refresh_results_20261031.md)
+implements the earlier clean-data-free mean direction candidate. Baseline
+60.9375%, newmean+oldsigma*eps61.770833%, newmean+newsigma*sameeps61.25%.
+Mean−baseline+.833333pp CI[-.520833,2.1875]; allthree contrast intervals include0.
+No default change or established benefit; global diffusion remains off.
+
+[Code/Run/Open] Candidate z is inferred from one shared baseline decoded X*;
+second local trajectory restarts h0 with same noise/anchor/RNG. Conditional
+h reencoding absent. Median clean-mean squared-error ratio .9535, mean of
+ratios1.0454, AE-only1.0076/1.1105; mixed direction quality.960old input/eps
+matches, posthoc target only. Actual probe/final z hashes and physical states
+verify. Two-pass cost required; replay timing not deployment speedup. Further
+seeds/unseen confirmation/conditional-energy or global-prior guidance remain
+separate unrun choices, not automatic continuation.

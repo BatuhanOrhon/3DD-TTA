@@ -1,0 +1,16 @@
+corruption,baseline,mean_refresh,posterior_refresh
+uniform,70.3125,71.875,73.4375
+gaussian,67.1875,68.75,68.75
+background,56.25,59.375,56.25
+impulse,67.1875,73.4375,71.875
+upsampling,73.4375,73.4375,73.4375
+distortion_rbf,60.9375,62.5,62.5
+distortion_rbf_inv,59.375,60.9375,60.9375
+density,68.75,70.3125,68.75
+density_inc,87.5,85.9375,84.375
+shear,65.625,67.1875,68.75
+rotation,26.5625,28.125,26.5625
+cutout,71.875,67.1875,64.0625
+distortion,62.5,57.8125,59.375
+occlusion,43.75,46.875,45.3125
+lidar,32.8125,32.8125,34.375

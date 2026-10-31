@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "fixture": "synthetic15x64;newmean halfway to cleanmean;AE unchanged",
+  "checks": [
+    "mean error ratio .25",
+    "AE ratio1",
+    "direction cosine1",
+    "960exact input/eps matches"
+  ]
+}

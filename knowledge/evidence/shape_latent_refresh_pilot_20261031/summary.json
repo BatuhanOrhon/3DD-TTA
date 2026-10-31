@@ -1,0 +1,55 @@
+{
+  "metrics": {
+    "baseline": {
+      "correct": 585,
+      "events": 960,
+      "all15_percent": 60.9375,
+      "macro14_percent": 61.27232142857143,
+      "background_percent": 56.25
+    },
+    "mean_refresh": {
+      "correct": 593,
+      "events": 960,
+      "all15_percent": 61.77083333333333,
+      "macro14_percent": 61.94196428571429,
+      "background_percent": 59.375
+    },
+    "posterior_refresh": {
+      "correct": 588,
+      "events": 960,
+      "all15_percent": 61.25000000000001,
+      "macro14_percent": 61.60714285714286,
+      "background_percent": 56.25
+    }
+  },
+  "contrasts": {
+    "mean_refresh-baseline": {
+      "delta_pp": 0.8333333333333334,
+      "corrected": 30,
+      "harmed": 22,
+      "conditional_object_bootstrap_95": [
+        -0.5208333333333335,
+        2.1875
+      ]
+    },
+    "posterior_refresh-baseline": {
+      "delta_pp": 0.3125,
+      "corrected": 29,
+      "harmed": 26,
+      "conditional_object_bootstrap_95": [
+        -1.0416666666666667,
+        1.666666666666667
+      ]
+    },
+    "posterior_refresh-mean_refresh": {
+      "delta_pp": -0.5208333333333333,
+      "corrected": 7,
+      "harmed": 12,
+      "conditional_object_bootstrap_95": [
+        -1.3541666666666667,
+        0.3125
+      ]
+    }
+  },
+  "scope": "64exposed objects;15fixed corruptions;seed0;10,000 original-object bootstrap draws;no clean information in proposals;replay timing excludes baseline first pass;no multiplicity correction"
+}

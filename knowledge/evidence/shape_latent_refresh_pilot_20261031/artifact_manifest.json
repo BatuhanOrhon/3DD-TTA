@@ -1,0 +1,46 @@
+{
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_dirty": true,
+  "scientific_source_files": {
+    "shape_latent_refresh.py": {
+      "bytes": 3955,
+      "sha256": "e459a4d3a3f156f74cf1d6e8c8e3f923725b836578b44bf42d76248c5c2577c6"
+    },
+    "scripts/eval_shape_refresh.py": {
+      "bytes": 9079,
+      "sha256": "94a0e66417dfb338555c559fbde55177317fe14a7aeb94c175ed418528577c19"
+    },
+    "tests/test_shape_latent_refresh.py": {
+      "bytes": 3920,
+      "sha256": "044ad0df736cc8a9fd67a548a268e3629ce2b710c7b5214aa6c0e3258d5e4854"
+    },
+    "tests/test_eval_shape_refresh.py": {
+      "bytes": 6093,
+      "sha256": "17405171d0fb0928cf2257eae1153e7d615c7392943cfabd4bd6a29d1ed3b34e"
+    }
+  },
+  "archives": {
+    "pilot": {
+      "bytes": 410634711,
+      "sha256": "d828536a5d7ab5482aa65a0ada9e913eccb969651c014c020163ea8823fc7c6e",
+      "local_path": "/content/studies/shape-refresh/phase_pilot_20261031T165244807861Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_refresh_pilot_20261031/phase-evidence/phase_pilot_20261031T165244807861Z.zip"
+    },
+    "smoke": {
+      "bytes": 35333496,
+      "sha256": "1a419aa2c9c367222fb630912b9de5006332863d84b98b11964ad92d55df0bde",
+      "local_path": "/content/studies/shape-refresh/phase_smoke_20261031T164913681408Z.zip",
+      "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_refresh_pilot_20261031/phase-evidence/phase_smoke_20261031T164913681408Z.zip"
+    }
+  },
+  "cpu_archive": {
+    "bytes": 1454476,
+    "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_refresh_pilot_20261031/phase-evidence/deployment_20261031T164802958016Z/deployment_cpu_evidence.zip",
+    "local_path": "/content/studies/shape-refresh/deployment_20261031T164802958016Z.zip",
+    "sha256": "f4cdab7ed6634cf805c36ab3e3cbfb6c4d8db8e735670262ec719693cf91d703"
+  },
+  "local_analysis_cli_adaptation": "analyze_phase_local.py accepts optional3rdoutputpath; executedoperator CLI accepted2args only, function has same output support. Scientific/recount math unchanged.",
+  "runtime": "tta-shape-refresh-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-euw4a0-3e5wlo5wf3or6"
+}

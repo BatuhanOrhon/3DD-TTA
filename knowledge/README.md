@@ -1,3 +1,14 @@
+**[Run/Inference/Decision] 2026-10-31 — üç-kol posterior refresh pilotu tamamlandı:**
+[Sonuçlar ve sınırlar](shape_latent_refresh_results_20261031.md).
+64exposed/all15/seed0/Point-MAE: baseline%60.9375, mean_refresh%61.7708
+(+.8333puan), fullposterior%61.25(+.3125puan). Bütün eşlenmiş koşullu95%
+aralıklar0içerir; güvenilir iyileşme gösterilmedi, yeni yöntem default değil.
+Global diffusion kapalıydı. Ortak X*/eps/h/noise/anchor/RNG ve90batch fiziksel
+cache/source/readout kontrolleri Drive+local exactrecount ile geçer.
+Temiz-ortalama yönü medyanda biraz iyileşir fakat bazı örneklerde bozulur;
+AE-only yön kontrolü ve iki-pass maliyet sınırı raporda. Araştırma10.52dk;
+yeniGPUişi yok, kendi runtime açık korunuyor. Eski sonuçlar/knowledge korunur.
+
 **[User report/Run/Paper/Inference/Open] 2026-10-31 — oracle sonrası temiz-verisiz z araştırması:**
 [Yeni rapor ve üç aday](shape_latent_clean_free_research_20261031.md).
 30 fiziksel posterior/cache üzerinde yeni CPU hesabında, diagonal-Gaussian

@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "arms": {
+    "baseline": {
+      "macro_percent": 60.9375,
+      "per_corruption_percent": {
+        "uniform": 70.3125,
+        "gaussian": 67.1875,
+        "background": 56.25,
+        "impulse": 67.1875,
+        "upsampling": 73.4375,
+        "distortion_rbf": 60.9375,
+        "distortion_rbf_inv": 59.375,
+        "density": 68.75,
+        "density_inc": 87.5,
+        "shear": 65.625,
+        "rotation": 26.5625,
+        "cutout": 71.875,
+        "distortion": 62.5,
+        "occlusion": 43.75,
+        "lidar": 32.8125
+      },
+      "reconstruction_and_terminal_seconds": 105.14140300200143,
+      "run_id": "20261031-165244_pointmae-seed0"
+    },
+    "mean_refresh": {
+      "macro_percent": 61.77083333333333,
+      "per_corruption_percent": {
+        "uniform": 71.875,
+        "gaussian": 68.75,
+        "background": 59.375,
+        "impulse": 73.4375,
+        "upsampling": 73.4375,
+        "distortion_rbf": 62.5,
+        "distortion_rbf_inv": 60.9375,
+        "density": 70.3125,
+        "density_inc": 85.9375,
+        "shear": 67.1875,
+        "rotation": 28.125,
+        "cutout": 67.1875,
+        "distortion": 57.8125,
+        "occlusion": 46.875,
+        "lidar": 32.8125
+      },
+      "reconstruction_and_terminal_seconds": 86.97395041900018,
+      "run_id": "20261031-165505_pointmae-seed0"
+    },
+    "posterior_refresh": {
+      "macro_percent": 61.25000000000001,
+      "per_corruption_percent": {
+        "uniform": 73.4375,
+        "gaussian": 68.75,
+        "background": 56.25,
+        "impulse": 71.875,
+        "upsampling": 73.4375,
+        "distortion_rbf": 62.5,
+        "distortion_rbf_inv": 60.9375,
+        "density": 68.75,
+        "density_inc": 84.375,
+        "shear": 68.75,
+        "rotation": 26.5625,
+        "cutout": 64.0625,
+        "distortion": 59.375,
+        "occlusion": 45.3125,
+        "lidar": 34.375
+      },
+      "reconstruction_and_terminal_seconds": 87.05826678499989,
+      "run_id": "20261031-165706_pointmae-seed0"
+    }
+  },
+  "paired_comparisons": {
+    "mean_refresh-baseline": {
+      "delta_pp": 0.8333333333333334,
+      "corrected": 30,
+      "harmed": 22
+    },
+    "posterior_refresh-baseline": {
+      "delta_pp": 0.3125,
+      "corrected": 29,
+      "harmed": 26
+    },
+    "posterior_refresh-mean_refresh": {
+      "delta_pp": -0.5208333333333333,
+      "corrected": 7,
+      "harmed": 12
+    }
+  },
+  "identity": {
+    "asset_manifest_sha256": "035eb71e3952a08ba88d9619ed1d2086a0a96df48cd9207825daf232d9861d3b",
+    "source_snapshot_sha256": "998a7918296a6f98c9a747c18c0a444f07a3b0a9506de334a48fa7a28c1bc659",
+    "classifier_state_before_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+    "lion_state_before": {
+      "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+      "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+    },
+    "executed_source_sha256": "a331d5295d7acde70a4ca160a3e291217e7d43072b21cf3ab18b25cff46d9ed8"
+  },
+  "physical_cache_files": 30,
+  "limits": "64 exposed IDs/15fixed corruptions/seed0; no unseen confirmation. Replay timing excludes baseline first pass; no clean input used in proposal."
+}

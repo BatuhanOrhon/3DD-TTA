@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "batches": 90,
+  "common_batches": 30,
+  "cross_arm_actual_reconstruction_rng_before_after_identical": true,
+  "own_initial_style_hashes": true,
+  "all_raw_manifest_hashes_match": true,
+  "timing": {
+    "baseline": {
+      "worker_wall_seconds": 136.52334723500007,
+      "reconstruction_and_terminal_seconds": 105.14140300200143,
+      "peak_gpu_memory_mib": 25222.765625
+    },
+    "mean_refresh": {
+      "worker_wall_seconds": 118.1144179769999,
+      "reconstruction_and_terminal_seconds": 86.97395041900018,
+      "peak_gpu_memory_mib": 25223.796875
+    },
+    "posterior_refresh": {
+      "worker_wall_seconds": 118.19526186199937,
+      "reconstruction_and_terminal_seconds": 87.05826678499989,
+      "peak_gpu_memory_mib": 25223.796875
+    }
+  },
+  "limits": "Replay times include IO/probes but exclude common first pass for candidate arms; no matched deployment speedup or clean-data benefit claim.",
+  "all_clean_and_terminal_style_hashes_match_own_initial_z": true
+}

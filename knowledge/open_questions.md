@@ -2399,3 +2399,19 @@ stop browser/Drive work. Completed raw/local acceptance remains authoritative.
 - [ ] Any fresh GPU phase needs concrete source/setup/budget gates; no new
   runtime or benchmark is implied by this report. Existing local raw sufficient;
   do not reconnect Drive for the previously deferred extra copy.
+
+### Matched posterior refresh pilot accepted — 2026-10-31
+
+[Run/Inference/Decision/Open] [Results](shape_latent_refresh_results_20261031.md)
+supersede the preceding pilot-pending items.
+- [x] Fresh canonical10setup, strictCPU source/native/data/checkpoint gates.
+- [x] Complete32GB technical and64all15three-arm pilot within631.3478s/3300s.
+- [x] RawDrive+localSHA/CRC;90batch/30common/30posterior/90selected physical
+  state/source/RNG/probe/final/readout independent exact recount.
+- [x] Mean+.833333pp, posterior+.3125pp; all95%conditional intervals include0.
+- [x] Posthoc direction versus AE-only/oldcleanmean, no clean data in proposals.
+- [ ] Any reliable gain across seeds/unseen objects remains unproven; no auto run.
+- [ ] End-to-end two-pass deployment timing and native repeated-control variance
+  unmeasured; current replay numbers cannot establish a speed advantage.
+- [ ] User decides whether weak signal justifies continuation; global DDM off.
+- [ ] Preserve own runtime until explicit task-complete+close authorization.

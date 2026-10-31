@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "check": "One improved object across15conditions is clustered jointly; three-arm comparisons",
+  "python": "3.12",
+  "numpy": "1.26.4"
+}

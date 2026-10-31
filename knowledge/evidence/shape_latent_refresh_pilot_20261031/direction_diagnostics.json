@@ -1,0 +1,823 @@
+{
+  "per_corruption": {
+    "background": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 0.8128752494568467,
+        "mean": 0.9762194060592799,
+        "minimum": 0.21369305374028616,
+        "maximum": 7.532506414017584
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 0.9794952604362798,
+        "mean": 1.0218501749781321,
+        "minimum": 0.5579512360931288,
+        "maximum": 2.205404733206808
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.5482154792481624,
+        "mean": 0.5132293727064905,
+        "minimum": -0.4573430526651451,
+        "maximum": 0.8887572528860578
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.32222327005609297,
+        "mean": 0.3250820259282704,
+        "minimum": 0.09766835478242814,
+        "maximum": 0.661484721569034
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.3211386666580971,
+        "mean": 0.3266778906524438,
+        "minimum": 0.09714130150595301,
+        "maximum": 0.6647285051014455
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.027249253342342218,
+        "mean": 0.03075302974752912,
+        "minimum": 0.005579580186067523,
+        "maximum": 0.12357862392587025
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 2.9093750429149727,
+        "mean": 2.9640413402618533,
+        "minimum": 0.8461107312565823,
+        "maximum": 5.469722168783251
+      }
+    },
+    "cutout": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 0.9763709853132185,
+        "mean": 1.2337558080426576,
+        "minimum": 0.36632168944985666,
+        "maximum": 5.724575489592226
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.0804447916746058,
+        "mean": 1.6170538471541729,
+        "minimum": 0.7917839945880274,
+        "maximum": 18.67750759701237
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.3508968456152862,
+        "mean": 0.318772501920336,
+        "minimum": -0.48294642547123096,
+        "maximum": 0.796329384043646
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.17601055543262656,
+        "mean": 0.18704742625548654,
+        "minimum": 0.0758432262783874,
+        "maximum": 0.4962683835976375
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.1781385118395184,
+        "mean": 0.1886866965903331,
+        "minimum": 0.07611846688176707,
+        "maximum": 0.49687045298183224
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.016876637261591762,
+        "mean": 0.021295452243985328,
+        "minimum": 0.005042334206469623,
+        "maximum": 0.08185219825693013
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.5884233162941357,
+        "mean": 1.7085510694356096,
+        "minimum": 0.8791755634635062,
+        "maximum": 3.8157704997479582
+      }
+    },
+    "density": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.0553340718183333,
+        "mean": 1.3138851670459883,
+        "minimum": 0.30860146129666466,
+        "maximum": 8.787742126439003
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.0423451310371699,
+        "mean": 1.4768843856793326,
+        "minimum": 0.5162820116411422,
+        "maximum": 9.764731203689532
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.33802449067253804,
+        "mean": 0.31275862454250286,
+        "minimum": -0.3506960503641367,
+        "maximum": 0.8529633787044992
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.18064839600478147,
+        "mean": 0.18637084192068615,
+        "minimum": 0.09620329589623872,
+        "maximum": 0.3818519128623815
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.1816665868352118,
+        "mean": 0.187875395989756,
+        "minimum": 0.09862595990582129,
+        "maximum": 0.3844506006088493
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.017039916359416804,
+        "mean": 0.019522147763761204,
+        "minimum": 0.006547474591242055,
+        "maximum": 0.0958034711900796
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.5004097517431538,
+        "mean": 1.5755663167379614,
+        "minimum": 0.9226518278714675,
+        "maximum": 3.307770464249435
+      }
+    },
+    "density_inc": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.1780668944221695,
+        "mean": 1.3435179244651976,
+        "minimum": 0.2083823662202809,
+        "maximum": 6.168178562629405
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.0541522724751502,
+        "mean": 1.143103681695064,
+        "minimum": 0.5194652425946812,
+        "maximum": 3.0041626893800832
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.26281738163780355,
+        "mean": 0.28376703380971596,
+        "minimum": -0.2629214398645995,
+        "maximum": 0.8953046804518991
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.16888900050157915,
+        "mean": 0.1801220650320557,
+        "minimum": 0.06832061986810554,
+        "maximum": 0.36997123667343096
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.1693382896235509,
+        "mean": 0.18147016531992033,
+        "minimum": 0.07188239678744403,
+        "maximum": 0.37625447880934587
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.015575599987189067,
+        "mean": 0.019771584365134022,
+        "minimum": 0.005512340276264785,
+        "maximum": 0.06483522100057891
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.4658605123915809,
+        "mean": 1.576829456180985,
+        "minimum": 0.749240472038973,
+        "maximum": 3.3956921628074235
+      }
+    },
+    "distortion": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.0035056705465757,
+        "mean": 1.0366337010577813,
+        "minimum": 0.48008565117682594,
+        "maximum": 1.9085012189077126
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 0.992032686712121,
+        "mean": 0.992195543010413,
+        "minimum": 0.753961406326191,
+        "maximum": 1.4477926219137032
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.2127948617069687,
+        "mean": 0.21775511882028525,
+        "minimum": -0.3168552824936299,
+        "maximum": 0.7213339570821298
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.1292235541374937,
+        "mean": 0.135836337910065,
+        "minimum": 0.07552605403038427,
+        "maximum": 0.22447065976591096
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.13030834371691813,
+        "mean": 0.1367088841583674,
+        "minimum": 0.07642954075331579,
+        "maximum": 0.2228091422623432
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.01339954267913732,
+        "mean": 0.01492269144109894,
+        "minimum": 0.00523941343653739,
+        "maximum": 0.043175997023494235
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.1862907688310864,
+        "mean": 1.2270627918303738,
+        "minimum": 0.6269637356407198,
+        "maximum": 1.8482453669490904
+      }
+    },
+    "distortion_rbf": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.0020897221842322,
+        "mean": 0.9886376469508604,
+        "minimum": 0.3934640966056651,
+        "maximum": 1.8593767748390204
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 0.9897894016095589,
+        "mean": 1.0131404156427266,
+        "minimum": 0.6079425385726309,
+        "maximum": 1.6282571970591122
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.2572225088418651,
+        "mean": 0.2815543922672268,
+        "minimum": -0.14884243270747166,
+        "maximum": 0.7798657424581188
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.1355498572450513,
+        "mean": 0.14195885234924258,
+        "minimum": 0.07141764654644323,
+        "maximum": 0.260705026067603
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.13729515415264926,
+        "mean": 0.1428688879994209,
+        "minimum": 0.0728399775179113,
+        "maximum": 0.2630877168744478
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.015180527370917702,
+        "mean": 0.017209401135063508,
+        "minimum": 0.003731813997447827,
+        "maximum": 0.04472215365978018
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.300731889942258,
+        "mean": 1.3172388529637087,
+        "minimum": 0.6737184807605996,
+        "maximum": 2.1568932140364874
+      }
+    },
+    "distortion_rbf_inv": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.0437976265372129,
+        "mean": 1.1215265453774386,
+        "minimum": 0.5025349488184877,
+        "maximum": 3.447993219059548
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.0125585101767518,
+        "mean": 1.0130653395147333,
+        "minimum": 0.6014372513567074,
+        "maximum": 1.3927234127902248
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.19653630979756648,
+        "mean": 0.20903199233394928,
+        "minimum": -0.3212542242888685,
+        "maximum": 0.709640656140486
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.13666888052488202,
+        "mean": 0.13727967474876918,
+        "minimum": 0.06997684242652648,
+        "maximum": 0.23533754792234224
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.13732715041234012,
+        "mean": 0.1382115585517335,
+        "minimum": 0.0706467407805482,
+        "maximum": 0.24598014873398066
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.013402198675978222,
+        "mean": 0.015783899520370848,
+        "minimum": 0.005302083663374079,
+        "maximum": 0.05453935074288919
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.2317120266415116,
+        "mean": 1.2530839171491455,
+        "minimum": 0.6092217256816255,
+        "maximum": 2.151516499682327
+      }
+    },
+    "gaussian": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 0.7701919019999328,
+        "mean": 0.8153746235737156,
+        "minimum": 0.29985646558068213,
+        "maximum": 1.8840513370938412
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 0.9808821626468358,
+        "mean": 0.9946415031717923,
+        "minimum": 0.6775710292046352,
+        "maximum": 1.3778031784161275
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.522876107219552,
+        "mean": 0.44380902097152136,
+        "minimum": -0.4117332640432078,
+        "maximum": 0.8378119540241136
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.17226163992367582,
+        "mean": 0.17380761673446776,
+        "minimum": 0.06613858887741207,
+        "maximum": 0.29125596576296725
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.1749316286006381,
+        "mean": 0.17519720816807516,
+        "minimum": 0.06659446179937178,
+        "maximum": 0.29223254931578635
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.02376080418765987,
+        "mean": 0.025642345840830066,
+        "minimum": 0.00603601957527858,
+        "maximum": 0.07116947026283428
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.7387963016503627,
+        "mean": 1.7189234153952735,
+        "minimum": 0.646107033374278,
+        "maximum": 2.6204551880432296
+      }
+    },
+    "impulse": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 0.8200153621122381,
+        "mean": 0.916809370752367,
+        "minimum": 0.21406838647256848,
+        "maximum": 2.772409474847489
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.0178597616650884,
+        "mean": 1.0550088683084926,
+        "minimum": 0.6345794789829625,
+        "maximum": 1.840742226068284
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.5248846236822886,
+        "mean": 0.475283497754754,
+        "minimum": -0.36672197140273866,
+        "maximum": 0.8888552683923181
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.2201873402327842,
+        "mean": 0.22498068392316906,
+        "minimum": 0.08959674097305845,
+        "maximum": 0.434657828599412
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.2210723597408556,
+        "mean": 0.2267264894095431,
+        "minimum": 0.09162508649154552,
+        "maximum": 0.4379131001735885
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.02502121844471618,
+        "mean": 0.02505754122255474,
+        "minimum": 0.0074522432709135285,
+        "maximum": 0.06220080156499414
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 2.0280092922998607,
+        "mean": 2.115961859831261,
+        "minimum": 0.906575577794765,
+        "maximum": 3.7308901478317824
+      }
+    },
+    "lidar": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 0.9509343461837865,
+        "mean": 0.9652984649474984,
+        "minimum": 0.3115058451474264,
+        "maximum": 2.2071030930646702
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 0.9915614759524365,
+        "mean": 1.0085352797645113,
+        "minimum": 0.6735147338657911,
+        "maximum": 1.4176076545429759
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.2755070018835068,
+        "mean": 0.2665448161334194,
+        "minimum": -0.5796541079308173,
+        "maximum": 0.8544474221064928
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.2055478462674726,
+        "mean": 0.2255843052224914,
+        "minimum": 0.11496800864505075,
+        "maximum": 0.48082705974510664
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.20531871109378147,
+        "mean": 0.22691040306823784,
+        "minimum": 0.112505130205447,
+        "maximum": 0.47601195564362075
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.02047982317613186,
+        "mean": 0.02305103624672271,
+        "minimum": 0.007509283206983094,
+        "maximum": 0.054138637766531286
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.8541511201460201,
+        "mean": 1.9828484793315402,
+        "minimum": 0.8599522878367463,
+        "maximum": 5.895800141447558
+      }
+    },
+    "occlusion": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.00203547609392,
+        "mean": 1.0458138975202393,
+        "minimum": 0.4451239822634317,
+        "maximum": 2.1015551974519897
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 0.9932975237187055,
+        "mean": 1.025038000239765,
+        "minimum": 0.5671865904573469,
+        "maximum": 1.8514224435863238
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.2690204524858198,
+        "mean": 0.24388866127543274,
+        "minimum": -0.6181410063530104,
+        "maximum": 0.7456619161856818
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.2679151039719122,
+        "mean": 0.28633599230585804,
+        "minimum": 0.1045171488358207,
+        "maximum": 0.6610295767997852
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.27122489288015494,
+        "mean": 0.28822794600732277,
+        "minimum": 0.10625196047957568,
+        "maximum": 0.663585726400817
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.026525750048814602,
+        "mean": 0.03014750696023799,
+        "minimum": 0.00966654285789961,
+        "maximum": 0.07462510839422548
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.82311218230045,
+        "mean": 1.8863169955153978,
+        "minimum": 0.7548430888119838,
+        "maximum": 4.069325628012751
+      }
+    },
+    "rotation": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.004908242362423,
+        "mean": 1.0299141353463233,
+        "minimum": 0.34271200836732146,
+        "maximum": 3.141269893432426
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.0186666074469652,
+        "mean": 1.0365738885968891,
+        "minimum": 0.679698306893023,
+        "maximum": 1.4953110914235692
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.18838685485769746,
+        "mean": 0.20441730327060947,
+        "minimum": -0.44550520443807173,
+        "maximum": 0.8316828020129108
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.1252776726744052,
+        "mean": 0.12291769717321135,
+        "minimum": 0.04516182758866539,
+        "maximum": 0.2031876941416602
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.12538335488000646,
+        "mean": 0.12369233926181877,
+        "minimum": 0.04582300908170968,
+        "maximum": 0.20341743699629122
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.011031755959384165,
+        "mean": 0.012877093033493714,
+        "minimum": 0.004762661722506897,
+        "maximum": 0.04136450155182219
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.0894566750265424,
+        "mean": 1.1622382599128922,
+        "minimum": 0.511169440018317,
+        "maximum": 2.248501149798157
+      }
+    },
+    "shear": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 1.0344551033085652,
+        "mean": 1.2220815553703128,
+        "minimum": 0.2116661660218193,
+        "maximum": 4.384908124565788
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.0181940484021594,
+        "mean": 1.2604417792065712,
+        "minimum": 0.39554993816483935,
+        "maximum": 10.173202859205418
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.29262675952305384,
+        "mean": 0.2782228348479183,
+        "minimum": -0.35084883978712955,
+        "maximum": 0.9105111578674512
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.15624633242627528,
+        "mean": 0.17269473118016254,
+        "minimum": 0.05953831463188962,
+        "maximum": 0.35472058075205537
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.15633276629190834,
+        "mean": 0.17359086379383254,
+        "minimum": 0.06003647404490668,
+        "maximum": 0.35549002857302714
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.012813921267207302,
+        "mean": 0.016161614015677835,
+        "minimum": 0.0032780804463202564,
+        "maximum": 0.04257171581202083
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.3514384377294755,
+        "mean": 1.5720457293887975,
+        "minimum": 0.6550870962881269,
+        "maximum": 3.568310917427774
+      }
+    },
+    "uniform": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 0.8280678325303829,
+        "mean": 0.823620618938314,
+        "minimum": 0.2629684803778104,
+        "maximum": 1.3989029394462873
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 1.024100242930163,
+        "mean": 1.021991802492136,
+        "minimum": 0.6810181471573361,
+        "maximum": 1.3652194637181985
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.4468431529928155,
+        "mean": 0.4246636206020966,
+        "minimum": -0.221560772954498,
+        "maximum": 0.8799513593244361
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.1761691323761952,
+        "mean": 0.17381623352509634,
+        "minimum": 0.061713603591080385,
+        "maximum": 0.2782386274819205
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.18069974911849612,
+        "mean": 0.1762030391589196,
+        "minimum": 0.06236979102878835,
+        "maximum": 0.28598368365408394
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.023021146049302436,
+        "mean": 0.025406181385135368,
+        "minimum": 0.0060762045469215445,
+        "maximum": 0.058953015512606455
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.7831391258862523,
+        "mean": 1.7722304984270172,
+        "minimum": 0.8909082581071761,
+        "maximum": 2.7998774832039204
+      }
+    },
+    "upsampling": {
+      "mu_error_ratio": {
+        "events": 64,
+        "median": 0.7563563252402055,
+        "mean": 0.8480982146320147,
+        "minimum": 0.32222233676328466,
+        "maximum": 3.870907990731521
+      },
+      "ae_mu_error_ratio": {
+        "events": 64,
+        "median": 0.9666104124197322,
+        "mean": 0.9780562482848044,
+        "minimum": 0.7002315724481533,
+        "maximum": 1.3466541309056663
+      },
+      "cosine": {
+        "events": 64,
+        "median": 0.5167090930683691,
+        "mean": 0.4832266612430461,
+        "minimum": -0.1335999202515994,
+        "maximum": 0.8349508229867735
+      },
+      "mean_z_displacement": {
+        "events": 64,
+        "median": 0.18641781904873128,
+        "mean": 0.19052680230681296,
+        "minimum": 0.07353900769268437,
+        "maximum": 0.3451348538563358
+      },
+      "posterior_z_displacement": {
+        "events": 64,
+        "median": 0.1889017049333518,
+        "mean": 0.19230792945549252,
+        "minimum": 0.07428483653230697,
+        "maximum": 0.3465324052037435
+      },
+      "sigma_specific_displacement": {
+        "events": 64,
+        "median": 0.027730489149020127,
+        "mean": 0.028263638098943465,
+        "minimum": 0.005801429728819255,
+        "maximum": 0.06676481198522165
+      },
+      "mean_vs_ae_direction_difference": {
+        "events": 64,
+        "median": 1.8054229093993432,
+        "mean": 1.8748310129266512,
+        "minimum": 0.6585603396837664,
+        "maximum": 3.0595839244261493
+      }
+    }
+  },
+  "overall": {
+    "mu_error_ratio": {
+      "events": 960,
+      "median": 0.9534972933777115,
+      "mean": 1.0454124720053326,
+      "minimum": 0.2083823662202809,
+      "maximum": 8.787742126439003
+    },
+    "ae_mu_error_ratio": {
+      "events": 960,
+      "median": 1.0075920899529418,
+      "mean": 1.1105053838493026,
+      "minimum": 0.39554993816483935,
+      "maximum": 18.67750759701237
+    },
+    "cosine": {
+      "events": 960,
+      "median": 0.34753924563644,
+      "mean": 0.33046169683328697,
+      "minimum": -0.6181410063530104,
+      "maximum": 0.9105111578674512
+    },
+    "mean_z_displacement": {
+      "events": 960,
+      "median": 0.17238521799450396,
+      "mean": 0.19095741910105632,
+      "minimum": 0.04516182758866539,
+      "maximum": 0.661484721569034
+    },
+    "posterior_z_displacement": {
+      "events": 960,
+      "median": 0.17486284023927318,
+      "mean": 0.19235704650568114,
+      "minimum": 0.04582300908170968,
+      "maximum": 0.6647285051014455
+    },
+    "sigma_specific_displacement": {
+      "events": 960,
+      "median": 0.017865523073715958,
+      "mean": 0.021724344201369254,
+      "minimum": 0.0032780804463202564,
+      "maximum": 0.12357862392587025
+    },
+    "mean_vs_ae_direction_difference": {
+      "events": 960,
+      "median": 1.575491868140325,
+      "mean": 1.713851333019231,
+      "minimum": 0.511169440018317,
+      "maximum": 5.895800141447558
+    }
+  },
+  "exact_old_prepared_input_matches": 960,
+  "exact_old_eps_matches": 960,
+  "limits": "Posthoc direction diagnosis against previous same-ID clean-global means only. Clean data not used to generate proposals or select inference.64exposed objects/15fixed corruptions/seed0; latent closeness not accuracy causation. AE-only is a direction control, no extra accuracy arm."
+}

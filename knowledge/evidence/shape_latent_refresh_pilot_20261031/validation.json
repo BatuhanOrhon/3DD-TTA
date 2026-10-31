@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "cpu": {
+    "new_contract_tests": 14,
+    "impacted_tests": 80,
+    "subtests": 23,
+    "operator_tests": 4,
+    "warnings": "one existing torch.jit deprecation warning"
+  },
+  "review": {
+    "fresh_reviewer": true,
+    "findings_fixed": [
+      "Actual executed source binding",
+      "Completed baseline config receipt gate",
+      "Operator stream handle shadow"
+    ],
+    "regressions": "RED\u2192GREEN; actual controller-dispatch/failure test; source/completion mismatch routing tests"
+  },
+  "runtime_checks": [
+    "canonical10setup",
+    "CPUstrictPoint-MAE/no-forward/no-CUDA",
+    "342file source manifest and4pinnednative bindings",
+    "smoke6/pilot90batch independent exact acceptance+PM outcomes",
+    "30common/30posterior/90selected physical caches",
+    "common posterior Gaussian equations and actual before/after RNG hashes",
+    "own initial z at all clean probes and terminal",
+    "all raw evidence_manifest identities; immutable rawZIP SHA/CRC",
+    "NumPy1 object-cluster bootstrap selfcheck and synthetic direction/sigma mutation check"
+  ],
+  "research_phase_seconds": 631.3478,
+  "scope": "64exposed objects/all15/seed0/Point-MAE; no unseen confirmation or native-repeat variance estimate",
+  "integration_cpu": {
+    "tests": 91,
+    "subtests": 62,
+    "warnings": "one existing torch.jit deprecation warning"
+  },
+  "integration_checks": [
+    "exact independent raw acceptance/outcome recount",
+    "four new source/test files byte-identical to actual GPU capsule",
+    "JSON/local links/Python3.8 grammar",
+    "prior remote shared knowledge retained",
+    "actual raw/source/derived archives SHA verified"
+  ]
+}

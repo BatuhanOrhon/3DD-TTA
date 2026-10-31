@@ -1,0 +1,54 @@
+{
+  "scope": "Cross-runtime technical32GB diagnosis only; main comparisons use fresh within-run baseline",
+  "corruptions": {
+    "background": {
+      "eps_z": {
+        "exact": true,
+        "maxabs": 0.0
+      },
+      "eps_h": {
+        "exact": true,
+        "maxabs": 0.0
+      },
+      "mu": {
+        "exact": false,
+        "maxabs": 0.0006978511810302734
+      },
+      "sigma": {
+        "exact": false,
+        "maxabs": 2.4452805519104004e-05
+      },
+      "h_mu": {
+        "exact": false,
+        "maxabs": 0.001885533332824707
+      }
+    },
+    "gaussian": {
+      "eps_z": {
+        "exact": true,
+        "maxabs": 0.0
+      },
+      "eps_h": {
+        "exact": true,
+        "maxabs": 0.0
+      },
+      "mu": {
+        "exact": false,
+        "maxabs": 0.0005963444709777832
+      },
+      "sigma": {
+        "exact": false,
+        "maxabs": 4.4345855712890625e-05
+      },
+      "h_mu": {
+        "exact": false,
+        "maxabs": 0.00037598609924316406
+      }
+    }
+  },
+  "identical_lion_states": true,
+  "identical_classifier_states": true,
+  "previous_oracle_smoke_percent": 70.3125,
+  "new_refresh_smoke_percent": 67.1875,
+  "interpretation": "Same inputs/posterior eps/diffusion noise and model states, small nonzero encoder output differences. Compatible with known native numerical variation; root cause and contribution to accuracy not isolated. No cross-run transplanted comparator."
+}

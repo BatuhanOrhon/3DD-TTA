@@ -7918,3 +7918,35 @@ vectors cannot be inferred from logits/hash-only old output; new forward work
 would be needed. GPU source/phase/coefficient design not fixed; operational
 global prior off. User continuation supersedes earlier await-user-decision
 status only for this literature/diagnostic scope, not a full benchmark.
+
+## 2026-10-31 — matched mean/full posterior refresh pilot accepted
+
+[Run/Inference/Decision] [Accepted result](shape_latent_refresh_results_20261031.md).
+Same64exposed/all15/seed0/Point-MAE: baseline585/960=60.9375%, mean refresh
+593/960=61.770833%(+.833333pp, conditional95%[-.520833,2.1875]), full posterior
+588/960=61.25%(+.3125pp,[-1.041667,1.666667]). Full−mean−.520833pp
+[-1.354167,.3125]. All intervals include0; mean is a small uncertain positive
+signal, no default promotion or reliable sigma-harm claim. Global diffusion0.
+
+[Code/Run] One common baseline-denoised LION-frame observation per batch;
+newmean+oldsigma*sameeps versus newmean+newsigma*sameeps. Original h0/noise/
+Chamfer anchor and actual reconstruction RNG before/after common.90shards/
+30common/30posterior/90selected caches, Gaussian equations, own-z clean/final
+styles, weights/buffers/sources/PM and allrawmanifest checks pass exact independent
+NumPy1 recount. Pilot410634711bytesSHAd828536a…7c6e Drive+local. Research
+631.3478s under3300s cap; canonical10setup/strictCPU proof accepted. Source
+342filesmanifest035eb71e…61d3b/sourceZIP998a7918…1bc659, a822dirty.
+
+[Run/Inference/Open] Posthoc same-ID oldcleanmean target has960input/epsmatches.
+Median squaredmeanerrorratio .9535 versus AE-only1.0076, but mean per-event
+ratio1.0454 versus1.1105; no uniformly recovered clean-global information.
+Median direction cosine .3475; sigma-specific z delta1.7866%||z0||. Clean targets
+never generated proposals. Replay timings omit first pass for candidates;
+nominal local calls double, no end-to-end speedup. Native old/new technical
+encoder differences persist despite sameinput/eps/weights; own freshbaseline
+used. All exploratory/one-seed limits remain; no auto expansion.
+
+[Run/Artifact] First local smoke CLI recount ignored third output argument and
+wrote inside extraction1; immutable ZIP intact. Fresh manifest-verified v2 with
+separate derived output accepted. No failed/partial GPU arm. Own named runtime
+kept, explicit task-complete+close authorization absent.

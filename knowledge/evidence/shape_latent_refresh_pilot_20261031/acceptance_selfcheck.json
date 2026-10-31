@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "fixture": "synthetic refresh tensors on accepted physical A/RNG cache; no model or inference",
+  "checks": [
+    "three-arm state/posterior equation acceptance",
+    "wrong full-posterior sigma rejected"
+  ]
+}

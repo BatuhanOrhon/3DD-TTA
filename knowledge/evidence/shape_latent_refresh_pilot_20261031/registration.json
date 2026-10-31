@@ -1,0 +1,66 @@
+{
+  "session": "tta-shape-refresh-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-euw4a0-3e5wlo5wf3or6",
+  "owner": "/root",
+  "worktree": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA",
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_dirty": true,
+  "manifest": {
+    "bytes": 132292,
+    "sha256": "035eb71e3952a08ba88d9619ed1d2086a0a96df48cd9207825daf232d9861d3b"
+  },
+  "source_snapshot": {
+    "bytes": 1153952,
+    "sha256": "998a7918296a6f98c9a747c18c0a444f07a3b0a9506de334a48fa7a28c1bc659"
+  },
+  "research_cap_seconds": 3300,
+  "arms": [
+    "baseline",
+    "mean_refresh",
+    "posterior_refresh"
+  ],
+  "scope": "ModelNet40-C severity5;PointMAE;64exposed IDs/all15/seed0;32GB technical gate;global prior off;N8/B35 PM;same eps;no clean data in proposals",
+  "operator_files": {
+    "deploy_assets_template.py": {
+      "bytes": 14413,
+      "sha256": "89fef5cf42dc27db444c89926bdd3aefac8cb8b14727a747256a515c08ca32d0"
+    },
+    "deploy_runtime.py": {
+      "bytes": 5729,
+      "sha256": "e46f628fce913079a7058791bf7972f3d25b4dbf04d1c6266a614e3f5ac99678"
+    },
+    "deploy_wrapper.py": {
+      "bytes": 351,
+      "sha256": "80f5809f422c068b8a0a284f683f5f077c0e2734d033a1949ca14387f30f3165"
+    },
+    "asset_identity_v1.json": {
+      "bytes": 507,
+      "sha256": "b1373e7893ea54b77c99921541f342c5ce75a8872d19bb897ad997c7e9f36883"
+    },
+    "run_phase.py": {
+      "bytes": 8589,
+      "sha256": "e2d7f96108b59544bb4a3b5341e414044d9525849a3a1ee822f9f67494a8dc6c"
+    },
+    "analyze_phase.py": {
+      "bytes": 12356,
+      "sha256": "02ab2970b3205563fa9ed19d499db462f788c95f8756511beb946186062f8979"
+    },
+    "modelnet40_c_smoke_ids.json": {
+      "bytes": 721,
+      "sha256": "ba829e7f44e3ac06aa155ea3d41f516ff6256ecd85ea5deb9db54d72f39f8850"
+    },
+    "modelnet40_c_development_ids.json": {
+      "bytes": 1030,
+      "sha256": "d095c6efd8188c690dcad507b7e932f70987b02fb845d0c82d3cf177683bf99a"
+    },
+    "run_smoke_wrapper.py": {
+      "bytes": 367,
+      "sha256": "d59c944ce3f270a2e2966f014a271398c05a725ffce16d8ec651856fb3afd928"
+    },
+    "run_pilot_wrapper.py": {
+      "bytes": 367,
+      "sha256": "833205e36cfff6a4dca5e123d35ccb464782f51abad22e98a444a4e47266f4d1"
+    }
+  }
+}
