@@ -1,5 +1,22 @@
 # Frozen N8 transfer study — 2026-10-31
 
+## Final operational decision and runtime closure — 2026-10-31 12:04 UTC
+
+[User report/Decision/Code/Run] Accepted transfer evidence was integrated at
+d96617f, then the user explicitly promoted the complete fixed policy to the
+[operational baseline](current_baseline.md), published atf899442. Subsequent
+user instruction authorizes closing only our runtime after publication.
+`colab stop -s tta-depth-transfer-a100-20261031-r1` returned0/terminated;
+fresh server inventory lists no active sessions. Owned endpoint was
+gpu-a100-hm-ass1c0-3ttqahttkpsyl; only that named runtime was targeted.
+Monitor48454 and hostawake13547 stopped; no peer/unknown runtime was touched.
+Final Drive raw/derived sizes and SHA hashes match the previously accepted
+local files, rehashed before teardown. The Drive preclosure receipt was
+downloaded and validated; the final local/Git receipt records actual stop.
+No additional inference or automatic full-data phase ran.
+[Closure evidence](../result/preparation/chamfer_depth_transfer_20261031/runtime_closure_20261031/runtime_closure.json).
+Earlier live/pending/default-unchanged entries below are dated history.
+
 [User report/Decision] User requests integrating the accepted depth study and testing only N8 / eta=.003 / gamma=.03 / p(lambda)=.95 on the other source models and ScanObjectNN-C. No parameter search or combined spectral/semantic variant is authorized. Existing depth result is already integrated at daaa709, retained by latest origin/thesis-integration8dca857. New branch experiment/chamfer-depth-transfer-20261031 starts at8dca857.
 
 [Decision/Open] Candidate uses original Chamfer host, raw/eval LION EMAoff, batch32, original encoded decoder style, DDIM finalalphaTrue, normal8/Background35. Equal temperature1 probability mean uses clean2/4/6 plus terminal8; Background clean9/18/27 plus terminal35. All four frozen heads (Point-MAE,DGCNN,CurveNet,PointNeXt) share each reconstruction; report each model independently. No model ensemble is claimed. Source/normalization/class-count guards remain exact for ModelNet40-C40classes and ScanObjectNN-C15classes.

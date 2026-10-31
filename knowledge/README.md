@@ -1,3 +1,12 @@
+**[User report/Run/Decision] 2026-10-31 12:04 UTC — Baseline yayınlandı, Agent B oturumu kapandı:**
+Yeni baseline `thesis-integration@f899442` üzerinde. Kullanıcının açık kapanış
+talimatından sonra yalnızca `tta-depth-transfer-a100-20261031-r1` kapatıldı;
+sunucu listesi artık aktif oturum göstermiyor. Monitor48454 ve bu görevin
+hostawake13547 işlemi durdu. Ham/analiz arşivlerinin Drive ve yerel SHA'ları
+kapanıştan önce yeniden doğrulandı; diğer agent/unknown oturuma müdahale yok.
+[Kapanış kaydı](../result/preparation/chamfer_depth_transfer_20261031/runtime_closure_20261031/runtime_closure.json) ·
+[Güncel baseline](current_baseline.md).
+
 **[User report/Decision/Code] 2026-10-31 — Yeni tez baseline'ı seçildi:**
 Kullanıcı, kabul edilen transfer sonuçlarından sonra **Chamfer + Probability
 Mean, normal8/Background35, η=.003, γ=.03, λ=.95, B32** ayarını yeni

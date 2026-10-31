@@ -1,0 +1,56 @@
+{
+  "status": "closed_verified",
+  "recorded_at_utc": "2026-10-31 12:04:53 UTC",
+  "session": "tta-depth-transfer-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-3ttqahttkpsyl",
+  "owner": "Agent B / depth transfer",
+  "authorization": "User: Sonrasında açık olan colab oturumunu da kapatabilirsin, diğer agentların sessionunu kapatmadığından emin ol",
+  "task_completed_before_teardown": true,
+  "baseline_published_commit": "f89944285cf4a18878185689538fc51822c32252",
+  "publication_target": "origin/thesis-integration",
+  "stop_command": "colab stop -s tta-depth-transfer-a100-20261031-r1",
+  "stop_exit_code": 0,
+  "inventory_before": [
+    {
+      "session": "tta-depth-transfer-a100-20261031-r1",
+      "endpoint": "gpu-a100-hm-ass1c0-3ttqahttkpsyl"
+    }
+  ],
+  "inventory_after": [],
+  "peer_sessions_stopped": [],
+  "monitor": {
+    "exec_session": 48454,
+    "exit_code": 0,
+    "stopped_at_utc": "2026-10-31T12:04:20.808048+00:00"
+  },
+  "hostawake": {
+    "exec_session": 13547,
+    "action": "Ctrl-C to exact owned session",
+    "exit_code": 1
+  },
+  "drive_preclosure_receipt": {
+    "path": "/content/drive/MyDrive/thesis/result/chamfer_depth_transfer_20261031/baseline_f899442_closure_ready.json",
+    "bytes": 895,
+    "sha256": "ed2a276517bdf2f5404cfaf8091353fe1285bd541975783dd5c67c98ca02c9bf",
+    "remote_hash_verification_utc": "2026-10-31T12:03:53.884696+00:00",
+    "downloaded_and_validated": true
+  },
+  "preclosure_local_and_drive_archives": {
+    "raw": {
+      "bytes": 1368701809,
+      "sha256": "eb9386ee10694c56674bff745c26ba1bd6cc6887f6577146cc0cc6db705a6a8d"
+    },
+    "derived": {
+      "bytes": 22398314,
+      "sha256": "32d7ce6964c9db5939d0b000f37daa6bf80712333f8409df13c3da10b3d1596b"
+    }
+  },
+  "new_gpu_inference": false,
+  "verification": {
+    "general_cpu_passed": 495,
+    "subtests_passed": 412,
+    "skipped": 61,
+    "pinned_numpy1_passed": 78
+  },
+  "scientific_claim_scope": "Existing accepted140IDs/dataset/all15/s5/three seeds/four heads; operational policy promotion only"
+}

@@ -1,0 +1,21 @@
+{
+  "artifacts": {
+    "derived_bundle_20261031T114245Z.zip": {
+      "bytes": 22398314,
+      "sha256": "32d7ce6964c9db5939d0b000f37daa6bf80712333f8409df13c3da10b3d1596b"
+    },
+    "phase-evidence/cohort140_final_20261031T112440743655Z/campaign_evidence.zip": {
+      "bytes": 1368701809,
+      "sha256": "eb9386ee10694c56674bff745c26ba1bd6cc6887f6577146cc0cc6db705a6a8d"
+    }
+  },
+  "authorization": "User: after baseline publication, close the open Colab runtime; ensure other agents sessions are not closed",
+  "baseline_commit": "f89944285cf4a18878185689538fc51822c32252",
+  "endpoint": "gpu-a100-hm-ass1c0-3ttqahttkpsyl",
+  "new_GPU_inference": false,
+  "profile": "chamfer_pm_n8_v1",
+  "session": "tta-depth-transfer-a100-20261031-r1",
+  "status": "ready_for_user_authorized_owned_runtime_closure",
+  "target": "origin/thesis-integration",
+  "utc": "2026-10-31T12:03:53.884696+00:00"
+}

@@ -33,7 +33,7 @@ guards remain required. No new GPU run or runtime teardown.
   corruption horizon, selected-head independence and source recording.
 - [x] Update root README and knowledge baseline/README/findings/open questions
   with promotion, exact command, evidence, limitations and superseded status.
-- [ ] Review the diff; fetch latest target; normal fast-forward publication.
+- [x] Review the diff; fetch latest target; normal fast-forward publication.
 
 **Review focus:** reject changed rates/losses, mixed old/new heads, unlabelled
 cohort scope, accidental terminal CSV, and changes to original trajectories.
@@ -48,3 +48,9 @@ asset manifest. No sampler/model/preprocessing changes or deferred findings.
 **Final checks:** 495passed/61skipped/412subtests in the general CPU suite;
 78passed in pinned NumPy1, covering60conditional skips; one optional historical
 fixture unavailable. No new GPU inference; accepted GPU source remains4a5c137.
+
+**Publication / follow-up:** f899442 on origin/thesis-integration verified by
+ls-remote. User then authorized closing only owned depth-transfer r1;
+archive hashes rechecked locally/Drive, monitor stopped, exact named runtime
+terminated, fresh server inventory empty. Closure receipts and research
+headlines record that follow-up; no peer process or session was targeted.

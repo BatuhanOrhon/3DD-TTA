@@ -88,3 +88,11 @@ CPU worker fixtures exercise both datasets/four heads, with deliberately
 wrong terminal and correct PM predictions; archive fields, CSV aggregation,
 source/state guards and unchanged old reporting are checked. These checks
 are software evidence, not new GPU accuracy evidence.
+
+[Run/Decision] Published normally to `origin/thesis-integration` at
+`f89944285cf4a18878185689538fc51822c32252`, with495CPU tests/412subtests
+and78separate pinned NumPy1 checks passing. After the user's explicit
+follow-up instruction, owned `tta-depth-transfer-a100-20261031-r1` was
+closed and the server inventory verified empty at12:04UTC. Both full archive
+SHA identities were rechecked locally and on Drive before closure.
+[Closure receipt](../result/preparation/chamfer_depth_transfer_20261031/runtime_closure_20261031/runtime_closure.json).

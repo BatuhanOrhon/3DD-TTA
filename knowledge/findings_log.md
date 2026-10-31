@@ -7680,3 +7680,19 @@ No new GPU inference was launched. The user additionally authorizes closing
 only owned tta-depth-transfer-a100-20261031-r1 after publication; closure
 is pending and peer/unknown runtimes stay protected.
 [Current contract and commands](current_baseline.md).
+
+## 2026-10-31 12:04 UTC — Baseline published; user-authorized owned runtime closed
+
+[User report/Run/Decision] Normal FF publication to origin/thesis-integration
+f89944285cf4a18878185689538fc51822c32252 verified by independent ls-remote.
+User then explicitly permits closure after this work, protecting other agents.
+Before teardown, both accepted raw/derived ZIPs were rehashed locally and
+on Drive; all sizes/SHA values match. Drive baseline_f899442_closure_ready.json
+was downloaded (895bytes, SHAed2a276517bdf2f5404cfaf8091353fe1285bd541975783dd5c67c98ca02c9bf).
+Sole owned monitor48454 stopped cleanly; exact stop command targeted only
+tta-depth-transfer-a100-20261031-r1 / gpu-a100-hm-ass1c0-3ttqahttkpsyl,
+exit0/Session terminated. Fresh server inventory is empty. The exact owned
+hostawake13547 was interrupted; no peer monitor/session was targeted.
+Current task is complete, no GPU work remains pending. Dated live/default
+statuses above are superseded; evidence and scientific limits are unchanged.
+[Final closure receipt](../result/preparation/chamfer_depth_transfer_20261031/runtime_closure_20261031/runtime_closure.json).
