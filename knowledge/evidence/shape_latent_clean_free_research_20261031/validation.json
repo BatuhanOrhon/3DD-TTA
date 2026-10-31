@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "Literature, source audit and read-only NumPy analysis; no new model inference, GPU, runtime or Drive action",
+  "python": "3.12",
+  "numpy": "1.26.4",
+  "checks": [
+    "synthetic posterior algebra",
+    "30proof and30reference-cache tensor hash identities",
+    "diagonal Gaussian sample equations and cross terms",
+    "finite/positive sigma,15corruptions x64events",
+    "exact independent derived recount",
+    "no-overwrite guard",
+    "five existing scientific sources equal origin/thesis-integration:a002315"
+  ],
+  "scientific_source_sha256": {
+    "tta.py": "7b58407da924dc09431f6940698772711efdee6fcada5f54ab97057538a8a37b",
+    "shape_latent_oracle.py": "5f1482e0c40ea42f1d422a041718e42dcc99d13f1e7f1a637d9c48756c816edf",
+    "scripts/eval_shape_oracle.py": "01110673106f6df8105a3bc445ea10d99e3d718a6eb07c6ce7ce5345418d77ed",
+    "shape_latent_guidance.py": "e00fa4a8831d365904f159e3a51dacb3f04f9955bfa8f33835af0e467052f911",
+    "scripts/eval_shape_latent.py": "947ade0ddb19aae44c911ae505b6043e81224eba64043c788c780310941f9a97"
+  },
+  "integration_checks": [
+    "Exact independent NumPy recount on isolated latest-target tree",
+    "No-overwrite guard on integrated script",
+    "Seven downloaded primary source SHA256/byte identities",
+    "JSON parse and all new document relative links",
+    "Prior remote shared knowledge retained byte-for-byte",
+    "Only13curated knowledge/evidence files, no production diff",
+    "git diff --cached --check passed"
+  ]
+}

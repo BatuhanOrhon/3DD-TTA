@@ -54,3 +54,20 @@ model. See [selected design](../gsd_integration_20260922.md).
 [Open] Inherited PVCNN coordinate/grid operators expose partial coordinate
 derivatives, as recorded in `../code_audit_20260915.md`. CPU synthetic tests
 cannot establish exact gradients through the installed CUDA extensions.
+
+## 2026-10-31 — after clean-z oracle: mean refresh and conditional energy candidates
+
+[Run/Inference] [New analysis/report](../shape_latent_clean_free_research_20261031.md):
+97.8677% of aggregate diagonal posterior W2² clean/corrupt difference is mean
+shift under the accepted64-object/all15/seed0 preparation. Not a causal
+accuracy decomposition or an instruction to replace sampled z with mu.
+
+[Code/Proposal] encode_global accepts decoded2048×3 LION-frame points and
+returns mu/sigma without needing a new local encoder call. A proposed single
+refresh uses z_d+(mu(E_z(D(h*,z_d)))−mu_d), preserving original posterior
+sigma*eps. Must control against diffusion-off D(h_d,z_d) roundtrip and avoid
+classifier-frame renormalization/FPS as encoder input. LION clean-encoder
+fine-tuning results do not validate this frozen test-time cycle. Local
+p(h|z) also supplies a possible noise-prediction surrogate energy direction
+in z; not a calibrated conditional posterior with a few selected timesteps.
+Global DDM stays off, no new implementation or GPU evaluation.

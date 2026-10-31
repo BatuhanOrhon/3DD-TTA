@@ -2378,3 +2378,24 @@ supersede preceding clean-z/pilot-pending statuses only for this fixed host.
 [User report/Decision] User says local results are sufficient and no further
 Drive connection is needed. Extra derived-copy recovery is user-deferred;
 stop browser/Drive work. Completed raw/local acceptance remains authoritative.
+
+### Clean-data-free global direction research — 2026-10-31
+
+[User report/Run/Inference/Open] [Report and candidates](shape_latent_clean_free_research_20261031.md).
+- [x] User requests continuation after oracle results; start literature and
+  existing-artifact analysis, superseding only the earlier await-decision item.
+- [x] Separate diagonal posterior mean/scale change: aggregate W2² mean share
+  97.8677%, physical proofs/self-check/recount pass; no accuracy attribution.
+- [x] Inspect seven primary papers and distinguish transferred ideas from
+  missing measurement/training assumptions; keep operational global prior off.
+- [ ] Select/finalize first method: recommended single denoise→global-mean
+  refresh, original posterior noise retained, AE-only control; unimplemented.
+- [ ] Measure whether proposed direction is better than ordinary VAE cycle
+  toward clean mu; clean target remains diagnostic only, not inference input.
+- [ ] If supported, measure matched Point-MAE PM accuracy and whole two-pass
+  cost; no clean-label gate/radius tuning or unseen-confirmation claim.
+- [ ] Test local denoiser conditional-energy direction only as separate
+  candidate; calibration, timestep weighting and noise independence unresolved.
+- [ ] Any fresh GPU phase needs concrete source/setup/budget gates; no new
+  runtime or benchmark is implied by this report. Existing local raw sufficient;
+  do not reconnect Drive for the previously deferred extra copy.

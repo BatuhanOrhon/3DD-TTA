@@ -1,3 +1,15 @@
+**[User report/Run/Paper/Inference/Open] 2026-10-31 — oracle sonrası temiz-verisiz z araştırması:**
+[Yeni rapor ve üç aday](shape_latent_clean_free_research_20261031.md).
+30 fiziksel posterior/cache üzerinde yeni CPU hesabında, diagonal-Gaussian
+W2² farkının %97.8677'si ortalama kaymasındadır; bu accuracy açıklama yüzdesi
+veya kalibre bozulma hatası değildir. Yedi primary kaynak sabit sürümle incelendi.
+İlk öneri local denoising çıktısından global ortalama yönünü bir kez çıkarmak,
+AE-only çevrim kontrolüyle ayırmak ve ilk posterior noise'unu korumaktır.
+Local denoiser koşullu enerji ikinci, DMPlug-inspired seed optimizasyonu
+üçüncü adaydır. Hiçbiri uygulanmadı; yeni GPU/accuracy/Drive işlemi yok.
+Kullanıcı araştırmanın devamını istedi; algoritma/katsayı/GPU fazı henüz seçilmedi.
+Operasyonel global diffusion kapalıdır. Eski null ve pozitif oracle sonuçları korunur.
+
 **[Run/Code/Inference/Decision/Open] 2026-10-31 — temiz-z oracle pilotu tamamlandı:**
 [Sonuçlar ve sınırlar](shape_latent_oracle_results_20261031.md): aynı 64 nesne,
 ModelNet40-C/all15/seed0/Point-MAE. A referans %60.8333; B temiz-z/eski-h

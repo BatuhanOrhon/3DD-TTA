@@ -7886,3 +7886,35 @@ acceptance remain complete. No extra GPU allocation solely for transport.
 [User report/Decision] User says local results are sufficient and no further
 Drive connection is needed. Extra derived-copy recovery is user-deferred;
 stop browser/Drive work. Completed raw/local acceptance remains authoritative.
+
+## 2026-10-31 — oracle sonrası clean-data-free z araştırması ve posterior ayrıştırması
+
+[User report/Decision] User asks to start research toward useful global
+information without clean input. Existing worktree/branch/dirty changes
+preserved; fetch confirms shared target a002315. No new GPU/runtime/Drive action.
+[Report](shape_latent_clean_free_research_20261031.md).
+
+[Run] Read-only analysis of accepted oracle30proof/30A caches verifies all
+stored tensor hashes and sample equations. Diagonal-Gaussian W2² mean-shift
+energy share sum||delta_mu||²/sum(||delta_mu||²+||delta_sigma||²) is97.8677%.
+All15 median realized clean-z displacement33.9909%;960/960 outside old5%ball.
+Actual common-eps sample displacement also has a cross term; this share is
+not explained accuracy/variance or calibrated corruption error.64objects×15,
+seed0, same exposed dev cohort. No new inference/accuracy/parameter selection.
+
+[Paper/Inference] Fixed primary PSLD/RED-Diff/DMPlug/SILO/REED-VAE/MCLC/DiLO
+sources inspected and SHA-receipted. Recommend first testing one global
+posterior-mean refresh from baseline local-denoised decoder output in LION
+frame, retaining original sigma*eps and h. AE-only roundtrip is necessary
+mechanism control; cycle consistency is not correctness. Local conditional
+noise-prediction energy can supply a second candidate z direction; global
+seed optimization through DDIM is a costlier third candidate. None built.
+No exact posterior, full-method reproduction or novelty claim. Learned
+operators/decoder retraining deferred under frozen training-free protocol.
+
+[Run/Open] Synthetic algebra, all physical posterior/cache equations/hashes,
+exact independent derived recount and no-overwrite guard pass. New direction
+vectors cannot be inferred from logits/hash-only old output; new forward work
+would be needed. GPU source/phase/coefficient design not fixed; operational
+global prior off. User continuation supersedes earlier await-user-decision
+status only for this literature/diagnostic scope, not a full benchmark.

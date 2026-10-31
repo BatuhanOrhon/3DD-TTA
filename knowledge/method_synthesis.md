@@ -427,3 +427,22 @@ All960 clean-z samples lie outside previous5%ball, not proof of a better radius.
 D−A+16.875pp is a full canonical local-input intervention under dirtyA-h anchor,
 not a strict upper bound. Source labels, oracle leakage and no extra GPU scope
 remain explicit. User reviews results before any continuation.
+
+## 2026-10-31 — clean-data-free global direction, before more prior steps
+
+[Run/Inference] [Oracle follow-on research](shape_latent_clean_free_research_20261031.md)
+finds97.8677% of aggregate diagonal-Gaussian W2² clean/corrupt posterior
+difference in means, not scales. This does not establish accuracy causation
+or justify dropping posterior sampling. Existing bounded-prior null and
+clean-z headroom remain; useful condition-free proposal is still unproven.
+
+[Proposal/Open] First candidate: baseline denoise h once, decode in LION
+frame, infer global mu*, set z'=z_d+(mu*−mu_d), retaining sigma_d*eps and
+oldh/noise/Chamfer anchor. Compare AE-only encode–decode mean refresh to
+isolate denoising from cycle bias. One direction screen precedes an optional
+second local trajectory; total deployment cost includes both trajectories.
+Second: local denoiser noise-prediction surrogate energy gradient w.r.t.z,
+not exact conditional likelihood. Third: DMPlug-inspired differentiable
+short global seed optimization, deferred until a useful data direction exists.
+PSLD/RED-Diff/DMPlug/SILO/REED-VAE/MCLC/DiLO inform tradeoffs; no method is
+implemented, combined, made default, or claimed novel. No new GPU launch.
