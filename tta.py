@@ -39,7 +39,7 @@ def selective_chamfer_loss(dists1, dists2, num_points, *, normalize=False):
 def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     scheduler_observer=None, return_trajectory=False,
                     scd_normalize=False, prepared_state=None, state_observer=None,
-                    trajectory_observer=None, shape_guidance=None):
+                    trajectory_observer=None, shape_guidance=None, chamfer_reference=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -96,6 +96,12 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
             if latent_point.shape != (num_samples, 8192, 1, 1) or prepared_state['noise'].shape != latent_point.shape:
                 raise ValueError('Paired local latent/noise must be B x 8192 x 1 x 1')
         latent_point_reshaped = latent_point.view(num_samples, 2048, -1)[:, :, :3]
+        if chamfer_reference is not None:
+            if (chamfer_reference.shape != (num_samples, 2048, 3)
+                    or chamfer_reference.dtype != x.dtype or chamfer_reference.device != x.device
+                    or not torch.isfinite(chamfer_reference).all()):
+                raise ValueError('Invalid paired Chamfer reference')
+            latent_point_reshaped = chamfer_reference.detach()
         # latent_point_std = latent_point.std(dim=1).view(num_samples, 1, -1)
     
     # Global style conditioning

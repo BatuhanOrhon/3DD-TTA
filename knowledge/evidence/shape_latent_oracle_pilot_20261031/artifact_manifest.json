@@ -1,0 +1,61 @@
+{
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_dirty": true,
+  "source_manifest_sha256": "85057eeba260c7f2608f8ee38b3f9df7948af0754c444ba211654cf851a5e3bb",
+  "source_snapshot_sha256": "42d7f973b5897e63c813fb36684bfcbe83eddb15b45819694910a1a341263b55",
+  "scientific_source_files": {
+    "tta.py": {
+      "bytes": 8851,
+      "sha256": "7b58407da924dc09431f6940698772711efdee6fcada5f54ab97057538a8a37b"
+    },
+    "shape_latent_oracle.py": {
+      "bytes": 6201,
+      "sha256": "5f1482e0c40ea42f1d422a041718e42dcc99d13f1e7f1a637d9c48756c816edf"
+    },
+    "scripts/eval_shape_oracle.py": {
+      "bytes": 7368,
+      "sha256": "01110673106f6df8105a3bc445ea10d99e3d718a6eb07c6ce7ce5345418d77ed"
+    },
+    "tests/test_shape_latent_oracle.py": {
+      "bytes": 6016,
+      "sha256": "5ed98f062a7a3a56e2a8ee6ab42b7ca4f9549b263ecf2dc1c7119c6fbbb3dd73"
+    },
+    "tests/test_eval_shape_oracle.py": {
+      "bytes": 2390,
+      "sha256": "79aba972c2fca2c51c1a580002e3a522e70bfba4a6caab0f2d681ac235174bdd"
+    }
+  },
+  "archives": {
+    "smoke_raw.zip": {
+      "bytes": 52073193,
+      "sha256": "d89420d72f2e53ccd260195a97969ef4c482a430763490a6ea31928b8c9d60f9",
+      "local_path": "result/preparation/shape_latent_oracle_pilot_20261031/operator/smoke_raw.zip"
+    },
+    "pilot_raw.zip": {
+      "bytes": 621835687,
+      "sha256": "52bffe3f220bc76c3e9cdd486f033f954148b240515d3f33ad659795aa9ce033",
+      "local_path": "result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_raw.zip"
+    },
+    "deployment_cpu_raw.zip": {
+      "bytes": 1454065,
+      "sha256": "a5e4676a75a6695f3e78bee1fd46b575d809ac7dc07e7da1fdb91d6826884a3d",
+      "local_path": "result/preparation/shape_latent_oracle_pilot_20261031/operator/deployment_cpu_raw.zip"
+    },
+    "oracle_assets_v1.zip": {
+      "bytes": 2266031,
+      "sha256": "1e6d86afef987fa66fd2b4e04a2c231a1ca75b79882dd4921ded5e4336329505",
+      "local_path": "result/preparation/shape_latent_oracle_pilot_20261031/operator/oracle_assets_v1.zip"
+    },
+    "oracle_operator_v1.zip": {
+      "bytes": 17728,
+      "sha256": "603204bacd3afc887484dac60a31b66a8ab47fbac41b6685e8db778d26707294",
+      "local_path": "result/preparation/shape_latent_oracle_pilot_20261031/operator/oracle_operator_v1.zip"
+    }
+  },
+  "drive_root": "MyDrive/thesis/result/shape_latent_oracle_pilot_20261031",
+  "raw_drive_directory": "phase-evidence",
+  "pilot_archive_name": "phase_pilot_20261031T144709415984Z.zip",
+  "smoke_archive_name": "phase_smoke_20261031T144156363065Z.zip",
+  "deployment_archive_name": "deployment_20261031T143956066282Z/deployment_cpu_evidence.zip"
+}

@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "arms": {
+    "baseline": {
+      "macro_percent": 60.83333333333333,
+      "per_corruption_percent": {
+        "uniform": 70.3125,
+        "gaussian": 71.875,
+        "background": 56.25,
+        "impulse": 71.875,
+        "upsampling": 71.875,
+        "distortion_rbf": 62.5,
+        "distortion_rbf_inv": 59.375,
+        "density": 68.75,
+        "density_inc": 82.8125,
+        "shear": 67.1875,
+        "rotation": 25.0,
+        "cutout": 70.3125,
+        "distortion": 60.9375,
+        "occlusion": 45.3125,
+        "lidar": 28.125
+      },
+      "reconstruction_and_terminal_seconds": 118.51973379400124,
+      "run_id": "20261031-144709_pointmae-seed0"
+    },
+    "clean_pair": {
+      "macro_percent": 77.70833333333333,
+      "per_corruption_percent": {
+        "uniform": 82.8125,
+        "gaussian": 84.375,
+        "background": 56.25,
+        "impulse": 82.8125,
+        "upsampling": 84.375,
+        "distortion_rbf": 84.375,
+        "distortion_rbf_inv": 81.25,
+        "density": 84.375,
+        "density_inc": 84.375,
+        "shear": 76.5625,
+        "rotation": 60.9375,
+        "cutout": 84.375,
+        "distortion": 82.8125,
+        "occlusion": 71.875,
+        "lidar": 64.0625
+      },
+      "reconstruction_and_terminal_seconds": 91.52558743599366,
+      "run_id": "20261031-145355_pointmae-seed0"
+    },
+    "clean_z_fixed_h": {
+      "macro_percent": 64.89583333333333,
+      "per_corruption_percent": {
+        "uniform": 78.125,
+        "gaussian": 76.5625,
+        "background": 62.5,
+        "impulse": 75.0,
+        "upsampling": 81.25,
+        "distortion_rbf": 64.0625,
+        "distortion_rbf_inv": 60.9375,
+        "density": 73.4375,
+        "density_inc": 84.375,
+        "shear": 65.625,
+        "rotation": 34.375,
+        "cutout": 75.0,
+        "distortion": 56.25,
+        "occlusion": 48.4375,
+        "lidar": 37.5
+      },
+      "reconstruction_and_terminal_seconds": 91.38912368600177,
+      "run_id": "20261031-144943_pointmae-seed0"
+    },
+    "clean_z_reencode_h": {
+      "macro_percent": 63.020833333333336,
+      "per_corruption_percent": {
+        "uniform": 71.875,
+        "gaussian": 73.4375,
+        "background": 64.0625,
+        "impulse": 70.3125,
+        "upsampling": 75.0,
+        "distortion_rbf": 60.9375,
+        "distortion_rbf_inv": 60.9375,
+        "density": 73.4375,
+        "density_inc": 82.8125,
+        "shear": 64.0625,
+        "rotation": 32.8125,
+        "cutout": 73.4375,
+        "distortion": 60.9375,
+        "occlusion": 46.875,
+        "lidar": 34.375
+      },
+      "reconstruction_and_terminal_seconds": 91.43368787299914,
+      "run_id": "20261031-145149_pointmae-seed0"
+    }
+  },
+  "paired_comparisons": {
+    "clean_z_fixed_h-baseline": {
+      "delta_pp": 4.0625,
+      "corrected": 56,
+      "harmed": 17
+    },
+    "clean_z_reencode_h-baseline": {
+      "delta_pp": 2.1875,
+      "corrected": 39,
+      "harmed": 18
+    },
+    "clean_z_reencode_h-clean_z_fixed_h": {
+      "delta_pp": -1.875,
+      "corrected": 19,
+      "harmed": 37
+    },
+    "clean_pair-clean_z_reencode_h": {
+      "delta_pp": 14.6875,
+      "corrected": 179,
+      "harmed": 38
+    },
+    "clean_pair-baseline": {
+      "delta_pp": 16.875,
+      "corrected": 196,
+      "harmed": 34
+    }
+  },
+  "identity": {
+    "asset_manifest_sha256": "85057eeba260c7f2608f8ee38b3f9df7948af0754c444ba211654cf851a5e3bb",
+    "source_snapshot_sha256": "42d7f973b5897e63c813fb36684bfcbe83eddb15b45819694910a1a341263b55",
+    "classifier_state_before_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+    "lion_state_before": {
+      "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+      "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+    },
+    "executed_source_sha256": "65500726ee5bc01521e30b21ffddb8d2fdd90e6376bbdb534fb60254e392ce32"
+  },
+  "physical_cache_files": 30,
+  "limits": "Fixed exposed IDs/seed0 oracle diagnosis, not deployed TTA. D changes whole canonical local input and is constrained by A-h anchor; no upper bound."
+}

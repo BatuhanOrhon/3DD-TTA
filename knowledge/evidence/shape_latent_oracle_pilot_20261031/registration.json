@@ -1,0 +1,65 @@
+{
+  "session": "tta-shape-oracle-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-1b1f398ijpuro",
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_dirty": true,
+  "manifest": {
+    "bytes": 131023,
+    "sha256": "85057eeba260c7f2608f8ee38b3f9df7948af0754c444ba211654cf851a5e3bb"
+  },
+  "source_snapshot": {
+    "bytes": 1145502,
+    "sha256": "42d7f973b5897e63c813fb36684bfcbe83eddb15b45819694910a1a341263b55"
+  },
+  "research_cap_seconds": 3300,
+  "arms": [
+    "baseline",
+    "clean_z_fixed_h",
+    "clean_z_reencode_h",
+    "clean_pair"
+  ],
+  "scope": "ModelNet40-C severity5;PointMAE;64exposed IDs/all15/seed0;32GB technical gate;global prior off;N8/B35 PM",
+  "operator_files": {
+    "deploy_assets_template.py": {
+      "bytes": 14413,
+      "sha256": "89fef5cf42dc27db444c89926bdd3aefac8cb8b14727a747256a515c08ca32d0"
+    },
+    "deploy_runtime.py": {
+      "bytes": 5723,
+      "sha256": "2d8fdfb14c62c5778c1dba231803286f698d65d470ab7fa2efebe6fc655666a3"
+    },
+    "deploy_wrapper.py": {
+      "bytes": 349,
+      "sha256": "295d05becbcde87a21938d693bb144f36104685ee2b2f96008c349fd6528f4f7"
+    },
+    "asset_identity_v1.json": {
+      "bytes": 507,
+      "sha256": "8a9038f03b6561db0bfb553cddc92f89ae8c956e4a086ef7b7e73f891137db4b"
+    },
+    "run_phase.py": {
+      "bytes": 7968,
+      "sha256": "5e47cf4fd1d0e75d1c238c680f941b35b9ab3f82dfeead661635c9b23a3d7dbe"
+    },
+    "analyze_phase.py": {
+      "bytes": 11729,
+      "sha256": "cfb2118b7e6288b3dae4562fbe959cb4b8440008894ffab8060d99d0a125333b"
+    },
+    "modelnet40_c_smoke_ids.json": {
+      "bytes": 721,
+      "sha256": "ba829e7f44e3ac06aa155ea3d41f516ff6256ecd85ea5deb9db54d72f39f8850"
+    },
+    "modelnet40_c_development_ids.json": {
+      "bytes": 1030,
+      "sha256": "d095c6efd8188c690dcad507b7e932f70987b02fb845d0c82d3cf177683bf99a"
+    },
+    "run_smoke_wrapper.py": {
+      "bytes": 365,
+      "sha256": "a82039c74bbf8d217be28fc4d729f42fdf3e2e7215b29a350a436ce4ad349d65"
+    },
+    "run_pilot_wrapper.py": {
+      "bytes": 365,
+      "sha256": "27c79d1d06332b0e30ef2bc0386e1a9f9fbb3b37e856ac09eae05fdec4f64405"
+    }
+  }
+}

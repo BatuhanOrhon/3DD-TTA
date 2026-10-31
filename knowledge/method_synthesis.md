@@ -403,3 +403,27 @@ still pushes Gaussian z much farther than native style adaptation. This is
 mechanism evidence and a null exploratory result, not a proof global priors
 cannot help. Clean-z oracle and conditional-h compatibility remain untested.
 No extra GPU phase or coefficient search follows automatically.
+
+## 2026-10-31 — before compatibility guidance, measure clean-global headroom
+
+[User report/Decision/Inference/Open] User prioritizes and approves a small
+[clean-z four-arm diagnosis](shape_latent_oracle_pilot_20261031.md). Retain global
+diffusion off. Compare original pair, clean-z/fixed-h, clean-z/conditional-h
+from corrupted input, and clean pair; all preserve dirty Chamfer target and
+matched random draws. Conditional reencoding tests a structural hypothesis,
+not guaranteed compatibility. Proposed second-guidance metrics remain deferred.
+Clean inputs are oracle information, not permissible deployed TTA evidence.
+
+## 2026-10-31 — clean-global headroom positive, reencoding adds no gain
+
+[Run/Inference/Decision] [Four-arm clean oracle](shape_latent_oracle_results_20261031.md)
+gives B−A+4.0625pp and mainC−A+2.1875pp with positive conditional original-object
+95% intervals, fixed64/all15/seed0/Point-MAE. B retains oldh, C reencodes
+corrupted X under cleanz; C−B−1.875pp intervaltouches0. Global information is
+useful in this host, while changed-pair incompatibility is not established as
+the principal failure cause. Keep operational global prior off; generating
+useful clean-global information without clean input is the open mechanism.
+All960 clean-z samples lie outside previous5%ball, not proof of a better radius.
+D−A+16.875pp is a full canonical local-input intervention under dirtyA-h anchor,
+not a strict upper bound. Source labels, oracle leakage and no extra GPU scope
+remain explicit. User reviews results before any continuation.

@@ -1,0 +1,80 @@
+{
+  "metrics": {
+    "baseline": {
+      "correct": 584,
+      "events": 960,
+      "all15_percent": 60.83333333333333,
+      "macro14_percent": 61.16071428571429,
+      "background_percent": 56.25
+    },
+    "clean_pair": {
+      "correct": 746,
+      "events": 960,
+      "all15_percent": 77.70833333333333,
+      "macro14_percent": 79.24107142857143,
+      "background_percent": 56.25
+    },
+    "clean_z_fixed_h": {
+      "correct": 623,
+      "events": 960,
+      "all15_percent": 64.89583333333333,
+      "macro14_percent": 65.06696428571429,
+      "background_percent": 62.5
+    },
+    "clean_z_reencode_h": {
+      "correct": 605,
+      "events": 960,
+      "all15_percent": 63.020833333333336,
+      "macro14_percent": 62.94642857142857,
+      "background_percent": 64.0625
+    }
+  },
+  "contrasts": {
+    "clean_z_fixed_h-baseline": {
+      "delta_pp": 4.0625,
+      "corrected": 56,
+      "harmed": 17,
+      "conditional_object_bootstrap_95": [
+        1.9791666666666665,
+        6.354166666666666
+      ]
+    },
+    "clean_z_reencode_h-baseline": {
+      "delta_pp": 2.1875,
+      "corrected": 39,
+      "harmed": 18,
+      "conditional_object_bootstrap_95": [
+        0.625,
+        3.854166666666667
+      ]
+    },
+    "clean_z_reencode_h-clean_z_fixed_h": {
+      "delta_pp": -1.875,
+      "corrected": 19,
+      "harmed": 37,
+      "conditional_object_bootstrap_95": [
+        -3.958333333333333,
+        8.782037597131008e-17
+      ]
+    },
+    "clean_pair-clean_z_reencode_h": {
+      "delta_pp": 14.6875,
+      "corrected": 179,
+      "harmed": 38,
+      "conditional_object_bootstrap_95": [
+        9.895833333333332,
+        19.583333333333332
+      ]
+    },
+    "clean_pair-baseline": {
+      "delta_pp": 16.875,
+      "corrected": 196,
+      "harmed": 34,
+      "conditional_object_bootstrap_95": [
+        11.875,
+        21.875
+      ]
+    }
+  },
+  "scope": "64exposed objects;15fixed corruptions;seed0;10,000 original-object bootstrap draws;clean oracle not deployed TTA;D changes full canonical local input under A-h anchor;no multiplicity correction"
+}

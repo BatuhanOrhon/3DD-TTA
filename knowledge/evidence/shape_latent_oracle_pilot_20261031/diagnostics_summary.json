@@ -1,0 +1,363 @@
+{
+  "displacement": {
+    "background": {
+      "clean_z_relative": {
+        "median": 0.36526661463035104,
+        "maximum": 0.7955105893689514,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.012159367625827033,
+        "maximum": 0.053796551266036934,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.4052107263704243,
+        "maximum": 1.8984441262101919,
+        "objects": 64
+      }
+    },
+    "cutout": {
+      "clean_z_relative": {
+        "median": 0.22712176001167417,
+        "maximum": 0.6142342334325157,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.006460041739350738,
+        "maximum": 0.030686194628224615,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.2818110955974509,
+        "maximum": 1.368127027298764,
+        "objects": 64
+      }
+    },
+    "density": {
+      "clean_z_relative": {
+        "median": 0.27077928282016417,
+        "maximum": 0.5907870458013558,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.007594019818137373,
+        "maximum": 0.03531652084358726,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.2851168121057435,
+        "maximum": 1.3652645979571982,
+        "objects": 64
+      }
+    },
+    "density_inc": {
+      "clean_z_relative": {
+        "median": 0.232776834226946,
+        "maximum": 0.6134591391265278,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.006763801157987529,
+        "maximum": 0.02703190943993496,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.2822955394248408,
+        "maximum": 1.3941318627005763,
+        "objects": 64
+      }
+    },
+    "distortion": {
+      "clean_z_relative": {
+        "median": 0.33950395118766213,
+        "maximum": 0.6376042999556362,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.01065205778280336,
+        "maximum": 0.04138205863743903,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.3198904036090402,
+        "maximum": 1.4915673599896948,
+        "objects": 64
+      }
+    },
+    "distortion_rbf": {
+      "clean_z_relative": {
+        "median": 0.3045468933361186,
+        "maximum": 0.6017820822060153,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.011301124305377643,
+        "maximum": 0.04542024330554881,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.310835298111475,
+        "maximum": 1.4593751317212205,
+        "objects": 64
+      }
+    },
+    "distortion_rbf_inv": {
+      "clean_z_relative": {
+        "median": 0.29565472316440394,
+        "maximum": 0.6712296170732223,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.011126951900087303,
+        "maximum": 0.04549700536576369,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.310125741115867,
+        "maximum": 1.4396654953309735,
+        "objects": 64
+      }
+    },
+    "gaussian": {
+      "clean_z_relative": {
+        "median": 0.3787642285470153,
+        "maximum": 0.6609192249703195,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.016859461465091548,
+        "maximum": 0.0559380286401827,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.322600169941149,
+        "maximum": 1.4401213780667652,
+        "objects": 64
+      }
+    },
+    "impulse": {
+      "clean_z_relative": {
+        "median": 0.28634519221416777,
+        "maximum": 0.6633504769815666,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.012131149872657013,
+        "maximum": 0.05552288515119802,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.3341608181813442,
+        "maximum": 1.4692040247775862,
+        "objects": 64
+      }
+    },
+    "lidar": {
+      "clean_z_relative": {
+        "median": 0.5044863650146858,
+        "maximum": 0.8641013963285392,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.01569138471959743,
+        "maximum": 0.04725806936024348,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.282879185526953,
+        "maximum": 1.4306024699882736,
+        "objects": 64
+      }
+    },
+    "occlusion": {
+      "clean_z_relative": {
+        "median": 0.5308826704135439,
+        "maximum": 0.8294073850686725,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.024268529932811766,
+        "maximum": 0.052155518801024155,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.3092472634276793,
+        "maximum": 1.4296707549696515,
+        "objects": 64
+      }
+    },
+    "rotation": {
+      "clean_z_relative": {
+        "median": 0.35870481343953997,
+        "maximum": 0.6663596877353642,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.010003249790986601,
+        "maximum": 0.040597452679973466,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.330432219318994,
+        "maximum": 1.627482331832966,
+        "objects": 64
+      }
+    },
+    "shear": {
+      "clean_z_relative": {
+        "median": 0.2784177933545431,
+        "maximum": 0.6587156184660232,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.00683365260506561,
+        "maximum": 0.031914674582374764,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.2898482219012921,
+        "maximum": 1.5574033481474605,
+        "objects": 64
+      }
+    },
+    "uniform": {
+      "clean_z_relative": {
+        "median": 0.35950560575614104,
+        "maximum": 0.6386670019211358,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.01422768083218104,
+        "maximum": 0.0502150067592437,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.3055292356362103,
+        "maximum": 1.4190155630383283,
+        "objects": 64
+      }
+    },
+    "upsampling": {
+      "clean_z_relative": {
+        "median": 0.32325637448549027,
+        "maximum": 0.6646143794536483,
+        "objects": 64
+      },
+      "reencoded_h_relative": {
+        "median": 0.012267333539985114,
+        "maximum": 0.046143808608431,
+        "objects": 64
+      },
+      "clean_h_relative": {
+        "median": 1.3118239799225924,
+        "maximum": 1.4111617400221077,
+        "objects": 64
+      }
+    }
+  },
+  "timing": {
+    "baseline": {
+      "worker_wall_seconds": 149.9598830340001,
+      "reconstruction_and_terminal_seconds": 118.51973379400124,
+      "peak_whole_process_gpu_memory_mib": 25221.296875,
+      "run_id": "20261031-144709_pointmae-seed0"
+    },
+    "clean_pair": {
+      "worker_wall_seconds": 122.75850959299987,
+      "reconstruction_and_terminal_seconds": 91.52558743599366,
+      "peak_whole_process_gpu_memory_mib": 25221.171875,
+      "run_id": "20261031-145355_pointmae-seed0"
+    },
+    "clean_z_fixed_h": {
+      "worker_wall_seconds": 122.77037382199978,
+      "reconstruction_and_terminal_seconds": 91.38912368600177,
+      "peak_whole_process_gpu_memory_mib": 25221.171875,
+      "run_id": "20261031-144943_pointmae-seed0"
+    },
+    "clean_z_reencode_h": {
+      "worker_wall_seconds": 122.80112310599998,
+      "reconstruction_and_terminal_seconds": 91.43368787299914,
+      "peak_whole_process_gpu_memory_mib": 25221.921875,
+      "run_id": "20261031-145149_pointmae-seed0"
+    }
+  },
+  "oracle_radius": {
+    "background": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.1410714245663914
+    },
+    "cutout": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.08617142326723572
+    },
+    "density": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.0893026491512862
+    },
+    "density_inc": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.07532227605031223
+    },
+    "distortion": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.1121097453164693
+    },
+    "distortion_rbf": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.07323242545952235
+    },
+    "distortion_rbf_inv": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.08545406698723856
+    },
+    "gaussian": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.1160992144236531
+    },
+    "impulse": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.110603649896866
+    },
+    "lidar": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.3015586149786158
+    },
+    "occlusion": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.232563315613281
+    },
+    "rotation": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.10589213841784761
+    },
+    "shear": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.07386806984265305
+    },
+    "uniform": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.13443103762526293
+    },
+    "upsampling": {
+      "objects": 64,
+      "outside_previous_05_ball": 64,
+      "minimum": 0.12347952812714394
+    }
+  },
+  "limits": "Descriptive under paired encoder draws. A creates every oracle posterior/proof; other arms replay common preparation. No matched deployment timing or oracle-density calibration claim. Clean-h pointwise L2 also changes ordering/resampling and is not a geometric error metric."
+}

@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "arms": {
+    "baseline": {
+      "macro_percent": 70.3125,
+      "per_corruption_percent": {
+        "gaussian": 75.0,
+        "background": 65.625
+      },
+      "reconstruction_and_terminal_seconds": 13.451653340999655,
+      "run_id": "20261031-144156_pointmae-seed0"
+    },
+    "clean_pair": {
+      "macro_percent": 76.5625,
+      "per_corruption_percent": {
+        "gaussian": 87.5,
+        "background": 65.625
+      },
+      "reconstruction_and_terminal_seconds": 11.501936874999956,
+      "run_id": "20261031-144345_pointmae-seed0"
+    },
+    "clean_z_fixed_h": {
+      "macro_percent": 73.4375,
+      "per_corruption_percent": {
+        "gaussian": 81.25,
+        "background": 65.625
+      },
+      "reconstruction_and_terminal_seconds": 11.548892132000674,
+      "run_id": "20261031-144234_pointmae-seed0"
+    },
+    "clean_z_reencode_h": {
+      "macro_percent": 70.3125,
+      "per_corruption_percent": {
+        "gaussian": 71.875,
+        "background": 68.75
+      },
+      "reconstruction_and_terminal_seconds": 11.508698784999979,
+      "run_id": "20261031-144309_pointmae-seed0"
+    }
+  },
+  "paired_comparisons": {
+    "clean_z_fixed_h-baseline": {
+      "delta_pp": 3.125,
+      "corrected": 4,
+      "harmed": 2
+    },
+    "clean_z_reencode_h-baseline": {
+      "delta_pp": 0.0,
+      "corrected": 2,
+      "harmed": 2
+    },
+    "clean_z_reencode_h-clean_z_fixed_h": {
+      "delta_pp": -3.125,
+      "corrected": 1,
+      "harmed": 3
+    },
+    "clean_pair-clean_z_reencode_h": {
+      "delta_pp": 6.25,
+      "corrected": 8,
+      "harmed": 4
+    },
+    "clean_pair-baseline": {
+      "delta_pp": 6.25,
+      "corrected": 9,
+      "harmed": 5
+    }
+  },
+  "identity": {
+    "asset_manifest_sha256": "85057eeba260c7f2608f8ee38b3f9df7948af0754c444ba211654cf851a5e3bb",
+    "source_snapshot_sha256": "42d7f973b5897e63c813fb36684bfcbe83eddb15b45819694910a1a341263b55",
+    "classifier_state_before_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+    "lion_state_before": {
+      "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+      "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+    },
+    "executed_source_sha256": "65500726ee5bc01521e30b21ffddb8d2fdd90e6376bbdb534fb60254e392ce32"
+  },
+  "physical_cache_files": 2,
+  "limits": "Fixed exposed IDs/seed0 oracle diagnosis, not deployed TTA. D changes whole canonical local input and is constrained by A-h anchor; no upper bound."
+}

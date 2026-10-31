@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "stage": "smoke",
+  "archive": {
+    "bytes": 52073193,
+    "sha256": "d89420d72f2e53ccd260195a97969ef4c482a430763490a6ea31928b8c9d60f9",
+    "local_path": "/content/studies/shape-oracle/phase_smoke_20261031T144156363065Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_oracle_pilot_20261031/phase-evidence/phase_smoke_20261031T144156363065Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 148.914365,
+    "completed": [
+      "smoke"
+    ],
+    "research_started_utc": "2026-10-31T14:41:56.363042+00:00",
+    "smoke_acceptance": "passed"
+  },
+  "output": "/content/studies/shape-oracle/phase_smoke_20261031T144156363065Z",
+  "cache_root": "/content/studies/shape-oracle/phase_smoke_20261031T144156363065Z/paired"
+}

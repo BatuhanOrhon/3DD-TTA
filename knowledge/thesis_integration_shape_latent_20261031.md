@@ -46,3 +46,9 @@ To retain that identity, whitespace checking accepts archived CSV CRLF and the
 sealed test's final blank line (`cr-at-eol,-blank-at-eof`); default diff-check
 flags report those formatting cases. No functional check is waived. Local
 recount using the latest publication tree exactly matches actual acceptance.
+
+[Run] Publication verified13:38UTC: normal fast-forward push to
+`origin/thesis-integration` at `be3bdcaa5e336a8ebee06db9369fbc5918219add`. Clean publication checkout;
+source branch/HEAD and dirty research preserved. Actual local receipt:
+`result/preparation/shape_latent_tta_study_20261031/operator/publication_receipt.json`.
+Owned r1 still present in server inventory; no closure action.

@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "repository_tests": {
+    "passed": 519,
+    "skipped": 1,
+    "subtests_passed": 373,
+    "warnings": 7
+  },
+  "operator_selfchecks": 4,
+  "red_green": [
+    "missing feature",
+    "actual Gaussian draws versus aliased sample rho",
+    "common A-h Chamfer anchor",
+    "correct oracle metadata/physical prepared inputs"
+  ],
+  "logs": {
+    "operator/preparation_red.log": {
+      "bytes": 13239,
+      "sha256": "87dc7d1c14d2a2d9d5f1476ca6b31fd6f08ff58de42c876ec09047ee337125e5"
+    },
+    "operator/eps_alias_red.log": {
+      "bytes": 2032,
+      "sha256": "50b398ac6bdf1357ee5aa3367f79e10715e3efedd3d4af39f1924fae997337bf"
+    },
+    "operator/common_anchor_red.log": {
+      "bytes": 2900,
+      "sha256": "283697f68a0d2f35dc1de484976ae2cede063b5bbb29781f64259bed356a16db"
+    },
+    "operator/review_fix_red.log": {
+      "bytes": 7092,
+      "sha256": "f71461ebd614963d6426f41ce6e6f24cdd891e7136832beb20852f12dbbe6ba1"
+    },
+    "operator/cpu_suite_final.log": {
+      "bytes": 2361,
+      "sha256": "f91b02c4e181517e1154b462c5643fc83e801a0ed58a12dbb888e079eb848b5a"
+    },
+    "operator/operator_checks.log": {
+      "bytes": 98,
+      "sha256": "1efbd5fc9da76a71b0acad1451577d9edfe50962077b19e434edf3ce3a299dba"
+    },
+    "operator/posterior_acceptance_checks.log": {
+      "bytes": 585,
+      "sha256": "5aa8ff91c04959a2e6452abb4af3bd85c9705f35b6d57ae75c2f0b8b378d2ff9"
+    }
+  }
+}

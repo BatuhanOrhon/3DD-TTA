@@ -1,0 +1,22 @@
+{
+  "base_commit": "be3bdcaa5e336a8ebee06db9369fbc5918219add",
+  "passed": 535,
+  "subtests_passed": 412,
+  "skipped": 61,
+  "numpy1_separate_passed": 60,
+  "historical_skip": 1,
+  "warnings": 7,
+  "gpu_rerun_of_integration_tree": false,
+  "logs": {
+    "integration_cpu.log": {
+      "bytes": 2430,
+      "sha256": "8977f3905013d8ea9ad2707fbfea523ebdf5869de31e65b48ad5b1e1ac787adb"
+    },
+    "integration_numpy1.log": {
+      "bytes": 99,
+      "sha256": "2f99c6fa2eb23e00584087f8f18d634c65690ea3b6f3ee972d17faec5a322c4f"
+    }
+  },
+  "latest_tree_independent_raw_recount": "passed; exact equality with actual remote pilot acceptance",
+  "scientific_source_files_byte_identical": 5
+}

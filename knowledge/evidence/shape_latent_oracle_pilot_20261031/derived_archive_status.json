@@ -1,0 +1,22 @@
+{
+  "status": "local_validated_extra_drive_copy_user_deferred",
+  "archive": {
+    "bytes": 2311574,
+    "sha256": "70eb6a04c9a18011129cf993ffcc68dd8fa399083b130a44c1fb8ebd2f5dc926",
+    "local_path": "result/preparation/shape_latent_oracle_pilot_20261031/operator/derived_analysis_v1.zip"
+  },
+  "raw_phase_drive_backup": "passed and downloaded/independently accepted before runtime loss",
+  "runtime": {
+    "session": "tta-shape-oracle-a100-20261031-r1",
+    "endpoint": "gpu-a100-hm-ass1c0-1b1f398ijpuro",
+    "observed_utc": "2026-10-31T15:20:37Z",
+    "server_inventory": "no active sessions",
+    "agent_teardown_performed": false,
+    "loss_time_or_cause": "unknown"
+  },
+  "last_transfer_failure": "Colab archive upload returned Session not found; no derived Drive receipt exists",
+  "browser_fallback": "Drive navigation denied by browser security policy: user declined permission; not retried or circumvented",
+  "scientific_result_status": "complete; all raw/cache/source/posterior/RNG/PM evidence already preserved Drive+local",
+  "extra_gpu_allocation": false,
+  "user_decision": "User explicitly says no Drive reconnection needed because all results have been retrieved locally; stop Drive/browser recovery"
+}

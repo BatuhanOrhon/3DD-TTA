@@ -2341,3 +2341,40 @@ pilot-pending statuses above.
 - [ ] Multiple diffusion seeds, unseen confirmation, other datasets/heads and
   matched fresh/replay timing remain untested, not implicitly authorized.
 - [ ] Obtain explicit task-complete+close permission for own live r1.
+
+### Clean-z oracle follow-up authorized — 2026-10-31
+
+[User report/Decision/Open] [Recorded before launch](shape_latent_oracle_pilot_20261031.md).
+- [x] Preserve preceding null results, h−z hypothesis and four-arm interpretation.
+- [ ] Verify clean/corrupt object mapping and paired posterior/encoder RNG.
+- [ ] Run only small four-arm pilot after CPU/native/source gates.
+- [ ] Recount all paired outcomes and inspect clean-z benefit versus h compatibility.
+- [ ] Decide further work with user after results; no automatic full-data phase.
+
+### Clean-z oracle pilot accepted — 2026-10-31
+
+[Run/Inference/Decision/Open] [Results](shape_latent_oracle_results_20261031.md)
+supersede preceding clean-z/pilot-pending statuses only for this fixed host.
+- [x] Verify same original-ID slices/asset identities and common Gaussian
+  posterior/diffusion noise; preserve both physical prepared inputs and RNG.
+- [x] Complete four-arm64/all15/seed0 pilot after GB32 gate; no full data sweep.
+- [x] Recount raw PM/source/state/posterior/anchor/cache; all matches remote.
+- [x] Find clean-global headroom: B−A+4.0625pp, C−A+2.1875pp, conditional95%
+  above0; clean input is oracle information, not deployed-TTA validation.
+- [x] Separate conditional reencoding: C does not exceedB; mismatch explanation
+  and compatibility-guidance necessity remain unproven.
+- [ ] Determine a clean-data-free way to obtain useful global information;
+  no radius grid, additional solver, seed or full-data run authorized by result.
+- [ ] User decides continuation after reviewing results; operational prior off.
+- [ ] Explicit task-complete+close permission needed for live new oracle r1.
+
+[Run/Failure/Open] Latest oracle runtime status supersedes live-r1 items above:
+15:20UTC server inventory empty after raw retrieval; no agent teardown.
+- [ ] If later requested and authorized access exists, copy the locally sealed
+  derived/source/operator capsule to Drive and verify roundtrip; raw backups
+  already complete. Browser Drive permission was denied, no workaround.
+- [ ] Resolve unexplained runtime disappearance separately; no cause claimed.
+
+[User report/Decision] User says local results are sufficient and no further
+Drive connection is needed. Extra derived-copy recovery is user-deferred;
+stop browser/Drive work. Completed raw/local acceptance remains authoritative.

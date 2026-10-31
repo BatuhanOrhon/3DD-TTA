@@ -1,0 +1,82 @@
+{
+  "events": 960,
+  "outside_previous_05_ball": 960,
+  "per_corruption": {
+    "background": {
+      "minimum": 0.1410714245663914,
+      "median": 0.36526661463035104,
+      "outside_05": 64
+    },
+    "cutout": {
+      "minimum": 0.08617142326723572,
+      "median": 0.22712176001167417,
+      "outside_05": 64
+    },
+    "density": {
+      "minimum": 0.0893026491512862,
+      "median": 0.27077928282016417,
+      "outside_05": 64
+    },
+    "density_inc": {
+      "minimum": 0.07532227605031223,
+      "median": 0.232776834226946,
+      "outside_05": 64
+    },
+    "distortion": {
+      "minimum": 0.1121097453164693,
+      "median": 0.33950395118766213,
+      "outside_05": 64
+    },
+    "distortion_rbf": {
+      "minimum": 0.07323242545952235,
+      "median": 0.3045468933361186,
+      "outside_05": 64
+    },
+    "distortion_rbf_inv": {
+      "minimum": 0.08545406698723856,
+      "median": 0.29565472316440394,
+      "outside_05": 64
+    },
+    "gaussian": {
+      "minimum": 0.1160992144236531,
+      "median": 0.3787642285470153,
+      "outside_05": 64
+    },
+    "impulse": {
+      "minimum": 0.110603649896866,
+      "median": 0.28634519221416777,
+      "outside_05": 64
+    },
+    "lidar": {
+      "minimum": 0.3015586149786158,
+      "median": 0.5044863650146858,
+      "outside_05": 64
+    },
+    "occlusion": {
+      "minimum": 0.232563315613281,
+      "median": 0.5308826704135439,
+      "outside_05": 64
+    },
+    "rotation": {
+      "minimum": 0.10589213841784761,
+      "median": 0.35870481343953997,
+      "outside_05": 64
+    },
+    "shear": {
+      "minimum": 0.07386806984265305,
+      "median": 0.2784177933545431,
+      "outside_05": 64
+    },
+    "uniform": {
+      "minimum": 0.13443103762526293,
+      "median": 0.35950560575614104,
+      "outside_05": 64
+    },
+    "upsampling": {
+      "minimum": 0.12347952812714394,
+      "median": 0.32325637448549027,
+      "outside_05": 64
+    }
+  },
+  "limit": "Paired encoder/preprocessing sample differences, not pure corruption error or optimal correction distance."
+}

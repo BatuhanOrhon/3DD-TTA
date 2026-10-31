@@ -7831,3 +7831,58 @@ a small intervention. Cause and h-z compatibility remain unseparated.
 raw ZIP and Drive hashes verified. Preserved initial controller status error
 and explicit baseline reuse.22.295min research elapsed under55mincap;
 no extra grid/seeds/Scan/fullbenchmark. Own r1live, no teardown authorization.
+
+### 2026-10-31 — clean-z diagnosis prioritized and small pilot authorized
+
+[User report/Decision/Inference/Open] Following the completed null global-prior
+pilot, user first requests determining whether clean global information can
+help at all, while controlling the changed h−z pair. Four-arm diagnostic
+[design/status](shape_latent_oracle_pilot_20261031.md) recorded before execution.
+Same exposed64/all15/seed0/Point-MAE, no full sweep. Clean z is encoder output
+from paired clean object; C reencodes corrupt X under clean z, D uses clean
+X for both. Shared posterior draws/local diffusion noise, dirty Chamfer target
+and matched re-run A. Global diffusion stays off; second compatibility guidance
+is deferred, no implementation/result/causal mismatch claim yet. Existing own
+r1 assigned to this follow-up pending verification; no teardown authorization.
+
+### 2026-10-31 — clean-z oracle accepted: useful global information exists
+
+[Run/Inference] [Accepted four-arm result](shape_latent_oracle_results_20261031.md):
+64exposed original ModelNet objects/all15/seed0/Point-MAE/N8-B35 PM. FreshA
+584/960=60.833333%; B clean-z/exactA-h623/960=64.895833%; C clean-z/conditional
+h from corrupted X605/960=63.020833%; D clean pair746/960=77.708333%.
+B−A+4.0625pp conditional object95%[1.979167,6.354167]; mainC−A+2.1875pp
+[.625000,3.854167]. C−B−1.875pp[-3.958333,0], no added reencoding gain.
+D−A+16.875pp but changes canonical local input/normalization/interpolation
+and remains under corrupted A-h anchor, not a formal upper bound.
+
+[Code/Run] Explicit eps_z/eps_h avoid aliased Normal.sample rho return. Existing
+TTA uses initial hXYZ rather than rawX as SCD target; new opt-in fixed reference
+keeps A-hXYZ common across arms without changing default host. Independent
+normalization kept after review; ModelNet output renormalizes, unlike Scan.
+120rawbatch/30common/30posterior/120selected-cache physical/source/state/RNG/
+posterior-equation/PM acceptance equals remote. Shared research907.6917s;
+raw621835687byte SHA52bffe3f220bc76c3e9cdd486f033f954148b240515d3f33ad659795aa9ce033
+verified Drive/local/CRC. Actual source338-file dirtya82200ad capsule, manifest
+85057eeba260c7f2608f8ee38b3f9df7948af0754c444ba211654cf851a5e3bb.
+
+[Inference/Decision/Open] All960 clean-z samples lie outside the prior5%ball;
+these are paired encoder/preprocessing differences, not pure corruption errors
+or proof increasing radius helps. Clean global information can improve this
+host; current global-denoiser null does not justify abandoning shape-latent
+research. Operational prior remains off; compatibility guidance necessity is
+unproven, no extra seed/fullbenchmark/new solver auto-launch. Prior own r1
+unexpectedly absent; user accepted new oracle r1, canonical10cell setup passed,
+all evidence retrieved; new r1 preserved with no teardown authorization.
+
+[Run/Failure/Open] Oracle follow-up final archival observation15:20UTC: second
+owned runtime absent in server inventory after completed/raw-accepted pilot;
+no agent stop/release. Cause/time unknown. Extra derived ZIP2311574bytes SHA
+70eb6a04c9a18011129cf993ffcc68dd8fa399083b130a44c1fb8ebd2f5dc926 validated
+locally; additional Drive roundtrip pending. Browser fallback denied user
+permission, not retried. Raw phase Drive/local backups and scientific result
+acceptance remain complete. No extra GPU allocation solely for transport.
+
+[User report/Decision] User says local results are sufficient and no further
+Drive connection is needed. Extra derived-copy recovery is user-deferred;
+stop browser/Drive work. Completed raw/local acceptance remains authoritative.

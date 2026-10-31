@@ -1,0 +1,15 @@
+{
+  "stage": "pilot",
+  "status": "complete",
+  "completed_arms": [
+    "baseline",
+    "clean_z_fixed_h",
+    "clean_z_reencode_h",
+    "clean_pair"
+  ],
+  "source_manifest": {
+    "bytes": 131023,
+    "sha256": "85057eeba260c7f2608f8ee38b3f9df7948af0754c444ba211654cf851a5e3bb"
+  },
+  "wall_seconds_before_archive": 562.4654808539999
+}

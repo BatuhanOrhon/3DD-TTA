@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "single_original_object_changed_all15": {
+    "delta_pp": 1.5625,
+    "corrected": 15,
+    "harmed": 0,
+    "conditional_object_bootstrap_95": [
+      0.0,
+      4.6875
+    ]
+  },
+  "scope": "synthetic arithmetic/cluster bootstrap selfcheck, not model evidence"
+}

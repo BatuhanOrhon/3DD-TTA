@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/oracle_review",
+  "status": "accepted_after_one_test_backed_fix_pass",
+  "blocking_bugs_found": 0,
+  "findings_fixed": [
+    "oracle scientific metadata",
+    "both physical prepared inputs and raw transforms retained"
+  ],
+  "rulings": [
+    "independent input normalization retained; ModelNet output renormalizes",
+    "D\u2212C replaces whole canonical local input and D constrained by A-h anchor",
+    "review metadata/evidence findings regraded Important under explicit artifact contract"
+  ],
+  "limitations": [
+    "GPU/native and physical dataset pairing not established by CPU tests"
+  ]
+}

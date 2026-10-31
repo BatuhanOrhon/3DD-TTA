@@ -1,3 +1,23 @@
+**[Run/Code/Inference/Decision/Open] 2026-10-31 — temiz-z oracle pilotu tamamlandı:**
+[Sonuçlar ve sınırlar](shape_latent_oracle_results_20261031.md): aynı 64 nesne,
+ModelNet40-C/all15/seed0/Point-MAE. A referans %60.8333; B temiz-z/eski-h
+%64.8958 (+4.0625puan); C temiz-z/koşullu-h %63.0208 (+2.1875puan);
+D temiz çift %77.7083 (+16.875puan). B−A ve ana C−A koşullu object-bootstrap
+%95 aralıkları pozitiftir. C, B'yi aşmaz; z−h uyumsuzluğunu ana açıklama
+saymak desteklenmedi. Temiz global bilgide fayda var, mevcut global denoiser
+bunu sağlayabilmiş değil; operasyonel global diffusion kapalı kalır.
+Tüm 960 temiz-z örneği önceki %5 sınırının dışında, ancak radius artışı denenmedi.
+120batch/30common/30posterior/120selected cache, kaynak/state/RNG/PM bağımsız
+NumPy1 recount geçer. D temiz local hazırlığı da değiştirir ve A-h anchor'ına
+bağlıdır; üst sınır değildir. Oracle verisi gerçek TTA avantajı sayılmaz.
+Tam veri/ek seed/yeni guidance açılmadı; ilerleme kararı kullanıcıya bırakıldı.
+[Başlamadan önce kaydedilen plan/geçmiş](shape_latent_oracle_pilot_20261031.md).
+Eski runtime listeden kayboldu, biz kapatmadık; kullanıcının onayıyla yeni
+`tta-shape-oracle-a100-20261031-r1` kullanıldı. Hamlar alındıktan sonra15:20UTC
+envanterinde o da görünmüyor; biz kapatmadık. Ek türetilmiş ZIP yerelde, Drive
+kopyası kullanıcı kararıyla ertelendi, Drive bağlantısı yeniden denenmeyecek.
+Bilimsel hamlar Drive+yerelde tam, rapor/kod/kompakt analiz Git yayınına alınıyor.
+
 **[Run/Code/Inference/Open] 2026-10-31 — shape latent beş-kol pilot tamamlandı:**
 [Sonuç ve sınırlar](shape_latent_tta_results_20261031.md): ModelNet40-C,
 Point-MAE,64açığa çıkmış nesne/all15/seed0. All15 PM: baseline60.9375%,
