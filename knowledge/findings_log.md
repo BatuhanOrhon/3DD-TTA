@@ -7611,3 +7611,12 @@ and true negative outcome, and asks for at most3new literature-backed candidates
 Decision: publish this documentation/audit-source supplement by normal FF only;
 verification is static syntax/SHA/JSON/link/privacy/diff checking, not fresh
 inference. Research correctness and novel candidates remain the next task.
+
+### 2026-10-31 — starter prompt binds the actual worktree and local branch
+
+[User report/Code] User requests the exact worktree location in the handoff.
+The [starter prompt](chamfer_guidance_audit_literature_handoff_20261031.md)
+now names `/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA` and local branch
+`integration/chamfer-guidance-variants-20261030`, separately from publication
+target `origin/thesis-integration`. Both were verified with Git before editing;
+the next agent must verify them before work. No branch switch or research run.

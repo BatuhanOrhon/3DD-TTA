@@ -4,7 +4,11 @@
 kullanılacak analiz görevi. Bu dosya agent'ı veya yeni GPU deneyi başlatmaz.
 
 ```text
-Mevcut checkout/branch'te kal; branch değiştirme, kullanıcı ve diğer agent değişikliklerini koru. AGENTS.md ve iterative-thesis-researcher skill'ini uygula; git status/branch/HEAD ve origin/thesis-integration durumunu kaydet. Checkout eskiyse eksik kayıtları git show origin/thesis-integration:<yol> ile oku; eksik dosyayı deney hatası sayma.
+Worktree: /Users/batuhan/.codex/worktrees/7bf0/3DD-TTA
+Yerel branch: integration/chamfer-guidance-variants-20261030
+Yayın hedefi: origin/thesis-integration
+
+Önce bu worktree'ye geç; git rev-parse --show-toplevel ve git branch --show-current ile dizini/branch'i doğrula. Belirtilen checkout/branch'te kal; branch değiştirme, kullanıcı ve diğer agent değişikliklerini koru. AGENTS.md ve iterative-thesis-researcher skill'ini uygula; git status/branch/HEAD ve origin/thesis-integration durumunu kaydet. Checkout eskiyse eksik kayıtları git show origin/thesis-integration:<yol> ile oku; eksik dosyayı deney hatası sayma.
 
 Önce knowledge/README.md; ardından knowledge/chamfer_guidance_methods_results_20261031.md, knowledge/chamfer_guidance_variants_results_20261030.md, knowledge/scan_curvenet_entropy_followup_20261030.md, knowledge/chamfer_author_code_consistency_audit_20261030.md ve knowledge/diffusion_guidance_literature_review_20261030.md dosyalarını oku.
 
