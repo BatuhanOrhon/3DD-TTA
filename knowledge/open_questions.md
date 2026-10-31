@@ -2244,12 +2244,12 @@ bunlar mevcut görevin bekleyen GPU işi değildir.
   calibration/analysis orchestration as byte-identical SHA-inventoried audit
   copies, separate from later integrated code. No raw/credentials published.
 - [x] Prepare a short [current-branch starter prompt](chamfer_guidance_audit_literature_handoff_20261031.md).
-- [ ] Audit actual executed revisions for defects affecting results; demand
+- [x] Audit actual executed revisions for defects affecting results; demand
   file:line, affected-source/archive and a minimal CPU falsifier. Finding no
   defect is a valid outcome; intentional paper transfer is not itself a bug.
-- [ ] Refresh primary literature/3DD forward citations and author GitHub evidence;
+- [x] Refresh primary literature/3DD forward citations and author GitHub evidence;
   propose at most3new frozen-model Chamfer-only-compatible accuracy/time ideas.
-- [ ] Present audit and proposed minimum experiments before production changes
+- [x] Prepare the saved audit and proposed minimum experiments for presentation before production changes
   or GPU execution. Existing spectral exclusion/mean/frozen-state and peer
   runtime protection remain in force. No new GPU phase is authorized here.
 
@@ -2275,3 +2275,69 @@ bunlar mevcut görevin bekleyen GPU işi değildir.
 - [x] Persist fullraw andderived Driveroundtrip/local evidence; selected integration code/records prepared with verified combined-tree checks.
 - [ ] Confirm transfer on full data or a newly reserved cohort before a global baseline/optimality claim; no automatic GPU continuation.
 - [ ] Resolve current owned-runtime completion-and-close permission separately; Driveroundtrips already complete.
+
+[Code/Run/Paper/Inference/Open] Completed audit/report preparation31Oct:
+[findings and minimum prospective designs](chamfer_guidance_implementation_literature_audit_20261031.md).
+144raw heads/4320batches reproduce scores and conditional CIs;304physical
+caches and two sealed source ZIPs reverify. No confirmed result-invalidating
+implementation defect; no universal no-bug/native-Jacobian claim. Remaining
+questions: do wrong-X anchoring or per-object update tails cause harm, and can
+semantic capping or gradient forecasting improve the matched accuracy/cost
+frontier? Neither candidate is implemented/approved/run. Scan object-pool
+availability must be reconciled across all existing study manifests before
+claiming another object-disjoint confirmation. No peer-runtime operation.
+
+## 2026-10-31 — shape latent follow-up
+
+- [x] Audit LION encoder/global/local/decoder contracts against official code;
+  distinguish clean global conditioning from noisy global state.
+- [x] Recount the old decoder-only control and preserve its small/null effect;
+  avoid inferring the 3DD authors' motivation from final decoder code alone.
+- [x] Search older knowledge/history/notebook/result names for the user's dual
+  trial; recover9Aug source, record failure to bind the exact old run.
+- [x] Inspect real cached shape samples with SHA/ID checks and qualify the
+  missing clean-reference and posterior-statistics limits.
+- [x] Review LION/DPS/PSLD/DAPS and recent2026L-DPS/CLAMP; save a report with
+  bounded global proposal and clean-estimate guidance as unimplemented ideas.
+- [ ] Recover command/source/artifact for the older global-diffusion result
+  if an external archive becomes available; no need to repeat the same search.
+- [ ] Determine clean-global oracle headroom and fixed-h vs conditional-h
+  compatibility under matched encoder noise/preprocessing.
+- [ ] In a separately scoped experiment, determine whether a single bounded
+  clean global proposal adds value over anchor-only and matched C, and measure
+  the complete runtime. Neither this nor a longer guided global run started.
+
+[Report and limits](shape_latent_tta_research_20261031.md). Radius0 freezes
+style; global-off plus projection-off is the required C bypass. Initial z is
+corrupted, so an anchor may block repair. No target-label/routing shortcut,
+production implementation, launch or publication is authorized by this note.
+
+### Shape-pilot authorization update — 2026-10-31
+
+[User report/Code/Run/Open] Later user approves starting tests, superseding
+the preceding report-only state for this bounded phase. [Execution note](shape_latent_tta_study_20261031.md).
+- [x] Implement fixed five-arm N8/B35 pilot, CPU tests, independent review and
+  full guided-transition/cap mutation proof; preserve unchanged default path.
+- [x] Seal recoverable source/IDs and55min whole initial research budget;
+  create own named A100, verify Cell1/sameVM hardware/reconnect.
+- [x] Complete canonical setup/Drive/native/checkpoint proof and five GB32
+  technical arms before the64-ID/all15/seed0 pilot.
+- [x] Retrieve raw/physical caches and verify paired outcomes/source/state/RNG,
+  separate decoder/anchor/prior effects, measured runtime and exposed-ID limits.
+- [ ] Obtain task-complete+close permission before any runtime teardown.
+
+### Shape pilot acceptance — 2026-10-31
+
+[Run/Inference] [Results](shape_latent_tta_results_20261031.md) supersede setup/
+pilot-pending statuses above.
+- [x] Complete ten-cell setup, native/checkpoint proof, five technical arms
+  and fixed64/all15/seed0 pilot; preserve administrative failure and reuse.
+- [x] Independently verify150rawbatch/30physicalcache/source/state/RNG/PM and
+  matched globalnoise; retain negative/null outcomes and timing limitations.
+- [x] Test fixed proposal versus anchor:0pp; guided3 versus anchor+.104167pp,
+  CIincludes0; no general gain versus original-style N8 reference.
+- [ ] Before another solver/grid, identify clean-z oracle headroom and h-z
+  compatibility; differentiate radius-induced perturbation from useful prior.
+- [ ] Multiple diffusion seeds, unseen confirmation, other datasets/heads and
+  matched fresh/replay timing remain untested, not implicitly authorized.
+- [ ] Obtain explicit task-complete+close permission for own live r1.

@@ -1,0 +1,68 @@
+[
+  {
+    "name": "lion",
+    "url": "https://arxiv.org/pdf/2210.06978v1",
+    "retrieved_utc": "2026-10-31T11:09:52.154579+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2210.06978v1",
+    "path": "result/preparation/shape_latent_research_20261031/papers/lion.pdf",
+    "bytes": 14825468,
+    "sha256": "9e4fe0aba310a9a432b7676fbe48cfa95670b1deb86b8a1c56482ff71c77a678",
+    "pages": 63
+  },
+  {
+    "name": "original3dd",
+    "url": "https://openaccess.thecvf.com/content/WACV2025/papers/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.pdf",
+    "retrieved_utc": "2026-10-31T11:09:52.155112+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/WACV2025/papers/Dastmalchi_Test-Time_Adaptation_of_3D_Point_Clouds_via_Denoising_Diffusion_Models_WACV_2025_paper.pdf",
+    "path": "result/preparation/shape_latent_research_20261031/papers/original3dd.pdf",
+    "bytes": 2197736,
+    "sha256": "96503b349f73ba2b41eb67e725361328717f11693804e968c63a3ae15bc72c7d",
+    "pages": 11
+  },
+  {
+    "name": "psld",
+    "url": "https://papers.nips.cc/paper_files/paper/2023/file/9c70cfa2e7d9328c649c94d50cbf8faf-Paper-Conference.pdf",
+    "retrieved_utc": "2026-10-31T11:09:52.155176+00:00",
+    "status": 200,
+    "final_url": "https://papers.nips.cc/paper_files/paper/2023/file/9c70cfa2e7d9328c649c94d50cbf8faf-Paper-Conference.pdf",
+    "path": "result/preparation/shape_latent_research_20261031/papers/psld.pdf",
+    "bytes": 36712851,
+    "sha256": "872741383de28c542561f22e035bd32dfdde1e9febbb7c7518946ca7d4dadcec",
+    "pages": 31
+  },
+  {
+    "name": "dps",
+    "url": "https://arxiv.org/pdf/2209.14687v4",
+    "retrieved_utc": "2026-10-31T11:09:52.155219+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2209.14687v4",
+    "path": "result/preparation/shape_latent_research_20261031/papers/dps.pdf",
+    "bytes": 27127555,
+    "sha256": "054df8370844423f363538917fba32dcdade7f12d8202db482ca41e42aefc36c",
+    "pages": 30
+  },
+  {
+    "name": "ldps2026",
+    "url": "https://arxiv.org/pdf/2606.26592v1",
+    "retrieved_utc": "2026-10-31T11:09:55.342588+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2606.26592v1",
+    "path": "result/preparation/shape_latent_research_20261031/papers/ldps2026.pdf",
+    "bytes": 5034938,
+    "sha256": "b72fe3dea90ccf7d777885234023fa72e3f19240045a458eb9aad2160d2926e2",
+    "pages": 27
+  },
+  {
+    "name": "clamp",
+    "url": "https://arxiv.org/pdf/2605.27990v1",
+    "retrieved_utc": "2026-10-31T11:09:59.406454+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2605.27990v1",
+    "path": "result/preparation/shape_latent_research_20261031/papers/clamp.pdf",
+    "bytes": 10563784,
+    "sha256": "99ca201f5011c882140b794c3eae50a752c6fa08341650d38d496bf10b47dd8a",
+    "pages": 33
+  }
+]

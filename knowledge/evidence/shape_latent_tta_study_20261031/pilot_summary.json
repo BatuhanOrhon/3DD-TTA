@@ -1,0 +1,514 @@
+{
+  "metrics": {
+    "anchor": {
+      "correct": 579,
+      "events": 960,
+      "all15_percent": 60.3125,
+      "macro14_percent": 61.04910714285714,
+      "background_percent": 50.0,
+      "worker_wall_seconds": 112.31845684600012,
+      "peak_whole_process_gpu_memory_mb": 25218.4375
+    },
+    "baseline": {
+      "correct": 585,
+      "events": 960,
+      "all15_percent": 60.9375,
+      "macro14_percent": 61.49553571428571,
+      "background_percent": 53.125,
+      "worker_wall_seconds": 117.94434399700003,
+      "peak_whole_process_gpu_memory_mb": 25221.375
+    },
+    "guided3": {
+      "correct": 580,
+      "events": 960,
+      "all15_percent": 60.416666666666664,
+      "macro14_percent": 61.04910714285714,
+      "background_percent": 51.5625,
+      "worker_wall_seconds": 113.5555950400003,
+      "peak_whole_process_gpu_memory_mb": 25218.4375
+    },
+    "proposal": {
+      "correct": 579,
+      "events": 960,
+      "all15_percent": 60.3125,
+      "macro14_percent": 60.71428571428571,
+      "background_percent": 54.6875,
+      "worker_wall_seconds": 112.49349971399988,
+      "peak_whole_process_gpu_memory_mb": 25218.4375
+    },
+    "updated": {
+      "correct": 583,
+      "events": 960,
+      "all15_percent": 60.729166666666664,
+      "macro14_percent": 61.38392857142857,
+      "background_percent": 51.5625,
+      "worker_wall_seconds": 112.41268021300039,
+      "peak_whole_process_gpu_memory_mb": 25218.421875
+    }
+  },
+  "paired_comparisons": {
+    "updated-baseline": {
+      "delta_pp": -0.20833333333333334,
+      "corrected": 12,
+      "harmed": 14,
+      "conditional_object_bootstrap_95": [
+        -1.0416666666666667,
+        0.625
+      ]
+    },
+    "anchor-baseline": {
+      "delta_pp": -0.625,
+      "corrected": 11,
+      "harmed": 17,
+      "conditional_object_bootstrap_95": [
+        -1.666666666666667,
+        0.4166666666666666
+      ]
+    },
+    "proposal-baseline": {
+      "delta_pp": -0.625,
+      "corrected": 14,
+      "harmed": 20,
+      "conditional_object_bootstrap_95": [
+        -1.8750000000000002,
+        0.625
+      ]
+    },
+    "guided3-baseline": {
+      "delta_pp": -0.5208333333333333,
+      "corrected": 12,
+      "harmed": 17,
+      "conditional_object_bootstrap_95": [
+        -1.666666666666667,
+        0.625
+      ]
+    },
+    "anchor-updated": {
+      "delta_pp": -0.4166666666666667,
+      "corrected": 13,
+      "harmed": 17,
+      "conditional_object_bootstrap_95": [
+        -1.4583333333333335,
+        0.625
+      ]
+    },
+    "proposal-anchor": {
+      "delta_pp": 0.0,
+      "corrected": 15,
+      "harmed": 15,
+      "conditional_object_bootstrap_95": [
+        -1.1458333333333335,
+        1.1458333333333335
+      ]
+    },
+    "guided3-anchor": {
+      "delta_pp": 0.10416666666666667,
+      "corrected": 12,
+      "harmed": 11,
+      "conditional_object_bootstrap_95": [
+        -0.7291666666666666,
+        0.9375000000000001
+      ]
+    },
+    "guided3-proposal": {
+      "delta_pp": 0.10416666666666667,
+      "corrected": 12,
+      "harmed": 11,
+      "conditional_object_bootstrap_95": [
+        -0.8333333333333334,
+        1.1458333333333337
+      ]
+    }
+  },
+  "displacement": {
+    "anchor": {
+      "uniform": {
+        "final_relative_median": 0.0014209541666205105,
+        "final_relative_max": 0.007043003093119703,
+        "near_radius_fraction": 0.0
+      },
+      "gaussian": {
+        "final_relative_median": 0.0012661882255135864,
+        "final_relative_max": 0.002615318062539752,
+        "near_radius_fraction": 0.0
+      },
+      "background": {
+        "final_relative_median": 0.04976691074363282,
+        "final_relative_max": 0.05000000803055743,
+        "near_radius_fraction": 0.375
+      },
+      "impulse": {
+        "final_relative_median": 0.0019101551353532397,
+        "final_relative_max": 0.009738363271785948,
+        "near_radius_fraction": 0.0
+      },
+      "upsampling": {
+        "final_relative_median": 0.0013602290876475534,
+        "final_relative_max": 0.006897521587287184,
+        "near_radius_fraction": 0.0
+      },
+      "distortion_rbf": {
+        "final_relative_median": 0.001898568789206992,
+        "final_relative_max": 0.0061481958207710964,
+        "near_radius_fraction": 0.0
+      },
+      "distortion_rbf_inv": {
+        "final_relative_median": 0.0020376148573664817,
+        "final_relative_max": 0.008989708967123883,
+        "near_radius_fraction": 0.0
+      },
+      "density": {
+        "final_relative_median": 0.0017999739715826794,
+        "final_relative_max": 0.007835369195667458,
+        "near_radius_fraction": 0.0
+      },
+      "density_inc": {
+        "final_relative_median": 0.0019188893986824764,
+        "final_relative_max": 0.0074554412807470265,
+        "near_radius_fraction": 0.0
+      },
+      "shear": {
+        "final_relative_median": 0.002159416702941473,
+        "final_relative_max": 0.00975418215036493,
+        "near_radius_fraction": 0.0
+      },
+      "rotation": {
+        "final_relative_median": 0.002186824020583628,
+        "final_relative_max": 0.017552239677218476,
+        "near_radius_fraction": 0.0
+      },
+      "cutout": {
+        "final_relative_median": 0.002217472033049903,
+        "final_relative_max": 0.007426197076122479,
+        "near_radius_fraction": 0.0
+      },
+      "distortion": {
+        "final_relative_median": 0.0017558796340133884,
+        "final_relative_max": 0.006651539312394679,
+        "near_radius_fraction": 0.0
+      },
+      "occlusion": {
+        "final_relative_median": 0.001970398754389438,
+        "final_relative_max": 0.007377081876123398,
+        "near_radius_fraction": 0.0
+      },
+      "lidar": {
+        "final_relative_median": 0.0025205266851330344,
+        "final_relative_max": 0.0068127448522004195,
+        "near_radius_fraction": 0.0
+      }
+    },
+    "baseline": {},
+    "guided3": {
+      "uniform": {
+        "final_relative_median": 0.0499957932827089,
+        "final_relative_max": 0.05000000491629806,
+        "near_radius_fraction": 0.59375,
+        "first_clean_relative_median": 0.09819578670808404,
+        "gradient_norm_median": 0.015363669022917747,
+        "correction_relative_median": 0.001500428177338333,
+        "correction_relative_max": 0.0019933364138581874
+      },
+      "gaussian": {
+        "final_relative_median": 0.04998212931866983,
+        "final_relative_max": 0.050000004333279835,
+        "near_radius_fraction": 0.390625,
+        "first_clean_relative_median": 0.09852960880160196,
+        "gradient_norm_median": 0.015375306364148855,
+        "correction_relative_median": 0.0015181040757903407,
+        "correction_relative_max": 0.0021070147016178783
+      },
+      "background": {
+        "final_relative_median": 0.04998545911233724,
+        "final_relative_max": 0.05000000818476598,
+        "near_radius_fraction": 0.46875,
+        "first_clean_relative_median": 0.10244025025807803,
+        "gradient_norm_median": 0.01494090398773551,
+        "correction_relative_median": 0.0015770943001157094,
+        "correction_relative_max": 0.0019812899747468
+      },
+      "impulse": {
+        "final_relative_median": 0.04998316141208018,
+        "final_relative_max": 0.05000000666690312,
+        "near_radius_fraction": 0.453125,
+        "first_clean_relative_median": 0.09943116873911455,
+        "gradient_norm_median": 0.015005836728960276,
+        "correction_relative_median": 0.0015223541759843658,
+        "correction_relative_max": 0.0019679594922679374
+      },
+      "upsampling": {
+        "final_relative_median": 0.04998484488271626,
+        "final_relative_max": 0.050000005528957586,
+        "near_radius_fraction": 0.4375,
+        "first_clean_relative_median": 0.09809058276077738,
+        "gradient_norm_median": 0.015000637155026197,
+        "correction_relative_median": 0.0015080226457002978,
+        "correction_relative_max": 0.0019426206035983145
+      },
+      "distortion_rbf": {
+        "final_relative_median": 0.0499722681159295,
+        "final_relative_max": 0.05000000651366332,
+        "near_radius_fraction": 0.4375,
+        "first_clean_relative_median": 0.10094929277930342,
+        "gradient_norm_median": 0.015271884854882956,
+        "correction_relative_median": 0.0015600808722059296,
+        "correction_relative_max": 0.0019374465615054457
+      },
+      "distortion_rbf_inv": {
+        "final_relative_median": 0.04999693153355478,
+        "final_relative_max": 0.050000004792644326,
+        "near_radius_fraction": 0.578125,
+        "first_clean_relative_median": 0.10096727116984185,
+        "gradient_norm_median": 0.015099759213626385,
+        "correction_relative_median": 0.0015472186317174326,
+        "correction_relative_max": 0.0018788167389464899
+      },
+      "density": {
+        "final_relative_median": 0.04997315004252689,
+        "final_relative_max": 0.050000004695334,
+        "near_radius_fraction": 0.421875,
+        "first_clean_relative_median": 0.10009870975117974,
+        "gradient_norm_median": 0.01469820411875844,
+        "correction_relative_median": 0.0015350028364518806,
+        "correction_relative_max": 0.0019756401099556785
+      },
+      "density_inc": {
+        "final_relative_median": 0.04999050013375907,
+        "final_relative_max": 0.050000006650722344,
+        "near_radius_fraction": 0.515625,
+        "first_clean_relative_median": 0.09997323251475171,
+        "gradient_norm_median": 0.014981347601860762,
+        "correction_relative_median": 0.001543164602798486,
+        "correction_relative_max": 0.0019681385815208457
+      },
+      "shear": {
+        "final_relative_median": 0.04999535279800951,
+        "final_relative_max": 0.05000000831454879,
+        "near_radius_fraction": 0.546875,
+        "first_clean_relative_median": 0.10215305481854708,
+        "gradient_norm_median": 0.014810482040047646,
+        "correction_relative_median": 0.0015678248923712715,
+        "correction_relative_max": 0.0018682113915474317
+      },
+      "rotation": {
+        "final_relative_median": 0.04998777575717017,
+        "final_relative_max": 0.05000000733883837,
+        "near_radius_fraction": 0.46875,
+        "first_clean_relative_median": 0.09864094357104088,
+        "gradient_norm_median": 0.015081041492521763,
+        "correction_relative_median": 0.001511335853613062,
+        "correction_relative_max": 0.0019276551269167637
+      },
+      "cutout": {
+        "final_relative_median": 0.049995734301249595,
+        "final_relative_max": 0.050000009493758095,
+        "near_radius_fraction": 0.53125,
+        "first_clean_relative_median": 0.10243761403625773,
+        "gradient_norm_median": 0.014656946994364262,
+        "correction_relative_median": 0.0015782509779305952,
+        "correction_relative_max": 0.0019066218607083224
+      },
+      "distortion": {
+        "final_relative_median": 0.0499863247013391,
+        "final_relative_max": 0.05000000522401681,
+        "near_radius_fraction": 0.484375,
+        "first_clean_relative_median": 0.09917167476090466,
+        "gradient_norm_median": 0.014933984726667404,
+        "correction_relative_median": 0.0015278236189273102,
+        "correction_relative_max": 0.0018576182646709994
+      },
+      "occlusion": {
+        "final_relative_median": 0.049965338682828556,
+        "final_relative_max": 0.05000000504621118,
+        "near_radius_fraction": 0.390625,
+        "first_clean_relative_median": 0.09592695831594558,
+        "gradient_norm_median": 0.014311154838651419,
+        "correction_relative_median": 0.0014862669331967451,
+        "correction_relative_max": 0.002078473538479288
+      },
+      "lidar": {
+        "final_relative_median": 0.04998751212385221,
+        "final_relative_max": 0.0500000052110468,
+        "near_radius_fraction": 0.484375,
+        "first_clean_relative_median": 0.10039015197057913,
+        "gradient_norm_median": 0.014684769324958324,
+        "correction_relative_median": 0.0015512225831430164,
+        "correction_relative_max": 0.0018873763404437494
+      }
+    },
+    "proposal": {
+      "uniform": {
+        "final_relative_median": 0.049995116936019,
+        "final_relative_max": 0.05000000928987887,
+        "near_radius_fraction": 0.59375,
+        "first_clean_relative_median": 0.09819578670808404
+      },
+      "gaussian": {
+        "final_relative_median": 0.04997660892325091,
+        "final_relative_max": 0.050000003345978754,
+        "near_radius_fraction": 0.421875,
+        "first_clean_relative_median": 0.09852960880160196
+      },
+      "background": {
+        "final_relative_median": 0.0499846718394209,
+        "final_relative_max": 0.05000000818476598,
+        "near_radius_fraction": 0.46875,
+        "first_clean_relative_median": 0.10244025025807803
+      },
+      "impulse": {
+        "final_relative_median": 0.049978664779634877,
+        "final_relative_max": 0.05000000943063218,
+        "near_radius_fraction": 0.40625,
+        "first_clean_relative_median": 0.09943116873911455
+      },
+      "upsampling": {
+        "final_relative_median": 0.049981408631958484,
+        "final_relative_max": 0.05000000298044826,
+        "near_radius_fraction": 0.40625,
+        "first_clean_relative_median": 0.09809058276077738
+      },
+      "distortion_rbf": {
+        "final_relative_median": 0.04998203920006179,
+        "final_relative_max": 0.050000011881936014,
+        "near_radius_fraction": 0.453125,
+        "first_clean_relative_median": 0.10094929277930342
+      },
+      "distortion_rbf_inv": {
+        "final_relative_median": 0.04999877095733071,
+        "final_relative_max": 0.050000009111461234,
+        "near_radius_fraction": 0.625,
+        "first_clean_relative_median": 0.10096727116984185
+      },
+      "density": {
+        "final_relative_median": 0.04997345125394012,
+        "final_relative_max": 0.0500000046944498,
+        "near_radius_fraction": 0.390625,
+        "first_clean_relative_median": 0.10009870975117974
+      },
+      "density_inc": {
+        "final_relative_median": 0.04999103302125754,
+        "final_relative_max": 0.05000000919447398,
+        "near_radius_fraction": 0.515625,
+        "first_clean_relative_median": 0.09997323251475171
+      },
+      "shear": {
+        "final_relative_median": 0.04999093132412756,
+        "final_relative_max": 0.05000000639736326,
+        "near_radius_fraction": 0.5,
+        "first_clean_relative_median": 0.10215305481854708
+      },
+      "rotation": {
+        "final_relative_median": 0.049993358223578116,
+        "final_relative_max": 0.050000007790306666,
+        "near_radius_fraction": 0.546875,
+        "first_clean_relative_median": 0.09864094357104088
+      },
+      "cutout": {
+        "final_relative_median": 0.04999391676459829,
+        "final_relative_max": 0.0500000079871558,
+        "near_radius_fraction": 0.5625,
+        "first_clean_relative_median": 0.10243761403625773
+      },
+      "distortion": {
+        "final_relative_median": 0.04998591604536366,
+        "final_relative_max": 0.05000000565622121,
+        "near_radius_fraction": 0.46875,
+        "first_clean_relative_median": 0.09917167476090466
+      },
+      "occlusion": {
+        "final_relative_median": 0.04996654801158627,
+        "final_relative_max": 0.05000000550554441,
+        "near_radius_fraction": 0.375,
+        "first_clean_relative_median": 0.09592695831594558
+      },
+      "lidar": {
+        "final_relative_median": 0.049987280055970945,
+        "final_relative_max": 0.050000012682411735,
+        "near_radius_fraction": 0.484375,
+        "first_clean_relative_median": 0.10039015197057913
+      }
+    },
+    "updated": {
+      "uniform": {
+        "final_relative_median": 0.0014516169101276553,
+        "final_relative_max": 0.007034388361519483,
+        "near_radius_fraction": 0.0
+      },
+      "gaussian": {
+        "final_relative_median": 0.0012060627654077827,
+        "final_relative_max": 0.0026157420668447397,
+        "near_radius_fraction": 0.0
+      },
+      "background": {
+        "final_relative_median": 0.06747357742236909,
+        "final_relative_max": 0.18836108363242834,
+        "near_radius_fraction": 0.765625
+      },
+      "impulse": {
+        "final_relative_median": 0.0019207209727121343,
+        "final_relative_max": 0.00985116876538284,
+        "near_radius_fraction": 0.0
+      },
+      "upsampling": {
+        "final_relative_median": 0.0013370118283189082,
+        "final_relative_max": 0.0067705068177123405,
+        "near_radius_fraction": 0.0
+      },
+      "distortion_rbf": {
+        "final_relative_median": 0.0018844569416588508,
+        "final_relative_max": 0.00622582023816127,
+        "near_radius_fraction": 0.0
+      },
+      "distortion_rbf_inv": {
+        "final_relative_median": 0.002072076033263017,
+        "final_relative_max": 0.008887119908817187,
+        "near_radius_fraction": 0.0
+      },
+      "density": {
+        "final_relative_median": 0.001744632472720969,
+        "final_relative_max": 0.00787751992614263,
+        "near_radius_fraction": 0.0
+      },
+      "density_inc": {
+        "final_relative_median": 0.0019343106998046331,
+        "final_relative_max": 0.006779397211615277,
+        "near_radius_fraction": 0.0
+      },
+      "shear": {
+        "final_relative_median": 0.002146185004257046,
+        "final_relative_max": 0.010125602740349345,
+        "near_radius_fraction": 0.0
+      },
+      "rotation": {
+        "final_relative_median": 0.002157986100904734,
+        "final_relative_max": 0.017106388687304557,
+        "near_radius_fraction": 0.0
+      },
+      "cutout": {
+        "final_relative_median": 0.0022320259685644356,
+        "final_relative_max": 0.007507969426728063,
+        "near_radius_fraction": 0.0
+      },
+      "distortion": {
+        "final_relative_median": 0.0018028282795728577,
+        "final_relative_max": 0.005472813069689946,
+        "near_radius_fraction": 0.0
+      },
+      "occlusion": {
+        "final_relative_median": 0.0019492397836740909,
+        "final_relative_max": 0.007496774218365971,
+        "near_radius_fraction": 0.0
+      },
+      "lidar": {
+        "final_relative_median": 0.002435832271922778,
+        "final_relative_max": 0.00681152956164317,
+        "near_radius_fraction": 0.0
+      }
+    }
+  },
+  "validation": {
+    "batch_shards": 150,
+    "matched_global_noise_batches": 30
+  },
+  "interval_scope": "10,000 paired original-object bootstrap draws; seed0 and fixed 15 corruptions only; exploratory exposed IDs; no multiplicity adjustment"
+}

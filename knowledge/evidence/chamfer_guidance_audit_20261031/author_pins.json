@@ -1,0 +1,44 @@
+[
+  {
+    "name": "SATOR",
+    "commit": "e65983b60a83936e1e5241d339475436f1a1738d",
+    "date": "2026-10-16T07:41:58Z",
+    "url": "https://github.com/iskong17/SATOR/commit/e65983b60a83936e1e5241d339475436f1a1738d"
+  },
+  {
+    "name": "MAMVI",
+    "commit": "0b553973b7123da6198b79bba4ff704b8eec914c",
+    "date": "2026-10-16T07:38:40Z",
+    "url": "https://github.com/iskong17/MAMVI/commit/0b553973b7123da6198b79bba4ff704b8eec914c"
+  },
+  {
+    "name": "TTAD",
+    "commit": "0bf06d53b73b4324fa2dbf6f809c88ddf5505e4e",
+    "date": "2025-08-21T07:55:39Z",
+    "url": "https://github.com/zuowenzhitiao/TTAD/commit/0bf06d53b73b4324fa2dbf6f809c88ddf5505e4e"
+  },
+  {
+    "name": "Uni-Adapter",
+    "commit": "cf0d8b17aefccbb8860643a24f3df050c7c2d844",
+    "date": "2026-05-23T07:58:50Z",
+    "url": "https://github.com/Mehran-TAM/Uni-Adapter/commit/cf0d8b17aefccbb8860643a24f3df050c7c2d844"
+  },
+  {
+    "name": "RACER",
+    "commit": "eea38110687cd281d8fb9a0c97dff1f02058bf9f",
+    "date": "2026-10-12T02:10:48Z",
+    "url": "https://github.com/LiZaiyuan0619/RACER/commit/eea38110687cd281d8fb9a0c97dff1f02058bf9f"
+  },
+  {
+    "name": "EmbedOpt",
+    "commit": "fa27c519ff4f7de5d1cacf0125698a88006b6b0c",
+    "date": "2026-04-27T17:37:23Z",
+    "url": "https://github.com/rs-station/embedopt/commit/fa27c519ff4f7de5d1cacf0125698a88006b6b0c"
+  },
+  {
+    "name": "Trust Sampling",
+    "commit": "04fc14452b512426fd09e00c2047b3855f6edb1f",
+    "date": "2024-12-18T08:22:52Z",
+    "url": "https://github.com/will-s-h/trust-sampling/commit/04fc14452b512426fd09e00c2047b3855f6edb1f"
+  }
+]

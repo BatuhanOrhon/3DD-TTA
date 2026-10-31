@@ -7696,3 +7696,138 @@ hostawake13547 was interrupted; no peer monitor/session was targeted.
 Current task is complete, no GPU work remains pending. Dated live/default
 statuses above are superseded; evidence and scientific limits are unchanged.
 [Final closure receipt](../result/preparation/chamfer_depth_transfer_20261031/runtime_closure_20261031/runtime_closure.json).
+
+### 2026-10-31 — executed Chamfer audit and new-method report
+
+[User report/Code/Run/Paper/Inference/Open] User requests report first, no
+production edits or Colab/GPU, in `integration/chamfer-guidance-variants-20261030`
+at `/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA`. Git verifies clean start
+`a82200adbe117ce56a134dc3c22601cb73dc2654`; fetched shared target is identical.
+Original GPU revisions0fd2581/95a4997 remain distinct from current integration.
+[Full report](chamfer_guidance_implementation_literature_audit_20261031.md)
+and [new evidence](evidence/chamfer_guidance_audit_20261031/validation.json).
+46historical files and9+11members of two actual sealed ZIPs match;144head ZIPs,
+4320batches and304physical caches reverify from the preserved experiment
+worktree's result manifests. Independent raw probability-mean/object-cluster
+recount reproduces main sparse/KL/H/weighted and CurveNet tables. Still140
+objects/dataset and three fixed seeds; four-head mean is not an ensemble;
+CurveNet primary+.2381pp CI[-.1587,+.6349] remains posthoc/inconclusive.
+
+[Code/CPU/Inference] No result-invalidating sign/reduction/detach/weighted-NN/
+trim/timestep/cache-ID/metric defect was established in inspected paths.
+101targeted CPU tests and91subtests pass;1historical-path fixture skip is
+covered by an explicit separate preview parity check on the real frozen path.
+Toy/finite-difference proofs retain native-CUDA limits. New quantified
+calibration tail after weighting: KL/C median.1,p90.74136,max7.00926;
+H/C median.1,p90.50575,max3.72395 on C calibration states. Fixed-X H can
+increase confidence in the wrong class in a CPU counterexample; neither
+observation establishes real-run harm causality. Pre-update votes and sparse
+reduced total correction are deliberate. Existing negative/null outcomes stand.
+
+[Paper/Decision/Open] Six primary direct-citing PDF references refreshed;
+OpenAlex4/SemanticScholar12 HTTP200, no newly verified direct citation beyond
+the prior inventory. Per-object semantic update capping (EmbedOpt/Trust-inspired)
+and gradient forecasting between sparse exact backwards (RACER-inspired) are
+two prospective adaptations, with integration/cost/controls/falsifiers in the
+report. They are not predecessor reproductions, prior variants renamed or
+measured gains. New inference, native CUDA, fresh timing, Drive transfer,
+production changes and commit/push were not performed. Decision: present this
+report first; new experiments need separately concrete scope and ID-pool review.
+
+### 2026-10-31 — bounded global shape-latent research, no GPU
+
+[User report/Decision] User wants to revisit shape diffusion after reporting
+an older slower/lower-accuracy trial, and suggests guiding the denoiser near
+the initial shape latent. They expect older knowledge may identify the run,
+but acknowledge missing records. Existing worktree/branch and prior audit
+edits are preserved; report-only restriction remains.
+[Full Turkish report](shape_latent_tta_research_20261031.md).
+
+[Code/Paper] LION q(h|X,z) and p(h|z) both depend on global z. Official
+train_2prior conditions local training on clean global samples. Config z128,
+h2048×4, global2style identity; h carries XYZ geometry. Global prior is a
+separate residual MLP/SE model. LION App.C.1 denoises global before local;
+its noisy/voxel reconstruction also fine-tunes encoders on clean targets
+(App.C.2), unlike our frozen source-free host. Original 3DD decoder uses
+initial z but earlier style updates influence later local steps; no author
+rationale proving harmful global updates was found in inspected sources.
+
+[Code/Open] Reachable knowledge history249 commits begins12Sept2026; seven
+dual-code commits are9Aug, latest a458cd46bba1288a3f41302548bc777700cbc7d4.
+No deleted Markdown path or dual notebook output was recovered. Legacy sync
+passes noisy next z as clean local condition and detaches global Jacobian;
+seq is unanchored and retains old h. Launcher ignores lambdaa, passes p=.5,
+and omits LION eval; RNG/global horizon/static semantics also confound a
+simple switch. None is tied to the user's exact negative run without its
+command/artifact receipt. This is not a finding against today's eval runner.
+
+[Run] Three original all15 decoder-control ZIPs rehash/recount to63.748424%
+original vs63.716910% updated, −.031514pp;18 improved/25 worse/2 tied rows.
+This is not a global-prior test.180 physical confirmation caches (140IDs per
+dataset/15corruptions/3seeds) reverify; inter-corruption global drift and seed
+scatter are comparable in scale. No clean z or posterior µ/logσ is available,
+so a corruption-specific latent-error ranking is unsupported. Eight CPU
+algebra/RNG/static checks pass. Global30 on the existing100-grid begins at
+t290, forward noise std.762631; global3 at t20 has std.079149. These are
+analytic forward-process numbers, not denoiser errors.
+
+[Paper/Inference/Open] SDEdit/DPS/PSLD/DAPS and2026L-DPS/CLAMP provide
+faithfulness, clean-estimate guidance, consistency and conditioning ideas.
+First diagnose clean-z headroom with oracle-only and conditional-h controls;
+then compare C/anchor-only/anchor+single low-noise global proposal. Bound all
+subsequent style updates too. Radius0 freezes style and does not recover C.
+Only if prior adds value consider short global denoising with anchor loss on
+predicted clean z and gradient to noisy z; never noisy-z local conditioning.
+No new pretrained inference, CUDA test, timing, production edit, Colab/GPU,
+commit/push or Drive operation. Evidence stored under
+`evidence/shape_latent_research_20261031/`.
+
+### 2026-10-31 — shape pilot implementation and own A100 setup
+
+[User report/Code/Run/Open] User approves proceeding with one-query global
+proposal then3-step guided DDIM, relative to selected local8/Background35.
+Existing worktree/branch and prior research edits preserved; fetched remote
+d96617f's accepted N8 transfer reconciled without changing this branch.
+[Registered five-arm initial study](shape_latent_tta_study_20261031.md).
+Adds updated-style control to separate accepted N8 original decoder from the
+anchor/global intervention. No parameter grid or confirmation silently added.
+
+[Code/Run] New opt-in shape adapter/module/runner and test-first contracts:
+502repository CPU tests/373subtests pass,1historical-path fixture skip and six
+pre-existing warnings. Independent review found no demonstrated sampler bug;
+its important full-transition/cap test gap is resolved with two exact oracles
+and an omission mutation that fails both. Operator3selfchecks pass, including
+timeout on non-newline stdout. Bare vendor collection remains unsupported.
+Global1/3 calls, clean-z Jacobian, separate RNG, current-style clean/final
+decode and per-object bounds are CPU-tested; native quality/time unmeasured.
+
+[Run/Open] New own tta-shape-latent-a100-20261031-r1, endpoint
+gpu-a100-hm-ass1c0-1ulu15s7e5w42, actual A100-SXM4-80GB. Canonical Cell1 and
+sameVM reconnect passed. Prelude-only connection failures required disconnect
+audit and own setup-kernel restart, then Cell2 was submitted after no-project/
+no-env/no-child proof. Conda Python3.8 setup currently running; Drive and native
+gates remain. Source/IDs/operator v2 sealed; exact SHA in study note.
+Five GB32 technical arms then five dev64/all15 arms seed0 planned under shared
+55min research cap (15–30min expected from historical194.115s/dev128 N8).
+No GPU accuracy/research job, commit/push or teardown occurred yet.
+
+### 2026-10-31 — bounded shape pilot: no general accuracy gain
+
+[Run/Inference] [Accepted results](shape_latent_tta_results_20261031.md):
+Point-MAE/ModelNet64exposed objects/all15/seed0, N8/B35 PM. Baseline60.9375%,
+updated60.729167%, anchor60.3125%, proposal60.3125%, guided3 60.416667%.
+Proposal adds0pp over anchor (15corrected/15harmed); guided3 adds+.104167pp
+(12/11), conditional object-bootstrap95%[-.729167,+.937500]. No winner/default
+promotion. All intervals include0; one diffusion seed, fixed corruptions,
+no independent confirmation. Background proposal beats baseline by one event;
+no corruption routing selected. Global guidance Jacobian/calls/noise matching
+and finite gradients are verified; no broken-gradient explanation established.
+
+[Run] Background unbounded style relative drift median6.7474%,max18.8361%;
+anchor caps at5% without accuracy gain. Gaussian native-style median.1206%
+versus global first-clean9.8530% and finalbounded~5%: radius is not uniformly
+a small intervention. Cause and h-z compatibility remain unseparated.
+150batch/30physical cache source/state/RNG/PM local recount equals remote;
+raw ZIP and Drive hashes verified. Preserved initial controller status error
+and explicit baseline reuse.22.295min research elapsed under55mincap;
+no extra grid/seeds/Scan/fullbenchmark. Own r1live, no teardown authorization.

@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "arms": {
+    "anchor": {
+      "macro_percent": 68.75,
+      "per_corruption_percent": {
+        "gaussian": 75.0,
+        "background": 62.5
+      },
+      "reconstruction_and_terminal_seconds": 10.862883060000058,
+      "run_id": "20261031-131022_pointmae-seed0"
+    },
+    "baseline": {
+      "macro_percent": 70.3125,
+      "per_corruption_percent": {
+        "gaussian": 75.0,
+        "background": 65.625
+      },
+      "reconstruction_and_terminal_seconds": 11.379874512000242,
+      "run_id": "20261031-130235_pointmae-seed0"
+    },
+    "guided3": {
+      "macro_percent": 68.75,
+      "per_corruption_percent": {
+        "gaussian": 71.875,
+        "background": 65.625
+      },
+      "reconstruction_and_terminal_seconds": 11.098031737000383,
+      "run_id": "20261031-131132_pointmae-seed0"
+    },
+    "proposal": {
+      "macro_percent": 67.1875,
+      "per_corruption_percent": {
+        "gaussian": 71.875,
+        "background": 62.5
+      },
+      "reconstruction_and_terminal_seconds": 10.967260729000373,
+      "run_id": "20261031-131057_pointmae-seed0"
+    },
+    "updated": {
+      "macro_percent": 68.75,
+      "per_corruption_percent": {
+        "gaussian": 75.0,
+        "background": 62.5
+      },
+      "reconstruction_and_terminal_seconds": 10.834304058999805,
+      "run_id": "20261031-130947_pointmae-seed0"
+    }
+  },
+  "paired_comparisons": {
+    "updated-baseline": {
+      "delta_pp": -1.5625,
+      "corrected": 0,
+      "harmed": 1
+    },
+    "anchor-updated": {
+      "delta_pp": 0.0,
+      "corrected": 0,
+      "harmed": 0
+    },
+    "proposal-anchor": {
+      "delta_pp": -1.5625,
+      "corrected": 1,
+      "harmed": 2
+    },
+    "guided3-anchor": {
+      "delta_pp": 0.0,
+      "corrected": 1,
+      "harmed": 1
+    },
+    "guided3-proposal": {
+      "delta_pp": 1.5625,
+      "corrected": 1,
+      "harmed": 0
+    }
+  },
+  "identity": {
+    "asset_manifest_sha256": "e9a75f8b90374b96b6fd49bb59a0ba646747e7e98a01d01d4604ddf373fc5786",
+    "source_snapshot_sha256": "d7c360debc73597c7a8449f456e8aaad5580ae5694538a080bbf620e7282de3d",
+    "classifier_state_before_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+    "lion_state_before": {
+      "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+      "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+    },
+    "executed_source_sha256": "60d7b4b37ea4f7aa13033a86aca6c30dc0b153355a62d2a5ea49ed9a21895c1f"
+  },
+  "physical_cache_files": 2,
+  "limits": "Fixed exposed IDs/seed0 exploratory pilot. Guided3 vs proposal changes both chain length and guidance."
+}

@@ -1,0 +1,34 @@
+{
+  "integration_base": "14d4644",
+  "repository_cpu": {
+    "passed": 518,
+    "skipped": 61,
+    "subtests_passed": 412,
+    "warnings": 6,
+    "seconds": 25.75
+  },
+  "numpy1_required_modules": {
+    "passed": 60,
+    "seconds": 2.82
+  },
+  "skips": "60 NumPy1-only tests pass separately; one historical sealed-source fixture absent in isolated checkout",
+  "initial_temporary_checkout_failure": "Two native-bootstrap fixture failures: existing test filters absolute path parts and excludes all source under /private/tmp; moved clean publication clone outside tmp, no production/test change",
+  "logs": {
+    "integration_pytest.log": {
+      "bytes": 5979,
+      "sha256": "eb124273df7005a0c7089f0b5b9d17b51c66c32a7dd3f8aca0bab3bc250dd075"
+    },
+    "integration_pytest_valid_path.log": {
+      "bytes": 2118,
+      "sha256": "18a542bcf61ac0d51d269d0e4082eb45c5615004107cfe1fc68eb9857643c38a"
+    },
+    "integration_numpy1.log": {
+      "bytes": 99,
+      "sha256": "dff1291b0616c42e0d8be16406307b17a5040d4e958425cde64a7dbf3c850694"
+    }
+  },
+  "gpu_source_is_publication_tree": false,
+  "latest_tree_raw_recount": "passed; exactly equals actual remote pilot acceptance",
+  "staged_whitespace_check": "passed with cr-at-eol and -blank-at-eof: preserve byte-identical archived CSV CRLF and sealed test final blank line; default flags report those two formatting cases",
+  "scientific_source_files_byte_identical": 5
+}

@@ -1,0 +1,45 @@
+{
+  "manifest_files_verified": 46,
+  "torch": "2.15.0",
+  "device": "cpu",
+  "original_0fd2581": {
+    "semantic_gradcheck": [
+      "kl",
+      "marginal_entropy"
+    ],
+    "sum_loss_and_per_object_gradient_batch_scaling": "passed",
+    "wrong_anchor_true_class_probability": [
+      0.5986876601124521,
+      0.59376944569198
+    ]
+  },
+  "curvenet_95a4997": {
+    "semantic_gradcheck": [
+      "kl",
+      "marginal_entropy"
+    ],
+    "sum_loss_and_per_object_gradient_batch_scaling": "passed",
+    "wrong_anchor_true_class_probability": [
+      0.5986876601124521,
+      0.59376944569198
+    ]
+  },
+  "calibrated_ratio_tail": {
+    "semantic_kl": {
+      "median": 0.1,
+      "p90": 0.7413620935516936,
+      "max": 7.009260867372672
+    },
+    "semantic_h": {
+      "median": 0.1,
+      "p90": 0.5057464020983512,
+      "max": 3.7239500060166257
+    }
+  },
+  "weighted_NN_trim_gradient_and_unit_weight_control": "passed",
+  "sparse_forward_schedule": {
+    "10": 4,
+    "30": 11
+  },
+  "limitations": "Algebra/toy gradients only; no pretrained inference, native CUDA or accuracy causality."
+}

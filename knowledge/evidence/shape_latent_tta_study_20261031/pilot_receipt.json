@@ -1,0 +1,29 @@
+{
+  "status": "complete",
+  "stage": "pilot",
+  "archive": {
+    "bytes": 95791160,
+    "sha256": "c2a58d37641e549cf3fc5403143c913483f92dd6bba912efe8d715f23d688ec3",
+    "local_path": "/content/studies/shape-latent/phase_pilot_20261031T131456355677Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_tta_study_20261031/phase-evidence/phase_pilot_20261031T131456355677Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 1337.696126,
+    "completed": [
+      "smoke",
+      "pilot"
+    ],
+    "research_started_utc": "2026-10-31T13:02:35.879279+00:00",
+    "prior_failed_ledger_identity": {
+      "bytes": 180,
+      "sha256": "e796b4a02f3b4ade1c72e3b4451f45d1a7dd705fbe32718d86cfed071b43e0ac"
+    },
+    "prior_failed_attempt": {
+      "stage": "smoke",
+      "path": "/content/studies/shape-latent/phase_smoke_20261031T130235879279Z"
+    },
+    "smoke_acceptance": "passed"
+  },
+  "output": "/content/studies/shape-latent/phase_pilot_20261031T131456355677Z",
+  "cache_root": "/content/studies/shape-latent/phase_pilot_20261031T131456355677Z/paired"
+}

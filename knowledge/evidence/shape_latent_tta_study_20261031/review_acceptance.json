@@ -1,0 +1,8 @@
+{
+  "reviewer": "independent gpt-6-astra read-only",
+  "critical": [],
+  "important": "insufficient full guided-transition and active-cap test",
+  "resolved": "two independent complete signed/capped transition tests; removing correction causes both to fail; restored implementation502 CPU tests pass",
+  "minor_deferred": "tta.py original-style probe comment describes default, adapter expression below explicitly handles current style",
+  "interpretation_limit": "guided3 versus proposal changes both chain length and guidance; no isolated-guidance claim"
+}

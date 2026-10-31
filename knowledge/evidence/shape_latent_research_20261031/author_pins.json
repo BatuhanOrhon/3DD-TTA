@@ -1,0 +1,38 @@
+[
+  {
+    "repository": "nv-tlabs/LION",
+    "sha": "7711b3d185752eeb632d095494876e4de15f3195",
+    "committer_date": "2024-09-09T22:21:37Z",
+    "url": "https://api.github.com/repos/nv-tlabs/LION/commits/main"
+  },
+  {
+    "repository": "hamidreza-dastmalchi/3DD-TTA",
+    "sha": "107305fd7baf40b359f31c07d235599198be7324",
+    "committer_date": "2025-04-24T20:04:29Z",
+    "url": "https://api.github.com/repos/hamidreza-dastmalchi/3DD-TTA/commits/main"
+  },
+  {
+    "repository": "Seunghyeok0715/CLAMP",
+    "sha": "5e34c997bc694f222cadd7f8a2de759bb441fad8",
+    "committer_date": "2026-09-07T04:09:13Z",
+    "url": "https://api.github.com/repos/Seunghyeok0715/CLAMP/commits/main"
+  },
+  {
+    "repository": "DPS2022/diffusion-posterior-sampling",
+    "sha": "effbde7325b22ce8dc3e2c06c160c021e743a12d",
+    "committer_date": "2023-03-02T07:12:08Z",
+    "url": "https://api.github.com/repos/DPS2022/diffusion-posterior-sampling/commits/main"
+  },
+  {
+    "repository": "zhangbingliang2019/DAPS",
+    "sha": "0b182726f84df1ad26fde4dccebefda4747b82d8",
+    "committer_date": "2026-07-20T03:23:31Z",
+    "url": "https://api.github.com/repos/zhangbingliang2019/DAPS/commits/main"
+  },
+  {
+    "repository": "LituRout/PSLD",
+    "sha": "d734647bbc1ed0b1171521a804fc744973779f8c",
+    "committer_date": "2023-12-18T23:41:46Z",
+    "url": "https://api.github.com/repos/LituRout/PSLD/commits/main"
+  }
+]

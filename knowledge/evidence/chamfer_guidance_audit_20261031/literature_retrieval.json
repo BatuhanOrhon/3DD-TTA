@@ -1,0 +1,190 @@
+[
+  {
+    "name": "sator",
+    "url": "https://arxiv.org/pdf/2610.21367v1",
+    "retrieved_utc": "2026-10-31T10:44:03.797741+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2610.21367v1",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/sator.pdf",
+    "bytes": 904014,
+    "sha256": "41bdbbfdc0098e9fc654bbed8020726de61f332382a8ff344007cfa10731d91c",
+    "pages": 10,
+    "direct_reference_pages": [
+      9
+    ]
+  },
+  {
+    "name": "ttad",
+    "url": "https://arxiv.org/pdf/2610.27410v1",
+    "retrieved_utc": "2026-10-31T10:44:03.798020+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2610.27410v1",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/ttad.pdf",
+    "bytes": 8300381,
+    "sha256": "a030e309968705ace1a3bcdf6b7ea353b970a1ec3bf51fabaee5aa8fb27be265",
+    "pages": 16,
+    "direct_reference_pages": [
+      15
+    ]
+  },
+  {
+    "name": "mamvi",
+    "url": "https://arxiv.org/pdf/2606.12939v1",
+    "retrieved_utc": "2026-10-31T10:44:03.798083+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2606.12939v1",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/mamvi.pdf",
+    "bytes": 2051404,
+    "sha256": "61ca04c141957128f2826491634a9857b77a55384fa9bb36cbfd58b2510da876",
+    "pages": 15,
+    "direct_reference_pages": [
+      14
+    ]
+  },
+  {
+    "name": "gsdtta",
+    "url": "https://arxiv.org/pdf/2507.18225v1",
+    "retrieved_utc": "2026-10-31T10:44:03.798127+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2507.18225v1",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/gsdtta.pdf",
+    "bytes": 1693954,
+    "sha256": "4a5914c9b35dac211b96dbbaf4096fc93ea651a9576a4d5e78eb4bd4fbbee285",
+    "pages": 10,
+    "direct_reference_pages": [
+      10
+    ]
+  },
+  {
+    "name": "uniadapter",
+    "url": "https://arxiv.org/pdf/2511.15311v2",
+    "retrieved_utc": "2026-10-31T10:44:03.798168+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2511.15311v2",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/uniadapter.pdf",
+    "bytes": 12804897,
+    "sha256": "d08e5d6a2325d78c1d398e6a48f3688862ca8e0feacbe8866a5f4898053e24ae",
+    "pages": 15,
+    "direct_reference_pages": [
+      3,
+      5,
+      6,
+      8,
+      12
+    ]
+  },
+  {
+    "name": "lottpc",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "retrieved_utc": "2026-10-31T10:44:05.661201+00:00",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/lottpc.pdf",
+    "bytes": 882463,
+    "sha256": "4ba7a72c70ff027fdad85e75412eb6d828a2070cb7417f06d03eab3afabf609a",
+    "pages": 10,
+    "direct_reference_pages": [
+      9
+    ]
+  },
+  {
+    "name": "embedopt",
+    "url": "https://arxiv.org/pdf/2602.05285v2",
+    "retrieved_utc": "2026-10-31T10:44:06.881840+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2602.05285v2",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/embedopt.pdf",
+    "bytes": 18685088,
+    "sha256": "08eb17f5ee93faeb9eaf3729b2b8604b42ce2e413504097e6bf24170d563f33a",
+    "pages": 29,
+    "direct_reference_pages": []
+  },
+  {
+    "name": "racer",
+    "url": "https://arxiv.org/pdf/2608.01740v1",
+    "retrieved_utc": "2026-10-31T10:44:07.204412+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2608.01740v1",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/racer.pdf",
+    "bytes": 1202434,
+    "sha256": "ef2195b44801624c357dbbab37121789731537af7e6c3b2c2534b6952c6f5d13",
+    "pages": 9,
+    "direct_reference_pages": []
+  },
+  {
+    "name": "cachescope",
+    "url": "https://arxiv.org/pdf/2610.12530v1",
+    "retrieved_utc": "2026-10-31T10:44:07.657168+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2610.12530v1",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/cachescope.pdf",
+    "bytes": 3293962,
+    "sha256": "1ec30f21a7de5b83d63b315777dac0f313d691f92c8f1608f70380563fc55205",
+    "pages": 22,
+    "direct_reference_pages": []
+  },
+  {
+    "name": "trust",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/aa8164b8a8e484fe31885657fea14997-Paper-Conference.pdf",
+    "retrieved_utc": "2026-10-31T10:44:10.040534+00:00",
+    "status": 200,
+    "final_url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/aa8164b8a8e484fe31885657fea14997-Paper-Conference.pdf",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/trust.pdf",
+    "bytes": 47171298,
+    "sha256": "0276bf4ac6f8f0f5d985e2b846705db1928749309b247b5a73f64d3648f42f02",
+    "pages": 25,
+    "direct_reference_pages": []
+  },
+  {
+    "name": "cbg",
+    "url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/geyfman26a/geyfman26a.pdf",
+    "retrieved_utc": "2026-10-31T10:44:14.031740+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/geyfman26a/geyfman26a.pdf",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/cbg.pdf",
+    "bytes": 6822372,
+    "sha256": "6798cbcb62500c056dd5e785f87e7223275a7f6293f61d18b79fd181742fd768",
+    "pages": 28,
+    "direct_reference_pages": []
+  },
+  {
+    "name": "openalex",
+    "url": "https://api.openalex.org/works?filter=cites:W4409262973&per-page=100",
+    "retrieved_utc": "2026-10-31T10:44:15.954123+00:00",
+    "status": 200,
+    "final_url": "https://api.openalex.org/works?filter=cites:W4409262973&per-page=100",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/openalex.json",
+    "bytes": 66960,
+    "sha256": "42319fd5e05bed566790841282b91e329b51f33bfbc51ff5996763d34a6545f4",
+    "index_titles": [
+      "Geometry-Guided Diffusion SAR Point Cloud Denoising",
+      "MAMVI: 3D Test-Time Adaptation via Masked Multi-view Point Clouds",
+      "Diffusion-Driven Point Cloud Adaption for Depth-Only 6D Pose Estimation in Cluttered Robotics Bin-Picking",
+      "SA-P2SB: a structure-aware Schr\u00f6dinger bridge for scene-level point cloud denoising"
+    ]
+  },
+  {
+    "name": "semanticscholar",
+    "url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2411.14495/citations?fields=title,year,externalIds&limit=100",
+    "retrieved_utc": "2026-10-31T10:44:16.338284+00:00",
+    "status": 200,
+    "final_url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2411.14495/citations?fields=title,year,externalIds&limit=100",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/literature/semanticscholar.json",
+    "bytes": 3460,
+    "sha256": "22e90bb91b3cd48a165424c0e28f50537a6689baa496227b514920ca6df7572c",
+    "index_titles": [
+      "Test-time adaptation for point cloud denoising under unseen noise",
+      "SATOR: Backpropagation-Free 3D Test-Time Adaptation via Sample-Adaptive Token Routing",
+      "RGBD-to-3D Object Mesh Refinement via Depth Matching and Symmetry Propagation",
+      "SA-P2SB: a structure-aware Schr\u00f6dinger bridge for scene-level point cloud denoising",
+      "Beyond Global Editing: Per-Instance Disentangled Subspaces for Training-Free Hallucination Mitigation in LVLMs",
+      "Test Time Adaptation Methods for Point Cloud Registration in Laparoscopic Surgery",
+      "Diffusion-Driven Point Cloud Adaption for Depth-Only 6D Pose Estimation in Cluttered Robotics Bin-Picking",
+      "MAMVI: 3D Test-Time Adaptation via Masked Multi-View Point Clouds",
+      "Adapt-As-You-Walk Through the Clouds: Training-Free Online Test-Time Adaptation of 3D Vision-Language Foundation Models",
+      "Hierarchical Adaptive networks with Task vectors for Test-Time Adaptation",
+      "ETTA: Efficient Test-Time Adaptation for Vision-Language Models through Dynamic Embedding Updates",
+      "3D Test-Time Adaptation via Graph Spectral Driven Point Shift"
+    ]
+  }
+]

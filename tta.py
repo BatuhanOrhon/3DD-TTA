@@ -39,7 +39,7 @@ def selective_chamfer_loss(dists1, dists2, num_points, *, normalize=False):
 def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     scheduler_observer=None, return_trajectory=False,
                     scd_normalize=False, prepared_state=None, state_observer=None,
-                    trajectory_observer=None):
+                    trajectory_observer=None, shape_guidance=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -102,6 +102,8 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     if trajectory_observer is not None:
         trajectory_observer.mark('style_noise')
     style_cond = vae.global2style(shape_latent)
+    if shape_guidance is not None:
+        style_cond = shape_guidance.initialize(shape_latent, scheduler, lion)
     
     # Add noise to the local latent vector
     noise = torch.randn_like(latent_point) if prepared_state is None else prepared_state['noise'].detach().clone()
@@ -133,7 +135,8 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         pred_latent_point = scheduler_output.pred_original_sample
         if trajectory_observer is not None:
             # Clean predictions and terminal both use the original encoded style.
-            trajectory_observer.clean(pred_latent_point, shape_latent, i, t)
+            trajectory_observer.clean(pred_latent_point,
+                                      shape_latent if shape_guidance is None else style_cond, i, t)
             trajectory_observer.mark('chamfer_backward_update')
         
         # Compute Selective Chamfer Distance
@@ -152,9 +155,12 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         # Update latent variables with gradient step
         noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
         style_cond = style_cond - eta * style_cond.grad
+        if shape_guidance is not None:
+            style_cond = shape_guidance.project(style_cond)
 
+    decoder_style = shape_latent if shape_guidance is None else style_cond
     if trajectory_observer is not None:
-        trajectory_observer.final_state(noisy_latent_point, shape_latent, timesteps_local[-1])
+        trajectory_observer.final_state(noisy_latent_point, decoder_style, timesteps_local[-1])
         trajectory_observer.mark('terminal_decode')
 
     if return_trajectory:
@@ -167,7 +173,7 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     # Decode the predicted points from VAE decoder
     pred_points = vae.decoder(
         None, beta=None, context=noisy_latent_point.squeeze(3).squeeze(2), 
-        style=shape_latent.squeeze(3).squeeze(2)
+        style=decoder_style.squeeze(3).squeeze(2)
     )
     
     return pred_points

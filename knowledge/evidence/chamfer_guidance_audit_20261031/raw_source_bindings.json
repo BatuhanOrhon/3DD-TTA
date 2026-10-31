@@ -1,0 +1,726 @@
+{
+  "status": "passed",
+  "archives": 144,
+  "bindings": [
+    {
+      "run_id": "20261030-150204_guidance-components-chamfer-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-150205_guidance-components-chamfer-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-150206_guidance-components-chamfer-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-150207_guidance-components-chamfer-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-150715_chamfer-sparse-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-150716_chamfer-sparse-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-150717_chamfer-sparse-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-150718_chamfer-sparse-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-151138_chamfer-semantic-kl-w0p6285361973358488-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-151139_chamfer-semantic-kl-w0p6285361973358488-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-151140_chamfer-semantic-kl-w0p6285361973358488-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-151141_chamfer-semantic-kl-w0p6285361973358488-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-151701_chamfer-semantic-marginal_entropy-w1p4715424107401223-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-151702_chamfer-semantic-marginal_entropy-w1p4715424107401223-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-151702_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-151703_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-152222_chamfer-weighted-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-152223_chamfer-weighted-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-152224_chamfer-weighted-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-152225_chamfer-weighted-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-152722_guidance-components-chamfer-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-152723_guidance-components-chamfer-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-152723_guidance-components-chamfer-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-152724_guidance-components-chamfer-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-153230_chamfer-sparse-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-153231_chamfer-sparse-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-153232_chamfer-sparse-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-153233_chamfer-sparse-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-153650_chamfer-semantic-kl-w0p6285361973358488-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-153651_chamfer-semantic-kl-w0p6285361973358488-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-153652_chamfer-semantic-kl-w0p6285361973358488-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-153653_chamfer-semantic-kl-w0p6285361973358488-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-154211_chamfer-semantic-marginal_entropy-w1p4715424107401223-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-154212_chamfer-semantic-marginal_entropy-w1p4715424107401223-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-154213_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-154213_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-154732_chamfer-weighted-dgcnn-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-154733_chamfer-weighted-curvenet-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-154734_chamfer-weighted-pointnext-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-154735_chamfer-weighted-pointmae-seed0",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-155230_guidance-components-chamfer-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-155230_guidance-components-chamfer-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-155231_guidance-components-chamfer-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-155232_guidance-components-chamfer-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-155741_chamfer-sparse-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-155742_chamfer-sparse-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-155742_chamfer-sparse-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-155743_chamfer-sparse-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-160204_chamfer-semantic-kl-w0p6285361973358488-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-160205_chamfer-semantic-kl-w0p6285361973358488-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-160206_chamfer-semantic-kl-w0p6285361973358488-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-160207_chamfer-semantic-kl-w0p6285361973358488-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-160726_chamfer-semantic-marginal_entropy-w1p4715424107401223-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-160727_chamfer-semantic-marginal_entropy-w1p4715424107401223-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-160728_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-160729_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-161248_chamfer-weighted-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-161249_chamfer-weighted-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-161249_chamfer-weighted-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-161250_chamfer-weighted-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-161748_guidance-components-chamfer-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-161749_guidance-components-chamfer-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-161749_guidance-components-chamfer-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-161750_guidance-components-chamfer-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-162256_chamfer-sparse-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-162257_chamfer-sparse-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-162258_chamfer-sparse-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-162259_chamfer-sparse-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-162717_chamfer-semantic-kl-w0p6285361973358488-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-162718_chamfer-semantic-kl-w0p6285361973358488-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-162719_chamfer-semantic-kl-w0p6285361973358488-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-162719_chamfer-semantic-kl-w0p6285361973358488-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-163238_chamfer-semantic-marginal_entropy-w1p4715424107401223-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-163239_chamfer-semantic-marginal_entropy-w1p4715424107401223-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-163240_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-163241_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-163759_chamfer-weighted-dgcnn-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-163800_chamfer-weighted-curvenet-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-163801_chamfer-weighted-pointnext-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-163802_chamfer-weighted-pointmae-seed1",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-164257_guidance-components-chamfer-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-164258_guidance-components-chamfer-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-164259_guidance-components-chamfer-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-164259_guidance-components-chamfer-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-164808_chamfer-sparse-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-164809_chamfer-sparse-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-164810_chamfer-sparse-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-164811_chamfer-sparse-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-165233_chamfer-semantic-kl-w0p6285361973358488-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-165234_chamfer-semantic-kl-w0p6285361973358488-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-165234_chamfer-semantic-kl-w0p6285361973358488-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-165235_chamfer-semantic-kl-w0p6285361973358488-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-165755_chamfer-semantic-marginal_entropy-w1p4715424107401223-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-165756_chamfer-semantic-marginal_entropy-w1p4715424107401223-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-165757_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-165758_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-170318_chamfer-weighted-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-170319_chamfer-weighted-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-170319_chamfer-weighted-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-170320_chamfer-weighted-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-170818_guidance-components-chamfer-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-170819_guidance-components-chamfer-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-170820_guidance-components-chamfer-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-170821_guidance-components-chamfer-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-171327_chamfer-sparse-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-171328_chamfer-sparse-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-171329_chamfer-sparse-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-171330_chamfer-sparse-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-171749_chamfer-semantic-kl-w0p6285361973358488-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-171750_chamfer-semantic-kl-w0p6285361973358488-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-171751_chamfer-semantic-kl-w0p6285361973358488-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-171751_chamfer-semantic-kl-w0p6285361973358488-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-172311_chamfer-semantic-marginal_entropy-w1p4715424107401223-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-172312_chamfer-semantic-marginal_entropy-w1p4715424107401223-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-172312_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-172313_chamfer-semantic-marginal_entropy-w1p4715424107401223-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-172833_chamfer-weighted-dgcnn-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-172834_chamfer-weighted-curvenet-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-172835_chamfer-weighted-pointnext-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-172836_chamfer-weighted-pointmae-seed2",
+      "phase": "original_0fd2581",
+      "matched_members": 6
+    },
+    {
+      "run_id": "20261030-183327_guidance-components-chamfer-curvenet-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-183327_guidance-components-chamfer-dgcnn-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-183328_guidance-components-chamfer-pointnext-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-183329_guidance-components-chamfer-pointmae-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-183833_chamfer-semantic-marginal_entropy-w3p153885581354952-dgcnn-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-183834_chamfer-semantic-marginal_entropy-w3p153885581354952-curvenet-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-183835_chamfer-semantic-marginal_entropy-w3p153885581354952-pointnext-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-183836_chamfer-semantic-marginal_entropy-w3p153885581354952-pointmae-seed0",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-184353_guidance-components-chamfer-dgcnn-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-184354_guidance-components-chamfer-curvenet-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-184355_guidance-components-chamfer-pointnext-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-184356_guidance-components-chamfer-pointmae-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-184901_chamfer-semantic-marginal_entropy-w3p153885581354952-dgcnn-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-184902_chamfer-semantic-marginal_entropy-w3p153885581354952-curvenet-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-184903_chamfer-semantic-marginal_entropy-w3p153885581354952-pointnext-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-184904_chamfer-semantic-marginal_entropy-w3p153885581354952-pointmae-seed1",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-185422_guidance-components-chamfer-dgcnn-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-185423_guidance-components-chamfer-curvenet-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-185424_guidance-components-chamfer-pointnext-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-185425_guidance-components-chamfer-pointmae-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 5
+    },
+    {
+      "run_id": "20261030-185931_chamfer-semantic-marginal_entropy-w3p153885581354952-dgcnn-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-185932_chamfer-semantic-marginal_entropy-w3p153885581354952-curvenet-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-185933_chamfer-semantic-marginal_entropy-w3p153885581354952-pointnext-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    },
+    {
+      "run_id": "20261030-185934_chamfer-semantic-marginal_entropy-w3p153885581354952-pointmae-seed2",
+      "phase": "curvenet_95a4997",
+      "matched_members": 7
+    }
+  ]
+}

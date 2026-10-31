@@ -1,3 +1,40 @@
+**[Run/Code/Inference/Open] 2026-10-31 — shape latent beş-kol pilot tamamlandı:**
+[Sonuç ve sınırlar](shape_latent_tta_results_20261031.md): ModelNet40-C,
+Point-MAE,64açığa çıkmış nesne/all15/seed0. All15 PM: baseline60.9375%,
+updated60.729167%, anchor60.3125%, proposal60.3125%, guided3 60.416667%.
+Genel iyileşme yok; proposal−anchor0, guided3−anchor+.104167puan (bir olay),
+bütün koşullu object-bootstrap aralıkları0içerir.64nesne×15koşul bağımsız960
+nesne değildir.30fiziksel cache/150batch kaynak/state/RNG/PM bağımsız yerel
+recount geçer; hamlar Drive+yerelde doğrulanmıştır. Background style drift
+medyan%6.75'ten%5sınırına iner fakat accuracy artmaz. Yeni yöntem default değil.
+[Plan ve idari stop geçmişi](shape_latent_tta_study_20261031.md).
+Kendi `tta-shape-latent-a100-20261031-r1` runtime'ı canlı; kapatma izni yok.
+
+**[User report/Code/Run/Paper/Inference/Open] 2026-10-31 — shape latent araştırması:**
+[LION mimarisi, eski dual kaynak ve yeni yöntem raporu](shape_latent_tta_research_20261031.md).
+Local prior temiz global z ile eğitilir; local encoder da z'ye koşulludur.
+9Ağustos dual kaynak bulundu fakat eski negatif run'ın artifact/commit bağı
+kurtarılamadı. Sync'in noisy-z koşulu ve launcher'ın etkisiz lambdaa/p=.5
+seçimi kaynak bulgusudur; eski accuracy kaybının nedeni kanıtlanmadı.
+Decoder-only üç-seed kontrolü yeniden63.748424→63.716910% çıkar; global
+diffusion deneyi değildir.180gerçek cache betimsel latent varyasyonu sağlar,
+temiz-z hata ölçümü sağlamaz. LION/DPS/PSLD ve2026L-DPS/CLAMP bağlantılarıyla
+önce tek düşük-noise temiz global öneri+uzaklık sınırı, sonra temiz tahminde
+guidance önerildi. Bu report-only anının sonraki onaylı implementasyon ve
+pilotla aşıldığı yukarıdaki sonuç kaydında belirtilir.
+
+**[Code/Run/Paper/Inference/Open] 2026-10-31 — gerçek kaynak denetimi ve literatür yenilemesi:**
+[Yeni rapor](chamfer_guidance_implementation_literature_audit_20261031.md)
+P0/P1 kaynak ZIP'lerini,46audit dosyasını,144raw head/4320batch ve304cache'i
+yeniden kontrol eder; accuracy/CI aynı çıkar. Denetlenen yollarda sonuçları
+geçersiz kılan doğrulanmış implementasyon kusuru bulunmadı. Semantik .1
+medyan hedefinin nesne bazlı tavan olmadığı ve sabit yanlış-X referansının
+olası etkisi ayrı mekanizma hipotezleridir. Altı doğrudan atıflı primary PDF
+yeniden doğrulandı; iki yeni prospective aday per-object semantic cap ve
+gradient forecasting'dir.101CPUtest/91subtest geçer; tarihsel preview fixture
+skip'i gerçek source yolunda ayrı kontrolle karşılandı. Yalnız rapor/kanıt ve
+research memory değişti; üretim kodu, Colab/GPU ve yayın işlemi yoktur.
+
 **[User report/Run/Decision] 2026-10-31 12:04 UTC — Baseline yayınlandı, Agent B oturumu kapandı:**
 Yeni baseline `thesis-integration@f899442` üzerinde. Kullanıcının açık kapanış
 talimatından sonra yalnızca `tta-depth-transfer-a100-20261031-r1` kapatıldı;

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "worktree": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA",
+  "branch": "integration/chamfer-guidance-variants-20261030",
+  "head": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_hashes_verified": 19,
+  "primary_pdfs_verified": 6,
+  "local_links_verified": 19,
+  "json_and_python_parse": "passed",
+  "cpu_algebra_checks": 8,
+  "physical_shape_caches": 180,
+  "decoder_control_archives": 3,
+  "production_changed": false,
+  "new_pretrained_inference": false,
+  "colab_gpu_started": false,
+  "commit_push": false,
+  "limits": [
+    "CPU algebra and artifact checks only",
+    "Exact historical dual run remains unbound",
+    "Proposals unimplemented; no accuracy or timing measured"
+  ],
+  "cpu_replay_matches": true,
+  "verification_note": "An initial replay omitted the required output-path argument and failed while saving; the corrected invocation passes and matches the original JSON."
+}

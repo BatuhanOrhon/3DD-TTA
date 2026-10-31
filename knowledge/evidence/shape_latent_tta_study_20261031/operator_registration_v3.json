@@ -1,0 +1,56 @@
+{
+  "session": "tta-shape-latent-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-1ulu15s7e5w42",
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_dirty": true,
+  "manifest": {
+    "bytes": 129763,
+    "sha256": "e9a75f8b90374b96b6fd49bb59a0ba646747e7e98a01d01d4604ddf373fc5786"
+  },
+  "research_cap_seconds": 3300,
+  "arms": [
+    "baseline",
+    "updated",
+    "anchor",
+    "proposal",
+    "guided3"
+  ],
+  "pilot": {
+    "dataset": "modelnet40_c",
+    "severity": 5,
+    "head": "pointmae",
+    "objects": 64,
+    "corruptions": "all15",
+    "seed": 0,
+    "batch": 32,
+    "normal_reverse_steps": 8,
+    "background_reverse_steps": 35
+  },
+  "operator_files": {
+    "run_phase_v2.py": {
+      "bytes": 9088,
+      "sha256": "a8257bd21db36060121b015e407a00e873009d1175e0ac438539222747ec5be6"
+    },
+    "analyze_phase_v2.py": {
+      "bytes": 8830,
+      "sha256": "b20fb0defa0b4f3e1abfc687b544eb9705c1d7e9b990e097982afea407847464"
+    },
+    "run_smoke_v2_wrapper.py": {
+      "bytes": 366,
+      "sha256": "ec2fa311e2b965fb0b7a061043512f95f5cfb48d317fa2022ac8c9bd32fb9b3f"
+    },
+    "run_pilot_v2_wrapper.py": {
+      "bytes": 366,
+      "sha256": "c6932ee0519127037a6479aeda262ca3996031703d69418bde4494b495e26223"
+    }
+  },
+  "selection_policy": "label-free hash ranking; supersedes sorted-prefix draft before execution",
+  "continuation_reason": "administrative complete-subset status correction only; reuse accepted baseline, execute only four remaining smoke arms",
+  "original_failed_phase_archive": {
+    "bytes": 7007462,
+    "sha256": "e25e903e0d055367c2fa615865a558f2412f7c5e730df706c7dcdebf8fb9c061"
+  },
+  "research_started_utc": "2026-10-31T13:02:35.879279+00:00",
+  "budget_policy": "55min total elapsed from initial research launch, including debugging/transfer/review gaps"
+}

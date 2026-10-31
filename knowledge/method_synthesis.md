@@ -11,6 +11,23 @@ experimental comparators; their historical coefficients cannot be silently
 transferred to this host. Promotion does not establish global optimality,
 isolated spectral/depth attribution, or full-data accuracy.
 
+## 2026-10-31 — Chamfer executed-source audit and two untested transfers
+
+[Code/Run/Paper/Inference/Open] [Source audit and refreshed literature](chamfer_guidance_implementation_literature_audit_20261031.md)
+reproduces144head/4320batch accuracy/CI and304cache hashes;46historical audit
+files and20members of two sealed source ZIPs match. No result-invalidating
+loss-sign/reduction/detach/NN-routing/ID/metric defect was established in the
+audited paths. This is not complete native-gradient certification. Fixed-X
+semantic anchoring and pre-update votes are intentional; .1median calibration
+allows P0 calibrated KL/C max7.0093 and H/C3.7240 on calibration states, not a
+per-object cap or measured guided-trajectory tail. Two prospective candidates
+are per-object semantic update capping and gradient forecasting between exact
+sparse backward steps. EmbedOpt/Trust and RACER motivate these distinct
+adaptations; original3DD style updates, prior H/KL/weighted/sparse, mean/H+JS,
+early exit and projection are not relabelled as new. Six direct-citing PDFs
+and current author pins were refreshed. No production change or GPU/Colab run;
+new candidates, full native derivatives and deployment costs remain open.
+
 ## Agent A fixed ModelNet readouts integrated — 2026-10-30
 
 [Run/Inference] CompletedOct25 all15/2468-ID/seed0 three-head observation:
@@ -347,3 +364,42 @@ The [paper/code/results index](chamfer_guidance_methods_results_20261031.md)
 records intentional deviations from AG/CloudFixer/MAMVI/GDA and untested papers.
 Causal early exit remains unimplemented. The next requested task is independent
 code/provenance auditing and another literature review, not a new GPU phase.
+
+## 2026-10-31 — bounded shape-prior hypothesis
+
+[Paper/Code/Inference/Open] The [shape-latent review](shape_latent_tta_research_20261031.md)
+separates original gradient-updated conditioning from running p(z)'s denoiser.
+LION local training expects clean z; h is encoded conditioned on z. The
+original final-z decoder choice has no verified author-intent explanation.
+Historical dual defects/confounds are source evidence, not an attribution
+of the user's unbound negative result. Existing decoder-only null remains.
+
+[Inference] Candidate A: one low-noise global clean estimate, projected per
+object around initial corrupted z, followed by equally bounded style updates.
+Compare C vs anchor-only vs anchor+prior; preserve local/classifier RNG with
+an independent global-noise generator. Fixed-h and reencoded-h controls are
+distinct. Radius0 is style-off, not original C identity. Candidate B, only
+after prior-specific benefit, uses a short independent global schedule and
+guides predicted clean z toward initial z, differentiating to noisy z.
+DPS/L-DPS motivate this chain; neither initial-z anchoring nor SCD is a
+calibrated measurement likelihood. Strong anchoring may preserve corruption.
+
+[Decision/Open] Start from clean-z/posterior-mean diagnostics and oracle-only
+headroom before expensive global solvers. PSLD cycle/gluing, DAPS inner
+sampling and CLAMP curvature are deferred. This revises no existing method
+default and launches no experiment. The4Oct four-path/style-off optional
+global plan remains a different mechanism study; do not pool its results.
+
+## 2026-10-31 — bounded shape-prior pilot outcome
+
+[User report/Code/Run/Inference] Later test approval supersedes the preceding
+proposal-only state. [Fixed five-arm pilot](shape_latent_tta_results_20261031.md)
+implemented one global clean query and guided3 at20/10/0 without h reencoding.
+Baseline60.9375%, updated60.729167%, anchor/proposal60.3125%, guided3 60.416667%
+on64exposed ModelNet objects/all15/seed0/Point-MAE. Proposal−anchor ties;
+guided3−anchor is oneevent with CIincluding0. No method promoted.
+Drift capping alone does not improve this cohort; low-noise global prediction
+still pushes Gaussian z much farther than native style adaptation. This is
+mechanism evidence and a null exploratory result, not a proof global priors
+cannot help. Clean-z oracle and conditional-h compatibility remain untested.
+No extra GPU phase or coefficient search follows automatically.

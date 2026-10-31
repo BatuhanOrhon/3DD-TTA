@@ -1,0 +1,69 @@
+[
+  {
+    "name": "github_cloudfixer",
+    "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/adapt.py",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/github_cloudfixer.py",
+    "bytes": 26106,
+    "sha256": "a56ef16f14603d49abecd8121b5df7913a6c47b2e0effad8d3d99ad37ff333b7",
+    "git_blob_sha1": "d2eb464ff86ae237113f5d199e1adaee37e023fc",
+    "matches_prior_pinned_download": true
+  },
+  {
+    "name": "github_mamvi",
+    "url": "https://github.com/iskong17/MAMVI/blob/0b553973b7123da6198b79bba4ff704b8eec914c/tools/tta.py",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/github_mamvi.py",
+    "bytes": 100870,
+    "sha256": "b50ade47aa784dc010d46e38007699f80e4055181b1549b82d04dab6194e0378",
+    "git_blob_sha1": "ef24dca40cf7a9d8991d23955dabe1ca00c6e86d",
+    "matches_prior_pinned_download": true
+  },
+  {
+    "name": "github_gda",
+    "url": "https://github.com/yunyuntsai/gda_robust_tta/blob/4197ff4e43b03b896830f5e70980c7e613be5126/main.py",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/github_gda.py",
+    "bytes": 19581,
+    "sha256": "d1c73a7e8b5bb81cda783b3a42d2d24a34dc21d34569f7d7514f7e5dd83d6d41",
+    "git_blob_sha1": "8bb4f22eea1592e260c4e71d0b13313915a31cf0",
+    "matches_prior_pinned_download": true
+  },
+  {
+    "name": "racer_code",
+    "url": "https://github.com/LiZaiyuan0619/RACER/blob/eea38110687cd281d8fb9a0c97dff1f02058bf9f/src/pipelines/sd3_forward.py",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/racer_code.py",
+    "bytes": 21443,
+    "sha256": "45abef3ff762ebb3fecd4695c7979480a69bda07f3a8c38046ee24094b7462b6",
+    "git_blob_sha1": "6eeb4077f0f7e66659b9d60689258654296a1a64"
+  },
+  {
+    "name": "racer_readme",
+    "url": "https://github.com/LiZaiyuan0619/RACER/blob/eea38110687cd281d8fb9a0c97dff1f02058bf9f/README.md",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/racer_readme.md",
+    "bytes": 2743,
+    "sha256": "084dbcdb811605bf0a969158b69afaedd65bef526afe07eecfbcdea84f06212b",
+    "git_blob_sha1": "5da27687a0834fd5528818fcf90087b468679b38"
+  },
+  {
+    "name": "embed_code",
+    "url": "https://github.com/rs-station/embedopt/blob/fa27c519ff4f7de5d1cacf0125698a88006b6b0c/src/embedopt/sampler/embedopt.py",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/embed_code.py",
+    "bytes": 23177,
+    "sha256": "e0703a555c4b7a4d738c3ae562ed5fb10bed328a7f0b7b79884d3ae973ef9085",
+    "git_blob_sha1": "9e62479415e00fe49efb80ffd0c20ef5215c61ec"
+  },
+  {
+    "name": "trust_code",
+    "url": "https://github.com/will-s-h/trust-sampling/blob/04fc14452b512426fd09e00c2047b3855f6edb1f/diffusion/diffusion.py",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/trust_code.py",
+    "bytes": 24154,
+    "sha256": "90e52a6e5c8746528631b4e198bc1f9da5949e7cefba695bcaac65f0964802a0",
+    "git_blob_sha1": "293cef1a645a03f13e664aa491168f1390435420"
+  },
+  {
+    "name": "sator_code",
+    "url": "https://github.com/iskong17/SATOR/blob/e65983b60a83936e1e5241d339475436f1a1738d/tools/tta_sator.py",
+    "path": "result/preparation/chamfer_guidance_audit_20261031/author_code/sator_code.py",
+    "bytes": 9384,
+    "sha256": "6713f6aef85150144632c670d3ef1dbb57d50a3ca8c44cf9b4ab84182ad64091",
+    "git_blob_sha1": "bd3bc8af27f4527e09a24faeeb4dd6b16cc04722"
+  }
+]

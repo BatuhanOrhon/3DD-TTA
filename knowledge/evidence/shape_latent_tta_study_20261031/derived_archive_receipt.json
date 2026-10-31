@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "utc": "2026-10-31T13:32:26.542395+00:00",
+  "source": "/content/studies/shape-latent/derived_analysis_v1.zip",
+  "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_tta_study_20261031/final-derived/derived_analysis_v1.zip",
+  "identity": {
+    "bytes": 158311,
+    "sha256": "7b2310c398fc32636e02aafe19c317f43c0063e9f9411738bf14677ae47b8ad7"
+  },
+  "local_roundtrip": {
+    "status": "passed",
+    "path": "result/preparation/shape_latent_tta_study_20261031/operator/derived_analysis_roundtrip.zip",
+    "sha256": "7b2310c398fc32636e02aafe19c317f43c0063e9f9411738bf14677ae47b8ad7"
+  }
+}

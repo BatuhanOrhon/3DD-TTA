@@ -1,0 +1,58 @@
+{
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "base_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "dirty": true,
+  "asset_manifest_sha256": "e9a75f8b90374b96b6fd49bb59a0ba646747e7e98a01d01d4604ddf373fc5786",
+  "source_snapshot_sha256": "d7c360debc73597c7a8449f456e8aaad5580ae5694538a080bbf620e7282de3d",
+  "scientific_source_files": {
+    "shape_latent_guidance.py": {
+      "bytes": 6448,
+      "sha256": "e00fa4a8831d365904f159e3a51dacb3f04f9955bfa8f33835af0e467052f911"
+    },
+    "tta.py": {
+      "bytes": 8420,
+      "sha256": "f5482d5191527ec32c85cbd7a98e5e4aa3238769bdc8570c1d5ccd4b694b2777"
+    },
+    "scripts/eval_shape_latent.py": {
+      "bytes": 7011,
+      "sha256": "947ade0ddb19aae44c911ae505b6043e81224eba64043c788c780310941f9a97"
+    },
+    "tests/test_shape_latent_guidance.py": {
+      "bytes": 9854,
+      "sha256": "2d436bfef397ce036f5b38f9b24c0ae1c9094a563cb47e65214293fc2327162c"
+    },
+    "tests/test_eval_shape_latent.py": {
+      "bytes": 3501,
+      "sha256": "17ed08bc6899cfd8e3c62a8362c5bcf46c255b32026aaa002437b1316036e091"
+    }
+  },
+  "archives": {
+    "smoke_failed_raw.zip": {
+      "local_path": "result/preparation/shape_latent_tta_study_20261031/operator/smoke_failed_raw.zip",
+      "bytes": 7007462,
+      "sha256": "e25e903e0d055367c2fa615865a558f2412f7c5e730df706c7dcdebf8fb9c061"
+    },
+    "smoke_complete_raw.zip": {
+      "local_path": "result/preparation/shape_latent_tta_study_20261031/operator/smoke_complete_raw.zip",
+      "bytes": 19218443,
+      "sha256": "4e96bdd77293832645a9f9647ccf0b76a4bcf9742975ca69d4d68263b2507b3a"
+    },
+    "pilot_complete_raw.zip": {
+      "local_path": "result/preparation/shape_latent_tta_study_20261031/operator/pilot_complete_raw.zip",
+      "bytes": 95791160,
+      "sha256": "c2a58d37641e549cf3fc5403143c913483f92dd6bba912efe8d715f23d688ec3"
+    },
+    "deployment_cpu_raw.zip": {
+      "local_path": "result/preparation/shape_latent_tta_study_20261031/operator/deployment_cpu_raw.zip",
+      "bytes": 1453627,
+      "sha256": "fd1342a474238633cae781eb352d47db2f2701ea0206310556a1077d850187ca",
+      "expected_sha256": "fd1342a474238633cae781eb352d47db2f2701ea0206310556a1077d850187ca"
+    }
+  },
+  "drive_root": "MyDrive/thesis/result/shape_latent_tta_study_20261031",
+  "raw_drive_subdirectory": "phase-evidence",
+  "pilot_archive_name": "phase_pilot_20261031T131456355677Z.zip",
+  "smoke_archive_name": "phase_smoke_20261031T130947310933Z.zip",
+  "failed_archive_name": "phase_smoke_20261031T130235879279Z.zip",
+  "deployment_archive_name": "deployment_20261031T130046370029Z/deployment_cpu_evidence.zip"
+}

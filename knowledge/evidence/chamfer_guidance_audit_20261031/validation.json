@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "base_head": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "branch": "integration/chamfer-guidance-variants-20261030",
+  "worktree": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA",
+  "target_at_start": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "production_files_unchanged": [
+    "tta_gsd_v2.py",
+    "chamfer_guidance_variants.py",
+    "semantic_trajectory.py",
+    "shared_trajectory.py",
+    "scripts/eval_multibackbone_guidance.py",
+    "scripts/eval_multibackbone_source.py",
+    "scripts/calibrate_chamfer_variants.py",
+    "scripts/analyze_chamfer_variants.py",
+    "scripts/calibrate_scan_curvenet_entropy.py",
+    "classifier_backbones.py"
+  ],
+  "historical_audit_files_verified": 46,
+  "sealed_source_members_verified": 20,
+  "raw_heads_recounted": 144,
+  "raw_batches_recounted": 4320,
+  "physical_caches_verified": 304,
+  "primary_citing_pdfs_verified": 6,
+  "pytest": {
+    "command": "python -m pytest -q tests/test_chamfer_guidance_variants.py tests/test_semantic_trajectory.py tests/test_chamfer_calibration.py tests/test_chamfer_calibration_report.py tests/test_chamfer_variants_analysis.py tests/test_scan_curvenet_semantic.py tests/test_shared_trajectory.py",
+    "passed": 101,
+    "skipped": 1,
+    "subtests_passed": 91,
+    "seconds": 10.37,
+    "skip_resolution": "Explicit source-path preview parity passed; see default_preview_parity.json"
+  },
+  "new_audit_scripts_syntax": "passed",
+  "new_report_relative_links": "passed",
+  "no_pretrained_inference_or_Colab_or_GPU": true,
+  "no_commit_or_push": true,
+  "limitations": [
+    "CPU algebra/toy tests do not certify native CUDA derivatives.",
+    "No new deployment timing or Drive roundtrip.",
+    "Literature search is bounded."
+  ],
+  "evidence_files": {
+    "literature_retrieval.json": {
+      "bytes": 8178,
+      "sha256": "68828323f0f95a352689c31c1cbf5be28800c1f84c4e8bf83e895b60da10ea7d"
+    },
+    "search_ledger.md": {
+      "bytes": 2281,
+      "sha256": "6cebf052c4ff3a36433876cf4c1506c351c324198543f48c36bb92728a363d7e"
+    },
+    "recount_raw.py": {
+      "bytes": 7776,
+      "sha256": "1a77736b2490afb740a9b1489484e39f65b01ff2f315b49de28b1497aa91d507"
+    },
+    "source_zip_verification.json": {
+      "bytes": 723,
+      "sha256": "ac540b2b931ee2528b94047a24abd5eacdb643c9a2208135068c941669af6d0b"
+    },
+    "raw_recount.json": {
+      "bytes": 68427,
+      "sha256": "4bd1f35f91bf8697bc732286d4f70322105c601a1a79b58bca60a68017d4fce0"
+    },
+    "author_pins.json": {
+      "bytes": 1584,
+      "sha256": "f81e9989311b0469777c6d4523b365ddaa30c6a71b521b18efd3974bcdeb6496"
+    },
+    "raw_source_bindings.json": {
+      "bytes": 22660,
+      "sha256": "bbd829fb05ba69e20e95d82b20169d759036aa06a3edc286c4840c83a349f01d"
+    },
+    "cpu_checks.py": {
+      "bytes": 5001,
+      "sha256": "6f87435a59d43a97f4d023e9dc9ed7c25997788a571c796cf55158e85fb6790b"
+    },
+    "default_preview_parity.json": {
+      "bytes": 859,
+      "sha256": "d3b1c24c0e468c874035f6d3273848e8cd03381809422d967f6c4bd2ecf036c0"
+    },
+    "citation_verification.json": {
+      "bytes": 1894,
+      "sha256": "603d4b37106e03b3c35388065a5673b1e238f01fa588ea4b0bf02d6987455829"
+    },
+    "cpu_checks.json": {
+      "bytes": 1100,
+      "sha256": "8caef0a5603eedfd9ca1fac48d4c30db646bfe9e0c68192b1e9b7de9a4f4ad0d"
+    },
+    "author_retrieval.json": {
+      "bytes": 3434,
+      "sha256": "6bbb83cac8f788c720c8abc713390ef77875448e329988689b4ac7ca627bb04b"
+    },
+    "cache_verification.json": {
+      "bytes": 129021,
+      "sha256": "0cc7c22ba8405acb70142e2a74de933a719203cf9cb6c06799301f35cd5d522f"
+    }
+  },
+  "git_diff_check": "passed",
+  "all_changes_knowledge_only": true
+}

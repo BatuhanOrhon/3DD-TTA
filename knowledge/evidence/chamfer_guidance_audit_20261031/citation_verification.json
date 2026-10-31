@@ -1,0 +1,50 @@
+[
+  {
+    "name": "sator",
+    "pdf_url": "https://arxiv.org/pdf/2610.21367v1",
+    "pdf_page": 9,
+    "reference": "[5]",
+    "pdf_sha256": "41bdbbfdc0098e9fc654bbed8020726de61f332382a8ff344007cfa10731d91c",
+    "scope": "Primary bibliography verified; not author-experiment reproduction"
+  },
+  {
+    "name": "ttad",
+    "pdf_url": "https://arxiv.org/pdf/2610.27410v1",
+    "pdf_page": 15,
+    "reference": "[33]",
+    "pdf_sha256": "a030e309968705ace1a3bcdf6b7ea353b970a1ec3bf51fabaee5aa8fb27be265",
+    "scope": "Primary bibliography verified; not author-experiment reproduction"
+  },
+  {
+    "name": "mamvi",
+    "pdf_url": "https://arxiv.org/pdf/2606.12939v1",
+    "pdf_page": 14,
+    "reference": "5.",
+    "pdf_sha256": "61ca04c141957128f2826491634a9857b77a55384fa9bb36cbfd58b2510da876",
+    "scope": "Primary bibliography verified; not author-experiment reproduction"
+  },
+  {
+    "name": "gsdtta",
+    "pdf_url": "https://arxiv.org/pdf/2507.18225v1",
+    "pdf_page": 10,
+    "reference": "[33]",
+    "pdf_sha256": "4a5914c9b35dac211b96dbbaf4096fc93ea651a9576a4d5e78eb4bd4fbbee285",
+    "scope": "Primary bibliography verified; not author-experiment reproduction"
+  },
+  {
+    "name": "uniadapter",
+    "pdf_url": "https://arxiv.org/pdf/2511.15311v2",
+    "pdf_page": 8,
+    "reference": "Dastmalchi et al.2025",
+    "pdf_sha256": "d08e5d6a2325d78c1d398e6a48f3688862ca8e0feacbe8866a5f4898053e24ae",
+    "scope": "Primary bibliography verified; not author-experiment reproduction"
+  },
+  {
+    "name": "lottpc",
+    "pdf_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ye_Low-Rank_Test-Time_Training_for_Pre-Trained_Point_Cloud_Models_CVPR_2026_paper.pdf",
+    "pdf_page": 9,
+    "reference": "[5]",
+    "pdf_sha256": "4ba7a72c70ff027fdad85e75412eb6d828a2070cb7417f06d03eab3afabf609a",
+    "scope": "Primary bibliography verified; not author-experiment reproduction"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "status": "CPU_verified_GPU_pending",
+  "repository_tests": "502 passed,1 skipped,373 subtests,6 pre-existing warnings",
+  "operator_tests": "3 passed",
+  "command_previews": 10,
+  "independent_review": "important full-transition/cap testing gap fixed; no demonstrated production bug",
+  "root_collection": "4 vendor errors when result ignored; ignored snapshots otherwise add duplicate imports",
+  "production_sources": {
+    "tta.py": {
+      "bytes": 8420,
+      "sha256": "f5482d5191527ec32c85cbd7a98e5e4aa3238769bdc8570c1d5ccd4b694b2777"
+    },
+    "shape_latent_guidance.py": {
+      "bytes": 6448,
+      "sha256": "e00fa4a8831d365904f159e3a51dacb3f04f9955bfa8f33835af0e467052f911"
+    },
+    "scripts/eval_shape_latent.py": {
+      "bytes": 7011,
+      "sha256": "947ade0ddb19aae44c911ae505b6043e81224eba64043c788c780310941f9a97"
+    },
+    "tests/test_shape_latent_guidance.py": {
+      "bytes": 9854,
+      "sha256": "2d436bfef397ce036f5b38f9b24c0ae1c9094a563cb47e65214293fc2327162c"
+    },
+    "tests/test_eval_shape_latent.py": {
+      "bytes": 3501,
+      "sha256": "17ed08bc6899cfd8e3c62a8362c5bcf46c255b32026aaa002437b1316036e091"
+    }
+  },
+  "session": "tta-shape-latent-a100-20261031-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-1ulu15s7e5w42",
+  "source_commit": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "remote_integration_at_start": "d96617f0ef1619fc90da9b9c5ad6a527bf90ee7d",
+  "setup": "Cell2 Python3.8.20 verified; user-authorized actual Drive/wheel SHA passed; Cell4 toolchain and Cell5 EMD complete, Cell6 Chamfer active",
+  "new_research_gpu_launched": false
+}

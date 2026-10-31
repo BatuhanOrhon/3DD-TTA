@@ -1,0 +1,116 @@
+[
+  {
+    "path": "result/preparation/shape_latent_research_20261031/author_code/lion_train2.py",
+    "source": "https://github.com/nv-tlabs/LION/blob/7711b3d185752eeb632d095494876e4de15f3195/trainers/train_2prior.py",
+    "bytes": 21272,
+    "sha256": "3c8fd127a7d75808a9cc2f2c9f6e136a9e0b2c295a0f92382106fa0d53b08312"
+  },
+  {
+    "path": "result/preparation/shape_latent_research_20261031/author_code/lion_trainprior.py",
+    "source": "https://github.com/nv-tlabs/LION/blob/7711b3d185752eeb632d095494876e4de15f3195/trainers/train_prior.py",
+    "bytes": 33998,
+    "sha256": "54a297990cc4205d844caf432bf9106bc5222a9d32655f9868dd4f65ce260bea"
+  },
+  {
+    "path": "result/preparation/shape_latent_research_20261031/author_code/lion_wrapper.py",
+    "source": "https://github.com/nv-tlabs/LION/blob/7711b3d185752eeb632d095494876e4de15f3195/models/lion.py",
+    "bytes": 4430,
+    "sha256": "fbf270a286ebee88a06d710b4df10f0d849feae09699813f67236293856145c2"
+  },
+  {
+    "path": "result/preparation/shape_latent_research_20261031/author_code/author_tta.py",
+    "source": "https://github.com/hamidreza-dastmalchi/3DD-TTA/blob/107305fd7baf40b359f31c07d235599198be7324/tta.py",
+    "bytes": 3944,
+    "sha256": "c8d06cf0fb3fba1ae6af5f105462f79f8c0b47e211666ccb678e923bcc426b4c"
+  },
+  {
+    "path": "result/preparation/shape_latent_research_20261031/author_code/historical_tta_gsd_dual_seq.py",
+    "source": "git:a458cd4:tta_gsd_dual_seq.py",
+    "bytes": 12158,
+    "sha256": "8cabac8695e10b393317888f942afd3b08da7d3c1aa2c505190cdf6c26be8710"
+  },
+  {
+    "path": "result/preparation/shape_latent_research_20261031/author_code/historical_tta_gsd_dual_sync.py",
+    "source": "git:a458cd4:tta_gsd_dual_sync.py",
+    "bytes": 12980,
+    "sha256": "1ed2cebf4dd6e9b0a87e22870e86ebe880a236f590948a4c01ce67918bab37cb"
+  },
+  {
+    "path": "result/preparation/shape_latent_research_20261031/author_code/historical_eval_gsd_tta_dual.py",
+    "source": "git:a458cd4:eval_gsd_tta_dual.py",
+    "bytes": 10088,
+    "sha256": "51f69c90abfd0bab0147c156d262cb86f9f111238f73c4d4185573285473477f"
+  },
+  {
+    "path": "models/vae_adain.py",
+    "source": "current:a82200a",
+    "bytes": 14667,
+    "sha256": "a6b91bbc21b28f5c08651ef1ecdfbd6e31ef2318c22cf1b01ea8593aa46548b0"
+  },
+  {
+    "path": "models/latent_points_ada.py",
+    "source": "current:a82200a",
+    "bytes": 11854,
+    "sha256": "b9c20d6e9b1f6ffd0c8987055b696aaea552489e1db7c3e1d0181d83fe1cc798"
+  },
+  {
+    "path": "models/latent_points_ada_localprior.py",
+    "source": "current:a82200a",
+    "bytes": 4113,
+    "sha256": "1769fb9d3e29c5bac5c77aef5b832cbc061d365ba76b2fcec98b980af45c9c45"
+  },
+  {
+    "path": "models/shapelatent_modules.py",
+    "source": "current:a82200a",
+    "bytes": 2170,
+    "sha256": "c96acbde0a789425c1ca4b426871c2a1a9761cf15b0f9f05018d469cec9b9c21"
+  },
+  {
+    "path": "models/score_sde/resnet.py",
+    "source": "current:a82200a",
+    "bytes": 9402,
+    "sha256": "7ceab77c711d19335a625785ce861bb57c3bd5ca0bb7e99235b813794fe3a3f6"
+  },
+  {
+    "path": "models/lion.py",
+    "source": "current:a82200a",
+    "bytes": 5786,
+    "sha256": "8c2de488bfd52ac917485a5437f1bc46feb4d0bf5d3908de67365736259966da"
+  },
+  {
+    "path": "models/distributions.py",
+    "source": "current:a82200a",
+    "bytes": 1258,
+    "sha256": "2ffeeca381a37838cc4c0137db2939c2041f2cf0c34440772344877b23c5efff"
+  },
+  {
+    "path": "models/adagn.py",
+    "source": "current:a82200a",
+    "bytes": 2276,
+    "sha256": "7225e20e4cb2e4731ebcfa1e8d5b8a1e51535c4d0a9174beaa7a301e0d34f592"
+  },
+  {
+    "path": "lion_ckpts/unconditional_all55_cfg.yml",
+    "source": "current:a82200a",
+    "bytes": 7860,
+    "sha256": "9d4a826f35fe9b3053210105eb4857811c8bfd53cd8c6a998f8ea7953e975816"
+  },
+  {
+    "path": "tta.py",
+    "source": "current:a82200a",
+    "bytes": 8030,
+    "sha256": "ce8b439d81b69afc8bd475b71dcdb5edc28e68aa2296dbb338c99d4c077df5e9"
+  },
+  {
+    "path": "tta_gsd_v2.py",
+    "source": "current:a82200a",
+    "bytes": 18302,
+    "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c"
+  },
+  {
+    "path": "scripts/eval_multibackbone_guidance.py",
+    "source": "current:a82200a",
+    "bytes": 67344,
+    "sha256": "60a104d492595106a242cb1a11f019b0bfdb36e82210db3be2734e51f3685264"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "original_0fd2581",
+    "zip": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/revision_3/assets_v1/source_snapshot.zip",
+    "sha256": "fd8c163f07b82cc8ca05b7ab2a5532dfd821aa0af7c51062f23706716d8b1a69",
+    "members_verified": 9
+  },
+  {
+    "name": "curvenet_95a4997",
+    "zip": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/postcampaign_curvenet_h/source_seal_95a4997/assets_v1/source_snapshot.zip",
+    "sha256": "767e24acbb0fe3213ee24d8efdfc824f11fd051180bfc4bc14b6c393f6901f75",
+    "members_verified": 11
+  }
+]

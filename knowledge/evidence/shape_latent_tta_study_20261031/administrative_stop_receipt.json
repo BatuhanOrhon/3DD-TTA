@@ -1,0 +1,20 @@
+{
+  "status": "failed",
+  "stage": "smoke",
+  "archive": {
+    "bytes": 7007462,
+    "sha256": "e25e903e0d055367c2fa615865a558f2412f7c5e730df706c7dcdebf8fb9c061",
+    "local_path": "/content/studies/shape-latent/phase_smoke_20261031T130235879279Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/shape_latent_tta_study_20261031/phase-evidence/phase_smoke_20261031T130235879279Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 36.16809630300031,
+    "completed": [],
+    "failed": {
+      "stage": "smoke",
+      "path": "/content/studies/shape-latent/phase_smoke_20261031T130235879279Z"
+    }
+  },
+  "output": "/content/studies/shape-latent/phase_smoke_20261031T130235879279Z",
+  "cache_root": "/content/studies/shape-latent/phase_smoke_20261031T130235879279Z/paired"
+}

@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "arms": {
+    "anchor": {
+      "macro_percent": 60.3125,
+      "per_corruption_percent": {
+        "uniform": 70.3125,
+        "gaussian": 67.1875,
+        "background": 50.0,
+        "impulse": 70.3125,
+        "upsampling": 71.875,
+        "distortion_rbf": 60.9375,
+        "distortion_rbf_inv": 59.375,
+        "density": 68.75,
+        "density_inc": 85.9375,
+        "shear": 67.1875,
+        "rotation": 26.5625,
+        "cutout": 70.3125,
+        "distortion": 59.375,
+        "occlusion": 43.75,
+        "lidar": 32.8125
+      },
+      "reconstruction_and_terminal_seconds": 81.03496937699947,
+      "run_id": "20261031-131854_pointmae-seed0"
+    },
+    "baseline": {
+      "macro_percent": 60.9375,
+      "per_corruption_percent": {
+        "uniform": 70.3125,
+        "gaussian": 70.3125,
+        "background": 53.125,
+        "impulse": 70.3125,
+        "upsampling": 73.4375,
+        "distortion_rbf": 59.375,
+        "distortion_rbf_inv": 59.375,
+        "density": 70.3125,
+        "density_inc": 84.375,
+        "shear": 65.625,
+        "rotation": 26.5625,
+        "cutout": 71.875,
+        "distortion": 59.375,
+        "occlusion": 46.875,
+        "lidar": 32.8125
+      },
+      "reconstruction_and_terminal_seconds": 86.63220497900875,
+      "run_id": "20261031-131456_pointmae-seed0"
+    },
+    "guided3": {
+      "macro_percent": 60.416666666666664,
+      "per_corruption_percent": {
+        "uniform": 71.875,
+        "gaussian": 65.625,
+        "background": 51.5625,
+        "impulse": 68.75,
+        "upsampling": 71.875,
+        "distortion_rbf": 62.5,
+        "distortion_rbf_inv": 59.375,
+        "density": 68.75,
+        "density_inc": 82.8125,
+        "shear": 67.1875,
+        "rotation": 26.5625,
+        "cutout": 70.3125,
+        "distortion": 59.375,
+        "occlusion": 46.875,
+        "lidar": 32.8125
+      },
+      "reconstruction_and_terminal_seconds": 82.12251902899425,
+      "run_id": "20261031-132246_pointmae-seed0"
+    },
+    "proposal": {
+      "macro_percent": 60.3125,
+      "per_corruption_percent": {
+        "uniform": 70.3125,
+        "gaussian": 64.0625,
+        "background": 54.6875,
+        "impulse": 68.75,
+        "upsampling": 71.875,
+        "distortion_rbf": 60.9375,
+        "distortion_rbf_inv": 60.9375,
+        "density": 68.75,
+        "density_inc": 84.375,
+        "shear": 65.625,
+        "rotation": 26.5625,
+        "cutout": 71.875,
+        "distortion": 59.375,
+        "occlusion": 45.3125,
+        "lidar": 31.25
+      },
+      "reconstruction_and_terminal_seconds": 81.25962875200094,
+      "run_id": "20261031-132050_pointmae-seed0"
+    },
+    "updated": {
+      "macro_percent": 60.729166666666664,
+      "per_corruption_percent": {
+        "uniform": 70.3125,
+        "gaussian": 68.75,
+        "background": 51.5625,
+        "impulse": 71.875,
+        "upsampling": 73.4375,
+        "distortion_rbf": 60.9375,
+        "distortion_rbf_inv": 60.9375,
+        "density": 70.3125,
+        "density_inc": 82.8125,
+        "shear": 67.1875,
+        "rotation": 26.5625,
+        "cutout": 70.3125,
+        "distortion": 59.375,
+        "occlusion": 46.875,
+        "lidar": 29.6875
+      },
+      "reconstruction_and_terminal_seconds": 81.06452899099804,
+      "run_id": "20261031-131658_pointmae-seed0"
+    }
+  },
+  "paired_comparisons": {
+    "updated-baseline": {
+      "delta_pp": -0.20833333333333334,
+      "corrected": 12,
+      "harmed": 14
+    },
+    "anchor-updated": {
+      "delta_pp": -0.4166666666666667,
+      "corrected": 13,
+      "harmed": 17
+    },
+    "proposal-anchor": {
+      "delta_pp": 0.0,
+      "corrected": 15,
+      "harmed": 15
+    },
+    "guided3-anchor": {
+      "delta_pp": 0.10416666666666667,
+      "corrected": 12,
+      "harmed": 11
+    },
+    "guided3-proposal": {
+      "delta_pp": 0.10416666666666667,
+      "corrected": 12,
+      "harmed": 11
+    }
+  },
+  "identity": {
+    "asset_manifest_sha256": "e9a75f8b90374b96b6fd49bb59a0ba646747e7e98a01d01d4604ddf373fc5786",
+    "source_snapshot_sha256": "d7c360debc73597c7a8449f456e8aaad5580ae5694538a080bbf620e7282de3d",
+    "classifier_state_before_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+    "lion_state_before": {
+      "priors": "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+      "vae": "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7"
+    },
+    "executed_source_sha256": "60d7b4b37ea4f7aa13033a86aca6c30dc0b153355a62d2a5ea49ed9a21895c1f"
+  },
+  "physical_cache_files": 30,
+  "limits": "Fixed exposed IDs/seed0 exploratory pilot. Guided3 vs proposal changes both chain length and guidance."
+}

@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "tests": [
+    "quadratic_anchor_stationarity",
+    "anchor_shrinkage",
+    "per_object_radius_bound",
+    "zero_radius_identity",
+    "clean_vs_noisy_anchor",
+    "hierarchical_pair_counterexample",
+    "separate_global_noise_generator",
+    "historical_launcher_ignores_lambdaa_and_passes_p_half"
+  ],
+  "schedule": [
+    {
+      "reverse_steps": 1,
+      "timestep": 0,
+      "alpha_bar": 0.9999,
+      "forward_noise_std": 0.009999999999999449,
+      "expected_rms_change_if_unit_variance": 0.010000125005467927
+    },
+    {
+      "reverse_steps": 3,
+      "timestep": 20,
+      "alpha_bar": 0.9937354285721993,
+      "forward_noise_std": 0.07914904565312636,
+      "expected_rms_change_if_unit_variance": 0.07921119550905707
+    },
+    {
+      "reverse_steps": 5,
+      "timestep": 40,
+      "alpha_bar": 0.9797669240482703,
+      "forward_noise_std": 0.14224301723364047,
+      "expected_rms_change_if_unit_variance": 0.1426059919638979
+    },
+    {
+      "reverse_steps": 10,
+      "timestep": 90,
+      "alpha_bar": 0.9132644806435357,
+      "forward_noise_std": 0.29450894613995054,
+      "expected_rms_change_if_unit_variance": 0.2978297419337848
+    },
+    {
+      "reverse_steps": 30,
+      "timestep": 290,
+      "alpha_bar": 0.4183935170530007,
+      "forward_noise_std": 0.7626312889902953,
+      "expected_rms_change_if_unit_variance": 0.840436251150698
+    }
+  ],
+  "limits": "Algebra/static source only. No assertion of LION denoiser quality, runtime, CUDA derivatives, or old run provenance."
+}

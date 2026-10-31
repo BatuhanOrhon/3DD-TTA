@@ -1,0 +1,16 @@
+{
+  "stage": "pilot",
+  "status": "complete",
+  "completed_arms": [
+    "baseline",
+    "updated",
+    "anchor",
+    "proposal",
+    "guided3"
+  ],
+  "source_manifest": {
+    "bytes": 129763,
+    "sha256": "e9a75f8b90374b96b6fd49bb59a0ba646747e7e98a01d01d4604ddf373fc5786"
+  },
+  "wall_seconds_before_archive": 592.0133294309999
+}

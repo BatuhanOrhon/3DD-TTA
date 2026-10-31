@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "historical_source": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/chamfer-guidance-variants-20261030/result/preparation/chamfer_guidance_variants_20261030/revision_3/assets_v1/source_snapshot/scripts/eval_multibackbone_guidance.py",
+  "argv": [
+    "--preview",
+    "--dataset",
+    "scanobjectnn_c",
+    "--dataset-root",
+    "/data",
+    "--label-path",
+    "/data/labels.npy",
+    "--asset-root",
+    "/assets",
+    "--result-root",
+    "/results",
+    "--chamfer-experiment",
+    "semantic",
+    "--semantic-kind",
+    "marginal_entropy",
+    "--backbones",
+    "pointmae",
+    "--pointmae-config",
+    "/pointmae.yaml",
+    "--pointmae-checkpoint",
+    "/pointmae.pth"
+  ],
+  "check": "Current default Point-MAE preview equals sealed0fd snapshot; explicit alternate historical location resolves the suite fixture skip."
+}
