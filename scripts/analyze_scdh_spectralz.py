@@ -27,6 +27,10 @@ import json
 from pathlib import Path, PurePosixPath
 import stat
 import zipfile
+import sys
+import shlex
+
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 from scripts import analyze_chamfer_depth_transfer as accepted
 from scripts import eval_scdh_spectralz as study
@@ -71,6 +75,12 @@ def analyze_bundle(path,binding,cache_root):
             require(any(prefix+name in required for prefix in ('repo/','assets/source_snapshot/')),'Unbound critical study source: '+name)
         for name in ('command.txt','config.json','environment.txt','stdout.log','summary.csv','per_corruption.csv','notes.md'):
             require(name in bundle.names,'Missing standard artifact '+name)
+        command=shlex.split(bundle.read('command.txt').decode())
+        route=cfg['scdh_spectralz']
+        require(len(command)>2 and Path(command[1]).name=='eval_scdh_spectralz.py','Wrong executed command entrypoint')
+        for flag,value in (('--stage',route['stage']),('--arm',route['arm']),('--seed',str(cfg['seed']))):
+            require(command.count(flag)==1 and command[command.index(flag)+1]==value,'Command/config mismatch '+flag)
+        require(command.count('--alpha-h')==1 and float(command[command.index('--alpha-h')+1])==route['alpha_h_local'],'Command local step mismatch')
         require(cfg.get('native_extensions') and cfg.get('lion_state_before')==cfg.get('lion_state_after'),'Missing native/frozen state proof')
         if calibration:
             proof=json.loads(calibration)['binding']
@@ -81,10 +91,17 @@ def analyze_bundle(path,binding,cache_root):
         for row,correct in zip(rows,report['outcomes']['probability_mean']):
             require(row['status']=='complete' and int(row['n_examples'])==len(correct) and int(row['n_correct'])==sum(correct)
                     and abs(float(row['accuracy'])-np.mean(correct))<=1e-10,'CSV/PM count or fraction mismatch')
+            require(all(str(row.get(k))==str(cfg.get(k)) for k in ('run_id','dataset','method','severity','seed')),'CSV run identity mismatch')
         summaries=list(csv.DictReader(io.StringIO(bundle.read('summary.csv').decode())))
         require(len(summaries)==1 and summaries[0]['status']==cfg['status']
                 and int(summaries[0]['total_correct'])==sum(map(sum,report['outcomes']['probability_mean']))
                 and int(summaries[0]['total_examples'])==len(cfg['corruptions'])*len(cfg['selected_original_ids']),'Summary/PM count mismatch')
+        summary=summaries[0]
+        require(all(str(summary.get(k))==str(cfg.get(k)) for k in ('run_id','dataset','method','severity','seed'))
+                and int(summary['n_corruptions'])==len(rows)
+                and np.isclose(float(summary['micro_accuracy']),int(summary['total_correct'])/int(summary['total_examples']),rtol=0,atol=1e-10)
+                and np.isclose(float(summary['macro_accuracy']),np.mean([float(r['accuracy']) for r in rows]),rtol=0,atol=1e-10),
+                'Summary identity, coverage or fraction units mismatch')
         details,observations,cost=[],[],[]
         technical_logits={}
         arm=cfg['scdh_spectralz']['arm']; route=cfg['scdh_spectralz']
@@ -125,8 +142,10 @@ def analyze_bundle(path,binding,cache_root):
                 require(len(records)==15 and {(r['loop_count'],r['M_max']) for r in records}=={(s,m) for s in steps for m in study.MODES},
                         'Incomplete/nonregistered label-free calibration states')
                 for r in records:
-                    c,s=np.asarray(r['style_scd_gradient_norm']),np.asarray(r['style_spectral_gradient_norm'])
-                    require(c.shape==s.shape==(n,) and (c>=0).all() and (s>=0).all(),'Invalid calibration gradient norms')
+                    c,s=np.asarray(r['style_scd_gradient_norm'],dtype=float),np.asarray(r['style_spectral_gradient_norm'],dtype=float)
+                    require(c.shape==s.shape==(n,) and np.isfinite(c).all() and (c>=0).all()
+                            and (s[np.isfinite(s)]>=0).all(),'Invalid calibration gradient norms')
+                    require(r.get('excluded_nonfinite')==(~np.isfinite(s)).tolist(),'Missing explicit invalid-gradient calibration exclusions')
                     computed=[.003*float(a)/float(b) if np.isfinite(a) and np.isfinite(b) and b>0 else None for a,b in zip(c,s)]
                     require(len(r['ratios'])==n and all((a is None and b is None) or
                         (a is not None and b is not None and abs(a-b)<=max(1e-12,abs(a)*1e-10)) for a,b in zip(computed,r['ratios'])),
@@ -152,20 +171,9 @@ def analyze_bundle(path,binding,cache_root):
                     fd=metrics.get('native_finite_difference',{})
                     physical=bundle.read('native_fd/'+corruption+'.npz')
                     require(hashlib.sha256(physical).hexdigest()==fd.get('sha256') and fd.get('passed') is True,'Missing physical native FD gate')
-                    with np.load(io.BytesIO(physical),allow_pickle=False) as values:
-                        require(values['basis'].shape==(2,2048,2048) and np.isfinite(values['style_gradient']).all(),'Invalid physical FD vectors')
-                        require(json.loads(str(values['metadata'].item()))=={k:v for k,v in fd.items() if k!='sha256'},'FD physical metadata differs')
-                        for check in fd['checks']:
-                            i=check['example']
-                            derivative=float((values['style_gradient'][i]*values['direction_%d'%i]).sum())
-                            require(np.isclose(derivative,check['autograd'],rtol=1e-4,atol=1e-7)
-                                and np.isclose((check['loss_plus']-check['loss_minus'])/(2*check['epsilon']),check['finite_difference'],rtol=1e-4,atol=1e-7),
-                                'Physical vectors/losses do not reproduce FD derivative')
-                    require(fd.get('relative_tolerance')==.1 and fd.get('absolute_tolerance')==1e-5
-                            and fd.get('rng_before_sha256')==fd.get('rng_after_sha256')
-                            and fd.get('inputs_before')==fd.get('inputs_after'),'FD changed inputs/RNG or tolerance')
-                    require(len(fd.get('checks',[]))==4 and {(r['example'],r['scale']) for r in fd['checks']}=={(i,s) for i in (0,1) for s in (.001,.01)}
-                            and all(r['passed'] and (r['relative_error']<=.1 or r['absolute_error']<=1e-5) for r in fd['checks']), 'Native FD tolerances failed')
+                    verify_native_fd(physical,fd,graph,reference[:2])
+                if route['stage']!='technical':
+                    verify_calibrated_application(records)
             details.append(dict(corruption=corruption,batch=batch,ids=guard['ids'],metrics=metrics))
         report.update(correct=sum(map(sum,report['outcomes']['probability_mean'])),
             scdh_spectralz=route,slot=binding['slot'],spectral_details=details,calibration_observations=observations,
@@ -173,6 +181,51 @@ def analyze_bundle(path,binding,cache_root):
             cost=cost,technical_logits=technical_logits)
         return report
     finally:bundle.close()
+
+
+def verify_calibrated_application(records):
+    values=[v for row in records for v in row['applied_style_spectral_norm']]
+    require(values and np.isfinite(values).all() and min(values)>=0 and max(values)>0,
+            'Missing nonzero finite calibrated spectral application witness')
+
+
+def verify_native_fd(physical,fd,graph,reference):
+    shapes=dict(basis=(2,2048,2048),eigenvalues=(2,2048),reference=(2,2048,3),
+                clean=(2,2048,3),repeat_clean=(2,2048,3),local=(2,8192,1,1),local_gradient=(2,8192,1,1))
+    with np.load(io.BytesIO(physical),allow_pickle=False) as archive:
+        required=set(shapes)|{'style','style_gradient','direction_0','direction_1','metadata'}
+        require(required<=set(archive.files),'Missing physical FD vectors')
+        values={k:archive[k].copy() for k in required if k!='metadata'}
+        require(json.loads(str(archive['metadata'].item()))=={k:v for k,v in fd.items() if k!='sha256'},'FD physical metadata differs')
+    require(all(v.dtype.kind=='f' and np.isfinite(v).all() for v in values.values()),'Nonfinite physical FD vectors')
+    require(all(values[k].shape==shape for k,shape in shapes.items()),'Invalid physical FD shapes')
+    style,gradient=values['style'],values['style_gradient']
+    require(style.ndim==4 and style.shape[0]==2 and style.shape[2:]==(1,1) and gradient.shape==style.shape,'Invalid physical style/gradient shape')
+    require((np.linalg.norm(style.reshape(2,-1),axis=1)>0).all()
+            and (np.linalg.norm(gradient.reshape(2,-1),axis=1)>0).all(),'Require nonzero finite physical style and gradient')
+    require(np.array_equal(values['reference'],reference) and np.array_equal(values['eigenvalues'],np.asarray(graph['eigenvalues'])[:2]),'FD reference/eigenvalues differ from physical graph')
+    require(np.allclose((values['basis'].astype(float)**2).sum(axis=1),1.,rtol=1e-3,atol=1e-3),'Invalid physical FD basis norms')
+    for key,value in values.items():
+        digest=hashlib.sha256(str(value.dtype).encode()+str(value.shape).encode()+value.tobytes()).hexdigest()
+        require(fd.get('physical_hashes',{}).get(key)==digest,'FD physical vector hash mismatch: '+key)
+    require(fd.get('relative_tolerance')==.1 and fd.get('absolute_tolerance')==1e-5 and fd.get('passed') is True
+            and accepted._is_sha(fd.get('rng_before_sha256')) and fd['rng_before_sha256']==fd.get('rng_after_sha256')
+            and set(fd.get('inputs_before',{}))=={'local','style'} and all(accepted._is_sha(v) for v in fd['inputs_before'].values())
+            and fd['inputs_before']==fd.get('inputs_after'),'FD changed inputs/RNG or tolerance')
+    checks=fd.get('checks',[])
+    require(len(checks)==4 and {(r['example'],r['scale']) for r in checks}=={(i,s) for i in (0,1) for s in (.001,.01)},'Incomplete physical FD scales')
+    for check in checks:
+        i=check['example'];direction=values['direction_%d'%i]
+        require(direction.shape==style[i].shape and np.isclose(np.linalg.norm(direction),1.,rtol=1e-4,atol=1e-6),'Invalid FD perturbation direction')
+        epsilon=float(np.linalg.norm(style[i]))*check['scale']
+        require(np.isfinite(epsilon) and epsilon>0 and np.isclose(epsilon,check['epsilon'],rtol=1e-4,atol=0),'Wrong FD perturbation scale')
+        derivative=float((gradient[i].astype(float)*direction).sum())
+        estimate=(check['loss_plus']-check['loss_minus'])/(2*check['epsilon'])
+        require(np.isfinite(estimate) and np.isclose(derivative,check['autograd'],rtol=1e-4,atol=1e-7)
+                and np.isclose(estimate,check['finite_difference'],rtol=1e-4,atol=1e-7),'Physical FD derivative mismatch')
+        absolute=abs(estimate-derivative);denominator=max(abs(estimate),abs(derivative))
+        relative=absolute/denominator if denominator else 0.
+        require(check.get('passed') is True and (relative<=.1 or absolute<=1e-5),'Independent finite-difference tolerance failed')
 
 
 def compare_physical(reports):

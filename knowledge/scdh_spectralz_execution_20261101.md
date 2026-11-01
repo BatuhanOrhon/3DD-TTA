@@ -83,3 +83,54 @@ added; final full counts and independent branch review are pending. No new
 accuracy claim or baseline/default promotion.
 
 [Run] Final pre-review CPU gate:80unittest checks passed in4.423s;31NumPy1 artifact acceptance cases passed in1.54s. Python3.8 AST parse and git diff --check pass. Canonical cell5/EMD completed with native marker; cell6/Chamfer running.
+
+## Independent review and verified canonical setup — 13:07UTC
+
+[Code/Run] Fresh read-only whole-branch review of6c193bf..51d8c69 found seven
+Important issues; all entered one RED→GREEN fix pass. No second reviewer or
+scientific run was used. Fixed: observer import before source freeze; actual
+filename analyzer CLI bootstrap; both missing inherited Point-MAE checkpoints;
+typed, archived/reusable unavailable numerical candidates; independent full
+physical FD/nonzero/application checks; validated phase lineage and durable
+publication before completion (including plan/approval/start); original frozen
+calibration/top2/winner identities and recomputed accepted-score selections.
+
+New regressions exercise fresh subprocesses, real NumPy1 resealed zero-gradient,
+missing-vector and falsified-error artifacts, malformed predecessors, failed
+Drive publication/retry, edited calibration/selection, unavailable no-rerun,
+and preserved incomplete copies. Additional calibration regression excludes
+nonfinite spectral observations as explicit JSON-null norms/ratios, without
+changing the finite C_base trajectory or inflating denominators. Independent
+CSV summary fractions/run identities and command/config agreement are checked.
+Full raw diagnostics stay immutable; score/selector records retain references
+and compact physical guards rather than duplicating dense spectral arrays.
+
+[Run] Canonical10-cell setup passed on same A100-SXM4-80GB, Python3.8.20,
+Torch2.1.2+cu121; native EMD/Chamfer/PointNet++/PVCNN smoke, dataset/checkpoint
+verification passed. The only deferred exception remains known cell2 fastrlock.
+Setup evidence was copied/read back on Drive and downloaded/CRC/member SHA
+verified locally:
+`result/preparation/scdh_spectralz_search_20261101/setup/canonical_setup_20261101T124110Z.zip`,
+6,826bytes, SHA256 `45b718d9128443c8922d4a21530a09714945e75b7a308d96b573502c90ae8b4d`.
+Drive: `MyDrive/thesis/result/scdh_spectralz_search_20261101/setup/` same filename.
+Read-only full-base ZIP inventory has623members and neither Point-MAE
+checkpoint, confirming the reviewed restore trigger. Free disk at archive:
+215,468,269,568bytes. No Scan inference or dedicated dataset generation occurs.
+
+Final review rulings: actual trained/native derivatives, zero-route repeats,
+accuracy/CI/cost claims remain pending approved science, not implied by CPU
+checks; a failed native gate stops inference. Actual strict sealed deployment
+and its native/Drive proof remain the next hardware gate. Hash-only non-FD
+basis identities remain the explicitly permitted portability limit (full basis
+only for physical FD examples). Global diffusion/other graph/beta/head/full-set/
+Scan/default promotion stay outside this task. Unknown historical exposure
+cannot be certified away; registered exclusion is812 IDs and heldout means
+stage-disjoint. Costs if these assumptions are wrong are invalid method claims,
+unreplayable non-FD bases or overstated generalization; none is asserted here.
+
+Final minor(deferred): when every M is unavailable, the registered controller
+still schedules four B controls (3,840events); no confirmation opens. This is a
+bounded cost inefficiency, not a positive spectral result.
+
+No scientific >60min approval has been given; the user's approval was Drive
+consent only. Runtime and owner monitor remain live; no teardown authorization.

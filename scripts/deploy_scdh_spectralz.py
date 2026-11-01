@@ -27,6 +27,14 @@ def helper():
     return module
 
 
+def restore_checkpoints(manifest,tools):
+    for name,location in (('modelnet_jt.pth','/content/3DD-TTA/pointnet_ckpts/modelnet_jt.pth'),
+                          ('scanobject_jt.pth','/content/drive/MyDrive/thesis/weights/scanobject_jt.pth')):
+        target=ASSETS/'checkpoints'/name;expected=manifest['files']['checkpoints/'+name]
+        if not target.exists():tools.copy_checked(location,target,expected)
+        tools.verify(target,expected)
+
+
 def cpu_preflight(receipt,output):
     sys.path.insert(0,str(ASSETS/'source_snapshot'));os.chdir(ASSETS/'source_snapshot')
     import torch
@@ -96,9 +104,7 @@ def deploy(receipt_path,payload):
         tools.extract_checked(ASSETS/'source_snapshot.zip',ASSETS,overlay=True,declared=manifest['files'])
         for name,expected in manifest['files'].items():
             if Path(name).parts[0] not in ('checkpoints','datasets'):tools.verify(ASSETS/name,expected)
-        target=ASSETS/'checkpoints/modelnet_jt.pth';expected=manifest['files']['checkpoints/modelnet_jt.pth']
-        if not target.exists():tools.copy_checked('/content/3DD-TTA/pointnet_ckpts/modelnet_jt.pth',target,expected)
-        tools.verify(target,expected)
+        restore_checkpoints(manifest,tools)
         for key in ('lion_config','lion_checkpoint'):
             entry=manifest['guidance'][key];tools.verify(entry['path'],entry)
         restore=tools.restore_native(manifest,output,drive)

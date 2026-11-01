@@ -137,6 +137,20 @@ class SpectralStyleTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError,'finite-difference'):
                 bad.audit(clean,local,style,hgrad,zgrad*1000,lambda z:.9*local.detach()+.2*z)
 
+    def test_calibration_excludes_nonfinite_spectral_derivative_without_invalid_JSON(self):
+        from scdh_spectralz import SpectralCalibrationRoute
+        class InfiniteBackward(torch.autograd.Function):
+            @staticmethod
+            def forward(ctx,x):ctx.shape=x.shape;return x.new_tensor(1.)
+            @staticmethod
+            def backward(ctx,gradient):return gradient.new_full(ctx.shape,float('inf'))
+        q,local,style,clean,scd=self.states()
+        route=SpectralCalibrationRoute(IdentityGraph(),(1,),modes=(1,2));route.initialize(q)
+        route.loss=lambda clean:InfiniteBackward.apply(clean)
+        route.gradients(clean,scd,local,style,0,70)
+        json.dumps(route.diagnostics(),allow_nan=False)
+        self.assertTrue(all(r['ratios']==[None,None] for r in route.calibration))
+
 
 class SpectralStudyConfigTests(unittest.TestCase):
     def args(self, root, count=64, stage='development'):
@@ -236,3 +250,32 @@ class SpectralStudyConfigTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class FreshProcessTests(unittest.TestCase):
+    def test_worker_imports_observer_before_runtime_source_freeze(self):
+        import subprocess,sys,textwrap
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);config,=__import__('scripts.eval_scdh_spectralz',fromlist=['configurations']).configurations(
+                SpectralStudyConfigTests().args(root)+['--arm','off'])
+            (root/'config.json').write_text(json.dumps(config))
+            code=textwrap.dedent('''
+                import sys,types
+                from scripts import eval_scdh_spectralz as study
+                assert 'shared_trajectory' not in sys.modules
+                graph=types.ModuleType('graph_spectral_v2_offdiag');graph.GraphSpectralDNA=object
+                sys.modules[graph.__name__]=graph
+                study.shared.load_guidance_runtime=lambda *args:None
+                def execute(paths,**hooks):
+                    hooks['runtime_loader']({}, {})
+                    assert 'shared_trajectory' in sys.modules, 'observer missing at first source freeze'
+                study.shared.worker=execute
+                study.worker([sys.argv[1]])
+            ''')
+            result=subprocess.run([sys.executable,'-c',code,str(root)],capture_output=True,text=True)
+            self.assertEqual(result.returncode,0,result.stderr)
+
+    def test_actual_analyzer_filename_command_starts_in_fresh_process(self):
+        import subprocess,sys
+        script=Path(__file__).resolve().parents[1]/'scripts/analyze_scdh_spectralz.py'
+        result=subprocess.run([sys.executable,'-u',str(script),'--help'],capture_output=True,text=True)
+        self.assertEqual(result.returncode,0,result.stderr)

@@ -6,6 +6,7 @@ import math
 import os
 from pathlib import Path
 import subprocess
+import shutil
 import sys
 import time
 import traceback
@@ -82,6 +83,112 @@ def validate_plan(plan):
     return root,manifest
 
 
+def persist(source,target):
+    source,target=Path(source),Path(target)
+    expected=identity(source);target.parent.mkdir(parents=True,exist_ok=True)
+    intent=target.with_name(target.name+'.copy_intent.json');done=target.with_name(target.name+'.verified.json')
+    owned=intent.exists()
+    for record in (intent,done):
+        if record.exists() and json.loads(record.read_text())!=expected:raise ValueError('Immutable publication identity changed: '+str(target))
+    if not owned and target.exists() and identity(target)!=expected:raise ValueError('Unknown publication destination; preserve it')
+    if not owned:write_new(intent,expected)
+    if target.exists() and identity(target)!=expected:
+        if not owned or done.exists():raise ValueError('Previously published or unknown evidence changed: '+str(target))
+        target.rename(target.with_name(target.name+'.incomplete-'+str(time.time_ns())))
+    operations.copy_verified(source,target)
+    if identity(target)!=expected:raise ValueError('Publication readback failed')
+    if not done.exists():write_new(done,expected)
+
+
+def publication_root(plan):
+    return Path(plan['drive_root'])/'campaign'/study.canonical_sha(plan)
+
+
+def publish_slot(plan,job):
+    root=Path(plan['root']);slot=root/'slots'/job['slot'];archives=root/'archives';archives.mkdir(exist_ok=True)
+    archive=archives/(job['slot']+'.zip');proof=slot/'archive_receipt.json'
+    if not proof.exists():
+        archive_slot(slot,archive)
+        write_new(proof,dict(archive_identity=identity(archive)))
+    if identity(archive)!=json.loads(proof.read_text())['archive_identity']:raise ValueError('Immutable slot archive changed')
+    persist(archive,publication_root(plan)/archive.name)
+    for source in (slot/'receipt.json',slot/'score.json',proof):
+        if source.exists():persist(source,publication_root(plan)/source.relative_to(root))
+    paired=root/job.get('paired_group',job['stage'])/'paired'/('seed%d'%job['seed'])
+    for source in paired.rglob('*.npz'):
+        if not source.name.endswith('.spectral_basis.npz'):persist(source,publication_root(plan)/source.relative_to(root))
+
+
+def checked_score(root,job):
+    slot=root/'slots'/job['slot'];receipt=json.loads((slot/'receipt.json').read_text())
+    if (receipt.get('status') not in ('accepted','unavailable') or receipt.get('job')!=job
+            or identity(slot/'score.json')!=receipt.get('score_identity')):raise ValueError('Invalid immutable slot receipt')
+    score=json.loads((slot/'score.json').read_text())
+    if score.get('status')!=receipt['status'] or any(score.get(k)!=v for k,v in job.items()):raise ValueError('Slot score/job mismatch')
+    if receipt['status']=='accepted' and identity(slot/'accepted.json')!=receipt.get('report_identity'):raise ValueError('Accepted analyzer bytes changed')
+    return score
+
+
+def phase_record(root,name,*,pending=False):
+    path=root/(name+('_pending.json' if pending else '_accepted.json'))
+    record=json.loads(path.read_text());plan=json.loads((root/'plan.json').read_text());approval=json.loads((root/'approval.json').read_text())
+    if (record.get('status')!='accepted' or record.get('phase')!=name or record.get('plan_sha256')!=study.canonical_sha(plan)
+            or record.get('approval_sha256')!=study.canonical_sha(approval) or record.get('started_identity')!=identity(root/'started.json')):
+        raise ValueError('Invalid completed phase identity')
+    names=('technical','calibration','A','B','C','timing');index=names.index(name)
+    previous=identity(root/(names[index-1]+'_accepted.json')) if index else None
+    if record.get('predecessor_identity')!=previous:raise ValueError('Phase predecessor changed')
+    jobs=phase_jobs(name,root)
+    if record.get('jobs')!=jobs:raise ValueError('Completed phase scope changed')
+    scores=[checked_score(root,j) for j in jobs]
+    if record.get('reports')!=scores or record.get('reports_sha256')!=study.canonical_sha(scores):raise ValueError('Completed scores changed')
+    if record.get('evidence')!=evidence(root,jobs):raise ValueError('Incomplete or changed completed-phase evidence')
+    for relative,expected in record.get('evidence',{}).items():
+        if Path(relative).is_absolute() or '..' in Path(relative).parts or identity(root/relative)!=expected:raise ValueError('Completed phase evidence changed')
+    for name,expected in record.get('frozen_outputs',{}).items():
+        if '/' in name or identity(root/name)!=expected:raise ValueError('Frozen phase output changed')
+    if not pending:
+        persist(path,publication_root(plan)/path.name)
+    return record
+
+
+def frozen_file(root,name,producer):
+    record=phase_record(root,producer);path=root/name
+    if record.get('frozen_outputs',{}).get(name)!=identity(path):raise ValueError('Missing original freeze identity')
+    rows=record['reports'];value=json.loads(path.read_text())
+    if producer=='calibration':
+        row=rows[0]
+        expected=study.freeze_calibration(row['calibration_observations'],dict(row['calibration_binding'],
+            accepted_report_identity=identity(root/'slots'/row['slot']/'accepted.json')))
+    elif producer=='A':expected=dict(top2=[selection(r) for r in study.rank_candidates(rows)[:2]],scores_sha256=study.canonical_sha(rows))
+    else:
+        earlier=phase_record(root,'A')['reports'];ranked=study.rank_candidates(earlier+rows)
+        baseline=next(r for r in earlier if r['arm']=='scd');positive=bool(ranked) and ranked[0]['correct']>baseline['correct']
+        expected=dict(status='frozen' if positive else 'null',winner=selection(ranked[0]) if positive else None,
+            baseline_correct=baseline['correct'],scores_sha256=study.canonical_sha(earlier+rows))
+    if value!=expected:raise ValueError('Frozen values differ from independently accepted score inputs')
+    return path,value,record['frozen_outputs'][name]
+
+
+def freeze(root,name,value):
+    path=root/name
+    if path.exists():
+        if json.loads(path.read_text())!=value:raise ValueError('Previously frozen output changed')
+    else:write_new(path,value)
+
+
+def complete_phase(root,name,plan):
+    record=phase_record(root,name,pending=True)
+    for j in record['jobs']:publish_slot(plan,j)
+    for relative in record['evidence']:
+        persist(root/relative,publication_root(plan)/relative)
+    for filename in record['frozen_outputs']:
+        persist(root/filename,publication_root(plan)/filename)
+    pending=root/(name+'_pending.json');endpoint=root/(name+'_accepted.json')
+    persist(pending,publication_root(plan)/endpoint.name)
+    pending.rename(endpoint)
+
+
 def command(plan,job):
     stage=job['stage'];slot=Path(plan['root'])/'slots'/job['slot']
     paired_group=job.get('paired_group',stage)
@@ -95,20 +202,28 @@ def command(plan,job):
     if job['arm']=='spectral':
         flags+=['--modes',str(job['modes']),'--rho',str(job['rho'])]
         if stage!='technical':
-            path=Path(plan['root'])/'frozen_calibration.json'
-            flags+=['--calibration-report',str(path),'--calibration-report-sha256',identity(path)['sha256']]
+            path,_,pinned=frozen_file(Path(plan['root']),'frozen_calibration.json','calibration')
+            flags+=['--calibration-report',str(path),'--calibration-report-sha256',pinned['sha256']]
     return [plan['python'],'-u',str(REPO/'scripts/eval_scdh_spectralz.py'),*flags]
+
+
+def compact_report(report):
+    keys=('status','correct','object_ids','labels','corruptions','outcomes','calibration_binding',
+          'calibration_observations','technical_logits','cost','scdh_spectralz')
+    result={k:report[k] for k in keys if k in report}
+    guard_keys=('corruption','batch','ids','initial_hashes','final_hashes','initial_rng_sha256','cache','scheduler')
+    result['batch_guards']=[{k:r[k] for k in guard_keys} for r in report['batch_guards']]
+    result['spectral_details']=[dict(corruption=r['corruption'],batch=r['batch'],ids=r['ids'],
+        metrics={'graph':{k:r['metrics']['graph'][k] for k in ('basis_sha256','eigenvalues_sha256','cache_file_sha256')}})
+        for r in report.get('spectral_details',[])]
+    return result
 
 
 def execute_job(plan,job,deadline,manifest):
     root=Path(plan['root']);slot=root/'slots'/job['slot']
     if slot.exists():
-        proof=json.loads((slot/'receipt.json').read_text())
-        if (proof['status']!='accepted' or proof['job']!=job or identity(slot/'accepted.json')!=proof['report_identity']
-                or identity(slot/'score.json')!=proof['score_identity']):
-            raise ValueError('Prior failed/unknown slot cannot be rerun: '+job['slot'])
-        operations.copy_verified(root/'archives'/(job['slot']+'.zip'),Path(plan['drive_root'])/'campaign'/study.canonical_sha(plan)/(job['slot']+'.zip'))
-        return json.loads((slot/'score.json').read_text())
+        score=checked_score(root,job);publish_slot(plan,job)
+        return score
     remaining=deadline-time.time()-plan['archive_reserve_seconds']
     if remaining<plan.get('minimum_job_reserve_seconds',600):raise ValueError('Insufficient cumulative time for job plus archive reserve')
     slot.mkdir(parents=True);cmd=command(plan,job)
@@ -117,7 +232,17 @@ def execute_job(plan,job,deadline,manifest):
     report=None
     try:
         code=operations.run_worker(cmd,REPO,slot/'console.log',min(remaining,plan.get('job_timeout_seconds',900)),job['slot'])
-        if code:raise RuntimeError('Worker failed: '+str(code))
+        if code:
+            failures=list((slot/'raw').rglob('config.json'))
+            failed=json.loads(failures[0].read_text()) if len(failures)==1 else {}
+            if numerical_failure(plan,job,failed,manifest):
+                report=dict(job,status='unavailable',failure_category='numerical_candidate_unavailable',
+                    failure=failed.get('failure','Worker exit '+str(code)),source_snapshot_sha256=plan['source_snapshot_sha256'],
+                    asset_manifest_sha256=plan['asset_manifest_sha256'])
+                write_new(slot/'failure.json',report);write_new(slot/'score.json',report)
+                write_new(slot/'receipt.json',dict(status='unavailable',job=job,score_identity=identity(slot/'score.json')))
+                return report
+            raise RuntimeError('Worker failed: '+str(code))
         bundles=list((slot/'raw').rglob('bundle_manifest.json'))
         if len(bundles)!=1:raise ValueError('Expected exactly one sealed result')
         raw=bundles[0].parent
@@ -138,22 +263,33 @@ def execute_job(plan,job,deadline,manifest):
             subprocess.run(analyze,cwd=REPO,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=min(180,max(1,deadline-time.time()-60)))
         report=json.loads((slot/'accepted.json').read_text())
         if report['status']!='accepted':raise ValueError('Independent raw acceptance failed')
-        report.update(job)
-        # Keep the accepted analyzer bytes immutable; score binding is saved separately.
+        report=compact_report(report);report.update(job)
+        # Full eigenvalues/norm vectors stay in the immutable analyzer and raw bundles.
         write_new(slot/'score.json',report)
         write_new(slot/'receipt.json',dict(status='accepted',job=job,report_identity=identity(slot/'accepted.json'),score_identity=identity(slot/'score.json')))
     except BaseException:
         write_new(slot/'failure.json',dict(status='unavailable',job=job,traceback=traceback.format_exc()))
         raise
     finally:
-        archives=root/'archives';archives.mkdir(exist_ok=True)
-        archive=archive_slot(slot,archives/(job['slot']+'.zip'))
-        operations.copy_verified(archive,Path(plan['drive_root'])/'campaign'/study.canonical_sha(plan)/archive.name)
-        paired=root/job.get('paired_group',job['stage'])/'paired'/('seed%d'%job['seed'])
-        for path in paired.rglob('*.npz'):
-            if not path.name.endswith('.spectral_basis.npz'):
-                operations.copy_verified(path,Path(plan['drive_root'])/'campaign'/study.canonical_sha(plan)/path.relative_to(root))
+        publish_slot(plan,job)
     return report
+
+
+def numerical_failure(plan,job,cfg,manifest):
+    if not (job['stage']=='development' and job['arm']=='spectral' and cfg.get('status')=='failed'
+            and cfg.get('scdh_failure_category')=='numerical_candidate_unavailable'):return False
+    if (any(cfg.get(k)!=plan[k] for k in ('source_snapshot_sha256','asset_manifest_sha256'))
+            or cfg.get('executed_source_sha256')!=study.canonical_sha(cfg.get('executed_source_files',{}))
+            or cfg.get('checkpoint_load',{}).get('strict') is not True
+            or not analysis.accepted._is_sha(cfg.get('classifier_state_before_sha256'))
+            or cfg['classifier_state_before_sha256']!=cfg.get('classifier_state_after_sha256')
+            or set(cfg.get('lion_state_before',{}))!={'vae','priors'}
+            or not all(analysis.accepted._is_sha(v) for v in cfg['lion_state_before'].values())):
+        raise ValueError('Numerical outcome lacks prior source/frozen-state gates')
+    for name in analysis.CRITICAL:
+        if cfg.get('executed_source_files',{}).get('assets/source_snapshot/'+name)!=manifest['files']['source_snapshot/'+name]:
+            raise ValueError('Failed candidate critical source mismatch')
+    return True
 
 
 def phase_jobs(phase,root):
@@ -163,10 +299,10 @@ def phase_jobs(phase,root):
             study.job('spectral',modes=800,rho=1.,stage=phase)]
     if phase=='calibration':return [study.job('calibration',stage=phase)]
     if phase=='A':
-        report=json.loads((root/'frozen_calibration.json').read_text())
+        _,report,_=frozen_file(root,'frozen_calibration.json','calibration')
         return study.phase_a([int(m) for m,v in report['coefficients'].items() if v['status']=='available'])
-    if phase=='B':return study.phase_b(json.loads((root/'frozen_top2.json').read_text())['top2'])
-    winner=json.loads((root/'frozen_winner.json').read_text())
+    if phase=='B':return study.phase_b(frozen_file(root,'frozen_top2.json','A')[1]['top2'])
+    _,winner,_=frozen_file(root,'frozen_winner.json','B')
     if winner['status']=='null':return []
     if phase=='C':return study.confirmation(winner['winner'])
     if phase=='timing':
@@ -206,6 +342,21 @@ def technical_summary(reports):
         limitation='Recorded native repeats; no bitwise prediction parity assumed or tolerance silently relaxed')
 
 
+def selection(row):
+    return {k:row[k] for k in ('slot','stage','arm','alpha_h','modes','rho','seed','correct','status')}
+
+
+def evidence(root,jobs):
+    names={'plan.json','approval.json','started.json'}
+    for j in jobs:
+        prefix='slots/'+j['slot']+'/'
+        names.update(prefix+n for n in ('receipt.json','score.json','archive_receipt.json'))
+        receipt=json.loads((root/(prefix+'receipt.json')).read_text())
+        names.add(prefix+('accepted.json' if receipt['status']=='accepted' else 'failure.json'))
+        names.add('archives/'+j['slot']+'.zip')
+    return {name:identity(root/name) for name in sorted(names)}
+
+
 def run(plan,approval,phase):
     root,manifest=validate_plan(plan);root.mkdir(parents=True,exist_ok=True)
     deadline=budget(root,plan,approval)
@@ -213,47 +364,53 @@ def run(plan,approval,phase):
         if (root/name).exists():
             if json.loads((root/name).read_text())!=value:raise ValueError('Immutable '+name+' changed')
         else:write_new(root/name,value)
+    for name in ('plan.json','approval.json','started.json'):persist(root/name,publication_root(plan)/name)
     phases=('technical','calibration','A','B','C','timing')
     selected=phases if phase=='all' else (phase,)
     for current in selected:
         index=phases.index(current)
-        if index and not (root/(phases[index-1]+'_accepted.json')).exists():raise ValueError('Previous phase has not passed independent acceptance')
-        endpoint=root/(current+'_accepted.json')
-        if endpoint.exists():continue
-        reports=[execute_job(plan,j,deadline,manifest) for j in phase_jobs(current,root)]
-        if current in ('technical','A','B'):analysis.compare_physical(reports)
+        if index:phase_record(root,phases[index-1])
+        endpoint=root/(current+'_accepted.json');pending=root/(current+'_pending.json')
+        if endpoint.exists():phase_record(root,current);continue
+        if pending.exists():complete_phase(root,current,plan);continue
+        jobs=phase_jobs(current,root)
+        reports=[execute_job(plan,j,deadline,manifest) for j in jobs]
+        available=[r for r in reports if r['status']=='accepted']
+        if current in ('technical','A','B'):analysis.compare_physical(available)
+        outputs=[]
         if current=='technical' and all(r.get('technical_logits') for r in reports):
-            summary=technical_summary(reports);write_new(root/'technical_summary.json',summary)
-            operations.copy_verified(root/'technical_summary.json',Path(plan['drive_root'])/'campaign'/study.canonical_sha(plan)/'technical_summary.json')
+            summary=technical_summary(reports);freeze(root,'technical_summary.json',summary);outputs.append('technical_summary.json')
+            persist(root/'technical_summary.json',publication_root(plan)/'technical_summary.json')
             if summary['remaining_worst_case_forecast_seconds']>deadline-time.time()-180:
                 raise ValueError('Measured remaining whole-phase forecast exceeds approved cumulative budget; reassess before calibration')
         if current=='calibration':
             report=reports[0];records=report['calibration_observations']
             if len(records)!=60 or any(len(r['ratios'])!=32 for r in records):raise ValueError('Incomplete32x4x3x5 calibration')
-            write_new(root/'frozen_calibration.json',study.freeze_calibration(records,dict(report['calibration_binding'],
-                accepted_report_identity=identity(root/'slots'/report['slot']/'accepted.json'))))
-        if current=='A':write_new(root/'frozen_top2.json',dict(top2=study.rank_candidates(reports)[:2],scores_sha256=study.canonical_sha(reports)))
+            freeze(root,'frozen_calibration.json',study.freeze_calibration(records,dict(report['calibration_binding'],
+                accepted_report_identity=identity(root/'slots'/report['slot']/'accepted.json'))));outputs.append('frozen_calibration.json')
+        if current=='A':
+            freeze(root,'frozen_top2.json',dict(top2=[selection(r) for r in study.rank_candidates(reports)[:2]],scores_sha256=study.canonical_sha(reports)))
+            outputs.append('frozen_top2.json')
         if current=='B':
-            previous=json.loads((root/'A_accepted.json').read_text())['reports']
-            analysis.compare_physical(previous+reports)
-            ranked=study.rank_candidates(previous+reports)
-            baseline=next(r for r in previous if r['arm']=='scd')
+            previous=phase_record(root,'A')['reports']
+            analysis.compare_physical([r for r in previous+reports if r['status']=='accepted'])
+            ranked=study.rank_candidates(previous+reports);baseline=next(r for r in previous if r['arm']=='scd')
             positive=bool(ranked) and ranked[0]['correct']>baseline['correct']
-            write_new(root/'frozen_winner.json',dict(status='frozen' if positive else 'null',winner=ranked[0] if positive else None,
-                baseline_correct=baseline['correct'],scores_sha256=study.canonical_sha(previous+reports)))
+            freeze(root,'frozen_winner.json',dict(status='frozen' if positive else 'null',winner=selection(ranked[0]) if positive else None,
+                baseline_correct=baseline['correct'],scores_sha256=study.canonical_sha(previous+reports)));outputs.append('frozen_winner.json')
         if current=='C' and reports:
-            winner=json.loads((root/'frozen_winner.json').read_text())['winner'];a=winner['alpha_h']
-            comparisons={}
+            winner=frozen_file(root,'frozen_winner.json','B')[1]['winner'];a=winner['alpha_h'];comparisons={}
             for seed in (0,1,2):analysis.compare_physical([r for r in reports if r['seed']==seed])
             spectral=np.asarray([next(r['outcomes']['probability_mean'] for r in reports if r['seed']==s and r['arm']=='spectral') for s in (0,1,2)])
             for label,arm,alpha in (('C_base','scd',.03),('C_match','scd',a),('Z0_match','off',a)):
                 control=np.asarray([next(r['outcomes']['probability_mean'] for r in reports if r['seed']==s and r['arm']==arm and r['alpha_h']==alpha) for s in (0,1,2)])
                 comparisons[label]=analysis.paired_metrics(spectral,control)
-            write_new(root/'confirmation_comparisons.json',comparisons)
-        write_new(endpoint,dict(status='accepted',phase=current,reports=reports,remaining_seconds=deadline-time.time()))
-        for path in root.glob('*.json'):
-            if path.name not in ('plan.json','approval.json','started.json'):
-                operations.copy_verified(path,Path(plan['drive_root'])/'campaign'/study.canonical_sha(plan)/path.name)
+            freeze(root,'confirmation_comparisons.json',comparisons);outputs.append('confirmation_comparisons.json')
+        record=dict(status='accepted',phase=current,plan_sha256=study.canonical_sha(plan),approval_sha256=study.canonical_sha(approval),
+            started_identity=identity(root/'started.json'),predecessor_identity=identity(root/(phases[index-1]+'_accepted.json')) if index else None,
+            jobs=jobs,reports=reports,reports_sha256=study.canonical_sha(reports),evidence=evidence(root,jobs),
+            frozen_outputs={name:identity(root/name) for name in outputs},remaining_seconds=deadline-time.time())
+        write_new(pending,record);complete_phase(root,current,plan)
         if time.time()>deadline:raise ValueError('Cumulative budget exceeded during persistence')
     print('SCDH_SPECTRALZ_PHASE_COMPLETE',phase,flush=True)
 
@@ -262,7 +419,19 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--plan',type=Path,required=True);parser.add_argument('--approval',type=Path,required=True)
     parser.add_argument('--phase',choices=('all','technical','calibration','A','B','C','timing'),required=True)
-    args=parser.parse_args();run(json.loads(args.plan.read_text()),json.loads(args.approval.read_text()),args.phase)
+    args=parser.parse_args();plan=json.loads(args.plan.read_text());approval=json.loads(args.approval.read_text())
+    try:
+        run(plan,approval,args.phase)
+    except BaseException:
+        root=Path(plan['root'])
+        if (root/'plan.json').is_file() and json.loads((root/'plan.json').read_text())==plan:
+            folder=root/'operator_failures'/str(time.time_ns());folder.mkdir(parents=True,exist_ok=False)
+            write_new(folder/'failure.json',dict(status='unavailable',phase=args.phase,plan_sha256=study.canonical_sha(plan),traceback=traceback.format_exc()))
+            for source in root.glob('*.json'):shutil.copyfile(source,folder/source.name)
+            archive=archive_slot(folder,folder.with_suffix('.zip'))
+            try:persist(archive,publication_root(plan)/'operator_failures'/archive.name)
+            except Exception as error:print('FAILURE_ARCHIVE_LOCAL_ONLY',archive,repr(error),flush=True)
+        raise
 
 if __name__=='__main__':
     main()

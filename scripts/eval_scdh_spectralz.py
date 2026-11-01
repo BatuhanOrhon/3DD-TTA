@@ -167,6 +167,7 @@ def validate_config(config, *, calibration_raw=None):
 
 
 def worker(directories):
+    import shared_trajectory
     if len(directories)!=1: raise ValueError('Exactly one frozen Point-MAE bundle required')
     config=json.loads((Path(directories[0])/'config.json').read_text())
     validate_config(config)
@@ -210,7 +211,15 @@ def worker(directories):
         points,_=depth.reconstruct_geometry(raw,dataset,corruption,lion,None,sample,ops,
             depth_config=current,**kwargs)
         return points,dict(scdh_spectralz=metrics)
-    shared.worker(directories,runtime_loader=runtime_loader,geometry_reconstructor=geometry)
+    import torch
+    try:
+        shared.worker(directories,runtime_loader=runtime_loader,geometry_reconstructor=geometry)
+    except (FloatingPointError,torch.cuda.OutOfMemoryError) as error:
+        if config['scdh_spectralz']['stage']=='development' and config['scdh_spectralz']['arm']=='spectral':
+            path=Path(directories[0])/'config.json';failed=json.loads(path.read_text())
+            failed.update(scdh_failure_category='numerical_candidate_unavailable',scdh_failure_type=type(error).__name__)
+            path.write_text(json.dumps(failed,indent=2,sort_keys=True,allow_nan=False)+'\n')
+        raise
 
 
 def main(argv=None):

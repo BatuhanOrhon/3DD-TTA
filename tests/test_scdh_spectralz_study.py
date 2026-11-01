@@ -89,24 +89,10 @@ class OperatorTests(unittest.TestCase):
         from pathlib import Path
         from unittest.mock import patch
         from scripts import run_scdh_spectralz as operator
-        from scripts.scdh_spectralz_study import canonical_sha
+        from tests.test_scdh_spectralz_recovery import context
         with tempfile.TemporaryDirectory() as directory:
-            root=Path(directory);plan=dict(root=str(root),cumulative_wall_cap_seconds=14400,drive_root=str(root/'drive'))
-            approval=dict(approved=True,scope=operator.SCOPE,plan_sha256=canonical_sha(plan),user_message='GPU scientific phase test fixture')
-            seen=[]
-            def execute(plan,j,deadline,manifest):
-                seen.append(j)
-                count=128 if j['stage']=='confirmation' else 64 if j['stage']=='development' else 32
-                outcomes=[[False]*count for _ in range(15)]
-                correct=0
-                if j['arm']=='spectral':outcomes[0][0]=True;correct=1
-                report=dict(j,status='accepted',correct=correct,object_ids=list(range(count)),labels=[0]*count,
-                    corruptions=list(range(15)),calibration_binding={},batch_guards=[],outcomes={'probability_mean':outcomes})
-                if j['arm']=='calibration':
-                    report['calibration_observations']=[dict(M_max=m,ratios=[1.]*32) for m in operator.study.MODES for _ in range(12)]
-                    path=root/'slots'/j['slot']/'accepted.json';path.parent.mkdir(parents=True);path.write_text('{}')
-                return report
-            with patch.object(operator,'validate_plan',return_value=(root,{})),patch.object(operator,'execute_job',side_effect=execute),patch.object(operator.operations,'copy_verified'):
+            root=Path(directory);plan,approval,seen,execute=context(root)
+            with patch.object(operator,'validate_plan',return_value=(root,{})),patch.object(operator,'execute_job',side_effect=execute):
                 operator.run(plan,approval,'all')
                 self.assertEqual(sum(j['stage']=='development' for j in seen),30)
                 self.assertEqual(sum(j['stage']=='confirmation' for j in seen),9)
@@ -114,6 +100,7 @@ class OperatorTests(unittest.TestCase):
                 self.assertEqual(len(seen),len({j['slot'] for j in seen}))
                 self.assertEqual(json.loads((root/'frozen_winner.json').read_text())['winner']['modes'],200)
                 count=len(seen);operator.run(plan,approval,'all');self.assertEqual(len(seen),count)
+
 
 class PreparationTests(unittest.TestCase):
     def test_task_seal_inherits_bulk_and_preserves_recoverable_metadata(self):
@@ -139,3 +126,17 @@ class PreparationTests(unittest.TestCase):
         finally:fixture.doCleanups()
 
 if __name__=='__main__':unittest.main()
+
+class DeploymentRecoveryTests(unittest.TestCase):
+    def test_all_missing_inherited_pointmae_checkpoints_are_restored_without_forward(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import Mock,patch
+        from scripts import deploy_scdh_spectralz as deploy
+        with tempfile.TemporaryDirectory() as directory:
+            tools=Mock();root=Path(directory)
+            manifest={'files':{'checkpoints/modelnet_jt.pth':{'sha256':'a'*64},'checkpoints/scanobject_jt.pth':{'sha256':'b'*64}}}
+            with patch.object(deploy,'ASSETS',root):deploy.restore_checkpoints(manifest,tools)
+            self.assertEqual(tools.copy_checked.call_count,2)
+            self.assertEqual(tools.copy_checked.call_args_list[1].args[0],'/content/drive/MyDrive/thesis/weights/scanobject_jt.pth')
+            self.assertEqual(tools.verify.call_count,2)

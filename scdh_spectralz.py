@@ -96,8 +96,9 @@ class SpectralStyleRoute:
             raise RuntimeError('Spectral graph initialization advanced the main RNG')
 
     def loss(self, clean):
-        if self.reference is None or clean.shape != self.reference.shape or not torch.isfinite(clean).all():
+        if self.reference is None or clean.shape != self.reference.shape:
             raise ValueError('Expected initialized, matching finite clean latent XYZ')
+        if not torch.isfinite(clean).all():raise FloatingPointError('Nonfinite predicted-clean spectral input')
         prediction = self.basis.transpose(1, 2) @ clean
         value = spectral_guidance_loss(prediction, self.target, self.eigenvalues, 2., self.modes)
         if not torch.isfinite(value):
@@ -171,11 +172,15 @@ class SpectralStyleRoute:
             inputs_before=inputs_before,inputs_after=dict(local=tensor_hash(local),style=tensor_hash(style)),
             passed=all(c['passed'] for c in checks))
         self.audit_record['passed'] &= (rng_before==self.audit_record['rng_after_sha256'] and inputs_before==self.audit_record['inputs_after'])
+        payload={name:value.detach()[:2].cpu().numpy() for name,value in
+            dict(basis=self.basis,eigenvalues=self.eigenvalues,reference=self.reference,clean=clean,
+                 repeat_clean=repeat,local=local,style=style,local_gradient=local_gradient,style_gradient=style_gradient).items()}
+        payload.update(vectors)
+        self.audit_record['physical_hashes']={name:hashlib.sha256(str(value.dtype).encode()+str(value.shape).encode()+value.tobytes()).hexdigest()
+                                              for name,value in payload.items()}
         self.audit_path.parent.mkdir(parents=True,exist_ok=True)
         with self.audit_path.open('xb') as stream:
-            np.savez_compressed(stream,**vectors,**{name:value.detach()[:2].cpu().numpy() for name,value in
-                dict(basis=self.basis,eigenvalues=self.eigenvalues,reference=self.reference,clean=clean,
-                     repeat_clean=repeat,local=local,style=style,local_gradient=local_gradient,style_gradient=style_gradient).items()},
+            np.savez_compressed(stream,**payload,
                 metadata=np.asarray(json.dumps(self.audit_record,sort_keys=True)))
         self.audit_record['sha256']=hashlib.sha256(self.audit_path.read_bytes()).hexdigest()
         if not self.audit_record['passed']:
@@ -206,7 +211,8 @@ class SpectralCalibrationRoute(SpectralStyleRoute):
                     weights_sha256=tensor_hash(torch.exp(-2*self.eigenvalues)*
                         (torch.arange(self.eigenvalues.shape[1],device=self.eigenvalues.device)[None,:]<modes)),
                     style_scd_gradient_norm=scd_norm.cpu().tolist(),
-                    style_spectral_gradient_norm=spectral_norm.cpu().tolist(), ratios=ratios))
+                    style_spectral_gradient_norm=[float(v) if math.isfinite(float(v)) else None for v in spectral_norm],
+                    excluded_nonfinite=[not math.isfinite(float(v)) for v in spectral_norm],ratios=ratios))
         return local_scd, style_scd
 
     def diagnostics(self):
