@@ -580,3 +580,8 @@ history. No new GPU/seed/grid or default change; clean-z recovery remains open.
 ## 2026-11-01 — Two-pass LION full reencoding pilot
 
 [Run/Inference/Decision] [Accepted pilot](lion_reencode_results_20261101.md) tests a complete N8/B35 baseline → decoder2048LION frame → q(z|X*)q(h|X*,z) → fresh N3local diffusion, global prior off. Common explicit posterior/local Gaussians, new h1XYZ SCD reference, own initial decoder z. On64exposed/all15/seed0, second PM loses2.5pp and equal pooled PM loses.9375pp to own first PM; both intervals include0. Cycle-only loses.5208pp (uncertain), while paired archived clean-z MSE improves5.14%. Thus better global latent proximity alone does not establish task improvement. No isolation of local reencoding, anchor reset, renewed noise or extra diffusion; no universal anti-reencoding claim. N5/entropy/additional seeds or unseen confirmation unrun, baseline unchanged.
+
+
+## 2026-11-01 — N5/N8 second-only replay follow-up
+
+[Run/Inference/Decision] [Accepted follow-up](lion_reencode_depth_results_20261101.md) fixes the archived first output and reencoded z1/h1/noise/RNG, then compares current N3/5/8 local depth policies. First PM60.5208%; second57.9167/56.5625/55.3125%, pooled59.8958/59.3750/59.4792%. More depth does not recover accuracy in this exposed single-seed pilot. Second terminal also declines; PM alone is not isolated as the cause. Exact-input native prior nonrepeatability is confirmed and reported; fresh full N3 control replaces assumed numerical replay parity. No global-z change across depths, no z-only/h-only/anchor separation, no full-pipeline speed claim. Keep baseline; no extra search.

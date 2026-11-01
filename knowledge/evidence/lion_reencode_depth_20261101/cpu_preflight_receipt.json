@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "archive": {
+    "bytes": 1454784,
+    "drive_path": "/content/drive/MyDrive/thesis/result/lion_reencode_depth_20261101/phase-evidence/deployment_20261101T103629748534Z/deployment_cpu_evidence.zip",
+    "local_path": "/content/studies/lion-reencode-depth/deployment_20261101T103629748534Z.zip",
+    "sha256": "4ca5dd9ac0aa07d4c0b176ffe3c60abef694a6d2103baa10f3127825e79a49e9"
+  },
+  "manifest_sha256": "8fb687147d87317f1ed1b18b43549b2a06a19ce81124b6f44cdf1b36f3c24d28",
+  "cuda_initialized": false,
+  "forward_executed": false,
+  "strict": true
+}

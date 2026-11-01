@@ -1,0 +1,125 @@
+{
+  "accuracy_percent": {
+    "3": {
+      "combined_pm": 59.895833333333336,
+      "cycle": 59.27083333333333,
+      "first_pm": 60.520833333333336,
+      "first_terminal": 59.791666666666664,
+      "n3_pm": 58.020833333333336,
+      "second_pm": 57.91666666666667,
+      "second_terminal": 57.1875
+    },
+    "5": {
+      "combined_pm": 59.375,
+      "cycle": 59.27083333333333,
+      "first_pm": 60.520833333333336,
+      "first_terminal": 59.791666666666664,
+      "n3_pm": 58.020833333333336,
+      "second_pm": 56.56250000000001,
+      "second_terminal": 56.041666666666664
+    },
+    "8": {
+      "combined_pm": 59.47916666666667,
+      "cycle": 59.27083333333333,
+      "first_pm": 60.520833333333336,
+      "first_terminal": 59.791666666666664,
+      "n3_pm": 58.020833333333336,
+      "second_pm": 55.3125,
+      "second_terminal": 54.37499999999999
+    }
+  },
+  "comparisons": {
+    "N3_combined_pm-first_pm": {
+      "conditional95_pp": [
+        -2.5,
+        1.25
+      ],
+      "corrected": 19,
+      "delta_pp": -0.625,
+      "harmed": 25
+    },
+    "N3_second_pm-first_pm": {
+      "conditional95_pp": [
+        -5.520833333333333,
+        0.10416666666666664
+      ],
+      "corrected": 31,
+      "delta_pp": -2.604166666666667,
+      "harmed": 56
+    },
+    "N5_combined_pm-first_pm": {
+      "conditional95_pp": [
+        -3.125,
+        0.7291666666666667
+      ],
+      "corrected": 20,
+      "delta_pp": -1.1458333333333333,
+      "harmed": 31
+    },
+    "N5_second_pm-first_pm": {
+      "conditional95_pp": [
+        -7.291666666666666,
+        -0.8333333333333335
+      ],
+      "corrected": 31,
+      "delta_pp": -3.958333333333333,
+      "harmed": 69
+    },
+    "N5_second_pm-fresh_N3": {
+      "conditional95_pp": [
+        -2.9166666666666665,
+        0.10416666666666667
+      ],
+      "corrected": 16,
+      "delta_pp": -1.3541666666666667,
+      "harmed": 29
+    },
+    "N8_combined_pm-first_pm": {
+      "conditional95_pp": [
+        -3.0208333333333335,
+        0.8333333333333335
+      ],
+      "corrected": 20,
+      "delta_pp": -1.0416666666666665,
+      "harmed": 30
+    },
+    "N8_second_pm-N5_second_pm": {
+      "conditional95_pp": [
+        -2.604166666666667,
+        0.10416666666666662
+      ],
+      "corrected": 25,
+      "delta_pp": -1.25,
+      "harmed": 37
+    },
+    "N8_second_pm-first_pm": {
+      "conditional95_pp": [
+        -8.958333333333334,
+        -1.7708333333333337
+      ],
+      "corrected": 34,
+      "delta_pp": -5.208333333333334,
+      "harmed": 84
+    },
+    "N8_second_pm-fresh_N3": {
+      "conditional95_pp": [
+        -4.895833333333332,
+        -0.5208333333333334
+      ],
+      "corrected": 23,
+      "delta_pp": -2.604166666666667,
+      "harmed": 48
+    },
+    "fresh_N3-archived_N3": {
+      "conditional95_pp": [
+        -0.5208333333333333,
+        0.20833333333333334
+      ],
+      "corrected": 1,
+      "delta_pp": -0.10416666666666667,
+      "harmed": 2
+    }
+  },
+  "limitation": "Exploratory requested5/8 scan; cluster intervals omit stochastic native/seed variation and multiple-comparison correction; no full-pipeline speed claim",
+  "scope": "64 exposed objects/all15/s5/seed0/Point-MAE; identical archived first/z1/h1/Gaussian/RNG; additional fresh N3 second-only control"
+}

@@ -2501,3 +2501,14 @@ supersedes preceding pilot-pending gates.
 - [x] Cycle-only and archived clean-z posthoc diagnostics: z MSE−5.14%, no accuracy benefit; no h pointwise claim.
 - [ ] N5/noise depth, z-only/h-only/anchor separation, cost-matched longer single chain, repeated seeds/unseen validation and entropy weighting remain unrun.
 - [ ] Owned runtime remains protected pending explicit completion+close instruction.
+
+
+## 2026-11-01 — N5/N8 second-only replay
+
+[User report/Code/Open] [Authorized follow-up](lion_reencode_depth_20261101.md).
+- [x] Exact archived posterior/noise/RNG reference replay,7CPU contracts and review fixes.
+- [x] Strict deployment and32-ID N3 replay/N5/N8 technical acceptance; strict numerical replay failure preserved, v2 physical gates and fresh N3 control added.
+- [x]64objects/all15 N3/N5/N8 results, independent local raw recount and second-only cost; no gain.
+- [ ] Extra seeds/unseen/multiplicity-aware confirmation remain outside this request.
+
+[Run/Decision] N5/N8 horizon gate is now complete; [accepted follow-up](lion_reencode_depth_results_20261101.md) supersedes older unrun-N5 entries. Remaining z-only/h-only/anchor/fixed-noise/seed/unseen/entropy questions remain unrun. No runtime closure permission.

@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "stage": "pilot5",
+  "archive": {
+    "bytes": 71102017,
+    "sha256": "daecbffaa130a632e00a619b8bce77138efae09d8ec01a0ed7a6b8214f5f25c3",
+    "local_path": "/content/studies/lion-reencode-depth-v2/phase_pilot5_20261101T104820851947Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/lion_reencode_depth_20261101/phase-evidence/phase_pilot5_20261101T104820851947Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 757.576038,
+    "research_started_utc": "2026-11-01T10:37:28.895052+00:00",
+    "completed": [
+      "smoke3",
+      "smoke5",
+      "smoke8",
+      "pilot3",
+      "pilot5"
+    ],
+    "revision": 2,
+    "previous_failed_ledger": "/content/studies/lion-reencode-depth/research_ledger.json",
+    "recovery": "Confirmed prior nonrepeatability, report numerical drift and add full current N3 replay control; exact physical/host guards unchanged",
+    "acceptance": {
+      "smoke3": "passed",
+      "smoke5": "passed",
+      "smoke8": "passed",
+      "pilot3": "passed",
+      "pilot5": "passed"
+    }
+  },
+  "output": "/content/studies/lion-reencode-depth-v2/phase_pilot5_20261101T104820851947Z",
+  "cache_root": "/content/studies/lion-reencode-depth-v2/phase_pilot5_20261101T104820851947Z/paired"
+}

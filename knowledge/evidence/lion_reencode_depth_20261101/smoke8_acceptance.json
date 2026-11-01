@@ -1,0 +1,100 @@
+{
+  "accuracy_percent": {
+    "combined_pm": 68.75,
+    "cycle": 67.1875,
+    "first_pm": 70.3125,
+    "first_terminal": 70.3125,
+    "n3_pm": 68.75,
+    "second_pm": 64.0625,
+    "second_terminal": 56.25
+  },
+  "comparisons": {
+    "combined_pm-first_pm": {
+      "conditional95_pp": [
+        -4.6875,
+        0.0
+      ],
+      "corrected": 1,
+      "delta_pp": -1.5625,
+      "harmed": 2
+    },
+    "second_pm-first_pm": {
+      "conditional95_pp": [
+        -12.5,
+        -1.5625
+      ],
+      "corrected": 1,
+      "delta_pp": -6.25,
+      "harmed": 5
+    },
+    "second_pm-n3_pm": {
+      "conditional95_pp": [
+        -9.375,
+        0.0
+      ],
+      "corrected": 1,
+      "delta_pp": -4.6875,
+      "harmed": 4
+    },
+    "second_terminal-first_terminal": {
+      "conditional95_pp": [
+        -25.0,
+        -4.6875
+      ],
+      "corrected": 0,
+      "delta_pp": -14.0625,
+      "harmed": 9
+    }
+  },
+  "executed_source_sha256": "e7ef8a4967bdce3bb11e68297cf9b8c9fd225adfb9aa0fd7c069f65dbb9c571d",
+  "limitation": "exposed single-seed development scan5/8 plus fresh N3 replay control; object-cluster intervals omit seed/native repeat variability and multiplicity correction; first/cycle/old N3 are archived references; physical inputs exact, numerical outputs not promised bitwise",
+  "n3_repeatability": [],
+  "n_corruptions": 2,
+  "n_original_objects": 32,
+  "per_corruption": [
+    {
+      "combined_pm": 71.875,
+      "corruption": "gaussian",
+      "cycle": 71.875,
+      "first_pm": 75.0,
+      "first_terminal": 71.875,
+      "n": 32,
+      "n3_pm": 75.0,
+      "second_pm": 68.75,
+      "second_terminal": 59.375
+    },
+    {
+      "combined_pm": 65.625,
+      "corruption": "background",
+      "cycle": 62.5,
+      "first_pm": 65.625,
+      "first_terminal": 68.75,
+      "n": 32,
+      "n3_pm": 62.5,
+      "second_pm": 59.375,
+      "second_terminal": 53.125
+    }
+  ],
+  "physical_batches": 2,
+  "raw_config": {
+    "bytes": 201309,
+    "sha256": "92adc83bf9f9737efde952520a6a90a7c41ca96c5ba1fd58c3f8ff7135bbcdac"
+  },
+  "repeatability_policy": {
+    "additional_control": "pilot3, same current replay pipeline and64original IDs",
+    "archived_first_reference": "unchanged; source/native/data/model/code guards remain mandatory",
+    "diagnostic_identity": {
+      "bytes": 639,
+      "sha256": "16abd960ac02bb481e5023ac9bfd2b877a29f64721a1653aa938a2ab3e35eb4b"
+    },
+    "gate": "Exact posterior/noise/noisy-state/style/RNG/frame/frozen-host identities; report numerical repeat variation; fresh64-ID N3 replay control required before5/8 pilots",
+    "prior_failed_smoke_archive": {
+      "bytes": 7467942,
+      "sha256": "0532a7bd25a73ce69eae9d74a43f86688f3bd8f2fae1cd7fd7cd59fe2eea6e32"
+    },
+    "version": 2
+  },
+  "second_reverse_steps": 8,
+  "seed": 0,
+  "status": "passed"
+}

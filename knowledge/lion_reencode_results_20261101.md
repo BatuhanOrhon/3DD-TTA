@@ -77,3 +77,6 @@ bu doğrulamadan sonra scientific source/test byte’ları değiştirilmedi.
 Normal fast-forward hedefi origin/thesis-integration’dır; oluşan commit ve
 push doğrulaması yerel operator/publication_receipt.json ve Drive yayın
 sidecar’ında kaydedilir. Runtime için kapatma izni yoktur; korunur.
+
+
+[Run/Decision] Sonraki kullanıcı onayıyla N5 ve N8 test edildi; ilk bu rapordaki bekleyen horizon sorusu için [2026-11-01 follow-up sonucu](lion_reencode_depth_results_20261101.md) geçerlidir. Orijinal N3 sayıları ve arşivleri değiştirilmedi.

@@ -20,10 +20,14 @@ Changed cache/source/native/model identity; stale label/ID association; normaliz
 Files: scripts/eval_lion_reencode_depth.py, tests/test_lion_reencode_depth.py, knowledge/evidence/lion_reencode_depth_20261101/analyze_phase.py.
 - [x] RED contracts for explicit5/8 config/readout, tampered physical replay and exact preserved posterior/noise/RNG; GREEN minimal implementation.
 - [x] Test existing impacted paths and full tests/; independent fresh review before GPU.
-- [ ] Seal source/operator, bounded read-only same-VM audit and deployment; N3 technical replay parity plus N5/N8 technical gates.
-- [ ] Run requested N5/N8 pilots from immutable64-ID source; archive each condition to new Drive paths, independent local SHA/member/readout/state recount.
-- [ ] Report paired object-cluster intervals, per-corruption changes and limits; update knowledge and selectively publish necessary reviewed source/evidence.
+- [x] Seal source/operator, bounded read-only same-VM audit and deployment; N3 technical replay parity plus N5/N8 technical gates.
+- [x] Run requested N5/N8 pilots from immutable64-ID source; archive each condition to new Drive paths, independent local SHA/member/readout/state recount.
+- [x] Report paired object-cluster intervals, per-corruption changes and limits; update knowledge and selectively publish necessary reviewed source/evidence.
 
 Ledger: base6ff2e49; user approved N5/N8 in current message. Ruling: reuse existing isolated worktree and execute inline; approval of the already-proposed experiment supersedes another design/plan permission cycle. Saved first trajectories are references, not rerun baselines. Replay restores the recorded post-prepare RNG before each second chain. N3 replay is a32-ID technical check, not an extra selected accuracy candidate. Temporary operator bytes and raw artifacts remain outside Git.
 
 Review ledger:7new contracts, tests/647passed+412subtests/1historical skip. Reviewer found actual-noisy hash and shared-source/resolved-config binding gaps; both fixed RED→GREEN before GPU. First source/CPU tests unchanged after this full run.
+
+Runtime ruling: strict archived-N3 logit equality failed despite exact all initial hashes. Four identical prior calls demonstrate nonrepeatable outputs with unchanged weights/RNG. Preserve failure; operator v2 retains exact physical/host gates, reports disagreements and adds current full64N3 control, without changing scientific runner/assets or restarting the55min budget. Version2 reporting regression RED→GREEN; tests/648pass+412subtests/1skip. No causal CUDA-op attribution.
+
+Completion ledger: all6successful phases Drive/local independent exact acceptance, strict failure retained; second PM declines across3/5/8 and pooled never beats first.911.685022s full scientific ledger, no new GPU work. Final knowledge/source publication and Drive final capsule preserve this result; runtime remains protected.

@@ -1,0 +1,62 @@
+{
+  "smoke3": {
+    "status": "passed",
+    "stage": "smoke3",
+    "archive": {
+      "bytes": 7471338,
+      "sha256": "4bc1972ae6bafc8a0398caf54d158d8262996143f2d080adb6b9ebee524351b8"
+    },
+    "members": 122,
+    "safe_extraction": true
+  },
+  "smoke5": {
+    "status": "passed",
+    "stage": "smoke5",
+    "archive": {
+      "bytes": 7471079,
+      "sha256": "52df48ba807f444041c796de72797a4a52be58f81c267bc08db0e5d15369b4cf"
+    },
+    "members": 122,
+    "safe_extraction": true
+  },
+  "smoke8": {
+    "status": "passed",
+    "stage": "smoke8",
+    "archive": {
+      "bytes": 7470982,
+      "sha256": "91bf085ddd8bc18e65f38a8d9f6561bc1659c065019314e0351e49ad5c46ae8f"
+    },
+    "members": 122,
+    "safe_extraction": true
+  },
+  "pilot3": {
+    "status": "passed",
+    "stage": "pilot3",
+    "archive": {
+      "bytes": 71101883,
+      "sha256": "20b0a95f6c3746f740b1a73dde8b44d7255a98afc9f19b10a8fb0cd29314b74c"
+    },
+    "members": 219,
+    "safe_extraction": true
+  },
+  "pilot5": {
+    "status": "passed",
+    "stage": "pilot5",
+    "archive": {
+      "bytes": 71102017,
+      "sha256": "daecbffaa130a632e00a619b8bce77138efae09d8ec01a0ed7a6b8214f5f25c3"
+    },
+    "members": 219,
+    "safe_extraction": true
+  },
+  "pilot8": {
+    "status": "passed",
+    "stage": "pilot8",
+    "archive": {
+      "bytes": 71095508,
+      "sha256": "76df8381de9a0471468ff13486851ef772cf679a2a837c35c2560865eecbfb41"
+    },
+    "members": 219,
+    "safe_extraction": true
+  }
+}

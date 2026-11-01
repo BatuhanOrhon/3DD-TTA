@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "gate": "Exact posterior/noise/noisy-state/style/RNG/frame/frozen-host identities; report numerical repeat variation; fresh64-ID N3 replay control required before5/8 pilots",
+  "diagnostic_identity": {
+    "bytes": 639,
+    "sha256": "16abd960ac02bb481e5023ac9bfd2b877a29f64721a1653aa938a2ab3e35eb4b"
+  },
+  "prior_failed_smoke_archive": {
+    "bytes": 7467942,
+    "sha256": "0532a7bd25a73ce69eae9d74a43f86688f3bd8f2fae1cd7fd7cd59fe2eea6e32"
+  },
+  "archived_first_reference": "unchanged; source/native/data/model/code guards remain mandatory",
+  "additional_control": "pilot3, same current replay pipeline and64original IDs"
+}

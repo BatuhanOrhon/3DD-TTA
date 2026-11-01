@@ -1,0 +1,36 @@
+{
+  "initial_state_matches_archived": true,
+  "input_stride": [
+    8192,
+    1,
+    1,
+    1
+  ],
+  "style_stride": [
+    128,
+    1,
+    1,
+    1
+  ],
+  "rng_unchanged": true,
+  "model_unchanged": true,
+  "torch": "2.1.2+cu121",
+  "cudnn_benchmark": true,
+  "repeated_noise_prediction": [
+    {
+      "exact": false,
+      "max_abs": 0.0016666650772094727,
+      "mean_abs": 6.978746387176216e-05
+    },
+    {
+      "exact": false,
+      "max_abs": 0.002379298210144043,
+      "mean_abs": 7.662845018785447e-05
+    },
+    {
+      "exact": false,
+      "max_abs": 0.002379298210144043,
+      "mean_abs": 8.159302524290979e-05
+    }
+  ]
+}

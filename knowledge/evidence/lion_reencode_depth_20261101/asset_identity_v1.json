@@ -1,0 +1,17 @@
+{
+  "current_source_files": 357,
+  "manifest": {
+    "bytes": 137181,
+    "sha256": "8fb687147d87317f1ed1b18b43549b2a06a19ce81124b6f44cdf1b36f3c24d28"
+  },
+  "native_source_overrides": {},
+  "payload": {
+    "bytes": 2388528,
+    "sha256": "68998c2db1ef2795e701416114cd7ab282eba039e76a51566fd1b31398e09b58"
+  },
+  "source_commit": "c2a8eb8f18a0e187d6d3c72f7269ff1069666c97",
+  "source_snapshot": {
+    "bytes": 1206957,
+    "sha256": "baeddc239d4f385fc505ef83ac1475721d6a578d13c2ec47d337183ce37a4850"
+  }
+}

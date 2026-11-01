@@ -1,0 +1,243 @@
+{
+  "accuracy_percent": {
+    "combined_pm": 59.47916666666667,
+    "cycle": 59.27083333333333,
+    "first_pm": 60.520833333333336,
+    "first_terminal": 59.791666666666664,
+    "n3_pm": 58.020833333333336,
+    "second_pm": 55.3125,
+    "second_terminal": 54.37499999999999
+  },
+  "comparisons": {
+    "combined_pm-first_pm": {
+      "conditional95_pp": [
+        -3.0208333333333335,
+        0.8333333333333335
+      ],
+      "corrected": 20,
+      "delta_pp": -1.0416666666666665,
+      "harmed": 30
+    },
+    "second_pm-first_pm": {
+      "conditional95_pp": [
+        -8.958333333333334,
+        -1.7708333333333337
+      ],
+      "corrected": 34,
+      "delta_pp": -5.208333333333334,
+      "harmed": 84
+    },
+    "second_pm-n3_pm": {
+      "conditional95_pp": [
+        -4.895833333333333,
+        -0.7291666666666666
+      ],
+      "corrected": 21,
+      "delta_pp": -2.7083333333333335,
+      "harmed": 47
+    },
+    "second_terminal-first_terminal": {
+      "conditional95_pp": [
+        -8.752604166666664,
+        -2.291666666666667
+      ],
+      "corrected": 28,
+      "delta_pp": -5.416666666666667,
+      "harmed": 80
+    }
+  },
+  "executed_source_sha256": "e7ef8a4967bdce3bb11e68297cf9b8c9fd225adfb9aa0fd7c069f65dbb9c571d",
+  "limitation": "exposed single-seed development scan5/8 plus fresh N3 replay control; object-cluster intervals omit seed/native repeat variability and multiplicity correction; first/cycle/old N3 are archived references; physical inputs exact, numerical outputs not promised bitwise",
+  "n3_repeatability": [],
+  "n_corruptions": 15,
+  "n_original_objects": 64,
+  "per_corruption": [
+    {
+      "combined_pm": 68.75,
+      "corruption": "uniform",
+      "cycle": 70.3125,
+      "first_pm": 70.3125,
+      "first_terminal": 68.75,
+      "n": 64,
+      "n3_pm": 65.625,
+      "second_pm": 68.75,
+      "second_terminal": 64.0625
+    },
+    {
+      "combined_pm": 64.0625,
+      "corruption": "gaussian",
+      "cycle": 67.1875,
+      "first_pm": 65.625,
+      "first_terminal": 64.0625,
+      "n": 64,
+      "n3_pm": 65.625,
+      "second_pm": 60.9375,
+      "second_terminal": 59.375
+    },
+    {
+      "combined_pm": 57.8125,
+      "corruption": "background",
+      "cycle": 57.8125,
+      "first_pm": 54.6875,
+      "first_terminal": 59.375,
+      "n": 64,
+      "n3_pm": 57.8125,
+      "second_pm": 53.125,
+      "second_terminal": 56.25
+    },
+    {
+      "combined_pm": 68.75,
+      "corruption": "impulse",
+      "cycle": 68.75,
+      "first_pm": 67.1875,
+      "first_terminal": 68.75,
+      "n": 64,
+      "n3_pm": 67.1875,
+      "second_pm": 67.1875,
+      "second_terminal": 67.1875
+    },
+    {
+      "combined_pm": 73.4375,
+      "corruption": "upsampling",
+      "cycle": 75.0,
+      "first_pm": 71.875,
+      "first_terminal": 73.4375,
+      "n": 64,
+      "n3_pm": 75.0,
+      "second_pm": 70.3125,
+      "second_terminal": 68.75
+    },
+    {
+      "combined_pm": 56.25,
+      "corruption": "distortion_rbf",
+      "cycle": 59.375,
+      "first_pm": 62.5,
+      "first_terminal": 57.8125,
+      "n": 64,
+      "n3_pm": 57.8125,
+      "second_pm": 56.25,
+      "second_terminal": 54.6875
+    },
+    {
+      "combined_pm": 54.6875,
+      "corruption": "distortion_rbf_inv",
+      "cycle": 57.8125,
+      "first_pm": 59.375,
+      "first_terminal": 57.8125,
+      "n": 64,
+      "n3_pm": 56.25,
+      "second_pm": 51.5625,
+      "second_terminal": 50.0
+    },
+    {
+      "combined_pm": 73.4375,
+      "corruption": "density",
+      "cycle": 68.75,
+      "first_pm": 68.75,
+      "first_terminal": 70.3125,
+      "n": 64,
+      "n3_pm": 68.75,
+      "second_pm": 65.625,
+      "second_terminal": 62.5
+    },
+    {
+      "combined_pm": 82.8125,
+      "corruption": "density_inc",
+      "cycle": 79.6875,
+      "first_pm": 85.9375,
+      "first_terminal": 82.8125,
+      "n": 64,
+      "n3_pm": 75.0,
+      "second_pm": 68.75,
+      "second_terminal": 65.625
+    },
+    {
+      "combined_pm": 65.625,
+      "corruption": "shear",
+      "cycle": 64.0625,
+      "first_pm": 67.1875,
+      "first_terminal": 65.625,
+      "n": 64,
+      "n3_pm": 62.5,
+      "second_pm": 54.6875,
+      "second_terminal": 57.8125
+    },
+    {
+      "combined_pm": 28.125,
+      "corruption": "rotation",
+      "cycle": 26.5625,
+      "first_pm": 28.125,
+      "first_terminal": 28.125,
+      "n": 64,
+      "n3_pm": 28.125,
+      "second_pm": 28.125,
+      "second_terminal": 26.5625
+    },
+    {
+      "combined_pm": 71.875,
+      "corruption": "cutout",
+      "cycle": 68.75,
+      "first_pm": 68.75,
+      "first_terminal": 70.3125,
+      "n": 64,
+      "n3_pm": 67.1875,
+      "second_pm": 64.0625,
+      "second_terminal": 59.375
+    },
+    {
+      "combined_pm": 57.8125,
+      "corruption": "distortion",
+      "cycle": 54.6875,
+      "first_pm": 60.9375,
+      "first_terminal": 53.125,
+      "n": 64,
+      "n3_pm": 56.25,
+      "second_pm": 53.125,
+      "second_terminal": 51.5625
+    },
+    {
+      "combined_pm": 42.1875,
+      "corruption": "occlusion",
+      "cycle": 43.75,
+      "first_pm": 45.3125,
+      "first_terminal": 43.75,
+      "n": 64,
+      "n3_pm": 40.625,
+      "second_pm": 40.625,
+      "second_terminal": 42.1875
+    },
+    {
+      "combined_pm": 26.5625,
+      "corruption": "lidar",
+      "cycle": 26.5625,
+      "first_pm": 31.25,
+      "first_terminal": 32.8125,
+      "n": 64,
+      "n3_pm": 26.5625,
+      "second_pm": 26.5625,
+      "second_terminal": 29.6875
+    }
+  ],
+  "physical_batches": 30,
+  "raw_config": {
+    "bytes": 228625,
+    "sha256": "42f614af18b6a1ee87470808fb1a136546a02492b87f7f68e2c370d9ba5e48bc"
+  },
+  "repeatability_policy": {
+    "additional_control": "pilot3, same current replay pipeline and64original IDs",
+    "archived_first_reference": "unchanged; source/native/data/model/code guards remain mandatory",
+    "diagnostic_identity": {
+      "bytes": 639,
+      "sha256": "16abd960ac02bb481e5023ac9bfd2b877a29f64721a1653aa938a2ab3e35eb4b"
+    },
+    "gate": "Exact posterior/noise/noisy-state/style/RNG/frame/frozen-host identities; report numerical repeat variation; fresh64-ID N3 replay control required before5/8 pilots",
+    "prior_failed_smoke_archive": {
+      "bytes": 7467942,
+      "sha256": "0532a7bd25a73ce69eae9d74a43f86688f3bd8f2fae1cd7fd7cd59fe2eea6e32"
+    },
+    "version": 2
+  },
+  "second_reverse_steps": 8,
+  "seed": 0,
+  "status": "passed"
+}

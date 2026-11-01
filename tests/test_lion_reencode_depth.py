@@ -98,3 +98,16 @@ def test_replay_rejects_changed_host_source_or_resolved_behavior():
         with pytest.raises(ValueError):m.validate_reference_host(old,bad)
     bad=copy.deepcopy(current);bad['executed_source_files']['repo/tta.py']['sha256']='changed'
     with pytest.raises(ValueError):m.validate_reference_host(old,bad)
+
+
+def test_repeatability_report_retains_prediction_disagreements_instead_of_claiming_parity():
+    import importlib.util
+    path=Path(__file__).resolve().parents[1]/'knowledge/evidence/lion_reencode_depth_20261101/analyze_phase.py'
+    spec=importlib.util.spec_from_file_location('depth_repeat_acceptance',path)
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    old=np.zeros((1,4,40),dtype=np.float32);old[:,:,0]=1
+    new=old.copy();new[:,-1,1]=10
+    report=module.repeatability(new,old)
+    assert report['max_logit_abs']==10 and report['candidate_disagreements']==1
+    assert report['pm_disagreements']==1 and report['terminal_disagreements']==1
+    assert report['bitwise_equal'] is False

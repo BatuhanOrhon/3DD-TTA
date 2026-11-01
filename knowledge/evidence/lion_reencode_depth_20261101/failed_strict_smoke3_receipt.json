@@ -1,0 +1,21 @@
+{
+  "status": "failed",
+  "stage": "smoke3",
+  "archive": {
+    "bytes": 7467942,
+    "sha256": "0532a7bd25a73ce69eae9d74a43f86688f3bd8f2fae1cd7fd7cd59fe2eea6e32",
+    "local_path": "/content/studies/lion-reencode-depth/phase_smoke3_20261101T103728895092Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/lion_reencode_depth_20261101/phase-evidence/phase_smoke3_20261101T103728895092Z.zip"
+  },
+  "ledger": {
+    "spent_seconds": 30.48396,
+    "completed": [],
+    "research_started_utc": "2026-11-01T10:37:28.895052+00:00",
+    "failed": {
+      "stage": "smoke3",
+      "path": "/content/studies/lion-reencode-depth/phase_smoke3_20261101T103728895092Z"
+    }
+  },
+  "output": "/content/studies/lion-reencode-depth/phase_smoke3_20261101T103728895092Z",
+  "cache_root": "/content/studies/lion-reencode-depth/phase_smoke3_20261101T103728895092Z/paired"
+}

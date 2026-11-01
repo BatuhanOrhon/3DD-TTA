@@ -1,7 +1,7 @@
 {
   "status": "passed_after_fixes",
-  "new_contracts": 7,
-  "project_tests_passed": 647,
+  "new_contracts": 8,
+  "project_tests_passed": 648,
   "subtests_passed": 412,
   "historical_skips": 1,
   "reviewer": "review_reencode_depth",
@@ -9,5 +9,6 @@
     "Exact actual noisy-local hash validation with float32 depth alpha, RED-GREEN",
     "Shared Python source and resolved LION/Point-MAE behavior identity guard, RED-GREEN"
   ],
-  "scientific_cuda_launched": false
+  "scientific_cuda_launched": true,
+  "post_review_runtime_change": "Native repeatability diagnostic confirmed identical-input prior outputs differ; analysis now reports drift and requires diagnostic; full current N3 replay control added. Regression RED-GREEN."
 }

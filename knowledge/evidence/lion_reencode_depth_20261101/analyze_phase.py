@@ -32,6 +32,15 @@ def validate_noisy_state(proof,alpha,actual_hash):
     require(np.isfinite(noisy).all() and tensor_hash(noisy)==actual_hash,'Actual noisy state differs from depth-matched alpha/h/noise')
 
 
+def repeatability(actual,reference):
+    left,right=probabilities(actual),probabilities(reference)
+    return dict(bitwise_equal=bool(np.array_equal(actual,reference)),
+        max_logit_abs=float(np.max(np.abs(actual-reference))),
+        candidate_disagreements=int((actual.argmax(-1)!=reference.argmax(-1)).sum()),
+        pm_disagreements=int((left.argmax(-1)!=right.argmax(-1)).sum()),
+        terminal_disagreements=int((actual[:,-1].argmax(-1)!=reference[:,-1].argmax(-1)).sum()))
+
+
 def analyze(phase,reference,output=None):
     phase,reference=Path(phase),Path(reference)
     output=Path(output) if output else phase/'analysis';output.mkdir(parents=True,exist_ok=True)
@@ -39,6 +48,10 @@ def analyze(phase,reference,output=None):
     bundle=Bundle(paths[0].parent)
     try:
         cfg=bundle.json('config.json');validate_config(cfg)
+        policy=json.loads((phase/'repeatability_policy.json').read_text())
+        require(identity(phase/'prior_repeat_diagnostic.json')==policy['diagnostic_identity'],'Wrong repeatability diagnostic')
+        diagnostic=json.loads((phase/'prior_repeat_diagnostic.json').read_text())
+        require(diagnostic['rng_unchanged'] and diagnostic['model_unchanged'] and diagnostic['initial_state_matches_archived'] and any(not p['exact'] for p in diagnostic['repeated_noise_prediction']),'Native nonrepeatability was not demonstrated')
         require(cfg['status'] in ('complete','partial') and not cfg.get('failure'),'Failed replay')
         require(cfg['lion_state_before']==cfg['lion_state_after'] and cfg['classifier_state_before_sha256']==cfg['classifier_state_after_sha256'],'Model changed')
         require(identity(reference/'evidence_manifest.json')==cfg['reencode_replay']['manifest_identity'],'Wrong reference manifest')
@@ -50,7 +63,7 @@ def analyze(phase,reference,output=None):
         require(identity(phase/'label.npy')=={k:cfg['dataset_provenance']['files']['label.npy'][k] for k in ('bytes','sha256')},'Labels changed')
         labels=np.load(phase/'label.npy',allow_pickle=False).reshape(-1)
         names=('first_terminal','first_pm','cycle','n3_pm','second_terminal','second_pm','combined_pm')
-        outcomes={name:[] for name in names};rows=[];batches=0;parity_max=0.
+        outcomes={name:[] for name in names};rows=[];batches=0;repeat_reports=[]
         steps=cfg['reencode']['second_reverse_steps']
         for corruption in cfg['corruptions']:
             seen=[];correct={name:[] for name in names}
@@ -96,8 +109,7 @@ def analyze(phase,reference,output=None):
                 predictions=dict(first_terminal=a['first_trajectory_logits'][:,-1].argmax(-1),first_pm=first.argmax(-1),cycle=a['cycle_logits'].argmax(-1),n3_pm=n3.argmax(-1),second_terminal=a['trajectory_logits'][:,-1].argmax(-1),second_pm=second.argmax(-1),combined_pm=((first+second)*.5).argmax(-1))
                 require(np.array_equal(a['prediction'],predictions['second_pm']) and np.array_equal(a['terminal_prediction'],predictions['second_terminal']) and np.array_equal(a['combined_prediction'],predictions['combined_pm']),'Wrong primary/terminal/pooled payload')
                 if steps==3:
-                    difference=float(np.max(np.abs(a['trajectory_logits']-old['trajectory_logits'])));parity_max=max(parity_max,difference)
-                    require(difference<=1e-3 and np.array_equal(predictions['second_pm'],predictions['n3_pm']) and np.array_equal(predictions['second_terminal'],old['terminal_prediction']),'Technical N3 replay parity failed')
+                    repeat_reports.append(dict(corruption=corruption,ids=ids.tolist(),**repeatability(a['trajectory_logits'],old['trajectory_logits'])))
                 for name in names:correct[name].extend((predictions[name]==a['label']).tolist())
                 batches+=1
             require(seen==cfg['selected_original_ids'],'Missing/duplicate/reordered IDs')
@@ -109,7 +121,7 @@ def analyze(phase,reference,output=None):
         for left,right in [('second_pm','first_pm'),('combined_pm','first_pm'),('second_pm','n3_pm'),('second_terminal','first_terminal')]:
             delta=matrices[left].astype(float)-matrices[right]
             comparisons[left+'-'+right]=dict(delta_pp=float(delta.mean()*100),conditional95_pp=np.percentile(delta.mean(0)[draw].mean(1)*100,[2.5,97.5]).tolist(),corrected=int((matrices[left]&~matrices[right]).sum()),harmed=int((~matrices[left]&matrices[right]).sum()))
-        report=dict(status='passed',second_reverse_steps=steps,n_original_objects=len(seen),n_corruptions=len(rows),seed=0,physical_batches=batches,accuracy_percent={name:float(value.mean()*100) for name,value in matrices.items()},comparisons=comparisons,per_corruption=rows,technical_n3_max_logit_abs=parity_max if steps==3 else None,raw_config=identity(paths[0]),executed_source_sha256=cfg['executed_source_sha256'],limitation='exposed single-seed development scan5/8; object-cluster intervals omit seed/native repeat variability and multiplicity correction; first/cycle/N3 are archived references')
+        report=dict(status='passed',second_reverse_steps=steps,n_original_objects=len(seen),n_corruptions=len(rows),seed=0,physical_batches=batches,accuracy_percent={name:float(value.mean()*100) for name,value in matrices.items()},comparisons=comparisons,per_corruption=rows,n3_repeatability=repeat_reports,repeatability_policy=policy,raw_config=identity(paths[0]),executed_source_sha256=cfg['executed_source_sha256'],limitation='exposed single-seed development scan5/8 plus fresh N3 replay control; object-cluster intervals omit seed/native repeat variability and multiplicity correction; first/cycle/old N3 are archived references; physical inputs exact, numerical outputs not promised bitwise')
         (output/'acceptance.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n');np.savez_compressed(output/'outcomes.npz',**matrices)
         return report
     finally:bundle.close()

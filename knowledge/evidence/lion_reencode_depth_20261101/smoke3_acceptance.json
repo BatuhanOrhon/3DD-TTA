@@ -1,0 +1,185 @@
+{
+  "accuracy_percent": {
+    "combined_pm": 70.3125,
+    "cycle": 67.1875,
+    "first_pm": 70.3125,
+    "first_terminal": 70.3125,
+    "n3_pm": 68.75,
+    "second_pm": 67.1875,
+    "second_terminal": 70.3125
+  },
+  "comparisons": {
+    "combined_pm-first_pm": {
+      "conditional95_pp": [
+        -4.6875,
+        4.6875
+      ],
+      "corrected": 1,
+      "delta_pp": 0.0,
+      "harmed": 1
+    },
+    "second_pm-first_pm": {
+      "conditional95_pp": [
+        -7.8125,
+        0.0
+      ],
+      "corrected": 1,
+      "delta_pp": -3.125,
+      "harmed": 3
+    },
+    "second_pm-n3_pm": {
+      "conditional95_pp": [
+        -4.6875,
+        0.0
+      ],
+      "corrected": 0,
+      "delta_pp": -1.5625,
+      "harmed": 1
+    },
+    "second_terminal-first_terminal": {
+      "conditional95_pp": [
+        -4.6875,
+        4.6875
+      ],
+      "corrected": 1,
+      "delta_pp": 0.0,
+      "harmed": 1
+    }
+  },
+  "executed_source_sha256": "e7ef8a4967bdce3bb11e68297cf9b8c9fd225adfb9aa0fd7c069f65dbb9c571d",
+  "limitation": "exposed single-seed development scan5/8 plus fresh N3 replay control; object-cluster intervals omit seed/native repeat variability and multiplicity correction; first/cycle/old N3 are archived references; physical inputs exact, numerical outputs not promised bitwise",
+  "n3_repeatability": [
+    {
+      "bitwise_equal": false,
+      "candidate_disagreements": 1,
+      "corruption": "gaussian",
+      "ids": [
+        17,
+        123,
+        186,
+        272,
+        382,
+        458,
+        500,
+        597,
+        657,
+        885,
+        932,
+        999,
+        1276,
+        1310,
+        1352,
+        1477,
+        1511,
+        1561,
+        1563,
+        1611,
+        1617,
+        1788,
+        1842,
+        1891,
+        1906,
+        1995,
+        2007,
+        2122,
+        2139,
+        2215,
+        2353,
+        2371
+      ],
+      "max_logit_abs": 1.773834228515625,
+      "pm_disagreements": 1,
+      "terminal_disagreements": 0
+    },
+    {
+      "bitwise_equal": false,
+      "candidate_disagreements": 1,
+      "corruption": "background",
+      "ids": [
+        17,
+        123,
+        186,
+        272,
+        382,
+        458,
+        500,
+        597,
+        657,
+        885,
+        932,
+        999,
+        1276,
+        1310,
+        1352,
+        1477,
+        1511,
+        1561,
+        1563,
+        1611,
+        1617,
+        1788,
+        1842,
+        1891,
+        1906,
+        1995,
+        2007,
+        2122,
+        2139,
+        2215,
+        2353,
+        2371
+      ],
+      "max_logit_abs": 2.119218349456787,
+      "pm_disagreements": 0,
+      "terminal_disagreements": 1
+    }
+  ],
+  "n_corruptions": 2,
+  "n_original_objects": 32,
+  "per_corruption": [
+    {
+      "combined_pm": 75.0,
+      "corruption": "gaussian",
+      "cycle": 71.875,
+      "first_pm": 75.0,
+      "first_terminal": 71.875,
+      "n": 32,
+      "n3_pm": 75.0,
+      "second_pm": 71.875,
+      "second_terminal": 71.875
+    },
+    {
+      "combined_pm": 65.625,
+      "corruption": "background",
+      "cycle": 62.5,
+      "first_pm": 65.625,
+      "first_terminal": 68.75,
+      "n": 32,
+      "n3_pm": 62.5,
+      "second_pm": 62.5,
+      "second_terminal": 68.75
+    }
+  ],
+  "physical_batches": 2,
+  "raw_config": {
+    "bytes": 201190,
+    "sha256": "702b5513545ec669cd416f872487ee272149f67db1874d18ec5b1e23aebd1a08"
+  },
+  "repeatability_policy": {
+    "additional_control": "pilot3, same current replay pipeline and64original IDs",
+    "archived_first_reference": "unchanged; source/native/data/model/code guards remain mandatory",
+    "diagnostic_identity": {
+      "bytes": 639,
+      "sha256": "16abd960ac02bb481e5023ac9bfd2b877a29f64721a1653aa938a2ab3e35eb4b"
+    },
+    "gate": "Exact posterior/noise/noisy-state/style/RNG/frame/frozen-host identities; report numerical repeat variation; fresh64-ID N3 replay control required before5/8 pilots",
+    "prior_failed_smoke_archive": {
+      "bytes": 7467942,
+      "sha256": "0532a7bd25a73ce69eae9d74a43f86688f3bd8f2fae1cd7fd7cd59fe2eea6e32"
+    },
+    "version": 2
+  },
+  "second_reverse_steps": 3,
+  "seed": 0,
+  "status": "passed"
+}
