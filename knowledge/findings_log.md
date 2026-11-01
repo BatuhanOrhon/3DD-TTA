@@ -8097,3 +8097,8 @@ Previous accepted research integration is `8c1d544f65fc56a0360967234bbbf6c933d81
 Select only necessary knowledge Markdown and two compact JSON proofs for this
 follow-up; no implementation/test/config/raw/weight files. Final SHA is recorded
 in the local operator knowledge-closure publication receipt after normal push.
+
+
+## 2026-11-01 — Two-pass LION posterior reencoding pilot authorized
+
+[User report/Decision/Code/Open] User keeps the full first operational N8/Background35 trajectory and delegates second horizon3or5; choose3, with no tuning. Reencode decoder LION2048 output into both z and conditional h; use explicit common posterior Gaussians/local noise and new h1XYZ second SCD reference. Global diffusion stays off; first/second/pooled PM and cycle-only classifier diagnostics are separate.64 exposed ModelNet/all15/severity5 IDs/seed0/Point-MAE,32-ID Gaussian/Background technical gate first. Implementation12contracts and tests/640pass+412subtests/one historical skip; reviewer source-seal and nonfinite-cycle findings fixed RED→GREEN. Canonical setup active on owned tta-lion-reencode-a100-20261101-r1; scientific GPU estimate10–20min/conservative55min whole-phase cap; no scientific inference yet. Raw/Drive identities pending. [Scope and continuation](lion_reencode_pilot_20261101.md).

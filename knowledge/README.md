@@ -1,3 +1,10 @@
+**[User report/Code/Open] 2026-11-01 — two-pass LION reencoding pilot:**
+Full operational N8/Background35 first pass, decoder-frame full z+h reencoding,
+then a fresh local3-step pass. First/second/pooled PM and cycle-only readouts
+remain separate. User authorized tests; CPU implementation passes, own A100
+canonical setup active; no scientific GPU result yet.
+[Scope, source, runtime and next gates](lion_reencode_pilot_20261101.md).
+
 **[Run/Inference/Decision] 2026-10-31 21:34 UTC / 2026-11-01 Türkiye — conditional pilot kapatıldı:**
 Kullanıcı tamamlanan Colab görevini kapatıp yalnız knowledge kayıtlarını
 birleştirmemizi istedi. `tta-shape-conditional-a100-20261031-r1` CLI ile

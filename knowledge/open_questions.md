@@ -2490,3 +2490,13 @@ supersedes preceding pilot-pending gates.
 - [ ] A useful clean-z gradient/integration remains unproven. Pure energy steps,
  additional seeds, unseen/full-data confirmation and native repeat diagnosis
  remain possible future work; none was launched or selected here.
+
+
+## 2026-11-01 — Two-pass full z+h reencoding
+
+[User report/Decision/Code/Open] [Registered pilot](lion_reencode_pilot_20261101.md).
+- [x] User authorizes full first baseline horizon; second3 selected without search.
+- [x] Opt-in bridge/observer/runner and12CPU contracts; independent code review fixes.
+- [ ] Finish canonical10 setup and physical/source/frozen-state CUDA smoke.
+- [ ] Same-run first PM versus second PM, pooled PM secondary; cycle-only information-loss diagnosis.
+- [ ] Independently validate/retrieve64/all15/seed0 evidence and report native/seed/exposure limits.
