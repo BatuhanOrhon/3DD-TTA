@@ -8109,3 +8109,36 @@ in the local operator knowledge-closure publication receipt after normal push.
 [Run/Code/Inference/Decision] Same-run ModelNet40-C/all15/s5/64 exposed objects/seed0/frozen Point-MAE: first PM60.520833%, second PM58.020833% (−2.5pp; object-cluster95%CI[−5.416667,+.106771]), equal pooled PM59.583333% (−.9375pp;[−2.708333,+.833333]). First terminal59.791667%, cycle-only59.270833% (−.520833pp;[−1.979167,+.9375]), second terminal57.291667%. Cycle corrected25/harmed30; second PM corrected31/harmed55. Global z MSE to30exact-input/eps/state-matched archived clean oracle batches improves5.140506%, while accuracy does not; clean targets are posthoc only/cross-runtime. This does not isolate h refresh, anchor or noise/denoising as the cause. Baseline unchanged, prototype opt-in; no N5/entropy/seed/grid/unseen expansion.
 
 Smoke2batch and pilot30batch full source/physical posterior/cache/Gaussian/RNG/scheduler/own-z/new-h-anchor/frozen-state/ID/label/PM acceptance pass remote and independent NumPy1 exact local recount; all121/246outer members and canonical raw ZIPs verified. Pilot335216850bytes SHA31309af96daa6a19286756599dc3d76203e10d7ac995e92c675786b15b4229af, smoke25178429bytes SHA78c6748a1318a7edd673c151f959ad26e418ba0d2b22593e9fccdd0126d30223; result/preparation/lion_reencode_20261101/operator and Drive thesis/result/lion_reencode_20261101/phase-evidence. Scientific ledger535.326741s (includes original prelude attempt/recovery/remote archives; setup and later local CPU work separate), below55mincap. Source05e599d/executedc1984914…d9abf2;12CPU contracts, tests/640pass+412subtests/one historical skip. Owned A100r1/monitor54998 stays live; teardown not authorized. [Results, complete tables and limitations](lion_reencode_results_20261101.md).
+
+## 2026-11-01 — Spectral style guidance versus guided global diffusion
+
+[Code/Run/Inference/Open] [Audit and separate-loss assessment](shape_latent_spectral_guidance_audit_20261101.md)
+reconciles old GSD routing with recent shape pilots. Frozen local prediction
+spectral loss has a real conditioning-z gradient by chain rule; it is not a
+copy of the8192-D h gradient into128-D z. R_SG(local SCD/style spectral)
+167/256=65.234375% vs R_S0(style off)164/256=64.0625%, +1.171875pp,
+64examples/corruption/Gaussian-Impulse-Background-Shear/seed0; global prior
+unused. No matched standard-SCD superiority claim; cross-phase controls have
+different input/native identities. Later style projection replication gives
++.8464pp vs matched C_SCD on256/fourcorruptions/three seeds, still no global prior.
+Later all15 component confirmation shows no general C+S advantage; Point-MAE
+MN C64.3492→CS64.3968%, Scan34.3810→33.9048%.
+
+[Code/Open] Legacy a458cd4 dual_seq global phase is unguided; dual_sync does
+update global next_noisy_z from local spectral/SCD loss, but detaches the
+global-step output and feeds its noisy state as clean conditioning. This
+cuts the global denoiser Jacobian, not all subsequent local-condition gradient.
+No file-bound old dual accuracy/runtime was recovered in the documented
+history/result search. Do not invent a negative score or call it never coded.
+Recent actual conditional guidance uses epsilon-MSE, not Graph Spectral Loss.
+
+[Inference/Decision] Separate block objectives may be useful, but local
+low-frequency fidelity does not guarantee a semantic z direction, and both
+SCD/spectral may preserve the same corrupted anchor. Different h/z objectives
+need not be one scalar-gradient system. Prefer an isolated z-objective
+comparison with unchanged local SCD and matched style-off/standard-SCD/norm
+controls before jointly changing global DDIM. Pure conditional-energy steps
+without global prior remain unrun. No implementation, GPU, model/default or
+peer-runtime action. Current source7bf0/a82200a dirty preserved; audit based
+on latest shared6ff2e49 plus recoverable legacy Git sources and old accepted
+analysis files. New note/compact audit only; raw archives untouched.

@@ -580,3 +580,36 @@ history. No new GPU/seed/grid or default change; clean-z recovery remains open.
 ## 2026-11-01 — Two-pass LION full reencoding pilot
 
 [Run/Inference/Decision] [Accepted pilot](lion_reencode_results_20261101.md) tests a complete N8/B35 baseline → decoder2048LION frame → q(z|X*)q(h|X*,z) → fresh N3local diffusion, global prior off. Common explicit posterior/local Gaussians, new h1XYZ SCD reference, own initial decoder z. On64exposed/all15/seed0, second PM loses2.5pp and equal pooled PM loses.9375pp to own first PM; both intervals include0. Cycle-only loses.5208pp (uncertain), while paired archived clean-z MSE improves5.14%. Thus better global latent proximity alone does not establish task improvement. No isolation of local reencoding, anchor reset, renewed noise or extra diffusion; no universal anti-reencoding claim. N5/entropy/additional seeds or unseen confirmation unrun, baseline unchanged.
+
+## 2026-11-01 — Spectral style guidance versus guided global diffusion
+
+[Code/Run/Inference/Open] [Audit and separate-loss assessment](shape_latent_spectral_guidance_audit_20261101.md)
+reconciles old GSD routing with recent shape pilots. Frozen local prediction
+spectral loss has a real conditioning-z gradient by chain rule; it is not a
+copy of the8192-D h gradient into128-D z. R_SG(local SCD/style spectral)
+167/256=65.234375% vs R_S0(style off)164/256=64.0625%, +1.171875pp,
+64examples/corruption/Gaussian-Impulse-Background-Shear/seed0; global prior
+unused. No matched standard-SCD superiority claim; cross-phase controls have
+different input/native identities. Later style projection replication gives
++.8464pp vs matched C_SCD on256/fourcorruptions/three seeds, still no global prior.
+Later all15 component confirmation shows no general C+S advantage; Point-MAE
+MN C64.3492→CS64.3968%, Scan34.3810→33.9048%.
+
+[Code/Open] Legacy a458cd4 dual_seq global phase is unguided; dual_sync does
+update global next_noisy_z from local spectral/SCD loss, but detaches the
+global-step output and feeds its noisy state as clean conditioning. This
+cuts the global denoiser Jacobian, not all subsequent local-condition gradient.
+No file-bound old dual accuracy/runtime was recovered in the documented
+history/result search. Do not invent a negative score or call it never coded.
+Recent actual conditional guidance uses epsilon-MSE, not Graph Spectral Loss.
+
+[Inference/Decision] Separate block objectives may be useful, but local
+low-frequency fidelity does not guarantee a semantic z direction, and both
+SCD/spectral may preserve the same corrupted anchor. Different h/z objectives
+need not be one scalar-gradient system. Prefer an isolated z-objective
+comparison with unchanged local SCD and matched style-off/standard-SCD/norm
+controls before jointly changing global DDIM. Pure conditional-energy steps
+without global prior remain unrun. No implementation, GPU, model/default or
+peer-runtime action. Current source7bf0/a82200a dirty preserved; audit based
+on latest shared6ff2e49 plus recoverable legacy Git sources and old accepted
+analysis files. New note/compact audit only; raw archives untouched.

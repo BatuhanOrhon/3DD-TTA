@@ -1,3 +1,14 @@
+**[Code/Run/Inference/Open] 2026-11-01 — spectral z-guidance geçmişi ayrıştırıldı:**
+[Geçmiş deneyler ve ayrı-loss değerlendirmesi](shape_latent_spectral_guidance_audit_20261101.md).
+Local predicted-clean h spectral loss'undan z/style'a gradient GSD/routing'de
+uygulandı; global prior bu koşularda kapalıydı. R_SG%65.2344, kendi style-off
+kontrolü%64.0625: +1.1719puan; matched standart-SCD üstünlüğü gösterilmedi.
+Eski dual_sync global state'i local spectral/SCD gradientiyle günceller,
+fakat global-denoiser grafiği kesilir ve ara noisy z koşul olur. Kod var;
+o eski koşunun doğrulanmış accuracy/runtime makbuzu kurtarılamadı. Son
+conditional pilot spectral değil epsilon-MSE kullanır. Ayrı h/z objective'i
+makul bir hipotez; başarı veya yeni GPU çalışması olarak sunulmaz.
+
 **[Run/Inference/Decision] 2026-11-01 — two-pass LION reencoding pilot complete:**
 Same64exposed ModelNet objects/all15/seed0: baseline PM60.5208%, second N3
 PM58.0208% (−2.5pp), combined PM59.5833% (−.9375pp); primary/pooled intervals

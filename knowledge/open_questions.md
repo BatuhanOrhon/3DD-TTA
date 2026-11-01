@@ -2501,3 +2501,19 @@ supersedes preceding pilot-pending gates.
 - [x] Cycle-only and archived clean-z posthoc diagnostics: z MSE−5.14%, no accuracy benefit; no h pointwise claim.
 - [ ] N5/noise depth, z-only/h-only/anchor separation, cost-matched longer single chain, repeated seeds/unseen validation and entropy weighting remain unrun.
 - [ ] Owned runtime remains protected pending explicit completion+close instruction.
+
+## 2026-11-01 — Spectral global/style distinction resolved
+
+[Code/Run/Inference/Open] [Audited history](shape_latent_spectral_guidance_audit_20261101.md).
+
+- [x] Confirm real local-spectral→conditioning-z derivatives and completed
+  local-SCD/style-spectral routing pilot; do not label it global diffusion.
+- [x] Confirm legacy dual_sync global update code; global Jacobian cut/noisy
+  conditioning and missing run-bound accuracy remain explicit limitations.
+- [x] Separate old spectral routing, later C+S, projection replication and
+  recent epsilon-MSE global guidance outcomes; no cross-protocol ranking.
+- [ ] A clean-estimate/global-Jacobian-correct spectral global-guidance accuracy
+  experiment is not established by these records. No new GPU run selected.
+- [ ] Separate h/z loss success still needs matched standard-SCD/style-off,
+  gradient-scale and accuracy controls. Pure energy/no-global-prior isolation,
+  reliable clean-z recovery and unseen transfer remain open.
