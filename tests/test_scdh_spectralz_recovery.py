@@ -163,3 +163,47 @@ class ConfirmationTimeoutRecoveryTests(unittest.TestCase):
             self.assertEqual([c[3] for c in calls],[1800,300,900])
             record['failed_job']=dict(failed,modes=800)
             with self.assertRaises(ValueError):controller.phase_jobs('C',root)
+
+class NativeRuntimeTransportTests(unittest.TestCase):
+    def test_frozen_coefficients_keep_their_origin_and_only_declared_native_ids_change(self):
+        from copy import deepcopy
+        from scripts.recover_scdh_confirmation import transport_calibration,NATIVE_REBUILDS
+        old_native={name:dict(path='/native/'+name,bytes=row['bytes'],sha256=row['old']) for name,row in NATIVE_REBUILDS.items()}
+        old_native['knn']=dict(path='/native/knn',bytes=12,sha256='a'*64)
+        current=deepcopy(old_native)
+        for name,row in NATIVE_REBUILDS.items():current[name]['sha256']=row['new']
+        original=dict(schema_version=1,status='frozen',coefficients={'400':{'b_M':19.769744597096295,'status':'available','n_valid':384}},binding={'native_extensions':old_native,'source_snapshot_sha256':'b'*64},observations_sha256='c'*64)
+        before=deepcopy(original)
+        report=transport_calibration(original,{'sha256':'d'*64,'bytes':42},current)
+        self.assertEqual(original,before);self.assertEqual(report['coefficients'],before['coefficients'])
+        self.assertEqual(report['binding']['native_extensions'],current)
+        self.assertEqual(report['runtime_transport']['original_binding'],before['binding'])
+        self.assertFalse(report['runtime_transport']['native_bitwise_equality_claimed'])
+        self.assertFalse(report['runtime_transport']['coefficients_recomputed'])
+        for name in current:
+            corrupt=deepcopy(current);corrupt[name]['sha256']='f'*64
+            with self.assertRaises(ValueError):transport_calibration(original,{},corrupt)
+
+    def test_transport_uses_current_native_proof_only_for_new_conditions(self):
+        from types import SimpleNamespace
+        from scripts.recover_scdh_confirmation import install_recovery,identity as rid
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for name in ('receipt.json','source.py','current_cpu.json','transport.json'):(root/name).write_text('{}')
+            plan=dict(cpu_preflight_receipt='historical.json',root=str(root));(root/'plan.json').write_text(json.dumps(plan))
+            failed=dict(slot='confirmation-spectral',stage='confirmation',arm='spectral')
+            control=dict(slot='confirmation-scd',stage='confirmation',arm='scd')
+            baseline=dict(slot='development-scd',stage='development',arm='scd')
+            c=SimpleNamespace(phase_jobs=lambda phase,r:[dict(failed),dict(control)] if phase=='C' else [dict(baseline)],operations=SimpleNamespace(run_worker=lambda *a:None),evidence=lambda r,j:{'original':'fixed'},publication_root=lambda p:'publication-'+p['cpu_preflight_receipt'])
+            c.command=lambda p,j:['python','--calibration-report','original.json','--calibration-report-sha256','old']
+            c.execute_job=lambda p,j,d,m:dict(cpu=p['cpu_preflight_receipt'],command=c.command(p,j),publication=c.publication_root(p))
+            transport=dict(cpu_file='current_cpu.json',cpu_identity=rid(root/'current_cpu.json'),calibration_file='transport.json',calibration_identity=rid(root/'transport.json'))
+            record=dict(per_job_timeout_seconds=1800,failed_job=failed,retry_slot='confirmation-spectral-retry1',runtime_transport=transport)
+            install_recovery(c,record,root/'receipt.json',root/'source.py')
+            current=c.execute_job(plan,failed,99,{})
+            self.assertEqual(current['cpu'],str(root/'current_cpu.json'))
+            self.assertEqual(current['publication'],'publication-historical.json')
+            self.assertEqual(current['command'][2],str(root/'transport.json'))
+            self.assertEqual(c.execute_job(plan,baseline,99,{})['cpu'],'historical.json')
+            self.assertEqual(c.evidence(root,[baseline]),{'original':'fixed'})
+            self.assertIn('transport.json',c.evidence(root,[failed]))

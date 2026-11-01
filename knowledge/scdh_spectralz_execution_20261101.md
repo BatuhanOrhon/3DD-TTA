@@ -401,3 +401,46 @@ duration-question instruction; endpoint gpu-a100-hm-ass1c0-qm6ybz0lxlin.
 Canonical ten-cell setup/reconnect/Drive/strict data/native/source checks must
 pass before any confirmation retry. Original start and registered finite scope
 remain. Fresh setup is not a new accuracy result. Teardown remains unauthorized.
+
+
+## User fixes local SCD coefficient and authorizes final teardown — 2026-11-01 20:08UTC
+
+[User report/Decision] User clarifies that SCD's previously selected baseline
+coefficient should remain fixed, with an independent spectral-gradient step.
+Current frozen winner already uses alpha_h.03; no new local-step search will run.
+Completed.01/.05 B ablations remain historical evidence. The matched C_base
+and style-off references stay unchanged; spectral-z kappa=rho*b_M remains separate.
+
+[User report/Authorization] User explicitly instructs: “GPU üzerindeki sonraki adımlarda benden onay almana gerek yok, GPU testlerin bitince sonuçları knowledge dosyalarına kaydedip integration branche pushladıktan sonra Colab oturumunu kapatabilirsin”.
+Remaining current-study GPU work needs no additional approval. This grants
+conditional teardown only AFTER experiments finish, artifacts are validated,
+knowledge is updated and necessary changes are pushed to origin/thesis-integration.
+Preserve own r2 until all those conditions are met; no peer runtime authorization.
+
+[Run] User granted fresh-r2 Drive consent; first mount timed out after credential
+propagation, a bounded same-VM retry mounted successfully. Cell2's sole known
+fastrlock wheel failure was deferred under prior instruction; Python3.8 verification
+passed. Canonical cells3–10 run sequentially with exact saved source and each-cell
+checks; cells3/4/5 passed and cell6 is active at20:08UTC. No new confirmation
+inference has launched yet. Existing A/B results stay intact.
+
+
+### 2026-11-01 20:29UTC — r2 setup complete and explicit native transport
+
+[Run] Canonical cells3–10 completed at20:23:05UTC, including native CUDA,
+dataset and checkpoint checks. Current runtime remains r2/A10080GB.
+[Code/Inference] Fresh generic PointNet++ and Chamfer binaries have different
+SHA256 values from r1; their original bytes were not backed up. Byte equality
+is NOT claimed. The recovery helper permits only the two recorded old→new
+identities and preserves exact other native, model, dataset and worker identities.
+The original calibration remains immutable: a separately named transport report
+carries the SAME numeric b_M coefficients into the current binding, retaining the
+old binding and explicitly recording that no calibration was rerun. Every C and
+timing arm uses the same r2 build. Cross-runtime native variation is a limitation
+of dev→confirmation transport, not a matched within-C difference.
+[Code] Transport and timeout wrappers passed10 focused CPU tests; no sampler or
+loss mathematics changed. Recovery package V2 SHA256
+418970b921a34a5bd8a7284be00a30147ff037ff18d97912d6fc21a01ece6b9d.
+The failed C0 condition gets a new retry1 slot and1800s watchdog; accepted A/B
+conditions are restored and never rerun. Original start/cumulative deadline,
+source1f631d4, alpha_h=.03, M400/rho1 and frozen numeric calibration remain fixed.

@@ -1,5 +1,6 @@
 """Continue a frozen study after a timed-out, unaccepted confirmation attempt."""
 import argparse
+import copy
 import hashlib
 import importlib.util
 import json
@@ -10,6 +11,35 @@ import sys
 def identity(path):
     path=Path(path)
     return dict(bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+
+
+NATIVE_REBUILDS={
+    'pointnet2_ops._ext':dict(bytes=266256,old='ce3d592c03ffb43213bb4d080af899cbec371ac46053671de9ffd0b0a8836bac',new='aee8c9b61f4a62de7044678c46c1ca3164bdb448da989816adf9049f9138f5f0'),
+    'chamfer':dict(bytes=720640,old='5c2e52fc47daa29c2c34418a3759fbf1d200e804c777bc314a7fd4a7ef6acf92',new='5ab9c3ed87c39c0dcb68f0cc96c957338fb6cbf1ec576a9aa88782bd52b68149'),
+}
+
+
+def transport_calibration(original,original_identity,current_native):
+    previous=original['binding']['native_extensions']
+    if set(previous)!=set(current_native):raise ValueError('Changed native module set')
+    changes={}
+    for name,before in previous.items():
+        after=current_native[name]
+        if name in NATIVE_REBUILDS:
+            expected=NATIVE_REBUILDS[name]
+            if (before['sha256']!=expected['old'] or after['sha256']!=expected['new']
+                    or before['bytes']!=expected['bytes'] or after['bytes']!=expected['bytes']
+                    or before['path']!=after['path']):raise ValueError('Unregistered native rebuild: '+name)
+            changes[name]=dict(old=copy.deepcopy(before),new=copy.deepcopy(after))
+        elif before!=after:raise ValueError('Unregistered native change: '+name)
+    result=copy.deepcopy(original)
+    result['binding']['native_extensions']=copy.deepcopy(current_native)
+    result['runtime_transport']=dict(original_calibration_identity=original_identity,
+        original_binding=copy.deepcopy(original['binding']),native_changes=changes,
+        coefficients_recomputed=False,native_bitwise_equality_claimed=False,
+        binding_role='current deployment compatibility; calibration observations retain original_binding',
+        limitation='Frozen numeric coefficients carried to a new native build; matched confirmation arms share that build')
+    return result
 
 
 def install_recovery(controller,record,receipt_path,source_path):
@@ -38,6 +68,35 @@ def install_recovery(controller,record,receipt_path,source_path):
     controller.phase_jobs=jobs
     controller.operations.run_worker=worker
     controller.evidence=evidence
+    transport=record.get('runtime_transport')
+    if transport:
+        root=Path(receipt_path).parent
+        frozen_plan=json.loads((root/'plan.json').read_text())
+        original_command=controller.command
+        original_execute=controller.execute_job
+        original_publication=controller.publication_root
+        original_scoped_evidence=controller.evidence
+        def command(plan,job):
+            values=original_command(plan,job)
+            if job['stage'] in ('confirmation','timing') and job['arm']=='spectral':
+                values[values.index('--calibration-report')+1]=str(root/transport['calibration_file'])
+                values[values.index('--calibration-report-sha256')+1]=transport['calibration_identity']['sha256']
+            return values
+        def execute(plan,job,deadline,manifest):
+            current=plan
+            if job['stage'] in ('confirmation','timing'):
+                current=dict(plan,cpu_preflight_receipt=str(root/transport['cpu_file']),
+                    cpu_preflight_receipt_identity=transport['cpu_identity'])
+            return original_execute(current,job,deadline,manifest)
+        def transported_evidence(root,values):
+            result=original_scoped_evidence(root,values)
+            if any(j['stage'] in ('confirmation','timing') for j in values):
+                result.update({name:identity(Path(root)/name) for name in (transport['calibration_file'],transport['cpu_file'])})
+            return result
+        controller.command=command
+        controller.execute_job=execute
+        controller.publication_root=lambda plan:original_publication(frozen_plan)
+        controller.evidence=transported_evidence
 
 
 def main():
@@ -60,6 +119,14 @@ def main():
         raise ValueError('Not the registered900-second timeout')
     if record['retry_slot']!=record['failed_job']['slot']+'-retry1':
         raise ValueError('Unregistered retry slot')
+    transport=record.get('runtime_transport')
+    if transport:
+        original=controller.frozen_file(root,'frozen_calibration.json','calibration')[1]
+        cpu=root/transport['cpu_file'];calibration=root/transport['calibration_file']
+        if identity(cpu)!=transport['cpu_identity'] or identity(calibration)!=transport['calibration_identity']:
+            raise ValueError('Runtime transport proof changed')
+        expected=transport_calibration(original,identity(root/'frozen_calibration.json'),json.loads(cpu.read_text())['native_extensions'])
+        if json.loads(calibration.read_text())!=expected:raise ValueError('Frozen calibration coefficients or transport binding changed')
     receipt=root/'confirmation_timeout_recovery.json';source=root/'confirmation_timeout_recovery.py'
     controller.freeze(root,receipt.name,record)
     if source.exists():

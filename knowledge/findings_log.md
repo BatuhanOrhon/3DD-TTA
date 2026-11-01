@@ -8352,3 +8352,36 @@ duration-question instruction; endpoint gpu-a100-hm-ass1c0-qm6ybz0lxlin.
 Canonical ten-cell setup/reconnect/Drive/strict data/native/source checks must
 pass before any confirmation retry. Original start and registered finite scope
 remain. Fresh setup is not a new accuracy result. Teardown remains unauthorized.
+
+
+## User fixes local SCD coefficient and authorizes final teardown — 2026-11-01 20:08UTC
+
+[User report/Decision] User clarifies that SCD's previously selected baseline
+coefficient should remain fixed, with an independent spectral-gradient step.
+Current frozen winner already uses alpha_h.03; no new local-step search will run.
+Completed.01/.05 B ablations remain historical evidence. The matched C_base
+and style-off references stay unchanged; spectral-z kappa=rho*b_M remains separate.
+
+[User report/Authorization] User explicitly instructs: “GPU üzerindeki sonraki adımlarda benden onay almana gerek yok, GPU testlerin bitince sonuçları knowledge dosyalarına kaydedip integration branche pushladıktan sonra Colab oturumunu kapatabilirsin”.
+Remaining current-study GPU work needs no additional approval. This grants
+conditional teardown only AFTER experiments finish, artifacts are validated,
+knowledge is updated and necessary changes are pushed to origin/thesis-integration.
+Preserve own r2 until all those conditions are met; no peer runtime authorization.
+
+[Run] User granted fresh-r2 Drive consent; first mount timed out after credential
+propagation, a bounded same-VM retry mounted successfully. Cell2's sole known
+fastrlock wheel failure was deferred under prior instruction; Python3.8 verification
+passed. Canonical cells3–10 run sequentially with exact saved source and each-cell
+checks; cells3/4/5 passed and cell6 is active at20:08UTC. No new confirmation
+inference has launched yet. Existing A/B results stay intact.
+
+
+### 2026-11-01 20:31UTC — r2 native rebuild boundary before frozen confirmation
+[Run/Code] Canonical r2 setup passed. Generic PointNet++/Chamfer binary hashes
+changed; other pinned native/model/data/source identities must remain exact.
+Explicit old→new allowlist and separately named calibration transport preserve
+the original coefficients and original observation binding. No byte-equivalence
+or recalibration claim. All new confirmation/timing arms share this r2 build;
+dev→confirmation native change remains a limitation.40CPU/9NumPy1 targeted tests
+pass; fresh deployment completed, immutable old-slot restore active. Existing
+30development conditions are not rerun. Source worker1f631d4 is unchanged.
