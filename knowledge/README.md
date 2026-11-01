@@ -1,3 +1,13 @@
+**[User report/Proposal/Open] 2026-11-01 — h:SCD / z:smooth spectral taraması başka agent'a devredildi:**
+[Başlangıç promptu](scdh_spectralz_agent_handoff_20261101.md) ve
+[test planı](scdh_spectralz_search_plan_20261101.md) hazır. Yeni agent ayrı
+Colab ve opt-in routing kuracak; bu hazırlıkta runtime/GPU/kod çalışması yok.
+Plan: beta2 truncated smooth, M200/400/800/1200/1800, label-free kalibre dört
+z-step ölçeği, ardından ayrı local-step taraması; matched standart-SCD ve
+style-off kontrolleri, stage-ayrık all15/üç-seed doğrulama. Eta/gamma yönü ve
+modern all-active smooth'ta M'nin cutoff olmaması açıkça ayrılır. Taslak2–4saat
+bütün GPU fazı için gerekli açık onay bu handoff ile verilmiş sayılmaz.
+
 **[Run/Inference/Decision] 2026-11-01 — N5/N8 follow-up complete, no gain:**
 Exact archived first/z1/h1/Gaussian/RNG;64exposed/all15/seed0. First PM60.5208%,
 fresh N3 PM57.9167%, N5 56.5625%, N8 55.3125%; pooled59.8958/59.3750/59.4792.

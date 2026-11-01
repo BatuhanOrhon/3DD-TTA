@@ -2550,3 +2550,21 @@ supersedes preceding pilot-pending gates.
 - [ ] Separate h/z loss success still needs matched standard-SCD/style-off,
   gradient-scale and accuracy controls. Pure energy/no-global-prior isolation,
   reliable clean-z recovery and unseen transfer remain open.
+
+## 2026-11-01 — Smooth h:SCD/z:spectral routing delegated for future execution
+
+[User report/Proposal/Open] [Handoff](scdh_spectralz_agent_handoff_20261101.md),
+[bounded plan](scdh_spectralz_search_plan_20261101.md).
+
+- [x] Prepare readable startup prompt, actual code/baseline reconciliation,
+  loss/profile/rate mapping, finite grid and paired controls for another agent.
+- [ ] Next agent: implement opt-in route with CPU/source guards, prepare a new
+  owned runtime/canonical setup and concrete source/asset/ID/budget manifest.
+- [ ] Record explicit whole-phase GPU approval if expected >60min; draft2–4h
+  is not an approval. No scientific technical/calibration run started here.
+- [ ] Execute label-free calibration, fixed M/style-rate screen and local-rate
+  refinement, then gated frozen stage-disjoint confirmation and honest timing.
+- [ ] Test gain against operational SCD and matched-local SCD/style-off before
+  claiming spectral-z contribution; smoothing/M/rates not presumed optimal.
+- [ ] Preserve raw/failure/Drive receipts; no automatic global-prior/full-set/
+  beta/graph-family expansion or runtime teardown.

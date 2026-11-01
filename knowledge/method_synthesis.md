@@ -633,3 +633,33 @@ without global prior remain unrun. No implementation, GPU, model/default or
 peer-runtime action. Current source7bf0/a82200a dirty preserved; audit based
 on latest shared6ff2e49 plus recoverable legacy Git sources and old accepted
 analysis files. New note/compact audit only; raw archives untouched.
+
+## 2026-11-01 — New-agent smooth spectral style-routing search handoff
+
+[User report/Proposal/Code/Open] User requests another agent to allocate a new
+Colab and retest local-SCD/style-spectral with smoothing, independent rates
+and M search; current agent prepares docs/prompt only. [Plan](scdh_spectralz_search_plan_20261101.md)
+and [complete startup prompt](scdh_spectralz_agent_handoff_20261101.md).
+No implementation, numerical model experiment, runtime query/allocation or
+peer intervention. Source7bf0/a82200a dirty preserved; current shared7cec870
+and newer baseline/retrospective evidence reconciled rather than overwriting.
+
+[Code/Proposal] eta/gamma names reverse between baseline/composition and
+legacy v2. Use semantic local alpha_h and effective spectral-style kappa_z.
+Modern all-active degree-normalized smooth does not use M as a heat cutoff;
+primary proposed profile explicitly reuses truncated raw-lambda legacy_l2
+beta2 with fixed minimal offdiag-corrected graph. This is declared, not a
+claim that isolate correction/smoothing guarantees accuracy improvement.
+Spectral lambda and style step are redundant as separate search dimensions.
+
+[Proposal/Open] Label-free style-only gradient norm calibration freezes b_M;
+5M ×4rho at alpha_h.03, then2selected pairs at alpha_h.01/.03/.05 with
+completed .03 reuse and matched SCD/style-off controls: at most30dev64/all15/
+seed0 conditions. Positive-dev winner freeze → disjoint128/all15/three-seed,
+3–4arms/max12conditions; no confirmation retuning. Up to51,840core events,
+plus technical/calibration and384fresh timing events. Draft2–4h whole GPU
+estimate requires the Colab skill's explicit >60min approval before scientific
+GPU phase, after concrete code/source/assets/commands are reviewable. Exact
+budget/source/ID manifests and numeric calibration are not yet produced.
+Global prior/refresh/default changes/full benchmark excluded. First next step:
+implementer Batch1 audit/CPU contracts, not launching historical experiments.
