@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "base_commit": "6ff2e4952a0fa4842aa32b14afaf1ae8fa123f27",
+  "branch": "research/graph-spectral-audit-20261101",
+  "scope": "Historical matched evidence, primary-paper equations, CPU-only algebra and30cache-cell/4scale graph probes; no new accuracy.",
+  "audit_command": "/private/tmp/chamfer-audit-20261031/bin/python knowledge/evidence/graph_spectral_retrospective_20261101/audit.py --repo . --archive-root /Users/batuhan/Desktop/projects/3DD-TTA-worktrees/guidance-components --output /private/tmp/graph_spectral_reaudit.json",
+  "cpu_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 /private/tmp/chamfer-audit-20261031/bin/python -m unittest tests.test_guidance_components tests.test_spectral_guidance_losses tests.test_legacy_gsd_numerics tests.test_graph_spectral_smooth",
+    "count": 29,
+    "failures": 0,
+    "errors": 0,
+    "exit_code": 0,
+    "elapsed_seconds": 0.688
+  },
+  "artifacts": {
+    "audit.py": {
+      "bytes": 10693,
+      "sha256": "746d37491c16744963938126d5f108cf47b772a6648988d44705f6873450311c"
+    },
+    "audit.json": {
+      "bytes": 39510,
+      "sha256": "b4dcb538fc3e207bbecb8f54bb60f4f7ae5bb226c284a67297aef0980fb69f88"
+    }
+  },
+  "primary_pdfs": [
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA/result/preparation/tta_literature_expansion_20261025/parent/primary/gsd_iccv.pdf",
+      "bytes": 1909642,
+      "sha256": "7ba86ae3902628a7cae464008303342afecc17c61f3d09b7393049ced2ea978b"
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/3dd-citation-audit/result/preparation/3dd_citation_audit_20261025T123834Z/gsd_supp.pdf",
+      "bytes": 153337,
+      "sha256": "39301b0adefd9d570f88aa9fd6638ab0193c1e0ea12ae1184300709f3294ea8b"
+    }
+  ],
+  "primary_inspection": "CVF venue PDF10pages and3page supplement; equations/Fig2/3 rendered and visually inspected on PDFpp3/4/5. Web arXivv1 primary methods also read. No author-code parity claimed.",
+  "graph_probes": {
+    "original_object_ids": {
+      "modelnet40_c": 38,
+      "scanobjectnn_c": 14
+    },
+    "original_objects": 2,
+    "corruption_cells": 30,
+    "scale_counterfactual_cells": 4,
+    "backend": "torch CPU Euclidean cdist/topk; not installed CUDA parity"
+  },
+  "production_modified": false,
+  "gpu_inference": false,
+  "colab_operation": false,
+  "peer_files_modified": false,
+  "limitations": "Two original objects are repeated across30cells. Accepted earlier CSVs and17-ZIP recount are reused; raw17ZIPs were not revalidated again. No clean-reference/margin causality or full CUDA derivative certification."
+}

@@ -17,6 +17,16 @@ o eski koşunun doğrulanmış accuracy/runtime makbuzu kurtarılamadı. Son
 conditional pilot spectral değil epsilon-MSE kullanır. Ayrı h/z objective'i
 makul bir hipotez; başarı veya yeni GPU çalışması olarak sunulmaz.
 
+**[Paper/Code/Run/Inference/Open] 2026-11-01 — Graph spectral retrospective audit:**
+[Primary-paper/GFT and historical accuracy review](graph_spectral_retrospective_audit_20261101.md) separates genuine
+old Point-MAE positives from mixed matched confirmations; no universal spectral
+harm or proven causal explanation.29CPU tests and coefficient/operator/gradient
+witnesses pass.30cached graph cells represent only two original objects; fixed
+raw-lambda filters differ markedly and known self-only isolates recur in Scan.
+No production/default change or GPU/Colab operation; current N8 Chamfer+PM
+baseline remains. The task uses latest integration6ff2e49, superseding an older
+checkout-only conversational summary of missing component/ModelNet studies.
+
 **[Run/Inference/Decision] 2026-11-01 — two-pass LION reencoding pilot complete:**
 Same64exposed ModelNet objects/all15/seed0: baseline PM60.5208%, second N3
 PM58.0208% (−2.5pp), combined PM59.5833% (−.9375pp); primary/pooled intervals

@@ -1,5 +1,20 @@
 # Method Synthesis and Hypotheses
 
+## Graph spectral retrospective conclusion — 2026-11-01
+
+[Paper/Code/Run/Inference/Open] [New primary-paper and evidence audit](graph_spectral_retrospective_audit_20261101.md)
+confirms GFT/IGFT algebra and the applied gradient, while distinguishing
+GSDTTA's learned low-mode shifts from our corrupted-reference fidelity.
+Historical Point-MAE terminal+.857143pp is genuine; later fixed/calibrated
+PM deltas−.412698/+.047619pp vary by cohort/readout. Balanced CS−C all15
+intervals include0, so no universal harm/necessity/equivalence claim follows.
+New30CPU graph cells comprise only ModelNetID38 andScanID14 under15corruptions;
+mean effective weight masses442.7556/170.1105 illustrate fixed-filter transfer
+sensitivity, not population means or measured causes. Seven self-only-isolate
+occurrences in five Scan corruption cells do not override the old offdiag
+accuracy null. Preserve the selected N8 Chamfer+PM baseline; no production,
+GPU, Colab or new semantic-causality experiment was performed.
+
 ## Current operational baseline — 2026-10-31
 
 [User report/Decision/Code] The user promotes the accepted whole N8 Chamfer

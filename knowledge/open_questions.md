@@ -1,3 +1,25 @@
+## 2026-11-01 — Graph spectral transfer and correct contribution boundary
+
+[User report/Paper/Code/Run/Inference/Open] [Retrospective audit](graph_spectral_retrospective_audit_20261101.md)
+uses current integration and preserves the positive old Point-MAE pilot.
+
+- [x] Separate matched CS−C terminal/PM cohorts and fixed/calibrated readouts;
+  dataset-only success/failure does not fit mixed within-dataset head signs.
+- [x] Inspect venue equations/figures and verify GFT/layout/loss gradient;
+ 29existingCPU tests plus new asserted coefficient/operator witnesses pass.
+- [x] Extend real-cache graph replay to15corruptions of one object/dataset,
+  plus four scale counterfactuals; record hashes, CPU-native limitation and
+  known isolate defect without claiming its accuracy causality.
+- [ ] Determine whether spectral directions resist useful clean-reference
+  changes or classifier margins on actual matched states; no causal test yet.
+- [ ] Certify actual native kNN distance/tie/gradient contracts if required;
+  no new GPU requested. Existing offdiag null result remains evidence.
+- [ ] If reopening spectral contribution on promoted N8 baseline, compare
+  matched same-host/readout on/off; old10/30 contrasts cannot answer it.
+
+No new run/default change; choosing cheaper C for the tested legacy variant
+is distinct from rejecting graph spectral methods in general.
+
 ## 2026-10-31 — Operational baseline promotion
 
 [User report/Decision/Code] The user selects

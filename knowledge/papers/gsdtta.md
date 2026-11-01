@@ -1,5 +1,20 @@
 # Paper Note: GSDTTA
 
+## Primary-paper/GFT retrospective reread — 2026-11-01
+
+[Paper/Code/Run/Inference/Open] Venue PDFpp3–5/Eqs3,5–13,17–18/Fig2–3
+visually checked again, plus experiments/ablation and supplement.
+[Full audit and new asserted CPU witnesses](../graph_spectral_retrospective_audit_20261101.md): forwardU^TX,
+layoutBx2048x4, common-basis loss and gradient are consistent; no IGFT call
+is needed to evaluate that scalar coefficient loss. Paper optimizes explicit
+low-frequency shifts in physical XYZ; our fidelity resists shifts from corrupt
+latentQ. Legacy tau lacks Eq10's1/k and includes self edges; self-only isolation
+bug and hard-cutoff tied-subspace ambiguity remain bounded issues. Neither
+establishes the cause of accuracy changes. Mixed within-dataset head effects
+and two-original-object/30cell CPU probes preclude dataset-only/general claims.
+No production change or GPU inference; cite the paper for its mechanism and
+our matched archived evidence for our method's behavior.
+
 ## Mathematical reread - 2026-09-26
 
 [Paper] Visually rechecked local PDF pp.3-5, Fig.2/3 and Eqs.7-18. Eqs.11-13

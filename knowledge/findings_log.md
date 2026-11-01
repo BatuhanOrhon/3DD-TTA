@@ -8154,3 +8154,37 @@ without global prior remain unrun. No implementation, GPU, model/default or
 peer-runtime action. Current source7bf0/a82200a dirty preserved; audit based
 on latest shared6ff2e49 plus recoverable legacy Git sources and old accepted
 analysis files. New note/compact audit only; raw archives untouched.
+
+## 2026-11-01 — Graph spectral history, primary transforms and transfer audit
+
+[User report/Paper/Code/Run/Inference/Open] Worktree51fb on
+research/graph-spectral-audit-20261101 from latest6ff2e49. Reconciled the old
+checkout-only summary with integrated matched component/ModelNet results.
+Point-MAE development terminal CS−C+.857143pp is preserved; fixed/calibrated
+confirmation CS−C PM deltas−.412698/+.047619pp and balanced intervals crossing0 do not
+show universal spectral harm or benefit. Current N8 Chamfer+PM baseline stays.
+
+[Paper/Code] Venue PDF equations/figures and supplement checked. GFT direction,
+latent layout, common-basis quadratic and chain-rule gradient are consistent.
+Legacy graph threshold/self-neighbor/operator differ from paper; real isolate
+mask defect and hard tied-mode cutoff issue persist, with old offdiag all15
+null retained. Learned low-frequency shifts in GSDTTA and fidelity to corruptQ
+are distinct objectives; accuracy causality remains unmeasured.
+
+[Run] New assert-based CPU witnesses: roundtrip4.44e-15/gradient2.78e-17,
+finite differences/batch/sign checks; permutation/translation and tied-cutoff
+counterexamples.29existing focused tests pass.34graph replays use only two
+original cached development objects (MN38/Scan14),15corruptions each plus
+4scale cases. Baseline mean weight masses442.7556/170.1105;7missed real self-only
+nodes in5Scan cells,0MN. CPU Euclidean kNN is explicit; no CUDA/tie/prevalence
+or accuracy-causal inference. Existing accepted CSV byte hashes match Git;
+prior17ZIP raw recount is reused, not repeated. No new model/GPU/Colab/runtime
+operation, source/default/data/checkpoint change or peer write.
+
+[Evidence/Decision] [graph_spectral_retrospective_audit_20261101.md](graph_spectral_retrospective_audit_20261101.md) and
+knowledge/evidence/graph_spectral_retrospective_20261101 contain compact source,
+asserted results, primary PDF hashes and verification. Raw caches/PDFs/renders
+and old results remain immutable/unpublished here. Falsifiers are a consistent
+matched spectral increment, demonstrated native defect, or contrary actual
+clean-reference/margin evidence. Future N8 spectral attribution needs its own
+same-host/readout controls; no new run is scheduled.
