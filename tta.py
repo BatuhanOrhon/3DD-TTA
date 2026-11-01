@@ -39,7 +39,8 @@ def selective_chamfer_loss(dists1, dists2, num_points, *, normalize=False):
 def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     scheduler_observer=None, return_trajectory=False,
                     scd_normalize=False, prepared_state=None, state_observer=None,
-                    trajectory_observer=None, shape_guidance=None, chamfer_reference=None):
+                    trajectory_observer=None, shape_guidance=None, chamfer_reference=None,
+                    style_spectral=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -108,6 +109,10 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     if trajectory_observer is not None:
         trajectory_observer.mark('style_noise')
     style_cond = vae.global2style(shape_latent)
+    if style_spectral is not None:
+        if shape_guidance is not None or chamfer_reference is not None or scd_normalize:
+            raise ValueError('Spectral style routing requires the original fixed-anchor SCD host')
+        style_spectral.initialize(latent_point_reshaped)
     if shape_guidance is not None:
         style_cond = shape_guidance.initialize(shape_latent, scheduler, lion)
     
@@ -135,6 +140,10 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         style_cond = style_cond.detach()
         style_cond.requires_grad = True
 
+        if style_spectral is not None and style_spectral.audit_path is not None:
+            from legacy_trajectory import _rng_state, _restore_rng, isolated_probe
+            audit_rng = _rng_state()
+
         # Predict noise
         noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
         scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
@@ -156,11 +165,25 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         # Zero out gradients and backpropagate Chamfer loss
         if noisy_latent_point.grad is not None:
             noisy_latent_point.grad.zero_()
-        ch_loss.backward()
-        
-        # Update latent variables with gradient step
-        noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
-        style_cond = style_cond - eta * style_cond.grad
+        if style_spectral is None:
+            ch_loss.backward()
+            noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
+            style_cond = style_cond - eta * style_cond.grad
+        else:
+            local_scd, style_spec = style_spectral.gradients(
+                pred_latent_point_reshaped, ch_loss, noisy_latent_point, style_cond, i, t)
+            if style_spectral.audit_path is not None and style_spectral.audit_record is None:
+                def audit_clean(style):
+                    with isolated_probe([local_prior]):
+                        _restore_rng(audit_rng)
+                        physical_local = noisy_latent_point.detach().clone()
+                        predicted = local_prior(x=physical_local, t=t_tensor.float(),
+                                                condition_input=style.detach().clone(), clip_feat=None)
+                        return scheduler.step(predicted, t, physical_local).pred_original_sample.view(num_samples, 2048, -1)[:, :, :3]
+                style_spectral.audit(pred_latent_point_reshaped, noisy_latent_point, style_cond,
+                                     local_scd, style_spec, audit_clean)
+            noisy_latent_point = scheduler_output.prev_sample - gamma * local_scd
+            style_cond = style_cond - style_spectral.style_step * style_spec
         if shape_guidance is not None:
             style_cond = shape_guidance.project(style_cond)
 

@@ -98,7 +98,7 @@ def _sources(bundle, cfg, required):
     require(actual == cfg.get('executed_source_sha256'), 'Executed source map digest mismatch')
 
 
-def analyze_bundle(path: str | Path, expected_config: dict, cache_root: str | Path) -> dict:
+def analyze_bundle(path: str | Path, expected_config: dict, cache_root: str | Path, *, config_validator=None, scoped_partial=False) -> dict:
     """Accept one full selected cohort or explicitly bound technical smoke; fail closed."""
     binding = expected_config
     expected = binding.get('expected_config', binding)
@@ -111,9 +111,9 @@ def analyze_bundle(path: str | Path, expected_config: dict, cache_root: str | Pa
     try:
         cfg = bundle.json('config.json')
         _subset({k: v for k, v in expected.items() if k != 'required_source_files'}, cfg)
-        validate_transfer_config(cfg)
+        (config_validator or validate_transfer_config)(cfg)
         smoke = cfg.get('technical_smoke', False)
-        require(cfg.get('status') in (('partial', 'complete') if smoke else ('complete',)), 'Unavailable failed/incomplete endpoint')
+        require(cfg.get('status') in (('partial', 'complete') if smoke or scoped_partial else ('complete',)), 'Unavailable failed/incomplete endpoint')
         require(type(cfg.get('seed')) is int and cfg['seed'] in (0, 1, 2) and cfg.get('severity') == 5,
                 'Expected fixed seeds0/1/2 and severity5')
         require(bool(cfg.get('reconstruction_group_id')), 'Shared reconstruction group missing')
@@ -155,9 +155,12 @@ def analyze_bundle(path: str | Path, expected_config: dict, cache_root: str | Pa
                 require(values['candidate_names'].tolist() == names and values['candidate_loop_counts'].tolist() == steps + [depth], 'Candidate readout mismatch')
                 logits = values['trajectory_logits']
                 require(logits.shape == (n, 4, classes) and np.isfinite(logits).all(), 'Invalid/nonfinite candidate logits')
-                require(values['logits'].shape == (n, classes) and np.array_equal(values['logits'], logits[:, -1]) and
-                        values['prediction'].shape == (n,) and values['prediction'].dtype.kind in 'iu' and np.array_equal(values['prediction'], logits[:, -1].argmax(1)), 'Terminal logits/prediction mismatch')
                 computed = policies(logits, 3)
+                terminal=values.get('terminal_prediction',values['prediction'])
+                require(values['logits'].shape == (n, classes) and np.array_equal(values['logits'], logits[:, -1]) and
+                        terminal.shape == (n,) and terminal.dtype.kind in 'iu' and np.array_equal(terminal, logits[:, -1].argmax(1)), 'Terminal logits/prediction mismatch')
+                primary=computed['probability_mean'] if cfg.get('csv_policy')=='probability_mean' else terminal
+                require(np.array_equal(values['prediction'],primary), 'CSV primary policy prediction mismatch')
                 for key, result in computed.items():
                     require(key in values and values[key].shape == result.shape and
                             np.allclose(values[key], result, rtol=1e-10, atol=1e-12), 'Saved/recomputed readout mismatch: ' + key)

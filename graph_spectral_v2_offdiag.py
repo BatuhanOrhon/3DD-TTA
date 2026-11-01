@@ -96,6 +96,12 @@ class GraphSpectralDNA(nn.Module):
         # degree-minus-diagonal cancellation and another dense adjacency copy.
         nonself_edges = torch.count_nonzero(A_o, dim=-1) - (A_o.diagonal(dim1=-2, dim2=-1) != 0).long()
         isolated_nodes = (nonself_edges == 0).float()  # (B, N)
+        self.last_statistics = dict(pruned_nodes=(valid_nodes == 0).sum(1).cpu().tolist(),
+            isolated_nodes=isolated_nodes.sum(1).cpu().tolist(),
+            retained_nonself_edges=nonself_edges.sum(1).cpu().tolist(),
+            pruning_threshold=tau[:, 0].cpu().tolist(),
+            degree_before_mean=degrees.mean(1).cpu().tolist(),
+            degree_after_mean=D_o_diag.mean(1).cpu().tolist())
         L_o = L_o + torch.diag_embed(isolated_nodes * 1000.0)
         
         # Add numerical stability jitter (epsilon) to the diagonal to prevent 

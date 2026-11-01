@@ -8218,3 +8218,18 @@ GPU phase, after concrete code/source/assets/commands are reviewable. Exact
 budget/source/ID manifests and numeric calibration are not yet produced.
 Global prior/refresh/default changes/full benchmark excluded. First next step:
 implementer Batch1 audit/CPU contracts, not launching historical experiments.
+
+
+## 2026-11-01 12:10UTC — SCD-h/spectral-z implementation and fresh setup
+
+[Code/Run/Open] User invoked the complete handoff. New cb07 worktree/branch
+from origin/thesis-integration6c193bf preserves the original/peer dirty work.
+Opt-in offdiag/truncated raw-lambda L2 style route, unchanged local-SCD host,
+label-free M-specific calibration, finite A/B/C and independent raw acceptance
+are under CPU verification.64/128stage-disjoint IDs exclude812 prior subset
+IDs; historical full-benchmark exposure is explicit. Own A100 session
+`tta-scdh-spectralz-a100-20261101-r1` setup: canonical1/3/4 passed, known cell2
+fastrlock exception deferred and Python3.8 verified, cell5 running. Drive consent
+received; no scientific GPU approval/run, result ZIP or accuracy exists yet.
+[Execution record](scdh_spectralz_execution_20261101.md) owns the technical-zero
+FD rationale, exact paths, pending native/seal/review/approval gates and limits.

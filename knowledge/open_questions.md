@@ -1,3 +1,14 @@
+## 2026-11-01 — Registered SCD-h / smooth spectral-z study now implementing
+
+- [x] Read the full handoff/plan; isolate from current integration and preserve peer/user work.
+- [x] Add opt-in route/label-free calibration, deterministic finite grid and CPU witnesses.
+- [x] Register64development/disjoint128confirmation excluding812 prior subset IDs; retain full-benchmark exposure limit.
+- [ ] Finish canonical own-A100 native/data/checkpoint setup and sealed CPU deployment.
+- [ ] Independent branch review, actual source/assets/ID identities, then one whole scientific-GPU approval.
+- [ ] Native FD/repeats and frozen b_M; A/B with reused.03; positive-dev-only frozen confirmation; matched fresh costs and NumPy1 recount.
+
+[Execution, technical-zero ruling, stage pairing and setup state](scdh_spectralz_execution_20261101.md).
+
 ## 2026-11-01 — Graph spectral transfer and correct contribution boundary
 
 [User report/Paper/Code/Run/Inference/Open] [Retrospective audit](graph_spectral_retrospective_audit_20261101.md)
