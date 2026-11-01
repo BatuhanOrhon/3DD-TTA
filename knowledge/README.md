@@ -1,13 +1,13 @@
-**[Code/Run/Open] 2026-11-01 20:31UTC — SCD-h / spectral-z A/B complete; r2 recovery active:**
+**[Code/Run/Open] 2026-11-01 20:45UTC — SCD-h / spectral-z A/B complete; r2 confirmation continuation:**
 30development conditions finished (29accepted,1numerically unavailable).
 FrozenM400/rho1/h.03 PM69.4792%, C_base68.8542%, style-off69.3750% on64IDs/all15/seed0.
 No heldout gain established: first128-ID confirmation stopped at900s after58/60
 batches. Then r1 unexpectedly disappeared from server inventory19:35UTC; no
-teardown command issued. New ownA100 r2 passed canonical setup at20:23UTC; restoration of all accepted A/B
-artifacts is active before fresh C retry. All accepted A/B
+teardown command issued. New ownA100 r2 passed canonical setup at20:23UTC; 36archives/94paired
+states were restored and C/timing continuation launched20:45UTC. All accepted A/B
 raw archives and freeze records remain locally/Drive verified. User explicitly
 waives further duration questions for this study; complete accepted experiments
-must not rerun. New monitor47363/exec51161 live; old r1 monitor records LOST.
+must not rerun. New monitor47363/exec51161 live; old LOST r1 monitor stopped20:37UTC.
 [Execution record](scdh_spectralz_execution_20261101.md),
 [development grid](evidence/scdh_spectralz_development_20261101.csv),
 [compact evidence](evidence/scdh_spectralz_progress_20261101.json).

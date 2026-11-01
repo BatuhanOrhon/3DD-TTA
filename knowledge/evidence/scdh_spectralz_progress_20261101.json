@@ -42,7 +42,51 @@
       "status": "available"
     }
   },
-  "confirmation_accepted_conditions": 0,
+  "confirmation_accepted_conditions": 3,
+  "confirmation_partial_scores": [
+    {
+      "BG_percent": 62.5,
+      "PM_percent": 64.79166666666667,
+      "alpha_h": 0.03,
+      "archive_sha256": "b1703ed576f3566de67fb7b42a4849ba998190f94f89a0cb82651b587c74ba6e",
+      "arm": "off",
+      "correct": 1244,
+      "events": 1920,
+      "macro14_percent": 64.95535714285714,
+      "modes": null,
+      "rho": null,
+      "seed": 0,
+      "slot": "confirmation-off-h0p03-s0"
+    },
+    {
+      "BG_percent": 63.28125,
+      "PM_percent": 65.05208333333333,
+      "alpha_h": 0.03,
+      "archive_sha256": "9c3d65bd1799601c467abf636c2c107bb356dbdf3fe5fa63d3c66af832c19fbc",
+      "arm": "scd",
+      "correct": 1249,
+      "events": 1920,
+      "macro14_percent": 65.17857142857143,
+      "modes": null,
+      "rho": null,
+      "seed": 0,
+      "slot": "confirmation-scd-h0p03-s0"
+    },
+    {
+      "BG_percent": 67.1875,
+      "PM_percent": 65.10416666666666,
+      "alpha_h": 0.03,
+      "archive_sha256": "1443863f4f9953f83a937d7c0f473688f12672a34ab27f38c9b8774060da98fd",
+      "arm": "spectral",
+      "correct": 1250,
+      "events": 1920,
+      "macro14_percent": 64.95535714285714,
+      "modes": 400,
+      "rho": 1.0,
+      "seed": 0,
+      "slot": "confirmation-spectral-h0p03-M400-r1p0-s0-retry1"
+    }
+  ],
   "development_C_base": {
     "PM_percent": 68.85416666666667,
     "correct": 661,
@@ -594,13 +638,16 @@
     }
   },
   "operator": "e19d7a4",
+  "r2_recovery_proof_sha256": "d57b4d46aa91c0af4bd23f2e1266be02cfbd85cbdf733a09f9d3e359f3fdbb0f",
   "runtime_recovery": {
     "endpoint": "gpu-a100-hm-ass1c0-qm6ybz0lxlin",
     "monitor_exec_session": 51161,
     "monitor_pid": 47363,
+    "native_bitwise_equal": false,
+    "native_transport": "Declared PointNet++ and Chamfer rebuilds; exact remaining native/source/model/data identities; original numeric b_M unchanged",
     "session": "tta-scdh-spectralz-a100-20261101-r2",
-    "setup": "cell1 restart/reconnect passed; cell2 running"
+    "setup": "Canonical cells1\u201310 passed20:23UTC; campaign restoration36archives/94paired states completed20:45UTC; confirmation active"
   },
   "scientific_worker": "1f631d4",
-  "status": "A/B complete; first confirmation timeout; r1 runtime unexpectedly lost; r2 canonical setup running"
+  "status": "A/B complete; confirmation seed0 complete, seeds1/2 and timing running/pending"
 }

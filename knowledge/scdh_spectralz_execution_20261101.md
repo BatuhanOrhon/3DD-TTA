@@ -444,3 +444,49 @@ loss mathematics changed. Recovery package V2 SHA256
 The failed C0 condition gets a new retry1 slot and1800s watchdog; accepted A/B
 conditions are restored and never rerun. Original start/cumulative deadline,
 source1f631d4, alpha_h=.03, M400/rho1 and frozen numeric calibration remain fixed.
+
+
+### 2026-11-01 20:43UTC — restored campaign; historical source dependency recovered
+[Run] First r2 restore transferred36 archives and paired caches, validated old
+phase receipts and moved the campaign into place, then stopped before science:
+validate_plan required the original technical-control asset tree at
+/content/studies/scdh-spectralz/prepared/assets. This path was absent on r2.
+Raw restore log and supervisor failure were preserved on Drive; no GPU job ran.
+[Code] The original local manifest matches321db647...; its exact changed source
+files/sourceZIP were uploaded in old_asset_delta.zip (5651884bytes,
+SHA25606f5b59e17cc690c3f1eaf70861d06a7f3ae62d7439f7546544e53130d4b2814).
+Unchanged immutable files are hardlinked from the current asset tree after
+identity checks, changed files use the original bytes. Full read_manifest and
+plan validation remain in force. Finish-restore supervisor sourceSHA256
+e306472b89bfd90f778baabf6258a2c119780f6be0a570a700c4c6525726604b.
+No accepted science, fresh deployment or completed transfer is repeated.
+[Run] Old r1 LOST monitor29297/39992 stopped at20:37:37UTC; runtime_teardown=false.
+Own r2 monitor47363/51161 and read-only collector87508 remain active.
+
+[Run] Finish-restore completed20:45:03UTC:36immutable archives,94paired state
+NPZ files,0damaged. Full old/new manifest validation and current native allowlist
+passed. C/timing continuation started immediately with original start/deadline;
+no accepted job repeated. Recovery proofSHA256d57b4d46aa91c0af4bd23f2e1266be02cfbd85cbdf733a09f9d3e359f3fdbb0f;
+current native+CPU recovery ZIP1028215bytes/SHA256
+aeaf07b04eaa1c762ad21d830727dc40b8d3cd3ea6fecec12f641ccad88818d4.
+
+
+### 2026-11-01 21:06UTC — first heldout-stage condition accepted
+[Run] C0retry1 completed all60batches and passed independent CPU acceptance;
+first new confirmation archive117128825bytes/SHA256
+1443863f4f9953f83a937d7c0f473688f12672a34ab27f38c9b8774060da98fd
+was Drive→local SHA/CRC verified21:05:41UTC. Point-MAE PM1250/1920=65.1041667%,
+macro14=64.9553571%, Background=67.1875% (128stage-disjoint IDs/all15/seed0).
+This cohort differs from dev; no gain interpretation until matched C/Z0 finish.
+C_base seed0 is running; remaining frozen conditions and timing continue.
+
+
+### 2026-11-01 21:12UTC — confirmation seed0 complete, not final
+[Run] Three seed0 conditions accepted/Drive→local verified: spectral1250/1920
+(65.1041667%), C_base1249/1920(65.0520833%), Z0_match1244/1920(64.7916667%).
+Spectral−C +.0520833pp (24corrected/23harmed); spectral−Z0 +.3125pp
+(26corrected/20harmed). Macro14 spectral/Z064.9553571% vs C65.1785714%;
+BG spectral67.1875%, C63.28125%, Z062.5%. Initial advantage is concentrated in
+BG and must not be generalized; seeds1/2 remain running/pending. No selection
+or coefficient changes. Compact accepted rows are in
+knowledge/evidence/scdh_spectralz_confirmation_20261101.csv.

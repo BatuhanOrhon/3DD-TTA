@@ -1,0 +1,64 @@
+{
+  "scope": "technical32 dev IDs, gaussian/background only; filter mass is descriptive, not gradient equivalence or accuracy",
+  "source_archive": {
+    "bytes": 134686898,
+    "path": "result/preparation/scdh_spectralz_search_20261101/numerical_r3/retrieved/technical-spectral-h0p03-M800-r1p0-s0.zip",
+    "sha256": "0a1f77ce197ca80074c4e9d318f101995fe595285b1ee01f30ae61b321cce332"
+  },
+  "values": {
+    "background": {
+      "1200": {
+        "median_cutoff_lambda": 3.552189588546753,
+        "median_mass": 246.87020994500648,
+        "median_retained_fraction_of_1800": 0.9996109597410756
+      },
+      "1800": {
+        "median_cutoff_lambda": 999.9998779296875,
+        "median_mass": 246.98851950174225,
+        "median_retained_fraction_of_1800": 1.0
+      },
+      "200": {
+        "median_cutoff_lambda": 0.2809857428073883,
+        "median_mass": 171.60625562124855,
+        "median_retained_fraction_of_1800": 0.7016217735992529
+      },
+      "400": {
+        "median_cutoff_lambda": 1.1159119606018066,
+        "median_mass": 230.1496627296063,
+        "median_retained_fraction_of_1800": 0.9360550731472408
+      },
+      "800": {
+        "median_cutoff_lambda": 2.383617639541626,
+        "median_mass": 245.4482767059928,
+        "median_retained_fraction_of_1800": 0.9943071768617836
+      }
+    },
+    "gaussian": {
+      "1200": {
+        "median_cutoff_lambda": 3.429225444793701,
+        "median_mass": 314.87022233292146,
+        "median_retained_fraction_of_1800": 0.9997128076165487
+      },
+      "1800": {
+        "median_cutoff_lambda": 1000.0,
+        "median_mass": 315.0025784763422,
+        "median_retained_fraction_of_1800": 1.0
+      },
+      "200": {
+        "median_cutoff_lambda": 0.09440068528056145,
+        "median_mass": 192.13162675862046,
+        "median_retained_fraction_of_1800": 0.6071803349501104
+      },
+      "400": {
+        "median_cutoff_lambda": 0.8103433549404144,
+        "median_mass": 289.67432110154385,
+        "median_retained_fraction_of_1800": 0.9202386134130213
+      },
+      "800": {
+        "median_cutoff_lambda": 2.1915379762649536,
+        "median_mass": 312.8788349828585,
+        "median_retained_fraction_of_1800": 0.9937111490801558
+      }
+    }
+  }
+}

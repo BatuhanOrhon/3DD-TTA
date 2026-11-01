@@ -9,7 +9,8 @@
 - [x] Full repaired Gaussian/Background native physical/FD acceptance (8/8); retain native repeat PM disagreements1/32 and5/32.
 - [x] User explicitly authorizes continuation without further duration questions; tested immutable amendment retains original start and completed slots (controller e19d7a4, frozen worker1f631d4).
 - [x] Technical phase and frozen b_M; all30A/B conditions complete (29accepted,1numerically unavailable); winnerM400/rho1/h.03 frozen.
-- [ ] Newr2canonical setup and strict source/native/data recovery after r1loss; preserve accepted A/B and failed128-ID/900s attempt.
+- [x] Newr2canonical setup/source/model/data recovery after r1loss; explicit two-binary native transport preserves original calibration and common new-build C controls. Accepted A/B and failed128-ID/900s attempt retained.
+- [x] Freeze local SCD step at.03 per user; spectral step stays independent, no more alpha tuning.
 - [ ] Complete fixed128-ID/seeds0–1–2 confirmation with1800s per-job watchdog, matched fresh costs and NumPy1 recount.
 
 [Execution, technical-zero ruling, stage pairing and setup state](scdh_spectralz_execution_20261101.md).

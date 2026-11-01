@@ -8385,3 +8385,15 @@ or recalibration claim. All new confirmation/timing arms share this r2 build;
 dev→confirmation native change remains a limitation.40CPU/9NumPy1 targeted tests
 pass; fresh deployment completed, immutable old-slot restore active. Existing
 30development conditions are not rerun. Source worker1f631d4 is unchanged.
+
+
+### 2026-11-01 20:57UTC — descriptive filter mass, not an accuracy mechanism
+[Run/Inference] Independent NumPy recount from the accepted technical M800 raw
+archive's full eigenvalue vectors (32development IDs, Gaussian/Background) gives
+median exp(-2lambda) filter mass retained relative to M1800: M20060.72/70.16%,
+M40092.02/93.61%, M80099.37/99.43%, M120099.971/99.961%. Exact filter-weight
+hashes differ; near-saturation of mass does NOT imply gradient/operator equality.
+This explains why larger nominal M can add little weighted spectrum in these
+two corruptions, but is not evidence of a cause of accuracy differences or of
+cross-dataset behavior. Compact inputs/derivation/source archive identity:
+knowledge/evidence/scdh_spectralz_filter_mass_20261101.json. No new GPU run.
