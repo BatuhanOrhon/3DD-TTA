@@ -56,6 +56,17 @@ def archive_slot(root,destination):
     return destination
 
 
+def audit_only_source(source,name):
+    import ast
+    tree=ast.parse(source)
+    class RemoveAudit(ast.NodeTransformer):
+        def visit_FunctionDef(self,node):
+            if (name=='tta.py' and node.name=='audit_clean') or (name=='scdh_spectralz.py' and node.name=='audit'):
+                return ast.Pass()
+            return self.generic_visit(node)
+    return ast.dump(RemoveAudit().visit(tree),include_attributes=False)
+
+
 def validate_plan(plan):
     root=Path(plan['root']);assets=Path(plan['asset_root'])
     manifest=worker.shared.source.read_manifest(assets,plan['asset_manifest_sha256'])
@@ -76,6 +87,15 @@ def validate_plan(plan):
             raise ValueError('Unregistered native-control reuse manifest')
         allowed={'source_snapshot.zip'}|{'source_snapshot/'+n for n in ('graph_spectral_v2_offdiag.py',
             'scripts/run_scdh_spectralz.py','scripts/analyze_scdh_spectralz.py','scripts/deploy_scdh_spectralz.py','scripts/prepare_scdh_spectralz.py')}
+        revisions=reuse.get('audit_only_revisions',{})
+        if set(revisions)-{'tta.py','scdh_spectralz.py'}:raise ValueError('Unknown audit-only revision')
+        for name,revision in revisions.items():
+            key='source_snapshot/'+name
+            if (revision!={'old':original['files'][key],'new':manifest['files'][key]}
+                    or audit_only_source((Path(reuse['old_asset_root'])/key).read_text(),name)
+                    !=audit_only_source((assets/key).read_text(),name)):
+                raise ValueError('Source reuse changed active non-audit code: '+name)
+            allowed.add(key)
         changed={n for n in set(original['files'])|set(manifest['files']) if original['files'].get(n)!=manifest['files'].get(n)}
         if (changed-allowed or reuse['old_graph']!=original['files']['source_snapshot/graph_spectral_v2_offdiag.py']
                 or reuse['new_graph']!=manifest['files']['source_snapshot/graph_spectral_v2_offdiag.py']):

@@ -107,7 +107,7 @@ def spectral_fixture(root,*,zero=False,false_errors=False,calibrated_zero=False)
                 checks.append(dict(example=i,scale=scale,epsilon=eps,autograd=ad,loss_plus=100+eps*fd,
                     loss_minus=100-eps*fd,finite_difference=fd,absolute_error=0.,relative_error=0.,passed=True))
         hashes={k:tensor_hash(v) for k,v in arrays.items()}
-        fd=dict(checks=checks,passed=True,relative_tolerance=.1,absolute_tolerance=1e-5,
+        fd=dict(checks=checks,direction_policy='normalized_style_gradient',passed=True,relative_tolerance=.1,absolute_tolerance=1e-5,
             rng_before_sha256='a'*64,rng_after_sha256='a'*64,inputs_before={'local':'b'*64,'style':'c'*64},
             inputs_after={'local':'b'*64,'style':'c'*64},physical_hashes=hashes)
         stream=io.BytesIO();np.savez_compressed(stream,**arrays,metadata=np.asarray(json.dumps(fd,sort_keys=True)))

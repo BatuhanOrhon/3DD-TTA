@@ -144,13 +144,11 @@ class SpectralStyleRoute:
             repeat_delta=sample_norm(repeat-clean)
             for index in range(2):
                 direction=torch.zeros_like(style)
-                pattern=torch.arange(style[index].numel(),device=style.device).reshape_as(style[index])
-                direction[index]=torch.where(pattern%2==0,1.,-1.)
-                direction[index]/=direction[index].norm()
                 norm=style[index].norm()
                 gradient_norm=style_gradient[index].norm()
                 if not torch.isfinite(norm) or norm<=0 or not torch.isfinite(gradient_norm) or gradient_norm<=0:
                     raise RuntimeError('Native finite-difference requires nonzero finite style and gradient')
+                direction[index]=style_gradient[index]/gradient_norm
                 exact=float((style_gradient*direction).sum())
                 def loss_at(z):
                     physical=clean_function(z)
@@ -166,7 +164,7 @@ class SpectralStyleRoute:
                         loss_plus=float(plus),loss_minus=float(minus),finite_difference=estimate,absolute_error=absolute,relative_error=relative,
                         passed=math.isfinite(estimate) and (relative<=.1 or absolute<=1e-5)))
                 vectors['direction_%d'%index]=direction[index].cpu().numpy()
-        self.audit_record=dict(checks=checks,repeat_clean_delta_norm=repeat_delta.cpu().tolist(),
+        self.audit_record=dict(checks=checks,direction_policy='normalized_style_gradient',repeat_clean_delta_norm=repeat_delta.cpu().tolist(),
             relative_tolerance=.1,absolute_tolerance=1e-5,path=str(self.audit_path),
             rng_before_sha256=rng_before,rng_after_sha256=rng_hash(),
             inputs_before=inputs_before,inputs_after=dict(local=tensor_hash(local),style=tensor_hash(style)),

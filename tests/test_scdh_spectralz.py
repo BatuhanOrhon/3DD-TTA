@@ -133,6 +133,8 @@ class SpectralStyleTests(unittest.TestCase):
             with np.load(path,allow_pickle=False) as data:
                 self.assertEqual(data['basis'].shape,(2,6,6))
                 np.testing.assert_array_equal(data['style_gradient'],zgrad.detach().numpy())
+                for i in range(2):
+                    np.testing.assert_allclose(data['direction_%d'%i],data['style_gradient'][i]/np.linalg.norm(data['style_gradient'][i]),rtol=1e-6)
             bad=self.route(audit_path=Path(directory).resolve()/'bad.npz');bad.initialize(q)
             with self.assertRaisesRegex(RuntimeError,'finite-difference'):
                 bad.audit(clean,local,style,hgrad,zgrad*1000,lambda z:.9*local.detach()+.2*z)
@@ -252,6 +254,20 @@ if __name__ == '__main__':
     unittest.main()
 
 class FreshProcessTests(unittest.TestCase):
+    def test_native_FD_probes_keep_the_same_grad_enabled_forward_path_as_live_prior(self):
+        from tests import test_chamfer_depth as fixture
+        flags=[];original=fixture.Prior.forward
+        def observe(self,*args,**kwargs):
+            flags.append((torch.is_grad_enabled(),kwargs['x'].requires_grad,kwargs['condition_input'].requires_grad))
+            return original(self,*args,**kwargs)
+        with tempfile.TemporaryDirectory() as directory:
+            from scdh_spectralz import SpectralStyleRoute
+            route=SpectralStyleRoute(IdentityGraph(),800,0.,audit_path=Path(directory).resolve()/'fd.npz')
+            seeded()
+            with patch.object(fixture.Prior,'forward',observe):
+                run(load_sampler(),depth=8,gamma=.03,eta=0.,style_spectral=route,return_trajectory=True)
+        self.assertTrue(flags and all(all(row) for row in flags),flags)
+
     def test_worker_imports_observer_before_runtime_source_freeze(self):
         import subprocess,sys,textwrap
         with tempfile.TemporaryDirectory() as directory:

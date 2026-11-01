@@ -184,3 +184,39 @@ filter.97CPU checks including paired sorting/legacy numerical regressions and
 37NumPy1 artifact tests pass. The continuation uses a fresh root/source seal,
 explicit import-only graph equivalence for three controls, and the original
 13:20 start time. No completed accuracy experiment is rerun.
+
+
+## Native FD validation repair — 2026-11-01 14:34UTC
+
+[Run] Paired eigen sorting passed on c450d3f, but the registered native FD gate
+stopped before calibration: Gaussian example0/small-scale AD−7.0605e−6 versus
+FD+1.1682e−5; absolute1.8742e−5 exceeded1e−5. Three other checks passed.
+The actual saved style gradient norm was2.747e−4: the arbitrary alternating
+unit direction had a small projection. No accuracy claim follows from this.
+
+[Code/Run] FD probes had used no_grad although PVCNN branches on grad-enabled
+forward mode. A bounded same-input/RNG diagnostic with live-equivalent grad-enabled
+forward probes reduced the failing absolute error to1.001734e−5, still a failure.
+A second declared diagnostic uses the normalized actual style gradient direction,
+with unchanged epsilon scales(.001,.01) and tolerances(relative.1 OR absolute1e−5).
+At14:34:09UTC all4 checks passed: relative errors0.006273,0.010027,0.014862,
+0.011489; absolute errors1.734e−6,2.754e−6,2.195e−6,1.697e−6. These are
+Gaussian first-step diagnostic checks, not the complete Gaussian/Background gate.
+Old failures remain immutable. The handoff did not prescribe a direction; the
+new direction policy is explicitly recorded and independently verified from saved
+gradients. This supports that directional derivative; it does not validate every
+Jacobian direction or remove native forward nondeterminism.
+
+[Run] Initial aligned-direction invocation at14:25 lost its CLI connection
+before submitting the cell. Read-only same-VM /proc+files audit at14:33:05
+confirmed no active research process or aligned output directory. Only the hung
+local CLI client was terminated; runtime and monitor preserved. Subsequent bounded
+diagnostic completed with the exact marker; no duplicate scientific job ran.
+
+[Ruling] Keep three graph-free controls with original source bytes. Additional
+old/new tta.py and scdh_spectralz.py revisions must be exact-manifest-bound and AST
+identical after removing only audit_clean/audit bodies. These branches are unused
+by old scd/off controls. Unknown/active-code differences stop reuse. All actual
+physical hashes remain strict, all later A/B/C source matching remains strict,
+and the original17:20:57UTC whole-phase deadline remains fixed. Full native gate
+must still pass in freshly sealed production code before calibration.

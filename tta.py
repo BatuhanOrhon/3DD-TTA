@@ -174,12 +174,12 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                 pred_latent_point_reshaped, ch_loss, noisy_latent_point, style_cond, i, t)
             if style_spectral.audit_path is not None and style_spectral.audit_record is None:
                 def audit_clean(style):
-                    with isolated_probe([local_prior]):
+                    with isolated_probe([local_prior]), torch.enable_grad():
                         _restore_rng(audit_rng)
-                        physical_local = noisy_latent_point.detach().clone()
+                        physical_local = noisy_latent_point.detach().clone().requires_grad_(True)
                         predicted = local_prior(x=physical_local, t=t_tensor.float(),
-                                                condition_input=style.detach().clone(), clip_feat=None)
-                        return scheduler.step(predicted, t, physical_local).pred_original_sample.view(num_samples, 2048, -1)[:, :, :3]
+                                                condition_input=style.detach().clone().requires_grad_(True), clip_feat=None)
+                        return scheduler.step(predicted, t, physical_local).pred_original_sample.view(num_samples, 2048, -1)[:, :, :3].detach()
                 style_spectral.audit(pred_latent_point_reshaped, noisy_latent_point, style_cond,
                                      local_scd, style_spec, audit_clean)
             noisy_latent_point = scheduler_output.prev_sample - gamma * local_scd

@@ -45,3 +45,20 @@ class SourceReuseTests(unittest.TestCase):
         with self.assertRaises(ValueError):compare_physical(rows,technical_reuse=proof)
         rows,proof=self.records();rows[1]['calibration_binding']['executed_source_files']['repo/tta.py']['sha256']='2'*64
         with self.assertRaises(ValueError):compare_physical(rows,technical_reuse=proof)
+
+    def test_audit_only_reuse_checks_exact_revisions_and_active_code(self):
+        from scripts.analyze_scdh_spectralz import compare_physical
+        from scripts.run_scdh_spectralz import audit_only_source
+        rows,proof=self.records()
+        proof['audit_only_revisions']={'tta.py':dict(old={'sha256':'d'*64},new={'sha256':'2'*64})}
+        rows[1]['calibration_binding']['executed_source_files']['repo/tta.py']={'sha256':'2'*64}
+        self.assertTrue(compare_physical(rows,technical_reuse=proof))
+        rows[1]['calibration_binding']['executed_source_files']['repo/tta.py']={'sha256':'3'*64}
+        with self.assertRaises(ValueError):compare_physical(rows,technical_reuse=proof)
+        before='def forward():\n def audit_clean():\n  return 1\n return 3\n'
+        audit_change=before.replace('return 1','return 2')
+        self.assertEqual(audit_only_source(before,'tta.py'),audit_only_source(audit_change,'tta.py'))
+        self.assertNotEqual(audit_only_source(before,'tta.py'),audit_only_source(before.replace('return 3','return 4'),'tta.py'))
+        route='class Route:\n def audit(self):\n  return 1\n def gradients(self):\n  return 3\n'
+        self.assertEqual(audit_only_source(route,'scdh_spectralz.py'),audit_only_source(route.replace('return 1','return 2'),'scdh_spectralz.py'))
+        self.assertNotEqual(audit_only_source(route,'scdh_spectralz.py'),audit_only_source(route.replace('return 3','return 4'),'scdh_spectralz.py'))

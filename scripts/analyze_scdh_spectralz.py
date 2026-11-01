@@ -208,6 +208,7 @@ def verify_native_fd(physical,fd,graph,reference):
     for key,value in values.items():
         digest=hashlib.sha256(str(value.dtype).encode()+str(value.shape).encode()+value.tobytes()).hexdigest()
         require(fd.get('physical_hashes',{}).get(key)==digest,'FD physical vector hash mismatch: '+key)
+    require(fd.get('direction_policy')=='normalized_style_gradient','Unregistered FD direction policy')
     require(fd.get('relative_tolerance')==.1 and fd.get('absolute_tolerance')==1e-5 and fd.get('passed') is True
             and accepted._is_sha(fd.get('rng_before_sha256')) and fd['rng_before_sha256']==fd.get('rng_after_sha256')
             and set(fd.get('inputs_before',{}))=={'local','style'} and all(accepted._is_sha(v) for v in fd['inputs_before'].values())
@@ -217,6 +218,7 @@ def verify_native_fd(physical,fd,graph,reference):
     for check in checks:
         i=check['example'];direction=values['direction_%d'%i]
         require(direction.shape==style[i].shape and np.isclose(np.linalg.norm(direction),1.,rtol=1e-4,atol=1e-6),'Invalid FD perturbation direction')
+        require(np.allclose(direction,gradient[i]/np.linalg.norm(gradient[i]),rtol=1e-4,atol=1e-6),'FD direction differs from normalized gradient')
         epsilon=float(np.linalg.norm(style[i]))*check['scale']
         require(np.isfinite(epsilon) and epsilon>0 and np.isclose(epsilon,check['epsilon'],rtol=1e-4,atol=0),'Wrong FD perturbation scale')
         derivative=float((gradient[i].astype(float)*direction).sum())
@@ -237,10 +239,15 @@ def reuse_binding(report,proof):
     old=pair==(proof['old_asset'],proof['old_snapshot'])
     require(old or pair==(proof['new_asset'],proof['new_snapshot']),'Unregistered source reuse identity')
     require(not old or route.get('arm') in ('scd','off'),'Changed graph source cannot reuse an old spectral run')
-    files=dict(binding['executed_source_files']);expected=proof['old_graph'] if old else proof['new_graph']
-    graph_keys=[k for k in files if k in ('repo/graph_spectral_v2_offdiag.py','assets/source_snapshot/graph_spectral_v2_offdiag.py')]
-    require(graph_keys and all(files[k]==expected for k in graph_keys),'Unregistered graph revision in source reuse')
-    for key in graph_keys:files.pop(key)
+    files=dict(binding['executed_source_files'])
+    revisions={'graph_spectral_v2_offdiag.py':dict(old=proof['old_graph'],new=proof['new_graph'])}
+    revisions.update(proof.get('audit_only_revisions',{}))
+    require(set(revisions)<= {'graph_spectral_v2_offdiag.py','tta.py','scdh_spectralz.py'},'Unknown source reuse revision')
+    for name,revision in revisions.items():
+        expected=revision['old' if old else 'new']
+        keys=[k for k in files if k in ('repo/'+name,'assets/source_snapshot/'+name)]
+        require(keys and all(files[k]==expected for k in keys),'Unregistered revision in source reuse: '+name)
+        for key in keys:files.pop(key)
     return dict({k:v for k,v in binding.items() if k not in ('asset_manifest_sha256','source_snapshot_sha256','executed_source_files')},executed_source_files=files)
 
 
