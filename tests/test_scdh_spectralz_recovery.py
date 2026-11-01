@@ -122,3 +122,21 @@ class PublicationTests(unittest.TestCase):
                 with self.assertRaises(ValueError):operator.main()
             archive=next((root/'operator_failures').glob('*.zip'))
             self.assertEqual(identity(archive),identity(operator.publication_root(plan)/'operator_failures'/archive.name))
+
+class DurationAmendmentTests(unittest.TestCase):
+    def test_explicit_duration_amendment_keeps_original_clock_and_bindings(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);plan,approval,_,_=context(root)
+            operator.budget(root,plan,approval,now=1000)
+            original=(root/'started.json').read_bytes()
+            amendment=dict(approved=True,scope=operator.SCOPE,plan_sha256=canonical_sha(plan),
+                original_approval_sha256=canonical_sha(approval),original_started_identity=identity(root/'started.json'),
+                original_start_unix_seconds=1000,cumulative_wall_cap_seconds=46800,
+                operator_identity=identity(Path(operator.__file__)),user_message='Continue without further duration questions')
+            self.assertEqual(operator.budget(root,plan,approval,now=16000,amendment=amendment),47800)
+            self.assertEqual((root/'started.json').read_bytes(),original)
+            self.assertEqual(operator.budget(root,plan,approval,now=17000,amendment=amendment),47800)
+            with self.assertRaises(ValueError):operator.budget(root,plan,approval,now=17000)
+            for key,value in [('original_start_unix_seconds',2000),('approved',False),('operator_identity',{}),('original_started_identity',{})]:
+                with self.assertRaises(ValueError):operator.budget(root,plan,approval,now=17000,amendment=dict(amendment,**{key:value}))
+            with self.assertRaises(ValueError):operator.budget(root,plan,approval,now=47801,amendment=amendment)

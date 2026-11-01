@@ -13,7 +13,7 @@ import traceback
 import zipfile
 import numpy as np
 
-REPO=Path(__file__).resolve().parents[1]
+REPO=Path(os.environ.get('SCDH_FROZEN_WORKER_ROOT',str(Path(__file__).resolve().parents[1])))
 sys.path.insert(0,str(REPO))
 from scripts import scdh_spectralz_study as study
 from scripts import analyze_scdh_spectralz as analysis
@@ -26,7 +26,7 @@ operations=importlib.util.module_from_spec(spec);spec.loader.exec_module(operati
 SCOPE='technical+calibration+A+B+conditional-C+timing'
 
 
-def budget(root,plan,approval,*,now=None):
+def budget(root,plan,approval,*,now=None,amendment=None):
     now=time.time() if now is None else now
     cap=plan.get('cumulative_wall_cap_seconds')
     if (approval.get('approved') is not True or approval.get('scope')!=SCOPE
@@ -40,6 +40,23 @@ def budget(root,plan,approval,*,now=None):
         if any(record.get(k)!=v for k,v in binding.items()):raise ValueError('Immutable cumulative approval binding changed')
     else:
         record=dict(binding,started_unix_seconds=now);write_new(path,record)
+    amendment_path=root/'duration_amendment.json'
+    if amendment is not None:
+        new_cap=amendment.get('cumulative_wall_cap_seconds')
+        if (amendment.get('approved') is not True or amendment.get('scope')!=SCOPE
+                or amendment.get('plan_sha256')!=study.canonical_sha(plan)
+                or amendment.get('original_approval_sha256')!=study.canonical_sha(approval)
+                or amendment.get('original_started_identity')!=identity(path)
+                or amendment.get('original_start_unix_seconds')!=record['started_unix_seconds']
+                or amendment.get('operator_identity')!=identity(Path(__file__))
+                or not amendment.get('user_message') or type(new_cap) is not int or new_cap<cap):
+            raise ValueError('Explicit duration amendment must preserve original source/approval/start')
+        if amendment_path.exists():
+            if json.loads(amendment_path.read_text())!=amendment:raise ValueError('Immutable duration amendment changed')
+        else:write_new(amendment_path,amendment)
+        cap=new_cap
+    elif amendment_path.exists():
+        raise ValueError('Existing duration amendment must be supplied explicitly')
     deadline=record['started_unix_seconds']+cap
     if not record['started_unix_seconds']<=now<deadline:raise ValueError('Cumulative whole-phase budget exhausted or clock moved backwards')
     return deadline
@@ -380,6 +397,7 @@ def selection(row):
 
 def evidence(root,jobs):
     names={'plan.json','approval.json','started.json'}
+    if (root/'duration_amendment.json').exists():names.add('duration_amendment.json')
     for j in jobs:
         prefix='slots/'+j['slot']+'/'
         names.update(prefix+n for n in ('receipt.json','score.json','archive_receipt.json'))
@@ -389,14 +407,15 @@ def evidence(root,jobs):
     return {name:identity(root/name) for name in sorted(names)}
 
 
-def run(plan,approval,phase):
+def run(plan,approval,phase,*,duration_amendment=None):
     root,manifest=validate_plan(plan);root.mkdir(parents=True,exist_ok=True)
-    deadline=budget(root,plan,approval)
+    deadline=budget(root,plan,approval,amendment=duration_amendment)
     for name,value in (('plan.json',plan),('approval.json',approval)):
         if (root/name).exists():
             if json.loads((root/name).read_text())!=value:raise ValueError('Immutable '+name+' changed')
         else:write_new(root/name,value)
     for name in ('plan.json','approval.json','started.json'):persist(root/name,publication_root(plan)/name)
+    if duration_amendment is not None:persist(root/'duration_amendment.json',publication_root(plan)/'duration_amendment.json')
     phases=('technical','calibration','A','B','C','timing')
     selected=phases if phase=='all' else (phase,)
     for current in selected:
@@ -451,10 +470,13 @@ def run(plan,approval,phase):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--plan',type=Path,required=True);parser.add_argument('--approval',type=Path,required=True)
+    parser.add_argument('--duration-amendment',type=Path)
     parser.add_argument('--phase',choices=('all','technical','calibration','A','B','C','timing'),required=True)
     args=parser.parse_args();plan=json.loads(args.plan.read_text());approval=json.loads(args.approval.read_text())
     try:
-        run(plan,approval,args.phase)
+        amendment_path=getattr(args,'duration_amendment',None)
+        amendment=json.loads(amendment_path.read_text()) if amendment_path is not None else None
+        run(plan,approval,args.phase,duration_amendment=amendment)
     except BaseException:
         root=Path(plan['root'])
         if (root/'plan.json').is_file() and json.loads((root/'plan.json').read_text())==plan:

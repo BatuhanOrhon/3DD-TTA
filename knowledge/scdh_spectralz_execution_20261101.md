@@ -309,3 +309,21 @@ d4acd60844da1eab5c0d660ebe0bc98fae8eeebdf9cb49365599979e408ce0c3;
 18member hashes, outer and nested ZIP safe paths/CRC verified. All material
 completed/failed technical/source evidence now preserved locally and on Drive.
 Scientific continuation still awaits explicit duration-extension approval.
+
+
+## User duration authorization supersedes pending gate — 2026-11-01 15:06UTC
+
+[User report] Exact instruction: “Devam et, GPU testlerine geçerken benden süre ile ilgili onay almana gerek yok, ben dışarda olacağım, bu sebeple bana sormadan bu testleri başlat”.
+This explicitly authorizes continuation of the registered study without further
+duration questions; the pending13h request is superseded. Use the proposed13h
+cumulative operational watchdog from original13:20:57UTC (not a reset). No new
+scientific grid/dataset/default change. Preserve runtime; teardown unauthorized.
+
+[Code] Minimal standalone controller continuation: immutable duration amendment
+binds original plan/approval/started-file hash and original start plus actual
+operator-file identity. Original sealed assets/source and four accepted raw slots
+stay byte-identical. External controller imports the frozen1f631d4 worker tree;
+its own changed bytes are separately recorded, not attributed to the old source
+snapshot. Every new phase archives the amendment. CPU regression rejects restart,
+missing/false approval, changed start/source/operator and expired amendment.
+No new CPU/native setup or completed technical job is needed.
