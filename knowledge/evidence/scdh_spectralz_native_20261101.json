@@ -1,5 +1,5 @@
 {
-  "approval_status": "Original4h cap enforced; 13h cumulative extension requested, pending explicit user answer",
+  "approval_status": "User explicitly authorized continuation without further duration questions; duration amendment retains original start and all four technical jobs",
   "asset_manifest": {
     "bytes": 135701,
     "sha256": "eb85a9dae4df89b2fdb64432291d1413add4680ae9d0c3539ffbaa98bb5f3dda"

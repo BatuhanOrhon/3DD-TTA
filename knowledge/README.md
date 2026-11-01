@@ -1,11 +1,13 @@
-**[Code/Run/Open] 2026-11-01 14:52UTC — SCD-h / spectral-z native checks accepted; duration extension pending:**
-Four technical jobs are preserved, including repaired Gaussian/Background physical
-FD checks8/8. No calibration/A/B/C accuracy exists. Source1f631d4;
-118CPU/42NumPy1 checks pass. Native C repeats differ on PM1/32 Gaussian and5/32
-Background, an explicit uncertainty. The controller stopped at the original4h
-budget gate: conservative remaining forecast10.854h. User extension request to13h
-cumulative is pending; original start remains13:20:57UTC, no reset or new GPU
-approval inferred. Own A100 and monitor stay live; no teardown authorization.
+**[Code/Run/Open] 2026-11-01 15:11UTC — SCD-h / spectral-z duration continuation authorized and launching:**
+User explicitly requested continuation without further duration questions.
+Original plan/approval/start and four accepted technical jobs stay immutable;
+controller e19d7a4 records a separately bound cumulative13h operational watchdog,
+while scientific worker/assets remain frozen at1f631d4.119CPU/42NumPy1 checks pass.
+Full native Gaussian/Background FD8/8 accepted; native C-repeat PM disagreements
+1/32 and5/32 remain an uncertainty. Calibration→A/B→positive-only confirmation
+and timing launch on the same own A100; no A/B accuracy claim yet. All prior
+successful/failed raw/source/operator archives passed Drive→local acceptance.
+Monitor29297/exec39992 live; no teardown authorization.
 [Execution record](scdh_spectralz_execution_20261101.md),
 [compact native evidence](evidence/scdh_spectralz_native_20261101.json).
 

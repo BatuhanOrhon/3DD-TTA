@@ -327,3 +327,13 @@ its own changed bytes are separately recorded, not attributed to the old source
 snapshot. Every new phase archives the amendment. CPU regression rejects restart,
 missing/false approval, changed start/source/operator and expired amendment.
 No new CPU/native setup or completed technical job is needed.
+
+[Run] Authorized continuation submitted through sole monitor39992 at15:10:50UTC.
+Controller e19d7a4 with immutable duration amendment; scientific worker remains
+1f631d4/assets eb85a9d. Wrapper c7408b943d4a76056cab77b125a83a6d8ae1f66bebc80f529bbbf1918392274d.
+Actual controller/amendment/wrapper bytes were copied and SHA-verified to Drive
+under scdh_spectralz_search_20261101/duration-continuation before launch.
+119CPU and42NumPy1 regression checks pass. Original plan and start bytes untouched;
+four accepted technical jobs reused, no new model/setup/technical inference.
+Duration receipt records the authorization observation time, not an invented
+message creation time. No A/B accuracy yet at launch.
