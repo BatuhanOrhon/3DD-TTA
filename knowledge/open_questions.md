@@ -1,11 +1,14 @@
-## 2026-11-01 — Registered SCD-h / smooth spectral-z study now implementing
+## 2026-11-01 — Registered SCD-h / smooth spectral-z native acceptance; budget approval pending
 
 - [x] Read the full handoff/plan; isolate from current integration and preserve peer/user work.
 - [x] Add opt-in route/label-free calibration, deterministic finite grid and CPU witnesses.
 - [x] Register64development/disjoint128confirmation excluding812 prior subset IDs; retain full-benchmark exposure limit.
 - [x] Finish canonical own-A100 native/data/checkpoint setup and sealed CPU deployment.
 - [x] Independent branch review/fixes, sealed source/assets/IDs; explicit whole-phase4h-cap GPU approval received13:19UTC.
-- [ ] Native FD/repeats and frozen b_M; A/B with reused.03; positive-dev-only frozen confirmation; matched fresh costs and NumPy1 recount.
+- [x] Preserve failed native ordering/FD evidence; paired sorting and live-forward/gradient-direction fixes; three accepted controls reused under exact inactive-audit source proof.
+- [x] Full repaired Gaussian/Background native physical/FD acceptance (8/8); retain native repeat PM disagreements1/32 and5/32.
+- [ ] Explicit13h cumulative duration extension (requested, not authorized); tested receipt/controller amendment retaining original start and completed slots.
+- [ ] Budget-accepted technical phase and frozen b_M; A/B with reused.03; positive-dev-only frozen confirmation; matched fresh costs and NumPy1 recount.
 
 [Execution, technical-zero ruling, stage pairing and setup state](scdh_spectralz_execution_20261101.md).
 

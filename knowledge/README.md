@@ -1,10 +1,13 @@
-**[Code/Run/Open] 2026-11-01 — SCD-h / spectral-z science approved and starting:**
-The handoff is executing in isolated branch `research/scdh-spectralz-20261101`.
-Sealed source6a1b264 passes90CPU/37NumPy1 gates, fresh canonical10-cell A100
-setup and same-VM strict CPU/no-forward deployment.64development/128stage-disjoint
-IDs exclude812 prior subset IDs. User approved the complete2–4h scientific
-phase with a4h cumulative cap at13:19UTC; native technical controls start first.
-No new accuracy claim yet. [Execution record](scdh_spectralz_execution_20261101.md).
+**[Code/Run/Open] 2026-11-01 14:52UTC — SCD-h / spectral-z native checks accepted; duration extension pending:**
+Four technical jobs are preserved, including repaired Gaussian/Background physical
+FD checks8/8. No calibration/A/B/C accuracy exists. Source1f631d4;
+118CPU/42NumPy1 checks pass. Native C repeats differ on PM1/32 Gaussian and5/32
+Background, an explicit uncertainty. The controller stopped at the original4h
+budget gate: conservative remaining forecast10.854h. User extension request to13h
+cumulative is pending; original start remains13:20:57UTC, no reset or new GPU
+approval inferred. Own A100 and monitor stay live; no teardown authorization.
+[Execution record](scdh_spectralz_execution_20261101.md),
+[compact native evidence](evidence/scdh_spectralz_native_20261101.json).
 
 **[User report/Proposal/Open] 2026-11-01 — h:SCD / z:smooth spectral taraması başka agent'a devredildi:**
 [Başlangıç promptu](scdh_spectralz_agent_handoff_20261101.md) ve

@@ -8247,3 +8247,52 @@ cap at13:19UTC. Planbd253d00d1eee7429446267a98e5a15853d468b3ec6addb250c09a3eccba
 owned A100r1 starts technical C repeats/off/zero-spectral FD first. No scientific
 result/accuracy has been accepted yet. [Execution](scdh_spectralz_execution_20261101.md)
 records review fixes, source/asset/evidence identities and exact pending gates.
+
+
+## 2026-11-01 14:39UTC — SCD-h / spectral-z native gate repair
+
+[Code/Run/Open] Three technical scd/off controls accepted. Initial6a1b264 spectral
+failed unordered native eigentail; c450d3f paired sorting fixed order but the native
+FD gate failed1/4. Same-live-forward diagnostic still failed1/4. Declared
+normalized-gradient-direction diagnostic passed4/4 at unchanged(.001,.01) scales
+and(.1 relative OR1e−5 absolute) tolerances; errors0.63–1.49%.
+Source1f631d4 seals forward-mode/direction fixes with exact audit-only source reuse
+proof for old graph-free controls.118CPU/42NumPy1 checks pass. Fresh strict CPU
+no-forward/no-CUDA deployment and actual Drive→local archive SHA/CRC accepted:
+1,426,936bytes SHA1032754f8f72328f717a46e0535db639b2a6497af79936565e024b0a08e5cba8.
+Full native Gaussian/Background gate retry launched14:39:28UTC; no calibration or
+A/B/C accuracy yet. Plan231bb89e91815cfb0a2e93658c519fa7a30c2c9f02af28faaa7d4d0e679875b2.
+Original4h clock13:20:57–17:20:57UTC remains. Recovery evidence Drive-verified
+258,719,782bytes/SHA5a8b00f1b73a4d6e42f90ada636783c32aaad5fe23fd070fdca6f3288c1732a8;
+local download pending at this timestamp. [Full record](scdh_spectralz_execution_20261101.md).
+
+
+## 2026-11-01 14:52UTC — native checks accepted, scientific budget stop
+
+[Run/Open] Repaired source1f631d4 passes all8Gaussian/Background FD checks with
+original tolerances; exact physical guards and raw acceptance pass. Native C repeat
+PM disagreements1/32Gaussian,5/32Background; zero-step vs off1/32,4/32. No bitwise
+prediction equivalence or accuracy benefit claimed. Worker finished14:40:53;
+controller stopped14:41:04 BEFORE calibration because10.854h conservative remaining
+forecast exceeds original4h allowance. No calibration/A/B/C. Bounded cost-only
+operator probes preserve their observer/RNG faults; no accepted combined timing.
+13h cumulative continuation approval requested14:52, pending, original start
+retained; runtime/monitor live. Original+r2 full recovery Drive→local CRC/member
+hash acceptance passed; R3 aggregate acceptance pending. See execution record and
+knowledge/evidence/scdh_spectralz_native_20261101.json.
+
+
+[Run] 2026-11-01 14:54UTC addendum: R3 recovery Drive→local safe ZIP/CRC/all101
+member hashes accepted (180753996bytes; SHA c428fbb4a530d66bd36da8d69c76117df33cb6c4de6aa44650f1c8690dd89eea).
+All3sealed source ZIPs/operator phases/late failed budget probes also sealed
+and Drive-verified; source roundtrip being finalized. No science resumed and
+13h-extension answer pending. Native evidence JSON separates accepted physical
+checks from whole-phase budget failure.
+
+
+[Run] 2026-11-01 14:55UTC: all3sealed-source/operator/budget-failure archive
+Drive→local acceptance passed:16924185bytes/SHA
+d4acd60844da1eab5c0d660ebe0bc98fae8eeebdf9cb49365599979e408ce0c3;
+18member hashes, outer and nested ZIP safe paths/CRC verified. All material
+completed/failed technical/source evidence now preserved locally and on Drive.
+Scientific continuation still awaits explicit duration-extension approval.

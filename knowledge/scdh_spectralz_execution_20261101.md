@@ -220,3 +220,92 @@ by old scd/off controls. Unknown/active-code differences stop reuse. All actual
 physical hashes remain strict, all later A/B/C source matching remains strict,
 and the original17:20:57UTC whole-phase deadline remains fixed. Full native gate
 must still pass in freshly sealed production code before calibration.
+
+
+## Full native acceptance and whole-phase budget stop — 2026-11-01 14:41UTC
+
+[Run] Source1f631d4, manifesteb85a9dae4df89b2fdb64432291d1413add4680ae9d0c3539ffbaa98bb5f3dda,
+snapshot7fedf23303660af51e74fb91860a5cd78d1a2a44db27b3f4f56d06ab9cd629d9,
+plan231bb89e91815cfb0a2e93658c519fa7a30c2c9f02af28faaa7d4d0e679875b2.
+Full32-object Gaussian/Background spectral-zero technical slot completed,
+independent raw/physical/FD/source/frozen-state/PM acceptance passed. Both physical
+examples at both epsilon scales passed in both corruptions (8/8): relative errors
+Gaussian0.058143/0.007904/0.069221/0.007896, Background0.028623/0.014458/
+0.032373/0.014725. Same-input native clean-repeat norm maximum0.003061/0.019103.
+
+[Run/Inference/Ruling] Exact physical initial input/h0/z0/noise/RNG/source/state
+checks passed. Native C repeats nevertheless disagree on PM1/32 Gaussian and5/32
+Background; zero-spectral versus style-off1/32 and4/32. Maximum logits differ
+2.82/4.47 and2.55/3.48. These are native repeat variability, not a demonstrated
+spectral effect: kappa is0. No bitwise prediction parity is claimed. The existing
+plan explicitly permits recorded review of this behavior; preserve old failures
+and native variation, retain exact physical guards, require the planned three-seed
+heldout confirmation before a gain claim. Atomic accumulation exists in PVCNN and
+Chamfer native sources; it is a plausible contributor, not isolated causality.
+
+[Run/Open] The controller stopped BEFORE calibration at14:41:04UTC because
+remaining worst-case forecast39074.0385s (10.854h) exceeded the remaining original
+4h allowance. This forecast conservatively charges graph creation/FD-inclusive
+technical cost to every later batch. No budget override, reset, calibration,
+A/B/C or winner accuracy result exists. A bounded no-head/no-label/no-FD
+cached-graph budget diagnostic is prepared to distinguish recurring cost from
+one-time technical overhead; this is not the winner cost benchmark.
+
+[Run] Original+r2 recovery archive actually downloaded from verified Drive and
+locally accepted with ZIP CRC, safe member paths, all161member hashes:
+result/preparation/scdh_spectralz_search_20261101/recovery_evidence_20261101T143731347990Z.zip,
+258719782bytes/SHA5a8b00f1b73a4d6e42f90ada636783c32aaad5fe23fd070fdca6f3288c1732a8.
+R3 raw slot and summary already have verified per-slot Drive copies; aggregate
+R3 roundtrip pending. A malformed aggregate-wrapper string failed before any work;
+its replacement is AST-checked. A stale notebook import in initial R3 registration
+was caught by source binding before GPU; fresh-process validation passed with the
+same original13:20:57 start. No completed control was rerun.
+
+
+## Continuation decision pending — 2026-11-01 14:52UTC
+
+[Run/Open] The bounded no-head/no-FD cost diagnostic v1 stopped because its stub
+observer lacked final_state; v2 finished Gaussian8steps/32objects in11.7896s,
+then stopped at Background paired-input/RNG guard after an incorrect per-corruption
+seed reset. This is an operator diagnostic fault, not a production scientific
+failure. No guard was relaxed, no Background timing or valid combined forecast
+is claimed. Preserve both diagnostic attempts; no further diagnostic retry.
+The accepted FD-inclusive10.854h worst-case forecast therefore remains the
+conservative planning bound. No accuracy was produced by these probes.
+
+[User approval pending] Requested extension to13h CUMULATIVE from the original
+1793539257.4780798 start, never a reset; prospective absolute deadline
+2026-11-02 02:20:57.478UTC /05:20:57.478Europe/Istanbul. Same ModelNet40-C/s5,
+frozen Point-MAE, N8/B35/B32, registered five M/four rho/three h,64development,
+disjoint128confirmation/seeds0–1–2,30/12 job limits, conditional C and timing.
+Completed4technical jobs remain immutable and must not rerun. Source scientific
+worker1f631d4 stays pinned. No extension is authorized until the user's explicit
+answer. GPU controller still enforces the original4h cap and halted before
+calibration; supporting a newly approved cap needs an explicitly recorded,
+tested controller/receipt amendment, preserving original source/raw/start bindings.
+Do not patch old accepted source manifests or pretend the technical phase's
+budget acceptance completed. Current native source/physical acceptance and budget
+failure must remain separate. No integration push while study is unresolved.
+
+
+## Recovery evidence roundtrip — 2026-11-01 14:54UTC
+
+[Run] R3 native/raw/operator recovery archive actually downloaded from Drive and
+locally accepted:180753996bytes/SHA c428fbb4a530d66bd36da8d69c76117df33cb6c4de6aa44650f1c8690dd89eea,
+101members, safe paths, ZIP CRC and every member hash pass. Local path
+result/preparation/scdh_spectralz_search_20261101/numerical_r3/recovery_evidence_20261101T145051125161Z.zip.
+Separate all3sealed source ZIPs/manifests+operator wrapper bytes+late budget
+probe failures sealed to Drive:16924185bytes/SHA d4acd60844da1eab5c0d660ebe0bc98fae8eeebdf9cb49365599979e408ce0c3,
+18members, sources archive20261101T145342170078Z; local download in progress.
+Drive root for both:MyDrive/thesis/result/scdh_spectralz_search_20261101/recovery-evidence/.
+Compact scientific receipt:knowledge/evidence/scdh_spectralz_native_20261101.json.
+The 13h extension question remains unanswered at this timestamp. No new GPU job;
+monitor29297/exec39992 is preserved and the same A100 assignment remains live.
+
+
+[Run] 2026-11-01 14:55UTC: all3sealed-source/operator/budget-failure archive
+Drive→local acceptance passed:16924185bytes/SHA
+d4acd60844da1eab5c0d660ebe0bc98fae8eeebdf9cb49365599979e408ce0c3;
+18member hashes, outer and nested ZIP safe paths/CRC verified. All material
+completed/failed technical/source evidence now preserved locally and on Drive.
+Scientific continuation still awaits explicit duration-extension approval.
