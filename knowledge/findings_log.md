@@ -8397,3 +8397,35 @@ This explains why larger nominal M can add little weighted spectrum in these
 two corruptions, but is not evidence of a cause of accuracy differences or of
 cross-dataset behavior. Compact inputs/derivation/source archive identity:
 knowledge/evidence/scdh_spectralz_filter_mass_20261101.json. No new GPU run.
+
+
+### 2026-11-01 21:59UTC — smooth spectral-z frozen confirmation is null
+[Run/Inference]128stage-disjoint IDs/all15/seeds0–1–2, fixed h=.03, M400/rho1:
+spectral65.5729167%, C65.5902778%, Z065.4861111%. Paired delta−.0173611pp vsC
+95%cluster CI[−.3993056,+.3645833]; +.0868056pp vsZ0 CI[−.3125,+.46875].
+69corrected/70harmed vsC,70/65vsZ0; local counts/pairing/bootstrap exactly match
+archived C comparisons. Dev +.625pp vsC did not carry into a reliable confirmation
+gain. This is not proof of exact equivalence or universal spectral harm.
+Macro14 is lower than both controls; BG higher descriptively. Fresh timing,
+bounded native math witness and final portable physical-cache acceptance pending.
+
+
+### 2026-11-01 22:35UTC — full local acceptance, cost and native math completed
+[Run]51successful raw conditions and1explicit numerical-unavailable failure,
+all6phase chains,232physical paired caches/source/RNG/IDs/PM outcomes/calibration
+transport and10000-bootstrap recount pass local NumPy1.53slot ZIPs retain the
+historical failed C0; portable archive465379670bytes/SHA256
+c6babbae390eac519c9c1a4ea6e18f83586077356bdd1e0959b8dcc44570f25b is
+Drive→local SHA/CRC/member validated. Derived analysis source/stdout/summary and
+input receipt backed up with verified Drive roundtrip.
+[Run] Native no-build B2/N32/k10 non-tie+duplicate witnesses: Euclidean-distance
+maxerror8.96e-8, realized Laplacian1.30e-4, GFT roundtrip5.07e-7, analytic
+coordinate-gradient1.82e-12; all physical vectors independently pass NumPy1.
+This is not exhaustive CUDA tie ordering or full LION-Jacobian certification.
+An initial audit import omitted the pinned bootstrap and stopped before GPU;
+harness corrected, source/failure preserved; no completed accuracy run repeated.
+[Run/Decision] Fresh3repeat B32 reconstruction+PM-head medians: C4.33409s vs
+spectral14.46857s Gaussian (3.338×); C7.02352s vs spectral19.73503s BG (2.810×).
+No reliable primary gain (−.01736pp vsC,95%CI[−.39931,+.36458]); no spectral
+baseline promotion.163CPU/37NumPy1 fixture tests pass in clean publication
+checkout. [Full report](scdh_spectralz_results_20261101.md). Integration/close next.

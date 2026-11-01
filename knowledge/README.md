@@ -1,3 +1,23 @@
+**[Run/Decision] 2026-11-01 22:35UTC — SCD-h/smooth spectral-z study complete; publication pending:**
+128stage-disjoint IDs/all15/three seeds: spectral65.5729%, SCD65.5903%,
+style-off65.4861%; both paired95%object-cluster intervals include0. Fresh B32
+spectral cost3.338×Gaussian/2.810×Background. Baseline retained. All51successful
+raw conditions,1unavailable candidate,232physical paired caches and native
+operator witnesses passed independent local NumPy1 acceptance;163CPU+37fixture
+tests passed in the clean publication checkout. Necessary integration push and
+user-authorized own-r2 closure are next.
+[Final results, protocol, math witnesses and limits](scdh_spectralz_results_20261101.md).
+Earlier dated running/failed states below are historical and superseded here.
+
+**[Run/Inference] 2026-11-01 21:59UTC — SCD-h/smooth spectral-z confirmation complete, no established gain:**
+128stage-disjoint IDs/all15/three seeds: spectral65.5729%, C65.5903%, Z065.4861%.
+Paired spectral−C −.01736pp (95%object-cluster CI[−.39931,+.36458]);
+spectral−Z0 +.08681pp (CI[−.3125,+.46875]). All9confirmation conditions accepted;
+local score/pairing/bootstrap recount matches remote. Fresh timing, bounded native
+math witness and final portable-cache raw acceptance remain. Baseline unchanged.
+[Execution](scdh_spectralz_execution_20261101.md),
+[confirmation table](evidence/scdh_spectralz_confirmation_20261101.csv).
+
 **[Code/Run/Open] 2026-11-01 20:45UTC — SCD-h / spectral-z A/B complete; r2 confirmation continuation:**
 30development conditions finished (29accepted,1numerically unavailable).
 FrozenM400/rho1/h.03 PM69.4792%, C_base68.8542%, style-off69.3750% on64IDs/all15/seed0.

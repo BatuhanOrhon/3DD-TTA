@@ -3,7 +3,9 @@
     "technical",
     "calibration",
     "A",
-    "B"
+    "B",
+    "C",
+    "timing"
   ],
   "calibration_coefficients": {
     "1200": {
@@ -42,8 +44,118 @@
       "status": "available"
     }
   },
-  "confirmation_accepted_conditions": 3,
-  "confirmation_partial_scores": [
+  "confirmation_accepted_conditions": 9,
+  "confirmation_comparisons": {
+    "C_base": {
+      "baseline_accuracy_pct": 65.59027777777777,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20261101,
+      "corrected": 69,
+      "delta_pp": -0.017361111111111112,
+      "harmed": 70,
+      "limitation": "conditional on frozen development selection; seeds and all corruptions remain together within each resampled original object",
+      "object_cluster_ci95_pp": [
+        -0.3993055555555555,
+        0.3645833333333333
+      ],
+      "per_corruption_delta_pp": [
+        1.0416666666666665,
+        0.26041666666666663,
+        1.5625,
+        -0.78125,
+        0.26041666666666663,
+        -0.26041666666666663,
+        -1.5625,
+        -0.78125,
+        0.0,
+        0.0,
+        0.0,
+        0.78125,
+        -0.26041666666666663,
+        -0.5208333333333333,
+        0.0
+      ],
+      "seed_delta_pp": [
+        0.052083333333333336,
+        0.20833333333333334,
+        -0.3125
+      ],
+      "winner_accuracy_pct": 65.57291666666667
+    },
+    "C_match": {
+      "baseline_accuracy_pct": 65.59027777777777,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20261101,
+      "corrected": 69,
+      "delta_pp": -0.017361111111111112,
+      "harmed": 70,
+      "limitation": "conditional on frozen development selection; seeds and all corruptions remain together within each resampled original object",
+      "object_cluster_ci95_pp": [
+        -0.3993055555555555,
+        0.3645833333333333
+      ],
+      "per_corruption_delta_pp": [
+        1.0416666666666665,
+        0.26041666666666663,
+        1.5625,
+        -0.78125,
+        0.26041666666666663,
+        -0.26041666666666663,
+        -1.5625,
+        -0.78125,
+        0.0,
+        0.0,
+        0.0,
+        0.78125,
+        -0.26041666666666663,
+        -0.5208333333333333,
+        0.0
+      ],
+      "seed_delta_pp": [
+        0.052083333333333336,
+        0.20833333333333334,
+        -0.3125
+      ],
+      "winner_accuracy_pct": 65.57291666666667
+    },
+    "Z0_match": {
+      "baseline_accuracy_pct": 65.48611111111111,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20261101,
+      "corrected": 70,
+      "delta_pp": 0.08680555555555555,
+      "harmed": 65,
+      "limitation": "conditional on frozen development selection; seeds and all corruptions remain together within each resampled original object",
+      "object_cluster_ci95_pp": [
+        -0.3125,
+        0.46875000000000006
+      ],
+      "per_corruption_delta_pp": [
+        -0.26041666666666663,
+        -0.26041666666666663,
+        2.34375,
+        0.0,
+        0.5208333333333333,
+        -0.5208333333333333,
+        -0.5208333333333333,
+        0.26041666666666663,
+        -0.26041666666666663,
+        -0.26041666666666663,
+        0.5208333333333333,
+        0.78125,
+        -0.5208333333333333,
+        0.0,
+        -0.5208333333333333
+      ],
+      "seed_delta_pp": [
+        0.3125,
+        -0.26041666666666663,
+        0.20833333333333334
+      ],
+      "winner_accuracy_pct": 65.57291666666667
+    }
+  },
+  "confirmation_scores": [
     {
       "BG_percent": 62.5,
       "PM_percent": 64.79166666666667,
@@ -57,6 +169,34 @@
       "rho": null,
       "seed": 0,
       "slot": "confirmation-off-h0p03-s0"
+    },
+    {
+      "BG_percent": 61.71875,
+      "PM_percent": 65.9375,
+      "alpha_h": 0.03,
+      "archive_sha256": "53d24790680f23669ca5e70a6008ebbd542da65683d925b357b05ef464fafd51",
+      "arm": "off",
+      "correct": 1266,
+      "events": 1920,
+      "macro14_percent": 66.23883928571429,
+      "modes": null,
+      "rho": null,
+      "seed": 1,
+      "slot": "confirmation-off-h0p03-s1"
+    },
+    {
+      "BG_percent": 64.0625,
+      "PM_percent": 65.72916666666667,
+      "alpha_h": 0.03,
+      "archive_sha256": "d480ed8674922605b8c63e5f7b14b4089aac677090e2db6d34860338d2fc1e9f",
+      "arm": "off",
+      "correct": 1262,
+      "events": 1920,
+      "macro14_percent": 65.84821428571429,
+      "modes": null,
+      "rho": null,
+      "seed": 2,
+      "slot": "confirmation-off-h0p03-s2"
     },
     {
       "BG_percent": 63.28125,
@@ -73,6 +213,34 @@
       "slot": "confirmation-scd-h0p03-s0"
     },
     {
+      "BG_percent": 62.5,
+      "PM_percent": 65.46875,
+      "alpha_h": 0.03,
+      "archive_sha256": "d8615cbd505ab6d5dbfe023c87a5ff917c118eaa3367df50418919cc6b81447f",
+      "arm": "scd",
+      "correct": 1257,
+      "events": 1920,
+      "macro14_percent": 65.68080357142857,
+      "modes": null,
+      "rho": null,
+      "seed": 1,
+      "slot": "confirmation-scd-h0p03-s1"
+    },
+    {
+      "BG_percent": 64.84375,
+      "PM_percent": 66.25,
+      "alpha_h": 0.03,
+      "archive_sha256": "522bc68ab2887ca4fb3141c3d7df641d5dfd271340ad0820fc567ebda4c19ae1",
+      "arm": "scd",
+      "correct": 1272,
+      "events": 1920,
+      "macro14_percent": 66.35044642857143,
+      "modes": null,
+      "rho": null,
+      "seed": 2,
+      "slot": "confirmation-scd-h0p03-s2"
+    },
+    {
       "BG_percent": 67.1875,
       "PM_percent": 65.10416666666666,
       "alpha_h": 0.03,
@@ -85,8 +253,43 @@
       "rho": 1.0,
       "seed": 0,
       "slot": "confirmation-spectral-h0p03-M400-r1p0-s0-retry1"
+    },
+    {
+      "BG_percent": 62.5,
+      "PM_percent": 65.67708333333333,
+      "alpha_h": 0.03,
+      "archive_sha256": "5b8aecd05b33a236b8c036a97f7aaae017d396ff6f08828c8bed5d4d60e2f00a",
+      "arm": "spectral",
+      "correct": 1261,
+      "events": 1920,
+      "macro14_percent": 65.90401785714286,
+      "modes": 400,
+      "rho": 1.0,
+      "seed": 1,
+      "slot": "confirmation-spectral-h0p03-M400-r1p0-s1"
+    },
+    {
+      "BG_percent": 65.625,
+      "PM_percent": 65.9375,
+      "alpha_h": 0.03,
+      "archive_sha256": "673a43c400d6cb5a0f30070b4cac5ce3dd623814807c9c5e28e8eaa5ea023d1a",
+      "arm": "spectral",
+      "correct": 1266,
+      "events": 1920,
+      "macro14_percent": 65.95982142857143,
+      "modes": 400,
+      "rho": 1.0,
+      "seed": 2,
+      "slot": "confirmation-spectral-h0p03-M400-r1p0-s2"
     }
   ],
+  "derived_analysis_archive": {
+    "Drive_to_local_roundtrip": "SHA_CRC_verified",
+    "bytes": 16059,
+    "drive_path": "/content/drive/MyDrive/thesis/result/scdh_spectralz_search_20261101/recovery-evidence/derived_analysis_20261101T223435Z.zip",
+    "local_path": "result/preparation/scdh_spectralz_search_20261101/runtime_r2/derived_analysis_20261101T223435Z.zip",
+    "sha256": "b7ebda385d56583ad190c3471547123b51a1606e1041b2109ad9680c97d88b58"
+  },
   "development_C_base": {
     "PM_percent": 68.85416666666667,
     "correct": 661,
@@ -595,6 +798,140 @@
       "status": "accepted"
     }
   ],
+  "final_accuracy": {
+    "off": {
+      "PM_percent": 65.48611111111111,
+      "background_percent": 62.760416666666664,
+      "correct": 3772,
+      "events": 5760,
+      "macro14_percent": 65.68080357142857,
+      "per_corruption_PM_percent": [
+        78.64583333333334,
+        79.42708333333334,
+        62.760416666666664,
+        79.42708333333334,
+        83.85416666666666,
+        63.541666666666664,
+        66.66666666666666,
+        72.39583333333334,
+        86.45833333333334,
+        67.1875,
+        35.41666666666667,
+        71.09375,
+        64.32291666666666,
+        38.54166666666667,
+        32.55208333333333
+      ],
+      "seed_BG_percent": [
+        62.5,
+        61.71875,
+        64.0625
+      ],
+      "seed_PM_percent": [
+        64.79166666666667,
+        65.9375,
+        65.72916666666667
+      ],
+      "seed_correct": [
+        1244,
+        1266,
+        1262
+      ],
+      "seed_macro14_percent": [
+        64.95535714285714,
+        66.23883928571429,
+        65.84821428571429
+      ]
+    },
+    "scd": {
+      "PM_percent": 65.59027777777777,
+      "background_percent": 63.541666666666664,
+      "correct": 3778,
+      "events": 5760,
+      "macro14_percent": 65.73660714285714,
+      "per_corruption_PM_percent": [
+        77.34375,
+        78.90625,
+        63.541666666666664,
+        80.20833333333334,
+        84.11458333333334,
+        63.28125,
+        67.70833333333334,
+        73.4375,
+        86.19791666666666,
+        66.92708333333334,
+        35.9375,
+        71.09375,
+        64.0625,
+        39.0625,
+        32.03125
+      ],
+      "seed_BG_percent": [
+        63.28125,
+        62.5,
+        64.84375
+      ],
+      "seed_PM_percent": [
+        65.05208333333333,
+        65.46875,
+        66.25
+      ],
+      "seed_correct": [
+        1249,
+        1257,
+        1272
+      ],
+      "seed_macro14_percent": [
+        65.17857142857143,
+        65.68080357142857,
+        66.35044642857143
+      ]
+    },
+    "spectral": {
+      "PM_percent": 65.57291666666667,
+      "background_percent": 65.10416666666666,
+      "correct": 3777,
+      "events": 5760,
+      "macro14_percent": 65.60639880952381,
+      "per_corruption_PM_percent": [
+        78.38541666666666,
+        79.16666666666666,
+        65.10416666666666,
+        79.42708333333334,
+        84.375,
+        63.020833333333336,
+        66.14583333333334,
+        72.65625,
+        86.19791666666666,
+        66.92708333333334,
+        35.9375,
+        71.875,
+        63.802083333333336,
+        38.54166666666667,
+        32.03125
+      ],
+      "seed_BG_percent": [
+        67.1875,
+        62.5,
+        65.625
+      ],
+      "seed_PM_percent": [
+        65.10416666666666,
+        65.67708333333333,
+        65.9375
+      ],
+      "seed_correct": [
+        1250,
+        1261,
+        1266
+      ],
+      "seed_macro14_percent": [
+        64.95535714285714,
+        65.90401785714286,
+        65.95982142857143
+      ]
+    }
+  },
   "frozen_winner": {
     "baseline_correct": 661,
     "scores_sha256": "b9eb1d6b7906ca6468bff6f03b110ff95b80d72a3f30239f82b033ec205833ba",
@@ -617,6 +954,69 @@
     "Native technical step observations are correlated; negative cosine alone does not establish accuracy harm",
     "First spectral candidate is not the frozen winner; full A/B and heldout confirmation remain pending"
   ],
+  "local_independent_acceptance": {
+    "all_slot_archives": 53,
+    "analysis_source_identity": {
+      "bytes": 9344,
+      "sha256": "f31a737b5d4d05f1361803fbe870ee4dfddae1433b521e2881b89f081bffad3b"
+    },
+    "bootstrap_agreement_atol_pp": 1e-12,
+    "numpy": "1.26.4",
+    "physical_cache_files": 232,
+    "raw_conditions": 51,
+    "status": "accepted",
+    "summary_identity": {
+      "bytes": 47760,
+      "sha256": "78f809bd1196ead53dd7854b841c0bdc7c04104e269c0268d203b9e1e68ddb15"
+    },
+    "unavailable": 1
+  },
+  "matched_fresh_timing": {
+    "scd": {
+      "background": {
+        "median_ms_per_object": 219.48511415632765,
+        "median_seconds": 7.023523653002485,
+        "peak_gpu_memory_mb": 15254.203125,
+        "reconstruction_plus_heads_seconds": [
+          7.024715556999581,
+          7.02132337400144,
+          7.023523653002485
+        ]
+      },
+      "gaussian": {
+        "median_ms_per_object": 135.4402096250169,
+        "median_seconds": 4.334086708000541,
+        "peak_gpu_memory_mb": 25221.375,
+        "reconstruction_plus_heads_seconds": [
+          4.332406058001652,
+          4.334086708000541,
+          4.35842794799828
+        ]
+      }
+    },
+    "spectral": {
+      "background": {
+        "median_ms_per_object": 616.7196968125381,
+        "median_seconds": 19.73503029800122,
+        "peak_gpu_memory_mb": 15933.435546875,
+        "reconstruction_plus_heads_seconds": [
+          19.73503029800122,
+          19.746705945997746,
+          19.69980094499806
+        ]
+      },
+      "gaussian": {
+        "median_ms_per_object": 452.1427447812698,
+        "median_seconds": 14.468567833000634,
+        "peak_gpu_memory_mb": 25900.169921875,
+        "reconstruction_plus_heads_seconds": [
+          14.409480677999454,
+          14.55196780499864,
+          14.468567833000634
+        ]
+      }
+    }
+  },
   "native_technical_M800_styleoff_diagnostics": {
     "background": {
       "median_effective_spectral_mass": 245.44828033447266,
@@ -638,7 +1038,14 @@
     }
   },
   "operator": "e19d7a4",
+  "portable_archive": {
+    "bytes": 465379670,
+    "drive_path": "/content/drive/MyDrive/thesis/result/scdh_spectralz_search_20261101/recovery-evidence/portable_campaign_1793571746636615671.zip",
+    "local_path": "/content/studies/scdh-spectralz-numerical-r3/portable_campaign_1793571746636615671.zip",
+    "sha256": "c6babbae390eac519c9c1a4ea6e18f83586077356bdd1e0959b8dcc44570f25b"
+  },
   "r2_recovery_proof_sha256": "d57b4d46aa91c0af4bd23f2e1266be02cfbd85cbdf733a09f9d3e359f3fdbb0f",
+  "runtime_closure": "pending completed-result integration push",
   "runtime_recovery": {
     "endpoint": "gpu-a100-hm-ass1c0-qm6ybz0lxlin",
     "monitor_exec_session": 51161,
@@ -646,8 +1053,8 @@
     "native_bitwise_equal": false,
     "native_transport": "Declared PointNet++ and Chamfer rebuilds; exact remaining native/source/model/data identities; original numeric b_M unchanged",
     "session": "tta-scdh-spectralz-a100-20261101-r2",
-    "setup": "Canonical cells1\u201310 passed20:23UTC; campaign restoration36archives/94paired states completed20:45UTC; confirmation active"
+    "setup": "Canonical setup/recovery completed; scientific C/timing complete; idle kernel transport recovered before successful bounded audit/archive"
   },
   "scientific_worker": "1f631d4",
-  "status": "A/B complete; confirmation seed0 complete, seeds1/2 and timing running/pending"
+  "status": "Scientific phase and full local independent acceptance complete; publication/authorized runtime closure pending"
 }

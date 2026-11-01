@@ -11,7 +11,10 @@
 - [x] Technical phase and frozen b_M; all30A/B conditions complete (29accepted,1numerically unavailable); winnerM400/rho1/h.03 frozen.
 - [x] Newr2canonical setup/source/model/data recovery after r1loss; explicit two-binary native transport preserves original calibration and common new-build C controls. Accepted A/B and failed128-ID/900s attempt retained.
 - [x] Freeze local SCD step at.03 per user; spectral step stays independent, no more alpha tuning.
-- [ ] Complete fixed128-ID/seeds0–1–2 confirmation with1800s per-job watchdog, matched fresh costs and NumPy1 recount.
+- [x] Fixed128-ID/seeds0–1–2 confirmation complete:9accepted conditions, spectral−C −.01736pp/CI[−.39931,+.36458], no reliable gain.
+- [x] Matched fresh costs complete:3.338×Gaussian/2.810×BG. Two native synthetic GFT/kNN cases and all51raw conditions/232physical caches pass local NumPy1.
+- [x] Final result and reproducible derived-analysis archive recorded; no default/full-benchmark expansion.
+- [ ] Push necessary completed code/knowledge to integration, then close ownr2 under explicit user authorization.
 
 [Execution, technical-zero ruling, stage pairing and setup state](scdh_spectralz_execution_20261101.md).
 
@@ -29,8 +32,7 @@ uses current integration and preserves the positive old Point-MAE pilot.
   known isolate defect without claiming its accuracy causality.
 - [ ] Determine whether spectral directions resist useful clean-reference
   changes or classifier margins on actual matched states; no causal test yet.
-- [ ] Certify actual native kNN distance/tie/gradient contracts if required;
-  no new GPU requested. Existing offdiag null result remains evidence.
+- [x] Bounded native kNN Euclidean/top-k/self-edge and duplicate-distance-valid selection, realized Laplacian/GFT and coordinate-gradient checked on4synthetic graphs; [executed witness and limits](scdh_spectralz_results_20261101.md). Exhaustive tie ordering/full LION Jacobian remain uncertified.
 - [ ] If reopening spectral contribution on promoted N8 baseline, compare
   matched same-host/readout on/off; old10/30 contrasts cannot answer it.
 

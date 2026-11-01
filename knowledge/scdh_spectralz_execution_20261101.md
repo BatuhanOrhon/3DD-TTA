@@ -490,3 +490,102 @@ BG spectral67.1875%, C63.28125%, Z062.5%. Initial advantage is concentrated in
 BG and must not be generalized; seeds1/2 remain running/pending. No selection
 or coefficient changes. Compact accepted rows are in
 knowledge/evidence/scdh_spectralz_confirmation_20261101.csv.
+
+
+### 2026-11-01 21:36UTC — confirmation seeds0/1 complete; seed2 active
+[Run] All six first-two-seed conditions accepted and locally verified.
+Seed1 spectral1261/1920=65.6770833%, C1257/1920=65.46875%,
+Z01266/1920=65.9375%. Pooled seeds0/1 spectral2511/3840, C2506/3840,
+Z02510/3840: +.1302083pp vs C, +.0260417pp vs Z0. These are partial
+confirmation statistics, not a final benefit claim. Fixed seed2 candidate
+started21:33:52UTC; frozen settings unchanged, matched timing remains pending.
+
+
+### 2026-11-01 21:45UTC — bounded post-science native graph witness registered
+[Code/Planned] After fixed C/timing completes, run two synthetic B2/N32/k10
+native FP32 cases (non-tie and one duplicate pair). Check native kNN Euclidean
+distances/top-k/self edge against independent CPU distance oracle; reconstruct
+the pruned RBF Laplacian with isolate1000 penalty and1e-5jitter; verify GFT
+roundtrip and analytic weighted-L2 coordinate gradient. Predeclared tolerances:
+distance rtol1e-4/atol1e-6, Laplacian rtol5e-4/atol1e-3, roundtrip1e-4/1e-5,
+gradient1e-4/1e-6. This is a bounded technical audit, not a new accuracy search,
+calibration, loss change or repeat of completed conditions. Estimate<2min;
+current user's no-further-GPU-approval authorization applies. SourceSHA256
+b3edfdbc5c31de6f076e9c07fb8b3550f3162bbba5570a5f391a876e3ad2baea.
+No claim of exhaustive tie ordering or a full LION Jacobian proof.
+
+[Code] Before execution, the duplicate-point oracle was refined to capture the
+actual native neighbor indices used by graph.forward via a read-only forward
+hook. CPU validates those distances/top-k and reconstructs their graph; it does
+not require an unspecified CPU/GPU tie order. No observed result drove this
+change. Final native audit sourceSHA256 353edd40929962f0c56c3f3394c1415111438a03d5264fc457eeeda81e2910c4.
+
+
+### 2026-11-01 21:59UTC — fixed confirmation accepted; no established gain
+[Run] All9conditions accepted,45slot ZIPs available including original failed C0.
+PM/all15/three-seed counts: spectral3777/5760=65.5729167%, C3778/5760=
+65.5902778%, Z03772/5760=65.4861111%. Spectral−C −.0173611pp,95%object-cluster
+CI[−.3993056,+.3645833],69corrected/70harmed. Spectral−Z0 +.0868056pp,
+CI[−.3125,+.46875],70corrected/65harmed.10000bootstrap draws keep all15/3seeds
+together per original object. Local score/pairing/count/bootstrap recomputation
+exactly matches archived confirmation_comparisons.json (SHA256
+2e0609a77daf237f9e6889ceccd58c5353a33864746f0ede049d1d363d72427b).
+C_accepted.json4260871bytes/SHA256
+57eeac2d87c384f98622b1d3455a0cd25f8867b27431c8583c4b5fdd25fed601.
+Macro14 spectral65.6063988%, C65.7366071%, Z065.6808036%; BG65.1041667%,
+63.5416667%,62.7604167%. No reliable overall gain; BG pattern is descriptive.
+Timing and post-science bounded native audit/portable physical-cache acceptance
+remain. No parameter reselection, default change or full-benchmark expansion.
+
+
+### 2026-11-01 22:10UTC — registered scientific phase complete
+[Run] Supervisor returned scientific_exit_code0/status complete, no active
+scientific processes. Original cumulative clock retained;31653.83s elapsed
+includes waiting, failures and replacement setup, not measured GPU algorithm time.
+All6phases accepted. Collector completed53Drive→local SHA/CRC verified slot ZIPs
+at22:09:57UTC:51accepted raw conditions,1numerically unavailable dev candidate,
+plus1historical timed-out failed C0 archive. Eight timing/warmup conditions include
+384measured+128warmup events. timing_accepted.json424791bytes/SHA256
+b7394b41497aa7ccf41e5fa9e37e1da3d9bc64a1564a5f5c7dfdea6ce9ea597b.
+Post-science native contract and portable-cache archive submitted through sole
+monitor51161; sourceSHA2561e3dd2b0769476c8706cf662abdc9b1596cc5266c53a1e8766d03e7a837e6455.
+No additional accuracy condition, grid expansion or parameter change.
+
+
+### 2026-11-01 22:17UTC — notebook transport recovered, no experiment repeat
+[Run] Post-science CLI WebSocket lost connection before delivering the cell;
+file API/server inventory remained live. No post-science directory existed;
+/proc/9234/task/9234/children was empty. Failed local clients54604/54768 were
+terminated (not VM teardown). A same-VM idle-kernel restart restored notebook
+transport: read-only probe22:16:27UTC returned active=[], no native/portable/post
+science directories and timing_complete=accepted. Thus neither new technical
+audit nor archive had run; no completed scientific condition was repeated.
+Client transport trace retained in runtime_r2/post_science_connection_failure.jsonl.
+The fresh post-science wrapper additionally requires an actual mounted Drive
+before any GPU/backup action. All53scientific ZIPs were already locally verified.
+
+[Run/Code] First delivered post-science audit failed at import before GPU: direct
+knn_cuda import attempted the ordinary JIT path (Ninja missing). This was an
+audit-harness omission; scientific workers already use the pinned no-build
+bootstrap. The diagnostic now calls the SAME frozen multibackbone_native_bootstrap
+first and records no_build proof; no install/rebuild/native-byte change. Failed
+source/log retained locally and in the pre-run Drive source backup. Final native
+audit sourceSHA256 2c844eee1db815e7a28e4f44a15530a9bf040dbb79bce8c11fbed9836fe8f333; no completed accuracy condition repeated.
+
+
+### 2026-11-01 22:35UTC — all remaining evidence accepted; ready to publish
+[Run] Pinned no-build native audit passed two synthetic B2/N32 cases; local
+NumPy1 independently verifies actual distances/operator/roundtrip/coordinate
+gradients. Portable465379670byte archive c6babbae... downloaded from Drive,
+CRC/safe paths/member hashes passed. All51accepted raw conditions +1unavailable,
+232physical paired caches, source/phase/predecessor/RNG/ID/PM/calibration and
+bootstrap checks pass locally. Derived-analysis code/log/summary archive
+b7ebda385d56583ad190c3471547123b51a1606e1041b2109ad9680c97d88b58
+(16059bytes) passed upload→Drive→newlocal SHA/CRC roundtrip.
+[Code/Run] Clean publication checkout at
+/Users/batuhan/.codex/research-checkouts/scdh-spectralz-publication-20261101
+on publication/scdh-spectralz-20261101:163CPU tests and37NumPy1 raw-fixture tests
+passed. Scientific code unchanged since that verification; executed native
+assert witness also promoted as compact evidence. Final source/knowledge commit,
+latest-target reconciliation, normal integration push, then authorized ownr2
+closure remain. No further GPU experiment or approval is needed.

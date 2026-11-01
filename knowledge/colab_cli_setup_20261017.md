@@ -539,3 +539,24 @@ member SHA verified:1,428,311bytes, SHA256
 `b9d58b3ce035ccf186acacdabc0474141e60d3eb671a96743cd21eadc51aa165`.
 [Execution and scientific approval are separate](scdh_spectralz_execution_20261101.md).
 Runtime remains live; teardown is not authorized.
+
+
+## 2026-11-01 20:23UTC — replacement SCD-h/spectral-z r2 replay
+
+[Run] Following unexpected r1 loss (19:35UTC, no teardown command), own replacement
+`tta-scdh-spectralz-a100-20261101-r2` / `gpu-a100-hm-ass1c0-qm6ybz0lxlin`
+completed the canonical ten-cell setup at20:23:05UTC. Cell1 restarted/reconnected
+the same VM; only known cell2 fastrlock pip failure was deferred; cells3–10 ran
+in order with exact source/working-directory and required completion markers.
+Fresh native CUDA, ModelNet and checkpoint checks passed. Master cells3–10
+wrapperSHA256137ea163cb8f9162c1fd586226e161679754267bb239469c6bb0b43f84000ee5.
+
+Frozen science deployment preserved fresh native bytes before restoring the
+four pinned LION libraries. Generic PointNet++ and Chamfer rebuilt hashes differ
+from r1; their old binary bytes were unavailable. This is explicitly recorded
+native transport, not a claim of byte equality. Numeric b_M is unchanged and all
+new C/timing controls share one r2 build. Exact other native/source/model/data
+checks passed; current CPU/native archives were Drive→local SHA/CRC verified.
+See [execution](scdh_spectralz_execution_20261101.md). The earlier r1-live/no-close
+line is historical: r1 was lost; user now authorizes closing own r2 after completed
+GPU work, validated artifacts, knowledge update and integration push.

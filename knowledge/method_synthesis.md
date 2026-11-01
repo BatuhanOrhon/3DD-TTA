@@ -663,3 +663,16 @@ GPU phase, after concrete code/source/assets/commands are reviewable. Exact
 budget/source/ID manifests and numeric calibration are not yet produced.
 Global prior/refresh/default changes/full benchmark excluded. First next step:
 implementer Batch1 audit/CPU contracts, not launching historical experiments.
+
+
+## 2026-11-01 — finite SCD-h / smooth spectral-z study completed
+
+[Run/Decision] Separate spectral step calibration/grid with fixed local SCD.03
+selected M400/rho1 on development (+.625pp vsC), but128stage-disjoint IDs/all15/
+three seeds gave spectral65.5729%, C65.5903%, Z065.4861%. Paired−.01736pp vsC
+CI[−.39931,+.36458]; +.08681pp vsZ0 CI[−.3125,+.46875]. Macro14 lower than both
+controls; BG higher descriptively. Fresh B32 cost3.338×Gaussian/2.810×BG.
+Do not promote this opt-in profile. GFT/native coordinate math checks pass;
+absence of accuracy gain is not an established GFT-transpose bug or universal
+spectral harm. Raw-lambda/graf-density/reference-anchor transfer hypotheses
+remain causal questions. [Results, independent acceptance and limits](scdh_spectralz_results_20261101.md).
