@@ -1,0 +1,90 @@
+{
+  "status": "knowledge_and_static_source_audit_complete",
+  "utc": "2026-11-01T10:52:53.496506+00:00",
+  "source_branch": "integration/chamfer-guidance-variants-20261030",
+  "source_head": "a82200adbe117ce56a134dc3c22601cb73dc2654",
+  "integration_base": "6ff2e4952a0fa4842aa32b14afaf1ae8fa123f27",
+  "labels": [
+    "Code",
+    "Run",
+    "Inference",
+    "Open"
+  ],
+  "legacy_sources": {
+    "tta_gsd_dual_seq.py": {
+      "commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+      "bytes": 12158,
+      "sha256": "8cabac8695e10b393317888f942afd3b08da7d3c1aa2c505190cdf6c26be8710",
+      "spectral_loss_present": true
+    },
+    "tta_gsd_dual_sync.py": {
+      "commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+      "bytes": 12980,
+      "sha256": "1ed2cebf4dd6e9b0a87e22870e86ebe880a236f590948a4c01ce67918bab37cb",
+      "spectral_loss_present": true
+    },
+    "tta_gsd_v2.py": {
+      "bytes": 18302,
+      "sha256": "c4c883d08ac3a152de8642ced7ef59ba8bee45d6c9ed61cf749cd2914faa7d5c",
+      "observation": "live local-prediction spectral loss contributes to style via frozen local prior"
+    }
+  },
+  "routing_counts": {
+    "R_S0": {
+      "correct": 164,
+      "total": 256,
+      "accuracy_percent": 64.0625
+    },
+    "R_SG": {
+      "correct": 167,
+      "total": 256,
+      "accuracy_percent": 65.234375
+    },
+    "R_G0": {
+      "correct": 147,
+      "total": 256,
+      "accuracy_percent": 57.421875
+    },
+    "R_GS": {
+      "correct": 152,
+      "total": 256,
+      "accuracy_percent": 59.375
+    }
+  },
+  "routing_corruptions": [
+    "gaussian",
+    "impulse",
+    "background",
+    "shear"
+  ],
+  "routing_scope": "64examples per corruption/seed0; global prior unused; local5/background35; original decoder style",
+  "old_evidence_identities": {
+    "/Users/batuhan/Desktop/projects/3DD-TTA/result/modelnet40_c/gsd_guidance_composition_v1/routing/attempt-0001/validation.md": {
+      "bytes": 4542,
+      "sha256": "2493f4d693fc75a720897f57c079f85b79937bfc575cc5b64c564a5363e41857"
+    },
+    "/Users/batuhan/Desktop/projects/3DD-TTA/result/modelnet40_c/gsd_guidance_composition_v1/routing/attempt-0001/phase_manifest.json": {
+      "bytes": 121663,
+      "sha256": "2e63503fa0060d280aadf11f678bf22e57c02a9e2e36fcb3f44ab3ca261fd144"
+    },
+    "/Users/batuhan/Desktop/projects/3DD-TTA/result/modelnet40_c/gsd_guidance_composition_v1/routing/attempt-0001/analysis/analysis.json": {
+      "bytes": 86078,
+      "sha256": "06bf08c777f0734aa6614d136c0d39a546420e3449fa379ba413c4cb7e2bd0d5"
+    },
+    "/Users/batuhan/Desktop/projects/3DD-TTA/result/modelnet40_c/gsd_guidance_composition_v1/replicate/attempt-0001/analysis_ingested/validation.md": {
+      "bytes": 9048,
+      "sha256": "c4c53d8a8c9c243c243f4ec0ece6273b158d3fc4eddbe55bb181f6e4800fbd00"
+    }
+  },
+  "historical_dual_run_receipt": "not recovered in documented local-history search; code existence is not accepted accuracy evidence",
+  "scope_recheck": "Existing routing macro counts recomputed from accepted analysis JSON; no new model inference/raw archive recertification",
+  "new_gpu_run": false,
+  "production_edits": false,
+  "peer_runtime_intervention": false,
+  "limits": [
+    "Legacy dual accuracy/runtime unavailable.",
+    "Routing R_SG only has a matched style-off anchor; no accepted standard-SCD superiority claim.",
+    "Older GSD routing/combined loss does not validate clean-estimate guided global diffusion.",
+    "Separate objectives and pure energy isolation below are proposals, not new runs."
+  ]
+}

@@ -2512,3 +2512,19 @@ supersedes preceding pilot-pending gates.
 - [ ] Extra seeds/unseen/multiplicity-aware confirmation remain outside this request.
 
 [Run/Decision] N5/N8 horizon gate is now complete; [accepted follow-up](lion_reencode_depth_results_20261101.md) supersedes older unrun-N5 entries. Remaining z-only/h-only/anchor/fixed-noise/seed/unseen/entropy questions remain unrun. No runtime closure permission.
+
+## 2026-11-01 — Spectral global/style distinction resolved
+
+[Code/Run/Inference/Open] [Audited history](shape_latent_spectral_guidance_audit_20261101.md).
+
+- [x] Confirm real local-spectral→conditioning-z derivatives and completed
+  local-SCD/style-spectral routing pilot; do not label it global diffusion.
+- [x] Confirm legacy dual_sync global update code; global Jacobian cut/noisy
+  conditioning and missing run-bound accuracy remain explicit limitations.
+- [x] Separate old spectral routing, later C+S, projection replication and
+  recent epsilon-MSE global guidance outcomes; no cross-protocol ranking.
+- [ ] A clean-estimate/global-Jacobian-correct spectral global-guidance accuracy
+  experiment is not established by these records. No new GPU run selected.
+- [ ] Separate h/z loss success still needs matched standard-SCD/style-off,
+  gradient-scale and accuracy controls. Pure energy/no-global-prior isolation,
+  reliable clean-z recovery and unseen transfer remain open.
