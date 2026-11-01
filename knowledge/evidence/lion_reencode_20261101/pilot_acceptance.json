@@ -1,0 +1,211 @@
+{
+  "accuracy_percent": {
+    "combined_pm": 59.583333333333336,
+    "cycle": 59.27083333333333,
+    "first_pm": 60.520833333333336,
+    "first_terminal": 59.791666666666664,
+    "second_pm": 58.020833333333336,
+    "second_terminal": 57.291666666666664
+  },
+  "comparisons": {
+    "combined_pm-first_pm": {
+      "conditional95_pp": [
+        -2.7083333333333335,
+        0.8333333333333335
+      ],
+      "corrected": 19,
+      "delta_pp": -0.9375,
+      "harmed": 28
+    },
+    "cycle-first_terminal": {
+      "conditional95_pp": [
+        -1.9791666666666665,
+        0.9375
+      ],
+      "corrected": 25,
+      "delta_pp": -0.5208333333333333,
+      "harmed": 30
+    },
+    "second_pm-first_pm": {
+      "conditional95_pp": [
+        -5.416666666666667,
+        0.10677083333329575
+      ],
+      "corrected": 31,
+      "delta_pp": -2.5,
+      "harmed": 55
+    },
+    "second_terminal-first_terminal": {
+      "conditional95_pp": [
+        -4.791666666666667,
+        -0.31250000000000017
+      ],
+      "corrected": 24,
+      "delta_pp": -2.5,
+      "harmed": 48
+    }
+  },
+  "executed_source_sha256": "c19849148f8f5ea12d65e999daaf814181ddb4d8337816be024e162c70d9abf2",
+  "limitation": "single seed/exposed objects; object-cluster CI omits native numerical repeat variation",
+  "n_corruptions": 15,
+  "n_original_objects": 64,
+  "per_corruption": [
+    {
+      "combined_pm": 68.75,
+      "corruption": "uniform",
+      "cycle": 70.3125,
+      "first_pm": 70.3125,
+      "first_terminal": 68.75,
+      "n": 64,
+      "second_pm": 65.625,
+      "second_terminal": 64.0625
+    },
+    {
+      "combined_pm": 64.0625,
+      "corruption": "gaussian",
+      "cycle": 67.1875,
+      "first_pm": 65.625,
+      "first_terminal": 64.0625,
+      "n": 64,
+      "second_pm": 65.625,
+      "second_terminal": 64.0625
+    },
+    {
+      "combined_pm": 56.25,
+      "corruption": "background",
+      "cycle": 57.8125,
+      "first_pm": 54.6875,
+      "first_terminal": 59.375,
+      "n": 64,
+      "second_pm": 57.8125,
+      "second_terminal": 56.25
+    },
+    {
+      "combined_pm": 67.1875,
+      "corruption": "impulse",
+      "cycle": 68.75,
+      "first_pm": 67.1875,
+      "first_terminal": 68.75,
+      "n": 64,
+      "second_pm": 67.1875,
+      "second_terminal": 70.3125
+    },
+    {
+      "combined_pm": 75.0,
+      "corruption": "upsampling",
+      "cycle": 75.0,
+      "first_pm": 71.875,
+      "first_terminal": 73.4375,
+      "n": 64,
+      "second_pm": 75.0,
+      "second_terminal": 73.4375
+    },
+    {
+      "combined_pm": 57.8125,
+      "corruption": "distortion_rbf",
+      "cycle": 59.375,
+      "first_pm": 62.5,
+      "first_terminal": 57.8125,
+      "n": 64,
+      "second_pm": 57.8125,
+      "second_terminal": 53.125
+    },
+    {
+      "combined_pm": 56.25,
+      "corruption": "distortion_rbf_inv",
+      "cycle": 57.8125,
+      "first_pm": 59.375,
+      "first_terminal": 57.8125,
+      "n": 64,
+      "second_pm": 56.25,
+      "second_terminal": 56.25
+    },
+    {
+      "combined_pm": 71.875,
+      "corruption": "density",
+      "cycle": 68.75,
+      "first_pm": 68.75,
+      "first_terminal": 70.3125,
+      "n": 64,
+      "second_pm": 68.75,
+      "second_terminal": 68.75
+    },
+    {
+      "combined_pm": 81.25,
+      "corruption": "density_inc",
+      "cycle": 79.6875,
+      "first_pm": 85.9375,
+      "first_terminal": 82.8125,
+      "n": 64,
+      "second_pm": 75.0,
+      "second_terminal": 78.125
+    },
+    {
+      "combined_pm": 65.625,
+      "corruption": "shear",
+      "cycle": 64.0625,
+      "first_pm": 67.1875,
+      "first_terminal": 65.625,
+      "n": 64,
+      "second_pm": 62.5,
+      "second_terminal": 60.9375
+    },
+    {
+      "combined_pm": 28.125,
+      "corruption": "rotation",
+      "cycle": 26.5625,
+      "first_pm": 28.125,
+      "first_terminal": 28.125,
+      "n": 64,
+      "second_pm": 28.125,
+      "second_terminal": 28.125
+    },
+    {
+      "combined_pm": 73.4375,
+      "corruption": "cutout",
+      "cycle": 68.75,
+      "first_pm": 68.75,
+      "first_terminal": 70.3125,
+      "n": 64,
+      "second_pm": 67.1875,
+      "second_terminal": 60.9375
+    },
+    {
+      "combined_pm": 56.25,
+      "corruption": "distortion",
+      "cycle": 54.6875,
+      "first_pm": 60.9375,
+      "first_terminal": 53.125,
+      "n": 64,
+      "second_pm": 56.25,
+      "second_terminal": 54.6875
+    },
+    {
+      "combined_pm": 40.625,
+      "corruption": "occlusion",
+      "cycle": 43.75,
+      "first_pm": 45.3125,
+      "first_terminal": 43.75,
+      "n": 64,
+      "second_pm": 40.625,
+      "second_terminal": 40.625
+    },
+    {
+      "combined_pm": 31.25,
+      "corruption": "lidar",
+      "cycle": 26.5625,
+      "first_pm": 31.25,
+      "first_terminal": 32.8125,
+      "n": 64,
+      "second_pm": 26.5625,
+      "second_terminal": 29.6875
+    }
+  ],
+  "physical_batches": 30,
+  "raw_config": {
+    "bytes": 227676,
+    "sha256": "37bfbb4e3aeae72ac1cf9bad4290c9dd4d1d49b3c96cd58ba0acf124331b9c1b"
+  },
+  "seed": 0,
+  "status": "passed"
+}

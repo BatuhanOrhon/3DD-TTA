@@ -1,0 +1,44 @@
+{
+  "status": "complete",
+  "manifest_sha256": "e202f5985c5ff9963f3ecabeb94ad0f8a8b220a40c39c9541ce0abeabc6f91dd",
+  "source_snapshot_sha256": "593d953cf7d761a260a544ccd3182d6477e3bba41e7caa401d286d3e1a3d1af3",
+  "checkpoint_load": {
+    "checkpoint_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+    "missing_keys": [],
+    "strict": true,
+    "unexpected_keys": [],
+    "weights_only": false
+  },
+  "classifier_state_sha256": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+  "cuda_initialized": false,
+  "forward_executed": false,
+  "native_bindings": {
+    "_pvcnn_backend": {
+      "bytes": 685248,
+      "path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+      "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0"
+    },
+    "chamfer_3D": {
+      "bytes": 1144176,
+      "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+      "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+    },
+    "emd_ext": {
+      "bytes": 559272,
+      "path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+      "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154"
+    },
+    "knn": {
+      "bytes": 218200,
+      "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+      "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+    }
+  },
+  "archive": {
+    "bytes": 1455741,
+    "drive_path": "/content/drive/MyDrive/thesis/result/lion_reencode_20261101/phase-evidence/deployment_20261101T092015025674Z/deployment_cpu_evidence.zip",
+    "local_path": "/content/studies/lion-reencode/deployment_20261101T092015025674Z.zip",
+    "sha256": "12ed411371b953be63a8cb6e3bab57d6c0201f0eaf12c115c13d83f4c0c0118d"
+  },
+  "full_receipt": "result/preparation/lion_reencode_20261101/operator/cpu_preflight_receipt.json"
+}

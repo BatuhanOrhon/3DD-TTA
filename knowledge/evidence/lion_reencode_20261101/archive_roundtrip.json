@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "archive_sha256": "774708ddeb95b69de1bc390a1c4e42fb5658e534a3fa663adc105053aabe15a7",
+  "archive_bytes": 2859620,
+  "member_count": 76,
+  "manifest_verified_members": 75,
+  "crc_paths_types_verified": true,
+  "download_from": "/content/drive/MyDrive/thesis/result/lion_reencode_20261101/final-archive-20261101T094001Z/lion_reencode_final_capsule_v1.zip",
+  "raw_scientific_archives_unchanged": true,
+  "snapshot_before_final_publication_receipt": true,
+  "runtime_teardown": false
+}

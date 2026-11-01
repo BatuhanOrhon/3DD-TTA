@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "stage": "pilot",
+  "archive": {
+    "bytes": 335216850,
+    "sha256": "31309af96daa6a19286756599dc3d76203e10d7ac995e92c675786b15b4229af",
+    "local_path": "/content/studies/lion-reencode/phase_pilot_20261101T092702300224Z.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/lion_reencode_20261101/phase-evidence/phase_pilot_20261101T092702300224Z.zip"
+  },
+  "ledger": {
+    "research_started_utc": "2026-11-01T09:21:43.318385+00:00",
+    "spent_seconds": 535.326741,
+    "completed": [
+      "smoke",
+      "pilot"
+    ],
+    "smoke_acceptance": "passed"
+  },
+  "output": "/content/studies/lion-reencode/phase_pilot_20261101T092702300224Z",
+  "cache_root": "/content/studies/lion-reencode/phase_pilot_20261101T092702300224Z/paired"
+}

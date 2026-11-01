@@ -2492,11 +2492,12 @@ supersedes preceding pilot-pending gates.
  remain possible future work; none was launched or selected here.
 
 
-## 2026-11-01 — Two-pass full z+h reencoding
+## 2026-11-01 — Two-pass full z+h reencoding completed
 
-[User report/Decision/Code/Open] [Registered pilot](lion_reencode_pilot_20261101.md).
-- [x] User authorizes full first baseline horizon; second3 selected without search.
-- [x] Opt-in bridge/observer/runner and12CPU contracts; independent code review fixes.
-- [ ] Finish canonical10 setup and physical/source/frozen-state CUDA smoke.
-- [ ] Same-run first PM versus second PM, pooled PM secondary; cycle-only information-loss diagnosis.
-- [ ] Independently validate/retrieve64/all15/seed0 evidence and report native/seed/exposure limits.
+[Run/Inference/Decision] [Accepted results](lion_reencode_results_20261101.md).
+- [x] Full first N8/Background35, second3, no tuning;12CPU contracts/review fixes.
+- [x] Canonical10/native/data/weights/strictCPU and physical CUDA32-ID technical gate.
+- [x] Independent64/all15/seed0 acceptance; first PM60.5208, second58.0208, pooled59.5833%; no demonstrated gain.
+- [x] Cycle-only and archived clean-z posthoc diagnostics: z MSE−5.14%, no accuracy benefit; no h pointwise claim.
+- [ ] N5/noise depth, z-only/h-only/anchor separation, cost-matched longer single chain, repeated seeds/unseen validation and entropy weighting remain unrun.
+- [ ] Owned runtime remains protected pending explicit completion+close instruction.

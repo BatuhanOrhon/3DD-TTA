@@ -1,0 +1,81 @@
+{
+  "accuracy_percent": {
+    "combined_pm": 70.3125,
+    "cycle": 67.1875,
+    "first_pm": 70.3125,
+    "first_terminal": 70.3125,
+    "second_pm": 68.75,
+    "second_terminal": 68.75
+  },
+  "comparisons": {
+    "combined_pm-first_pm": {
+      "conditional95_pp": [
+        -4.6875,
+        4.6875
+      ],
+      "corrected": 1,
+      "delta_pp": 0.0,
+      "harmed": 1
+    },
+    "cycle-first_terminal": {
+      "conditional95_pp": [
+        -7.8125,
+        0.0
+      ],
+      "corrected": 0,
+      "delta_pp": -3.125,
+      "harmed": 2
+    },
+    "second_pm-first_pm": {
+      "conditional95_pp": [
+        -6.25,
+        3.125
+      ],
+      "corrected": 1,
+      "delta_pp": -1.5625,
+      "harmed": 2
+    },
+    "second_terminal-first_terminal": {
+      "conditional95_pp": [
+        -6.25,
+        3.125
+      ],
+      "corrected": 1,
+      "delta_pp": -1.5625,
+      "harmed": 2
+    }
+  },
+  "executed_source_sha256": "c19849148f8f5ea12d65e999daaf814181ddb4d8337816be024e162c70d9abf2",
+  "limitation": "single seed/exposed objects; object-cluster CI omits native numerical repeat variation",
+  "n_corruptions": 2,
+  "n_original_objects": 32,
+  "per_corruption": [
+    {
+      "combined_pm": 75.0,
+      "corruption": "gaussian",
+      "cycle": 71.875,
+      "first_pm": 75.0,
+      "first_terminal": 71.875,
+      "n": 32,
+      "second_pm": 75.0,
+      "second_terminal": 71.875
+    },
+    {
+      "combined_pm": 65.625,
+      "corruption": "background",
+      "cycle": 62.5,
+      "first_pm": 65.625,
+      "first_terminal": 68.75,
+      "n": 32,
+      "second_pm": 62.5,
+      "second_terminal": 65.625
+    }
+  ],
+  "physical_batches": 2,
+  "raw_config": {
+    "bytes": 200364,
+    "sha256": "ca6d7f51207db261ba4d6953e3c9c95875eb37f6e9b6d44321ce7756caf1f7ef"
+  },
+  "seed": 0,
+  "status": "passed"
+}

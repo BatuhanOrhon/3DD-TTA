@@ -18,8 +18,10 @@ Incorrect source/cache binding; accidental second-frame normalization; wrong noi
 ### Task1 — opt-in paired pilot
 
 Files: create lion_reencode.py, scripts/eval_lion_reencode.py, tests/test_lion_reencode.py; reuse shape_latent_refresh.py persistence and original runner.
-- [ ] Write failing tests for posterior coupling/conditional h, RNG/buffers, second own-style/anchor/depth, readout phase weights, and invalid input/config.
-- [ ] Run targeted tests RED, implement minimum bridge/observer/runner, run GREEN and existing impacted tests.
-- [ ] Seal source/assets/operator; strict CPU load proof; complete canonical setup and small CUDA smoke.
-- [ ] Independently accept smoke, run64/all15 pilot under shared55min scientific cap, retrieve raw/source/proof archives and independently recount outputs.
-- [ ] Update knowledge with negative/null/positive results and limits; review, verify and selectively integrate completed necessary changes.
+- [x] Write failing tests for posterior coupling/conditional h, RNG/buffers, second own-style/anchor/depth, readout phase weights, and invalid input/config.
+- [x] Run targeted tests RED, implement minimum bridge/observer/runner, run GREEN and existing impacted tests.
+- [x] Seal source/assets/operator; strict CPU load proof; complete canonical setup and small CUDA smoke.
+- [x] Independently accept smoke, run64/all15 pilot under shared55min scientific cap, retrieve raw/source/proof archives and independently recount outputs.
+- [x] Update knowledge with negative/null/positive results and limits; review, verify and selectively integrate completed necessary changes.
+
+Execution ledger: source05e599d; two reviewer findings fixed RED→GREEN; tests/640pass+412subtests/one historical skip. Technical and pilot remote/local exact acceptance passed. Results report and compact evidence complete; final preservation/publication receipts follow. Ruling: user already authorized tests and delegated second3or5, so execute inline without another approval gate; N3 is one fixed pilot, not an optimum. Runtime preservation supersedes generic branch cleanup.

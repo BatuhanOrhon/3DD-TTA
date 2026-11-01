@@ -1,9 +1,11 @@
-**[User report/Code/Open] 2026-11-01 — two-pass LION reencoding pilot:**
-Full operational N8/Background35 first pass, decoder-frame full z+h reencoding,
-then a fresh local3-step pass. First/second/pooled PM and cycle-only readouts
-remain separate. User authorized tests; CPU implementation passes, own A100
-canonical setup active; no scientific GPU result yet.
-[Scope, source, runtime and next gates](lion_reencode_pilot_20261101.md).
+**[Run/Inference/Decision] 2026-11-01 — two-pass LION reencoding pilot complete:**
+Same64exposed ModelNet objects/all15/seed0: baseline PM60.5208%, second N3
+PM58.0208% (−2.5pp), combined PM59.5833% (−.9375pp); primary/pooled intervals
+include0. Clean-z MSE improves5.14% posthoc, without accuracy benefit. Cycle-only
+delta−.5208pp is smaller and uncertain. Full raw/physical/source/state/RNG/local
+recount accepted; baseline unchanged, no new GPU expansion. Own r1 remains
+live; teardown is not authorized.
+[Results, tables, archives and next questions](lion_reencode_results_20261101.md).
 
 **[Run/Inference/Decision] 2026-10-31 21:34 UTC / 2026-11-01 Türkiye — conditional pilot kapatıldı:**
 Kullanıcı tamamlanan Colab görevini kapatıp yalnız knowledge kayıtlarını

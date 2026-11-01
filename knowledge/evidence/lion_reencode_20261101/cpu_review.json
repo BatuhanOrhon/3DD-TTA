@@ -1,0 +1,31 @@
+{
+  "status": "passed_after_fixes",
+  "new_contracts": 12,
+  "project_tests_passed": 640,
+  "subtests_passed": 412,
+  "skipped": 1,
+  "python": "3.12.10",
+  "numpy": "1.26.4",
+  "torch": "2.15.0 CPU synthetic only",
+  "cuda_inference": false,
+  "reviewer": "review_reencode",
+  "review_findings": [
+    {
+      "issue": "late policy import changes final source seal",
+      "severity": "P1",
+      "resolution": "preloaded before source snapshot, regression RED-GREEN"
+    },
+    {
+      "issue": "nonfinite cycle logits could be scored",
+      "severity": "P2",
+      "resolution": "observer and independent analyzer validate finite Bx40, RED-GREEN"
+    }
+  ],
+  "bare_pytest_collection_limits": [
+    "Pointnet2 hydra absent",
+    "extensions EMD CUDA absent",
+    "vendored Chamfer importlib.find_loader unsupported on Python3.13",
+    "third_party EMD CUDA absent"
+  ],
+  "source_commit": "05e599dd7aec0ad9a68408b8f676274719b62a73"
+}

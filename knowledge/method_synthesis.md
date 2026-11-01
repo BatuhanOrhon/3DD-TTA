@@ -575,3 +575,8 @@ user request; CLI stop succeeded and21:34:18UTC server inventory has no
 assignment. Owned monitor85488 stopped; all existing raw/source/derived
 roundtrips were verified beforehand. Earlier keep-live statements are dated
 history. No new GPU/seed/grid or default change; clean-z recovery remains open.
+
+
+## 2026-11-01 — Two-pass LION full reencoding pilot
+
+[Run/Inference/Decision] [Accepted pilot](lion_reencode_results_20261101.md) tests a complete N8/B35 baseline → decoder2048LION frame → q(z|X*)q(h|X*,z) → fresh N3local diffusion, global prior off. Common explicit posterior/local Gaussians, new h1XYZ SCD reference, own initial decoder z. On64exposed/all15/seed0, second PM loses2.5pp and equal pooled PM loses.9375pp to own first PM; both intervals include0. Cycle-only loses.5208pp (uncertain), while paired archived clean-z MSE improves5.14%. Thus better global latent proximity alone does not establish task improvement. No isolation of local reencoding, anchor reset, renewed noise or extra diffusion; no universal anti-reencoding claim. N5/entropy/additional seeds or unseen confirmation unrun, baseline unchanged.

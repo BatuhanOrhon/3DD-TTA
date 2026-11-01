@@ -1,0 +1,167 @@
+{
+  "cycle_symmetric_squared_chamfer_LION_frame": {
+    "mean": 0.002145799419014422,
+    "median": 0.0020107216640384406
+  },
+  "eligibility": [
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/background/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/background/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/background/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/background/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/cutout/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/cutout/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/cutout/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/cutout/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/density/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/density/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/density/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/density/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/density_inc/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/density_inc/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/density_inc/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/density_inc/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/distortion/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/distortion/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/distortion/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/distortion/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/distortion_rbf/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/distortion_rbf/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/distortion_rbf/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/distortion_rbf/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/distortion_rbf_inv/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/distortion_rbf_inv/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/distortion_rbf_inv/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/distortion_rbf_inv/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/gaussian/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/gaussian/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/gaussian/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/gaussian/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/impulse/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/impulse/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/impulse/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/impulse/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/lidar/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/lidar/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/lidar/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/lidar/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/occlusion/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/occlusion/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/occlusion/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/occlusion/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/rotation/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/rotation/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/rotation/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/rotation/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/shear/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/shear/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/shear/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/shear/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/uniform/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/uniform/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/uniform/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/uniform/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/upsampling/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/upsampling/15fa5a0a28d39e5dbb6caa386743add376aa784578f6a74bec592a34c99f300f.oracle.npz"
+    },
+    {
+      "path": "result/preparation/lion_reencode_20261101/operator/pilot_extracted/paired/modelnet40_c/upsampling/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.reencode.npz",
+      "eligible": true,
+      "reference": "/Users/batuhan/.codex/worktrees/7bf0/3DD-TTA/result/preparation/shape_latent_oracle_pilot_20261031/operator/pilot_extracted/paired/common/modelnet40_c/upsampling/d32593abe5856e5e852bbc74f048e28fbcbaaa7cfb04a0936c7a644894ec3643.oracle.npz"
+    }
+  ],
+  "clean_targets_posthoc_only": true,
+  "limitation": "clean encoder target from archived runtime; numerical/native/normalization effects remain, no h pointwise correspondence or physical corruption-error claim",
+  "clean_z": {
+    "n_events": 960,
+    "original_mse": 0.10467916332938548,
+    "reencoded_mse": 0.09929812495665752,
+    "aggregate_mse_ratio": 0.9485949428560497,
+    "fraction_improved": 0.56875
+  }
+}
