@@ -1,0 +1,13 @@
+{
+  "status": "passed_after_fixes",
+  "new_contracts": 7,
+  "project_tests_passed": 647,
+  "subtests_passed": 412,
+  "historical_skips": 1,
+  "reviewer": "review_reencode_depth",
+  "findings_fixed": [
+    "Exact actual noisy-local hash validation with float32 depth alpha, RED-GREEN",
+    "Shared Python source and resolved LION/Point-MAE behavior identity guard, RED-GREEN"
+  ],
+  "scientific_cuda_launched": false
+}
