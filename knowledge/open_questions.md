@@ -3,8 +3,8 @@
 - [x] Read the full handoff/plan; isolate from current integration and preserve peer/user work.
 - [x] Add opt-in route/label-free calibration, deterministic finite grid and CPU witnesses.
 - [x] Register64development/disjoint128confirmation excluding812 prior subset IDs; retain full-benchmark exposure limit.
-- [ ] Finish canonical own-A100 native/data/checkpoint setup and sealed CPU deployment.
-- [ ] Independent branch review, actual source/assets/ID identities, then one whole scientific-GPU approval.
+- [x] Finish canonical own-A100 native/data/checkpoint setup and sealed CPU deployment.
+- [x] Independent branch review/fixes, sealed source/assets/IDs; explicit whole-phase4h-cap GPU approval received13:19UTC.
 - [ ] Native FD/repeats and frozen b_M; A/B with reused.03; positive-dev-only frozen confirmation; matched fresh costs and NumPy1 recount.
 
 [Execution, technical-zero ruling, stage pairing and setup state](scdh_spectralz_execution_20261101.md).

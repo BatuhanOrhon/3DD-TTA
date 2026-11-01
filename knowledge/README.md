@@ -1,9 +1,10 @@
-**[Code/Run/Open] 2026-11-01 — SCD-h / spectral-z implementation in progress:**
-The handoff is now being executed in isolated branch `research/scdh-spectralz-20261101`
-from6c193bf. Opt-in routing/calibration and bounded A/B/C controller have CPU
-witnesses;64development/128stage-disjoint IDs are registered, excluding812 prior
-subset IDs. Own A100 setup is progressing; no scientific GPU run or long-phase
-approval yet. [Execution record and exact limits](scdh_spectralz_execution_20261101.md).
+**[Code/Run/Open] 2026-11-01 — SCD-h / spectral-z science approved and starting:**
+The handoff is executing in isolated branch `research/scdh-spectralz-20261101`.
+Sealed source6a1b264 passes90CPU/37NumPy1 gates, fresh canonical10-cell A100
+setup and same-VM strict CPU/no-forward deployment.64development/128stage-disjoint
+IDs exclude812 prior subset IDs. User approved the complete2–4h scientific
+phase with a4h cumulative cap at13:19UTC; native technical controls start first.
+No new accuracy claim yet. [Execution record](scdh_spectralz_execution_20261101.md).
 
 **[User report/Proposal/Open] 2026-11-01 — h:SCD / z:smooth spectral taraması başka agent'a devredildi:**
 [Başlangıç promptu](scdh_spectralz_agent_handoff_20261101.md) ve

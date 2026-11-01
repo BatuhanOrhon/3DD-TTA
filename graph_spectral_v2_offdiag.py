@@ -112,6 +112,10 @@ class GraphSpectralDNA(nn.Module):
         # 5. Perform Eigen-decomposition on L^o
         # torch.linalg.eigh returns eigenvalues in ascending order
         eigenvalues, U_o = torch.linalg.eigh(L_o_stable)
+        # Native FP32 solves can misorder near-degenerate isolate modes; keep eigenpairs together.
+        if not bool((eigenvalues[:, 1:] >= eigenvalues[:, :-1]).all()):
+            eigenvalues, order = torch.sort(eigenvalues, dim=1, stable=True)
+            U_o = U_o.gather(2, order[:, None, :].expand(B, N, N))
         
         # 6. Perform Graph Fourier Transform (GFT)
         signal = h_0 if self.use_4d_gft else h_0_spatial

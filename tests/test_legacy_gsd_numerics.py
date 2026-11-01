@@ -58,9 +58,15 @@ class Prior(torch.nn.Module):
 
 
 class NumericsTests(unittest.TestCase):
-    def test_fixed_source_changes_only_isolation_mask(self):
+    def test_fixed_source_limits_changes_to_isolation_diagnostics_and_paired_ordering(self):
         original = (ROOT / 'graph_spectral_v2.py').read_text(encoding='utf-8')
         fixed = (ROOT / 'graph_spectral_v2_offdiag.py').read_text(encoding='utf-8')
+        start=fixed.index('        self.last_statistics =')
+        end=fixed.index('        L_o =',start)
+        fixed=fixed[:start]+fixed[end:]
+        start=fixed.index('        # Native FP32 solves')
+        end=fixed.index('        \n        # 6.',start)
+        fixed=fixed[:start]+fixed[end:]
         start = fixed.index('        # Minimal isolate correction:')
         end = fixed.index('\n', fixed.index('        isolated_nodes =', start))
         old_line = next(line for line in original.splitlines() if 'isolated_nodes =' in line)

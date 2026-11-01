@@ -99,7 +99,7 @@ def make_plan(prep,cpu_receipt):
     if (cpu.get('status')!='complete' or cpu.get('manifest_sha256')!=receipt['manifest']['sha256']
             or cpu.get('source_snapshot_sha256')!=receipt['source_snapshot']['sha256']):
         raise ValueError('Deployment receipt differs from sealed preparation')
-    root='/content/studies/scdh-spectralz';asset=root+'/prepared/assets'
+    root=str(Path(cpu['archive']['local_path']).parent);asset=root+'/prepared/assets'
     plan=dict(schema_version=1,scope='technical+calibration+A+B+conditional-C+timing',
         root=root+'/campaign',asset_root=asset,source_commit=receipt['source_commit'],
         asset_manifest_sha256=receipt['manifest']['sha256'],source_snapshot_sha256=receipt['source_snapshot']['sha256'],

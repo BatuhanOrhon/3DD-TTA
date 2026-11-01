@@ -134,3 +134,53 @@ bounded cost inefficiency, not a positive spectral result.
 
 No scientific >60min approval has been given; the user's approval was Drive
 consent only. Runtime and owner monitor remain live; no teardown authorization.
+
+## Explicit scientific approval — 2026-11-01 13:19:22UTC
+
+[User report/Run] User explicitly approved “Evet, bilimsel GPU fazını başlat”
+for the displayed2–4h/4h-cap technical+calibration+A+B+conditional-C+timing
+phase. Canonical plan SHA256bd253d00d1eee7429446267a98e5a15853d468b3ec6addb250c09a3eccba76a7.
+Sealed source6a1b264; asset manifest321db6475448105eb6c81a807cf43c3aa020d9ad5f6a44725559ea452cfbdc44;
+source archivee358f4ae462f5e12142ba8c965d01ec7a27b6750ce40d475d933ecae6aa5a1c0.
+Same-VM CPU strict/no-forward/no-CUDA proof passed and actual Drive archive
+download/CRC/member-SHA acceptance passed: deployment_cpu_evidence.zip
+1,428,311bytes, SHA256b9d58b3ce035ccf186acacdabc0474141e60d3eb671a96743cd21eadc51aa165.
+Monitor29297/exec39992 and owned A100 endpoint remain live. Science launch next;
+no new accuracy exists at this timestamp. Runtime teardown is not authorized.
+
+## Native technical failure and in-scope numerical repair
+
+[Run/Code] Original campaign began13:20:55UTC (4h clock is not reset). Three
+graph-free technical controls completed and independently accepted; the spectral
+zero-step gate failed before predictions with `Invalid finite ordered spectral
+eigensystem`. All source/shape/dtype/finite fields were valid. A bounded same-h0
+32-object graph-only diagnostic reproduced1–7 descending adjacent pairs per
+object, largest inversion2.44140625e-4; RNG unchanged. Actual eigenvectors/eigenvalues
+were saved for inspection. No A/B/calibration/confirmation result exists yet.
+
+[Code/Ruling] Fix the native eigensolver ordering by sorting eigenvalues and
+**the matching eigenvector columns together**, before GFT; keep every finite/
+ordering/FD tolerance guard. No beta/graph-family/objective/grid/default change.
+Regressions prove paired order/GFT and reject unregistered source reuse.
+
+Ruling: reuse the three completed graph-free controls, with their original raw
+source/config bytes unmodified. Only native-technical comparison admits an explicit
+old→new manifest proof: dataset/checkpoint/native/model files identical, actual
+executed-source map differs only in the imported offdiag graph module, and that
+module was not called in old scd/off arms. Old spectral runs cannot use this
+exception. All physical input/z0/h0/noise/RNG/state guards remain exact. All
+calibration/A/B/C comparisons retain strict single-source matching. Cost if wrong:
+invalid native baseline comparison; unknown/model/source deltas therefore stop.
+The failed spectral slot is preserved, retried only in a fresh versioned campaign.
+
+This repair/retry stays under the user's existing scientific scope and original
+absolute4h deadline; it does not imply a new4h allowance. Derived continuation
+approval/plan records must reference the original user approval and start receipt.
+
+[Run] Saved native arrays confirm118 adjacent inversions, all at lambda
+999.9993896484375–1000.00048828125 (isolate-penalty block); exp(-2lambda)
+is exactly0 even in float64. This is the zero-weight tail, not a changed active
+filter.97CPU checks including paired sorting/legacy numerical regressions and
+37NumPy1 artifact tests pass. The continuation uses a fresh root/source seal,
+explicit import-only graph equivalence for three controls, and the original
+13:20 start time. No completed accuracy experiment is rerun.

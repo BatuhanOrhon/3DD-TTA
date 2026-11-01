@@ -13,7 +13,7 @@ from unittest.mock import patch
 BASE=Path('/content/drive/MyDrive/thesis/result/preparation/gsd_multibackbone_study/20261019T110110Z/r8_assets_v7_full.zip')
 BASE_ID=dict(bytes=247002524,sha256='ce9c797ccacb4eeffcc0a2836c65109213c9c7920a40a5145ef598b2adac1333')
 BASE_MANIFEST='78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9'
-ROOT=Path('/content/studies/scdh-spectralz')
+ROOT=Path(os.environ.get('SCDH_TASK_ROOT','/content/studies/scdh-spectralz'))
 ASSETS=ROOT/'prepared/assets'
 DRIVE=Path('/content/drive/MyDrive/thesis/result/scdh_spectralz_search_20261101')
 

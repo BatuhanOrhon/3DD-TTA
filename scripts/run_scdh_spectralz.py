@@ -68,6 +68,18 @@ def validate_plan(plan):
         worker.shared.source.verify_identity(REPO/name,manifest['files']['source_snapshot/'+name])
     for stage in worker.STAGES:
         worker.shared.source.verify_identity(assets/'study'/(stage+'_ids.json'),manifest['files']['study/'+stage+'_ids.json'])
+    reuse=plan.get('technical_source_reuse')
+    if reuse:
+        original=worker.shared.source.read_manifest(Path(reuse['old_asset_root']),reuse['old_asset'])
+        if (reuse['new_asset']!=plan['asset_manifest_sha256'] or reuse['new_snapshot']!=manifest['source_snapshot_sha256']
+                or reuse['old_snapshot']!=original['source_snapshot_sha256'] or original['datasets']!=manifest['datasets']):
+            raise ValueError('Unregistered native-control reuse manifest')
+        allowed={'source_snapshot.zip'}|{'source_snapshot/'+n for n in ('graph_spectral_v2_offdiag.py',
+            'scripts/run_scdh_spectralz.py','scripts/analyze_scdh_spectralz.py','scripts/deploy_scdh_spectralz.py','scripts/prepare_scdh_spectralz.py')}
+        changed={n for n in set(original['files'])|set(manifest['files']) if original['files'].get(n)!=manifest['files'].get(n)}
+        if (changed-allowed or reuse['old_graph']!=original['files']['source_snapshot/graph_spectral_v2_offdiag.py']
+                or reuse['new_graph']!=manifest['files']['source_snapshot/graph_spectral_v2_offdiag.py']):
+            raise ValueError('Source reuse changed data/native/model/forward files outside graph-only repair')
     receipt_path=Path(plan['cpu_preflight_receipt'])
     if identity(receipt_path)!=plan['cpu_preflight_receipt_identity']:raise ValueError('CPU receipt bytes changed')
     receipt=json.loads(receipt_path.read_text())
@@ -376,7 +388,8 @@ def run(plan,approval,phase):
         jobs=phase_jobs(current,root)
         reports=[execute_job(plan,j,deadline,manifest) for j in jobs]
         available=[r for r in reports if r['status']=='accepted']
-        if current in ('technical','A','B'):analysis.compare_physical(available)
+        if current in ('technical','A','B'):
+            analysis.compare_physical(available,technical_reuse=plan.get('technical_source_reuse') if current=='technical' else None)
         outputs=[]
         if current=='technical' and all(r.get('technical_logits') for r in reports):
             summary=technical_summary(reports);freeze(root,'technical_summary.json',summary);outputs.append('technical_summary.json')

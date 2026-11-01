@@ -512,3 +512,30 @@ single liveness signal.
 [Run/Code] Owned tta-depth-transfer-a100-20261031-r1 completed allten setup phases by10:39:08UTC onA100-SXM4-80GB/Python3.8.20/Torch2.1.2+cu121/NumPy1.21.2 withCUDA12.1/GCC11.4. Actual nativeCUDA/FPS/KNN/Chamfer/EMD,15ModelNet severity5arrays+clean/labels,andPoint-MAE/LIONweight checks pass. Onlyknowncell2fastrlockfailuredeferred;fastrlock0.8laterinstalled. Existingtwo resolverwarnings remain, not a global pip-consistencyclaim. User-consented CLI Drive mount was independently verified; exactsavedcell3bytes ran with a temporary checked reuse of the already mounted path, copiedwheelSHA verified andfunctionrestored. Canonicalnativephase physicalmarkers and allwrapper completions are recorded; no fullresearchnotebook was executed.
 
 Setupcheckoutdev@a458cd46 and fresh nativebuilds are distinct from the sealed research snapshot4a5c137/b229. Fresh nativebytes were preserved before pinned study libraries were restored and strict8headCPU/no-forward proof ran; subsequent twoGPUtechnicalsmokes passed on both datasets. See [accepted setup proof](../result/preparation/chamfer_depth_transfer_20261031/setup/actual_setup_verification.json),[study](chamfer_depth_transfer_study_20261031.md) and[accepted transfer result](chamfer_depth_transfer_results_20261031.md). Intermittent CLIprelude disconnects were recovered only after exactownedprocess andsame-VMidle audits; no duplicate GPU job, CLIupdate orpeer operation.
+
+
+## 2026-11-01 — fresh SCD-h/spectral-z A100 canonical replay
+
+[Run] Own session `tta-scdh-spectralz-a100-20261101-r1`, endpoint
+`gpu-a100-hm-euw4a0-awcbbjf3de1m`, A100-SXM4-80GB/High-RAM. Ten saved
+setup cells executed in order (cell1 restart/reconnect sameVM); only the known
+cell2 fastrlock pip failure was explicitly deferred, Python3.8.20 verified.
+Cells4–8 CUDA12.1/GCC11.4/native phase markers and GPU smoke passed; cell9
+ModelNet ZIP and cell10 dataset/checkpoint/native verifier passed at12:35UTC.
+Torch2.1.2+cu121. This is a new fresh-VM witness, not a claim that the known
+cell2 pip error is fixed. No Scan preparation/inference was run.
+
+Canonical evidence local/Drive CRC+SHA validated:6,826byte ZIP
+`canonical_setup_20261101T124110Z.zip`, SHA256
+`45b718d9128443c8922d4a21530a09714945e75b7a308d96b573502c90ae8b4d`,
+under `result/preparation/scdh_spectralz_search_20261101/setup/` locally and
+`MyDrive/thesis/result/scdh_spectralz_search_20261101/setup/` on Drive.
+
+Sealed source6a1b264 deployment subsequently restored audited native blobs only
+after preserving fresh binaries to verified Drive evidence. CPU strict Point-MAE
+load, all declared assets/native ABI/source checks passed with model forward
+forbidden and CUDA initialization false. Actual Drive archive downloaded/CRC/
+member SHA verified:1,428,311bytes, SHA256
+`b9d58b3ce035ccf186acacdabc0474141e60d3eb671a96743cd21eadc51aa165`.
+[Execution and scientific approval are separate](scdh_spectralz_execution_20261101.md).
+Runtime remains live; teardown is not authorized.

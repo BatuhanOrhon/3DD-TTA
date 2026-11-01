@@ -8233,3 +8233,17 @@ fastrlock exception deferred and Python3.8 verified, cell5 running. Drive consen
 received; no scientific GPU approval/run, result ZIP or accuracy exists yet.
 [Execution record](scdh_spectralz_execution_20261101.md) owns the technical-zero
 FD rationale, exact paths, pending native/seal/review/approval gates and limits.
+
+
+## 2026-11-01 13:20UTC — sealed SCD-h/spectral-z science launch approved
+
+[Code/Run/User report/Open] Source6a1b264 sealed clean;90CPU and37NumPy1
+acceptance tests pass. Fresh canonical setup and actual same-VM CPU strict
+checkpoint/no-forward/no-CUDA deployment pass, Drive→local evidence CRC/SHA
+accepted. IDs64development/128stage-disjoint exclude812prior subsets; historical
+full-benchmark exposure remains. User explicitly approved the displayed2–4h
+whole technical/calibration/A/B/conditional-C/timing phase with4h cumulative
+cap at13:19UTC. Planbd253d00d1eee7429446267a98e5a15853d468b3ec6addb250c09a3eccba76a7;
+owned A100r1 starts technical C repeats/off/zero-spectral FD first. No scientific
+result/accuracy has been accepted yet. [Execution](scdh_spectralz_execution_20261101.md)
+records review fixes, source/asset/evidence identities and exact pending gates.

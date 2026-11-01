@@ -228,12 +228,28 @@ def verify_native_fd(physical,fd,graph,reference):
         require(check.get('passed') is True and (relative<=.1 or absolute<=1e-5),'Independent finite-difference tolerance failed')
 
 
-def compare_physical(reports):
+def reuse_binding(report,proof):
+    binding=report['calibration_binding']
+    if proof is None:return binding
+    route=report.get('scdh_spectralz',{})
+    require(route.get('stage')=='technical','Source reuse is only for native technical controls')
+    pair=(binding.get('asset_manifest_sha256'),binding.get('source_snapshot_sha256'))
+    old=pair==(proof['old_asset'],proof['old_snapshot'])
+    require(old or pair==(proof['new_asset'],proof['new_snapshot']),'Unregistered source reuse identity')
+    require(not old or route.get('arm') in ('scd','off'),'Changed graph source cannot reuse an old spectral run')
+    files=dict(binding['executed_source_files']);expected=proof['old_graph'] if old else proof['new_graph']
+    graph_keys=[k for k in files if k in ('repo/graph_spectral_v2_offdiag.py','assets/source_snapshot/graph_spectral_v2_offdiag.py')]
+    require(graph_keys and all(files[k]==expected for k in graph_keys),'Unregistered graph revision in source reuse')
+    for key in graph_keys:files.pop(key)
+    return dict({k:v for k,v in binding.items() if k not in ('asset_manifest_sha256','source_snapshot_sha256','executed_source_files')},executed_source_files=files)
+
+
+def compare_physical(reports,*,technical_reuse=None):
     require(len(reports)>=2,'Need paired accepted reports')
     first=reports[0]
     for report in reports[1:]:
         require(report['object_ids']==first['object_ids'] and report['labels']==first['labels'] and report['seed']==first['seed']
-                and report['corruptions']==first['corruptions'] and report['calibration_binding']==first['calibration_binding'],'Unmatched cohort/seed/source/state')
+                and report['corruptions']==first['corruptions'] and reuse_binding(report,technical_reuse)==reuse_binding(first,technical_reuse),'Unmatched cohort/seed/source/state')
         require(len(report['batch_guards'])==len(first['batch_guards']),'Incomplete paired guards')
         for a,b in zip(first['batch_guards'],report['batch_guards']):
             for key in ('corruption','batch','ids','initial_hashes','initial_rng_sha256','cache','scheduler'):
