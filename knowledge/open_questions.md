@@ -14,7 +14,7 @@
 - [x] Fixed128-ID/seeds0–1–2 confirmation complete:9accepted conditions, spectral−C −.01736pp/CI[−.39931,+.36458], no reliable gain.
 - [x] Matched fresh costs complete:3.338×Gaussian/2.810×BG. Two native synthetic GFT/kNN cases and all51raw conditions/232physical caches pass local NumPy1.
 - [x] Final result and reproducible derived-analysis archive recorded; no default/full-benchmark expansion.
-- [ ] Push necessary completed code/knowledge to integration, then close ownr2 under explicit user authorization.
+- [x] Necessary code/results pushed as e11626b; ownr2 closed22:42UTC after push, server assignment absent; local monitor/collector stopped.
 
 [Execution, technical-zero ruling, stage pairing and setup state](scdh_spectralz_execution_20261101.md).
 

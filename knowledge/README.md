@@ -1,11 +1,11 @@
-**[Run/Decision] 2026-11-01 22:35UTC — SCD-h/smooth spectral-z study complete; publication pending:**
+**[Run/Decision] 2026-11-01 22:42UTC — SCD-h/smooth spectral-z complete/published; ownr2 closed:**
 128stage-disjoint IDs/all15/three seeds: spectral65.5729%, SCD65.5903%,
 style-off65.4861%; both paired95%object-cluster intervals include0. Fresh B32
 spectral cost3.338×Gaussian/2.810×Background. Baseline retained. All51successful
 raw conditions,1unavailable candidate,232physical paired caches and native
 operator witnesses passed independent local NumPy1 acceptance;163CPU+37fixture
-tests passed in the clean publication checkout. Necessary integration push and
-user-authorized own-r2 closure are next.
+tests passed in the clean publication checkout. Completed code/results pushed as e11626b to origin/thesis-integration before
+user-authorized r2 closure at22:42UTC. Own monitor/collector stopped.
 [Final results, protocol, math witnesses and limits](scdh_spectralz_results_20261101.md).
 Earlier dated running/failed states below are historical and superseded here.
 

@@ -1044,8 +1044,27 @@
     "local_path": "/content/studies/scdh-spectralz-numerical-r3/portable_campaign_1793571746636615671.zip",
     "sha256": "c6babbae390eac519c9c1a4ea6e18f83586077356bdd1e0959b8dcc44570f25b"
   },
+  "publication": {
+    "excluded": "Temporary setup/transfer wrappers, raw ZIP/cache and weights preserved local/Drive",
+    "primary_commit": "e11626b7befbc6eece65f1a56fd9ae9e83b2eaa7",
+    "prior_target": "6c193bffe296aced1ae2cbb221f6212b6e477895",
+    "selected": "All necessary opt-in source/tests/ID registration/research knowledge/compact evidence",
+    "source_branch": "research/scdh-spectralz-20261101",
+    "target": "origin/thesis-integration",
+    "verified_tests": "163CPU +37NumPy1 fixture;51raw physical accepts +1unavailable; native GPU/NumPy witnesses"
+  },
   "r2_recovery_proof_sha256": "d57b4d46aa91c0af4bd23f2e1266be02cfbd85cbdf733a09f9d3e359f3fdbb0f",
-  "runtime_closure": "pending completed-result integration push",
+  "runtime_closure": {
+    "authorization": "User explicitly allowed own-session closure after GPU completion, knowledge update and integration push",
+    "collector_completed_utc": "2026-11-01T22:09:57Z",
+    "endpoint": "gpu-a100-hm-ass1c0-qm6ybz0lxlin",
+    "monitor_stopped_utc": "2026-11-01T22:42:39Z",
+    "observed_utc": "2026-11-01T22:42:42Z",
+    "primary_integration_commit": "e11626b7befbc6eece65f1a56fd9ae9e83b2eaa7",
+    "server_inventory": "No active sessions found on server",
+    "session": "tta-scdh-spectralz-a100-20261101-r2",
+    "status": "closed"
+  },
   "runtime_recovery": {
     "endpoint": "gpu-a100-hm-ass1c0-qm6ybz0lxlin",
     "monitor_exec_session": 51161,
@@ -1053,8 +1072,9 @@
     "native_bitwise_equal": false,
     "native_transport": "Declared PointNet++ and Chamfer rebuilds; exact remaining native/source/model/data identities; original numeric b_M unchanged",
     "session": "tta-scdh-spectralz-a100-20261101-r2",
-    "setup": "Canonical setup/recovery completed; scientific C/timing complete; idle kernel transport recovered before successful bounded audit/archive"
+    "setup": "Canonical setup/recovery completed; scientific C/timing complete; idle kernel transport recovered before successful bounded audit/archive",
+    "state": "closed after successful completion/publication"
   },
   "scientific_worker": "1f631d4",
-  "status": "Scientific phase and full local independent acceptance complete; publication/authorized runtime closure pending"
+  "status": "Complete, results/code published to origin/thesis-integration; own r2 closed after push"
 }

@@ -589,3 +589,20 @@ passed. Scientific code unchanged since that verification; executed native
 assert witness also promoted as compact evidence. Final source/knowledge commit,
 latest-target reconciliation, normal integration push, then authorized ownr2
 closure remain. No further GPU experiment or approval is needed.
+
+
+### 2026-11-01 22:42UTC — published and authorized own-runtime closure
+[Run/Decision] Source branch research/scdh-spectralz-20261101 and all necessary
+completed opt-in code/tests/ID registry/research records integrated from latest
+6c193bf in a clean separate publication checkout. Final e11626b tree passed
+163CPU/37NumPy1 fixture checks; normal push published
+e11626b7befbc6eece65f1a56fd9ae9e83b2eaa7 to origin/thesis-integration, remote SHA
+verified before teardown. No raw ZIP/cache/weights or temporary wrappers pushed;
+actual source/evidence remain in verified local/Drive artifacts.
+[User authorization/Run] AFTER this successful result publication, exact ownr2
+session tta-scdh-spectralz-a100-20261101-r2 / gpu-a100-hm-ass1c0-qm6ybz0lxlin was
+closed via Colab CLI. Monitor47363/51161 stopped22:42:39UTC; CLI termination and
+server inventory (no active sessions) verified22:42:42UTC. Collector87508 ended
+22:09:57UTC; old LOST r1 monitor had stopped20:37UTC. Peer work untouched;
+agent worktree/branch and all local raw/derived evidence preserved. Only a
+documentation follow-up records this observed closure; no further research run.
