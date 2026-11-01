@@ -140,3 +140,26 @@ class DurationAmendmentTests(unittest.TestCase):
             for key,value in [('original_start_unix_seconds',2000),('approved',False),('operator_identity',{}),('original_started_identity',{})]:
                 with self.assertRaises(ValueError):operator.budget(root,plan,approval,now=17000,amendment=dict(amendment,**{key:value}))
             with self.assertRaises(ValueError):operator.budget(root,plan,approval,now=47801,amendment=amendment)
+
+class ConfirmationTimeoutRecoveryTests(unittest.TestCase):
+    def test_only_failed_confirmation_slot_and_its_watchdog_change(self):
+        from types import SimpleNamespace
+        from scripts.recover_scdh_confirmation import install_recovery
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);receipt=root/'receipt.json';receipt.write_text('{}');source=root/'source.py';source.write_text('# fixed')
+            failed=dict(slot='confirmation-spectral-first',stage='confirmation',arm='spectral',modes=400,rho=1.,alpha_h=.03,seed=0)
+            control=dict(slot='confirmation-scd-first',stage='confirmation',arm='scd')
+            baseline=dict(slot='development-scd',stage='development',arm='scd')
+            jobs=lambda phase,root:[dict(failed),dict(control)] if phase=='C' else [dict(baseline)]
+            calls=[]
+            controller=SimpleNamespace(phase_jobs=jobs,operations=SimpleNamespace(run_worker=lambda *a:calls.append(a)),evidence=lambda root,values:{'existing':'fixed'})
+            record=dict(per_job_timeout_seconds=1800,failed_job=failed,retry_slot=failed['slot']+'-retry1')
+            install_recovery(controller,record,receipt,source)
+            actual=controller.phase_jobs('C',root)
+            self.assertEqual(actual[0],dict(failed,slot=record['retry_slot']));self.assertEqual(actual[1],control)
+            self.assertEqual(controller.phase_jobs('A',root),[baseline]);self.assertEqual(controller.evidence(root,[baseline]),{'existing':'fixed'})
+            self.assertEqual(set(controller.evidence(root,actual)),{'existing','receipt.json','source.py'})
+            for timeout,slot in [(900,'confirmation-test'),(300,'confirmation-test'),(900,'development-test')]:controller.operations.run_worker([],root,root/'log',timeout,slot)
+            self.assertEqual([c[3] for c in calls],[1800,300,900])
+            record['failed_job']=dict(failed,modes=800)
+            with self.assertRaises(ValueError):controller.phase_jobs('C',root)

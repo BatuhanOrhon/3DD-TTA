@@ -1,15 +1,15 @@
-**[Code/Run/Open] 2026-11-01 15:11UTC — SCD-h / spectral-z duration continuation authorized and launching:**
-User explicitly requested continuation without further duration questions.
-Original plan/approval/start and four accepted technical jobs stay immutable;
-controller e19d7a4 records a separately bound cumulative13h operational watchdog,
-while scientific worker/assets remain frozen at1f631d4.119CPU/42NumPy1 checks pass.
-Full native Gaussian/Background FD8/8 accepted; native C-repeat PM disagreements
-1/32 and5/32 remain an uncertainty. Calibration→A/B→positive-only confirmation
-and timing launch on the same own A100; no A/B accuracy claim yet. All prior
-successful/failed raw/source/operator archives passed Drive→local acceptance.
-Monitor29297/exec39992 live; no teardown authorization.
+**[Code/Run/Open] 2026-11-01 19:40UTC — SCD-h / spectral-z A/B complete; new runtime recovery:**
+30development conditions finished (29accepted,1numerically unavailable).
+FrozenM400/rho1/h.03 PM69.4792%, C_base68.8542%, style-off69.3750% on64IDs/all15/seed0.
+No heldout gain established: first128-ID confirmation stopped at900s after58/60
+batches. Then r1 unexpectedly disappeared from server inventory19:35UTC; no
+teardown command issued. New ownA100 r2 is in canonical setup; all accepted A/B
+raw archives and freeze records remain locally/Drive verified. User explicitly
+waives further duration questions for this study; complete accepted experiments
+must not rerun. New monitor47363/exec51161 live; old r1 monitor records LOST.
 [Execution record](scdh_spectralz_execution_20261101.md),
-[compact native evidence](evidence/scdh_spectralz_native_20261101.json).
+[development grid](evidence/scdh_spectralz_development_20261101.csv),
+[compact evidence](evidence/scdh_spectralz_progress_20261101.json).
 
 **[User report/Proposal/Open] 2026-11-01 — h:SCD / z:smooth spectral taraması başka agent'a devredildi:**
 [Başlangıç promptu](scdh_spectralz_agent_handoff_20261101.md) ve

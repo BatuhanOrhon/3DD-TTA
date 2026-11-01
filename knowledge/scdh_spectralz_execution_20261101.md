@@ -363,3 +363,41 @@ across256/1120correlated step-object observations. Median isolated nodes446.5/
 356.5 out of2048 and retained spectral mass312.879/245.448. These are descriptive
 route/graph observations, not proof that negative alignment causes accuracy harm.
 Three-seed heldout contrasts against both matched SCD and style-off remain needed.
+
+
+[Run/Open] 2026-11-01 15:26UTC: first calibrated spectral candidate accepted,
+M200/rho.1/alpha_h.03:663/960 PM=69.0625%. C_base661/960=68.854167%,
+Z0_base666/960=69.375%. Spectral−C +.208333pp (7corrected/5harmed);
+spectral−Z0 −.3125pp (4corrected/7harmed). Native nonzero actual application,
+physical/source/frozen-state/CSV checks passed in independent raw acceptance.
+This is a single exploratory development condition; no heldout claim, stop,
+method selection or default change follows. Remaining finite A/B grid continues;
+positive frozen winner will receive the registered three-seed confirmation.
+
+
+## 2026-11-01 19:38UTC — A/B complete; confirmation timeout and runtime loss
+
+[Run] All30registered development conditions finished:29accepted and1numerically
+unavailable. Frozen winnerM400/rho1/alpha_h.03=667/960 PM69.4791667%,
+versus C_base661/96068.8541667% (+.625pp), Z0_base666/96069.375% (+.1041667pp).
+Top2 second pairM800/rho1; neither alternate alpha.01/.05 improved the winner.
+All A/B raw ZIPs and accepted phase/freeze records downloaded with Drive proofs,
+local SHA/CRC checks. These remain exploratory; no heldout claim.
+
+[Run/Failure] First128-object seed0 confirmation timed out at900seconds at
+18:33:56UTC after58/60batches (14corruptions complete, LiDAR2/4). This was an
+operator timeout, not an accuracy or gradient failure. The per-job watchdog
+was not scaled for128objects; it must be1800s with the cumulative watchdog
+preserved. Whole failed slot and operator failure were Drive-archived; source
+and all accepted A/B must remain unmodified. No accepted condition is rerun.
+
+[Run/Failure] At19:32UTC server inventory still listed own r1, but the read-only
+recovery cell failed404/401 at19:35:18; server inventory then showed no active
+sessions. No stop/release/teardown command was issued. Kernel liveness cannot
+prevent Colab-managed runtime loss. Local monitor29297 recorded LOST; old
+read-only artifact collector39126 was stopped after the loss, preserving all
+verified files. A100 r2 was allocated under the user's existing continue/no-
+duration-question instruction; endpoint gpu-a100-hm-ass1c0-qm6ybz0lxlin.
+Canonical ten-cell setup/reconnect/Drive/strict data/native/source checks must
+pass before any confirmation retry. Original start and registered finite scope
+remain. Fresh setup is not a new accuracy result. Teardown remains unauthorized.
