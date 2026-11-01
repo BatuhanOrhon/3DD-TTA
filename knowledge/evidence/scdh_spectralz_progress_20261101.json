@@ -1,0 +1,84 @@
+{
+  "calibration_coefficients": {
+    "1200": {
+      "b_M": 20.047158645256978,
+      "n_excluded": 0,
+      "n_observations": 384,
+      "n_valid": 384,
+      "status": "available"
+    },
+    "1800": {
+      "b_M": 20.05155291769852,
+      "n_excluded": 0,
+      "n_observations": 384,
+      "n_valid": 384,
+      "status": "available"
+    },
+    "200": {
+      "b_M": 19.303489001861323,
+      "n_excluded": 0,
+      "n_observations": 384,
+      "n_valid": 384,
+      "status": "available"
+    },
+    "400": {
+      "b_M": 19.769744597096295,
+      "n_excluded": 0,
+      "n_observations": 384,
+      "n_valid": 384,
+      "status": "available"
+    },
+    "800": {
+      "b_M": 19.987000593344426,
+      "n_excluded": 0,
+      "n_observations": 384,
+      "n_valid": 384,
+      "status": "available"
+    }
+  },
+  "development_C_base": {
+    "PM_percent": 68.85416666666667,
+    "correct": 661,
+    "corruptions": 15,
+    "events": 960,
+    "objects": 64,
+    "seed": 0
+  },
+  "development_Z0_base": {
+    "PM_percent": 69.375,
+    "correct": 666,
+    "corruptions": 15,
+    "events": 960,
+    "objects": 64,
+    "seed": 0
+  },
+  "limitations": [
+    "Exploratory development score, not confirmation",
+    "Different cohort from historical accuracy values",
+    "No spectral accuracy comparison accepted yet",
+    "Native technical step observations are correlated; negative cosine alone does not establish accuracy harm"
+  ],
+  "native_technical_M800_styleoff_diagnostics": {
+    "background": {
+      "median_effective_spectral_mass": 245.44828033447266,
+      "median_isolated_nodes": 356.5,
+      "median_style_gradient_cosine": -0.3903032442910844,
+      "negative_cosine_fraction": 0.7125,
+      "objects": 32,
+      "steps": 35,
+      "style_gradient_cosine_observations": 1120
+    },
+    "gaussian": {
+      "median_effective_spectral_mass": 312.87884521484375,
+      "median_isolated_nodes": 446.5,
+      "median_style_gradient_cosine": 0.10577011219951887,
+      "negative_cosine_fraction": 0.4140625,
+      "objects": 32,
+      "steps": 8,
+      "style_gradient_cosine_observations": 256
+    }
+  },
+  "operator": "e19d7a4",
+  "scientific_worker": "1f631d4",
+  "status": "calibration and two development controls accepted; first spectral candidate running"
+}

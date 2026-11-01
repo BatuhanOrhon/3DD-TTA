@@ -337,3 +337,29 @@ under scdh_spectralz_search_20261101/duration-continuation before launch.
 four accepted technical jobs reused, no new model/setup/technical inference.
 Duration receipt records the authorization observation time, not an invented
 message creation time. No A/B accuracy yet at launch.
+
+
+## Calibration frozen; first development reference — 2026-11-01 15:17UTC
+
+[Run] Calibration accepted from32IDs×4corruptions×3states,384valid ratios/M,
+no excluded ratios. Independently recomputing the medians from the accepted phase
+record exactly matches frozen bytes. b_M:{200:19.303489001861323,
+400:19.769744597096295,800:19.987000593344426,1200:20.047158645256978,
+1800:20.05155291769852}. All5M remain available;20spectral A candidates retained.
+No accuracy labels were used to choose these scales.
+
+[Run] Development C_base accepted:661/960 PM correct=68.8541667%,64registered
+objects/all15/seed0. This is a new exploratory cohort, not a historical accuracy
+improvement or heldout result. Style-off control and spectral sweep follow.
+Small progress evidence:knowledge/evidence/scdh_spectralz_progress_20261101.json.
+
+
+[Run/Inference] Development style-off control accepted666/960 PM=69.375%,
+versus C_base661/960=68.8541667%; +.5208333pp is exploratory, five events only.
+The first spectral candidateM200/rho.1 runs with all15 coverage pending.
+Native M800/style-off technical diagnostic (32objects): style SCD/spec cosine
+medianGaussian+.105770, Background−.390303; negative fractions.414063/.712500
+across256/1120correlated step-object observations. Median isolated nodes446.5/
+356.5 out of2048 and retained spectral mass312.879/245.448. These are descriptive
+route/graph observations, not proof that negative alignment causes accuracy harm.
+Three-seed heldout contrasts against both matched SCD and style-off remain needed.
