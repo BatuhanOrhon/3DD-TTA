@@ -8532,3 +8532,29 @@ paired control/diagnostic with cumulative55min science cap (estimate20–45min).
 No accuracy/speed/native-gradient conclusion. Technical FD failure stops applied
 physical guidance. Runtime/source/raw logs remain preserved; Drive archive roundtrip
 for this continuation pending canonical setup.
+
+
+## 2026-11-03 21:02UTC — physical decoder spectral pilot complete; H8 accepted, extra optimization rejected
+
+[Run/Code/Inference/Decision] See `decoded_physical_spectral_results_20261103.md`
+and `evidence/decoded_physical_spectral_20261103/final_receipt.json`. Ten immutable
+runner bundles: nine V3/V4 successful selected-ID conditions plus one V5 negative
+forward-equivalence gate; two unique Gaussian5 IDs44,91, seed0. Shared physical-X
+heat objective and native decoder FD pass; actual skip_weight=.01 and all6H8joint
+update cos>=.999839/normratio1.000146–1.001106. Fixed λ802.5000841164167 from
+predeclared rho.1 gradient-norm formula, no accuracy selection. All observedPM/
+terminal2/2; no accuracy gain. SingleB2live0/full/surrogate reconstruction
+1.869002/2.017366/1.895920s excludes graph setup, peakall21756.4458MiB. Native
+zero-repeat logitsmax2.18086 is a confound, so no reliable speed/causal gain claim.
+
+V5detacheddecoder-input forward RMS1.24230727e-5>fixed1e-5, despite gradient/
+FD gates passing. Applied V5arms did not launch. Optimization6025ed5 reverted
+by07f5637; final observer bytes equal validatedb0bdbfb. FinalCPU486tests/1skip
+26.222s, no default promotion. Actual pairedNPZ/five native ELF payloads and
+all source/state/manifests independently validated. Recovery capsule1140498bytes/
+SHA55cbe5d423453faa71d22cd708d0b1470776fbdb83fb237c034736654c4e721f is Drive backed.
+Firstscience20:17:13UTC→lastphase20:55:31UTC,2298.34s/38.31min, immutable3300s cap
+not reset; setup separate. No further GPU research planned. Session
+`tta-gsd-physical-spectral-a100-20261103-r1`/A100 endpoint unchanged, monitor97932
+stays active; no runtime-close authorization. Next: native-repeat controls,
+correspondence/anchor tests, eigenfree cost and separate development/confirmation.

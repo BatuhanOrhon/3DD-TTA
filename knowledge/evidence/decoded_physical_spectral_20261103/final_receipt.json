@@ -1,0 +1,314 @@
+{
+  "status": "accepted_bounded_diagnostics_and_preserved_negative_gate",
+  "unique_original_ids": [
+    44,
+    91
+  ],
+  "corruption": "gaussian",
+  "severity": 5,
+  "seed": 0,
+  "cases": [
+    {
+      "run_id": "20261103-201714_decoded-control-8aed642b",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-201714_decoded-control-8aed642b.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v3/runs/technical-control",
+      "archive": {
+        "bytes": 1132592,
+        "sha256": "0ce6637ac96fb192821fe381ce75edd9c475fa6818e05e3df49c5b847e77f109"
+      },
+      "source_commit": "3e8b9be3d9c913d6757ea09026478b925da77fe0",
+      "arm": "control",
+      "weight": 0.0,
+      "freeze_decoder_residual": false,
+      "native_audit": false,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 2.0695733479997216,
+      "peak_gpu_memory_mib": 21724.96435546875,
+      "wall_seconds": 20.293093182999655,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-202220_decoded-diagnostic-8aed642b",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-202220_decoded-diagnostic-8aed642b.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v3/runs/technical-diagnostic",
+      "archive": {
+        "bytes": 41989598,
+        "sha256": "aa38984f4f5834276a18a377f3a5fb06f0075b99d5ba3c4ee100f68c7a63c5bf"
+      },
+      "source_commit": "3e8b9be3d9c913d6757ea09026478b925da77fe0",
+      "arm": "diagnostic",
+      "weight": 0.0,
+      "freeze_decoder_residual": false,
+      "native_audit": true,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 10.19076454900005,
+      "peak_gpu_memory_mib": 21756.44580078125,
+      "wall_seconds": 36.43209862200001,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-203158_decoded-diagnostic-8aed642b",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-203158_decoded-diagnostic-8aed642b.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v3/runs/live-zero-a",
+      "archive": {
+        "bytes": 21323097,
+        "sha256": "a0267da5f28f47298b11c9bc8def229667edad8e1c543abf7df39169fc8ea8e1"
+      },
+      "source_commit": "3e8b9be3d9c913d6757ea09026478b925da77fe0",
+      "arm": "diagnostic",
+      "weight": 0.0,
+      "freeze_decoder_residual": false,
+      "native_audit": false,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 2.2702836779999416,
+      "peak_gpu_memory_mib": 21757.00830078125,
+      "wall_seconds": 28.29815041800066,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-203235_decoded-diagnostic-8aed642b",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-203235_decoded-diagnostic-8aed642b.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v3/runs/live-zero-b",
+      "archive": {
+        "bytes": 21323112,
+        "sha256": "667f69f5598ceb25a092f93581a6f038008915e3ada33ae088219b9a8a92d0db"
+      },
+      "source_commit": "3e8b9be3d9c913d6757ea09026478b925da77fe0",
+      "arm": "diagnostic",
+      "weight": 0.0,
+      "freeze_decoder_residual": false,
+      "native_audit": false,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 2.2917914099998598,
+      "peak_gpu_memory_mib": 21757.00830078125,
+      "wall_seconds": 28.344191637000222,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-203313_decoded-physical-c08bc43d",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-203313_decoded-physical-c08bc43d.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v3/runs/full-rho01",
+      "archive": {
+        "bytes": 21322659,
+        "sha256": "34c5b59344b49fddcc7108f1faf00fac1833ce2c85094c5805b39c22b4e8cbbe"
+      },
+      "source_commit": "3e8b9be3d9c913d6757ea09026478b925da77fe0",
+      "arm": "physical",
+      "weight": 802.5000841164167,
+      "freeze_decoder_residual": false,
+      "native_audit": false,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 2.3211395520002043,
+      "peak_gpu_memory_mib": 21756.02392578125,
+      "wall_seconds": 28.501448547999644,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-203850_decoded-diagnostic-8aed642b",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-203850_decoded-diagnostic-8aed642b.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v4/runs/h8-diagnostic",
+      "archive": {
+        "bytes": 41991288,
+        "sha256": "852232708417ecaea7adbca58d11f53f030fe9123b36caa35e37e7352e67afc7"
+      },
+      "source_commit": "b0bdbfbbfaa331690796c7b56546db8f3d7ae088",
+      "arm": "diagnostic",
+      "weight": 0.0,
+      "freeze_decoder_residual": false,
+      "native_audit": true,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 10.311130809999668,
+      "peak_gpu_memory_mib": 21756.02392578125,
+      "wall_seconds": 36.543222072999924,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-203937_decoded-live_control-8aed642b",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-203937_decoded-live_control-8aed642b.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v4/runs/lightweight-live0",
+      "archive": {
+        "bytes": 21322237,
+        "sha256": "e51196eafb17a3b3a85465cb6355fbf8cb6b4e92dc3f7bf001c503f6130a0c4a"
+      },
+      "source_commit": "b0bdbfbbfaa331690796c7b56546db8f3d7ae088",
+      "arm": "live_control",
+      "weight": 0.0,
+      "freeze_decoder_residual": false,
+      "native_audit": false,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 1.8690018750003219,
+      "peak_gpu_memory_mib": 21756.44580078125,
+      "wall_seconds": 27.904131700000107,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-204014_decoded-physical-c08bc43d",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-204014_decoded-physical-c08bc43d.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v4/runs/lightweight-full",
+      "archive": {
+        "bytes": 21321333,
+        "sha256": "7f778b025689ce5267580884287d59b7d070f233423dde6965878ce42bb2cffa"
+      },
+      "source_commit": "b0bdbfbbfaa331690796c7b56546db8f3d7ae088",
+      "arm": "physical",
+      "weight": 802.5000841164167,
+      "freeze_decoder_residual": false,
+      "native_audit": false,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 2.0173657830000593,
+      "peak_gpu_memory_mib": 21756.44580078125,
+      "wall_seconds": 28.1102127310005,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-204051_decoded-physical-c08bc43d",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-204051_decoded-physical-c08bc43d.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v4/runs/lightweight-surrogate",
+      "archive": {
+        "bytes": 21321444,
+        "sha256": "a5dfda0a3a8ca32425caa175ee6b2c12ba689faeb332c1a45154ec53763db6c3"
+      },
+      "source_commit": "b0bdbfbbfaa331690796c7b56546db8f3d7ae088",
+      "arm": "physical",
+      "weight": 802.5000841164167,
+      "freeze_decoder_residual": true,
+      "native_audit": false,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 1.8959201719999328,
+      "peak_gpu_memory_mib": 21756.44580078125,
+      "wall_seconds": 27.9066203149996,
+      "pm_correct": 2,
+      "n": 2
+    },
+    {
+      "run_id": "20261103-205445_decoded-diagnostic-8aed642b",
+      "raw_local": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-205445_decoded-diagnostic-8aed642b.zip",
+      "drive_root": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v5/runs/h8-diagnostic",
+      "archive": {
+        "bytes": 42038416,
+        "sha256": "5b2dbf7e2b94e5a49b65759cf4fca05fc59fdfa15f727209d63261a092c2f120"
+      },
+      "source_commit": "69318f5e44f82388b12c1f81f6ce0643e3dd61e1",
+      "arm": "diagnostic",
+      "weight": 0.0,
+      "freeze_decoder_residual": false,
+      "native_audit": true,
+      "runner_diagnostic_complete": true,
+      "reconstruction_seconds": 10.452334546000202,
+      "peak_gpu_memory_mib": 21756.44580078125,
+      "wall_seconds": 36.767559248,
+      "pm_correct": 2,
+      "n": 2
+    }
+  ],
+  "v4_h8_gate": {
+    "passed": true,
+    "cosines": [
+      0.9999606126309338,
+      0.9998391391554525,
+      0.9999720581925227,
+      0.9998891576422264,
+      0.9999781158310634,
+      0.9999221992524776
+    ],
+    "norm_ratios": [
+      1.0001455942831294,
+      1.0011060788695414,
+      1.000163778308439,
+      1.0010785748043634,
+      1.0001472788573942,
+      1.0008316509263866
+    ],
+    "thresholds": {
+      "minimum_cosine": 0.99,
+      "norm_ratio": [
+        0.9,
+        1.1
+      ]
+    },
+    "limitation": "Three zero-guidance checkpoints on two Gaussian objects; no global or accuracy guarantee"
+  },
+  "v5_rejected_forward_gate": {
+    "passed": false,
+    "forward_values_passed": false,
+    "forward_max_differences": [
+      0.00015935301780700684,
+      0.00011223554611206055,
+      0.0
+    ],
+    "forward_rms_differences": [
+      1.2423072803358082e-05,
+      9.376227353641298e-06,
+      0.0
+    ],
+    "cosines": [
+      0.9999585371527984,
+      0.999777582786555,
+      0.9999710248778573,
+      0.9998271967289122,
+      0.9999779401898152,
+      0.9998752493803283
+    ],
+    "norm_ratios": [
+      1.0001783902955728,
+      1.0009641995840115,
+      1.0001886343203223,
+      1.0009383067136328,
+      1.0002245326103292,
+      1.000645836536463
+    ],
+    "thresholds": {
+      "minimum_cosine": 0.99,
+      "norm_ratio": [
+        0.9,
+        1.1
+      ]
+    },
+    "limitation": "Three zero-guidance checkpoints on two Gaussian objects; no global or accuracy guarantee"
+  },
+  "published_source_head": "07f56378f268414d5155a7cd210e53c9fe07da6b",
+  "published_observer_matches_validated_b0bdbfb": true,
+  "cpu": {
+    "tests": 486,
+    "passed": 485,
+    "skipped": 1,
+    "wall_seconds": 26.222,
+    "log_path": "result/preparation/gsd_physical_spectral_20261103/cpu_suite_published_final.log",
+    "log_identity": {
+      "bytes": 120378,
+      "sha256": "3ccdef401e2ed1276265e34430234a1b079170f1d56827f33f7419c8dde4cb38"
+    }
+  },
+  "scientific_phase": {
+    "started_utc": "2026-11-03T20:17:13.051620+00:00",
+    "last_operator_finished_utc": "2026-11-03T20:55:31.395468+00:00",
+    "elapsed_seconds": 2298.343848,
+    "cap_seconds": 3300,
+    "reset": false
+  },
+  "runtime": {
+    "session": "tta-gsd-physical-spectral-a100-20261103-r1",
+    "endpoint": "gpu-a100-hm-ass1c0-i933qghuewn8",
+    "monitor_local_exec": 97932,
+    "teardown_authorized": false
+  },
+  "limitations": [
+    "Two unique exposed objects, not an accuracy benchmark",
+    "Single B2 reconstruction timings exclude graph setup",
+    "Native repeat variation confounds cross-run attribution",
+    "Last decoder-input-detachment optimization rejected and reverted"
+  ],
+  "portable_package": {
+    "bytes": 3698932,
+    "sha256": "44901d5160cbc191a430066cb47f46614b2ab86a7b8c1db6ca97beaac2766650",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/v5/deployment/final_research_package.zip"
+  }
+}

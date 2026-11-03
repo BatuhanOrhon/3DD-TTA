@@ -1,0 +1,36 @@
+{
+  "status": "independent_numpy_FD_passed",
+  "source_archive_sha256": "aa38984f4f5834276a18a377f3a5fb06f0075b99d5ba3c4ee100f68c7a63c5bf",
+  "fd": [
+    {
+      "scale": 0.001,
+      "independent_fd": 0.00285154049080095,
+      "autograd_directional": 0.0029172397083056132,
+      "relative_error": 0.02252102126459217
+    },
+    {
+      "scale": 0.01,
+      "independent_fd": 0.0027425443262540433,
+      "autograd_directional": 0.0029172397083056132,
+      "relative_error": 0.05988379410653102
+    }
+  ],
+  "baseline_loss": 0.030217683686154673,
+  "repeat_loss_drift": 2.5843786159718274e-08,
+  "filter_max_symmetry_error": 0.0,
+  "residual_freeze_surrogate": {
+    "local_autograd_cosine_per_object": [
+      0.9999600043427429,
+      0.9998474154829564
+    ],
+    "surrogate_over_autograd_norm_per_object": [
+      1.0001529127901514,
+      1.0011226329049225
+    ],
+    "omitted_residual_jacobian_over_autograd_norm_per_object": [
+      0.008945777133995008,
+      0.017514905981063447
+    ],
+    "limitation": "Compared with native autograd locally at frozen graph, not whole sampler or exact omitted geometry adjoints"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "status": "accepted_selected_ID_control",
+  "archive": "result/modelnet40_c/decoded_physical_spectral_diagnostic/20261103-201714_decoded-control-8aed642b.zip",
+  "sha256": "0ce6637ac96fb192821fe381ce75edd9c475fa6818e05e3df49c5b847e77f109",
+  "files_verified": 101,
+  "original_ids": [
+    44,
+    91
+  ],
+  "frozen_state_unchanged": true,
+  "diagnostic_complete": true,
+  "scope": "B2 Gaussian seed0; no accuracy/speed claim"
+}

@@ -1,18 +1,20 @@
-## 2026-11-03 — H7 physical decoded guidance and owned Colab preparation
+## 2026-11-03 — H7/H8 native physical decoded guidance: bounded pilot complete
 
-[User report/Code/CPU/Run/Open] [Scope, derivation and exact next operator steps](decoded_physical_spectral_study_20261103.md).
+[Run/Code/Inference/Open] [Final results and evidence](decoded_physical_spectral_results_20261103.md).
 
-- [x] Evaluate same-X-graph decoded loss versus independent unaligned spectra; record slot correspondence and corrupted-anchor limits.
-- [x] Add opt-in single-live-PM-decode observer + joint SCD/physical backward; verify toy gradient, zero-weight parity and failure bundle.
-- [x] Allocate own clearly named A100; canonical Cell1/reconnect and Cell2 Python3.8 verify (only deferred fastrlock wheel failure).
-- [x] User-operated Drive consent and real mount/Cell3 validation; own runtime retained, monitor97932 sole CLI owner.
-- [x] Add pre-observer native decoder FD gate with conservative repeat-noise/failure evidence checks;482CPU tests/1skip, native acceptance pending.
-- [ ] Complete canonicalCell3–10, strict source/model/data/native CPU proof, science-duration/source seal.
-- [ ] Actual native decoder gradient/FD, live-versus-no-grad control, correspondence and cost diagnostics; no GPU result yet.
-- [ ] Only after technical gates: label-free coefficient and bounded applied-step smoke, not new benchmark or wide sweep.
+- [x] Shared physical-X graph objective/slot-correspondence limits and residual-freeze derivative derived.
+- [x] Default-off single-PM-forward observer and joint SCD/physical backward; CPU486tests/1skip.
+- [x] Own A100/canonical10 setup, Drive and strict CPU/source/model/data/native proofs accepted.
+- [x] Native decoder FD and all6H8post-denoiser update gates accepted on two Gaussian IDs.
+- [x] Freeze rho.1 coefficient before accuracy, run full/surrogate/lightweight controls; singleB2times and all2/2 do not establish gains.
+- [x] Independent raw/source/state/physical-cache/five-native-payload acceptance and recovery archive.
+- [x] Reject and revert extra graph-free decoder-input optimization after predeclared RMS gate failure; preserve negative bundle.
+- [ ] Establish a backend/numerical repeat protocol before attributing small cross-run changes to guidance.
+- [ ] Test H8 directions and target bias on separate objects/corruptions; measure true total cost including graph construction.
+- [ ] Only after those gates, freeze a candidate and plan disjoint multi-seed accuracy confirmation with approval if its whole GPU phase exceeds60min.
 
-No default change; no runtime shutdown authorization. First entire science
-phase capped55min; reassess approval before any>60min expansion.
+Baseline/default unchanged. Science38.31min within55min cap; runtime/monitor
+remain open without teardown permission. No further research GPU phase launched.
 
 ## 2026-11-03 — GSD objective bias, fixed graph, decoder and eigenfree loss
 

@@ -1,5 +1,8 @@
 # Encoder öncesi fiziksel graf / decoder spectral guidance — 2026-11-03
 
+[Güncel sonuç, native kapılar ve sınırlar](decoded_physical_spectral_results_20261103.md).
+Aşağıdaki bekleyen durumlar tarihlidir; V5 negatif sonucu ve geri alma için sonuç raporunu okuyun.
+
 [User report/Decision] Kullanıcı önceki altı hipoteze ek olarak encoder öncesi
 nokta bulutunun graph spectrum'u ile PM'de zaten decode edilen çıktının
 karşılaştırılmasını ve Colab incelemelerinin başlamasını istedi.
@@ -275,3 +278,139 @@ as a cost. This is related motivation for checking approximation error against
 speed, not the same algorithm as freezing a LION decoder residual. Its image
 restoration results do not predict point-cloud classification accuracy. No
 novelty claim or extra GPU arm follows from these two additional readings.
+
+[Code/Open] Native-gradient scope: `models/pvcnn2.py` detaches voxel coordinates;
+`third_party/pvcnn/functional/devoxelization.py` returns a feature gradient and
+no coordinate gradient. These are inherited architectural choices, not a newly
+demonstrated GSD bug. Autograd can omit geometry-dependent paths of the numerical
+forward; small-step directional agreement therefore needs actual FD evidence.
+The eval/grad-enabled saved-weight path is explicitly selected by
+`self.training or torch.is_grad_enabled()` in the executed Python overlay;
+native binary identities and those Python wrapper bytes are checked separately.
+
+
+## 2026-11-03 20:06UTC — native preparation accepted; final setup check running
+
+[Run/Open] Exact canonical wrapper markers accepted: Cell4 19:43:50UTC,
+Cell5/EMD19:46:07, Cell6/Chamfer19:50:24, Cell7/PointNet++19:54:59,
+Cell8/PVCNN+GPU forward/backward20:02:45, Cell9/data20:04:25. Cell10
+started20:05:12, Point-MAE/LION weights copying; final report still pending.
+Cell6's first CLI connection failed during the preparatory cwd request before
+its phase source. Only failed local CLIchild37765 was terminated (not monitor
+or runtime). Same-VM audit verified no build process, persistent EMD marker
+and mountedDrive, then retry passed. No duplicated build/inference or VM change.
+
+Preparation archive02:779986bytes/SHA256
+`2c5c5fb972a7701238202934ac6a9462ee78cae5cd0ee0b1e786fb48fae40669`,66members.
+Drive `/content/drive/MyDrive/thesis/result/gsd_physical_spectral_20261103/setup/gsdphys_setup_checkpoint_02.zip`
+copy and downloaded roundtrip passed SHA/bytes/CRC. Latest logs/native completion
+are additionally retained under local `setup/monitor_chunks/`; final setup/
+deployment backup will follow. No science has started; its clock does not exist.
+Next: exactCell10 verification → reviewed operator_v2/install_phase.py → strictCPU
+proof → operator_v2/technical_phase.py (Gaussian/B2 control then FD diagnostic,
+one immutable3300s deadline). Monitor97932 remains sole cell owner, runtime open.
+
+
+## 2026-11-03 20:12UTC — canonical setup passed; schema repair in fresh V3
+
+[Run/Code/Open] CanonicalCell10 passed20:07:51UTC. Actual Python3.8.20,
+Torch2.1.2+cu121, NumPy1.21.2, A100-SXM4-80GB; preparation checkout
+a458cd46bba1288a3f41302548bc777700cbc7d4. Downloaded verificationJSON
+SHA25624807a5bc8e8f7cba4c019d0b80cce4e695abb09d8e862c325026dd54ce19fad.
+Native GPU/data/checkpoint checks passed; same bytes copied to Drive/setup/
+canonical_setup_verification.json and independently checked locally.
+
+V2 deployment failed before native restore/CPU preflight/science, on missing
+`checkpoints/modelnet_jt.pth` in the actual pinned622-file base manifest.
+The failure root/operator/logs remain untouched. Downloaded base manifest SHA
+78cdb53891bc0714dacd100eb220a5f6deb26bfe36f4e10b0aaa16f9aced60f9 confirms
+that schema. V3 adds the locked MNPointMAE entry from passed setup (351656113bytes,
+507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75),
+removes unnecessary ScanPointMAE copying, and uses fresh root
+`/content/studies/gsd-physical-spectral-20261103-v3`, Drive task `/v3`.
+Actual repaired checkpoint block executed against observed schema under a
+mock copy/identity boundary; source reference/schema/3.8 syntax checks and
+independent operator review passed. Scientific overlay unchanged (680279bytes,
+db5e46b703bba758954aea6d312ac3f4075467a1ace6f63558a0d290f5d528e2),
+source3e8b9be3d9c913d6757ea09026478b925da77fe0. V3 operator674166bytes,
+ffa6f1ecbf69ffdb645b17fbf6aae3633166b06df10d6d7479f81dc404d03270.
+V3 deployment submitted through monitor97932; no science clock started, no
+model inference result. Native bytes will be preserved before pinned restore.
+
+
+## 2026-11-03 20:23UTC — first actual native FD passed; raw acceptance underway
+
+[Run/Open] V3 deployment/strictCPU passed20:15:19UTC (no CUDA initialization/model
+forward in CPU proof). Deployed manifest181804bytes/SHA256
+e8433bf90aaaa129a86b367faaafd04ad9202bf155e9c0343aeaa866be64aab1. Fresh native
+bytes preserved/Drive verified before pinned restore:707578bytes,
+e162aef97d2a5c2e7c6374082d7788eccb6b71e8d855ab565ec2d0d0542e29e5.
+
+Science clock started20:17:13.051620UTC, immutable deadline21:12:13.051534UTC;
+no reset after operator failures. Gaussian/B2 IDs44,91/seed0 control completed
+(return0) in28.36s wall phase, raw archive1132592bytes/SHA256
+0ce6637ac96fb192821fe381ce75edd9c475fa6818e05e3df49c5b847e77f109. Local SHA/CRC/
+101-file bundle manifest/ID/config/frozen-state acceptance passed. The outer
+operator first failed to locate standard dataset/method/run nesting; actual
+control output was retained and never relaunched. Corrected nested-path contract
+was tested with real RunBundle.create (no GPU), then a continuation accepted the
+existing control against its hash and original clock. A prelude-only CLI disconnect
+was audited: no diagnostic directory/recovery receipt/process; retry used the same
+clock. No scientific source change or duplicate research job.
+
+Diagnostic run20261103-202220_decoded-diagnostic-8aed642b completed20:23:05UTC;
+raw41989598bytes/SHA256aa38984f4f5834276a18a377f3a5fb06f0075b99d5ba3c4ee100f68c7a63c5bf,
+Drive final copy sealed, local download/independent acceptance in progress.
+Native first-sample decoder FD at first checkpoint passed predeclared gates: AD
+.002917239908, FD.002851534692 / .002742543764; relative errors2.2523% /5.9884%
+at scales.001/.01. Repeat loss drift2.6077e-8; output max drift1.35675e-4, RMS5.65147e-6.
+RNG/buffers/live inputs unchanged. This is an empirical local-direction check with
+frozen graph, not a complete decoder/denoiser/Jacobian certificate or accuracy gain.
+Next: accept raw numerical evidence, derive exactly predeclared rho.1 coefficient
+without accuracy selection, freeze it, then bounded applied smoke under same deadline.
+
+Preparation03 archive954245bytes/SHA2561ad0cc3b1da18145ed117c2c46a9386eabb6163f7ee26251d5f75bc27776a164
+(114members) has Drive/local roundtrip SHA/CRC pass; contains setup, failedV2 and
+reviewedV3 operators/current source plus accepted control evidence (FD still pending
+at snapshot). Runtime and monitor97932 remain open; no teardown permission.
+
+
+## 2026-11-03 20:55UTC — H8 native direction verified; final graph-free forward check
+
+[Run/Inference] Independent raw acceptance passes for nine V3/V4 conditions,
+all two unique IDs44,91/Gaussian5/seed0. Each PM/terminal2/2 is an exploratory
+ceiling observation, not accuracy improvement. Actual paired cache135233bytes/
+SHAe15137161981feabbbf0a8bb49f3c3a3e9c4d5cc053ba05cb0dc16ddc43814d6,
+its local/style/noise hashes and saved h0XYZ, fresh PointNet++ ELF and all4pinned
+native ELF payloads were retrieved and independently rehashed. Old limitation
+that only recorded cache/native hashes were available is superseded by these bytes.
+Recovery capsule1140498bytes/SHA55cbe5d423453faa71d22cd708d0b1470776fbdb83fb237c034736654c4e721f
+contains actual payloads and identities; Drive/v4/deployment copy complete,
+roundtrip validation pending. Source3e8b9be and b0bdbfb bundles remain immutable.
+
+V3 same-mode zero repeats have logits maxabs2.18086/RMS.476961 despite identical
+preparedX/h0/cache/RNG/model records; all clean and terminal latent hashes differ.
+Full802.5-versus-zero logit shifts lie within this observed repeat variability.
+Native/backend numerical drift remains a confound; do not attribute those shifts
+or2/2 scores to the guidance objective.
+
+V4 sourceb0bdbfbbfaa331690796c7b56546db8f3d7ae088 all6post-denoiser, .03/.003
+update-space H8 checks passed: mincos.9998391392, surrogate/fullnorm1.0001455943–
+1.0011060789. Actual checkpoint decoder skip_weight=.01. Detached-residual
+local-gradient similarity is therefore supported on these states, not globally.
+OneB2 lightweight reconstruction times live0/full/surrogate1.869002/2.017366/
+1.895920s; peak all21756.4458MiB. These exclude graph setup; all-process wall
+27.904132/28.110213/27.906620s includes model/asset loading. Single timings are
+not a reliable speedup estimate. Heavy FD/diagnostic times are kept separate.
+
+Final optional optimization detaches decoder inputs while retaining global
+grad-enabled native forward mode (all weights frozen), avoiding unnecessary
+decoder autograd graph. Source6025ed5 plus same-state forward-witness driver
+69318f5e44f82388b12c1f81f6ce0643e3dd61e1:487CPU tests/1skip25.608s,22adjacent
+tests passed after the witness; independent code/operator reviews passed.
+V5source overlay681089bytes/SHAe1f0bb182faefeb1418ef641386fc7657a347448f601f880a76ee7dbda9abff6,
+manifestSHA9fe154c4c16e74dcf9fe44b270332119bc5cc02634d32c9886282790725d3d52.
+V5deployment/strictCPU passed20:52:45UTC. Native V5phase started20:54:43UTC:
+first full FD + same-state detached-forward value max<=5e-4/RMS<=1e-5 and
+all6H8update gates must pass before three lightweight arms. No reset of original
+21:12:13UTC deadline. Final V5 outcomes still pending here; runtime/monitor open.
