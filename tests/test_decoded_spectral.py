@@ -132,6 +132,20 @@ class DecodedSpectralTests(unittest.TestCase):
         self.assertFalse(diagnostics['decoder_jacobian_in_loss'])
         self.assertTrue(full.diagnostics()['decoded_spectral']['decoder_jacobian_in_loss'])
 
+    def test_surrogate_keeps_native_grad_mode_without_building_decoder_graph(self):
+        observer, latent, style = self.fixture(freeze_decoder_residual=True)
+        original = observer.vae.decoder
+        flags = []
+        def decode(unused, beta, context, style):
+            flags.append((torch.is_grad_enabled(), context.requires_grad, style.requires_grad))
+            return original(unused, beta, context, style)
+        observer.vae.decoder = decode
+        loss = observer.clean(latent, style, 0, 10)
+        self.assertEqual(flags, [(True, False, False)])
+        self.assertFalse(observer.spectral_records[0]['decoder_output_requires_grad'])
+        gradient, = torch.autograd.grad(loss, (latent,))
+        self.assertGreater(gradient.norm().item(), 0)
+
     def test_frozen_residual_bypasses_unsupported_decoder_backward_but_reaches_upstream_style(self):
         class Unsupported(torch.autograd.Function):
             @staticmethod

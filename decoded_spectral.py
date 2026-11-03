@@ -67,9 +67,11 @@ class DecodedSpectralObserver(SharedTrajectoryObserver):
         before, buffers_before = rng_hash(), model_buffer_hashes(self.models)
         latent_hash, style_hash = tensor_hash(latent), tensor_hash(style)
         with gradient_probe(self.models.values()):
+            decoder_latent = latent.detach() if self.freeze_decoder_residual else latent
+            decoder_style = style.detach() if self.freeze_decoder_residual else style
             decoded = self.vae.decoder(None, beta=None,
-                                       context=latent.clone().squeeze(3).squeeze(2),
-                                       style=style.clone().squeeze(3).squeeze(2))
+                                       context=decoder_latent.clone().squeeze(3).squeeze(2),
+                                       style=decoder_style.clone().squeeze(3).squeeze(2))
             decoded_hash = tensor_hash(decoded)
             prediction = decoded
             if self.freeze_decoder_residual:
@@ -87,6 +89,7 @@ class DecodedSpectralObserver(SharedTrajectoryObserver):
                     raise RuntimeError('Classifier callback mutated decoded geometry')
             record = dict(loop_count=count, raw_loss=float(loss.detach()),
                           decoded_geometry_reused=True, classifier_gradients=False,
+                          decoder_output_requires_grad=decoded.requires_grad,
                           loss_gradient_mode=self.loss_gradient_mode,
                           decoder_jacobian_in_loss=not self.freeze_decoder_residual)
             if self.record_gradients:
