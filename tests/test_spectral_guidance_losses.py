@@ -133,9 +133,31 @@ class SpectralLossTests(unittest.TestCase):
             with patch.object(module, 'spectral_guidance_loss', record):
                 _, metrics = module.tta_gsd_reconstruct(torch.zeros(1, 2048, 3), types.SimpleNamespace(vae=VAE(), priors=[None, Prior()]),
                     Graph(), 1, .01, .01, .95, loss_weights=dict(spectral=1.17, chamfer=0.), M_max=800, spectral_loss_kind=kind)
-            self.assertEqual([value[:2] for value in calls], [(kind, False), (kind, True)])
-            self.assertEqual(calls[0][2], calls[1][2])
+            self.assertEqual([value[:2] for value in calls], [(kind, True)])
             self.assertEqual(metrics['mean_raw_spectral'], calls[0][2])
+
+
+    def test_invariant_metric_uses_the_applied_mode_cutoff(self):
+        module = components.ComponentTests().reconstruction()
+        class Graph:
+            use_4d_gft = False
+            M = 2
+            def __call__(self, local):
+                return (local[:, :, :3].detach(), torch.eye(2048).unsqueeze(0),
+                        torch.zeros(1, 2048))
+        losses = []
+        original = module.F.mse_loss
+        def record(*args, **kwargs):
+            value = original(*args, **kwargs)
+            losses.append(value.detach().item())
+            return value
+        with patch.object(module.F, 'mse_loss', record):
+            _, metrics = module.tta_gsd_reconstruct(
+                torch.zeros(1, 2048, 3),
+                types.SimpleNamespace(vae=VAE(), priors=[None, Prior()]),
+                Graph(), 1, .01, .01, .95, M_max=800,
+                loss_weights=dict(spectral=0., chamfer=0., invariant=1.))
+        self.assertEqual(metrics['mean_raw_invariant'], losses[-1])
 
 
 class SpectralRunnerTests(unittest.TestCase):

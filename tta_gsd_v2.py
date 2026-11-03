@@ -199,43 +199,8 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                     H_orig_target = H_orig
                     U_active = U_o
 
-                signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
-                H_pred = torch.bmm(U_active.transpose(1, 2), signal)
-                
-            if weight_spectral > 0.0:
-                raw_loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
-                spectral_loss_calls += 1
-                history['raw_loss_spectral'].append(raw_loss_spectral.item())
-            else:
-                history['raw_loss_spectral'].append(0.0)
-
-            if weight_invariant > 0.0:
-                power_pred_raw = torch.norm(H_pred[:, :M_max, :], dim=-1)
-                power_orig_raw = torch.norm(H_orig_target[:, :M_max, :], dim=-1)
-                raw_loss_invariant = F.mse_loss(power_pred_raw, power_orig_raw, reduction='mean')
-                history['raw_loss_invariant'].append(raw_loss_invariant.item())
-            else:
-                history['raw_loss_invariant'].append(0.0)
-
-            if chamfer_dist is not None:
-                pred_latent_point_reshaped = h_bar_0[:, :, :3]
-                h_0_spatial = h_0[:, :, :3]
-                dists1, dists2, nearest_reference, _ = chamfer_dist(pred_latent_point_reshaped, h_0_spatial)
-                chamfer_calls += 1
-                if reference_weights is None:
-                    dists1 = torch.sort(dists1, dim=1).values[:, :int(num_latent_points * p)]
-                    dists2 = torch.sort(dists2, dim=1).values[:, :int(num_latent_points * p)]
-                    raw_loss_chamfer = dists1.sum() + dists2.sum()
-                else:
-                    from chamfer_guidance_variants import weighted_selective_chamfer
-                    raw_loss_chamfer = weighted_selective_chamfer(dists1, dists2, nearest_reference, reference_weights, p)
-                history['raw_loss_chamfer'].append(raw_loss_chamfer.item())
-            else:
-                history['raw_loss_chamfer'].append(0.0)
-            
         if weight_spectral > 0.0 or weight_invariant > 0.0:
-            # U_active and H_orig_target are already correctly updated from the no_grad block above.
-            # We just need to compute H_pred with gradients enabled.
+            # Reuse each live objective for metrics; a second GFT/loss adds no information.
             signal = h_bar_0 if graph_spectral_module.use_4d_gft else h_bar_0[:, :, :3]
             H_pred = torch.bmm(U_active.transpose(1, 2), signal)
             
@@ -243,13 +208,20 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
                 power_pred = torch.norm(H_pred[:, :graph_spectral_module.M, :], dim=-1)
                 power_orig = torch.norm(H_orig_target[:, :graph_spectral_module.M, :], dim=-1)
                 loss_invariant = F.mse_loss(power_pred, power_orig, reduction='mean')
+                history['raw_loss_invariant'].append(loss_invariant.detach().item())
                 total_loss = total_loss + weight_invariant * loss_invariant
                 
             if weight_spectral > 0.0:
                 loss_spectral = spectral_guidance_loss(H_pred, H_orig_target, eigenvalues, beta, M_max, spectral_loss_kind)
                 spectral_loss_calls += 1
+                history['raw_loss_spectral'].append(loss_spectral.detach().item())
                 total_loss = total_loss + weight_spectral * loss_spectral
             
+        if weight_invariant <= 0.0:
+            history['raw_loss_invariant'].append(0.0)
+        if weight_spectral <= 0.0:
+            history['raw_loss_spectral'].append(0.0)
+
         if weight_chamfer > 0.0:
             pred_latent_point_reshaped = h_bar_0[:, :, :3]
             h_0_spatial = h_0[:, :, :3]
@@ -262,7 +234,10 @@ def tta_gsd_reconstruct(x, lion, graph_spectral_module, steps_back_local, gamma,
             else:
                 from chamfer_guidance_variants import weighted_selective_chamfer
                 ch_loss = weighted_selective_chamfer(dists1, dists2, nearest_reference, reference_weights, p)
+            history['raw_loss_chamfer'].append(ch_loss.detach().item())
             total_loss = total_loss + weight_chamfer * ch_loss
+        else:
+            history['raw_loss_chamfer'].append(0.0)
 
         component_probe = getattr(trajectory_observer, 'guidance_components', None)
         if callable(component_probe) and weight_chamfer > 0.0:
