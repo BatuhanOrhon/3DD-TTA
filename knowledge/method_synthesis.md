@@ -1,3 +1,15 @@
+## GSD mathematical/efficiency diagnosis — 2026-11-03
+
+[Paper/Code/Run/Inference/Open] [New report](gsd_guidance_math_efficiency_20261103.md)
+derives corrupted-anchor shrinkage/risk, fixed-versus-adaptive metric gradients,
+decoder pullback mismatch and eigenfree square-root heat filtering with loss and
+gradient error bounds. Sparse Chebyshev is a compute approximation of the same
+smooth objective; it does not repair objective bias or equal hard-M legacy.
+New synthetic witnesses and small sampler computation/metric repairs are CPU-only.
+Latest spectral-z null/cost evidence and N8 Chamfer+PM baseline remain unchanged.
+Prioritize actual direction/decoder evidence, then conditional matched accuracy;
+no universal failure explanation or simultaneous speed+accuracy gain established.
+
 # Method Synthesis and Hypotheses
 
 ## Graph spectral retrospective conclusion — 2026-11-01

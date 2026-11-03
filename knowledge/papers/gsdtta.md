@@ -1,3 +1,16 @@
+## Guidance-domain and computational reread — 2026-11-03
+
+[Paper/Code/Run/Inference/Open] [Eleven-source focused review and derivations](../gsd_guidance_math_efficiency_20261103.md)
+separate valid fixed-basis reconstruction from topology/decoder metric mismatch.
+Explicit low-band shifts are a parameterization of a driving objective; low-band
+corrupted-reference fidelity instead penalizes changes. Dynamic graph code uses
+a frozen current metric, omitting its graph-Jacobian term intentionally; it is
+not full differentiation of a geometry-dependent metric. Sparse square-root heat
+Chebyshev loss is a prospective compute-equivalent approximation of smooth heat,
+not of legacy rank-M truncation and not an established accuracy contribution.
+Small legacy/component duplicate-computation and invariant-metric repairs preserve
+toy guidance parity; no new GSDTTA reproduction/GPU inference or baseline promotion.
+
 # Paper Note: GSDTTA
 
 ## Primary-paper/GFT retrospective reread — 2026-11-01

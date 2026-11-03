@@ -8446,3 +8446,34 @@ server inventory (no active sessions) verified22:42:42UTC. Collector87508 ended
 22:09:57UTC; old LOST r1 monitor had stopped20:37UTC. Peer work untouched;
 agent worktree/branch and all local raw/derived evidence preserved. Only a
 documentation follow-up records this observed closure; no further research run.
+
+
+## 2026-11-03 — GSD guidance mathematics and efficient loss audit
+
+[Paper/Code/Run/Inference/Open] Fresh `origin/thesis-integration@daf37a4`, isolated
+`research/gsd-guidance-math-audit-20261103`; [full Turkish report](gsd_guidance_math_efficiency_20261103.md).
+Eleven primary references connect GSDPS, graph filtering/stability, Wiener risk,
+LION and sparse polynomial computation. Fixed shared U gives a valid inverse;
+corrupted-reference fidelity differs from learning low-band shifts. New asserted
+CPU witnesses establish coefficient/operator equivalence, detached-vs-full graph
+Jacobian differences, a decoder mode-mixing counterexample and sparse square-root
+heat-loss/gradient approximation (K16 error near machine precision on one toy graph).
+None is actual-LION causal/accuracy or CUDA timing evidence.
+
+[Code/Run] Remove redundant diagnostic spectral GFT/loss and Chamfer forward in
+`tta_gsd_v2.py`, reusing each live scalar for metrics (active calls2→1). Repair
+invariant raw metric's M_max-versus-applied graph.M mismatch. Pinned toy
+trajectory/state/RNG parity retained. Full CPU suite465 tests:464 pass/1historical
+sealed-source fixture skip. These edits are in the legacy/component sampler;
+latest h:SCD/z:spectral uses separate `tta.py` routing, so its3.338×/2.810× fresh
+cost is not claimed fixed. No default, scientific objective or dependency change.
+
+[Run/Decision] Preserve latest128-ID/all15/three-seed spectral65.5729 versus
+C65.5903% null result, accepted raw sources and operational N8 Chamfer+PM baseline.
+No accepted accuracy condition repeated, no GPU/Colab/runtime action. Prioritize
+clean-direction/decoder diagnostics before a new objective sweep; test exact-heat
+versus polynomial-heat separately from accuracy. Fixed-to-dynamic operator,
+reliability and low-band parameterization hypotheses have explicit falsifiers.
+Real same-state directional/decoder tests and end-to-end B1/B32 GPU costs remain
+open. Actual positive matched confirmation or small operator/decoder discrepancies
+would change the corresponding diagnosis; no single causal failure is established.
