@@ -1,3 +1,15 @@
+## Physical decoded-X spectral hypothesis — 2026-11-03
+
+[User report/Code/CPU/Run/Open] [H7 plan, implementation and owned Colab gate](decoded_physical_spectral_study_20261103.md)
+uses the graph on exact pre-encoder prepared X and applies the metric to decoded
+predicted-clean XYZ. This differs from legacy physical-basis-on-latent signals.
+A single live PM decode can feed detached classification plus physical loss;
+decoder/denoiser backward adds cost. Same fixed basis and slot correspondence
+remain assumptions; physical-space fidelity still anchors corrupted X.
+CPU opt-in prototype is verified, source frozen as c415e87. Own A100 is allocated;
+Drive user consent/Cell3–10 and actual native diagnosis remain pending.
+No accuracy/speed result, method promotion or integration publication yet.
+
 ## GSD mathematical/efficiency diagnosis — 2026-11-03
 
 [Paper/Code/Run/Inference/Open] [New report](gsd_guidance_math_efficiency_20261103.md)
@@ -688,3 +700,18 @@ Do not promote this opt-in profile. GFT/native coordinate math checks pass;
 absence of accuracy gain is not an established GFT-transpose bug or universal
 spectral harm. Raw-lambda/graf-density/reference-anchor transfer hypotheses
 remain causal questions. [Results, independent acceptance and limits](scdh_spectralz_results_20261101.md).
+
+
+## 2026-11-03 — physical decoder spectral guidance and H8 bounded evidence
+
+[Run/Code/Inference] [Native pilot/results](decoded_physical_spectral_results_20261103.md).
+On the exact prepared encoder input X, compare decoded Y via fixed F_X. This
+uses a common physical graph and still anchors corrupted X. LION decoder
+D=Πh+.01R permits an explicit frozen-residual surrogate with the same pointwise
+loss value but gradient Πᵀ2F_X(Y−X)/(3N); the omitted term is .01J_Rᵀg_X.
+Two Gaussian objects/three checkpoints give post-denoiser joint-gradient
+cos>=.999839; broader validity and accuracy remain open. H8 skips decoder
+backward while retaining its live forward. Removing the forward graph by also
+detaching decoder inputs failed a predeclared native-value gate and was reverted.
+Native repeat drift and graph setup must be controlled before total-cost/gain
+claims. Defaults and accepted N8Chamfer+PM baseline remain unchanged.

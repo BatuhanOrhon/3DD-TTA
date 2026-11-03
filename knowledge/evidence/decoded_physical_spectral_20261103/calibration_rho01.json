@@ -1,0 +1,20 @@
+{
+  "status": "frozen_before_applied_accuracy",
+  "formula": "0.1 * median(first_checkpoint_per_object_scd_over_physical_update_norm_ratio)",
+  "rho": 0.1,
+  "ratios": [
+    8482.28325070911,
+    7567.718431619222
+  ],
+  "weight": 802.5000841164167,
+  "source_archive_sha256": "aa38984f4f5834276a18a377f3a5fb06f0075b99d5ba3c4ee100f68c7a63c5bf",
+  "source_commit": "3e8b9be3d9c913d6757ea09026478b925da77fe0",
+  "original_ids": [
+    44,
+    91
+  ],
+  "corruption": "gaussian",
+  "seed": 0,
+  "diagnostic_checkpoint": 2,
+  "scope": "Single predeclared coefficient; no accuracy-selected tuning"
+}

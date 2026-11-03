@@ -8477,3 +8477,84 @@ reliability and low-band parameterization hypotheses have explicit falsifiers.
 Real same-state directional/decoder tests and end-to-end B1/B32 GPU costs remain
 open. Actual positive matched confirmation or small operator/decoder discrepancies
 would change the corresponding diagnosis; no single causal failure is established.
+
+
+## 2026-11-03 — Physical pre-encoder graph / decoded-PM spectral hypothesis opened
+
+[User report/Code/CPU/Run/Open] User authorizes additional decoded physical
+spectral idea and starting Colab investigations. [Plan/math/setup handoff](decoded_physical_spectral_study_20261103.md).
+Same exact prepared-X graph/filter compares decoder predicted clean XYZ to X;
+independent spectra need correspondence/alignment. PM observer is currently
+detached, so a live decode shares forward but adds decoder/denoiser backward.
+Opt-in DecodedSpectralObserver and default-off tta weight preserve original-z
+contract; CPU toy proves live local/style effect and weight-zero state/RNG parity.
+Driver separates no-grad control from live zero-weight diagnostic to expose
+native branch/PM changes, and records slot versus set discrepancy and per-object
+spectral/SCD update directions. Independent review found missing h0 capture key;
+fixed before any science, regression added. Sparse-heat/anchor hypotheses from
+prior report remain; no new accuracy/speed conclusion.
+
+[Run/Open] Own A10080GB/High-RAM session
+`tta-gsd-physical-spectral-a100-20261103-r1`, endpoint
+gpu-a100-hm-ass1c0-i933qghuewn8. Cell1/reconnect passed; Cell2 only deferred
+fastrlock0.8.4 failure, Python3.8.20 independently verified. Drive CLI70086 waits
+user consent; Cell3–10 and strictCPU/native/source gates pending. No research
+inference, no accepted accuracy rerun, no peer operation/teardown. First planned
+technical/science phase20–45min/55min cumulative cap, fixed seed0/B2/2then≤8IDs/
+Gaussian-BG-shear-LiDAR, not full benchmark. Local result/preparation/
+gsd_physical_spectral_20261103 preserves logs/wrappers; Drive destination pending
+mount. Runtime retained; no close authorization. Falsifiers: disconnected or
+invalid native gradient, large slot/set mismatch, non-beneficial matched direction,
+or no net compute advantage with correct decoder backward accounting.
+
+
+## 2026-11-03 19:40UTC — physical spectral continuation: Drive and native FD gate
+
+[User report/Run/Code/CPU/Open] User granted Drive consent and asked for background
+supervision. Own session `tta-gsd-physical-spectral-a100-20261103-r1`, endpoint
+`gpu-a100-hm-ass1c0-i933qghuewn8`, retained. Persistent monitor local97932 started
+19:23:42UTC; sole CLI cell owner with60s observation and bounded idle probes.
+Old mount timed out; same-kernel audit then canonicalCell3 retry passed19:28:34UTC.
+Cell4 started19:29:02UTC; pinned CUDA/GCC preparation still running. No science
+inference started; no runtime teardown authorization.
+
+Native local-decoder FD source `3e8b9be3d9c913d6757ea09026478b925da77fe0` adds
+six live forwards, two frozen relative perturbation scales, derivative-resolution
+and repeat-noise gates. Independent review found premature observer backward;
+fixed before GPU, with an executable failure-artifact regression. Full final
+first-party suite482tests:481pass/1skip,25.928s.
+`knowledge/evidence/decoded_physical_spectral_20261103/native_audit_cpu_verification.json`
+records source/log/overlay identities. OperatorV2 uploaded, not deployed;
+674042bytes/SHA2562a08a7604dc0c78f85f9ad23477eeb8b4ddfa895777ca996af6d78141c74716b.
+
+Next: exact-markerCell4–10 acceptance, deployment/strictCPU, then first Gaussian/B2
+paired control/diagnostic with cumulative55min science cap (estimate20–45min).
+No accuracy/speed/native-gradient conclusion. Technical FD failure stops applied
+physical guidance. Runtime/source/raw logs remain preserved; Drive archive roundtrip
+for this continuation pending canonical setup.
+
+
+## 2026-11-03 21:02UTC — physical decoder spectral pilot complete; H8 accepted, extra optimization rejected
+
+[Run/Code/Inference/Decision] See `decoded_physical_spectral_results_20261103.md`
+and `evidence/decoded_physical_spectral_20261103/final_receipt.json`. Ten immutable
+runner bundles: nine V3/V4 successful selected-ID conditions plus one V5 negative
+forward-equivalence gate; two unique Gaussian5 IDs44,91, seed0. Shared physical-X
+heat objective and native decoder FD pass; actual skip_weight=.01 and all6H8joint
+update cos>=.999839/normratio1.000146–1.001106. Fixed λ802.5000841164167 from
+predeclared rho.1 gradient-norm formula, no accuracy selection. All observedPM/
+terminal2/2; no accuracy gain. SingleB2live0/full/surrogate reconstruction
+1.869002/2.017366/1.895920s excludes graph setup, peakall21756.4458MiB. Native
+zero-repeat logitsmax2.18086 is a confound, so no reliable speed/causal gain claim.
+
+V5detacheddecoder-input forward RMS1.24230727e-5>fixed1e-5, despite gradient/
+FD gates passing. Applied V5arms did not launch. Optimization6025ed5 reverted
+by07f5637; final observer bytes equal validatedb0bdbfb. FinalCPU486tests/1skip
+26.222s, no default promotion. Actual pairedNPZ/five native ELF payloads and
+all source/state/manifests independently validated. Recovery capsule1140498bytes/
+SHA55cbe5d423453faa71d22cd708d0b1470776fbdb83fb237c034736654c4e721f is Drive backed.
+Firstscience20:17:13UTC→lastphase20:55:31UTC,2298.34s/38.31min, immutable3300s cap
+not reset; setup separate. No further GPU research planned. Session
+`tta-gsd-physical-spectral-a100-20261103-r1`/A100 endpoint unchanged, monitor97932
+stays active; no runtime-close authorization. Next: native-repeat controls,
+correspondence/anchor tests, eigenfree cost and separate development/confirmation.

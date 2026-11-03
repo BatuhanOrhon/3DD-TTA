@@ -1,3 +1,19 @@
+## 2026-11-03 — Physical-spectral A100 ten-cell replay passes
+
+[Run/Open] Owned `tta-gsd-physical-spectral-a100-20261103-r1` passed canonical
+Cell10 at20:07:51UTC after ordered split cells and same-VM reconnection after
+Cell1. Only the known Cell2 fastrlock failure was deferred. A transient Cell6
+CLI prelude disconnect was audited before retry; no build process remained,
+the completed EMD marker and Drive mount survived. No duplicate build or VM
+replacement. Python3.8.20/Torch2.1.2+cu121/NumPy1.21.2/A100-SXM4-80GB;
+preparation checkouta458cd46bba1288a3f41302548bc777700cbc7d4. Native GPU,
+15corruption arrays/clean data and checkpoint identity checks passed. Raw
+`result/preparation/gsd_physical_spectral_20261103/setup/cli_setup_verification.json`,
+SHA25624807a5bc8e8f7cba4c019d0b80cce4e695abb09d8e862c325026dd54ce19fad,
+same bytes verified under task Drive/setup/canonical_setup_verification.json.
+Research source deployment is separate; no inference outcome follows from setup.
+[Current task, raw evidence and remaining gates](decoded_physical_spectral_study_20261103.md).
+
 ## 2026-10-30 — New depth-study A100 ten-cell replay passes
 
 [Run/Open] Owned tta-chamfer-depth-tuning-a100-20261030-r1 completes all10

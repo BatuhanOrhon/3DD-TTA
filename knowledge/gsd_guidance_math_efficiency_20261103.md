@@ -411,3 +411,14 @@ grafla değiştirmek bu accuracy tanısını çözmez.
 yoktur. Bu nedenle doğrulanmış tek accuracy-kaybı nedeni veya simultaneous
 accuracy+speed çözümü sunduğumuz iddia edilmez. Bu rapor, hangi ölçümün hangi
 alternatif açıklamayı eleyeceğini ve en ucuz sonraki deneyi belirler.
+
+## Kullanıcının ek decoder-domain fikri ve devamı
+
+[User report/Code/Inference/Open] Aynı encoder-input grafında PM decoder
+çıktısını karşılaştıran H7 ve decoder'ın `XYZ + learned residual` yapısından
+türetilen ucuz residual-freeze surrogate H8, ayrı
+[fiziksel spectral çalışma kaydında](decoded_physical_spectral_study_20261103.md)
+matematik/gate/protokolle açıldı. H8, decoder backward'ı atlar fakat tam
+fiziksel loss gradienti değildir; yön ve toplam maliyet testleri gerekir.
+Bu ek kayıt actual Colab hazırlığının güncel durumunu taşır; yukarıdaki
+native çalıştırılmadı ifadeleri ilk matematik denetimi fazının tarihsel sınırıdır.

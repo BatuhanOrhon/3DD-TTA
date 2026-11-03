@@ -1,0 +1,94 @@
+{
+  "base_commit": "9729513b17c93e5d5a1961c173fc7be782bfd192",
+  "limitations": [
+    "No actual native decoder backward, GPU speed or accuracy evidence",
+    "Slot correspondence assumed and must be measured",
+    "Diagnostic costs include extra VJPs/storage; not optimized deployment cost",
+    "Google interactive consent is user-operated; no runtime close permission"
+  ],
+  "science_scope": {
+    "batch_size": 2,
+    "corruptions": [
+      "gaussian",
+      "background",
+      "shear",
+      "lidar"
+    ],
+    "cumulative_cap_seconds": 3300,
+    "estimated_minutes": [
+      20,
+      45
+    ],
+    "full_benchmark": false,
+    "initial_ids": [
+      44,
+      91
+    ],
+    "max_ids": [
+      44,
+      91,
+      103,
+      137,
+      158,
+      223,
+      236,
+      265
+    ],
+    "question": "Physical-X reference graph versus live decoded predicted-clean XYZ; gradient/correspondence/cost diagnostics",
+    "seed": 0
+  },
+  "setup": {
+    "cell3": "pending user Drive consent",
+    "cells_1_2": "Cell1/reconnect passed; cell2 deferred fastrlock0.8.4 only; actual Python3.8.20 env verified",
+    "cells_4_10": "not started",
+    "drive_cli_local_session": 70086,
+    "endpoint": "gpu-a100-hm-ass1c0-i933qghuewn8",
+    "hardware": "NVIDIA A100-SXM4-80GB",
+    "notebook": {
+      "bytes": 31178,
+      "sha256": "f60db956118c25196f43ae02a00667485ddffbc73691e601134cb194f885559b"
+    },
+    "research_gpu_executed": false,
+    "session": "tta-gsd-physical-spectral-a100-20261103-r1",
+    "shape": "High-RAM",
+    "teardown_authorized": false
+  },
+  "source_files": {
+    "decoded_spectral.py": {
+      "bytes": 7088,
+      "sha256": "aba71c76f3e6b9b70bb71bb086b1c3fa66eb09e26b97f556b290e8f8f4b8b3b7"
+    },
+    "scripts/diagnose_decoded_spectral.py": {
+      "bytes": 24344,
+      "sha256": "ebd058a155f2ce16dc0131e115784f8f6a1edadd60e5fc6883f5ec2faed3a0e2"
+    },
+    "tests/test_decoded_spectral.py": {
+      "bytes": 9557,
+      "sha256": "4001059aec127c34b9d39d29d30cc0d773f661d8e1b0a3b8852a8e9c232b47a8"
+    },
+    "tests/test_diagnose_decoded_spectral.py": {
+      "bytes": 3162,
+      "sha256": "6cee5f81d548d1f6b911bc4c6f20c71ec5eac8e6ca39f6b582beb52a258af0df"
+    },
+    "tta.py": {
+      "bytes": 12018,
+      "sha256": "36f524aa274270e5232172349ae4d4d8f9a3b4c9f2e1a93541cb0d1e7884455e"
+    }
+  },
+  "status": "CPU_prepared_GPU_science_pending",
+  "verification": {
+    "command": "/tmp/tta-lion-reencode-venv/bin/python -m unittest discover -s tests -q",
+    "exit_code": 0,
+    "independent_review": "One P1 missing captured h0XYZ fixed before GPU run; regression added; no other material finding",
+    "passed": 472,
+    "seconds": 26.555,
+    "skipped": 1,
+    "stdout_identity": {
+      "bytes": 119809,
+      "sha256": "6162f7f1814ea73a58d9a43a12a42c440f5fee80ea984a85a51a87adce209bbc"
+    },
+    "stdout_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_physical_spectral_20261103/cpu_suite_reviewed.log",
+    "targeted_tests": 8,
+    "tests_run": 473
+  }
+}

@@ -1,3 +1,21 @@
+## 2026-11-03 — H7/H8 native physical decoded guidance: bounded pilot complete
+
+[Run/Code/Inference/Open] [Final results and evidence](decoded_physical_spectral_results_20261103.md).
+
+- [x] Shared physical-X graph objective/slot-correspondence limits and residual-freeze derivative derived.
+- [x] Default-off single-PM-forward observer and joint SCD/physical backward; CPU486tests/1skip.
+- [x] Own A100/canonical10 setup, Drive and strict CPU/source/model/data/native proofs accepted.
+- [x] Native decoder FD and all6H8post-denoiser update gates accepted on two Gaussian IDs.
+- [x] Freeze rho.1 coefficient before accuracy, run full/surrogate/lightweight controls; singleB2times and all2/2 do not establish gains.
+- [x] Independent raw/source/state/physical-cache/five-native-payload acceptance and recovery archive.
+- [x] Reject and revert extra graph-free decoder-input optimization after predeclared RMS gate failure; preserve negative bundle.
+- [ ] Establish a backend/numerical repeat protocol before attributing small cross-run changes to guidance.
+- [ ] Test H8 directions and target bias on separate objects/corruptions; measure true total cost including graph construction.
+- [ ] Only after those gates, freeze a candidate and plan disjoint multi-seed accuracy confirmation with approval if its whole GPU phase exceeds60min.
+
+Baseline/default unchanged. Science38.31min within55min cap; runtime/monitor
+remain open without teardown permission. No further research GPU phase launched.
+
 ## 2026-11-03 — GSD objective bias, fixed graph, decoder and eigenfree loss
 
 [Paper/Code/Run/Inference/Open] [Mathematical diagnosis and six falsifiable hypotheses](gsd_guidance_math_efficiency_20261103.md).

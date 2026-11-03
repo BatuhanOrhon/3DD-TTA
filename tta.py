@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import math
 
 import torch
 from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist as chamfer_grad
@@ -40,7 +41,7 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     scheduler_observer=None, return_trajectory=False,
                     scd_normalize=False, prepared_state=None, state_observer=None,
                     trajectory_observer=None, shape_guidance=None, chamfer_reference=None,
-                    style_spectral=None):
+                    style_spectral=None, decoded_spectral_weight=0.):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -53,10 +54,20 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     - p: Proportion of points to consider in Chamfer Distance.
     - total: Total number of diffusion steps (default: 100).
     - scd_normalize: Opt-in Eq. 11 point-count normalization for SCD.
+    - decoded_spectral_weight: Opt-in physical decoded-X loss at observer checkpoints.
 
     Returns:
     - pred_points: Reconstructed point cloud.
     """
+    if (isinstance(decoded_spectral_weight, bool) or not isinstance(decoded_spectral_weight, (int, float))
+            or not math.isfinite(decoded_spectral_weight) or decoded_spectral_weight < 0):
+        raise ValueError('decoded_spectral_weight must be finite and nonnegative')
+    if decoded_spectral_weight > 0:
+        from decoded_spectral import DecodedSpectralObserver
+        if not isinstance(trajectory_observer, DecodedSpectralObserver):
+            raise ValueError('Positive decoded_spectral_weight requires a decoded spectral observer')
+        if shape_guidance is not None or style_spectral is not None:
+            raise ValueError('Decoded spectral guidance requires the original joint local/style update')
     # Initialize chamfer distance and scheduler
     chamfer_dist = chamfer_grad()
     num_samples, num_points = x.size()[0], x.size()[1]
@@ -150,8 +161,8 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         pred_latent_point = scheduler_output.pred_original_sample
         if trajectory_observer is not None:
             # Clean predictions and terminal both use the original encoded style.
-            trajectory_observer.clean(pred_latent_point,
-                                      shape_latent if shape_guidance is None else style_cond, i, t)
+            decoded_spectral_loss = trajectory_observer.clean(
+                pred_latent_point, shape_latent if shape_guidance is None else style_cond, i, t)
             trajectory_observer.mark('chamfer_backward_update')
         
         # Compute Selective Chamfer Distance
@@ -161,6 +172,13 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         dists2 = torch.sort(dists2, dim=1).values[:, :int(num_points * p)]
         ch_loss = selective_chamfer_loss(
             dists1, dists2, num_points, normalize=scd_normalize)
+        if decoded_spectral_weight > 0 and decoded_spectral_loss is not None:
+            if (not isinstance(decoded_spectral_loss, torch.Tensor) or decoded_spectral_loss.ndim != 0
+                    or not decoded_spectral_loss.requires_grad or not torch.isfinite(decoded_spectral_loss)):
+                raise ValueError('Expected finite live scalar decoded spectral loss')
+            ch_loss = ch_loss + decoded_spectral_weight * decoded_spectral_loss
+            if not torch.isfinite(ch_loss):
+                raise FloatingPointError('Weighted decoded spectral objective is nonfinite')
 
         # Zero out gradients and backpropagate Chamfer loss
         if noisy_latent_point.grad is not None:

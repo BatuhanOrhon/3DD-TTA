@@ -1,3 +1,16 @@
+**[Run/Code/Inference/Open] 2026-11-03 — decoded physical spectral pilot accepted; no accuracy gain established:**
+[Results, mathematical surrogate, native gates and falsifiers](decoded_physical_spectral_results_20261103.md).
+Same encoder-input graph can guide decoded PM geometry. Native FD and all6
+full-vs-residual-freeze update checks passed (mincos.999839). OneB2 Gaussian
+live0/full/surrogate reconstruction1.869/2.017/1.896s, all2/2; no benchmark or
+reliable speedup claim. Native zero-repeat drift is substantial. The later
+input-detachment optimization failed its fixed forward-RMS gate and was reverted;
+validated H8 remains default-off. Ten raw bundles, actual paired cache and five
+native ELF payloads independently checked; final CPU486tests/1skip. Science38.31min,
+no default promotion. Own A100 `tta-gsd-physical-spectral-a100-20261103-r1` and
+monitor97932 remain open; no teardown permission. Final source/evidence publication
+and archive receipts are in the linked report.
+
 **[Paper/Code/CPU/Inference/Open] 2026-11-03 — GSD guidance mathematical and efficiency audit:**
 [Eleven-primary-source review, derivations, six falsifiable hypotheses and minimal next tests](gsd_guidance_math_efficiency_20261103.md).
 Fixed common U/inverse is valid; corrupted-anchor bias and decoder/operator mismatch
