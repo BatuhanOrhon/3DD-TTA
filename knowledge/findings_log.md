@@ -8477,3 +8477,32 @@ reliability and low-band parameterization hypotheses have explicit falsifiers.
 Real same-state directional/decoder tests and end-to-end B1/B32 GPU costs remain
 open. Actual positive matched confirmation or small operator/decoder discrepancies
 would change the corresponding diagnosis; no single causal failure is established.
+
+
+## 2026-11-03 — Physical pre-encoder graph / decoded-PM spectral hypothesis opened
+
+[User report/Code/CPU/Run/Open] User authorizes additional decoded physical
+spectral idea and starting Colab investigations. [Plan/math/setup handoff](decoded_physical_spectral_study_20261103.md).
+Same exact prepared-X graph/filter compares decoder predicted clean XYZ to X;
+independent spectra need correspondence/alignment. PM observer is currently
+detached, so a live decode shares forward but adds decoder/denoiser backward.
+Opt-in DecodedSpectralObserver and default-off tta weight preserve original-z
+contract; CPU toy proves live local/style effect and weight-zero state/RNG parity.
+Driver separates no-grad control from live zero-weight diagnostic to expose
+native branch/PM changes, and records slot versus set discrepancy and per-object
+spectral/SCD update directions. Independent review found missing h0 capture key;
+fixed before any science, regression added. Sparse-heat/anchor hypotheses from
+prior report remain; no new accuracy/speed conclusion.
+
+[Run/Open] Own A10080GB/High-RAM session
+`tta-gsd-physical-spectral-a100-20261103-r1`, endpoint
+gpu-a100-hm-ass1c0-i933qghuewn8. Cell1/reconnect passed; Cell2 only deferred
+fastrlock0.8.4 failure, Python3.8.20 independently verified. Drive CLI70086 waits
+user consent; Cell3–10 and strictCPU/native/source gates pending. No research
+inference, no accepted accuracy rerun, no peer operation/teardown. First planned
+technical/science phase20–45min/55min cumulative cap, fixed seed0/B2/2then≤8IDs/
+Gaussian-BG-shear-LiDAR, not full benchmark. Local result/preparation/
+gsd_physical_spectral_20261103 preserves logs/wrappers; Drive destination pending
+mount. Runtime retained; no close authorization. Falsifiers: disconnected or
+invalid native gradient, large slot/set mismatch, non-beneficial matched direction,
+or no net compute advantage with correct decoder backward accounting.

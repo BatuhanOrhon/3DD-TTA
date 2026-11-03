@@ -1,3 +1,18 @@
+## 2026-11-03 — H7 physical decoded guidance and owned Colab preparation
+
+[User report/Code/CPU/Run/Open] [Scope, derivation and exact next operator steps](decoded_physical_spectral_study_20261103.md).
+
+- [x] Evaluate same-X-graph decoded loss versus independent unaligned spectra; record slot correspondence and corrupted-anchor limits.
+- [x] Add opt-in single-live-PM-decode observer + joint SCD/physical backward; verify toy gradient, zero-weight parity and failure bundle.
+- [x] Allocate own clearly named A100; canonical Cell1/reconnect and Cell2 Python3.8 verify (only deferred fastrlock wheel failure).
+- [ ] User-operated Drive consent; preserve CLI70086 and own runtime.
+- [ ] Complete canonicalCell3–10, strict source/model/data/native CPU proof, science-duration/source seal.
+- [ ] Actual native decoder gradient/FD, live-versus-no-grad control, correspondence and cost diagnostics; no GPU result yet.
+- [ ] Only after technical gates: label-free coefficient and bounded applied-step smoke, not new benchmark or wide sweep.
+
+No default change; no runtime shutdown authorization. First entire science
+phase capped55min; reassess approval before any>60min expansion.
+
 ## 2026-11-03 — GSD objective bias, fixed graph, decoder and eigenfree loss
 
 [Paper/Code/Run/Inference/Open] [Mathematical diagnosis and six falsifiable hypotheses](gsd_guidance_math_efficiency_20261103.md).

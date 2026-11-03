@@ -1,3 +1,11 @@
+**[User report/Code/Run/Open] 2026-11-03 — decoder physical-spectral investigation started:**
+[Additional hypothesis, bounded diagnostic phase and owned A100 setup](decoded_physical_spectral_study_20261103.md).
+Same prepared-X graph compares live decoded clean predictions against encoder input;
+PM decode currently detaches, so gradient reuse requires explicit live probes.
+Own `tta-gsd-physical-spectral-a100-20261103-r1` allocated; Cell1/reconnect passed,
+Cell2 active, no research inference yet. First science phase≤55min total cap;
+no full benchmark/default change or runtime teardown authorized.
+
 **[Paper/Code/CPU/Inference/Open] 2026-11-03 — GSD guidance mathematical and efficiency audit:**
 [Eleven-primary-source review, derivations, six falsifiable hypotheses and minimal next tests](gsd_guidance_math_efficiency_20261103.md).
 Fixed common U/inverse is valid; corrupted-anchor bias and decoder/operator mismatch
