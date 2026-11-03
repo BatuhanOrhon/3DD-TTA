@@ -206,3 +206,72 @@ the monitor owns the runtime. Seal a new operator_v2 with the audit helper and
 updated driver; preserve V1 payloads. Then deployment/strictCPU gate followed
 by Gaussian/B2 control and diagnostic. Start the immutable55min cumulative
 science deadline immediately before the first scientific/native-GPU job.
+
+### Predeclared small applied-step scale (before native inference)
+
+[Inference/Plan] If Gaussian/B2 technical FD and preservation gates pass, set
+one candidate `weight = .1 * median(first-checkpoint per-object
+unit_weight_scd_over_physical_update_ratio_per_object)` over the two fixedIDs.
+The ratio concatenates local/style update vectors after their fixed.03/.003
+step sizes. Require both ratios finite and positive; otherwise no applied arm.
+Freeze formula/value before consulting selected-ID accuracy. No grid, fallback
+rho or accuracy-selected coefficient. This is a small update-direction smoke,
+not an accuracy estimate. Current diagnostic extra VJPs/FD forwards must be
+excluded from any optimized-deployment latency claim; report measured boundaries.
+
+## H8 — Decoder residual freeze: cheap physical surrogate, not an exact gradient
+
+[Code] `models/latent_points_ada.py:255–272` returns
+`D(h,z)=Πh+s R(h,z)`, whereΠ selects each latent point's first3channels ands
+is the checkpoint's configured `latent_pts.skip_weight` (its actual value
+must be read from the resolved config). The current proposal does not require
+assuming that the full decoder is linear or identity.
+
+[Inference] At checkpointt compute the ordinary PM decodeYt and freeze
+`bt=stopgrad(Yt−Πht)`. Then use the local surrogate
+
+\[
+\widetilde L_t(h)=\frac1{3N}\langle\Pi h+b_t-X,F_X(\Pi h+b_t-X)\rangle.
+\]
+
+At the same point its value equals the physical loss, but gradients differ:
+
+\[
+g_X=\frac2{3N}F_X(Y_t-X),\quad
+g_{sur}=\Pi^\top g_X,\quad
+g_{true}=\Pi^\top g_X+sJ_R^\top g_X.
+\]
+
+There is no decoder backward in the surrogate. Its remaining denoiser VJP
+can join the existing SCD backward; graph/filter work and decoder forward
+still cost time. Error is `s J_RᵀgX`, bounded by
+`|s| ||J_R|| ||gX||`. If its norm is strictly smaller than `||g_sur||`, then
+`<g_true,g_sur>>0` (sufficient, not necessary). After the denoiser Jacobian and
+local/style step sizes this condition must be checked in actual update space;
+local decoder alignment alone cannot certify the sampler's direction.
+
+[Open] First use saved native-audit gradient/decoded/filter arrays to compare
+the cheap local gradient with the exact local gradient, including cosine,
+norm ratio and feature-channel residual. Then a separate declared paired
+directional test must check the actual physical loss under small updates,
+including frozen decoder branch/RNG and upstream denoiser. Compare total cost
+and correspondence bias before any accuracy claim. This is an explicitly
+different iterative surrogate; never label its omitted residual Jacobian an
+exact or bug-fixed physical gradient. Current technical/applied full-gradient
+gates are unchanged; native failure does not silently authorize a surrogate arm.
+
+### Additional primary reading for the gradient/cost distinction
+
+[Paper] [Chung et al., Diffusion Posterior Sampling, §3.1–3.2/Eqs10–16](https://arxiv.org/html/2209.14687v2)
+approximates the measurement likelihood through the predicted clean sample;
+the noisy-variable gradient is still a chain-rule gradient. Its observation
+operator/noise assumptions do not establish a posterior interpretation for
+our heuristic corrupted-point-cloud heat fidelity.
+
+[Paper] [Mohseni-Sehdeh et al., Piecewise Guidance,2025 arXivv1, §III/Eqs7,11/Algorithm1](https://arxiv.org/html/2507.18654v1)
+switches between a cheap low-noise approximation and denoiser-Jacobian guidance
+for a linear noisy measurement model. It explicitly treats VJP computation
+as a cost. This is related motivation for checking approximation error against
+speed, not the same algorithm as freezing a LION decoder residual. Its image
+restoration results do not predict point-cloud classification accuracy. No
+novelty claim or extra GPU arm follows from these two additional readings.
