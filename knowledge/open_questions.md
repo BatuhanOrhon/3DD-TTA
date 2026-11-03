@@ -1,3 +1,20 @@
+## 2026-11-03 — GSD objective bias, fixed graph, decoder and eigenfree loss
+
+[Paper/Code/Run/Inference/Open] [Mathematical diagnosis and six falsifiable hypotheses](gsd_guidance_math_efficiency_20261103.md).
+
+- [x] Reconcile current integration, accepted N8 baseline and latest spectral-z null/cost result.
+- [x] Check GFT/inverse, dynamic frozen-metric derivative and encoder/decoder domain distinction against11primary references.
+- [x] Repair duplicate diagnostic loss/GFT/Chamfer calculation and invariant metric cutoff; verify pinned toy state/RNG parity and full CPU suite.
+- [x] Assert sparse square-root heat loss/gradient approximation, posterior-risk and decoder counterexamples on synthetic CPU data.
+- [ ] H1: measure whether actual spectral updates resist useful clean-reference/margin movement, with valid paired sampling/correspondence.
+- [ ] H2: quantify old/current graph operator mismatch before proposing a single refresh; avoid independent-basis coefficient matching.
+- [ ] H3: measure actual LION decoder mode leakage/physical metric distortion; toy witness is not causal evidence.
+- [ ] H4: compare exact heat and same-graph polynomial heat end-to-end on GPU/B1+B32; hard-M legacy is a separate objective.
+- [ ] H5/H6 conditional: establish clean-free reliability or a driving objective for low-band motion before a new accuracy search.
+
+No GPU phase launched or scheduled by this report. Do not repeat existing accepted
+accuracy runs or infer an accuracy gain from lower computational complexity.
+
 ## 2026-11-01 — Registered SCD-h / smooth spectral-z native acceptance; authorized scientific continuation
 
 - [x] Read the full handoff/plan; isolate from current integration and preserve peer/user work.

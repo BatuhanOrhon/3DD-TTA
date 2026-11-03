@@ -1,0 +1,84 @@
+{
+  "evidence": "CPU synthetic algebra only; not LION/accuracy/deployment timing",
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.15.0",
+    "device": "cpu",
+    "dtype": "float64",
+    "seed": 20261103
+  },
+  "fixed_basis": {
+    "updated_signal_roundtrip_max_error": 3.552713678800501e-15,
+    "coefficient_operator_loss_error": 2.220446049250313e-16,
+    "analytic_gradient_max_error": 4.336808689942018e-18
+  },
+  "polynomial": {
+    "vertices": 64,
+    "active_vertices": 63,
+    "laplacian_nnz": 185,
+    "upper_bound": 3.17408912926021,
+    "beta": 2.0,
+    "results": [
+      {
+        "order": 8,
+        "loss_error": 2.629145279264833e-08,
+        "gradient_l2_error": 2.497989334510905e-08,
+        "spectral_pointwise_error": 1.6245717560092743e-07,
+        "loss_bound": 6.064515902213039e-07,
+        "gradient_bound": 6.407106096907834e-08
+      },
+      {
+        "order": 16,
+        "loss_error": 3.3306690738754696e-16,
+        "gradient_l2_error": 1.5888910727118495e-16,
+        "spectral_pointwise_error": 1.2212453270876722e-15,
+        "loss_bound": 4.558900570338455e-15,
+        "gradient_bound": 4.816437141957721e-16
+      },
+      {
+        "order": 32,
+        "loss_error": 4.440892098500626e-16,
+        "gradient_l2_error": 2.212364500020976e-16,
+        "spectral_pointwise_error": 1.6653345369377348e-15,
+        "loss_bound": 6.2166825959160775e-15,
+        "gradient_bound": 6.567868829942348e-16
+      }
+    ],
+    "bound_scope": "max error on this graph spectrum, not a certified whole-interval bound"
+  },
+  "dynamic_graph": {
+    "full_vs_detached_gradient_l2": 0.0004228275885628861,
+    "directional_finite_difference_error": 5.343021164394557e-12,
+    "heat_operator_change": 0.017927587148823598,
+    "heat_change_bound": 0.2789371571593019,
+    "full_gradient": [
+      0.24665968142753195,
+      0.24436710225849992,
+      0.24230654964730156
+    ],
+    "detached_gradient": [
+      0.24689821398041806,
+      0.24446398003294698,
+      0.24197113931996841
+    ]
+  },
+  "decoder_counterexample": {
+    "high_mode_energy_fraction": 0.264705882352941,
+    "is_actual_lion": false
+  },
+  "anchoring": {
+    "prior_variance": 0.04,
+    "anchor_variance": 1.0,
+    "covariance": 0.0,
+    "optimal_reference_fraction": 0.038461538461538464,
+    "risks": {
+      "0.0": 0.04,
+      "0.038461538461538464": 0.038461538461538464,
+      "0.5": 0.26,
+      "1.0": 1.0
+    },
+    "exactly_clean_fidelity": 0.030000000000000002,
+    "clean_squared_error_after_fidelity_step": 0.02000000000000001
+  },
+  "audit_source_sha256": "35fc485bf1074a2f98c3e087aab0326bfbd1bae8a3eaa1c18568e880c44a8ebb"
+}

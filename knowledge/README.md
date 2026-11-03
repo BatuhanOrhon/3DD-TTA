@@ -1,3 +1,13 @@
+**[Paper/Code/CPU/Inference/Open] 2026-11-03 — GSD guidance mathematical and efficiency audit:**
+[Eleven-primary-source review, derivations, six falsifiable hypotheses and minimal next tests](gsd_guidance_math_efficiency_20261103.md).
+Fixed common U/inverse is valid; corrupted-anchor bias and decoder/operator mismatch
+remain causal hypotheses. Synthetic sparse square-root heat loss/gradient witness
+passes; no CUDA speed or accuracy gain claimed. Legacy/component sampler now reuses
+live spectral/Chamfer scalars for metrics, removing duplicate work and repairing an
+invariant metric cutoff mismatch;465CPU tests/1skip. This does not alter latest
+spectral-z routing or invalidate its null result/3.338× and2.810× fresh cost.
+N8 Chamfer+PM baseline retained; no new GPU/Colab/runtime action.
+
 **[Run/Decision] 2026-11-01 22:42UTC — SCD-h/smooth spectral-z complete/published; ownr2 closed:**
 128stage-disjoint IDs/all15/three seeds: spectral65.5729%, SCD65.5903%,
 style-off65.4861%; both paired95%object-cluster intervals include0. Fresh B32

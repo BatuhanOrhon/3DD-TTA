@@ -1,0 +1,101 @@
+{
+  "date_utc": "2026-11-03",
+  "base_commit": "daf37a479bd02d5ecfcd6530eceec1951932e010",
+  "implementation_commit": "dda342bef0728ad6ad06892a12fae7dd75e53ef8",
+  "source_branch": "research/gsd-guidance-math-audit-20261103",
+  "worktree": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103",
+  "source_files": {
+    "tta_gsd_v2.py": {
+      "bytes": 16735,
+      "sha256": "e732bfc44f9a5e26bd0d505f34b97ad54a3e4157b8104752d0f8a2b84f444079"
+    },
+    "tests/test_spectral_guidance_losses.py": {
+      "bytes": 13608,
+      "sha256": "47ace5868fc1cb584ae3068cab3a84df1d3b0317722084a1cf3255172354fdd6"
+    },
+    "tests/test_chamfer_guidance_variants.py": {
+      "bytes": 11304,
+      "sha256": "3e1872285613728b4fca092f5676c5e94ef282458f185b95d1be49bc9604ae70"
+    },
+    "tests/test_guidance_components.py": {
+      "bytes": 8376,
+      "sha256": "b2db728fe7ce4794429a6312d98d07fe13535eb79d81a4bf63c283e7cd28f687"
+    },
+    "tests/test_legacy_gsd_restore.py": {
+      "bytes": 14480,
+      "sha256": "2efee1349ad11b339d9cdfe617d4977fcd0664ecd9784df36c736c832504477b"
+    },
+    "knowledge/evidence/gsd_guidance_math_20261103/audit.py": {
+      "bytes": 10020,
+      "sha256": "35fc485bf1074a2f98c3e087aab0326bfbd1bae8a3eaa1c18568e880c44a8ebb"
+    }
+  },
+  "checks": [
+    {
+      "command": "/tmp/tta-lion-reencode-venv/bin/python -m unittest discover -s tests -q",
+      "exit_code": 0,
+      "tests": 465,
+      "passed": 464,
+      "skipped": 1,
+      "seconds": 26.557,
+      "log": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_guidance_math_audit_20261103/suite.log",
+      "log_identity": {
+        "bytes": 119809,
+        "sha256": "1c554a14ec3688cf0c424196bb605834a81eb9fd18f3d54b3f6098dfe1451aaa"
+      },
+      "skip": "tests.test_scan_curvenet_semantic.CurveTeacherContracts.test_default_pointmae_preview_matches_frozen_pre_followup_config: historical sealed source unavailable in clean worktree"
+    },
+    {
+      "command": "/tmp/tta-lion-reencode-venv/bin/python -m unittest tests.test_spectral_guidance_losses tests.test_legacy_gsd_restore tests.test_chamfer_guidance_variants tests.test_guidance_components -q",
+      "exit_code": 0,
+      "tests": 37,
+      "seconds": 2.914
+    },
+    {
+      "command": "/tmp/tta-lion-reencode-venv/bin/python knowledge/evidence/gsd_guidance_math_20261103/audit.py",
+      "exit_code": 0,
+      "output_identity": {
+        "bytes": 2643,
+        "sha256": "49925d69b4e9501243b85ad26b1c8fc1a0b77487d14efb924bc2c7b9366fbb60"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "regression_red_evidence": [
+    {
+      "test": "test_logging_and_applied_loss_use_the_selected_objective",
+      "observed": "two calls (no_grad, grad) instead of one live call"
+    },
+    {
+      "test": "test_invariant_metric_uses_the_applied_mode_cutoff",
+      "observed_raw": 0.2774127423763275,
+      "applied": 0.24510636925697327
+    },
+    {
+      "test": "test_inactive_skip_matches_reference_and_calls_only_active_components",
+      "observed_chamfer_calls": 2,
+      "expected": 1
+    }
+  ],
+  "independent_review": {
+    "agent": "review_gsd_math",
+    "findings": "No material findings",
+    "focused_tests": 37,
+    "audit_assertions": "passed; output/hash match"
+  },
+  "limitations": [
+    "No native CUDA/LION or new accuracy execution",
+    "No measured end-to-end speedup",
+    "One historical sealed-source fixture skipped",
+    "Synthetic CPU PyTorch2.15.0 differs from pinned Colab PyTorch2.1.2"
+  ],
+  "excluded_from_integration": [
+    "raw suite stdout and duplicate audit copies under result/preparation",
+    "external PDF/network content and caches",
+    "weights and historical/peer worktrees"
+  ],
+  "evidence_scope": "Existing run numbers are reused accepted knowledge, not newly revalidated accuracy archives"
+}
