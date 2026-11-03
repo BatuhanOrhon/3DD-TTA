@@ -103,6 +103,7 @@ def worker(directory: str) -> None:
     from graph_spectral import SpectralConfig, build_smooth_spectral_target
     from legacy_trajectory import isolated_probe, rng_hash, tensor_hash
     from shared_trajectory import SharedTrajectoryObserver
+    from semantic_trajectory import gradient_probe
     from scripts.analyze_legacy_trajectory import policies
     from scripts.eval_chamfer_depth import scheduler_record
 
@@ -226,6 +227,19 @@ def worker(directory: str) -> None:
                             sn = torch.cat(update_s, dim=1).norm(dim=1)
                             record['unit_weight_scd_over_physical_update_ratio_per_object'] = [float(c / s) if s > 0 else None for c, s in zip(cn, sn)]
                             decoded = capture['decoded']
+                            with gradient_probe([lion.vae]):
+                                detached_decoded = lion.vae.decoder(None, beta=None,
+                                    context=latent.detach().clone().squeeze(3).squeeze(2),
+                                    style=style.detach().clone().squeeze(3).squeeze(2))
+                            difference = detached_decoded - decoded
+                            record['detached_decoder_output_requires_grad'] = detached_decoded.requires_grad
+                            record['detached_decoder_max_absolute_difference'] = float(difference.abs().max())
+                            record['detached_decoder_rms_difference'] = float(difference.square().mean().sqrt())
+                            record['extra_detached_decoder_forward_calls'] = 1
+                            if 'detached_decoder_saved' not in capture:
+                                np.savez_compressed(case / 'detached_decoder_first_checkpoint.npz',
+                                    decoded_xyz=detached_decoded.cpu().numpy())
+                                capture['detached_decoder_saved'] = True
                             surrogate_points = decoded + (local_xyz - local_xyz.detach())
                             surrogate_loss = self.target.loss(surrogate_points)
                             surrogate_gradients = torch.autograd.grad(surrogate_loss, (local, condition), retain_graph=True)
