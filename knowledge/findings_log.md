@@ -8506,3 +8506,29 @@ gsd_physical_spectral_20261103 preserves logs/wrappers; Drive destination pendin
 mount. Runtime retained; no close authorization. Falsifiers: disconnected or
 invalid native gradient, large slot/set mismatch, non-beneficial matched direction,
 or no net compute advantage with correct decoder backward accounting.
+
+
+## 2026-11-03 19:40UTC — physical spectral continuation: Drive and native FD gate
+
+[User report/Run/Code/CPU/Open] User granted Drive consent and asked for background
+supervision. Own session `tta-gsd-physical-spectral-a100-20261103-r1`, endpoint
+`gpu-a100-hm-ass1c0-i933qghuewn8`, retained. Persistent monitor local97932 started
+19:23:42UTC; sole CLI cell owner with60s observation and bounded idle probes.
+Old mount timed out; same-kernel audit then canonicalCell3 retry passed19:28:34UTC.
+Cell4 started19:29:02UTC; pinned CUDA/GCC preparation still running. No science
+inference started; no runtime teardown authorization.
+
+Native local-decoder FD source `3e8b9be3d9c913d6757ea09026478b925da77fe0` adds
+six live forwards, two frozen relative perturbation scales, derivative-resolution
+and repeat-noise gates. Independent review found premature observer backward;
+fixed before GPU, with an executable failure-artifact regression. Full final
+first-party suite482tests:481pass/1skip,25.928s.
+`knowledge/evidence/decoded_physical_spectral_20261103/native_audit_cpu_verification.json`
+records source/log/overlay identities. OperatorV2 uploaded, not deployed;
+674042bytes/SHA2562a08a7604dc0c78f85f9ad23477eeb8b4ddfa895777ca996af6d78141c74716b.
+
+Next: exact-markerCell4–10 acceptance, deployment/strictCPU, then first Gaussian/B2
+paired control/diagnostic with cumulative55min science cap (estimate20–45min).
+No accuracy/speed/native-gradient conclusion. Technical FD failure stops applied
+physical guidance. Runtime/source/raw logs remain preserved; Drive archive roundtrip
+for this continuation pending canonical setup.

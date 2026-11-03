@@ -158,3 +158,51 @@ Bunun yapılmış veya CPU deployment'ın geçmiş olduğu henüz iddia edilmez.
 
 Task hâlâ aktif; izin bekleyen runtime açık. Yeni prototype integration'a
 yayınlanmadı; source branch'te commitli, payload yerelde/ownVM'de korunuyor.
+
+## 2026-11-03 — Drive consent received; persistent owner monitor started
+
+[User report/Run/Open] User states Drive authorization granted and directs
+continuation. Existing CLI70086 propagated credentials but returned a reply
+timeout (the original mount request had waited). Same r1 assignment remains;
+read-only file API cannot yet find MyDrive/thesis. No inference or duplicate
+setup job launched. Read-only same-kernel Drive/process audit submitted before
+any bounded mount retry.
+
+[User report/Run] User asks whether the persistent background monitor is active.
+It was not previously running; root starts the project monitor at19:23:42UTC,
+local exec97932, expected endpointgpu-a100-hm-ass1c0-i933qghuewn8/A100,60s cadence,
+540s bounded idle liveness. Ownership/source hash in setup/monitor_ownership.json.
+It is now sole CLI cell owner; all phases use stdin run controls. No fake
+keep-alive/peer session action. This supervision does not guarantee Colab lifetime.
+Runtime stays open; no teardown permission. Exact audit/mount outcome is pending.
+
+## 2026-11-03 19:36UTC — Drive mounted; canonical preparation continues
+
+[Run] The original consent request timed out after credentials propagated.
+A same-kernel read-only audit confirmed no mounted MyDrive, then the bounded
+Cell3 retry passed with real mount and pinned KNN wheel verification at19:28:34UTC.
+Cell4 started19:29:02UTC through sole-owner monitor97932. PyTorchcu121/KNN
+installation passed; requirements preparation still running at19:36UTC.
+The server still lists the recorded A100 endpoint. No research inference has
+started. CanonicalCell5–10, deployment and actual native decoder acceptance
+remain gated on their own exact completion markers.
+
+[Code/CPU/Open] Added opt-in `--native-decoder-audit` to the diagnostic arm.
+At the first selected checkpoint per B2 case, before any observer backward,
+six gradient-enabled decodes check the local frozen-graph derivative using
+two central-difference scales(.001,.01 times first-sample latent norm).
+Tolerance1e-5+.1|AD| and repeat-noise slope checks are frozen before CUDA;
+unresolved derivatives fail. RNG, buffers and live inputs must remain unchanged.
+JSON/finite NPZ evidence is saved before failing the technical gate. This
+certifies neither whole-denoiser derivatives nor decoded/input point matching.
+Independent review found/fixed the premature observer backward, and an
+executable regression verifies failure artifacts precede that call.
+Eleven focused CPU tests pass. Source sealing/full-suite verification and
+remote native results remain pending; no accuracy or speed claim.
+
+Continuation: poll monitor97932, submit Cell5–10 individually only after the
+prior exact completion marker; never use the old direct-exec supervisor while
+the monitor owns the runtime. Seal a new operator_v2 with the audit helper and
+updated driver; preserve V1 payloads. Then deployment/strictCPU gate followed
+by Gaussian/B2 control and diagnostic. Start the immutable55min cumulative
+science deadline immediately before the first scientific/native-GPU job.

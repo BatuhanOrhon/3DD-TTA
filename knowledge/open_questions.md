@@ -5,7 +5,8 @@
 - [x] Evaluate same-X-graph decoded loss versus independent unaligned spectra; record slot correspondence and corrupted-anchor limits.
 - [x] Add opt-in single-live-PM-decode observer + joint SCD/physical backward; verify toy gradient, zero-weight parity and failure bundle.
 - [x] Allocate own clearly named A100; canonical Cell1/reconnect and Cell2 Python3.8 verify (only deferred fastrlock wheel failure).
-- [ ] User-operated Drive consent; preserve CLI70086 and own runtime.
+- [x] User-operated Drive consent and real mount/Cell3 validation; own runtime retained, monitor97932 sole CLI owner.
+- [x] Add pre-observer native decoder FD gate with conservative repeat-noise/failure evidence checks;482CPU tests/1skip, native acceptance pending.
 - [ ] Complete canonicalCell3–10, strict source/model/data/native CPU proof, science-duration/source seal.
 - [ ] Actual native decoder gradient/FD, live-versus-no-grad control, correspondence and cost diagnostics; no GPU result yet.
 - [ ] Only after technical gates: label-free coefficient and bounded applied-step smoke, not new benchmark or wide sweep.

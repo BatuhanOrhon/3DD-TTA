@@ -1,0 +1,46 @@
+{
+  "status": "CPU_passed_native_pending",
+  "source_commit": "3e8b9be3d9c913d6757ea09026478b925da77fe0",
+  "command": "/tmp/tta-lion-reencode-venv/bin/python -m unittest discover -s tests",
+  "tests_run": 482,
+  "passed": 481,
+  "skipped": 1,
+  "wall_seconds": 25.928,
+  "files": {
+    "decoded_spectral_native_audit.py": {
+      "bytes": 10743,
+      "sha256": "41463b82f40d92ccda9a9392b8683d41be592fe3c8329b1e814be749ef259391"
+    },
+    "scripts/diagnose_decoded_spectral.py": {
+      "bytes": 25543,
+      "sha256": "e212527ec9c499de162918556a2c9f89811a088f64fc3d7bb726b39cbc74b69f"
+    },
+    "tests/test_decoded_spectral_native_audit.py": {
+      "bytes": 7649,
+      "sha256": "2f003dbe130c4b8549060f2e0366c7b427ab5964493419e5a04dd495bb73b200"
+    },
+    "tests/test_diagnose_decoded_spectral.py": {
+      "bytes": 5678,
+      "sha256": "c4fd284539c56ca674c5549edd2c15fd1c1b6e84d24e4899fe88d0983e969db6"
+    }
+  },
+  "raw_log": {
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_physical_spectral_20261103/cpu_suite_native_audit_final.log",
+    "bytes": 120374,
+    "sha256": "9be9e24c1a366539d1bfe715abcdec2519be69477a455ead81a9346c366483d1"
+  },
+  "operator_v2": {
+    "bytes": 674042,
+    "sha256": "2a08a7604dc0c78f85f9ad23477eeb8b4ddfa895777ca996af6d78141c74716b"
+  },
+  "overlay": {
+    "bytes": 680279,
+    "sha256": "db5e46b703bba758954aea6d312ac3f4075467a1ace6f63558a0d290f5d528e2"
+  },
+  "independent_review": "Premature observer VJP fixed; final placement and failure-artifact regression reviewed with no remaining concrete blocker",
+  "limitations": [
+    "No native CUDA derivative result",
+    "Frozen-graph local decoder check only",
+    "No speed or accuracy gain established"
+  ]
+}
