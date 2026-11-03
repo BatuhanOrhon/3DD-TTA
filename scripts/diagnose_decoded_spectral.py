@@ -31,10 +31,13 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--drive-root')
     parser.add_argument('--arm', choices=('control', 'diagnostic', 'physical'), default='diagnostic')
     parser.add_argument('--weight', type=float, default=0.)
+    parser.add_argument('--native-decoder-audit', action='store_true')
     parser.add_argument('--count', type=int, choices=(2, 8), default=2)
     parser.add_argument('--corruptions', nargs='+', choices=('gaussian', 'background', 'shear', 'lidar'),
                         default=['gaussian', 'background'])
     args = parser.parse_args(argv)
+    if args.native_decoder_audit and args.arm != 'diagnostic':
+        raise ValueError('Native decoder audit requires the diagnostic arm')
     if (not math.isfinite(args.weight) or args.weight < 0
             or (args.arm == 'physical') != (args.weight > 0)):
         raise ValueError('Physical requires finite positive --weight; other arms require zero')
@@ -180,6 +183,16 @@ def worker(directory: str) -> None:
                         raise RuntimeError('Physical graph advanced RNG')
                     class DiagnosticObserver(DecodedSpectralObserver):
                         def clean(self, latent, style, loop_index, timestep):
+                            if (loop_index + 1 in self.steps and config['native_decoder_audit']
+                                    and not capture.get('decoder_native_audit_done')):
+                                from decoded_spectral_native_audit import audit_decoded_gradient
+                                report, evidence = audit_decoded_gradient(lion.vae, target, latent, style)
+                                np.savez_compressed(case / 'decoder_native_audit.npz', **evidence)
+                                (case / 'decoder_native_audit.json').write_text(json.dumps(report, indent=2, allow_nan=False) + '\n')
+                                capture['decoder_native_audit_done'] = True
+                                print('DECODER_NATIVE_AUDIT ' + json.dumps(report, allow_nan=False), flush=True)
+                                if not report['passed']:
+                                    raise RuntimeError('Native decoder finite-difference gate failed; evidence retained')
                             loss = super().clean(latent, style, loop_index, timestep)
                             if loss is None:
                                 return None

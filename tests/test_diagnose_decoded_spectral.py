@@ -4,6 +4,36 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_native_backward_failure_is_archived_before_observer_backward(self):
+        import ast
+        import json
+        import tempfile
+        from pathlib import Path
+        from types import SimpleNamespace
+        from unittest.mock import Mock, patch
+        import numpy as np
+        from scripts import diagnose_decoded_spectral as driver
+        import decoded_spectral_native_audit as audit
+        tree = ast.parse(Path(driver.__file__).read_text())
+        observer = next(node for node in ast.walk(tree) if isinstance(node, ast.ClassDef)
+                        and node.name == 'DiagnosticObserver')
+        base = type('Base', (), {'clean': Mock(side_effect=AssertionError('premature backward'))})
+        with tempfile.TemporaryDirectory() as temporary:
+            case = Path(temporary)
+            scope = dict(DecodedSpectralObserver=base, config={'native_decoder_audit': True},
+                         capture={}, lion=SimpleNamespace(vae=None), target=None, np=np, case=case, json=json)
+            exec(compile(ast.Module(body=[observer], type_ignores=[]), driver.__file__, 'exec'), scope)
+            instance = scope['DiagnosticObserver']()
+            instance.steps = [2, 4, 6]
+            with patch.object(audit, 'audit_decoded_gradient', return_value=(
+                    {'passed': False, 'errors': ['unsupported native backward']}, {'baseline_decoded': np.zeros((2, 3))})):
+                with self.assertRaisesRegex(RuntimeError, 'evidence retained'):
+                    instance.clean(None, None, 1, 90)
+            base.clean.assert_not_called()
+            self.assertFalse(json.loads((case / 'decoder_native_audit.json').read_text())['passed'])
+            with np.load(case / 'decoder_native_audit.npz', allow_pickle=False) as saved:
+                self.assertIn('baseline_decoded', saved)
+
     def test_state_capture_supplies_the_same_h0_used_by_scd_diagnostics(self):
         import tempfile
         from pathlib import Path
@@ -22,6 +52,16 @@ class DriverContractTests(unittest.TestCase):
             self.assertFalse(capture['initial_h0_xyz'].requires_grad)
             torch.testing.assert_close(capture['initial_h0_xyz'][0, 0], torch.tensor([0., 1., 2.]))
             torch.testing.assert_close(capture['initial_h0_xyz'][1, 0], torch.tensor([8192., 8193., 8194.]))
+
+    def test_native_decoder_audit_is_explicit_and_diagnostic_only(self):
+        from scripts.diagnose_decoded_spectral import configuration
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertFalse(configuration(args)['native_decoder_audit'])
+        self.assertTrue(configuration([*args, '--native-decoder-audit'])['native_decoder_audit'])
+        for extra in (['--arm', 'control'], ['--arm', 'physical', '--weight', '1']):
+            with self.assertRaises(ValueError):
+                configuration([*args, *extra, '--native-decoder-audit'])
 
     def test_cli_locks_protocol_selection_and_requires_explicit_physical_weight(self):
         self.assertIsNotNone(importlib.util.find_spec('scripts.diagnose_decoded_spectral'))
