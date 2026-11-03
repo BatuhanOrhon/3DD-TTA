@@ -29,13 +29,16 @@ def configuration(argv=None) -> dict:
     for name in ('asset-root', 'asset-manifest-sha256', 'result-root', 'paired-state-root'):
         parser.add_argument('--' + name, required=True)
     parser.add_argument('--drive-root')
-    parser.add_argument('--arm', choices=('control', 'diagnostic', 'physical'), default='diagnostic')
+    parser.add_argument('--arm', choices=('control', 'live_control', 'diagnostic', 'physical'), default='diagnostic')
     parser.add_argument('--weight', type=float, default=0.)
     parser.add_argument('--native-decoder-audit', action='store_true')
+    parser.add_argument('--freeze-decoder-residual', action='store_true')
     parser.add_argument('--count', type=int, choices=(2, 8), default=2)
     parser.add_argument('--corruptions', nargs='+', choices=('gaussian', 'background', 'shear', 'lidar'),
                         default=['gaussian', 'background'])
     args = parser.parse_args(argv)
+    if args.freeze_decoder_residual and args.arm not in ('physical', 'live_control'):
+        raise ValueError('Frozen decoder residual requires a physical or lightweight live-control arm')
     if args.native_decoder_audit and args.arm != 'diagnostic':
         raise ValueError('Native decoder audit requires the diagnostic arm')
     if (not math.isfinite(args.weight) or args.weight < 0
@@ -222,6 +225,19 @@ def worker(directory: str) -> None:
                             cn = torch.cat(update_c, dim=1).norm(dim=1)
                             sn = torch.cat(update_s, dim=1).norm(dim=1)
                             record['unit_weight_scd_over_physical_update_ratio_per_object'] = [float(c / s) if s > 0 else None for c, s in zip(cn, sn)]
+                            decoded = capture['decoded']
+                            surrogate_points = decoded + (local_xyz - local_xyz.detach())
+                            surrogate_loss = self.target.loss(surrogate_points)
+                            surrogate_gradients = torch.autograd.grad(surrogate_loss, (local, condition), retain_graph=True)
+                            surrogate_update = torch.cat([step * grad.detach().flatten(1).double()
+                                for step, grad in zip((.03, .003), surrogate_gradients)], dim=1)
+                            full_update = torch.cat(update_s, dim=1)
+                            surrogate_norm = surrogate_update.norm(dim=1)
+                            record['residual_freeze_update_cosine_per_object'] = [float(dot / norm) if norm > 0 else None
+                                for dot, norm in zip((full_update * surrogate_update).sum(1), sn * surrogate_norm)]
+                            record['residual_freeze_over_full_update_norm_ratio_per_object'] = [float(s / f) if f > 0 else None
+                                for s, f in zip(surrogate_norm, sn)]
+                            record['extra_surrogate_vjp_calls'] = 1
                             record['extra_diagnostic_scd_forward_calls'] = 1
                             record['extra_diagnostic_scd_vjp_calls'] = 1
                             decoded = capture['decoded']
@@ -235,8 +251,10 @@ def worker(directory: str) -> None:
                             # Preserve useful checkpoint evidence even if a later native backward fails.
                             (case / 'probe_records.json').write_text(json.dumps(self.spectral_records, indent=2, allow_nan=False) + '\n')
                             return loss
-                    observer = DiagnosticObserver(lion.vae, heads, classify, steps, target=target,
-                                                  checkpoint_steps=checkpoints, record_gradients=True)
+                    observer_class = DiagnosticObserver if config['arm'] == 'diagnostic' else DecodedSpectralObserver
+                    observer = observer_class(lion.vae, heads, classify, steps, target=target,
+                        checkpoint_steps=checkpoints, record_gradients=config['arm'] == 'diagnostic',
+                        freeze_decoder_residual=config['freeze_decoder_residual'])
                     filter_hashes = [tensor_hash(value) for value in target.filters]
                     (case / 'graph.json').write_text(json.dumps(dict(diagnostics=target.diagnostics,
                         reference_xyz_sha256=tensor_hash(target.reference_xyz), filter_sha256=filter_hashes), indent=2) + '\n')

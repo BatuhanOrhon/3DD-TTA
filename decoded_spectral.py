@@ -15,11 +15,15 @@ class DecodedSpectralObserver(SharedTrajectoryObserver):
     Classification uses a detached view; only physical geometry supplies loss.
     The sampler passes original encoded z0 as decoder style. Conditioning-style
     gradients reach the sampler through the live predicted-clean local latent.
+    Opt-in frozen residual guidance preserves decoded values but uses only the
+    identity local-XYZ derivative, bypassing decoder backward.
     """
 
     def __init__(self, vae, heads: dict, classify_decoded, horizon: int, num_classes: int = 40,
                  *, target: SmoothSpectralTarget, checkpoint_steps=None,
-                 record_gradients: bool = False):
+                 record_gradients: bool = False, freeze_decoder_residual: bool = False):
+        if type(freeze_decoder_residual) is not bool:
+            raise ValueError('freeze_decoder_residual must be a bool')
         super().__init__(vae, heads, classify_decoded, horizon, num_classes,
                          checkpoint_steps=checkpoint_steps)
         if not isinstance(target, SmoothSpectralTarget):
@@ -40,6 +44,8 @@ class DecodedSpectralObserver(SharedTrajectoryObserver):
                     or spectral_filter.requires_grad or not torch.isfinite(spectral_filter).all()):
                 raise ValueError('Expected finite detached reference-domain spectral filters')
         self.target, self.record_gradients = target, record_gradients
+        self.freeze_decoder_residual = freeze_decoder_residual
+        self.loss_gradient_mode = 'frozen_residual_surrogate' if freeze_decoder_residual else 'full_decoder_gradient'
         self.spectral_records = []
 
     def initial(self, **tensors) -> None:
@@ -65,7 +71,12 @@ class DecodedSpectralObserver(SharedTrajectoryObserver):
                                        context=latent.clone().squeeze(3).squeeze(2),
                                        style=style.clone().squeeze(3).squeeze(2))
             decoded_hash = tensor_hash(decoded)
-            loss = self.target.loss(decoded)
+            prediction = decoded
+            if self.freeze_decoder_residual:
+                latent_xyz = latent.reshape(latent.shape[0], 2048, 4)[:, :, :3]
+                # Equivalent frozen residual form retains bit-exact decoded values.
+                prediction = decoded.detach() + (latent_xyz - latent_xyz.detach())
+            loss = self.target.loss(prediction)
             if loss.ndim != 0 or not loss.requires_grad or not torch.isfinite(loss):
                 raise ValueError('Decoded spectral loss must be finite and connected to live latents')
             # A separate detached copy keeps head preprocessing out of autograd.
@@ -75,7 +86,9 @@ class DecodedSpectralObserver(SharedTrajectoryObserver):
                 if tensor_hash(classifier_points) != decoded_hash:
                     raise RuntimeError('Classifier callback mutated decoded geometry')
             record = dict(loop_count=count, raw_loss=float(loss.detach()),
-                          decoded_geometry_reused=True, classifier_gradients=False)
+                          decoded_geometry_reused=True, classifier_gradients=False,
+                          loss_gradient_mode=self.loss_gradient_mode,
+                          decoder_jacobian_in_loss=not self.freeze_decoder_residual)
             if self.record_gradients:
                 live = [value for value in (decoded, latent, style) if value.requires_grad]
                 gradients = torch.autograd.grad(loss, live, retain_graph=True, allow_unused=True)
@@ -106,6 +119,7 @@ class DecodedSpectralObserver(SharedTrajectoryObserver):
             reference_domain='exact prepared B x 2048 x 3 LION input; fixed vertex order',
             loss_reduction='sum over objects of <decoded-X, F(decoded-X)> / (3*2048)',
             decoder_style='original encoded z0; conditioning-style gradient flows through clean local',
+            loss_gradient_mode=self.loss_gradient_mode, decoder_jacobian_in_loss=not self.freeze_decoder_residual,
             checkpoint_loop_counts=self.steps, graph=self.target.diagnostics,
             records=self.spectral_records)
         return result

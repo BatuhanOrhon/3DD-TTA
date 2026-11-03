@@ -26,7 +26,7 @@ class DecodedSpectralTests(unittest.TestCase):
         from decoded_spectral import DecodedSpectralObserver
         return DecodedSpectralObserver
 
-    def fixture(self, *, dtype=torch.float64):
+    def fixture(self, *, dtype=torch.float64, **observer_options):
         class Decoder(torch.nn.Module):
             def __init__(self):
                 super().__init__()
@@ -48,7 +48,7 @@ class DecodedSpectralTests(unittest.TestCase):
         weights = torch.linspace(.25, .75, 2048, dtype=dtype)
         target = SmoothSpectralTarget(reference, (torch.diag(weights),), [])
         observer = self.observer_class()(vae, {'pointmae': head}, classify, 2, target=target,
-                                        checkpoint_steps=[1], record_gradients=True)
+                                        checkpoint_steps=[1], record_gradients=True, **observer_options)
         latent = torch.linspace(.1, .9, 8192, dtype=dtype).reshape(1, -1, 1, 1).requires_grad_()
         style = torch.ones(1, 128, 1, 1, dtype=dtype, requires_grad=True)
         observer.initial(input_points=reference)
@@ -100,6 +100,76 @@ class DecodedSpectralTests(unittest.TestCase):
         self.assertGreater(gradient.norm().item(), 0)
         self.assertIsNone(observer.spectral_records[0]['decoder_style_gradient_norm'])
         self.assertFalse(observer.spectral_records[0]['decoder_style_connected'])
+
+    def test_frozen_residual_preserves_exact_forward_loss_and_uses_identity_xyz_gradient(self):
+        full, latent, style = self.fixture()
+        surrogate = self.observer_class()(full.vae, full.heads, full.classify_decoded, 2,
+            target=full.target, checkpoint_steps=[1], record_gradients=True, freeze_decoder_residual=True)
+        before = rng_hash(), model_buffer_hashes(full.models)
+        latent_before, style_before = latent.detach().clone(), style.detach().clone()
+        full_loss = full.clean(latent, style, 0, 10)
+        loss = surrogate.clean(latent, style, 0, 10)
+        torch.testing.assert_close(loss, full_loss, rtol=0, atol=0)
+        torch.testing.assert_close(torch.from_numpy(surrogate.saved['pointmae'][0]),
+                                   torch.from_numpy(full.saved['pointmae'][0]), rtol=0, atol=0)
+        gradient, style_gradient = torch.autograd.grad(loss, (latent, style), allow_unused=True)
+        xyz = latent.reshape(1, 2048, 4)[:, :, :3]
+        weights = torch.linspace(.25, .75, 2048, dtype=latent.dtype).reshape(1, -1, 1)
+        expected = torch.zeros_like(latent).reshape(1, 2048, 4)
+        expected[:, :, :3] = 2 * weights * (xyz.square() + .02) / (3 * 2048)
+        torch.testing.assert_close(gradient, expected.reshape_as(latent))
+        self.assertIsNone(style_gradient)
+        self.assertEqual(full.vae.calls, 2)
+        self.assertEqual(before, (rng_hash(), model_buffer_hashes(full.models)))
+        torch.testing.assert_close(latent, latent_before, rtol=0, atol=0)
+        torch.testing.assert_close(style, style_before, rtol=0, atol=0)
+        record = surrogate.spectral_records[0]
+        self.assertFalse(record['decoded_connected'])
+        self.assertIsNone(record['decoded_gradient_norm'])
+        self.assertTrue(record['clean_latent_connected'])
+        diagnostics = surrogate.diagnostics()['decoded_spectral']
+        self.assertEqual(diagnostics['loss_gradient_mode'], 'frozen_residual_surrogate')
+        self.assertFalse(diagnostics['decoder_jacobian_in_loss'])
+        self.assertTrue(full.diagnostics()['decoded_spectral']['decoder_jacobian_in_loss'])
+
+    def test_frozen_residual_bypasses_unsupported_decoder_backward_but_reaches_upstream_style(self):
+        class Unsupported(torch.autograd.Function):
+            @staticmethod
+            def forward(ctx, value):
+                return value.square()
+            @staticmethod
+            def backward(ctx, gradient):
+                raise RuntimeError('native decoder backward unsupported')
+        for freeze in (False, True):
+            observer, local, original_style = self.fixture(freeze_decoder_residual=freeze)
+            observer.vae.decoder = lambda unused, beta, context, style: Unsupported.apply(
+                context.reshape(1, 2048, 4)[:, :, :3])
+            condition = torch.ones(1, 128, 1, 1, dtype=local.dtype, requires_grad=True)
+            predicted_clean = .9*local + .01*condition.mean()
+            if not freeze:
+                with self.assertRaisesRegex(RuntimeError, 'backward unsupported'):
+                    observer.clean(predicted_clean, original_style.detach(), 0, 10)
+            else:
+                loss = observer.clean(predicted_clean, original_style.detach(), 0, 10)
+                local_gradient, condition_gradient = torch.autograd.grad(loss, (local, condition))
+                self.assertGreater(local_gradient.norm().item(), 0)
+                self.assertGreater(condition_gradient.norm().item(), 0)
+
+    def test_frozen_residual_flag_requires_bool_and_explicit_false_matches_default(self):
+        for invalid in (0, 1, None, 'false'):
+            with self.subTest(invalid=invalid), self.assertRaisesRegex(ValueError, 'freeze_decoder_residual'):
+                self.fixture(freeze_decoder_residual=invalid)
+        results = []
+        for options in ({}, {'freeze_decoder_residual': False}):
+            torch.manual_seed(7)
+            observer, latent, style = self.fixture(**options)
+            loss = observer.clean(latent, style, 0, 10)
+            gradient, = torch.autograd.grad(loss, (latent,))
+            results.append((loss.detach(), gradient, observer.saved['pointmae'][0], rng_hash()))
+        for index in (0, 1):
+            torch.testing.assert_close(results[0][index], results[1][index], rtol=0, atol=0)
+        self.assertTrue((results[0][2] == results[1][2]).all())
+        self.assertEqual(results[0][3], results[1][3])
 
     def test_unselected_steps_skip_decoder_and_duplicate_checkpoints_fail(self):
         observer, latent, style = self.fixture()

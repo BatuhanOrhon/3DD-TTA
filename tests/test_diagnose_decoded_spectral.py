@@ -4,6 +4,21 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_surrogate_is_explicit_and_lightweight_controls_have_zero_weight(self):
+        from scripts.diagnose_decoded_spectral import configuration
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertFalse(configuration(args)['freeze_decoder_residual'])
+        live = configuration([*args, '--arm', 'live_control'])
+        self.assertEqual(live['weight'], 0.)
+        self.assertTrue(configuration([*args, '--arm', 'physical', '--weight', '1',
+                                       '--freeze-decoder-residual'])['freeze_decoder_residual'])
+        for arm in ('control', 'diagnostic'):
+            with self.assertRaises(ValueError):
+                configuration([*args, '--arm', arm, '--freeze-decoder-residual'])
+        with self.assertRaises(ValueError):
+            configuration([*args, '--arm', 'live_control', '--weight', '1'])
+
     def test_native_backward_failure_is_archived_before_observer_backward(self):
         import ast
         import json
