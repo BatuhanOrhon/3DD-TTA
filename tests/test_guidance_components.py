@@ -93,7 +93,7 @@ class ComponentTests(unittest.TestCase):
                 torch.testing.assert_close(left, right, rtol=0, atol=0)
             self.assertEqual(results[0][2], results[1][2])
             self.assertEqual(metrics['graph_calls'], int(sw > 0))
-            self.assertEqual(metrics['chamfer_calls'], 2 * int(cw > 0))
+            self.assertEqual(metrics['chamfer_calls'], int(cw > 0))
             self.assertEqual(metrics['guidance_backward_calls'], int(cw > 0 or sw > 0))
             if arm == 'unguided':
                 self.assertEqual(metrics['mean_local_update_norm'], 0.)

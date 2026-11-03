@@ -106,8 +106,8 @@ class ChamferVariantTests(unittest.TestCase):
                 Graph(), 2, .01, .01, .95,
                 loss_weights={'chamfer': 0., 'spectral': 1., 'invariant': 0.},
                 skip_inactive_components=True)
-        self.assertEqual(loss.call_count, 4)
-        self.assertEqual(metrics['spectral_loss_calls'], 4)
+        self.assertEqual(loss.call_count, 2)
+        self.assertEqual(metrics['spectral_loss_calls'], 2)
 
     def test_sparse_uses_same_timesteps_with_four_or_eleven_backwards(self):
         for steps, expected in ((10, [1, 4, 7, 10]), (30, list(range(1, 31, 3)) + [30])):
@@ -118,7 +118,7 @@ class ChamferVariantTests(unittest.TestCase):
             self.assertEqual([i + 1 for i, (_, grad) in enumerate(calls) if grad], expected)
             self.assertEqual(metrics['guidance_backward_calls'], len(expected))
             self.assertEqual(metrics['prior_forward_calls'], steps)
-            self.assertEqual(metrics['chamfer_calls'], 2 * len(expected))
+            self.assertEqual(metrics['chamfer_calls'], len(expected))
             self.assertEqual(metrics['graph_calls'], 0)
 
     def test_semantic_zero_weight_preserves_baseline_and_active_loss_changes_update(self):
@@ -175,7 +175,7 @@ class ChamferVariantTests(unittest.TestCase):
         self.assertTrue(torch.isfinite(style).all())
         self.assertEqual(metrics['reference_density_calls'], 1)
         self.assertEqual(metrics['guidance_backward_calls'], 2)
-        self.assertEqual(metrics['chamfer_calls'], 4)
+        self.assertEqual(metrics['chamfer_calls'], 2)
         self.assertEqual(metrics['spectral_loss_calls'], 0)
         self.assertEqual(metrics['graph_calls'], 0)
         self.assertEqual(len(calls), 2)
