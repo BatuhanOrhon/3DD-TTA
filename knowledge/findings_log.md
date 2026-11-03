@@ -8558,3 +8558,11 @@ not reset; setup separate. No further GPU research planned. Session
 `tta-gsd-physical-spectral-a100-20261103-r1`/A100 endpoint unchanged, monitor97932
 stays active; no runtime-close authorization. Next: native-repeat controls,
 correspondence/anchor tests, eigenfree cost and separate development/confirmation.
+
+
+[Code/Run] 2026-11-03 21:07UTC publication receipt: sourceb451df5/23necessary
+files integrated and pushed as e30b612c0784ad87460387e1ebd8960f616b1966 to
+origin/thesis-integration from clean isolated checkout based on2177493.
+Independent integratedCPU486tests/1skip29.242s; no raw/native/cache/weights or
+operators promoted. Final same-VM audit21:06:06UTC confirms10raw archives, no
+active research process, runtime preserved and monitor97932 open.
