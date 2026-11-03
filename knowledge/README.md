@@ -2,8 +2,9 @@
 [Additional hypothesis, bounded diagnostic phase and owned A100 setup](decoded_physical_spectral_study_20261103.md).
 Same prepared-X graph compares live decoded clean predictions against encoder input;
 PM decode currently detaches, so gradient reuse requires explicit live probes.
-Own `tta-gsd-physical-spectral-a100-20261103-r1` allocated; Cell1/reconnect passed,
-Cell2 active, no research inference yet. First science phase≤55min total cap;
+Own `tta-gsd-physical-spectral-a100-20261103-r1` allocated; Cell1/reconnect and
+Cell2 Python3.8 verified (only deferred fastrlock); Drive user consent pending,
+Cell3–10/research inference not started. Opt-in prototype473CPU tests/1skip. First science phase≤55min total cap;
 no full benchmark/default change or runtime teardown authorized.
 
 **[Paper/Code/CPU/Inference/Open] 2026-11-03 — GSD guidance mathematical and efficiency audit:**

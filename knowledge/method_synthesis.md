@@ -1,3 +1,15 @@
+## Physical decoded-X spectral hypothesis — 2026-11-03
+
+[User report/Code/CPU/Run/Open] [H7 plan, implementation and owned Colab gate](decoded_physical_spectral_study_20261103.md)
+uses the graph on exact pre-encoder prepared X and applies the metric to decoded
+predicted-clean XYZ. This differs from legacy physical-basis-on-latent signals.
+A single live PM decode can feed detached classification plus physical loss;
+decoder/denoiser backward adds cost. Same fixed basis and slot correspondence
+remain assumptions; physical-space fidelity still anchors corrupted X.
+CPU opt-in prototype is verified, source frozen as c415e87. Own A100 is allocated;
+Drive user consent/Cell3–10 and actual native diagnosis remain pending.
+No accuracy/speed result, method promotion or integration publication yet.
+
 ## GSD mathematical/efficiency diagnosis — 2026-11-03
 
 [Paper/Code/Run/Inference/Open] [New report](gsd_guidance_math_efficiency_20261103.md)

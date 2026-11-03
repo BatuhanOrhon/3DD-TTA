@@ -131,3 +131,30 @@ Science için setup/deployment+strictCPU gate'lerini atlama.
 [CPU/source/setup receipt](evidence/decoded_physical_spectral_20261103/cpu_verification.json)
 ve `result/preparation/gsd_physical_spectral_20261103/cpu_suite_reviewed.log`.
 Bu code-review ve CPU hazırlığıdır; native/Colab inference sonucu değildir.
+
+## Kaynak dondurma / devam noktası — 2026-11-03
+
+[Code/Run/Open] CPU-verified scientific source commit
+`c415e874ce06f1020f4caf80d26ed64525857f8b`;247-file recoverable overlay
+676893bytes/SHA256`ecebdcd6dea47fce073a724da01f2f38e6df9307c6813e234e6b460ddc30b98d`.
+Operator package670897bytes/SHA256`4f40f5f59222f9e30cad38ee3d97206f6e042f207e8757ee6ac06778d46c0d45`
+CLI upload ile own VM `/content/gsd_physical_operator.zip` yoluna aktarıldı;
+remote byte verification/deployment henüz çalışmadı. Notebook wrapperCell3'e
+canonical source değiştirilmeden gerçek mount/KNN wheel SHA assert'i eklendi.
+
+Yerel partial CPU/setup evidence `result/preparation/gsd_physical_spectral_20261103/cpu_setup_preparation_partial.zip`:
+1395637bytes/SHA256`a17e0238787c291d8ca8381c01e8f884e4badaceef133857e1846b6f6469f310`,42üye/CRC geçti.
+Drive backup mount bekliyor; OAuth consent URL/state arşive alınmadı.
+
+Sonraki sıra: kullanıcı consent → CLI70086 Enter → gerçek mount →
+canonicalCell3 (`setup/cell_03.py`) → ayrı marker-gatedCell4–10
+(`setup/run_remaining.py`) → operator `install_phase.py` (exact package SHA,
+pinned asset base/native preservation+restore, strictCPU) → first Gaussian/B2
+control/diagnostic. Science start/deadline kaydı ilk actual technical GPU job'dan
+önce yapılmalı;55dk cumulative cap yeniden başlatılmaz.
+Bilinen dört native binary'yi eski doğrulanmış paketten restore etmek için
+hazırlık var; fresh bytes önce korunur ve restore açıkça kaydedilir.
+Bunun yapılmış veya CPU deployment'ın geçmiş olduğu henüz iddia edilmez.
+
+Task hâlâ aktif; izin bekleyen runtime açık. Yeni prototype integration'a
+yayınlanmadı; source branch'te commitli, payload yerelde/ownVM'de korunuyor.
