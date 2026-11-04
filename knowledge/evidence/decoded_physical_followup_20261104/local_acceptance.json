@@ -1,0 +1,237 @@
+{
+  "status": "accepted",
+  "package": {
+    "bytes": 163569211,
+    "sha256": "0f3fceb1aed50c0d23023a389439abf83955eec4174f45e11f2ba498b882e0e1"
+  },
+  "source_commit": "2109a5d67715001ac7820322aab8ace0530b011b",
+  "native_payload_count": 6,
+  "source_file_count": 248,
+  "science_elapsed_seconds": 326.766286611557,
+  "runs": [
+    {
+      "run_id": "20261104-000625_decoded-diagnostic-8aed642b",
+      "archive_sha256": "26b951c5b457e1305c1b8d558002f59df90c2036297c2829200746f07726bca1",
+      "backend": "legacy",
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": true,
+        "cudnn_benchmark": true,
+        "cudnn_deterministic": false,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      },
+      "cases": [
+        {
+          "corruption": "gaussian",
+          "n": 2,
+          "correct": 2,
+          "runtime_seconds": 2.654117853999196,
+          "peak_gpu_memory_mb": 21756.02392578125
+        }
+      ]
+    },
+    {
+      "run_id": "20261104-000703_decoded-diagnostic-8aed642b",
+      "archive_sha256": "8bfbb2d989adf23a9e9f680d0991fcfe978e4d21fae252ea0e2d47283cd9e8b1",
+      "backend": "legacy",
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": true,
+        "cudnn_benchmark": true,
+        "cudnn_deterministic": false,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      },
+      "cases": [
+        {
+          "corruption": "gaussian",
+          "n": 2,
+          "correct": 2,
+          "runtime_seconds": 2.6456778230021882,
+          "peak_gpu_memory_mb": 21756.44580078125
+        }
+      ]
+    },
+    {
+      "run_id": "20261104-000741_decoded-diagnostic-8aed642b",
+      "archive_sha256": "817222ea58da7fac7869023bd700fdbeca0f8fe4c8a6c15616887a4ac372dfd6",
+      "backend": "legacy",
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": true,
+        "cudnn_benchmark": true,
+        "cudnn_deterministic": false,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      },
+      "cases": [
+        {
+          "corruption": "gaussian",
+          "n": 2,
+          "correct": 2,
+          "runtime_seconds": 2.657213528000284,
+          "peak_gpu_memory_mb": 21757.00830078125
+        }
+      ]
+    },
+    {
+      "run_id": "20261104-000819_decoded-diagnostic-8aed642b",
+      "archive_sha256": "1e6b300f7ae704f155927b245d195d2621a0f1b2ffde9baccf1145ddf704375f",
+      "backend": "controlled",
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      },
+      "cases": [
+        {
+          "corruption": "gaussian",
+          "n": 2,
+          "correct": 2,
+          "runtime_seconds": 2.9619730379999964,
+          "peak_gpu_memory_mb": 4336.55712890625
+        }
+      ]
+    },
+    {
+      "run_id": "20261104-000858_decoded-diagnostic-8aed642b",
+      "archive_sha256": "e04d23410b7380d50b8a63cdaece3593879c5f0b8e850075fbff3f95546bf2f2",
+      "backend": "controlled",
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      },
+      "cases": [
+        {
+          "corruption": "gaussian",
+          "n": 2,
+          "correct": 2,
+          "runtime_seconds": 2.9622498259996064,
+          "peak_gpu_memory_mb": 4336.55712890625
+        }
+      ]
+    },
+    {
+      "run_id": "20261104-000936_decoded-diagnostic-8aed642b",
+      "archive_sha256": "ba80a3a203075092e6e70a9d40a6d7c329e5dad81f2a537a4b4d4b02fa917d53",
+      "backend": "controlled",
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      },
+      "cases": [
+        {
+          "corruption": "gaussian",
+          "n": 2,
+          "correct": 2,
+          "runtime_seconds": 2.944916768999974,
+          "peak_gpu_memory_mb": 4336.55712890625
+        }
+      ]
+    },
+    {
+      "run_id": "20261104-001017_decoded-diagnostic-8aed642b",
+      "archive_sha256": "9010ba28af7c91ccfc69a6371677a28922679fbbb5135b5f076d7e8264ea852b",
+      "backend": "controlled",
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      },
+      "cases": [
+        {
+          "corruption": "gaussian",
+          "n": 8,
+          "correct": 6,
+          "runtime_seconds": 10.792877121999481,
+          "peak_gpu_memory_mb": 5002.85205078125
+        },
+        {
+          "corruption": "background",
+          "n": 8,
+          "correct": 7,
+          "runtime_seconds": 22.384891951998725,
+          "peak_gpu_memory_mb": 5003.41455078125
+        },
+        {
+          "corruption": "shear",
+          "n": 8,
+          "correct": 7,
+          "runtime_seconds": 10.254131676003453,
+          "peak_gpu_memory_mb": 5004.28955078125
+        },
+        {
+          "corruption": "lidar",
+          "n": 8,
+          "correct": 4,
+          "runtime_seconds": 10.273952232997544,
+          "peak_gpu_memory_mb": 5004.28955078125
+        }
+      ]
+    }
+  ],
+  "p0_gates": {
+    "legacy": {
+      "cross_process_passed": false,
+      "same_state_full_repeat_passed": false,
+      "same_state_detached_passed": false
+    },
+    "controlled": {
+      "cross_process_passed": true,
+      "same_state_full_repeat_passed": true,
+      "same_state_detached_passed": true
+    }
+  },
+  "p1_passed": 96,
+  "p1_total": 96
+}

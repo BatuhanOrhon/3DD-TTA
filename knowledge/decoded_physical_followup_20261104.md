@@ -1,10 +1,10 @@
 # Decoded physical spectral follow-up — 2026-11-04
 
-Status: **prepared**, measurement support passed CPU verification. This continues the next
+Status: **P0/P1 and mixed-origin P2 complete; final publication/derived backup pending**. This continues the next
 tests in [the preceding results](decoded_physical_spectral_results_20261103.md).
 Evidence labels: [Code], [Run], [Inference], [Open]. The user's instruction
 “Tamam şimdi planımızdaki bir sonraki testleri çalıştır” authorizes execution.
-No research GPU job in this phase has started yet.
+First research phase started 2026-11-04 00:06:24 UTC.
 
 ## Ownership and fixed scope
 
@@ -99,3 +99,157 @@ standing `origin/thesis-integration` authorization. Keep the runtime monitored.
 in 26.868 seconds. The two analysis-gate tests also passed after extending locked
 native/bootstrap, scheduler and initial-state controls. Independent review found
 and prompted stronger analyzer identity checks; no production guidance change.
+
+[Run] Deployment completed at 00:05:02 UTC without model forward or CUDA init in
+the strict CPU preflight. Source `2109a5d67715001ac7820322aab8ace0530b011b`;
+overlay 682700 bytes / SHA256
+`855f467cbcebd8b45d2a6b91d505b991a678dab54d701c86a55095d3f280cae3`;
+asset manifest 181762 bytes / SHA256
+`b485ea97be7693c690e25746fdb767a01b88c08bd99b5f7e52848c6b16eb2cd7`.
+Operator package 684634 bytes / SHA256
+`7528ad1450ef6c047d489daffbb1dd1f3518d210bb986b893fcc544445f995ef`.
+P0 legacy1 began at 00:06:24 UTC with a new immutable 3300-second phase clock.
+
+## Accepted P0/P1 results
+
+[Run] All seven GPU runner bundles completed. Whole phase elapsed **326.766 s
+(5.446 min)**, 00:06:24–00:11:50 UTC, below the immutable 3300-second cap.
+The conservative 25–45 minute estimate was not consumed by extra experiments.
+P0 and P1 remained zero-weight diagnostics; no applied accuracy arm launched.
+
+| P0 worst observed discrepancy | Legacy | Controlled |
+|---|---:|---:|
+| Cross-process logit max absolute | 2.424399853 | 0.0000557899475 |
+| Cross-process per-object/checkpoint logit RMS | 0.749611909 | 0.0000243000839 |
+| First decoded per-object RMS | 0.0107397983 | 0.000000112835125 |
+| Same-state full/full decoded RMS | 0.0000116168048 | 0.0000000234470061 |
+| Same-state full/detached decoded RMS | 0.0000113744982 | 0.0000000235956943 |
+| All cross-process / full-repeat / detached gates | fail / fail / fail | pass / pass / pass |
+
+[Run] Three pairs per backend, all locked source/native/model/cache/input/state/RNG
+controls accepted. Controlled actual flags matched the declared policy. These
+settings jointly changed benchmark, deterministic and CuDNN TF32 behavior; the
+individual flag responsible is not isolated. Custom native kernels remain outside
+a strict determinism guarantee.
+
+[Inference] The previous V5 full/detached equivalence rejection under legacy
+settings does **not isolate detachment as its cause**: a repeated ordinary full
+forward also fails that same RMS gate here. Under controlled settings both forms
+pass. V5 remains a recorded rejected attempt and its optimization remains reverted;
+this is evidence for a future controlled optimization test, not retrospective
+acceptance of its unapplied arms.
+
+| P1 corruption | Passing object/checkpoint comparisons | Minimum cosine | H8/full norm ratio range |
+|---|---:|---:|---:|
+| Gaussian | 24/24 | .998278310 | .999690252–1.001727793 |
+| Background | 24/24 | .999838596 | .999255786–1.000541019 |
+| Shear | 24/24 | .999174524 | .999588137–1.001267228 |
+| LiDAR | 24/24 | .995611972 | .999096588–1.004202485 |
+
+[Run] **96/96** passed; the minimum occurred at LiDAR ID1229, clean6. All48B2
+checkpoint forward witnesses also passed; worst full/full RMS3.54055167e-8,
+full/detached RMS3.58671812e-8 and max absolute2.38418579e-7. These are selected
+zero-guidance trajectories, not a bound along future guided paths.
+
+[Run] Backend comparison cost, measured on the same three B2 diagnostic repeats:
+median reconstruction **2.654118s legacy / 2.961973s controlled** (+11.60%).
+Median peak **21756.4458MiB / 4336.5571MiB** (approximately21.25/4.24GiB).
+These timings include extra diagnostic forwards/VJPs and exclude graph setup;
+the memory includes their process allocations. They do not measure H8 deployment
+speed or attribute the difference to a single flag. No speed/accuracy gain claimed.
+
+## P2 reconstruction failure and exact saved-filter audit
+
+[Run] CPU V1 source `6996d50` preserved an **analysis_mismatch** result: CPU
+reconstruction of first Gaussian B2 F differed from the saved GPU F by maximum
+**5.95178045e-6**, exceeding fixed1e-6. That B2 case's four first/terminal rows
+were aborted; 60 rows from30other object-conditions passed their first-loss
+scalar checks (max absolute1.96350611e-7). Their metric directions are explicitly
+CPU-reconstructed, not GPU-operator certified. No tolerance was relaxed.
+
+[Run] A separate CPU audit directly used the archived GPU F for IDs459/545.
+Gaussian ID459 terminal gives a concrete output-space counterexample:
+spectral loss **.0143945200835 -> .0140846361175**, while clean symmetric mean-NN
+squared Chamfer **.0505244935070 -> .0505442634157**. The exact quadratic change
+matches the gradient/curvature calculation within1.20e-18. Both permutation
+controls passed. No sampler update or classification improvement follows from
+this point-space oracle direction.
+
+[Run] V2 source `644bcfa` used archived GPU F directly where available, verified
+against `graph.json` tensor hashes, and retained the failed CPU-reconstruction
+gate separately. The other30object-conditions retain CPU-reconstructed
+scalar-gated metrics. This new mixed-origin CPU analysis has fresh output; V1
+failure and source bytes remain archived. The numerical gradient uses
+`(F+F.T)E/(3N)`, exactly evaluating the stored quadratic including float32 symmetry
+roundoff; it reduces to `2FE/(3N)` for exactly symmetric F.
+
+[Run] V2 status **complete_with_reconstruction_mismatch**,64/64 rows. Both
+available CPU/GPU F reconstruction comparisons failed (ID4595.95178045e-6,
+ID5453.54647636e-6 > fixed1e-6); they were not repaired or certified. Exact
+archived F nonetheless supports the two corresponding object-conditions/four
+checkpoint rows. The other30conditions/60rows have only a scalar loss gate.
+
+| Corruption | Spectral decrease / tested steps | Clean CD increase, first | Clean CD increase, terminal |
+|---|---:|---:|---:|
+| Gaussian | 16/16 | 0/8 | 5/8 |
+| Background | 16/16 | 5/8 | 7/8 |
+| Shear | 16/16 | 6/8 | 7/8 |
+| LiDAR | 16/16 | 6/8 | 6/8 |
+
+[Run] **42/64** finite physical steps decreased spectral loss and increased clean
+CD: **1/4** archived-GPU-F rows, **41/60** CPU-reconstructed rows. All64 spectral
+losses decreased, all steps resolved, no finite-step overshoot. Maximum exact
+quadratic prediction error7.72e-17, joint permutation error5.56e-17; set-CD
+permutation invariance passed. These64rows reuse eight objects and are not
+independent samples or a population failure-rate estimate.
+
+[Inference] This establishes that corrupted-X spectral fidelity can oppose clean
+geometry at an observed physical output, even when H8 approximates its derivative
+well. It neither identifies slot misalignment as the unique cause nor proves an
+applied sampler/accuracy effect. A fixed common U is still a valid representation;
+the objective's target and correspondence assumptions remain the substantive
+question. Y-only permutation sensitivity is an expected property of indexed
+quadratic loss, not itself an implementation bug.
+
+[Decision] Keep all production/default guidance unchanged. Next gated work is
+(1) controlled-backend performance/forward-graph optimization with matched
+lightweight controls, (2) separate correspondence from corrupted-anchor bias
+before proposing a replacement objective, and only then (3) applied paired
+accuracy/development/confirmation. No new GPU work is authorized by this note.
+
+## Raw archive acceptance and operator history
+
+[Run] Drive/local raw package **163569211 bytes**, SHA256
+`0f3fceb1aed50c0d23023a389439abf83955eec4174f45e11f2ba498b882e0e1`.
+73 declared payloads plus its manifest; all CRC/SHA checks, seven inner runner
+manifests,248source files/Python3.8 syntax, six physical ELF payloads, exact
+prepared normalization frames, predictions/CSV counts and complete trajectories
+passed local and independent review. Raw ZIPs live under
+`result/modelnet40_c/decoded_physical_spectral_diagnostic/`; package and reports
+under `result/preparation/gsd_physical_followup_20261104/`, with the matching
+Drive root recorded above. Clean subset84715bytes/SHA256
+`16db79b9c969e122d3c8277e61b0834a11ef90603aa189ea51632b108effddd9` was extracted
+only after GPU research completion from the pinned30326912-byte clean asset.
+
+[Run] Operator bookkeeping issue: the research phase printed its completion
+marker with JSON on the same line, so monitor's exact-line check correctly
+reported `marker_found=false`, despite CLI exit0. No experiment was rerun.
+The following CPU collection phase re-read the complete on-disk receipt,
+verified all seven raw archive identities, backed up the package and emitted its
+exact `GSD_FOLLOWUP_ARTIFACTS_COMPLETE` marker at00:12:49 UTC (monitor COMPLETE).
+An earlier empty-hash local control request was rejected before executing any
+cell; its corrected submission launched the sole research phase. Both operator
+events are preserved, without treating them as scientific run failures.
+
+## Compact evidence
+
+[P0 repeats](evidence/decoded_physical_followup_20261104/p0_repeats.json),
+[P1 all96 directions](evidence/decoded_physical_followup_20261104/p1_transfer.json),
+[P2 summary and identities](evidence/decoded_physical_followup_20261104/p2_summary.json),
+[P2 all64 physical steps](evidence/decoded_physical_followup_20261104/p2_directions.csv),
+[preserved V1 failure](evidence/decoded_physical_followup_20261104/p2_v1_failure.json),
+[raw acceptance](evidence/decoded_physical_followup_20261104/local_acceptance.json).
+CPU artifact math ran on macOS arm64/Python3.12.10/Torch2.15.0/NumPy1.26.4;
+GPU runs used the earlier pinned Linux/Python3.8/Torch2.1.2+cu121 environment.
+This backend/version difference is a possible source of reconstruction discrepancy,
+not evidence that either eigensolver or the production implementation is incorrect.
