@@ -56,7 +56,7 @@ class OracleAnalysisTests(unittest.TestCase):
         overshoot = analysis.analyze_direction(far, far+1e-5, metric, clean)
         self.assertTrue(overshoot['finite_step_overshoot'])
 
-    def test_saved_first_probe_or_filter_mismatch_aborts_comparison(self):
+    def test_saved_first_probe_or_invalid_archived_filter_aborts_comparison(self):
         analysis = self.analysis()
         reference = np.array([[1., 0., 0.], [3., 0., 0.]])
         decoded = reference-np.array([1., 0., 0.])
@@ -64,9 +64,52 @@ class OracleAnalysisTests(unittest.TestCase):
         check = analysis.validate_metric(metric, decoded, reference, .25, metric.copy())
         self.assertTrue(check['passed'])
         with self.assertRaisesRegex(ValueError, 'loss mismatch'):
-            analysis.validate_metric(metric, decoded, reference, .250002)
-        with self.assertRaisesRegex(ValueError, 'filter mismatch'):
-            analysis.validate_metric(metric, decoded, reference, .25, metric+np.eye(2)*2e-6)
+            analysis.validate_metric(metric, decoded, reference, .250002, metric.copy())
+        for invalid in (np.full((2, 2), np.nan), metric+np.array([[0., .001], [0., 0.]])):
+            with self.assertRaises(ValueError):
+                analysis.validate_metric(metric, decoded, reference, .25, invalid)
+
+    def test_archived_filter_wins_and_failed_cpu_reconstruction_gate_is_retained(self):
+        analysis = self.analysis()
+        reference = np.array([[1., 0., 0.], [3., 0., 0.]])
+        decoded = reference-np.array([1., 0., 0.])
+        archived = np.diag([1., .5]).astype(np.float32)
+        cpu = archived.astype(np.float64)+np.eye(2)*1e-4
+        check = analysis.validate_metric(cpu, decoded, reference, .25, archived)
+        self.assertTrue(check['passed'])
+        self.assertEqual(check['metric_origin'], 'archived_gpu_filter')
+        self.assertEqual(check['first_loss_cpu_float64'], .25)
+        self.assertGreater(check['cpu_reconstructed_first_loss_absolute_error'], 1e-6)
+        self.assertFalse(check['reconstruction_comparison_passed'])
+        self.assertGreater(check['saved_filter_max_absolute_error'], 1e-6)
+
+    def test_stored_roundoff_asymmetry_uses_exact_quadratic_derivative(self):
+        analysis = self.analysis()
+        decoded = np.array([[0., 0., 0.], [2., 0., 0.]])
+        reference = decoded+np.array([1., 0., 0.])
+        metric = np.array([[1., 5e-8], [0., .5]])
+        numerical = np.empty_like(decoded)
+        for i in range(2):
+            for j in range(3):
+                perturbation = np.zeros_like(decoded)
+                perturbation[i, j] = 1e-5
+                numerical[i, j] = (analysis.quadratic_loss(decoded+perturbation, reference, metric)
+                                   - analysis.quadratic_loss(decoded-perturbation, reference, metric))/(2e-5)
+        row = analysis.analyze_direction(decoded, reference, metric, decoded)
+        self.assertAlmostEqual(row['gradient_norm'], float(np.linalg.norm(numerical)), places=9)
+        self.assertAlmostEqual(row['spectral_delta'], row['predicted_quadratic_delta'], places=12)
+
+    def test_small_filter_discrepancy_can_fail_cpu_loss_reconstruction_gate(self):
+        analysis = self.analysis()
+        reference = np.zeros((2, 3))
+        decoded = np.full((2, 3), 100.)
+        archived = np.eye(2, dtype=np.float32)
+        cpu = archived.astype(np.float64)+np.eye(2)*.5e-6
+        check = analysis.validate_metric(cpu, decoded, reference, 10000., archived)
+        self.assertTrue(check['passed'])
+        self.assertLess(check['saved_filter_max_absolute_error'], 1e-6)
+        self.assertGreater(check['cpu_reconstructed_first_loss_absolute_error'], 1e-6)
+        self.assertFalse(check['reconstruction_comparison_passed'])
 
     def test_clean_receipt_binds_exact_subset_and_source_pin(self):
         analysis = self.analysis()
@@ -104,9 +147,13 @@ class OracleAnalysisTests(unittest.TestCase):
             physical_graph=dict(k=10, delta=.1, graph_gamma=.6, modes=100, profile='smooth', beta=2.),
             setup_verification=dict(report=dict(assets={'data/modelnet40_c/data_original.npy': analysis.CLEAN_IDENTITY})),
             executed_source_files={'repo/graph_spectral.py': analysis.identity(graph_spectral.__file__)})
-        mismatch = False
+        mismatch, include_gpu, wrong_hash = False, False, False
+        archived = np.eye(2048, dtype=np.float32)*2e-6
+        gpu_case = 'batches/gaussian/batch0000/'
         class Bundle:
-            names = set()
+            @property
+            def names(self):
+                return {gpu_case+'physical_filters.npz'} if include_gpu else set()
             def read(self, name):
                 return selection_bytes
             def json(self, name):
@@ -114,12 +161,17 @@ class OracleAnalysisTests(unittest.TestCase):
                     loss = .1 if mismatch and name.startswith('batches/gaussian/batch0000/') else 0.
                     return [dict(loop_count=9 if '/background/' in name else 2,
                                  spectral_loss_per_object=[loss, 0.])]*3
+                if name.endswith('graph.json'):
+                    sha = '0'*64 if wrong_hash else tensor_hash(torch.from_numpy(archived))
+                    return dict(filter_sha256=[sha, sha])
                 return dict(prepared_x_sha256=tensor_hash(torch.from_numpy(points)))
             def close(self):
                 pass
         def saved_arrays(bundle, name):
             batch = int(name.split('/')[2][5:])
             ids = np.asarray(analysis.IDS[batch*2:batch*2+2])
+            if name.endswith('physical_filters.npz'):
+                return dict(filters=np.stack([archived, archived]))
             if name.endswith('reference.npz'):
                 return dict(prepared_x=points, initial_h0_xyz=points)
             if name.endswith('terminal_geometry.npz'):
@@ -139,7 +191,7 @@ class OracleAnalysisTests(unittest.TestCase):
                  patch.object(analysis, 'arrays', side_effect=saved_arrays), \
                  patch.object(analysis, 'load_oracle', return_value=(np.zeros((8, 1024, 3)), {})), \
                  patch.object(graph_spectral, 'build_smooth_spectral_target', return_value=SimpleNamespace(filters=[metric, metric])), \
-                 patch.object(analysis, 'analyze_direction', return_value=direction_result):
+                 patch.object(analysis, 'analyze_direction', return_value=direction_result) as directions:
                 result = analysis.summarize(*inputs)
                 self.assertEqual(result['status'], 'complete')
                 self.assertEqual(result['total_rows'], 64)
@@ -153,6 +205,22 @@ class OracleAnalysisTests(unittest.TestCase):
                 self.assertTrue(failed['mismatches'][0]['comparison_aborted'])
                 self.assertEqual(failed['aggregates']['gaussian']['first']['total'], 6)
                 json.dumps(failed, allow_nan=False)
+                mismatch, include_gpu = False, True
+                directions.reset_mock()
+                mixed = analysis.summarize(*inputs)
+                self.assertEqual(mixed['status'], 'complete_with_reconstruction_mismatch')
+                self.assertEqual(mixed['total_rows'], 64)
+                self.assertEqual(mixed['reconstruction_comparison']['failed'], 2)
+                self.assertEqual(mixed['metric_provenance']['saved_gpu_filter_conditions'], 2)
+                self.assertEqual(mixed['rows'][0]['metric_origin'], 'archived_gpu_filter')
+                self.assertEqual(mixed['rows'][4]['metric_origin'], 'cpu_reconstructed_scalar_gated')
+                for call in directions.call_args_list[:4]:
+                    np.testing.assert_array_equal(call.args[2], archived)
+                wrong_hash = True
+                rejected = analysis.summarize(*inputs)
+                self.assertEqual(rejected['status'], 'analysis_mismatch')
+                self.assertEqual(rejected['total_rows'], 60)
+                self.assertIn('SHA', rejected['mismatches'][0]['error'])
 
 
 if __name__ == '__main__':

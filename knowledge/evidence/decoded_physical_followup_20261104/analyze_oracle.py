@@ -76,17 +76,30 @@ def validate_metric(metric, first, reference, saved_loss, saved_filter=None):
     require(metric.shape == (len(reference), len(reference)) and np.isfinite(metric).all(), 'Invalid physical filter')
     symmetry_error = float(np.abs(metric-metric.T).max())
     require(symmetry_error <= 1e-7, 'Physical filter is not symmetric')
-    loss = quadratic_loss(first, reference, metric)
+    cpu_loss = quadratic_loss(first, reference, metric)
+    filter_error = None
+    physical_metric = metric
+    if saved_filter is not None:
+        require(saved_filter.shape == metric.shape and np.isfinite(saved_filter).all(), 'Invalid saved physical filter')
+        physical_metric = np.asarray(saved_filter, dtype=np.float64)
+        require(float(np.abs(physical_metric-physical_metric.T).max()) <= 1e-7, 'Saved physical filter is not symmetric')
+        filter_error = float(np.abs(metric-physical_metric).max())
+    loss = quadratic_loss(first, reference, physical_metric)
     error = abs(loss-float(saved_loss))
     require(np.isfinite(loss) and np.isfinite(saved_loss) and error <= METRIC_ATOL,
             'First checkpoint loss mismatch: abs_error=%r' % error)
-    filter_error = None
-    if saved_filter is not None:
-        require(saved_filter.shape == metric.shape and np.isfinite(saved_filter).all(), 'Invalid saved physical filter')
-        filter_error = float(np.abs(metric-np.asarray(saved_filter, dtype=np.float64)).max())
-        require(filter_error <= METRIC_ATOL, 'Reconstructed filter mismatch: max_abs_error=%r' % filter_error)
+    cpu_loss_error = abs(cpu_loss-float(saved_loss))
+    cpu_loss_finite = bool(np.isfinite(cpu_loss) and np.isfinite(cpu_loss_error))
     return dict(passed=True, first_loss_cpu_float64=loss, first_loss_saved=float(saved_loss),
-                first_loss_absolute_error=error, symmetry_max_absolute_error=symmetry_error,
+                first_loss_absolute_error=error,
+                symmetry_max_absolute_error=float(np.abs(physical_metric-physical_metric.T).max()),
+                cpu_reconstructed_symmetry_max_absolute_error=symmetry_error,
+                metric_origin='archived_gpu_filter' if saved_filter is not None else 'cpu_reconstructed_scalar_gated',
+                cpu_reconstructed_first_loss=cpu_loss if cpu_loss_finite else None,
+                cpu_reconstructed_first_loss_absolute_error=cpu_loss_error if cpu_loss_finite else None,
+                cpu_reconstructed_first_loss_finite=cpu_loss_finite,
+                reconstruction_comparison_passed=None if filter_error is None else
+                    (cpu_loss_finite and cpu_loss_error <= METRIC_ATOL and filter_error <= METRIC_ATOL),
                 gpu_filter_available=saved_filter is not None, operator_comparison_available=saved_filter is not None,
                 saved_filter_max_absolute_error=filter_error)
 
@@ -98,7 +111,8 @@ def analyze_direction(decoded, reference, metric, clean):
     before = quadratic_loss(decoded, reference, metric)
     clean_before = squared_chamfer(decoded, clean)
     residual = decoded-reference
-    gradient = 2*(metric @ residual)/(3*len(decoded))
+    # Evaluate the exact stored quadratic even for float32 symmetry roundoff.
+    gradient = (metric @ residual+metric.T @ residual)/(3*len(decoded))
     gradient_norm, epsilon = float(np.linalg.norm(gradient)), .001*float(np.linalg.norm(decoded))
     require(np.isfinite(gradient).all() and np.isfinite(gradient_norm+epsilon), 'Nonfinite physical direction')
     perm = np.arange(len(decoded)-1, -1, -1)
@@ -222,17 +236,25 @@ def summarize(path, oracle_path, receipt_path):
                 target = graph_spectral.build_smooth_spectral_target(torch.from_numpy(prepared), graph_spectral.SpectralConfig(), profile='smooth', beta=2.)
                 case_checks = []
                 try:
+                    if saved_filters is not None:
+                        require(saved_filters.shape == (2, 2048, 2048) and saved_filters.dtype == np.float32, 'Invalid archived GPU filter tensor')
+                        saved_hashes = bundle.json(case+'graph.json')['filter_sha256']
+                        require(isinstance(saved_hashes, list) and len(saved_hashes) == 2, 'Missing archived filter SHA entries')
                     for index, object_id in enumerate(expected_ids):
+                        saved_hash = None if saved_filters is None else tensor_hash(torch.from_numpy(saved_filters[index]))
+                        require(saved_hash is None or saved_hash == saved_hashes[index], 'Archived GPU filter tensor SHA mismatch')
                         metric = target.filters[index].numpy().astype(np.float64)
                         check = validate_metric(metric, first[index], prepared[index], records[0]['spectral_loss_per_object'][index],
                                                 None if saved_filters is None else saved_filters[index])
-                        case_checks.append(dict(corruption=corruption, object_id=object_id, **check))
+                        case_checks.append(dict(corruption=corruption, object_id=object_id, archived_filter_sha256=saved_hash, **check))
                 except ValueError as error:
                     mismatches.append(dict(case=case, object_ids=expected_ids, error=str(error), comparison_aborted=True))
                     continue
                 checks.extend(case_checks)
                 for index, object_id in enumerate(expected_ids):
-                    metric = target.filters[index].numpy().astype(np.float64)
+                    metric = (target.filters[index].numpy().astype(np.float64) if saved_filters is None
+                              else saved_filters[index].astype(np.float64))
+                    check = case_checks[index]
                     clean_physical = physical_clean(clean[batch*2+index], terminal['normalization_center'][index], terminal['normalization_scale'][index])
                     for checkpoint, decoded, loop_count in (
                             ('first', first[index], records[0]['loop_count']),
@@ -240,8 +262,12 @@ def summarize(path, oracle_path, receipt_path):
                         rows.append(dict(corruption=corruption, object_id=object_id, checkpoint=checkpoint,
                                          gpu_filter_available=saved_filters is not None,
                                          operator_comparison_available=saved_filters is not None,
+                                         metric_origin=check['metric_origin'],
+                                         reconstruction_comparison_passed=check['reconstruction_comparison_passed'],
+                                         cpu_reconstruction_max_absolute_error=check['saved_filter_max_absolute_error'],
+                                         archived_filter_sha256=check['archived_filter_sha256'],
                                          metric_direction_scope='CPU reconstructed metric; GPU scalar-loss gate only'
-                                             if saved_filters is None else 'CPU metric compared with saved GPU filter; no GPU-direction certificate',
+                                             if saved_filters is None else 'Archived float32 GPU filter evaluated in float64 on CPU; no sampler certificate',
                                          loop_count=loop_count, **analyze_direction(decoded, prepared[index], metric, clean_physical)))
         aggregates = {}
         for corruption in config['corruptions']:
@@ -254,15 +280,23 @@ def summarize(path, oracle_path, receipt_path):
                     overshoot=sum(r['finite_step_overshoot'] is True for r in group))
         require(len(rows) == 64 or mismatches, 'Expected 32 conditions x 2 checkpoints')
         require(all(identity(p) == expected for p, expected in inputs.items()), 'Analysis inputs changed during CPU work')
-        return dict(stage='P2', status='analysis_mismatch' if mismatches else 'complete', expected_rows=64, total_rows=len(rows),
+        reconstruction = dict(available=sum(c['operator_comparison_available'] for c in checks),
+                              passed=sum(c['reconstruction_comparison_passed'] is True for c in checks),
+                              failed=sum(c['reconstruction_comparison_passed'] is False for c in checks),
+                              unavailable=sum(c['reconstruction_comparison_passed'] is None for c in checks))
+        status = 'analysis_mismatch' if mismatches else ('complete_with_reconstruction_mismatch' if reconstruction['failed'] else 'complete')
+        return dict(stage='P2', analysis_version=2, status=status, expected_rows=64, total_rows=len(rows),
                     inputs=inputs, oracle_receipt=receipt, metric_checks=checks, mismatches=mismatches,
+                    reconstruction_comparison=reconstruction,
+                    metric_policy='Use archived GPU filters directly when available; retain failed CPU reconstruction gate without loosening tolerance',
                     metric_provenance=dict(validated_conditions=len(checks),
                         saved_gpu_filter_conditions=sum(c['gpu_filter_available'] for c in checks),
                         cpu_reconstructed_scalar_gated_conditions=sum(not c['gpu_filter_available'] for c in checks)),
                     production_graph=dict(config=vars(graph_spectral.SpectralConfig()), profile='smooth', beta=2., reference_dtype='float32'),
                     metric_absolute_tolerance=METRIC_ATOL, nearest_neighbor_backend='scipy.cKDTree' if cKDTree is not None else 'numpy_chunk128',
                     rows=rows, aggregates=aggregates,
-                    limitation='Posthoc CPU-reconstructed output-space directions; only saved first-B2 filters permit GPU-operator comparison. Other conditions have a first-loss scalar gate only, no GPU-operator/direction certificate. No sampler/accuracy inference; clean never guidance or selection')
+                    gradient_evaluation='(F+F.T)E/(3N), equivalent to2FE/(3N) for exact symmetry; stored F and its quadratic value are unchanged',
+                    limitation='Mixed-origin posthoc output-space directions: archived float32 GPU filters evaluated in float64 where available; other conditions use scalar-gated CPU reconstruction, with no GPU-operator/direction certificate. CPU reconstruction failures remain explicit. No sampler/accuracy inference; clean never guidance or selection')
     finally:
         bundle.close()
 
@@ -281,5 +315,5 @@ if __name__ == '__main__':
             stream.write(rendered)
     else:
         print(rendered, end='')
-    if report['status'] != 'complete':
+    if report['status'] not in ('complete', 'complete_with_reconstruction_mismatch') or report['total_rows'] != 64:
         raise SystemExit(1)
