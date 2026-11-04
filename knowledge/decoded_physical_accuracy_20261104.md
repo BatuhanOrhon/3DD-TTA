@@ -1,0 +1,26 @@
+# Decoded physical spectral guidance: applied accuracy pilot, 2026-11-04
+
+**[Code/Inference/Open] Status: planned, no new GPU result yet.** User asked to continue the next tests. This stage follows the accepted [P0/P1/P2 follow-up](decoded_physical_followup_20261104.md). Prior derivative agreement does not establish accuracy improvement.
+
+## Frozen protocol before execution
+
+Question: does the frozen physical decoded-space loss improve probability-mean accuracy, and does H8 retain that behavior while reducing decoder-backward cost? This is **SCD plus physical guidance**, not replacement of SCD or full GSDTTA.
+
+- ModelNet40-C, all15 canonical corruptions, severity5, PointMAE/LION raw eval, EMA off; seed0, B2;32 development IDs in four immutable8-ID shards. Selection uses SHA256 rank with salt `decoded-physical-accuracy-20261104-v1`, excluding the prior five stage cohorts, old pilot IDs, and follow-up8. [Selection and exclusions](evidence/decoded_physical_accuracy_20261104/development_ids.json). No label/clean-data selection. Historical full-test exposure remains; this is not unseen confirmation.
+- Original SCD sum, gamma.03/eta.003/p.95; DDIM100/final-alpha1; normal8/background35 reverse steps; clean PM checkpoints2/4/6 or9/18/27 plus terminal. Controlled cuDNN backend as in the accepted follow-up; custom CUDA atomics remain uncontrolled.
+- Four arms: `control` (no-grad operational SCD+PM), `live0` (grad-enabled physical observer, zero applied loss), `full` (full decoded-space derivative), `h8` (same decoder values, frozen residual surrogate). Full/H8 use the previously frozen label-free coefficient **802.5000841164167**. No accuracy-based retuning, decoder input-detachment optimization, default promotion, or additional coefficient search.
+- Same frozen prepared-input graph: k10/delta.1/graph-gamma.6, smooth heat profile beta2 with all active modes; exact prepared encoder input versus decoded PM geometry. Fixed reference and vertex-correspondence assumption retained.
+- Prebuild every main paired encoded state/noise cache using the existing sampler's preparation callback, stopping before reverse diffusion. All measured arms replay exact same caches. Preparation cost is separate and common. First technical GaussianB2 uses prior IDs44/91 and their pinned cache.
+- Technical four-arm gate: unchanged source/native/model/prepared/state/RNG identities; finite complete outputs. Control/live0 per-object/checkpoint logit max≤.05, RMS≤.01, first decoded RMS≤1e-4. Same gates checked on main all15; failed equivalence limits isolated attribution rather than silently changing thresholds. Positive full/H8 need not have identical outputs.
+- Main orders rotate across shards: control/live0/full/h8; live0/full/h8/control; full/h8/control/live0; h8/control/live0/full. Compare full and H8 primarily to live0; separately report operational comparisons against control and H8 versus full.
+- Outcomes: independent PM/terminal recount; per-corruption/all15 accuracy and paired differences;10,000 bootstrap samples (seed20261101) of32 original objects, retaining all15 outcomes per object. One seed, development-only uncertainty. No treating480 observations as independent objects.
+- Timing: report graph-build, reconstruction/PM, per-case elapsed, worker wall, common cache preparation and outer process wall separately. Graph construction is outside existing reconstruction timers; peaks reset after graph construction, so graph-build peak is unmeasured. Warm prepared-cache timing is not deployment throughput. No end-to-end speed claim from reconstruction alone.
+- Whole GPU phase, including preparation and technical runs: estimate30–45minutes, hard55minutes from the first GPU invocation. No new run if remaining budget is insufficient. Accept only complete common four-arm/all15 shards; preserve all partial/failed artifacts and never choose inclusion by scores. No >60minute phase authorized or planned.
+
+## Execution and persistence
+
+Owned worktree `3DD-TTA-worktrees/gsd-guidance-math-audit-20261103`, branch `research/gsd-physical-accuracy-20261104`, based on `origin/thesis-integration`73e117a. Minimal driver change permits canonical all15 inputs while preserving existing defaults. Source is sealed before deployment.
+
+Reuse owned session `tta-gsd-physical-spectral-a100-20261103-r1`, endpoint `gpu-a100-hm-ass1c0-i933qghuewn8`, A10080GB; monitor97932/PID34871 owns cells. Canonical environment was already verified. New remote root `/content/studies/gsd-physical-accuracy-20261104`; Drive `/content/drive/MyDrive/thesis/result/gsd_physical_accuracy_20261104`; local `result/preparation/gsd_physical_accuracy_20261104/`. Fresh immutable deployment and output directories; per-batch Drive copies and sealed raw bundles. Source, native binaries, caches, commands, success/failure receipts retained. Runtime remains protected; no teardown permission.
+
+Next gate: CPU deployment/source/native/data verification, technical comparison, then bounded main phase. A positive pilot requires stage-disjoint multi-seed confirmation and fresh deployment timing before a final claim; a null or harmful result rejects promotion at this frozen coefficient without proving every physical spectral objective impossible.

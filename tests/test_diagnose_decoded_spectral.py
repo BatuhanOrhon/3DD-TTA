@@ -4,6 +4,21 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_all15_corruptions_are_explicitly_supported_without_changing_defaults(self):
+        from contextlib import redirect_stderr
+        from io import StringIO
+        from research_artifacts import CORRUPTIONS
+        from scripts.diagnose_decoded_spectral import configuration
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertEqual(configuration(args)['corruptions'], ['gaussian', 'background'])
+        selected = configuration([*args, '--corruptions', *CORRUPTIONS])
+        self.assertEqual(selected['corruptions'], list(CORRUPTIONS))
+        with self.assertRaises(ValueError):
+            configuration([*args, '--corruptions', 'gaussian', 'gaussian'])
+        with redirect_stderr(StringIO()), self.assertRaises(SystemExit):
+            configuration([*args, '--corruptions', 'original'])
+
     def test_index_manifest_is_pinned_sorted_unique_and_count_matched(self):
         import json
         import tempfile

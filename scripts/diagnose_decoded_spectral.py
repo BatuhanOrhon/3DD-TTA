@@ -21,6 +21,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 from scripts import eval_multibackbone_guidance as shared
 from scripts import eval_multibackbone_source as source
+from research_artifacts import CORRUPTIONS
 
 IDS = [44, 91, 103, 137, 158, 223, 236, 265]
 
@@ -38,7 +39,7 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--native-decoder-audit', action='store_true')
     parser.add_argument('--freeze-decoder-residual', action='store_true')
     parser.add_argument('--count', type=int, choices=(2, 8), default=2)
-    parser.add_argument('--corruptions', nargs='+', choices=('gaussian', 'background', 'shear', 'lidar'),
+    parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
     args = parser.parse_args(argv)
     if args.freeze_decoder_residual and args.arm not in ('physical', 'live_control'):
