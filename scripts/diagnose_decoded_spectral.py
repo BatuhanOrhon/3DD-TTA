@@ -11,6 +11,7 @@ from pathlib import Path
 import platform
 import re
 import shlex
+import shutil
 import subprocess
 import sys
 import time
@@ -29,6 +30,9 @@ def configuration(argv=None) -> dict:
     for name in ('asset-root', 'asset-manifest-sha256', 'result-root', 'paired-state-root'):
         parser.add_argument('--' + name, required=True)
     parser.add_argument('--drive-root')
+    parser.add_argument('--backend-policy', choices=('legacy', 'controlled'), default='legacy')
+    parser.add_argument('--index-manifest')
+    parser.add_argument('--index-manifest-sha256')
     parser.add_argument('--arm', choices=('control', 'live_control', 'diagnostic', 'physical'), default='diagnostic')
     parser.add_argument('--weight', type=float, default=0.)
     parser.add_argument('--native-decoder-audit', action='store_true')
@@ -48,8 +52,10 @@ def configuration(argv=None) -> dict:
         raise ValueError('A pinned asset manifest SHA-256 is required')
     if len(set(args.corruptions)) != len(args.corruptions):
         raise ValueError('Duplicate corruptions are forbidden')
+    if (args.index_manifest is None) != (args.index_manifest_sha256 is None):
+        raise ValueError('--index-manifest and --index-manifest-sha256 must be supplied together')
     config = vars(args)
-    for key in ('asset_root', 'result_root', 'paired_state_root', 'drive_root'):
+    for key in ('asset_root', 'result_root', 'paired_state_root', 'drive_root', 'index_manifest'):
         if config[key]:
             config[key] = str(Path(config[key]).absolute())
     config.update(method='decoded_physical_spectral_diagnostic', dataset='modelnet40_c',
@@ -66,8 +72,93 @@ def configuration(argv=None) -> dict:
                   preprocessing='normalize -> upsample2048 -> scale3.3885 -> rotate; original encoded z0 decode',
                   correspondence_caveat='Spectral and slot residuals assume decoded/prepared vertex correspondence',
                   purpose='Gradient/correspondence diagnostic; selected-ID accuracy is exploratory',
+                  backend_policy_limitation='Custom/native kernels may remain nondeterministic; deterministic algorithms disabled',
+                  terminal_geometry_artifact=dict(filename='terminal_geometry.npz',
+                      fields=['index', 'raw_corrupted_xyz', 'normalization_center', 'normalization_scale',
+                              'terminal_decoded_xyz', 'terminal_classifier_geometry'],
+                      clean_to_physical='((clean-center)/scale)*3.3885 then rotate(-z,y,x)'),
                   randomness_policy='Seed0 reset before each corruption/B2 case; paired encoded state/noise cache')
+    if args.index_manifest is not None:
+        selection, identity = read_index_manifest(Path(config['index_manifest']), args.index_manifest_sha256, args.count)
+        config.update(selected_original_ids=selection['indices'], selection_manifest=selection,
+                      selection_manifest_identity=identity)
     return config
+
+
+def read_index_manifest(path: Path, expected_sha256: str, count: int) -> tuple[dict, dict]:
+    identity = source.file_identity(path)
+    if not re.fullmatch('[0-9a-f]{64}', expected_sha256 or '') or identity['sha256'] != expected_sha256:
+        raise ValueError('Index manifest SHA-256 mismatch')
+    selection = json.loads(path.read_text())
+    indices = selection.get('indices') if isinstance(selection, dict) else None
+    if (not isinstance(selection, dict) or type(selection.get('schema_version')) is not int
+            or selection['schema_version'] != 1 or selection.get('dataset') != 'modelnet40_c'
+            or not isinstance(indices, list) or len(indices) != count
+            or any(type(index) is not int or not 0 <= index < 2468 for index in indices)
+            or indices != sorted(set(indices))):
+        raise ValueError('Index manifest requires schema1 ModelNet40-C sorted unique integer IDs matching count')
+    return selection, identity
+
+
+def apply_backend_policy(policy: str) -> dict:
+    """Set flags before CUDA/model initialization; custom kernels remain uncontrolled."""
+    import torch
+    if policy not in ('legacy', 'controlled'):
+        raise ValueError('Unknown backend policy')
+    controlled = policy == 'controlled'
+    torch.backends.cudnn.benchmark = not controlled
+    torch.backends.cudnn.deterministic = controlled
+    if controlled:
+        torch.backends.cudnn.allow_tf32 = False
+        torch.backends.cuda.matmul.allow_tf32 = False
+    torch.use_deterministic_algorithms(False)
+    return dict(cudnn=torch.backends.cudnn.version(), cudnn_benchmark=torch.backends.cudnn.benchmark,
+                cudnn_deterministic=torch.backends.cudnn.deterministic,
+                cudnn_allow_tf32=torch.backends.cudnn.allow_tf32,
+                cuda_matmul_allow_tf32=torch.backends.cuda.matmul.allow_tf32,
+                deterministic_algorithms=torch.are_deterministic_algorithms_enabled(),
+                backend_determinism_guaranteed=False)
+
+
+def repeat_full_decoder(vae, latent, style, decoded, original_rng) -> tuple[dict, object]:
+    """Repeat the live decoder branch at the checkpoint's original RNG boundary."""
+    import torch
+    from legacy_trajectory import _restore_rng, model_buffer_hashes, rng_hash, tensor_hash
+    from semantic_trajectory import gradient_probe
+    before, buffers = rng_hash(), model_buffer_hashes({'vae': vae})
+    inputs = tensor_hash(latent), tensor_hash(style)
+    with gradient_probe([vae]):
+        _restore_rng(original_rng)
+        context, decoder_style = latent.clone().squeeze(3).squeeze(2), style.clone().squeeze(3).squeeze(2)
+        repeated = vae.decoder(None, beta=None, context=context, style=decoder_style)
+        output_requires_grad = repeated.requires_grad
+    after = rng_hash()
+    if (before != after or buffers != model_buffer_hashes({'vae': vae})
+            or inputs != (tensor_hash(latent), tensor_hash(style))):
+        raise RuntimeError('Full decoder repeat changed RNG, buffers or live inputs')
+    difference = repeated.detach() - decoded.detach()
+    if not torch.isfinite(difference).all():
+        raise ValueError('Full decoder repeat difference is nonfinite')
+    flat = difference.flatten(1)
+    return dict(full_repeat_decoder_max_absolute_difference=float(difference.abs().max()),
+                full_repeat_decoder_rms_difference=float(difference.square().mean().sqrt()),
+                full_repeat_decoder_max_absolute_difference_per_object=flat.abs().max(dim=1).values.cpu().tolist(),
+                full_repeat_decoder_rms_difference_per_object=flat.square().mean(dim=1).sqrt().cpu().tolist(),
+                full_repeat_decoder_output_requires_grad=output_requires_grad,
+                full_repeat_decoder_context_requires_grad=context.requires_grad,
+                full_repeat_decoder_style_requires_grad=decoder_style.requires_grad,
+                full_repeat_decoder_rng_unchanged=True, full_repeat_decoder_buffers_unchanged=True,
+                full_repeat_decoder_live_inputs_unchanged=True, extra_full_repeat_decoder_forward_calls=1), repeated.detach()
+
+
+def record_terminal_geometry(directory: Path, ids, raw, center, scale, decoded, geometry) -> None:
+    """Retain the corrupted normalization frame for later independent clean oracles."""
+    import numpy as np
+    np.savez_compressed(directory / 'terminal_geometry.npz', index=np.asarray(ids, dtype=np.int64),
+                        raw_corrupted_xyz=np.array(raw, copy=True),
+                        normalization_center=center.detach().cpu().numpy(), normalization_scale=scale.detach().cpu().numpy(),
+                        terminal_decoded_xyz=decoded.detach().cpu().numpy(),
+                        terminal_classifier_geometry=geometry.detach().cpu().numpy())
 
 
 def record_reference(capture, directory: Path, prepared, state) -> None:
@@ -101,7 +192,7 @@ def worker(directory: str) -> None:
     import torch
     from decoded_spectral import DecodedSpectralObserver
     from graph_spectral import SpectralConfig, build_smooth_spectral_target
-    from legacy_trajectory import isolated_probe, rng_hash, tensor_hash
+    from legacy_trajectory import _rng_state, isolated_probe, rng_hash, tensor_hash
     from shared_trajectory import SharedTrajectoryObserver
     from semantic_trajectory import gradient_probe
     from scripts.analyze_legacy_trajectory import policies
@@ -113,6 +204,13 @@ def worker(directory: str) -> None:
     active_observer, active_directory = None, None
     started = time.monotonic()
     try:
+        config['runtime'] = apply_backend_policy(config.get('backend_policy', 'legacy'))
+        if config.get('index_manifest'):
+            selection, identity = read_index_manifest(bundle.path / 'selection_manifest.json',
+                                                      config['index_manifest_sha256'], config['count'])
+            if (selection != config['selection_manifest'] or identity != config['selection_manifest_identity']
+                    or selection['indices'] != config['selected_original_ids']):
+                raise ValueError('Stored index manifest differs from the selected worker IDs')
         root = Path(config['asset_root'])
         manifest = source.read_manifest(root, config['asset_manifest_sha256'])
         dataset = source.dataset_manifest(manifest, config)
@@ -138,14 +236,10 @@ def worker(directory: str) -> None:
         def fps(points, number):
             indices = pointnet2_utils.furthest_point_sample(points.contiguous(), number)
             return pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), indices).transpose(1, 2).contiguous()
-        torch.backends.cudnn.benchmark = True
-        torch.backends.cudnn.deterministic = False
-        torch.use_deterministic_algorithms(False)
         config.update(native_bootstrap=native, resolved_lion_config=resolved,
                       initialization_rng_guard=guard,
-                      runtime=dict(torch=torch.__version__, numpy=np.__version__, cuda=torch.version.cuda,
-                                   cudnn=torch.backends.cudnn.version(), gpu=torch.cuda.get_device_name(),
-                                   cudnn_benchmark=True, deterministic_algorithms=False),
+                      runtime=dict(config['runtime'], torch=torch.__version__, numpy=np.__version__,
+                                   cuda=torch.version.cuda, gpu=torch.cuda.get_device_name()),
                       lion_state_before=dict(vae=source.state_hash(lion.vae), priors=source.state_hash(lion.priors)),
                       classifier_state_before_sha256=source.state_hash(heads['pointmae']))
         source.snapshot_sources(bundle, config, manifest)
@@ -157,7 +251,8 @@ def worker(directory: str) -> None:
                 ids = np.asarray(config['selected_original_ids'][start:start+2], dtype=np.int64)
                 # Each case has the same pre-preparation boundary regardless of arm/order.
                 before_rng = shared.seed_inference(0)
-                raw = torch.from_numpy(np.array(values[ids], dtype=np.float32))
+                raw_original = np.array(values[ids], copy=True)
+                raw = torch.from_numpy(np.array(raw_original, dtype=np.float32, copy=True))
                 normalized, center, scale = ops.normalize(raw)
                 prepared = torch.from_numpy(ops.upsample_all(normalized.numpy(), 2048)).float().cuda()
                 prepared = ops.rotate_pointcloud(prepared * 3.3885)
@@ -197,9 +292,16 @@ def worker(directory: str) -> None:
                                 print('DECODER_NATIVE_AUDIT ' + json.dumps(report, allow_nan=False), flush=True)
                                 if not report['passed']:
                                     raise RuntimeError('Native decoder finite-difference gate failed; evidence retained')
+                            repeat_rng = _rng_state() if loop_index + 1 in self.steps else None
                             loss = super().clean(latent, style, loop_index, timestep)
                             if loss is None:
                                 return None
+                            repeat_record, repeated = repeat_full_decoder(lion.vae, latent, style, capture['decoded'], repeat_rng)
+                            self.spectral_records[-1].update(repeat_record)
+                            if 'full_repeat_decoder_saved' not in capture:
+                                np.savez_compressed(case / 'full_repeat_decoder_first_checkpoint.npz',
+                                    decoded_xyz=repeated.cpu().numpy(), reference_decoded_xyz=capture['decoded'].cpu().numpy())
+                                capture['full_repeat_decoder_saved'] = True
                             local, condition = prior_inputs['x'], prior_inputs['condition_input']
                             gradients = torch.autograd.grad(loss, (local, condition), retain_graph=True, allow_unused=True)
                             record = self.spectral_records[-1]
@@ -301,6 +403,7 @@ def worker(directory: str) -> None:
                 elapsed += time.monotonic() - batch_started
                 after_rng = rng_hash()
                 geometry = shared.decoded_to_geometry(decoded.detach(), config['dataset'], scale, center, ops)
+                record_terminal_geometry(case, ids, raw_original, center, scale, decoded, geometry)
                 logits, head_record = shared.classify_geometry(geometry, heads, {'pointmae': config}, fps)
                 if rng_hash() != after_rng:
                     raise RuntimeError('Terminal geometry/classifier changed reconstruction RNG')
@@ -315,6 +418,7 @@ def worker(directory: str) -> None:
                                    input_rng_before_sha256=before_rng, reconstruction_rng_after_sha256=after_rng,
                                    prepared_x_sha256=tensor_hash(prepared), geometry_sha256=tensor_hash(geometry),
                                    paired_state=dict(path=str(paired), **source.file_identity(paired)),
+                                   terminal_geometry=dict(file='terminal_geometry.npz', **source.file_identity(case / 'terminal_geometry.npz')),
                                    head=head_record, elapsed_seconds=time.monotonic()-batch_started)
                 (case / 'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
                 accumulated.append(payload)
@@ -376,6 +480,10 @@ def main(argv=None) -> None:
     print('Run bundle:', bundle.path, flush=True)
     process, failure, returncode = None, None, -1
     try:
+        if config.get('index_manifest'):
+            copied = bundle.path / 'selection_manifest.json'
+            shutil.copyfile(config['index_manifest'], copied)
+            source.verify_identity(copied, config['selection_manifest_identity'])
         with (bundle.path / 'stdout.log').open('w') as log:
             process = subprocess.Popen([sys.executable, '-u', str(Path(__file__).resolve()),
                                         '--worker-bundle', str(bundle.path)], cwd=REPO,

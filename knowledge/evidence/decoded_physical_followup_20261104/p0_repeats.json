@@ -1,0 +1,710 @@
+{
+  "stage": "P0",
+  "policies": {
+    "legacy": {
+      "pairs": [
+        {
+          "archives": [
+            "26b951c5b457e1305c1b8d558002f59df90c2036297c2829200746f07726bca1",
+            "8bfbb2d989adf23a9e9f680d0991fcfe978e4d21fae252ea0e2d47283cd9e8b1"
+          ],
+          "logits": [
+            {
+              "object_id": 44,
+              "checkpoint": 0,
+              "max_absolute": 0.08501911163330078,
+              "rms": 0.03357244246826853
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 1,
+              "max_absolute": 0.27046871185302734,
+              "rms": 0.1517990657761412
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 2,
+              "max_absolute": 0.9244661331176758,
+              "rms": 0.5234082293758392
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 3,
+              "max_absolute": 2.4243998527526855,
+              "rms": 0.7496119086829657
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 0,
+              "max_absolute": 0.16840648651123047,
+              "rms": 0.08753137329732481
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 1,
+              "max_absolute": 0.4244091510772705,
+              "rms": 0.18419784348577467
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 2,
+              "max_absolute": 0.2826426029205322,
+              "rms": 0.11276164505346593
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 3,
+              "max_absolute": 0.6774871349334717,
+              "rms": 0.33982673526258567
+            }
+          ],
+          "first_decoded": [
+            {
+              "object_id": 44,
+              "max_absolute": 0.006165981292724609,
+              "rms": 0.0002792929413439538
+            },
+            {
+              "object_id": 91,
+              "max_absolute": 0.02741783857345581,
+              "rms": 0.0007869907970467142
+            }
+          ],
+          "passed": false
+        },
+        {
+          "archives": [
+            "26b951c5b457e1305c1b8d558002f59df90c2036297c2829200746f07726bca1",
+            "817222ea58da7fac7869023bd700fdbeca0f8fe4c8a6c15616887a4ac372dfd6"
+          ],
+          "logits": [
+            {
+              "object_id": 44,
+              "checkpoint": 0,
+              "max_absolute": 1.1235781908035278,
+              "rms": 0.45314021510939473
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 1,
+              "max_absolute": 1.1231253147125244,
+              "rms": 0.39767773561479997
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 2,
+              "max_absolute": 1.2766735553741455,
+              "rms": 0.5488458736954492
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 3,
+              "max_absolute": 1.2449240684509277,
+              "rms": 0.5744424539576002
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 0,
+              "max_absolute": 0.22364425659179688,
+              "rms": 0.10907264611650594
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 1,
+              "max_absolute": 0.04728412628173828,
+              "rms": 0.01911567686264288
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 2,
+              "max_absolute": 0.7614326477050781,
+              "rms": 0.2924385588198812
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 3,
+              "max_absolute": 0.2824990749359131,
+              "rms": 0.11125797507428067
+            }
+          ],
+          "first_decoded": [
+            {
+              "object_id": 44,
+              "max_absolute": 0.11451458930969238,
+              "rms": 0.01073682835939293
+            },
+            {
+              "object_id": 91,
+              "max_absolute": 0.005781978368759155,
+              "rms": 0.00036660486248564977
+            }
+          ],
+          "passed": false
+        },
+        {
+          "archives": [
+            "8bfbb2d989adf23a9e9f680d0991fcfe978e4d21fae252ea0e2d47283cd9e8b1",
+            "817222ea58da7fac7869023bd700fdbeca0f8fe4c8a6c15616887a4ac372dfd6"
+          ],
+          "logits": [
+            {
+              "object_id": 44,
+              "checkpoint": 0,
+              "max_absolute": 1.0653643608093262,
+              "rms": 0.43843571038647333
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 1,
+              "max_absolute": 1.3335559368133545,
+              "rms": 0.47253512808268755
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 2,
+              "max_absolute": 1.4589056968688965,
+              "rms": 0.6672288418794848
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 3,
+              "max_absolute": 1.52522873878479,
+              "rms": 0.6793295199068173
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 0,
+              "max_absolute": 0.12510466575622559,
+              "rms": 0.06685992908565072
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 1,
+              "max_absolute": 0.4068465232849121,
+              "rms": 0.17643399084845154
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 2,
+              "max_absolute": 0.6719913482666016,
+              "rms": 0.2740418559195542
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 3,
+              "max_absolute": 0.7092360258102417,
+              "rms": 0.3171132005720972
+            }
+          ],
+          "first_decoded": [
+            {
+              "object_id": 44,
+              "max_absolute": 0.11648321151733398,
+              "rms": 0.01073979833394179
+            },
+            {
+              "object_id": 91,
+              "max_absolute": 0.02534434199333191,
+              "rms": 0.0007243850774035388
+            }
+          ],
+          "passed": false
+        }
+      ],
+      "cross_process_passed": false,
+      "same_state_full_repeat_passed": false,
+      "same_state_detached_passed": false,
+      "runs": [
+        {
+          "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-000625_decoded-diagnostic-8aed642b.zip",
+          "archive_sha256": "26b951c5b457e1305c1b8d558002f59df90c2036297c2829200746f07726bca1",
+          "backend": "legacy",
+          "runtime": {
+            "backend_determinism_guaranteed": false,
+            "cuda": "12.1",
+            "cuda_matmul_allow_tf32": false,
+            "cudnn": 8902,
+            "cudnn_allow_tf32": true,
+            "cudnn_benchmark": true,
+            "cudnn_deterministic": false,
+            "deterministic_algorithms": false,
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "numpy": "1.21.2",
+            "torch": "2.1.2+cu121"
+          },
+          "witness": [
+            {
+              "loop_count": 2,
+              "full_repeat_max": 8.666515350341797e-05,
+              "full_repeat_rms": 6.689475867460715e-06,
+              "detached_max": 8.666515350341797e-05,
+              "detached_rms": 6.689475867460715e-06,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 4,
+              "full_repeat_max": 0.0,
+              "full_repeat_rms": 0.0,
+              "detached_max": 0.0001783519983291626,
+              "detached_rms": 1.1374498171790037e-05,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 6,
+              "full_repeat_max": 0.0001283884048461914,
+              "full_repeat_rms": 7.3256569521618076e-06,
+              "detached_max": 0.0001283884048461914,
+              "detached_rms": 7.3256569521618076e-06,
+              "full_repeat_requires_grad": true
+            }
+          ]
+        },
+        {
+          "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-000703_decoded-diagnostic-8aed642b.zip",
+          "archive_sha256": "8bfbb2d989adf23a9e9f680d0991fcfe978e4d21fae252ea0e2d47283cd9e8b1",
+          "backend": "legacy",
+          "runtime": {
+            "backend_determinism_guaranteed": false,
+            "cuda": "12.1",
+            "cuda_matmul_allow_tf32": false,
+            "cudnn": 8902,
+            "cudnn_allow_tf32": true,
+            "cudnn_benchmark": true,
+            "cudnn_deterministic": false,
+            "deterministic_algorithms": false,
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "numpy": "1.21.2",
+            "torch": "2.1.2+cu121"
+          },
+          "witness": [
+            {
+              "loop_count": 2,
+              "full_repeat_max": 0.0001735091209411621,
+              "full_repeat_rms": 1.014427198242629e-05,
+              "detached_max": 0.00016289949417114258,
+              "detached_rms": 6.460169970523566e-06,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 4,
+              "full_repeat_max": 9.274482727050781e-05,
+              "full_repeat_rms": 5.888543455512263e-06,
+              "detached_max": 0.00016181915998458862,
+              "detached_rms": 9.503108231001534e-06,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 6,
+              "full_repeat_max": 0.0,
+              "full_repeat_rms": 0.0,
+              "detached_max": 0.0,
+              "detached_rms": 0.0,
+              "full_repeat_requires_grad": true
+            }
+          ]
+        },
+        {
+          "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-000741_decoded-diagnostic-8aed642b.zip",
+          "archive_sha256": "817222ea58da7fac7869023bd700fdbeca0f8fe4c8a6c15616887a4ac372dfd6",
+          "backend": "legacy",
+          "runtime": {
+            "backend_determinism_guaranteed": false,
+            "cuda": "12.1",
+            "cuda_matmul_allow_tf32": false,
+            "cudnn": 8902,
+            "cudnn_allow_tf32": true,
+            "cudnn_benchmark": true,
+            "cudnn_deterministic": false,
+            "deterministic_algorithms": false,
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "numpy": "1.21.2",
+            "torch": "2.1.2+cu121"
+          },
+          "witness": [
+            {
+              "loop_count": 2,
+              "full_repeat_max": 0.00018918514251708984,
+              "full_repeat_rms": 1.1174578503414523e-05,
+              "detached_max": 0.0,
+              "detached_rms": 0.0,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 4,
+              "full_repeat_max": 0.0,
+              "full_repeat_rms": 0.0,
+              "detached_max": 0.0,
+              "detached_rms": 0.0,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 6,
+              "full_repeat_max": 0.00019252300262451172,
+              "full_repeat_rms": 1.1616804840741679e-05,
+              "detached_max": 0.000168532133102417,
+              "detached_rms": 9.161553862213623e-06,
+              "full_repeat_requires_grad": true
+            }
+          ]
+        }
+      ]
+    },
+    "controlled": {
+      "pairs": [
+        {
+          "archives": [
+            "1e6b300f7ae704f155927b245d195d2621a0f1b2ffde9baccf1145ddf704375f",
+            "e04d23410b7380d50b8a63cdaece3593879c5f0b8e850075fbff3f95546bf2f2"
+          ],
+          "logits": [
+            {
+              "object_id": 44,
+              "checkpoint": 0,
+              "max_absolute": 7.62939453125e-06,
+              "rms": 3.4006265099507136e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 1,
+              "max_absolute": 1.1444091796875e-05,
+              "rms": 4.069234024953261e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 2,
+              "max_absolute": 1.33514404296875e-05,
+              "rms": 5.2502312442253705e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 3,
+              "max_absolute": 5.1021575927734375e-05,
+              "rms": 2.346512543032063e-05
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 0,
+              "max_absolute": 4.76837158203125e-06,
+              "rms": 2.219812934365261e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 1,
+              "max_absolute": 1.9073486328125e-06,
+              "rms": 9.706429563469437e-07
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 2,
+              "max_absolute": 8.58306884765625e-06,
+              "rms": 3.6285964455974623e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 3,
+              "max_absolute": 7.62939453125e-06,
+              "rms": 3.5275804383753752e-06
+            }
+          ],
+          "first_decoded": [
+            {
+              "object_id": 44,
+              "max_absolute": 9.5367431640625e-07,
+              "rms": 1.1283512490412562e-07
+            },
+            {
+              "object_id": 91,
+              "max_absolute": 7.152557373046875e-07,
+              "rms": 7.763197703822008e-08
+            }
+          ],
+          "passed": true
+        },
+        {
+          "archives": [
+            "1e6b300f7ae704f155927b245d195d2621a0f1b2ffde9baccf1145ddf704375f",
+            "ba80a3a203075092e6e70a9d40a6d7c329e5dad81f2a537a4b4d4b02fa917d53"
+          ],
+          "logits": [
+            {
+              "object_id": 44,
+              "checkpoint": 0,
+              "max_absolute": 7.62939453125e-06,
+              "rms": 3.712716339854155e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 1,
+              "max_absolute": 1.049041748046875e-05,
+              "rms": 4.457425273241692e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 2,
+              "max_absolute": 1.0013580322265625e-05,
+              "rms": 3.033146825818682e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 3,
+              "max_absolute": 5.5789947509765625e-05,
+              "rms": 2.430008386525274e-05
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 0,
+              "max_absolute": 3.814697265625e-06,
+              "rms": 1.7591513449330245e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 1,
+              "max_absolute": 4.76837158203125e-06,
+              "rms": 1.7079893356283536e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 2,
+              "max_absolute": 9.5367431640625e-06,
+              "rms": 4.474811511473789e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 3,
+              "max_absolute": 5.245208740234375e-06,
+              "rms": 2.431027518512213e-06
+            }
+          ],
+          "first_decoded": [
+            {
+              "object_id": 44,
+              "max_absolute": 7.152557373046875e-07,
+              "rms": 9.375554672620991e-08
+            },
+            {
+              "object_id": 91,
+              "max_absolute": 7.152557373046875e-07,
+              "rms": 8.230708947640982e-08
+            }
+          ],
+          "passed": true
+        },
+        {
+          "archives": [
+            "e04d23410b7380d50b8a63cdaece3593879c5f0b8e850075fbff3f95546bf2f2",
+            "ba80a3a203075092e6e70a9d40a6d7c329e5dad81f2a537a4b4d4b02fa917d53"
+          ],
+          "logits": [
+            {
+              "object_id": 44,
+              "checkpoint": 0,
+              "max_absolute": 5.7220458984375e-06,
+              "rms": 2.1364129004003355e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 1,
+              "max_absolute": 8.821487426757812e-06,
+              "rms": 3.335610870803943e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 2,
+              "max_absolute": 2.3365020751953125e-05,
+              "rms": 7.251183165164924e-06
+            },
+            {
+              "object_id": 44,
+              "checkpoint": 3,
+              "max_absolute": 6.9141387939453125e-06,
+              "rms": 2.5726931399850855e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 0,
+              "max_absolute": 3.814697265625e-06,
+              "rms": 1.853988319461581e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 1,
+              "max_absolute": 3.814697265625e-06,
+              "rms": 1.422241972202545e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 2,
+              "max_absolute": 7.241964340209961e-06,
+              "rms": 3.3052710338059216e-06
+            },
+            {
+              "object_id": 91,
+              "checkpoint": 3,
+              "max_absolute": 7.62939453125e-06,
+              "rms": 4.109355553732911e-06
+            }
+          ],
+          "first_decoded": [
+            {
+              "object_id": 44,
+              "max_absolute": 7.152557373046875e-07,
+              "rms": 1.0910802285035847e-07
+            },
+            {
+              "object_id": 91,
+              "max_absolute": 7.152557373046875e-07,
+              "rms": 8.096013756636491e-08
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "cross_process_passed": true,
+      "same_state_full_repeat_passed": true,
+      "same_state_detached_passed": true,
+      "runs": [
+        {
+          "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-000819_decoded-diagnostic-8aed642b.zip",
+          "archive_sha256": "1e6b300f7ae704f155927b245d195d2621a0f1b2ffde9baccf1145ddf704375f",
+          "backend": "controlled",
+          "runtime": {
+            "backend_determinism_guaranteed": false,
+            "cuda": "12.1",
+            "cuda_matmul_allow_tf32": false,
+            "cudnn": 8902,
+            "cudnn_allow_tf32": false,
+            "cudnn_benchmark": false,
+            "cudnn_deterministic": true,
+            "deterministic_algorithms": false,
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "numpy": "1.21.2",
+            "torch": "2.1.2+cu121"
+          },
+          "witness": [
+            {
+              "loop_count": 2,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.2289864176627816e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.2998536408636028e-08,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 4,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.1629910307296996e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.1796848770350152e-08,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 6,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.344700611445205e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.3019179451466698e-08,
+              "full_repeat_requires_grad": true
+            }
+          ]
+        },
+        {
+          "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-000858_decoded-diagnostic-8aed642b.zip",
+          "archive_sha256": "e04d23410b7380d50b8a63cdaece3593879c5f0b8e850075fbff3f95546bf2f2",
+          "backend": "controlled",
+          "runtime": {
+            "backend_determinism_guaranteed": false,
+            "cuda": "12.1",
+            "cuda_matmul_allow_tf32": false,
+            "cudnn": 8902,
+            "cudnn_allow_tf32": false,
+            "cudnn_benchmark": false,
+            "cudnn_deterministic": true,
+            "deterministic_algorithms": false,
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "numpy": "1.21.2",
+            "torch": "2.1.2+cu121"
+          },
+          "witness": [
+            {
+              "loop_count": 2,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.1999346344614423e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.2389464504612988e-08,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 4,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.1160456498137137e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.148776268029451e-08,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 6,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.2286815948291405e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.359569428733721e-08,
+              "full_repeat_requires_grad": true
+            }
+          ]
+        },
+        {
+          "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-000936_decoded-diagnostic-8aed642b.zip",
+          "archive_sha256": "ba80a3a203075092e6e70a9d40a6d7c329e5dad81f2a537a4b4d4b02fa917d53",
+          "backend": "controlled",
+          "runtime": {
+            "backend_determinism_guaranteed": false,
+            "cuda": "12.1",
+            "cuda_matmul_allow_tf32": false,
+            "cudnn": 8902,
+            "cudnn_allow_tf32": false,
+            "cudnn_benchmark": false,
+            "cudnn_deterministic": true,
+            "deterministic_algorithms": false,
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "numpy": "1.21.2",
+            "torch": "2.1.2+cu121"
+          },
+          "witness": [
+            {
+              "loop_count": 2,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.2908290375767137e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.293499790084752e-08,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 4,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.2528498178076006e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.2241437136472086e-08,
+              "full_repeat_requires_grad": true
+            },
+            {
+              "loop_count": 6,
+              "full_repeat_max": 2.384185791015625e-07,
+              "full_repeat_rms": 2.238424201550515e-08,
+              "detached_max": 2.384185791015625e-07,
+              "detached_rms": 2.1718594922504053e-08,
+              "full_repeat_requires_grad": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "identical_controls_verified": true,
+  "thresholds": {
+    "logit_max": 0.05,
+    "logit_rms": 0.01,
+    "decoded_rms": 0.0001,
+    "same_state_max": 0.0005,
+    "same_state_rms": 1e-05
+  },
+  "limitation": "Backend protocol diagnostic; custom native atomics remain; no accuracy or speed attribution"
+}

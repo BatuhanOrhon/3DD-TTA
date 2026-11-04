@@ -8566,3 +8566,46 @@ origin/thesis-integration from clean isolated checkout based on2177493.
 Independent integratedCPU486tests/1skip29.242s; no raw/native/cache/weights or
 operators promoted. Final same-VM audit21:06:06UTC confirms10raw archives, no
 active research process, runtime preserved and monitor97932 open.
+
+
+## 2026-11-04 00:06UTC — decoded physical spectral follow-up started
+
+[User report/Code/Run/Open] User selected the next tests in the previous pilot.
+See `decoded_physical_followup_20261104.md`: P0six controlled/legacy repeats,
+P1eight stage-disjoint objects/four corruptions/96same-state H8directions,
+P2CPU-only pinned clean-anchor oracle. No applied accuracy or coefficient tuning.
+Whole GPUphase25–45min estimate/hard55min, new immutable clock00:06:24UTC.
+Source2109a5d;492CPUtests/1skip26.868s; independent driver/analyzer review passed
+after import/identity-check fixes. CPU-only deployment complete00:05:02UTC,
+manifestb485ea97be7693c690e25746fdb767a01b88c08bd99b5f7e52848c6b16eb2cd7.
+Assigned own A100/session and monitor97932 unchanged; no teardown permission.
+Raw/derived results and local archive retrieval pending.
+
+
+## 2026-11-04 00:24UTC — physical spectral follow-up P0/P1/P2 accepted
+
+[Run/Code/Inference/Decision] `decoded_physical_followup_20261104.md` and compact
+`evidence/decoded_physical_followup_20261104/` supersede the running entry.
+Six repeats: legacycross-logitmax2.42439985 vscontrolled5.57899475e-5; all controlled
+repeatgates pass. Legacyordinaryfull/fullRMS1.16168e-5 also fails old1e-5 gate,
+so V5detachment failure did not isolate detachment; revertedoptimization staysoff.
+P1same-state all96/96pass, mincos.995611972, H8/fullnormratio .999096588–1.004202485
+on8stage-disjoint IDs×Gaussian/Background/Shear/LiDAR s5,seed0,B2. Controlled
+diagnostic median2.961973s vslegacy2.654118s(+11.60%), peak4336.5571MiB vs21756.4458MiB;
+not a deployment-speed result. Science326.766s<immutable3300s;7GPUbundlesaccepted.
+
+CPU P2V1(source6996d50) failed reconstructed-GPUF1e-6gate; preserved60-rowpartial.
+V2(source644bcfa) directlyuses2archivedGPUF conditions afterrawhash/firstlosschecks,
+retainsbothfailedCPUreconstructiongates, uses30otherCPUmetricconditions withscalar
+checks only. V2complete_with_reconstruction_mismatch:64/64spectraldecrease,42/64
+clean-CDincrease=1/4archivedF+41/60CPUmetricrows; noovershoot. ActualGPUF Gaussian
+ID459terminal ΔL−3.09883966e-4/ΔcleanCD+1.97699086e-5 independently recomputed using
+brute-forceNN. Objectivebiascounterexample, notsampler/accuracyproof; eightobjects
+are not64independentsamples. Bothpermutationcontrols/exactquadratic gatespassed.
+
+Rawpackage163569211bytes SHA0f3fceb1aed50c0d23023a389439abf83955eec4174f45e11f2ba498b882e0e1
+Drive/local CRC/SHA/source248/native6/cache/normalization/prediction/CSV/trajectory
+acceptancepassed. Researchmarker-plusJSON causedlocalexact-markerfailure; subsequent
+CPUcollectorvalidatedcompleteon-diskstate and emittedexactcompletionmarker, nojobrerun.
+No applied arms, weightfit, benchmarkexpansion or defaultpromotion. Remaining: final
+derivedarchive/publicationchecks; runtime+monitor97932preserved, nocloseauthorization.

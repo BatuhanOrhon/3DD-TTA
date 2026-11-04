@@ -1,0 +1,738 @@
+{
+  "stage": "P1",
+  "archive_sha256": "9010ba28af7c91ccfc69a6371677a28922679fbbb5135b5f076d7e8264ea852b",
+  "indices": [
+    459,
+    545,
+    1229,
+    1435,
+    1441,
+    1557,
+    1881,
+    2095
+  ],
+  "corruptions": {
+    "gaussian": {
+      "rows": [
+        {
+          "object_id": 459,
+          "loop_count": 2,
+          "cosine": 0.9999749683628416,
+          "H8_over_full_norm_ratio": 1.0000296670584519,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 2,
+          "cosine": 0.9999788536740324,
+          "H8_over_full_norm_ratio": 0.9998445016513884,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 4,
+          "cosine": 0.9999917038746726,
+          "H8_over_full_norm_ratio": 1.0001281274153526,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 4,
+          "cosine": 0.9999871226417703,
+          "H8_over_full_norm_ratio": 0.9999514420721709,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 6,
+          "cosine": 0.9999898651290261,
+          "H8_over_full_norm_ratio": 1.0001579297225092,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 6,
+          "cosine": 0.9999448448941316,
+          "H8_over_full_norm_ratio": 0.999908741196321,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 2,
+          "cosine": 0.9997990894287243,
+          "H8_over_full_norm_ratio": 1.0002364935616928,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 2,
+          "cosine": 0.9999826252856147,
+          "H8_over_full_norm_ratio": 0.9996902522368275,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 4,
+          "cosine": 0.9998032967079542,
+          "H8_over_full_norm_ratio": 1.0003712470758783,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 4,
+          "cosine": 0.999985664380854,
+          "H8_over_full_norm_ratio": 0.9998249539839659,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 6,
+          "cosine": 0.9997400386278807,
+          "H8_over_full_norm_ratio": 1.0006522056761724,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 6,
+          "cosine": 0.9999850739680611,
+          "H8_over_full_norm_ratio": 0.9998102181377709,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 2,
+          "cosine": 0.9999908979019084,
+          "H8_over_full_norm_ratio": 0.9999523902820485,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 2,
+          "cosine": 0.9999694418771079,
+          "H8_over_full_norm_ratio": 1.0001602657310118,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 4,
+          "cosine": 0.9999944255468889,
+          "H8_over_full_norm_ratio": 0.9999618048734424,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 4,
+          "cosine": 0.999983223158836,
+          "H8_over_full_norm_ratio": 1.0002232633848782,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 6,
+          "cosine": 0.9999958647592416,
+          "H8_over_full_norm_ratio": 0.9999764196491004,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 6,
+          "cosine": 0.9999833462888661,
+          "H8_over_full_norm_ratio": 1.0001629135494026,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 2,
+          "cosine": 0.998278310306427,
+          "H8_over_full_norm_ratio": 1.0010159490427037,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 2,
+          "cosine": 0.9999691297031416,
+          "H8_over_full_norm_ratio": 0.9999718400869531,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 4,
+          "cosine": 0.9992598709999668,
+          "H8_over_full_norm_ratio": 1.0017277930284365,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 4,
+          "cosine": 0.9999910295667835,
+          "H8_over_full_norm_ratio": 1.0000182003279054,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 6,
+          "cosine": 0.9994024901055759,
+          "H8_over_full_norm_ratio": 1.001712073368934,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 6,
+          "cosine": 0.9999912453147315,
+          "H8_over_full_norm_ratio": 0.9999412013199314,
+          "passed": true
+        }
+      ],
+      "passed": 24,
+      "total": 24,
+      "unresolved": 0,
+      "min_cosine": 0.998278310306427,
+      "min_ratio": 0.9996902522368275,
+      "max_ratio": 1.0017277930284365
+    },
+    "background": {
+      "rows": [
+        {
+          "object_id": 459,
+          "loop_count": 9,
+          "cosine": 0.9998385957085548,
+          "H8_over_full_norm_ratio": 0.9996116581215212,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 9,
+          "cosine": 0.999955633132407,
+          "H8_over_full_norm_ratio": 0.9995703785761436,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 18,
+          "cosine": 0.9999728030406724,
+          "H8_over_full_norm_ratio": 1.0000851445315893,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 18,
+          "cosine": 0.9999803380574072,
+          "H8_over_full_norm_ratio": 1.0001418280033791,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 27,
+          "cosine": 0.9999809715187227,
+          "H8_over_full_norm_ratio": 0.9999867640055171,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 27,
+          "cosine": 0.999981627703598,
+          "H8_over_full_norm_ratio": 1.0001647305094463,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 9,
+          "cosine": 0.9999143515558696,
+          "H8_over_full_norm_ratio": 0.9999205156135758,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 9,
+          "cosine": 0.9999847425481014,
+          "H8_over_full_norm_ratio": 0.9996505857073512,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 18,
+          "cosine": 0.9998439976432054,
+          "H8_over_full_norm_ratio": 1.0002928261914399,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 18,
+          "cosine": 0.9999846605069866,
+          "H8_over_full_norm_ratio": 1.0000880509941559,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 27,
+          "cosine": 0.9999721529446856,
+          "H8_over_full_norm_ratio": 1.0002072008785923,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 27,
+          "cosine": 0.9999892577330943,
+          "H8_over_full_norm_ratio": 1.0000025875254888,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 9,
+          "cosine": 0.9999345669015592,
+          "H8_over_full_norm_ratio": 0.9992557859768727,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 9,
+          "cosine": 0.9999447079544204,
+          "H8_over_full_norm_ratio": 0.9997940725934815,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 18,
+          "cosine": 0.9999424702560675,
+          "H8_over_full_norm_ratio": 1.0000568919556936,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 18,
+          "cosine": 0.9999832170978095,
+          "H8_over_full_norm_ratio": 1.0000212547500087,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 27,
+          "cosine": 0.9999230067611398,
+          "H8_over_full_norm_ratio": 1.0000519234042389,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 27,
+          "cosine": 0.9999885207439753,
+          "H8_over_full_norm_ratio": 1.0000908906787633,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 9,
+          "cosine": 0.999930291801096,
+          "H8_over_full_norm_ratio": 1.0005410193146311,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 9,
+          "cosine": 0.9999920909382767,
+          "H8_over_full_norm_ratio": 0.999888307229041,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 18,
+          "cosine": 0.9998586171451816,
+          "H8_over_full_norm_ratio": 1.0002497623863353,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 18,
+          "cosine": 0.9999896878335756,
+          "H8_over_full_norm_ratio": 0.9999650202558503,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 27,
+          "cosine": 0.9999643253295475,
+          "H8_over_full_norm_ratio": 1.0001975467159385,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 27,
+          "cosine": 0.9999894093659173,
+          "H8_over_full_norm_ratio": 0.9999948294012656,
+          "passed": true
+        }
+      ],
+      "passed": 24,
+      "total": 24,
+      "unresolved": 0,
+      "min_cosine": 0.9998385957085548,
+      "min_ratio": 0.9992557859768727,
+      "max_ratio": 1.0005410193146311
+    },
+    "shear": {
+      "rows": [
+        {
+          "object_id": 459,
+          "loop_count": 2,
+          "cosine": 0.9999640834901691,
+          "H8_over_full_norm_ratio": 1.0000089536529466,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 2,
+          "cosine": 0.9999153543743997,
+          "H8_over_full_norm_ratio": 0.9998331526232187,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 4,
+          "cosine": 0.9999745452349721,
+          "H8_over_full_norm_ratio": 0.9999084529402015,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 4,
+          "cosine": 0.9999385998328653,
+          "H8_over_full_norm_ratio": 0.9997942362392088,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 6,
+          "cosine": 0.9999881112954623,
+          "H8_over_full_norm_ratio": 1.000074720232867,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 6,
+          "cosine": 0.999948352254478,
+          "H8_over_full_norm_ratio": 0.9996703886956606,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 2,
+          "cosine": 0.9991745237324011,
+          "H8_over_full_norm_ratio": 1.0000061607624118,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 2,
+          "cosine": 0.9999342233898488,
+          "H8_over_full_norm_ratio": 0.9996557050637734,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 4,
+          "cosine": 0.9998175683416203,
+          "H8_over_full_norm_ratio": 1.0007926756052812,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 4,
+          "cosine": 0.99997019110306,
+          "H8_over_full_norm_ratio": 0.9999243093322401,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 6,
+          "cosine": 0.9999037337612836,
+          "H8_over_full_norm_ratio": 1.0004912991926918,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 6,
+          "cosine": 0.9999758347128925,
+          "H8_over_full_norm_ratio": 0.9997946711827953,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 2,
+          "cosine": 0.9999489783450143,
+          "H8_over_full_norm_ratio": 0.9997601086700553,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 2,
+          "cosine": 0.9999272779647761,
+          "H8_over_full_norm_ratio": 0.9998059458344928,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 4,
+          "cosine": 0.9999781551015093,
+          "H8_over_full_norm_ratio": 0.9997416225729215,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 4,
+          "cosine": 0.99994225567157,
+          "H8_over_full_norm_ratio": 0.9999630996281198,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 6,
+          "cosine": 0.9999812372175368,
+          "H8_over_full_norm_ratio": 0.9995881368171009,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 6,
+          "cosine": 0.9999533817658571,
+          "H8_over_full_norm_ratio": 0.9999541234537805,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 2,
+          "cosine": 0.9994145066011865,
+          "H8_over_full_norm_ratio": 1.0012672278956745,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 2,
+          "cosine": 0.9999822825272016,
+          "H8_over_full_norm_ratio": 1.0000025343247554,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 4,
+          "cosine": 0.9992904906211089,
+          "H8_over_full_norm_ratio": 0.9998842370395198,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 4,
+          "cosine": 0.999981968466604,
+          "H8_over_full_norm_ratio": 0.9999508791061335,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 6,
+          "cosine": 0.9995874770711127,
+          "H8_over_full_norm_ratio": 0.9999195090921074,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 6,
+          "cosine": 0.9999892032154306,
+          "H8_over_full_norm_ratio": 0.9999253444608084,
+          "passed": true
+        }
+      ],
+      "passed": 24,
+      "total": 24,
+      "unresolved": 0,
+      "min_cosine": 0.9991745237324011,
+      "min_ratio": 0.9995881368171009,
+      "max_ratio": 1.0012672278956745
+    },
+    "lidar": {
+      "rows": [
+        {
+          "object_id": 459,
+          "loop_count": 2,
+          "cosine": 0.9998381797134347,
+          "H8_over_full_norm_ratio": 0.9994282449821992,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 2,
+          "cosine": 0.9992545678619273,
+          "H8_over_full_norm_ratio": 0.9998234254378552,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 4,
+          "cosine": 0.9999168056938461,
+          "H8_over_full_norm_ratio": 1.0000221156973763,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 4,
+          "cosine": 0.9996649214702152,
+          "H8_over_full_norm_ratio": 0.9994028756596727,
+          "passed": true
+        },
+        {
+          "object_id": 459,
+          "loop_count": 6,
+          "cosine": 0.9998822636416765,
+          "H8_over_full_norm_ratio": 0.9998175936345414,
+          "passed": true
+        },
+        {
+          "object_id": 545,
+          "loop_count": 6,
+          "cosine": 0.9997635677815808,
+          "H8_over_full_norm_ratio": 0.9996872683258075,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 2,
+          "cosine": 0.9982779131265532,
+          "H8_over_full_norm_ratio": 1.004202485143104,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 2,
+          "cosine": 0.999895759899322,
+          "H8_over_full_norm_ratio": 0.9991928779370688,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 4,
+          "cosine": 0.9984692884984315,
+          "H8_over_full_norm_ratio": 1.0038308034799441,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 4,
+          "cosine": 0.9999406970447298,
+          "H8_over_full_norm_ratio": 0.9995847367528802,
+          "passed": true
+        },
+        {
+          "object_id": 1229,
+          "loop_count": 6,
+          "cosine": 0.9956119716317483,
+          "H8_over_full_norm_ratio": 1.002985900639186,
+          "passed": true
+        },
+        {
+          "object_id": 1435,
+          "loop_count": 6,
+          "cosine": 0.9999360519167232,
+          "H8_over_full_norm_ratio": 0.9997035950288564,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 2,
+          "cosine": 0.999971054434379,
+          "H8_over_full_norm_ratio": 1.0000585502973245,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 2,
+          "cosine": 0.9997778605562191,
+          "H8_over_full_norm_ratio": 1.000278459823251,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 4,
+          "cosine": 0.9999751483261505,
+          "H8_over_full_norm_ratio": 0.9999172502153924,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 4,
+          "cosine": 0.9998914179813448,
+          "H8_over_full_norm_ratio": 1.0001250413956317,
+          "passed": true
+        },
+        {
+          "object_id": 1441,
+          "loop_count": 6,
+          "cosine": 0.9999781669573031,
+          "H8_over_full_norm_ratio": 0.9998655374988846,
+          "passed": true
+        },
+        {
+          "object_id": 1557,
+          "loop_count": 6,
+          "cosine": 0.9999181165467628,
+          "H8_over_full_norm_ratio": 1.000315198735293,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 2,
+          "cosine": 0.9986342489607126,
+          "H8_over_full_norm_ratio": 1.0031039575932659,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 2,
+          "cosine": 0.9997134825871481,
+          "H8_over_full_norm_ratio": 0.9990965880542034,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 4,
+          "cosine": 0.9984874471635229,
+          "H8_over_full_norm_ratio": 1.0038762775262786,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 4,
+          "cosine": 0.9999003283426185,
+          "H8_over_full_norm_ratio": 0.9995457966558987,
+          "passed": true
+        },
+        {
+          "object_id": 1881,
+          "loop_count": 6,
+          "cosine": 0.9989034275836827,
+          "H8_over_full_norm_ratio": 1.0030031566845061,
+          "passed": true
+        },
+        {
+          "object_id": 2095,
+          "loop_count": 6,
+          "cosine": 0.9998874854472317,
+          "H8_over_full_norm_ratio": 0.9995288074495436,
+          "passed": true
+        }
+      ],
+      "passed": 24,
+      "total": 24,
+      "unresolved": 0,
+      "min_cosine": 0.9956119716317483,
+      "min_ratio": 0.9990965880542034,
+      "max_ratio": 1.004202485143104
+    }
+  },
+  "passed": 96,
+  "total": 96,
+  "thresholds": {
+    "min_cosine": 0.99,
+    "H8_over_full_norm_ratio": [
+      0.9,
+      1.1
+    ]
+  },
+  "limitation": "Zero-guidance same-state derivatives on stage-disjoint mechanism cohort; not unseen confirmation or applied accuracy"
+}

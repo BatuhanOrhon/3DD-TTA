@@ -4,6 +4,140 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_index_manifest_is_pinned_sorted_unique_and_count_matched(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from scripts import diagnose_decoded_spectral as driver
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertEqual(driver.configuration(args)['selected_original_ids'], [44, 91])
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'selection.json'
+            good = dict(schema_version=1, dataset='modelnet40_c', indices=[103, 137])
+            path.write_text(json.dumps(good))
+            identity = driver.source.file_identity(path)
+            flags = ['--index-manifest', str(path), '--index-manifest-sha256', identity['sha256']]
+            config = driver.configuration([*args, *flags])
+            self.assertEqual(config['selected_original_ids'], [103, 137])
+            self.assertEqual(config['selection_manifest'], good)
+            self.assertEqual(config['selection_manifest_identity'], identity)
+            for extra in (['--index-manifest', str(path)], ['--index-manifest-sha256', identity['sha256']],
+                          ['--index-manifest', str(path), '--index-manifest-sha256', 'b'*64],
+                          [*flags, '--count', '8']):
+                with self.subTest(extra=extra), self.assertRaises(ValueError):
+                    driver.configuration([*args, *extra])
+            for patch in (dict(schema_version=True), dict(dataset='scanobjectnn_c'),
+                          dict(indices=[137, 103]), dict(indices=[103, 103]), dict(indices=[True, 137]),
+                          dict(indices=[-1, 137]), dict(indices=[103, 2468]), dict(indices=[103])):
+                path.write_text(json.dumps(dict(good, **patch)))
+                sha = driver.source.file_identity(path)['sha256']
+                with self.subTest(patch=patch), self.assertRaises(ValueError):
+                    driver.configuration([*args, '--index-manifest', str(path), '--index-manifest-sha256', sha])
+            # The worker's shared validator must reject a changed stored manifest too.
+            with self.assertRaisesRegex(ValueError, 'SHA'):
+                driver.read_index_manifest(path, identity['sha256'], 2)
+
+    def test_backend_policy_preserves_legacy_tf32_and_controls_flags_without_cuda_init(self):
+        import torch
+        from scripts import diagnose_decoded_spectral as driver
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertEqual(driver.configuration(args)['backend_policy'], 'legacy')
+        self.assertEqual(driver.configuration([*args, '--backend-policy', 'controlled'])['backend_policy'], 'controlled')
+        names = ('benchmark', 'deterministic', 'allow_tf32')
+        original = {name: getattr(torch.backends.cudnn, name) for name in names}
+        matmul = torch.backends.cuda.matmul.allow_tf32
+        algorithms = torch.are_deterministic_algorithms_enabled()
+        initialized = torch.cuda.is_initialized()
+        try:
+            torch.backends.cudnn.allow_tf32 = True
+            torch.backends.cuda.matmul.allow_tf32 = True
+            legacy = driver.apply_backend_policy('legacy')
+            self.assertTrue(legacy['cudnn_benchmark'])
+            self.assertFalse(legacy['cudnn_deterministic'])
+            self.assertTrue(legacy['cudnn_allow_tf32'])
+            self.assertTrue(legacy['cuda_matmul_allow_tf32'])
+            controlled = driver.apply_backend_policy('controlled')
+            self.assertFalse(controlled['cudnn_benchmark'])
+            self.assertTrue(controlled['cudnn_deterministic'])
+            self.assertFalse(controlled['cudnn_allow_tf32'])
+            self.assertFalse(controlled['cuda_matmul_allow_tf32'])
+            self.assertFalse(controlled['deterministic_algorithms'])
+            self.assertFalse(controlled['backend_determinism_guaranteed'])
+            self.assertEqual(controlled['cudnn'], torch.backends.cudnn.version())
+            self.assertEqual(initialized, torch.cuda.is_initialized())
+        finally:
+            for name, value in original.items():
+                setattr(torch.backends.cudnn, name, value)
+            torch.backends.cuda.matmul.allow_tf32 = matmul
+            torch.use_deterministic_algorithms(algorithms)
+
+    def test_live_full_repeat_replays_rng_and_restores_buffers_without_detaching_inputs(self):
+        import torch
+        from legacy_trajectory import _rng_state, rng_hash, model_buffer_hashes
+        from semantic_trajectory import gradient_probe
+        from scripts import diagnose_decoded_spectral as driver
+        class Decoder(torch.nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.register_buffer('counter', torch.zeros(1))
+                self.flags = []
+            def decoder(self, unused, beta, context, style):
+                self.flags.append((torch.is_grad_enabled(), context.requires_grad, style.requires_grad))
+                self.counter.add_(1)
+                return context.square() + style + torch.rand_like(context) + self.counter.clone()
+        vae = Decoder().eval()
+        latent = torch.ones(2, 3, 1, 1, requires_grad=True)
+        style = torch.full_like(latent, .2, requires_grad=True)
+        initial_rng = _rng_state()
+        with gradient_probe([vae]):
+            decoded = vae.decoder(None, beta=None, context=latent.flatten(1), style=style.flatten(1))
+        torch.rand(1)
+        before = rng_hash(), model_buffer_hashes({'vae': vae})
+        report, repeated = driver.repeat_full_decoder(vae, latent, style, decoded.detach(), initial_rng)
+        self.assertEqual(report['full_repeat_decoder_max_absolute_difference'], 0.)
+        self.assertEqual(report['full_repeat_decoder_rms_difference'], 0.)
+        self.assertTrue(report['full_repeat_decoder_output_requires_grad'])
+        self.assertEqual(report['extra_full_repeat_decoder_forward_calls'], 1)
+        torch.testing.assert_close(decoded, repeated, rtol=0, atol=0)
+        self.assertEqual(vae.flags, [(True, True, True)]*2)
+        self.assertEqual(before, (rng_hash(), model_buffer_hashes({'vae': vae})))
+        self.assertIsNone(latent.grad)
+        self.assertIsNone(style.grad)
+        torch.testing.assert_close(latent, torch.ones_like(latent), rtol=0, atol=0)
+        shifted = decoded.detach() + torch.tensor([[1.], [2.]])
+        drift, _ = driver.repeat_full_decoder(vae, latent, style, shifted, initial_rng)
+        torch.testing.assert_close(torch.tensor(drift['full_repeat_decoder_max_absolute_difference_per_object']), torch.tensor([1., 2.]))
+        torch.testing.assert_close(torch.tensor(drift['full_repeat_decoder_rms_difference_per_object']), torch.tensor([1., 2.]))
+
+    def test_terminal_geometry_retains_raw_frame_for_independent_clean_oracle(self):
+        import tempfile
+        from pathlib import Path
+        import numpy as np
+        import torch
+        from scripts import diagnose_decoded_spectral as driver
+        raw = np.asarray([[[2., 4., 6.], [4., 8., 10.]]], dtype=np.float64)
+        raw_copy = raw.copy()
+        center = torch.tensor([[[3., 6., 8.]]])
+        scale = torch.tensor([[[2.]]])
+        clean = torch.tensor([[[4., 8., 10.]]])
+        normalized = (clean-center)/scale*3.3885
+        decoded = normalized[:, :, [2, 1, 0]].clone()
+        decoded[:, :, 0].neg_()
+        geometry = torch.ones(1, 2048, 3)
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary)
+            driver.record_terminal_geometry(path, [103], raw, center, scale, decoded, geometry)
+            with np.load(path/'terminal_geometry.npz', allow_pickle=False) as saved:
+                np.testing.assert_array_equal(saved['index'], [103])
+                np.testing.assert_array_equal(saved['raw_corrupted_xyz'], raw_copy)
+                recovered = (clean.numpy()-saved['normalization_center'])/saved['normalization_scale']*3.3885
+                physical = recovered[:, :, [2, 1, 0]].copy(); physical[:, :, 0] *= -1
+                np.testing.assert_array_equal(saved['terminal_decoded_xyz'], physical)
+                np.testing.assert_array_equal(saved['terminal_classifier_geometry'], geometry.numpy())
+        np.testing.assert_array_equal(raw, raw_copy)
+
     def test_surrogate_is_explicit_and_lightweight_controls_have_zero_weight(self):
         from scripts.diagnose_decoded_spectral import configuration
         args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,

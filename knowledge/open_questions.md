@@ -2622,3 +2622,14 @@ supersedes preceding pilot-pending gates.
   claiming spectral-z contribution; smoothing/M/rates not presumed optimal.
 - [ ] Preserve raw/failure/Drive receipts; no automatic global-prior/full-set/
   beta/graph-family expansion or runtime teardown.
+
+
+## 2026-11-04 — Decoded physical spectral follow-up
+
+[Code/Run/Open] [Fixed follow-up](decoded_physical_followup_20261104.md).
+- [x] Strict manifest/backend/full-repeat/terminal-frame measurement support;492CPUtests/1skip and independent review.
+- [x] P0all three pairwise process repeats; controlled allgatespass, legacyfails includingordinaryfull/full.
+- [x] P1H8/full transfer96/96pass on8new mechanism IDs×four corruptions×three checkpoints.
+- [x] P2mixed-origin exact-frame oracle64rows;42clean-CDincreases, including1actualGPUFcounterexample; failedCPUreconstruction remains explicit. Exact curvature/permutationcontrols passed.
+- [ ] Complete raw/Drive/local validation and integrate necessary evidence/code.
+- [ ] Applied accuracy, unseen/multiseed confirmation and eigenfree speed remain gated future work.

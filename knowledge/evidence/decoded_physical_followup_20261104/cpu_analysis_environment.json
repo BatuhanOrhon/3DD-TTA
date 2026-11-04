@@ -1,0 +1,14 @@
+{
+  "python": "3.12.10 (main, Apr  8 2025, 11:35:47) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "executable": "/private/tmp/tta-lion-reencode-venv/bin/python",
+  "platform": "macOS-15.6-arm64-arm-64bit",
+  "torch": "2.15.0",
+  "numpy": "1.26.4",
+  "scipy": "1.17.1",
+  "torch_threads": 4,
+  "cuda_initialized": false,
+  "source_commit_v1": "6996d50",
+  "v1_report_status": "analysis_mismatch",
+  "v1_report": "p2_cpu_oracle_v1.json",
+  "raw_package_sha256": "0f3fceb1aed50c0d23023a389439abf83955eec4174f45e11f2ba498b882e0e1"
+}

@@ -2,7 +2,9 @@
 
 Tarih: 2026-11-03. Dal: `research/gsd-guidance-math-audit-20261103`.
 Kanıt etiketleri: **[Paper] / [Code] / [Run] / [Inference] / [Open]**.
-Bu kayıt V3/V4'ün kabul edilmiş dokuz koşusunu özetler; V5 native sonucu bekleniyor.
+Bu kayıt V3/V4'ün kabul edilmiş dokuz koşusunu ve aşağıda kaydedilen negatif V5
+sonucunu özetler; V5 tamamlandı ve ek optimizasyon geri alındı.
+Sonraki testler: [2026-11-04 takip çalışması](decoded_physical_followup_20261104.md).
 Hazırlık ayrıntıları: [çalışma kaydı](decoded_physical_spectral_study_20261103.md).
 
 ## Sonuç ve kapsam

@@ -1,3 +1,14 @@
+**[Code/Run/Inference/Open] 2026-11-04 — decoded physical spectral follow-up complete; objective bias remains:**
+[Fixed P0/P1/P2 protocol and execution record](decoded_physical_followup_20261104.md).
+Six repeats: controlled worstlogit5.58e-5 vslegacy2.4244; all controlled repeat
+gates pass. H8same-state96/96pass, mincos.995612. Mixed-origin CPUoracle42/64
+steps lower spectral loss while increasing clean-CD, including1/4actual-GPU-F
+rows; other60rows use CPU metrics with scalar gates only. CPU/GPUF reconstruction
+failed for both available objects and remains explicitly failed; V1preserved,
+V2uses their archivedF directly. Seven raw bundles/source/native/cache/Drive/local
+verified; science326.77s below55mincap. No applied accuracy/speed gain, coefficient
+retuning or default promotion. Monitor97932 owns cells and runtime remains protected.
+
 **[Run/Code/Inference/Open] 2026-11-03 — decoded physical spectral pilot accepted; no accuracy gain established:**
 [Results, mathematical surrogate, native gates and falsifiers](decoded_physical_spectral_results_20261103.md).
 Same encoder-input graph can guide decoded PM geometry. Native FD and all6

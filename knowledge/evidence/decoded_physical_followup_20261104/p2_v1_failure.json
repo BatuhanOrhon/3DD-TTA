@@ -1,0 +1,26 @@
+{
+  "source_commit": "6996d50",
+  "status": "analysis_mismatch",
+  "total_rows": 60,
+  "mismatches": [
+    {
+      "case": "batches/gaussian/batch0000/",
+      "object_ids": [
+        459,
+        545
+      ],
+      "error": "Reconstructed filter mismatch: max_abs_error=5.951780451596278e-06",
+      "comparison_aborted": true
+    }
+  ],
+  "metric_provenance": {
+    "validated_conditions": 30,
+    "saved_gpu_filter_conditions": 0,
+    "cpu_reconstructed_scalar_gated_conditions": 30
+  },
+  "raw_report": {
+    "path": "result/preparation/gsd_physical_followup_20261104/p2_cpu_oracle_v1.json",
+    "bytes": 132063,
+    "sha256": "ebd08833aa8dd3d0dde4534db7594e9cf56af73b134b7766708caff9900b0827"
+  }
+}
