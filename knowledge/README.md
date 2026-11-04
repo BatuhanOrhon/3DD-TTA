@@ -1,3 +1,11 @@
+**[Run/Inference/Open] 2026-11-04 — same-observer repeats isolate instability beyond GSD:**
+[Repeat diagnosis](gsd_zero_repeat_20261104.md).12newfreshprocessruns/twoB2cases:
+Gaussiancontrol/control3/3,live/live3/3,cross9/9pass. Backgroundcontrol/control0/3,
+live/live0/3,cross0/9pass despiteidenticalstate/RNG/source/native. Thusobserver
+switching/physicalgraphisnotnecessaryfortheinstability. No unique kernel identified;
+nextgate traces prior/SCD boundaries. PMpredictionsremainunchangedinthese repeats.
+Science408.11s;12rawbundles/Drive/local accepted. Runtime/monitor97932preserved.
+
 **[Run/Inference/Open] 2026-11-04 — applied physical/H8 pilot complete; no PM gain and numerical gate failed:**
 [Protocol, raw results, failed gates and next hypotheses](decoded_physical_accuracy_20261104.md).
 32stage-disjoint development IDs/all15/seed0: operational control313/480(65.2083%),

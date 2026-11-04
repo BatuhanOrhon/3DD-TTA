@@ -1,0 +1,1777 @@
+{
+  "status": "accepted",
+  "raw": {
+    "status": "complete",
+    "bytes": 134240759,
+    "sha256": "6f03abf056d98bdcde817e7a800f2b150a1104ee2e5ac2bf602a71035a6c4e01",
+    "raw_count": 12,
+    "drive_path": "/content/drive/MyDrive/thesis/result/gsd_zero_repeat_20261104/zero_repeat_raw.zip",
+    "elapsed_gpu_phase_seconds": 408.10892629623413
+  },
+  "source": "cdbdfb1995296b08bcc4345161af6c01213f4b2f",
+  "groups": {
+    "gaussian": {
+      "control_repeat": {
+        "passed": 3,
+        "total": 3,
+        "worst_logit": 1.33514404296875e-05,
+        "worst_rms": 5.255333979547285e-06,
+        "pairs": [
+          {
+            "left": {
+              "bytes": 1254391,
+              "sha256": "792c4c9a5875c20f8ec5db1518ab6d5e0a87bef24efff5ef186587a7bf7f908e"
+            },
+            "right": {
+              "bytes": 1254339,
+              "sha256": "fc40647cc98430fc1db50454de388dc6aedfb7875ff4eac07cb9ea4a8ee355e4"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 1.2874603271484375e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    2.020412833294665e-06,
+                    3.904880494738386e-06,
+                    3.355040371646636e-06,
+                    2.333661715565e-06
+                  ],
+                  [
+                    1.2448491064268768e-06,
+                    1.5279685855685127e-06,
+                    3.3032189198826453e-06,
+                    2.3056591802491687e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  8.93919470017058e-08,
+                  8.16635749579371e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 1.2874603271484375e-05,
+            "logit_per_object_checkpoint_rms_max": 3.904880494738386e-06,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254391,
+              "sha256": "792c4c9a5875c20f8ec5db1518ab6d5e0a87bef24efff5ef186587a7bf7f908e"
+            },
+            "right": {
+              "bytes": 1254343,
+              "sha256": "4371452d054250f0c7882470e9ead8ec7f7d7fe9c15ad74d1cf4d0f05e043467"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 1.33514404296875e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    3.399947372004033e-06,
+                    4.0828420290843806e-06,
+                    3.4247993961499576e-06,
+                    2.4659508410503456e-06
+                  ],
+                  [
+                    2.3665605560736393e-06,
+                    1.8772935058492431e-06,
+                    4.3318805849606275e-06,
+                    2.4112132468895285e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.710970351544732e-08,
+                  8.638503958831328e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 1.33514404296875e-05,
+            "logit_per_object_checkpoint_rms_max": 4.3318805849606275e-06,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254339,
+              "sha256": "fc40647cc98430fc1db50454de388dc6aedfb7875ff4eac07cb9ea4a8ee355e4"
+            },
+            "right": {
+              "bytes": 1254343,
+              "sha256": "4371452d054250f0c7882470e9ead8ec7f7d7fe9c15ad74d1cf4d0f05e043467"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 1.1920928955078125e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    2.9815730416641737e-06,
+                    1.2800522462475052e-06,
+                    3.4122325161092663e-06,
+                    1.6808945759233565e-06
+                  ],
+                  [
+                    1.9291278319294973e-06,
+                    1.238718123298864e-06,
+                    5.255333979547285e-06,
+                    2.3607655776105654e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.537367195197121e-08,
+                  8.973145941968919e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 1.1920928955078125e-05,
+            "logit_per_object_checkpoint_rms_max": 5.255333979547285e-06,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          }
+        ]
+      },
+      "live_repeat": {
+        "passed": 3,
+        "total": 3,
+        "worst_logit": 6.4849853515625e-05,
+        "worst_rms": 2.6570994625149326e-05,
+        "pairs": [
+          {
+            "left": {
+              "bytes": 21442685,
+              "sha256": "a1a1d043a2a6c6429660f93c0e5d0d7793672038b8d5edc31f3a9eba09812f6f"
+            },
+            "right": {
+              "bytes": 21442694,
+              "sha256": "7a60d507f17663c4f841dc05ef2ef3f689893bbfe2c40ab24c1cc58812f481a0"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 6.4849853515625e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    4.283434621712026e-06,
+                    4.493286964730095e-06,
+                    2.8287804904883116e-06,
+                    2.6570994625149326e-05
+                  ],
+                  [
+                    3.060790642565323e-06,
+                    2.648305702826343e-06,
+                    3.042618621755837e-06,
+                    4.318045033509883e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.433340736493828e-08,
+                  8.591161591654487e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 6.4849853515625e-05,
+            "logit_per_object_checkpoint_rms_max": 2.6570994625149326e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 21442685,
+              "sha256": "a1a1d043a2a6c6429660f93c0e5d0d7793672038b8d5edc31f3a9eba09812f6f"
+            },
+            "right": {
+              "bytes": 21442725,
+              "sha256": "db4ac7467b4e0244e2ea1cced5a7ee43e38bf7499d585a0c2341fcb9973a1b52"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 6.008148193359375e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    3.045529056983106e-06,
+                    4.785365875191195e-06,
+                    4.113783949383247e-06,
+                    2.5661537985724383e-05
+                  ],
+                  [
+                    1.7668592796322215e-06,
+                    2.23827922490248e-06,
+                    2.192483201704325e-06,
+                    3.0275523869624275e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.3709279036231e-08,
+                  8.205900969932876e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 6.008148193359375e-05,
+            "logit_per_object_checkpoint_rms_max": 2.5661537985724383e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 21442694,
+              "sha256": "7a60d507f17663c4f841dc05ef2ef3f689893bbfe2c40ab24c1cc58812f481a0"
+            },
+            "right": {
+              "bytes": 21442725,
+              "sha256": "db4ac7467b4e0244e2ea1cced5a7ee43e38bf7499d585a0c2341fcb9973a1b52"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 1.049041748046875e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    2.8511649906919393e-06,
+                    3.5087219743526853e-06,
+                    4.020138874400784e-06,
+                    2.641993108818001e-06
+                  ],
+                  [
+                    2.9124737918863856e-06,
+                    2.53353073972068e-06,
+                    2.16899825115276e-06,
+                    3.490251498720121e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.19731985197153e-08,
+                  8.686956694489138e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 1.049041748046875e-05,
+            "logit_per_object_checkpoint_rms_max": 4.020138874400784e-06,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          }
+        ]
+      },
+      "control_vs_live": {
+        "passed": 9,
+        "total": 9,
+        "worst_logit": 6.151199340820312e-05,
+        "worst_rms": 2.4804919792956947e-05,
+        "pairs": [
+          {
+            "left": {
+              "bytes": 1254391,
+              "sha256": "792c4c9a5875c20f8ec5db1518ab6d5e0a87bef24efff5ef186587a7bf7f908e"
+            },
+            "right": {
+              "bytes": 21442685,
+              "sha256": "a1a1d043a2a6c6429660f93c0e5d0d7793672038b8d5edc31f3a9eba09812f6f"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 9.5367431640625e-06,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    3.0841876141545604e-06,
+                    4.146241073332533e-06,
+                    2.7544354103945807e-06,
+                    3.2883895217062634e-06
+                  ],
+                  [
+                    2.7180714677849486e-06,
+                    1.925828805262275e-06,
+                    4.942897329878092e-06,
+                    2.6247624572537888e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.730378968812641e-08,
+                  7.555977440072779e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 9.5367431640625e-06,
+            "logit_per_object_checkpoint_rms_max": 4.942897329878092e-06,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254391,
+              "sha256": "792c4c9a5875c20f8ec5db1518ab6d5e0a87bef24efff5ef186587a7bf7f908e"
+            },
+            "right": {
+              "bytes": 21442694,
+              "sha256": "7a60d507f17663c4f841dc05ef2ef3f689893bbfe2c40ab24c1cc58812f481a0"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 5.9604644775390625e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    4.451313820593439e-06,
+                    6.058996112627335e-06,
+                    1.2604237723766735e-06,
+                    2.4578346760411144e-05
+                  ],
+                  [
+                    3.175307735633718e-06,
+                    3.270715779359514e-06,
+                    3.373900634180518e-06,
+                    3.5308088417229608e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.648627745069566e-08,
+                  8.989210480760842e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 5.9604644775390625e-05,
+            "logit_per_object_checkpoint_rms_max": 2.4578346760411144e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254391,
+              "sha256": "792c4c9a5875c20f8ec5db1518ab6d5e0a87bef24efff5ef186587a7bf7f908e"
+            },
+            "right": {
+              "bytes": 21442725,
+              "sha256": "db4ac7467b4e0244e2ea1cced5a7ee43e38bf7499d585a0c2341fcb9973a1b52"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 5.4836273193359375e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    2.909018107062734e-06,
+                    6.843673612675933e-06,
+                    3.2014244049772947e-06,
+                    2.3670141137831418e-05
+                  ],
+                  [
+                    1.6090287381039494e-06,
+                    1.8689172911318182e-06,
+                    3.1259079377752074e-06,
+                    1.6051825898212285e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.625952457534101e-08,
+                  8.55587990688574e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 5.4836273193359375e-05,
+            "logit_per_object_checkpoint_rms_max": 2.3670141137831418e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254339,
+              "sha256": "fc40647cc98430fc1db50454de388dc6aedfb7875ff4eac07cb9ea4a8ee355e4"
+            },
+            "right": {
+              "bytes": 21442685,
+              "sha256": "a1a1d043a2a6c6429660f93c0e5d0d7793672038b8d5edc31f3a9eba09812f6f"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 1.71661376953125e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    3.2001366868973556e-06,
+                    4.10501704112237e-06,
+                    4.693036086497576e-06,
+                    3.1212295356674416e-06
+                  ],
+                  [
+                    2.7700533230236396e-06,
+                    1.7111519929217374e-06,
+                    2.5740877188589594e-06,
+                    3.3491408152131387e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.625783208293777e-08,
+                  8.424386843196215e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 1.71661376953125e-05,
+            "logit_per_object_checkpoint_rms_max": 4.693036086497576e-06,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254339,
+              "sha256": "fc40647cc98430fc1db50454de388dc6aedfb7875ff4eac07cb9ea4a8ee355e4"
+            },
+            "right": {
+              "bytes": 21442694,
+              "sha256": "7a60d507f17663c4f841dc05ef2ef3f689893bbfe2c40ab24c1cc58812f481a0"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 5.7697296142578125e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    4.204641935818917e-06,
+                    4.1798142292845785e-06,
+                    4.243481433005203e-06,
+                    2.4246936250773782e-05
+                  ],
+                  [
+                    2.722360995893867e-06,
+                    2.9044547798245085e-06,
+                    1.8558512405438829e-06,
+                    3.0777373596560866e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.608222958826246e-08,
+                  9.050955606040998e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 5.7697296142578125e-05,
+            "logit_per_object_checkpoint_rms_max": 2.4246936250773782e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254339,
+              "sha256": "fc40647cc98430fc1db50454de388dc6aedfb7875ff4eac07cb9ea4a8ee355e4"
+            },
+            "right": {
+              "bytes": 21442725,
+              "sha256": "db4ac7467b4e0244e2ea1cced5a7ee43e38bf7499d585a0c2341fcb9973a1b52"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 5.2928924560546875e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    3.3765123768401544e-06,
+                    4.689461954500716e-06,
+                    2.6107125714088876e-06,
+                    2.3396722183472638e-05
+                  ],
+                  [
+                    1.6633260573036778e-06,
+                    1.8876840315993539e-06,
+                    1.9859256686812765e-06,
+                    2.074635539526595e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.660633284496061e-08,
+                  9.223468398785578e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 5.2928924560546875e-05,
+            "logit_per_object_checkpoint_rms_max": 2.3396722183472638e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254343,
+              "sha256": "4371452d054250f0c7882470e9ead8ec7f7d7fe9c15ad74d1cf4d0f05e043467"
+            },
+            "right": {
+              "bytes": 21442685,
+              "sha256": "a1a1d043a2a6c6429660f93c0e5d0d7793672038b8d5edc31f3a9eba09812f6f"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 1.52587890625e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    3.451772858198123e-06,
+                    4.32930409183322e-06,
+                    5.0116223912626455e-06,
+                    2.6784686990417273e-06
+                  ],
+                  [
+                    2.304805526469635e-06,
+                    1.9985007196967703e-06,
+                    6.845660594927284e-06,
+                    3.5324144724233e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.31060064079548e-08,
+                  8.629029861906439e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 1.52587890625e-05,
+            "logit_per_object_checkpoint_rms_max": 6.845660594927284e-06,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254343,
+              "sha256": "4371452d054250f0c7882470e9ead8ec7f7d7fe9c15ad74d1cf4d0f05e043467"
+            },
+            "right": {
+              "bytes": 21442694,
+              "sha256": "7a60d507f17663c4f841dc05ef2ef3f689893bbfe2c40ab24c1cc58812f481a0"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 6.151199340820312e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    1.948214992947779e-06,
+                    4.511868854663764e-06,
+                    4.101389310648251e-06,
+                    2.4804919792956947e-05
+                  ],
+                  [
+                    2.465725720239841e-06,
+                    2.7661187314811998e-06,
+                    5.611768205045796e-06,
+                    2.9891790638235185e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  8.941356159531463e-08,
+                  8.516288154549706e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 6.151199340820312e-05,
+            "logit_per_object_checkpoint_rms_max": 2.4804919792956947e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1254343,
+              "sha256": "4371452d054250f0c7882470e9ead8ec7f7d7fe9c15ad74d1cf4d0f05e043467"
+            },
+            "right": {
+              "bytes": 21442725,
+              "sha256": "db4ac7467b4e0244e2ea1cced5a7ee43e38bf7499d585a0c2341fcb9973a1b52"
+            },
+            "passed": true,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "gaussian/0",
+                "original_ids": [
+                  44,
+                  91
+                ],
+                "logit_max_absolute": 5.6743621826171875e-05,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    2.356645849164631e-06,
+                    4.832665056261896e-06,
+                    4.624270537247719e-06,
+                    2.394477834505444e-05
+                  ],
+                  [
+                    1.989826770646427e-06,
+                    1.6757617079421404e-06,
+                    5.684257368193322e-06,
+                    2.109350030000567e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  9.098346917455357e-08,
+                  9.095320005984859e-08
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": true
+              }
+            ],
+            "logit_max_absolute": 5.6743621826171875e-05,
+            "logit_per_object_checkpoint_rms_max": 2.394477834505444e-05,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          }
+        ]
+      }
+    },
+    "background": {
+      "control_repeat": {
+        "passed": 0,
+        "total": 3,
+        "worst_logit": 2.012451648712158,
+        "worst_rms": 0.8591609594553568,
+        "pairs": [
+          {
+            "left": {
+              "bytes": 1246204,
+              "sha256": "8786905891f510363aba70eaebbe2cdc2ce9504c3ad4c290fc8c09b7e7c0b15b"
+            },
+            "right": {
+              "bytes": 1246408,
+              "sha256": "d7f2b194a654742d8e73d4162c7b56d6b8ee3e0fed559973befe2fc28e736b88"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 1.7791257500648499,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.4022064153495221,
+                    0.6120451507468395,
+                    0.4861316463204878,
+                    0.7690406421841015
+                  ],
+                  [
+                    7.96550802032264e-06,
+                    5.786326388097517e-06,
+                    5.20022772045703e-06,
+                    9.169112899112964e-05
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.0393784696835819,
+                  3.618600731079414e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 1.7791257500648499,
+            "logit_per_object_checkpoint_rms_max": 0.7690406421841015,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246204,
+              "sha256": "8786905891f510363aba70eaebbe2cdc2ce9504c3ad4c290fc8c09b7e7c0b15b"
+            },
+            "right": {
+              "bytes": 1246357,
+              "sha256": "200892e9ce69f5a0441f99819fa9a443f6656a4a155a97dec63bdb8eca42b6b5"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.009258270263672,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.0021206182408043356,
+                    0.8016086358063946,
+                    0.6486302133105595,
+                    0.8591609594553568
+                  ],
+                  [
+                    1.414521659085367e-05,
+                    4.354715535951055e-06,
+                    7.272006359703213e-06,
+                    9.298666553157966e-05
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.0001322082454031852,
+                  3.7954052431383377e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.009258270263672,
+            "logit_per_object_checkpoint_rms_max": 0.8591609594553568,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246408,
+              "sha256": "d7f2b194a654742d8e73d4162c7b56d6b8ee3e0fed559973befe2fc28e736b88"
+            },
+            "right": {
+              "bytes": 1246357,
+              "sha256": "200892e9ce69f5a0441f99819fa9a443f6656a4a155a97dec63bdb8eca42b6b5"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.012451648712158,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.4009914361847094,
+                    0.5397968254319357,
+                    0.6319601055118647,
+                    0.7147121379499773
+                  ],
+                  [
+                    1.1314817790451777e-05,
+                    7.921617975450357e-06,
+                    8.156080851194088e-06,
+                    3.2000508206010092e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.03937787742884391,
+                  3.2867155107539287e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.012451648712158,
+            "logit_per_object_checkpoint_rms_max": 0.7147121379499773,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          }
+        ]
+      },
+      "live_repeat": {
+        "passed": 0,
+        "total": 3,
+        "worst_logit": 2.349637508392334,
+        "worst_rms": 1.1344053307833377,
+        "pairs": [
+          {
+            "left": {
+              "bytes": 20411461,
+              "sha256": "73bc3a12c3460e48b66b3c4ce981f6142accc44e033b704774ef37b8e2533ce3"
+            },
+            "right": {
+              "bytes": 20411464,
+              "sha256": "1b069b78041b75b1e694a84298b0b494c97766ec1c0e26597241a14723821fe4"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.0282097458839417,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.5966767427480203,
+                    0.5197628359922541,
+                    0.6770480849211675,
+                    0.8628306330026652
+                  ],
+                  [
+                    9.107130058505126e-05,
+                    2.1494224372052318e-05,
+                    4.426650714082779e-05,
+                    0.27953826881106253
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.0101843328149403,
+                  2.3760574048295704e-05
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.0282097458839417,
+            "logit_per_object_checkpoint_rms_max": 0.8628306330026652,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 20411461,
+              "sha256": "73bc3a12c3460e48b66b3c4ce981f6142accc44e033b704774ef37b8e2533ce3"
+            },
+            "right": {
+              "bytes": 20411447,
+              "sha256": "f25299c5b97ca5696ba6e11df42ca92f60e795bd7286bcb3b86ded4ab0cea91e"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 1.3411229699850082,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.00022758771781022897,
+                    2.4942772371132623e-05,
+                    1.6429231332990515e-05,
+                    0.5302622922788285
+                  ],
+                  [
+                    1.4914375644726476e-05,
+                    1.4018773758133043e-05,
+                    6.690030613499157e-06,
+                    6.005765087148222e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  5.094221882760414e-06,
+                  4.5180178550732924e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 1.3411229699850082,
+            "logit_per_object_checkpoint_rms_max": 0.5302622922788285,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 20411464,
+              "sha256": "1b069b78041b75b1e694a84298b0b494c97766ec1c0e26597241a14723821fe4"
+            },
+            "right": {
+              "bytes": 20411447,
+              "sha256": "f25299c5b97ca5696ba6e11df42ca92f60e795bd7286bcb3b86ded4ab0cea91e"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.349637508392334,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.5967365574496516,
+                    0.5197654018837763,
+                    0.6770397479404671,
+                    1.1344053307833377
+                  ],
+                  [
+                    0.00010212227717784907,
+                    2.8639605011746883e-05,
+                    3.8531114194702096e-05,
+                    0.2795359532000447
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.010183495888470803,
+                  2.378292551977897e-05
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.349637508392334,
+            "logit_per_object_checkpoint_rms_max": 1.1344053307833377,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          }
+        ]
+      },
+      "control_vs_live": {
+        "passed": 0,
+        "total": 9,
+        "worst_logit": 2.546044647693634,
+        "worst_rms": 1.1707844946438652,
+        "pairs": [
+          {
+            "left": {
+              "bytes": 1246204,
+              "sha256": "8786905891f510363aba70eaebbe2cdc2ce9504c3ad4c290fc8c09b7e7c0b15b"
+            },
+            "right": {
+              "bytes": 20411461,
+              "sha256": "73bc3a12c3460e48b66b3c4ce981f6142accc44e033b704774ef37b8e2533ce3"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.009211540222168,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.058616989644577774,
+                    0.8015846749616762,
+                    0.6425900215907426,
+                    0.49721062938165106
+                  ],
+                  [
+                    1.2817521396222534e-05,
+                    3.7537116442408293e-06,
+                    5.121613860920372e-06,
+                    8.065662837542992e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.00013197125699484,
+                  3.9368515711450634e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.009211540222168,
+            "logit_per_object_checkpoint_rms_max": 0.8015846749616762,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246204,
+              "sha256": "8786905891f510363aba70eaebbe2cdc2ce9504c3ad4c290fc8c09b7e7c0b15b"
+            },
+            "right": {
+              "bytes": 20411464,
+              "sha256": "1b069b78041b75b1e694a84298b0b494c97766ec1c0e26597241a14723821fe4"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.303032398223877,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.6278696413557849,
+                    0.6886636686729555,
+                    0.5888049029518281,
+                    0.7290518135702252
+                  ],
+                  [
+                    0.00010158694863812342,
+                    2.3331398148037245e-05,
+                    3.9966008836648945e-05,
+                    0.27953519851800984
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.0102016876972252,
+                  2.3788207323634036e-05
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.303032398223877,
+            "logit_per_object_checkpoint_rms_max": 0.7290518135702252,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246204,
+              "sha256": "8786905891f510363aba70eaebbe2cdc2ce9504c3ad4c290fc8c09b7e7c0b15b"
+            },
+            "right": {
+              "bytes": 20411447,
+              "sha256": "f25299c5b97ca5696ba6e11df42ca92f60e795bd7286bcb3b86ded4ab0cea91e"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.009213447570801,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.058577233439164926,
+                    0.8015856133242131,
+                    0.6425824473770115,
+                    0.8093185168862712
+                  ],
+                  [
+                    1.2451034593543585e-05,
+                    1.5699149474345634e-05,
+                    4.1302460029317156e-06,
+                    3.7712422101868703e-06
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.0001324360531543234,
+                  4.998549590199441e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.009213447570801,
+            "logit_per_object_checkpoint_rms_max": 0.8093185168862712,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246408,
+              "sha256": "d7f2b194a654742d8e73d4162c7b56d6b8ee3e0fed559973befe2fc28e736b88"
+            },
+            "right": {
+              "bytes": 20411461,
+              "sha256": "73bc3a12c3460e48b66b3c4ce981f6142accc44e033b704774ef37b8e2533ce3"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 1.3479739427566528,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.3794945133444282,
+                    0.5397842809943426,
+                    0.6205085697442417,
+                    0.4911183652748707
+                  ],
+                  [
+                    1.866439114475911e-05,
+                    5.052607812215314e-06,
+                    7.535934301154035e-06,
+                    8.970921313927697e-05
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.039378578170963734,
+                  5.483078561673701e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 1.3479739427566528,
+            "logit_per_object_checkpoint_rms_max": 0.6205085697442417,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246408,
+              "sha256": "d7f2b194a654742d8e73d4162c7b56d6b8ee3e0fed559973befe2fc28e736b88"
+            },
+            "right": {
+              "bytes": 20411464,
+              "sha256": "1b069b78041b75b1e694a84298b0b494c97766ec1c0e26597241a14723821fe4"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.546044647693634,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.5902202455047705,
+                    0.5456683255568788,
+                    0.6521488594755872,
+                    0.8269921672226787
+                  ],
+                  [
+                    0.00010778042400837954,
+                    2.5090456012167844e-05,
+                    3.9092556122514424e-05,
+                    0.2795203941738424
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.037765032760400996,
+                  2.3806035585888852e-05
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.546044647693634,
+            "logit_per_object_checkpoint_rms_max": 0.8269921672226787,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246408,
+              "sha256": "d7f2b194a654742d8e73d4162c7b56d6b8ee3e0fed559973befe2fc28e736b88"
+            },
+            "right": {
+              "bytes": 20411447,
+              "sha256": "f25299c5b97ca5696ba6e11df42ca92f60e795bd7286bcb3b86ded4ab0cea91e"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 1.9098944664001465,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.37961643381661336,
+                    0.5397814599190401,
+                    0.620509871028562,
+                    0.6661425007893224
+                  ],
+                  [
+                    1.5572662387343176e-05,
+                    1.1821469755811385e-05,
+                    6.574540247900011e-06,
+                    8.993573652195176e-05
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.03937849687648479,
+                  6.029753305293978e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 1.9098944664001465,
+            "logit_per_object_checkpoint_rms_max": 0.6661425007893224,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246357,
+              "sha256": "200892e9ce69f5a0441f99819fa9a443f6656a4a155a97dec63bdb8eca42b6b5"
+            },
+            "right": {
+              "bytes": 20411461,
+              "sha256": "73bc3a12c3460e48b66b3c4ce981f6142accc44e033b704774ef37b8e2533ce3"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 1.6072008609771729,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.05751201485496362,
+                    5.695882372685939e-05,
+                    0.017543556700647382,
+                    0.598780989631888
+                  ],
+                  [
+                    2.4622721772010895e-05,
+                    5.041519470341421e-06,
+                    3.934462487249307e-06,
+                    9.103188061341849e-05
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  4.932439276025984e-06,
+                  5.432786930674485e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 1.6072008609771729,
+            "logit_per_object_checkpoint_rms_max": 0.598780989631888,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246357,
+              "sha256": "200892e9ce69f5a0441f99819fa9a443f6656a4a155a97dec63bdb8eca42b6b5"
+            },
+            "right": {
+              "bytes": 20411464,
+              "sha256": "1b069b78041b75b1e694a84298b0b494c97766ec1c0e26597241a14723821fe4"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 2.4521946907043457,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.6263734977506165,
+                    0.5197917844996027,
+                    0.6792842912600237,
+                    1.1707844946438652
+                  ],
+                  [
+                    0.00011102286762981932,
+                    2.1126730681619275e-05,
+                    4.641724508208184e-05,
+                    0.27951859292613446
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  0.0101836907995591,
+                  2.3799573182623577e-05
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 2.4521946907043457,
+            "logit_per_object_checkpoint_rms_max": 1.1707844946438652,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          },
+          {
+            "left": {
+              "bytes": 1246357,
+              "sha256": "200892e9ce69f5a0441f99819fa9a443f6656a4a155a97dec63bdb8eca42b6b5"
+            },
+            "right": {
+              "bytes": 20411447,
+              "sha256": "f25299c5b97ca5696ba6e11df42ca92f60e795bd7286bcb3b86ded4ab0cea91e"
+            },
+            "passed": false,
+            "thresholds": {
+              "logit_max": 0.05,
+              "logit_per_object_checkpoint_rms": 0.01,
+              "first_decoded_per_object_rms": 0.0001
+            },
+            "cases": [
+              {
+                "case": "background/0",
+                "original_ids": [
+                  495,
+                  512
+                ],
+                "logit_max_absolute": 0.28011655807495117,
+                "logit_per_object_checkpoint_rms": [
+                  [
+                    0.0574738442770124,
+                    4.586683363532015e-05,
+                    0.01754106940967107,
+                    0.11761318096306865
+                  ],
+                  [
+                    1.9338759491019155e-05,
+                    1.7805649509092468e-05,
+                    9.130695488972815e-06,
+                    9.121880150922343e-05
+                  ]
+                ],
+                "first_decoded_per_object_rms": [
+                  2.1868616930416364e-06,
+                  6.686843845836903e-07
+                ],
+                "pm_agreement": [
+                  true,
+                  true
+                ],
+                "terminal_agreement": [
+                  true,
+                  true
+                ],
+                "passed": false
+              }
+            ],
+            "logit_max_absolute": 0.28011655807495117,
+            "logit_per_object_checkpoint_rms_max": 0.11761318096306865,
+            "first_clean_latent_hash_equal": false,
+            "decoder_style_hash_equal": true
+          }
+        ]
+      }
+    }
+  },
+  "limitation": "Two deliberately selected B2 cases/three repeats per observer; no accuracy improvement or unique causal kernel claim. Pair comparisons share runs and are not independent trials."
+}

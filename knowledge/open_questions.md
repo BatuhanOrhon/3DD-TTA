@@ -1,3 +1,10 @@
+## 2026-11-04 — same-observer repeat gate completed
+
+[Run/Inference/Open] [Results](gsd_zero_repeat_20261104.md).
+- [x] Same-observer fresh-process repeats on failingBackground and passingGaussian: Backgroundbotharms0/3within-gates, Gaussianboth3/3.
+- [ ] Capture earliest prior/SCD divergence and fixed-input native VJPs; observer switching is not necessary, but exact kernel remains unassigned.
+- [ ] Anchor/correspondence accuracy tests remain gated; selected repeat PM predictions did not change.
+
 ## 2026-11-04 — applied decoded physical accuracy: complete pilot, failed numerical attribution
 
 [Run/Inference/Open] [Results and next gates](decoded_physical_accuracy_20261104.md).
