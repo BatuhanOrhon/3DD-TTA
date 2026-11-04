@@ -1,0 +1,224 @@
+{
+  "stage": "technical",
+  "passed": true,
+  "zero_guidance_control_live0": {
+    "passed": true,
+    "thresholds": {
+      "logit_max": 0.05,
+      "logit_per_object_checkpoint_rms": 0.01,
+      "first_decoded_per_object_rms": 0.0001
+    },
+    "cases": [
+      {
+        "case": "gaussian/0",
+        "original_ids": [
+          44,
+          91
+        ],
+        "logit_max_absolute": 1.430511474609375e-05,
+        "logit_per_object_checkpoint_rms": [
+          [
+            3.2550221483800633e-06,
+            1.7512763634179794e-06,
+            4.0419808316473e-06,
+            3.008488722002231e-06
+          ],
+          [
+            3.4172297259286435e-06,
+            2.5483425480889376e-06,
+            4.622126071240106e-06,
+            8.13526981383868e-07
+          ]
+        ],
+        "first_decoded_per_object_rms": [
+          9.212752837157278e-08,
+          7.787748479222998e-08
+        ],
+        "pm_agreement": [
+          true,
+          true
+        ],
+        "terminal_agreement": [
+          true,
+          true
+        ],
+        "passed": true
+      }
+    ],
+    "logit_max_absolute": 1.430511474609375e-05,
+    "logit_per_object_checkpoint_rms_max": 4.622126071240106e-06
+  },
+  "matched_physical_metric_gate": {
+    "passed": true,
+    "compared_cases": 1,
+    "mismatches": [],
+    "criterion": "Exact physical reference/filter tensor SHA equality across live0/full/H8; control has no graph"
+  },
+  "positive_arms_finite_and_paired": true,
+  "control_identity_sha256": "9b24e19a861de7bb1d8f926fc3865948f6651a894984fd4f0c186b9d5ac4f109",
+  "runs": {
+    "control": {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-074836_decoded-control-8aed642b.zip",
+      "archive_identity": {
+        "bytes": 1253835,
+        "sha256": "0132b2c31adc9f37688d7b56b870a5cf440c6113dc0bb2e4fbcede0463e79153"
+      },
+      "arm": "control",
+      "ids": [
+        44,
+        91
+      ],
+      "corruptions": [
+        "gaussian"
+      ],
+      "counts": {
+        "gaussian": {
+          "n": 2,
+          "pm_correct": 2,
+          "terminal_correct": 2,
+          "reconstruction_seconds": 1.6173041649963125,
+          "peak_gpu_memory_mb": 3081.546875
+        }
+      },
+      "costs": [
+        {
+          "corruption": "gaussian",
+          "batch": 0,
+          "case_elapsed_seconds": 1.651757143001305,
+          "graph_diagnostic_seconds": 0.0
+        }
+      ],
+      "worker_wall_seconds": 19.832382418993802,
+      "physical_metrics": {
+        "gaussian/0": null
+      }
+    },
+    "live0": {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-074904_decoded-live_control-8aed642b.zip",
+      "archive_identity": {
+        "bytes": 21442164,
+        "sha256": "12edfe965e8c4f195bd9857329d6aa9f96966f6bd2666b36050fdf4e59544f47"
+      },
+      "arm": "live0",
+      "ids": [
+        44,
+        91
+      ],
+      "corruptions": [
+        "gaussian"
+      ],
+      "counts": {
+        "gaussian": {
+          "n": 2,
+          "pm_correct": 2,
+          "terminal_correct": 2,
+          "reconstruction_seconds": 1.6246019129976048,
+          "peak_gpu_memory_mb": 3779.5244140625
+        }
+      },
+      "costs": [
+        {
+          "corruption": "gaussian",
+          "batch": 0,
+          "case_elapsed_seconds": 1.6592522380014998,
+          "graph_diagnostic_seconds": 0.22570190300029935
+        }
+      ],
+      "worker_wall_seconds": 27.682274648999737,
+      "physical_metrics": {
+        "gaussian/0": {
+          "reference_xyz_sha256": "142aa857707583b6dec130d7862a032e5151bfca7c18531da70538c700b123db",
+          "filter_sha256": [
+            "5ab7ab9c89c1226b53ad7a4c14eaff2afbc618384fae2bdd435b19ef137dc6c3",
+            "214e48619ce4f076773d338be74256390a5c4eb5bd17c76b596d56e5ca23dcb1"
+          ]
+        }
+      }
+    },
+    "full": {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-074941_decoded-physical-c08bc43d.zip",
+      "archive_identity": {
+        "bytes": 21441235,
+        "sha256": "55f3dd4f466a3bddf5847295f2272c7d52c0d5143848bba2057cfc0c252edbed"
+      },
+      "arm": "full",
+      "ids": [
+        44,
+        91
+      ],
+      "corruptions": [
+        "gaussian"
+      ],
+      "counts": {
+        "gaussian": {
+          "n": 2,
+          "pm_correct": 2,
+          "terminal_correct": 2,
+          "reconstruction_seconds": 1.8213828000007197,
+          "peak_gpu_memory_mb": 3894.673828125
+        }
+      },
+      "costs": [
+        {
+          "corruption": "gaussian",
+          "batch": 0,
+          "case_elapsed_seconds": 1.85679670299578,
+          "graph_diagnostic_seconds": 0.22309134699753486
+        }
+      ],
+      "worker_wall_seconds": 27.929196374003368,
+      "physical_metrics": {
+        "gaussian/0": {
+          "reference_xyz_sha256": "142aa857707583b6dec130d7862a032e5151bfca7c18531da70538c700b123db",
+          "filter_sha256": [
+            "5ab7ab9c89c1226b53ad7a4c14eaff2afbc618384fae2bdd435b19ef137dc6c3",
+            "214e48619ce4f076773d338be74256390a5c4eb5bd17c76b596d56e5ca23dcb1"
+          ]
+        }
+      }
+    },
+    "h8": {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261104-075018_decoded-physical-c08bc43d.zip",
+      "archive_identity": {
+        "bytes": 21441370,
+        "sha256": "3e779314eb8304663b7855f430737f7fbe642dd6a83469a3ac909b5d84dc6575"
+      },
+      "arm": "h8",
+      "ids": [
+        44,
+        91
+      ],
+      "corruptions": [
+        "gaussian"
+      ],
+      "counts": {
+        "gaussian": {
+          "n": 2,
+          "pm_correct": 2,
+          "terminal_correct": 2,
+          "reconstruction_seconds": 1.6333840310035157,
+          "peak_gpu_memory_mb": 3113.59423828125
+        }
+      },
+      "costs": [
+        {
+          "corruption": "gaussian",
+          "batch": 0,
+          "case_elapsed_seconds": 1.6690071610064479,
+          "graph_diagnostic_seconds": 0.2230692859957344
+        }
+      ],
+      "worker_wall_seconds": 27.73742870300339,
+      "physical_metrics": {
+        "gaussian/0": {
+          "reference_xyz_sha256": "142aa857707583b6dec130d7862a032e5151bfca7c18531da70538c700b123db",
+          "filter_sha256": [
+            "5ab7ab9c89c1226b53ad7a4c14eaff2afbc618384fae2bdd435b19ef137dc6c3",
+            "214e48619ce4f076773d338be74256390a5c4eb5bd17c76b596d56e5ca23dcb1"
+          ]
+        }
+      }
+    }
+  },
+  "limitation": "Controlled backend does not guarantee native determinism. Only control/live0 numerical compatibility is gated; applied full/H8 outputs may differ."
+}

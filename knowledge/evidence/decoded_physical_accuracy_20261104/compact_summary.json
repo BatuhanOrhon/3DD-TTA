@@ -1,0 +1,1561 @@
+{
+  "rows": [
+    {
+      "arm": "control",
+      "n": 480,
+      "pm_correct": 313,
+      "terminal_correct": 310,
+      "pm_accuracy_pct": 65.20833333333333,
+      "terminal_accuracy_pct": 64.58333333333334,
+      "reconstruction_seconds": 334.5930736499431,
+      "per_case_elapsed_seconds_sum": 342.172389616906,
+      "graph_diagnostic_seconds_sum": 0.0,
+      "worker_wall_seconds_sum": 439.11658010500105,
+      "peak_gpu_memory_mb_max": 3752.1044921875,
+      "graph_plus_reconstruction_seconds": 334.5930736499431
+    },
+    {
+      "arm": "live0",
+      "n": 480,
+      "pm_correct": 315,
+      "terminal_correct": 310,
+      "pm_accuracy_pct": 65.625,
+      "terminal_accuracy_pct": 64.58333333333334,
+      "reconstruction_seconds": 339.5723510939861,
+      "per_case_elapsed_seconds_sum": 347.20482990296296,
+      "graph_diagnostic_seconds_sum": 25.369443092997244,
+      "worker_wall_seconds_sum": 526.2473263490028,
+      "peak_gpu_memory_mb_max": 4450.55078125,
+      "graph_plus_reconstruction_seconds": 364.9417941869833
+    },
+    {
+      "arm": "full",
+      "n": 480,
+      "pm_correct": 313,
+      "terminal_correct": 314,
+      "pm_accuracy_pct": 65.20833333333333,
+      "terminal_accuracy_pct": 65.41666666666667,
+      "reconstruction_seconds": 385.26601176192344,
+      "per_case_elapsed_seconds_sum": 392.92491611687,
+      "graph_diagnostic_seconds_sum": 25.374587336125842,
+      "worker_wall_seconds_sum": 572.0489978599944,
+      "peak_gpu_memory_mb_max": 4565.9658203125,
+      "graph_plus_reconstruction_seconds": 410.6405990980493
+    },
+    {
+      "arm": "h8",
+      "n": 480,
+      "pm_correct": 312,
+      "terminal_correct": 314,
+      "pm_accuracy_pct": 65.0,
+      "terminal_accuracy_pct": 65.41666666666667,
+      "reconstruction_seconds": 340.3537183350054,
+      "per_case_elapsed_seconds_sum": 347.9815047899683,
+      "graph_diagnostic_seconds_sum": 25.368696617006208,
+      "worker_wall_seconds_sum": 527.3886247240007,
+      "peak_gpu_memory_mb_max": 3783.80810546875,
+      "graph_plus_reconstruction_seconds": 365.7224149520116
+    }
+  ],
+  "ratios": {
+    "reconstruction_seconds": {
+      "H8_over_full": 0.883425238521503,
+      "H8_over_control": 1.0172168677080542,
+      "full_over_control": 1.1514464646838303
+    },
+    "graph_plus_reconstruction_seconds": {
+      "H8_over_full": 0.8906143614520869,
+      "H8_over_control": 1.0930364187234687,
+      "full_over_control": 1.227283621321069
+    },
+    "worker_wall_seconds_sum": {
+      "H8_over_full": 0.9219291121860788,
+      "H8_over_control": 1.2010218894442386,
+      "full_over_control": 1.3027269380791924
+    },
+    "peak_gpu_memory_mb_max": {
+      "H8_over_full": 0.828698298317481,
+      "H8_over_control": 1.008449555002336,
+      "full_over_control": 1.2169079592051857
+    }
+  },
+  "zero_gate": {
+    "passed": false,
+    "failed_B2_cases": 45,
+    "total_B2_cases": 240,
+    "failure_by_corruption": {
+      "gaussian": 2,
+      "background": 16,
+      "distortion_rbf": 3,
+      "distortion_rbf_inv": 3,
+      "density": 1,
+      "occlusion": 2,
+      "lidar": 3,
+      "upsampling": 2,
+      "shear": 3,
+      "rotation": 2,
+      "cutout": 3,
+      "impulse": 1,
+      "density_inc": 2,
+      "distortion": 2
+    },
+    "pm_prediction_disagreements": 2,
+    "terminal_prediction_disagreements": 3,
+    "max_first_decoded_per_object_rms": 0.07278593781571648,
+    "max_logit": 3.3738574981689453,
+    "max_logit_rms": 1.105947140386333
+  },
+  "boundary_summary": {
+    "first_clean_latent_hash_equal": 0,
+    "first_decoder_style_hash_equal": 240,
+    "first_decoded_hash_equal": 0
+  },
+  "boundary_cases": [
+    {
+      "case": "shard0/uniform/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/uniform/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/uniform/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/uniform/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/gaussian/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/gaussian/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/gaussian/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/gaussian/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/background/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/background/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/background/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/background/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/impulse/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/impulse/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/impulse/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/impulse/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/upsampling/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/upsampling/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/upsampling/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/upsampling/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf_inv/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf_inv/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf_inv/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion_rbf_inv/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density_inc/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density_inc/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density_inc/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/density_inc/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/shear/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/shear/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/shear/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/shear/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/rotation/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/rotation/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/rotation/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/rotation/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/cutout/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/cutout/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/cutout/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/cutout/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/distortion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/occlusion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/occlusion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/occlusion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/occlusion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/lidar/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/lidar/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/lidar/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard0/lidar/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/uniform/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/uniform/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/uniform/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/uniform/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/gaussian/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/gaussian/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/gaussian/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/gaussian/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/background/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/background/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/background/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/background/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/impulse/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/impulse/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/impulse/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/impulse/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/upsampling/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/upsampling/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/upsampling/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/upsampling/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf_inv/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf_inv/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf_inv/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion_rbf_inv/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density_inc/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density_inc/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density_inc/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/density_inc/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/shear/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/shear/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/shear/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/shear/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/rotation/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/rotation/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/rotation/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/rotation/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/cutout/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/cutout/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/cutout/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/cutout/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/distortion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/occlusion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/occlusion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/occlusion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/occlusion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/lidar/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/lidar/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/lidar/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard1/lidar/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/uniform/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/uniform/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/uniform/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/uniform/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/gaussian/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/gaussian/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/gaussian/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/gaussian/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/background/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/background/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/background/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/background/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/impulse/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/impulse/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/impulse/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/impulse/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/upsampling/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/upsampling/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/upsampling/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/upsampling/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf_inv/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf_inv/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf_inv/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion_rbf_inv/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density_inc/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density_inc/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density_inc/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/density_inc/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/shear/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/shear/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/shear/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/shear/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/rotation/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/rotation/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/rotation/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/rotation/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/cutout/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/cutout/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/cutout/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/cutout/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/distortion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/occlusion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/occlusion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/occlusion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/occlusion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/lidar/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/lidar/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/lidar/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard2/lidar/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/uniform/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/uniform/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/uniform/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/uniform/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/gaussian/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/gaussian/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/gaussian/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/gaussian/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/background/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/background/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/background/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/background/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/impulse/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/impulse/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/impulse/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/impulse/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/upsampling/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/upsampling/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/upsampling/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/upsampling/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf_inv/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf_inv/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf_inv/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion_rbf_inv/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density_inc/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density_inc/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density_inc/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/density_inc/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/shear/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/shear/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/shear/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/shear/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/rotation/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/rotation/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/rotation/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/rotation/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/cutout/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/cutout/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/cutout/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/cutout/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/distortion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/occlusion/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/occlusion/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/occlusion/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/occlusion/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/lidar/0",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/lidar/1",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/lidar/2",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    },
+    {
+      "case": "shard3/lidar/3",
+      "first_clean_latent_hash_equal": false,
+      "first_decoder_style_hash_equal": true,
+      "first_decoded_hash_equal": false
+    }
+  ],
+  "preparation": {
+    "sum_prepare_boundary_seconds": 16.301610651986266,
+    "loop_elapsed_seconds": 21.912501774000702,
+    "outer_seconds": 42.10147458600113
+  },
+  "limitations": "Boundary hashes detect bit differences, not their magnitude or causal kernel. Timing ratios are single-run descriptive measurements; graph plus reconstruction excludes loading/cache preparation/terminal head/artifact overhead. Gate failures are retained; thresholds unchanged."
+}

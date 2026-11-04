@@ -8620,3 +8620,17 @@ Driveverified, includingV1negativeandV2mixed-originCPUreports/source/tests/strea
 FinalsameVMA100audit00:26:41UTC noownedresearchworker;raw+derivedhashverified,
 exactfinalmarkeraccepted. Runtime+monitor97932remainopen;nocloseauthorization.
 Nextworkisgatedcontrolledspeed/correspondence-anchorisolation,notanewrunhere.
+
+
+## 2026-11-04 — applied decoded physical accuracy phase prepared
+
+[Code/Open] User continuation authorizes next bounded GPU tests. Frozen protocol in `decoded_physical_accuracy_20261104.md`:32 stage-disjoint development objects/all15/seed0, four arms control/live0/full/H8, lambda802.5000841164167; whole phase estimate30–45min/hard55min. Sourcecdbdfb1 expands only driver choices;10 focused CPUtests pass, independent parser review passes. Same owned A100 canonical setup/CPU deployment passed; assetmanifest05b6fcde7c6982954594bec34fd6bd7d62b8b020f86129d2d8d16fafd8c0363c, overlaya85a5c794ddf8003ba7302c153f98c9381deb18188bc75f6f255e65209f0ebdb. Local `result/preparation/gsd_physical_accuracy_20261104/`, Drive `thesis/result/gsd_physical_accuracy_20261104`. No new GPU outcome at this entry. Next gate technicalcontrol/live0 equivalence, then prebuiltpairedcaches/main; no coefficient tuning or final benchmark claim.
+
+
+## 2026-11-04 08:35UTC — applied physical/H8 raw acceptance; no gain, zero-control gate failure
+
+[Run/Code/Inference/Open] Frozen protocol/results: `decoded_physical_accuracy_20261104.md`. Sourcecdbdfb1, analyzerbd335d8; ownA100 `tta-gsd-physical-spectral-a100-20261103-r1`, sameverifiednative/checkpoints.32developmentIDs/all15/seed0/B2, full/H8lambda802.5000841164167, SCD+PM baseline. All4technical+16main complete, science2497.5627s(41.626min)<55mincap, no retry/retuning. Raw598124006bytes/SHA25848ee32f6fab40dd2b58e5b428ed61f78da3a0899f92c3038e291bb81b3111; local `result/preparation/gsd_physical_accuracy_20261104/`, Drive `thesis/result/gsd_physical_accuracy_20261104/accuracy_raw_package.zip`. All20bundles/964B2cases/241actualcaches/248source/6ELFpayloads independentlyaccepted.
+
+PMcontrol/live0/full/H8=313/315/313/312 of480. Full−live0−.4167ppCI[-1.6667,+.8333];H8−live0−.625ppCI[-1.6667,+.4167]. H8/full PMpredictionsagree468/480, terminal448/480; equal/similaraccuracy is not equivalentpredictions. H8 reconstruction11.66%belowfull, graph+reconstruction9.30%aboveoperationalcontrol; workerwall20.10%abovecontrol. Warmcachepilotcosts, no deploymentclaim. Commonpreparation42.10s outer; graphpeakunmeasured.
+
+All240physicalFhashtriplesmatch, but zero-control numericalgatefails45/240B2cases including16/16Background: worstlogit3.3738575,RMS1.1059471, firstdecodedRMS.07278594. TwoPMclasschanges withzero guidance produce+.4167pp. Firstcleanlatenthashesalreadydiffer240/240beforedecoderprobe, whiledecoderstylehashesmatch; magnitude/kernelcauseunresolved. Thusold2-IDGaussianP0success is not a general stabilityguarantee. Thresholds unchanged; rawintegrityaccepted separatelyfromfailedscientificgate. Keepbaseline/defaults; nextprioritysame-observerzero repeats/earliestboundarynative traces, thenanchor/correspondence. No furtherGPUrunstarted. CPU507tests/1skip; final16affectedtests pass incleanintegration. Runtime/monitor remainopen.

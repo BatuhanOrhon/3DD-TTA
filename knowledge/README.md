@@ -1,3 +1,17 @@
+**[Run/Inference/Open] 2026-11-04 — applied physical/H8 pilot complete; no PM gain and numerical gate failed:**
+[Protocol, raw results, failed gates and next hypotheses](decoded_physical_accuracy_20261104.md).
+32stage-disjoint development IDs/all15/seed0: operational control313/480(65.2083%),
+live0control315/480(65.625%), full313/480(65.2083%), H8 312/480(65.0%).
+Physical-versus-control paired32-object intervals include0. H8 reconstruction
+11.66% belowfull, but graph+reconstruction9.30% aboveoperationalcontrol; no
+simultaneous accuracy/speed win. SameF240/240passes, zero-guidancecompatibility
+fails45/240B2cases, includingall16Backgroundcases. TwoPMpredictionschange
+without guidance; firstcleanlatentsalreadydiffer beforedecoderprobe. No causal
+kernel identified, no threshold relaxation/default promotion.20rawruns/241caches/
+248sourcefiles/6nativeELFs/Drive/localverified; science41.63min<55mincap.
+507CPUtests/1skip and16clean-integrationtests pass. OwnedA100/monitor97932
+remain protected; final publication/derived backup receipts are in the report.
+
 **[Code/Run/Inference/Open] 2026-11-04 — decoded physical spectral follow-up complete; objective bias remains:**
 [Fixed P0/P1/P2 protocol and execution record](decoded_physical_followup_20261104.md).
 Six repeats: controlled worstlogit5.58e-5 vslegacy2.4244; all controlled repeat

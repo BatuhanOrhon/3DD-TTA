@@ -1,3 +1,20 @@
+## 2026-11-04 — applied decoded physical accuracy: complete pilot, failed numerical attribution
+
+[Run/Inference/Open] [Results and next gates](decoded_physical_accuracy_20261104.md).
+
+- [x] Preserve narrower controlledP0 repeat success and96/96same-state H8 direction witnesses; keep mixed-origin anchor oracle limitations.
+- [x] Freeze coefficient802.5000841164167 and32newIDs/all15/seed0 before accuracy; prebuild all240pairedstates; fourarms/16mainruns complete.
+- [x] Recount PM313/315/313/312 of480(control/live0/full/H8), pairedobjectCI and allcosts;20rawbundles/local/Drive accepted.
+- [x] Preserve negative/null result and failedzero gate45/240B2cases; all240physicalFtriplesequal; no default promotion or timing cherry-pick.
+- [ ] Diagnose same-observer zero repeats on fixed failingBackground/LiDAR cases, tracing earliest prior/SCD/discrete-index divergence; controlledcuDNN is insufficient acrossthiscohort.
+- [ ] After numerical control, isolate corrupted-X versus frozenencode/decode anchor and vertex correspondence, withlabel-free scale calibration.
+- [ ] Only after a useful objective is established, compare exactheat/sparse approximation and fresh totaldeployment costs; multi-seed confirmation remains unexecuted.
+
+H8's11.66%lowerrecordedreconstructionthanfull does notbeatoperationalcontrol;
+graph+reconstructionis9.30%higher. Confidence intervals include0 anddo notcover
+unquantifiednativeinstability. Preserve historicalchecksbelow asdatedscope,
+notcurrentglobalstabilitycertification. No furtherGPUphasewaslaunched.
+
 ## 2026-11-03 — H7/H8 native physical decoded guidance: bounded pilot complete
 
 [Run/Code/Inference/Open] [Final results and evidence](decoded_physical_spectral_results_20261103.md).

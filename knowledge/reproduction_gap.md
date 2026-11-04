@@ -1,5 +1,18 @@
 # Reproduction Gap: Current Diagnosis
 
+## 2026-11-04 — decoded physical pilot does not close an accuracy or stability gap
+
+[Run/Inference/Open] [Frozen32-ID/all15/seed0 pilot](decoded_physical_accuracy_20261104.md)
+finds PM65.2083%operationalbaseline,65.625%live0,65.2083%fullphysical,
+65.0%H8. These subset figures are not full-benchmark paper parity. Paired
+physical-versus-control intervals include0; zero-weight compatibilityfails
+45/240B2cases despite identical source/native/state/RNG and matchedphysicalF.
+The oldGaussian2-ID controlledrepeat success therefore cannot establish
+all-corruption reproducibility. H8 reducesfull-derivativecost but stillcosts
+morethanoperationalSCD+PM. Keepbaseline; numericalboundarydiagnosis precedes
+further accuracyattribution. No verifiedroot-causekernel or speculativefix.
+
+
 ## Current amendment — 2026-10-19
 
 [Run/Inference/Open] The dated September diagnosis below is retained as

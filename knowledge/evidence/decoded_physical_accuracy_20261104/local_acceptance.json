@@ -1,0 +1,16 @@
+{
+  "status": "accepted_raw",
+  "package": {
+    "bytes": 598124006,
+    "sha256": "25848ee32f6fab40dd2b58e5b428ed61f78da3a0899f92c3038e291bb81b3111"
+  },
+  "source_commit": "cdbdfb1995296b08bcc4345161af6c01213f4b2f",
+  "source_files": 248,
+  "native_payloads": 6,
+  "runs": 20,
+  "cases": 964,
+  "actual_paired_caches": 241,
+  "science_elapsed_seconds": 2497.562670469284,
+  "main_numerical_attribution_gate": false,
+  "main_metric_gate": true
+}
