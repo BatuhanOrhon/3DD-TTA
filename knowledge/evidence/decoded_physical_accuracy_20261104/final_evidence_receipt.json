@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "observed_utc": "2026-11-04T08:47:36.076809+00:00",
+  "session": "tta-gsd-physical-spectral-a100-20261103-r1",
+  "gpu": "NVIDIA A100-SXM4-80GB, 81920 MiB",
+  "active_research_workers": [],
+  "drive_mounted": true,
+  "runtime_retained": true,
+  "derived": {
+    "drive_path": "/content/drive/MyDrive/thesis/result/gsd_physical_accuracy_20261104/derived/accuracy_derived_v1.zip",
+    "bytes": 341537,
+    "sha256": "8d0551bde9e203100df9099be99d7c45b69d776b4385d0e867d017512c877fa4"
+  },
+  "raw_archive": {
+    "status": "complete",
+    "local_path": "/content/studies/gsd-physical-accuracy-20261104/accuracy_raw_package.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/gsd_physical_accuracy_20261104/accuracy_raw_package.zip",
+    "bytes": 598124006,
+    "sha256": "25848ee32f6fab40dd2b58e5b428ed61f78da3a0899f92c3038e291bb81b3111",
+    "raw_run_count": 20,
+    "file_count": 407
+  }
+}

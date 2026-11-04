@@ -10,7 +10,8 @@ without guidance; firstcleanlatentsalreadydiffer beforedecoderprobe. No causal
 kernel identified, no threshold relaxation/default promotion.20rawruns/241caches/
 248sourcefiles/6nativeELFs/Drive/localverified; science41.63min<55mincap.
 507CPUtests/1skip and16clean-integrationtests pass. OwnedA100/monitor97932
-remain protected; final publication/derived backup receipts are in the report.
+remain protected. Published83eb0b8; final publication/derived backup receipts
+are in the report.
 
 **[Code/Run/Inference/Open] 2026-11-04 — decoded physical spectral follow-up complete; objective bias remains:**
 [Fixed P0/P1/P2 protocol and execution record](decoded_physical_followup_20261104.md).

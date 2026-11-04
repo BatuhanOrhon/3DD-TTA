@@ -1,0 +1,24 @@
+{
+  "status": "published",
+  "utc": "2026-11-04T08:49:28.339457+00:00",
+  "source_branch": "research/gsd-physical-accuracy-20261104",
+  "source_head": "6ef07ff7f37c970a7837cc6d0d32b1ff402c0a03",
+  "gpu_source_commit": "cdbdfb1995296b08bcc4345161af6c01213f4b2f",
+  "integration_commit": "83eb0b8ec4dd93a0b5f28a250f5e8be7ec1e39dc",
+  "target": "origin/thesis-integration",
+  "scope": "22 necessary driver/test/knowledge/compact-evidence files; final metadata follows",
+  "excluded": "Raw ZIPs, caches, native ELF payloads, weights, temporary Colab wrappers and unrelated user edits retained outside integration",
+  "verification": {
+    "cpu_total": 507,
+    "passed": 506,
+    "skipped": 1,
+    "seconds": 39.286,
+    "final_affected_clean_integration_tests": 16,
+    "whitespace": "passed; published CSV normalized to LF with count-equivalence check"
+  },
+  "scientific_result": "No established PM gain; main zero-control numerical gate failed45/240; matched physicalF240/240 passed; no promotion",
+  "raw_and_derived_drive_backup": "verified",
+  "runtime_preserved": true,
+  "monitor_exec": 97932,
+  "last_responsive_utc": "2026-11-04T08:47:36.076809+00:00"
+}
