@@ -8639,3 +8639,8 @@ All240physicalFhashtriplesmatch, but zero-control numericalgatefails45/240B2case
 ## 2026-11-04 — same-observer zero repeats
 
 [Run/Inference/Open] `gsd_zero_repeat_20261104.md`:12freshprocesses,Gaussian44/91andBackground495/512,control/live0each3,seed0/B2/controlledbackend/exactoldcaches/sourcecdbdfb1. Wholephase408.1089s<15mincap. Gaussianwithin3/3each/cross9/9pass; Backgroundwithin0/3each/cross0/9pass. WorstBGcontrol/controllogit2.01245,live/live2.34964; firstdecodedRMS.03938/.01018. No PMpredictionchanges inthese selected repeats. Sameobserverfailure falsifies explanation requiring observer switch or physical guidance; kernelcauseunresolved. Native/sampling trace neededbeforeanchoraccuracytest. Raw134240759bytes/SHA6f03abf056d98bdcde817e7a800f2b150a1104ee2e5ac2bf602a71035a6c4e01 at `result/preparation/gsd_zero_repeat_20261104/`, Drive `thesis/result/gsd_zero_repeat_20261104/zero_repeat_raw.zip`; allmembers/12bundles/native/cachechecksaccepted. No production code change.
+
+
+## 2026-11-04 13:09UTC — user-requested runtime closure
+
+[User report/Run] User: “Colab oturumunu sonlandır”. Stopped owned `tta-gsd-physical-spectral-a100-20261103-r1` via CLI, confirmed terminated and absent from server inventory. Monitor34871 and stalled liveness CLI75359 stopped/absent. No research worker active; all prior raw/derived local/Drive backups already verified. This supersedes prior runtime-retained status; no science result changed.

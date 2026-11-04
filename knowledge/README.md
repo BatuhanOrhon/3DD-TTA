@@ -1,3 +1,9 @@
+**[User report/Run] 2026-11-04 13:09UTC — own Colab runtime closed on user request:**
+`tta-gsd-physical-spectral-a100-20261103-r1` terminated through Colab CLI;
+server inventory reports no active sessions. Monitor34871 and its hanging
+liveness CLI75359 stopped. Raw/derived Drive and local archives were verified
+before closure; earlier retained-runtime statements below are historical.
+
 **[Run/Inference/Open] 2026-11-04 — same-observer repeats isolate instability beyond GSD:**
 [Repeat diagnosis](gsd_zero_repeat_20261104.md).12newfreshprocessruns/twoB2cases:
 Gaussiancontrol/control3/3,live/live3/3,cross9/9pass. Backgroundcontrol/control0/3,
