@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "utc": "2026-11-04T00:26:41.830939+00:00",
+  "session": "tta-gsd-physical-spectral-a100-20261103-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-i933qghuewn8",
+  "hardware": "NVIDIA A100-SXM4-80GB, 81920 MiB",
+  "derived": {
+    "drive_path": "/content/drive/MyDrive/thesis/result/gsd_physical_followup_20261104/derived/followup_derived_v1.zip",
+    "bytes": 137396,
+    "sha256": "ddfb569fadf162d13db31c0e082309616861a05b74db3c278fb41c90fce6f16f"
+  },
+  "raw": {
+    "bytes": 163569211,
+    "sha256": "0f3fceb1aed50c0d23023a389439abf83955eec4174f45e11f2ba498b882e0e1"
+  },
+  "active_owned_research_processes": [],
+  "integrated_tests": {
+    "total": 500,
+    "skipped": 1,
+    "status": "passed"
+  },
+  "runtime_preserved": true,
+  "teardown_authorized": false,
+  "monitor_exec": 97932,
+  "prepared_integration_commit": "45fad1db612f55dd9d3a488e353039bd56e7fb55"
+}

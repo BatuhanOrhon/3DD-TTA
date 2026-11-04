@@ -2631,5 +2631,5 @@ supersedes preceding pilot-pending gates.
 - [x] P0all three pairwise process repeats; controlled allgatespass, legacyfails includingordinaryfull/full.
 - [x] P1H8/full transfer96/96pass on8new mechanism IDs×four corruptions×three checkpoints.
 - [x] P2mixed-origin exact-frame oracle64rows;42clean-CDincreases, including1actualGPUFcounterexample; failedCPUreconstruction remains explicit. Exact curvature/permutationcontrols passed.
-- [ ] Complete raw/Drive/local validation and integrate necessary evidence/code.
+- [x] Complete raw/derived Drive/local validation and integrate necessary evidence/code as45fad1d;500CPUtests/1skip accepted.
 - [ ] Applied accuracy, unseen/multiseed confirmation and eigenfree speed remain gated future work.

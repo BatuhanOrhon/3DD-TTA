@@ -8609,3 +8609,14 @@ acceptancepassed. Researchmarker-plusJSON causedlocalexact-markerfailure; subseq
 CPUcollectorvalidatedcompleteon-diskstate and emittedexactcompletionmarker, nojobrerun.
 No applied arms, weightfit, benchmarkexpansion or defaultpromotion. Remaining: final
 derivedarchive/publicationchecks; runtime+monitor97932preserved, nocloseauthorization.
+
+
+[Code/Run] 2026-11-04 00:27UTC publication: necessary19-file source/evidence
+diff from51d3465 integrated and normallypushed as45fad1db612f55dd9d3a488e353039bd56e7fb55
+toorigin/thesis-integration. Cleanintegrated500CPUtests/1skip39.889s;whitespaceclean.
+Raw/operator/native/cache/weights/unrelatedmain-worktreeedits excludedfromGitandpreserved.
+Derived137396bytes/SHA256ddfb569fadf162d13db31c0e082309616861a05b74db3c278fb41c90fce6f16f
+Driveverified, includingV1negativeandV2mixed-originCPUreports/source/tests/streams.
+FinalsameVMA100audit00:26:41UTC noownedresearchworker;raw+derivedhashverified,
+exactfinalmarkeraccepted. Runtime+monitor97932remainopen;nocloseauthorization.
+Nextworkisgatedcontrolledspeed/correspondence-anchorisolation,notanewrunhere.

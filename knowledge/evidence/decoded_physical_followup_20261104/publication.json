@@ -1,0 +1,20 @@
+{
+  "status": "published",
+  "utc": "2026-11-04T00:27:27Z",
+  "source_branch": "research/gsd-physical-followup-20261104",
+  "source_head": "51d3465",
+  "integration_commit": "45fad1db612f55dd9d3a488e353039bd56e7fb55",
+  "target": "origin/thesis-integration",
+  "scope": "19 necessary source/test/knowledge/compact-evidence files",
+  "excluded": "raw ZIPs, operator/setup wrappers, caches, native ELF files, weights and unrelated user edits retained outside integration",
+  "verification": {
+    "cpu_total": 500,
+    "passed": 499,
+    "skipped": 1,
+    "seconds": 39.889,
+    "whitespace": "passed"
+  },
+  "raw_and_derived_drive_backup": "verified",
+  "runtime_preserved": true,
+  "monitor_exec": 97932
+}

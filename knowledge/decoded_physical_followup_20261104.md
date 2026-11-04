@@ -1,6 +1,6 @@
 # Decoded physical spectral follow-up — 2026-11-04
 
-Status: **P0/P1 and mixed-origin P2 complete; final publication/derived backup pending**. This continues the next
+Status: **P0/P1 and mixed-origin P2 complete; raw/derived backup and integration published**. This continues the next
 tests in [the preceding results](decoded_physical_spectral_results_20261103.md).
 Evidence labels: [Code], [Run], [Inference], [Open]. The user's instruction
 “Tamam şimdi planımızdaki bir sonraki testleri çalıştır” authorizes execution.
@@ -253,3 +253,26 @@ CPU artifact math ran on macOS arm64/Python3.12.10/Torch2.15.0/NumPy1.26.4;
 GPU runs used the earlier pinned Linux/Python3.8/Torch2.1.2+cu121 environment.
 This backend/version difference is a possible source of reconstruction discrepancy,
 not evidence that either eigensolver or the production implementation is incorrect.
+
+## Final verification and publication
+
+[Run/Code] Clean integration checkout `integrate/gsd-physical-followup-20261104`
+accepted **500 CPU tests:499passed/1skipped,39.889s**; final incoming diff has no
+whitespace errors. Scientific source/notes/compact evidence were merged and
+normally pushed to `origin/thesis-integration` as
+**45fad1db612f55dd9d3a488e353039bd56e7fb55**, based on7280318, from research source
+head51d3465. The full incoming19-file diff was necessary; raw archives, setup and
+operator wrappers, caches, ELF binaries, weights and unrelated main-worktree
+edits were excluded from Git and preserved in their existing locations.
+
+[Run] Derived archive **137396bytes**, SHA256
+`ddfb569fadf162d13db31c0e082309616861a05b74db3c278fb41c90fce6f16f`, verified at
+`/content/drive/MyDrive/thesis/result/gsd_physical_followup_20261104/derived/followup_derived_v1.zip`.
+It includes V1/V2 raw CPU reports, source-recovery identities, numerical recounts,
+compact evidence, executed analyzer sources, CPU test logs and primary streams.
+The [final receipt](evidence/decoded_physical_followup_20261104/final_evidence_receipt.json)
+records same-VM CPU audit00:26:41UTC: A100-SXM4-80GB, no active owned research
+worker, raw and derived Drive hashes accepted, exact final marker observed.
+Session `tta-gsd-physical-spectral-a100-20261103-r1` and monitor97932 remain open;
+runtime teardown is not authorized. This metadata follow-up does not change code
+or scientific conclusions and needs no repeated model/GPU tests.
