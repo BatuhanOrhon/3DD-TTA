@@ -1,0 +1,24 @@
+{
+  "status": "published",
+  "utc": "2026-11-04T09:21:25.936724+00:00",
+  "source_branch": "research/gsd-zero-repeat-20261104",
+  "source_commit": "4d3edb0570faafb2a50315986d9b10ffedb6ec43",
+  "integration_commit": "07b5ae43f2a22831c3348f536edda94e0026e27c",
+  "target": "origin/thesis-integration",
+  "scope": "knowledge, compact pair evidence, exact CPU analysis source",
+  "excluded": "raw ZIPs, native binaries, caches, temporary remote operators and user edits retained outside integration",
+  "validation": "12 actual sealed bundles/member SHA/native/cache/model/state/RNG and thresholds checked; no production change",
+  "raw_and_derived_backup": "Drive/local verified",
+  "runtime": {
+    "status": "complete",
+    "derived": {
+      "path": "/content/drive/MyDrive/thesis/result/gsd_zero_repeat_20261104/derived/zero_repeat_derived.zip",
+      "bytes": 12801,
+      "sha256": "be6029108aabb5604fdc3e9b411fff29d200871983342009268c74a9ca7363fd"
+    },
+    "observed_utc": "2026-11-04T09:19:48.075472+00:00",
+    "session": "tta-gsd-physical-spectral-a100-20261103-r1",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "runtime_preserved": true
+  }
+}

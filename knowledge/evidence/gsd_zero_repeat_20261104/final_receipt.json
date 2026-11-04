@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "derived": {
+    "path": "/content/drive/MyDrive/thesis/result/gsd_zero_repeat_20261104/derived/zero_repeat_derived.zip",
+    "bytes": 12801,
+    "sha256": "be6029108aabb5604fdc3e9b411fff29d200871983342009268c74a9ca7363fd"
+  },
+  "observed_utc": "2026-11-04T09:19:48.075472+00:00",
+  "session": "tta-gsd-physical-spectral-a100-20261103-r1",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "runtime_preserved": true
+}

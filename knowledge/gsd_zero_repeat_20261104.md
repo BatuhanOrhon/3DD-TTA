@@ -28,3 +28,5 @@ Operator scriptSHA3d0aaaf3c31522b901d3b81d73ad7e29a24bef7908b46de486a6732fd68085
 Analysis source uses assert-based acceptance against actual immutable raw files and existing tested `analyze_accuracy` helpers; no production code changed. Its archived `analyze.py` expects the original preparation directory layout. Runtime remains protected and monitor97932 stays open.
 
 [Run] All selected repeat PM class predictions agree despite the largeBackgroundlogit/geometry differences. This phase identifies numerical nonrepeatability, not a measured new accuracy loss. Derivedarchive12801bytes/SHA`be6029108aabb5604fdc3e9b411fff29d200871983342009268c74a9ca7363fd` retains exact analysis/wrapper bytes.
+
+[Run/Code] Spectral physical weight is0 in all repeats; original SCD remains active(.03/.003/.95). Raw and derived Drive/local copies verified; [receipt](evidence/gsd_zero_repeat_20261104/final_receipt.json). Result integrated as`07b5ae43f2a22831c3348f536edda94e0026e27c` into`origin/thesis-integration`; [scope](evidence/gsd_zero_repeat_20261104/publication.json). A100 runtime responsive09:19:48UTC, monitor97932 retained. No further GPU run started.
