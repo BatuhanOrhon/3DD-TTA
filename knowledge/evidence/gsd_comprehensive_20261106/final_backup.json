@@ -1,0 +1,48 @@
+{
+  "status": "derived_drive_local_roundtrip_verified",
+  "archive": {
+    "bytes": 3240045,
+    "sha256": "4356d319361ef3f86e0fd5702fb48d25d7405320235dd887cc7aef26603c1f0f"
+  },
+  "members": 197,
+  "manifest_files": 195,
+  "receipt_sha256": "98b5e6d94401c780b1fa657fe8b7531af0d4608163ad8451e826436e3581bd8a",
+  "all_science_checks": {
+    "capture": {
+      "status": "capture_complete",
+      "identity": {
+        "bytes": 14211,
+        "sha256": "77de212315e0dca23484a02082ed8c1175e595994682d6354f9165597ad34491"
+      }
+    },
+    "mechanism": {
+      "status": "complete_with_unavailable",
+      "identity": {
+        "bytes": 152355,
+        "sha256": "80e67ca370ae8737f2b2744879d8f84da929f9905725206fea86d97188c842f5"
+      }
+    },
+    "readouts": {
+      "status": "complete_with_unavailable",
+      "identity": {
+        "bytes": 311715,
+        "sha256": "b37f93706862a0bf59e4ffede8f36148ac7ecf23a04fe03b882ce565f5919c71"
+      }
+    },
+    "H4": {
+      "status": "complete",
+      "identity": {
+        "bytes": 2707,
+        "sha256": "6c11f300c48614a71daf178d017aa4a37fb9102c92f7888208c9f2f17973d678"
+      }
+    },
+    "prior": {
+      "status": "complete",
+      "identity": {
+        "bytes": 22291,
+        "sha256": "703f1990da57940ed2d4fdd1b142b5fa5961076e35c997ceae8ec6685ea8f3b9"
+      }
+    }
+  },
+  "own_worker_pids": []
+}
