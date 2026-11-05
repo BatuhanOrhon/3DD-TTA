@@ -1,0 +1,49 @@
+{
+  "status": "CPU implementation published; GPU held by user",
+  "source_branch": "research/gsd-lowband-halfmix-20261105",
+  "source_commit": "89e58e9820796bec56ba9a1917a1f7b1e88bb9fc",
+  "target": "origin/thesis-integration",
+  "target_base": "3fb7f96",
+  "integration_commit": "1ccda41c04405a1508141b30a1c4132447ad1719",
+  "verified_remote_commit": "1ccda41c04405a1508141b30a1c4132447ad1719",
+  "selected": [
+    "tta.py",
+    "decoded_spectral.py",
+    "graph_spectral.py",
+    "scripts/diagnose_decoded_spectral.py",
+    "tests/test_lowband_halfmix.py",
+    "knowledge/gsd_lowband_halfmix_study_20261105.md",
+    "knowledge/evidence/gsd_lowband_halfmix_20261105",
+    "knowledge/README.md",
+    "knowledge/findings_log.md",
+    "knowledge/open_questions.md"
+  ],
+  "excluded": {
+    "setup_wrappers": "temporary; retained locally",
+    "source_overlay": "raw snapshot retained locally",
+    "raw_logs": "retained locally; hashes in compact receipts",
+    "native_weights_caches": "No runtime was created; no new native, weight, paired cache or inference artifact exists",
+    "peer_user_edits": "outside scope; preserved"
+  },
+  "verification": {
+    "tests": 514,
+    "passed": 513,
+    "skipped": 1,
+    "seconds": 41.221,
+    "log_sha256": "a376bb636c80f0d58ffb902965a6128109f20d3f6851507bad14eeb900c6db9c",
+    "staged_diff_whitespace": "passed",
+    "independent_review_focused_tests": 68,
+    "source_code_matches_research": true
+  },
+  "source_overlay": {
+    "bytes": 684674,
+    "sha256": "6f5e4cb4d076204eec282bec4aafc0c4d4ca3527f202f3cdfddc3f1795198a69"
+  },
+  "source_payload_count": 248,
+  "scientific_gpu_seconds": 0,
+  "own_runtime": null,
+  "own_monitor": null,
+  "drive_backup": "pending; no owned runtime",
+  "user_hold": "Wait for the user to announce a free session before any new allocation/setup/GPU attempt",
+  "preservation": "Shared reencode/spectral inventory knowledge retained during semantic conflict reconciliation"
+}

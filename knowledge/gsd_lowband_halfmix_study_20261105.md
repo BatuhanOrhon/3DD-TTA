@@ -175,3 +175,22 @@ preparation now and will announce when an existing session becomes available.
 **Do not retry allocation or begin setup/research GPU work until that notice.**
 No monitor, retry queue or unattended GPU job exists for this task. Preserve
 all peer assignments; this direction gives no teardown authorization.
+
+## CPU publication and local source seal
+
+[Code/CPU] Research source`89e58e9820796bec56ba9a1917a1f7b1e88bb9fc` was selected into clean
+latest integration3fb7f96 as **1ccda41c04405a1508141b30a1c4132447ad1719**, normal push to origin/thesis-integration
+and actual remote ref verified. All514tests/1skip pass in41.221s in that clean
+checkout; independent68focused tests and whitespace checks pass. Reencode and
+spectral-z knowledge additions were retained during conflict reconciliation.
+[Selected/excluded scope, test hashes and publication receipt](evidence/gsd_lowband_halfmix_20261105/publication.json).
+
+Local248-file source overlay684674bytes, SHA256
+`6f5e4cb4d076204eec282bec4aafc0c4d4ca3527f202f3cdfddc3f1795198a69`,
+under `result/preparation/gsd_lowband_halfmix_20261105/operator_v1/`. Exact
+setup wrappers, source/deployment templates and CPU logs stay local, outside
+shared Git. Native source is explicitly preserved from the pinned historical
+asset base; future freshly compiled native bytes must be archived before any
+declared pinned-native restoration. No native/source identity is silently
+claimed from an uncreated runtime. No Drive copy, GPU result, alpha or
+repeatability acceptance exists. User-directed wait remains in effect.
