@@ -8672,3 +8672,6 @@ korunur. Kontrol: faz sayıları/CSV-JSON tutarlılığı, yerel rapor bağlant�
 knowledge-only staged diff ve whitespace doğrulaması. Normal integration push
 kullanıcının mevcut talimatıyla yapılır.
 
+[Code/Publication] Bu knowledge güncellemesi normal push ile
+`d55247a845bace71282edf8f530682a85b41fdcd` olarak origin/thesis-integration
+üzerinde doğrulandı; eşzamanlı c41cbcd kayıtları korundu.
