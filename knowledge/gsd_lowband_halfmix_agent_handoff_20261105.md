@@ -82,16 +82,20 @@ Online exact norm eşleme ayrı VJP maliyeti doğurur; kullanıcı özellikle is
 ayrı varyant olarak ölç. Eski fiziksel pilot rho.1 iken bu karışımın kalibre
 göreli spektral normu1'dir; eski lambda802.5'i buraya kopyalama.
 
-En az dört mantıksal kol:
+En az beş mantıksal kol:
 1. Operasyonel tam-SCD+PM baseline.
-2. Aynı live decoder yoluyla yalnız PM adımlarında0.5*SCD, spektral ağırlık0.
-3. M100 için0.5*SCD+0.5*alpha100*GSD.
-4. M200 için0.5*SCD+0.5*alpha200*GSD.
+2. Aynı live decoder yoluyla tam-SCD, spektral ağırlık0 (eşlenmiş ana baseline).
+3. Aynı live decoder yoluyla yalnız PM adımlarında0.5*SCD, spektral ağırlık0.
+4. M100 için0.5*SCD+0.5*alpha100*GSD.
+5. M200 için0.5*SCD+0.5*alpha200*GSD.
 
-İkinci kol, SCD azaltma etkisini GSD ekleme etkisinden ayırır. Teknik aşamada
+Üçüncü kol, SCD azaltma etkisini GSD ekleme etkisinden ayırır; ikinci kol
+observer değişiminin SCD ölçeğiyle karışmasını önler. Teknik aşamada
 tam-SCD operational/live0 eşdeğerliğini ve aynı observer fresh-process
 tekrarlarını ayrıca denetle. Norm eşitliği yön eşitliği değildir: dC/dG cosine,
-karışım normu ve iptal oranını kaydet. Eşit norm için karışım normu
+karışım normu ve iptal oranını kalibrasyon/teknik aşamada kaydet. Bileşen
+gradientlerini her ölçülen adımda tekrar hesaplamak ek VJP gerektirir; bu
+probları deployment zamanlamasından ayır veya maliyetini açıkça say. Eşit norm için karışım normu
 `||d_C||*sqrt((1+cos(theta))/2)` olur; zıt yönler birbirini söndürebilir.
 
 ## Sıralı uygulama ve kabul kapıları
@@ -117,7 +121,7 @@ etkisi diye sunma. Başka agent'ın native teşhis sonuçlarını uzlaştır.
 
 D. Kalibrasyon ve pilot: önce somut IDs/seed/config/output ve bütün GPU fazı
 süresini kaydet. Öneri: önceki kohortları dışlayan16 yeni geliştime nesnesi,
-all15/s5/seed0/B2, dört kol; ufak etiketsiz kalibrasyonla toplam30–45min,
+all15/s5/seed0/B2, beş kol; ufak etiketsiz kalibrasyonla toplam30–45min,
 hard55min. Gerçek tahminle bütçeyi doğrula; tüm plan >60min olacaksa açık onay
 al, işi kısa CLI çağrılarına bölerek bunu aşma. Aynı encoded/noise cache'lerini
 ölçümden önce oluştur; bütün ölçülen kollar replay yapsın. M100/M200 arasında
