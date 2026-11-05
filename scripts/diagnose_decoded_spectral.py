@@ -42,6 +42,7 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--native-decoder-audit', action='store_true')
     parser.add_argument('--freeze-decoder-residual', action='store_true')
     parser.add_argument('--capture-h5', action='store_true')
+    parser.add_argument('--capture-native-trace', action='store_true')
     parser.add_argument('--count', type=int, choices=(2, 8), default=2)
     parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
@@ -52,6 +53,8 @@ def configuration(argv=None) -> dict:
         raise ValueError('Low-band halfmix requires full decoder derivatives')
     if args.capture_h5 and (args.arm != 'control' or args.weight != 0):
         raise ValueError('H5 capture requires the zero-weight control arm')
+    if args.capture_native_trace and (args.arm != 'control' or args.weight != 0 or args.capture_h5):
+        raise ValueError('Native trace requires a separate zero-weight control arm without H5 capture')
     if args.freeze_decoder_residual and args.arm not in ('physical', 'live_control'):
         raise ValueError('Frozen decoder residual requires a physical or lightweight live-control arm')
     if args.native_decoder_audit and args.arm != 'diagnostic':
@@ -97,6 +100,50 @@ def configuration(argv=None) -> dict:
         config['physical_graph'].update(modes=args.lowband_modes, profile='hard', beta=None)
     config['half_mix_alpha'] = 2*args.weight if args.checkpoint_scd_weight == .5 else None
     return config
+
+
+class NativeVariationTrace:
+    """Copy existing loop values to CPU; write each boundary before continuing."""
+
+    def __init__(self, directory: Path, ids, horizon: int):
+        self.directory, self.ids = Path(directory), list(ids)
+        self.report = dict(schema_version=1, original_ids=self.ids, loop_limit=min(9, horizon), complete=False,
+            snapshots=[], extra_model_forward_calls=0, extra_chamfer_forward_calls=0, extra_backward_calls=0,
+            conditioning_semantics='conditioning_style is the optimized prior condition; original_decoder_style is fixed encoded z0',
+            limitation='CPU copies and serialization synchronize the instrumented trajectory and can change native scheduling/history; no CUDA or timing noninterference guarantee')
+
+    def __call__(self, loop_count, timestep, boundary, tensors) -> None:
+        import numpy as np
+        import torch
+        from legacy_trajectory import rng_hash, tensor_hash
+        if not 1 <= loop_count <= 9 or boundary not in ('prior_input', 'scheduler', 'scd', 'gradients', 'post_update'):
+            raise ValueError('Invalid native trace boundary')
+        before, started = rng_hash(), time.perf_counter()
+        arrays, metadata = dict(index=np.asarray(self.ids, dtype=np.int64)), {}
+        for name, value in tensors.items():
+            if value is None:
+                metadata[name] = dict(available=False)
+                continue
+            cpu = value.detach().cpu().clone()
+            arrays[name] = cpu.numpy()
+            finite = bool(torch.isfinite(cpu).all())
+            metadata[name] = dict(available=True, shape=list(cpu.shape), dtype=str(cpu.dtype),
+                sha256=tensor_hash(cpu), finite=finite,
+                norm=float(cpu.double().norm()) if finite else None)
+            if cpu.ndim and cpu.shape[0] == len(self.ids):
+                metadata[name]['norm_per_object'] = cpu.double().reshape(len(self.ids), -1).norm(dim=1).tolist() if finite else None
+        path = self.directory/('native_trace_loop%02d_%s.npz' % (loop_count, boundary))
+        with path.open('xb') as stream:
+            np.savez_compressed(stream, **arrays)
+        after = rng_hash()
+        self.report['snapshots'].append(dict(loop_count=loop_count, timestep=int(timestep), boundary=boundary,
+            file=path.name, identity=source.file_identity(path), tensors=metadata,
+            rng_before_sha256=before, rng_after_sha256=after, rng_unchanged=before == after,
+            copy_and_serialization_seconds=time.perf_counter()-started))
+        self.report['complete'] = len(self.report['snapshots']) == 5*self.report['loop_limit'] and boundary == 'post_update'
+        (self.directory/'native_trace.json').write_text(json.dumps(self.report, indent=2, allow_nan=False)+'\n')
+        if before != after:
+            raise RuntimeError('Native trace changed RNG; evidence retained')
 
 
 def capture_h5_snapshot(capture: dict, decoded) -> None:
@@ -296,6 +343,8 @@ def worker(directory: str) -> None:
     try:
         if config.get('capture_h5') and (config['arm'] != 'control' or config['weight'] != 0):
             raise ValueError('H5 capture requires the zero-weight control arm')
+        if config.get('capture_native_trace') and (config['arm'] != 'control' or config['weight'] != 0 or config.get('capture_h5')):
+            raise ValueError('Native trace requires a separate zero-weight control arm without H5 capture')
         config['runtime'] = apply_backend_policy(config.get('backend_policy', 'legacy'))
         if config.get('index_manifest'):
             selection, identity = read_index_manifest(bundle.path / 'selection_manifest.json',
@@ -502,6 +551,7 @@ def worker(directory: str) -> None:
                     if recorder is not None:
                         recorder(values)
                 scheduler = {}
+                trace_options = dict(native_trace=NativeVariationTrace(case, ids.tolist(), steps)) if config.get('capture_native_trace') else {}
                 torch.cuda.reset_peak_memory_stats()
                 torch.cuda.synchronize()
                 batch_started = time.monotonic()
@@ -510,7 +560,7 @@ def worker(directory: str) -> None:
                         prepared_state=state, state_observer=record_state, trajectory_observer=observer,
                         decoded_spectral_weight=config['weight'],
                         decoded_scd_weight=config['checkpoint_scd_weight'],
-                        scheduler_observer=lambda value: scheduler.update(scheduler_record(value, steps)))
+                        scheduler_observer=lambda value: scheduler.update(scheduler_record(value, steps)), **trace_options)
                 finally:
                     hook.remove()
                 torch.cuda.synchronize()
@@ -543,6 +593,8 @@ def worker(directory: str) -> None:
                     reconstruction_pm_seconds=reconstruction_seconds, terminal_geometry_head_io_seconds=terminal_head_seconds,
                     case_wall_before_drive_copy_seconds=time.monotonic()-case_started,
                     scope='instrumented worker; common encode/noise preparation outside replay; graph-build temporaries excluded from reconstruction peak, resident graph included')
+                if config.get('capture_native_trace'):
+                    diagnostics['native_trace'] = dict(file='native_trace.json', **source.file_identity(case/'native_trace.json'))
                 (case / 'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
                 accumulated.append(payload)
                 correct += int((payload['prediction'] == payload['label']).sum())

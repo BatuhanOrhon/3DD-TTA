@@ -41,7 +41,7 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     scheduler_observer=None, return_trajectory=False,
                     scd_normalize=False, prepared_state=None, state_observer=None,
                     trajectory_observer=None, shape_guidance=None, chamfer_reference=None,
-                    style_spectral=None, decoded_spectral_weight=0., decoded_scd_weight=1.):
+                    style_spectral=None, decoded_spectral_weight=0., decoded_scd_weight=1., native_trace=None):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -56,10 +56,15 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     - scd_normalize: Opt-in Eq. 11 point-count normalization for SCD.
     - decoded_spectral_weight: Opt-in physical decoded-X loss at observer checkpoints.
     - decoded_scd_weight: SCD coefficient only at live decoded clean checkpoints.
+    - native_trace: Read-only baseline boundary callback, limited to loops 1 through 9.
 
     Returns:
     - pred_points: Reconstructed point cloud.
     """
+    if native_trace is not None and (not callable(native_trace) or shape_guidance is not None
+            or style_spectral is not None or chamfer_reference is not None or scd_normalize
+            or decoded_spectral_weight != 0 or decoded_scd_weight != 1):
+        raise ValueError('native_trace requires a callable and the original zero-weight joint SCD baseline')
     if (isinstance(decoded_spectral_weight, bool) or not isinstance(decoded_spectral_weight, (int, float))
             or not math.isfinite(decoded_spectral_weight) or decoded_spectral_weight < 0):
         raise ValueError('decoded_spectral_weight must be finite and nonnegative')
@@ -154,15 +159,24 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         noisy_latent_point.requires_grad = True
         style_cond = style_cond.detach()
         style_cond.requires_grad = True
+        trace_loop = native_trace is not None and i < 9
+        if trace_loop:
+            prior_t = t_tensor.float()
+            native_trace(i + 1, t, 'prior_input', dict(noisy_local=noisy_latent_point,
+                conditioning_style=style_cond, original_decoder_style=shape_latent,
+                original_h0_xyz=latent_point_reshaped, prior_t=prior_t))
 
         if style_spectral is not None and style_spectral.audit_path is not None:
             from legacy_trajectory import _rng_state, _restore_rng, isolated_probe
             audit_rng = _rng_state()
 
         # Predict noise
-        noise_pred = local_prior(x=noisy_latent_point, t=t_tensor.float(), condition_input=style_cond, clip_feat=None)
+        noise_pred = local_prior(x=noisy_latent_point, t=prior_t if trace_loop else t_tensor.float(), condition_input=style_cond, clip_feat=None)
         scheduler_output = scheduler.step(noise_pred, t, noisy_latent_point)
         pred_latent_point = scheduler_output.pred_original_sample
+        if trace_loop:
+            native_trace(i + 1, t, 'scheduler', dict(noise_pred=noise_pred,
+                pred_original_sample=pred_latent_point, prev_sample=scheduler_output.prev_sample))
         if trajectory_observer is not None:
             # Clean predictions and terminal both use the original encoded style.
             decoded_spectral_loss = trajectory_observer.clean(
@@ -171,9 +185,16 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         
         # Compute Selective Chamfer Distance
         pred_latent_point_reshaped = pred_latent_point.view(num_samples, 2048, -1)[:, :, :3]
-        dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, latent_point_reshaped)
-        dists1 = torch.sort(dists1, dim=1).values[:, :int(num_points * p)]
-        dists2 = torch.sort(dists2, dim=1).values[:, :int(num_points * p)]
+        if trace_loop:
+            dists1, dists2, nn1, nn2 = chamfer_dist(pred_latent_point_reshaped, latent_point_reshaped)
+            raw_dists1, raw_dists2 = dists1, dists2
+            sorted1, sorted2 = torch.sort(dists1, dim=1), torch.sort(dists2, dim=1)
+            retained = int(num_points * p)
+            dists1, dists2 = sorted1.values[:, :retained], sorted2.values[:, :retained]
+        else:
+            dists1, dists2, _, _ = chamfer_dist(pred_latent_point_reshaped, latent_point_reshaped)
+            dists1 = torch.sort(dists1, dim=1).values[:, :int(num_points * p)]
+            dists2 = torch.sort(dists2, dim=1).values[:, :int(num_points * p)]
         ch_loss = selective_chamfer_loss(
             dists1, dists2, num_points, normalize=scd_normalize)
         if trajectory_observer is not None and decoded_spectral_loss is not None:
@@ -182,6 +203,17 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     noisy_latent_point, style_cond, gamma, eta, decoded_scd_weight, decoded_spectral_weight)
             if decoded_scd_weight != 1:
                 ch_loss = decoded_scd_weight * ch_loss
+        if trace_loop:
+            scd_tensors = dict(scd_loss=ch_loss, distances_1=raw_dists1, distances_2=raw_dists2,
+                               nearest_indices_1=nn1, nearest_indices_2=nn2)
+            for direction, ordered in enumerate((sorted1, sorted2), 1):
+                scd_tensors['sorted_distances_%d' % direction] = ordered.values
+                scd_tensors['retained_indices_%d' % direction] = ordered.indices[:, :retained]
+                if retained > 0:
+                    scd_tensors['cutoff_distance_%d' % direction] = ordered.values[:, retained-1]
+                if retained < ordered.values.shape[1]:
+                    scd_tensors['next_distance_%d' % direction] = ordered.values[:, retained]
+            native_trace(i + 1, t, 'scd', scd_tensors)
         if decoded_spectral_weight > 0 and decoded_spectral_loss is not None:
             if (not isinstance(decoded_spectral_loss, torch.Tensor) or decoded_spectral_loss.ndim != 0
                     or not decoded_spectral_loss.requires_grad or not torch.isfinite(decoded_spectral_loss)):
@@ -195,8 +227,14 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
             noisy_latent_point.grad.zero_()
         if style_spectral is None:
             ch_loss.backward()
+            if trace_loop:
+                native_trace(i + 1, t, 'gradients', dict(noisy_local_gradient=noisy_latent_point.grad,
+                    conditioning_style_gradient=style_cond.grad))
             noisy_latent_point = scheduler_output.prev_sample - gamma * noisy_latent_point.grad
             style_cond = style_cond - eta * style_cond.grad
+            if trace_loop:
+                native_trace(i + 1, t, 'post_update', dict(noisy_local=noisy_latent_point,
+                    conditioning_style=style_cond))
         else:
             local_scd, style_spec = style_spectral.gradients(
                 pred_latent_point_reshaped, ch_loss, noisy_latent_point, style_cond, i, t)
