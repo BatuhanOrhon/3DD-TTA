@@ -8,6 +8,13 @@ backward/update or a PM decoder callback. A bounded exact-input prior repeat
 is therefore supported; a particular CUDA kernel or complete amplification
 mechanism has not been identified.
 
+**[Run/CPU] Subsequent bounded exact-input/RNG repeat also completed:** six
+actual native prior forwards reproduce within-process drift. The earliest
+covered exact-input numeric leaf difference is
+`sa_layers.0.0.voxelization`: voxelized FEATURE output differs while normalized
+COORDINATE output is bitexact. This is an empirical module bracket, not a
+uniquely established kernel defect or complete trajectory-amplification cause.
+
 ## Accepted raw scope and validation history
 
 Six new operational control/weight0 traces: Gaussian44/91 and Background495/512,
@@ -112,9 +119,91 @@ CPU venv. Commands/stdout/stderr/source patch/identities are in `acceptance/`;
 JSONs, CSV and full summary. Original ZIPs were only read. Compact acceptance:
 [H0 evidence](evidence/h0_native_trace_20261105/cpu_acceptance_v2.json).
 
-No GPU/Colab/commit/push was performed for this analysis. Source/native/model
+No GPU/Colab/commit/push was performed by this CPU acceptance agent. Parent
+executed the separately authorized native phases. Source/native/model
 equality is verified, but CUDA scheduling/internal module history is unobserved.
 Trace copies synchronize execution and can affect native history; no equivalence
 to an uninstrumented process, speed result, accuracy gain or production repair
 is claimed. The parent separately authorized a bounded targeted prior repeat;
-its outcome is not part of these completed trace results.
+its actual outcome and independent CPU acceptance follow below.
+
+## Actual targeted prior repeat and CPU acceptance
+
+[Run] Parent launched the reviewed separate operator at21:53:33 UTC. Whole
+phase including archival47.277s, below900s cap. Same first Gaussian/BG h/style/t
+and full numeric paired-cache RNG, grad-enabled leaf inputs, eval/frozen raw
+model, unchanged source/native/backend/hardware/config. Three network forwards
+per case; no backward/decoder/classifier/Chamfer forward or trajectory update.
+
+[CPU] Returned ZIP558,879bytes, SHA
+`4e16df1347bf8a5d89d3285ec8919f86e584fe4d8729ca0fa64edf3f82eaadb5`.
+Actual Drive/local receipts match;25members/24package identities and every
+inner output-manifest identity, CRC/path/type/bounds pass. Archived operator
+source matches reviewed canonical de4d2fc7…94096; parent launcher/source/selection
+pins also match their receipt. All six saved noise_pred arrays are finite
+float32(2,8192,1,1), hashes and pairwise scalar metrics independently recounted.
+All1962 recorded leaf events have finite outputs. Source/native guards true,
+before/after model hashes equal, entry RNG before/after equal/restored=true.
+
+| Same-input repeat pairs | Noise_pred maxabs range | RelativeL2 range |
+|---|---:|---:|
+|Gaussian all3 pairs|1.430511e-6–1.668930e-6|3.961359e-7–4.185163e-7|
+|Background all3 pairs|1.624227e-6–1.728535e-6|1.955590e-7–2.050342e-7|
+
+[Run/CPU] Each forward has327 leaf events;74 events have full numeric first-
+repeat references within the64MiB cap. Other events retain hashes only.
+For BOTH repeats1/2 versus0, in BOTH cases, the first output-hash drift and
+first covered exact-input numeric drift occur in the same voxelization leaf:
+
+| Case | Feature-output maxabs | Feature relativeL2 range | Coordinate maxabs |
+|---|---:|---:|---:|
+|Gaussian|2.384186e-7|5.686479e-9–5.807718e-9|0 exactly|
+|Background|1.192093e-7|3.178588e-9–3.239524e-9|0 exactly|
+
+Pre-hook input hashes, RNG hashes and grad mode match. Pre-hooks measure inputs
+before possible in-place mutation. This reproduces observable-state drift
+within one process; a fresh-process mismatch alone is no longer the only
+witness. Later output-hash changes mostly have already unequal module inputs.
+The cap leaves253 events without full numeric reference, and hooks themselves
+synchronize/copy/hash. Do not infer a complete per-kernel audit, uninstrumented
+CUDA noninterference, deterministic repair, speed or accuracy result.
+
+## Pinned source chain and FP32 arithmetic interpretation
+
+[Code] Actual raw imported Python files and pinned asset declarations verify:
+`models/lion.py` imports local `models.latent_points_ada_localprior.PVCNN2Prior`;
+the prior uses `models/pvcnn2_ada.py` Voxelization (class166, return188).
+It returns `(F.avg_voxelize(features, vox_coords, r), norm_coords)`. Thus the
+observed tuple root/0 is voxel features; root/1 is normalized coordinates.
+
+`third_party/pvcnn/functional/voxelization.py` AvgVoxelization.forward calls
+`_backend.avg_voxelize_forward`. `src/bindings.cpp` binds that to
+`src/voxelization/vox.cpp`, whose zero-initialized output/count/index tensors
+feed `vox.cu` grid_stats_kernel and avg_voxelize_kernel. The latter adds
+`feat/count` into a shared voxel output using FP32 atomicAdd.
+
+[CPU] Current Python wrapper bytes match the actual H0 archived imports AND
+the frozen asset manifest. Current bindings.cpp/vox.cpp/vox.cu bytes also match
+the frozen asset manifest's declared native-source identities; vox.cu4358bytes,
+SHA `12fc6d6fc3ba78c73c0eb5c0ab1871f5c505d71e4bf68dbd04f83381970a5b0c`.
+The actual loaded native ELF identities were independently bound and checked.
+This does NOT establish an independent binary-to-source compilation proof;
+the relevant CUDA/C++ sources are declaration-bound, not recompiled here.
+
+[Inference] The real-arithmetic operation is a valid voxel mean. Different
+legal accumulation orders of FP32 contributions can produce slightly different
+rounding because addition is non-associative. This source mechanism is
+consistent with feature-only drift and stable coordinates, and is a plausible
+explanation to investigate. The module witness does not uniquely prove that
+specific atomic instruction, an incorrect kernel, or its contribution to later
+Background trajectory amplification. No deterministic rewrite/new GPU repair
+was performed or selected after this evidence.
+
+Actual receipt/raw outputs:
+`result/preparation/gsd_comprehensive_20261105/prior_repeat_receipt_from_drive.json`,
+`received_prior_repeat_v1.zip`, `prior_repeat_cpu_v1/extracted/`.
+Compact independent acceptance and source identities:
+[Prior repeat evidence](evidence/h0_native_trace_20261105/prior_repeat_cpu_acceptance_v1.json).
+Original H0 trace analysis, failed source-validator V1, H5 analyses and all
+frozen scientific gates remain unchanged. CPU acceptance is complete; no
+additional GPU execution is planned by this agent.

@@ -1,3 +1,10 @@
+**[Run/CPU/Decision] 2026-11-06 — comprehensive GSD diagnostics complete; no joint accuracy/speed gain:**
+[Final result and H0–H8 decisions](gsd_comprehensive_results_20261106.md),
+[H5 negative ranking](h5_reliability_results_20261105.md),
+[decoder/graph/domain probes](gsd_shared_probe_results_20261106.md),
+[eigenfree native equivalence/cost](h4_sparse_heat_results_20261106.md).
+H5 combined AUROC.2713,95%8-object-clusterCI[.1376,.3861]; native repeat floors fail. Three eligible common B2 states/four exposed objects show identical4/6correct for all nonzero arms at both fractions. H2 graph drift and H3 decoder mixing are measured; K16/32 native gradients fail1e-6 equivalence and cached sparse VJPs are slower. Exact-input/full-RNG repeats bracket first covered drift in PVCNN voxelization features, not a uniquely proven kernel. Conditional applied runs NOT_ADVANCED; baseline retained.18Drive/local archives verified; clean integration807tests/2skip. Only ownr4 closure remains after final derived backup/publication; earlier setup/consent-pending entries are historical. Peer hard100/200 halfmix remains separate.
+
 **[Code/CPU/Run/Open] 2026-11-05 — H5 reliability prepared; new runtime Drive consent pending:**
 [Current H5 protocol/setup and next action](h5_reliability_study_20261105.md),
 [comprehensive H1–H8 remaining matrix](gsd_comprehensive_test_matrix_20261105.md).

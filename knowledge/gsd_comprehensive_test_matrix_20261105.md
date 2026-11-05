@@ -1,3 +1,5 @@
+**2026-11-06 superseded status:** [Completed diagnostics and conditional non-advancement](gsd_comprehensive_results_20261106.md). The matrix below preserves the pre-run plan; it is no longer the current missing-test list.
+
 # GSD H1–H8: remaining test matrix, 2026-11-05
 
 Evidence labels: **[Run] / [Code] / [User report] / [Inference] / [Open]**.
@@ -39,7 +41,7 @@ command. Earlier physical-spectral r1 was explicitly closed on 4 November.
 | [Math audit](gsd_guidance_math_efficiency_20261103.md): orthonormal GFT/inverse, gradient/reduction and sparse square-root heat CPU witnesses | No missing-IGFT or automatic fixed-U inverse defect; a CPU polynomial witness exists | Native LION band transfer, dynamic-graph benefit, sparse GPU/end-to-end speed |
 | [P0/P1/P2](decoded_physical_followup_20261104.md): controlled small-case repeats pass; H8 96/96 direction checks; one actual-GPU-F counterexample among four output-space steps | Physical fidelity can decrease while clean-set CD increases; H8 approximated the sampled joint directions | A universal anchor failure or decoder isometry; all60 other oracle rows used scalar-gated CPU metrics |
 | Same record: both available CPU/GPU F comparisons fail their original 1e-6 gate | CPU reconstruction is not a certified replacement for archived GPU F | Justification to relax that tolerance or relabel all64 rows exact-GPU directions |
-| [Applied physical/H8 pilot](decoded_physical_accuracy_20261104.md): 32 IDs/all15/seed0; PM control/live0/full/H8 = 313/315/313/312 of480 | No established PM gain at frozen802.5000841164167; H8 had lower recorded cost than full | Causal harm, general method impossibility or a simultaneous speed/accuracy win over SCD |
+| [Applied physical/H8 pilot](decoded_physical_accuracy_20261104.md): 32 IDs/all15/seed0; PM control/live0/full/H8 = 313/315/313/312 of480 | No established PM gain under the frozen protocol; H8 had lower recorded cost than full | Causal harm, general method impossibility or a simultaneous speed/accuracy win over SCD |
 | Same pilot: physical F matches240/240; zero-weight gate fails45/240 | Consistent physical metric does not solve numerical compatibility | Native determinism or a uniquely identified bad kernel; H8/full predictions are not identical |
 | [Same-observer repeats](gsd_zero_repeat_20261104.md): Background control/control0/3 and live/live0/3, Gaussian3/3 each | Observer switching and physical GSD are not necessary for selected instability | Which prior/SCD/discrete/native boundary first diverges |
 | [Spectral-z inventory](scdh_spectralz_results_20261101.md), updated in origin: all52 planned conditions accounted for,51 accepted/1 unavailable, confirmation128IDs/all15/3seeds null | That raw-lambda/rank-cutoff spectral-z search and confirmation are complete | A need to rerun its grid, or validation of H5/H6/new physical objectives |

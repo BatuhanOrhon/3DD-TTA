@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "command": "CPU_VENV/bin/python -m pytest tests -q",
+  "checkout": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-physical-spectral-integration-20261103",
+  "code_commit": "a96baad",
+  "tests_passed": 807,
+  "tests_skipped": 2,
+  "seconds": 49.6,
+  "log": {
+    "path": "result/preparation/gsd_comprehensive_20261105/integration_pytest_final.log",
+    "bytes": 1864,
+    "sha256": "1ba172138516d31704c7bda98ab651f87103a29be36b2aea5b1be6dd7324b942"
+  },
+  "limits": "Native GPU/model tests are the separately archived Colab phases; CPU tests do not certify native kernels.",
+  "peer_preservation": "decoded_spectral.py, graph_spectral.py, tta.py, tests/test_lowband_halfmix.py and peer lowband study unchanged from origin/thesis-integration at0cfdc54; merge retained operational-control/lowband guards."
+}

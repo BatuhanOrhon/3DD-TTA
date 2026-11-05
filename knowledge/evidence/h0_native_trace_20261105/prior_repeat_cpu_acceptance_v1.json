@@ -1,0 +1,510 @@
+{
+  "status": "accepted",
+  "archive_identity": {
+    "bytes": 558879,
+    "sha256": "4e16df1347bf8a5d89d3285ec8919f86e584fe4d8729ca0fa64edf3f82eaadb5"
+  },
+  "package_members": 25,
+  "package_manifest_identities": 24,
+  "output_manifest_identities": 18,
+  "elapsed_seconds_whole": 47.277164232998985,
+  "forward_calls": 6,
+  "backward_calls": 0,
+  "model_unchanged": true,
+  "entry_rng_restored": true,
+  "source_native_guards_passed": true,
+  "all_network_and_leaf_outputs_finite": true,
+  "cases": {
+    "gaussian": {
+      "pair_differences": [
+        {
+          "repeats": [
+            0,
+            1
+          ],
+          "max_absolute": 1.6689300537109375e-06,
+          "relative_l2": 4.185163454414979e-07,
+          "per_object_rms": [
+            1.7998696892135455e-07,
+            1.6961314608513126e-07
+          ]
+        },
+        {
+          "repeats": [
+            0,
+            2
+          ],
+          "max_absolute": 1.430511474609375e-06,
+          "relative_l2": 4.1513955220264296e-07,
+          "per_object_rms": [
+            1.8300268348768984e-07,
+            1.6337359297321269e-07
+          ]
+        },
+        {
+          "repeats": [
+            1,
+            2
+          ],
+          "max_absolute": 1.5497207641601562e-06,
+          "relative_l2": 3.961359192550587e-07,
+          "per_object_rms": [
+            1.5941342777353255e-07,
+            1.714194799346402e-07
+          ]
+        }
+      ],
+      "archived_output_difference": {
+        "max_absolute": 1.430511474609375e-06,
+        "relative_l2": 4.136573793811318e-07,
+        "per_object_rms": [
+          1.8163183175840502e-07,
+          1.635904230506443e-07
+        ]
+      },
+      "leaf": [
+        {
+          "repeat": 0,
+          "total_events": 327,
+          "numeric_reference_events": 74,
+          "first_hash_drift": null,
+          "first_exact_input_numeric_drift": null
+        },
+        {
+          "repeat": 1,
+          "total_events": 327,
+          "numeric_reference_events": 74,
+          "first_hash_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "06ffce045e5e49db261a76fc95bbced268f92283e25afac8d55dede0603fd861",
+            "inputs_supported": true,
+            "rng_before_sha256": "b5444ec769d9a449ff2ca1541f1f71bf02f2d8b1268c0140b08f41d2fda55830",
+            "grad_enabled": true,
+            "outputs_sha256": "db94d4c43215d1e050565cc8782cd83f9b4aa3d5f4346d2841e782e4e5dcc939",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 2.384185791015625e-07,
+                "relative_l2": 5.6864789902193206e-09,
+                "per_object_rms": [
+                  9.946537773286983e-10,
+                  1.7286161697240534e-09
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          },
+          "first_exact_input_numeric_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "06ffce045e5e49db261a76fc95bbced268f92283e25afac8d55dede0603fd861",
+            "inputs_supported": true,
+            "rng_before_sha256": "b5444ec769d9a449ff2ca1541f1f71bf02f2d8b1268c0140b08f41d2fda55830",
+            "grad_enabled": true,
+            "outputs_sha256": "db94d4c43215d1e050565cc8782cd83f9b4aa3d5f4346d2841e782e4e5dcc939",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 2.384185791015625e-07,
+                "relative_l2": 5.6864789902193206e-09,
+                "per_object_rms": [
+                  9.946537773286983e-10,
+                  1.7286161697240534e-09
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          }
+        },
+        {
+          "repeat": 2,
+          "total_events": 327,
+          "numeric_reference_events": 74,
+          "first_hash_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "06ffce045e5e49db261a76fc95bbced268f92283e25afac8d55dede0603fd861",
+            "inputs_supported": true,
+            "rng_before_sha256": "b5444ec769d9a449ff2ca1541f1f71bf02f2d8b1268c0140b08f41d2fda55830",
+            "grad_enabled": true,
+            "outputs_sha256": "7600ad52e7328a6715d1a43d6e87f3fb720c3e7a654e584f4253ddd9e866b0f5",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 2.384185791015625e-07,
+                "relative_l2": 5.807718423455305e-09,
+                "per_object_rms": [
+                  1.5111593166039174e-09,
+                  1.3657449227738595e-09
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          },
+          "first_exact_input_numeric_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "06ffce045e5e49db261a76fc95bbced268f92283e25afac8d55dede0603fd861",
+            "inputs_supported": true,
+            "rng_before_sha256": "b5444ec769d9a449ff2ca1541f1f71bf02f2d8b1268c0140b08f41d2fda55830",
+            "grad_enabled": true,
+            "outputs_sha256": "7600ad52e7328a6715d1a43d6e87f3fb720c3e7a654e584f4253ddd9e866b0f5",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 2.384185791015625e-07,
+                "relative_l2": 5.807718423455305e-09,
+                "per_object_rms": [
+                  1.5111593166039174e-09,
+                  1.3657449227738595e-09
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          }
+        }
+      ],
+      "reference_bytes": 67108864,
+      "rng_sha256": "b5444ec769d9a449ff2ca1541f1f71bf02f2d8b1268c0140b08f41d2fda55830"
+    },
+    "background": {
+      "pair_differences": [
+        {
+          "repeats": [
+            0,
+            1
+          ],
+          "max_absolute": 1.6689300537109375e-06,
+          "relative_l2": 1.9555899798304397e-07,
+          "per_object_rms": [
+            1.6408417359441564e-07,
+            1.5758204231634064e-07
+          ]
+        },
+        {
+          "repeats": [
+            0,
+            2
+          ],
+          "max_absolute": 1.7285346984863281e-06,
+          "relative_l2": 1.989856409377488e-07,
+          "per_object_rms": [
+            1.5913751754350803e-07,
+            1.6810894634771844e-07
+          ]
+        },
+        {
+          "repeats": [
+            1,
+            2
+          ],
+          "max_absolute": 1.6242265701293945e-06,
+          "relative_l2": 2.0503417603524407e-07,
+          "per_object_rms": [
+            1.6450423450907848e-07,
+            1.7271620427587683e-07
+          ]
+        }
+      ],
+      "archived_output_difference": {
+        "max_absolute": 1.3113021850585938e-06,
+        "relative_l2": 1.9272818255841854e-07,
+        "per_object_rms": [
+          1.6440967694088292e-07,
+          1.5243897023718042e-07
+        ]
+      },
+      "leaf": [
+        {
+          "repeat": 0,
+          "total_events": 327,
+          "numeric_reference_events": 74,
+          "first_hash_drift": null,
+          "first_exact_input_numeric_drift": null
+        },
+        {
+          "repeat": 1,
+          "total_events": 327,
+          "numeric_reference_events": 74,
+          "first_hash_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "ded2ba37e18afda19920b4b8d319f7586be239f057fc274d7466617d6ba7821c",
+            "inputs_supported": true,
+            "rng_before_sha256": "c09734fb9e598bb01174bada35435c7420219a0f9dbf7881c82190494e401314",
+            "grad_enabled": true,
+            "outputs_sha256": "d14db721568520e2e34161906de63427fa65db72dc672a0919ea776f505693ba",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 1.1920928955078125e-07,
+                "relative_l2": 3.23952366125675e-09,
+                "per_object_rms": [
+                  7.277048925983306e-10,
+                  7.203014299394807e-10
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          },
+          "first_exact_input_numeric_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "ded2ba37e18afda19920b4b8d319f7586be239f057fc274d7466617d6ba7821c",
+            "inputs_supported": true,
+            "rng_before_sha256": "c09734fb9e598bb01174bada35435c7420219a0f9dbf7881c82190494e401314",
+            "grad_enabled": true,
+            "outputs_sha256": "d14db721568520e2e34161906de63427fa65db72dc672a0919ea776f505693ba",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 1.1920928955078125e-07,
+                "relative_l2": 3.23952366125675e-09,
+                "per_object_rms": [
+                  7.277048925983306e-10,
+                  7.203014299394807e-10
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          }
+        },
+        {
+          "repeat": 2,
+          "total_events": 327,
+          "numeric_reference_events": 74,
+          "first_hash_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "ded2ba37e18afda19920b4b8d319f7586be239f057fc274d7466617d6ba7821c",
+            "inputs_supported": true,
+            "rng_before_sha256": "c09734fb9e598bb01174bada35435c7420219a0f9dbf7881c82190494e401314",
+            "grad_enabled": true,
+            "outputs_sha256": "90ea4881d9a92c1116cb9f54dd584e712e4871c2d4f37f6911e3618d214f62a1",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 1.1920928955078125e-07,
+                "relative_l2": 3.1785882938681396e-09,
+                "per_object_rms": [
+                  7.890641011927447e-10,
+                  6.218496684900538e-10
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          },
+          "first_exact_input_numeric_drift": {
+            "module": "sa_layers.0.0.voxelization",
+            "call_index": 0,
+            "inputs_sha256": "ded2ba37e18afda19920b4b8d319f7586be239f057fc274d7466617d6ba7821c",
+            "inputs_supported": true,
+            "rng_before_sha256": "c09734fb9e598bb01174bada35435c7420219a0f9dbf7881c82190494e401314",
+            "grad_enabled": true,
+            "outputs_sha256": "90ea4881d9a92c1116cb9f54dd584e712e4871c2d4f37f6911e3618d214f62a1",
+            "outputs_supported": true,
+            "outputs_finite": true,
+            "inputs_exact": true,
+            "output_hash_equal": false,
+            "numeric_reference_available": true,
+            "numeric_differences": {
+              "root/0": {
+                "max_absolute": 1.1920928955078125e-07,
+                "relative_l2": 3.1785882938681396e-09,
+                "per_object_rms": [
+                  7.890641011927447e-10,
+                  6.218496684900538e-10
+                ]
+              },
+              "root/1": {
+                "max_absolute": 0.0,
+                "relative_l2": 0.0,
+                "per_object_rms": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "exact_input_numeric_output_drift": true
+          }
+        }
+      ],
+      "reference_bytes": 67108864,
+      "rng_sha256": "c09734fb9e598bb01174bada35435c7420219a0f9dbf7881c82190494e401314"
+    }
+  },
+  "source_chain": [
+    {
+      "path": "models/lion.py",
+      "identity": {
+        "bytes": 5786,
+        "sha256": "8c2de488bfd52ac917485a5437f1bc46feb4d0bf5d3908de67365736259966da"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": true
+    },
+    {
+      "path": "models/latent_points_ada_localprior.py",
+      "identity": {
+        "bytes": 4113,
+        "sha256": "1769fb9d3e29c5bac5c77aef5b832cbc061d365ba76b2fcec98b980af45c9c45"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": true
+    },
+    {
+      "path": "models/pvcnn2_ada.py",
+      "identity": {
+        "bytes": 22933,
+        "sha256": "eb07f7eab33fe341524bca4a900c26cf1b49196fbe86a210a998159db371936b"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": true
+    },
+    {
+      "path": "third_party/pvcnn/functional/__init__.py",
+      "identity": {
+        "bytes": 511,
+        "sha256": "d2984c296a5097eb756e2569f4a37a49e324e9963ed3479fc07ab8f902081a0e"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": true
+    },
+    {
+      "path": "third_party/pvcnn/functional/voxelization.py",
+      "identity": {
+        "bytes": 1613,
+        "sha256": "345fbac1e5e87f8da37714a06ca41770593a4d831230e9cc83d62d69e65bec68"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": true
+    },
+    {
+      "path": "third_party/pvcnn/functional/backend.py",
+      "identity": {
+        "bytes": 1172,
+        "sha256": "ca8a8891e244a30ba2fc152e0270ce673445e3c151ea8de0b7d27790e8655a8b"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": true
+    },
+    {
+      "path": "third_party/pvcnn/functional/src/bindings.cpp",
+      "identity": {
+        "bytes": 1694,
+        "sha256": "0dc27b655d62c316360699300695eb6303c554db32f8300cbeb7b6255d54bab7"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": false
+    },
+    {
+      "path": "third_party/pvcnn/functional/src/voxelization/vox.cpp",
+      "identity": {
+        "bytes": 2540,
+        "sha256": "dbc22e8cecc6f14bae6599a4ea6d0f2aad08bc2e0e315bdfab0e9996765ee3cd"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": false
+    },
+    {
+      "path": "third_party/pvcnn/functional/src/voxelization/vox.cu",
+      "identity": {
+        "bytes": 4358,
+        "sha256": "12fc6d6fc3ba78c73c0eb5c0ab1871f5c505d71e4bf68dbd04f83381970a5b0c"
+      },
+      "matches_frozen_asset_manifest": true,
+      "actual_imported_python_archived": false
+    }
+  ],
+  "conclusion": "Repeatedwithin-process exact-input/RNG localpriorforwarddrift reproduced; earliest covered exact-input numeric module drift is voxelization feature output, coordinates unchanged.",
+  "source_scope": "Python module/functional bytes verified against actual archived imports and pinned assets; C++/CUDA bytes match pinned asset declarations. This does not independently prove binary-to-source compilation provenance or unique kernel causality.",
+  "limitations": [
+    "327leafevents/forward,74fullnumericreferences and64MiBcap; uncovered/hash-only/laterpropagatedchanges not exact numeric localization.",
+    "CPUcopy/hashhooks synchronize native execution and can affect scheduling; no uninstrumented trajectory causality or deterministic repair claim."
+  ]
+}

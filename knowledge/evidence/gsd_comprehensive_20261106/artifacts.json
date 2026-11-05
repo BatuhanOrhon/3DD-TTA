@@ -1,0 +1,141 @@
+{
+  "status": "all18archives_drive_and_local_sha_verified",
+  "session": "tta-gsd-h5-reliability-a100-20261105-r4",
+  "endpoint": "gpu-a100-hm-euw4a0-2rsp767om7kzr",
+  "hardware": "NVIDIA A100-SXM4-80GB",
+  "artifacts": [
+    {
+      "role": "H5 raw",
+      "local": "result/preparation/gsd_h5_reliability_20261105/h5_capture_raw_package.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_h5_reliability_20261105/h5_capture_raw_package.zip",
+      "bytes": 1391073853,
+      "sha256": "ee58f23c92546858b7c82220e5c353f4aae68a6997df8e69289e3541dadbe105"
+    },
+    {
+      "role": "H5 derived v1",
+      "local": "result/preparation/gsd_h5_reliability_20261105/h5_derived_analysis_v1.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_h5_reliability_20261105/h5_derived_analysis_v1.zip",
+      "bytes": 1257622,
+      "sha256": "3dd0a7c186dff5019178268e5793f62a8e31ab26cfda0b7372ad93006238508a"
+    },
+    {
+      "role": "h0-gaussian-0",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-0.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/runs/h0-gaussian-0/modelnet40_c/decoded_physical_spectral_diagnostic/20261105-211140_decoded-control-8aed642b/final.zip",
+      "bytes": 5462301,
+      "sha256": "547d2d3249b3ed804abdc70d36cd8af4e91e7613e75ae1409dc9657b616f671a"
+    },
+    {
+      "role": "h0-gaussian-1",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-1.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/runs/h0-gaussian-1/modelnet40_c/decoded_physical_spectral_diagnostic/20261105-211209_decoded-control-8aed642b/final.zip",
+      "bytes": 5462122,
+      "sha256": "e7685b1e768f5980646241c43b41afb61916692c2332209d49f89c6eac10e3c0"
+    },
+    {
+      "role": "h0-gaussian-2",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-2.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/runs/h0-gaussian-2/modelnet40_c/decoded_physical_spectral_diagnostic/20261105-211238_decoded-control-8aed642b/final.zip",
+      "bytes": 5462218,
+      "sha256": "60ac077260f8ebee514ca18a7e58659820390bcb9ce8c4fe29a74ff02f27bfd5"
+    },
+    {
+      "role": "h0-background-0",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-0.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/runs/h0-background-0/modelnet40_c/decoded_physical_spectral_diagnostic/20261105-211307_decoded-control-8aed642b/final.zip",
+      "bytes": 5950756,
+      "sha256": "8951fe58398814e2aa78dc4a12f9a7c4cd569f48c9154518836b0faec0eec9a1"
+    },
+    {
+      "role": "h0-background-1",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-1.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/runs/h0-background-1/modelnet40_c/decoded_physical_spectral_diagnostic/20261105-211340_decoded-control-8aed642b/final.zip",
+      "bytes": 5950210,
+      "sha256": "d2ebf9695b6b0065c28d3d8d9c6185e9df31021cc9908f1f28fbfd2377ffc068"
+    },
+    {
+      "role": "h0-background-2",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-2.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/runs/h0-background-2/modelnet40_c/decoded_physical_spectral_diagnostic/20261105-211412_decoded-control-8aed642b/final.zip",
+      "bytes": 5950343,
+      "sha256": "5146289a6e83093559452ddabaca4cc57433e432642f34ee7dc845b253671e5c"
+    },
+    {
+      "role": "shared-states",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_captures_v2/shared-states.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/runs/shared-states/modelnet40_c/decoded_physical_spectral_diagnostic/20261105-211444_decoded-control-8aed642b/final.zip",
+      "bytes": 6237002,
+      "sha256": "279a30f0c7266d963f70790c35c0daa01fe3a234be5e3945ff87a7b3d4024777"
+    },
+    {
+      "role": "shared-state mechanism",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_mechanism_v1.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/mechanism_probe_v1.zip",
+      "bytes": 1000097904,
+      "sha256": "6613da2eb5d2dd0ebeaf6aefc775c95ecf3b28e6665b754d3423639ed528a2ee"
+    },
+    {
+      "role": "frozen PointMAE readouts",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_readouts_v1.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/pointmae_readouts_v1.zip",
+      "bytes": 5058388,
+      "sha256": "d563015eb124a1f58d299e7b19b46d1696b1c59d96ac0cc2fbc207821cc1f585"
+    },
+    {
+      "role": "H4 gaussian",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_h4_v1/gaussian.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/h4_v1/gaussian.zip",
+      "bytes": 30121501,
+      "sha256": "984d13fd95e74a5bc37e744c1b10ddce008411fb05815617767aec270e847c8f"
+    },
+    {
+      "role": "H4 background",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_h4_v1/background.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/h4_v1/background.zip",
+      "bytes": 28887726,
+      "sha256": "b1850fe42b6af4663d6612f15817153425694363a1970715d12eba050081bdf5"
+    },
+    {
+      "role": "H4 shear",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_h4_v1/shear.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/h4_v1/shear.zip",
+      "bytes": 31409378,
+      "sha256": "c2eb1eb3636751afbe522becb61e39e8b24c236f99aa311d737563aebc44d965"
+    },
+    {
+      "role": "H4 lidar",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_h4_v1/lidar.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/h4_v1/lidar.zip",
+      "bytes": 31236059,
+      "sha256": "46724daa95e8e774e88492d912b7a754f11fb4dad3b81e985df01c5737b2fed7"
+    },
+    {
+      "role": "H4 metadata",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_h4_v1/metadata.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/h4_v1/metadata.zip",
+      "bytes": 1044055,
+      "sha256": "1bc3541c8ae8e23111474119482591a84cea5974c1bb37c3c36241178718ceeb"
+    },
+    {
+      "role": "completed-phase sources/cache/metadata",
+      "local": "result/preparation/gsd_comprehensive_20261105/final_remote_metadata_v1.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/final_remote_metadata_v1.zip",
+      "bytes": 3272694,
+      "sha256": "4587fc2fede1ed9636757b1de0aff842571cd57939f8be6a8a660bd375658517"
+    },
+    {
+      "role": "exact-input native prior repeat",
+      "local": "result/preparation/gsd_comprehensive_20261105/received_prior_repeat_v1.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_comprehensive_20261105/prior_repeat_v1/prior_repeat_v1.zip",
+      "bytes": 558879,
+      "sha256": "4e16df1347bf8a5d89d3285ec8919f86e584fe4d8729ca0fa64edf3f82eaadb5"
+    }
+  ],
+  "total_archive_bytes": 2564493011,
+  "source_overlays": {
+    "H5": "99cd1bcf4e6a1101120c903468a03bcc73951287db99d80361aa965dc063ee57",
+    "supplement": "809573e8351877b8de4408090cf64300de5696dcf3b12a18911c14eba594b713"
+  },
+  "native_payloads": "six actual ELF payloads preserved in H5 raw package; no subsequent native rebuild or replacement",
+  "closure": "authorized after classified diagnostics, completed analysis/publication and derived backup; not yet performed"
+}
