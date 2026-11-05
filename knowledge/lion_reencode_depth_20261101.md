@@ -19,3 +19,8 @@ Owned runtime tta-lion-reencode-a100-20261101-r1, endpoint gpu-a100-hm-ass1c0-1d
 ## Completed — supersedes preceding pending states
 
 [Run/Inference/Decision] All technical and64-ID pilot3/5/8 conditions independently accepted; source/physical/labels/PM/local recount and Drive downloads verified. N5/N8 do not improve second or pooled PM against archived first. [Final results](lion_reencode_depth_results_20261101.md). No extra GPU work; runtime preserved.
+
+
+## 2026-11-05 — Knowledge kapanışı
+
+[Run/Code/Open] Test kapsamı ve bütün N3/N5/N8 sayıları [sonuç raporunda](lion_reencode_depth_results_20261101.md) korunur. Final kaynak/knowledge Drive roundtrip makbuzu eklendi. Son kernel kontrolünde2026-11-01'de session bulunamadı ve server envanteri boş döndü; bu nedenle yukarıdaki runtime-preserved bilgisi tarihsel durumdur. Kaybolma nedeni bilinmiyor; yeni tahsis/koşu başlatılmadı.

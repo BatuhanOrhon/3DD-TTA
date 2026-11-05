@@ -8644,3 +8644,10 @@ All240physicalFhashtriplesmatch, but zero-control numericalgatefails45/240B2case
 ## 2026-11-04 13:09UTC — user-requested runtime closure
 
 [User report/Run] User: “Colab oturumunu sonlandır”. Stopped owned `tta-gsd-physical-spectral-a100-20261103-r1` via CLI, confirmed terminated and absent from server inventory. Monitor34871 and stalled liveness CLI75359 stopped/absent. No research worker active; all prior raw/derived local/Drive backups already verified. This supersedes prior runtime-retained status; no science result changed.
+
+
+## 2026-11-05 — Reencode test records and runtime observation reconciled
+
+[Run/Code/Decision/Open] User requests knowledge-only publication. Existing accepted original N3 and replay N3/5/8 results remain unchanged: same64exposed/all15/s5/seed0/Point-MAE; first PM60.520833%, second replay57.916667/56.562500/55.312500%, pooled59.895833/59.375000/59.479167. Prior original N3 PM58.020833 is retained separately. Clean-z MSE−5.140506% is a bridge/posthoc diagnostic, not an accuracy gain or further z cleaning by longer second chains. No baseline promotion/new experiment. Results were already integrated at f9cfa1e; final2,480,991-byte source/report capsule and60members were Drive-roundtrip verified onNov1, local SHA rechecked now.
+
+The previously unrecorded user-requested Nov1 kernel probe exited1/session-not-found; subsequent server inventory exited0/no-active-sessions. Expected marker absent; cause unknown, no runtime teardown command by this agent. Conversation-observed output is explicitly labelled as transcription in compact evidence, not reconstructed raw log. Earlier live-assignment statements are superseded for reencode-r1 only; unrelated later runtimes/closure records are preserved. [Results, final receipts and dated status](lion_reencode_depth_results_20261101.md). This publication selects knowledge/compact receipts only; source, tests, raw/cache/weights, user and peer edits excluded.

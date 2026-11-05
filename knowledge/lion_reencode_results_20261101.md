@@ -80,3 +80,6 @@ sidecar’ında kaydedilir. Runtime için kapatma izni yoktur; korunur.
 
 
 [Run/Decision] Sonraki kullanıcı onayıyla N5 ve N8 test edildi; ilk bu rapordaki bekleyen horizon sorusu için [2026-11-01 follow-up sonucu](lion_reencode_depth_results_20261101.md) geçerlidir. Orijinal N3 sayıları ve arşivleri değiştirilmedi.
+
+
+[Run/Code/Open; kayıt2026-11-05] Bu orijinal N3 raporunun accuracy ve clean-z tanıları değişmedi. N3 replay/N5/N8 karşılaştırması, final Git/Drive koruma makbuzu ve2026-11-01'de oturumun bulunamadığı kernel kontrolü için [güncel kapanış kaydı](lion_reencode_depth_results_20261101.md#2026-11-05--test-kaydı-yayın-ve-son-runtime-gözlemi) geçerlidir. Eski canlı/korunan-runtime ifadeleri kendi zamanlarının tarihsel kaydıdır. Yeni bilimsel koşu yapılmadı.

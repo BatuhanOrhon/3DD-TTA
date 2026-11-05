@@ -2599,8 +2599,9 @@ supersedes preceding pilot-pending gates.
 - [x] Canonical10/native/data/weights/strictCPU and physical CUDA32-ID technical gate.
 - [x] Independent64/all15/seed0 acceptance; first PM60.5208, second58.0208, pooled59.5833%; no demonstrated gain.
 - [x] Cycle-only and archived clean-z posthoc diagnostics: z MSE−5.14%, no accuracy benefit; no h pointwise claim.
-- [ ] N5/noise depth, z-only/h-only/anchor separation, cost-matched longer single chain, repeated seeds/unseen validation and entropy weighting remain unrun.
-- [ ] Owned runtime remains protected pending explicit completion+close instruction.
+- [x] N5/N8 second-pass depth tested; no gain. See [accepted follow-up](lion_reencode_depth_results_20261101.md).
+- [ ] z-only/h-only/anchor separation, cost-matched longer single chain, repeated seeds/unseen validation and entropy weighting remain unrun.
+- [x] Record reencode-r1 absence in the later2026-11-01 kernel/server probe; no teardown by this agent, cause unknown. See2026-11-05 closure appendix.
 
 
 ## 2026-11-01 — N5/N8 second-only replay
@@ -2657,3 +2658,12 @@ supersedes preceding pilot-pending gates.
 - [x] P2mixed-origin exact-frame oracle64rows;42clean-CDincreases, including1actualGPUFcounterexample; failedCPUreconstruction remains explicit. Exact curvature/permutationcontrols passed.
 - [x] Complete raw/derived Drive/local validation and integrate necessary evidence/code as45fad1d;500CPUtests/1skip accepted.
 - [ ] Applied accuracy, unseen/multiseed confirmation and eigenfree speed remain gated future work.
+
+
+## 2026-11-05 — Reencode study knowledge closure
+
+[Run/Code/Open] [Accepted results and dated lifecycle appendix](lion_reencode_depth_results_20261101.md).
+- [x] Preserve original N3 versus fresh replay N3/5/8 scope, PM/terminal/pooled results, CI and native-repeat limits.
+- [x] Link final Git/Drive publication receipt and record the subsequent session-not-found/empty-inventory probe without attributing a cause.
+- [ ] z-only/h-only/anchor/fixed-noise controls, entropy weighting and additional-seed/unseen confirmation remain unrun for this reencoding method.
+No new Colab or model operation; older live-runtime statements for reencode-r1 are historical.

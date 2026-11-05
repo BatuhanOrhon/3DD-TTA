@@ -1,0 +1,13 @@
+{
+  "bytes": 2480991,
+  "sha256": "d51338c0134908de9f955db1d72c3cd8eae844132ec81506f2b184a1bc0a821c",
+  "members": 60,
+  "integration_commit": "f9cfa1e0ba1d383d9bc255dc1cb57cf6f50bc51b",
+  "drive_path": "/content/drive/MyDrive/thesis/result/lion_reencode_depth_20261101/final-20261101T105833Z.zip",
+  "raw_bulk_archives_separately_preserved": true,
+  "status": "passed",
+  "utc": "2026-11-01T11:00:12.312041+00:00",
+  "crc_safe_paths_types_and_all59_manifest_members": "passed",
+  "git_bundle_and_publication_receipt": "passed",
+  "runtime_preserved": true
+}

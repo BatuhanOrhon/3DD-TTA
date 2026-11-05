@@ -70,3 +70,23 @@ Drive MyDrive/thesis/result/lion_reencode_depth_20261101/phase-evidence; source-
 |N8|71,095,508|76df8381de9a0471468ff13486851ef772cf679a2a837c35c2560865eecbfb41|
 
 Integration scope: source branch research/lion-reencode-20261101, base6ff2e49; yeni opt-in replay script/test, bağımsız analiz/kompakt kanıt, tarihli knowledge/plan. Temporary wrappers, setup/native/raw/cache/weights Git dışında yerel+Drive’da korunur. Kullanıcı/diğer agent çalışma alanları alınmaz. Normal fast-forward origin/thesis-integration hedeflenir; oluşan commit/push/final Drive capsule roundtrip makbuzları result/preparation/lion_reencode_depth_20261101/publication/ altında ve final Drive kapsülünde kaydedilir. Runtime tta-lion-reencode-a100-20261101-r1/A10080GB/High-RAM korunur; completion+close izni yoktur.
+
+
+## 2026-11-05 — Test kaydı, yayın ve son runtime gözlemi
+
+[Run/Code/Decision] Bu ek, 2026-11-01 testlerini yeniden çalıştırmadan mevcut kabul kayıtlarını uzlaştırır. İlk N3 koşusu ile sonraki fiziksel-cache replay kontrolü farklı koşulardır; oranlar birbirinin yerine kullanılmaz. ModelNet40-C/s5/all15, aynı64 exposed nesne, seed0 ve frozen Point-MAE/B32 için:
+
+| Kayıt | İlk PM % | İkinci PM % | Birleşik PM % |
+|---|---:|---:|---:|
+| Orijinal N3 tam iki geçiş |60,520833|58,020833|59,583333|
+| Taze N3 second-only kontrol |60,520833|57,916667|59,895833|
+| N5 second-only |60,520833|56,562500|59,375000|
+| N8 second-only |60,520833|55,312500|59,479167|
+
+Dört satır da kendi kayıtlı kapsamındadır; tek seed ve64 nesne sonucu tam benchmark değildir. Yeniden encode edilen z'nin posthoc temiz-referans MSE'si %5,140506 azalırken accuracy faydası gösterilmedi. N5/N8'de aynı z1/h1/noise/RNG kullanıldı; adım sayısıyla başlangıç noise seviyesi ve SCD güncelleme sayısı birlikte değişti. Salt adım yoğunluğu veya z-only etkisi izole edilmedi. %95 aralıklar ve native tekrar sınırı yukarıdaki tablolar/raporlarda korunur; baseline'a yöntem alınmadı.
+
+İlk sonuçlar `6ff2e49`, N5/N8 sonuçları ve kod/knowledge `f9cfa1e0ba1d383d9bc255dc1cb57cf6f50bc51b` ile ortak dala önceden yayımlandı. Bu turdaki değişiklikler yalnız knowledge'dır. Final kaynak/rapor kapsülü 2026-11-01'de Drive'dan geri indirilerek doğrulanmıştı: 2,480,991byte,60ZIP üyesi/59manifest üyesi, SHA-256 `d51338c0134908de9f955db1d72c3cd8eae844132ec81506f2b184a1bc0a821c`. Bu turda yerel kapsül boyutu/hash'i yeniden kontrol edildi; Drive yeniden sorgulanmadı. [Final roundtrip makbuzu](evidence/lion_reencode_depth_20261101/final_roundtrip_receipt.json).
+
+[Run/Open] 2026-11-01'de kullanıcının istediği kernel probe'u `Session 'tta-lion-reencode-a100-20261101-r1' not found.` ile exit1 döndü; ardından `colab sessions` exit0 ile `No active sessions found on server.` bildirdi. Beklenen probe marker'ı alınmadı. Yaklaşık11:15UTC gözlemi 2026-11-05'te burada kayda geçirildi; kesin komut zamanları mevcut değildir. Önceki server-inventory canlı gözlemleri yalnız kendi zamanlarına aittir; kernel yanıtını kanıtlamaz. Kaybolma/kapanma nedeni bilinmiyor; bu agent runtime stop/release/delete komutu vermedi. [Gözlenen çıktılar ve probe kaydı](evidence/lion_reencode_depth_20261101/runtime_observation_recorded_20261105.json), konuşmada görülen çıktıların açıkça işaretlenmiş aktarımıdır; sonradan üretilmiş ham CLI logu diye sunulmaz.
+
+Bu runtime için yukarıdaki "korunur/canlı" ifadeleri tarihsel durumdur ve son gözlemle superseded edilir. Yeni runtime, deney, seed veya denoising taraması bu belge güncellemesinde başlatılmadı. Bilimsel sonuçlar ve ham arşivler değişmedi; ilerideki Colab işi kendi güncel tahsis/kimlik kontrolünden başlamalıdır.

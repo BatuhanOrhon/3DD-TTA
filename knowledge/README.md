@@ -1,3 +1,11 @@
+**[Run/Code/Open] 2026-11-05 — LION iki geçiş test kaydı tamamlandı:**
+Orijinal N3 ve kayıtlı latentlerden N3/N5/N8 testlerinin kapsamı, sonuçları ve sınırları
+[sonuç/kapanış kaydında](lion_reencode_depth_results_20261101.md) birlikte izlenir.
+İlk PM %60.5208; taze ikinci PM %57.9167/%56.5625/%55.3125; kazanç gösterilmedi.
+2026-11-01 son kernel kontrolü session-not-found, ardından boş server envanteri
+verdi; eski reencode-r1 canlı ifadeleri tarihsel durumdur. Neden bilinmiyor;
+yeni koşu veya runtime işlemi yapılmadan knowledge güncellendi.
+
 **[User report/Run] 2026-11-04 13:09UTC — own Colab runtime closed on user request:**
 `tta-gsd-physical-spectral-a100-20261103-r1` terminated through Colab CLI;
 server inventory reports no active sessions. Monitor34871 and its hanging
@@ -112,7 +120,8 @@ Exact archived first/z1/h1/Gaussian/RNG;64exposed/all15/seed0. First PM60.5208%,
 fresh N3 PM57.9167%, N5 56.5625%, N8 55.3125%; pooled59.8958/59.3750/59.4792.
 Native prior repeat differences confirmed; strict technical failure preserved,
 physical/host gates retained and fresh N3 control added. All6 phases independently
-accepted; baseline unchanged. Own A100r1 remains live, no teardown authorization.
+accepted; baseline unchanged. Runtime was retained then; later probe found no
+assignment (see the2026-11-05 closure record above).
 [Results, intervals, identities and limits](lion_reencode_depth_results_20261101.md).
 
 **[Code/Run/Inference/Open] 2026-11-01 — spectral z-guidance geçmişi ayrıştırıldı:**
@@ -141,8 +150,8 @@ Same64exposed ModelNet objects/all15/seed0: baseline PM60.5208%, second N3
 PM58.0208% (−2.5pp), combined PM59.5833% (−.9375pp); primary/pooled intervals
 include0. Clean-z MSE improves5.14% posthoc, without accuracy benefit. Cycle-only
 delta−.5208pp is smaller and uncertain. Full raw/physical/source/state/RNG/local
-recount accepted; baseline unchanged, no new GPU expansion. Own r1 remains
-live; teardown is not authorized.
+recount accepted; baseline unchanged, no new GPU expansion. Own r1 was retained
+then; later probe found no assignment (see the2026-11-05 closure record above).
 [Results, tables, archives and next questions](lion_reencode_results_20261101.md).
 
 **[Run/Inference/Decision] 2026-10-31 21:34 UTC / 2026-11-01 Türkiye — conditional pilot kapatıldı:**

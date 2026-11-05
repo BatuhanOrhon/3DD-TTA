@@ -1,0 +1,56 @@
+{
+  "recorded_on": "2026-11-05",
+  "observed_on": "2026-11-01",
+  "observation_time_utc": "approximately11:15; exact command timestamps unavailable",
+  "session": "tta-lion-reencode-a100-20261101-r1",
+  "expected_endpoint": "gpu-a100-hm-ass1c0-1d6llui8hqweg",
+  "evidence_origin": "Outputs observed in this conversation; transcribed here, not an exported CLI raw-log archive",
+  "kernel_probe": {
+    "command": [
+      "colab",
+      "exec",
+      "-s",
+      "tta-lion-reencode-a100-20261101-r1",
+      "-f",
+      "/var/folders/q2/gspjkm8d5dd2kdypcgdlxdvh0000gn/T/lion-kernel-probe-p__t_86e/probe.py",
+      "--timeout",
+      "60"
+    ],
+    "environment_override": {
+      "REQUEST_TIMEOUT": "60"
+    },
+    "source": "from datetime import datetime, timezone\nprint(datetime.now(timezone.utc).isoformat(), flush=True)\nprint('KERNEL_RESPONSE_OK_7575c11a3d51448cb0f1fa2110b689e0', flush=True)\n",
+    "source_sha256": "bb108bc5347587740187780d00a7d262bffb1a002ede03aa425680d724f8016b",
+    "expected_marker": "KERNEL_RESPONSE_OK_7575c11a3d51448cb0f1fa2110b689e0",
+    "marker_observed": false,
+    "exit_code": 1,
+    "observed_message": "[colab] Session 'tta-lion-reencode-a100-20261101-r1' not found."
+  },
+  "subsequent_server_inventory": {
+    "command": [
+      "colab",
+      "sessions"
+    ],
+    "exit_code": 0,
+    "observed_message": "[colab] No active sessions found on server."
+  },
+  "conclusion": "Named runtime was absent from CLI inventory; kernel responsiveness could not be confirmed. Previous live-assignment observations were historical, not proof of current kernel health.",
+  "termination_cause": "unknown",
+  "runtime_stop_release_delete_issued_by_this_agent": false,
+  "new_runtime_or_research_run_started": false,
+  "verified_results_preserved": true,
+  "prior_results_integration_commit": "f9cfa1e0ba1d383d9bc255dc1cb57cf6f50bc51b",
+  "final_archive": {
+    "bytes": 2480991,
+    "sha256": "d51338c0134908de9f955db1d72c3cd8eae844132ec81506f2b184a1bc0a821c",
+    "members": 60,
+    "integration_commit": "f9cfa1e0ba1d383d9bc255dc1cb57cf6f50bc51b",
+    "drive_path": "/content/drive/MyDrive/thesis/result/lion_reencode_depth_20261101/final-20261101T105833Z.zip",
+    "raw_bulk_archives_separately_preserved": true,
+    "status": "passed",
+    "utc": "2026-11-01T11:00:12.312041+00:00",
+    "crc_safe_paths_types_and_all59_manifest_members": "passed",
+    "git_bundle_and_publication_receipt": "passed",
+    "runtime_preserved": true
+  }
+}
