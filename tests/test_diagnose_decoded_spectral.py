@@ -4,6 +4,75 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_h5_capture_is_explicit_control_only_and_zero_weight(self):
+        from scripts.diagnose_decoded_spectral import configuration
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertFalse(configuration(args)['capture_h5'])
+        self.assertTrue(configuration([*args, '--arm', 'control', '--capture-h5'])['capture_h5'])
+        for extra in ([], ['--arm', 'live_control'], ['--arm', 'physical', '--weight', '1'],
+                      ['--arm', 'control', '--weight', '1']):
+            with self.subTest(extra=extra), self.assertRaises(ValueError):
+                configuration([*args, *extra, '--capture-h5'])
+
+    def test_h5_snapshot_and_spectrum_archive_preserve_geometry_rng_and_hashes(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        import numpy as np
+        import torch
+        import graph_spectral
+        from legacy_trajectory import rng_hash, tensor_hash
+        from scripts import diagnose_decoded_spectral as driver
+        prepared = torch.linspace(-.2, .2, 2*12*3).reshape(2, 12, 3)
+        center, scale = torch.zeros(2, 1, 3), torch.ones(2, 1, 1)
+        capture, expected_hashes = {}, []
+        before = rng_hash()
+        for checkpoint in range(4):
+            decoded = (prepared+checkpoint*.01).clone().requires_grad_()
+            expected_hashes.append(tensor_hash(decoded))
+            driver.capture_h5_snapshot(capture, decoded)
+            with torch.no_grad():
+                decoded.add_(10.)
+        self.assertTrue(all(not value.requires_grad and value.device.type == 'cpu' for value in capture['h5_decoded']))
+        builder = graph_spectral.build_probe_spectral_target
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            with patch.object(graph_spectral, 'build_probe_spectral_target', wraps=builder) as build:
+                report = driver.record_h5_capture(directory, [459, 545], prepared, center, scale,
+                    capture['h5_decoded'], ['clean_02', 'clean_04', 'clean_06', 'terminal'], [2, 4, 6, 8], expected_hashes)
+            self.assertEqual(build.call_count, 1)
+            self.assertEqual(report['extra_decoder_forward_calls'], 0)
+            self.assertEqual(report['decoded_tensor_sha256'], expected_hashes)
+            self.assertEqual(report['reference_xyz_sha256'], tensor_hash(prepared))
+            with np.load(directory/'h5_geometry.npz', allow_pickle=False) as saved:
+                self.assertEqual(saved['decoded_xyz'].shape, (2, 4, 12, 3))
+                np.testing.assert_array_equal(saved['candidate_loop_counts'], [2, 4, 6, 8])
+                np.testing.assert_array_equal(saved['prepared_x'], prepared.numpy())
+                np.testing.assert_array_equal(saved['decoded_xyz'][:, 0], prepared.numpy())
+            with np.load(directory/'h5_spectra.npz', allow_pickle=False) as saved:
+                np.testing.assert_array_equal(saved['index'], [459, 545])
+                for index in range(2):
+                    for name in ('active_indices', 'basis', 'q', 'rank'):
+                        values = saved['%s_%d'%(name, index)]
+                        self.assertEqual(report['spectra_tensor_sha256'][index][name], tensor_hash(torch.from_numpy(values)))
+                    self.assertEqual(saved['basis_%d'%index].shape[0], len(saved['active_indices_%d'%index]))
+            for filename in ('h5_geometry.npz', 'h5_spectra.npz'):
+                self.assertEqual(report['files'][filename], driver.source.file_identity(directory/filename))
+            json.dumps(report, allow_nan=False)
+            with self.assertRaisesRegex(ValueError, 'snapshot'):
+                driver.record_h5_capture(directory, [459, 545], prepared, center, scale,
+                    capture['h5_decoded'][:3], ['a', 'b', 'c', 'd'], [2, 4, 6, 8], expected_hashes)
+            failed = directory/'failed'
+            failed.mkdir()
+            with patch.object(graph_spectral, 'build_probe_spectral_target', side_effect=RuntimeError('probe failed')):
+                with self.assertRaisesRegex(RuntimeError, 'probe failed'):
+                    driver.record_h5_capture(failed, [459, 545], prepared, center, scale,
+                        capture['h5_decoded'], ['clean_02', 'clean_04', 'clean_06', 'terminal'], [2, 4, 6, 8], expected_hashes)
+            self.assertTrue((failed/'h5_geometry.npz').is_file())
+        self.assertEqual(before, rng_hash())
+
     def test_all15_corruptions_are_explicitly_supported_without_changing_defaults(self):
         from contextlib import redirect_stderr
         from io import StringIO

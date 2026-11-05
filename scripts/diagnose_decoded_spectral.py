@@ -41,6 +41,7 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--update-norm-probes', action='store_true')
     parser.add_argument('--native-decoder-audit', action='store_true')
     parser.add_argument('--freeze-decoder-residual', action='store_true')
+    parser.add_argument('--capture-h5', action='store_true')
     parser.add_argument('--count', type=int, choices=(2, 8), default=2)
     parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
@@ -49,6 +50,8 @@ def configuration(argv=None) -> dict:
         raise ValueError('Operational control cannot use live decoded guidance options')
     if args.lowband_modes and args.freeze_decoder_residual:
         raise ValueError('Low-band halfmix requires full decoder derivatives')
+    if args.capture_h5 and (args.arm != 'control' or args.weight != 0):
+        raise ValueError('H5 capture requires the zero-weight control arm')
     if args.freeze_decoder_residual and args.arm not in ('physical', 'live_control'):
         raise ValueError('Frozen decoder residual requires a physical or lightweight live-control arm')
     if args.native_decoder_audit and args.arm != 'diagnostic':
@@ -94,6 +97,82 @@ def configuration(argv=None) -> dict:
         config['physical_graph'].update(modes=args.lowband_modes, profile='hard', beta=None)
     config['half_mix_alpha'] = 2*args.weight if args.checkpoint_scd_weight == .5 else None
     return config
+
+
+def capture_h5_snapshot(capture: dict, decoded) -> None:
+    """Keep an immutable CPU copy of an already computed physical PM decode."""
+    started = time.perf_counter()
+    capture.setdefault('h5_decoded', []).append(decoded.detach().cpu().clone())
+    capture['h5_snapshot_copy_seconds'] = capture.get('h5_snapshot_copy_seconds', 0.)+time.perf_counter()-started
+
+
+def record_h5_capture(directory: Path, ids, prepared, center, scale, snapshots,
+                      names, loop_counts, expected_hashes) -> dict:
+    """Archive one posttrajectory eigensystem; never decode or retain GPU tensors."""
+    import numpy as np
+    import torch
+    from graph_spectral import SpectralConfig, build_probe_spectral_target
+    from legacy_trajectory import isolated_probe, rng_hash, tensor_hash
+    if (len(snapshots) != 4 or len(names) != 4 or len(loop_counts) != 4 or len(expected_hashes) != 4
+            or len(ids) != len(prepared) or loop_counts != sorted(set(loop_counts))
+            or any(type(count) is not int or count < 1 for count in loop_counts)
+            or any(value.shape != prepared.shape or value.requires_grad or value.device.type != 'cpu'
+                   or value.dtype != prepared.dtype or not torch.isfinite(value).all() for value in snapshots)):
+        raise ValueError('Expected four detached finite CPU snapshots with actual increasing loop counts')
+    snapshot_hashes = [tensor_hash(value) for value in snapshots]
+    if snapshot_hashes != expected_hashes:
+        raise ValueError('H5 snapshot hashes differ from the existing decoder witnesses')
+    if (center.shape != (len(prepared), 1, 3) or scale.shape != (len(prepared), 1, 1)
+            or not torch.isfinite(center).all() or not torch.isfinite(scale).all() or not (scale > 0).all()):
+        raise ValueError('Invalid H5 normalization frame')
+    before = rng_hash()
+    if prepared.is_cuda:
+        torch.cuda.synchronize(prepared.device)
+        torch.cuda.reset_peak_memory_stats(prepared.device)
+    started = time.perf_counter()
+    with isolated_probe([]):
+        serialized_started = time.perf_counter()
+        geometry_path, spectra_path = directory/'h5_geometry.npz', directory/'h5_spectra.npz'
+        with geometry_path.open('xb') as stream:
+            np.savez_compressed(stream, index=np.asarray(ids, dtype=np.int64), candidate_names=np.asarray(names),
+                candidate_loop_counts=np.asarray(loop_counts, dtype=np.int64),
+                decoded_xyz=torch.stack(snapshots, dim=1).numpy(), prepared_x=prepared.detach().cpu().numpy(),
+                normalization_center=center.detach().cpu().numpy(), normalization_scale=scale.detach().cpu().numpy())
+        serialization_seconds = time.perf_counter()-serialized_started
+        graph_started = time.perf_counter()
+        graph_config = SpectralConfig()
+        probe = build_probe_spectral_target(prepared, graph_config)
+        if prepared.is_cuda:
+            torch.cuda.synchronize(prepared.device)
+        graph_seconds = time.perf_counter()-graph_started
+        graph_peak = torch.cuda.max_memory_allocated(prepared.device)/1024**2 if prepared.is_cuda else None
+        serialized_started = time.perf_counter()
+        spectra, hashes = dict(index=np.asarray(ids, dtype=np.int64)), []
+        for index, (indices, basis, q, rank) in enumerate(probe.spectra):
+            values = dict(active_indices=indices, basis=basis, q=q, rank=torch.tensor(rank, dtype=torch.int64))
+            hashes.append({key: tensor_hash(value) for key, value in values.items()})
+            for key, value in values.items():
+                spectra['%s_%d'%(key, index)] = value.detach().cpu().numpy()
+        with spectra_path.open('xb') as stream:
+            np.savez_compressed(stream, **spectra)
+        serialization_seconds += time.perf_counter()-serialized_started
+        report = dict(schema_version=1, purpose='Clean-free H5 reliability evidence; no filter or guidance applied',
+            candidate_names=list(names), candidate_loop_counts=list(loop_counts),
+            reference_xyz_sha256=tensor_hash(probe.reference_xyz), decoded_tensor_sha256=snapshot_hashes,
+            spectra_tensor_sha256=hashes, graph_config=vars(graph_config), graph_diagnostics=probe.diagnostics,
+            q_semantics='Laplacian eigenvalues divided by mean active degree and clamped at zero; not H5 reliability weights',
+            graph_build_calls=1, extra_decoder_forward_calls=0,
+            graph_build_seconds=graph_seconds, archive_serialization_seconds=serialization_seconds,
+            posttrajectory_graph_peak_gpu_memory_mb=graph_peak,
+            files={path.name: source.file_identity(path) for path in (geometry_path, spectra_path)},
+            timing_scope='Graph built after terminal classification and baseline timing/peak snapshot; graph peak is total allocated memory, not incremental or deployment memory',
+            native_history_limitation='Per-B2 posttrajectory eigensolve may affect allocator/solver history in later B2 cases; no whole-process numerical noninterference claim')
+    after = rng_hash()
+    if before != after:
+        raise RuntimeError('Posttrajectory H5 capture changed reconstruction RNG')
+    report.update(rng_before_sha256=before, rng_after_sha256=after, rng_unchanged=True,
+                  posttrajectory_capture_seconds=time.perf_counter()-started)
+    return report
 
 
 def read_index_manifest(path: Path, expected_sha256: str, count: int) -> tuple[dict, dict]:
@@ -215,6 +294,8 @@ def worker(directory: str) -> None:
     active_observer, active_directory = None, None
     started = time.monotonic()
     try:
+        if config.get('capture_h5') and (config['arm'] != 'control' or config['weight'] != 0):
+            raise ValueError('H5 capture requires the zero-weight control arm')
         config['runtime'] = apply_backend_policy(config.get('backend_policy', 'legacy'))
         if config.get('index_manifest'):
             selection, identity = read_index_manifest(bundle.path / 'selection_manifest.json',
@@ -280,6 +361,8 @@ def worker(directory: str) -> None:
                 capture, prior_inputs = {}, {}
                 def classify(decoded):
                     capture['decoded'] = decoded.detach().clone()
+                    if config.get('capture_h5'):
+                        capture_h5_snapshot(capture, decoded)
                     if 'first_saved' not in capture:
                         np.savez_compressed(case / 'decoded_first_checkpoint.npz', decoded_xyz=decoded.detach().cpu().numpy())
                         capture['first_saved'] = True
@@ -463,7 +546,21 @@ def worker(directory: str) -> None:
                 (case / 'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
                 accumulated.append(payload)
                 correct += int((payload['prediction'] == payload['label']).sum())
-                peak = max(peak, torch.cuda.max_memory_allocated()/1024**2)
+                batch_peak = torch.cuda.max_memory_allocated()/1024**2
+                peak = max(peak, batch_peak)
+                if config.get('capture_h5'):
+                    clean_copy_seconds = capture.get('h5_snapshot_copy_seconds', 0.)
+                    capture_h5_snapshot(capture, decoded)
+                    h5 = record_h5_capture(case, ids, prepared, center, scale, capture['h5_decoded'], observer.names,
+                        [p['loop_count'] for p in observer.probes]+[len(scheduler['active_timesteps'])],
+                        [p['decoded_geometry_sha256'] for p in observer.probes]+[tensor_hash(decoded)])
+                    h5.update(clean_snapshot_copy_seconds_within_baseline=clean_copy_seconds,
+                        terminal_snapshot_copy_seconds_post_baseline=capture['h5_snapshot_copy_seconds']-clean_copy_seconds,
+                        baseline_peak_gpu_memory_mb=batch_peak, baseline_case_elapsed_seconds=diagnostics['elapsed_seconds'])
+                    h5_path = case/'h5_capture.json'
+                    h5_path.write_text(json.dumps(h5, indent=2, sort_keys=True, allow_nan=False)+'\n')
+                    diagnostics['h5_capture'] = dict(file=h5_path.name, **source.file_identity(h5_path))
+                    (case/'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
                 shared.update_row(rows, config, corruption, start+2, correct, elapsed, peak, 'partial')
                 bundle.write_results(rows, 'running')
                 config.setdefault('completed_batches', {})[corruption] = batch+1
