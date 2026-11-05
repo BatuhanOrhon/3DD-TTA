@@ -22,6 +22,7 @@ sys.path.insert(0, str(REPO))
 from scripts import eval_multibackbone_guidance as shared
 from scripts import eval_multibackbone_source as source
 from research_artifacts import CORRUPTIONS
+from shared_trajectory import SharedTrajectoryObserver
 
 IDS = [44, 91, 103, 137, 158, 223, 236, 265]
 
@@ -43,7 +44,8 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--freeze-decoder-residual', action='store_true')
     parser.add_argument('--capture-h5', action='store_true')
     parser.add_argument('--capture-native-trace', action='store_true')
-    parser.add_argument('--count', type=int, choices=(2, 8), default=2)
+    parser.add_argument('--capture-shared-states', action='store_true')
+    parser.add_argument('--count', type=int, choices=(2, 4, 8), default=2)
     parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
     args = parser.parse_args(argv)
@@ -51,10 +53,14 @@ def configuration(argv=None) -> dict:
         raise ValueError('Operational control cannot use live decoded guidance options')
     if args.lowband_modes and args.freeze_decoder_residual:
         raise ValueError('Low-band halfmix requires full decoder derivatives')
+    if args.count == 4 and not args.capture_shared_states:
+        raise ValueError('Count4 requires the opt-in shared-state capture')
     if args.capture_h5 and (args.arm != 'control' or args.weight != 0):
         raise ValueError('H5 capture requires the zero-weight control arm')
     if args.capture_native_trace and (args.arm != 'control' or args.weight != 0 or args.capture_h5):
         raise ValueError('Native trace requires a separate zero-weight control arm without H5 capture')
+    if args.capture_shared_states and (args.arm != 'control' or args.weight != 0 or args.capture_h5 or args.capture_native_trace):
+        raise ValueError('Shared-state capture requires a separate zero-weight control arm without other captures')
     if args.freeze_decoder_residual and args.arm not in ('physical', 'live_control'):
         raise ValueError('Frozen decoder residual requires a physical or lightweight live-control arm')
     if args.native_decoder_audit and args.arm != 'diagnostic':
@@ -100,6 +106,118 @@ def configuration(argv=None) -> dict:
         config['physical_graph'].update(modes=args.lowband_modes, profile='hard', beta=None)
     config['half_mix_alpha'] = 2*args.weight if args.checkpoint_scd_weight == .5 else None
     return config
+
+
+def load_shared_state_rng(archive):
+    """Load numeric/JSON RNG arrays without pickle and verify their legacy hash."""
+    import torch
+    from legacy_trajectory import _rng_state_hash
+    metadata = json.loads(str(archive['rng_metadata'].item()))
+    py = metadata['python_rng']
+    state = ((py[0], tuple(py[1]), py[2]),
+        (metadata['numpy_rng'][0], archive['numpy_rng_keys'].copy(), *metadata['numpy_rng'][1:]),
+        torch.from_numpy(archive['torch_rng_cpu'].copy()),
+        [torch.from_numpy(archive['torch_rng_cuda_%d' % i].copy()) for i in range(metadata['cuda_devices'])])
+    if _rng_state_hash(state) != metadata['sha256']:
+        raise ValueError('Shared-state RNG hash mismatch')
+    return state
+
+
+class SharedStateObserver(SharedTrajectoryObserver):
+    """Reuse first/last PM decodes; save only detached CPU states and full RNG."""
+
+    def __init__(self, vae, heads, classify_decoded, horizon, *, directory, ids, center, scale, checkpoint_steps):
+        self.directory, self.ids = Path(directory), list(ids)
+        self.capture_steps = [checkpoint_steps[0], checkpoint_steps[-1]]
+        self.prior_loop, self.decoding_loop, self.paired_path = 0, None, None
+        self.captured_prior_steps = []
+        self.report = dict(schema_version=1, checkpoint_steps=self.capture_steps, original_ids=self.ids,
+            snapshots=[], completed_checkpoints=[], complete=False,
+            source={name: source.file_identity(REPO/name) for name in ('tta.py', 'scripts/diagnose_decoded_spectral.py')},
+            frame='Physical decoder frame: ((raw-center)/scale)*3.3885 then(-z,y,x)',
+            semantics='Prior conditioning is optimized; decoder style is original encoded z0; predicted_clean_latent includes all four channels per point',
+            production_decoder_branch='SharedTrajectoryObserver detached-clone inputs under no_grad; pre_decoder RNG is the actual state used inside isolated_probe',
+            extra_prior_forward_calls=0, extra_decoder_forward_calls=0, extra_classifier_forward_calls=0,
+            extra_backward_calls=0, limitation='CPU copying/serialization synchronizes and changes native scheduling/history; no CUDA noninterference or timing claim')
+        def classify_existing(decoded):
+            if self.decoding_loop is not None:
+                self._save('decoded', self.decoding_loop, self.decoding_timestep, dict(decoded_xyz=decoded))
+            return classify_decoded(decoded)
+        super().__init__(vae, heads, classify_existing, horizon, 40, checkpoint_steps=checkpoint_steps)
+        self._save('frame', 0, None, dict(normalization_center=center, normalization_scale=scale))
+
+    def _save(self, stage, loop_count, timestep, tensors, state=None):
+        import numpy as np
+        import torch
+        from legacy_trajectory import _rng_state_hash, rng_hash, tensor_hash
+        before, started, captured_at = rng_hash(), time.perf_counter(), time.time()
+        cpu = {name: value.detach().cpu().clone() for name, value in tensors.items()}
+        arrays = dict(index=np.asarray(self.ids, dtype=np.int64), **{key: value.numpy() for key, value in cpu.items()})
+        state_hash = None
+        if state is not None:
+            py, numpy_rng, torch_cpu, cuda = state
+            state_hash = _rng_state_hash(state)
+            metadata = dict(sha256=state_hash, python_rng=py, numpy_rng=[numpy_rng[0], *numpy_rng[2:]], cuda_devices=len(cuda))
+            arrays.update(rng_metadata=np.asarray(json.dumps(metadata)), numpy_rng_keys=numpy_rng[1].copy(),
+                          torch_rng_cpu=torch_cpu.cpu().numpy().copy())
+            arrays.update({'torch_rng_cuda_%d' % i: value.cpu().numpy().copy() for i, value in enumerate(cuda)})
+        path = self.directory/('shared_state_loop%02d_%s.npz' % (loop_count, stage))
+        with path.open('xb') as stream:
+            np.savez_compressed(stream, **arrays)
+        after = rng_hash()
+        self.report['snapshots'].append(dict(stage=stage, loop_count=loop_count, timestep=timestep,
+            file=path.name, identity=source.file_identity(path), rng_state_sha256=state_hash,
+            tensor_sha256={key: tensor_hash(value) for key, value in cpu.items()},
+            tensor_shapes={key: list(value.shape) for key, value in cpu.items()},
+            tensor_dtypes={key: str(value.dtype) for key, value in cpu.items()},
+            tensor_finite={key: bool(torch.isfinite(value).all()) for key, value in cpu.items()},
+            source_tensor_requires_grad={key: value.requires_grad for key, value in tensors.items()},
+            rng_before_sha256=before, rng_after_sha256=after, rng_unchanged=before == after,
+            capture_unix_seconds=captured_at, copy_and_serialization_seconds=time.perf_counter()-started))
+        self._write_report()
+        if before != after:
+            raise RuntimeError('Shared-state capture changed RNG; evidence retained')
+
+    def _write_report(self):
+        (self.directory/'shared_states.json').write_text(json.dumps(self.report, indent=2, allow_nan=False)+'\n')
+
+    def initial(self, **tensors):
+        super().initial(**tensors)
+        self.report['initial_hashes'] = dict(self.initial_hashes)
+        self.report['references'] = dict(reference=dict(file='reference.npz', **source.file_identity(self.directory/'reference.npz')))
+        if self.paired_path is not None:
+            self.report['references']['paired_state'] = dict(path=str(self.paired_path), **source.file_identity(self.paired_path))
+        self._write_report()
+
+    def capture_prior(self, module, args, kwargs):
+        from legacy_trajectory import _rng_state
+        self.prior_loop += 1
+        if self.prior_loop in self.capture_steps:
+            state = _rng_state()
+            self._save('pre_prior', self.prior_loop, int(kwargs['t'][0])-1,
+                dict(noisy_local=kwargs['x'], conditioning_style=kwargs['condition_input'], prior_t=kwargs['t']), state)
+            self.captured_prior_steps.append(self.prior_loop)
+
+    def clean(self, latent, style, loop_index, timestep):
+        from legacy_trajectory import _rng_state
+        count = loop_index+1
+        selected = count in self.capture_steps
+        if selected:
+            if count not in self.captured_prior_steps:
+                raise RuntimeError('Shared-state capture is missing its selected prior pre-hook')
+            self._save('pre_decoder', count, int(timestep),
+                dict(predicted_clean_latent=latent, original_decoder_style=style), _rng_state())
+            self.decoding_loop, self.decoding_timestep = count, int(timestep)
+        try:
+            result = super().clean(latent, style, loop_index, timestep)
+        finally:
+            self.decoding_loop = None
+        if selected:
+            self.report['completed_checkpoints'].append(count)
+            self.report['complete'] = self.report['completed_checkpoints'] == self.capture_steps
+            self.report.setdefault('paired_probe_hashes', []).append(dict(self.probes[-1]))
+            self._write_report()
+        return result
 
 
 class NativeVariationTrace:
@@ -341,10 +459,15 @@ def worker(directory: str) -> None:
     active_observer, active_directory = None, None
     started = time.monotonic()
     try:
+        if config['count'] == 4 and not config.get('capture_shared_states'):
+            raise ValueError('Count4 requires the opt-in shared-state capture')
         if config.get('capture_h5') and (config['arm'] != 'control' or config['weight'] != 0):
             raise ValueError('H5 capture requires the zero-weight control arm')
         if config.get('capture_native_trace') and (config['arm'] != 'control' or config['weight'] != 0 or config.get('capture_h5')):
             raise ValueError('Native trace requires a separate zero-weight control arm without H5 capture')
+        if config.get('capture_shared_states') and (config['arm'] != 'control' or config['weight'] != 0
+                or config.get('capture_h5') or config.get('capture_native_trace')):
+            raise ValueError('Shared-state capture requires a separate zero-weight control arm without other captures')
         config['runtime'] = apply_backend_policy(config.get('backend_policy', 'legacy'))
         if config.get('index_manifest'):
             selection, identity = read_index_manifest(bundle.path / 'selection_manifest.json',
@@ -420,8 +543,12 @@ def worker(directory: str) -> None:
                 target = None
                 graph_seconds, graph_peak_mib = 0., None
                 if config['arm'] == 'control':
-                    observer = SharedTrajectoryObserver(lion.vae, heads, classify, steps, 40,
-                                                        checkpoint_steps=checkpoints)
+                    if config.get('capture_shared_states'):
+                        observer = SharedStateObserver(lion.vae, heads, classify, steps, directory=case,
+                            ids=ids.tolist(), center=center, scale=scale, checkpoint_steps=checkpoints)
+                    else:
+                        observer = SharedTrajectoryObserver(lion.vae, heads, classify, steps, 40,
+                                                            checkpoint_steps=checkpoints)
                 else:
                     torch.cuda.reset_peak_memory_stats()
                     graph_started = time.monotonic()
@@ -543,8 +670,11 @@ def worker(directory: str) -> None:
                 def capture_prior(module, args, kwargs, output):
                     prior_inputs.update(x=kwargs['x'], condition_input=kwargs['condition_input'])
                 hook = lion.priors[1].register_forward_hook(capture_prior, with_kwargs=True)
+                state_hook = lion.priors[1].register_forward_pre_hook(observer.capture_prior, with_kwargs=True) if config.get('capture_shared_states') else None
                 ids_sha = hashlib.sha256(ids.tobytes()).hexdigest()
                 paired = Path(config['paired_state_root']) / config['dataset'] / corruption / (ids_sha + '.npz')
+                if config.get('capture_shared_states'):
+                    observer.paired_path = paired
                 state, recorder = shared.paired_preparation(paired, prepared)
                 def record_state(values):
                     record_reference(capture, case, prepared, values)
@@ -563,6 +693,8 @@ def worker(directory: str) -> None:
                         scheduler_observer=lambda value: scheduler.update(scheduler_record(value, steps)), **trace_options)
                 finally:
                     hook.remove()
+                    if state_hook is not None:
+                        state_hook.remove()
                 torch.cuda.synchronize()
                 reconstruction_seconds = time.monotonic() - batch_started
                 elapsed += reconstruction_seconds
@@ -595,6 +727,8 @@ def worker(directory: str) -> None:
                     scope='instrumented worker; common encode/noise preparation outside replay; graph-build temporaries excluded from reconstruction peak, resident graph included')
                 if config.get('capture_native_trace'):
                     diagnostics['native_trace'] = dict(file='native_trace.json', **source.file_identity(case/'native_trace.json'))
+                if config.get('capture_shared_states'):
+                    diagnostics['shared_states'] = dict(file='shared_states.json', **source.file_identity(case/'shared_states.json'))
                 (case / 'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
                 accumulated.append(payload)
                 correct += int((payload['prediction'] == payload['label']).sum())
