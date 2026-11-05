@@ -1,0 +1,47 @@
+{
+  "status": "closed_and_server_absence_verified",
+  "verified_utc": "2026-11-05T22:05:52.281053+00:00",
+  "session": "tta-gsd-h5-reliability-a100-20261105-r4",
+  "endpoint": "gpu-a100-hm-euw4a0-2rsp767om7kzr",
+  "owner": "/root GSD comprehensive diagnostics",
+  "user_authorization": "Devam et ve b\u00fct\u00fcn testlerini ve analizleri tamamlad\u0131ktan sonra GPU oturumunu kapat, drive iznini verdim",
+  "monitor": {
+    "exec_session": 53240,
+    "stop_utc": "2026-11-05T22:04:23.398126+00:00",
+    "exit_code": 0,
+    "runtime_teardown": false
+  },
+  "runtime_stop": {
+    "command": [
+      "colab",
+      "stop",
+      "-s",
+      "tta-gsd-h5-reliability-a100-20261105-r4"
+    ],
+    "exit_code": 0,
+    "output": "[colab] Session terminated."
+  },
+  "server_inventory": {
+    "command": [
+      "colab",
+      "sessions"
+    ],
+    "exit_code": 0,
+    "output": "[colab] No active sessions found on server.",
+    "own_endpoint_present": false
+  },
+  "peer_sessions_affected": [],
+  "own_research_workers_before_teardown": [],
+  "preclosure_shared_publication": "b8783f373fb9516d483904fb92a22cf181a00848",
+  "preclosure_scientific_raw_archives_verified": 18,
+  "final_derived_archive": {
+    "bytes": 3240045,
+    "sha256": "4356d319361ef3f86e0fd5702fb48d25d7405320235dd887cc7aef26603c1f0f",
+    "manifest_files_verified_after_actual_drive_roundtrip": 195
+  },
+  "tests": {
+    "passed": 807,
+    "skipped": 2
+  },
+  "limitation": "Closure evidence is a post-runtime local/Git receipt; scientific raw and derived archives were persisted and verified on Drive before teardown."
+}

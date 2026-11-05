@@ -1,0 +1,26 @@
+{
+  "status": "science_published_before_authorized_closure",
+  "source_branch": "research/gsd-h5-reliability-20261105",
+  "source_scientific_result_commit": "8722b25",
+  "source_backup_commit": "4402a61",
+  "target": "origin/thesis-integration",
+  "base": "0cfdc545067d4db4818669c10f6976ed1736c9dc",
+  "published_before_closure": "b8783f373fb9516d483904fb92a22cf181a00848",
+  "selected": [
+    "opt-in shared-state capture",
+    "native trace analyzer and object-cluster H5 analysis",
+    "same-state mechanism and eigenfree heat diagnostics",
+    "strict native-source and eigenspace validation repairs",
+    "posthoc frozen classifier readouts and CPU analysis",
+    "negative/unavailable results and compact raw/derived/test receipts"
+  ],
+  "excluded": [
+    "temporary setup/phase wrappers and unused standalone-comparison tests: retained in verified Drive/local evidence",
+    "large raw arrays, native ELF payload archives, checkpoints and datasets: retained in immutable Drive/local raw packages",
+    "CPU venv/caches and main-user checkout edits",
+    "peer lowband-halfmix GPU campaign: separate user hold and ownership"
+  ],
+  "peer_preservation": "Shared lowband sources/guards/tests/study remain preserved;807 clean-integration tests passed. Shared research history reconciled by adding current entries, never replacing peer whole files.",
+  "push": "Normal fast-forward; actual ls-remote matched b8783f3 before teardown",
+  "verification_receipt": "integration_validation.json"
+}
