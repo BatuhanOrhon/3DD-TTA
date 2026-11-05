@@ -1,0 +1,57 @@
+{
+  "code_integration": "ff66692",
+  "conflict_reconciliation": "Preserved peer lowband flags, conditional SCD coefficient and update probes. Added baseline-only trace rejection for decoded_scd_weight!=1 and merged rejection witnesses. Shared knowledge keeps current remote text and appends own entries.",
+  "excluded": {
+    "native_Gpu_results": "none yet; canonicalsetup3..10 and all science pending",
+    "peer_lowband": "existing published code/knowledge preserved; separate GPU user hold unchanged",
+    "temporary_wrappers_raw_streams_caches_weights": "retained locally; no raw or credentials published"
+  },
+  "runtime": {
+    "closure": "conditional authorization exists; completion unmet, runtime retained",
+    "kernel_research_work": "none",
+    "monitor": "stopped only locally for exclusive auth TTY; restart after mount",
+    "own": "tta-gsd-h5-reliability-a100-20261105-r4",
+    "state": "server assignment verified; sole drivemount CLI waiting human consent"
+  },
+  "selected_files": [
+    "knowledge/README.md",
+    "knowledge/evidence/h5_reliability_20261105/cpu_preparation.json",
+    "knowledge/findings_log.md",
+    "knowledge/gsd_comprehensive_test_matrix_20261105.md",
+    "knowledge/gsd_native_trace_implementation_20261105.md",
+    "knowledge/h5_capture_implementation_20261105.md",
+    "knowledge/h5_cpu_analysis_implementation_20261105.md",
+    "knowledge/h5_reliability_study_20261105.md",
+    "knowledge/open_questions.md",
+    "scripts/analyze_h5_reliability.py",
+    "scripts/diagnose_decoded_spectral.py",
+    "tests/test_diagnose_decoded_spectral.py",
+    "tests/test_h5_reliability_analysis.py",
+    "tests/test_native_variation_trace.py",
+    "tta.py"
+  ],
+  "source_branch": "research/gsd-h5-reliability-20261105",
+  "source_commits": [
+    "996806b",
+    "b766e61",
+    "bc3eda1",
+    "3b6f6cb"
+  ],
+  "status": "CPU_preparation_published; scientific GPU work blocked on new-VM human Drive consent",
+  "target": "origin/thesis-integration",
+  "target_base": "7fc231d",
+  "verification": {
+    "focused_merged_tests": 31,
+    "full_suite_tests": 528,
+    "independent_trace_tests": 40,
+    "log_sha256": "68a3e7c8619a80e6eb6dbf930837a8bc9e72c7cc5dc91ad8861a17f9da804b25",
+    "nonbaseline_trace_guard_red_green": "verified",
+    "passed": 527,
+    "python38_syntax": "passed",
+    "remote_ref": "actual ls-remote matches39a8d09",
+    "seconds": 51.971,
+    "skipped": 1,
+    "whitespace": "passed"
+  },
+  "verified_published_integration": "39a8d0928700f386fbe0354262b8fadefdaa1092"
+}
