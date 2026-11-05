@@ -51,7 +51,8 @@
     "active_graphs": 8,
     "loss_gradient_native_recount": true,
     "all_isolate_gradients_exact_zero": true,
-    "object_checkpoint_pairs_per_order": 32
+    "object_checkpoint_pairs_per_order": 32,
+    "batch_summed_loss_gates_independently_recounted": 48
   },
   "inputs": {
     "original_ids": [
@@ -572,5 +573,10 @@
     "Native numeric equivalence failed for all K, no whole-pipeline or trajectory advancement",
     "FP64 archived-operator replay diagnoses mismatch; it does not replace the declared GPU reference or gate",
     "Cold coefficient prep and warmed setup/loss scopes are component measurements; no end-to-end speed claim"
-  ]
+  ],
+  "batch_loss_recount": {
+    "path": "result/preparation/gsd_comprehensive_20261105/received_h4_v1/independent_v1/batch_loss_recount.json",
+    "bytes": 7077,
+    "sha256": "a83588a7a0ed10e2a3c5d2930a7abc4763540c3fa124f520d6897f98d6791925"
+  }
 }
