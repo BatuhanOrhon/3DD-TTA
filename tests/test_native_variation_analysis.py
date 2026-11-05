@@ -166,6 +166,23 @@ class NativeVariationAnalysisTests(unittest.TestCase):
                 analysis.analyze(['missing.zip']*6, output)
             self.assertEqual((output/'failure.json').read_bytes(), failure)
 
+    def test_producer_source_aliases_bind_bytes_and_reject_tamper_or_unsafe_paths(self):
+        analysis = self.analysis()
+        raw = b'value = 1\n'
+        with tempfile.TemporaryDirectory() as temporary:
+            bundle = analysis.accepted.open_bundle(self.bundle(Path(temporary), {'source_snapshot/probe.py': raw}, 'source.zip'))
+            try:
+                sources = {name: analysis.byte_identity(raw) for name in ('repo/probe.py', 'assets/source_snapshot/probe.py')}
+                analysis.verify_executed_sources(bundle, sources)
+                with self.assertRaisesRegex(ValueError, 'snapshot differs'):
+                    analysis.verify_executed_sources(bundle, {'repo/probe.py': analysis.byte_identity(b'tampered')})
+                for name in ('arbitrary/source_snapshot/probe.py', 'repo/../probe.py', 'repo//probe.py',
+                             'repo/a/./probe.py', 'repo/a\\probe.py', 'repo/C:probe.py', 'repo/'):
+                    with self.subTest(name=name), self.assertRaises(ValueError):
+                        analysis.verify_executed_sources(bundle, {name: analysis.byte_identity(raw)})
+            finally:
+                bundle.close()
+
 
 if __name__ == '__main__':
     unittest.main()

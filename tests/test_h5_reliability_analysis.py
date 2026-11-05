@@ -30,6 +30,33 @@ class H5AnalysisTests(unittest.TestCase):
         history = np.stack([reference+np.array([.1+t*.03, .2-t*.02, 0.]) for t in range(4)])
         return analysis, bands, reference, history
 
+    def test_native_float32_reversal_stays_in_existing_block_without_reordering(self):
+        analysis = self.analysis()
+        q = np.array([0., .9999, 1.1159626245498657, 1.1159625053405762, 2.1], np.float32)
+        original = q.copy()
+        diagnostic = dict(mean_active_degree=1., effective_boundary_atol=.0028)
+        bands = analysis.make_bands(q, diagnostic, dict(eigenspace_rtol=1e-5))
+        np.testing.assert_array_equal(q, original)
+        band = next(b for b in bands if 2 in b['mode_indices'])
+        self.assertIn([2, 4], band['repeated_blocks'])
+        self.assertEqual(band['mode_indices'], [2, 3])
+        for invalid in ([1.1159626, 1.1159625, .25], [0., .1, .6, .59999, .2]):
+            with self.subTest(invalid=invalid), self.assertRaisesRegex(ValueError, 'anchored eigenspace block'):
+                analysis.make_bands(np.asarray(invalid, np.float32), diagnostic, dict(eigenspace_rtol=1e-5))
+
+    def test_strictly_sorted_partitions_match_frozen_pre_fix_implementation(self):
+        import ast
+        import subprocess
+        analysis = self.analysis()
+        old = subprocess.check_output(['git', 'show', '72e0eb4:scripts/analyze_h5_reliability.py'],
+                                      cwd=FILE.parents[1], text=True)
+        node = next(n for n in ast.parse(old).body if isinstance(n, ast.FunctionDef) and n.name == 'make_bands')
+        namespace = dict(np=np, require=analysis.require, EDGES=analysis.EDGES)
+        exec(compile(ast.Module(body=[node], type_ignores=[]), '<frozen-before-native-data>', 'exec'), namespace)
+        diagnostic, config = dict(mean_active_degree=1., effective_boundary_atol=1e-6), dict(eigenspace_rtol=1e-5)
+        for q in (np.array([]), np.array([.24999999, .25000001, .6]), np.linspace(0., 5., 101)):
+            self.assertEqual(analysis.make_bands(q, diagnostic, config), namespace['make_bands'](q, diagnostic, config))
+
     def test_future_geometry_cannot_change_earlier_clean_free_features(self):
         analysis, bands, reference, history = self.fixture()
         before = analysis.clean_free_features(history, reference, np.arange(3), np.eye(3), bands)

@@ -39,6 +39,18 @@ class SharedProbeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             probe.band_bounds(torch.tensor([1., 0.]), 1, torch.eye(2), 1., config)
 
+    def test_native_tiny_reversals_keep_raw_order_but_material_tails_fail(self):
+        eps = torch.finfo(torch.float32).eps
+        q = torch.tensor([0., 1., 1.+2*eps, 1.-eps, 2.])
+        original = q.clone()
+        result = probe.band_bounds(q, 3, torch.eye(5), 1., SpectralConfig(modes=2))
+        self.assertEqual((result['low_rank'], result['high_start'], result['high_rank']), (3, 1, 4))
+        self.assertTrue(torch.equal(q, original))
+        for values in ([0., 1., 1.0000002, .99, 2.], [0., 1., 2., 1., 3.]):
+            bad = torch.tensor(values, dtype=torch.float64)
+            with self.subTest(values=values), self.assertRaisesRegex(ValueError, 'anchored eigenspace block'):
+                probe.band_bounds(bad, 3, torch.eye(5, dtype=bad.dtype), 1., SpectralConfig(modes=2))
+
     def test_rotation_sign_invariant_band_energy_and_deterministic_direction(self):
         indices = torch.arange(6)
         basis = torch.eye(6, dtype=torch.float64)

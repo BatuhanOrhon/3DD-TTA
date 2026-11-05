@@ -1,0 +1,2044 @@
+{
+  "status": "complete",
+  "summary_identity": {
+    "bytes": 1793516,
+    "sha256": "1901d993688c7d2720d32460ccd2b081fe2b338fe765db34bb39d13fa444e7db"
+  },
+  "raw_acceptance": {
+    "status": "six_h0_archives_accepted",
+    "receipt": {
+      "bytes": 14211,
+      "sha256": "77de212315e0dca23484a02082ed8c1175e595994682d6354f9165597ad34491"
+    },
+    "records": [
+      {
+        "stage": "h0-gaussian-0",
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-0.zip",
+        "identity": {
+          "bytes": 5462301,
+          "sha256": "547d2d3249b3ed804abdc70d36cd8af4e91e7613e75ae1409dc9657b616f671a"
+        },
+        "members": 145,
+        "manifest_files": 144,
+        "extracted_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/h0_native_trace_v1/extracted/h0-gaussian-0/20261105-211140_decoded-control-8aed642b"
+      },
+      {
+        "stage": "h0-gaussian-1",
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-1.zip",
+        "identity": {
+          "bytes": 5462122,
+          "sha256": "e7685b1e768f5980646241c43b41afb61916692c2332209d49f89c6eac10e3c0"
+        },
+        "members": 145,
+        "manifest_files": 144,
+        "extracted_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/h0_native_trace_v1/extracted/h0-gaussian-1/20261105-211209_decoded-control-8aed642b"
+      },
+      {
+        "stage": "h0-gaussian-2",
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-2.zip",
+        "identity": {
+          "bytes": 5462218,
+          "sha256": "60ac077260f8ebee514ca18a7e58659820390bcb9ce8c4fe29a74ff02f27bfd5"
+        },
+        "members": 145,
+        "manifest_files": 144,
+        "extracted_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/h0_native_trace_v1/extracted/h0-gaussian-2/20261105-211238_decoded-control-8aed642b"
+      },
+      {
+        "stage": "h0-background-0",
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-0.zip",
+        "identity": {
+          "bytes": 5950756,
+          "sha256": "8951fe58398814e2aa78dc4a12f9a7c4cd569f48c9154518836b0faec0eec9a1"
+        },
+        "members": 150,
+        "manifest_files": 149,
+        "extracted_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/h0_native_trace_v1/extracted/h0-background-0/20261105-211307_decoded-control-8aed642b"
+      },
+      {
+        "stage": "h0-background-1",
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-1.zip",
+        "identity": {
+          "bytes": 5950210,
+          "sha256": "d2ebf9695b6b0065c28d3d8d9c6185e9df31021cc9908f1f28fbfd2377ffc068"
+        },
+        "members": 150,
+        "manifest_files": 149,
+        "extracted_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/h0_native_trace_v1/extracted/h0-background-1/20261105-211340_decoded-control-8aed642b"
+      },
+      {
+        "stage": "h0-background-2",
+        "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-2.zip",
+        "identity": {
+          "bytes": 5950343,
+          "sha256": "5146289a6e83093559452ddabaca4cc57433e432642f34ee7dc845b253671e5c"
+        },
+        "members": 150,
+        "manifest_files": 149,
+        "extracted_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/h0_native_trace_v1/extracted/h0-background-2/20261105-211412_decoded-control-8aed642b"
+      }
+    ]
+  },
+  "source_alias_fix": {
+    "kind": "parent-approved source-alias validation-only repair",
+    "old_analyzer": {
+      "bytes": 20390,
+      "sha256": "cd08a60344f9f23723c099045b64ec2cc2695bb3cd819f0cc567e20d9806246c"
+    },
+    "new_analyzer": {
+      "bytes": 21000,
+      "sha256": "6a24a31edfdffbb645e5ea44b01e577e1c9b71ea5cf967de75e35cdbb205d97c"
+    },
+    "patch": {
+      "bytes": 4133,
+      "sha256": "ba9af4b4c8c336228f3333729d4649f8987d1d819e79250188764beec7eb66d6"
+    },
+    "preserved_failure": {
+      "bytes": 2413,
+      "sha256": "4c492b908dc5b549ccae084bf9b23e0c531f4d605913835b1589681422e0b3e6"
+    },
+    "tests": {
+      "count": 16,
+      "passed": true,
+      "elapsed_seconds": 0.363
+    },
+    "raw_producer_unchanged": true,
+    "comparison_gates_unchanged": true
+  },
+  "source_mapping": [
+    {
+      "archive": "h0-background-0.zip",
+      "source_keys": {
+        "asset_snapshot": 88,
+        "repo": 88
+      },
+      "verified": 176,
+      "examples": {
+        "asset_snapshot": {
+          "recorded_key": "assets/source_snapshot/chamfer_calibration_report.py",
+          "zip_member": "20261105-211307_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        },
+        "repo": {
+          "recorded_key": "repo/chamfer_calibration_report.py",
+          "zip_member": "20261105-211307_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        }
+      }
+    },
+    {
+      "archive": "h0-background-1.zip",
+      "source_keys": {
+        "asset_snapshot": 88,
+        "repo": 88
+      },
+      "verified": 176,
+      "examples": {
+        "asset_snapshot": {
+          "recorded_key": "assets/source_snapshot/chamfer_calibration_report.py",
+          "zip_member": "20261105-211340_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        },
+        "repo": {
+          "recorded_key": "repo/chamfer_calibration_report.py",
+          "zip_member": "20261105-211340_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        }
+      }
+    },
+    {
+      "archive": "h0-background-2.zip",
+      "source_keys": {
+        "asset_snapshot": 88,
+        "repo": 88
+      },
+      "verified": 176,
+      "examples": {
+        "asset_snapshot": {
+          "recorded_key": "assets/source_snapshot/chamfer_calibration_report.py",
+          "zip_member": "20261105-211412_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        },
+        "repo": {
+          "recorded_key": "repo/chamfer_calibration_report.py",
+          "zip_member": "20261105-211412_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        }
+      }
+    },
+    {
+      "archive": "h0-gaussian-0.zip",
+      "source_keys": {
+        "asset_snapshot": 88,
+        "repo": 88
+      },
+      "verified": 176,
+      "examples": {
+        "asset_snapshot": {
+          "recorded_key": "assets/source_snapshot/chamfer_calibration_report.py",
+          "zip_member": "20261105-211140_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        },
+        "repo": {
+          "recorded_key": "repo/chamfer_calibration_report.py",
+          "zip_member": "20261105-211140_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        }
+      }
+    },
+    {
+      "archive": "h0-gaussian-1.zip",
+      "source_keys": {
+        "asset_snapshot": 88,
+        "repo": 88
+      },
+      "verified": 176,
+      "examples": {
+        "asset_snapshot": {
+          "recorded_key": "assets/source_snapshot/chamfer_calibration_report.py",
+          "zip_member": "20261105-211209_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        },
+        "repo": {
+          "recorded_key": "repo/chamfer_calibration_report.py",
+          "zip_member": "20261105-211209_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        }
+      }
+    },
+    {
+      "archive": "h0-gaussian-2.zip",
+      "source_keys": {
+        "asset_snapshot": 88,
+        "repo": 88
+      },
+      "verified": 176,
+      "examples": {
+        "asset_snapshot": {
+          "recorded_key": "assets/source_snapshot/chamfer_calibration_report.py",
+          "zip_member": "20261105-211238_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        },
+        "repo": {
+          "recorded_key": "repo/chamfer_calibration_report.py",
+          "zip_member": "20261105-211238_decoded-control-8aed642b/source_snapshot/chamfer_calibration_report.py"
+        }
+      }
+    }
+  ],
+  "native_binding_checks": [
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-0.zip",
+      "native_bindings_checked": 8,
+      "models_frozen_before_after": true,
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      }
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-1.zip",
+      "native_bindings_checked": 8,
+      "models_frozen_before_after": true,
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      }
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-2.zip",
+      "native_bindings_checked": 8,
+      "models_frozen_before_after": true,
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      }
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-0.zip",
+      "native_bindings_checked": 8,
+      "models_frozen_before_after": true,
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      }
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-1.zip",
+      "native_bindings_checked": 8,
+      "models_frozen_before_after": true,
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      }
+    },
+    {
+      "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-2.zip",
+      "native_bindings_checked": 8,
+      "models_frozen_before_after": true,
+      "runtime": {
+        "backend_determinism_guaranteed": false,
+        "cuda": "12.1",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn": 8902,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": false,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "numpy": "1.21.2",
+        "torch": "2.1.2+cu121"
+      }
+    }
+  ],
+  "first_boundaries": [
+    {
+      "corruption": "gaussian",
+      "run_ids": [
+        "20261105-211140_decoded-control-8aed642b",
+        "20261105-211209_decoded-control-8aed642b"
+      ],
+      "earliest_numeric": {
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "timestep": 70,
+        "tensor": "noise_pred",
+        "original_ids": [
+          44,
+          91
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 15495,
+        "discrete_changed_count": null,
+        "max_absolute_difference": 1.9073486328125e-06,
+        "relative_l2": 4.213656785885097e-07,
+        "per_object_rms": [
+          1.817351306913051e-07,
+          1.7021143743541222e-07
+        ],
+        "changed_count_per_object": [
+          7833,
+          7662
+        ]
+      },
+      "earliest_candidate": {
+        "operator": "local_prior_forward",
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "outputs": [
+          "noise_pred"
+        ],
+        "inputs_bit_exact": true,
+        "rng_boundary_equal": true,
+        "exact_input_candidate": true,
+        "status": "EXACT_ARCHIVED_INPUT_CANDIDATE",
+        "input_references": [
+          {
+            "boundary": "prior_input",
+            "tensor": "noisy_local",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "b987fa939f3e6f7de78125450cf5d4dc44bcc9b401faecf40044098822eed576",
+              "b987fa939f3e6f7de78125450cf5d4dc44bcc9b401faecf40044098822eed576"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "conditioning_style",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc",
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_decoder_style",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc",
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_h0_xyz",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "0492d8cc82f82ad8f7d43227f35d31502c600af384508bc194260967276b61e6",
+              "0492d8cc82f82ad8f7d43227f35d31502c600af384508bc194260967276b61e6"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "prior_t",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "dab7d68894be68bf765015917729bd419f17f4bfe677e6ee00d47440c92fcd0e",
+              "dab7d68894be68bf765015917729bd419f17f4bfe677e6ee00d47440c92fcd0e"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          }
+        ],
+        "internal_activations_archived": false,
+        "input_archives": [
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-0.zip",
+            "bytes": 5462301,
+            "sha256": "547d2d3249b3ed804abdc70d36cd8af4e91e7613e75ae1409dc9657b616f671a"
+          },
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-1.zip",
+            "bytes": 5462122,
+            "sha256": "e7685b1e768f5980646241c43b41afb61916692c2332209d49f89c6eac10e3c0"
+          }
+        ]
+      },
+      "first_discrete": {
+        "loop_count": 1,
+        "boundary": "scd",
+        "timestep": 70,
+        "tensor": "retained_indices_1",
+        "original_ids": [
+          44,
+          91
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 6,
+        "discrete_changed_count": 6,
+        "max_absolute_difference": 446.0,
+        "relative_l2": 0.010083769491611883,
+        "per_object_rms": [
+          8.987451978126279,
+          14.301778701825508
+        ],
+        "changed_count_per_object": [
+          4,
+          2
+        ]
+      },
+      "old_native_gate": {
+        "passed": true,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "gaussian/0",
+            "original_ids": [
+              44,
+              91
+            ],
+            "logit_max_absolute": 5.8650970458984375e-05,
+            "logit_per_object_checkpoint_rms": [
+              [
+                3.6318015418795506e-06,
+                3.2532207473986027e-06,
+                2.638191569002635e-06,
+                2.6311431013581508e-05
+              ],
+              [
+                2.9719132305810966e-06,
+                3.4129197816931496e-06,
+                3.4402227941991802e-06,
+                4.03894867771933e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              1.1984456317622968e-07,
+              8.547195142158703e-08
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": true
+          }
+        ],
+        "logit_max_absolute": 5.8650970458984375e-05,
+        "logit_per_object_checkpoint_rms_max": 2.6311431013581508e-05
+      },
+      "all_trace_rng_equal": true
+    },
+    {
+      "corruption": "gaussian",
+      "run_ids": [
+        "20261105-211140_decoded-control-8aed642b",
+        "20261105-211238_decoded-control-8aed642b"
+      ],
+      "earliest_numeric": {
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "timestep": 70,
+        "tensor": "noise_pred",
+        "original_ids": [
+          44,
+          91
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 15500,
+        "discrete_changed_count": null,
+        "max_absolute_difference": 1.430511474609375e-06,
+        "relative_l2": 4.103893695746054e-07,
+        "per_object_rms": [
+          1.8690758156441912e-07,
+          1.5452222459073132e-07
+        ],
+        "changed_count_per_object": [
+          7856,
+          7644
+        ]
+      },
+      "earliest_candidate": {
+        "operator": "local_prior_forward",
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "outputs": [
+          "noise_pred"
+        ],
+        "inputs_bit_exact": true,
+        "rng_boundary_equal": true,
+        "exact_input_candidate": true,
+        "status": "EXACT_ARCHIVED_INPUT_CANDIDATE",
+        "input_references": [
+          {
+            "boundary": "prior_input",
+            "tensor": "noisy_local",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "b987fa939f3e6f7de78125450cf5d4dc44bcc9b401faecf40044098822eed576",
+              "b987fa939f3e6f7de78125450cf5d4dc44bcc9b401faecf40044098822eed576"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "conditioning_style",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc",
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_decoder_style",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc",
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_h0_xyz",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "0492d8cc82f82ad8f7d43227f35d31502c600af384508bc194260967276b61e6",
+              "0492d8cc82f82ad8f7d43227f35d31502c600af384508bc194260967276b61e6"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "prior_t",
+            "members": [
+              "20261105-211140_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "dab7d68894be68bf765015917729bd419f17f4bfe677e6ee00d47440c92fcd0e",
+              "dab7d68894be68bf765015917729bd419f17f4bfe677e6ee00d47440c92fcd0e"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          }
+        ],
+        "internal_activations_archived": false,
+        "input_archives": [
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-0.zip",
+            "bytes": 5462301,
+            "sha256": "547d2d3249b3ed804abdc70d36cd8af4e91e7613e75ae1409dc9657b616f671a"
+          },
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-2.zip",
+            "bytes": 5462218,
+            "sha256": "60ac077260f8ebee514ca18a7e58659820390bcb9ce8c4fe29a74ff02f27bfd5"
+          }
+        ]
+      },
+      "first_discrete": {
+        "loop_count": 1,
+        "boundary": "scd",
+        "timestep": 70,
+        "tensor": "retained_indices_1",
+        "original_ids": [
+          44,
+          91
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 4,
+        "discrete_changed_count": 4,
+        "max_absolute_difference": 446.0,
+        "relative_l2": 0.009588838533502984,
+        "per_object_rms": [
+          7.311223192861471,
+          14.301778701825508
+        ],
+        "changed_count_per_object": [
+          2,
+          2
+        ]
+      },
+      "old_native_gate": {
+        "passed": true,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "gaussian/0",
+            "original_ids": [
+              44,
+              91
+            ],
+            "logit_max_absolute": 5.8650970458984375e-05,
+            "logit_per_object_checkpoint_rms": [
+              [
+                3.2762906298565554e-06,
+                3.8033210775668956e-06,
+                4.17321378746967e-06,
+                2.5184211350823698e-05
+              ],
+              [
+                2.8649977116851543e-06,
+                2.7156850146986867e-06,
+                1.67193751155731e-06,
+                4.2049746218579145e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              9.209369593050653e-08,
+              8.98834954279621e-08
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": true
+          }
+        ],
+        "logit_max_absolute": 5.8650970458984375e-05,
+        "logit_per_object_checkpoint_rms_max": 2.5184211350823698e-05
+      },
+      "all_trace_rng_equal": true
+    },
+    {
+      "corruption": "gaussian",
+      "run_ids": [
+        "20261105-211209_decoded-control-8aed642b",
+        "20261105-211238_decoded-control-8aed642b"
+      ],
+      "earliest_numeric": {
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "timestep": 70,
+        "tensor": "noise_pred",
+        "original_ids": [
+          44,
+          91
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 15523,
+        "discrete_changed_count": null,
+        "max_absolute_difference": 2.2649765014648438e-06,
+        "relative_l2": 4.283752508872657e-07,
+        "per_object_rms": [
+          1.9671906194758355e-07,
+          1.5931456648956986e-07
+        ],
+        "changed_count_per_object": [
+          7864,
+          7659
+        ]
+      },
+      "earliest_candidate": {
+        "operator": "local_prior_forward",
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "outputs": [
+          "noise_pred"
+        ],
+        "inputs_bit_exact": true,
+        "rng_boundary_equal": true,
+        "exact_input_candidate": true,
+        "status": "EXACT_ARCHIVED_INPUT_CANDIDATE",
+        "input_references": [
+          {
+            "boundary": "prior_input",
+            "tensor": "noisy_local",
+            "members": [
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "b987fa939f3e6f7de78125450cf5d4dc44bcc9b401faecf40044098822eed576",
+              "b987fa939f3e6f7de78125450cf5d4dc44bcc9b401faecf40044098822eed576"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "conditioning_style",
+            "members": [
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc",
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_decoder_style",
+            "members": [
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc",
+              "5497052582eb230fdf362454ebdc9599b1f3b4115bf9961bfe8252197f0d65bc"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_h0_xyz",
+            "members": [
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "0492d8cc82f82ad8f7d43227f35d31502c600af384508bc194260967276b61e6",
+              "0492d8cc82f82ad8f7d43227f35d31502c600af384508bc194260967276b61e6"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "prior_t",
+            "members": [
+              "20261105-211209_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211238_decoded-control-8aed642b/batches/gaussian/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "dab7d68894be68bf765015917729bd419f17f4bfe677e6ee00d47440c92fcd0e",
+              "dab7d68894be68bf765015917729bd419f17f4bfe677e6ee00d47440c92fcd0e"
+            ],
+            "original_ids": [
+              44,
+              91
+            ]
+          }
+        ],
+        "internal_activations_archived": false,
+        "input_archives": [
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-1.zip",
+            "bytes": 5462122,
+            "sha256": "e7685b1e768f5980646241c43b41afb61916692c2332209d49f89c6eac10e3c0"
+          },
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-gaussian-2.zip",
+            "bytes": 5462218,
+            "sha256": "60ac077260f8ebee514ca18a7e58659820390bcb9ce8c4fe29a74ff02f27bfd5"
+          }
+        ]
+      },
+      "first_discrete": {
+        "loop_count": 1,
+        "boundary": "scd",
+        "timestep": 70,
+        "tensor": "retained_indices_1",
+        "original_ids": [
+          44,
+          91
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 2,
+        "discrete_changed_count": 2,
+        "max_absolute_difference": 163.0,
+        "relative_l2": 0.003120349778209318,
+        "per_object_rms": [
+          5.226883247528157,
+          0.0
+        ],
+        "changed_count_per_object": [
+          2,
+          0
+        ]
+      },
+      "old_native_gate": {
+        "passed": true,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "gaussian/0",
+            "original_ids": [
+              44,
+              91
+            ],
+            "logit_max_absolute": 1.6689300537109375e-05,
+            "logit_per_object_checkpoint_rms": [
+              [
+                5.716898025555406e-06,
+                4.11688908233269e-06,
+                2.2545363322957016e-06,
+                3.2369904650351207e-06
+              ],
+              [
+                1.0028271137967697e-06,
+                2.046039858152381e-06,
+                3.2068998767466224e-06,
+                1.4968733760201623e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              1.1806861197458592e-07,
+              8.04910284066278e-08
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": true
+          }
+        ],
+        "logit_max_absolute": 1.6689300537109375e-05,
+        "logit_per_object_checkpoint_rms_max": 5.716898025555406e-06
+      },
+      "all_trace_rng_equal": true
+    },
+    {
+      "corruption": "background",
+      "run_ids": [
+        "20261105-211307_decoded-control-8aed642b",
+        "20261105-211340_decoded-control-8aed642b"
+      ],
+      "earliest_numeric": {
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "timestep": 340,
+        "tensor": "noise_pred",
+        "original_ids": [
+          495,
+          512
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 14149,
+        "discrete_changed_count": null,
+        "max_absolute_difference": 1.2665987014770508e-06,
+        "relative_l2": 1.9703804420930925e-07,
+        "per_object_rms": [
+          1.6454296247246054e-07,
+          1.595843529646921e-07
+        ],
+        "changed_count_per_object": [
+          7014,
+          7135
+        ]
+      },
+      "earliest_candidate": {
+        "operator": "local_prior_forward",
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "outputs": [
+          "noise_pred"
+        ],
+        "inputs_bit_exact": true,
+        "rng_boundary_equal": true,
+        "exact_input_candidate": true,
+        "status": "EXACT_ARCHIVED_INPUT_CANDIDATE",
+        "input_references": [
+          {
+            "boundary": "prior_input",
+            "tensor": "noisy_local",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aa42348eb1230a23bf311b30ecaa54a911f200d56d8a8c56b8e048e062d92444",
+              "aa42348eb1230a23bf311b30ecaa54a911f200d56d8a8c56b8e048e062d92444"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "conditioning_style",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6",
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_decoder_style",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6",
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_h0_xyz",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "2d925545a26a1577b13574b7219721648212690ad81806c15d9822125e398653",
+              "2d925545a26a1577b13574b7219721648212690ad81806c15d9822125e398653"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "prior_t",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "2b1d4736ed17965e8fc13ef3bfe8fc4f3f137c2eb5e700a19d1ff52d62c1bb7a",
+              "2b1d4736ed17965e8fc13ef3bfe8fc4f3f137c2eb5e700a19d1ff52d62c1bb7a"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          }
+        ],
+        "internal_activations_archived": false,
+        "input_archives": [
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-0.zip",
+            "bytes": 5950756,
+            "sha256": "8951fe58398814e2aa78dc4a12f9a7c4cd569f48c9154518836b0faec0eec9a1"
+          },
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-1.zip",
+            "bytes": 5950210,
+            "sha256": "d2ebf9695b6b0065c28d3d8d9c6185e9df31021cc9908f1f28fbfd2377ffc068"
+          }
+        ]
+      },
+      "first_discrete": {
+        "loop_count": 1,
+        "boundary": "scd",
+        "timestep": 340,
+        "tensor": "retained_indices_1",
+        "original_ids": [
+          495,
+          512
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 8,
+        "discrete_changed_count": 8,
+        "max_absolute_difference": 1908.0,
+        "relative_l2": 0.04652798666148898,
+        "per_object_rms": [
+          30.074252582241552,
+          71.80413232553636
+        ],
+        "changed_count_per_object": [
+          4,
+          4
+        ]
+      },
+      "old_native_gate": {
+        "passed": false,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "background/0",
+            "original_ids": [
+              495,
+              512
+            ],
+            "logit_max_absolute": 2.6676158905029297,
+            "logit_per_object_checkpoint_rms": [
+              [
+                1.0863141481476304,
+                0.5102434463368716,
+                0.5935361361140763,
+                0.7829106162426057
+              ],
+              [
+                1.0812476269455302e-05,
+                6.29590768916846e-06,
+                4.970871928069293e-06,
+                3.707045341992291e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              0.03275267313381032,
+              4.768439362423022e-07
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": false
+          }
+        ],
+        "logit_max_absolute": 2.6676158905029297,
+        "logit_per_object_checkpoint_rms_max": 1.0863141481476304
+      },
+      "all_trace_rng_equal": true
+    },
+    {
+      "corruption": "background",
+      "run_ids": [
+        "20261105-211307_decoded-control-8aed642b",
+        "20261105-211412_decoded-control-8aed642b"
+      ],
+      "earliest_numeric": {
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "timestep": 340,
+        "tensor": "noise_pred",
+        "original_ids": [
+          495,
+          512
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 14094,
+        "discrete_changed_count": null,
+        "max_absolute_difference": 1.430511474609375e-06,
+        "relative_l2": 1.9983975964630824e-07,
+        "per_object_rms": [
+          1.704539149779673e-07,
+          1.5808806071591808e-07
+        ],
+        "changed_count_per_object": [
+          7041,
+          7053
+        ]
+      },
+      "earliest_candidate": {
+        "operator": "local_prior_forward",
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "outputs": [
+          "noise_pred"
+        ],
+        "inputs_bit_exact": true,
+        "rng_boundary_equal": true,
+        "exact_input_candidate": true,
+        "status": "EXACT_ARCHIVED_INPUT_CANDIDATE",
+        "input_references": [
+          {
+            "boundary": "prior_input",
+            "tensor": "noisy_local",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aa42348eb1230a23bf311b30ecaa54a911f200d56d8a8c56b8e048e062d92444",
+              "aa42348eb1230a23bf311b30ecaa54a911f200d56d8a8c56b8e048e062d92444"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "conditioning_style",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6",
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_decoder_style",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6",
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_h0_xyz",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "2d925545a26a1577b13574b7219721648212690ad81806c15d9822125e398653",
+              "2d925545a26a1577b13574b7219721648212690ad81806c15d9822125e398653"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "prior_t",
+            "members": [
+              "20261105-211307_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "2b1d4736ed17965e8fc13ef3bfe8fc4f3f137c2eb5e700a19d1ff52d62c1bb7a",
+              "2b1d4736ed17965e8fc13ef3bfe8fc4f3f137c2eb5e700a19d1ff52d62c1bb7a"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          }
+        ],
+        "internal_activations_archived": false,
+        "input_archives": [
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-0.zip",
+            "bytes": 5950756,
+            "sha256": "8951fe58398814e2aa78dc4a12f9a7c4cd569f48c9154518836b0faec0eec9a1"
+          },
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-2.zip",
+            "bytes": 5950343,
+            "sha256": "5146289a6e83093559452ddabaca4cc57433e432642f34ee7dc845b253671e5c"
+          }
+        ]
+      },
+      "first_discrete": {
+        "loop_count": 1,
+        "boundary": "scd",
+        "timestep": 340,
+        "tensor": "retained_indices_1",
+        "original_ids": [
+          495,
+          512
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 10,
+        "discrete_changed_count": 10,
+        "max_absolute_difference": 1908.0,
+        "relative_l2": 0.04493786272960954,
+        "per_object_rms": [
+          21.187011590930933,
+          72.14051555524007
+        ],
+        "changed_count_per_object": [
+          4,
+          6
+        ]
+      },
+      "old_native_gate": {
+        "passed": false,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "background/0",
+            "original_ids": [
+              495,
+              512
+            ],
+            "logit_max_absolute": 1.9683457612991333,
+            "logit_per_object_checkpoint_rms": [
+              [
+                0.8136622531600702,
+                0.8544537628234904,
+                0.5274480718845718,
+                0.6232768034364148
+              ],
+              [
+                1.0128871821238225e-05,
+                6.736970132581132e-06,
+                5.429466644479686e-06,
+                9.449930349716794e-05
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              0.031728054872993995,
+              3.9982751946540585e-07
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": false
+          }
+        ],
+        "logit_max_absolute": 1.9683457612991333,
+        "logit_per_object_checkpoint_rms_max": 0.8544537628234904
+      },
+      "all_trace_rng_equal": true
+    },
+    {
+      "corruption": "background",
+      "run_ids": [
+        "20261105-211340_decoded-control-8aed642b",
+        "20261105-211412_decoded-control-8aed642b"
+      ],
+      "earliest_numeric": {
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "timestep": 340,
+        "tensor": "noise_pred",
+        "original_ids": [
+          495,
+          512
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 14030,
+        "discrete_changed_count": null,
+        "max_absolute_difference": 1.430511474609375e-06,
+        "relative_l2": 1.9726549907083276e-07,
+        "per_object_rms": [
+          1.5471357419567547e-07,
+          1.6948935138477334e-07
+        ],
+        "changed_count_per_object": [
+          6875,
+          7155
+        ]
+      },
+      "earliest_candidate": {
+        "operator": "local_prior_forward",
+        "loop_count": 1,
+        "boundary": "scheduler",
+        "outputs": [
+          "noise_pred"
+        ],
+        "inputs_bit_exact": true,
+        "rng_boundary_equal": true,
+        "exact_input_candidate": true,
+        "status": "EXACT_ARCHIVED_INPUT_CANDIDATE",
+        "input_references": [
+          {
+            "boundary": "prior_input",
+            "tensor": "noisy_local",
+            "members": [
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aa42348eb1230a23bf311b30ecaa54a911f200d56d8a8c56b8e048e062d92444",
+              "aa42348eb1230a23bf311b30ecaa54a911f200d56d8a8c56b8e048e062d92444"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "conditioning_style",
+            "members": [
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6",
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_decoder_style",
+            "members": [
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6",
+              "aacdfbe6e651fd45238c535cd196b77e30854ee379278ef9db5ac307ebd97ac6"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "original_h0_xyz",
+            "members": [
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "2d925545a26a1577b13574b7219721648212690ad81806c15d9822125e398653",
+              "2d925545a26a1577b13574b7219721648212690ad81806c15d9822125e398653"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          },
+          {
+            "boundary": "prior_input",
+            "tensor": "prior_t",
+            "members": [
+              "20261105-211340_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz",
+              "20261105-211412_decoded-control-8aed642b/batches/background/batch0000/native_trace_loop01_prior_input.npz"
+            ],
+            "sha256": [
+              "2b1d4736ed17965e8fc13ef3bfe8fc4f3f137c2eb5e700a19d1ff52d62c1bb7a",
+              "2b1d4736ed17965e8fc13ef3bfe8fc4f3f137c2eb5e700a19d1ff52d62c1bb7a"
+            ],
+            "original_ids": [
+              495,
+              512
+            ]
+          }
+        ],
+        "internal_activations_archived": false,
+        "input_archives": [
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-1.zip",
+            "bytes": 5950210,
+            "sha256": "d2ebf9695b6b0065c28d3d8d9c6185e9df31021cc9908f1f28fbfd2377ffc068"
+          },
+          {
+            "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-guidance-math-audit-20261103/result/preparation/gsd_comprehensive_20261105/received_captures_v2/h0-background-2.zip",
+            "bytes": 5950343,
+            "sha256": "5146289a6e83093559452ddabaca4cc57433e432642f34ee7dc845b253671e5c"
+          }
+        ]
+      },
+      "first_discrete": {
+        "loop_count": 1,
+        "boundary": "scd",
+        "timestep": 340,
+        "tensor": "retained_indices_1",
+        "original_ids": [
+          495,
+          512
+        ],
+        "hash_equal": false,
+        "numeric_difference": true,
+        "changed_count": 6,
+        "discrete_changed_count": 6,
+        "max_absolute_difference": 678.0,
+        "relative_l2": 0.013865810894560895,
+        "per_object_rms": [
+          22.131297848816,
+          6.958488740574294
+        ],
+        "changed_count_per_object": [
+          4,
+          2
+        ]
+      },
+      "old_native_gate": {
+        "passed": false,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "background/0",
+            "original_ids": [
+              495,
+              512
+            ],
+            "logit_max_absolute": 1.9246038496494293,
+            "logit_per_object_checkpoint_rms": [
+              [
+                0.6269837951394445,
+                0.7350604965432346,
+                0.5861437999806218,
+                0.6299340262617034
+              ],
+              [
+                9.747369104509103e-06,
+                6.144690356161901e-06,
+                4.2150983967518275e-06,
+                9.276783338172078e-05
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              0.010184924338634526,
+              4.0661116448009356e-07
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": false
+          }
+        ],
+        "logit_max_absolute": 1.9246038496494293,
+        "logit_per_object_checkpoint_rms_max": 0.7350604965432346
+      },
+      "all_trace_rng_equal": true
+    }
+  ],
+  "discrete_routing": [
+    {
+      "corruption": "gaussian",
+      "run_ids": [
+        "20261105-211140_decoded-control-8aed642b",
+        "20261105-211209_decoded-control-8aed642b"
+      ],
+      "first_retained_order": {
+        "loop": 1,
+        "direction": 1,
+        "changed_per_object": [
+          4,
+          2
+        ]
+      },
+      "first_retained_membership": null,
+      "first_nn_assignment": null,
+      "gate": {
+        "passed": true,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "gaussian/0",
+            "original_ids": [
+              44,
+              91
+            ],
+            "logit_max_absolute": 5.8650970458984375e-05,
+            "logit_per_object_checkpoint_rms": [
+              [
+                3.6318015418795506e-06,
+                3.2532207473986027e-06,
+                2.638191569002635e-06,
+                2.6311431013581508e-05
+              ],
+              [
+                2.9719132305810966e-06,
+                3.4129197816931496e-06,
+                3.4402227941991802e-06,
+                4.03894867771933e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              1.1984456317622968e-07,
+              8.547195142158703e-08
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": true
+          }
+        ],
+        "logit_max_absolute": 5.8650970458984375e-05,
+        "logit_per_object_checkpoint_rms_max": 2.6311431013581508e-05
+      }
+    },
+    {
+      "corruption": "gaussian",
+      "run_ids": [
+        "20261105-211140_decoded-control-8aed642b",
+        "20261105-211238_decoded-control-8aed642b"
+      ],
+      "first_retained_order": {
+        "loop": 1,
+        "direction": 1,
+        "changed_per_object": [
+          2,
+          2
+        ]
+      },
+      "first_retained_membership": null,
+      "first_nn_assignment": null,
+      "gate": {
+        "passed": true,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "gaussian/0",
+            "original_ids": [
+              44,
+              91
+            ],
+            "logit_max_absolute": 5.8650970458984375e-05,
+            "logit_per_object_checkpoint_rms": [
+              [
+                3.2762906298565554e-06,
+                3.8033210775668956e-06,
+                4.17321378746967e-06,
+                2.5184211350823698e-05
+              ],
+              [
+                2.8649977116851543e-06,
+                2.7156850146986867e-06,
+                1.67193751155731e-06,
+                4.2049746218579145e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              9.209369593050653e-08,
+              8.98834954279621e-08
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": true
+          }
+        ],
+        "logit_max_absolute": 5.8650970458984375e-05,
+        "logit_per_object_checkpoint_rms_max": 2.5184211350823698e-05
+      }
+    },
+    {
+      "corruption": "gaussian",
+      "run_ids": [
+        "20261105-211209_decoded-control-8aed642b",
+        "20261105-211238_decoded-control-8aed642b"
+      ],
+      "first_retained_order": {
+        "loop": 1,
+        "direction": 1,
+        "changed_per_object": [
+          2,
+          0
+        ]
+      },
+      "first_retained_membership": null,
+      "first_nn_assignment": null,
+      "gate": {
+        "passed": true,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "gaussian/0",
+            "original_ids": [
+              44,
+              91
+            ],
+            "logit_max_absolute": 1.6689300537109375e-05,
+            "logit_per_object_checkpoint_rms": [
+              [
+                5.716898025555406e-06,
+                4.11688908233269e-06,
+                2.2545363322957016e-06,
+                3.2369904650351207e-06
+              ],
+              [
+                1.0028271137967697e-06,
+                2.046039858152381e-06,
+                3.2068998767466224e-06,
+                1.4968733760201623e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              1.1806861197458592e-07,
+              8.04910284066278e-08
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": true
+          }
+        ],
+        "logit_max_absolute": 1.6689300537109375e-05,
+        "logit_per_object_checkpoint_rms_max": 5.716898025555406e-06
+      }
+    },
+    {
+      "corruption": "background",
+      "run_ids": [
+        "20261105-211307_decoded-control-8aed642b",
+        "20261105-211340_decoded-control-8aed642b"
+      ],
+      "first_retained_order": {
+        "loop": 1,
+        "direction": 1,
+        "changed_per_object": [
+          4,
+          4
+        ]
+      },
+      "first_retained_membership": {
+        "loop": 5,
+        "direction": 1,
+        "symmetric_difference_per_object": [
+          2,
+          0
+        ]
+      },
+      "first_nn_assignment": {
+        "loop": 3,
+        "direction": 1,
+        "changed_per_object": [
+          1,
+          0
+        ]
+      },
+      "gate": {
+        "passed": false,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "background/0",
+            "original_ids": [
+              495,
+              512
+            ],
+            "logit_max_absolute": 2.6676158905029297,
+            "logit_per_object_checkpoint_rms": [
+              [
+                1.0863141481476304,
+                0.5102434463368716,
+                0.5935361361140763,
+                0.7829106162426057
+              ],
+              [
+                1.0812476269455302e-05,
+                6.29590768916846e-06,
+                4.970871928069293e-06,
+                3.707045341992291e-06
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              0.03275267313381032,
+              4.768439362423022e-07
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": false
+          }
+        ],
+        "logit_max_absolute": 2.6676158905029297,
+        "logit_per_object_checkpoint_rms_max": 1.0863141481476304
+      }
+    },
+    {
+      "corruption": "background",
+      "run_ids": [
+        "20261105-211307_decoded-control-8aed642b",
+        "20261105-211412_decoded-control-8aed642b"
+      ],
+      "first_retained_order": {
+        "loop": 1,
+        "direction": 1,
+        "changed_per_object": [
+          4,
+          6
+        ]
+      },
+      "first_retained_membership": {
+        "loop": 5,
+        "direction": 1,
+        "symmetric_difference_per_object": [
+          2,
+          0
+        ]
+      },
+      "first_nn_assignment": {
+        "loop": 3,
+        "direction": 1,
+        "changed_per_object": [
+          1,
+          0
+        ]
+      },
+      "gate": {
+        "passed": false,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "background/0",
+            "original_ids": [
+              495,
+              512
+            ],
+            "logit_max_absolute": 1.9683457612991333,
+            "logit_per_object_checkpoint_rms": [
+              [
+                0.8136622531600702,
+                0.8544537628234904,
+                0.5274480718845718,
+                0.6232768034364148
+              ],
+              [
+                1.0128871821238225e-05,
+                6.736970132581132e-06,
+                5.429466644479686e-06,
+                9.449930349716794e-05
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              0.031728054872993995,
+              3.9982751946540585e-07
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": false
+          }
+        ],
+        "logit_max_absolute": 1.9683457612991333,
+        "logit_per_object_checkpoint_rms_max": 0.8544537628234904
+      }
+    },
+    {
+      "corruption": "background",
+      "run_ids": [
+        "20261105-211340_decoded-control-8aed642b",
+        "20261105-211412_decoded-control-8aed642b"
+      ],
+      "first_retained_order": {
+        "loop": 1,
+        "direction": 1,
+        "changed_per_object": [
+          4,
+          2
+        ]
+      },
+      "first_retained_membership": {
+        "loop": 8,
+        "direction": 2,
+        "symmetric_difference_per_object": [
+          2,
+          0
+        ]
+      },
+      "first_nn_assignment": {
+        "loop": 7,
+        "direction": 2,
+        "changed_per_object": [
+          1,
+          0
+        ]
+      },
+      "gate": {
+        "passed": false,
+        "thresholds": {
+          "logit_max": 0.05,
+          "logit_per_object_checkpoint_rms": 0.01,
+          "first_decoded_per_object_rms": 0.0001
+        },
+        "cases": [
+          {
+            "case": "background/0",
+            "original_ids": [
+              495,
+              512
+            ],
+            "logit_max_absolute": 1.9246038496494293,
+            "logit_per_object_checkpoint_rms": [
+              [
+                0.6269837951394445,
+                0.7350604965432346,
+                0.5861437999806218,
+                0.6299340262617034
+              ],
+              [
+                9.747369104509103e-06,
+                6.144690356161901e-06,
+                4.2150983967518275e-06,
+                9.276783338172078e-05
+              ]
+            ],
+            "first_decoded_per_object_rms": [
+              0.010184924338634526,
+              4.0661116448009356e-07
+            ],
+            "pm_agreement": [
+              true,
+              true
+            ],
+            "terminal_agreement": [
+              true,
+              true
+            ],
+            "passed": false
+          }
+        ],
+        "logit_max_absolute": 1.9246038496494293,
+        "logit_per_object_checkpoint_rms_max": 0.7350604965432346
+      }
+    }
+  ],
+  "exact_rng": [
+    {
+      "corruption": "gaussian",
+      "local_cache": "result/preparation/gsd_zero_repeat_20261104/downloaded/paired_states/gaussian/bd581e2fbb144a9c3946f35d810d05b2f338a0d4cef9e2bf80f17ebc6da9f270.npz",
+      "remote_cache": "/content/studies/gsd-comprehensive-20261105/h0_paired_states/modelnet40_c/gaussian/bd581e2fbb144a9c3946f35d810d05b2f338a0d4cef9e2bf80f17ebc6da9f270.npz",
+      "identity": {
+        "bytes": 135233,
+        "sha256": "e15137161981feabbbf0a8bb49f3c3a3e9c4d5cc053ba05cb0dc16ddc43814d6"
+      },
+      "cuda_devices": 1,
+      "matched_full_numeric_rng_sha256": "b5444ec769d9a449ff2ca1541f1f71bf02f2d8b1268c0140b08f41d2fda55830"
+    },
+    {
+      "corruption": "background",
+      "local_cache": "result/preparation/gsd_zero_repeat_20261104/downloaded/paired_states/background/95eb2eb75e37358009b73c3935335a8dda9e73b3001dc54a242b0bfa984b7136.npz",
+      "remote_cache": "/content/studies/gsd-comprehensive-20261105/h0_paired_states/modelnet40_c/background/95eb2eb75e37358009b73c3935335a8dda9e73b3001dc54a242b0bfa984b7136.npz",
+      "identity": {
+        "bytes": 135046,
+        "sha256": "1a43e2bf9decc5d2dc07956a09b543b09517f9ca6e2389c9b4bcccc7010f43a8"
+      },
+      "cuda_devices": 1,
+      "matched_full_numeric_rng_sha256": "c09734fb9e598bb01174bada35435c7420219a0f9dbf7881c82190494e401314"
+    }
+  ],
+  "conclusion": "Allsixpairs first numeric/hashdifference at firstlocalprior noise_pred frombitexactrecordedinputs/RNG; no unique kernel identified. Supports separatelybounded localpriorforwardrepeat.",
+  "native_kernel_identified": false
+}

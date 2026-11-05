@@ -41,7 +41,7 @@ def tensor_hash(value):
 
 def make_bands(q, diagnostic, config):
     q = np.asarray(q, dtype=np.float64)
-    require(q.ndim == 1 and np.isfinite(q).all() and (q >= 0).all() and (np.diff(q) >= 0).all(), 'Invalid normalized eigenvalues')
+    require(q.ndim == 1 and np.isfinite(q).all() and (q >= 0).all(), 'Invalid normalized eigenvalues')
     mean_degree = float(diagnostic['mean_active_degree'])
     require(np.isfinite(mean_degree) and (not len(q) or mean_degree > 0), 'Active spectrum has no positive finite mean degree')
     atol = float(diagnostic['effective_boundary_atol'])/mean_degree if len(q) else 0.
@@ -55,6 +55,11 @@ def make_bands(q, diagnostic, config):
         tolerance = atol+rtol*abs(q[start])
         while end < len(q) and q[end]-q[start] <= tolerance:
             end += 1
+        # Native float32 eigensystems can have tiny reversals inside an already
+        # unresolved block. Preserve its archived order and original partition;
+        # reject backwards tails outside the same frozen anchor tolerance.
+        require((np.abs(q[start:end]-q[start]) <= tolerance).all(),
+                'Normalized eigenvalues leave their anchored eigenspace block')
         index = min(5, max(0, int(np.searchsorted(EDGES, q[start], side='right')-1)))
         bands[index]['mode_indices'].extend(range(start, end))
         bands[index]['repeated_blocks'].append([start, end])

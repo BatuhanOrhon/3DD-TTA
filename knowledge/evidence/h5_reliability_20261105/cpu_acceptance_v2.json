@@ -1,0 +1,529 @@
+{
+  "status": "complete_with_repeat_floor_failure",
+  "raw_package": {
+    "bytes": 1391073853,
+    "sha256": "ee58f23c92546858b7c82220e5c353f4aae68a6997df8e69289e3541dadbe105"
+  },
+  "gpu_source_commit": "b766e61f9339a0864abd0088887c4de0437bb60b",
+  "cpu_validation_fix": {
+    "kind": "parent-approved validation-only repair",
+    "old_cpu_analyzer": {
+      "bytes": 31234,
+      "sha256": "10c97d9e3ccb45b29cc6b0077da0160a64d99f88ce6e1c54a23573c62c279a19"
+    },
+    "new_cpu_analyzer": {
+      "bytes": 31589,
+      "sha256": "23893606655d3d84b14636915c097a06143ffb7e41cdb53e404e6b53739b3daa"
+    },
+    "diff": {
+      "bytes": 4204,
+      "sha256": "9f5b2724e206afd512a73c70ee68d746895170074a5f092241357b2167dd7f35"
+    },
+    "immutable_gpu_source": "b766e61",
+    "preserved_failure": {
+      "bytes": 3547,
+      "sha256": "70eae75fc919aa958833181688b9295cf86f297f177dd09b31aca23700cbb23b"
+    },
+    "focused_tests": {
+      "command": [
+        "result/preparation/gsd_comprehensive_20261105/cpu_venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_h5_reliability_analysis",
+        "tests.test_h5_reliability_bootstrap"
+      ],
+      "tests": 13,
+      "passed": true,
+      "elapsed_seconds": 0.981
+    },
+    "unchanged": "raw q/U order and hashes, original anchored partition/band assignment/edges/formulas/epsilon/all tolerances",
+    "utc_unix": 1793913489.522261
+  },
+  "analysis_summary": {
+    "bytes": 63915,
+    "sha256": "7f76e13827efc76986fb54467d43a3aa7a0ca778adb2057cc4371eaa35718451"
+  },
+  "bootstrap_summary": {
+    "bytes": 2365,
+    "sha256": "6f17da605e48fb8c863113323043f74e56fc51c52e89152c340389b44f1956fa"
+  },
+  "row_counts": {
+    "total": 2304,
+    "oracle_eligible": 1980,
+    "oracle_status": {
+      "BENEFIT": 1263,
+      "HARM": 717,
+      "UNAVAILABLE": 324
+    },
+    "spectral_status": {
+      "AVAILABLE": 1980,
+      "EMPTY_BAND_UNAVAILABLE": 324
+    },
+    "common_primary_rows": 1485
+  },
+  "primary_comparison": {
+    "common_eligible_rows": 1485,
+    "common_ordered_row_keys_sha256": "2a5377f2a34de592143573fd77dc1e8713938d53173cd003a4b3788bb567d40c",
+    "scores": {
+      "frequency_reliability": {
+        "n": 1485,
+        "spearman": -0.2773495710399919,
+        "auroc": 0.29984123018399567,
+        "positive": 977,
+        "negative": 508
+      },
+      "residual_reliability": {
+        "n": 1485,
+        "spearman": -0.4091635520239598,
+        "auroc": 0.2609244916545104,
+        "positive": 977,
+        "negative": 508
+      },
+      "combined_reliability": {
+        "n": 1485,
+        "spearman": -0.40109104012961394,
+        "auroc": 0.27134124227306794,
+        "positive": 977,
+        "negative": 508
+      }
+    },
+    "mask": "Same resolved oracle rows with all three frozen features available; first checkpoint excluded"
+  },
+  "primary_auc_ci95": {
+    "frequency_reliability": [
+      0.17131713946024787,
+      0.41909457078927365
+    ],
+    "residual_reliability": [
+      0.13126254047472763,
+      0.3706842273354581
+    ],
+    "combined_reliability": [
+      0.13762726169752598,
+      0.3860958846348457
+    ]
+  },
+  "bootstrap": {
+    "common_eligible_rows": 1485,
+    "common_ordered_row_keys_sha256": "2a5377f2a34de592143573fd77dc1e8713938d53173cd003a4b3788bb567d40c",
+    "mask": "Same resolved oracle rows with all three frozen features available; first checkpoint excluded",
+    "score_order": [
+      "frequency_reliability",
+      "residual_reliability",
+      "combined_reliability"
+    ],
+    "original_clusters": [
+      459,
+      545,
+      1229,
+      1435,
+      1441,
+      1557,
+      1881,
+      2095
+    ],
+    "cluster_eligible_row_counts": {
+      "459": 189,
+      "545": 189,
+      "1229": 180,
+      "1435": 180,
+      "1441": 189,
+      "1557": 180,
+      "1881": 180,
+      "2095": 198
+    },
+    "observed_auroc": {
+      "frequency_reliability": 0.29984123018399567,
+      "residual_reliability": 0.2609244916545104,
+      "combined_reliability": 0.27134124227306794
+    },
+    "bootstrap_repetitions": 2000,
+    "observed_paired_auroc_differences": {
+      "combined_minus_frequency": -0.028499987910927727,
+      "combined_minus_residual": 0.010416750618557513
+    },
+    "valid_replicates": 2000,
+    "invalid_replicates": 0,
+    "empty_replicates": 0,
+    "one_class_replicates": 0,
+    "combined_auroc_ci95": [
+      0.13762726169752598,
+      0.3860958846348457
+    ],
+    "paired_auroc_difference_ci95": {
+      "combined_minus_frequency": [
+        -0.06296309237921095,
+        0.006332243334316701
+      ],
+      "combined_minus_residual": [
+        0.005725597530288795,
+        0.017765889969961368
+      ]
+    },
+    "interval_semantics": "95percentile over defined whole-object draws; undefined/one-class draws remain NaN in raw NPZ and are counted, never assigned zero",
+    "statistic": "Nonlinear pooled AUROC recomputed after cluster duplication; no per-object mean-AUROC substitute",
+    "status": "complete",
+    "native_repeat_gates_all_passed": false,
+    "advanced": false,
+    "seed": 0,
+    "numpy_version": "1.26.4",
+    "advance_rule": "native repeat gates all passed AND combined AUROC lower95CI>.5 AND both combined-minus-baseline AUROC lower95CI>0; otherwise not advanced",
+    "interpretation": "Descriptive development evidence from eight historically exposed original-object clusters, not population or heldout confirmation",
+    "raw_values": {
+      "file": "bootstrap_values.npz",
+      "bytes": 186097,
+      "sha256": "7a57f448eb7e2320f57c54d3faf91f7af3d70c90074324a8d32a36752c79e75e"
+    },
+    "elapsed_seconds": 21.185606084065512,
+    "advance_status": "not_advanced"
+  },
+  "corruptions": {
+    "gaussian": {
+      "rows": 576,
+      "oracle_status": {
+        "BENEFIT": 353,
+        "HARM": 163,
+        "UNAVAILABLE": 60
+      },
+      "primary": {
+        "common_eligible_rows": 387,
+        "common_ordered_row_keys_sha256": "5f7b9eb186351c2f11517b17df47a803fd04d237eddef3fbf7540a15e22240f8",
+        "scores": {
+          "frequency_reliability": {
+            "n": 387,
+            "spearman": -0.3112676989955334,
+            "auroc": 0.25111892583120204,
+            "positive": 272,
+            "negative": 115
+          },
+          "residual_reliability": {
+            "n": 387,
+            "spearman": -0.32379237510087955,
+            "auroc": 0.25127877237851665,
+            "positive": 272,
+            "negative": 115
+          },
+          "combined_reliability": {
+            "n": 387,
+            "spearman": -0.3339871611244513,
+            "auroc": 0.2464833759590793,
+            "positive": 272,
+            "negative": 115
+          }
+        },
+        "mask": "Same resolved oracle rows with all three frozen features available; first checkpoint excluded"
+      }
+    },
+    "background": {
+      "rows": 576,
+      "oracle_status": {
+        "HARM": 122,
+        "BENEFIT": 358,
+        "UNAVAILABLE": 96
+      },
+      "primary": {
+        "common_eligible_rows": 360,
+        "common_ordered_row_keys_sha256": "a30a6b67359e313335d940b4505fdf3cac7207189df7ba0330525953022fe3fe",
+        "scores": {
+          "frequency_reliability": {
+            "n": 360,
+            "spearman": -0.45654723191044,
+            "auroc": 0.0,
+            "positive": 288,
+            "negative": 72
+          },
+          "residual_reliability": {
+            "n": 360,
+            "spearman": -0.5019066505142786,
+            "auroc": 0.0,
+            "positive": 288,
+            "negative": 72
+          },
+          "combined_reliability": {
+            "n": 360,
+            "spearman": -0.6668387358955957,
+            "auroc": 0.0,
+            "positive": 288,
+            "negative": 72
+          }
+        },
+        "mask": "Same resolved oracle rows with all three frozen features available; first checkpoint excluded"
+      }
+    },
+    "shear": {
+      "rows": 576,
+      "oracle_status": {
+        "HARM": 168,
+        "BENEFIT": 336,
+        "UNAVAILABLE": 72
+      },
+      "primary": {
+        "common_eligible_rows": 378,
+        "common_ordered_row_keys_sha256": "fac88f27960b95503da93757703aa820b08e942d7a0d3129e8d64c5693924ed9",
+        "scores": {
+          "frequency_reliability": {
+            "n": 378,
+            "spearman": -0.28290701888592307,
+            "auroc": 0.3540889526542324,
+            "positive": 255,
+            "negative": 123
+          },
+          "residual_reliability": {
+            "n": 378,
+            "spearman": -0.31372821519305005,
+            "auroc": 0.3357245337159254,
+            "positive": 255,
+            "negative": 123
+          },
+          "combined_reliability": {
+            "n": 378,
+            "spearman": -0.31385441457318447,
+            "auroc": 0.33314203730272596,
+            "positive": 255,
+            "negative": 123
+          }
+        },
+        "mask": "Same resolved oracle rows with all three frozen features available; first checkpoint excluded"
+      }
+    },
+    "lidar": {
+      "rows": 576,
+      "oracle_status": {
+        "HARM": 264,
+        "BENEFIT": 216,
+        "UNAVAILABLE": 96
+      },
+      "primary": {
+        "common_eligible_rows": 360,
+        "common_ordered_row_keys_sha256": "781846d65c9837d96034396cf803fe4ea6a7731f18295e4b29ab28c09b8c2712",
+        "scores": {
+          "frequency_reliability": {
+            "n": 360,
+            "spearman": -0.18860828784273692,
+            "auroc": 0.4031986531986532,
+            "positive": 162,
+            "negative": 198
+          },
+          "residual_reliability": {
+            "n": 360,
+            "spearman": -0.2461544199157915,
+            "auroc": 0.36924803591470257,
+            "positive": 162,
+            "negative": 198
+          },
+          "combined_reliability": {
+            "n": 360,
+            "spearman": -0.24418346849384123,
+            "auroc": 0.36784511784511786,
+            "positive": 162,
+            "negative": 198
+          }
+        },
+        "mask": "Same resolved oracle rows with all three frozen features available; first checkpoint excluded"
+      }
+    }
+  },
+  "native_floor": {
+    "gaussian": {
+      "pair_batch_cases": 12,
+      "passed": 10,
+      "failed": 2,
+      "worst_logit_max_absolute": 1.4019330739974976,
+      "worst_per_object_checkpoint_rms": 0.6519135444330375,
+      "worst_first_decoded_rms": 0.004250756614204741,
+      "pm_disagreement_objects": 0,
+      "terminal_disagreement_objects": 0
+    },
+    "background": {
+      "pair_batch_cases": 12,
+      "passed": 0,
+      "failed": 12,
+      "worst_logit_max_absolute": 4.939466118812561,
+      "worst_per_object_checkpoint_rms": 1.8972205693120072,
+      "worst_first_decoded_rms": 0.061055683466182065,
+      "pm_disagreement_objects": 4,
+      "terminal_disagreement_objects": 4
+    },
+    "shear": {
+      "pair_batch_cases": 12,
+      "passed": 10,
+      "failed": 2,
+      "worst_logit_max_absolute": 0.6415717601776123,
+      "worst_per_object_checkpoint_rms": 0.28353328552927065,
+      "worst_first_decoded_rms": 1.3421976138778013e-07,
+      "pm_disagreement_objects": 0,
+      "terminal_disagreement_objects": 0
+    },
+    "lidar": {
+      "pair_batch_cases": 12,
+      "passed": 7,
+      "failed": 5,
+      "worst_logit_max_absolute": 0.4497807025909424,
+      "worst_per_object_checkpoint_rms": 0.13672346951295067,
+      "worst_first_decoded_rms": 2.1754008902610964e-05,
+      "pm_disagreement_objects": 0,
+      "terminal_disagreement_objects": 0
+    }
+  },
+  "variation": {
+    "gaussian": {
+      "r": {
+        "rows": 48,
+        "available": 43,
+        "native_dominates": 0,
+        "unavailable": 5
+      },
+      "v": {
+        "rows": 48,
+        "available": 43,
+        "native_dominates": 0,
+        "unavailable": 5
+      },
+      "s": {
+        "rows": 48,
+        "available": 43,
+        "native_dominates": 0,
+        "unavailable": 5
+      }
+    },
+    "background": {
+      "r": {
+        "rows": 48,
+        "available": 40,
+        "native_dominates": 9,
+        "unavailable": 8
+      },
+      "v": {
+        "rows": 48,
+        "available": 40,
+        "native_dominates": 0,
+        "unavailable": 8
+      },
+      "s": {
+        "rows": 48,
+        "available": 40,
+        "native_dominates": 0,
+        "unavailable": 8
+      }
+    },
+    "shear": {
+      "r": {
+        "rows": 48,
+        "available": 42,
+        "native_dominates": 0,
+        "unavailable": 6
+      },
+      "v": {
+        "rows": 48,
+        "available": 42,
+        "native_dominates": 0,
+        "unavailable": 6
+      },
+      "s": {
+        "rows": 48,
+        "available": 42,
+        "native_dominates": 0,
+        "unavailable": 6
+      }
+    },
+    "lidar": {
+      "r": {
+        "rows": 48,
+        "available": 40,
+        "native_dominates": 0,
+        "unavailable": 8
+      },
+      "v": {
+        "rows": 48,
+        "available": 40,
+        "native_dominates": 0,
+        "unavailable": 8
+      },
+      "s": {
+        "rows": 48,
+        "available": 40,
+        "native_dominates": 0,
+        "unavailable": 8
+      }
+    }
+  },
+  "diagnostic_pm_counts": [
+    {
+      "run_id": "20261105-204833_decoded-control-8aed642b",
+      "counts": {
+        "gaussian": {
+          "pm_correct": 6,
+          "terminal_correct": 6,
+          "n": 8
+        },
+        "background": {
+          "pm_correct": 6,
+          "terminal_correct": 7,
+          "n": 8
+        },
+        "shear": {
+          "pm_correct": 7,
+          "terminal_correct": 6,
+          "n": 8
+        },
+        "lidar": {
+          "pm_correct": 4,
+          "terminal_correct": 4,
+          "n": 8
+        }
+      }
+    },
+    {
+      "run_id": "20261105-205051_decoded-control-8aed642b",
+      "counts": {
+        "gaussian": {
+          "pm_correct": 6,
+          "terminal_correct": 6,
+          "n": 8
+        },
+        "background": {
+          "pm_correct": 5,
+          "terminal_correct": 5,
+          "n": 8
+        },
+        "shear": {
+          "pm_correct": 7,
+          "terminal_correct": 6,
+          "n": 8
+        },
+        "lidar": {
+          "pm_correct": 4,
+          "terminal_correct": 4,
+          "n": 8
+        }
+      }
+    },
+    {
+      "run_id": "20261105-205310_decoded-control-8aed642b",
+      "counts": {
+        "gaussian": {
+          "pm_correct": 6,
+          "terminal_correct": 6,
+          "n": 8
+        },
+        "background": {
+          "pm_correct": 7,
+          "terminal_correct": 7,
+          "n": 8
+        },
+        "shear": {
+          "pm_correct": 7,
+          "terminal_correct": 6,
+          "n": 8
+        },
+        "lidar": {
+          "pm_correct": 4,
+          "terminal_correct": 4,
+          "n": 8
+        }
+      }
+    }
+  ],
+  "source_constraints": "GPUq/U/order/rawSHA unchanged; CPU anchoredblock validation-only fix; feature/band/epsilon/tolerance/scores/gates unchanged",
+  "limitation": "Eight exposed development clusters, no applied q, no accuracy gain or heldout confirmation; original failed analysis_v1 preserved"
+}

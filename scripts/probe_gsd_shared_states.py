@@ -75,11 +75,22 @@ def band_bounds(q: torch.Tensor, low_rank: int, normalized_laplacian: torch.Tens
         raise ValueError('Invalid spectrum/support/rank')
     if count == 0:
         return dict(low_rank=0, high_start=0, high_rank=0, high_boundary_tolerance=None, overlap_rank=0)
-    if mean_degree <= 0 or not math.isfinite(mean_degree) or not bool(torch.isfinite(q).all()) or bool((q[1:] < q[:-1]).any()):
+    if mean_degree <= 0 or not math.isfinite(mean_degree) or not bool(torch.isfinite(q).all()):
         raise ValueError('Invalid degree or ordered spectrum')
     norm = float(normalized_laplacian.abs().sum(1).max())
     atol = max(config.eigenspace_atol / mean_degree,
                2 * torch.finfo(q.dtype).eps * count * norm)
+    block_start = 0
+    while block_start < count:
+        block_end = block_start+1
+        anchor = q[block_start]
+        block_tolerance = atol + config.eigenspace_rtol * float(anchor.abs())
+        while block_end < count and bool(q[block_end]-anchor <= block_tolerance):
+            block_end += 1
+        # Preserve raw native order; only reversals inside the frozen anchored block are unresolved.
+        if not bool(((q[block_start:block_end]-anchor).abs() <= block_tolerance).all()):
+            raise ValueError('Normalized eigenvalues leave their anchored eigenspace block')
+        block_start = block_end
     start = max(0, count - config.modes)
     boundary = q[start]
     tolerance = atol + config.eigenspace_rtol * float(boundary.abs())

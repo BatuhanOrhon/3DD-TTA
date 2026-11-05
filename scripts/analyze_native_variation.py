@@ -8,7 +8,7 @@ import hashlib
 import importlib.util
 import itertools
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import re
 import sys
 import traceback
@@ -36,6 +36,21 @@ def tensor_sha(value):
 
 def byte_identity(raw):
     return dict(bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest())
+
+
+def verify_executed_sources(bundle, sources):
+    """Producer repo/assets aliases bind the same canonical sealed source bytes."""
+    for name, expected in sources.items():
+        prefix = next((p for p in ('assets/source_snapshot/', 'repo/') if name.startswith(p)), None)
+        require(prefix is not None, 'Unexpected executed source prefix')
+        relative = name[len(prefix):]
+        path = PurePosixPath(relative)
+        require(bool(path.parts) and not path.is_absolute() and '..' not in path.parts
+                and '.' not in path.parts and path.as_posix() == relative
+                and '\\' not in relative and ':' not in relative and '\x00' not in relative,
+                'Unsafe executed source relative path')
+        member = 'source_snapshot/'+relative
+        require(byte_identity(bundle.read(member)) == expected, 'Executed source snapshot differs: '+member)
 
 
 def field_shapes(boundary, n):
@@ -235,10 +250,7 @@ def analyze(paths, output):
                 if global_identity is None:
                     global_identity = common
                 require(common == global_identity, 'Cross-corruption source/native/model/backend identity differs')
-                for name, expected in config['executed_source_files'].items():
-                    require('source_snapshot/' in name, 'Unexpected executed source path')
-                    member = 'source_snapshot/'+name.split('source_snapshot/', 1)[1]
-                    require(byte_identity(bundle.read(member)) == expected, 'Executed source snapshot differs: '+member)
+                verify_executed_sources(bundle, config['executed_source_files'])
                 key, case = next(iter(run['cases'].items()))
                 prefix = 'batches/%s/batch0000/'%corruption
                 diagnostic = bundle.json(prefix+'diagnostics.json')
