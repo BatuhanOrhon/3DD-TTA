@@ -2688,3 +2688,16 @@ No new Colab or model operation; older live-runtime statements for reencode-r1 a
 
 [User report/Decision] Wait for the user's session-availability notice before
 any further allocation/setup/GPU work. Code preparation/publication continues.
+
+## 2026-11-05 — Remaining GSD mechanism campaign (own H5 runtime)
+
+- [x] Prepare/review opt-in H5 captures, frozen clean-free CPU features and posthoc set-oracle analysis; no fitted/applied reliability q.
+- [x] Prepare/review default-off prior/SCD/update boundary trace; preserve baseline/default equations and record timing/scheduling limitation.
+- [x] Reconcile comprehensive H1–H8 matrix and completed52condition spectral-z inventory; peer halfmix remains independently held.
+- [x] Recover own A10080GB after unexplained setup-only r3 loss; canonicalcell1/reconnect and Python3.8.20 proof.
+- [ ] Receive human new-VM Drive account consent, canonicalcell3–10/native/data/checkpoint proof and strictCPUdeployment. All task GPU phases already user-authorized.
+- [ ] Execute3H5captures and independent real-artifact acceptance/oracle/repeat-floor analysis; cluster by8originalobjects, no rowwise significance.
+- [ ] Sequential native trace/shared-state, graph/decoder transfer and eigenfree-heat technical tests; applied H2/H5/H6/H7 only if predeclared preceding gates survive. Mark blocked/unavailable distinctly from completed or falsified.
+- [ ] Verify all required raw/derived Drive/local archives, publish necessary accepted outcomes, then close only own runtime under latest conditional instruction.
+
+[Current status and exact next action](h5_reliability_study_20261105.md), [minimal remaining tests/gates](gsd_comprehensive_test_matrix_20261105.md). No new scientificGPU/accuracy evidence yet.

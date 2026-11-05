@@ -1,3 +1,12 @@
+**[Code/CPU/Run/Open] 2026-11-05 — H5 reliability prepared; new runtime Drive consent pending:**
+[Current H5 protocol/setup and next action](h5_reliability_study_20261105.md),
+[comprehensive H1–H8 remaining matrix](gsd_comprehensive_test_matrix_20261105.md).
+Frozen3-repeat diagnostics and separate baseline native trace pass CPU checks;
+actual scienceGPU/accuracy remains unrun. Ownr4 A10080GB is assigned after
+setup-only r3 loss; new Google Drive account consent gates canonicalcells3–10.
+All researchGPU phases are user-authorized, with own closure only after completed
+tests/verifiedarchives. Peer halfmix allocation/user-hold and prior results remain separate.
+
 **[Code/CPU/Open] 2026-11-05 — PM lowband halfmix CPU ready; Colab allocation blocked:**
 [Independent study and continuation](gsd_lowband_halfmix_study_20261105.md).
 Opt-in hard100/200, clean-PM-only half-SCD and label-free update-norm probes

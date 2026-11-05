@@ -1,0 +1,122 @@
+{
+  "CPU_verification": {
+    "H5_focused": 8,
+    "H5_skipped": 1,
+    "H5_suite": 517,
+    "independent_trace_tests": 40,
+    "native_execution": "not tested",
+    "operator_archive_glob_selfcheck": "passed",
+    "python38_syntax": "passed",
+    "trace_focused": 49,
+    "trace_skipped": 1,
+    "trace_suite": 521
+  },
+  "approval": "Latest user instruction preauthorizes all comprehensive task GPU phases and own closure after completed tests and verified archives. No GPU approval pending. Human Google Drive account consent remains required.",
+  "drive_backup": "pending valid mount/setup; no new scientific result exists",
+  "evidence_labels": [
+    "Code",
+    "CPU",
+    "Run setup",
+    "Open"
+  ],
+  "exclusions": [
+    "temporary wrappers/raw streams/operator ZIPs/native weights and caches are retained locally, not integrated",
+    "peer lowband halfmix GPU held by separate user instruction; no duplicate campaign",
+    "no H5 reliability guidance or new accuracy result claimed"
+  ],
+  "failure_history": {
+    "r1": "A100HighRAM allocation503",
+    "r2": "A100HighRAM allocation503",
+    "r3": "A100Standard40GB unexpectedly lost during setup4; no science capture, no agent teardown, cause unknown",
+    "r4_mount_adaptation": "Plain exec has no Drive-auth hook; corrected own-kernel restart interrupted only known pending setup mount; correct drivemount now waiting"
+  },
+  "initial_H5_overlay": {
+    "bytes": 693404,
+    "sha256": "99cd1bcf4e6a1101120c903468a03bcc73951287db99d80361aa965dc063ee57"
+  },
+  "initial_H5_source_commit": "b766e61f9339a0864abd0088887c4de0437bb60b",
+  "local_raw_path": "result/preparation/gsd_h5_reliability_20261105",
+  "operator_members": {
+    "collect_artifacts.py": {
+      "bytes": 4429,
+      "sha256": "540a444c22492c1cd95ca9ff89ead10849beb9a684e5c3e35ca6445d74e33d6a"
+    },
+    "deploy.py": {
+      "bytes": 4269,
+      "sha256": "d810f909435987c54298eb2932d25cc7f7abe74d9750256043ce111e166a9f5c"
+    },
+    "deploy_assets_template.py": {
+      "bytes": 14416,
+      "sha256": "67a2d88af85ad8d2995de03dc8310872b56e59fdfb0994eac08bf73c69a58d55"
+    },
+    "development_ids.json": {
+      "bytes": 6625,
+      "sha256": "9d39e53cb485552e45ba74131a31902d326783ce5d908bfb96ebcb1138f7e3d5"
+    },
+    "physical_source_overlay.zip": {
+      "bytes": 693404,
+      "sha256": "99cd1bcf4e6a1101120c903468a03bcc73951287db99d80361aa965dc063ee57"
+    },
+    "preflight.py": {
+      "bytes": 1974,
+      "sha256": "97eef8757779364c616ea848f9fc61d02c87a266240823482705c5fe64dd6707"
+    },
+    "research_phase.py": {
+      "bytes": 6176,
+      "sha256": "952fa0cc2da61f85071d47630066e56eba56cc478246600fade1c2de9a1cc563"
+    },
+    "source_receipt.json": {
+      "bytes": 47690,
+      "sha256": "0274a3ceb4cb5b0c78b0d1a7b77a2857bd70d0b9d3b1ffd2c3ed243465f08728"
+    }
+  },
+  "operator_package": {
+    "bytes": 694435,
+    "sha256": "482cf07da6bc9028fdf5b5f2ab00ebd3e4a71903ac8f4b37f77609e8aaec3f88"
+  },
+  "protocol": {
+    "applied_spectral_weight": 0,
+    "background_steps": 35,
+    "batch": 2,
+    "cap_minutes": 45,
+    "corruptions": [
+      "gaussian",
+      "background",
+      "shear",
+      "lidar"
+    ],
+    "estimate_minutes": [
+      15,
+      25
+    ],
+    "indices": [
+      459,
+      545,
+      1229,
+      1435,
+      1441,
+      1557,
+      1881,
+      2095
+    ],
+    "normal_steps": 8,
+    "repeats": 3,
+    "seed": 0
+  },
+  "runtime": {
+    "endpoint": "gpu-a100-hm-euw4a0-2rsp767om7kzr",
+    "hardware": "NVIDIA A100-SXM4-80GB",
+    "research_GPU_seconds": 0,
+    "session": "tta-gsd-h5-reliability-a100-20261105-r4",
+    "setup3_to10": "not complete",
+    "setup_cell2": "known fastrlock wheel failure only, explicitly deferred",
+    "setup_completed": [
+      "cell1",
+      "same_VM_reconnect",
+      "independent Python3.8.20 proof"
+    ],
+    "status": "server assigned; exclusive CLI Drive consent pending"
+  },
+  "schema_version": 1,
+  "status": "CPU_prepared_scientific_GPU_pending"
+}

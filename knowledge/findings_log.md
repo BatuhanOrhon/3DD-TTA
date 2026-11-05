@@ -8700,3 +8700,9 @@ bounded paired pilot, independent acceptance and Drive/local archives.
 [User report/Decision] User subsequently directs code preparation only until
 they report a free session. All new allocation/setup/GPU attempts are now
 held; no background retry queue or owned runtime/monitor exists.
+
+## 2026-11-05 — H5 reliability and baseline native trace CPU preparation; fresh runtime Drive gate
+
+[Code/CPU/Run/Open] H5 phase1 is frozen on8exposedmechanismIDs/fourcorruptions/3freshprocessrepeats/seed0/B2, no appliedq or new accuracy selection. Opt-in snapshots reuse4existingPMdecodes and archive actualGPU eigensystems after baseline timing; CPU analysis freezes common-basis features before clean-set oracle lookup and uses identical comparative row masks. H5 suite517tests/1skip; separate opt-in prior/SCD/update trace suite521tests/1skip, independent40focused tests. Native/actual archive validation remains unrun. [Protocol/current continuation](h5_reliability_study_20261105.md), [H1–H8 remaining matrix](gsd_comprehensive_test_matrix_20261105.md), [compact source/package/setup receipt](evidence/h5_reliability_20261105/cpu_preparation.json).
+
+[Run/Open] H5r3 disappeared during canonicalsetup4, causeunknown, no research capture or agent teardown. Recoveryr4HighRAM/A10080GB cell1/reconnect and Python3.8proof pass; cell2 solely known deferredfastrlock fails. CorrectCLI drvemount now waits new-VM human Google account consent; setup3–10/deployment/scienceGPU remain pending. No GPU research permission is missing: latest user explicitly authorizes comprehensive sequential tests and own-runtime closure only after tests/verifiedarchives. Ownedr4 remains assigned; peers untouched. Frozenoverlay693404bytes/SHA99cd1bcf…3ee57 and operator694435bytes/SHA482cf07d…ec3f88 are localprepared evidence, not Drive/GPU completion. Preserve accepted spectral-z/physical/H8null results and peer halfmix CPU/user-hold scope.
