@@ -2,6 +2,23 @@
 
 [Run/Decision] SCD katsayısı sabit tutulup spektral-z adımı ayrı kalibre ve tarandığında, seçilen aday için güvenilir genel accuracy artışı gösterilmedi. Mevcut SCD baseline korunur; bu spektral profil varsayılan hâle getirilmez. Bu sonuç, tüm spektral yöntemlerin zararlı olduğunu veya gerçek etkinin tam sıfır olduğunu kanıtlamaz.
 
+## Tamamlanan testlerin envanteri
+
+[Run record] Aşağıdaki tablo 1 Kasım çalışmasının kabul edilmiş faz kayıtlarını özetler. Koşul sayıları yeni deneme sayısı değildir; önceki kabul edilmiş kontrollerin yeniden kullanımını da içerir.
+
+| Faz | Testin içeriği | Kapsam | Kayıtlı koşul | Sonuç |
+|---|---|---|---:|---|
+| Teknik kabul | İki SCD tekrarı, style-off ve kappa=0 spektral kontrol; route/RNG/source ve küçük FD tanıkları | 32 development ID, Gaussian/Background, seed0 | 4 | Dört koşul kabul; kayıtlı yön/ölçeklerde 8/8 FD tanığı geçti |
+| Kalibrasyon | Her M için gradient normlarından label-free b_M; accuracy ile katsayı seçimi yapılmadı | 32 development ID, Gaussian/Background/rotation/lidar, üç durum, seed0 | 1 | Her M için 384 geçerli gözlem, 0 dışlama; b_M donduruldu |
+| A taraması | M={200,400,800,1200,1800} × rho={.1,.3,1,3}; iki kontrol; alpha_h=.03 | 64 development ID, all15, seed0 | 22 | 21 kabul; M800/rho3 sayısal olarak unavailable |
+| B ablasyonu | A’dan seçilen iki (M,rho) çifti için tamamlanmış .01/.05 local-step ve eşlenmiş kontrol koşulları; mevcut .03 sonuçları yeniden kullanıldı | Aynı 64 development ID, all15, seed0 | 8 | Sekiz koşul kabul; winner M400/rho1/alpha_h=.03 |
+| C doğrulaması | Dondurulmuş winner, standart SCD ve style-off; C_match=C_base olduğu için ortak kontrol bir kez çalıştırıldı | 128 development’ten ayrık ID, all15, seeds0/1/2 | 9 | Dokuz koşul kabul; her kolda 5760 olay; genel kazanç gösterilmedi |
+| Süre/bellek | İki kol için ayrı ısınma ve üç taze tekrar; encoder/graf hazırlığı ölçüme dahil | 32 ID, Gaussian/Background, B32, seed0 | 8 | İki ısınma + altı ölçüm koşulu; 128 ısınma ve 384 ölçüm olayı |
+
+Bu fazlar toplam **52 kayıtlı koşul** içerir: **51 kabul, 1 sayısal unavailable**. Eski C0 koşulunun 900 saniyede 58/60 batch’te duran ilk denemesi de saklandığı için aktif kampanyanın **53 slot ZIP’i** vardır. Unavailable adaya sıfır accuracy atanmadı. Bu kayıtlı kampanyada eksik kalmış bir planlı koşul yoktur; unavailable durum negatif kayıt olarak korunur.
+
+Ayrı native matematik denetimi iki sentetik B2/N32 durumunu (toplam dört graf) kapsar; bir accuracy adayı değildir ve 52 koşula eklenmez. Çalışma sırasında 163 CPU/37 NumPy1 fixture testi geçti; 232 fiziksel paired-state dosyası ve bütün başarılı ham koşullar NumPy1 ile bağımsız doğrulandı. Ayrıntılı doğruluk, maliyet, başarısız deneme ve sınır kayıtları aşağıda korunur.
+
 ## Eşlenmiş doğrulama accuracy’si
 
 ModelNet40-C severity5, frozen Point-MAE; 128 aşama-ayrık nesne, 15 bozulma ve seeds0/1/2. Her kolda5760 değerlendirme olayı var; bağımsız nesne sayısı128. Bütün kollarda alpha_h_local=.03. C: z/style için SCD eta=.003; Z0: style güncellemesi kapalı; aday: M400/rho1, kappa_z=19.769744597096295. C_base ve C_match aynı koşul olduğundan bir kez çalıştırıldı.

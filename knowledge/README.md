@@ -79,7 +79,7 @@ raw conditions,1unavailable candidate,232physical paired caches and native
 operator witnesses passed independent local NumPy1 acceptance;163CPU+37fixture
 tests passed in the clean publication checkout. Completed code/results pushed as e11626b to origin/thesis-integration before
 user-authorized r2 closure at22:42UTC. Own monitor/collector stopped.
-[Final results, protocol, math witnesses and limits](scdh_spectralz_results_20261101.md).
+[Completed test inventory, results, protocol, math witnesses and limits](scdh_spectralz_results_20261101.md).
 Earlier dated running/failed states below are historical and superseded here.
 
 **[Run/Inference] 2026-11-01 21:59UTC — SCD-h/smooth spectral-z confirmation complete, no established gain:**

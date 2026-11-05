@@ -8651,3 +8651,24 @@ All240physicalFhashtriplesmatch, but zero-control numericalgatefails45/240B2case
 [Run/Code/Decision/Open] User requests knowledge-only publication. Existing accepted original N3 and replay N3/5/8 results remain unchanged: same64exposed/all15/s5/seed0/Point-MAE; first PM60.520833%, second replay57.916667/56.562500/55.312500%, pooled59.895833/59.375000/59.479167. Prior original N3 PM58.020833 is retained separately. Clean-z MSE−5.140506% is a bridge/posthoc diagnostic, not an accuracy gain or further z cleaning by longer second chains. No baseline promotion/new experiment. Results were already integrated at f9cfa1e; final2,480,991-byte source/report capsule and60members were Drive-roundtrip verified onNov1, local SHA rechecked now.
 
 The previously unrecorded user-requested Nov1 kernel probe exited1/session-not-found; subsequent server inventory exited0/no-active-sessions. Expected marker absent; cause unknown, no runtime teardown command by this agent. Conversation-observed output is explicitly labelled as transcription in compact evidence, not reconstructed raw log. Earlier live-assignment statements are superseded for reencode-r1 only; unrelated later runtimes/closure records are preserved. [Results, final receipts and dated status](lion_reencode_depth_results_20261101.md). This publication selects knowledge/compact receipts only; source, tests, raw/cache/weights, user and peer edits excluded.
+
+### 2026-11-05 17:47UTC — tamamlanmış spectral-z testlerinin knowledge envanteri
+
+[Code/Run record] Kullanıcının knowledge yayın isteği üzerine 1 Kasım çalışmasının
+kapsamı mevcut origin/thesis-integration kayıtları ve arşivlenmiş faz kabul
+JSON’larıyla uzlaştırıldı. [Sonuç raporuna](scdh_spectralz_results_20261101.md)
+teknik4, kalibrasyon1, A22, B8, C9 ve timing8 koşullarının içerik/kapsam/kabul
+tablosu eklendi; README bağlantısı bu envanteri işaret ediyor. Toplam52 koşulda
+51 kabul/1unavailable, ayrıca eski başarısız C0 ile53slot ZIP ve232paired cache
+kaydı korunur. Development CSV30satır/1unavailable; confirmation CSV9satır ve
+SCD3778, spectral3777, off3772 doğru/5760 toplamları mevcut JSON ile doğrulandı.
+Yeni deney veya ölçüm yok; önceki null sonuç ve katsayı seçimi değişmedi.
+Özgün sonuç/kapanış yayını daf37a4 güncel geçmişte mevcut. İlk denetim tabanı
+9e18bc7; eşzamanlı reencode/handoff kayıtları içeren c41cbcd üzerine uzlaştırıldı.
+Bu takip işi
+`docs/scdh-spectralz-knowledge-sync-20261105` branch’inde yalnız knowledge
+Markdown dosyalarını kapsar; sonraki agent bulguları ve kullanıcı değişiklikleri
+korunur. Kontrol: faz sayıları/CSV-JSON tutarlılığı, yerel rapor bağlantıları,
+knowledge-only staged diff ve whitespace doğrulaması. Normal integration push
+kullanıcının mevcut talimatıyla yapılır.
+
