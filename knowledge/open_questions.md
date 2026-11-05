@@ -2667,3 +2667,24 @@ supersedes preceding pilot-pending gates.
 - [x] Link final Git/Drive publication receipt and record the subsequent session-not-found/empty-inventory probe without attributing a cause.
 - [ ] z-only/h-only/anchor/fixed-noise controls, entropy weighting and additional-seed/unseen confirmation remain unrun for this reencoding method.
 No new Colab or model operation; older live-runtime statements for reencode-r1 are historical.
+
+## 2026-11-05 — Lowband halfmix: CPU ready, Colab not allocated
+
+[Code/CPU/Open] [Study and resume contract](gsd_lowband_halfmix_study_20261105.md).
+- [x] Separate worktree/branch fromd5869c2; preserve peer H5 work.
+- [x] True hard100/200, whole eigenspace boundaries, every-batch basis archive,
+  prepared physical frame, full decoder gradient and clean-PM-only .5SCD.
+- [x] Actual local/style update-norm probes and fixed-alpha reducer;514CPUtests/
+  1skip, independent review68focused tests and isolated-graph self-check.
+- [x] Freeze4calibration/16pilot IDs excluding582previous stage IDs.
+- [ ] Allocate own A100: HighRAM503 and three Standard precondition refusals;
+  no owned runtime/monitor, no setup/scientificGPU. Preserve peers.
+- [ ] Canonical10/strictCPU/native FD/projection/frozen-state/fresh-process
+  numerical gates, complete24ratio/M calibration and frozen source/alpha manifest.
+- [ ] Five-arm all15/s5/seed0/B2 pilot, PM/terminal object-cluster analysis,
+  aliases, fresh timing/peaks, complete SHA-verified Drive/local raw archives.
+- [ ] Guidance accuracy/speed/repeatability remain unmeasured. Prior Background
+  instability is unresolved; CPU passes do not establish native equivalence.
+
+[User report/Decision] Wait for the user's session-availability notice before
+any further allocation/setup/GPU work. Code preparation/publication continues.

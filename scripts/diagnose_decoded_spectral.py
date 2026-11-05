@@ -36,12 +36,19 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--index-manifest-sha256')
     parser.add_argument('--arm', choices=('control', 'live_control', 'diagnostic', 'physical'), default='diagnostic')
     parser.add_argument('--weight', type=float, default=0.)
+    parser.add_argument('--lowband-modes', type=int, choices=(100, 200))
+    parser.add_argument('--checkpoint-scd-weight', type=float, choices=(.5, 1.), default=1.)
+    parser.add_argument('--update-norm-probes', action='store_true')
     parser.add_argument('--native-decoder-audit', action='store_true')
     parser.add_argument('--freeze-decoder-residual', action='store_true')
     parser.add_argument('--count', type=int, choices=(2, 8), default=2)
     parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
     args = parser.parse_args(argv)
+    if args.arm == 'control' and (args.checkpoint_scd_weight != 1 or args.update_norm_probes or args.lowband_modes):
+        raise ValueError('Operational control cannot use live decoded guidance options')
+    if args.lowband_modes and args.freeze_decoder_residual:
+        raise ValueError('Low-band halfmix requires full decoder derivatives')
     if args.freeze_decoder_residual and args.arm not in ('physical', 'live_control'):
         raise ValueError('Frozen decoder residual requires a physical or lightweight live-control arm')
     if args.native_decoder_audit and args.arm != 'diagnostic':
@@ -83,6 +90,9 @@ def configuration(argv=None) -> dict:
         selection, identity = read_index_manifest(Path(config['index_manifest']), args.index_manifest_sha256, args.count)
         config.update(selected_original_ids=selection['indices'], selection_manifest=selection,
                       selection_manifest_identity=identity)
+    if args.lowband_modes:
+        config['physical_graph'].update(modes=args.lowband_modes, profile='hard', beta=None)
+    config['half_mix_alpha'] = 2*args.weight if args.checkpoint_scd_weight == .5 else None
     return config
 
 
@@ -249,6 +259,7 @@ def worker(directory: str) -> None:
         for corruption, values in arrays.items():
             accumulated, correct, elapsed, peak = [], 0, 0., 0.
             for batch, start in enumerate(range(0, config['count'], 2)):
+                case_started = time.monotonic()
                 ids = np.asarray(config['selected_original_ids'][start:start+2], dtype=np.int64)
                 # Each case has the same pre-preparation boundary regardless of arm/order.
                 before_rng = shared.seed_inference(0)
@@ -257,6 +268,8 @@ def worker(directory: str) -> None:
                 normalized, center, scale = ops.normalize(raw)
                 prepared = torch.from_numpy(ops.upsample_all(normalized.numpy(), 2048)).float().cuda()
                 prepared = ops.rotate_pointcloud(prepared * 3.3885)
+                torch.cuda.synchronize()
+                preprocessing_seconds = time.monotonic() - case_started
                 if prepared.shape != (2, 2048, 3) or not torch.isfinite(prepared).all():
                     raise ValueError('Expected finite prepared B2 x 2048 x 3')
                 steps = 35 if corruption == 'background' else 8
@@ -273,12 +286,21 @@ def worker(directory: str) -> None:
                     geometry = shared.decoded_to_geometry(decoded, config['dataset'], scale, center, ops)
                     return shared.classify_geometry(geometry, heads, {'pointmae': config}, fps)[0]
                 target = None
+                graph_seconds, graph_peak_mib = 0., None
                 if config['arm'] == 'control':
                     observer = SharedTrajectoryObserver(lion.vae, heads, classify, steps, 40,
                                                         checkpoint_steps=checkpoints)
                 else:
+                    torch.cuda.reset_peak_memory_stats()
+                    graph_started = time.monotonic()
                     graph_rng = rng_hash()
-                    target = build_smooth_spectral_target(prepared, SpectralConfig(), profile='smooth', beta=2.)
+                    graph_config = config['physical_graph']
+                    target = build_smooth_spectral_target(prepared, SpectralConfig(modes=graph_config['modes']),
+                        profile=graph_config['profile'], beta=graph_config['beta'],
+                        retain_bases=config['lowband_modes'] is not None)
+                    torch.cuda.synchronize()
+                    graph_seconds = time.monotonic() - graph_started
+                    graph_peak_mib = torch.cuda.max_memory_allocated()/1024**2
                     if rng_hash() != graph_rng:
                         raise RuntimeError('Physical graph advanced RNG')
                     class DiagnosticObserver(DecodedSpectralObserver):
@@ -371,10 +393,17 @@ def worker(directory: str) -> None:
                     observer_class = DiagnosticObserver if config['arm'] == 'diagnostic' else DecodedSpectralObserver
                     observer = observer_class(lion.vae, heads, classify, steps, target=target,
                         checkpoint_steps=checkpoints, record_gradients=config['arm'] == 'diagnostic',
-                        freeze_decoder_residual=config['freeze_decoder_residual'])
+                        freeze_decoder_residual=config['freeze_decoder_residual'],
+                        record_updates=config['update_norm_probes'])
                     filter_hashes = [tensor_hash(value) for value in target.filters]
+                    if target.bases:
+                        np.savez_compressed(case / 'physical_bases.npz',
+                            **{'basis_%d' % i: value.cpu().numpy() for i, value in enumerate(target.bases)})
                     (case / 'graph.json').write_text(json.dumps(dict(diagnostics=target.diagnostics,
-                        reference_xyz_sha256=tensor_hash(target.reference_xyz), filter_sha256=filter_hashes), indent=2) + '\n')
+                        reference_xyz_sha256=tensor_hash(target.reference_xyz), filter_sha256=filter_hashes,
+                        basis_sha256=[tensor_hash(value) for value in target.bases],
+                        active_vertex_indices=[(value.diagonal() > 0).nonzero().flatten().cpu().tolist()
+                                               for value in target.filters]), indent=2) + '\n')
                     if not saved_filters:
                         np.savez_compressed(case / 'physical_filters.npz', filters=torch.stack(target.filters).cpu().numpy())
                         saved_filters = True
@@ -397,15 +426,20 @@ def worker(directory: str) -> None:
                     decoded = reconstruct(prepared, lion, steps, **config['guidance_protocol'],
                         prepared_state=state, state_observer=record_state, trajectory_observer=observer,
                         decoded_spectral_weight=config['weight'],
+                        decoded_scd_weight=config['checkpoint_scd_weight'],
                         scheduler_observer=lambda value: scheduler.update(scheduler_record(value, steps)))
                 finally:
                     hook.remove()
                 torch.cuda.synchronize()
-                elapsed += time.monotonic() - batch_started
+                reconstruction_seconds = time.monotonic() - batch_started
+                elapsed += reconstruction_seconds
                 after_rng = rng_hash()
+                terminal_started = time.monotonic()
                 geometry = shared.decoded_to_geometry(decoded.detach(), config['dataset'], scale, center, ops)
                 record_terminal_geometry(case, ids, raw_original, center, scale, decoded, geometry)
                 logits, head_record = shared.classify_geometry(geometry, heads, {'pointmae': config}, fps)
+                torch.cuda.synchronize()
+                terminal_head_seconds = time.monotonic() - terminal_started
                 if rng_hash() != after_rng:
                     raise RuntimeError('Terminal geometry/classifier changed reconstruction RNG')
                 observer.terminal(logits)
@@ -421,6 +455,11 @@ def worker(directory: str) -> None:
                                    paired_state=dict(path=str(paired), **source.file_identity(paired)),
                                    terminal_geometry=dict(file='terminal_geometry.npz', **source.file_identity(case / 'terminal_geometry.npz')),
                                    head=head_record, elapsed_seconds=time.monotonic()-batch_started)
+                diagnostics['timing'] = dict(preprocessing_seconds=preprocessing_seconds,
+                    graph_build_seconds=graph_seconds, graph_peak_allocated_mib=graph_peak_mib,
+                    reconstruction_pm_seconds=reconstruction_seconds, terminal_geometry_head_io_seconds=terminal_head_seconds,
+                    case_wall_before_drive_copy_seconds=time.monotonic()-case_started,
+                    scope='instrumented worker; common encode/noise preparation outside replay; graph-build temporaries excluded from reconstruction peak, resident graph included')
                 (case / 'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
                 accumulated.append(payload)
                 correct += int((payload['prediction'] == payload['label']).sum())

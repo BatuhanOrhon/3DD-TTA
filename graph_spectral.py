@@ -84,6 +84,7 @@ class SmoothSpectralTarget:
     reference_xyz: torch.Tensor
     filters: Tuple[torch.Tensor, ...]
     diagnostics: List[dict]
+    bases: Tuple[torch.Tensor, ...] = ()
 
     def loss(self, pred_xyz: torch.Tensor) -> torch.Tensor:
         """Sum <E,F E>/(3*N); gradients flow only through the prediction."""
@@ -107,6 +108,7 @@ class SmoothSpectralTarget:
 def _sample_target(reference: torch.Tensor, config: SpectralConfig, *,
                    profile: str | None = None, beta: float | None = None,
                    spectrum_parts: list | None = None,
+                   basis_parts: list | None = None,
                    ) -> Tuple[torch.Tensor, dict]:
     started = time.perf_counter()
     count = reference.shape[0]
@@ -218,6 +220,10 @@ def _sample_target(reference: torch.Tensor, config: SpectralConfig, *,
                 # Diagnostic probes retain one eigensystem, not four dense filters.
                 spectrum_parts.append((active_indices, eigenvectors.detach(),
                                        scaled_eigenvalues.detach(), rank))
+            elif basis_parts is not None:
+                # The opt-in hard operator is reconstructible from archived N x rank bytes.
+                spectral_filter = basis @ basis.transpose(0, 1)
+                target_tensor = (spectral_filter + spectral_filter.transpose(0, 1)) * 0.5
             else:
                 active_filter = (eigenvectors * weights.unsqueeze(0)) @ eigenvectors.transpose(0, 1)
                 active_filter = (active_filter + active_filter.transpose(0, 1)) * 0.5
@@ -278,6 +284,10 @@ def _sample_target(reference: torch.Tensor, config: SpectralConfig, *,
             operator_storage_bytes=target_tensor.numel() * target_tensor.element_size(),
             spectral_profile=profile,
             spectral_beta=float(beta) if beta is not None else None)
+    if basis_parts is not None:
+        basis_parts.append(basis.detach())
+        diagnostics['retained_basis_storage_bytes'] = basis.numel() * basis.element_size()
+        diagnostics['hard_operator_construction'] = 'symmetrized selected-basis product; full eigh setup retained'
     return target_tensor.detach(), diagnostics
 
 
@@ -369,7 +379,7 @@ def build_spectral_target(reference_xyz: torch.Tensor, config: SpectralConfig) -
 
 @torch.no_grad()
 def build_smooth_spectral_target(reference_xyz: torch.Tensor, config: SpectralConfig,
-                                 *, profile: str, beta: float | None = None
+                                 *, profile: str, beta: float | None = None, retain_bases: bool = False
                                  ) -> SmoothSpectralTarget:
     """Build v2 hard/smooth filters, normalized over the original point count.
 
@@ -382,6 +392,8 @@ def build_smooth_spectral_target(reference_xyz: torch.Tensor, config: SpectralCo
         raise TypeError("config must be SpectralConfig")
     if profile not in ("hard", "smooth"):
         raise ValueError("profile must be 'hard' or 'smooth'")
+    if type(retain_bases) is not bool or (retain_bases and profile != 'hard'):
+        raise ValueError('retain_bases requires the hard spectral profile')
     if profile == "smooth" and (beta is None or isinstance(beta, bool) or
                                  not isinstance(beta, (int, float)) or
                                  not math.isfinite(beta) or beta <= 0):
@@ -395,9 +407,10 @@ def build_smooth_spectral_target(reference_xyz: torch.Tensor, config: SpectralCo
         raise ValueError("2 * delta squared must be finite and positive in the reference dtype")
     reference = reference_xyz.detach().clone()
     filters, diagnostics = [], []
+    bases = [] if retain_bases else None
     for sample in reference:
         spectral_filter, sample_diagnostics = _sample_target(
-            sample, config, profile=profile, beta=beta)
+            sample, config, profile=profile, beta=beta, basis_parts=bases)
         filters.append(spectral_filter.detach())
         diagnostics.append(sample_diagnostics)
-    return SmoothSpectralTarget(reference, tuple(filters), diagnostics)
+    return SmoothSpectralTarget(reference, tuple(filters), diagnostics, tuple(bases or ()))

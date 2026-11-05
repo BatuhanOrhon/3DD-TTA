@@ -1,3 +1,13 @@
+**[Code/CPU/Open] 2026-11-05 — PM lowband halfmix CPU ready; Colab allocation blocked:**
+[Independent study and continuation](gsd_lowband_halfmix_study_20261105.md).
+Opt-in hard100/200, clean-PM-only half-SCD and label-free update-norm probes
+pass514CPUtests/1skip and independent review. Four A100 allocation requests
+failed without assignment; no owned VM/monitor, setup or scientificGPU, frozen
+alpha, accuracy or speed result exists. Peer work is preserved. Four calibration
+and16pilot IDs are frozen; native numerical gates/calibration/five-arm pilot
+and Drive/local evidence remain pending. User directs waiting for their free-session
+notice before any new allocation/setup/GPU work. Baseline and prior instability stand.
+
 **[Run/Code/Open] 2026-11-05 — LION iki geçiş test kaydı tamamlandı:**
 Orijinal N3 ve kayıtlı latentlerden N3/N5/N8 testlerinin kapsamı, sonuçları ve sınırları
 [sonuç/kapanış kaydında](lion_reencode_depth_results_20261101.md) birlikte izlenir.

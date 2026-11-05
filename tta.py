@@ -41,7 +41,7 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
                     scheduler_observer=None, return_trajectory=False,
                     scd_normalize=False, prepared_state=None, state_observer=None,
                     trajectory_observer=None, shape_guidance=None, chamfer_reference=None,
-                    style_spectral=None, decoded_spectral_weight=0.):
+                    style_spectral=None, decoded_spectral_weight=0., decoded_scd_weight=1.):
     """
     Test-Time Adaptation (TTA) reconstruction using DDIMScheduler and Chamfer Distance.
 
@@ -55,6 +55,7 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     - total: Total number of diffusion steps (default: 100).
     - scd_normalize: Opt-in Eq. 11 point-count normalization for SCD.
     - decoded_spectral_weight: Opt-in physical decoded-X loss at observer checkpoints.
+    - decoded_scd_weight: SCD coefficient only at live decoded clean checkpoints.
 
     Returns:
     - pred_points: Reconstructed point cloud.
@@ -62,10 +63,13 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
     if (isinstance(decoded_spectral_weight, bool) or not isinstance(decoded_spectral_weight, (int, float))
             or not math.isfinite(decoded_spectral_weight) or decoded_spectral_weight < 0):
         raise ValueError('decoded_spectral_weight must be finite and nonnegative')
-    if decoded_spectral_weight > 0:
+    if (isinstance(decoded_scd_weight, bool) or not isinstance(decoded_scd_weight, (int, float))
+            or not math.isfinite(decoded_scd_weight) or decoded_scd_weight < 0):
+        raise ValueError('decoded_scd_weight must be finite and nonnegative')
+    if decoded_spectral_weight > 0 or decoded_scd_weight != 1:
         from decoded_spectral import DecodedSpectralObserver
         if not isinstance(trajectory_observer, DecodedSpectralObserver):
-            raise ValueError('Positive decoded_spectral_weight requires a decoded spectral observer')
+            raise ValueError('Decoded spectral mixing requires a decoded spectral observer')
         if shape_guidance is not None or style_spectral is not None:
             raise ValueError('Decoded spectral guidance requires the original joint local/style update')
     # Initialize chamfer distance and scheduler
@@ -172,6 +176,12 @@ def tta_reconstruct(x, lion, steps_back_local, gamma, eta, p, total=100, *,
         dists2 = torch.sort(dists2, dim=1).values[:, :int(num_points * p)]
         ch_loss = selective_chamfer_loss(
             dists1, dists2, num_points, normalize=scd_normalize)
+        if trajectory_observer is not None and decoded_spectral_loss is not None:
+            if getattr(trajectory_observer, 'record_updates', False):
+                trajectory_observer.record_update_norms(ch_loss, decoded_spectral_loss,
+                    noisy_latent_point, style_cond, gamma, eta, decoded_scd_weight, decoded_spectral_weight)
+            if decoded_scd_weight != 1:
+                ch_loss = decoded_scd_weight * ch_loss
         if decoded_spectral_weight > 0 and decoded_spectral_loss is not None:
             if (not isinstance(decoded_spectral_loss, torch.Tensor) or decoded_spectral_loss.ndim != 0
                     or not decoded_spectral_loss.requires_grad or not torch.isfinite(decoded_spectral_loss)):

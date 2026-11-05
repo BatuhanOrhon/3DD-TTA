@@ -8675,3 +8675,28 @@ kullanıcının mevcut talimatıyla yapılır.
 [Code/Publication] Bu knowledge güncellemesi normal push ile
 `d55247a845bace71282edf8f530682a85b41fdcd` olarak origin/thesis-integration
 üzerinde doğrulandı; eşzamanlı c41cbcd kayıtları korundu.
+
+## 2026-11-05 — PM hard-lowband halfmix CPU implementation; GPU allocation blocked
+
+[Code/CPU/Open] On independent `research/gsd-lowband-halfmix-20261105` from
+d5869c2, opt-in true hard M100/M200 plus clean-PM-only half-SCD mixing and
+actual gamma/eta update-norm probes are implemented.514 CPUtests/1skip and
+independent68focused tests pass; normal8/Background35 combined positive-weight
+probe-on/off update equality and one joint backward per step pass. Every hard
+batch exports selected basis/support/rank/F hashes; full eigh remains.
+[Protocol, exact selection, code limits and continuation](gsd_lowband_halfmix_study_20261105.md).
+
+[Run/Open] A100HighRAM r1 allocation503ServiceUnavailable; A100Standard r2/r3
+precondition-refused. User-requested standardA100r4 also refused18:16UTC.
+No owned assignment/monitor/setup/scienceGPU, alpha or
+accuracy result. Three observed peer runtimes remain untouched. Local
+`result/preparation/gsd_lowband_halfmix_20261105/` retains wrappers/tests/IDs;
+Drive backup cannot be claimed without a runtime.16new development IDs and
+4disjoint label-free calibration IDs are frozen, not a completed GPU experiment.
+Previous numerical instability/negative results stand. Next: own A100 allocation,
+canonical10/strictCPU, original numerical gates,24ratios/M freeze, five-arm
+bounded paired pilot, independent acceptance and Drive/local archives.
+
+[User report/Decision] User subsequently directs code preparation only until
+they report a free session. All new allocation/setup/GPU attempts are now
+held; no background retry queue or owned runtime/monitor exists.

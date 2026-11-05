@@ -1,0 +1,60 @@
+{
+  "date_utc": "2026-11-05T18:13:48.127477+00:00",
+  "stage": "CPU complete; GPU blocked before allocation",
+  "full_cpu_suite": {
+    "command": "/tmp/tta-lion-reencode-venv/bin/python -m unittest discover -s tests -q",
+    "tests": 514,
+    "passed": 513,
+    "skipped": 1,
+    "seconds": 41.54,
+    "log_sha256": "7e39e865da7ba6e10e9e2c4b2d9c48ad0df3e1510f16c43f8252d914c13590a8"
+  },
+  "independent_review": {
+    "first_focused_tests": 56,
+    "final_focused_tests": 68,
+    "status": "No correctness blocker; memory scope label corrected",
+    "extra_check": "fully isolated hard graph: empty basis, zero filter, connected zero gradient"
+  },
+  "allocation_attempts": [
+    {
+      "session": "tta-gsd-lowband-halfmix-a100-20261105-r1",
+      "gpu": "A100",
+      "shape": "High-RAM",
+      "outcome": "ServiceUnavailable; no assignment"
+    },
+    {
+      "session": "tta-gsd-lowband-halfmix-a100-20261105-r2",
+      "gpu": "A100",
+      "shape": "Standard",
+      "outcome": "precondition failed; no assignment"
+    },
+    {
+      "session": "tta-gsd-lowband-halfmix-a100-20261105-r3",
+      "gpu": "A100",
+      "shape": "Standard",
+      "outcome": "precondition failed; no assignment"
+    },
+    {
+      "session": "tta-gsd-lowband-halfmix-a100-20261105-r4",
+      "gpu": "A100",
+      "shape": "Standard",
+      "outcome": "precondition failed; no assignment",
+      "time_utc": "2026-11-05T18:16:24Z",
+      "authorization": "User specifically requested retry without high RAM"
+    }
+  ],
+  "own_runtime": null,
+  "own_monitor": null,
+  "scientific_gpu_seconds": 0,
+  "alpha100": null,
+  "alpha200": null,
+  "blocked": "A100 allocation capacity/quota; three peer assignments observed and preserved",
+  "conclusions": {
+    "accuracy": "not measured",
+    "native_gradient": "not measured",
+    "numerical_repeatability": "not measured; prior instability unresolved",
+    "speed": "not measured",
+    "bitwise": "CPU probe on/off only; no native or cross-device bitwise claim"
+  },
+  "user_directed_hold": "No new allocation/setup/GPU until user announces a free session; code preparation only"
+}
