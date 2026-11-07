@@ -32,10 +32,25 @@ class Decoder(torch.nn.Module):
                 value, = ctx.saved_tensors
                 return -2 * value * gradient
         squared = WrongSquare.apply(context) if self.wrong_backward else context.square()
-        return (squared + .1*style[:, :1] + noise + self.counter.clone()*.001).reshape(2, 4, 3)
+        return (squared + .1*style[:, :1] + noise + self.counter.clone()*.001).reshape(len(context), 4, 3)
 
 
 class NativeAuditTests(unittest.TestCase):
+    def test_singleton_tail_preserves_fd_gate_and_rejects_wrong_backward(self):
+        target, latent, style = self.inputs()
+        target = SmoothSpectralTarget(target.reference_xyz[:1], target.filters[:1], [])
+        for wrong in (False, True):
+            decoder = Decoder(wrong_backward=wrong).eval()
+            before = rng_hash(), model_buffer_hashes({'vae': decoder})
+            report, arrays = self.audit()(decoder, target, latent[:1], style[:1])
+            self.assertEqual(report['passed'], not wrong, report)
+            self.assertEqual(arrays['baseline_decoded'].shape, (1, 4, 3))
+            self.assertEqual(len(report['finite_differences']), 2)
+            self.assertEqual(before, (rng_hash(), model_buffer_hashes({'vae': decoder})))
+        bad_style = style
+        report, _ = self.audit()(Decoder().eval(), target, latent[:1], bad_style)
+        self.assertFalse(report['passed'])
+
     def audit(self):
         self.assertIsNotNone(importlib.util.find_spec('decoded_spectral_native_audit'))
         from decoded_spectral_native_audit import audit_decoded_gradient

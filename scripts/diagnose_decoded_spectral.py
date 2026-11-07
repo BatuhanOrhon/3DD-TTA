@@ -29,9 +29,12 @@ IDS = [44, 91, 103, 137, 158, 223, 236, 265]
 
 def validate_selection_scope(config: dict) -> None:
     count = config['count']
+    scan = config.get('dataset', 'modelnet40_c') == 'scanobjectnn_c'
+    if scan and (not config.get('index_manifest') or not config.get('index_manifest_sha256')):
+        raise ValueError('ScanObjectNN-C requires a hashed index manifest')
     if config.get('benchmark_shard', False):
-        if type(count) is not int or not 2 <= count <= 2468 or count % 2:
-            raise ValueError('Benchmark shard count must be a positive even integer from 2 to 2468')
+        if type(count) is not int or not (1 if scan else 2) <= count <= (581 if scan else 2468) or (not scan and count % 2):
+            raise ValueError('Benchmark shard count requires Scan 1..581 or even ModelNet 2..2468')
         if not config.get('index_manifest') or not config.get('index_manifest_sha256'):
             raise ValueError('Benchmark shards require a hashed index manifest')
     elif type(count) is not int or count not in (2, 4, 8):
@@ -47,6 +50,7 @@ def configuration(argv=None) -> dict:
     for name in ('asset-root', 'asset-manifest-sha256', 'result-root', 'paired-state-root'):
         parser.add_argument('--' + name, required=True)
     parser.add_argument('--drive-root')
+    parser.add_argument('--dataset', choices=('modelnet40_c', 'scanobjectnn_c'), default='modelnet40_c')
     parser.add_argument('--backend-policy', choices=('legacy', 'controlled'), default='legacy')
     parser.add_argument('--index-manifest')
     parser.add_argument('--index-manifest-sha256')
@@ -61,7 +65,7 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--capture-native-trace', action='store_true')
     parser.add_argument('--capture-shared-states', action='store_true')
     parser.add_argument('--benchmark-shard', action='store_true',
-                        help='Allow an even selected-ID shard with a pinned index manifest; results remain partial')
+                        help='Allow a pinned selected-ID shard; Scan permits a final singleton, results remain partial')
     parser.add_argument('--count', type=int, default=2)
     parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
@@ -92,12 +96,14 @@ def configuration(argv=None) -> dict:
     for key in ('asset_root', 'result_root', 'paired_state_root', 'drive_root', 'index_manifest'):
         if config[key]:
             config[key] = str(Path(config[key]).absolute())
-    config.update(method='decoded_physical_spectral_diagnostic', dataset='modelnet40_c',
-                  backbone='pointmae', seed=0, severity=5, batch_size=2, n_examples=2468,
-                  num_classes=40, split='official_modelnet40_test', n_points=1024, input_layout='bnc',
-                  pointmae_checkpoint='checkpoints/modelnet_jt.pth',
-                  pointmae_config='source_snapshot/cfgs/tta_modelnet.yaml',
-                  checkpoint='checkpoints/modelnet_jt.pth', selected_original_ids=IDS[:args.count],
+    scan = args.dataset == 'scanobjectnn_c'
+    checkpoint = 'checkpoints/scanobject_jt.pth' if scan else 'checkpoints/modelnet_jt.pth'
+    config.update(method='decoded_physical_spectral_diagnostic',
+                  backbone='pointmae', seed=0, severity=5, batch_size=2, n_examples=581 if scan else 2468,
+                  num_classes=15 if scan else 40, split='main_split' if scan else 'official_modelnet40_test', n_points=1024, input_layout='bnc',
+                  pointmae_checkpoint=checkpoint,
+                  pointmae_config='source_snapshot/cfgs/tta_scanobj.yaml' if scan else 'source_snapshot/cfgs/tta_modelnet.yaml',
+                  checkpoint=checkpoint, selected_original_ids=IDS[:args.count],
                   guidance_protocol=dict(gamma=.03, eta=.003, p=.95, total=100, scd_normalize=False),
                   normal_reverse_steps=8, background_reverse_steps=35,
                   trajectory_selection=dict(normal=[2, 4, 6], background=[9, 18, 27]),
@@ -113,7 +119,7 @@ def configuration(argv=None) -> dict:
                       clean_to_physical='((clean-center)/scale)*3.3885 then rotate(-z,y,x)'),
                   randomness_policy='Seed0 reset before each corruption/B2 case; paired encoded state/noise cache')
     if args.index_manifest is not None:
-        selection, identity = read_index_manifest(Path(config['index_manifest']), args.index_manifest_sha256, args.count)
+        selection, identity = read_index_manifest(Path(config['index_manifest']), args.index_manifest_sha256, args.count, args.dataset)
         config.update(selected_original_ids=selection['indices'], selection_manifest=selection,
                       selection_manifest_identity=identity)
     if args.lowband_modes:
@@ -140,7 +146,7 @@ def load_shared_state_rng(archive):
 class SharedStateObserver(SharedTrajectoryObserver):
     """Reuse first/last PM decodes; save only detached CPU states and full RNG."""
 
-    def __init__(self, vae, heads, classify_decoded, horizon, *, directory, ids, center, scale, checkpoint_steps):
+    def __init__(self, vae, heads, classify_decoded, horizon, *, directory, ids, center, scale, checkpoint_steps, num_classes=40):
         self.directory, self.ids = Path(directory), list(ids)
         self.capture_steps = [checkpoint_steps[0], checkpoint_steps[-1]]
         self.prior_loop, self.decoding_loop, self.paired_path = 0, None, None
@@ -157,7 +163,7 @@ class SharedStateObserver(SharedTrajectoryObserver):
             if self.decoding_loop is not None:
                 self._save('decoded', self.decoding_loop, self.decoding_timestep, dict(decoded_xyz=decoded))
             return classify_decoded(decoded)
-        super().__init__(vae, heads, classify_existing, horizon, 40, checkpoint_steps=checkpoint_steps)
+        super().__init__(vae, heads, classify_existing, horizon, num_classes, checkpoint_steps=checkpoint_steps)
         self._save('frame', 0, None, dict(normalization_center=center, normalization_scale=scale))
 
     def _save(self, stage, loop_count, timestep, tensors, state=None):
@@ -354,18 +360,18 @@ def record_h5_capture(directory: Path, ids, prepared, center, scale, snapshots,
     return report
 
 
-def read_index_manifest(path: Path, expected_sha256: str, count: int) -> tuple[dict, dict]:
+def read_index_manifest(path: Path, expected_sha256: str, count: int, dataset: str = 'modelnet40_c') -> tuple[dict, dict]:
     identity = source.file_identity(path)
     if not re.fullmatch('[0-9a-f]{64}', expected_sha256 or '') or identity['sha256'] != expected_sha256:
         raise ValueError('Index manifest SHA-256 mismatch')
     selection = json.loads(path.read_text())
     indices = selection.get('indices') if isinstance(selection, dict) else None
     if (not isinstance(selection, dict) or type(selection.get('schema_version')) is not int
-            or selection['schema_version'] != 1 or selection.get('dataset') != 'modelnet40_c'
+            or selection['schema_version'] != 1 or selection.get('dataset') != dataset
             or not isinstance(indices, list) or len(indices) != count
-            or any(type(index) is not int or not 0 <= index < 2468 for index in indices)
+            or any(type(index) is not int or not 0 <= index < (581 if dataset == 'scanobjectnn_c' else 2468) for index in indices)
             or indices != sorted(set(indices))):
-        raise ValueError('Index manifest requires schema1 ModelNet40-C sorted unique integer IDs matching count')
+        raise ValueError('Index manifest requires schema1 matching dataset, sorted unique integer IDs and count')
     return selection, identity
 
 
@@ -444,16 +450,52 @@ def verify_setup(root: Path, manifest: dict, config: dict) -> dict:
     setup = json.loads(setup_path.read_text())
     if setup.get('status') != 'passed':
         raise ValueError('Canonical setup verification must have passed')
-    pairs = [('pointnet_ckpts/modelnet_jt.pth', manifest['files'][config['pointmae_checkpoint']]),
+    pairs = [('pointnet_ckpts/modelnet_jt.pth', manifest['files']['checkpoints/modelnet_jt.pth']),
              ('lion_ckpts/epoch_10999_iters_2100999.pt', manifest['guidance']['lion_checkpoint'])]
-    dataset = source.dataset_manifest(manifest, config)
+    dataset = (manifest['datasets']['modelnet40_c'] if config['dataset'] == 'scanobjectnn_c'
+               else source.dataset_manifest(manifest, config))
     for name in ['label.npy', *('data_' + c + '_5.npy' for c in config['corruptions'])]:
         pairs.append(('data/modelnet40_c/' + name, dataset['files'][name]))
     for name, expected in pairs:
         if any(setup.get('assets', {}).get(name, {}).get(key) != expected.get(key)
                for key in ('bytes', 'sha256')):
             raise ValueError('Setup/manifest asset identity differs: ' + name)
-    return dict(path=str(setup_path), identity=source.file_identity(setup_path), report=setup)
+    result = dict(path=str(setup_path), identity=source.file_identity(setup_path), report=setup)
+    if config['dataset'] == 'scanobjectnn_c':
+        result['scan_assets'] = verify_scan_assets(root, manifest, config, result['identity']['sha256'])
+    return result
+
+
+def verify_scan_assets(root: Path, manifest: dict, config: dict, setup_sha256: str) -> dict:
+    """Bind accepted Scan assets separately from the canonical ModelNet setup."""
+    from scripts.verify_multibackbone_pointmae_parity import CHECKPOINTS
+    if not manifest.get('scan_asset_verification'):
+        raise ValueError('Separate Scan asset verification receipt is required')
+    relative = manifest['scan_asset_verification']
+    path = source._declared_asset(root, manifest, relative)
+    source.verify_identity(path, manifest['files'][relative])
+    receipt = json.loads(path.read_text())
+    expected = dict(schema_version=1, status='passed', dataset='scanobjectnn_c', split='main_split',
+        severity=5, n_examples=581, canonical_setup_sha256=setup_sha256,
+        dataset_archive=dict(bytes=488341020, sha256='e236151c9f0ad805f59d3571a956b75ada2e1208b030f56f84546cc993b38eb2'),
+        checkpoint_load=dict(strict=True, missing_keys=[], unexpected_keys=[], num_classes=15,
+                             checkpoint_sha256=CHECKPOINTS['scanobjectnn_c'][1]))
+    if (not isinstance(receipt, dict) or any(receipt.get(key) != value for key, value in expected.items())
+            or type(receipt.get('schema_version')) is not int):
+        raise ValueError('Scan asset verification receipt differs from the accepted contract')
+    dataset = source.dataset_manifest(manifest, config)
+    names = ['label.npy', 'data_original.npy', *('data_'+c+'_5.npy' for c in CORRUPTIONS)]
+    files = {'datasets/scanobjectnn_c/'+name: {key: dataset['files'][name][key] for key in ('bytes', 'sha256')}
+             for name in names}
+    files['checkpoints/scanobject_jt.pth'] = manifest['files']['checkpoints/scanobject_jt.pth']
+    if (receipt.get('files') != files or files['checkpoints/scanobject_jt.pth']['sha256'] != CHECKPOINTS['scanobjectnn_c'][1]
+            or files['checkpoints/scanobject_jt.pth']['bytes'] != 351525407):
+        raise ValueError('Scan receipt must declare all accepted arrays and the pinned 15-class checkpoint')
+    for name, identity in files.items():
+        if manifest['files'].get(name) != identity:
+            raise ValueError('Scan receipt/manifest file identity differs: '+name)
+        source.verify_identity(source._declared_asset(root, manifest, name), identity)
+    return dict(path=str(path), identity=source.file_identity(path), report=receipt)
 
 
 def worker(directory: str) -> None:
@@ -484,14 +526,14 @@ def worker(directory: str) -> None:
         config['runtime'] = apply_backend_policy(config.get('backend_policy', 'legacy'))
         if config.get('index_manifest'):
             selection, identity = read_index_manifest(bundle.path / 'selection_manifest.json',
-                                                      config['index_manifest_sha256'], config['count'])
+                                                      config['index_manifest_sha256'], config['count'], config['dataset'])
             if (selection != config['selection_manifest'] or identity != config['selection_manifest_identity']
                     or selection['indices'] != config['selected_original_ids']):
                 raise ValueError('Stored index manifest differs from the selected worker IDs')
         root = Path(config['asset_root'])
         manifest = source.read_manifest(root, config['asset_manifest_sha256'])
         dataset = source.dataset_manifest(manifest, config)
-        config['dataset_root'] = str(Path(dataset.get('root', str(REPO / 'data/modelnet40_c'))).absolute())
+        config['dataset_root'] = str(Path(dataset.get('root', str(REPO / 'data'/config['dataset']))).absolute())
         config['label_path'] = str(Path(config['dataset_root']) / 'label.npy')
         config.update(asset_manifest=manifest, dataset_provenance=dataset,
                       setup_verification=verify_setup(root, manifest, config))
@@ -536,8 +578,8 @@ def worker(directory: str) -> None:
                 prepared = ops.rotate_pointcloud(prepared * 3.3885)
                 torch.cuda.synchronize()
                 preprocessing_seconds = time.monotonic() - case_started
-                if prepared.shape != (2, 2048, 3) or not torch.isfinite(prepared).all():
-                    raise ValueError('Expected finite prepared B2 x 2048 x 3')
+                if prepared.shape != (len(ids), 2048, 3) or not torch.isfinite(prepared).all():
+                    raise ValueError('Expected finite prepared batch x 2048 x 3')
                 steps = 35 if corruption == 'background' else 8
                 checkpoints = config['trajectory_selection']['background' if steps == 35 else 'normal']
                 case = bundle.path / 'batches' / corruption / ('batch%04d' % batch)
@@ -558,9 +600,10 @@ def worker(directory: str) -> None:
                 if config['arm'] == 'control':
                     if config.get('capture_shared_states'):
                         observer = SharedStateObserver(lion.vae, heads, classify, steps, directory=case,
-                            ids=ids.tolist(), center=center, scale=scale, checkpoint_steps=checkpoints)
+                            ids=ids.tolist(), center=center, scale=scale, checkpoint_steps=checkpoints,
+                            num_classes=config['num_classes'])
                     else:
-                        observer = SharedTrajectoryObserver(lion.vae, heads, classify, steps, 40,
+                        observer = SharedTrajectoryObserver(lion.vae, heads, classify, steps, config['num_classes'],
                                                             checkpoint_steps=checkpoints)
                 else:
                     torch.cuda.reset_peak_memory_stats()
@@ -603,7 +646,7 @@ def worker(directory: str) -> None:
                             for name, gradient in zip(('local', 'conditioning_style'), gradients):
                                 record[name + '_connected'] = gradient is not None
                                 record[name + '_gradient_norm_per_object'] = None if gradient is None else gradient.detach().flatten(1).norm(dim=1).cpu().tolist()
-                            local_xyz = latent.reshape(2, 2048, 4)[:, :, :3]
+                            local_xyz = latent.reshape(len(ids), 2048, 4)[:, :, :3]
                             c1, c2, _, _ = chamfer(local_xyz.contiguous(), capture['initial_h0_xyz'].contiguous())
                             retained = int(2048 * .95)
                             scd = c1.sort(dim=1).values[:, :retained].sum() + c2.sort(dim=1).values[:, :retained].sum()
@@ -663,7 +706,7 @@ def worker(directory: str) -> None:
                             (case / 'probe_records.json').write_text(json.dumps(self.spectral_records, indent=2, allow_nan=False) + '\n')
                             return loss
                     observer_class = DiagnosticObserver if config['arm'] == 'diagnostic' else DecodedSpectralObserver
-                    observer = observer_class(lion.vae, heads, classify, steps, target=target,
+                    observer = observer_class(lion.vae, heads, classify, steps, config['num_classes'], target=target,
                         checkpoint_steps=checkpoints, record_gradients=config['arm'] == 'diagnostic',
                         freeze_decoder_residual=config['freeze_decoder_residual'],
                         record_updates=config['update_norm_probes'])
@@ -760,7 +803,7 @@ def worker(directory: str) -> None:
                     h5_path.write_text(json.dumps(h5, indent=2, sort_keys=True, allow_nan=False)+'\n')
                     diagnostics['h5_capture'] = dict(file=h5_path.name, **source.file_identity(h5_path))
                     (case/'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
-                shared.update_row(rows, config, corruption, start+2, correct, elapsed, peak, 'partial')
+                shared.update_row(rows, config, corruption, min(start+2, config['count']), correct, elapsed, peak, 'partial')
                 bundle.write_results(rows, 'running')
                 config.setdefault('completed_batches', {})[corruption] = batch+1
                 bundle.write_config(config)

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "dataset": "scanobjectnn_c",
+  "split": "main_split",
+  "severity": 5,
+  "seed": 0,
+  "batch_size": 2,
+  "num_classes": 15,
+  "selection_rule": "sorted RandomState(20261107).choice(581,4,replace=False); frozen before any external result",
+  "indices": [
+    39,
+    146,
+    201,
+    273
+  ],
+  "corruptions": [
+    "gaussian",
+    "background"
+  ],
+  "lowband_modes": 100,
+  "checkpoint_scd_weight": 1.0,
+  "gsd_weight": 0.0,
+  "update_norm_probes": true,
+  "calibration_rule": "24 finite active perobject actual gamma/eta weighted SCD/GSD update norm ratios at 3 cleanPM checkpoints, median then freeze alpha_M100; no labels or clean geometry",
+  "checkpoint_sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac",
+  "dataset_archive_sha256": "e236151c9f0ad805f59d3571a956b75ada2e1208b030f56f84546cc993b38eb2",
+  "external_gpu": "conditional on ModelNet full preregistered gate; not started"
+}

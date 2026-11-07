@@ -1,0 +1,50 @@
+{
+  "status": "CPU boundary verified; not deployed",
+  "base_commit": "484d3356d1fc59efa9c4021a2f24eab9fe4b9564",
+  "files": [
+    "scripts/diagnose_decoded_spectral.py",
+    "decoded_spectral_native_audit.py",
+    "tests/test_diagnose_decoded_spectral.py",
+    "tests/test_decoded_spectral.py",
+    "tests/test_decoded_spectral_native_audit.py"
+  ],
+  "checks": {
+    "affected": "94 passed, 146 subtests in 5.00s",
+    "full": "822 passed, 2 skipped, 7 warnings, 541 subtests in 50.91s",
+    "python38_syntax": true,
+    "diff_check": true
+  },
+  "source_identities": {
+    "scripts/diagnose_decoded_spectral.py": {
+      "bytes": 63237,
+      "sha256": "46868743040a8fb565e1b9c528ef36e2e37c6d9aad2be262fff880f93ae3a6ba"
+    },
+    "decoded_spectral_native_audit.py": {
+      "bytes": 10859,
+      "sha256": "e8e5df218321bad84c017a993ac1679057ffd6f1a261be0d2cb8f5788141d4fc"
+    },
+    "tests/test_diagnose_decoded_spectral.py": {
+      "bytes": 38007,
+      "sha256": "f8b6da96f1c2599c9313796745ff7b7954d68e33525404d1d4ad19150599f004"
+    },
+    "tests/test_decoded_spectral.py": {
+      "bytes": 14672,
+      "sha256": "bd00be92280d745279f0d3fab5b356a7ea9905be65fc2a73c4c7099f818af8bb"
+    },
+    "tests/test_decoded_spectral_native_audit.py": {
+      "bytes": 8571,
+      "sha256": "59577fd0c1802cfb50888a0875fab0aacfd4742f21bb2dfac5c1807efb77b8c4"
+    }
+  },
+  "patch": {
+    "path": "result/preparation/gsd_lowband_scan_20261107/cpu_boundary.patch",
+    "bytes": 38135,
+    "sha256": "202fb96d87c5b8c640585e1c2e8eebcc8d01b00f99c998e3067e39f88b230d0b"
+  },
+  "limits": [
+    "No remote/GPU/model inference",
+    "No Scan checkpoint copied or accepted receipt manufactured",
+    "Running ModelNet source/campaign/consumer untouched",
+    "No commit"
+  ]
+}

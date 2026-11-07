@@ -150,3 +150,30 @@ missed transfer events without another kernel cell. Downloaded actualcache
 metadata are retained; only redundant splitparts removed after wholeZIP+ACK.
 Consumer crash/replay+missedevent/unownedpath checks pass;
 SHA9a70d4ef4d309295a8f6086e05d42055981825550f9e600b2e05a37d85359b5b.
+
+### Completed preparation publication
+
+[Code/Run] Source branch `research/gsd-lowband-full-20261107`, runner1cbd135
+and protocol/acceptedtechnical484d335 selected into clean integration checkout
+from origin0b6faeb; integration e40e39e/214fe6b pushed normally to
+`origin/thesis-integration`. Integrated runner tests14passed/55subtests;
+original full suite817passed/2skip. Source snapshots retain executed controller,
+cache preparation, fixed plan and local acceptor/selfchecks. RawZIPs/native
+binaries/weights, temporary deployment wrappers and incomplete external changes
+excluded. This completes the preparation batch, not the full benchmark.
+
+### Recovery boundary (before any runtime loss)
+
+[Decision/Open] Runtime may expire before30–40h. On stream loss, audit server
+assignment and actual journal/artifacts before another cell. New ownVM requires
+canonical10cell setup followed by exact validated source/native capsule/data/
+weights/calibration restoration; same runtime/native identity checks remain.
+Restore accepted receipts, exact selection/plan/operator bytes, actual paired
+caches, ACKs, transfer manifests and cleanup receipts from verified Drive/local
+archives. Do not redownload or rerun accepted inference. Preserve the last
+journal as a new immutable recovery evidence file before any derived continuation
+journal is written. A genuinely lost unaccepted job requires an explicit dated
+recovery record, preserving every available partial Drive batch/log/receipt and
+recording unrecoverable ephemeral files; no silent deletion or same-directory
+overwrite. New inference uses fresh UTC bundle names, retaining earlier partial
+Drive bundles. Do not infer that WebSocket loss means worker death.

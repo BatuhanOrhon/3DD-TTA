@@ -1,0 +1,14 @@
+{
+  "status": "completed preparation published; full GPU campaign running",
+  "source_branch": "research/gsd-lowband-full-20261107",
+  "source_commits": [
+    "1cbd135004e1a298aad650fe9f57bf741ee4982b",
+    "484d335"
+  ],
+  "target": "origin/thesis-integration",
+  "base": "0b6faebe916f3b1a797d65c6e5120931e2103bf3",
+  "integration_commit": "214fe6b",
+  "checks": "14runner tests/55subtests on integrated checkout;817full CPU tests/2skip original;diffcheck clean",
+  "excluded": "rawZIP/nativebinaries/weights/temporarydeploymentwrappers/incompleteexternalstage",
+  "runtime_retained": true
+}

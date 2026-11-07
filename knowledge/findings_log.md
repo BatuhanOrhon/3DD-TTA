@@ -8829,3 +8829,12 @@ by user's explicit all-tests continuation. Operator/source hashes and raw
 technical Drive/local archive receipts in study/evidence. No full accuracy yet.
 Next: finish39shards/117inference, validate all37,020pairs per arm, apply frozen
 >=1pp/positive95%pairedCI gate before independent dataset/source execution.
+
+### 2026-11-07 — [Code/CPU/Open] conditional Scan singleton boundary
+
+[Conditional design](gsd_lowband_scan_conditional_20261107.md): opt-in Scan581/
+15classes, true finalB1 and separate pinned asset receipt; ModelNet defaults and
+running snapshot preserved.822CPUtests/2skip; independent review passed focused
+35tests/72subtests, no concrete blocker. CalibrationIDs39,146,201,273 frozen
+withoutlabels; actual calibration/Scan checkpoint strictload/nativeGPU remain
+unrun until fullModelNet >=1pp and positive95%pairedCI gate. No external result.

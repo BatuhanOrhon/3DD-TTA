@@ -4,6 +4,178 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_scan_worker_counts_real_odd_tail_and_writes_15_class_predictions(self):
+        import csv
+        import json
+        import tempfile
+        import types
+        from contextlib import ExitStack
+        from pathlib import Path
+        from unittest.mock import patch
+        import numpy as np
+        import torch
+        from scripts import diagnose_decoded_spectral as driver
+        from tests.test_chamfer_depth import installed_modules
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            selection = dict(schema_version=1, dataset='scanobjectnn_c', indices=[578, 579, 580])
+            selected = root/'ids.json'
+            selected.write_text(json.dumps(selection))
+            config = driver.configuration(['--asset-root', str(root), '--asset-manifest-sha256', 'a'*64,
+                '--result-root', str(root/'results'), '--paired-state-root', str(root/'paired'),
+                '--dataset', 'scanobjectnn_c', '--benchmark-shard', '--arm', 'control', '--count', '3',
+                '--corruptions', 'gaussian', '--index-manifest', str(selected),
+                '--index-manifest-sha256', driver.source.file_identity(selected)['sha256']])
+            bundle = driver.source.RunBundle.create(root/'results', 'scan-tail', config, 'CPU native stubs')
+            (bundle.path/'selection_manifest.json').write_bytes(selected.read_bytes())
+            class VAE(torch.nn.Module):
+                def decoder(self, unused, beta, context, style):
+                    return context.reshape(len(context), 2048, 4)[:, :, :3]
+            lion = types.SimpleNamespace(vae=VAE().eval(), priors=torch.nn.ModuleList([torch.nn.Linear(1, 1), torch.nn.Linear(1, 1)]))
+            calls = []
+            def reconstruct(prepared, lion, horizon, **options):
+                calls.append(len(prepared))
+                local = torch.zeros(len(prepared), 8192, 1, 1)
+                style = torch.zeros(len(prepared), 128, 1, 1)
+                options['state_observer'](dict(local_latent=local, shape_latent=style, noise=local))
+                observer = options['trajectory_observer']
+                observer.initial(local_latent=local, shape_latent=style, noise=local)
+                for step in range(horizon):
+                    observer.clean(local, style, step, step)
+                observer.final_state(local, style, 0)
+                options['scheduler_observer'](types.SimpleNamespace(config={}, timesteps=torch.arange(100), final_alpha_cumprod=torch.tensor(1.)))
+                return prepared
+            ops = types.SimpleNamespace(normalize=lambda raw: (raw, torch.zeros(len(raw), 1, 3), torch.ones(len(raw), 1, 1)),
+                upsample_all=lambda raw, count: raw, rotate_pointcloud=lambda raw: raw)
+            dataset = dict(root=str(root/'data'), files={'label.npy': {}, 'data_gaussian_5.npy': {}})
+            native = types.ModuleType('pointnet2_ops')
+            native.pointnet2_utils = object()
+            chamfer = types.ModuleType('third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D')
+            chamfer.chamfer_3DDist = lambda: None
+            with ExitStack() as stack:
+                stack.enter_context(installed_modules({'pointnet2_ops': native, chamfer.__name__: chamfer}))
+                stack.enter_context(patch.object(torch.Tensor, 'cuda', lambda tensor, *a, **kw: tensor))
+                for name, value in dict(is_available=True, max_memory_allocated=0, get_device_name='CPU native stub').items():
+                    stack.enter_context(patch.object(torch.cuda, name, return_value=value))
+                for name in ('manual_seed_all', 'synchronize', 'reset_peak_memory_stats'):
+                    stack.enter_context(patch.object(torch.cuda, name))
+                stack.enter_context(patch.object(driver, 'verify_setup', return_value={}))
+                stack.enter_context(patch.object(driver, 'apply_backend_policy', return_value={}))
+                stack.enter_context(patch.multiple(driver.source, read_manifest=lambda *a: {}, dataset_manifest=lambda *a: dataset,
+                    load_array=lambda *a, **kw: np.zeros(581, dtype=np.int64) if kw.get('labels') else np.zeros((581, 2048, 3), dtype=np.float32),
+                    snapshot_sources=lambda *a: None))
+                stack.enter_context(patch.object(driver.shared, 'load_guidance_runtime', return_value=(lion, None, reconstruct, ops, {}, 'fixture')))
+                stack.enter_context(patch.object(driver.shared, 'initialize_heads', return_value=({'pointmae': torch.nn.Linear(3, 15).eval()}, {})))
+                stack.enter_context(patch.object(driver.shared, 'classify_geometry', side_effect=lambda geometry, *a: ({'pointmae': torch.zeros(len(geometry), 15)}, {})))
+                stack.enter_context(patch.object(driver.shared, 'decoded_to_geometry', side_effect=lambda decoded, *a: decoded))
+                stack.enter_context(patch.object(driver.shared, 'copy_batch_shard', return_value={}))
+                stack.enter_context(patch('scripts.eval_chamfer_depth.scheduler_record', return_value={}))
+                driver.worker(str(bundle.path))
+            self.assertEqual(calls, [2, 1])
+            finished = json.loads((bundle.path/'config.json').read_text())
+            self.assertTrue(finished['diagnostic_complete'])
+            self.assertEqual(finished['completed_batches'], {'gaussian': 2})
+            with (bundle.path/'per_corruption.csv').open() as stream:
+                row = next(csv.DictReader(stream))
+            self.assertEqual((int(row['n_examples']), int(row['n_correct'])), (3, 3))
+            with np.load(bundle.path/'gaussian_predictions.npz', allow_pickle=False) as result:
+                self.assertEqual(result['index'].tolist(), [578, 579, 580])
+                self.assertEqual(result['trajectory_logits'].shape, (3, 4, 15))
+            with np.load(bundle.path/'batches/gaussian/batch0001/predictions.npz', allow_pickle=False) as tail:
+                self.assertEqual(tail['trajectory_logits'].shape, (1, 4, 15))
+
+    def test_scan_selection_binds_15_class_source_and_preserves_singleton_tail(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from scripts import diagnose_decoded_spectral as driver
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired',
+                '--dataset', 'scanobjectnn_c', '--benchmark-shard']
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary)/'selection.json'
+            for ids in ([580], [576, 577, 578, 579, 580], list(range(581))):
+                path.write_text(json.dumps(dict(schema_version=1, dataset='scanobjectnn_c', indices=ids)))
+                config = driver.configuration([*args, '--count', str(len(ids)), '--index-manifest', str(path),
+                    '--index-manifest-sha256', driver.source.file_identity(path)['sha256']])
+                self.assertEqual(config['selected_original_ids'], ids)
+                self.assertEqual((config['n_examples'], config['num_classes'], config['split']), (581, 15, 'main_split'))
+                self.assertEqual(config['checkpoint'], 'checkpoints/scanobject_jt.pth')
+                self.assertEqual(config['pointmae_config'], 'source_snapshot/cfgs/tta_scanobj.yaml')
+            for selection in (dict(dataset='modelnet40_c', indices=[580]),
+                              dict(dataset='scanobjectnn_c', indices=[581]),
+                              dict(dataset='scanobjectnn_c', indices=[True])):
+                path.write_text(json.dumps(dict(schema_version=1, **selection)))
+                with self.subTest(selection=selection), self.assertRaises(ValueError):
+                    driver.configuration([*args, '--count', '1', '--index-manifest', str(path),
+                        '--index-manifest-sha256', driver.source.file_identity(path)['sha256']])
+        with self.assertRaises(ValueError):
+            driver.configuration(args)
+
+    def test_scan_setup_requires_separate_pinned_accepted_assets_receipt(self):
+        import copy
+        import json
+        import tempfile
+        from pathlib import Path
+        from scripts import diagnose_decoded_spectral as driver
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            def write(name, value):
+                path = root/name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps(value))
+                return driver.source.file_identity(path)
+            modelnet = dict(files={'label.npy': dict(bytes=2, sha256='a'*64),
+                                  'data_gaussian_5.npy': dict(bytes=3, sha256='b'*64)})
+            checkpoint = dict(bytes=351525407, sha256='53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac')
+            write('checkpoints/scanobject_jt.pth', {'fixture': 'pinned checkpoint identity supplied below'})
+            files = {'checkpoints/modelnet_jt.pth': dict(bytes=1, sha256='c'*64),
+                     'checkpoints/scanobject_jt.pth': checkpoint}
+            scan = dict(n_examples=581, split='main_split', files={})
+            for name in ['label.npy', 'data_original.npy', *('data_'+c+'_5.npy' for c in driver.CORRUPTIONS)]:
+                entry = write('datasets/scanobjectnn_c/'+name, {'fixture': name})
+                scan['files'][name] = entry
+                files['datasets/scanobjectnn_c/'+name] = entry
+            lion = dict(bytes=4, sha256='d'*64)
+            setup = dict(status='passed', assets={'pointnet_ckpts/modelnet_jt.pth': files['checkpoints/modelnet_jt.pth'],
+                'lion_ckpts/epoch_10999_iters_2100999.pt': lion,
+                **{'data/modelnet40_c/'+name: entry for name, entry in modelnet['files'].items()}})
+            files['setup.json'] = write('setup.json', setup)
+            manifest = dict(setup_verification='setup.json', files=files,
+                guidance=dict(lion_checkpoint=lion), datasets=dict(modelnet40_c=modelnet, scanobjectnn_c=scan))
+            config = dict(dataset='scanobjectnn_c', n_examples=581, num_classes=15,
+                          pointmae_checkpoint='checkpoints/scanobject_jt.pth', corruptions=['gaussian'])
+            with self.assertRaises(ValueError):
+                driver.verify_setup(root, manifest, config)
+            receipt = dict(schema_version=1, status='passed', dataset='scanobjectnn_c', split='main_split',
+                severity=5, n_examples=581, canonical_setup_sha256=files['setup.json']['sha256'],
+                dataset_archive=dict(bytes=488341020, sha256='e236151c9f0ad805f59d3571a956b75ada2e1208b030f56f84546cc993b38eb2'),
+                files={name: entry for name, entry in files.items() if name.startswith('datasets/scanobjectnn_c/') or name=='checkpoints/scanobject_jt.pth'},
+                checkpoint_load=dict(strict=True, missing_keys=[], unexpected_keys=[], num_classes=15,
+                                     checkpoint_sha256=checkpoint['sha256']))
+            manifest['scan_asset_verification'] = 'scan.json'
+            files['scan.json'] = write('scan.json', receipt)
+            # Large real checkpoints are represented by their pinned identity at this I/O boundary.
+            from unittest.mock import patch
+            real_verify = driver.source.verify_identity
+            def verify(path, expected):
+                if Path(path).name != 'scanobject_jt.pth':
+                    real_verify(path, expected)
+            with patch.object(driver.source, 'verify_identity', side_effect=verify):
+                accepted = driver.verify_setup(root, manifest, config)
+                self.assertEqual(accepted['scan_assets']['identity'], files['scan.json'])
+                for changes in (dict(status='failed'), dict(canonical_setup_sha256='f'*64),
+                                dict(dataset_archive=dict(bytes=1, sha256='e'*64)), dict(files={}),
+                                dict(checkpoint_load=dict(receipt['checkpoint_load'], strict=False))):
+                    bad = dict(copy.deepcopy(receipt), **changes)
+                    files['scan.json'] = write('scan.json', bad)
+                    with self.subTest(changes=changes), self.assertRaises(ValueError):
+                        driver.verify_setup(root, manifest, config)
+                files['scan.json'] = write('scan.json', receipt)
+                (root/'datasets/scanobjectnn_c/label.npy').write_bytes(b'tampered')
+                with self.assertRaises(ValueError):
+                    driver.verify_setup(root, manifest, config)
+
     def test_benchmark_shards_require_explicit_opt_in_and_hashed_id_selection(self):
         import json
         import tempfile

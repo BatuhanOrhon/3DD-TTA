@@ -26,7 +26,7 @@ class DecodedSpectralTests(unittest.TestCase):
         from decoded_spectral import DecodedSpectralObserver
         return DecodedSpectralObserver
 
-    def fixture(self, *, dtype=torch.float64, **observer_options):
+    def fixture(self, *, dtype=torch.float64, num_classes=40, **observer_options):
         class Decoder(torch.nn.Module):
             def __init__(self):
                 super().__init__()
@@ -38,7 +38,7 @@ class DecodedSpectralTests(unittest.TestCase):
                 torch.rand(1)
                 return context.reshape(-1, 2048, 4)[:, :, :3].square() + .02*style[:, :3, None].transpose(1, 2)
         vae = Decoder().eval()
-        head = torch.nn.Linear(3, 40).to(dtype).eval().requires_grad_(False)
+        head = torch.nn.Linear(3, num_classes).to(dtype).eval().requires_grad_(False)
         def classify(points):
             self.assertFalse(points.requires_grad)
             self.assertFalse(torch.is_grad_enabled())
@@ -47,12 +47,22 @@ class DecodedSpectralTests(unittest.TestCase):
         reference = torch.zeros(1, 2048, 3, dtype=dtype)
         weights = torch.linspace(.25, .75, 2048, dtype=dtype)
         target = SmoothSpectralTarget(reference, (torch.diag(weights),), [])
-        observer = self.observer_class()(vae, {'pointmae': head}, classify, 2, target=target,
+        observer = self.observer_class()(vae, {'pointmae': head}, classify, 2, num_classes, target=target,
                                         checkpoint_steps=[1], record_gradients=True, **observer_options)
         latent = torch.linspace(.1, .9, 8192, dtype=dtype).reshape(1, -1, 1, 1).requires_grad_()
         style = torch.ones(1, 128, 1, 1, dtype=dtype, requires_grad=True)
         observer.initial(input_points=reference)
         return observer, latent, style
+
+    def test_scan_singleton_live_gradient_and_readout_have_15_classes(self):
+        observer, latent, style = self.fixture(num_classes=15)
+        loss = observer.clean(latent, style, 0, 10)
+        local_gradient, style_gradient = torch.autograd.grad(loss, (latent, style))
+        self.assertGreater(float(local_gradient.norm()), 0)
+        self.assertGreater(float(style_gradient.norm()), 0)
+        observer.final_state(latent, style, 0)
+        observer.terminal({'pointmae': torch.zeros(1, 15)})
+        self.assertEqual(observer.arrays('pointmae')['trajectory_logits'].shape, (1, 2, 15))
 
     def test_one_live_decode_matches_independent_loss_gradient_and_directional_fd(self):
         observer, latent, style = self.fixture()

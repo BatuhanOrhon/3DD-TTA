@@ -45,9 +45,10 @@ def audit_decoded_gradient(vae, target, latent, original_style, *,
             save(name, value)
             if (not isinstance(value, torch.Tensor) or value.ndim not in (2, 4)
                     or (value.ndim == 4 and value.shape[2:] != (1, 1))
-                    or value.shape[0] != 2 or value.dtype not in (torch.float32, torch.float64)
+                    or value.shape[0] not in (1, 2) or value.shape[0] != latent.shape[0]
+                    or value.dtype not in (torch.float32, torch.float64)
                     or not torch.isfinite(value).all()):
-                raise ValueError('Expected finite B2 floating latent/style in decoder-compatible shape')
+                raise ValueError('Expected matching finite B1/B2 floating latent/style in decoder-compatible shape')
             tracked[name] = (value, tensor_hash(value))
         if original_style.device != latent.device or original_style.dtype != latent.dtype:
             raise ValueError('Latent and original style device/dtype must match')
@@ -55,13 +56,13 @@ def audit_decoded_gradient(vae, target, latent, original_style, *,
             raise ValueError('Expected a frozen SmoothSpectralTarget')
         reference = target.reference_xyz
         save('reference_xyz', reference)
-        if (reference.ndim != 3 or reference.shape[0] != 2 or reference.shape[1] < 2
+        if (reference.ndim != 3 or reference.shape[0] != latent.shape[0] or reference.shape[1] < 2
                 or reference.shape[2] != 3 or reference.requires_grad
                 or reference.device != latent.device or reference.dtype != latent.dtype
                 or not torch.isfinite(reference).all()):
-            raise ValueError('Reference must be finite detached B2 x N x 3 in the latent device/dtype')
+            raise ValueError('Reference must be finite detached B x N x 3 matching the latent batch/device/dtype')
         tracked['reference_xyz'] = (reference, tensor_hash(reference))
-        if len(target.filters) != 2:
+        if len(target.filters) != len(reference):
             raise ValueError('Expected one detached physical filter per sample')
         for index, spectral_filter in enumerate(target.filters):
             if (spectral_filter.shape != (reference.shape[1], reference.shape[1])
