@@ -25,16 +25,21 @@ from research_artifacts import CORRUPTIONS
 from shared_trajectory import SharedTrajectoryObserver
 
 IDS = [44, 91, 103, 137, 158, 223, 236, 265]
+BATCH_SIZES = (2, 4, 8, 16, 32, 64)
 
 
 def validate_selection_scope(config: dict) -> None:
     count = config['count']
+    batch_size = config.get('batch_size', 2)
+    if type(batch_size) is not int or batch_size not in BATCH_SIZES:
+        raise ValueError('Batch size must be one of 2, 4, 8, 16, 32, 64')
     scan = config.get('dataset', 'modelnet40_c') == 'scanobjectnn_c'
     if scan and (not config.get('index_manifest') or not config.get('index_manifest_sha256')):
         raise ValueError('ScanObjectNN-C requires a hashed index manifest')
     if config.get('benchmark_shard', False):
-        if type(count) is not int or not (1 if scan else 2) <= count <= (581 if scan else 2468) or (not scan and count % 2):
-            raise ValueError('Benchmark shard count requires Scan 1..581 or even ModelNet 2..2468')
+        if (type(count) is not int or not (1 if scan or batch_size > 2 else 2) <= count <= (581 if scan else 2468)
+                or (not scan and batch_size == 2 and count % 2)):
+            raise ValueError('Benchmark shard count requires Scan 1..581 or ModelNet 1..2468; ModelNet B2 requires even count >=2')
         if not config.get('index_manifest') or not config.get('index_manifest_sha256'):
             raise ValueError('Benchmark shards require a hashed index manifest')
     elif type(count) is not int or count not in (2, 4, 8):
@@ -65,8 +70,11 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--capture-native-trace', action='store_true')
     parser.add_argument('--capture-shared-states', action='store_true')
     parser.add_argument('--benchmark-shard', action='store_true',
-                        help='Allow a pinned selected-ID shard; Scan permits a final singleton, results remain partial')
+                        help='Allow a pinned selected-ID shard with its actual final batch; results remain partial')
     parser.add_argument('--count', type=int, default=2)
+    parser.add_argument('--batch-size', type=int, choices=BATCH_SIZES, default=2)
+    parser.add_argument('--skip-dense-filter-witness', action='store_true',
+                        help='Omit the optional dense F archive; retain the full target, bases and SHA witnesses')
     parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
     args = parser.parse_args(argv)
@@ -99,7 +107,7 @@ def configuration(argv=None) -> dict:
     scan = args.dataset == 'scanobjectnn_c'
     checkpoint = 'checkpoints/scanobject_jt.pth' if scan else 'checkpoints/modelnet_jt.pth'
     config.update(method='decoded_physical_spectral_diagnostic',
-                  backbone='pointmae', seed=0, severity=5, batch_size=2, n_examples=581 if scan else 2468,
+                  backbone='pointmae', seed=0, severity=5, batch_size=args.batch_size, n_examples=581 if scan else 2468,
                   num_classes=15 if scan else 40, split='main_split' if scan else 'official_modelnet40_test', n_points=1024, input_layout='bnc',
                   pointmae_checkpoint=checkpoint,
                   pointmae_config='source_snapshot/cfgs/tta_scanobj.yaml' if scan else 'source_snapshot/cfgs/tta_modelnet.yaml',
@@ -117,7 +125,7 @@ def configuration(argv=None) -> dict:
                       fields=['index', 'raw_corrupted_xyz', 'normalization_center', 'normalization_scale',
                               'terminal_decoded_xyz', 'terminal_classifier_geometry'],
                       clean_to_physical='((clean-center)/scale)*3.3885 then rotate(-z,y,x)'),
-                  randomness_policy='Seed0 reset before each corruption/B2 case; paired encoded state/noise cache')
+                  randomness_policy='Seed0 reset before each corruption/B%d case; paired encoded state/noise cache' % args.batch_size)
     if args.index_manifest is not None:
         selection, identity = read_index_manifest(Path(config['index_manifest']), args.index_manifest_sha256, args.count, args.dataset)
         config.update(selected_original_ids=selection['indices'], selection_manifest=selection,
@@ -566,9 +574,9 @@ def worker(directory: str) -> None:
         saved_filters = False
         for corruption, values in arrays.items():
             accumulated, correct, elapsed, peak = [], 0, 0., 0.
-            for batch, start in enumerate(range(0, config['count'], 2)):
+            for batch, start in enumerate(range(0, config['count'], config['batch_size'])):
                 case_started = time.monotonic()
-                ids = np.asarray(config['selected_original_ids'][start:start+2], dtype=np.int64)
+                ids = np.asarray(config['selected_original_ids'][start:start+config['batch_size']], dtype=np.int64)
                 # Each case has the same pre-preparation boundary regardless of arm/order.
                 before_rng = shared.seed_inference(0)
                 raw_original = np.array(values[ids], copy=True)
@@ -719,7 +727,7 @@ def worker(directory: str) -> None:
                         basis_sha256=[tensor_hash(value) for value in target.bases],
                         active_vertex_indices=[(value.diagonal() > 0).nonzero().flatten().cpu().tolist()
                                                for value in target.filters]), indent=2) + '\n')
-                    if not saved_filters:
+                    if not saved_filters and not config.get('skip_dense_filter_witness', False):
                         np.savez_compressed(case / 'physical_filters.npz', filters=torch.stack(target.filters).cpu().numpy())
                         saved_filters = True
                 active_observer = observer
@@ -803,7 +811,7 @@ def worker(directory: str) -> None:
                     h5_path.write_text(json.dumps(h5, indent=2, sort_keys=True, allow_nan=False)+'\n')
                     diagnostics['h5_capture'] = dict(file=h5_path.name, **source.file_identity(h5_path))
                     (case/'diagnostics.json').write_text(json.dumps(diagnostics, indent=2, sort_keys=True, allow_nan=False)+'\n')
-                shared.update_row(rows, config, corruption, min(start+2, config['count']), correct, elapsed, peak, 'partial')
+                shared.update_row(rows, config, corruption, start+len(ids), correct, elapsed, peak, 'partial')
                 bundle.write_results(rows, 'running')
                 config.setdefault('completed_batches', {})[corruption] = batch+1
                 bundle.write_config(config)

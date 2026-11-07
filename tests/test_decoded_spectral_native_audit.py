@@ -36,6 +36,34 @@ class Decoder(torch.nn.Module):
 
 
 class NativeAuditTests(unittest.TestCase):
+    def test_larger_batches_preserve_fd_gate_and_reject_wrong_backward_or_mismatched_shape(self):
+        for count in (4, 8, 64):
+            with self.subTest(count=count):
+                latent = torch.linspace(.2, .8, count*12, dtype=torch.float64).reshape(count, 12, 1, 1).requires_grad_()
+                style = torch.ones(count, 3, 1, 1, dtype=torch.float64, requires_grad=True)
+                target = SmoothSpectralTarget(torch.zeros(count, 4, 3, dtype=torch.float64),
+                                             (torch.eye(4, dtype=torch.float64),)*count, [])
+                for wrong in (False, True):
+                    decoder = Decoder(wrong_backward=wrong).eval()
+                    before = rng_hash(), model_buffer_hashes({'vae': decoder})
+                    report, arrays = self.audit()(decoder, target, latent, style)
+                    self.assertEqual(report['passed'], not wrong, report)
+                    self.assertEqual(report['relative_tolerance'], .1)
+                    self.assertEqual(report['absolute_tolerance'], 1e-5)
+                    self.assertEqual(arrays['baseline_decoded'].shape, (count, 4, 3))
+                    self.assertTrue(np.all(arrays['direction'][1:] == 0))
+                    self.assertEqual(before, (rng_hash(), model_buffer_hashes({'vae': decoder})))
+                report, _ = self.audit()(Decoder().eval(), target, latent, style[:-1])
+                self.assertFalse(report['passed'])
+        count = 65
+        latent = torch.ones(count, 12, 1, 1, dtype=torch.float64)
+        style = torch.ones(count, 3, 1, 1, dtype=torch.float64)
+        target = SmoothSpectralTarget(torch.zeros(count, 4, 3, dtype=torch.float64),
+                                     (torch.eye(4, dtype=torch.float64),)*count, [])
+        report, _ = self.audit()(Decoder().eval(), target, latent, style)
+        self.assertFalse(report['passed'])
+        self.assertIn('B1..64', report['errors'][0])
+
     def test_singleton_tail_preserves_fd_gate_and_rejects_wrong_backward(self):
         target, latent, style = self.inputs()
         target = SmoothSpectralTarget(target.reference_xyz[:1], target.filters[:1], [])

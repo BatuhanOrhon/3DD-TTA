@@ -4,7 +4,52 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_batch_size_is_opt_in_and_617_requires_pinned_larger_benchmark(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from scripts import diagnose_decoded_spectral as driver
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertEqual(driver.configuration(args)['batch_size'], 2)
+        with tempfile.TemporaryDirectory() as temporary:
+            selected = Path(temporary)/'ids.json'
+            selected.write_text(json.dumps(dict(schema_version=1, dataset='modelnet40_c', indices=list(range(617)))))
+            manifest = ['--index-manifest', str(selected), '--index-manifest-sha256', driver.source.file_identity(selected)['sha256']]
+            for batch in (4, 8, 16, 32, 64):
+                with self.subTest(batch=batch):
+                    config = driver.configuration([*args, '--benchmark-shard', '--batch-size', str(batch), '--count', '617', *manifest])
+                    self.assertEqual((config['batch_size'], config['count'], config['num_classes']), (batch, 617, 40))
+                    self.assertEqual(config['selected_original_ids'], list(range(617)))
+            for extra in (['--benchmark-shard', '--count', '617', *manifest],
+                          ['--batch-size', '64', '--count', '617', *manifest],
+                          ['--benchmark-shard', '--batch-size', '64', '--count', '617'],
+                          ['--batch-size', '4', '--count', '4']):
+                with self.subTest(extra=extra), self.assertRaises(ValueError):
+                    driver.configuration([*args, *extra])
+            selected.write_text(json.dumps(dict(schema_version=1, dataset='modelnet40_c', indices=[0, 2468])))
+            with self.assertRaises(ValueError):
+                driver.configuration([*args, '--benchmark-shard', '--batch-size', '64', '--count', '2',
+                    '--index-manifest', str(selected), '--index-manifest-sha256', driver.source.file_identity(selected)['sha256']])
+        for batch in (0, 3, 65, True):
+            with self.subTest(batch=batch), self.assertRaisesRegex(ValueError, 'Batch size'):
+                driver.validate_selection_scope(dict(count=2, batch_size=batch))
+
     def test_scan_worker_counts_real_odd_tail_and_writes_15_class_predictions(self):
+        self.check_worker('scanobjectnn_c', 2, [578, 579, 580], [2, 1])
+
+    def test_larger_worker_batches_preserve_617_objects_and_actual_tails(self):
+        for batch_size, batches in ((32, [32]*19+[9]), (64, [64]*9+[41])):
+            with self.subTest(batch_size=batch_size):
+                self.check_worker('modelnet40_c', batch_size, list(range(617)), batches)
+        self.check_worker('scanobjectnn_c', 4, [576, 577, 578, 579, 580], [4, 1])
+
+    def test_dense_filter_witness_is_optional_without_changing_full_target_or_bases(self):
+        for skip in (False, True):
+            with self.subTest(skip=skip):
+                self.check_worker('modelnet40_c', 2, [0, 1], [2], physical=True, skip_dense=skip)
+
+    def check_worker(self, dataset_name, batch_size, ids, expected_batches, *, physical=False, skip_dense=False):
         import csv
         import json
         import tempfile
@@ -14,32 +59,38 @@ class DriverContractTests(unittest.TestCase):
         from unittest.mock import patch
         import numpy as np
         import torch
+        from graph_spectral import SmoothSpectralTarget
         from scripts import diagnose_decoded_spectral as driver
         from tests.test_chamfer_depth import installed_modules
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary).resolve()
-            selection = dict(schema_version=1, dataset='scanobjectnn_c', indices=[578, 579, 580])
+            scan = dataset_name == 'scanobjectnn_c'
+            n_examples, n_classes = (581, 15) if scan else (2468, 40)
+            selection = dict(schema_version=1, dataset=dataset_name, indices=ids)
             selected = root/'ids.json'
             selected.write_text(json.dumps(selection))
             config = driver.configuration(['--asset-root', str(root), '--asset-manifest-sha256', 'a'*64,
                 '--result-root', str(root/'results'), '--paired-state-root', str(root/'paired'),
-                '--dataset', 'scanobjectnn_c', '--benchmark-shard', '--arm', 'control', '--count', '3',
+                '--dataset', dataset_name, '--benchmark-shard', '--arm', 'physical' if physical else 'control', '--count', str(len(ids)),
+                *(['--weight', '1', '--lowband-modes', '100'] if physical else []),
+                *(['--skip-dense-filter-witness'] if skip_dense else []),
+                *(['--batch-size', str(batch_size)] if batch_size != 2 else []),
                 '--corruptions', 'gaussian', '--index-manifest', str(selected),
                 '--index-manifest-sha256', driver.source.file_identity(selected)['sha256']])
             bundle = driver.source.RunBundle.create(root/'results', 'scan-tail', config, 'CPU native stubs')
             (bundle.path/'selection_manifest.json').write_bytes(selected.read_bytes())
             class VAE(torch.nn.Module):
                 def decoder(self, unused, beta, context, style):
-                    return context.reshape(len(context), 2048, 4)[:, :, :3]
+                    return context.reshape(len(context), 2048, 4)[:, :, :3] + (.125 if physical else 0.)
             lion = types.SimpleNamespace(vae=VAE().eval(), priors=torch.nn.ModuleList([torch.nn.Linear(1, 1), torch.nn.Linear(1, 1)]))
             calls = []
             def reconstruct(prepared, lion, horizon, **options):
                 calls.append(len(prepared))
-                local = torch.zeros(len(prepared), 8192, 1, 1)
-                style = torch.zeros(len(prepared), 128, 1, 1)
+                local = torch.zeros(len(prepared), 8192, 1, 1, requires_grad=physical)
+                style = torch.zeros(len(prepared), 128, 1, 1, requires_grad=physical)
                 options['state_observer'](dict(local_latent=local, shape_latent=style, noise=local))
                 observer = options['trajectory_observer']
-                observer.initial(local_latent=local, shape_latent=style, noise=local)
+                observer.initial(input_points=prepared, local_latent=local, shape_latent=style, noise=local)
                 for step in range(horizon):
                     observer.clean(local, style, step, step)
                 observer.final_state(local, style, 0)
@@ -52,7 +103,18 @@ class DriverContractTests(unittest.TestCase):
             native.pointnet2_utils = object()
             chamfer = types.ModuleType('third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D')
             chamfer.chamfer_3DDist = lambda: None
+            targets = []
+            def target(prepared, *args, **kwargs):
+                self.assertTrue(kwargs['retain_bases'])
+                basis = torch.eye(2048, 257)
+                spectral_filter = torch.diag(torch.cat((torch.ones(257), torch.zeros(2048-257))))
+                result = SmoothSpectralTarget(prepared.detach().clone(), (spectral_filter,)*len(prepared),
+                    [dict(actual_rank=257, requested_rank=100)]*len(prepared), bases=(basis,)*len(prepared))
+                targets.append((result, result.loss(result.reference_xyz+.125).item()))
+                return result
             with ExitStack() as stack:
+                if physical:
+                    stack.enter_context(patch('graph_spectral.build_smooth_spectral_target', side_effect=target))
                 stack.enter_context(installed_modules({'pointnet2_ops': native, chamfer.__name__: chamfer}))
                 stack.enter_context(patch.object(torch.Tensor, 'cuda', lambda tensor, *a, **kw: tensor))
                 for name, value in dict(is_available=True, max_memory_allocated=0, get_device_name='CPU native stub').items():
@@ -62,27 +124,40 @@ class DriverContractTests(unittest.TestCase):
                 stack.enter_context(patch.object(driver, 'verify_setup', return_value={}))
                 stack.enter_context(patch.object(driver, 'apply_backend_policy', return_value={}))
                 stack.enter_context(patch.multiple(driver.source, read_manifest=lambda *a: {}, dataset_manifest=lambda *a: dataset,
-                    load_array=lambda *a, **kw: np.zeros(581, dtype=np.int64) if kw.get('labels') else np.zeros((581, 2048, 3), dtype=np.float32),
+                    load_array=lambda *a, **kw: np.zeros(n_examples, dtype=np.int64) if kw.get('labels') else np.broadcast_to(np.zeros((1, 2048, 3), dtype=np.float32), (n_examples, 2048, 3)),
                     snapshot_sources=lambda *a: None))
                 stack.enter_context(patch.object(driver.shared, 'load_guidance_runtime', return_value=(lion, None, reconstruct, ops, {}, 'fixture')))
-                stack.enter_context(patch.object(driver.shared, 'initialize_heads', return_value=({'pointmae': torch.nn.Linear(3, 15).eval()}, {})))
-                stack.enter_context(patch.object(driver.shared, 'classify_geometry', side_effect=lambda geometry, *a: ({'pointmae': torch.zeros(len(geometry), 15)}, {})))
+                stack.enter_context(patch.object(driver.shared, 'initialize_heads', return_value=({'pointmae': torch.nn.Linear(3, n_classes).eval().requires_grad_(False)}, {})))
+                stack.enter_context(patch.object(driver.shared, 'classify_geometry', side_effect=lambda geometry, *a: ({'pointmae': torch.zeros(len(geometry), n_classes)}, {})))
                 stack.enter_context(patch.object(driver.shared, 'decoded_to_geometry', side_effect=lambda decoded, *a: decoded))
                 stack.enter_context(patch.object(driver.shared, 'copy_batch_shard', return_value={}))
                 stack.enter_context(patch('scripts.eval_chamfer_depth.scheduler_record', return_value={}))
                 driver.worker(str(bundle.path))
-            self.assertEqual(calls, [2, 1])
+            self.assertEqual(calls, expected_batches)
             finished = json.loads((bundle.path/'config.json').read_text())
             self.assertTrue(finished['diagnostic_complete'])
-            self.assertEqual(finished['completed_batches'], {'gaussian': 2})
+            self.assertEqual(finished['skip_dense_filter_witness'], skip_dense)
+            self.assertEqual(finished['completed_batches'], {'gaussian': len(expected_batches)})
             with (bundle.path/'per_corruption.csv').open() as stream:
                 row = next(csv.DictReader(stream))
-            self.assertEqual((int(row['n_examples']), int(row['n_correct'])), (3, 3))
+            self.assertEqual((int(row['n_examples']), int(row['n_correct'])), (len(ids), len(ids)))
             with np.load(bundle.path/'gaussian_predictions.npz', allow_pickle=False) as result:
-                self.assertEqual(result['index'].tolist(), [578, 579, 580])
-                self.assertEqual(result['trajectory_logits'].shape, (3, 4, 15))
-            with np.load(bundle.path/'batches/gaussian/batch0001/predictions.npz', allow_pickle=False) as tail:
-                self.assertEqual(tail['trajectory_logits'].shape, (1, 4, 15))
+                self.assertEqual(result['index'].tolist(), ids)
+                self.assertEqual(result['trajectory_logits'].shape, (len(ids), 4, n_classes))
+            with np.load(bundle.path/('batches/gaussian/batch%04d/predictions.npz' % (len(expected_batches)-1)), allow_pickle=False) as tail:
+                self.assertEqual(tail['trajectory_logits'].shape, (expected_batches[-1], 4, n_classes))
+            if physical:
+                case = bundle.path/'batches/gaussian/batch0000'
+                self.assertEqual((case/'physical_filters.npz').exists(), not skip_dense)
+                with np.load(case/'physical_bases.npz', allow_pickle=False) as saved:
+                    self.assertEqual(saved['basis_0'].shape, (2048, 257))
+                    self.assertEqual(saved['basis_1'].shape, (2048, 257))
+                graph = json.loads((case/'graph.json').read_text())
+                self.assertEqual(len(graph['filter_sha256']), 2)
+                self.assertEqual([len(active) for active in graph['active_vertex_indices']], [257, 257])
+                for target, expected_loss in targets:
+                    self.assertGreater(expected_loss, 0.)
+                    self.assertEqual(target.loss(target.reference_xyz+.125).item(), expected_loss)
 
     def test_scan_selection_binds_15_class_source_and_preserves_singleton_tail(self):
         import json
@@ -227,6 +302,7 @@ class DriverContractTests(unittest.TestCase):
                         selection_manifest=manifest, selection_manifest_identity=identity,
                         selected_original_ids=[0, 1, 2, 3])
             cases = [(dict(), RuntimeError, 'Reached asset loading'),
+                     (dict(batch_size=3), ValueError, 'Batch size'),
                      (dict(benchmark_shard=False), ValueError, 'Count4'),
                      (dict(count=0), ValueError, 'Benchmark shard count'),
                      (dict(count=3), ValueError, 'Benchmark shard count'),

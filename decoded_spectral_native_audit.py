@@ -45,10 +45,10 @@ def audit_decoded_gradient(vae, target, latent, original_style, *,
             save(name, value)
             if (not isinstance(value, torch.Tensor) or value.ndim not in (2, 4)
                     or (value.ndim == 4 and value.shape[2:] != (1, 1))
-                    or value.shape[0] not in (1, 2) or value.shape[0] != latent.shape[0]
+                    or not 1 <= value.shape[0] <= 64 or value.shape[0] != latent.shape[0]
                     or value.dtype not in (torch.float32, torch.float64)
                     or not torch.isfinite(value).all()):
-                raise ValueError('Expected matching finite B1/B2 floating latent/style in decoder-compatible shape')
+                raise ValueError('Expected matching finite B1..64 floating latent/style in decoder-compatible shape')
             tracked[name] = (value, tensor_hash(value))
         if original_style.device != latent.device or original_style.dtype != latent.dtype:
             raise ValueError('Latent and original style device/dtype must match')
