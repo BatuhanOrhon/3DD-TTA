@@ -1,13 +1,18 @@
 {
   "status": "CPU/selfcheck/review passed; actual full results incomplete",
-  "analyzer_sha256": "82f2ddc3b6a10d776418a54fc5c94bfde8c9b9585914fc75dea45e1ad0ef1187",
-  "selfcheck_sha256": "7f89f9947c322c2c298d1920438e7c501a162d1ec495f290488f0060876df0f8",
-  "actual_partial": "0complete3armshards fromfirstcache+control;gate null",
+  "analyzer_sha256": "e13ee21e8a48295e510e657ea5fae17a3a482679afbbc79a1e8adc20b94a7f44",
+  "selfcheck_sha256": "781f5ed719f2aa6b915b764eb89b247a31555a0e74fa262288b5d91fe46765a3",
+  "actual_partial": "1complete3armshard/64IDs/960pairs perarm;gate null",
   "review": "no concrete blocker; absolute localraw paths mustremainavailable",
   "inference_accepted": [
-    "shard000_control"
+    "shard000_control",
+    "shard000_half0",
+    "shard000_M100"
   ],
   "cache_accepted": [
     "shard000_cache"
-  ]
+  ],
+  "historical_initial_analyzer_sha256": "82f2ddc3b6a10d776418a54fc5c94bfde8c9b9585914fc75dea45e1ad0ef1187",
+  "timing_completeness": "added preproc/terminalgeometryheadIO/casewall totals; controldecoder separately unmeasured=null, true spectral0; allCPUselfchecks pass",
+  "rank_zero_contract": "reader honors existing zero-support operator rank0; calibration still rejects inactive norms; CPU regression and source zero-graph test passed"
 }

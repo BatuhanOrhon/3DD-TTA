@@ -1,0 +1,81 @@
+{
+  "status": "CPU preparation only; actual deployment/gate/receipt/calibration pending",
+  "files": {
+    "campaign.py": {
+      "bytes": 39850,
+      "sha256": "b3b3a7890a60063dbbd8c62c3c34e0e6369a539f71a5a865659a9933ee93333a"
+    },
+    "phases.py": {
+      "bytes": 18015,
+      "sha256": "a453a2c6f2c353ae8eb6aeb124ad6f8db40e29b2b0be0e4c64bdb909cfe0f2e7"
+    },
+    "prepare_technical_caches.py": {
+      "bytes": 5120,
+      "sha256": "5215f61370a6fbf684fec41512a5c9d85afdfcd78a0123c3ff5a9f3f2811a41d"
+    },
+    "selfcheck_phases.py": {
+      "bytes": 13939,
+      "sha256": "1cd7c74984511945a57b642e5201fd31aad2718681744fc5acbf3c739839e2c4"
+    },
+    "selfcheck_campaign.py": {
+      "bytes": 35826,
+      "sha256": "b61834494acd303eb14256ff5e7384b022e2d702032317ff5f2873a60051424a"
+    },
+    "calibration.json": {
+      "bytes": 111,
+      "sha256": "da4fa63692a2b86b07f0422186f939fcd81433342e79d79966b1cc15de6a0c00"
+    }
+  },
+  "phase_selfcheck": {
+    "applied_jobs": 4,
+    "calibration_jobs": 1,
+    "failed_phase_package_preserved": true,
+    "frozen_ratios": 24,
+    "helper_nonzero_preserved": true,
+    "isolated_singleton_cache": true,
+    "missing_fd_rejected": true,
+    "shared_campaign_lock": true,
+    "source": "temporary synthetic fixtures only",
+    "synthetic_alpha": 2,
+    "technical_jobs": 18
+  },
+  "full_controller_selfcheck": "40 synthetic jobs passed including strict prealpha rejection for full plan; verify_deployment permits only actual deployment bindings",
+  "python38_syntax": true,
+  "full_originals_unchanged": true,
+  "contract": {
+    "cache_root": "technical_paired_states",
+    "technical_jobs": 18,
+    "calibration_jobs": 1,
+    "applied_jobs": 4,
+    "source_phase_order": [
+      "technical",
+      "calibrate",
+      "applied"
+    ],
+    "calibration_indices": [
+      39,
+      146,
+      201,
+      273
+    ],
+    "norm_ratios": 24,
+    "whole_phase_cap_hours": 12,
+    "phase_marker": "SCAN_TECHNICAL_PACKAGE",
+    "phase_packages": "technical_packages/<phase>.zip",
+    "lock": "campaign.lock",
+    "technical_cache_roles": [
+      "technical0",
+      "singleton580",
+      "calibration"
+    ],
+    "technical_cache_cases": 60
+  },
+  "limits": [
+    "No remote or GPU or actual model inference",
+    "No actual passed Scan asset receipt or alpha manufactured",
+    "Technical packages require separate manual chunk retrieval/acceptance; full daemon events are not emitted",
+    "Actual native B2/B1 FD and repeat controls remain unrun",
+    "No commit"
+  ],
+  "phase_package_member_sha_verified": true
+}

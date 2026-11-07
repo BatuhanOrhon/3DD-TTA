@@ -60,3 +60,29 @@ SHAe236151c...38eb2matchespinnedreceipt, CRC/path/typechecks pass. All17
 consumed s5/clean/label arrays exactlymatch archivedmanifestbytes/SHA/shape/dtype
 and finite581-object arrays. This is assetprovenance only; alphausescorrupted
 geometry/norms only. SeparateScancheckpoint/strictload remain pending.
+
+## Further CPU preparation (unexecuted conditional operators)
+
+[Code/CPU/Open] Separate ignoredtask-local operator/acceptor/analyzer copies
+prepared.40syntheticfulljobs include true5-IDtail[2,2,1];strict fullModelNetgate/
+source/Scancheckpoint/auxreceipt/protocol/calibration bindings reject drafts.
+LocalB1/B2acceptance checks actual syntheticsealedsource/native/cache/RNG/PM/
+CSV/basis and siblingpairing; ACKcrash/replay/journalfallback tests pass.
+Scanaggregator requires581/8715pairsperarm/4365cases/40ZIPs, reports4calibration
+versus577others (notunseen), no third-dataset gate. Rank0source semantics and
+combined/unmeasured timing scopes retained.
+
+Technical/calibration/applied phaseCPUselfchecks18+1+4jobs pass. Threecache
+preparations use `technical_paired_states` to avoid singleton580collision with
+fulltail.12alternatingcontrol/livefull0repeats, nativehard100FD B2+B1 mustpass,
+singletonbaseline; then count4calibration→24actual-updateratios; then4applied
+half0/M100pair/singletonchecks. Preexistingwholeexternal12hclock andsharedlock
+coverallphases; ordinary failures package actualraw/logs/cachebytes toverified
+Drive. Frozen fullplan mandatorybeforeapplied/full; prealpha deployment proof
+separate. FullModelNetoriginals andliveGPUunchanged.
+
+Independentreviews foundandfixedfullgatecoverage schema mismatch (actualreport
+includesexact2468IDs), then foundno remainingconcreteblocker. Assetsetupwrapper
+staticreview/syntaxpass; actualCPUStrictScancheckpointload/nativeB1/live transfers
+are stillUNRUN. Draftoperators/setupwrappers remainoutsideintegration until
+actualbindings/conditionalstage; onlycompactCPUverification is published.

@@ -1,0 +1,50 @@
+{
+  "status": "CPU-only preparation; actual conditional source/checkpoint/native/calibration not executed",
+  "files": {
+    "operator/campaign.py": {
+      "bytes": 39850,
+      "sha256": "b3b3a7890a60063dbbd8c62c3c34e0e6369a539f71a5a865659a9933ee93333a"
+    },
+    "operator/prepare_caches.py": {
+      "bytes": 5105,
+      "sha256": "724ca84b7a374c693fba9641a8c711e74b18917dbbdc89413d0241b07a5a0608"
+    },
+    "operator/prepare_technical_caches.py": {
+      "bytes": 5120,
+      "sha256": "5215f61370a6fbf684fec41512a5c9d85afdfcd78a0123c3ff5a9f3f2811a41d"
+    },
+    "operator/phases.py": {
+      "bytes": 18015,
+      "sha256": "a453a2c6f2c353ae8eb6aeb124ad6f8db40e29b2b0be0e4c64bdb909cfe0f2e7"
+    },
+    "accept_scan.py": {
+      "bytes": 18196,
+      "sha256": "4f83e01412dd8595622369b5b5b3a422e4c21d817fcdc7bbdbaf3bb805b5064e"
+    },
+    "transfer_daemon.py": {
+      "bytes": 13291,
+      "sha256": "7b8c75558511339264dc93f29738ef918dd1e51f99738f6964c4a40f235eb168"
+    },
+    "analyze_scan.py": {
+      "bytes": 18187,
+      "sha256": "bc97374d7a00c44a1fdaca974764585466d86d24472a47280dfbc8426c925f6f"
+    },
+    "deploy_assets_phase.py": {
+      "bytes": 7771,
+      "sha256": "0ae4369da8ec7b2af727b1f42733b9243b0d1904f72e82795519aa0d235ae316"
+    },
+    "strict_cpu_preflight.py": {
+      "bytes": 2111,
+      "sha256": "58fb79f930edaf6c3ac7ebd7937d7efdc7f407476f28e88ffbe0f9ea2d59af5c"
+    }
+  },
+  "checks": [
+    "40syntheticfulljobs",
+    "18technical+1calibration+4applied",
+    "B1/B2 source/native/cache/PM/basis syntheticacceptance",
+    "ACKcrash/replay/journalfallback",
+    "581-objectpairedCI/rawhash/rank0/timinganalysis",
+    "independentCPUreviews"
+  ],
+  "limits": "draftplan intentionally cannotlaunch; no actual Scan receipt/alphafreeze/deployment/GPU"
+}

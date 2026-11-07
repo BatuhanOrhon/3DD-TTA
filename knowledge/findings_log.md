@@ -8846,3 +8846,12 @@ unrun until fullModelNet >=1pp and positive95%pairedCI gate. No external result.
 study. Half0running/M100pending, no completepairedshard orfullcontrast.
 Fullaggregator syntheticcoverage/gate/rawhash/timing checks and independent
 reviewpass; actualpartial leavesgate null. Nativeinstabilityunresolved.
+
+### 2026-11-07 17:13UTC — [Run/Inference/Open] first64-ID paired full shard
+
+[Full study](gsd_lowband_full_study_20261107.md):629/960operational,619half0,
+621M100. M100-operational-0.8333pp(CI[-1.9792,.3125]);versushalf0+.2083pp
+(CI[-.9375,1.3542]). Negative interim retained;64/2468objects and1seed/native
+instability do not support a full conclusion. All3rawarchives/source/native/
+actualcache/RNG/PM/basis guardsaccepted; partialanalysisDrive/MacSHAverified.
+All39shardscontinueunchanged, externalgate remainsnulluntilfinalcoverage.

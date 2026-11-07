@@ -51,8 +51,9 @@ with tempfile.TemporaryDirectory(prefix='full-analysis-check-') as temporary:
                     counts[corruption] = dict(n=2, pm_correct=2 if arm in ('cache', 'M100') else 0,
                         terminal_correct=2, reconstruction_seconds=1., peak_gpu_memory_mb=128.)
                     records = [] if arm == 'control' else [dict(decoder_and_hash_seconds=.1, spectral_loss_seconds=.01)]*3
-                    diagnostic = dict(original_ids=ids, timing={'graph_build_seconds': 0. if arm == 'control' else .2},
-                                      trajectory=dict(decoded_spectral=dict(records=records)))
+                    diagnostic = dict(original_ids=ids, timing=dict(graph_build_seconds=0. if arm == 'control' else .2,
+                        preprocessing_seconds=.01, terminal_geometry_head_io_seconds=.02, case_wall_before_drive_copy_seconds=.3),
+                                      trajectory={} if arm == 'control' else dict(decoded_spectral=dict(records=records)))
                     zipped.writestr('bundle/batches/'+corruption+'/batch0000/diagnostics.json', json.dumps(diagnostic))
                 zipped.writestr('bundle/config.json', '{}')
             identity = analysis.identity(archive)
@@ -80,6 +81,9 @@ with tempfile.TemporaryDirectory(prefix='full-analysis-check-') as temporary:
         json.loads((root/'accepted/shard000_M100.json').read_text())['details']['cases'])
     assert abs(components['graph_build_seconds']-3.) < 1e-12
     assert abs(components['decoder_and_hash_seconds']-4.5) < 1e-12
+    assert abs(components['preprocessing_seconds']-.15) < 1e-12
+    assert abs(components['terminal_geometry_head_io_seconds']-.3) < 1e-12
+    assert abs(components['case_wall_before_drive_copy_seconds']-4.5) < 1e-12
     path = root/'accepted/shard000_M100.json'
     good = json.loads(path.read_text())
     for changed in ('labels', 'paired_identity', 'filter_sha256', 'pm', 'duplicate', 'missing', 'count'):
@@ -99,6 +103,23 @@ with tempfile.TemporaryDirectory(prefix='full-analysis-check-') as temporary:
         path.write_text(json.dumps(bad))
         rejects(lambda: analysis.aggregate(root))
     path.write_text(json.dumps(good))
+    paired_paths = [root/'accepted'/('shard000_'+arm+'.json') for arm in ('half0', 'M100')]
+    originals = [entry.read_text() for entry in paired_paths]
+    for rank in (0, -1, 2049):
+        for entry, original in zip(paired_paths, originals):
+            changed = json.loads(original)
+            changed['details']['cases'][0]['rank'][0] = rank
+            entry.write_text(json.dumps(changed))
+        if rank == 0:
+            zero = analysis.aggregate(root)
+            assert zero['coverage']['objects'] == 4 and zero['coverage']['predictions_per_arm'] == 60
+            for arm in ('half0', 'M100'):
+                assert zero['ranks'][arm]['count'] == 60 and zero['ranks'][arm]['min'] == 0
+                assert zero['ranks'][arm]['histogram']['0'] == 1
+        else:
+            rejects(lambda: analysis.aggregate(root))
+    for entry, original in zip(paired_paths, originals):
+        entry.write_text(original)
     cache = root/'accepted/shard001_cache.json'
     held = cache.read_text()
     cache.unlink()
@@ -145,7 +166,10 @@ with tempfile.TemporaryDirectory(prefix='full-analysis-check-') as temporary:
                 ack=dict(status='local_and_drive_verified', label=label, kind=kind, local_archive=str(archive), **archive_identity))
             (full/'accepted'/(label+'.json')).write_text(json.dumps(receipt))
     (full/'operator/plan.json').write_text(json.dumps(full_plan))
-    analysis.final_components = lambda *args: dict(graph_build_seconds=1., decoder_and_hash_seconds=2., spectral_loss_seconds=.1)
+    analysis.final_components = lambda path, *_: dict(graph_build_seconds=0. if Path(path).stem.endswith('_control') else 1.,
+        decoder_and_hash_seconds=0. if Path(path).stem.endswith('_control') else 2.,
+        spectral_loss_seconds=0. if Path(path).stem.endswith('_control') else .1,
+        preprocessing_seconds=1., terminal_geometry_head_io_seconds=2., case_wall_before_drive_copy_seconds=3.)
     def exact_metrics(winner, baseline):
         delta = float((winner.astype(float)-baseline).mean()*100)
         return dict(delta_pp=delta, object_cluster_ci95_pp=[delta, delta])
@@ -157,6 +181,12 @@ with tempfile.TemporaryDirectory(prefix='full-analysis-check-') as temporary:
     assert accepted_full['strata']['prior_M100_20']['objects'] == 20
     assert accepted_full['strata']['outside_prior_M100_2448']['objects'] == 2448
     assert accepted_full['provenance']['raw_zip_sha_verified'] is True
+    assert accepted_full['timing']['arms']['M100']['preprocessing_seconds'] == 39.
+    assert accepted_full['timing']['arms']['M100']['terminal_geometry_head_io_seconds'] == 78.
+    assert accepted_full['timing']['arms']['M100']['case_wall_before_drive_copy_seconds'] == 117.
+    assert accepted_full['timing']['arms']['control']['decoder_and_hash_seconds'] is None
+    assert accepted_full['timing']['arms']['control']['spectral_loss_seconds'] == 0.
+    assert accepted_full['timing']['arms']['M100']['decoder_and_hash_seconds'] == 78.
     analysis.accuracy.paired_metrics = lambda *args: dict(delta_pp=1., object_cluster_ci95_pp=[0., 2.])
     assert analysis.aggregate(full, final=True)['external_gate']['advance_to_external'] is False
     analysis.accuracy.paired_metrics = lambda *args: dict(delta_pp=1., object_cluster_ci95_pp=[.001, 2.])

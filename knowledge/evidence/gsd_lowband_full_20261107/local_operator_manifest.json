@@ -12,11 +12,11 @@
     "sha256": "748c8125fe11e9e7614269223d63fc7de191586ae73a02c3c41504a871c4fa9f"
   },
   "analyze_full.py": {
-    "bytes": 16889,
-    "sha256": "82f2ddc3b6a10d776418a54fc5c94bfde8c9b9585914fc75dea45e1ad0ef1187"
+    "bytes": 18107,
+    "sha256": "e13ee21e8a48295e510e657ea5fae17a3a482679afbbc79a1e8adc20b94a7f44"
   },
   "selfcheck_analyze_full.py": {
-    "bytes": 10822,
-    "sha256": "7f89f9947c322c2c298d1920438e7c501a162d1ec495f290488f0060876df0f8"
+    "bytes": 12937,
+    "sha256": "781f5ed719f2aa6b915b764eb89b247a31555a0e74fa262288b5d91fe46765a3"
   }
 }

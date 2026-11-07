@@ -1,3 +1,10 @@
+**[Run/Inference/Open] 2026-11-07 — first full-study shard accepted, full run continues:**
+[Full protocol and interim evidence](gsd_lowband_full_study_20261107.md).
+First64/2468IDs/all15: PMoperational629/960,half0619,M100621;
+M100-operational-0.8333pp,conditional95%CI[-1.9792,.3125].
+This unfavorable2.6%interim is preserved; full39shards remain fixed,
+externalgate null. OwnA100/monitor/verifiedtransferconsumer live.
+
 **[Run/CPU/Open] 2026-11-07 — full PM M100 confirmation RUNNING:**
 [Protocol, technical acceptance and owned execution](gsd_lowband_full_study_20261107.md).
 All2468ModelNet40-C IDs/all15/s5/seed0/B2; originalSCD/half0/M100, frozen

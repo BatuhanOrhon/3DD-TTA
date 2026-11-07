@@ -74,7 +74,7 @@ def check_inference(receipt, indices):
             else:
                 assert len(case['filter_sha256']) == len(case['rank']) == 2
                 assert all(re.fullmatch('[0-9a-f]{64}', value) for value in case['filter_sha256'])
-                assert all(type(value) is int and 1 <= value <= 2048 for value in case['rank'])
+                assert all(type(value) is int and 0 <= value <= 2048 for value in case['rank'])
         counts = details['counts'][corruption]
         for key, expected in (('n', len(indices)), ('pm_correct', pm_correct), ('terminal_correct', terminal_correct)):
             assert type(counts[key]) is int and counts[key] == expected, 'Receipt prediction counts differ: '+corruption+'/'+key
@@ -84,7 +84,8 @@ def check_inference(receipt, indices):
 
 
 def final_components(path, cases):
-    totals = dict(graph_build_seconds=0., decoder_and_hash_seconds=0., spectral_loss_seconds=0.)
+    totals = dict(graph_build_seconds=0., decoder_and_hash_seconds=0., spectral_loss_seconds=0.,
+                  preprocessing_seconds=0., terminal_geometry_head_io_seconds=0., case_wall_before_drive_copy_seconds=0.)
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
         assert len(names) == len(set(names))
@@ -96,7 +97,9 @@ def final_components(path, cases):
             corruption, batch = case['case'].split('/')
             diagnostic = json.loads(archive.read(prefix+'batches/%s/batch%04d/diagnostics.json' % (corruption, int(batch))))
             assert diagnostic['original_ids'] == case['ids']
-            totals['graph_build_seconds'] += number(diagnostic['timing']['graph_build_seconds'])
+            for key in ('graph_build_seconds', 'preprocessing_seconds', 'terminal_geometry_head_io_seconds',
+                        'case_wall_before_drive_copy_seconds'):
+                totals[key] += number(diagnostic['timing'][key])
             for record in diagnostic['trajectory'].get('decoded_spectral', {}).get('records', []):
                 for key in ('decoder_and_hash_seconds', 'spectral_loss_seconds'):
                     totals[key] += number(record[key])
@@ -160,7 +163,9 @@ def aggregate(root, final=False):
     per_corruption = {arm: {corruption: dict(n=0, pm_correct=0, terminal_correct=0) for corruption in CORRUPTIONS} for arm in ARMS}
     timing = {arm: dict(worker_wall_seconds=0., reconstruction_seconds=0., peak_gpu_memory_mb=0.,
                        graph_build_seconds=0. if final else None, decoder_and_hash_seconds=0. if final else None,
-                       spectral_loss_seconds=0. if final else None) for arm in ARMS}
+                       spectral_loss_seconds=0. if final else None, preprocessing_seconds=0. if final else None,
+                       terminal_geometry_head_io_seconds=0. if final else None,
+                       case_wall_before_drive_copy_seconds=0. if final else None) for arm in ARMS}
     ranks, receipt_proofs = {arm: [] for arm in ARMS[1:]}, []
     cache_count = 0
     cache_jobs, inference_jobs = 0, 0
@@ -227,6 +232,8 @@ def aggregate(root, final=False):
                   histogram={str(value): values.count(value) for value in sorted(set(values))}) for arm, values in ranks.items()}
     for arm in ARMS:
         if final:
+            if arm == 'control':
+                timing[arm]['decoder_and_hash_seconds'] = None
             timing[arm]['graph_plus_reconstruction_seconds'] = timing[arm]['graph_build_seconds']+timing[arm]['reconstruction_seconds']
     timing_report = dict(arms=timing, component_pending_until_final=not final, overhead_vs_control={})
     if final:
@@ -244,7 +251,7 @@ def aggregate(root, final=False):
         provenance=dict(plan=dict(path=str(plan_path), **identity(plan_path)),
             common_source_identity=dict(path=str(source_path), **identity(source_path)),
             raw_zip_sha_verified=final, receipts=receipt_proofs),
-        timing_scope='Reconstruction includes PM probes. Graph + reconstruction excludes terminal head, sealing and Drive/local transfer. Decoder/hash and spectral losses are components within reconstruction; do not add them again. Worker wall includes initialization/IO through worker completion. Cache-preparation, outer-job and whole-study wall timing remain pending separate journal receipts; these measurements are not deployment throughput.',
+        timing_scope='Reconstruction includes PM probes; preprocessing is recorded separately. Control decoder/hash time is not separately measured, is included in reconstruction, and is reported as null; control spectral-loss time is zero. Terminal geometry/head/IO is one combined measurement covering geometry conversion/archive and final classifier work, not classifier-only time. Full case wall stops before the Drive copy and overlaps preprocessing, graph, reconstruction and terminal geometry/head/IO; do not add those components to case wall. Measured decoder/hash and spectral losses are within reconstruction and must not be added again. Graph + reconstruction excludes preprocessing, terminal geometry/head/IO, sealing and transfer. Common encode/style/noise preparation occurs outside measured replay; graph setup temporaries are excluded from reconstruction peak memory. Worker wall includes initialization/IO through worker completion. Cache-preparation, outer-job and whole-study wall timing remain pending separate journal receipts; these measurements are not deployment throughput.',
         limitation='Historical full-benchmark exposure includes all2468 IDs; the20/2448 strata refer only to recorded prior M100 use. One observed seed0; object-cluster intervals retain all15 corruptions per object and exclude native numerical variability. Prior native repeat gates failed; operational comparisons do not establish native causal attribution. Partial completion never changes the fixed full coverage or stopping rule.')
 
 

@@ -196,3 +196,51 @@ remain at their absolute localreceipt paths. Local archivedtools moved to the
 evidence root to preserve repository-relative imports; sourcebytes unchanged,
 archivedselfchecks pass. Conditional externalCPU boundary published76d9eb3;
 actualScanGPU/calibration notstarted.
+
+## 16:53:08UTC — first half0 accepted; M100 running
+
+[Run] First64/all15 half0 accepted480B2cases/480basischecks, requestedhard100
+actualrank100–256 (complete boundaryeigenspaces). Source/native/model/cache/RNG/
+PM/terminal/count checks pass; Drive+MacZIP1,004,528,916bytes/
+SHAad7e155bcc6901924568089ac316986bc0ae713e89314ffc818d2ae0c94d576d.
+992.5963s outer process scope versus control764.2278s; these include startup/
+sealing/Drive and are not isolated graph/recon costs. ActualM100 started
+16:51:47UTC; no complete3armshard orfullaccuracy yet.
+
+[Code/CPU] Final timingreader nowretains measured preprocessing, terminal
+geometry/head/IO(combined), and fullcasewall(beforeDrive), preserving overlap
+scopes. Baseline decoder/hash is separatelyUNMEASURED(null), not zero; baseline
+spectral0is actual absentoperation. Decoder/PM remainwithinrecon total.
+Realacceptedcontrol480JSONtimers parsed:preproc2.75415s,terminalcombined13.03175s,
+casewall698.06322s. Full/Scan timing selfchecks pass; fullanalyzer
+SHAa5db46a075a759705dc6ee0f66760c83a96306f62b9262135cc696494ab78373.
+Native repeat gate remains failed; no new sampler or GPU math changes.
+
+## 17:13UTC — first complete paired shard: NEGATIVE versus operational
+
+[Run/Inference] All3first64-ID/all15/s5/B2 bundles accepted on Drive+Mac,
+480pairedcases/960predictions perarm. PMoperational629/960(65.52083%),
+half0619/960(64.47917%),M100621/960(64.68750%). M100-operational-0.83333pp,
+pairedobjectCI95[-1.97917,+.31250]pp; M100-half0+.20833pp,
+CI[-.93750,+1.35417]pp. This retains the unfavorable observed firstshard;
+64/2468objects(2.6%) is not the full result and is not an early stopping rule.
+Full39shardfixedcoverage continues; secondshardrunning. Nativevariability
+excludedfromthese conditional intervals; no causal guidanceclaim.
+
+M100raw1,004,501,023bytes/SHA
+b641e5039ffef29d0ffbc137acd261e2fc8173dbb56cbbf298bcce03cfdc229e,
+outerworker1077.6603s. Half0/M100 all480exactgraphbasis/filter/reference/support
+identitiesmatch,960perobjectrankrecords perarm100–256;480basislosschecks perarm
+pass. Togetherwithfirstcontrol allsource/native/model/actualcache/RNG/PM/
+terminal/count/CSV guards pass. Derivedpartial JSON31,018bytes/SHA
+79e7d07541733be574b04d89085e1edf25d2190b5a3361b994fbb584e58f7a4b;
+CLIupload/download roundtriptoownDrive SHA verified.
+
+[Code/CPU] Localanalyzer ranklowerbound corrected1→0 to honor existing
+zero-support graph semantics (`test_empty_underflow_graph_has_connected_zero_loss`);
+this does not change observed positive-rank results or GPU/math/numeric gates.
+Pairedrank0 retained inhist/counts; -1/2049rejected; alpha calibration still
+requiresactive finite norms. Full/Scanreader selfchecks and sourcezeroGraph test
+pass. CurrentfullanalyzerSHA
+e13ee21e8a48295e510e657ea5fae17a3a482679afbbc79a1e8adc20b94a7f44,
+archivedentrypoint executedforcanonicalpartial.

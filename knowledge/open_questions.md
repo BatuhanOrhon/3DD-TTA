@@ -2794,3 +2794,7 @@ ScanObjectNN-C/Scan-trainedPointMAE stage. Native repeat gate still fails;
 full observed improvement alone cannot establish isolated GSD attribution.
 No full score yet; owned runtime/monitor retained and all partial/failed data
 must remain archived.
+
+[Run/Open]17:13UTCfull-studyfirst64-IDshardaccepted: M100621/960 vs
+operational629/960(-.8333pp),half0619/960. No completefull result;39fixed
+shardscontinue, externalgate remainsnull. Nativecausalattributionstillunresolved.

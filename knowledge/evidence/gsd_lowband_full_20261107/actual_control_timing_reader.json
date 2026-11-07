@@ -1,0 +1,12 @@
+{
+  "status": "actual accepted480case timing schema verified",
+  "components": {
+    "graph_build_seconds": 0.0,
+    "decoder_and_hash_seconds": 0.0,
+    "spectral_loss_seconds": 0.0,
+    "preprocessing_seconds": 2.754150776032475,
+    "terminal_geometry_head_io_seconds": 13.031746659045893,
+    "case_wall_before_drive_copy_seconds": 698.0632248420116
+  },
+  "scope": "first64/all15control only; full timing remainspending"
+}
