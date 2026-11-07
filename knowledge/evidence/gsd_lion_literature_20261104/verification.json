@@ -1,0 +1,31 @@
+{
+  "verified_utc": "2026-11-04T08:21:08.931006+00:00",
+  "source_commit": "512b5aa9869673004d9b9b3724bb38dbdada5b76",
+  "branch": "research/gsd-physical-followup-20261104",
+  "scope": "Literature record and synthetic numerical evidence only; no production sampler changes.",
+  "checks": {
+    "audit_rerun": "passed; Python3.12.10 NumPy1.26.4",
+    "pdf_sha256_and_size": "35/35 passed against sources.json",
+    "distinct_works": 33,
+    "reading_log_rows": 33,
+    "local_markdown_links": "12/12 passed",
+    "audit_python_ast": "valid",
+    "tracked_git_diff_check": "passed",
+    "new_markdown_trailing_whitespace": "passed",
+    "changed_paths_only_knowledge": true
+  },
+  "not_run": [
+    "LION inference",
+    "CUDA/native finite-lift gate",
+    "classification benchmark",
+    "GPU/end-to-end timing",
+    "production test suite (no production code changed)"
+  ],
+  "artifact_sha256": {
+    "knowledge/evidence/gsd_lion_literature_20261104/audit.py": "57077c8d7b95e385aa5de2a4a79da4ce5b4f4270e7f8e83e7c9750a267616575",
+    "knowledge/evidence/gsd_lion_literature_20261104/audit.json": "2adb205982887fd6f2a8a7b24791ad7f627f7ee90013570e363fb174c205c160",
+    "knowledge/evidence/gsd_lion_literature_20261104/sources.json": "d2f9010887a5aa7fe19db2b8e398c3a65617640a23bb2c945eefb81bc62dda7e",
+    "knowledge/evidence/gsd_lion_literature_20261104/reading_log.md": "02115fec405c9d4862c58db21ec5d4bbafe6c5258b3976da60ee7a22613b69d1",
+    "knowledge/gsd_lion_spectral_literature_20261104.md": "45f8435c4b366ce37538c9300ae89b584a98dd62c368f57a484c66365284ea91"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "scope": "posthoc clean-geometry diagnostic of cached decoded prediction only; no trajectory/accuracy or tuning",
+  "summaries": {
+    "0.001": {
+      "actual_minus_ideal": {
+        "objects": 8,
+        "states": 360,
+        "mean": 7.954644826921117e-05,
+        "ci95": [
+          3.0517815670307636e-05,
+          0.00014861593689974282
+        ],
+        "fraction_negative": 0.4111111111111111
+      },
+      "actual_minus_baseline": {
+        "objects": 8,
+        "states": 360,
+        "mean": -6.372102157796279e-05,
+        "ci95": [
+          -0.00019753606826543156,
+          0.00010359632797845063
+        ],
+        "fraction_negative": 0.6277777777777778
+      },
+      "ideal_minus_baseline": {
+        "objects": 8,
+        "states": 360,
+        "mean": -0.00014326746984717395,
+        "ci95": [
+          -0.0002499811924281361,
+          -3.431143878688128e-05
+        ],
+        "fraction_negative": 0.65
+      },
+      "actual_decreases": 226,
+      "ideal_decreases": 234
+    },
+    "0.01": {
+      "actual_minus_ideal": {
+        "objects": 8,
+        "states": 360,
+        "mean": 0.0025159520762017074,
+        "ci95": [
+          0.001738742561516227,
+          0.00355325665376016
+        ],
+        "fraction_negative": 0.2222222222222222
+      },
+      "actual_minus_baseline": {
+        "objects": 8,
+        "states": 360,
+        "mean": -0.0008430051691942087,
+        "ci95": [
+          -0.002053982245645515,
+          0.0005205228719284199
+        ],
+        "fraction_negative": 0.6472222222222223
+      },
+      "ideal_minus_baseline": {
+        "objects": 8,
+        "states": 360,
+        "mean": -0.0033589572453959163,
+        "ci95": [
+          -0.004352411774638472,
+          -0.0025409900697989218
+        ],
+        "fraction_negative": 0.725
+      },
+      "actual_decreases": 233,
+      "ideal_decreases": 261
+    }
+  }
+}

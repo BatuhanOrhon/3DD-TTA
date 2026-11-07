@@ -150,3 +150,7 @@ GSD's CloudFixer baseline description includes classifier/model updates, whereas
 original CloudFixer distinguishes input-onlyCF fromCF-O. Do not automatically
 map GSD's plain label to frozen-classifier input-onlyCF or compare their deltas
 as matched. Exact baseline variant/assets/logs remain open.
+
+## 2026-11-07 — Standalone GSD/LION literature and mechanism record integrated
+
+[Paper/Run/Code/Inference/Open] The [Nov4primary-source reading log](../evidence/gsd_lion_literature_20261104/reading_log.md) and [synthesis](../gsd_lion_spectral_literature_20261104.md) are now published with the [Nov5four-hypothesis results](../gsd_hypotheses_results_20261105.md). Generic graph-posterior residual correction is acknowledged prior art; this is GSD-inspired LION guidance, not full GSDTTA replication.392frozen states/group do not establish classifier accuracy or SCD speed benefit. Uniform graph gain and identity-coordinate lift are unsupported; H1/H2superiority remains unestablished. [Inventory](../gsd_hypotheses_test_inventory_20261107.md) preserves failed/unfinished and unstarted tests and keeps later comprehensive H0–H8 naming separate.

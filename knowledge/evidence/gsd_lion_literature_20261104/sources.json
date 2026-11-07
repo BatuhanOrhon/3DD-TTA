@@ -1,0 +1,326 @@
+{
+  "review_date": "2026-11-04",
+  "source_commit": "512b5aa9869673004d9b9b3724bb38dbdada5b76",
+  "source_branch": "research/gsd-physical-followup-20261104",
+  "document_count": 35,
+  "distinct_works": 33,
+  "local_ignored_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_lion_literature_20261104",
+  "note": "Primary PDFs freshly retrieved; focused method/equation reading is documented in reading_log.md. Not a claim to independently verify every appendix or reproduce paper results. No GPU or model inference.",
+  "documents": [
+    {
+      "id": "lion",
+      "url": "https://arxiv.org/pdf/2210.06978",
+      "pages": 63,
+      "bytes": 14825468,
+      "sha256": "9e4fe0aba310a9a432b7676fbe48cfa95670b1deb86b8a1c56482ff71c77a678",
+      "retrieved_utc": "2026-11-04T07:42:29.579844+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "3dd",
+      "url": "https://arxiv.org/pdf/2411.14495",
+      "pages": 11,
+      "bytes": 2132765,
+      "sha256": "c74dda126f4e603429f01be5f57b531ec49611251e05bbd9a6d26d572cbb5b1c",
+      "retrieved_utc": "2026-11-04T07:42:18.782327+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "cloudfixer",
+      "url": "https://arxiv.org/pdf/2407.16193",
+      "pages": 32,
+      "bytes": 11159788,
+      "sha256": "3913c296d37360bbe7363f63983dfef7440bf5b0c0d1df83b2ce60de9cf7f473",
+      "retrieved_utc": "2026-11-04T07:42:29.732149+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "dps",
+      "url": "https://arxiv.org/pdf/2209.14687",
+      "pages": 30,
+      "bytes": 27127555,
+      "sha256": "054df8370844423f363538917fba32dcdade7f12d8202db482ca41e42aefc36c",
+      "retrieved_utc": "2026-11-04T07:42:34.919747+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "ddnm",
+      "url": "https://arxiv.org/pdf/2212.00490",
+      "pages": 31,
+      "bytes": 16229389,
+      "sha256": "2eb94d7e487039d3575713586699534a2a775f98b61ba2f5692569391f37fa95",
+      "retrieved_utc": "2026-11-04T07:42:30.695559+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "ddrm",
+      "url": "https://arxiv.org/pdf/2201.11793",
+      "pages": 32,
+      "bytes": 22706771,
+      "sha256": "bd41112239e4a301566d1c7c8dd1bd0cae8eed69fa4bf4e8f07b07473556ebf7",
+      "retrieved_utc": "2026-11-04T07:42:44.109944+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "diffpir",
+      "url": "https://arxiv.org/pdf/2305.08995",
+      "pages": 17,
+      "bytes": 7841143,
+      "sha256": "350a15d233774f70214c65485b85a7816722fa0a5e2674e071fca0b12d44c865",
+      "retrieved_utc": "2026-11-04T07:42:31.671235+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "dds",
+      "url": "https://arxiv.org/pdf/2303.05754",
+      "pages": 28,
+      "bytes": 7713290,
+      "sha256": "3fe128806037e64b5bfba91f8b3bbbaeb0533b17bcf730c1a0703a524281b9a2",
+      "retrieved_utc": "2026-11-04T07:42:30.544846+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "daps",
+      "url": "https://arxiv.org/pdf/2407.01521",
+      "pages": 37,
+      "bytes": 46255386,
+      "sha256": "14e849b9d9e93e60da70d0db7bdafb225788180e4c611d5d77b70df653081a56",
+      "retrieved_utc": "2026-11-04T07:42:54.481278+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "red_diff",
+      "url": "https://arxiv.org/pdf/2305.04391",
+      "pages": 24,
+      "bytes": 17728555,
+      "sha256": "1bc66b92259bc52fcdd0b24039cb0debc9d0d5a38ee312d54d941e4d4cd6f2bd",
+      "retrieved_utc": "2026-11-04T07:42:40.044760+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "dmps",
+      "url": "https://arxiv.org/pdf/2211.12343",
+      "pages": 18,
+      "bytes": 6339770,
+      "sha256": "bffa545d3952e7aac07eba251c85d3b4bdfed760785d89fd429362bf23557397",
+      "retrieved_utc": "2026-11-04T07:42:36.391868+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "efficient_dps",
+      "url": "https://arxiv.org/pdf/2503.10237",
+      "pages": 25,
+      "bytes": 20328989,
+      "sha256": "3c9e931005d4672a06a04760537405366c097450ceba308228f76a6ed7660bb8",
+      "retrieved_utc": "2026-11-04T07:42:43.541789+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "piecewise",
+      "url": "https://arxiv.org/pdf/2507.18654",
+      "pages": 20,
+      "bytes": 8298735,
+      "sha256": "dbfdf24ad9d145c2c71b82dbf38d42ec268b8bddbd193549a5d27ad2cab01a2a",
+      "retrieved_utc": "2026-11-04T07:42:42.966921+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "resample",
+      "url": "https://arxiv.org/pdf/2307.08123",
+      "pages": 38,
+      "bytes": 9066315,
+      "sha256": "d5131e9ba7d839af23d3d51a400895dbd0b41842fdb6ec66b399d8f358749543",
+      "retrieved_utc": "2026-11-04T07:42:46.857326+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "shuman",
+      "url": "https://arxiv.org/pdf/1211.0053",
+      "pages": 14,
+      "bytes": 2968573,
+      "sha256": "8700aa3efea85f5024a39588c842e7445a5db04396105e63294e2de2ef8361f5",
+      "retrieved_utc": "2026-11-04T07:42:46.531464+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "hammond",
+      "url": "https://arxiv.org/pdf/0912.3848",
+      "pages": 37,
+      "bytes": 1977394,
+      "sha256": "d271fff0ceff78f538eff399906929c8edb2c3bee58b4ea2ee60d5ada5a30e61",
+      "retrieved_utc": "2026-11-04T07:42:45.066716+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "defferrard",
+      "url": "https://arxiv.org/pdf/1606.09375",
+      "pages": 9,
+      "bytes": 493584,
+      "sha256": "71ca918afab66803085af7c187089466c89dfe6e2fda436fff6b17624d22c69a",
+      "retrieved_utc": "2026-11-04T07:42:46.456416+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "levie",
+      "url": "https://arxiv.org/pdf/1901.10524",
+      "pages": 8,
+      "bytes": 441822,
+      "sha256": "18061ad9ce04c7b61b8d7fa318430dc6955e2c57bc038f5c2e243cfbba7ad6a4",
+      "retrieved_utc": "2026-11-04T07:42:46.499466+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "stationary",
+      "url": "https://arxiv.org/pdf/1601.02522",
+      "pages": 29,
+      "bytes": 4295491,
+      "sha256": "4020776ea74b9fd79e5c075aadeaefab58a7368e5c734cbaef7f8a2c32ca26ee",
+      "retrieved_utc": "2026-11-04T07:42:50.177872+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "glr",
+      "url": "https://arxiv.org/pdf/1803.07252",
+      "pages": 16,
+      "bytes": 4091890,
+      "sha256": "39b2c57439572dca70efad8400106dcfae8dcbb14eb789fcdcfaff98712b210a",
+      "retrieved_utc": "2026-11-04T07:42:50.143882+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "feature_graph",
+      "url": "https://arxiv.org/pdf/1907.09138",
+      "pages": 15,
+      "bytes": 8827590,
+      "sha256": "370e0c41a47d7ca27e4547cee7bc7f5b4d31d6bfd24a174d9ebca5c4130dd3af",
+      "retrieved_utc": "2026-11-04T07:42:51.758069+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "normal_gtv",
+      "url": "https://arxiv.org/pdf/1804.10831",
+      "pages": 6,
+      "bytes": 4786533,
+      "sha256": "7fb767cc2deadd0ca0c92f4c6c628eaad377b41b8252a13582f95f6cdf8731af",
+      "retrieved_utc": "2026-11-04T07:42:50.507333+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "score_denoise",
+      "url": "https://arxiv.org/pdf/2107.10981",
+      "pages": 10,
+      "bytes": 7482474,
+      "sha256": "905c243f29a7a2c6534719fe4817f242300aeb92c9ba38c5941f34217d898469",
+      "retrieved_utc": "2026-11-04T07:42:54.746924+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "red_limits",
+      "url": "https://arxiv.org/pdf/1806.02296",
+      "pages": 16,
+      "bytes": 1789806,
+      "sha256": "8e55391c0f6019f7edcca68fa2248b50a0b00a32249c778097b664bc5c2c9b23",
+      "retrieved_utc": "2026-11-04T07:42:52.750386+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "graph_filters",
+      "url": "https://arxiv.org/pdf/2211.08854",
+      "pages": 32,
+      "bytes": 5378235,
+      "sha256": "587307e4127ece5416062054a8542cc11abc7ec301d13a1438f081f3e77dd7ed",
+      "retrieved_utc": "2026-11-04T07:42:54.578442+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "pddim",
+      "url": "https://arxiv.org/pdf/2607.19333",
+      "pages": 40,
+      "bytes": 802957,
+      "sha256": "82196fab3fec91b090de1950f5bbb0e64088d5845e12990147b72a3ec98d052a",
+      "retrieved_utc": "2026-11-04T07:42:53.258430+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "fb_gdm",
+      "url": "https://arxiv.org/pdf/2609.29216",
+      "pages": 11,
+      "bytes": 5954935,
+      "sha256": "15d397c2c5b8221ea59e8c84a8c653636129c453370c5b9b0f608e02ce75e31a",
+      "retrieved_utc": "2026-11-04T07:42:54.951880+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "gsdtta",
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wei_3D_Test-time_Adaptation_via_Graph_Spectral_Driven_Point_Shift_ICCV_2025_paper.pdf",
+      "pages": 10,
+      "bytes": 1909642,
+      "sha256": "7ba86ae3902628a7cae464008303342afecc17c61f3d09b7393049ced2ea978b",
+      "retrieved_utc": "2026-11-04T07:42:55.712054+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "gsdtta_supp",
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wei_3D_Test-time_Adaptation_ICCV_2025_supplemental.pdf",
+      "pages": 3,
+      "bytes": 153337,
+      "sha256": "39301b0adefd9d570f88aa9fd6638ab0193c1e0ea12ae1184300709f3294ea8b",
+      "retrieved_utc": "2026-11-04T07:42:55.819766+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "pigdm",
+      "url": "https://jankautz.com/publications/PiGDM_ICLR23.pdf",
+      "pages": 30,
+      "bytes": 18733368,
+      "sha256": "5e9cc26d925a8e85255d12f57ee239f3d818d3cc91402b514f940113a8755c96",
+      "retrieved_utc": "2026-11-04T07:43:14.610509+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "noise2score",
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wei_Noise2Score3D_Tweedies_Approach_for_Unsupervised_Point_Cloud_Denoising_ICCV_2025_paper.pdf",
+      "pages": 11,
+      "bytes": 10546451,
+      "sha256": "185b890f07d058dc0bfc7c0b3e99dfec5858d5956f661d2d30b456e72f87625f",
+      "retrieved_utc": "2026-11-04T07:43:11.522718+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "noise2score_supp",
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wei_Noise2Score3D_Tweedies_Approach_ICCV_2025_supplemental.pdf",
+      "pages": 6,
+      "bytes": 38161505,
+      "sha256": "cef51d1104043688251f93409c701ff5f0fdce091db7e1cf8b6a36de084830a6",
+      "retrieved_utc": "2026-11-04T07:43:23.169230+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "gpara",
+      "url": "https://arxiv.org/pdf/2609.34172",
+      "pages": 21,
+      "bytes": 1731824,
+      "sha256": "b4e92e07a8f813a07b310c56a38e328ec4abf16b4e483cf786085ce1ebde0b9b",
+      "retrieved_utc": "2026-11-04T07:47:31.047931+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "graph_dps",
+      "url": "https://arxiv.org/pdf/2605.19621",
+      "pages": 28,
+      "bytes": 40023686,
+      "sha256": "79c22617cf930de465b8760213fd6ee1a9cfd967e0319f73c87e1154e82b6ae8",
+      "retrieved_utc": "2026-11-04T07:47:38.748618+00:00",
+      "status": "ok"
+    },
+    {
+      "id": "robust_icp",
+      "url": "https://arxiv.org/pdf/2007.07627",
+      "pages": 19,
+      "bytes": 9978920,
+      "sha256": "77bc27c46ba4da1b792423c2d9a70ea80cd4bfebaf27b52887cb7cea36e6211f",
+      "retrieved_utc": "2026-11-04T07:50:56.157415+00:00",
+      "status": "ok"
+    }
+  ]
+}

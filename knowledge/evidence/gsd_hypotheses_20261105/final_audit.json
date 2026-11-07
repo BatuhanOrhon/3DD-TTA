@@ -1,0 +1,57 @@
+{
+  "anchors": {
+    "packages": 19,
+    "unique_states": 392,
+    "primary_states": 360,
+    "probe_states": 32,
+    "original_objects": [
+      44,
+      91,
+      103,
+      137,
+      158,
+      223,
+      236,
+      265
+    ],
+    "source_pilot_sha256": "41c548ff2172e4c71b59aa061a74337c38155f6ada46655590f1fa23fc649507",
+    "loop_wall_seconds": 1568.6531790989993,
+    "loop_wall_seconds_min_max": [
+      8.364687406000485,
+      120.81957320299989
+    ],
+    "max_torch_allocated_bytes": 1953943552,
+    "timing_limit": "diagnostic loop includes asset hashing, state/filter compression and writes; excludes model init; not deployment GPU time",
+    "observation_order_permutation_max": 5.179947915821409e-16,
+    "observation_order_permutation_pass_1e_10": true
+  },
+  "transfer": {
+    "packages": 19,
+    "unique_states": 392,
+    "primary_states": 360,
+    "probe_states": 32,
+    "original_objects": [
+      44,
+      91,
+      103,
+      137,
+      158,
+      223,
+      236,
+      265
+    ],
+    "source_pilot_sha256": "41c548ff2172e4c71b59aa061a74337c38155f6ada46655590f1fa23fc649507",
+    "loop_wall_seconds": 144.22301369699744,
+    "loop_wall_seconds_min_max": [
+      1.377557415999945,
+      10.774562405999859
+    ],
+    "max_torch_allocated_bytes": 1953943552,
+    "timing_limit": "diagnostic loop includes asset hashing, state/filter compression and writes; excludes model init; not deployment GPU time"
+  },
+  "additional_H4_cosine_recount": {
+    "cases": 784,
+    "max_error": 1.29667642845277e-07,
+    "passed": true
+  }
+}

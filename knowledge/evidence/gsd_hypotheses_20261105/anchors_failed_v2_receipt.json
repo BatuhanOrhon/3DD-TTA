@@ -1,0 +1,22 @@
+{
+  "group": "anchors",
+  "session": "tta-gsd-anchor-correspondence-a100-20261105-r3",
+  "remote_root": "/content/studies/gsd_hypotheses_20261105/anchors/20261105T185849Z",
+  "package": "/content/studies/gsd_hypotheses_20261105/anchors/20261105T185849Z.zip",
+  "drive_package": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T185849Z/20261105T185849Z.zip",
+  "identity": {
+    "bytes": 13074777,
+    "sha256": "f9c4b340544c8df495ba6175c4aac174d0c032501384925943575eecc3723ae3"
+  },
+  "status": {
+    "cpu_gate_exit": 0,
+    "science_exit": 1
+  },
+  "parts": [
+    {
+      "path": "/content/studies/gsd_hypotheses_20261105/anchors/20261105T185849Z.zip.part000",
+      "bytes": 13074777,
+      "sha256": "f9c4b340544c8df495ba6175c4aac174d0c032501384925943575eecc3723ae3"
+    }
+  ]
+}

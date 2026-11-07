@@ -1,0 +1,7 @@
+{
+  "python": "3.12.10 (main, Apr  8 2025, 11:35:47) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "numpy": "1.26.4",
+  "scipy": "1.17.1",
+  "torch": "2.15.0",
+  "scope": "CPU independent artifact analysis only"
+}

@@ -1,0 +1,382 @@
+[
+  {
+    "group": "anchors",
+    "local": "result/preparation/gsd_hypotheses_20261105/anchors_v3_technical.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T190038Z/20261105T190038Z.zip",
+    "identity": {
+      "bytes": 95611531,
+      "sha256": "d1fa4bbd3a1b7e799a512025d75e73b280223cced8aa87c192f01ce7f39dab64"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition00/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T190538Z/20261105T190538Z.zip",
+    "identity": {
+      "bytes": 260699026,
+      "sha256": "1fe9646e8fd43e419edd036469e2a59630ba4db6f67d6a4a706cc1509eeda7a4"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition01/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T190732Z/20261105T190732Z.zip",
+    "identity": {
+      "bytes": 343380854,
+      "sha256": "7ccc5b4e29e0b72d24ed353697f7baa36e554c3932d040d0a25da67d20203b40"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition02/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T191002Z/20261105T191002Z.zip",
+    "identity": {
+      "bytes": 335554191,
+      "sha256": "7c8e441fe4d2c6ecfa92f3cce2a6d9dde8d6addb1bbc38d9194ac6226bfa8335"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition03/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T191231Z/20261105T191231Z.zip",
+    "identity": {
+      "bytes": 338519297,
+      "sha256": "ba469a843da57b54385ed871f49db10deca64d10fe71d4c12cb0d38cd18c077b"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition04/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T191502Z/20261105T191502Z.zip",
+    "identity": {
+      "bytes": 343849320,
+      "sha256": "c3e4958659b31fe1c4c98e79d5d585ef1e58bc7c45b5c96456d9fd79aa1ec47b"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition05/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T191730Z/20261105T191730Z.zip",
+    "identity": {
+      "bytes": 339785969,
+      "sha256": "31a3f1b772d9e15fc71eb09aea284ecaaba19b2fee44522d7f6fc3043dc7c3be"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition06/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T191959Z/20261105T191959Z.zip",
+    "identity": {
+      "bytes": 334448162,
+      "sha256": "f39b445d9a1d7e3a3589feb0a7c2c95fc3fb548fd191cc0cac9fb8b20eeae1a6"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition07/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T192230Z/20261105T192230Z.zip",
+    "identity": {
+      "bytes": 340683370,
+      "sha256": "f5709153915abc301c0b8d232fcf59836c228a7d736dbd792cc1ca7d0f641825"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition08/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T192458Z/20261105T192458Z.zip",
+    "identity": {
+      "bytes": 340659345,
+      "sha256": "bb93059506a0e858a188226f7b5ffff43788fb696573b3ed5720c134e1eb07d3"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition09/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T192727Z/20261105T192727Z.zip",
+    "identity": {
+      "bytes": 342579266,
+      "sha256": "6bdf0390260ee2b6df6062fe6c9874952630ab813654b31adf767d9a102b6c04"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition10/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T192957Z/20261105T192957Z.zip",
+    "identity": {
+      "bytes": 335437279,
+      "sha256": "417f493f562a761c183297974712ffa18b9ef4273483b057c84bc1d82c101966"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition11/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T193632Z/20261105T193632Z.zip",
+    "identity": {
+      "bytes": 340923334,
+      "sha256": "aaef068896e75634b3d6d3459c6610aae06bbf24ccaf0982a42734bbdab6ee9b"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition12/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T193902Z/20261105T193902Z.zip",
+    "identity": {
+      "bytes": 95679034,
+      "sha256": "d39b3c34690ef8d9fcf76a19859e84c0eacf485a0287431888e7df7293fc70c3"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition13/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T193958Z/20261105T193958Z.zip",
+    "identity": {
+      "bytes": 75487557,
+      "sha256": "a770bc9a1d9002e1a1c0030ed4909e841c4757996447b2a924cd557da7048e93"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition14/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T194045Z/20261105T194045Z.zip",
+    "identity": {
+      "bytes": 33194406,
+      "sha256": "62537e4ee85cfcefb427ca376d787673e8b747ce3d66c0418ee5f86ea3444759"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition15/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T194115Z/20261105T194115Z.zip",
+    "identity": {
+      "bytes": 96092942,
+      "sha256": "5bcb4795412c5fb603f2746c742364c5dad7f17b1d9d677dec278c663214aeae"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition16/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T194211Z/20261105T194211Z.zip",
+    "identity": {
+      "bytes": 75650420,
+      "sha256": "bb35dcd496f8c8c01df9b7bcf93973b5d0cf3bddb8343bf53d8bc040f44fedab"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "anchors",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_anchors/condition17/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/anchors/20261105T194258Z/20261105T194258Z.zip",
+    "identity": {
+      "bytes": 33451123,
+      "sha256": "b6646ed67096ed51d68c60c37c27d981a2fffa2ed4b3edfc6a1249187abe023d"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "result/preparation/gsd_hypotheses_20261105/transfer_v3_technical.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191343Z/20261105T191343Z.zip",
+    "identity": {
+      "bytes": 19003791,
+      "sha256": "7d826689d4a6bfb9c6af7015ca85c2c9beda2a84f44ef1cd96e74fdff984da48"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition00/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191522Z/20261105T191522Z.zip",
+    "identity": {
+      "bytes": 29551827,
+      "sha256": "8ee0ec24f43c850f19d656b4f5e3f085615422e8f7bae0bee906e37d6f176f70"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition01/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191552Z/20261105T191552Z.zip",
+    "identity": {
+      "bytes": 35505108,
+      "sha256": "b9fe4a1f0eada09ffba44026b0b49e23a18de1d35c4ccff19792e8fa10ea0e22"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition02/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191625Z/20261105T191625Z.zip",
+    "identity": {
+      "bytes": 35487288,
+      "sha256": "778646b88cba69740516aa1809c0a8ce04c9c6d48318bd827cf6cc5af090c0e1"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition03/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191657Z/20261105T191657Z.zip",
+    "identity": {
+      "bytes": 35450109,
+      "sha256": "af68166fb08b7f521c7de13eba7f1bdd9947ffcc4c4f4c07a1cf94dc0ede6c36"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition04/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191730Z/20261105T191730Z.zip",
+    "identity": {
+      "bytes": 35487181,
+      "sha256": "c5f49829a0f56114e7e0f07ee3d3117672722d807a5614512ae8b319ae31a25d"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition05/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191803Z/20261105T191803Z.zip",
+    "identity": {
+      "bytes": 35503045,
+      "sha256": "0a216e5404f9b737db0b4c5f33f68aaa98f94167828ab17ab7974bd05a09caa4"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition06/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191836Z/20261105T191836Z.zip",
+    "identity": {
+      "bytes": 35491923,
+      "sha256": "c8e98f9eb4b34525d8d1e10dbd4b9a834c4a9008e5585ba5138afde8a5b7ee21"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition07/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191909Z/20261105T191909Z.zip",
+    "identity": {
+      "bytes": 35449964,
+      "sha256": "42a4ee331b6f87faa1a148f64241dd6f2824188e0c5122af3bd9c2709a0817b6"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition08/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191941Z/20261105T191941Z.zip",
+    "identity": {
+      "bytes": 35486238,
+      "sha256": "0bfac5b32fe3eda2658cd2f3fbafb02297771662f08ff5094f83b7bb67fd9a93"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition09/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192014Z/20261105T192014Z.zip",
+    "identity": {
+      "bytes": 35499657,
+      "sha256": "c7d88905dff294ad8f3e8afaf21b7472264c2274c2c521ff90f4f275af61355d"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition10/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192047Z/20261105T192047Z.zip",
+    "identity": {
+      "bytes": 35488112,
+      "sha256": "b3246bf6ed15c5c31c6661653b519fce4570b1fb64679724435eda65787e00a8"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition11/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192120Z/20261105T192120Z.zip",
+    "identity": {
+      "bytes": 35452742,
+      "sha256": "2510f2bc9ab27084494819eec569b838c871eebbfbe63691f447702983ea1adb"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition12/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192153Z/20261105T192153Z.zip",
+    "identity": {
+      "bytes": 19197658,
+      "sha256": "9ddb20d6e8e27fd0635d5d394da10c0de4b505d5c3d9fc6bfd1f629471602c5a"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition13/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192218Z/20261105T192218Z.zip",
+    "identity": {
+      "bytes": 17463724,
+      "sha256": "8e8ac76f192b6d5e545a9b404d9d953d45fa5af6246cbac1d7cdde69fac44dd7"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition14/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192242Z/20261105T192242Z.zip",
+    "identity": {
+      "bytes": 14577765,
+      "sha256": "76fd9c932829f56dec99b28029648a2628a003fd5d3aec7c50489e8cc1ba0e40"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition15/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192305Z/20261105T192305Z.zip",
+    "identity": {
+      "bytes": 19210914,
+      "sha256": "1c0925fa670e989949621e3ff7fd39c49d91c15a0d79ae48aca10e2d0da462ef"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition16/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192330Z/20261105T192330Z.zip",
+    "identity": {
+      "bytes": 17462638,
+      "sha256": "97b32b2c0906b528daa1ebcac2e83a702b18d9078145c543b62a72ce284d782f"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  },
+  {
+    "group": "transfer",
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lion-literature-20261104/result/preparation/gsd_hypotheses_20261105/downloaded_transfer/condition17/raw.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T192355Z/20261105T192355Z.zip",
+    "identity": {
+      "bytes": 14576494,
+      "sha256": "6ceaa6ea9bfc2c0ae20e363a05df039a8cea42d597e12276fdc1f1a0515c78e0"
+    },
+    "accepted_package_member_integrity": "passed by immutable artifact acceptance/independent analyzer"
+  }
+]

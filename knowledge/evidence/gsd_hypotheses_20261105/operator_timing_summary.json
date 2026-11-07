@@ -1,0 +1,58 @@
+{
+  "archive_integrity": "passed",
+  "stages": {
+    "PCG_lambda0_given_operator": {
+      "cases": 8,
+      "median_across_case_medians_ms": 2.3395010002786876,
+      "range_case_medians_ms": [
+        2.2944989996176446,
+        2.72657099958451
+      ],
+      "max_additional_peak_bytes": 2344448
+    },
+    "PCG_lambda1_given_operator": {
+      "cases": 8,
+      "median_across_case_medians_ms": 6.106305500452436,
+      "range_case_medians_ms": [
+        6.039172000782855,
+        7.583313999930397
+      ],
+      "max_additional_peak_bytes": 2344448
+    },
+    "dense_spectral_target_X": {
+      "cases": 8,
+      "median_across_case_medians_ms": 51.89440049980476,
+      "range_case_medians_ms": [
+        49.56731399943237,
+        57.56087999998272
+      ],
+      "max_additional_peak_bytes": 168615424
+    },
+    "surface_graph_Y": {
+      "cases": 8,
+      "median_across_case_medians_ms": 1.6377699998884054,
+      "range_case_medians_ms": [
+        1.616493000256014,
+        1.6826020000735298
+      ],
+      "max_additional_peak_bytes": 67108864
+    },
+    "surface_observations_given_normals": {
+      "cases": 8,
+      "median_across_case_medians_ms": 0.4703079998762405,
+      "range_case_medians_ms": [
+        0.4610840005625505,
+        0.4896200007351581
+      ],
+      "max_additional_peak_bytes": 33767424
+    }
+  },
+  "scope": {
+    "status": "complete",
+    "records": 40,
+    "warmups_per_stage": 1,
+    "repeats": 3,
+    "batch_size": 1,
+    "scope": "cached-state component timing only; different objectives, no model forward/backward/PM, full SCD comparison, I/O or graph reuse amortization; graph construction still dense O(N^2)"
+  }
+}

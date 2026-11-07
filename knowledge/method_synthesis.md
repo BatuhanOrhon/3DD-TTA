@@ -715,3 +715,7 @@ backward while retaining its live forward. Removing the forward graph by also
 detaching decoder inputs failed a predeclared native-value gate and was reverted.
 Native repeat drift and graph setup must be controlled before total-cost/gain
 claims. Defaults and accepted N8Chamfer+PM baseline remain unchanged.
+
+## 2026-11-07 — Standalone robust proximal/lift proposal: accepted negative and uncertain results
+
+[Paper/Run/Code/Inference/Open] [Nov4literature and derivations](gsd_lion_spectral_literature_20261104.md), [Nov5results](gsd_hypotheses_results_20261105.md), [status inventory](gsd_hypotheses_test_inventory_20261107.md). Generic graph-posterior correction is acknowledged prior art, not novelty. In this separate study's local H1–H4 naming, reconstructed-anchor superiority is unestablished, robust-surface mean benefit uncertain, and uniform lambda1 worse than lambda0.784SPD solves/actual frozen-Huber descent and DDIM algebra pass while direct coordinate identity lift fails. Cached F application and graph construction/PCG costs remain separate; no SCD throughput/accuracy benefit. Future final physical refinement or measured decoder-aware lift requires independent validation; neither was implemented here. Preserve later comprehensive decoder/graph/native diagnostics as a different dated protocol, not overwritten evidence.

@@ -189,8 +189,8 @@ deterministik tamir kanıtlanmadı. [H0 ve modül tanığı](h0_native_trace_res
 |Geniş H6/H7 accuracy|Native geçerlilik/tutarlı iki-oran faydası yok; NOT_ADVANCED.|
 |Chebyshev bütün diffusion akışı/fresh deployment|Eşdeğerlik geçmedi, cached maliyet olumsuz; çalışmadı.|
 |V5 applied/timing üç koşu|Forward gate reddi sonrası başlamadı; optimizasyon geri alındı.|
-|Bozuk X yerine alternatif anchor ile accuracy|Oracle karşı örneği var; anchor A/B koşusu yok.|
-|Yeni geometrik correspondence'ı guidance'a koymak|Permütasyon/set-CD kontrolleri yapıldı; alternatif eşleştirme accuracy deneyi yok.|
+|Bozuk X yerine alternatif anchor ile accuracy|Bu kampanyada applied accuracy yok. Ayrı [Nov5standalone frozen-state anchor A/B](gsd_hypotheses_test_inventory_20261107.md) tamamlandı; üstünlük gösterilmedi. Bu mekanizma testi tam trajectory accuracy karşılaştırması değildir.|
+|Yeni geometrik correspondence'ı guidance'a koymak|Bu kampanyada permütasyon/set-CD kontrolleri yapıldı. Ayrı [Nov5robust surface yönleri](gsd_hypotheses_test_inventory_20261107.md)392frozen durumda ölçüldü; ortalama fayda belirsiz, applied accuracy deneyi yine yok.|
 |H3 feature/style'a ayrı perturbasyonlar|Bu kapsamın actual perturbasyonları latent XYZ bantlarıydı; ayrı feature/style kampanyası yok.|
 |Deterministik voxelization ve yeniden accuracy|Yalnız module-level localization; kernel rewrite/onarım ve sonrasında accuracy koşusu yok.|
 |Yeni adayın full-test/multi-seed confirmation'ı|Geliştirme önkoşulları sağlanmadı; başlamadı.|

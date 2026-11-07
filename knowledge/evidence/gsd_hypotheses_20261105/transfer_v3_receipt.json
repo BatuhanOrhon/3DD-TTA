@@ -1,0 +1,22 @@
+{
+  "group": "transfer",
+  "session": "tta-gsd-correction-transfer-a100-20261105-r8",
+  "remote_root": "/content/studies/gsd_hypotheses_20261105/transfer/20261105T191343Z",
+  "package": "/content/studies/gsd_hypotheses_20261105/transfer/20261105T191343Z.zip",
+  "drive_package": "/content/drive/MyDrive/thesis/result/gsd_hypotheses_20261105/transfer/20261105T191343Z/20261105T191343Z.zip",
+  "identity": {
+    "bytes": 19003791,
+    "sha256": "7d826689d4a6bfb9c6af7015ca85c2c9beda2a84f44ef1cd96e74fdff984da48"
+  },
+  "status": {
+    "cpu_gate_exit": 0,
+    "science_exit": 0
+  },
+  "parts": [
+    {
+      "path": "/content/studies/gsd_hypotheses_20261105/transfer/20261105T191343Z.zip.part000",
+      "bytes": 19003791,
+      "sha256": "7d826689d4a6bfb9c6af7015ca85c2c9beda2a84f44ef1cd96e74fdff984da48"
+    }
+  ]
+}

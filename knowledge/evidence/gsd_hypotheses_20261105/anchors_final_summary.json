@@ -1,0 +1,385 @@
+{
+  "group": "anchors",
+  "packages": 19,
+  "row_count": 1568,
+  "methods": {
+    "H1_raw_anchor": {
+      "primary_rows": 360,
+      "noise_probe_rows": 32,
+      "clean_cd_decreases": 243,
+      "mean_clean_cd_change": -0.0001589287097874213
+    },
+    "H1_reconstructed_anchor": {
+      "primary_rows": 360,
+      "noise_probe_rows": 32,
+      "clean_cd_decreases": 247,
+      "mean_clean_cd_change": -0.00015621779188615943
+    },
+    "H2_observation_permutation": {
+      "primary_rows": 360,
+      "noise_probe_rows": 32
+    },
+    "H2_robust_surface": {
+      "primary_rows": 360,
+      "noise_probe_rows": 32,
+      "clean_cd_decreases": 252,
+      "mean_clean_cd_change": -0.00021225334775028002
+    }
+  },
+  "contrasts": {
+    "H1_reconstructed_anchor_minus_H1_raw_anchor": {
+      "primary": {
+        "objects": 8,
+        "states": 360,
+        "mean": 2.7109179012618558e-06,
+        "ci95": [
+          -1.4577909593972008e-05,
+          1.9036354894636328e-05
+        ],
+        "fraction_negative": 0.4
+      },
+      "probes": {
+        "objects": 4,
+        "states": 32,
+        "mean": 5.6165516291329515e-06,
+        "ci95": [
+          -2.5822081526696416e-05,
+          3.705518478496232e-05
+        ],
+        "fraction_negative": 0.4375
+      },
+      "per_corruption": {
+        "background": {
+          "objects": 8,
+          "states": 24,
+          "mean": -4.832103167977386e-07,
+          "ci95": [
+            -2.2099404634279165e-06,
+            8.45232321837012e-07
+          ],
+          "fraction_negative": 0.4583333333333333
+        },
+        "cutout": {
+          "objects": 8,
+          "states": 24,
+          "mean": 9.402659921733367e-06,
+          "ci95": [
+            2.9209185161766226e-06,
+            1.4614249097395955e-05
+          ],
+          "fraction_negative": 0.16666666666666666
+        },
+        "density": {
+          "objects": 8,
+          "states": 24,
+          "mean": 1.0006256972890787e-05,
+          "ci95": [
+            4.181575790588297e-06,
+            1.7732782858597544e-05
+          ],
+          "fraction_negative": 0.125
+        },
+        "density_inc": {
+          "objects": 8,
+          "states": 24,
+          "mean": 1.0291848598799393e-05,
+          "ci95": [
+            2.142388524884256e-06,
+            1.9799867144403762e-05
+          ],
+          "fraction_negative": 0.20833333333333334
+        },
+        "distortion": {
+          "objects": 8,
+          "states": 24,
+          "mean": -1.2877689657310684e-06,
+          "ci95": [
+            -1.2614489070068169e-05,
+            9.326082654563065e-06
+          ],
+          "fraction_negative": 0.5833333333333334
+        },
+        "distortion_rbf": {
+          "objects": 8,
+          "states": 24,
+          "mean": 7.910414074038228e-06,
+          "ci95": [
+            -1.8802293978645301e-06,
+            1.7927529309051785e-05
+          ],
+          "fraction_negative": 0.4166666666666667
+        },
+        "distortion_rbf_inv": {
+          "objects": 8,
+          "states": 24,
+          "mean": -1.2432928726159357e-06,
+          "ci95": [
+            -1.748775148404056e-05,
+            1.2978070393688857e-05
+          ],
+          "fraction_negative": 0.4583333333333333
+        },
+        "gaussian": {
+          "objects": 8,
+          "states": 24,
+          "mean": 2.058759168195416e-06,
+          "ci95": [
+            4.4490402563077375e-07,
+            3.6360737816241835e-06
+          ],
+          "fraction_negative": 0.2916666666666667
+        },
+        "impulse": {
+          "objects": 8,
+          "states": 24,
+          "mean": 1.7114421141514356e-07,
+          "ci95": [
+            -8.4035076075256e-06,
+            1.0421036342615436e-05
+          ],
+          "fraction_negative": 0.5416666666666666
+        },
+        "lidar": {
+          "objects": 8,
+          "states": 24,
+          "mean": 7.996597520190199e-05,
+          "ci95": [
+            3.6739302231234014e-06,
+            0.0001593010259225706
+          ],
+          "fraction_negative": 0.25
+        },
+        "occlusion": {
+          "objects": 8,
+          "states": 24,
+          "mean": -6.35250269566661e-05,
+          "ci95": [
+            -0.00028257425878402064,
+            0.00011423139619979885
+          ],
+          "fraction_negative": 0.3333333333333333
+        },
+        "rotation": {
+          "objects": 8,
+          "states": 24,
+          "mean": -2.5851976605383714e-05,
+          "ci95": [
+            -4.2394092247645254e-05,
+            -1.1590701501421746e-05
+          ],
+          "fraction_negative": 0.8333333333333334
+        },
+        "shear": {
+          "objects": 8,
+          "states": 24,
+          "mean": 8.372145650002022e-06,
+          "ci95": [
+            -5.514291997122527e-06,
+            2.187708350382192e-05
+          ],
+          "fraction_negative": 0.2916666666666667
+        },
+        "uniform": {
+          "objects": 8,
+          "states": 24,
+          "mean": 1.8276080728583766e-06,
+          "ci95": [
+            -5.229912083109648e-06,
+            8.93257450393153e-06
+          ],
+          "fraction_negative": 0.5416666666666666
+        },
+        "upsampling": {
+          "objects": 8,
+          "states": 24,
+          "mean": 3.0482323642876757e-06,
+          "ci95": [
+            -6.509952778844475e-06,
+            1.2889754169776411e-05
+          ],
+          "fraction_negative": 0.5
+        }
+      }
+    },
+    "H2_robust_surface_minus_H1_raw_anchor": {
+      "primary": {
+        "objects": 8,
+        "states": 360,
+        "mean": -5.332463796285871e-05,
+        "ci95": [
+          -0.00017035937811767335,
+          4.685425980784041e-05
+        ],
+        "fraction_negative": 0.6027777777777777
+      },
+      "probes": {
+        "objects": 4,
+        "states": 32,
+        "mean": 3.446363548778868e-05,
+        "ci95": [
+          -0.00010343387637990224,
+          0.00017129646717283517
+        ],
+        "fraction_negative": 0.59375
+      },
+      "per_corruption": {
+        "background": {
+          "objects": 8,
+          "states": 24,
+          "mean": -0.0009725812854219003,
+          "ci95": [
+            -0.0012252300620416265,
+            -0.0007443824330484738
+          ],
+          "fraction_negative": 1.0
+        },
+        "cutout": {
+          "objects": 8,
+          "states": 24,
+          "mean": 4.6701175594674196e-05,
+          "ci95": [
+            3.037092735462892e-05,
+            6.421992019952846e-05
+          ],
+          "fraction_negative": 0.16666666666666666
+        },
+        "density": {
+          "objects": 8,
+          "states": 24,
+          "mean": 4.4145046647984146e-05,
+          "ci95": [
+            -2.2293612908267838e-05,
+            0.00011363774272667622
+          ],
+          "fraction_negative": 0.3333333333333333
+        },
+        "density_inc": {
+          "objects": 8,
+          "states": 24,
+          "mean": -7.146213212641731e-05,
+          "ci95": [
+            -0.00011069826507563751,
+            -2.5003040872261438e-05
+          ],
+          "fraction_negative": 0.7916666666666666
+        },
+        "distortion": {
+          "objects": 8,
+          "states": 24,
+          "mean": -0.00020808259988890483,
+          "ci95": [
+            -0.0005021098950688283,
+            2.7743241649083683e-05
+          ],
+          "fraction_negative": 0.5833333333333334
+        },
+        "distortion_rbf": {
+          "objects": 8,
+          "states": 24,
+          "mean": -3.1289456004393715e-05,
+          "ci95": [
+            -0.00020165833557925575,
+            7.519384700332572e-05
+          ],
+          "fraction_negative": 0.2916666666666667
+        },
+        "distortion_rbf_inv": {
+          "objects": 8,
+          "states": 24,
+          "mean": -7.156356533857013e-05,
+          "ci95": [
+            -0.0001736658448729389,
+            -5.2725627544943804e-06
+          ],
+          "fraction_negative": 0.625
+        },
+        "gaussian": {
+          "objects": 8,
+          "states": 24,
+          "mean": -2.347014140802154e-06,
+          "ci95": [
+            -1.4442402756836923e-05,
+            1.1091670957673389e-05
+          ],
+          "fraction_negative": 0.5833333333333334
+        },
+        "impulse": {
+          "objects": 8,
+          "states": 24,
+          "mean": -6.662850464105752e-05,
+          "ci95": [
+            -0.00015750481145646668,
+            -1.1275170997417573e-05
+          ],
+          "fraction_negative": 0.75
+        },
+        "lidar": {
+          "objects": 8,
+          "states": 24,
+          "mean": 0.0008090894086441585,
+          "ci95": [
+            5.375405484275771e-05,
+            0.0015405996908689121
+          ],
+          "fraction_negative": 0.3333333333333333
+        },
+        "occlusion": {
+          "objects": 8,
+          "states": 24,
+          "mean": 0.0002461969662121543,
+          "ci95": [
+            -3.937668953828823e-06,
+            0.0005504395822355359
+          ],
+          "fraction_negative": 0.3333333333333333
+        },
+        "rotation": {
+          "objects": 8,
+          "states": 24,
+          "mean": -0.00011396732113712221,
+          "ci95": [
+            -0.00022674803849135475,
+            -2.8454064604462502e-05
+          ],
+          "fraction_negative": 0.6666666666666666
+        },
+        "shear": {
+          "objects": 8,
+          "states": 24,
+          "mean": -0.00014852808658908043,
+          "ci95": [
+            -0.00032667408495895794,
+            2.2665306204631004e-06
+          ],
+          "fraction_negative": 0.6666666666666666
+        },
+        "uniform": {
+          "objects": 8,
+          "states": 24,
+          "mean": -0.00013056590181697789,
+          "ci95": [
+            -0.0002227086611414156,
+            -5.715229602585847e-05
+          ],
+          "fraction_negative": 0.9166666666666666
+        },
+        "upsampling": {
+          "objects": 8,
+          "states": 24,
+          "mean": -0.00012898629943662514,
+          "ci95": [
+            -0.00021904325506448154,
+            -6.012320319676399e-05
+          ],
+          "fraction_negative": 1.0
+        }
+      }
+    }
+  },
+  "limits": "8 exposed original objects; frozen first-prediction geometry only, no classifier accuracy or end-to-end speed; intervals conditional on this cohort",
+  "verification": {
+    "max_geometry_cpu_gpu_error": 2.2047109915490637e-07,
+    "max_direction_error": 9.094261260722547e-09,
+    "all_packages_cpu_gates_pass": true
+  }
+}

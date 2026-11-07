@@ -1,0 +1,61 @@
+{
+  "verified_utc": "2026-11-05T19:55:03.611587+00:00",
+  "scope": "four frozen-state hypotheses; no production sampler changes",
+  "checks": {
+    "python_AST": "passed",
+    "new_JSON": "parsed",
+    "main_CSV_rows": {
+      "anchors": 1568,
+      "transfer": 2352
+    },
+    "new_report_local_links": 20,
+    "raw_and_CPU_acceptance": "38main packages and additional source/count/array controls passed",
+    "scientific_decision": "H1/H2 superiority not established; H3uniformgraph and H4identity assumptions unsupported",
+    "credentials": "consent/account traces excluded; archived selected source scanned for credential token patterns",
+    "CSV_LF_normalization": "Git copies normalized from original CRLF; parsed rows identical; original derived CSV bytes preserved in Drive snapshot",
+    "owned_runtime_and_monitor_closure": "passed; peer preserved"
+  },
+  "not_checked": [
+    "full classification accuracy",
+    "full SCD/PM trajectory speed",
+    "production test suite: no production changes",
+    "independent recount of supplemental central plus/minus and permuted sparse arrays, not archived"
+  ],
+  "artifact_sha256": {
+    "knowledge/evidence/gsd_hypotheses_20261105/final_traces_receipt.json": "4d97a24ad08344238e8e99f87fe054a1582a9a582608d097b81d12824517893a",
+    "knowledge/evidence/gsd_hypotheses_20261105/anchors_final_summary.json": "339a30154a59b429104696e49e85fe887bfc252602dcbe8c58c3f4cb90002732",
+    "knowledge/evidence/gsd_hypotheses_20261105/pilot.py": "41c548ff2172e4c71b59aa061a74337c38155f6ada46655590f1fa23fc649507",
+    "knowledge/evidence/gsd_hypotheses_20261105/aggregate.py": "447c10d75333ba1c364ef509e3f36eb4ed2bc6cd29184c95158f439a78593055",
+    "knowledge/evidence/gsd_hypotheses_20261105/anchors_v3_receipt.json": "4a7ec387e99e9cbdd0ce27e9279276635286dfea9ae668e78e7c452b4c2529c5",
+    "knowledge/evidence/gsd_hypotheses_20261105/anchors_all_rows.csv": "15013ddb836ea527842399bd45ec06b934a62dbd16e103526af7c0dcc3eff3cb",
+    "knowledge/evidence/gsd_hypotheses_20261105/operator_timing_summary.json": "16d07e6c2fd302732fba79919dadaa5d7cd58ab76ba1cfaf8b88143d7bb7d415",
+    "knowledge/evidence/gsd_hypotheses_20261105/comprehensive_plan.json": "186c64df31a7f6ce564e10d01af396dadca8b08a6d67f7f3a5cb4dba753b918e",
+    "knowledge/evidence/gsd_hypotheses_20261105/operator_cached_timing_receipt.json": "477caa9c665ed3e6178aad00d9d21ab9849fc0a7e163e9246ad8834307c895a6",
+    "knowledge/evidence/gsd_hypotheses_20261105/local_analysis_environment.json": "6177e4a91498ac20064c71af444195b55cd91e0f6b9da635fb2b0521fd4bfb95",
+    "knowledge/evidence/gsd_hypotheses_20261105/proximal_solver.py": "b59851090c0d19e1b09d09ddf4a2dabb94519a24eac3a0a79c0337b8955c9ef5",
+    "knowledge/evidence/gsd_hypotheses_20261105/check_solver.py": "6f2c2217b67e0072fc4d63147afe91b687ff7897330f965095856843e8a61153",
+    "knowledge/evidence/gsd_hypotheses_20261105/supplement_cpu_recount.json": "a880bcf60a5e3bc6adb195bcfcbca8b8dba7a74aa083d97a567f3c5adfbad3a1",
+    "knowledge/evidence/gsd_hypotheses_20261105/anchors_failed_v2_receipt.json": "e2ad9d97c55b768cdf606bf43786baa6750026a9e7d71685adf0ab54661ada85",
+    "knowledge/evidence/gsd_hypotheses_20261105/final_audit.py": "d3110833086b014c6176f5d42c3bdc3557f917ea2932870471fa8d4df63ec818",
+    "knowledge/evidence/gsd_hypotheses_20261105/transfer_final_summary.json": "7fd4fd7056e5999a0132b6df673b4f451567ee90943df5499132c969d42cd7d3",
+    "knowledge/evidence/gsd_hypotheses_20261105/failed_supplement_receipt.json": "ec5a4a3b59abb3365e95b59c8a4564ef7ac017d06582b4afa53054f26f971d23",
+    "knowledge/evidence/gsd_hypotheses_20261105/setup_B_archive_receipt.json": "aabbde61874750305402fc394a4cc025b161bc14655c6b7f3551015a05cce9dd",
+    "knowledge/evidence/gsd_hypotheses_20261105/h4_geometry_posthoc.json": "6d1db3cfe572d2547fdaf9b1cb8808a98e6f24d244181c49ca4fd8e7a7bf6975",
+    "knowledge/evidence/gsd_hypotheses_20261105/check_actual_sparse.py": "281a91eca8ab9e50e14b5d440bce48d506c113ad49eac7c62f5cdf590702591b",
+    "knowledge/evidence/gsd_hypotheses_20261105/supplement_receipt.json": "e951211efc53719f926c0505e0040660b6a971b0422721fb1bc4e71e77d43d7c",
+    "knowledge/evidence/gsd_hypotheses_20261105/independent_scipy_sparse.json": "ef10af5669fce30f070d9c10d29c658468319a76e1197e27ed961ad409eeb1bd",
+    "knowledge/evidence/gsd_hypotheses_20261105/check_supplement.py": "8b3a275b5f361ae6ede0855081b88b32120cfe0465b5399676f9c768de85a3b6",
+    "knowledge/evidence/gsd_hypotheses_20261105/operator_cached_timing_summary.json": "601727b9ff2f10526e98ef180c63eaf330967df48230a322a1d594ef540668ac",
+    "knowledge/evidence/gsd_hypotheses_20261105/transfer_all_rows.csv": "47283a9162945b47453b5124c2417458931be7a13e1e25d9b71db64b46dd830e",
+    "knowledge/evidence/gsd_hypotheses_20261105/raw_acceptance_manifest.json": "bacae3ca6c72198a63c55ce43f1396bb26de6153e59233f0109bb0ed25999fe0",
+    "knowledge/evidence/gsd_hypotheses_20261105/operator_timing_receipt.json": "269cb499fc935b3442921f758ad830f3bf4c545c4db49f321e920883b670848b",
+    "knowledge/evidence/gsd_hypotheses_20261105/final_audit.json": "714a6c49b0f83bdaee8345e905dac6bde016dd3d1a5791183908edee84ba294a",
+    "knowledge/evidence/gsd_hypotheses_20261105/execution.json": "8d4f6434a19cfb78fde653501039714c8d5343d1cad834b31b1fed22c51920ce",
+    "knowledge/evidence/gsd_hypotheses_20261105/transfer_v3_receipt.json": "900ff8dad413101fb2be0bd45ffdc3308051cd5699a31486a3569d02f57632ac",
+    "knowledge/evidence/gsd_hypotheses_20261105/check_timing.py": "c43644a31edc21007b501046327c3aea14f99f5cc55931c6315559dc557ee7f3",
+    "knowledge/evidence/gsd_hypotheses_20261105/analyze.py": "1aeeb159c6ff3889efcc7ec10b630d1c7e47ee19991b232950190912775fef0c",
+    "knowledge/evidence/gsd_hypotheses_20261105/check_h4_geometry.py": "68bb6cea707fb061a8044339fbe7b4f249f006c255b3441247bfe25b0d8a2e5d",
+    "knowledge/evidence/gsd_hypotheses_20261105/analyze_v1.py": "ea443225f7f14348938452e51513ceb9c8ae6bcec56b74046e4e35d396efad3e"
+  },
+  "last_lifecycle_check_utc": "2026-11-05T19:57:17.432667+00:00"
+}

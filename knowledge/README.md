@@ -24,6 +24,17 @@ Current evidence supports an empirical thesis direction, not proven GSD superior
 or a submission guarantee. Full/unseen confirmation, compute-matched readout
 controls and corruption-identity-free evaluation remain priorities. No new GPU run.
 
+**[Run/Code/Inference/Open] 2026-11-07 — standalone Nov4–5 GSD/LION study integrated:**
+[Step-by-step test inventory, failures and unstarted work](gsd_hypotheses_test_inventory_20261107.md),
+[results/math](gsd_hypotheses_results_20261105.md),
+[33-work literature synthesis](gsd_lion_spectral_literature_20261104.md).
+392frozen states/group on8exposed objects/all15/three seeds plus timestep probes;
+H1/H2 superiority unestablished, uniform graph1 worse than graph0, direct latent
+identity lift unsupported despite correct sparse solve/DDIM algebra.38raw packages,
+109supplement/56component-cost records; no standalone classifier/full-SCD benchmark.
+Local H1–H4 identifiers differ from the Nov6 comprehensive H0–H8 campaign below.
+Both reports remain dated, separately sourced evidence; Nov5 closure is historical.
+
 **[Run/CPU/Decision] 2026-11-06 — comprehensive GSD diagnostics complete; no joint accuracy/speed gain:**
 [Final result and H0–H8 decisions](gsd_comprehensive_results_20261106.md),
 [H5 negative ranking](h5_reliability_results_20261105.md),

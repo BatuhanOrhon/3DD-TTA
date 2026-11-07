@@ -1,0 +1,391 @@
+{
+  "scope": "Frozen-state mechanism tests; no classification accuracy or full diffusion trajectories",
+  "conditions": [
+    {
+      "ids": [
+        44,
+        91
+      ],
+      "seed": 0,
+      "corruptions": [
+        "uniform",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        103,
+        137
+      ],
+      "seed": 0,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        158,
+        223
+      ],
+      "seed": 0,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        236,
+        265
+      ],
+      "seed": 0,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        44,
+        91
+      ],
+      "seed": 1,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        103,
+        137
+      ],
+      "seed": 1,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        158,
+        223
+      ],
+      "seed": 1,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        236,
+        265
+      ],
+      "seed": 1,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        44,
+        91
+      ],
+      "seed": 2,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        103,
+        137
+      ],
+      "seed": 2,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        158,
+        223
+      ],
+      "seed": 2,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        236,
+        265
+      ],
+      "seed": 2,
+      "corruptions": [
+        "uniform",
+        "gaussian",
+        "background",
+        "impulse",
+        "upsampling",
+        "distortion_rbf",
+        "distortion_rbf_inv",
+        "density",
+        "density_inc",
+        "shear",
+        "rotation",
+        "cutout",
+        "distortion",
+        "occlusion",
+        "lidar"
+      ],
+      "timestep": null
+    },
+    {
+      "ids": [
+        44,
+        91
+      ],
+      "seed": 0,
+      "corruptions": [
+        "gaussian",
+        "background",
+        "shear",
+        "lidar"
+      ],
+      "timestep": 10
+    },
+    {
+      "ids": [
+        44,
+        91
+      ],
+      "seed": 0,
+      "corruptions": [
+        "gaussian",
+        "shear",
+        "lidar"
+      ],
+      "timestep": 340
+    },
+    {
+      "ids": [
+        44,
+        91
+      ],
+      "seed": 0,
+      "corruptions": [
+        "background"
+      ],
+      "timestep": 70
+    },
+    {
+      "ids": [
+        103,
+        137
+      ],
+      "seed": 0,
+      "corruptions": [
+        "gaussian",
+        "background",
+        "shear",
+        "lidar"
+      ],
+      "timestep": 10
+    },
+    {
+      "ids": [
+        103,
+        137
+      ],
+      "seed": 0,
+      "corruptions": [
+        "gaussian",
+        "shear",
+        "lidar"
+      ],
+      "timestep": 340
+    },
+    {
+      "ids": [
+        103,
+        137
+      ],
+      "seed": 0,
+      "corruptions": [
+        "background"
+      ],
+      "timestep": 70
+    }
+  ],
+  "object_state_cases_per_group": 392,
+  "exposed_ids": [
+    44,
+    91,
+    103,
+    137,
+    158,
+    223,
+    236,
+    265
+  ],
+  "no_label_tuning": true,
+  "fresh_object_state_cases_per_group": 384,
+  "reused_accepted_technical_object_cases": 8
+}

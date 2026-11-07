@@ -1,0 +1,22 @@
+{
+  "verified_utc": "2026-11-05T19:57:17.432667+00:00",
+  "task_status": "complete: planned four-hypothesis mechanism tests, analysis, knowledge and verified backup",
+  "user_authorization": "complete all tests then close own sessions; no GPU launch permission needed",
+  "A": {
+    "session": "tta-gsd-anchor-correspondence-a100-20261105-r3",
+    "state": "unexpected loss19:33UTC; no stop command issued; sealed evidence recovered and missing tests completed on B"
+  },
+  "B": {
+    "session": "tta-gsd-correction-transfer-a100-20261105-r8",
+    "endpoint": "gpu-a100-s-usc1f0-18odtdwk8cy9z",
+    "command": "colab stop -s tta-gsd-correction-transfer-a100-20261105-r8",
+    "result": "Session terminated; absent from independent server inventory"
+  },
+  "monitor": {
+    "pid": 93787,
+    "state": "terminated; ps confirms absent"
+  },
+  "peer": "H5-r4 remains in server inventory; no exec/stop/monitor intervention",
+  "server_inventory": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[tta-gsd-h5-reliability-a100-20261105-r4] gpu-a100-hm-euw4a0-2rsp767om7kzr | Hardware: A100 | Shape: High-RAM | Variant: GPU\n",
+  "backup": "pre-closure218member final analysis Drive roundtrip + raw per-condition archives verified; final lifecycle metadata recorded locally/Git"
+}

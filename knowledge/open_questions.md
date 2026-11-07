@@ -2743,3 +2743,17 @@ any further allocation/setup/GPU work. Code preparation/publication continues.
 - [ ] Only if cheap corrections work, assess whether NN/trim turnover predicts approximation error sufficiently for adaptive refresh.
 - [ ] Investigate feature-only causal-PM semantic correction only with teacher/error, geometry, cross-head and cost controls; lower priority.
 - [ ] Lock any surviving method before exposure-aware all15/multiseed/transfer confirmation and closest-prior comparison. No novelty or publication claim yet.
+
+## 2026-11-07 — Standalone Nov4–5 test inventory published
+
+[Run/Code/Inference/Open] [Full inventory](gsd_hypotheses_test_inventory_20261107.md) distinguishes this study's local H1–H4 labels from the later comprehensive campaign.
+- [x] Synthetic sparse/Huber/DDIM/toy-decoder and implementation witnesses.
+- [x] H1/H2anchor/surface directions over392states/group; superiority unestablished.
+- [x] H3lambda0/1:784converged solves and objective descent; uniform graph worse on cohort.
+- [x] H4finite lift/actual scheduler,109supplement and56component timing records; identity-lift assumption fails.
+- [x] Preserve failed VJP/API/launcher/analyzer attempts, unarchived supplemental intermediates and lost unsealed runtime state; complete missing matrix slots and record authorized closure.
+- [ ] Exact VJP in the preparation eval backend: failed, finite differences do not close it.
+- [ ] This standalone method's disjoint-validation full trajectory/PM/classifier and B1/B32 end-to-end cost.
+- [ ] This standalone method's ScanObjectNN/backbone transfer, calibrated confidence and wider graph/strength search.
+- [ ] Implement and validate final physical refinement or decoder-aware lift before deployment claims.
+These open items are scoped to this standalone proposal at Nov5 closure. The separately completed Nov6 shared-state classifier/native/heat diagnostics remain in their own accepted records; no completed global test is marked unrun by this list.

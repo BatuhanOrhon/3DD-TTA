@@ -1,0 +1,31 @@
+{
+  "archive_integrity": "passed",
+  "stages": {
+    "robust_rhs_given_observations": {
+      "cases": 8,
+      "median_across_case_medians_ms": 0.08456349996777135,
+      "range_case_medians_ms": [
+        0.07738500062259845,
+        0.096000000667118
+      ],
+      "max_additional_peak_bytes": 114688
+    },
+    "spectral_apply_given_filter": {
+      "cases": 8,
+      "median_across_case_medians_ms": 0.09497749988440773,
+      "range_case_medians_ms": [
+        0.08123299994622357,
+        0.10606300020299386
+      ],
+      "max_additional_peak_bytes": 49152
+    }
+  },
+  "scope": {
+    "status": "complete",
+    "records": 16,
+    "warmups_per_stage": 1,
+    "repeats": 3,
+    "batch_size": 1,
+    "scope": "cached-state component timing only; different objectives, no model forward/backward/PM, full SCD comparison or I/O; these two operators are fully cached; graph construction still dense O(N^2)"
+  }
+}

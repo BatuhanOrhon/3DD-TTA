@@ -1,0 +1,230 @@
+{
+  "records": 109,
+  "archive_integrity": "passed",
+  "finite_error_recount_max": 9.652029664408701e-07,
+  "slope_recount_max": 1.9283393570823648e-07,
+  "scheduler_max": 3.2747630029916763e-07,
+  "permutation_max": 1.7707739349747356e-14,
+  "permutation_all_converged": true,
+  "counterexample": {
+    "test": "coherent_wrong_anchor",
+    "objective_change": -0.7144750201234482,
+    "clean_mse_increase": 0.0007865185353056251,
+    "converged": true
+  },
+  "fields": {
+    "robust_graph": {
+      "0.0001": {
+        "relative_error_min_median_max": [
+          2.077270269393921,
+          4.552443265914917,
+          8.465262413024902
+        ],
+        "central_slope_min_median_max": [
+          0.16607597470283508,
+          0.6457771956920624,
+          0.9107335209846497
+        ],
+        "finite_slope_min_median_max": [
+          0.025215111672878265,
+          0.5848738253116608,
+          0.9399893283843994
+        ]
+      },
+      "0.001": {
+        "relative_error_min_median_max": [
+          0.9676204323768616,
+          1.3946014642715454,
+          2.357227325439453
+        ],
+        "central_slope_min_median_max": [
+          0.16607597470283508,
+          0.6457771956920624,
+          0.9107335209846497
+        ],
+        "finite_slope_min_median_max": [
+          0.11735129356384277,
+          0.667143315076828,
+          0.9023112058639526
+        ]
+      },
+      "0.01": {
+        "relative_error_min_median_max": [
+          0.4231701195240021,
+          0.6167254447937012,
+          1.1494234800338745
+        ],
+        "central_slope_min_median_max": [
+          0.16607597470283508,
+          0.6457771956920624,
+          0.9107335209846497
+        ],
+        "finite_slope_min_median_max": [
+          0.1086355671286583,
+          0.6506055295467377,
+          0.8228558897972107
+        ]
+      }
+    },
+    "translation": {
+      "0.0001": {
+        "relative_error_min_median_max": [
+          0.0014889424201101065,
+          0.003709002514369786,
+          0.005256724543869495
+        ],
+        "central_slope_min_median_max": [
+          0.9972960948944092,
+          1.0003213286399841,
+          1.0008200407028198
+        ],
+        "finite_slope_min_median_max": [
+          0.9995365142822266,
+          0.9999480545520782,
+          1.00030517578125
+        ]
+      },
+      "0.001": {
+        "relative_error_min_median_max": [
+          0.0014377254992723465,
+          0.0036648785462602973,
+          0.005149818491190672
+        ],
+        "central_slope_min_median_max": [
+          0.9972960948944092,
+          1.0003213286399841,
+          1.0008200407028198
+        ],
+        "finite_slope_min_median_max": [
+          0.9997841119766235,
+          0.9999948441982269,
+          1.0001965761184692
+        ]
+      },
+      "0.01": {
+        "relative_error_min_median_max": [
+          0.0014346289681270719,
+          0.0036566295893862844,
+          0.0049590677954256535
+        ],
+        "central_slope_min_median_max": [
+          0.9972960948944092,
+          1.0003213286399841,
+          1.0008200407028198
+        ],
+        "finite_slope_min_median_max": [
+          0.9998302459716797,
+          0.9999940693378448,
+          1.0002048015594482
+        ]
+      }
+    },
+    "scale": {
+      "0.0001": {
+        "relative_error_min_median_max": [
+          0.010414257645606995,
+          0.1162792295217514,
+          2.9954135417938232
+        ],
+        "central_slope_min_median_max": [
+          0.31884124875068665,
+          0.9996923804283142,
+          1.0019862651824951
+        ],
+        "finite_slope_min_median_max": [
+          0.8641424775123596,
+          1.0007428526878357,
+          1.0242940187454224
+        ]
+      },
+      "0.001": {
+        "relative_error_min_median_max": [
+          0.09755300730466843,
+          0.41381797194480896,
+          0.785676896572113
+        ],
+        "central_slope_min_median_max": [
+          0.31884124875068665,
+          0.9996923804283142,
+          1.0019862651824951
+        ],
+        "finite_slope_min_median_max": [
+          0.955390453338623,
+          1.0016065835952759,
+          1.0157078504562378
+        ]
+      },
+      "0.01": {
+        "relative_error_min_median_max": [
+          0.06256205588579178,
+          0.14268482476472855,
+          0.42238739132881165
+        ],
+        "central_slope_min_median_max": [
+          0.31884124875068665,
+          0.9996923804283142,
+          1.0019862651824951
+        ],
+        "finite_slope_min_median_max": [
+          0.9941712021827698,
+          0.9978751838207245,
+          1.0085841417312622
+        ]
+      }
+    },
+    "random": {
+      "0.0001": {
+        "relative_error_min_median_max": [
+          2.502272844314575,
+          7.025270700454712,
+          14.124189376831055
+        ],
+        "central_slope_min_median_max": [
+          0.4605923593044281,
+          0.782393604516983,
+          1.625388264656067
+        ],
+        "finite_slope_min_median_max": [
+          0.5727748870849609,
+          0.822090208530426,
+          0.9229311943054199
+        ]
+      },
+      "0.001": {
+        "relative_error_min_median_max": [
+          1.1085847616195679,
+          1.9256879091262817,
+          2.716402530670166
+        ],
+        "central_slope_min_median_max": [
+          0.4605923593044281,
+          0.782393604516983,
+          1.625388264656067
+        ],
+        "finite_slope_min_median_max": [
+          0.6220089793205261,
+          0.7673653960227966,
+          0.9056580662727356
+        ]
+      },
+      "0.01": {
+        "relative_error_min_median_max": [
+          0.3575037121772766,
+          0.5505850613117218,
+          0.6978004574775696
+        ],
+        "central_slope_min_median_max": [
+          0.4605923593044281,
+          0.782393604516983,
+          1.625388264656067
+        ],
+        "finite_slope_min_median_max": [
+          0.6532312631607056,
+          0.7511900067329407,
+          0.8955967426300049
+        ]
+      }
+    }
+  },
+  "limits": "Central finite-difference slopes and rebuilt-graph permutation statistics are GPU-recorded; central plus/minus decodes and permuted sparse arrays were not saved, so those two quantities are not independently recounted. Finite lift and scheduler arrays are independently recounted. This is no exact VJP."
+}

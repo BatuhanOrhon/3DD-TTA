@@ -1,0 +1,200 @@
+{
+  "recorded_utc": "2026-11-05T17:34:08.799124+00:00",
+  "cli_version": "0.7.4",
+  "owner": "/root",
+  "allocation_attempts": [
+    {
+      "session": "tta-gsd-anchor-correspondence-a100-20261105-r1",
+      "command": "colab new -s tta-gsd-anchor-correspondence-a100-20261105-r1 --gpu A100 --high-mem",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r1",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r1 --gpu A100 --high-mem",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-anchor-correspondence-a100-20261105-r2",
+      "command": "colab new -s tta-gsd-anchor-correspondence-a100-20261105-r2 --gpu A100 --high-mem",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-anchor-correspondence-a100-20261105-r3",
+      "command": "colab new -s tta-gsd-anchor-correspondence-a100-20261105-r3 --gpu A100",
+      "status": "ready",
+      "reason": "Same accelerator, standard RAM shape, to distinguish high-memory capacity restriction; no GPU substitution",
+      "endpoint": "gpu-a100-s-usc1f0-dym8osz58g99"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r2",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r2 --gpu A100",
+      "status": "failed",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r3",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r3 --gpu A100",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r4",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r4 --gpu A100",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r5",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r5 --gpu A100 --high-mem",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP502 Bad Gateway"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r6",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r6 --gpu A100 --high-mem",
+      "status": "failed",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r7",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r7 --gpu A100 --high-mem",
+      "exit_code": 1,
+      "failure": "POST /tun/m/assign HTTP503 Service Unavailable"
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r8",
+      "command": "colab new -s tta-gsd-correction-transfer-a100-20261105-r8 --gpu A100",
+      "status": "ready",
+      "endpoint": "gpu-a100-s-usc1f0-18odtdwk8cy9z"
+    }
+  ],
+  "server_inventory_last_observed": "only protected peer H5-r4 remains; both owned sessions absent",
+  "gpu_science_started": true,
+  "canonical_setup_started": true,
+  "endpoint": null,
+  "drive_backup": "per-condition raw ZIP SHA verified on Drive, local acceptance in progress",
+  "setup_wrappers": {
+    "notebook_sha256": "f60db956118c25196f43ae02a00667485ddffbc73691e601134cb194f885559b",
+    "wrappers": {
+      "cell_01.py": "6c8eef8e51c557fd7db88e0c54e42de22040d58ecd2a3f6a41cffe6f76406837",
+      "cell_02.py": "9e84343e4f7155b3539591c31a6526c3a25d304da442fae0532c5e63cf122cde",
+      "cell_03.py": "8ff1fb91de76310fcb8a7dc8ea33c707301d0f227f5038e85c2b42a06df6c0bd",
+      "cell_04.py": "22d634f4b1e9edf2c5e25a95363602c5bc07ac74672d3e4a132529db0f1f8221",
+      "cell_05.py": "e0a12bc18c131ec31c1b1801f9564e0b1ab932b6c254d2d7bead53e0d133e03d",
+      "cell_06.py": "f5ff15b6c8d89f3091b3a636d353d3bd9887825d0b08ab9833f701d21cb5f214",
+      "cell_07.py": "ca507c67d48a949a241fbb7aaa27f40222847a5be3352adc664d8746adfc7fe5",
+      "cell_08.py": "6cdfa149dbbaab1c51640e1347f6bbb5b9e99375ecb7a4b49b25c01413726a18",
+      "cell_09.py": "5dc290f894a1a5613f61dd44dfd8d061303bd25a8c42c684112ef5c65c8ca046",
+      "cell_10.py": "81a6d5a009ba51033e2fa7503b68a0a2af934a572b3585707a7efbd89652bfa1"
+    },
+    "scope": "Extracted ten canonical code cells; original source intact through IPython run_cell; Python errors checked before wrapper markers. Shell/native completion and asset validation still required before advancing."
+  },
+  "last_checked_utc": "2026-11-05T19:57:17.432667+00:00",
+  "last_usage_observation": {
+    "active_assignments": 0,
+    "usage_rate_per_hour": 0,
+    "nonzero_balance": true
+  },
+  "user_memory_constraint": "2026-11-05: try standard-RAM A100 first; on memory failure wait for high-memory A100, no L4 fallback",
+  "local_solver_witness": "RED NotImplementedError then GREEN exact2-node solution [3/8,1/8] and zero-observation delta0; CPU only",
+  "setup_logs": {
+    "session_a_cell02.log": "e392ed5445bfd7cf84fba80863d5b05a355c6f3edded8cc410a4edb0d07bf223",
+    "session_a_cell03.log": "0f4a1a50445fd463ccf3bd7049495f1e99e630901233a0ad9d041287f57c4dff"
+  },
+  "peer_runtime_protected": "tta-gsd-h5-reliability-a100-20261105-r3 appeared in server inventory; no execution or intervention",
+  "user_drive_reply": "both user consents completed and mounts verified; no pending authorization",
+  "monitor": {
+    "pid": 93787,
+    "exec_session_id": 76763,
+    "path": "result/preparation/gsd_hypotheses_20261105/monitor.py",
+    "scope": "owned server inventory/log progress only; no fake keepalive cells",
+    "status": "stopped and verified"
+  },
+  "wheel_sha256": "809a43da2eed950c65ba15e355e8cdbf975b6a948dced1f02414f26aba586cd0",
+  "draft_pilot": "superseded by completed frozenpayloadv3 study",
+  "user_gpu_authorization": "2026-11-05 explicit no further GPU-run permission required for comprehensive four-hypothesis tests while away; draft55min cap superseded within this task",
+  "user_closure_authorization": "After completing all tests, validated archives/knowledge, close own A-r3 and B-r8 and own monitor; protect peer H5",
+  "cli_stalls": {
+    "A_pointnet2": "physical complete18:19; localCLI stalled; localdriver96847/client96949 terminated only after proof/no active native process",
+    "B_prepare": "physical complete18:27; localclient96965 terminated after proof/no process"
+  },
+  "comprehensive_plan": "result/preparation/gsd_hypotheses_20261105/comprehensive_plan.json",
+  "artifact_puller": {
+    "exec_id": 32002,
+    "group": "anchors",
+    "purpose": "real completed artifact retrieval and byte/CRC validation"
+  },
+  "a_technical": {
+    "rows": 32,
+    "states": 8,
+    "archive_sha256": "d1fa4bbd3a1b7e799a512025d75e73b280223cced8aa87c192f01ce7f39dab64",
+    "independent_cpu_geometry_max_error": 1.4872139175725607e-07,
+    "independent_cpu_direction_max_error": 4.771430417438438e-09
+  },
+  "local_transfer_puller_exec_id": 75928,
+  "analysis_workers_exec": [
+    35369,
+    28080
+  ],
+  "H4_technical_negative": {
+    "relative_lift_min": 0.4231702387332916,
+    "max": 2.3572278022766113,
+    "cos_min": 0.0536118820309639,
+    "decoder_repeat_rms_max": 3.2850067555045825e-08,
+    "scheduler_error_max": 5.811452865600586e-07
+  },
+  "unexpected_runtime_loss": {
+    "session": "tta-gsd-anchor-correspondence-a100-20261105-r3",
+    "last_listed_utc": "2026-11-05T19:32:11Z",
+    "first_absent_utc": "2026-11-05T19:33:12Z",
+    "stop_command_issued": false,
+    "sealed_drive_conditions": 11,
+    "locally_accepted_before_loss": 10,
+    "recovery": "owned B-r8 after completing H3/H4; verify/retrieve original0..10, execute only11..17; no allocation or new consent",
+    "missing": "unsealed condition11 partial state and A console-only setup logs unavailable after VM loss"
+  },
+  "recovery_puller_exec": 64931,
+  "recovery_remote_pid": 85452,
+  "science_status": "complete; all four hypotheses tested, raw/local/CPU/source/count accepted",
+  "comprehensive_counts": {
+    "groups": 2,
+    "conditions_per_group": 18,
+    "raw_successful_packages": 38,
+    "unique_states_per_group": 392,
+    "original_objects": 8,
+    "main_states": 360,
+    "probes": 32
+  },
+  "supplement_records": 109,
+  "timing_records": 56,
+  "independent_cpu_status": "passed",
+  "closure_status": "complete: B-r8 stopped after verified backup; A-r3 unexpected loss already recorded; monitor93787 stopped",
+  "owned_session_history": [
+    {
+      "session": "tta-gsd-anchor-correspondence-a100-20261105-r3",
+      "endpoint": "gpu-a100-s-usc1f0-dym8osz58g99",
+      "owner": "/root",
+      "phase": "LOST unexpectedly; sealed conditions0..10 remain on Drive",
+      "process_id": null,
+      "host_ram_gib": 83,
+      "gpu_name": "NVIDIA A100-SXM4-40GB",
+      "gpu_memory_mib": 40960,
+      "available_host_ram_gib_at_probe": 79
+    },
+    {
+      "session": "tta-gsd-correction-transfer-a100-20261105-r8",
+      "endpoint": "gpu-a100-s-usc1f0-18odtdwk8cy9z",
+      "owner": "/root",
+      "phase": "all scientific GPU tests and component costs complete; final source/derived backup, then authorized closure"
+    }
+  ],
+  "live_sessions": [],
+  "task_status": "complete",
+  "final_analysis_drive_receipt": "final_analysis_drive_receipt.json",
+  "closure_receipt": "closure.json"
+}
