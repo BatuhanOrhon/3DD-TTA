@@ -1,0 +1,13 @@
+{
+  "status": "CPU/selfcheck/review passed; actual full results incomplete",
+  "analyzer_sha256": "82f2ddc3b6a10d776418a54fc5c94bfde8c9b9585914fc75dea45e1ad0ef1187",
+  "selfcheck_sha256": "7f89f9947c322c2c298d1920438e7c501a162d1ec495f290488f0060876df0f8",
+  "actual_partial": "0complete3armshards fromfirstcache+control;gate null",
+  "review": "no concrete blocker; absolute localraw paths mustremainavailable",
+  "inference_accepted": [
+    "shard000_control"
+  ],
+  "cache_accepted": [
+    "shard000_cache"
+  ]
+}

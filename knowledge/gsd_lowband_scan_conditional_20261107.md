@@ -54,3 +54,9 @@ IDs578,579,580 as2+1,3/3count,15class arrays; invalid/mismatched receipt rejects
 Executed ModelNet source is unchanged remote snapshot, not this new local code.
 Actual Scan checkpoint strictload/nativeB1/repeat/FD and all inference remain
 UNRUN and required after the ModelNet gate. CPU support is not transfer evidence.
+
+[Code/CPU]16:39UTC: rehashed actual local488,341,020byteoriginalarchive;
+SHAe236151c...38eb2matchespinnedreceipt, CRC/path/typechecks pass. All17
+consumed s5/clean/label arrays exactlymatch archivedmanifestbytes/SHA/shape/dtype
+and finite581-object arrays. This is assetprovenance only; alphausescorrupted
+geometry/norms only. SeparateScancheckpoint/strictload remain pending.

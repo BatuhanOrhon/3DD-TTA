@@ -1,0 +1,184 @@
+{
+  "status": "archive_and_17_arrays_verified; Scan model strictload pending",
+  "dataset": "scanobjectnn_c",
+  "split": "main_split",
+  "n_examples": 581,
+  "severity": 5,
+  "archive": {
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA/result/preparation/multibackbone_20261018/bftt3d_scanobjectnn_c.zip",
+    "bytes": 488341020,
+    "sha256": "e236151c9f0ad805f59d3571a956b75ada2e1208b030f56f84546cc993b38eb2"
+  },
+  "files": {
+    "datasets/scanobjectnn_c/data_background_5.npy": {
+      "bytes": 7495028,
+      "sha256": "7ae596138cda587556767b02958f128e82de2190f72e6e743b669e8dda7b7b5c",
+      "shape": [
+        581,
+        1075,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_cutout_5.npy": {
+      "bytes": 5047856,
+      "sha256": "2faae957c18a6358fc662ed88012d5714d21917e3e539dd48e81014032e6c0ff",
+      "shape": [
+        581,
+        724,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_density_5.npy": {
+      "bytes": 4524956,
+      "sha256": "ff6d4a92525c4213145847f002348e8d758f5d45d3920c431ff99ba46f9a024d",
+      "shape": [
+        581,
+        649,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_density_inc_5.npy": {
+      "bytes": 7139456,
+      "sha256": "d4207379dc86180eeffe852b28a86ec41ad8ce190ffbd2ba8f175e3f4cc0ded7",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_distortion_5.npy": {
+      "bytes": 7139456,
+      "sha256": "dec17492d0c8911e7c45b7df9df825addde2a096f766984fd1afebe1ff7e0738",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_distortion_rbf_5.npy": {
+      "bytes": 7139456,
+      "sha256": "93e2bb0b1ee63e21f58c1a18e25565736ca7fb2672e41db67e3972b3cd08ba53",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_distortion_rbf_inv_5.npy": {
+      "bytes": 7139456,
+      "sha256": "ca2b0c89ae1cfe01c78ec800e8a57af0f7ecd3b2c397ab08d2cc5ed24f8ff8b2",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_gaussian_5.npy": {
+      "bytes": 7139456,
+      "sha256": "b0e7b41640454205ca8bf9cedcd1c1c63d8555b4959d5fa8fca35ad2fdce5943",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_impulse_5.npy": {
+      "bytes": 7139456,
+      "sha256": "6c6fa51ff515c3666f03747e6196cd5e0b3c5ea3f269c73b7d70d5eaee85df36",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_lidar_5.npy": {
+      "bytes": 5354624,
+      "sha256": "f1062bb1d725a25a6df6e5a56ece87c1e0bf6c5893827a163d27f26609694584",
+      "shape": [
+        581,
+        768,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_occlusion_5.npy": {
+      "bytes": 7139456,
+      "sha256": "8432bbf2957a7f6eeead971bcf1d6f03814e51ad9b8d8224b9fa0d43914f03c6",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_original.npy": {
+      "bytes": 7139456,
+      "sha256": "5b54ed22bbb5061f13109883202b6701555bdb7e2427548882a1cf8d68889fd0",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_rotation_5.npy": {
+      "bytes": 7139456,
+      "sha256": "2c212684aff40d6ce51b4e98195658dd839f04d72505b7a053ffbf4c4aec3115",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_shear_5.npy": {
+      "bytes": 7139456,
+      "sha256": "11158fa4ae01a9cde8843cdbdf3e7c9b116a94b1f58ff2cd770471b1bae8b18c",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_uniform_5.npy": {
+      "bytes": 7139456,
+      "sha256": "e471d4e63217946a4c73a73f0e51aad74ec3f4f5b7852c1a27c1c526fd98136c",
+      "shape": [
+        581,
+        1024,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/data_upsampling_5.npy": {
+      "bytes": 14278784,
+      "sha256": "f02134970ed7e26283ae7fdeb8979fa5fd93a061001bc1404190d41e4dcde56e",
+      "shape": [
+        581,
+        2048,
+        3
+      ],
+      "dtype": "float32"
+    },
+    "datasets/scanobjectnn_c/label.npy": {
+      "bytes": 4776,
+      "sha256": "e54a388693c681ddc7e668827719f8145ae6301d6179e8a504930667677bcbc3",
+      "shape": [
+        581
+      ],
+      "dtype": "int64"
+    }
+  },
+  "scope": "CPU provenance/binary/shape audit; no calibration, inference or label/clean geometry loss",
+  "checkpoint_status": "pending actual separate Scan strictload; no passed auxiliary receipt emitted"
+}

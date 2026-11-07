@@ -8838,3 +8838,11 @@ running snapshot preserved.822CPUtests/2skip; independent review passed focused
 35tests/72subtests, no concrete blocker. CalibrationIDs39,146,201,273 frozen
 withoutlabels; actual calibration/Scan checkpoint strictload/nativeGPU remain
 unrun until fullModelNet >=1pp and positive95%pairedCI gate. No external result.
+
+### 2026-11-07 16:35UTC — [Run/CPU/Open] first full control accepted
+
+[Full study](gsd_lowband_full_study_20261107.md):64IDs/all15 operationalSCD
+480B2cases completed764.23s;125,858,027byteDrive/MacZIPaccepted, exactSHAin
+study. Half0running/M100pending, no completepairedshard orfullcontrast.
+Fullaggregator syntheticcoverage/gate/rawhash/timing checks and independent
+reviewpass; actualpartial leavesgate null. Nativeinstabilityunresolved.

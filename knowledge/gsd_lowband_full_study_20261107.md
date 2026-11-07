@@ -177,3 +177,22 @@ recovery record, preserving every available partial Drive batch/log/receipt and
 recording unrecoverable ephemeral files; no silent deletion or same-directory
 overwrite. New inference uses fresh UTC bundle names, retaining earlier partial
 Drive bundles. Do not infer that WebSocket loss means worker death.
+
+## 16:35UTC — first full-shard operational arm accepted
+
+[Run] shard000_control64IDs/all15,480actualB2cases completed764.2278s
+(process scope). Drive+Mac raw125,858,027bytes/
+SHA5f9977c1c803147145efee8fa473a06294e7b4ce404f77cd672d4be6d8106433;
+all strict source/native/model/actualcache/RNG/PM/terminal/count/CSV checks pass.
+Half0 running; M100 pending. No complete three-arm shard yet, no contrast/gate.
+
+[Code/CPU] Added full aggregation with exact39shard/2468object/37020pair
+coverage, final156rawZIPhashes, independent15corruption-objectclusterCI,
+20priorM100vs2448 narrowstrata, final componenttiming. Partial output leaves
+external gate null. Synthetic positive/negative/count/gate/hash tests pass;
+independent reviewer found no concrete blocker; actualpartial consumes current
+cache+control receipts and reports0complete pairedshards/gatenull. Archives
+remain at their absolute localreceipt paths. Local archivedtools moved to the
+evidence root to preserve repository-relative imports; sourcebytes unchanged,
+archivedselfchecks pass. Conditional externalCPU boundary published76d9eb3;
+actualScanGPU/calibration notstarted.
