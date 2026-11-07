@@ -2798,3 +2798,8 @@ must remain archived.
 [Run/Open]17:13UTCfull-studyfirst64-IDshardaccepted: M100621/960 vs
 operational629/960(-.8333pp),half0619/960. No completefull result;39fixed
 shardscontinue, externalgate remainsnull. Nativecausalattributionstillunresolved.
+
+[Run/Failed/Open]18:39UTCownruntime lost with2fullpairedshards+thirdM100/
+control preserved(3cache8inference). r2StandardA10040canonicalsetupatDrive
+consent; do notrerunacceptedjobs/reset48hclock/weakenidentitygates.
+Fullbenchmarkincomplete; conditionalScanstageunrun.

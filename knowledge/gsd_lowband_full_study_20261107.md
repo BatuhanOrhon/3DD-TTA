@@ -262,3 +262,76 @@ Necessarycompletedfirstinterim/code publishednormally as integration54586b8
 (source20a940a), sourcebranch retained. ConditionalScanpreparedsource41files
 backedupDrive/CLIroundtripverified (CPU-only95,383bytes/SHAbe848ddd...10489e);
 thisisnotScanexecutionoractualcheckpoint/nativeacceptance.
+
+## 17:40UTC — primary IOPub stream silent; actual worker still advancing
+
+[Run/Open] Primarymonitor91825lastbatchstream17:38:15(density13), then
+RUNNING_SILENTticks. Read-only `colab download` ofactualowned
+`ROOT/phase_logs/shard001_M100.log` at17:40showslater shear15; sourceworker
+thereforecontinuedwhileprimaryoutputlagged. Serverinventoryconfirms the same
+StandardA100assignment. No secondcell, duplicatejob, restartorother runtime
+intervention. Transferconsumer already pollsactualjournal viaContentsAPI every
+60s to recovermissedarchiveevents; localanalysiswatchercontinues. Keepprimary
+monitor/exec alive; streamsilence doesnotestablishworkertermination. Actual
+source/native/config/alpha/fullcoverage unchanged. PeerHighRAMsessionvisible
+inserverinventory remainsprotected; no lifecycle actiontaken.
+
+## 2026-11-07T17:52:06.916745+00:00 — requested current M100-only count
+
+[Run] M100first64=621/960(64.6875%),next64=669/960(69.6875%);
+cumulative128/2468objects/all15:1290/1920=67.1875%. Bothrawarchives
+acceptedonDrive+Macwithactualsource/native/cache/projectionguards. Second
+operationalSCDstillrunning, so128-objectmatchedcontrast notyetavailable.
+Different-shardaccuracylevels do notshowmethodgain. Scope/gate unchanged;
+full39shardscontinue, noScanGPU.
+
+[Code/Inference/Open] InstalledCLI0.7.4hasno supportedoutput-onlyresume.
+Read-onlyclientcodeauditfounda plausibleWS-close/wait failuremode(default
+reconnectdisabled, closedconnectiondoesnotwakeexecutewait); exactcausehere
+unproven. PreserveprimaryclientwhileGPUworks andcontinueContentsAPI
+journal/log/artifactfallback. ActualsecondM100archivewasrecoveredandaccepted
+throughthatfallback despite primaryIOPubsilence. Reconcile156acceptedjobs
+andcampaign_completebeforeanynextcell orclientrecovery.
+
+## 18:39–18:41UTC — UNEXPECTED r1 RUNTIME LOSS; r2 setup
+
+[Run/Failed/Open] Serverinventoryprunedownr1; namedr1thenreturnsnotfound.
+Thisisbackendruntime loss, not justtheearlierIOPubsilence. Last actual
+shard002_half0progress93/480; ephemeralunarchivedremainingcasebytes maybelost.
+Local+Drive accepted3cache/8inference:2full3armshards, thirdM100/control.
+Allacceptedraws/cache/source/nativecapsule/alpha preserved. Nopeerintervention;
+protectedLIONr2HighRAMwasvisibleandleftuntouched.
+
+[Run] OwnnewStandardA100allocated `tta-gsd-lowband-full-a100-20261107-r2`,
+endpoint `gpu-a100-s-usw4b0-3poektm2zm2zy`; newsolemonitorPTY92199,
+setup_r2/monitor.jsonl. CanonicaltennotebooksourceSHAsequalther1extractedcells.
+Cell1launchedseparately18:41UTC; sameVMreconnectthen2–10remainrequired.
+Explicituserall-tests/no-repeat-GPUpermissionauthorizationpersists.
+Original48hscienceclock15:49UTCisnotreset. Recoverymustrestoreexactsource/
+native/actualcache/receipts andarchiveoldjournal+failedattemptbeforederived
+continuation; no accepted8inference reruns or weakenednumeric/graphidentitygates.
+
+[Run/Decision] r2canonicalsetupcontrol explicitlydelegatedto
+full_design_inventorythroughsoleexistingmonitor92199; parentdoesnotsubmit
+cellsuntilhandoff. Cell1/sameVMCondaReadyA10040verified, cell2running.
+Oldr1transferconsumer12727 stoppedlocallyafterconfirmedassignmentloss;
+its11acceptedreceipts/raws remainunchanged. Localanalysiswatcher45615 remains
+livebutno newfullshards. Startconsumeragainstnamedr2onlyafterexactrecovery,
+keepinglocalACKpathsandreceipts. Oldr1monitor91825 ispreserved/stuckprimary
+client; no runtime/peer lifecycleactionwasperformed.
+
+[Run/Open]18:49UTC r2cell2failedonlytheexplicitlydeferredfastrlock0.8.4
+wheelbuild; separatePython3.8.20verificationpassed. Nootherfailuredeferred.
+DriveauthorizationrequestedthroughserialCLI `drivemount` whilemonitorwas
+knownidle; rootdoesnotsubmitanothercellwhileconsentwaits. Googleuserconsent
+ispending; browserautomaticnavigationfailedandwasstopped. Usergivenactual
+Googleauthorizationlink, noautomatedconsentclick. AuthURL/state excludedfrom
+repositoryevidence. Canonicalcells3–10 remainpending, noresearchresumed.
+
+[Code/CPU] Exactrecoverycontext7,798,651bytes/SHA
+74011f3984ab9b6efd21a5b0096f8077a8187a676c4bfb4701a7e9a313029f7b
+preparedanduploadedtoownr2/content/full_recovery_context.zip. Itcontains
+verified11acceptedpackagescontext, exact436source/native10capsule, oldsetup
+metadataandalpha; sourceoldsetupisarchivalevidence, nevernewr2success.
+ActualDrivejournal/failedpartialauditandfreshnative/model/thirdgraphchecks
+stillrequiredaftercanonicalsetup. No source/math/gate/clockchanges.

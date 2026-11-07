@@ -1,0 +1,18 @@
+{
+  "status": "CPU prepared; actualDrive/r2canonical/native/model/graphaudit pending",
+  "runtime_loss_utc": "2026-11-07T18:39Z",
+  "accepted_cache_jobs": 3,
+  "accepted_inference_jobs": 8,
+  "complete_paired_shards": 2,
+  "lost_job": "shard002_half0",
+  "last_observed_batches": 93,
+  "planned_batches": 480,
+  "context": {
+    "bytes": 7798651,
+    "sha256": "74011f3984ab9b6efd21a5b0096f8077a8187a676c4bfb4701a7e9a313029f7b"
+  },
+  "source_manifest_sha256": "e2cd2942fc9893c863e50018ab5d2373bac00ba5af30a5dbcc75edf99f263f47",
+  "clock_reset": false,
+  "peer_action": "none",
+  "r2_status": "canonicalcell1/Conda/Python3.8verified;onlyknownfastrlockdeferred;Driveconsentpending;3\u201310notyetpassed"
+}

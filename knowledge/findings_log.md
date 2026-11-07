@@ -8855,3 +8855,14 @@ reviewpass; actualpartial leavesgate null. Nativeinstabilityunresolved.
 instability do not support a full conclusion. All3rawarchives/source/native/
 actualcache/RNG/PM/basis guardsaccepted; partialanalysisDrive/MacSHAverified.
 All39shardscontinueunchanged, externalgate remainsnulluntilfinalcoverage.
+
+### 2026-11-07 18:39UTC — [Run/Failed/Open] full-study runtime loss
+
+[Study/recovery](gsd_lowband_full_study_20261107.md): ownr1assignmentlost;
+3cache+8inferencearchivesaccepted/preserved,2completepairedshards. Lost
+shard002_half0last93/480; partialcaseprogressisnotcompleteaccuracy.
+Sameoriginal48hclock/source/e2manifest/FB12alpha; acceptedjobsnotrerun.
+OwnnewStandardA10040r2allocated,canonicalcell1/Conda/Python3.8verified;
+onlyknowncell2fastrlockdeferred. Driveuserconsentpending,cells3–10notpassed.
+Nopeer/runtimeclosureaction. CPUverifiedrecoveryZIPandrunbookpreserved;
+actualnative/model/graphidentitygatesrequiredbeforecontinuation.

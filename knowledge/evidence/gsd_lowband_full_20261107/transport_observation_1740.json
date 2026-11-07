@@ -1,0 +1,14 @@
+{
+  "status": "primaryoutputsilent; actualremote workerlogadvanced",
+  "primary_last_batch": "physical density13 at17:38:15UTC",
+  "actual_downloaded_last_batch": "physical shear15 by17:40:30UTC",
+  "worker_log": {
+    "path": "result/preparation/gsd_lowband_full_20261107/shard001_M100_log_1740.txt",
+    "bytes": 30478,
+    "sha256": "d156d5aa0192a7570d5bfd65580760a306e42f766b3b38e2144d409b8016fc05"
+  },
+  "session": "tta-gsd-lowband-halfmix-a100-20261107-r1",
+  "endpoint": "gpu-a100-s-usc1c0-gz8ghzlq66bg",
+  "action": "preserve same cell; readonlyfile/inventory audit; no duplicate/restart",
+  "scientific_numeric_failure": false
+}

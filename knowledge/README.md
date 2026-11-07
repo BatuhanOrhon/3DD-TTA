@@ -1,3 +1,12 @@
+**[Run/Failed/Open] 2026-11-07 — full-study runtime loss; recovery in progress:**
+[Current state, preserved outputs and ordered recovery](gsd_lowband_full_study_20261107.md),
+[accepted-prefix progress](gsd_lowband_full_progress_20261107.md).
+Two fullpairedshards/128objects: SCD1298/1920,half01295,M1001290;
+M100-SCD−.4167pp,conditional95%CI[−1.1979,.3125]. Threecache/eightinference
+rawarchivespreserved; thirdhalf0lostafter93/480. Ownr1lost18:39UTC; new
+StandardA10040r2canonicalsetupawaitsGoogleDriveconsent. No full conclusion
+orScanGPU, nativeinstabilityunresolved. Peerretaineduntouched.
+
 **[Run/Inference/Open] 2026-11-07 — first full-study shard accepted, full run continues:**
 [Full protocol and interim evidence](gsd_lowband_full_study_20261107.md).
 First64/2468IDs/all15: PMoperational629/960,half0619,M100621;
