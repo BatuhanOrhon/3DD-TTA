@@ -1,3 +1,13 @@
+**[Decision/CPU/Run/Open] 2026-11-07 — bounded 25% PM M100 screen:**
+[Current protocol, CPU checks and owned High-RAM setup](gsd_lowband_quarter_fast_20261107.md).
+The user replaces the long B2 benchmark with 617/2468 test objects, all15/s5,
+three matched arms and an entire new GPU phase capped at four hours. Larger
+batches and exact tails passed826 CPU tests plus562 subtests; independent review
+found no blocker. Source918780b is published as e1d445f. Own High-RAM r3 has
+actual A10080GB; canonical setup is running, no new accuracy yet. Earlier full-run
+continuation/recovery entries below are dated history, now superseded. Old raw
+outputs and the unresolved native instability remain preserved; peer untouched.
+
 **[Run/Failed/Open] 2026-11-07 — full-study runtime loss; recovery in progress:**
 [Current state, preserved outputs and ordered recovery](gsd_lowband_full_study_20261107.md),
 [accepted-prefix progress](gsd_lowband_full_progress_20261107.md).

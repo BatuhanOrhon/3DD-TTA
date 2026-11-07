@@ -2803,3 +2803,13 @@ shardscontinue, externalgate remainsnull. Nativecausalattributionstillunresolved
 control preserved(3cache8inference). r2StandardA10040canonicalsetupatDrive
 consent; do notrerunacceptedjobs/reset48hclock/weakenidentitygates.
 Fullbenchmarkincomplete; conditionalScanstageunrun.
+
+
+## 2026-11-07 — current bounded PM M100 screen
+
+[Open] Can actual larger-batch A10080GB execution complete617/2468 official test
+objects, all15/s5 and allthree matched arms within the four-hour whole-phase cap?
+[Protocol](gsd_lowband_quarter_fast_20261107.md). CPU batching/tails are verified;
+measured throughput, batch-specific frozen alpha and GPU comparison are pending.
+No additional accuracy expansion follows a nonpositive completed617 contrast.
+Small gains remain descriptive while native-repeat failures are unresolved.

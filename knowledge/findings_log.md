@@ -8866,3 +8866,24 @@ OwnnewStandardA10040r2allocated,canonicalcell1/Conda/Python3.8verified;
 onlyknowncell2fastrlockdeferred. Driveuserconsentpending,cells3–10notpassed.
 Nopeer/runtimeclosureaction. CPUverifiedrecoveryZIPandrunbookpreserved;
 actualnative/model/graphidentitygatesrequiredbeforecontinuation.
+
+
+## 2026-11-07 — bounded quarter-test screen replaces long B2 continuation
+
+[User decision/CPU/Run/Open] See [protocol and evidence](gsd_lowband_quarter_fast_20261107.md).
+The new screen fixes617/2468 ModelNet40-C official test IDs without labels,
+all15 corruptions/severity5/seed0, operational SCD/half0/hardM100. Four hours
+covers the new allocation through archiving; throughput/memory determine one
+common batch, then actual local/style update norms determine frozen alpha.
+Old B2 accuracy and alpha are excluded from this new comparison. Source918780b
+adds opt-in batches2/4/8/16/32/64, true tails and optional dense archive export;
+the full target, complete eigenspaces and numerical gates are unchanged.
+826 tests plus562 subtests pass,2 skipped; independent review found no blocker.
+Integrated focused29 tests plus84 subtests pass; published e1d445f. Evidence:
+result/preparation/gsd_lowband_quarter_fast_20261107/batch1_cpu_verification.json.
+Own runtime tta-gsd-quarter-fast-a100-20261107-r3 reports A10080GB; canonical
+setup underway. This establishes CPU compatibility, not throughput or accuracy.
+Falsifier: no positive M100-minus-SCD PM difference on completed617 stops further
+accuracy expansion; positive CI spanning zero stays inconclusive. Native-repeat
+instability remains unresolved. Old Standard r2 closure was explicitly authorized;
+peer High-RAM session is untouched. Current runtime remains live.

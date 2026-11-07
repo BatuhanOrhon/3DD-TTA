@@ -107,3 +107,34 @@ behavior and numerical gates remain compatible; larger batches retain exact
 selected IDs, real final tails and complete basis ranks. Only dense witness
 export is optional. Native audit still retains dense filters, so its technical
 witness must remain bounded and its cost included in feasibility.
+
+[Run/Open] Canonical cell2 ended20:46:32UTC only at the previously authorized
+fastrlock0.8.4 pip-wheel failure. The raw output identifies no other package
+build failure. This single known failure is deferred; environment/Drive checks
+run separately before cell3. Source code918780b was published as e1d445f after
+29 integrated focused tests and84 subtests passed. File-only deployment package
+7747906 bytes/SHA4eaa62df9cd66e91d32f989ab1b80e4599548a3c63157b286d76f96f001bf488
+passed five CPU trust-boundary checks, including failed Drive backup causing
+zero native replacements. Deployment and GPU runtime checks remain pending.
+
+[Run/Open] Post-cell2 verification passed20:47:30UTC: Python3.8.20 and Drive
+mount true. Cell3 finished20:49:51UTC after delayed CLI output, verifying the
+already mounted Drive and byte-identical KNN wheel copy. No duplicate cell or
+remount was submitted. Server inventory and a task-owned read-only console
+process inspection were used while the original stream was pending; neither
+peer nor kernel execution was changed. Cell4 began20:50:37UTC. New source
+payload and budget were uploaded via Contents API; deployment waits for cell10.
+
+[User decision] GPU runs need no repeated permission. On any subsequent Colab
+session/connection problem, preserve the current state and wait for a new user
+command before retry, recovery or new runtime allocation. This supersedes
+previous autonomous connection-recovery authorization. The existing cell4
+continues; no new incident was reported at this instruction.
+
+[CPU/Open] The separate fast617 acceptance/analyzer passed seven focused CPU
+checks locally (4.17s): actual B8/tail1 and rank257 preservation, stale RNG and
+unsafe ZIP rejection,384-row alpha median, conflict-preserving cache materialization,
+617-object/9255-pair aggregation and partial/missing-arm/SHA rejection. Source:
+result/preparation/gsd_lowband_quarter_fast_20261107/{accept_fast617.py,analyze_fast617.py,test_accept_fast617.py}.
+This is archive/statistics validation, not a new accuracy observation. Remote
+source/native mirrors are explicit verified copies in the deployment context.
