@@ -7,6 +7,15 @@ applied runs and separate hard100/200 halfmix GPU stages did not run. Existing
 raw acceptance, closed-runtime and publication-readiness records are preserved;
 this is a documentation synthesis, with no new GPU or experimental outcome.
 
+**[Paper/Code/Inference/Open] 2026-11-07 — guidance/LION candidates reviewed:**
+[Prior art, recovered four-channel experiment and falsifiable candidates](guidance_lion_candidates_20261107.md).
+Historical `use_4d_gft` transformed XYZ+feature on an XYZ graph; its exact
+numerical receipt is not recovered. The feature already participates in the
+prior/decoder and receives indirect SCD gradients. Recommend investigating
+cheap clean-latent Chamfer correction between exact backward steps and testing
+feature-assisted correspondence before another fidelity loss. No demonstrated
+novelty/model gain, implementation/default change or GPU operation; N8+PM retained.
+
 **[Paper/Code/Inference] 2026-11-07 — thesis/publication readiness reviewed:**
 [Assessment and focused priorities](publication_readiness_20261107.md) reconcile
 completed controls and current N8 Chamfer+PM with Nov6 negative spectral evidence.

@@ -1,0 +1,22 @@
+{
+  "kind": "synthetic CPU algebra only; not LION, CUDA or accuracy evidence",
+  "seed": 20261107,
+  "cases": 200,
+  "q_points": 8,
+  "r_points": 7,
+  "retained_forward": 6,
+  "retained_reverse": 5,
+  "tau": [
+    0.01,
+    0.1,
+    1,
+    10
+  ],
+  "max_stationarity_residual": 1.1102230246251565e-14,
+  "checks": [
+    "frozen-edge surrogate upper-bounds trimmed nearest-neighbor objective",
+    "proximal objective decreases",
+    "trimmed objective decreases at corrected clean coordinates"
+  ],
+  "limits": "No guarantee after DDIM transition, decoder, different weights or classifier; native tie/reduction parity untested."
+}

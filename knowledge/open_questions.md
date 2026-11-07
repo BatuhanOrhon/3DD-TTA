@@ -2728,3 +2728,18 @@ any further allocation/setup/GPU work. Code preparation/publication continues.
 - [ ] Confirm frozen current N8/PM policy on full cohorts and independently unexposed conditions, preserving exposure history, native-repeat uncertainty and per-corruption harm.
 - [ ] Measure full deployment costs and evaluate a corruption-identity-free horizon before unknown-corruption claims.
 - [ ] Determine institution/advisor thesis requirements and target venue scope before a submission decision; no universal accuracy threshold or acceptance guarantee.
+
+
+## 2026-11-07 — new guidance hypotheses after feature-history recovery
+
+[Inference/Open] [Candidate report and closest methods](guidance_lion_candidates_20261107.md). Research proposals only; no implementation selection or GPU launch.
+
+- [x] Recover historical `use_4d_gft` source and distinguish XYZ graph/four-channel signal; correct the unused-feature premise.
+- [ ] Recover the exact old four-channel numerical run receipt if it exists; failure currently remains user-reported.
+- [x] Check the symmetric-trimmed proximal algebra on synthetic CPU point sets; no model guarantee.
+- [ ] Establish saved tensor coverage and native repeat floor before update/correspondence diagnostics.
+- [ ] Test whether feature-assisted matches outperform XYZ, constant/shuffled feature and geometry-only soft matching; reject if the feature has no usable signal.
+- [ ] Test cheap clean-latent correction against full, style-frozen and schedule-matched sparse-zero controls; measure total latency and paired accuracy, not backward count alone.
+- [ ] Only if cheap corrections work, assess whether NN/trim turnover predicts approximation error sufficiently for adaptive refresh.
+- [ ] Investigate feature-only causal-PM semantic correction only with teacher/error, geometry, cross-head and cost controls; lower priority.
+- [ ] Lock any surviving method before exposure-aware all15/multiseed/transfer confirmation and closest-prior comparison. No novelty or publication claim yet.

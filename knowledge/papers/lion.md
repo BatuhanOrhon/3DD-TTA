@@ -55,6 +55,29 @@ model. See [selected design](../gsd_integration_20260922.md).
 derivatives, as recorded in `../code_audit_20260915.md`. CPU synthetic tests
 cannot establish exact gradients through the installed CUDA extensions.
 
+## 2026-11-07 — fourth-channel history and candidate mechanisms
+
+[Code] The earlier XYZ-only GSD description above is not universal across
+historical branches. At `53ba252519c7cf65f836a9c1c564027142ab1573`,
+`graph_spectral.py` exposes `use_4d_gft`: the graph still uses XYZ while its
+signal includes XYZ+feature; `tta_gsd.py` computes a live four-channel spectral
+MSE. The mean reduction also changes XYZ scale. [User report/Open] The user
+remembers a failed test; no uniquely matched numerical receipt was recovered.
+
+[Code] In current shared `ecba1e4`, the scalar feature already enters the local
+prior and decoder. SCD observes XYZ but its gradient can reach noisy feature
+and style through the prior; “activate the unused fourth channel” is an
+incorrect description of the intervention. [Paper] SeaLion§3.1–3.2 trains
+part-aware noise/segmentation prediction and conditioned decoding; its semantic
+features do not establish semantics for our frozen original scalar.
+
+[Inference/Open] [Focused review and candidate tests](../guidance_lion_candidates_20261107.md)
+distinguish feature-assisted geometric correspondence from four-channel
+fidelity, and clean-latent proximal correction from full prior backward.
+Only synthetic quadratic algebra was checked; no model/GPU experiment or
+new accuracy/speed result. Directly supervising features, global-z refresh,
+semantic self-distillation and feature-based matching have distinct confounds.
+
 ## 2026-10-31 — after clean-z oracle: mean refresh and conditional energy candidates
 
 [Run/Inference] [New analysis/report](../shape_latent_clean_free_research_20261031.md):
