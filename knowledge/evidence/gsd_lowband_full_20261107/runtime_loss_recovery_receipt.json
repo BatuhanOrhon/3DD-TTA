@@ -8,11 +8,18 @@
   "last_observed_batches": 93,
   "planned_batches": 480,
   "context": {
-    "bytes": 7798651,
-    "sha256": "74011f3984ab9b6efd21a5b0096f8077a8187a676c4bfb4701a7e9a313029f7b"
+    "bytes": 7800430,
+    "sha256": "04230575ad2dbdef655bc69599f5bf3d1ca701c50cfde33928280460e0059fa8",
+    "filename": "recovery_context_20261107T190049Z_drive_first_native.zip"
   },
   "source_manifest_sha256": "e2cd2942fc9893c863e50018ab5d2373bac00ba5af30a5dbcc75edf99f263f47",
   "clock_reset": false,
   "peer_action": "none",
-  "r2_status": "canonicalcell1/Conda/Python3.8verified;onlyknownfastrlockdeferred;Driveconsentpending;3\u201310notyetpassed"
+  "r2_status": "canonicalcell1/Conda/Python3.8verified;onlyknownfastrlockdeferred;Driveconsentpending;3\u201310notyetpassed",
+  "historical_context": {
+    "bytes": 7798651,
+    "sha256": "74011f3984ab9b6efd21a5b0096f8077a8187a676c4bfb4701a7e9a313029f7b"
+  },
+  "native_backup_gate": "freshbinary/proof sealed andDrivewhole/memberSHA+CRCverifiedBEFORE anyreplacement; unmounted/copyfail leavealltargetsuntouched",
+  "actual_restore": "UNRUN"
 }

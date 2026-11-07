@@ -1,0 +1,36 @@
+{
+  "accepted_cache_jobs": 3,
+  "accepted_inference_jobs": 8,
+  "checks": [
+    "Drive-copy failure causes zero replacements",
+    "Unmounted Drive causes zero replacements",
+    "Successful Drive ZIP contains all exact fresh bytes/proof before every replacement",
+    "Original journal clock and11accepted entries preserved"
+  ],
+  "files": {
+    "restore_context.py": {
+      "bytes": 12942,
+      "sha256": "40728b91a0ef988a1c31bc2f3b166fc51be0ec59043f655c5568be8cc1a5fa4a"
+    },
+    "selfcheck_recovery.py": {
+      "bytes": 4900,
+      "sha256": "7a5ecc11b49924a5dca3e97137f83cc773dcb6be2d7569e5a20e2875cfbe8211"
+    }
+  },
+  "inventory": {
+    "bytes": 100630,
+    "sha256": "53c8590558f0c3c3431ac3fb25743752c9516274704c24c304c0dce7e1d5bf0e"
+  },
+  "package": {
+    "bytes": 7800430,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/preparation/gsd_lowband_full_20261107/recovery_runtime_loss_20261107T1839Z/recovery_context_20261107T190049Z_drive_first_native.zip",
+    "sha256": "04230575ad2dbdef655bc69599f5bf3d1ca701c50cfde33928280460e0059fa8"
+  },
+  "preserved_original_package": {
+    "bytes": 7798651,
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/preparation/gsd_lowband_full_20261107/recovery_runtime_loss_20261107T1839Z/history/recovery_context_20261107T1839Z_74011_original.zip",
+    "sha256": "74011f3984ab9b6efd21a5b0096f8077a8187a676c4bfb4701a7e9a313029f7b"
+  },
+  "status": "CPU regressions and rebuilt package passed; no actual runtime or restore",
+  "timestamp_utc": "20261107T190049Z"
+}

@@ -335,3 +335,21 @@ verified11acceptedpackagescontext, exact436source/native10capsule, oldsetup
 metadataandalpha; sourceoldsetupisarchivalevidence, nevernewr2success.
 ActualDrivejournal/failedpartialauditandfreshnative/model/thirdgraphchecks
 stillrequiredaftercanonicalsetup. No source/math/gate/clockchanges.
+
+[Code/Review/Open] Recoveryreviewfoundonepreservationgap before anyactual
+--restore-native: newlybuilt r2nativebytes/freshcanonicalproof mustbe sealed
+andhashverifiedonownedDrive(orMac)BEFOREreplacement, notonlybackeduponthe
+VM. CPUfixinprogress; actualrestorehasnotrun. Existingold74011contextis
+retainedhistoricallyandmustnotsilentlybeusedaslatestafterfix. Allother
+journal/operator/nativecapsule checks passed; actualsource/runtime/model/
+thirdgraphpreflight stillpending. GoogleDriveconsentremainsthe setupblocker.
+
+[Code/CPU] Recoverypreservationgapfixedbeforeactualuse. V2context
+7,800,430bytes/SHA04230575ad2dbdef655bc69599f5bf3d1ca701c50cfde33928280460e0059fa8
+supersedesold74011package(use/content/full_recovery_context_drive_first_v2.zip).
+Freshr2nativebytes/canonicalproof nowsealedandDriveCRC/member/wholeSHAverified
+BEFOREreplacement. UnmountedDrive/injectedcopyfailuretestsleaveall10targets
+unchanged; successtestverifiesbackupbeforeeachreplacement. Original11accepted
+jobs/clocktests pass; scientificbindings unchanged. Old74011package/source
+retainedimmutably. Actualcanonical3–10/Driveaudit/native/model/thirdgraph
+restore+preflightandsciencecontinuationstillUNRUN; Googleconsentpending.
