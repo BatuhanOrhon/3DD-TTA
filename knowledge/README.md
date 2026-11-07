@@ -1,3 +1,11 @@
+**[Paper/Code/Inference] 2026-11-07 — thesis/publication readiness reviewed:**
+[Assessment and focused priorities](publication_readiness_20261107.md) reconcile
+completed controls and current N8 Chamfer+PM with Nov6 negative spectral evidence.
+TEDM is a timestep-aggregation precedent; attribution does not establish novelty.
+Current evidence supports an empirical thesis direction, not proven GSD superiority
+or a submission guarantee. Full/unseen confirmation, compute-matched readout
+controls and corruption-identity-free evaluation remain priorities. No new GPU run.
+
 **[Run/CPU/Decision] 2026-11-06 — comprehensive GSD diagnostics complete; no joint accuracy/speed gain:**
 [Final result and H0–H8 decisions](gsd_comprehensive_results_20261106.md),
 [H5 negative ranking](h5_reliability_results_20261105.md),

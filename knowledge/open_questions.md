@@ -2705,3 +2705,14 @@ any further allocation/setup/GPU work. Code preparation/publication continues.
 - [ ] Verify all required raw/derived Drive/local archives, publish necessary accepted outcomes, then close only own runtime under latest conditional instruction.
 
 [Current status and exact next action](h5_reliability_study_20261105.md), [minimal remaining tests/gates](gsd_comprehensive_test_matrix_20261105.md). No new scientificGPU/accuracy evidence yet.
+
+
+## 2026-11-07 — publication readiness priorities
+
+[Inference/Open] [Evidence-based assessment](publication_readiness_20261107.md). This is a review, not a GPU authorization or cancellation of peer halfmix.
+- [x] Reconcile completed same-host component controls, repeated seeds, ModelNet readouts and Nov6 mechanism results; older missing-control checklists are historical for those exact scopes.
+- [x] Recheck TEDM primary section4/Eqs8–9 and separate attribution from algorithmic originality.
+- [ ] Quantify timestep diversity versus fixed single-step and compute-matched terminal voting; use saved logits where available and label posthoc selection.
+- [ ] Confirm frozen current N8/PM policy on full cohorts and independently unexposed conditions, preserving exposure history, native-repeat uncertainty and per-corruption harm.
+- [ ] Measure full deployment costs and evaluate a corruption-identity-free horizon before unknown-corruption claims.
+- [ ] Determine institution/advisor thesis requirements and target venue scope before a submission decision; no universal accuracy threshold or acceptance guarantee.
