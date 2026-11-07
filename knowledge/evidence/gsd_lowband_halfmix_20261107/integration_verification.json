@@ -1,0 +1,36 @@
+{
+  "status": "verified before publication",
+  "integration_base": "79445c0",
+  "scientific_source": "d6761c895ef6fa38d882bb2d4ca3f3205c1a1fa3",
+  "core_source_diff": "no change vs executed source in tta.py/decoded_spectral.py/graph_spectral.py/driver/halfmix tests",
+  "full_pytest": {
+    "passed": 807,
+    "skipped": 2,
+    "subtests": 500,
+    "warnings": 8,
+    "seconds": 61.61,
+    "log": {
+      "bytes": 3163,
+      "sha256": "9799fc9682eb29deaded760ef63351b94b411c86faecf0fe3b1fedb587b00484"
+    }
+  },
+  "independent_recount": {
+    "accepted_runs": 33,
+    "case_count": 632,
+    "basis_checks": 504,
+    "clean_checkout_result_equals_accepted_analysis": true,
+    "analysis": {
+      "bytes": 383176,
+      "sha256": "ad67712cd230c458ac2add1860ea2bae90467f665b3f424c583dbc16744c23ea"
+    }
+  },
+  "checks": [
+    "git diff --check",
+    "full pytest in isolated latest integration checkout",
+    "exact full analysis JSON equality from evidence-location analyzer",
+    "actual raw package CRC/member SHA and source/native/cache acceptance",
+    "read-only independent report/arithmetic/schema review"
+  ],
+  "runtime": "tta-gsd-lowband-halfmix-a100-20261107-r1",
+  "runtime_teardown": false
+}

@@ -576,3 +576,32 @@ checks passed; current CPU/native archives were Drive→local SHA/CRC verified.
 See [execution](scdh_spectralz_execution_20261101.md). The earlier r1-live/no-close
 line is historical: r1 was lost; user now authorizes closing own r2 after completed
 GPU work, validated artifacts, knowledge update and integration push.
+
+
+## 2026-11-07 — standard-RAM A100 halfmix replay passed
+
+[Run] Additional fresh-VM witness: owned
+`tta-gsd-lowband-halfmix-a100-20261107-r1`, endpoint
+`gpu-a100-s-usc1c0-gz8ghzlq66bg`, Standard A100-SXM4-40GB. All ten saved
+setup cells ran sequentially, cell1 separately with same-VM reconnect. Only
+known cell2 fastrlock pip failure was deferred; Python3.8.20 was verified before
+continuation. User completed Drive consent. CUDA12.1/GCC11.4/native phase
+markers and native GPU smoke passed; cell9 ModelNet40-C and cell10 clean/15
+severity5 arrays/checkpoint/native verification passed10:06:09UTC. Torch2.1.2+cu121,
+NumPy1.21.2. No full research notebook or ScanObjectNN section was executed.
+Earlier “split not replayed” statements are historical; Oct30/31 and Nov1
+fresh witnesses above already exist. This records the new standard-RAM witness,
+not a fix for cell2 or a claim of global pip consistency.
+
+Actual setup dev@a458cd46bba1288a3f41302548bc777700cbc7d4 and compiled native
+bytes are separate from scientific overlayd6761c8. Before four audited native
+restorations, fresh bytes were Drive-preserved/verified. Strict CPU/no-forward/
+no-CUDA-init classifier/source/ABI preflight passed. The halfmix scientific
+phase then completed34logical jobs in40.33minutes; numerical Background repeat
+failure remains. See [study/receipts](gsd_lowband_halfmix_study_20261105.md).
+Setup verifier SHA256c67cab91f47735e6e616669ca6aba587f91082e6256e3546fd844dc8e6b312ba;
+local `result/preparation/gsd_lowband_halfmix_20261107/setup/cli_setup_verification.json`.
+Setup evidence ZIP13,629bytes SHA256841323331af62d71363c6bfd0703f05aaece811701a312982acff989d8f8f9eb,
+Drive `MyDrive/thesis/result/gsd_lowband_halfmix_20261107/setup_evidence.zip`,
+local copy byte/SHA verified. Consolidated raw archive acceptance is recorded in
+the study; runtime and sole monitor remain live until explicit close authorization.

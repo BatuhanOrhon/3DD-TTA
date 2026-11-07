@@ -1,0 +1,16 @@
+{
+  "status": "independent read-only audit: no concrete blocker",
+  "reviewer": "/root/review_halfmix",
+  "checked": [
+    "all pilot counts/contrasts/intervals/timing vs accepted analysis_v2",
+    "30/120gatefailures across13corruptions and fixed technical thresholds",
+    "frozen calibration rows/alphas vs actual downloaded freeze",
+    "both FD reports vs exact rawZIPmembers",
+    "saved analyzer/acceptor identities,AST and evidence-location entrypoint imports",
+    "descriptive conclusions/no causal gain/no promotion"
+  ],
+  "not_rerun": [
+    "full artifact acceptance; performed by primary agent"
+  ],
+  "analysis_sha256": "ad67712cd230c458ac2add1860ea2bae90467f665b3f424c583dbc16744c23ea"
+}

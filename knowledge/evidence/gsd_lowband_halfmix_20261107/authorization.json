@@ -1,0 +1,6 @@
+{
+  "scope": "Necessary tests for original lowband halfmix study, in sequence until results complete",
+  "user_instruction": "GPU run çalıştırmak için benden izin istemene gerek yok, gerekli tüm testleri sırasıyla çalıştır ve sonuçları ara adımlarda knowledge dosyalarına kaydet, tüm testler sonuçlanana kadar devam et",
+  "status": "supersedes prior GPU duration approval questions; current frozen protocol unchanged",
+  "runtime": "tta-gsd-lowband-halfmix-a100-20261107-r1"
+}

@@ -1,0 +1,216 @@
+{
+  "status": "raw bytes accepted; scientific analysis separate",
+  "package": {
+    "bytes": 2329149449,
+    "sha256": "e2f2e4c4025fc4b7a64b25b08504760432a3ffdbcfa64ee1594101c1712d1898"
+  },
+  "source_commit": "d6761c895ef6fa38d882bb2d4ca3f3205c1a1fa3",
+  "asset_manifest": {
+    "bytes": 184952,
+    "sha256": "51847c0330191bdef2ef84b37df92d83a1b08915729dd2f0a290ff05daa93021"
+  },
+  "native_payload_count": 10,
+  "paired_caches": 126,
+  "fresh_caches": 10,
+  "archive_failures": [],
+  "raw_archives": [
+    {
+      "package_path": "raw_runs/cal_M100_s0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101703_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101703_decoded-live_control-8aed642b.zip",
+      "bytes": 35447875,
+      "sha256": "020802400c60f7a4ec4b215049328cdf815a5eabfdef10ca76c7871feefabeeb"
+    },
+    {
+      "package_path": "raw_runs/cal_M100_s1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101739_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101739_decoded-live_control-8aed642b.zip",
+      "bytes": 35326880,
+      "sha256": "21ec03487ea1850051de42db66b10a4cf2ee1318f24d3e353986ae2030634a63"
+    },
+    {
+      "package_path": "raw_runs/cal_M200_s0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101816_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101816_decoded-live_control-8aed642b.zip",
+      "bytes": 38137338,
+      "sha256": "c7000b617ecce1e2d170a991d229c83c58a9c0aaa8bc0d03ee43d85b58cf899b"
+    },
+    {
+      "package_path": "raw_runs/cal_M200_s1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101852_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101852_decoded-live_control-8aed642b.zip",
+      "bytes": 37762930,
+      "sha256": "44be4c439a1892872b1f1e02704400692c264233eb7e45e3db44770c4bbd2a20"
+    },
+    {
+      "package_path": "raw_runs/fd_M100/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101457_decoded-diagnostic-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101457_decoded-diagnostic-8aed642b.zip",
+      "bytes": 66119765,
+      "sha256": "b6beaf97a1ec07fe1e79f24ddfedecc977008aa6069d6e7b068e33cd230d034a"
+    },
+    {
+      "package_path": "raw_runs/fd_M200/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101532_decoded-diagnostic-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101532_decoded-diagnostic-8aed642b.zip",
+      "bytes": 67615196,
+      "sha256": "c680a169bacb4564c4b598fba53e23e84ecffa4e20a2cfff86730289db40d686"
+    },
+    {
+      "package_path": "raw_runs/fresh_s0_M100/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104718_decoded-physical-43b6a074.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104718_decoded-physical-43b6a074.zip",
+      "bytes": 35445983,
+      "sha256": "cd15938cdf8a2c32906f76f88f10f57aff658719630de29ad0cd5927b7db70fa"
+    },
+    {
+      "package_path": "raw_runs/fresh_s0_M200/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104753_decoded-physical-4e10da2a.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104753_decoded-physical-4e10da2a.zip",
+      "bytes": 38135418,
+      "sha256": "8a53453d7b1b8b1671565f1297500d70e0a52f4965c0be9278ef40441c0c9e41"
+    },
+    {
+      "package_path": "raw_runs/fresh_s0_control/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104536_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104536_decoded-control-8aed642b.zip",
+      "bytes": 1593477,
+      "sha256": "000d68c98e4b0f6f99298cb76c9cda523d2949b7c42349d88b5a9954951e7f7f"
+    },
+    {
+      "package_path": "raw_runs/fresh_s0_half0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104642_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104642_decoded-live_control-8aed642b.zip",
+      "bytes": 35446602,
+      "sha256": "919570533d3da492324e00a1c4486ba40c7eb745941a03e1e1a5092a8a00d748"
+    },
+    {
+      "package_path": "raw_runs/fresh_s0_live0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104607_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104607_decoded-live_control-8aed642b.zip",
+      "bytes": 35446537,
+      "sha256": "68c88df9b7bddb7558938574fcf5d98b6cc63f2c5ccc32f60886d3cda52af633"
+    },
+    {
+      "package_path": "raw_runs/pilot_s0_M100/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102659_decoded-physical-43b6a074.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102659_decoded-physical-43b6a074.zip",
+      "bytes": 148521254,
+      "sha256": "96c6b952759e4ed60de12e29e189d96cb9f44649d13ebd3da961966ab4a3395c"
+    },
+    {
+      "package_path": "raw_runs/pilot_s0_M200/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102940_decoded-physical-4e10da2a.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102940_decoded-physical-4e10da2a.zip",
+      "bytes": 233663925,
+      "sha256": "c503710e74cf71defa2358fcfd375813e422a150179dddffa54b15df04e673c3"
+    },
+    {
+      "package_path": "raw_runs/pilot_s0_control/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102004_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102004_decoded-control-8aed642b.zip",
+      "bytes": 16673763,
+      "sha256": "256f17d54d8ec093b9261c30839b7cfb9e9331d9905d5cf126174f5ff245ce94"
+    },
+    {
+      "package_path": "raw_runs/pilot_s0_half0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102430_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102430_decoded-live_control-8aed642b.zip",
+      "bytes": 148525163,
+      "sha256": "dbb7fc2088a9a14023f4afc5e1348da05bbeb8c27de8924c495a17afd7d45e36"
+    },
+    {
+      "package_path": "raw_runs/pilot_s0_live0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102202_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-102202_decoded-live_control-8aed642b.zip",
+      "bytes": 148524873,
+      "sha256": "c10ffd701365432c55619d8bbf41fbf3dc21bc4c337d0e106517f995c8d90910"
+    },
+    {
+      "package_path": "raw_runs/pilot_s1_M100/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-103521_decoded-physical-43b6a074.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-103521_decoded-physical-43b6a074.zip",
+      "bytes": 154675299,
+      "sha256": "33999cb1505ddc7b0940500f4f51d2c9b7444521bcef74efd4829139676ba798"
+    },
+    {
+      "package_path": "raw_runs/pilot_s1_M200/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-103231_decoded-physical-4e10da2a.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-103231_decoded-physical-4e10da2a.zip",
+      "bytes": 234624961,
+      "sha256": "8bb596501574022532e0f565009c00c6e1681b9084928bc897c243f15c6dddbc"
+    },
+    {
+      "package_path": "raw_runs/pilot_s1_control/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104302_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104302_decoded-control-8aed642b.zip",
+      "bytes": 16576704,
+      "sha256": "d8dbe7631c90d73ae4d2729897968bc6e773241db63267e073206f701649dd6c"
+    },
+    {
+      "package_path": "raw_runs/pilot_s1_half0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-103802_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-103802_decoded-live_control-8aed642b.zip",
+      "bytes": 154679679,
+      "sha256": "cac938ea874006d87382ba39f827c5e7a41a62a7c9df5fcb89d8cc907ea6c802"
+    },
+    {
+      "package_path": "raw_runs/pilot_s1_live0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104032_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-104032_decoded-live_control-8aed642b.zip",
+      "bytes": 154679637,
+      "sha256": "5dbf08bf800aefd8af3a263b8cfad34f3c4fad566776eca938f318a7d7e23159"
+    },
+    {
+      "package_path": "raw_runs/repeat_background_control_0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-100958_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-100958_decoded-control-8aed642b.zip",
+      "bytes": 1326633,
+      "sha256": "e4fb114b8ac1f1e4bc14f430776b4ec5ecb706963fc94a3544b7e4619e3aa8f5"
+    },
+    {
+      "package_path": "raw_runs/repeat_background_control_1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101229_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101229_decoded-control-8aed642b.zip",
+      "bytes": 1326482,
+      "sha256": "5da4e276bdbbb3af990764b03c542979bb5d149a7c36537767b15cb9688d8cf8"
+    },
+    {
+      "package_path": "raw_runs/repeat_background_control_2/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101355_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101355_decoded-control-8aed642b.zip",
+      "bytes": 1326465,
+      "sha256": "eb4901806bba74d4b6a99f6bbd232ff0208c0bfa62df8a9fbd093dd783c123ea"
+    },
+    {
+      "package_path": "raw_runs/repeat_background_live_control_0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101027_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101027_decoded-live_control-8aed642b.zip",
+      "bytes": 33409447,
+      "sha256": "217aecdbf53c8649990ce1d710e88383e79579dfd5a35a731936125175956431"
+    },
+    {
+      "package_path": "raw_runs/repeat_background_live_control_1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101157_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101157_decoded-live_control-8aed642b.zip",
+      "bytes": 33409684,
+      "sha256": "135166a3d9e2a912346438c2987062b166beb983837c261be7f0cfe7d5f275e8"
+    },
+    {
+      "package_path": "raw_runs/repeat_background_live_control_2/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101424_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101424_decoded-live_control-8aed642b.zip",
+      "bytes": 33409464,
+      "sha256": "ed551382a516be3475c6bb5a856cd28f7f911d56371c227bd09b9372ae6d8968"
+    },
+    {
+      "package_path": "raw_runs/repeat_gaussian_control_0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-100902_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-100902_decoded-control-8aed642b.zip",
+      "bytes": 1334510,
+      "sha256": "8387aabafc5690491eaa3f7a456d93dc865ba87f4d15c55e8f01d958a7da90f4"
+    },
+    {
+      "package_path": "raw_runs/repeat_gaussian_control_1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101131_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101131_decoded-control-8aed642b.zip",
+      "bytes": 1334525,
+      "sha256": "2073d13c0d183b1ab9d69f9f7e3904d51bcbf5d9b16ff122dc4cda4d943ee144"
+    },
+    {
+      "package_path": "raw_runs/repeat_gaussian_control_2/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101259_decoded-control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101259_decoded-control-8aed642b.zip",
+      "bytes": 1334510,
+      "sha256": "f183fb9353ec99786279e22677d309968d5c79881ff8fdf36eef300a4708ea1d"
+    },
+    {
+      "package_path": "raw_runs/repeat_gaussian_live_control_0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-100928_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-100928_decoded-live_control-8aed642b.zip",
+      "bytes": 34282579,
+      "sha256": "ffad913e728dcfc24a98a0817477c848533caf00ed7ee1a6c6c3a12e902f6d3b"
+    },
+    {
+      "package_path": "raw_runs/repeat_gaussian_live_control_1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101100_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101100_decoded-live_control-8aed642b.zip",
+      "bytes": 34282592,
+      "sha256": "be330678f3896d4c4b39a6e4618e6542fdb3ee38c7739fcfe4ebbcaea9c36535"
+    },
+    {
+      "package_path": "raw_runs/repeat_gaussian_live_control_2/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101325_decoded-live_control-8aed642b.zip",
+      "canonical_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101325_decoded-live_control-8aed642b.zip",
+      "bytes": 34282587,
+      "sha256": "86a49130c32dce051de9a54672bf8c6bff03ec866d721776142fdd9fd6394c07"
+    }
+  ]
+}

@@ -224,3 +224,6 @@ gibi sunmaz. [Kapanış](evidence/gsd_comprehensive_20261106/closure.json),
 örnek, graph drift, decoder band mixing ve native nonrepeatability için ayrı
 kanıtlar var. Tek bir nedenin bütün accuracy sonucunu açıkladığı veya bir
 onarımın kazanç getirdiği kanıtlanmadı. Baseline/default korunur; yeni GPU yok.
+
+
+[Run/Inference, later Nov7 update] The independently owned [hardM100/M200 halfmix study](gsd_lowband_halfmix_results_20261107.md) subsequently completed all34planned jobs in40.33minutes;33rawruns/136actualcaches accepted. Frozen alpha and all five16-ID/all15controls are available. Native zero-guidance gate fails30/120B2cases; accuracy remains descriptive and no default is promoted. Earlier halfmix-unrun/user-wait entries are historical inventory snapshots.

@@ -1,9 +1,23 @@
+**[Run/CPU/Inference/Open] 2026-11-07 — PM hard-lowband halfmix completed; attribution failed:**
+[Results, five controls, numerical failures and cost](gsd_lowband_halfmix_results_20261107.md),
+[execution history](gsd_lowband_halfmix_study_20261105.md).
+16newIDs/all15/s5/seed0/B2: PM operational165/240,live0164,half0169,M100171,M200166.
+Actual-update alpha1004433.612924/alpha2004321.537947 frozen before pilot.
+M100 versus half0+.8333pp,conditional16objectCI[-.8333,2.5];M200-versus-half0-1.25pp.
+Zero-guidance compatibility fails30/120B2cases/13corruptions; native instability
+remains. Graph+reconstruction costs about23%above operational; no established
+joint gain or default promotion.33runs/136actualcaches/10nativeELFs/504basischecks,
+Drive/local raw accepted; science40.33min,807CPUtests/2skip. OwnstandardA100/sole
+monitor remain live. Earlier Nov5allocation/user-wait and inventory-unrun statements
+are historical; the explicit Nov7resumption and completed result supersede them.
+
 **[Run/CPU/Inference/Open] 2026-11-07 — full GSD conversation test inventory recorded:**
 [Chronological tests, accuracy interpretation and unstarted stages](gsd_session_test_inventory_20261107.md)
 connect Nov3 native/H8, Nov4 P0/P1/P2 and32-ID/all15 PM accuracy, and Nov5–6
 H0–H8 diagnostics. Full trajectory PM and one-next-step4/6 readouts are distinct;
 AUROC is not classifier accuracy. Mandatory diagnostics completed; conditional
-applied runs and separate hard100/200 halfmix GPU stages did not run. Existing
+applied runs did not advance in that campaign; separate hard100/200 halfmix
+was unrun at inventory time and subsequently completed in the Nov7 report above. Existing
 raw acceptance, closed-runtime and publication-readiness records are preserved;
 this is a documentation synthesis, with no new GPU or experimental outcome.
 

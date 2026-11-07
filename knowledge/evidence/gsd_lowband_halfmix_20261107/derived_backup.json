@@ -1,0 +1,11 @@
+{
+  "status": "local CRC/member SHA, Drive size/SHA and actual Drive-path CLI roundtrip verified",
+  "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_halfmix_study/20261107-105300_raw/derived_20261107T110815Z.zip",
+  "remote": "/content/studies/gsd-lowband-halfmix-20261107/derived_20261107T110815Z.zip",
+  "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_halfmix_20261107/derived/derived_20261107T110815Z.zip",
+  "bytes": 402060,
+  "sha256": "61583a1d613837eb711cd51b10b759ef316ec923671cddfb8bf113ab3e4c2bc8",
+  "payloads": 121,
+  "roundtrip_local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_halfmix_study/20261107-105300_raw/derived_20261107T110815Z.from_drive.zip",
+  "download_remote": "/content/drive/MyDrive/thesis/result/gsd_lowband_halfmix_20261107/derived/derived_20261107T110815Z.zip"
+}

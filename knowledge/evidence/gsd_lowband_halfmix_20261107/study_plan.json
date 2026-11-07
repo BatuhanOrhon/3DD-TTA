@@ -1,0 +1,160 @@
+{
+  "status": "frozen_before_science",
+  "source_commit": "d6761c895ef6fa38d882bb2d4ca3f3205c1a1fa3",
+  "source_overlay": {
+    "bytes": 755258,
+    "sha256": "9dcf49ecb2e48d0d5e61331c70837a10978f90c9b0680d5610d9eed92acd86f8"
+  },
+  "session": "tta-gsd-lowband-halfmix-a100-20261107-r1",
+  "gpu": "A100-SXM4-40GB",
+  "shape": "Standard",
+  "dataset": "modelnet40_c",
+  "severity": 5,
+  "seed": 0,
+  "batch_size": 2,
+  "checkpoint": "released PointMAE modelnet_jt; raw eval LION EMAoff",
+  "prepared_frame": "exact encoder Bx2048x3; fixed common X graph, original z0 decoder",
+  "protocol": {
+    "gamma": 0.03,
+    "eta": 0.003,
+    "p": 0.95,
+    "ddim_total": 100,
+    "normal_steps": 8,
+    "background_steps": 35,
+    "normal_clean": [
+      2,
+      4,
+      6
+    ],
+    "background_clean": [
+      9,
+      18,
+      27
+    ]
+  },
+  "modes": [
+    100,
+    200
+  ],
+  "profile": "hard",
+  "whole_phase_estimate_minutes": [
+    30,
+    45
+  ],
+  "hard_scientific_cap_seconds": 3300,
+  "planned_jobs": {
+    "preparation": 1,
+    "technical_zero_repeats": 12,
+    "native_fd": 2,
+    "calibration": 4,
+    "pilot": 10,
+    "fresh_pipeline": 5
+  },
+  "expected_prebuilt_caches": 126,
+  "expected_fresh_caches": 10,
+  "ratios_per_mode": 24,
+  "calibration": {
+    "ids": [
+      411,
+      672,
+      777,
+      2247
+    ],
+    "corruptions": [
+      "gaussian",
+      "background"
+    ],
+    "rule": "median actual local/style update-norm ratios; freeze before pilot; no labels/clean"
+  },
+  "pilot_ids": [
+    197,
+    502,
+    536,
+    1008,
+    1064,
+    1240,
+    1285,
+    1422,
+    1549,
+    1670,
+    1738,
+    1824,
+    1858,
+    2100,
+    2285,
+    2310
+  ],
+  "numerical_gates": {
+    "logit_max": 0.05,
+    "per_object_checkpoint_rms": 0.01,
+    "first_decoded_rms": 0.0001
+  },
+  "fd_failure": "Do not launch applied phases; retain failed raw artifacts",
+  "repeat_failure": "Pilot counts descriptive, no causal small-accuracy claim",
+  "operator_identities": {
+    "source_receipt.json": {
+      "bytes": 49004,
+      "sha256": "d4216bb687888372d7f5f64e2044a2fc2f79c57753a1c11365bdd18bcfaccacf"
+    },
+    "selfcheck.py": {
+      "bytes": 4226,
+      "sha256": "b2eaf4e804c806b673a5451f7668dea7d112bfe4afc7a669169521a492f346bb"
+    },
+    "deploy.py": {
+      "bytes": 4289,
+      "sha256": "dd88297848937df72da0271c18ea9df6d9f1c0bd755d1b8febd8d639a54dcfa9"
+    },
+    "physical_source_overlay.zip": {
+      "bytes": 755258,
+      "sha256": "9dcf49ecb2e48d0d5e61331c70837a10978f90c9b0680d5610d9eed92acd86f8"
+    },
+    "technical0.json": {
+      "bytes": 210,
+      "sha256": "445f9230761b70030ee204600c53e1e1308086a6eb0b51632d6c4e46cf24aeb3"
+    },
+    "calibration0.json": {
+      "bytes": 214,
+      "sha256": "e3ab32c5e6f0c0c10da5a2ddc40984cb05def9cbe8f09bd90abdba4a4cc7e3ca"
+    },
+    "prepare_caches.py": {
+      "bytes": 4266,
+      "sha256": "14a2d29d9a60575e6678ed2761ea502df1f8ee0229633866d0de34f6707cddd6"
+    },
+    "backgroundtechnical0.json": {
+      "bytes": 222,
+      "sha256": "2bdd86c1475b588a8af1d5bd0187f39177c3ccdeac38858b6a44a8de87832898"
+    },
+    "calibration1.json": {
+      "bytes": 215,
+      "sha256": "826714bbd5302d92d705f7b05226359eb98307e6109fd6ffdc897c76a785ddd9"
+    },
+    "shard0.json": {
+      "bytes": 267,
+      "sha256": "acfe4424ac70b36e36024604c79b92dcacb07974fb97bccff5a2cd5e5b36fc4d"
+    },
+    "deploy_assets_template.py": {
+      "bytes": 14416,
+      "sha256": "67a2d88af85ad8d2995de03dc8310872b56e59fdfb0994eac08bf73c69a58d55"
+    },
+    "prepare.py": {
+      "bytes": 6840,
+      "sha256": "0a15b01deb852febdd7f122ca09b719f35f570345893b611eaa3c6a1655a3a50"
+    },
+    "study.py": {
+      "bytes": 12307,
+      "sha256": "6e148558ec046a2d5b0be0eb4794439b01e50d1a26a2654b0710e3ffcf8a7cb9"
+    },
+    "shard1.json": {
+      "bytes": 270,
+      "sha256": "28c3324e161724ccdc8adaf755af03392fd99f92a65e009c4f4edcf0ffdd5b06"
+    },
+    "selfcheck_process.py": {
+      "bytes": 1577,
+      "sha256": "303b4fd7da00ac752b10f8b9666914cf7ad1c31795787bde03a439d5c59390b2"
+    },
+    "preflight.py": {
+      "bytes": 1974,
+      "sha256": "97eef8757779364c616ea848f9fc61d02c87a266240823482705c5fe64dd6707"
+    }
+  }
+}

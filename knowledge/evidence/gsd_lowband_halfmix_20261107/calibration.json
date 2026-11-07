@@ -1,0 +1,620 @@
+{
+  "alpha": {
+    "100": 4433.612924010353,
+    "200": 4321.537946627087
+  },
+  "rule": "median per-object actual local/style update-norm ratios; no labels or clean data",
+  "frozen_identity": {
+    "bytes": 52405,
+    "sha256": "fb121b127d0ac78ed8ac1ee8dc500d52c5f2a631c4dabaac2a932d6595eca9a1"
+  },
+  "ratios_per_mode": 24,
+  "rows": [
+    {
+      "modes": 100,
+      "id": 411,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.5081684209122687,
+      "gsd_norm": 6.818568203122335e-05,
+      "ratio": 7452.714496271665,
+      "cosine": 0.07469401240630015,
+      "frozen_mix_norm": 0.3051947701290589,
+      "frozen_cancellation_fraction": 0.24687649039872595
+    },
+    {
+      "modes": 100,
+      "id": 672,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.7827621558766027,
+      "gsd_norm": 5.8618452281598526e-05,
+      "ratio": 13353.511145539525,
+      "cosine": 0.043549002516414116,
+      "frozen_mix_norm": 0.41772563640744254,
+      "frozen_cancellation_fraction": 0.19872601417164393
+    },
+    {
+      "modes": 100,
+      "id": 411,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.41906878245626966,
+      "gsd_norm": 5.803594693797139e-05,
+      "ratio": 7220.848535549336,
+      "cosine": -0.01812287107128672,
+      "frozen_mix_norm": 0.24388426745128602,
+      "frozen_cancellation_fraction": 0.2788518457110597
+    },
+    {
+      "modes": 100,
+      "id": 672,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.6183615972876242,
+      "gsd_norm": 5.3081048371321246e-05,
+      "ratio": 11649.38553892078,
+      "cosine": -0.011976195676703194,
+      "frozen_mix_norm": 0.3294960843395241,
+      "frozen_cancellation_fraction": 0.22807742636142292
+    },
+    {
+      "modes": 100,
+      "id": 411,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.3596110974653371,
+      "gsd_norm": 5.118653153435718e-05,
+      "ratio": 7025.502347701771,
+      "cosine": -0.09591404206223574,
+      "frozen_mix_norm": 0.20320388511284793,
+      "frozen_cancellation_fraction": 0.30712448823001026
+    },
+    {
+      "modes": 100,
+      "id": 672,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.5103230104172785,
+      "gsd_norm": 5.0604170425244174e-05,
+      "ratio": 10084.603820769305,
+      "cosine": -0.05801464744742048,
+      "frozen_mix_norm": 0.2727094677147389,
+      "frozen_cancellation_fraction": 0.2576125425620307
+    },
+    {
+      "modes": 100,
+      "id": 411,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 1.1700057130089863,
+      "gsd_norm": 0.0007010156807927027,
+      "ratio": 1669.0150378461626,
+      "cosine": -0.10015559493307435,
+      "frozen_mix_norm": 1.6047089079595547,
+      "frozen_cancellation_fraction": 0.24979210225299464
+    },
+    {
+      "modes": 100,
+      "id": 672,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 0.9125449397352386,
+      "gsd_norm": 0.0006480043909047109,
+      "ratio": 1408.2388214394498,
+      "cosine": -0.22071959358893548,
+      "frozen_mix_norm": 1.4079711656304192,
+      "frozen_cancellation_fraction": 0.25613302753466205
+    },
+    {
+      "modes": 100,
+      "id": 411,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 0.744078682957279,
+      "gsd_norm": 0.0005085329217871407,
+      "ratio": 1463.1868480458616,
+      "cosine": -0.33767225543078705,
+      "frozen_mix_norm": 1.0611396261687234,
+      "frozen_cancellation_fraction": 0.292270867289081
+    },
+    {
+      "modes": 100,
+      "id": 672,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 0.775825137765674,
+      "gsd_norm": 0.0004640544362248208,
+      "ratio": 1671.8407953971362,
+      "cosine": -0.23673926971253953,
+      "frozen_mix_norm": 1.0098493245103137,
+      "frozen_cancellation_fraction": 0.28714745791108187
+    },
+    {
+      "modes": 100,
+      "id": 411,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.6011024298860225,
+      "gsd_norm": 0.0003263803875999455,
+      "ratio": 1841.7235003189353,
+      "cosine": -0.24736244011536537,
+      "frozen_mix_norm": 0.7115017289697474,
+      "frozen_cancellation_fraction": 0.3052238719156075
+    },
+    {
+      "modes": 100,
+      "id": 672,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.5741803694914568,
+      "gsd_norm": 0.00037348453760221485,
+      "ratio": 1537.3604839914308,
+      "cosine": -0.2277958868796372,
+      "frozen_mix_norm": 0.8121691429022362,
+      "frozen_cancellation_fraction": 0.2716188178730129
+    },
+    {
+      "modes": 100,
+      "id": 777,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.8917731826195294,
+      "gsd_norm": 6.577478164681835e-05,
+      "ratio": 13557.980129952528,
+      "cosine": 0.10995331673528072,
+      "frozen_mix_norm": 0.48412040058599687,
+      "frozen_cancellation_fraction": 0.18180966459411574
+    },
+    {
+      "modes": 100,
+      "id": 2247,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.5538893203196648,
+      "gsd_norm": 5.7537682101256e-05,
+      "ratio": 9626.549073438846,
+      "cosine": 0.04943951805291505,
+      "frozen_mix_norm": 0.3105803478631922,
+      "frozen_cancellation_fraction": 0.23217671079567537
+    },
+    {
+      "modes": 100,
+      "id": 777,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.7028723080776056,
+      "gsd_norm": 5.9780330972107163e-05,
+      "ratio": 11757.58475485119,
+      "cosine": 0.04986924845776329,
+      "frozen_mix_norm": 0.38172555744456477,
+      "frozen_cancellation_fraction": 0.21124169810161353
+    },
+    {
+      "modes": 100,
+      "id": 2247,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.4656901296440987,
+      "gsd_norm": 5.072333014048333e-05,
+      "ratio": 9180.984930491026,
+      "cosine": -0.0428998545089135,
+      "frozen_mix_norm": 0.2541928933032587,
+      "frozen_cancellation_fraction": 0.2638254089217661
+    },
+    {
+      "modes": 100,
+      "id": 777,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.5753044864281752,
+      "gsd_norm": 5.703929506261519e-05,
+      "ratio": 10086.107933077217,
+      "cosine": 0.008889106239636041,
+      "frozen_mix_norm": 0.31524403821473246,
+      "frozen_cancellation_fraction": 0.23871992849525747
+    },
+    {
+      "modes": 100,
+      "id": 2247,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.3871200531327037,
+      "gsd_norm": 4.743260329216585e-05,
+      "ratio": 8161.475994648642,
+      "cosine": -0.09084262088582283,
+      "frozen_mix_norm": 0.21171680123759606,
+      "frozen_cancellation_fraction": 0.2912270730682218
+    },
+    {
+      "modes": 100,
+      "id": 777,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 1.0281193359534098,
+      "gsd_norm": 0.0006749857783321036,
+      "ratio": 1523.171848885324,
+      "cosine": -0.2511784147791278,
+      "frozen_mix_norm": 1.4549225216380142,
+      "frozen_cancellation_fraction": 0.2762920705680061
+    },
+    {
+      "modes": 100,
+      "id": 2247,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 0.7505594352990269,
+      "gsd_norm": 0.0004855727377171834,
+      "ratio": 1545.7198829316942,
+      "cosine": -0.12178906939639214,
+      "frozen_mix_norm": 1.09595666614047,
+      "frozen_cancellation_fraction": 0.24505318704330836
+    },
+    {
+      "modes": 100,
+      "id": 777,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 0.7502756540615823,
+      "gsd_norm": 0.0004767560703957932,
+      "ratio": 1573.7097032424122,
+      "cosine": -0.35253407529222003,
+      "frozen_mix_norm": 0.9890267166855435,
+      "frozen_cancellation_fraction": 0.30934552371182844
+    },
+    {
+      "modes": 100,
+      "id": 2247,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 0.5638923959753555,
+      "gsd_norm": 0.00035294133675330694,
+      "ratio": 1597.6943963622361,
+      "cosine": -0.1602398268979271,
+      "frozen_mix_norm": 0.7880045624517695,
+      "frozen_cancellation_fraction": 0.2596369373731924
+    },
+    {
+      "modes": 100,
+      "id": 777,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.586358529799609,
+      "gsd_norm": 0.00040072181300245734,
+      "ratio": 1463.2558317857613,
+      "cosine": -0.29319078843800145,
+      "frozen_mix_norm": 0.8499149265487258,
+      "frozen_cancellation_fraction": 0.2806487432613446
+    },
+    {
+      "modes": 100,
+      "id": 2247,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.5211067205693559,
+      "gsd_norm": 0.00029446600179747673,
+      "ratio": 1769.666845708574,
+      "cosine": -0.13870412713645516,
+      "frozen_mix_norm": 0.6684458375989409,
+      "frozen_cancellation_fraction": 0.26812031763828703
+    },
+    {
+      "modes": 200,
+      "id": 411,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.5081684371022114,
+      "gsd_norm": 7.47788774282012e-05,
+      "ratio": 6795.614678625369,
+      "cosine": 0.06943426144242237,
+      "frozen_mix_norm": 0.3104320860889805,
+      "frozen_cancellation_fraction": 0.2531659854415397
+    },
+    {
+      "modes": 200,
+      "id": 672,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.782762146805866,
+      "gsd_norm": 6.774035142376057e-05,
+      "ratio": 11555.330469267461,
+      "cosine": 0.045201068094922955,
+      "frozen_mix_norm": 0.42400772255680386,
+      "frozen_cancellation_fraction": 0.21151856640847677
+    },
+    {
+      "modes": 200,
+      "id": 411,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.41906877597884745,
+      "gsd_norm": 6.561006197295759e-05,
+      "ratio": 6387.263833885334,
+      "cosine": -0.016792167999757607,
+      "frozen_mix_norm": 0.25100845656167037,
+      "frozen_cancellation_fraction": 0.2854921228337417
+    },
+    {
+      "modes": 200,
+      "id": 672,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.618361592396353,
+      "gsd_norm": 6.269581838635462e-05,
+      "ratio": 9862.884133448615,
+      "cosine": -0.008372579768088279,
+      "frozen_mix_norm": 0.3365172100310057,
+      "frozen_cancellation_fraction": 0.24318966583727541
+    },
+    {
+      "modes": 200,
+      "id": 411,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.3596110706136382,
+      "gsd_norm": 5.9352809314215915e-05,
+      "ratio": 6058.871934938145,
+      "cosine": -0.08793089305739514,
+      "frozen_mix_norm": 0.21147622674182504,
+      "frozen_cancellation_fraction": 0.3135075485928094
+    },
+    {
+      "modes": 200,
+      "id": 672,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.5103230197571677,
+      "gsd_norm": 6.028758909041684e-05,
+      "ratio": 8464.810543208258,
+      "cosine": -0.05456452490904335,
+      "frozen_mix_norm": 0.2800886677275848,
+      "frozen_cancellation_fraction": 0.2733068275257059
+    },
+    {
+      "modes": 200,
+      "id": 411,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 1.159047249015925,
+      "gsd_norm": 0.0007179325233025443,
+      "ratio": 1614.4236559784467,
+      "cosine": -0.014983962143295539,
+      "frozen_mix_norm": 1.6478457167206706,
+      "frozen_cancellation_fraction": 0.22665758155753168
+    },
+    {
+      "modes": 200,
+      "id": 672,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 0.9168174606596503,
+      "gsd_norm": 0.0006575761380740168,
+      "ratio": 1394.2377278849087,
+      "cosine": -0.18430258206344952,
+      "frozen_mix_norm": 1.4102919682036963,
+      "frozen_cancellation_fraction": 0.24955683378155058
+    },
+    {
+      "modes": 200,
+      "id": 411,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 1.164262663229818,
+      "gsd_norm": 0.00045053048521313246,
+      "ratio": 2584.203958316029,
+      "cosine": -0.32720123418441377,
+      "frozen_mix_norm": 0.9569294727074255,
+      "frozen_cancellation_fraction": 0.38485797145102785
+    },
+    {
+      "modes": 200,
+      "id": 672,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 0.7845012128298444,
+      "gsd_norm": 0.0004816132158708686,
+      "ratio": 1628.9030013665301,
+      "cosine": -0.21608714193643025,
+      "frozen_mix_norm": 1.0297624379727524,
+      "frozen_cancellation_fraction": 0.28134658030089665
+    },
+    {
+      "modes": 200,
+      "id": 411,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.5101690305489519,
+      "gsd_norm": 0.0003319138712419175,
+      "ratio": 1537.0524547228458,
+      "cosine": -0.13284424548641657,
+      "frozen_mix_norm": 0.7285755784159608,
+      "frozen_cancellation_fraction": 0.25064766138106787
+    },
+    {
+      "modes": 200,
+      "id": 672,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.5483462196792491,
+      "gsd_norm": 0.00040607445661178986,
+      "ratio": 1350.3588092059485,
+      "cosine": -0.18537200362223094,
+      "frozen_mix_norm": 0.8694080541191297,
+      "frozen_cancellation_fraction": 0.2450474331154996
+    },
+    {
+      "modes": 200,
+      "id": 777,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.8917732019499455,
+      "gsd_norm": 6.947970854284652e-05,
+      "ratio": 12835.016448003804,
+      "cosine": 0.11139995832042407,
+      "frozen_mix_norm": 0.48607422958847246,
+      "frozen_cancellation_fraction": 0.18446137869852997
+    },
+    {
+      "modes": 200,
+      "id": 2247,
+      "corruption": "gaussian",
+      "checkpoint": 2,
+      "scd_norm": 0.5538893258824557,
+      "gsd_norm": 6.860230104972839e-05,
+      "ratio": 8073.917600532855,
+      "cosine": 0.04396618433884617,
+      "frozen_mix_norm": 0.3198146808808578,
+      "frozen_cancellation_fraction": 0.24781058727403826
+    },
+    {
+      "modes": 200,
+      "id": 777,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.7028723427348902,
+      "gsd_norm": 6.365379785224462e-05,
+      "ratio": 11042.111648489876,
+      "cosine": 0.046372011434919876,
+      "frozen_mix_norm": 0.3832856803346723,
+      "frozen_cancellation_fraction": 0.21614835195265902
+    },
+    {
+      "modes": 200,
+      "id": 2247,
+      "corruption": "gaussian",
+      "checkpoint": 4,
+      "scd_norm": 0.46569011647902964,
+      "gsd_norm": 6.266697139907053e-05,
+      "ratio": 7431.189126939948,
+      "cosine": -0.03913715671067833,
+      "frozen_mix_norm": 0.26473466772188303,
+      "frozen_cancellation_fraction": 0.28110832327565594
+    },
+    {
+      "modes": 200,
+      "id": 777,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.5753044766371279,
+      "gsd_norm": 6.1033812564514355e-05,
+      "ratio": 9425.996057988608,
+      "cosine": 0.002996334184659991,
+      "frozen_mix_norm": 0.31680194378150206,
+      "frozen_cancellation_fraction": 0.24486859739681777
+    },
+    {
+      "modes": 200,
+      "id": 2247,
+      "corruption": "gaussian",
+      "checkpoint": 6,
+      "scd_norm": 0.3871200540593078,
+      "gsd_norm": 5.951425552222525e-05,
+      "ratio": 6504.660953286059,
+      "cosine": -0.08131986104247876,
+      "frozen_mix_norm": 0.22350451511571043,
+      "frozen_cancellation_fraction": 0.3062239720287335
+    },
+    {
+      "modes": 200,
+      "id": 777,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 1.0290481714856856,
+      "gsd_norm": 0.0007052156946197652,
+      "ratio": 1459.1963555781651,
+      "cosine": -0.24166193029729285,
+      "frozen_mix_norm": 1.485861072749291,
+      "frozen_cancellation_fraction": 0.2710407970958668
+    },
+    {
+      "modes": 200,
+      "id": 2247,
+      "corruption": "background",
+      "checkpoint": 9,
+      "scd_norm": 0.7456982047192803,
+      "gsd_norm": 0.0005062690378267548,
+      "ratio": 1472.9287177432686,
+      "cosine": -0.09972359134429488,
+      "frozen_mix_norm": 1.119978356595042,
+      "frozen_cancellation_fraction": 0.23643715187946512
+    },
+    {
+      "modes": 200,
+      "id": 777,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 0.7533224744836706,
+      "gsd_norm": 0.0005030335483667386,
+      "ratio": 1497.559112964883,
+      "cosine": -0.28174329453766184,
+      "frozen_mix_norm": 1.0452821800146332,
+      "frozen_cancellation_fraction": 0.28581456145066064
+    },
+    {
+      "modes": 200,
+      "id": 2247,
+      "corruption": "background",
+      "checkpoint": 18,
+      "scd_norm": 0.5859524395722234,
+      "gsd_norm": 0.00037974185904291694,
+      "ratio": 1543.0283115193824,
+      "cosine": -0.1310205614515795,
+      "frozen_mix_norm": 0.8343367975223565,
+      "frozen_cancellation_fraction": 0.25071502458091466
+    },
+    {
+      "modes": 200,
+      "id": 777,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.572171389683022,
+      "gsd_norm": 0.00042782746573641816,
+      "ratio": 1337.3881658068517,
+      "cosine": -0.2368902755210668,
+      "frozen_mix_norm": 0.9006262965318298,
+      "frozen_cancellation_fraction": 0.2560017165882431
+    },
+    {
+      "modes": 200,
+      "id": 2247,
+      "corruption": "background",
+      "checkpoint": 27,
+      "scd_norm": 0.49731626669145723,
+      "gsd_norm": 0.00031956785860785803,
+      "ratio": 1556.214911155112,
+      "cosine": -0.10466427217543353,
+      "frozen_mix_norm": 0.7090106466289756,
+      "frozen_cancellation_fraction": 0.24506712405300535
+    }
+  ],
+  "source_archives": [
+    {
+      "path": "/content/studies/gsd-lowband-halfmix-20261107/raw_runs/cal_M100_s0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101703_decoded-live_control-8aed642b.zip",
+      "identity": {
+        "bytes": 35447875,
+        "sha256": "020802400c60f7a4ec4b215049328cdf815a5eabfdef10ca76c7871feefabeeb"
+      }
+    },
+    {
+      "path": "/content/studies/gsd-lowband-halfmix-20261107/raw_runs/cal_M100_s1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101739_decoded-live_control-8aed642b.zip",
+      "identity": {
+        "bytes": 35326880,
+        "sha256": "21ec03487ea1850051de42db66b10a4cf2ee1318f24d3e353986ae2030634a63"
+      }
+    },
+    {
+      "path": "/content/studies/gsd-lowband-halfmix-20261107/raw_runs/cal_M200_s0/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101816_decoded-live_control-8aed642b.zip",
+      "identity": {
+        "bytes": 38137338,
+        "sha256": "c7000b617ecce1e2d170a991d229c83c58a9c0aaa8bc0d03ee43d85b58cf899b"
+      }
+    },
+    {
+      "path": "/content/studies/gsd-lowband-halfmix-20261107/raw_runs/cal_M200_s1/modelnet40_c/decoded_physical_spectral_diagnostic/20261107-101852_decoded-live_control-8aed642b.zip",
+      "identity": {
+        "bytes": 37762930,
+        "sha256": "44be4c439a1892872b1f1e02704400692c264233eb7e45e3db44770c4bbd2a20"
+      }
+    }
+  ]
+}

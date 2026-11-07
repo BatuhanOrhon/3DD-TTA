@@ -4,7 +4,7 @@
 
 - [x] Record all twelve stages from mathematical/native/H8 checks through P0/P1/P2, the actual32-ID/all15/seed0 PM pilot, zero-weight repeats, H5, shared-state H1/H2/H3/H6/H7, H4 and exact-RNG prior localization.
 - [x] Distinguish complete mandatory diagnostics, failed numerical controls, repaired initial analyzers and conditional NOT_ADVANCED/NOT_RUN experiments. PM313/315/313/312of480 is the real trajectory accuracy pilot; shared4/6 results are one-next-prediction diagnostics. H5 AUROC.2713 ranks geometric benefit, not classification accuracy.
-- [ ] Separate hardM100/M200 PM-only halfmix: CPU code exists, but allocation/setup/native tests/alpha calibration/five-arm pilot/timing/accuracy remain unrun under the recorded peer allocation/user-wait status; no new allocation is authorized by this inventory.
+- [x] Separate hardM100/M200 PM-only halfmix bounded tests completed later on Nov7:33accepted runs, frozen alpha, five-arm16-ID/all15pilot and fresh timing. [Result](gsd_lowband_halfmix_results_20261107.md): attribution failed, native instability remains; no default promotion.
 - [ ] Alternative-anchor A/B, actual graph-refresh/sham, new guidance correspondence, feature/style-specific decoder perturbations and deterministic voxelization repair remain untested. Module localization is not a unique-kernel diagnosis or repair.
 - [ ] Applied H5/object-disjoint ranking, wide H6/H7 accuracy, eigenfree full-pipeline and new full/multi-seed confirmation did not advance. V5's three applied/timing arms were not launched after its fixed forward-gate rejection; no retrospective rescue.
 
@@ -2757,3 +2757,22 @@ any further allocation/setup/GPU work. Code preparation/publication continues.
 - [ ] This standalone method's ScanObjectNN/backbone transfer, calibrated confidence and wider graph/strength search.
 - [ ] Implement and validate final physical refinement or decoder-aware lift before deployment claims.
 These open items are scoped to this standalone proposal at Nov5 closure. The separately completed Nov6 shared-state classifier/native/heat diagnostics remain in their own accepted records; no completed global test is marked unrun by this list.
+
+
+## 2026-11-07 — PM hard-lowband halfmix bounded tests complete
+
+[Run/Inference] [Accepted result](gsd_lowband_halfmix_results_20261107.md).
+- [x] Own canonical standardA100 setup,807CPUtests/2skip,source/native seal.
+- [x] True hardM100/M200,complete boundary eigenspaces,all-batch retained bases;
+  actual rank100–223/200–235;no M100/M200 filter aliases in240operators.
+- [x] Full-decoder FD gates,504independent projection checks,frozen24ratios/M.
+- [x] Allfivearms on16newIDs/all15,s5/seed0/B2;separate5fresh timing jobs.
+- [x] Raw/Drive/localbyteSHA and33run/136actualcache/10nativeELF acceptance.
+- [x] Preserve failed native repeats and allcontrols; pilot remains descriptive.
+- [ ] Native deterministic repair/independent repeat: zero-guidance gate fails
+  30/120pilotB2cases/13corruptions. Small PM differences are not causal proof.
+- [ ] No full/unseen/multiseed confirmation or default promotion established.
+
+M100171/240 vs half0169 (+.8333pp,CI[-.8333,2.5]);M200166/240 vs half0169
+(-1.25pp,CI[-2.9167,.4167]);cost about23%above operational. No new alpha/ID
+search or conditional GPU expansion. Source and artifact identities in report.

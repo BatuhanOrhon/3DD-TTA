@@ -8749,3 +8749,36 @@ held; no background retry queue or owned runtime/monitor exists.
 [Run] Raw/source/derived Drive/local receipts and source/data/native/checkpoint identities retained. A-r3 unexpected loss recovered through owned B-r8; only missing fixed conditions completed. Both owned sessions absent and own monitor stopped at Nov5 closure. This is a dated lifecycle record, not a Nov7 peer-status assertion. No new Colab/GPU work in this integration. Operational Chamfer+PM baseline unchanged. Full standalone trajectory/classifier/B1+B32 comparison and disjoint validation remain unstarted; later Nov6 small same-state readouts are separate evidence.
 
 [Code/Decision] Publication reconciled onto incoming origin/thesis-integration@5968a86 after96e51ad full-session inventory and5968a86guidance/4D-history notes arrived. Both append-only shared findings/question sections retained; general inventory now distinguishes completed standalone frozen-anchor/robust-surface tests from still-unrun applied accuracy. No peer production/runtime edits.
+
+
+## 2026-11-07 — Lowband halfmix technical gates and frozen calibration
+
+[Run] Own standardA100 setup passed all ten split cells, except only the known
+user-deferred cell2fastrlock pip failure. Source d6761c8 overlay SHA9dcf49ecb2e48d0d5e61331c70837a10978f90c9b0680d5610d9eed92acd86f8;
+asset manifest SHA51847c0330191bdef2ef84b37df92d83a1b08915729dd2f0a290ff05daa93021.
+126paired caches prepared and Drive verified. Full-decoder FD passed M100/200;
+Gaussian repeated controls all passed; Background within-control/within-live/cross
+all failed, max logit3.4207287. Numerical instability is not solved.
+Actual update-norm medians frozen alpha1004433.612924010353,alpha2004321.537946627087,
+24ratios/M, no label/clean-data calibration. Five-arm16-ID/all15pilot is running;
+no accepted pilot accuracy claim yet. User authorizes necessary GPU tests without
+further permission and requests phase-by-phase knowledge updates.
+See [current study record](gsd_lowband_halfmix_study_20261105.md) for receipts,
+fixed gates, timings, destinations and pending final raw/local acceptance.
+
+
+## 2026-11-07 — PM hard-lowband halfmix completed; attribution failed
+
+[Run/Inference] [Final study](gsd_lowband_halfmix_results_20261107.md):33accepted
+sealedruns/632B2cases,126common+10freshcaches,504basischecks; science40.33min.
+16newdevelopmentIDs/all15/s5/seed0/B2. PM operational165/240(68.75%),live0164,
+half0169(70.4167%),M100171(71.25%),M200166(69.1667%). Alpha1004433.612924,
+alpha2004321.537947 frozen from24label/clean-free actual-update ratios/M.
+M100-vs-half0+0.8333pp,conditional16objectCI[-.8333,2.5]; M200-vs-half0-1.25pp,
+CI[-2.9167,.4167]. Native zero-guidance gate fails30/120pilotB2cases across13
+corruptions, including Background; thresholds unchanged, no deterministic repair.
+M100/M200 graph+reconstruction+22.99%/+22.93% vs operational. No established
+joint gain or default promotion. Raw2,329,149,449bytes/SHAe2f2e4c4025fc4b7a64b25b08504760432a3ffdbcfa64ee1594101c1712d1898
+Drive/localverified; source/native/cache/PM-terminal recount complete. Negative
+and failed numerical outcomes preserved. Own standardA100/solemonitor91825remain
+live; no teardown authorization. Derived/publication receipts follow in finalnote.

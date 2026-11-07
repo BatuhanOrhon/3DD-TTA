@@ -1,0 +1,11 @@
+{
+  "source_commit": "8846b066044063c1f689ef5a244020f47cd3af11",
+  "command": "/private/tmp/tta-lowband-halfmix-20261107-venv/bin/python -m pytest tests -q",
+  "passed": 807,
+  "skipped": 2,
+  "subtests_passed": 500,
+  "seconds": 51.02,
+  "log_sha256": "a39c6a5f945ee78c715928da52a34a2df221b3e9e07c70ba51c5288d80d17f09",
+  "gpu": "not started; setup cell2 running",
+  "dependencies": "filelock==4.2.9\nfsspec==2026.9.0\nh5py==3.16.0\niniconfig==2.3.1\njinja2==3.1.6\nmarkupsafe==3.0.4\nmpmath==1.3.0\nnetworkx==3.7\nnumpy==1.26.4\npackaging==26.3\npluggy==1.7.0\npygments==2.21.0\npytest==9.2.0\npyyaml==6.0.3\nscipy==1.17.1\nsetuptools==84.2.1\nsympy==1.14.0\ntorch==2.15.0\ntyping-extensions==4.16.0\n"
+}

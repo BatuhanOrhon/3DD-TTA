@@ -1,0 +1,23 @@
+{
+  "analyzer": {
+    "bytes": 18921,
+    "sha256": "8873bd2bfd71256cd70717da397e315324f12af4a12e272b3fb7988aa1012436"
+  },
+  "acceptor": {
+    "bytes": 4385,
+    "sha256": "bd3b1c1ec13d1a99edb39e488c40bf17eb2eb2b6500987bc6622574b2d87cb81"
+  },
+  "analysis": {
+    "bytes": 383176,
+    "sha256": "ad67712cd230c458ac2add1860ea2bae90467f665b3f424c583dbc16744c23ea"
+  },
+  "accepted_raw": {
+    "bytes": 16453,
+    "sha256": "f401d1094f0750f8f5a42fcc3733bfa76b3ea35a73891cf0e844913e19be6c1a"
+  },
+  "version": "analysis_v2 adds all-run basis/case summary; v1 retained unchanged",
+  "repository_helpers": [
+    "knowledge/evidence/decoded_physical_accuracy_20261104/analyze_accuracy.py",
+    "knowledge/evidence/chamfer_guidance_executed_code_20261031/historical_controls/remote/deploy_assets_template.py"
+  ]
+}

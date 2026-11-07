@@ -1,0 +1,809 @@
+{
+  "status": "completed limited development pilot; numerical attribution failed",
+  "date": "2026-11-07",
+  "source_commit": "d6761c895ef6fa38d882bb2d4ca3f3205c1a1fa3",
+  "source_overlay": {
+    "bytes": 755258,
+    "sha256": "9dcf49ecb2e48d0d5e61331c70837a10978f90c9b0680d5610d9eed92acd86f8"
+  },
+  "asset_manifest": {
+    "bytes": 184952,
+    "sha256": "51847c0330191bdef2ef84b37df92d83a1b08915729dd2f0a290ff05daa93021"
+  },
+  "raw_package": {
+    "path": "/content/studies/gsd-lowband-halfmix-20261107/raw_package_20261107T105026Z.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_halfmix_20261107/raw_package_20261107T105026Z.zip",
+    "bytes": 2329149449,
+    "sha256": "e2f2e4c4025fc4b7a64b25b08504760432a3ffdbcfa64ee1594101c1712d1898"
+  },
+  "analysis": {
+    "bytes": 383176,
+    "sha256": "ad67712cd230c458ac2add1860ea2bae90467f665b3f424c583dbc16744c23ea"
+  },
+  "dataset": "modelnet40_c",
+  "severity": 5,
+  "seed": 0,
+  "batch_size": 2,
+  "pilot_ids": [
+    197,
+    502,
+    536,
+    1008,
+    1064,
+    1240,
+    1285,
+    1422,
+    1549,
+    1670,
+    1738,
+    1824,
+    1858,
+    2100,
+    2285,
+    2310
+  ],
+  "calibration_ids": [
+    411,
+    672,
+    777,
+    2247
+  ],
+  "n_original_objects": 16,
+  "n_corruptions": 15,
+  "n_object_corruption_pairs_per_arm": 240,
+  "calibration_alpha": {
+    "100": 4433.612924010353,
+    "200": 4321.537946627087
+  },
+  "calibration_freeze": {
+    "bytes": 52405,
+    "sha256": "fb121b127d0ac78ed8ac1ee8dc500d52c5f2a631c4dabaac2a932d6595eca9a1"
+  },
+  "ratios_per_mode": 24,
+  "all_run_acceptance": {
+    "case_count": 632,
+    "basis_checks": 504,
+    "basis_passed": true,
+    "max_basis_loss_absolute_error": 8.574130638816513e-08
+  },
+  "pilot": {
+    "control": {
+      "pm_correct": 165,
+      "terminal_correct": 165,
+      "n": 240,
+      "pm_accuracy_pct": 68.75
+    },
+    "live0": {
+      "pm_correct": 164,
+      "terminal_correct": 164,
+      "n": 240,
+      "pm_accuracy_pct": 68.33333333333333
+    },
+    "half0": {
+      "pm_correct": 169,
+      "terminal_correct": 169,
+      "n": 240,
+      "pm_accuracy_pct": 70.41666666666667
+    },
+    "M100": {
+      "pm_correct": 171,
+      "terminal_correct": 172,
+      "n": 240,
+      "pm_accuracy_pct": 71.25
+    },
+    "M200": {
+      "pm_correct": 166,
+      "terminal_correct": 168,
+      "n": 240,
+      "pm_accuracy_pct": 69.16666666666667
+    }
+  },
+  "contrasts": {
+    "M100_vs_control": {
+      "pm": {
+        "delta_pp": 2.5,
+        "winner_accuracy_pct": 71.25,
+        "baseline_accuracy_pct": 68.75,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          2.5
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 6.25,
+          "gaussian": -6.25,
+          "background": 6.25,
+          "impulse": 6.25,
+          "upsampling": 0.0,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 6.25,
+          "density": 0.0,
+          "density_inc": 6.25,
+          "shear": 0.0,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 6.25,
+          "occlusion": -6.25,
+          "lidar": 0.0
+        },
+        "corrected": 8,
+        "harmed": 2,
+        "object_cluster_ci95_pp": [
+          0.4166666666666667,
+          5.0
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      },
+      "terminal": {
+        "delta_pp": 2.9166666666666665,
+        "winner_accuracy_pct": 71.66666666666667,
+        "baseline_accuracy_pct": 68.75,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          2.9166666666666665
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 18.75,
+          "background": 0.0,
+          "impulse": 6.25,
+          "upsampling": -6.25,
+          "distortion_rbf": 12.5,
+          "distortion_rbf_inv": 12.5,
+          "density": 0.0,
+          "density_inc": -6.25,
+          "shear": 0.0,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 12,
+        "harmed": 5,
+        "object_cluster_ci95_pp": [
+          1.25,
+          5.0
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    },
+    "M100_vs_live0": {
+      "pm": {
+        "delta_pp": 2.9166666666666665,
+        "winner_accuracy_pct": 71.25,
+        "baseline_accuracy_pct": 68.33333333333333,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          2.9166666666666665
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 6.25,
+          "gaussian": -6.25,
+          "background": 12.5,
+          "impulse": 6.25,
+          "upsampling": 0.0,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 6.25,
+          "density": 0.0,
+          "density_inc": 6.25,
+          "shear": 0.0,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 6.25,
+          "occlusion": -6.25,
+          "lidar": 0.0
+        },
+        "corrected": 9,
+        "harmed": 2,
+        "object_cluster_ci95_pp": [
+          0.4166666666666667,
+          5.416666666666668
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      },
+      "terminal": {
+        "delta_pp": 3.3333333333333335,
+        "winner_accuracy_pct": 71.66666666666667,
+        "baseline_accuracy_pct": 68.33333333333333,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          3.3333333333333335
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 18.75,
+          "background": 6.25,
+          "impulse": 6.25,
+          "upsampling": -6.25,
+          "distortion_rbf": 12.5,
+          "distortion_rbf_inv": 12.5,
+          "density": 0.0,
+          "density_inc": -6.25,
+          "shear": 0.0,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 12,
+        "harmed": 4,
+        "object_cluster_ci95_pp": [
+          1.6666666666666667,
+          5.416666666666667
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    },
+    "M100_vs_half0": {
+      "pm": {
+        "delta_pp": 0.8333333333333334,
+        "winner_accuracy_pct": 71.25,
+        "baseline_accuracy_pct": 70.41666666666667,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          0.8333333333333334
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 0.0,
+          "background": 0.0,
+          "impulse": 12.5,
+          "upsampling": 0.0,
+          "distortion_rbf": 0.0,
+          "distortion_rbf_inv": 0.0,
+          "density": 0.0,
+          "density_inc": 0.0,
+          "shear": 0.0,
+          "rotation": 0.0,
+          "cutout": 0.0,
+          "distortion": 6.25,
+          "occlusion": -6.25,
+          "lidar": 0.0
+        },
+        "corrected": 4,
+        "harmed": 2,
+        "object_cluster_ci95_pp": [
+          -0.8333333333333334,
+          2.5
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      },
+      "terminal": {
+        "delta_pp": 1.25,
+        "winner_accuracy_pct": 71.66666666666667,
+        "baseline_accuracy_pct": 70.41666666666667,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          1.25
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 6.25,
+          "background": 0.0,
+          "impulse": 6.25,
+          "upsampling": -6.25,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 6.25,
+          "density": 6.25,
+          "density_inc": -6.25,
+          "shear": -6.25,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 9,
+        "harmed": 6,
+        "object_cluster_ci95_pp": [
+          -2.083333333333333,
+          4.583333333333334
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    },
+    "M200_vs_control": {
+      "pm": {
+        "delta_pp": 0.4166666666666667,
+        "winner_accuracy_pct": 69.16666666666667,
+        "baseline_accuracy_pct": 68.75,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          0.4166666666666667
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 6.25,
+          "gaussian": -6.25,
+          "background": 6.25,
+          "impulse": -6.25,
+          "upsampling": 0.0,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 0.0,
+          "density": 0.0,
+          "density_inc": 6.25,
+          "shear": 0.0,
+          "rotation": 0.0,
+          "cutout": 0.0,
+          "distortion": -6.25,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 4,
+        "harmed": 3,
+        "object_cluster_ci95_pp": [
+          -1.6666666666666667,
+          2.9166666666666665
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      },
+      "terminal": {
+        "delta_pp": 1.25,
+        "winner_accuracy_pct": 70.0,
+        "baseline_accuracy_pct": 68.75,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          1.25
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 12.5,
+          "background": 6.25,
+          "impulse": 0.0,
+          "upsampling": 0.0,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 0.0,
+          "density": 0.0,
+          "density_inc": -12.5,
+          "shear": 0.0,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 10,
+        "harmed": 7,
+        "object_cluster_ci95_pp": [
+          -2.083333333333333,
+          4.166666666666667
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    },
+    "M200_vs_live0": {
+      "pm": {
+        "delta_pp": 0.8333333333333334,
+        "winner_accuracy_pct": 69.16666666666667,
+        "baseline_accuracy_pct": 68.33333333333333,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          0.8333333333333334
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 6.25,
+          "gaussian": -6.25,
+          "background": 12.5,
+          "impulse": -6.25,
+          "upsampling": 0.0,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 0.0,
+          "density": 0.0,
+          "density_inc": 6.25,
+          "shear": 0.0,
+          "rotation": 0.0,
+          "cutout": 0.0,
+          "distortion": -6.25,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 5,
+        "harmed": 3,
+        "object_cluster_ci95_pp": [
+          -1.25,
+          3.3333333333333335
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      },
+      "terminal": {
+        "delta_pp": 1.6666666666666667,
+        "winner_accuracy_pct": 70.0,
+        "baseline_accuracy_pct": 68.33333333333333,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          1.6666666666666667
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 12.5,
+          "background": 12.5,
+          "impulse": 0.0,
+          "upsampling": 0.0,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 0.0,
+          "density": 0.0,
+          "density_inc": -12.5,
+          "shear": 0.0,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 11,
+        "harmed": 7,
+        "object_cluster_ci95_pp": [
+          -1.666666666666667,
+          5.0
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    },
+    "M200_vs_half0": {
+      "pm": {
+        "delta_pp": -1.25,
+        "winner_accuracy_pct": 69.16666666666667,
+        "baseline_accuracy_pct": 70.41666666666667,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          -1.25
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 0.0,
+          "background": 0.0,
+          "impulse": 0.0,
+          "upsampling": 0.0,
+          "distortion_rbf": 0.0,
+          "distortion_rbf_inv": -6.25,
+          "density": 0.0,
+          "density_inc": 0.0,
+          "shear": 0.0,
+          "rotation": -6.25,
+          "cutout": 0.0,
+          "distortion": -6.25,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 1,
+        "harmed": 4,
+        "object_cluster_ci95_pp": [
+          -2.9166666666666665,
+          0.4166666666666667
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      },
+      "terminal": {
+        "delta_pp": -0.4166666666666667,
+        "winner_accuracy_pct": 70.0,
+        "baseline_accuracy_pct": 70.41666666666667,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          -0.4166666666666667
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 0.0,
+          "background": 6.25,
+          "impulse": 0.0,
+          "upsampling": 0.0,
+          "distortion_rbf": 0.0,
+          "distortion_rbf_inv": -6.25,
+          "density": 6.25,
+          "density_inc": -12.5,
+          "shear": -6.25,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 7,
+        "harmed": 8,
+        "object_cluster_ci95_pp": [
+          -2.9166666666666665,
+          2.5
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    },
+    "live0_vs_control": {
+      "pm": {
+        "delta_pp": -0.4166666666666667,
+        "winner_accuracy_pct": 68.33333333333333,
+        "baseline_accuracy_pct": 68.75,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          -0.4166666666666667
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 0.0,
+          "gaussian": 0.0,
+          "background": -6.25,
+          "impulse": 0.0,
+          "upsampling": 0.0,
+          "distortion_rbf": 0.0,
+          "distortion_rbf_inv": 0.0,
+          "density": 0.0,
+          "density_inc": 0.0,
+          "shear": 0.0,
+          "rotation": 0.0,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 0,
+        "harmed": 1,
+        "object_cluster_ci95_pp": [
+          -1.25,
+          0.0
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    },
+    "half0_vs_live0": {
+      "pm": {
+        "delta_pp": 2.083333333333333,
+        "winner_accuracy_pct": 70.41666666666667,
+        "baseline_accuracy_pct": 68.33333333333333,
+        "seeds": [
+          0
+        ],
+        "seed_delta_pp": [
+          2.083333333333333
+        ],
+        "per_corruption_delta_pp": {
+          "uniform": 6.25,
+          "gaussian": -6.25,
+          "background": 12.5,
+          "impulse": -6.25,
+          "upsampling": 0.0,
+          "distortion_rbf": 6.25,
+          "distortion_rbf_inv": 6.25,
+          "density": 0.0,
+          "density_inc": 6.25,
+          "shear": 0.0,
+          "rotation": 6.25,
+          "cutout": 0.0,
+          "distortion": 0.0,
+          "occlusion": 0.0,
+          "lidar": 0.0
+        },
+        "corrected": 7,
+        "harmed": 2,
+        "object_cluster_ci95_pp": [
+          0.0,
+          4.166666666666667
+        ],
+        "bootstrap_repetitions": 10000,
+        "bootstrap_seed": 20261101,
+        "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+      }
+    }
+  },
+  "pilot_timing": {
+    "control": {
+      "reconstruction_seconds": 169.00166494898986,
+      "graph_seconds": 0.0,
+      "worker_wall_seconds": 221.60280708699975,
+      "outer_wall_seconds": 235.74973344802856,
+      "decoder_and_hash_seconds": 0.0,
+      "spectral_loss_seconds": 0.0,
+      "peak_allocated_mib": 3752.1044921875
+    },
+    "live0": {
+      "reconstruction_seconds": 171.79307215799508,
+      "graph_seconds": 12.574594020001314,
+      "worker_wall_seconds": 269.7445289260004,
+      "outer_wall_seconds": 296.8845510482788,
+      "decoder_and_hash_seconds": 14.82573343099466,
+      "spectral_loss_seconds": 0.244141068998033,
+      "peak_allocated_mib": 4452.98828125
+    },
+    "half0": {
+      "reconstruction_seconds": 172.1675832220044,
+      "graph_seconds": 12.596421721995284,
+      "worker_wall_seconds": 270.9889457290001,
+      "outer_wall_seconds": 298.3202226161957,
+      "decoder_and_hash_seconds": 14.868772851000358,
+      "spectral_loss_seconds": 0.2467114399996717,
+      "peak_allocated_mib": 4452.98828125
+    },
+    "M100": {
+      "reconstruction_seconds": 195.253002870998,
+      "graph_seconds": 12.604438146995562,
+      "worker_wall_seconds": 293.05184713900053,
+      "outer_wall_seconds": 320.2413682937622,
+      "decoder_and_hash_seconds": 14.840958633998525,
+      "spectral_loss_seconds": 0.24305726600232447,
+      "peak_allocated_mib": 4569.6533203125
+    },
+    "M200": {
+      "reconstruction_seconds": 195.27989377599897,
+      "graph_seconds": 12.480895579993557,
+      "worker_wall_seconds": 304.8885963470002,
+      "outer_wall_seconds": 339.97380924224854,
+      "decoder_and_hash_seconds": 14.822872579001341,
+      "spectral_loss_seconds": 0.2455901750090561,
+      "peak_allocated_mib": 4570.830078125
+    }
+  },
+  "calibration_costs": {
+    "cal_M100_s0": {
+      "worker_wall_seconds": 28.194733090000227,
+      "outer_wall_seconds": 36.138129234313965,
+      "extra_component_vjp_seconds": 1.2230847270002414,
+      "extra_component_vjp_calls": 12
+    },
+    "cal_M100_s1": {
+      "worker_wall_seconds": 28.223888612000337,
+      "outer_wall_seconds": 36.176748275756836,
+      "extra_component_vjp_seconds": 1.216233850000208,
+      "extra_component_vjp_calls": 12
+    },
+    "cal_M200_s0": {
+      "worker_wall_seconds": 28.401250779999828,
+      "outer_wall_seconds": 36.51346516609192,
+      "extra_component_vjp_seconds": 1.2157085359995108,
+      "extra_component_vjp_calls": 12
+    },
+    "cal_M200_s1": {
+      "worker_wall_seconds": 28.43807639499937,
+      "outer_wall_seconds": 36.468589544296265,
+      "extra_component_vjp_seconds": 1.2150295410010585,
+      "extra_component_vjp_calls": 12
+    }
+  },
+  "fresh_timing": {
+    "fresh_s0_M100": {
+      "reconstruction_pm_seconds": 6.512288380999962,
+      "graph_seconds": 0.31979131500065705,
+      "case_wall_seconds": 8.921175765000044,
+      "worker_wall_seconds": 27.687135485,
+      "outer_wall_seconds": 35.67298769950867,
+      "scope": "Fresh B2 encode/noise each arm; two corruptions, one repeat; instrumentation/IO retained; not B32 throughput or accuracy evidence"
+    },
+    "fresh_s0_M200": {
+      "reconstruction_pm_seconds": 6.525086134000048,
+      "graph_seconds": 0.32048316699911084,
+      "case_wall_seconds": 9.098476191000373,
+      "worker_wall_seconds": 27.85692498699973,
+      "outer_wall_seconds": 35.90896153450012,
+      "scope": "Fresh B2 encode/noise each arm; two corruptions, one repeat; instrumentation/IO retained; not B32 throughput or accuracy evidence"
+    },
+    "fresh_s0_control": {
+      "reconstruction_pm_seconds": 6.13675814600083,
+      "graph_seconds": 0.0,
+      "case_wall_seconds": 6.247121423999488,
+      "worker_wall_seconds": 24.568878550999216,
+      "outer_wall_seconds": 30.901832580566406,
+      "scope": "Fresh B2 encode/noise each arm; two corruptions, one repeat; instrumentation/IO retained; not B32 throughput or accuracy evidence"
+    },
+    "fresh_s0_half0": {
+      "reconstruction_pm_seconds": 6.148321314999521,
+      "graph_seconds": 0.3227714120002929,
+      "case_wall_seconds": 8.552644259000772,
+      "worker_wall_seconds": 27.302595850000216,
+      "outer_wall_seconds": 35.299763441085815,
+      "scope": "Fresh B2 encode/noise each arm; two corruptions, one repeat; instrumentation/IO retained; not B32 throughput or accuracy evidence"
+    },
+    "fresh_s0_live0": {
+      "reconstruction_pm_seconds": 6.139950619999581,
+      "graph_seconds": 0.32265817999905266,
+      "case_wall_seconds": 8.546263905999695,
+      "worker_wall_seconds": 27.15537570699962,
+      "outer_wall_seconds": 34.9523549079895,
+      "scope": "Fresh B2 encode/noise each arm; two corruptions, one repeat; instrumentation/IO retained; not B32 throughput or accuracy evidence"
+    }
+  },
+  "numerical_attribution": {
+    "passed": false,
+    "technical_repeat_passed": false,
+    "pilot_control_live_passed": false,
+    "pilot_failed_B2_cases": 30,
+    "pilot_total_B2_cases": 120,
+    "failed_by_corruption": {
+      "background": 8,
+      "upsampling": 3,
+      "distortion_rbf": 1,
+      "rotation": 2,
+      "cutout": 2,
+      "distortion": 3,
+      "occlusion": 1,
+      "lidar": 3,
+      "gaussian": 1,
+      "impulse": 2,
+      "density": 1,
+      "density_inc": 2,
+      "shear": 1
+    }
+  },
+  "graph": {
+    "profile": "hard",
+    "requested_modes": [
+      100,
+      200
+    ],
+    "M100_actual_rank_range": [
+      100,
+      223
+    ],
+    "M200_actual_rank_range": [
+      200,
+      235
+    ],
+    "same_support_B2_cases": 120,
+    "total_B2_cases": 120,
+    "equal_M100_M200_filters": 0,
+    "object_corruption_operators": 240,
+    "M100_filter_consistency": true,
+    "limitation": "Rank expands over the complete numerical boundary eigenspace; M names requested cuts, not exact retained ranks; dense filters and full eigh remain."
+  },
+  "scientific_elapsed_seconds": 2419.940985441208,
+  "logical_jobs": 34,
+  "inference_runs": 33,
+  "runtime": "tta-gsd-lowband-halfmix-a100-20261107-r1",
+  "runtime_preserved": true,
+  "decision": "No default promotion or reliable GSD gain. M100 exceeds half-SCD by only2/240; its object-cluster CI includes0. M200 trails half-SCD. Native variability is unresolved and absent from conditional bootstrap intervals.",
+  "limitations": [
+    "Single seed and16development objects;240pairs are clustered within16objects.",
+    "All15test corruptions at severity5; no unseen/full benchmark.",
+    "PM primary; terminal secondary.",
+    "Fresh B2 timing covers Gaussian/Background once, not B32 throughput.",
+    "Instrumented reconstruction includes PM probes; graph setup, initialization, terminal head and IO scopes differ.",
+    "No simultaneous accuracy/speed gain established."
+  ]
+}

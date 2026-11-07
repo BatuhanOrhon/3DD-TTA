@@ -1,0 +1,53 @@
+{
+  "status": "research_complete; consolidated raw/local acceptance pending",
+  "finished_utc": "2026-11-07T10:49:08Z",
+  "scientific_elapsed_seconds": 2419.940985441208,
+  "estimate_minutes": [
+    30,
+    45
+  ],
+  "hard_cap_seconds": 3300,
+  "phases": {
+    "prepare": {
+      "started_utc": "2026-11-07T10:08:09Z",
+      "whole_phase_elapsed_seconds": 30.69332981109619,
+      "jobs": 1,
+      "outer_job_seconds": 30.689836740493774
+    },
+    "technical": {
+      "started_utc": "2026-11-07T10:09:02Z",
+      "whole_phase_elapsed_seconds": 478.53631711006165,
+      "jobs": 14,
+      "outer_job_seconds": 424.67505502700806
+    },
+    "calibrate": {
+      "started_utc": "2026-11-07T10:17:03Z",
+      "whole_phase_elapsed_seconds": 682.8274052143097,
+      "jobs": 4,
+      "outer_job_seconds": 145.29693222045898
+    },
+    "pilot": {
+      "started_utc": "2026-11-07T10:20:04Z",
+      "whole_phase_elapsed_seconds": 2210.4415152072906,
+      "jobs": 10,
+      "outer_job_seconds": 1491.1696846485138
+    },
+    "fresh": {
+      "started_utc": "2026-11-07T10:45:36Z",
+      "whole_phase_elapsed_seconds": 2419.940985441208,
+      "jobs": 5,
+      "outer_job_seconds": 172.7359001636505
+    }
+  },
+  "logical_jobs": 34,
+  "inference_runs": 33,
+  "freeze": {
+    "bytes": 52405,
+    "sha256": "fb121b127d0ac78ed8ac1ee8dc500d52c5f2a631c4dabaac2a932d6595eca9a1"
+  },
+  "repeat_gate_passed": false,
+  "active_research_processes": [],
+  "actual_gpu": "NVIDIA A100-SXM4-40GB, 40960 MiB, 0 MiB",
+  "runtime_preserved": true,
+  "limitation": "Native repeat instability remains; pilot descriptive; fresh B2 timing not a benchmark; no further GPU run launched"
+}

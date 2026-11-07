@@ -1,0 +1,5676 @@
+{
+  "thresholds": {
+    "logit_max": 0.05,
+    "per_object_checkpoint_rms": 0.01,
+    "first_decoded_rms": 0.0001
+  },
+  "technical": {
+    "gaussian": {
+      "control_within": [
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 9.775161743164062e-06,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  2.78292101329865e-06,
+                  4.319003313736624e-06,
+                  3.3791976673727037e-06,
+                  2.1149414989337867e-06
+                ],
+                [
+                  1.4244649868406553e-06,
+                  1.4444523104356031e-06,
+                  1.8994240229342634e-06,
+                  1.6058066817723218e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.189445797153437e-08,
+                8.837615278016337e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 9.775161743164062e-06,
+          "logit_per_object_checkpoint_rms_max": 4.319003313736624e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 9.059906005859375e-06,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  2.8858282957096084e-06,
+                  4.235894568930864e-06,
+                  2.8990332608522376e-06,
+                  2.31365181523737e-06
+                ],
+                [
+                  1.263672063080094e-06,
+                  2.8968926637394372e-06,
+                  3.2113403107525566e-06,
+                  1.767013221032757e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.221840717588911e-08,
+                8.7061792939287e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 9.059906005859375e-06,
+          "logit_per_object_checkpoint_rms_max": 4.235894568930864e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.33514404296875e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  4.1737085841705045e-06,
+                  4.457365495388723e-06,
+                  2.280769853377431e-06,
+                  2.5010790073540253e-06
+                ],
+                [
+                  1.4659616104115164e-06,
+                  2.7869698811418065e-06,
+                  3.3121138930831747e-06,
+                  1.8145521558668609e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                8.749866055702147e-08,
+                8.270384483599209e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.33514404296875e-05,
+          "logit_per_object_checkpoint_rms_max": 4.457365495388723e-06
+        }
+      ],
+      "live_control_within": [
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.1920928955078125e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  3.119678295842067e-06,
+                  4.721914418621335e-06,
+                  3.918605931850005e-06,
+                  2.7024643400996413e-06
+                ],
+                [
+                  1.328998553998759e-06,
+                  1.48608934409886e-06,
+                  1.330504001614932e-06,
+                  1.683803192576446e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                8.949858935834449e-08,
+                8.49854869052137e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.1920928955078125e-05,
+          "logit_per_object_checkpoint_rms_max": 4.721914418621335e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 9.5367431640625e-06,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  1.7211195964789483e-06,
+                  4.458431413465138e-06,
+                  2.9532366600263274e-06,
+                  2.3627481549339235e-06
+                ],
+                [
+                  2.667281058529173e-06,
+                  1.3036983263655768e-06,
+                  2.01189854557431e-06,
+                  1.7504821599747359e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.688934470281318e-08,
+                8.657996977952586e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 9.5367431640625e-06,
+          "logit_per_object_checkpoint_rms_max": 4.458431413465138e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 9.417533874511719e-06,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  3.2303985368035753e-06,
+                  4.2761711459087135e-06,
+                  2.8360094569007683e-06,
+                  2.046081910803434e-06
+                ],
+                [
+                  2.4959781385581854e-06,
+                  2.0832742160396666e-06,
+                  2.062524728764597e-06,
+                  1.1589808596493233e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.482062220003515e-08,
+                9.322944638600457e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 9.417533874511719e-06,
+          "logit_per_object_checkpoint_rms_max": 4.2761711459087135e-06
+        }
+      ],
+      "cross": [
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.0013580322265625e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  2.4942425184391206e-06,
+                  2.823115341486618e-06,
+                  3.028663303725114e-06,
+                  1.5739181777924858e-06
+                ],
+                [
+                  2.0059268307550734e-06,
+                  1.730128552487699e-06,
+                  1.302138042330924e-06,
+                  1.452156194413336e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                8.782471293965873e-08,
+                9.11807980503658e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.0013580322265625e-05,
+          "logit_per_object_checkpoint_rms_max": 3.028663303725114e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.049041748046875e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  3.71346982541452e-06,
+                  3.9912642733922674e-06,
+                  2.005544899165588e-06,
+                  2.7982619187485426e-06
+                ],
+                [
+                  1.733895940603978e-06,
+                  1.9521658624021456e-06,
+                  1.2819222723781797e-06,
+                  1.3866229090317627e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                8.594735071892294e-08,
+                8.198688161588884e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.049041748046875e-05,
+          "logit_per_object_checkpoint_rms_max": 3.9912642733922674e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 6.67572021484375e-06,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  2.6419216701509973e-06,
+                  2.6356780326592546e-06,
+                  2.397452821164138e-06,
+                  1.9181273394189167e-06
+                ],
+                [
+                  1.8460161025068194e-06,
+                  2.0467526863522405e-06,
+                  2.08933803917578e-06,
+                  1.5473315127696495e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.608443206682418e-08,
+                9.1947367560883e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 6.67572021484375e-06,
+          "logit_per_object_checkpoint_rms_max": 2.6419216701509973e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 9.059906005859375e-06,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  3.50860806199947e-06,
+                  4.250097482488055e-06,
+                  3.2254156312705136e-06,
+                  2.6936625936662383e-06
+                ],
+                [
+                  2.2170307105045385e-06,
+                  1.8256404553471368e-06,
+                  1.4185605121399002e-06,
+                  1.8129851583714062e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.051471775211058e-08,
+                7.826037768519529e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 9.059906005859375e-06,
+          "logit_per_object_checkpoint_rms_max": 4.250097482488055e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.8596649169921875e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  3.0291975352307256e-06,
+                  7.4059280829335494e-06,
+                  4.7159979972176134e-06,
+                  3.713305387244235e-06
+                ],
+                [
+                  2.0102492818334467e-06,
+                  2.3231575330083603e-06,
+                  1.8058507546409626e-06,
+                  1.2733410622210352e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.030514340640852e-08,
+                8.106961139480083e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.8596649169921875e-05,
+          "logit_per_object_checkpoint_rms_max": 7.4059280829335494e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.33514404296875e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  3.843482940268686e-06,
+                  4.8953070138420374e-06,
+                  3.2915784756911026e-06,
+                  2.477153906188554e-06
+                ],
+                [
+                  1.6297895991602136e-06,
+                  1.6968494891305613e-06,
+                  1.5077681617938056e-06,
+                  1.1096338559837687e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.745199222319704e-08,
+                8.800090751070053e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.33514404296875e-05,
+          "logit_per_object_checkpoint_rms_max": 4.8953070138420374e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.33514404296875e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  2.4707545232748033e-06,
+                  5.973667185210422e-06,
+                  3.054865247124933e-06,
+                  2.848161190155439e-06
+                ],
+                [
+                  1.963734759291117e-06,
+                  1.961471384455627e-06,
+                  2.7652697143781465e-06,
+                  1.5741333064358433e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                8.674635946419675e-08,
+                8.106605374963521e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.33514404296875e-05,
+          "logit_per_object_checkpoint_rms_max": 5.973667185210422e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 1.4781951904296875e-05,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  3.638044578732558e-06,
+                  6.4732537716100954e-06,
+                  3.712584763201827e-06,
+                  2.6673369898882996e-06
+                ],
+                [
+                  1.8834649238659931e-06,
+                  2.130514333448316e-06,
+                  3.3971062966387374e-06,
+                  1.8334984212589638e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.260153465595563e-08,
+                7.831743290210003e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 1.4781951904296875e-05,
+          "logit_per_object_checkpoint_rms_max": 6.4732537716100954e-06
+        },
+        {
+          "passed": true,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "gaussian/0",
+              "original_ids": [
+                44,
+                91
+              ],
+              "logit_max_absolute": 8.58306884765625e-06,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  1.1904526393240177e-06,
+                  3.178442482889553e-06,
+                  3.067157991661971e-06,
+                  1.6369588547777484e-06
+                ],
+                [
+                  1.7502415292381454e-06,
+                  2.113022044500951e-06,
+                  4.398264113146452e-06,
+                  1.747635285710073e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                9.53098916826062e-08,
+                8.839952574728874e-08
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": true
+            }
+          ],
+          "logit_max_absolute": 8.58306884765625e-06,
+          "logit_per_object_checkpoint_rms_max": 4.398264113146452e-06
+        }
+      ]
+    },
+    "background": {
+      "control_within": [
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.2772207260131836,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.6134568658008184,
+                  0.763553256831942,
+                  0.5331600487884921,
+                  1.1525109619007061
+                ],
+                [
+                  1.188948421710014e-05,
+                  1.05617565778073e-05,
+                  5.9093372452657e-06,
+                  7.149531486833758e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.010169265112544278,
+                6.16715008054248e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.2772207260131836,
+          "logit_per_object_checkpoint_rms_max": 1.1525109619007061
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 1.801687240600586,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.4024384600920465,
+                  0.4944938544456842,
+                  0.7446385744301091,
+                  0.7004645808106628
+                ],
+                [
+                  5.1526655459798635e-06,
+                  4.657982386426878e-06,
+                  5.0698209145436185e-06,
+                  8.40011908766127e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.01815720865341032,
+                3.7525153651559413e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 1.801687240600586,
+          "logit_per_object_checkpoint_rms_max": 0.7446385744301091
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 1.9111408591270447,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.38536812073488924,
+                  1.065897473227473,
+                  0.573856376355677,
+                  0.7553711475590529
+                ],
+                [
+                  1.2851265423718373e-05,
+                  9.842694673958141e-06,
+                  2.519631701815376e-06,
+                  4.066387376719492e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.012049738155811231,
+                5.963460765532905e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 1.9111408591270447,
+          "logit_per_object_checkpoint_rms_max": 1.065897473227473
+        }
+      ],
+      "live_control_within": [
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.3531227111816406,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.41058399713057175,
+                  0.6429960685850138,
+                  1.137387715314019,
+                  0.6973103648231643
+                ],
+                [
+                  7.339453458235344e-06,
+                  5.157750722075068e-06,
+                  1.0242195834639068e-05,
+                  6.990928647762257e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.01850105986018483,
+                3.54398521834336e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.3531227111816406,
+          "logit_per_object_checkpoint_rms_max": 1.137387715314019
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.124177932739258,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.4436933540827386,
+                  0.4379323242258783,
+                  0.8730642975307263,
+                  0.7444791051115606
+                ],
+                [
+                  1.128702124681039e-05,
+                  1.2239271961086957e-05,
+                  4.77192092836567e-06,
+                  8.819037736569451e-05
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.012340169525315995,
+                6.184724823428946e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.124177932739258,
+          "logit_per_object_checkpoint_rms_max": 0.8730642975307263
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 3.4207286834716797,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.6269778950619542,
+                  0.43057263590641354,
+                  1.4631173320084543,
+                  0.2944192344946967
+                ],
+                [
+                  1.3254671249958153e-05,
+                  1.0575926341292242e-05,
+                  1.1573233168694589e-05,
+                  9.348274730292608e-05
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.01018373641624378,
+                6.808251863368592e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 3.4207286834716797,
+          "logit_per_object_checkpoint_rms_max": 1.4631173320084543
+        }
+      ],
+      "cross": [
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 3.030205726623535,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.4019679294397558,
+                  0.6429971126294955,
+                  0.43318931239958924,
+                  1.1279267193049405
+                ],
+                [
+                  6.295526341454623e-06,
+                  4.121333627793586e-06,
+                  3.8019663793090136e-06,
+                  8.121360124351974e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.018492905210208684,
+                3.0570988488804814e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 3.030205726623535,
+          "logit_per_object_checkpoint_rms_max": 1.1279267193049405
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.1923417150974274,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.03984071304331783,
+                  3.54098171844805e-05,
+                  1.0114667310914605,
+                  1.0574944348703077
+                ],
+                [
+                  5.794488541528944e-06,
+                  5.299755147584085e-06,
+                  1.1229625212441596e-05,
+                  7.204892883930242e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.00022296039660621173,
+                3.1025173067803594e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.1923417150974274,
+          "logit_per_object_checkpoint_rms_max": 1.0574944348703077
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.3183212280273438,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.61342384859972,
+                  0.430570413814197,
+                  0.9233916872077419,
+                  1.016829117970826
+                ],
+                [
+                  1.540444610687558e-05,
+                  1.3875811563195219e-05,
+                  4.399276055201657e-06,
+                  9.095147871881169e-05
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.010168873021305733,
+                6.244151978809039e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.3183212280273438,
+          "logit_per_object_checkpoint_rms_max": 1.016829117970826
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 3.150510787963867,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.44370439890504965,
+                  0.6145416863759456,
+                  0.42208206542049165,
+                  0.8430356582843425
+                ],
+                [
+                  1.2758010120805995e-05,
+                  9.242378412258487e-06,
+                  5.3709540021713435e-06,
+                  6.302680808370611e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.012339853318842464,
+                6.418127670159813e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 3.150510787963867,
+          "logit_per_object_checkpoint_rms_max": 0.8430356582843425
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.3451900482177734,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.6270102254565906,
+                  0.7635563718061062,
+                  1.0284819532445706,
+                  0.6197455286346667
+                ],
+                [
+                  1.0147445699558442e-05,
+                  8.583781861886617e-06,
+                  7.484264525534622e-06,
+                  4.498483242539061e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.010184132486852853,
+                6.101698235883157e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.3451900482177734,
+          "logit_per_object_checkpoint_rms_max": 1.0284819532445706
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 1.690014362335205,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  5.255730286923393e-05,
+                  0.6946940009604687,
+                  0.6527412188989754,
+                  0.7756037148590149
+                ],
+                [
+                  1.394396332662491e-05,
+                  5.9297677372342645e-06,
+                  4.4963522418605725e-06,
+                  9.373413709412546e-05
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                3.0610551094099236e-06,
+                5.755116065733784e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 1.690014362335205,
+          "logit_per_object_checkpoint_rms_max": 0.7756037148590149
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.0865211486816406,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.24002446254116871,
+                  0.8242189978287303,
+                  0.7067576863403643,
+                  0.7250235020186417
+                ],
+                [
+                  1.0331258868085713e-05,
+                  3.7903498825728304e-06,
+                  4.295953344006832e-06,
+                  7.154791034299398e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.0017924992093578617,
+                4.2045325972167096e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.0865211486816406,
+          "logit_per_object_checkpoint_rms_max": 0.8242189978287303
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 1.4472541809082031,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.41612206294728116,
+                  0.4944856683038075,
+                  0.7460186250505313,
+                  0.5796622338526285
+                ],
+                [
+                  9.044532266664388e-06,
+                  3.615889658564783e-06,
+                  8.614042816608346e-06,
+                  2.5106544149417337e-06
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.018163072683090288,
+                3.283350440571274e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 1.4472541809082031,
+          "logit_per_object_checkpoint_rms_max": 0.7460186250505313
+        },
+        {
+          "passed": false,
+          "thresholds": {
+            "logit_max": 0.05,
+            "logit_per_object_checkpoint_rms": 0.01,
+            "first_decoded_per_object_rms": 0.0001
+          },
+          "cases": [
+            {
+              "case": "background/0",
+              "original_ids": [
+                495,
+                512
+              ],
+              "logit_max_absolute": 2.1572320461273193,
+              "logit_per_object_checkpoint_rms": [
+                [
+                  0.38534819553211774,
+                  0.7505201610409672,
+                  1.0084519970661106,
+                  0.606781228948236
+                ],
+                [
+                  1.9151319384473262e-05,
+                  1.1817212019730623e-05,
+                  4.104197480187306e-06,
+                  9.435120699488555e-05
+                ]
+              ],
+              "first_decoded_per_object_rms": [
+                0.01205002089337119,
+                7.785316713501727e-07
+              ],
+              "pm_agreement": [
+                true,
+                true
+              ],
+              "terminal_agreement": [
+                true,
+                true
+              ],
+              "passed": false
+            }
+          ],
+          "logit_max_absolute": 2.1572320461273193,
+          "logit_per_object_checkpoint_rms_max": 1.0084519970661106
+        }
+      ]
+    }
+  },
+  "pilot": [
+    {
+      "passed": false,
+      "thresholds": {
+        "logit_max": 0.05,
+        "logit_per_object_checkpoint_rms": 0.01,
+        "first_decoded_per_object_rms": 0.0001
+      },
+      "cases": [
+        {
+          "case": "uniform/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 1.8596649169921875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.651710449705099e-06,
+              8.286701152257256e-06,
+              7.0005864033100076e-06,
+              6.9584785137631104e-06
+            ],
+            [
+              3.890008885446259e-06,
+              2.0307199474319266e-06,
+              2.215417330270505e-06,
+              2.526224801106572e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.637806122223505e-08,
+            1.0673315931763988e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "uniform/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 1.33514404296875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.9743898004355295e-06,
+              2.0242995763894403e-06,
+              5.274339625762463e-06,
+              2.8911718564481646e-06
+            ],
+            [
+              2.4492722760727493e-06,
+              3.0857719865596397e-06,
+              4.6975399578174515e-06,
+              1.4801436751049927e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.329765483647296e-08,
+            1.3448763658831394e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "uniform/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 1.0609626770019531e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.3451227632648946e-06,
+              1.3012732830417633e-06,
+              1.936692403659814e-06,
+              1.4338912872891794e-06
+            ],
+            [
+              2.5271167862221797e-06,
+              3.985289200721715e-06,
+              4.348918637282076e-06,
+              2.379323986721254e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2522586647009262e-07,
+            9.667997132983573e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "uniform/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.6689300537109375e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.1750387432620017e-06,
+              2.795928028964387e-06,
+              1.6446454205556774e-06,
+              3.1823661685341423e-06
+            ],
+            [
+              5.70523265242522e-06,
+              2.6044612554987817e-06,
+              2.1246477261701584e-06,
+              2.0752628977697143e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.617855828750383e-08,
+            1.0077017354954997e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "gaussian/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 2.4974346160888672e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              7.447559519053172e-06,
+              1.1884996588295076e-05,
+              3.5357444383195507e-06,
+              6.773872269476957e-06
+            ],
+            [
+              2.6636268496999873e-06,
+              3.156223707706767e-06,
+              3.951543100110974e-06,
+              6.071681509694108e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.611588340387569e-08,
+            1.2219336989022258e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "gaussian/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 0.0029518604278564453,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.4221071341325618e-05,
+              0.0011171366014521987,
+              2.362575465402229e-06,
+              3.7959468794882597e-06
+            ],
+            [
+              2.330329135626345e-06,
+              2.5417205533600268e-06,
+              2.1845986604031356e-06,
+              2.093377155191924e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.226697790623245e-08,
+            1.2058971849628069e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "gaussian/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 1.1444091796875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.5097476045987138e-06,
+              2.2284685319899204e-06,
+              1.6924268935913973e-06,
+              1.4613777780467824e-06
+            ],
+            [
+              2.103880906845085e-06,
+              5.32684364799351e-06,
+              2.2675680170148057e-06,
+              2.5511303667650434e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1780216844784695e-07,
+            8.8421754555054e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "gaussian/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.2874603271484375e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.166673161425169e-06,
+              5.499130147616435e-06,
+              2.9119057546238816e-06,
+              3.652679337229995e-06
+            ],
+            [
+              3.0248742452608447e-06,
+              1.8478521384613398e-06,
+              2.924266987802554e-06,
+              3.3572922991391545e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.0646854673196e-08,
+            9.888612493536185e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "background/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 2.926732063293457,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.69659409118984e-05,
+              5.303577428293335e-05,
+              1.6016715358770186e-05,
+              1.2316793858159382e-05
+            ],
+            [
+              2.778432212140738e-05,
+              0.5886800593247753,
+              0.5983444883664215,
+              1.2292369350851229
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.7519348089960377e-06,
+            1.2590553569901512e-06
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "background/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 2.4166492223739624,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.791274090527474e-05,
+              0.8499315144502901,
+              0.8450879982409889,
+              0.8439269962994435
+            ],
+            [
+              0.7839228711372436,
+              0.6248579909511605,
+              0.6790307278956502,
+              0.5919717631883257
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            6.028439535694131e-07,
+            0.06414142290664968
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "background/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 2.208317756652832,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.55117439633984e-05,
+              0.3565074501160294,
+              0.14019560171919218,
+              0.22521419559253417
+            ],
+            [
+              0.8905771747070838,
+              1.1830416098531968,
+              0.7272159319491668,
+              0.5952147571009414
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0495507837737025e-06,
+            0.04474152710360768
+          ],
+          "pm_agreement": [
+            true,
+            false
+          ],
+          "terminal_agreement": [
+            true,
+            false
+          ],
+          "passed": false
+        },
+        {
+          "case": "background/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.9383001327514648,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.0747696356030927e-05,
+              6.7252755624794485e-06,
+              4.747997282571112e-06,
+              8.050510154033986e-06
+            ],
+            [
+              3.4380768546696606e-05,
+              0.5756005095391146,
+              0.9663728632319523,
+              0.7652018103605156
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            3.2336258045678003e-07,
+            1.5726083296498956e-06
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "impulse/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 1.811981201171875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.5375777218366888e-06,
+              4.939003308733703e-06,
+              8.019195262885417e-06,
+              4.555419265784827e-06
+            ],
+            [
+              1.4206539983826823e-06,
+              2.4026086424354587e-06,
+              2.656556725983539e-06,
+              1.69590869375885e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.999512442767032e-08,
+            1.046753748053854e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "impulse/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 2.47955322265625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.3194432296271655e-06,
+              1.0251969662128382e-05,
+              4.4219757614206855e-06,
+              2.4097532047907767e-06
+            ],
+            [
+              3.5325270278126633e-06,
+              3.918319767275293e-06,
+              4.256070067122737e-06,
+              4.640592943538603e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.055150367299968e-08,
+            1.161632521655217e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "impulse/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 1.049041748046875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.1423133647011e-06,
+              1.8585039834156442e-06,
+              3.0710891949365657e-06,
+              2.4472951472112747e-06
+            ],
+            [
+              3.484133192397585e-06,
+              3.998614922452546e-06,
+              2.255260102368184e-06,
+              4.872540722040056e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2060269685664433e-07,
+            9.51806428563491e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "impulse/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 0.001857757568359375,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.724057023232282e-06,
+              1.9204642908071118e-06,
+              3.1966238284802876e-06,
+              0.0007878711938919154
+            ],
+            [
+              4.217826254763235e-06,
+              2.442281681784501e-06,
+              2.320580180046218e-06,
+              1.5750604918495687e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.60063596462159e-08,
+            8.318762531161236e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "upsampling/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 0.8522062301635742,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.384853714441683e-06,
+              3.1559097491834735e-06,
+              0.36457542174049357,
+              0.11671882680526835
+            ],
+            [
+              3.2590069347518273e-06,
+              3.479827945399971e-06,
+              1.6693158427595892e-06,
+              4.035090279433626e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.837743815762133e-08,
+            1.243801672210189e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "upsampling/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 1.6689300537109375e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.146522218262122e-06,
+              6.7312637281873425e-06,
+              7.174677779478093e-06,
+              3.5728280238593395e-06
+            ],
+            [
+              2.208475759070441e-06,
+              1.7076187854354707e-06,
+              2.387901492014033e-06,
+              6.147287986364173e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.898474253931369e-08,
+            1.268894421527273e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "upsampling/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 9.059906005859375e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.6864270270965687e-06,
+              2.6445972004347202e-06,
+              1.4403188309862446e-06,
+              1.7026492186886908e-06
+            ],
+            [
+              2.2678519727921005e-06,
+              3.651763580368202e-06,
+              3.80400773111668e-06,
+              3.2858944142012093e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0573427719547833e-07,
+            9.023997448175686e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "upsampling/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.0967254638671875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.719086460981157e-06,
+              1.930790325490403e-06,
+              1.1947813861131808e-06,
+              2.3308245631621975e-06
+            ],
+            [
+              3.350860003641903e-06,
+              3.9155760599001986e-06,
+              2.3357968245236816e-06,
+              3.884956634308912e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1030529525086207e-07,
+            8.796687019139276e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 2.7179718017578125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.760467835979206e-06,
+              8.762036100411799e-06,
+              1.2729324254333046e-05,
+              4.5928608398949916e-06
+            ],
+            [
+              2.329473798884766e-06,
+              4.13476748460446e-06,
+              2.295196066814232e-06,
+              4.288920912488729e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.594495479833903e-08,
+            1.0697416807919879e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 1.3947486877441406e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.8376365419271636e-06,
+              3.6755557426524434e-06,
+              4.412175704018571e-06,
+              5.598882665862233e-06
+            ],
+            [
+              3.889157397268742e-06,
+              6.557157845070757e-06,
+              2.8548734919426325e-06,
+              5.19952100372589e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0007417178972362e-07,
+            1.3854902729999072e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 1.049041748046875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.3405083284848675e-06,
+              1.7273267685353084e-06,
+              2.556268035519312e-06,
+              4.126930329548362e-06
+            ],
+            [
+              3.996475041990216e-06,
+              2.927333021716143e-06,
+              3.062458719630682e-06,
+              4.571314639106714e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2332314785603455e-07,
+            9.193496917415707e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.5482244491577148,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.5834420800924775e-06,
+              1.4297662224230253e-06,
+              1.2058184080056222e-06,
+              1.3865688629647586e-06
+            ],
+            [
+              6.68290748656923e-06,
+              0.4940613368555916,
+              0.5561030802922545,
+              0.38518626804027184
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0644536890059102e-07,
+            1.2440769927115256e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "distortion_rbf_inv/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 2.396106719970703e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              9.321336213554753e-06,
+              6.8324115525614604e-06,
+              1.0629932407422735e-05,
+              4.822214685965035e-06
+            ],
+            [
+              3.7200622828887014e-06,
+              6.4077176289737004e-06,
+              7.326761704415812e-06,
+              5.377975958087718e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.608282170820561e-08,
+            1.4179490079915903e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf_inv/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 1.3828277587890625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.369015965398527e-06,
+              3.5161057312054616e-06,
+              4.485623270443822e-06,
+              4.775909337112559e-06
+            ],
+            [
+              3.813383001280423e-06,
+              3.0556982918245684e-06,
+              2.2203424753345257e-06,
+              5.8393385644996764e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.944435025811308e-08,
+            1.2205479295681874e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf_inv/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 7.62939453125e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.602889864939898e-06,
+              3.422810025017013e-06,
+              2.604955690373911e-06,
+              1.608138397228564e-06
+            ],
+            [
+              2.781232978279751e-06,
+              2.952699025006279e-06,
+              2.2688479848167983e-06,
+              2.663884216680239e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1519520540316813e-07,
+            1.0124136819513168e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf_inv/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.0013580322265625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.696351750665656e-06,
+              4.5650066651104745e-06,
+              3.860329802454074e-06,
+              2.41683788805908e-06
+            ],
+            [
+              4.823610259101624e-06,
+              4.54639776000542e-06,
+              2.673494234819999e-06,
+              3.821920545922606e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0975549394290057e-07,
+            9.590397751300116e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 2.0831823348999023e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              7.764305770854934e-06,
+              6.704641655177167e-06,
+              3.4839953730523645e-06,
+              6.144066978332768e-06
+            ],
+            [
+              4.521969066785367e-06,
+              2.8035506179361904e-06,
+              4.927597941990241e-06,
+              1.8449779926873735e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.880345782543553e-08,
+            1.3987296517640396e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 1.0728836059570312e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.870188711406404e-06,
+              4.110519819860718e-06,
+              3.567075467000751e-06,
+              4.702930765517455e-06
+            ],
+            [
+              2.7956599832714702e-06,
+              3.855574316849728e-06,
+              2.667975824911458e-06,
+              2.2170003511002254e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0094464159526616e-07,
+            1.454905598118734e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 0.000614166259765625,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.407423477621463e-06,
+              1.7545255168560976e-06,
+              2.437991182702616e-06,
+              1.604848834453396e-06
+            ],
+            [
+              3.563953317917976e-06,
+              4.402630126171652e-06,
+              4.40622905059898e-06,
+              0.00022233796967864152
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1801267442638951e-07,
+            1.0915262641156626e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 0.0001678466796875,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.2712615612166507e-06,
+              3.1674134806754763e-06,
+              2.483465273411255e-06,
+              2.2946820610254905e-06
+            ],
+            [
+              3.4772874167998467e-06,
+              2.1254979972385715e-06,
+              3.7603583814585765e-05,
+              8.650147611954013e-05
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2652537248303004e-07,
+            9.935359135006531e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density_inc/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 3.6835670471191406e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.187289929839731e-06,
+              1.462979128657282e-05,
+              1.0755586771310007e-05,
+              5.545917127893815e-06
+            ],
+            [
+              2.7991029119242265e-06,
+              7.3500179618817835e-06,
+              4.340173919314069e-06,
+              2.4267136906058466e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.46672065499597e-08,
+            1.2242872622096125e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density_inc/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 2.276897430419922e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.0292268011171242e-05,
+              4.004408097530586e-06,
+              5.6744166725524135e-06,
+              5.082025678318839e-06
+            ],
+            [
+              2.141468474088907e-06,
+              3.5266235400477444e-06,
+              4.2827146612375955e-06,
+              2.6217236990909874e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.771148768054562e-08,
+            1.3586583444082254e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density_inc/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 9.5367431640625e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.7403127337284604e-06,
+              1.0327268014222883e-06,
+              1.162214154396663e-06,
+              3.671036474593237e-06
+            ],
+            [
+              3.724208317032719e-06,
+              2.4456254177370242e-06,
+              3.072229540666112e-06,
+              3.6571104847092597e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.289137303492904e-07,
+            1.0927340262172088e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density_inc/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.1920928955078125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.047132619290652e-06,
+              2.533521975469846e-06,
+              1.8419004626170928e-06,
+              1.901520417380348e-06
+            ],
+            [
+              4.716457036755088e-06,
+              2.4807502205423042e-06,
+              4.445586068515135e-06,
+              3.084504373773482e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.070512929678213e-08,
+            1.0383671425432446e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "shear/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 1.621246337890625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.505023368024869e-06,
+              5.411168624565908e-06,
+              3.692789911016057e-06,
+              3.6339041138171933e-06
+            ],
+            [
+              4.596927321771556e-06,
+              4.429925007253824e-06,
+              3.6908983623573538e-06,
+              3.841151144190889e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0202911462190808e-07,
+            1.3356434141255678e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "shear/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 1.6652047634124756e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.1890612206624296e-06,
+              3.956531896397994e-06,
+              3.1935521222821145e-06,
+              8.497438044288087e-06
+            ],
+            [
+              3.47967240730181e-06,
+              2.8700947824417838e-06,
+              2.1039851254897276e-06,
+              3.3532929081751175e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.021229085968034e-07,
+            1.3568883194169638e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "shear/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 2.1457672119140625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.012594763742175e-06,
+              1.657348118297752e-06,
+              1.8007499972287368e-06,
+              1.4385757285670703e-06
+            ],
+            [
+              7.879435122768273e-06,
+              3.426697705751501e-06,
+              2.7484665691712584e-06,
+              3.740696788605132e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.4660477141592182e-07,
+            9.744612263879579e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "shear/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.52587890625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.540397992884136e-06,
+              1.7710204039843872e-06,
+              5.990726420101898e-06,
+              3.704801482762316e-06
+            ],
+            [
+              3.5956999074382272e-06,
+              2.948247556686921e-06,
+              3.2851738158092463e-06,
+              6.736963128764558e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0716477240783968e-07,
+            1.0287838153420617e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "rotation/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 2.193450927734375e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.793070529274245e-06,
+              4.042672948365761e-06,
+              8.446929611217208e-06,
+              4.972917354137154e-06
+            ],
+            [
+              2.716280866574825e-06,
+              3.2272119116694604e-06,
+              2.4114020205796742e-06,
+              3.504457231158914e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.151246455520888e-08,
+            1.0360473862162808e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "rotation/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 0.009824037551879883,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.797585304988732e-06,
+              5.0352526336015115e-06,
+              4.3742688001246825e-06,
+              3.2598108002515623e-06
+            ],
+            [
+              2.711124900818867e-06,
+              0.005256918591914913,
+              3.775762096627217e-06,
+              3.5682043180460225e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.588634353608987e-08,
+            1.4118904339677462e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "rotation/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 1.4781951904296875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.5462782110062655e-06,
+              1.524120021154406e-06,
+              2.6266144579486085e-06,
+              1.286307730700303e-06
+            ],
+            [
+              6.533082392430679e-06,
+              3.1491410530372726e-06,
+              7.416929680033098e-06,
+              2.965264620647274e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.116006009991813e-07,
+            1.070124862787916e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "rotation/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 0.40015530586242676,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.66252233507033e-06,
+              2.4524115424332618e-06,
+              0.06940321552037998,
+              0.1763463380999264
+            ],
+            [
+              4.071942359501958e-06,
+              5.356802684162739e-06,
+              5.452754125313046e-06,
+              5.689239633820757e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0266328153358584e-07,
+            9.620825704887263e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "cutout/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 0.0009663105010986328,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.520521518338638e-06,
+              5.1987388061248366e-05,
+              0.00020800590327172755,
+              0.00041589780296954836
+            ],
+            [
+              6.1250968873444555e-06,
+              2.5538477607178228e-06,
+              2.857415680673503e-06,
+              4.338176929135054e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0795673241147556e-07,
+            1.2311908957948333e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "cutout/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 1.6689300537109375e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.478350735542847e-06,
+              4.731030679244795e-06,
+              3.5969440115089024e-06,
+              3.577600920149089e-06
+            ],
+            [
+              5.810757914127306e-06,
+              7.634590705882446e-06,
+              4.4403635177929435e-06,
+              5.673943169815999e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0114016048381519e-07,
+            1.2694714733085508e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "cutout/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 0.3575248718261719,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.3109822678067753e-06,
+              2.6749680385175843e-06,
+              0.16117332685768396,
+              0.05013818433223381
+            ],
+            [
+              2.7944544527163015e-06,
+              2.230037309805477e-06,
+              3.1227373417518828e-06,
+              2.940196784631754e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2672220482950912e-07,
+            1.1754765737342731e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "cutout/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.621246337890625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.1047035116924865e-06,
+              2.805224233996919e-06,
+              5.436571801480224e-06,
+              6.120146542543913e-06
+            ],
+            [
+              4.792867637813309e-06,
+              3.0227291052291837e-06,
+              3.405624449884938e-06,
+              2.179659681466829e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1042098268805285e-07,
+            1.014682131470414e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 1.33514404296875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.91703181194982e-06,
+              3.1302406505877904e-06,
+              4.01290788591266e-06,
+              2.771732144587688e-06
+            ],
+            [
+              2.3058168729429486e-06,
+              3.0514291488915555e-06,
+              4.448884482204677e-06,
+              1.5503653918716917e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0171506518424333e-07,
+            1.1831609389731475e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 0.06610298156738281,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.7032078197688267e-06,
+              7.50771609183607e-06,
+              1.3155939140846054e-05,
+              0.026984852017342593
+            ],
+            [
+              1.3672515772594555e-06,
+              3.7856487261353094e-06,
+              3.3785774792446543e-06,
+              2.1894162098702387e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.234535588399924e-08,
+            1.20459396721877e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "distortion/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 0.017664581537246704,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.5796488117108533e-06,
+              2.205412129730365e-06,
+              1.3837696306295172e-06,
+              2.72724333965528e-06
+            ],
+            [
+              5.4752390003477e-06,
+              0.006158101334487407,
+              3.9244408317880266e-06,
+              1.4230179842626052e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.3025307511651185e-07,
+            1.0904082454664837e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.5735626220703125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.7541458096947376e-06,
+              3.1612421450020564e-06,
+              2.4929880934424383e-06,
+              5.220489627152965e-06
+            ],
+            [
+              4.791229658451986e-06,
+              4.609827812491939e-06,
+              2.4453936019826123e-06,
+              1.6976928981377637e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.216851202549879e-08,
+            9.312317519303404e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "occlusion/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 0.38256168365478516,
+          "logit_per_object_checkpoint_rms": [
+            [
+              9.47394131775084e-06,
+              4.878270704015193e-06,
+              4.815498777406263e-06,
+              9.15990026247102e-06
+            ],
+            [
+              0.1867819666436748,
+              2.2853140129298816e-05,
+              0.015842499213372323,
+              6.159071365953006e-05
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0900269938509914e-07,
+            0.00021917755474196382
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "occlusion/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 2.002716064453125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.76736602122584e-06,
+              5.171995351857403e-06,
+              5.175557489203664e-06,
+              8.751988704032731e-06
+            ],
+            [
+              8.253605087008406e-06,
+              9.744171128824709e-06,
+              7.974286487249685e-06,
+              4.515531923757528e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.506210060920169e-08,
+            1.3584645400777623e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "occlusion/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 8.302927017211914e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.5392469412316045e-06,
+              4.237438049851358e-06,
+              1.6037105698300477e-05,
+              4.176846783142974e-05
+            ],
+            [
+              4.086515600189513e-06,
+              5.183998118197152e-06,
+              6.558767724147773e-06,
+              5.474581980912233e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0879351737384347e-07,
+            9.335659751899834e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "occlusion/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 0.0006778687238693237,
+          "logit_per_object_checkpoint_rms": [
+            [
+              9.768765325896895e-06,
+              2.925391510101293e-06,
+              2.7563778326546216e-05,
+              0.0003626744013700014
+            ],
+            [
+              2.618774684823524e-06,
+              3.741348940485767e-06,
+              2.3330859956234335e-06,
+              4.9057103096649136e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.144822106422567e-07,
+            9.879574286699624e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "lidar/0",
+          "original_ids": [
+            197,
+            502
+          ],
+          "logit_max_absolute": 0.033434391021728516,
+          "logit_per_object_checkpoint_rms": [
+            [
+              0.013859982100444791,
+              4.0193544883088546e-06,
+              5.490199328352941e-06,
+              5.3174872537454014e-06
+            ],
+            [
+              8.263467456557155e-06,
+              6.440243684073171e-06,
+              4.821629863912385e-06,
+              4.449674864398811e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.88374479233048e-08,
+            1.2582908345611365e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "lidar/1",
+          "original_ids": [
+            536,
+            1008
+          ],
+          "logit_max_absolute": 0.32128334045410156,
+          "logit_per_object_checkpoint_rms": [
+            [
+              7.455752485033808e-06,
+              3.5837958725233822e-06,
+              1.2836395119230588e-05,
+              0.15257094976178612
+            ],
+            [
+              4.320253064692209e-06,
+              5.838177686639708e-06,
+              3.441558588833192e-06,
+              5.7504988511889735e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.414736173569355e-08,
+            1.3160402532904377e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "lidar/2",
+          "original_ids": [
+            1064,
+            1240
+          ],
+          "logit_max_absolute": 1.7404556274414062e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.158582234953777e-06,
+              3.5973637609444967e-06,
+              3.110854291889709e-06,
+              2.942539813020314e-06
+            ],
+            [
+              4.219707869583178e-06,
+              6.6175937746430814e-06,
+              5.841671892460496e-06,
+              3.952941327953755e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1856251708412388e-07,
+            1.0467445756862632e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "lidar/3",
+          "original_ids": [
+            1285,
+            1422
+          ],
+          "logit_max_absolute": 1.1801719665527344e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.07907396284813e-06,
+              2.94670227128452e-06,
+              5.293810798884605e-06,
+              2.300311708805126e-06
+            ],
+            [
+              3.254998272690988e-06,
+              3.636512301323635e-06,
+              4.902758307919166e-06,
+              4.676980536437655e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2836969519607887e-07,
+            1.0407224872497028e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        }
+      ],
+      "logit_max_absolute": 2.926732063293457,
+      "logit_per_object_checkpoint_rms_max": 1.2292369350851229
+    },
+    {
+      "passed": false,
+      "thresholds": {
+        "logit_max": 0.05,
+        "logit_per_object_checkpoint_rms": 0.01,
+        "first_decoded_per_object_rms": 0.0001
+      },
+      "cases": [
+        {
+          "case": "uniform/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 9.5367431640625e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.07875173723643e-06,
+              2.845147389549804e-06,
+              1.8280026445379616e-06,
+              1.767531496549691e-06
+            ],
+            [
+              2.5073655748624623e-06,
+              3.0451644932382813e-06,
+              2.8579479322140025e-06,
+              2.723050118118923e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.191017771105846e-08,
+            1.1219333412470792e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "uniform/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.239776611328125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.473099341790617e-06,
+              3.2124636486938953e-06,
+              1.9463677487943907e-06,
+              2.6227228994027486e-06
+            ],
+            [
+              2.676623542231354e-06,
+              3.5278101812348915e-06,
+              5.413220858087213e-06,
+              3.970101138993866e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1991714596815154e-07,
+            1.1866459478316723e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "uniform/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.1682510375976562e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.486387234805097e-06,
+              2.658097352087577e-06,
+              4.471387593350518e-06,
+              4.431259508636774e-06
+            ],
+            [
+              2.1374636682600203e-06,
+              1.6236796464435023e-06,
+              2.1062107422121513e-06,
+              2.0023135596072003e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.286822139129897e-07,
+            1.1315742438494483e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "uniform/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 1.2636184692382812e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.0912996720082916e-06,
+              1.7884497571766103e-06,
+              2.500186613928649e-06,
+              4.654275188180466e-06
+            ],
+            [
+              5.42833779174856e-06,
+              2.743756600972153e-06,
+              1.772123375043539e-06,
+              2.189853528152063e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.326908304346757e-07,
+            1.1373653880963324e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "gaussian/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.239776611328125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.4922912569883195e-06,
+              1.6892488955962217e-06,
+              1.546227950403591e-06,
+              1.843023136787645e-06
+            ],
+            [
+              4.172229339998549e-06,
+              3.23577265691727e-06,
+              1.7315828951006533e-06,
+              3.1854835140541813e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            7.840746878723495e-08,
+            1.220741220644706e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "gaussian/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 0.3103046417236328,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.036984188008275e-06,
+              1.5628132271605603e-06,
+              3.531307977915863e-06,
+              0.1477479836398114
+            ],
+            [
+              2.8262832530540992e-06,
+              3.071679299899572e-06,
+              2.6410011992359216e-06,
+              3.9146438106776264e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.234855707509685e-07,
+            1.1555389061849814e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "gaussian/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.621246337890625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.1024507468323333e-06,
+              7.398664377265576e-06,
+              2.7207578060148416e-06,
+              3.1793400515490128e-06
+            ],
+            [
+              1.9206261523677773e-06,
+              1.8419004626170928e-06,
+              3.6112742033998027e-06,
+              2.4127955678454267e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.491516189833024e-08,
+            1.0277866619752426e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "gaussian/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 7.867813110351562e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.3368992790210653e-06,
+              3.162828943793994e-06,
+              3.864331092533437e-06,
+              2.527568151310964e-06
+            ],
+            [
+              2.4125216972849254e-06,
+              2.5691142531801025e-06,
+              1.205717124378598e-06,
+              3.15711088944457e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0021183410950572e-07,
+            1.3000037368311746e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "background/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 2.397874355316162,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.417523733639396e-05,
+              0.453636585236561,
+              0.37903657000367486,
+              0.2457746626231119
+            ],
+            [
+              0.6541068166657603,
+              0.6874294694837957,
+              1.0365769567386307,
+              0.5956299164526211
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0971244753787711e-06,
+            0.04435729753699317
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "background/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 2.6357797384262085,
+          "logit_per_object_checkpoint_rms": [
+            [
+              0.25788604089962963,
+              0.23347621963770765,
+              0.957242377847109,
+              0.4350541001262901
+            ],
+            [
+              1.8410431390673676e-05,
+              0.5671134466100819,
+              0.5858235534676485,
+              1.0169301472485863
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            0.0359435950698921,
+            7.099583129507346e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "background/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.7783622741699219,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.2834948920781234e-05,
+              0.5623399784218275,
+              0.5115135812823066,
+              0.5726299098189578
+            ],
+            [
+              0.7826059312782568,
+              0.7937627444657954,
+              0.5352117113009001,
+              0.49019190499619175
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            3.3655640983513466e-07,
+            0.0550473907105025
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "background/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 2.2781009674072266,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.725520253534694e-05,
+              2.0932560760509396e-05,
+              1.2846540092473966e-05,
+              9.193364356732485e-06
+            ],
+            [
+              0.6271786716472636,
+              0.5994362738151737,
+              1.0391779169405564,
+              0.7946724164755513
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.6875385581746917e-06,
+            0.04476524054753624
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "impulse/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 0.6853680610656738,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.2311833138836547e-06,
+              3.2616428132093925e-06,
+              3.7344551599491555e-06,
+              5.717871371447696e-06
+            ],
+            [
+              2.0472264962336117e-06,
+              0.09124936498020858,
+              0.17927363242500727,
+              0.2903118758631852
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            7.819517686747655e-08,
+            1.1213948637370072e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "impulse/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.1564380824565887,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.811957103217874e-06,
+              2.7031379988877667e-06,
+              4.49304975703654e-06,
+              2.996908410370944e-06
+            ],
+            [
+              0.34841605505380685,
+              0.2064766750658041,
+              0.3936875935340886,
+              0.521356309409185
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.134505127341902e-07,
+            0.001796922846340746
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "impulse/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 3.4332275390625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.236866732419672e-06,
+              4.010725113069525e-06,
+              2.961847101282937e-06,
+              1.5009135020684644e-05
+            ],
+            [
+              1.9293522658872357e-06,
+              1.8071137110510074e-06,
+              3.359822157946718e-06,
+              2.6605573685827933e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.3754450785582765e-07,
+            1.027705201673358e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "impulse/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 1.33514404296875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.6523206614820723e-06,
+              4.6444364134917465e-06,
+              3.5835046583797454e-06,
+              5.451426441114043e-06
+            ],
+            [
+              2.6689514698280795e-06,
+              1.5303880667802426e-06,
+              2.018253506149152e-06,
+              2.649301163512654e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.909854096899159e-08,
+            1.1115926249606807e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "upsampling/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.239776611328125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.079974942704767e-06,
+              3.116947520949031e-06,
+              3.1492609170377498e-06,
+              5.172733731214473e-06
+            ],
+            [
+              2.911589283121986e-06,
+              1.9546609200791123e-06,
+              2.3737554458873933e-06,
+              2.6515736035054133e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            7.847368331458125e-08,
+            1.0151351436307747e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "upsampling/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 0.30652666091918945,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.183664547860896e-06,
+              2.2505440365925804e-06,
+              2.0103870022573815e-06,
+              6.407166627630635e-06
+            ],
+            [
+              6.154979150620331e-06,
+              4.2144135220184284e-06,
+              0.12386509393763645,
+              3.189327977410032e-05
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2842467730748043e-07,
+            1.3616281938408643e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "upsampling/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.239776611328125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.5979782497191985e-06,
+              2.376677987402373e-06,
+              1.9203490283889004e-06,
+              4.5152780583179495e-06
+            ],
+            [
+              2.343199898391774e-06,
+              1.4138956414215286e-06,
+              4.7503770730421005e-06,
+              2.5314141142902873e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0702693955840528e-07,
+            1.3135513643409342e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "upsampling/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 0.29536962509155273,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.723633085354543e-06,
+              4.460126893505176e-06,
+              3.948672760150768e-06,
+              2.8533836662159704e-06
+            ],
+            [
+              0.00023897023310648209,
+              0.06697121999341267,
+              0.08538492706671799,
+              0.0857710920615139
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0679115046063541e-07,
+            5.786109650254397e-05
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "distortion_rbf/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.430511474609375e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.1214583845598634e-06,
+              2.9448715521918975e-06,
+              1.8789560696347478e-06,
+              3.931093413765817e-06
+            ],
+            [
+              1.8860512361461767e-06,
+              4.245439937397967e-06,
+              3.7381932203900913e-06,
+              4.062915754511489e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.751759571102389e-08,
+            1.2025435234673542e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.71661376953125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.6743826881104384e-06,
+              5.492730527668702e-06,
+              5.474573869068435e-06,
+              2.405318142807881e-06
+            ],
+            [
+              5.5586005147311965e-06,
+              6.8676463724206495e-06,
+              5.511508265341433e-06,
+              4.070437042494885e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0118998860034151e-07,
+            1.21112732373411e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.8835067749023438e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.130061007073156e-06,
+              8.713895648470567e-06,
+              6.465826589590288e-06,
+              5.7748147229600974e-06
+            ],
+            [
+              3.94990406471504e-06,
+              3.2542034533702045e-06,
+              2.7297225760291515e-06,
+              1.0414222099662298e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            2.0644635078050618e-07,
+            1.4291654055532934e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 2.765655517578125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.2427201261344916e-05,
+              3.10698412311841e-06,
+              4.0449263130986125e-06,
+              4.7363200797117994e-06
+            ],
+            [
+              2.9971260454318623e-06,
+              2.0890573046071377e-06,
+              2.4915525775411713e-06,
+              2.8986837858772414e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1453854365242533e-07,
+            1.555308604301515e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf_inv/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 3.337860107421875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.5494834959338475e-06,
+              2.4238835426798786e-06,
+              1.5980352960629402e-05,
+              3.008201095384912e-06
+            ],
+            [
+              4.034727075577074e-06,
+              4.371463960507411e-06,
+              3.156673044982354e-06,
+              5.942064808984117e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.15640749020691e-08,
+            1.2546644460359752e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf_inv/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 2.1964311599731445e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.195255445448023e-06,
+              2.4853332228748535e-06,
+              4.535905879753098e-06,
+              9.679517204682602e-06
+            ],
+            [
+              6.383263783427532e-06,
+              5.273029262104498e-06,
+              8.322445936229401e-06,
+              6.107482279527095e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.094644363541817e-07,
+            1.230613045059128e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf_inv/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.3649463653564453e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.051087124614808e-06,
+              3.835893089115282e-06,
+              3.8599012576880405e-06,
+              6.357807045144455e-06
+            ],
+            [
+              2.683202241741985e-06,
+              5.904524248919487e-06,
+              2.6064256535879424e-06,
+              2.8677990278282007e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2067829096734875e-07,
+            1.3390127255183676e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion_rbf_inv/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 1.5735626220703125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.626960421588196e-06,
+              4.6809241343515915e-06,
+              4.4280781873884e-06,
+              3.3437928479217447e-06
+            ],
+            [
+              2.274944228474985e-06,
+              4.585171078265838e-06,
+              3.9770666041503754e-06,
+              2.253028963136215e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0680315537097041e-07,
+            1.4795878638844867e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.4781951904296875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.4495582770747153e-06,
+              2.7669213448794786e-06,
+              1.910155087755794e-06,
+              1.3117529523735283e-06
+            ],
+            [
+              4.304790471341123e-06,
+              6.7411805803726956e-06,
+              3.387181767717136e-06,
+              3.6090884655056366e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            7.54937043127918e-08,
+            1.3434151637375537e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.1566247940063477,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.1799329969707766e-06,
+              0.2673107484962128,
+              0.5323116806638972,
+              0.4574222244000159
+            ],
+            [
+              1.8294657535511493e-06,
+              6.127643033528365e-06,
+              3.4921913242573753e-06,
+              7.749921888340655e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.343814644036601e-07,
+            1.2615600402006184e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "density/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.704692840576172e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.792840668416961e-06,
+              6.032011861847707e-06,
+              5.3389054806136095e-06,
+              4.694065045297384e-06
+            ],
+            [
+              5.73774866674829e-06,
+              2.9490834246829528e-06,
+              2.9820021574187893e-06,
+              5.328271136645186e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.930755721311364e-07,
+            1.3134683927301163e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 9.953975677490234e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.1081452332492344e-06,
+              2.892119232352714e-06,
+              3.878938555129415e-06,
+              3.0721997271893707e-06
+            ],
+            [
+              2.548243432430312e-06,
+              3.686669696929768e-06,
+              2.4133084971910975e-06,
+              5.3490104541852215e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.145670543682865e-07,
+            1.275763178705348e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density_inc/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.5974044799804688e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.520036430224442e-06,
+              3.3246157027122945e-06,
+              4.806353893481476e-06,
+              2.2498511332357106e-06
+            ],
+            [
+              3.782571056653564e-06,
+              5.339179837009825e-06,
+              3.2302172405724823e-06,
+              3.550393581831469e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.431614361090262e-08,
+            1.0860401664355049e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density_inc/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 0.02582406997680664,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.239743052540033e-06,
+              2.934223667968348e-06,
+              1.6317758084000076e-06,
+              2.5890311959257743e-06
+            ],
+            [
+              2.540903879535683e-06,
+              0.012945029384007906,
+              1.046594515758821e-05,
+              3.6907261502161063e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1902285085231334e-07,
+            1.3114414044935654e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "density_inc/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 2.9087066650390625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.7273358865797213e-06,
+              6.168238240341184e-06,
+              1.1658735557862672e-05,
+              6.387812097852125e-06
+            ],
+            [
+              1.8056186556562108e-06,
+              3.7837859935885846e-06,
+              2.0330803800712575e-06,
+              2.5161527365135178e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.4389222266190446e-07,
+            1.2603606786846803e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "density_inc/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 0.0016422271728515625,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.3860988913587005e-06,
+              3.014873548921685e-06,
+              2.2832461966388978e-06,
+              2.780142993041257e-06
+            ],
+            [
+              0.0009378788883501381,
+              4.041722115730071e-06,
+              3.3183737174299994e-06,
+              2.1023209679094585e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.3281401229436865e-07,
+            0.00011683496836372631
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "shear/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.1682510375976562e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.575893787803811e-06,
+              2.416915979711799e-06,
+              2.359602521522253e-06,
+              4.693832662253666e-06
+            ],
+            [
+              1.6892045320696752e-06,
+              3.597703614080581e-06,
+              2.4112500819407933e-06,
+              3.513240678824779e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            8.322821804279768e-08,
+            9.967458320690081e-08
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "shear/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.3828277587890625e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              1.8858080346616472e-06,
+              3.253832414376623e-06,
+              3.0301512203669104e-06,
+              2.051897200870602e-06
+            ],
+            [
+              5.71563169967749e-06,
+              3.382058095341665e-06,
+              3.471992941812882e-06,
+              5.989675543083085e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2147009937496653e-07,
+            1.1959311999341674e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "shear/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 0.05194234848022461,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.219026374574428e-06,
+              6.668367032186899e-06,
+              5.43900956778695e-06,
+              0.02330688573327974
+            ],
+            [
+              3.0369758290105754e-06,
+              3.721354312607757e-06,
+              8.124115269409468e-06,
+              4.246932894336203e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.5233317551229023e-07,
+            1.2476185397617208e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "shear/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 8.821487426757812e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.6488255285869498e-06,
+              3.330027808538542e-06,
+              2.115789439443494e-06,
+              3.435896454752789e-06
+            ],
+            [
+              2.6725109013050202e-06,
+              2.350095479973323e-06,
+              3.5321127355703557e-06,
+              1.6759931593367606e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0998208286901531e-07,
+            1.577352228637338e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "rotation/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.1026859283447266e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              4.689073670906538e-06,
+              3.7727079968134846e-06,
+              3.151224142433311e-06,
+              3.706767554605503e-06
+            ],
+            [
+              2.510029723174977e-06,
+              2.511709956624969e-06,
+              4.42830633984707e-06,
+              3.3333401325651648e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.821729330457185e-08,
+            1.1196381288534335e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "rotation/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.430511474609375e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.5515252699161027e-06,
+              3.099269587075786e-06,
+              3.925908806531388e-06,
+              3.0544908935305324e-06
+            ],
+            [
+              5.541770195785921e-06,
+              2.5761862521031446e-06,
+              4.91020790404305e-06,
+              6.16419272861366e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.0859110757319057e-07,
+            1.116947293596311e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "rotation/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 0.14600753784179688,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.870824546544766e-06,
+              4.334780830865194e-06,
+              0.07595259329793727,
+              0.00894432146402136
+            ],
+            [
+              2.5295659289778576e-06,
+              2.711545636008311e-06,
+              2.6660224228662947e-06,
+              3.74496524455561e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1841290731315901e-07,
+            1.1369284016998116e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "rotation/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 9.059906005859375e-06,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.2145132587013656e-06,
+              1.7787143552956447e-06,
+              2.6777805420356105e-06,
+              3.8016772755991972e-06
+            ],
+            [
+              2.1776608155045387e-06,
+              2.4057185215790477e-06,
+              3.314110040465496e-06,
+              1.8670923072900048e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.195259286685908e-07,
+            1.3007677312151564e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "cutout/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.3649463653564453e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.4975575298622385e-06,
+              2.291462370401198e-06,
+              1.8124615038954299e-06,
+              2.002912297810378e-06
+            ],
+            [
+              4.596830715093836e-06,
+              1.7695905329586083e-06,
+              2.899775157102354e-06,
+              3.7399614047732805e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.229423257953081e-08,
+            1.0962775362831337e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "cutout/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 2.6226043701171875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.482521827311035e-06,
+              4.027111525787802e-06,
+              2.745358492389162e-06,
+              4.08723667617551e-06
+            ],
+            [
+              1.868882761883388e-06,
+              1.0443410812085924e-05,
+              5.553345613446885e-06,
+              4.166605720819207e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1523805399007136e-07,
+            1.1237208187273255e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "cutout/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 2.3603439331054688e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.397145036423479e-06,
+              4.173179867805325e-06,
+              8.49688201229111e-06,
+              3.2103902518228706e-06
+            ],
+            [
+              1.8797875383754354e-06,
+              2.46963202730182e-06,
+              1.861470567383914e-06,
+              7.921253223962421e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.8675733102573325e-07,
+            1.1521125130957123e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "cutout/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 0.7942318916320801,
+          "logit_per_object_checkpoint_rms": [
+            [
+              0.33280076341156145,
+              0.31995719254421373,
+              0.3446444741419267,
+              0.24516210556466744
+            ],
+            [
+              5.494014887514111e-06,
+              2.78821790652268e-06,
+              4.114148269614225e-06,
+              2.7882348292801327e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            0.0022822731189592093,
+            1.2733400354800398e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "distortion/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 0.025046348571777344,
+          "logit_per_object_checkpoint_rms": [
+            [
+              0.012836776663953995,
+              2.0293745853382444e-06,
+              3.0546072024724737e-06,
+              2.4624230866996187e-06
+            ],
+            [
+              5.278640393617924e-06,
+              4.0678375603237005e-06,
+              5.606992828166416e-06,
+              6.761533045284879e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.664738936754389e-08,
+            1.372725415793194e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "distortion/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.71661376953125e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.942814588591669e-06,
+              2.3793426511599987e-06,
+              9.478356774919779e-07,
+              2.1810332368466855e-06
+            ],
+            [
+              6.677742209072792e-06,
+              5.059599263406871e-06,
+              4.9429939111349455e-06,
+              6.666222699697175e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1065271667002149e-07,
+            1.1807483053721296e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "distortion/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 0.7994170784950256,
+          "logit_per_object_checkpoint_rms": [
+            [
+              5.67120752658975e-06,
+              6.159769479857539e-06,
+              3.991896349318758e-06,
+              3.264714854471433e-06
+            ],
+            [
+              0.0016692455847762448,
+              0.29886105180643147,
+              0.32167310408087946,
+              0.2913137848627986
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2336176912637263e-07,
+            0.00013456647799917678
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "distortion/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 1.811981201171875e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.52392535699778e-06,
+              4.413979501686081e-06,
+              5.009819369286615e-06,
+              6.044990354672869e-06
+            ],
+            [
+              4.412626250810135e-06,
+              3.7004986996175412e-06,
+              2.4607633401954844e-06,
+              3.013846881084928e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.3721166722721652e-07,
+            1.290047753165352e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "occlusion/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.17570161819458e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.5578658117420863e-06,
+              1.6503599431191985e-06,
+              4.359001003726284e-06,
+              1.5232164934055294e-06
+            ],
+            [
+              3.2817080046941817e-06,
+              3.52842380456495e-06,
+              4.1996808667751474e-06,
+              3.492038721308061e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.05158286738414e-08,
+            1.6076111914683126e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "occlusion/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 1.8477439880371094e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.3616438397326645e-06,
+              5.497845973065336e-06,
+              3.671756937830482e-06,
+              3.107512035430859e-06
+            ],
+            [
+              8.131617047529778e-06,
+              4.605794415077573e-06,
+              7.241982736681897e-06,
+              5.264612093382971e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2794353193797275e-07,
+            1.4133668788188996e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "occlusion/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.704692840576172e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              3.426722815048135e-06,
+              4.1359997581127046e-06,
+              4.87289858051804e-06,
+              6.6238787492013144e-06
+            ],
+            [
+              3.229126670819907e-06,
+              2.8008673828765705e-06,
+              2.246302479426884e-06,
+              8.84549923057797e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.128359874520154e-07,
+            1.0518031250665171e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "occlusion/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 2.0623207092285156e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              7.851488504775588e-06,
+              5.932823927137354e-06,
+              7.647051765192278e-06,
+              5.06849806268153e-06
+            ],
+            [
+              3.333073668932349e-06,
+              5.999341942399445e-06,
+              3.1153914762402192e-06,
+              3.577706429475224e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.8907190732110436e-07,
+            1.5606617844862356e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "lidar/0",
+          "original_ids": [
+            1549,
+            1670
+          ],
+          "logit_max_absolute": 1.7136335372924805e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.690116704458804e-06,
+              5.804404927575384e-06,
+              2.77279840935954e-06,
+              3.898900287689874e-06
+            ],
+            [
+              5.617329159056193e-06,
+              7.72513773450502e-06,
+              5.172761633018711e-06,
+              5.7068242365594e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            9.957617834138293e-08,
+            1.333965987649219e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "lidar/1",
+          "original_ids": [
+            1738,
+            1824
+          ],
+          "logit_max_absolute": 2.0098123103380203,
+          "logit_per_object_checkpoint_rms": [
+            [
+              2.8527377037131085e-06,
+              4.165401658898823e-06,
+              3.779719998557438e-06,
+              2.8057940846246224e-06
+            ],
+            [
+              6.868774261753777e-06,
+              0.48295163417324194,
+              0.7758648576417699,
+              0.3181923106310118
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.1687288630783554e-07,
+            1.1964741919971038e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": false
+        },
+        {
+          "case": "lidar/2",
+          "original_ids": [
+            1858,
+            2100
+          ],
+          "logit_max_absolute": 1.9788742065429688e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              7.55353021772941e-06,
+              7.307157822555289e-06,
+              3.3777624364447272e-06,
+              5.574095992709148e-06
+            ],
+            [
+              3.465152818553028e-06,
+              2.6561609803465402e-06,
+              9.048438885885012e-06,
+              4.065252972692816e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.2318461042568648e-07,
+            1.1659573461604399e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        },
+        {
+          "case": "lidar/3",
+          "original_ids": [
+            2285,
+            2310
+          ],
+          "logit_max_absolute": 2.491474151611328e-05,
+          "logit_per_object_checkpoint_rms": [
+            [
+              6.421292731796158e-06,
+              5.770299347728456e-06,
+              1.047888814467842e-05,
+              7.074482623464763e-06
+            ],
+            [
+              4.613855277664024e-06,
+              6.3622605694139844e-06,
+              3.6174981907685614e-06,
+              9.425132950194411e-06
+            ]
+          ],
+          "first_decoded_per_object_rms": [
+            1.6632433289788403e-07,
+            1.8765049432992294e-07
+          ],
+          "pm_agreement": [
+            true,
+            true
+          ],
+          "terminal_agreement": [
+            true,
+            true
+          ],
+          "passed": true
+        }
+      ],
+      "logit_max_absolute": 2.6357797384262085,
+      "logit_per_object_checkpoint_rms_max": 1.0391779169405564
+    }
+  ],
+  "failed_by_corruption": {
+    "background": 8,
+    "upsampling": 3,
+    "distortion_rbf": 1,
+    "rotation": 2,
+    "cutout": 2,
+    "distortion": 3,
+    "occlusion": 1,
+    "lidar": 3,
+    "gaussian": 1,
+    "impulse": 2,
+    "density": 1,
+    "density_inc": 2,
+    "shear": 1
+  }
+}

@@ -58,3 +58,6 @@ Savunulabilir yazım: “Diffusion timestep tahminlerinin birleştirilmesine ili
 ## Bu incelemenin çıktısı
 
 Yalnız bu rapor, README yönlendirmesi, findings kaydı ve open_questions önceliği güncellenir. Üretim kodu, baseline, ham deney, bekleyen peer çalışması ve runtime durumu değiştirilmez. Kaynakların/arşivlerin tamamının yeniden doğrulandığı iddia edilmez. Bu not danışmana sunulacak bilimsel değerlendirmeyi kaydeder; yeni deney uygulanmış veya yayın kabulü alınmış değildir.
+
+
+[Run/Inference, later Nov7 update] The separate [hard-lowband halfmix pilot](gsd_lowband_halfmix_results_20261107.md) subsequently completed. M100171/240 vs half-SCD169; M200166. Numerical attribution gate fails, graph+reconstruction cost rises about23%, and no default promotion or publication-superiority claim follows. The earlier GPU-unrun statement records the review-time state.

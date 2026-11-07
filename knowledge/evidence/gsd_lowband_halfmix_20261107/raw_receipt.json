@@ -1,0 +1,57 @@
+{
+  "status": "Drive verified; local download pending",
+  "path": "/content/studies/gsd-lowband-halfmix-20261107/raw_package_20261107T105026Z.zip",
+  "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_halfmix_20261107/raw_package_20261107T105026Z.zip",
+  "bytes": 2329149449,
+  "sha256": "e2f2e4c4025fc4b7a64b25b08504760432a3ffdbcfa64ee1594101c1712d1898",
+  "collection": {
+    "status": "raw preservation; scientific acceptance separate",
+    "source": "d6761c895ef6fa38d882bb2d4ca3f3205c1a1fa3",
+    "native_payloads": {
+      "/content/3DD-TTA/Pointnet2_PyTorch/pointnet2_ops_lib/build/lib.linux-x86_64-cpython-38/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so": {
+        "bytes": 266256,
+        "sha256": "ac7b89b617cb6a6977845a2c9ecdf09ff7d34686bb8e779ad4a29b53b96c47dc"
+      },
+      "/content/3DD-TTA/extensions/chamfer_dist/build/lib.linux-x86_64-cpython-38/chamfer.cpython-38-x86_64-linux-gnu.so": {
+        "bytes": 720640,
+        "sha256": "249e7aeb964a696381598ebed63be22210cbc532d7cc4c7ff9ac99477a93893c"
+      },
+      "/content/3DD-TTA/extensions/emd/build/lib.linux-x86_64-cpython-38/emd_cuda.cpython-38-x86_64-linux-gnu.so": {
+        "bytes": 9143368,
+        "sha256": "d13107bc227698a08250c9696c2dc753ae91732ee3e9db1645eab52a2c33397c"
+      },
+      "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so": {
+        "bytes": 1144176,
+        "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+      },
+      "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so": {
+        "bytes": 685248,
+        "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0"
+      },
+      "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so": {
+        "bytes": 559272,
+        "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154"
+      },
+      "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so": {
+        "bytes": 720640,
+        "sha256": "249e7aeb964a696381598ebed63be22210cbc532d7cc4c7ff9ac99477a93893c"
+      },
+      "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/emd_ext-0.0.0-py3.8-linux-x86_64.egg/emd_cuda.cpython-38-x86_64-linux-gnu.so": {
+        "bytes": 9143368,
+        "sha256": "d13107bc227698a08250c9696c2dc753ae91732ee3e9db1645eab52a2c33397c"
+      },
+      "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so": {
+        "bytes": 218200,
+        "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+      },
+      "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so": {
+        "bytes": 266256,
+        "sha256": "ac7b89b617cb6a6977845a2c9ecdf09ff7d34686bb8e779ad4a29b53b96c47dc"
+      }
+    },
+    "archive_failures": [],
+    "paired_cache_count": 126,
+    "fresh_cache_count": 10
+  },
+  "payload_count": 383
+}
