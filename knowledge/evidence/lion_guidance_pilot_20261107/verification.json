@@ -1,0 +1,29 @@
+{
+  "cpu": {
+    "passed": 815,
+    "skipped": 2,
+    "subtests_passed": 500,
+    "seconds": 48.5
+  },
+  "independent_review": "A/B/C raw hashes, manifests, recounts, repeats and C repairs independently verified; no remaining required GPU test for limited pilot conclusions",
+  "completed": [
+    "canonical10cell_environment",
+    "technical_controls",
+    "A_scoped_pilot",
+    "B_scoped_pilot",
+    "C_conditional_readout_pilot",
+    "matching_activity",
+    "repair_activity"
+  ],
+  "not_advanced": [
+    "candidate_own_repeat",
+    "warmed_deployment_timing",
+    "all15_confirmation",
+    "256_objects_three_seeds",
+    "cross_head_validation"
+  ],
+  "reason": "No candidate met predeclared progression gates; do not generalize null pilot to all settings",
+  "session": "tta-lion-guidance-pilot-a100-20261107-r1",
+  "runtime_retained": true,
+  "teardown_authorized": false
+}

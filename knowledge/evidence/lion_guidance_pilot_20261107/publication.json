@@ -1,0 +1,46 @@
+{
+  "source_branch": "experiment/lion-guidance-pilot-20261107",
+  "source_commit": "2fce34367f966c7c1589481f0549cd0b4671734f",
+  "predecessor": "5ef0b95ab7b3a12631c5075015e1bbef5b3193ba",
+  "selected_files": [
+    "docs/superpowers/plans/2026-11-07-lion-guidance-pilot.md",
+    "knowledge/README.md",
+    "knowledge/colab_cli_setup_20261017.md",
+    "knowledge/evidence/lion_guidance_pilot_20261107/20261107T105912Z_technical_acceptance.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/20261107T110635Z_a_acceptance.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/20261107T110949Z_b_acceptance.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/20261107T111253Z_c_acceptance.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/accept_raw.py",
+    "knowledge/evidence/lion_guidance_pilot_20261107/analyze_matching.py",
+    "knowledge/evidence/lion_guidance_pilot_20261107/analyze_repairs.py",
+    "knowledge/evidence/lion_guidance_pilot_20261107/matching_activity_summary.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/raw_receipts.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/repair_activity_summary.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/reproducibility_receipt.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/selection.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/summary.json",
+    "knowledge/evidence/lion_guidance_pilot_20261107/verification.json",
+    "knowledge/findings_log.md",
+    "knowledge/lion_guidance_pilot_20261107.md",
+    "knowledge/lion_guidance_pilot_results_20261107.md",
+    "knowledge/open_questions.md",
+    "lion_guidance_pilot.py",
+    "scripts/run_lion_guidance_pilot.py",
+    "tests/test_lion_guidance_pilot.py"
+  ],
+  "excluded": [
+    "ignored raw archives/weights/setup wrappers/operator packages; preserved locally and in verified Drive bundles"
+  ],
+  "reconciliation": "Only our README prefix and dated append-only entries added to current shared knowledge; independent halfmix changes retained",
+  "scientific_source": "Executed v2/v3 overlays retained separately; publication commit is not the runtime source identity",
+  "status": "integration_checks_passed",
+  "source_worktree": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/lion-guidance-pilot-20261107",
+  "publication_worktree": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/lion-guidance-publication-20261107",
+  "raw_local_root": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/lion-guidance-pilot-20261107/result/modelnet40_c/lion_guidance_pilot/raw",
+  "integration_tests": {
+    "passed": 815,
+    "skipped": 2,
+    "subtests_passed": 500,
+    "seconds": 49.32
+  }
+}

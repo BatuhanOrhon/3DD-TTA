@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "dataset": "modelnet40_c",
+  "seed": 0,
+  "selection_seed": 20261107,
+  "calibration": [
+    140,
+    1557,
+    1808,
+    2312
+  ],
+  "pilot": [
+    264,
+    292,
+    307,
+    613,
+    616,
+    685,
+    765,
+    873,
+    891,
+    998,
+    1158,
+    1275,
+    1279,
+    1356,
+    1640,
+    2282
+  ],
+  "exposure": "official test objects historically exposed; disjoint calibration/pilot for this method only; no heldout claim"
+}

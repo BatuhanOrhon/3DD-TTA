@@ -1,0 +1,216 @@
+{
+  "stages": {
+    "technical": {
+      "acceptance_file": "20261107T105912Z_technical_acceptance.json",
+      "results": [
+        {
+          "arm": "full",
+          "n": 16,
+          "correct": 11,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "full_repeat",
+          "n": 16,
+          "correct": 12,
+          "accuracy_percent": 75.0
+        },
+        {
+          "arm": "original",
+          "n": 16,
+          "correct": 11,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "original_repeat",
+          "n": 16,
+          "correct": 11,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "semantic_zero",
+          "n": 16,
+          "correct": 11,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "semantic_zero_repeat",
+          "n": 16,
+          "correct": 11,
+          "accuracy_percent": 68.75
+        }
+      ],
+      "gates": {
+        "sampler_pass": 5,
+        "semantic_pass": 8,
+        "total": 8,
+        "selected_tau": 0.1
+      },
+      "elapsed": 97.31619589799993,
+      "scope": "selected exposed development objects/four corruptions/seed0/B2; not heldout or deployment benchmark"
+    },
+    "a": {
+      "acceptance_file": "20261107T110635Z_a_acceptance.json",
+      "results": [
+        {
+          "arm": "cheap",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "full",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "full_repeat",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "hybrid",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "sparse",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "style_frozen",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        }
+      ],
+      "gates": {
+        "passed": 14,
+        "total": 16,
+        "all_passed": false
+      },
+      "elapsed": 117.13821859200016,
+      "scope": "selected exposed development objects/density,occlusion/seed0/B2; C is conditional on frozen shared readouts; not heldout or deployment benchmark"
+    },
+    "b": {
+      "acceptance_file": "20261107T110949Z_b_acceptance.json",
+      "results": [
+        {
+          "arm": "feature",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "full",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "full_repeat",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "geometric",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "metric4d",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        },
+        {
+          "arm": "shuffled",
+          "n": 32,
+          "correct": 22,
+          "accuracy_percent": 68.75
+        }
+      ],
+      "gates": {
+        "passed": 11,
+        "total": 16,
+        "all_passed": false
+      },
+      "elapsed": 136.71697045200017,
+      "scope": "selected exposed development objects/density,occlusion/seed0/B2; C is conditional on frozen shared readouts; not heldout or deployment benchmark"
+    },
+    "c": {
+      "acceptance_file": "20261107T111253Z_c_acceptance.json",
+      "results": [
+        {
+          "arm": "causal_all",
+          "n": 64,
+          "correct": 48,
+          "accuracy_percent": 75.0
+        },
+        {
+          "arm": "causal_feature",
+          "n": 64,
+          "correct": 48,
+          "accuracy_percent": 75.0
+        },
+        {
+          "arm": "fixed_feature",
+          "n": 64,
+          "correct": 48,
+          "accuracy_percent": 75.0
+        },
+        {
+          "arm": "full",
+          "n": 64,
+          "correct": 48,
+          "accuracy_percent": 75.0
+        },
+        {
+          "arm": "semantic_zero",
+          "n": 64,
+          "correct": 48,
+          "accuracy_percent": 75.0
+        },
+        {
+          "arm": "semantic_zero_repeat",
+          "n": 64,
+          "correct": 48,
+          "accuracy_percent": 75.0
+        }
+      ],
+      "gates": {
+        "passed": 32,
+        "total": 32,
+        "all_passed": true
+      },
+      "elapsed": 210.9924264379997,
+      "scope": "selected exposed development objects/gaussian,background,density,occlusion/seed0/B2; C is conditional on frozen shared readouts; not heldout or deployment benchmark"
+    }
+  },
+  "scientific_sources": {
+    "v2": {
+      "base_commit": "79445c050f7f500c52a67b3a1330dd60ac316fe4",
+      "overlay": {
+        "bytes": 765698,
+        "sha256": "ef423c01fe0cc1ef49db1a7424cb8485494b8026a5d8e413709f28c7b9df899f"
+      }
+    },
+    "v3": {
+      "base_commit": "79445c050f7f500c52a67b3a1330dd60ac316fe4",
+      "overlay": {
+        "bytes": 765938,
+        "sha256": "f9405232e687e925c39eb08fcec87be62e244d34ad629408a0752ad7e6428630"
+      }
+    }
+  },
+  "runner_wall_seconds_sum": 562.16381138,
+  "decision": "No qualified advancement or default change; no pilot accuracy gain; A/B numerical attribution failed",
+  "confidence_limit": "All-tied small-sample bootstrap is degenerate and does not establish equivalence/noninferiority"
+}

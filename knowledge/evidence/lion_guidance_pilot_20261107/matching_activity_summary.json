@@ -1,0 +1,20 @@
+{
+  "scope": "CPU float64 recomputation on archived baseline/feature clean checkpoints; not exact captured CUDA assignments or proof of correct matches",
+  "torch": "2.15.0",
+  "beta": 0.1,
+  "k": 8,
+  "aggregate": {
+    "full": {
+      "n": 393216,
+      "changed_vs_geometry": 110812,
+      "shuffled_changed": 113157,
+      "real_vs_shuffled": 142442
+    },
+    "feature": {
+      "n": 393216,
+      "changed_vs_geometry": 97723,
+      "shuffled_changed": 117781,
+      "real_vs_shuffled": 139198
+    }
+  }
+}

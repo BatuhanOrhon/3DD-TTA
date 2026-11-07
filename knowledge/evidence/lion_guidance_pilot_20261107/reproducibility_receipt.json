@@ -1,0 +1,64 @@
+{
+  "status": "accepted",
+  "bytes": 6473709,
+  "sha256": "c120ba3664c22335b26102d73a1a8bf202b42015cbe59da77afc3f4cb88ce11d",
+  "manifest_files": 413,
+  "source_files": 378,
+  "native": {
+    "captured_after_runs": true,
+    "limitation": "PointNet++ and setup EMD/Chamfer ELF hashes first captured after runs; paths from passed setup, no intervening rebuild/install affecting these files was executed",
+    "files": {
+      "_pvcnn_backend": {
+        "bytes": 685248,
+        "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0",
+        "path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+        "mtime": 1794049121.9926145,
+        "ctime": 1794049121.9926145
+      },
+      "chamfer_3D": {
+        "bytes": 1144176,
+        "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0",
+        "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+        "mtime": 1794049121.998615,
+        "ctime": 1794049121.998615
+      },
+      "emd_ext": {
+        "bytes": 559272,
+        "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154",
+        "path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+        "mtime": 1794049122.0056157,
+        "ctime": 1794049122.0056157
+      },
+      "knn": {
+        "bytes": 218200,
+        "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+        "mtime": 1794049122.0076158,
+        "ctime": 1794049122.0076158
+      },
+      "pointnet2_ops._ext": {
+        "bytes": 266256,
+        "sha256": "4d1f66666a9360b9f25482e3653f7194f2530cac5516ad19bf1f43df1911829c",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794048135.5732825,
+        "ctime": 1794048135.5802832
+      },
+      "emd_cuda": {
+        "bytes": 9143368,
+        "sha256": "5823b326a14a0aef503d1a4f2d5ae976cd44696805591abe5442050fb3a77f36",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/emd_ext-0.0.0-py3.8-linux-x86_64.egg/emd_cuda.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794047752.0616524,
+        "ctime": 1794047752.068653
+      },
+      "chamfer": {
+        "bytes": 720640,
+        "sha256": "96d4183e1bd67ad5569904cb845293e889fe8667c3766b0f0d68504749547844",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794047881.7133458,
+        "ctime": 1794047881.7153459
+      }
+    }
+  },
+  "local_path": "result/modelnet40_c/lion_guidance_pilot/raw/reproducibility_supplement.zip",
+  "drive_path": "MyDrive/thesis/result/lion_guidance_pilot_20261107/reproducibility_supplement.zip"
+}

@@ -1,0 +1,991 @@
+{
+  "status": "accepted",
+  "phase": "c",
+  "results": [
+    {
+      "arm": "causal_all",
+      "n": 64,
+      "correct": 48,
+      "accuracy_percent": 75.0
+    },
+    {
+      "arm": "causal_feature",
+      "n": 64,
+      "correct": 48,
+      "accuracy_percent": 75.0
+    },
+    {
+      "arm": "fixed_feature",
+      "n": 64,
+      "correct": 48,
+      "accuracy_percent": 75.0
+    },
+    {
+      "arm": "full",
+      "n": 64,
+      "correct": 48,
+      "accuracy_percent": 75.0
+    },
+    {
+      "arm": "semantic_zero",
+      "n": 64,
+      "correct": 48,
+      "accuracy_percent": 75.0
+    },
+    {
+      "arm": "semantic_zero_repeat",
+      "n": 64,
+      "correct": 48,
+      "accuracy_percent": 75.0
+    }
+  ],
+  "comparisons": [
+    {
+      "arm": "causal_all",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "causal_all",
+      "control": "semantic_zero",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "causal_feature",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "causal_feature",
+      "control": "semantic_zero",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "fixed_feature",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "fixed_feature",
+      "control": "semantic_zero",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "semantic_zero",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "semantic_zero_repeat",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    }
+  ],
+  "technical": null,
+  "elapsed": 210.9924264379997,
+  "pilot_native": [
+    {
+      "corruption": "gaussian",
+      "ids": [
+        264,
+        292
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.881550364081192e-06
+      },
+      "within": [
+        {
+          "decoded": 2.4448861594919343e-08,
+          "latent": 0.0,
+          "logits": 2.523453223302169e-06
+        },
+        {
+          "decoded": 2.4431890076927166e-08,
+          "latent": 0.0,
+          "logits": 3.7429021890644613e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "gaussian",
+      "ids": [
+        307,
+        613
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.1078008049880257e-06
+      },
+      "within": [
+        {
+          "decoded": 2.8353033903491124e-08,
+          "latent": 0.0,
+          "logits": 1.7634494087728703e-06
+        },
+        {
+          "decoded": 2.8123279012942196e-08,
+          "latent": 0.0,
+          "logits": 2.125623037818866e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "gaussian",
+      "ids": [
+        616,
+        685
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.6394820189414684e-06
+      },
+      "within": [
+        {
+          "decoded": 2.1984089962279984e-08,
+          "latent": 0.0,
+          "logits": 2.126010150768859e-06
+        },
+        {
+          "decoded": 2.1686901577377195e-08,
+          "latent": 0.0,
+          "logits": 1.331081463815443e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "gaussian",
+      "ids": [
+        765,
+        873
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.63878358685673e-06
+      },
+      "within": [
+        {
+          "decoded": 2.0900692284055924e-08,
+          "latent": 0.0,
+          "logits": 2.580529624077318e-06
+        },
+        {
+          "decoded": 2.1038341229444237e-08,
+          "latent": 0.0,
+          "logits": 2.424203215579873e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "gaussian",
+      "ids": [
+        891,
+        998
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.1624990199423415e-06
+      },
+      "within": [
+        {
+          "decoded": 2.3695544522198167e-08,
+          "latent": 0.0,
+          "logits": 1.2763734432518994e-06
+        },
+        {
+          "decoded": 2.312540715251138e-08,
+          "latent": 0.0,
+          "logits": 1.0623791778811855e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "gaussian",
+      "ids": [
+        1158,
+        1275
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.109182912277348e-06
+      },
+      "within": [
+        {
+          "decoded": 2.522378688582541e-08,
+          "latent": 0.0,
+          "logits": 2.7243425165610848e-06
+        },
+        {
+          "decoded": 2.5504028995450656e-08,
+          "latent": 0.0,
+          "logits": 1.7732600954048146e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "gaussian",
+      "ids": [
+        1279,
+        1356
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.3365008036812208e-06
+      },
+      "within": [
+        {
+          "decoded": 2.239418314028827e-08,
+          "latent": 0.0,
+          "logits": 1.2551278022534298e-06
+        },
+        {
+          "decoded": 2.1920815812760646e-08,
+          "latent": 0.0,
+          "logits": 1.3412743337131091e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "gaussian",
+      "ids": [
+        1640,
+        2282
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.9063060669485302e-06
+      },
+      "within": [
+        {
+          "decoded": 1.8737725760822338e-08,
+          "latent": 0.0,
+          "logits": 1.674008429490393e-06
+        },
+        {
+          "decoded": 1.9580106799704768e-08,
+          "latent": 0.0,
+          "logits": 2.0062604424593426e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        264,
+        292
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.7996780655800476e-06
+      },
+      "within": [
+        {
+          "decoded": 2.399634232220135e-08,
+          "latent": 0.0,
+          "logits": 1.5282567009899377e-06
+        },
+        {
+          "decoded": 2.484604790481457e-08,
+          "latent": 0.0,
+          "logits": 2.5111166144321684e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        307,
+        613
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.977641064715842e-06
+      },
+      "within": [
+        {
+          "decoded": 2.532458475899027e-08,
+          "latent": 0.0,
+          "logits": 1.985621314906021e-06
+        },
+        {
+          "decoded": 2.2806472943151745e-08,
+          "latent": 0.0,
+          "logits": 2.2032599525334323e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        616,
+        685
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.8436235959008184e-06
+      },
+      "within": [
+        {
+          "decoded": 3.157635427422891e-08,
+          "latent": 0.0,
+          "logits": 1.2192343601344504e-06
+        },
+        {
+          "decoded": 2.49019752258188e-08,
+          "latent": 0.0,
+          "logits": 1.492195476046029e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        765,
+        873
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.6875234562915834e-06
+      },
+      "within": [
+        {
+          "decoded": 2.1536008205737763e-08,
+          "latent": 0.0,
+          "logits": 1.0130348019875705e-06
+        },
+        {
+          "decoded": 2.226516003805231e-08,
+          "latent": 0.0,
+          "logits": 1.7978404977938643e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        891,
+        998
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.7962451597715006e-06
+      },
+      "within": [
+        {
+          "decoded": 2.3387996573236733e-08,
+          "latent": 0.0,
+          "logits": 1.6969108272327583e-06
+        },
+        {
+          "decoded": 2.339611406385897e-08,
+          "latent": 0.0,
+          "logits": 1.3228106012405875e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        1158,
+        1275
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.381278000350799e-06
+      },
+      "within": [
+        {
+          "decoded": 2.704352132098002e-08,
+          "latent": 0.0,
+          "logits": 1.7546603722268885e-06
+        },
+        {
+          "decoded": 2.6772346364329683e-08,
+          "latent": 0.0,
+          "logits": 1.6872172476476324e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        1279,
+        1356
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.5517537883825575e-06
+      },
+      "within": [
+        {
+          "decoded": 2.276050039173878e-08,
+          "latent": 0.0,
+          "logits": 1.6065903429104049e-06
+        },
+        {
+          "decoded": 2.2041658932279736e-08,
+          "latent": 0.0,
+          "logits": 1.7487960575502577e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "background",
+      "ids": [
+        1640,
+        2282
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.4476855412705676e-06
+      },
+      "within": [
+        {
+          "decoded": 2.9716749196518837e-08,
+          "latent": 0.0,
+          "logits": 2.040178963406953e-06
+        },
+        {
+          "decoded": 2.6365104603841293e-08,
+          "latent": 0.0,
+          "logits": 2.243370467277811e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        264,
+        292
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.9481376431265506e-06
+      },
+      "within": [
+        {
+          "decoded": 2.7988914546808196e-08,
+          "latent": 0.0,
+          "logits": 2.953878145774531e-06
+        },
+        {
+          "decoded": 2.992656863047595e-08,
+          "latent": 0.0,
+          "logits": 1.708741768322991e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        307,
+        613
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.6623763076994147e-06
+      },
+      "within": [
+        {
+          "decoded": 3.14592911568827e-08,
+          "latent": 0.0,
+          "logits": 1.5484742831144853e-06
+        },
+        {
+          "decoded": 3.1846019526783e-08,
+          "latent": 0.0,
+          "logits": 1.9935333018351263e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        616,
+        685
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.0457892199904707e-06
+      },
+      "within": [
+        {
+          "decoded": 2.606349871803966e-08,
+          "latent": 0.0,
+          "logits": 2.154685816978871e-06
+        },
+        {
+          "decoded": 2.5240406732896687e-08,
+          "latent": 0.0,
+          "logits": 1.4303431475531168e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        765,
+        873
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.110804924509668e-06
+      },
+      "within": [
+        {
+          "decoded": 2.5289825389196522e-08,
+          "latent": 0.0,
+          "logits": 2.2095213154531183e-06
+        },
+        {
+          "decoded": 2.4371389282155944e-08,
+          "latent": 0.0,
+          "logits": 2.270034967192064e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        891,
+        998
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.4944689081636162e-06
+      },
+      "within": [
+        {
+          "decoded": 2.6045489272477214e-08,
+          "latent": 0.0,
+          "logits": 2.7374407404707405e-06
+        },
+        {
+          "decoded": 2.5758664493300125e-08,
+          "latent": 0.0,
+          "logits": 4.3594554954366255e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        1158,
+        1275
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.2054344683656465e-06
+      },
+      "within": [
+        {
+          "decoded": 2.8982791268644078e-08,
+          "latent": 0.0,
+          "logits": 1.7037622409040246e-06
+        },
+        {
+          "decoded": 2.9206727392132676e-08,
+          "latent": 0.0,
+          "logits": 1.3084153469267983e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        1279,
+        1356
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.7627793255126287e-06
+      },
+      "within": [
+        {
+          "decoded": 2.7370286119802313e-08,
+          "latent": 0.0,
+          "logits": 1.1916265609312316e-06
+        },
+        {
+          "decoded": 2.7324641468426094e-08,
+          "latent": 0.0,
+          "logits": 1.0880313642614406e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        1640,
+        2282
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.787888141114916e-06
+      },
+      "within": [
+        {
+          "decoded": 2.4101683391782505e-08,
+          "latent": 0.0,
+          "logits": 1.920489040612246e-06
+        },
+        {
+          "decoded": 2.466297472762244e-08,
+          "latent": 0.0,
+          "logits": 2.5390311737938995e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        264,
+        292
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.318797961454909e-06
+      },
+      "within": [
+        {
+          "decoded": 3.364263777002605e-08,
+          "latent": 0.0,
+          "logits": 2.5860395343842768e-06
+        },
+        {
+          "decoded": 3.20491614807409e-08,
+          "latent": 0.0,
+          "logits": 1.447191615322158e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        307,
+        613
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.625970449172364e-06
+      },
+      "within": [
+        {
+          "decoded": 3.785069443389913e-08,
+          "latent": 0.0,
+          "logits": 2.30410755904127e-06
+        },
+        {
+          "decoded": 3.8424278071895677e-08,
+          "latent": 0.0,
+          "logits": 2.918784561826214e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        616,
+        685
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 3.1312385735604277e-06
+      },
+      "within": [
+        {
+          "decoded": 3.5961717519009863e-08,
+          "latent": 0.0,
+          "logits": 2.278315640479883e-06
+        },
+        {
+          "decoded": 3.721116491203491e-08,
+          "latent": 0.0,
+          "logits": 3.1351465275036845e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        765,
+        873
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.9606324520208085e-06
+      },
+      "within": [
+        {
+          "decoded": 2.6896815450931052e-08,
+          "latent": 0.0,
+          "logits": 1.9711772641164424e-06
+        },
+        {
+          "decoded": 2.6736015645114666e-08,
+          "latent": 0.0,
+          "logits": 1.8576240010150744e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        891,
+        998
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 3.323778555186979e-06
+      },
+      "within": [
+        {
+          "decoded": 3.01078618140025e-08,
+          "latent": 0.0,
+          "logits": 2.0669394796943644e-06
+        },
+        {
+          "decoded": 3.0059113864845346e-08,
+          "latent": 0.0,
+          "logits": 2.2658049283583293e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        1158,
+        1275
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 1.971215677679395e-06
+      },
+      "within": [
+        {
+          "decoded": 3.663628018678547e-08,
+          "latent": 0.0,
+          "logits": 1.868802237568705e-06
+        },
+        {
+          "decoded": 3.415467219241445e-08,
+          "latent": 0.0,
+          "logits": 1.5180094011945842e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        1279,
+        1356
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 3.939975424426652e-06
+      },
+      "within": [
+        {
+          "decoded": 3.476607603622746e-08,
+          "latent": 0.0,
+          "logits": 1.528115715124092e-06
+        },
+        {
+          "decoded": 3.793950347396799e-08,
+          "latent": 0.0,
+          "logits": 2.3270374058355264e-06
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        1640,
+        2282
+      ],
+      "control": "semantic_zero",
+      "repeat": {
+        "latents": 0.0,
+        "logits": 2.1644317034315526e-06
+      },
+      "within": [
+        {
+          "decoded": 2.3087302428146545e-08,
+          "latent": 0.0,
+          "logits": 1.7758043591749047e-06
+        },
+        {
+          "decoded": 2.3889277961410144e-08,
+          "latent": 0.0,
+          "logits": 2.342058237395717e-06
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "pilot_native_passed": true,
+  "repair_witnesses_verified": 160,
+  "scope": "selected exposed development objects/gaussian,background,density,occlusion/seed0/B2; C is conditional on frozen shared readouts; not heldout or deployment benchmark",
+  "timing": "cold fixed-order B2 pilot; no speed inference",
+  "raw_archive": "result/modelnet40_c/lion_guidance_pilot/raw/20261107T111253Z_c.zip",
+  "raw_sha256": "b23899310bbc6b58dc63ff384abdb936957236b86caed85d32fdbf48c5a446dd",
+  "manifest_files": 700
+}

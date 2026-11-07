@@ -2776,3 +2776,11 @@ These open items are scoped to this standalone proposal at Nov5 closure. The sep
 M100171/240 vs half0169 (+.8333pp,CI[-.8333,2.5]);M200166/240 vs half0169
 (-1.25pp,CI[-2.9167,.4167]);cost about23%above operational. No new alpha/ID
 search or conditional GPU expansion. Source and artifact identities in report.
+
+
+## 2026-11-07 — LION guidance mechanisms (new sequential pilot)
+[User report/Code/CPU/Open] See [owned runtime and staged evidence](lion_guidance_pilot_20261107.md). User authorizes all necessary GPU tests without further permission. Questions remain unproved: (A) can direct clean-latent bidirectional Chamfer proximal updates between exact backward steps improve total cost at matched PM accuracy; (B) does the fourth scalar improve geometry-only correspondence beyond beta0/shuffled controls; (C) can past-only PM feature repair improve over the same grad-enabled zero-step readout? Native repeat/equivalence gates precede attribution; small exposed cohorts cannot establish generalization.
+
+
+## 2026-11-07 — LION guidance pilot outcome
+[Run/Inference/Decision] [A/B/C results](lion_guidance_pilot_results_20261107.md): these locked settings did not qualify for wider validation. A/B both22/32 acrossallarms, with native failures14/16 and11/16pass; C48/64allarms,32/32conditional-readoutpass. Feature matching changes≈25–28%choices in CPU archived-tensor recomputation, causal-feature191/192steps accepted, but neither increases observed accuracy. This is not proof that every setting fails. Remaining research questions require a new explicit statistical/reproducibility design; no warmed/deployment/noninferiority/256×3 result exists. No default promotion.

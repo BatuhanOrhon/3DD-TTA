@@ -1,0 +1,354 @@
+{
+  "status": "accepted",
+  "phase": "b",
+  "results": [
+    {
+      "arm": "feature",
+      "n": 32,
+      "correct": 22,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "full",
+      "n": 32,
+      "correct": 22,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "full_repeat",
+      "n": 32,
+      "correct": 22,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "geometric",
+      "n": 32,
+      "correct": 22,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "metric4d",
+      "n": 32,
+      "correct": 22,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "shuffled",
+      "n": 32,
+      "correct": 22,
+      "accuracy_percent": 68.75
+    }
+  ],
+  "comparisons": [
+    {
+      "arm": "feature",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "density": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "full_repeat",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "density": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "geometric",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "density": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "metric4d",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "density": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "shuffled",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "density": 0.0,
+        "occlusion": 0.0
+      }
+    }
+  ],
+  "technical": null,
+  "elapsed": 136.71697045200017,
+  "pilot_native": [
+    {
+      "corruption": "density",
+      "ids": [
+        264,
+        292
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.0783787119928988e-07,
+        "logits": 4.725653792579079e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        307,
+        613
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.2196270009427386e-07,
+        "logits": 0.0019336912295262719
+      },
+      "within": [],
+      "passed": false
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        616,
+        685
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.1191937450487627e-07,
+        "logits": 4.500290068384524e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        765,
+        873
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.0844041477322263e-07,
+        "logits": 0.033997266551551025
+      },
+      "within": [],
+      "passed": false
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        891,
+        998
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.1403232366473853e-07,
+        "logits": 6.442991456508539e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        1158,
+        1275
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.5680094101752269e-06,
+        "logits": 8.752735920300886e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        1279,
+        1356
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 0.00020249050378096271,
+        "logits": 0.23976897060082084
+      },
+      "within": [],
+      "passed": false
+    },
+    {
+      "corruption": "density",
+      "ids": [
+        1640,
+        2282
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.1276467141858956e-07,
+        "logits": 6.61271122410441e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        264,
+        292
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.0918735014963178e-07,
+        "logits": 1.631434410445433e-05
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        307,
+        613
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.218108944531766e-07,
+        "logits": 5.168633078275112e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        616,
+        685
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 2.5840965154122985e-06,
+        "logits": 0.0001043717025575934
+      },
+      "within": [],
+      "passed": false
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        765,
+        873
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.0655288736094099e-07,
+        "logits": 5.974682018873694e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        891,
+        998
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 3.215522106715942e-05,
+        "logits": 0.006140378661171149
+      },
+      "within": [],
+      "passed": false
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        1158,
+        1275
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.1315324603811501e-07,
+        "logits": 3.893037645938394e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        1279,
+        1356
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 1.2015818350987396e-07,
+        "logits": 7.80123150417013e-06
+      },
+      "within": [],
+      "passed": true
+    },
+    {
+      "corruption": "occlusion",
+      "ids": [
+        1640,
+        2282
+      ],
+      "control": "full",
+      "repeat": {
+        "latents": 2.477052733232939e-07,
+        "logits": 9.48638991190674e-06
+      },
+      "within": [],
+      "passed": true
+    }
+  ],
+  "pilot_native_passed": false,
+  "repair_witnesses_verified": 0,
+  "scope": "selected exposed development objects/density,occlusion/seed0/B2; C is conditional on frozen shared readouts; not heldout or deployment benchmark",
+  "timing": "cold fixed-order B2 pilot; no speed inference",
+  "raw_archive": "result/modelnet40_c/lion_guidance_pilot/raw/20261107T110949Z_b.zip",
+  "raw_sha256": "4116a682093c08681aa1ad5fc500bb37eac68bd3487a0d77e3de1bc248fe2bbf",
+  "manifest_files": 284
+}

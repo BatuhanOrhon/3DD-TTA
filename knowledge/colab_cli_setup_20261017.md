@@ -605,3 +605,7 @@ Setup evidence ZIP13,629bytes SHA256841323331af62d71363c6bfd0703f05aaece811701a3
 Drive `MyDrive/thesis/result/gsd_lowband_halfmix_20261107/setup_evidence.zip`,
 local copy byte/SHA verified. Consolidated raw archive acceptance is recorded in
 the study; runtime and sole monitor remain live until explicit close authorization.
+
+
+### 2026-11-07 — own LION guidance fresh split-notebook replay
+[Run/CPU] New own HighRAM A10080GB `tta-lion-guidance-pilot-a100-20261107-r1` executed canonical10cells in order. Cell1 restart/sameVM reconnect; cell2 only known deferredfastrlock wheel failure, Python3.8.20verified. Cells4–7 built pinnedCUDA12.1/GCC11.4/EMD/Chamfer/PointNet++; cell8 builtPVCNN and GPU smoke completion file at10:49:43UTC, but lost final CLI stream. Read-only console confirmed no remaining build/GPU process; stale localCLI only was stopped. Independent marker check passed; cell10 separately emitted SETUP_ENVIRONMENT_VERIFIED and finalwrapper marker, validating nativeGPU/data15arrays/checkpoints withTorch2.1.2+cu121/NumPy1.21.2. Cell3 similarly needed an independent copyhash check after its completion marker/CLI reply timeout. No duplicate builds or runtime restarts to hide failures. [Exact records and archive identities](lion_guidance_pilot_20261107.md); the cell8 final stream limitation is retained. Runtime remains live.

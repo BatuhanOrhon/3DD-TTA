@@ -1,3 +1,25 @@
+**[Run/CPU/Decision] 2026-11-07 — LION guidance A/B/C scoped pilots complete:**
+[Final results, native failures and non-advancement](lion_guidance_pilot_results_20261107.md).
+A/B all arms22/32; C all arms48/64. A/B repeat gates14/16 and11/16,
+C frozen-readout32/32. Feature matching and feature repair are active but show
+no pilot accuracy gain; no qualified joint speed/accuracy benefit or new baseline.
+Four raw archives plus source/native supplement accepted;815CPUtests/2skip.
+Conditional wider runs NOT_ADVANCED; owned runtime retained. Earlier running
+entries are dated history.
+
+**[Run/CPU/Inference/Open] 2026-11-07 — LION guidance technical controls completed:**
+[Native failures, accepted artifacts and narrowed A/B/C continuation](lion_guidance_pilot_20261107.md).
+Sampler repeat/equivalence5/8cases pass; Background and one Gaussian fail.
+Frozen readout zero-controls8/8pass. A/B proceed only on numerically eligible
+Density+Occlusion with per-case repeats; C tests conditional readout effects.
+No new accuracy/contribution claim; owned runtime remains active.
+
+**[User report/Code/CPU/Run/Open] 2026-11-07 — LION guidance A/B/C pilot in preparation:**
+[Sequential experiment, owned runtime, setup and review](lion_guidance_pilot_20261107.md).
+User authorizes necessary GPU phases without repeated permission. Own A10080GB
+canonical cells1–4 verified; native build ongoing. Cheap latent Chamfer, feature
+correspondence and causal PM repair are experimental; no gain or scienceGPU yet.
+
 **[Run/CPU/Inference/Open] 2026-11-07 — PM hard-lowband halfmix completed; attribution failed:**
 [Results, five controls, numerical failures and cost](gsd_lowband_halfmix_results_20261107.md),
 [execution history](gsd_lowband_halfmix_study_20261105.md).

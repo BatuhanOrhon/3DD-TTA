@@ -1,0 +1,12 @@
+{
+  "bytes": 53967,
+  "sha256": "14e229a8c19e31f092ef49b3a04d8852a33266ef270fc0eabb9020681d92c772",
+  "files": 22,
+  "local_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/lion-guidance-pilot-20261107/result/preparation/lion_guidance_pilot_20261107/20261107T112957Z_final_evidence.zip",
+  "remote_path": "/content/20261107T112957Z_final_evidence.zip",
+  "drive_path": "/content/drive/MyDrive/thesis/result/lion_guidance_pilot_20261107/derived/20261107T112957Z_final_evidence.zip",
+  "scope": "Core result/source/analysis snapshot after integrated tests; excludes its own receipt and subsequent publication-status metadata",
+  "drive_verified": true,
+  "local_roundtrip_verified": true,
+  "roundtrip_path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/lion-guidance-pilot-20261107/result/preparation/lion_guidance_pilot_20261107/20261107T112957Z_final_evidence_drive_roundtrip.zip"
+}

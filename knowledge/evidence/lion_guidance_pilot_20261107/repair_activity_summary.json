@@ -1,0 +1,50 @@
+{
+  "scope": "Archived attempted corrections; CE decrease is consistency with pseudo-teacher, not correctness",
+  "aggregate": {
+    "causal_feature": {
+      "attempts": 192,
+      "accepted": 191,
+      "geometry_ratio_quantiles": [
+        9.326372492068913e-06,
+        6.636765829171054e-05,
+        0.0004488446662435308,
+        0.001255505601875484
+      ],
+      "xyz_delta_max": 0.0,
+      "median_feature_delta_rms": 0.010008335284704814,
+      "median_logit_delta_rms": 0.02230659085429502,
+      "accepted_ce_decreased": 155,
+      "median_accepted_ce_change": -0.001453880395794704
+    },
+    "fixed_feature": {
+      "attempts": 192,
+      "accepted": 192,
+      "geometry_ratio_quantiles": [
+        9.704741387395188e-06,
+        6.253046376514249e-05,
+        0.00040549293917138126,
+        0.0009922675089910626
+      ],
+      "xyz_delta_max": 0.0,
+      "median_feature_delta_rms": 0.010008335704608701,
+      "median_logit_delta_rms": 0.023599076028868963,
+      "accepted_ce_decreased": 151,
+      "median_accepted_ce_change": -0.005450318757188563
+    },
+    "causal_all": {
+      "attempts": 192,
+      "accepted": 0,
+      "geometry_ratio_quantiles": [
+        0.001943926909007132,
+        0.0036991500528529286,
+        0.006912500690668821,
+        0.01069948635995388
+      ],
+      "xyz_delta_max": 0.2927877902984619,
+      "median_feature_delta_rms": 1.6199554717800298e-05,
+      "median_logit_delta_rms": 0.5113990357742519,
+      "accepted_ce_decreased": 0,
+      "median_accepted_ce_change": null
+    }
+  }
+}

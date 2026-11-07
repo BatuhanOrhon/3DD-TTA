@@ -8789,3 +8789,31 @@ published as`ab56a007fad95ce806cf68c50f7067a2c1ee6bd7`; derived402,060byte/SHA61
 verified via actual Drive download. Clean integration807tests/2skip/500subtests
 and identical33run recount passed. Final metadata/CSV LF normalization preserves
 all75CSVrows and immutable raw bytes. Own runtime remains live.
+
+
+### 2026-11-07 10:34 UTC — LION guidance pilot preparation
+[User report/Code/CPU/Run/Open] User authorizes all necessary sequential GPU tests without repeat permission. New own A10080GB canonical cells1–4 verified (cell2 known fastrlock exception only), cell5 running; no scienceGPU. Independent review repairs and813pass/2skip CPU suite recorded in [pilot execution](lion_guidance_pilot_20261107.md). Peer runtime protected; native gates/A/B/C/raw acceptance remain pending.
+
+
+### 2026-11-07 10:54 UTC — LION native setup recovery
+[Run/Failure/Recovery/Open] New A100 runtime canonical native5–8 built successfully according to completion files; cell8 lost final CLI stream. No native rebuild or runtime restart: process inventory and independent marker verification recovered completion, with final native validation still required atcell10. Cell9 data preparation active. Exact limitation and source-v2 freeze in [pilot note](lion_guidance_pilot_20261107.md). No scientific gain measured.
+
+
+### 2026-11-07 10:59 UTC — first LION guidance technical GPU phase
+[Run/Open] Canonical setup verifier passed nativeGPU/data/checkpoints on own A10080GB; source-v2 deployed with strict CPU load and pinned native provenance. `20261107T105912Z_technical` launched paired sampler/semantic-zero repeats and unlabeled proximal calibration. No accuracy/contribution result yet. [Protocol and exact hashes](lion_guidance_pilot_20261107.md).
+
+
+### 2026-11-07 11:03 UTC — LION technical repeat gate failed; readout gate passed
+[Run/CPU/Inference/Decision]97.316s technical runner,45.3MB Drive/local raw SHA verified and independently recounted. Sampler5/8cases pass; both Background cases and one Gaussian case fail, including original self-repeat and a PM correctness change in experimental repeats. Semantic-zero frozen-readout8/8pass. tau.1 calibrated label-free. A/B continuation narrowed to Density+Occlusion with per-case full repeats; C remains conditional on first shared frozen trajectory/all4. Failed pilot cases will not be excluded to manufacture a gain; advancing candidates require own repeats. [Exact evidence and amended scope](lion_guidance_pilot_20261107.md).
+
+
+### 2026-11-07 11:09 UTC — A cheap latent Chamfer pilot
+[Run/CPU/Inference/Open] All6arms22/32 correct, no corrected/harmed cases versusfull.14/16numerical repeat gates pass;2Density failures retained. Lower descriptive compute cost cannot establish joint accuracy-preserving speedup. Hybrid does not improve over sparse at this pilot setting. No population equivalence from degenerate[0,0] bootstrap. Raw46.0MB Drive/local accepted; B matching pilot now running. [Full record](lion_guidance_pilot_20261107.md).
+
+
+### 2026-11-07 11:15 UTC — B feature correspondence pilot
+[Run/CPU/Inference] All6arms22/32; no feature advantage over geometry/shuffle. Native repeat11/16pass;5failures retained. Archived-tensor CPUfloat64 diagnostic changes≈25–28%matches, so no-accuracy-effect is not simply an inactive mechanism; no correct-correspondence proof. Raw46.0MB Drive/local accepted. C conditional readout pilot running. [Evidence and limitations](lion_guidance_pilot_20261107.md).
+
+
+### 2026-11-07 11:24 UTC — LION A/B/C scoped study completed
+[Run/CPU/Inference/Decision] C all6arms48/64;32/32zero-readout native gates pass. Feature191/192accepted, teacherCE155/191decreases, no final class change. All-channel0/192accepted, so no channel-superiority inference. Four raw ZIPs463.4MB plus6.47MB full-source/7native supplement accepted Drive/local; independent review confirms counts/controls.815CPUtests/2skip/500subtests. No candidate met progression gates; candidate-repeat/warmed/full256×3/cross-head NOT_ADVANCED. Existing defaults retained and own runtime remains live, peer protected. [Final report](lion_guidance_pilot_results_20261107.md), [execution](lion_guidance_pilot_20261107.md).

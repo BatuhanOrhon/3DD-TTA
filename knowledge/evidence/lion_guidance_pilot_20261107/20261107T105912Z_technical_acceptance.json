@@ -1,0 +1,533 @@
+{
+  "status": "accepted",
+  "phase": "technical",
+  "results": [
+    {
+      "arm": "full",
+      "n": 16,
+      "correct": 11,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "full_repeat",
+      "n": 16,
+      "correct": 12,
+      "accuracy_percent": 75.0
+    },
+    {
+      "arm": "original",
+      "n": 16,
+      "correct": 11,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "original_repeat",
+      "n": 16,
+      "correct": 11,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "semantic_zero",
+      "n": 16,
+      "correct": 11,
+      "accuracy_percent": 68.75
+    },
+    {
+      "arm": "semantic_zero_repeat",
+      "n": 16,
+      "correct": 11,
+      "accuracy_percent": 68.75
+    }
+  ],
+  "comparisons": [
+    {
+      "arm": "full_repeat",
+      "control": "full",
+      "delta_pp": 6.25,
+      "cluster_object_ci95": [
+        0.0,
+        18.75
+      ],
+      "wins": 1,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 25.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "original",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "original_repeat",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "semantic_zero",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    },
+    {
+      "arm": "semantic_zero_repeat",
+      "control": "full",
+      "delta_pp": 0.0,
+      "cluster_object_ci95": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "losses": 0,
+      "per_corruption_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      }
+    }
+  ],
+  "technical": {
+    "passed": false,
+    "semantic_passed": true,
+    "parity": [
+      {
+        "ids": [
+          140,
+          1557
+        ],
+        "corruption": "gaussian",
+        "original_repeat": {
+          "latents": 9.749172248708278e-08,
+          "logits": 3.299181616952081e-06
+        },
+        "cross": {
+          "latents": 1.4032368823840956e-07,
+          "logits": 1.9209254745083434e-06
+        },
+        "experimental_repeat": {
+          "latents": 1.4006543035518646e-07,
+          "logits": 1.9338886800022127e-06
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.1825988546960857e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 2.1295505751956135e-08,
+            "latent": 0.0,
+            "logits": 8.668669528695111e-07
+          },
+          {
+            "decoded": 2.1756179311043797e-08,
+            "latent": 0.0,
+            "logits": 1.2201514527693558e-06
+          }
+        ],
+        "semantic_passed": true,
+        "passed": true
+      },
+      {
+        "ids": [
+          1808,
+          2312
+        ],
+        "corruption": "gaussian",
+        "original_repeat": {
+          "latents": 1.2255132827100416e-07,
+          "logits": 3.3052117268657533e-06
+        },
+        "cross": {
+          "latents": 5.165916737681576e-05,
+          "logits": 0.0033282222794698032
+        },
+        "experimental_repeat": {
+          "latents": 5.16594576646181e-05,
+          "logits": 0.003328116916882507
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.4261331972153385e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 2.178747148441354e-08,
+            "latent": 0.0,
+            "logits": 1.2265432741683877e-06
+          },
+          {
+            "decoded": 2.213592830747181e-08,
+            "latent": 0.0,
+            "logits": 1.009103395426047e-06
+          }
+        ],
+        "semantic_passed": true,
+        "passed": false
+      },
+      {
+        "ids": [
+          140,
+          1557
+        ],
+        "corruption": "background",
+        "original_repeat": {
+          "latents": 0.041754314221470266,
+          "logits": 0.5441437632633707
+        },
+        "cross": {
+          "latents": 0.03950524600563584,
+          "logits": 0.5170561923032623
+        },
+        "experimental_repeat": {
+          "latents": 0.04207328879358204,
+          "logits": 0.46414389526646427
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.4789257624816642e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 2.1620021732395704e-08,
+            "latent": 0.0,
+            "logits": 9.486625646397985e-07
+          },
+          {
+            "decoded": 2.130318624488165e-08,
+            "latent": 0.0,
+            "logits": 8.8492387203885e-07
+          }
+        ],
+        "semantic_passed": true,
+        "passed": false
+      },
+      {
+        "ids": [
+          1808,
+          2312
+        ],
+        "corruption": "background",
+        "original_repeat": {
+          "latents": 0.015346260126635416,
+          "logits": 0.45619712261581563
+        },
+        "cross": {
+          "latents": 0.019973967954828264,
+          "logits": 0.5956857747196804
+        },
+        "experimental_repeat": {
+          "latents": 0.0129470082618858,
+          "logits": 0.40325310799714215
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.676414536693771e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 2.3165271573263418e-08,
+            "latent": 0.0,
+            "logits": 1.0232132193436404e-06
+          },
+          {
+            "decoded": 2.392286372832397e-08,
+            "latent": 0.0,
+            "logits": 1.3433121239054553e-06
+          }
+        ],
+        "semantic_passed": true,
+        "passed": false
+      },
+      {
+        "ids": [
+          140,
+          1557
+        ],
+        "corruption": "density",
+        "original_repeat": {
+          "latents": 1.0820452572990072e-07,
+          "logits": 2.999871433785818e-06
+        },
+        "cross": {
+          "latents": 1.1011109997859808e-07,
+          "logits": 2.7497323540601728e-06
+        },
+        "experimental_repeat": {
+          "latents": 1.0659419684768862e-07,
+          "logits": 2.4289917607704562e-06
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.0744120851646775e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 2.4513274410209424e-08,
+            "latent": 0.0,
+            "logits": 7.136367020548407e-07
+          },
+          {
+            "decoded": 2.542484546529389e-08,
+            "latent": 0.0,
+            "logits": 1.1595967650001911e-06
+          }
+        ],
+        "semantic_passed": true,
+        "passed": true
+      },
+      {
+        "ids": [
+          1808,
+          2312
+        ],
+        "corruption": "density",
+        "original_repeat": {
+          "latents": 6.065636171927439e-07,
+          "logits": 4.017024076109314e-06
+        },
+        "cross": {
+          "latents": 6.068928778990182e-07,
+          "logits": 4.108618768902145e-06
+        },
+        "experimental_repeat": {
+          "latents": 6.061048959448923e-07,
+          "logits": 3.5058097195444454e-06
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.2264086943308214e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 2.379290301939503e-08,
+            "latent": 0.0,
+            "logits": 1.095461819448939e-06
+          },
+          {
+            "decoded": 2.3785221829800888e-08,
+            "latent": 0.0,
+            "logits": 1.2200462936810986e-06
+          }
+        ],
+        "semantic_passed": true,
+        "passed": true
+      },
+      {
+        "ids": [
+          140,
+          1557
+        ],
+        "corruption": "occlusion",
+        "original_repeat": {
+          "latents": 1.2037171875939113e-07,
+          "logits": 3.1037172898856055e-06
+        },
+        "cross": {
+          "latents": 1.1910571192056894e-07,
+          "logits": 3.4379981420720285e-06
+        },
+        "experimental_repeat": {
+          "latents": 1.1531442505462798e-07,
+          "logits": 2.74390934685566e-06
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.283282214218457e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 2.7346388799607437e-08,
+            "latent": 0.0,
+            "logits": 1.2670744084127262e-06
+          },
+          {
+            "decoded": 2.8015737401836864e-08,
+            "latent": 0.0,
+            "logits": 1.1675038399308542e-06
+          }
+        ],
+        "semantic_passed": true,
+        "passed": true
+      },
+      {
+        "ids": [
+          1808,
+          2312
+        ],
+        "corruption": "occlusion",
+        "original_repeat": {
+          "latents": 2.1042974406554392e-07,
+          "logits": 3.9016964480140846e-06
+        },
+        "cross": {
+          "latents": 2.103222171033311e-07,
+          "logits": 3.232677109546713e-06
+        },
+        "experimental_repeat": {
+          "latents": 1.1306997256758324e-07,
+          "logits": 3.983014226253469e-06
+        },
+        "semantic_repeat": {
+          "latents": 0.0,
+          "logits": 1.7413909745521793e-06
+        },
+        "semantic_within": [
+          {
+            "decoded": 3.6168786426692194e-08,
+            "latent": 0.0,
+            "logits": 2.0602741908079896e-06
+          },
+          {
+            "decoded": 3.5172073689079136e-08,
+            "latent": 0.0,
+            "logits": 1.6125750738670032e-06
+          }
+        ],
+        "semantic_passed": true,
+        "passed": true
+      }
+    ],
+    "tau_scores": {
+      "0.01": [
+        1.8736097812652588,
+        1.8743369579315186,
+        1.872578740119934,
+        1.869497537612915,
+        3.2541322708129883,
+        3.1136715412139893,
+        3.1933741569519043,
+        3.1107306480407715,
+        1.874755620956421,
+        1.8786965608596802,
+        1.8736951351165771,
+        1.8709688186645508,
+        1.8824223279953003,
+        1.8868762254714966,
+        1.8763642311096191,
+        1.873544692993164
+      ],
+      "0.03": [
+        0.8358330726623535,
+        0.8381978869438171,
+        0.8351038694381714,
+        0.8250739574432373,
+        2.502558708190918,
+        2.217865467071533,
+        2.3739166259765625,
+        2.2022502422332764,
+        0.8383086919784546,
+        0.844049334526062,
+        0.8357987403869629,
+        0.8273159265518188,
+        0.8541311025619507,
+        0.8636283874511719,
+        0.8398874402046204,
+        0.8334802389144897
+      ],
+      "0.06": [
+        0.22268933057785034,
+        0.22675460577011108,
+        0.2212231159210205,
+        0.2041894793510437,
+        2.139084815979004,
+        1.7163217067718506,
+        1.9599369764328003,
+        1.7106244564056396,
+        0.22620579600334167,
+        0.23366573452949524,
+        0.22198286652565002,
+        0.2074020504951477,
+        0.2494715452194214,
+        0.2626912593841553,
+        0.22732818126678467,
+        0.21653005480766296
+      ],
+      "0.1": [
+        0.19650301337242126,
+        0.19100452959537506,
+        0.19974704086780548,
+        0.22263726592063904,
+        1.920332670211792,
+        1.3701527118682861,
+        1.7001267671585083,
+        1.3904798030853271,
+        0.1927526295185089,
+        0.18367841839790344,
+        0.19853916764259338,
+        0.21850189566612244,
+        0.1639803647994995,
+        0.14909717440605164,
+        0.19235143065452576,
+        0.20762626826763153
+      ],
+      "0.3": [
+        0.9702390432357788,
+        0.9625436663627625,
+        0.982393741607666,
+        1.015244483947754,
+        1.5384759902954102,
+        0.6638291478157043,
+        1.2116117477416992,
+        0.7973624467849731,
+        0.9720045328140259,
+        0.9569841623306274,
+        0.9800064563751221,
+        1.0102074146270752,
+        0.935566246509552,
+        0.9247691631317139,
+        0.972975492477417,
+        0.9996343851089478
+      ]
+    },
+    "selected_tau": 0.1,
+    "selection": "minimum median absolute log update-norm ratio; no labels",
+    "limits": "Strict same-run numerical controls, not proof of population accuracy or determinism"
+  },
+  "elapsed": 97.31619589799993,
+  "repair_witnesses_verified": 16,
+  "scope": "selected exposed development objects/four corruptions/seed0/B2; not heldout or deployment benchmark",
+  "timing": "cold fixed-order B2 pilot; no speed inference",
+  "raw_archive": "result/modelnet40_c/lion_guidance_pilot/raw/20261107T105912Z_technical.zip",
+  "raw_sha256": "8e5975fd64027367d43016ec57fca2c8c5a2ea2be55dc88cfc833d69f2375a9a",
+  "manifest_files": 172
+}

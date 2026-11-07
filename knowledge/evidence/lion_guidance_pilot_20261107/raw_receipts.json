@@ -1,0 +1,34 @@
+[
+  {
+    "run_id": "20261107T105912Z_technical",
+    "bytes": 45294200,
+    "sha256": "8e5975fd64027367d43016ec57fca2c8c5a2ea2be55dc88cfc833d69f2375a9a",
+    "local_path": "result/modelnet40_c/lion_guidance_pilot/raw/20261107T105912Z_technical.zip",
+    "drive_path": "MyDrive/thesis/result/lion_guidance_pilot_20261107/raw/20261107T105912Z_technical.zip",
+    "accepted": true
+  },
+  {
+    "run_id": "20261107T110635Z_a",
+    "bytes": 46027344,
+    "sha256": "df3cfbcb6a40ac02d69da2da7b4860ecf7b003652f7a8cbc04dde88dd496aa8c",
+    "local_path": "result/modelnet40_c/lion_guidance_pilot/raw/20261107T110635Z_a.zip",
+    "drive_path": "MyDrive/thesis/result/lion_guidance_pilot_20261107/raw/20261107T110635Z_a.zip",
+    "accepted": true
+  },
+  {
+    "run_id": "20261107T110949Z_b",
+    "bytes": 46027270,
+    "sha256": "4116a682093c08681aa1ad5fc500bb37eac68bd3487a0d77e3de1bc248fe2bbf",
+    "local_path": "result/modelnet40_c/lion_guidance_pilot/raw/20261107T110949Z_b.zip",
+    "drive_path": "MyDrive/thesis/result/lion_guidance_pilot_20261107/raw/20261107T110949Z_b.zip",
+    "accepted": true
+  },
+  {
+    "run_id": "20261107T111253Z_c",
+    "bytes": 326062275,
+    "sha256": "b23899310bbc6b58dc63ff384abdb936957236b86caed85d32fdbf48c5a446dd",
+    "local_path": "result/modelnet40_c/lion_guidance_pilot/raw/20261107T111253Z_c.zip",
+    "drive_path": "MyDrive/thesis/result/lion_guidance_pilot_20261107/raw/20261107T111253Z_c.zip",
+    "accepted": true
+  }
+]
