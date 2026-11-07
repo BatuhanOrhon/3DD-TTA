@@ -8782,3 +8782,10 @@ joint gain or default promotion. Raw2,329,149,449bytes/SHAe2f2e4c4025fc4b7a64b25
 Drive/localverified; source/native/cache/PM-terminal recount complete. Negative
 and failed numerical outcomes preserved. Own standardA100/solemonitor91825remain
 live; no teardown authorization. Derived/publication receipts follow in finalnote.
+
+
+[Run, Nov7 publication] Lowband halfmix accepted results and compact evidence
+published as`ab56a007fad95ce806cf68c50f7067a2c1ee6bd7`; derived402,060byte/SHA61583a1d613837eb711cd51b10b759ef316ec923671cddfb8bf113ab3e4c2bc8
+verified via actual Drive download. Clean integration807tests/2skip/500subtests
+and identical33run recount passed. Final metadata/CSV LF normalization preserves
+all75CSVrows and immutable raw bytes. Own runtime remains live.

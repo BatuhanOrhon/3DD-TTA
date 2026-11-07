@@ -32,5 +32,7 @@
     "read-only independent report/arithmetic/schema review"
   ],
   "runtime": "tta-gsd-lowband-halfmix-a100-20261107-r1",
-  "runtime_teardown": false
+  "runtime_teardown": false,
+  "publication_csv": "Repository-facing CSV CRLF normalized to LF; parsed75rows unchanged; raw/derived archive CSV bytes preserved.",
+  "staged_whitespace_check": "Initial staged check flagged CSV CRLF; correction validated before final metadata publication."
 }

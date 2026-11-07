@@ -42,7 +42,7 @@ instability remains unresolved; no reliable GSD gain or default promotion.
 - [x] Pilot: operational full SCD, live full SCD/weight0, live half SCD/weight0,
   halfmix M100, halfmix M200. All caches prebuilt before measured arms; inspect
   actual ranks/eigengaps/support and alias filters. No alpha/accuracy selection.
-- [ ] Archive seven files/prediction NPZ/cache/graph/norm/source/native bytes and
+- [x] Archive seven files/prediction NPZ/cache/graph/norm/source/native bytes and
   successful/partial/failed ZIPs; verify local/Drive SHA. Independent PM primary,
   terminal secondary recount and object-cluster bootstrap, all15/per corruption,
   versus operational/full-live/half-SCD controls. Separate fresh pipeline,
@@ -382,3 +382,16 @@ Derived Drive backup and clean integration publication are the final pending ste
 is Drive/local/actualDrive-download verified. Clean integration full807tests/2skip,
 500subtests/61.61s and identical33-run recount passed. Independent review found
 no concrete blocker. Only normal integration publication/final receipt remains.
+
+
+[Run] Necessary completed results/analysis/knowledge published by normal push as
+`ab56a007fad95ce806cf68c50f7067a2c1ee6bd7` to`origin/thesis-integration`, preserving latest target79445c0
+and peers. [Selected/excluded scope and checks](evidence/gsd_lowband_halfmix_20261107/publication.json).
+Scientific task complete; final metadata receipt is additive. Runtime/monitor
+remain live; no close authorization.
+
+
+[Run] Final metadata Drive/local roundtrip and latest live runtime proof accepted;
+[final receipt](evidence/gsd_lowband_halfmix_20261107/final_evidence_receipt.json).
+All requested bounded tests, acceptance, backups and scientific publication complete.
+No active research workers; runtime/monitor preserved without teardown.

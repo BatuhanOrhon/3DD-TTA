@@ -1,0 +1,27 @@
+{
+  "status": "science complete, raw+derived+metadata Drive/local accepted, scientific result published",
+  "metadata": {
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/preparation/gsd_lowband_halfmix_20261107/metadata_20261107T111334Z.zip",
+    "remote": "/content/studies/gsd-lowband-halfmix-20261107/metadata_20261107T111334Z.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_halfmix_20261107/derived/metadata_20261107T111334Z.zip",
+    "bytes": 72772,
+    "sha256": "fedaa3e8316c75f727aa6b1f35fbd668772278471208f0081f43ddbab6db1657",
+    "phase_sha256": "61cd8b7ff830ed821ca2b4ab20486f01766d409b852bed87570a873e8b3caea7",
+    "scientific_publication": "ab56a007fad95ce806cf68c50f7067a2c1ee6bd7"
+  },
+  "time_utc": "2026-11-07T11:13:52Z",
+  "session": "tta-gsd-lowband-halfmix-a100-20261107-r1",
+  "endpoint": "gpu-a100-s-usc1c0-gz8ghzlq66bg",
+  "actual_gpu": "NVIDIA A100-SXM4-40GB, 40960 MiB, 0 MiB",
+  "active_research_processes": [],
+  "drive_mounted": true,
+  "runtime_preserved": true,
+  "monitor_exec": 91825,
+  "teardown_authorization": false,
+  "local_metadata_roundtrip": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/preparation/gsd_lowband_halfmix_20261107/metadata_20261107T111334Z.zip.from_drive.zip",
+  "roundtrip_verified": true,
+  "full_pytest_passed": 807,
+  "skipped": 2,
+  "subtests": 500,
+  "native_numeric_gate_passed": false
+}

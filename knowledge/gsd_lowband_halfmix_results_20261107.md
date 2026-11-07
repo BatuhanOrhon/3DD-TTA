@@ -181,3 +181,16 @@ Local CRC/member SHA, Drive size/SHA and actual Drive-path CLI roundtrip pass.
 Clean integration807tests/2skip/500subtests passed61.61s; the33-run recount from
 that checkout is exactly equal to accepted analysis_v2. Independent review found
 no blocker. [Integration checks](evidence/gsd_lowband_halfmix_20261107/integration_verification.json).
+
+
+[Run] Scientific result published as`ab56a007fad95ce806cf68c50f7067a2c1ee6bd7` to
+`origin/thesis-integration` by normal fast-forward push. Existing opt-in core
+code was already integrated; current publication adds completed acceptance/analysis
+and knowledge, preserving other agents’ findings. [Publication receipt](evidence/gsd_lowband_halfmix_20261107/publication.json).
+
+
+[Run] Final metadata72,772byte/SHAfedaa3e8316c75f727aa6b1f35fbd668772278471208f0081f43ddbab6db1657
+Drive/local/actualDrive-roundtrip verified. Runtime responsive11:13:52UTC,
+A10040GB/0MiB GPU allocation, no active research process, Drive mounted;
+solemonitor91825and runtime preserved. [Final evidence/runtime receipt](evidence/gsd_lowband_halfmix_20261107/final_evidence_receipt.json).
+Repository CSV uses LF; its75parsedrows equal the immutable derived CSV.
