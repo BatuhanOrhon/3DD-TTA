@@ -4,6 +4,73 @@ import unittest
 
 
 class DriverContractTests(unittest.TestCase):
+    def test_benchmark_shards_require_explicit_opt_in_and_hashed_id_selection(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from scripts import diagnose_decoded_spectral as driver
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        self.assertFalse(driver.configuration(args).get('benchmark_shard', False))
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary)/'selection.json'
+            for count in (2, 4, 6, 8, 36, 64, 2468):
+                indices = list(range(2432, 2468)) if count == 36 else list(range(count))
+                selection = dict(schema_version=1, dataset='modelnet40_c', indices=indices)
+                path.write_text(json.dumps(selection))
+                identity = driver.source.file_identity(path)
+                flags = ['--count', str(count), '--index-manifest', str(path),
+                         '--index-manifest-sha256', identity['sha256']]
+                with self.subTest(count=count):
+                    config = driver.configuration([*args, '--benchmark-shard', *flags])
+                    self.assertTrue(config['benchmark_shard'])
+                    self.assertEqual(config['selected_original_ids'], indices)
+                    self.assertEqual(config['selection_manifest_identity'], identity)
+                    if count not in (2, 8):
+                        with self.assertRaises(ValueError):
+                            driver.configuration([*args, *flags])
+            for count in (-2, 0, 1, 3, 2469, 2470):
+                with self.subTest(count=count), self.assertRaisesRegex(ValueError, 'Benchmark shard count'):
+                    driver.configuration([*args, '--benchmark-shard', '--count', str(count)])
+            for extra in ([], ['--index-manifest', str(path)],
+                          ['--index-manifest-sha256', identity['sha256']]):
+                with self.subTest(extra=extra), self.assertRaises(ValueError):
+                    driver.configuration([*args, '--benchmark-shard', *extra])
+
+    def test_worker_revalidates_shard_count_and_pinned_manifest_before_loading_assets(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from scripts import diagnose_decoded_spectral as driver
+        args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
+                '--result-root', '/results', '--paired-state-root', '/paired']
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary)
+            manifest = dict(schema_version=1, dataset='modelnet40_c', indices=[0, 1, 2, 3])
+            (path/'selection_manifest.json').write_text(json.dumps(manifest))
+            identity = driver.source.file_identity(path/'selection_manifest.json')
+            base = dict(driver.configuration(args), run_id='test', count=4, benchmark_shard=True,
+                        index_manifest='/original/selection.json', index_manifest_sha256=identity['sha256'],
+                        selection_manifest=manifest, selection_manifest_identity=identity,
+                        selected_original_ids=[0, 1, 2, 3])
+            cases = [(dict(), RuntimeError, 'Reached asset loading'),
+                     (dict(benchmark_shard=False), ValueError, 'Count4'),
+                     (dict(count=0), ValueError, 'Benchmark shard count'),
+                     (dict(count=3), ValueError, 'Benchmark shard count'),
+                     (dict(count=2470), ValueError, 'Benchmark shard count'),
+                     (dict(index_manifest=None), ValueError, 'manifest'),
+                     (dict(index_manifest_sha256=None), ValueError, 'manifest'),
+                     (dict(index_manifest_sha256='b'*64), ValueError, 'SHA'),
+                     (dict(selected_original_ids=[0, 1, 2, 4]), ValueError, 'worker IDs')]
+            for changes, error, message in cases:
+                (path/'config.json').write_text(json.dumps(dict(base, **changes)))
+                with self.subTest(changes=changes), patch.object(driver, 'apply_backend_policy', return_value={}), \
+                        patch.object(driver.source, 'read_manifest', side_effect=RuntimeError('Reached asset loading')), \
+                        self.assertRaisesRegex(error, message):
+                    driver.worker(str(path))
+                self.assertEqual(json.loads((path/'config.json').read_text())['status'], 'failed')
+
     def test_h5_capture_is_explicit_control_only_and_zero_weight(self):
         from scripts.diagnose_decoded_spectral import configuration
         args = ['--asset-root', '/assets', '--asset-manifest-sha256', 'a'*64,
@@ -116,8 +183,9 @@ class DriverContractTests(unittest.TestCase):
                           dict(indices=[-1, 137]), dict(indices=[103, 2468]), dict(indices=[103])):
                 path.write_text(json.dumps(dict(good, **patch)))
                 sha = driver.source.file_identity(path)['sha256']
-                with self.subTest(patch=patch), self.assertRaises(ValueError):
-                    driver.configuration([*args, '--index-manifest', str(path), '--index-manifest-sha256', sha])
+                for mode in ([], ['--benchmark-shard']):
+                    with self.subTest(patch=patch, mode=mode), self.assertRaises(ValueError):
+                        driver.configuration([*args, *mode, '--index-manifest', str(path), '--index-manifest-sha256', sha])
             # The worker's shared validator must reject a changed stored manifest too.
             with self.assertRaisesRegex(ValueError, 'SHA'):
                 driver.read_index_manifest(path, identity['sha256'], 2)

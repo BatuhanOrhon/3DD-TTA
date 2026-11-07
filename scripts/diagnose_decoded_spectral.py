@@ -27,6 +27,21 @@ from shared_trajectory import SharedTrajectoryObserver
 IDS = [44, 91, 103, 137, 158, 223, 236, 265]
 
 
+def validate_selection_scope(config: dict) -> None:
+    count = config['count']
+    if config.get('benchmark_shard', False):
+        if type(count) is not int or not 2 <= count <= 2468 or count % 2:
+            raise ValueError('Benchmark shard count must be a positive even integer from 2 to 2468')
+        if not config.get('index_manifest') or not config.get('index_manifest_sha256'):
+            raise ValueError('Benchmark shards require a hashed index manifest')
+    elif type(count) is not int or count not in (2, 4, 8):
+        raise ValueError('Diagnostic count must be 2 or 8; count4 requires shared-state capture')
+    if count == 4 and not (config.get('capture_shared_states') or config.get('benchmark_shard', False)):
+        raise ValueError('Count4 requires the opt-in shared-state capture or --benchmark-shard')
+    if (config.get('index_manifest') is None) != (config.get('index_manifest_sha256') is None):
+        raise ValueError('--index-manifest and --index-manifest-sha256 must be supplied together')
+
+
 def configuration(argv=None) -> dict:
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('asset-root', 'asset-manifest-sha256', 'result-root', 'paired-state-root'):
@@ -45,7 +60,9 @@ def configuration(argv=None) -> dict:
     parser.add_argument('--capture-h5', action='store_true')
     parser.add_argument('--capture-native-trace', action='store_true')
     parser.add_argument('--capture-shared-states', action='store_true')
-    parser.add_argument('--count', type=int, choices=(2, 4, 8), default=2)
+    parser.add_argument('--benchmark-shard', action='store_true',
+                        help='Allow an even selected-ID shard with a pinned index manifest; results remain partial')
+    parser.add_argument('--count', type=int, default=2)
     parser.add_argument('--corruptions', nargs='+', choices=CORRUPTIONS,
                         default=['gaussian', 'background'])
     args = parser.parse_args(argv)
@@ -53,8 +70,7 @@ def configuration(argv=None) -> dict:
         raise ValueError('Operational control cannot use live decoded guidance options')
     if args.lowband_modes and args.freeze_decoder_residual:
         raise ValueError('Low-band halfmix requires full decoder derivatives')
-    if args.count == 4 and not args.capture_shared_states:
-        raise ValueError('Count4 requires the opt-in shared-state capture')
+    validate_selection_scope(vars(args))
     if args.capture_h5 and (args.arm != 'control' or args.weight != 0):
         raise ValueError('H5 capture requires the zero-weight control arm')
     if args.capture_native_trace and (args.arm != 'control' or args.weight != 0 or args.capture_h5):
@@ -72,8 +88,6 @@ def configuration(argv=None) -> dict:
         raise ValueError('A pinned asset manifest SHA-256 is required')
     if len(set(args.corruptions)) != len(args.corruptions):
         raise ValueError('Duplicate corruptions are forbidden')
-    if (args.index_manifest is None) != (args.index_manifest_sha256 is None):
-        raise ValueError('--index-manifest and --index-manifest-sha256 must be supplied together')
     config = vars(args)
     for key in ('asset_root', 'result_root', 'paired_state_root', 'drive_root', 'index_manifest'):
         if config[key]:
@@ -459,8 +473,7 @@ def worker(directory: str) -> None:
     active_observer, active_directory = None, None
     started = time.monotonic()
     try:
-        if config['count'] == 4 and not config.get('capture_shared_states'):
-            raise ValueError('Count4 requires the opt-in shared-state capture')
+        validate_selection_scope(config)
         if config.get('capture_h5') and (config['arm'] != 'control' or config['weight'] != 0):
             raise ValueError('H5 capture requires the zero-weight control arm')
         if config.get('capture_native_trace') and (config['arm'] != 'control' or config['weight'] != 0 or config.get('capture_h5')):
@@ -759,7 +772,8 @@ def worker(directory: str) -> None:
                                 **{key: np.concatenate([p[key] for p in accumulated])
                                    for key in ('index', 'label', 'prediction', 'terminal_prediction', 'logits', 'trajectory_logits')})
         config.update(status='partial', diagnostic_complete=True,
-                      completion_scope='All requested selected-ID diagnostic cases; no full benchmark',
+                      completion_scope=('All requested benchmark-shard cases; aggregate full coverage not verified'
+                          if config.get('benchmark_shard') else 'All requested selected-ID diagnostic cases; no full benchmark'),
                       wall_seconds=time.monotonic()-started)
         bundle.write_results(rows, 'partial')
         (bundle.path / 'notes.md').write_text('# Decoded physical spectral diagnostic\n\n' + config['purpose']
