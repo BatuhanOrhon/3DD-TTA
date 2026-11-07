@@ -1,3 +1,12 @@
+**[Run/CPU/Inference/Open] 2026-11-07 — full GSD conversation test inventory recorded:**
+[Chronological tests, accuracy interpretation and unstarted stages](gsd_session_test_inventory_20261107.md)
+connect Nov3 native/H8, Nov4 P0/P1/P2 and32-ID/all15 PM accuracy, and Nov5–6
+H0–H8 diagnostics. Full trajectory PM and one-next-step4/6 readouts are distinct;
+AUROC is not classifier accuracy. Mandatory diagnostics completed; conditional
+applied runs and separate hard100/200 halfmix GPU stages did not run. Existing
+raw acceptance, closed-runtime and publication-readiness records are preserved;
+this is a documentation synthesis, with no new GPU or experimental outcome.
+
 **[Paper/Code/Inference] 2026-11-07 — thesis/publication readiness reviewed:**
 [Assessment and focused priorities](publication_readiness_20261107.md) reconcile
 completed controls and current N8 Chamfer+PM with Nov6 negative spectral evidence.

@@ -1,3 +1,15 @@
+## 2026-11-07 — conversation-wide completion and unrun stages clarified
+
+[Run/CPU/Inference/Open] [Chronological inventory](gsd_session_test_inventory_20261107.md) is the current cross-phase accounting; dated checklists below retain their original scope/history.
+
+- [x] Record all twelve stages from mathematical/native/H8 checks through P0/P1/P2, the actual32-ID/all15/seed0 PM pilot, zero-weight repeats, H5, shared-state H1/H2/H3/H6/H7, H4 and exact-RNG prior localization.
+- [x] Distinguish complete mandatory diagnostics, failed numerical controls, repaired initial analyzers and conditional NOT_ADVANCED/NOT_RUN experiments. PM313/315/313/312of480 is the real trajectory accuracy pilot; shared4/6 results are one-next-prediction diagnostics. H5 AUROC.2713 ranks geometric benefit, not classification accuracy.
+- [ ] Separate hardM100/M200 PM-only halfmix: CPU code exists, but allocation/setup/native tests/alpha calibration/five-arm pilot/timing/accuracy remain unrun under the recorded peer allocation/user-wait status; no new allocation is authorized by this inventory.
+- [ ] Alternative-anchor A/B, actual graph-refresh/sham, new guidance correspondence, feature/style-specific decoder perturbations and deterministic voxelization repair remain untested. Module localization is not a unique-kernel diagnosis or repair.
+- [ ] Applied H5/object-disjoint ranking, wide H6/H7 accuracy, eigenfree full-pipeline and new full/multi-seed confirmation did not advance. V5's three applied/timing arms were not launched after its fixed forward-gate rejection; no retrospective rescue.
+
+[Decision] No new GPU, raw reacceptance, coefficient tuning or default change. Preserve [publication priorities](publication_readiness_20261107.md) and [verified own-runtime closure](evidence/gsd_comprehensive_20261106/closure.json).
+
 ## 2026-11-06 — GSD diagnostic gates resolved for this campaign
 
 [Run/CPU/Decision] [Comprehensive results](gsd_comprehensive_results_20261106.md) supersede the earlier remaining-test/setup-pending status. H0: exact-input/full-RNG prior repeat reproduces drift; first covered differing module is voxelization (features differ, coordinates equal); unique kernel/binary-source cause and deterministic repair remain open. H1 does not establish universal causal suppression. H2 operator drift/H3 decoder mixing measured; beneficial refresh untested and not advanced. H4 all four native-equivalence gates fail; no full-pipeline candidate. H5 ranking fails frozen advancement (AUROC.2713, CIbelow.5) plus native repeat failure; no score inversion/application. H6/H7 no consistent fixed-fraction benefit or accuracy increase on three eligible B2 states; conditional applied stages NOT_ADVANCED. Reuse accepted H8/null all15 and spectral-z/reencoding records. This closes mandatory bounded diagnostics, not universal method questions or peer halfmix. Baseline remains C+PM; no new benchmark/heldout claim. Raw/derived scientific evidence and807CPUtests are linked in the report; ownr4 was closed22:04UTC after verified final backup/publication under user authorization; server absence and monitor stop are recorded.

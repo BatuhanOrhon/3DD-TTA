@@ -7,6 +7,7 @@ Bu, bütün spektral yöntemlerin başarısız olduğu iddiası değildir.
 
 ## Okuma sırası ve kapsam
 
+- [Sohbetin tamamı: 3–6 Kasım deney sırası ve başlamayan testler](gsd_session_test_inventory_20261107.md).
 - [Önceden dondurulan uygulama/ilerleme kuralları](gsd_comprehensive_execution_20261105.md).
 - [H5: ham kabul, sayısal doğrulama ve nesne bootstrap sonuçları](h5_reliability_results_20261105.md).
 - [H0: ilk prior/SCD/gradyan sınırı tanısı](h0_native_trace_results_20261105.md).
