@@ -244,3 +244,21 @@ requiresactive finite norms. Full/Scanreader selfchecks and sourcezeroGraph test
 pass. CurrentfullanalyzerSHA
 e13ee21e8a48295e510e657ea5fae17a3a482679afbbc79a1e8adc20b94a7f44,
 archivedentrypoint executedforcanonicalpartial.
+
+## 17:35UTC — persistent local progress analysis
+
+[Code/Run] [Live cumulative progress](gsd_lowband_full_progress_20261107.md)
+isgeneratedonlyafterall3arms+cache in acontiguousshardprefix have durable
+localacceptanceandACK. LocalwatcherPTY45615 (initial87587 stoppedonlyfor
+Markdownformatrepair), transferconsumer12727, soleColabmonitor91825, local
+inhibitor71002 remainownedbythisstudy. GPUcontinues without interruption.
+Watcherselfcheckpasses; exactinitialpartialreused, immutableper-reportmetadata
+pinsanalyzer e13ee21... andoriginalabsolutePREPpath. Keepthat--analyzerpathon
+resume. Eachnewprefixgetsimmutablederivedreport+scopedknowledgeentry; final39
+requiresall156ZIPhashes/fullcounts/CI/timing. No automaticScanlaunch; parent
+reviewsactualfinalgate andremotecompletionbeforeconditionalphase.
+
+Necessarycompletedfirstinterim/code publishednormally as integration54586b8
+(source20a940a), sourcebranch retained. ConditionalScanpreparedsource41files
+backedupDrive/CLIroundtripverified (CPU-only95,383bytes/SHAbe848ddd...10489e);
+thisisnotScanexecutionoractualcheckpoint/nativeacceptance.

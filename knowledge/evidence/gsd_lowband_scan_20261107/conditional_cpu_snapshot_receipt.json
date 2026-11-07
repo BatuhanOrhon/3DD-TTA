@@ -1,0 +1,9 @@
+{
+  "status": "CPU-only unrun preparation source, CLI Drive roundtrip accepted",
+  "bytes": 95383,
+  "sha256": "be848ddd7e87c6a0ed55eebd7da975115279fdf38247676b15d5c3c9ef10489e",
+  "files": 41,
+  "drive": "MyDrive/thesis/result/gsd_lowband_full_20261107/deployment/conditional_scan_CPU_only_be848ddd7e87.zip",
+  "scope": "Separate Scan operator/acceptor/analyzer/setup source+protocol only; no actualScanresults/receipt/calibration",
+  "full_modelnet_live": true
+}

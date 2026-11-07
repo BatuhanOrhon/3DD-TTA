@@ -86,3 +86,9 @@ includesexact2468IDs), then foundno remainingconcreteblocker. Assetsetupwrapper
 staticreview/syntaxpass; actualCPUStrictScancheckpointload/nativeB1/live transfers
 are stillUNRUN. Draftoperators/setupwrappers remainoutsideintegration until
 actualbindings/conditionalstage; onlycompactCPUverification is published.
+
+[Code/Run] CPU-only/unrun preparation snapshot41files95,383bytes
+SHAbe848ddd7e87c6a0ed55eebd7da975115279fdf38247676b15d5c3c9ef10489e
+backedupunderownfull-studyDrive/deployment andCLIroundtripSHAverified.
+This archives the prepared source/protocol, not a Scan run or passedactual
+Scanassetreceipt. OriginalfullASSETS/source/alpha unchanged.

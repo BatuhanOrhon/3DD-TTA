@@ -1,0 +1,18 @@
+{
+  "status": "CPUselfcheck+actualfirstpartial replay pass; liveCPU watcher running",
+  "files": {
+    "watch_progress.py": {
+      "bytes": 12707,
+      "sha256": "e9c90e12d7edaecfb8b437bc48bec2a2db6ff42792f81e8cfbe2ffa4858d45d4"
+    },
+    "selfcheck_watch_progress.py": {
+      "bytes": 5410,
+      "sha256": "9e3d99937e2e2a5da55217897f154822fc9b7f26cd5ef5b77fd7c44ddb477e8f"
+    }
+  },
+  "exec_session": 45615,
+  "source_analyzer_sha256": "e13ee21e8a48295e510e657ea5fae17a3a482679afbbc79a1e8adc20b94a7f44",
+  "scope": "Localreceipt progress/derivedanalysis/ownedknowledge only; noGPU/network/Scanlaunch",
+  "format": "InlineHTMLmarkers preserve validMarkdown table; sourcebytes updatedafterinitialCPUwatcherformat-onlyrestart",
+  "restart": "Use same --analyzer original PREP absolute path because immutable metadata pins it"
+}
