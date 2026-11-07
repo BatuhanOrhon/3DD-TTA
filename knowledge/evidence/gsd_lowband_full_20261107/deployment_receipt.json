@@ -1,0 +1,29 @@
+{
+  "status": "complete; strict CPU/no-forward/no-CUDA-init",
+  "asset_manifest": {
+    "bytes": 254685,
+    "sha256": "e2cd2942fc9893c863e50018ab5d2373bac00ba5af30a5dbcc75edf99f263f47"
+  },
+  "source_snapshot": {
+    "bytes": 1219439,
+    "sha256": "43601f4554882ec1365a9ea52d1641c224df2f4f55ce3ea7e012a7eb1ec38e69"
+  },
+  "driver_override": {
+    "bytes": 14859,
+    "sha256": "98b63f467a4c138f87538ba3e14c4bd3b045ad5d9d37baa0efd0e8b1facd1c09",
+    "driver": {
+      "bytes": 59722,
+      "sha256": "767020693aae803364789a9e345f4ab4fdbad89d5f50c638a1b5b8cf2f7c6b73"
+    },
+    "override_commit": "1cbd135004e1a298aad650fe9f57bf741ee4982b",
+    "base_source": "d6761c895ef6fa38d882bb2d4ca3f3205c1a1fa3"
+  },
+  "native_capsule": {
+    "bytes": 6451408,
+    "sha256": "cc5eacf18ab9e8fcff449645855876f46c5ba3198583ac44d97207d208f76944"
+  },
+  "calibration": {
+    "bytes": 52405,
+    "sha256": "fb121b127d0ac78ed8ac1ee8dc500d52c5f2a631c4dabaac2a932d6595eca9a1"
+  }
+}

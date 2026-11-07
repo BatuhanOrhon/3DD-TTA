@@ -8817,3 +8817,15 @@ all75CSVrows and immutable raw bytes. Own runtime remains live.
 
 ### 2026-11-07 11:24 UTC — LION A/B/C scoped study completed
 [Run/CPU/Inference/Decision] C all6arms48/64;32/32zero-readout native gates pass. Feature191/192accepted, teacherCE155/191decreases, no final class change. All-channel0/192accepted, so no channel-superiority inference. Four raw ZIPs463.4MB plus6.47MB full-source/7native supplement accepted Drive/local; independent review confirms counts/controls.815CPUtests/2skip/500subtests. No candidate met progression gates; candidate-repeat/warmed/full256×3/cross-head NOT_ADVANCED. Existing defaults retained and own runtime remains live, peer protected. [Final report](lion_guidance_pilot_results_20261107.md), [execution](lion_guidance_pilot_20261107.md).
+
+### 2026-11-07 16:20UTC — [Run/CPU/User report/Open] full lowband confirmation
+
+See [study](gsd_lowband_full_study_20261107.md). New benchmark opt-in CPU suite
+817passed/2skipped/533subtests. Four real technical jobs and15actual caches
+accepted; source/native/model/PM/CSV/basis checks pass; repeated-control numeric
+gate remains failed. Full2468/all15/s5/seed0/B2 three-arm run started in own
+`tta-gsd-lowband-halfmix-a100-20261107-r1`;30–40h wholephase estimate authorized
+by user's explicit all-tests continuation. Operator/source hashes and raw
+technical Drive/local archive receipts in study/evidence. No full accuracy yet.
+Next: finish39shards/117inference, validate all37,020pairs per arm, apply frozen
+>=1pp/positive95%pairedCI gate before independent dataset/source execution.

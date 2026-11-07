@@ -1,0 +1,26 @@
+{
+  "remote/campaign.py": {
+    "bytes": 33739,
+    "sha256": "58c466f291e20b02c16b23f8691a1dee46c57616b16902743913a288f07b40b2"
+  },
+  "remote/full_main_phase.py": {
+    "bytes": 1903,
+    "sha256": "99448730b4c63e5de6d13b7115fb21a1066c77a52b704b3cda55d215ddde4fff"
+  },
+  "remote/plan.json": {
+    "bytes": 10028,
+    "sha256": "8c15bfcfe680fa8901ec9687c4ab679c938b8cab874c759ca72584bed962756e"
+  },
+  "remote/prepare_caches.py": {
+    "bytes": 4874,
+    "sha256": "5a1b07d8e01b435edaf0cc4ca3255d29a25c9c6f3404b442d804e8788ebf7e53"
+  },
+  "remote/selfcheck_campaign.py": {
+    "bytes": 23900,
+    "sha256": "62ecd98c422ec5b270a6bacb4252843d995318433898f38e76f73851898ee214"
+  },
+  "remote/technical_phase.py": {
+    "bytes": 3225,
+    "sha256": "fae2c450fd0a74607552d7a3db5d65b6fc40b91daf7adbb287e66b100776dfb8"
+  }
+}

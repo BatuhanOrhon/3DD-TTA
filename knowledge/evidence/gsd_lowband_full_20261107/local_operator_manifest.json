@@ -1,0 +1,14 @@
+{
+  "local/download_bundle.py": {
+    "bytes": 2383,
+    "sha256": "d088ea29325bd1dced572a61c82c1427d083c3d2dab8a94f089f641ce2bee6a2"
+  },
+  "local/selfcheck_transfer.py": {
+    "bytes": 5618,
+    "sha256": "748c8125fe11e9e7614269223d63fc7de191586ae73a02c3c41504a871c4fa9f"
+  },
+  "local/transfer_daemon.py": {
+    "bytes": 12950,
+    "sha256": "9a70d4ef4d309295a8f6086e05d42055981825550f9e600b2e05a37d85359b5b"
+  }
+}

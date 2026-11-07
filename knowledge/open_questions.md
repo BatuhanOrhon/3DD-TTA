@@ -2784,3 +2784,13 @@ search or conditional GPU expansion. Source and artifact identities in report.
 
 ## 2026-11-07 — LION guidance pilot outcome
 [Run/Inference/Decision] [A/B/C results](lion_guidance_pilot_results_20261107.md): these locked settings did not qualify for wider validation. A/B both22/32 acrossallarms, with native failures14/16 and11/16pass; C48/64allarms,32/32conditional-readoutpass. Feature matching changes≈25–28%choices in CPU archived-tensor recomputation, causal-feature191/192steps accepted, but neither increases observed accuracy. This is not proof that every setting fails. Remaining research questions require a new explicit statistical/reproducibility design; no warmed/deployment/noninferiority/256×3 result exists. No default promotion.
+
+### 2026-11-07 — full M100 confirmation running
+
+[Open/Run] [Full study](gsd_lowband_full_study_20261107.md): do the pilot's
++2.50pp vs operational and+.8333pp vs half0 persist over2468/all15/s5? Frozen
+>=1pp plus positive paired95%objectCI determines conditional separate
+ScanObjectNN-C/Scan-trainedPointMAE stage. Native repeat gate still fails;
+full observed improvement alone cannot establish isolated GSD attribution.
+No full score yet; owned runtime/monitor retained and all partial/failed data
+must remain archived.

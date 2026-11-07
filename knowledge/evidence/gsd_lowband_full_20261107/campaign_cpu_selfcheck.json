@@ -1,0 +1,35 @@
+{
+  "command": [
+    "/private/tmp/tta-lowband-halfmix-20261107-venv/bin/python",
+    "result/preparation/gsd_lowband_full_20261107/operator/selfcheck_campaign.py"
+  ],
+  "counts": {
+    "controller_lock_contentions": 1,
+    "failed_worker_attempts": 1,
+    "process_failure_modes": 3,
+    "resumed_worker_reruns": 0,
+    "status": "passed",
+    "synthetic_cache_jobs": 39,
+    "synthetic_inference_jobs": 117,
+    "synthetic_shards": 39,
+    "truncated_ack_completed": 1,
+    "unacknowledged_retained_archives": 3
+  },
+  "elapsed_seconds": 3.964603900909424,
+  "files": {
+    "result/preparation/gsd_lowband_full_20261107/campaign_cpu_selfcheck.log": {
+      "bytes": 328096,
+      "sha256": "104f54853f7721cc9b4a395c9c8449b5240196b871de7ced1d39c758c595677a"
+    },
+    "result/preparation/gsd_lowband_full_20261107/operator/campaign.py": {
+      "bytes": 33739,
+      "sha256": "58c466f291e20b02c16b23f8691a1dee46c57616b16902743913a288f07b40b2"
+    },
+    "result/preparation/gsd_lowband_full_20261107/operator/selfcheck_campaign.py": {
+      "bytes": 23900,
+      "sha256": "62ecd98c422ec5b270a6bacb4252843d995318433898f38e76f73851898ee214"
+    }
+  },
+  "returncode": 0,
+  "status": "passed"
+}

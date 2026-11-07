@@ -1,0 +1,15 @@
+{
+  "status": "CPU and technical acceptance complete; full benchmark RUNNING from2026-11-07T16:20:46UTC",
+  "source_override_commit": "1cbd135004e1a298aad650fe9f57bf741ee4982b",
+  "full_pytest": {
+    "passed": 817,
+    "skipped": 2,
+    "subtests": 533,
+    "warnings": 7,
+    "seconds": 51.55,
+    "log_sha256": "110da14f8ec54d68aada3fadb84bf1d8cb4c14d0adeb0894e27eafb7c77b7d26"
+  },
+  "local_transfer_selfcheck": "injected pre-ACK failure leaves durable localreceipt; replay uploadsACKwithoutredownload; partscleanupguard passes",
+  "actual_technical": "4runs+15caches, allsource/native/model/projection checks pass; repeatgate remainsfalse",
+  "source_math": "unchanged pilot sampler/loss/graph/head; benchmark selection boundary only"
+}

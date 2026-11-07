@@ -1,3 +1,12 @@
+**[Run/CPU/Open] 2026-11-07 — full PM M100 confirmation RUNNING:**
+[Protocol, technical acceptance and owned execution](gsd_lowband_full_study_20261107.md).
+All2468ModelNet40-C IDs/all15/s5/seed0/B2; originalSCD/half0/M100, frozen
+alpha4433.612924.817CPUtests/2skip; new technical source/cache/basis checks pass,
+native repeat gate still fails. Full launched16:20UTC; estimate30–40h; no full
+accuracy yet. Conditional ScanObjectNN-C581/separate Scan-trainedPointMAE only
+after predeclared >=1pp and positive paired95%CI gate. No globally unseen
+ModelNet stratum. Own StandardA100 and sole monitor remain live.
+
 **[Run/CPU/Decision] 2026-11-07 — LION guidance A/B/C scoped pilots complete:**
 [Final results, native failures and non-advancement](lion_guidance_pilot_results_20261107.md).
 A/B all arms22/32; C all arms48/64. A/B repeat gates14/16 and11/16,

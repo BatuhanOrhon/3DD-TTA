@@ -1,0 +1,47 @@
+{
+  "status": "existing owned runtime/assets/native/checkpoints verified; no new GPU inference",
+  "time_utc": "2026-11-07T15:30:42Z",
+  "session": "tta-gsd-lowband-halfmix-a100-20261107-r1",
+  "endpoint": "gpu-a100-s-usc1c0-gz8ghzlq66bg",
+  "old_assets": "/content/studies/gsd-lowband-halfmix-20261107/prepared/assets",
+  "new_root": "/content/studies/gsd-lowband-full-20261107",
+  "asset_manifest": {
+    "bytes": 184952,
+    "sha256": "51847c0330191bdef2ef84b37df92d83a1b08915729dd2f0a290ff05daa93021"
+  },
+  "calibration": {
+    "bytes": 52405,
+    "sha256": "fb121b127d0ac78ed8ac1ee8dc500d52c5f2a631c4dabaac2a932d6595eca9a1"
+  },
+  "native": {
+    "_pvcnn_backend": {
+      "bytes": 685248,
+      "path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+      "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0"
+    },
+    "chamfer_3D": {
+      "bytes": 1144176,
+      "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+      "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+    },
+    "emd_ext": {
+      "bytes": 559272,
+      "path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+      "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154"
+    },
+    "knn": {
+      "bytes": 218200,
+      "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+      "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+    }
+  },
+  "active_research_processes": [],
+  "gpu": "NVIDIA A100-SXM4-40GB, 40960 MiB, 0 MiB",
+  "disk": "Filesystem      Size  Used Avail Use% Mounted on\noverlay         236G   51G  186G  22% /\ndrive           236G   60G  177G  26% /content/drive\n",
+  "uptime": "22919.60 262469.67",
+  "mount_info": "/content/drive is a mountpoint",
+  "source_snapshot": {
+    "bytes": 755258,
+    "sha256": "9dcf49ecb2e48d0d5e61331c70837a10978f90c9b0680d5610d9eed92acd86f8"
+  }
+}

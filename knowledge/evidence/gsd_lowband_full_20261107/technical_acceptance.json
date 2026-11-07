@@ -1,0 +1,157 @@
+{
+  "status": "new driver actual GPU technical/caches/source/native/PM/basis accepted",
+  "runs": 4,
+  "caches": 15,
+  "cache_replay_pass": true,
+  "mismatched_cache_preserved": true,
+  "repeat_gate": {
+    "passed": false,
+    "thresholds": {
+      "logit_max": 0.05,
+      "logit_per_object_checkpoint_rms": 0.01,
+      "first_decoded_per_object_rms": 0.0001
+    },
+    "cases": [
+      {
+        "case": "gaussian/0",
+        "original_ids": [
+          44,
+          91
+        ],
+        "logit_max_absolute": 1.430511474609375e-05,
+        "logit_per_object_checkpoint_rms": [
+          [
+            5.064790485721311e-06,
+            2.523255473347552e-06,
+            3.476033224406251e-06,
+            2.743788971670781e-06
+          ],
+          [
+            2.5211924223869343e-06,
+            1.6244172023822022e-06,
+            2.483372509649815e-06,
+            1.241078100728401e-06
+          ]
+        ],
+        "first_decoded_per_object_rms": [
+          9.70131426879912e-08,
+          8.058254218231784e-08
+        ],
+        "pm_agreement": [
+          true,
+          true
+        ],
+        "terminal_agreement": [
+          true,
+          true
+        ],
+        "passed": true
+      },
+      {
+        "case": "background/0",
+        "original_ids": [
+          44,
+          91
+        ],
+        "logit_max_absolute": 2.1372480392456055,
+        "logit_per_object_checkpoint_rms": [
+          [
+            2.7514243528051424e-05,
+            0.33549804240597936,
+            0.97268094083064,
+            0.5899708562405993
+          ],
+          [
+            0.32165561611491245,
+            0.20275995632799212,
+            0.26826443249166204,
+            0.32791611565188294
+          ]
+        ],
+        "first_decoded_per_object_rms": [
+          9.62870099245433e-07,
+          0.0057778677469970275
+        ],
+        "pm_agreement": [
+          true,
+          true
+        ],
+        "terminal_agreement": [
+          true,
+          true
+        ],
+        "passed": false
+      }
+    ],
+    "logit_max_absolute": 2.1372480392456055,
+    "logit_per_object_checkpoint_rms_max": 0.97268094083064
+  },
+  "counts": {
+    "tech_control0": {
+      "gaussian": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 1.628133981001156,
+        "peak_gpu_memory_mb": 3081.546875
+      },
+      "background": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 4.220617749000667,
+        "peak_gpu_memory_mb": 3747.6044921875
+      }
+    },
+    "tech_control1": {
+      "gaussian": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 1.6255374329994083,
+        "peak_gpu_memory_mb": 3081.546875
+      },
+      "background": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 4.22154502000194,
+        "peak_gpu_memory_mb": 3747.6044921875
+      }
+    },
+    "tech_half0": {
+      "gaussian": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 1.6363217960024485,
+        "peak_gpu_memory_mb": 3781.2978515625
+      },
+      "background": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 4.240526683999633,
+        "peak_gpu_memory_mb": 4447.31640625
+      }
+    },
+    "tech_M100": {
+      "gaussian": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 1.8305044599983376,
+        "peak_gpu_memory_mb": 3896.447265625
+      },
+      "background": {
+        "n": 2,
+        "pm_correct": 2,
+        "terminal_correct": 2,
+        "reconstruction_seconds": 4.424453538998932,
+        "peak_gpu_memory_mb": 4562.4814453125
+      }
+    }
+  },
+  "basis_checks": 4,
+  "max_basis_error": 2.1609351863460802e-08
+}
