@@ -2846,3 +2846,19 @@ authorized and audited safe: two idle kernels, no active build. Supported local
 REQUEST_TIMEOUT60 and fresh CLI succeeded on Chamfer; PointNet++ pending. No
 proof of permanent transport repair or native numerical stability. Same fixed
 budget/617 protocol retained, no new runtime or hidden clock reset.
+
+
+[User decision/Run/Open,2026-11-08T10:05UTC] User removes the global time window
+and requests the comparison. B32 resource selection is accepted; old time-fit
+failure remains historical. Fresh alpha/technical gates and exact617/all15/three
+arms remain mandatory; no method/numerical/archive guard is waived.
+
+[Run/Code/CPU/Open,2026-11-08T11:12UTC] Owned R6 A10080/High-RAM is the
+current comparison runtime; R5 is lost history, unknown/peer sessions protected.
+Drive mount independently verified after consent. Canonical2 has only authorized
+fastrlock0.8.4 failure, separate Python3.8 verification passes;3–10 serial gates
+remain before deployment. R6 CPU fork independently reviewed,16core+4bootstrap+
+5native+33consumer checks and40-job simulation pass. Fixed stale R5 output paths
+before any deployment; all10 sealed staging inputs uploaded to R6. No old alpha/
+cache reused; fresh64/384 calibration and617/all15/three arms still pending.
+See gsd_lowband_quarter_comparison_r6_20261108.md for exact identities/current state.

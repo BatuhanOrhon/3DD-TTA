@@ -157,3 +157,51 @@ behavior was not changed. This is a timing-handling configuration, not a proven
 root-cause fix. Same-VM cell6 began08:50:17UTC and Chamfer completed08:52:13UTC
 with both native phase and exact wrapper markers. Cell7 PointNet++ submitted
 08:52:56UTC. No cell replay while busy or fresh runtime allocation occurred.
+
+[Run/Open] PointNet++ native phase reported completed08:57:02UTC; original
+stream/wrapper completion arrived08:57:09UTC. Cell8 PVCNN was submitted
+09:13:59UTC. Raw monitor records the intervening elapsed time; it is not removed
+from the allocation clock or reclassified as GPU inference. Deadline11:08:21UTC
+still applies. Publication6696bc6 preserves completed failure/recovery evidence.
+
+[Run/Failed/Open] Cell8 native GPU smoke completed09:21:21UTC; cell9 completed
+09:38:39UTC; cell10 full environment verification passed09:40:03UTC. Downloaded
+fresh proof9005bytes/SHA9f2d7f3f1a5bec56408518906fe2f8d7e63ed1f70849b25170c628ae0892fbda:
+Python3.8.20/Torch2.1.2+cu121/CUDA12.1/NumPy1.21.2/A10080GB,15arrays,prepdev a458.
+
+[Run/Failed/Code/Open] Initial file-only deployment failed09:40:11UTC at the
+symlink guard, before asset directory/native mutation. Read-only audit passed
+09:42:20UTC: configured MyDrive/thesis is a Google Drive shortcut entirely
+within the mounted Drive; resolved base archive exactly247002524bytes and
+SHAce9c797ccacb4eeffcc0a2836c65109213c9c7920a40a5145ef598b2adac1333.
+ROOT/prepared/assets and ROOT/deployment_receipt.json do not yet exist. The
+failed stage/payload/proof is preserved. A narrowly scoped file-only recovery
+is being CPU-checked: resolve only the audited configured Drive paths, keep
+general/native symlink guards and durable Drive-before-native backup unchanged.
+No research model/loss/code, IDs, calibration or inference has changed or run.
+
+## User removes the time-window constraint — 10:05UTC
+
+[User decision] User explicitly says to disregard the time window and begin
+the comparison. This revokes the11:08UTC global stop; it does not waive source,
+cache, alpha, finite-difference, repeat, archive or matched-control gates.
+Original budget/failed time projection stay immutable. A new versioned
+administrative controller will require an explicit hashed waiver, keep original
+allocation start/deadline for history, and impose no new arbitrary total window.
+Per-child/transfer safeguards and finite40-job scope remain; no automatic full
+or Scan expansion. No accuracy-based batch/weight choice.
+
+[Run/Accepted resources] Profile raw ZIP269037151bytes/SHA
+f94fc37ad66656fdd2d4ac1e89b51e7d8fda4f7f3068c45439bdd3fc126d4d03
+is Drive+Mac verified, with514 direct and464 recovered files accepted. All
+B8/16/32/64 jobs completed. B32 chosen by the predeclared resource rule:
+peak36485.22MiB; Gaussian case11.38154s, Background21.93959s; mixed startup/
+interim-copy19.73374s and post-worker9.77925s per two-corruption profile.
+B64 peak72413.01MiB exceeds85% of81152.75MiB despite slightly better throughput.
+The historical early gate extrapolated24157.7s before margin/reserves by
+conservatively scaling unseparated startup/copy costs; this is not a measured
+whole617 duration and must not be presented as one. Its failure alone stopped
+profile status before calibration, while all resource measurements remain valid.
+No617 inference accuracy or frozen new alpha exists yet. New controllers will
+reuse this validated selection and caches only at their declared scope, then
+perform fresh384-row calibration/technical checks before the comparison.

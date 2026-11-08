@@ -8952,3 +8952,28 @@ runtime. With this one configuration, cell6 Chamfer completed08:52:13UTC;
 PointNet++ next. One successful retry does not prove the connection root cause
 or resolve native numerical-repeat instability. [Current record](gsd_lowband_quarter_fast_retry_r5_20261108.md).
 Original11:08:21UTC cap remains. No scientific profile/calibration/accuracy yet.
+
+### 2026-11-08 11:04UTC — owned r6 Drive verified, setup continues
+
+[Run/User decision/Open] User completed new-VM Drive account consent. Read-only
+console verifies fuse.drive/project wheel, two idle kernels and no active
+build; own r6 A10080 remains assigned. Sole monitor23310 now runs canonical
+cell2 with local REQUEST_TIMEOUT60/scoped sleep guard. Global time window was
+removed by user; finite617/all15/three-arm scientific and archive gates remain.
+Source918780b; raw evidence result/preparation/gsd_lowband_quarter_fast_20261108_r6/.
+No alpha or617 accuracy yet; next canonical2–10 then reviewed deployment. Peer
+and unknown runtimes untouched. See gsd_lowband_quarter_comparison_r6_20261108.md.
+
+### 2026-11-08 11:12UTC — r6 CPU fork sealed, setup exception bounded
+
+[Code/CPU/Run/Open] R6 bootstrap/controller/consumer retarget independently
+reviewed after fixing five stale R5 Drive constants before deployment.16core,
+4initial-bootstrap,5native-preservation,33consumer checks and40-job simulation
+pass; explicit old-budget/waiver binds only removal of global time cutoff.
+All10 pinned inputs uploaded by ContentsAPI; no science execution. Canonical2
+fails only on authorized fastrlock0.8.4; separate Python3.8/Drive check passes.
+Actual runtime setup continues through serial3–10 markers. No fresh alpha or
+617 result exists. Local PREP r6/cpu_verification.json and upload_receipts.jsonl;
+operator143380B/e5fd72d1 and bootstrap9853B/13e43385, source918780b unchanged.
+Decision: complete canonical setup then source/native Drive+Mac acceptance,
+fresh calibration, FD/repeat/tail gates, fixed comparison. Peer untouched.
