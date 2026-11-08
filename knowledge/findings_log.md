@@ -9015,3 +9015,42 @@ Now fixed617/2468/all15/s5/seed0/three-arm descriptive screen with finite40jobs
 and Drive+Mac acceptance beforeACK. Full raw and compact receipts at currentR6
 canonical paths; no617 accuracy yet. User standing GPU permission/time waiver;
 peer and unknown runtimes preserved.
+
+### 2026-11-08 12:31:16 UTC — R6 first64 paired objects accepted;617 continues
+
+[Run/Partial/Inference/Open] Current R6/918780b/B32/alpha4398.3843101977745;
+64/2468test IDs(2.593%)/all15/s5/seed0,960predictions perarm. PM: SCD629=65.520833%,
+half0623=64.895833%,M100631=65.729167%. M100-SCD+.208333pp, conditional
+64object95%CI[-1.25,+1.666667]; M100-half0+.833333pp,CI[-.104167,+1.770833].
+All4archives/ACKDrive+Mac accepted; livefilters/ranks100–257 match. Native repeat
+failure29/30 persists; no causal/smallgain/generalization claim. Frozen617 scope
+continues, no partial-result stop. Canonical currentR6derived/partial_064.json
+and compactknowledge/evidence/gsd_lowband_quarter_fast_20261108_r6/partial_064.json.
+
+### 2026-11-08 12:35UTC — R6 hard basis-loss acceptance failure
+
+[Run/Failed/Open] shard001_half0 worker exit0/420.2177s; sealed957625938B
+archivea51c70bd Drive-verified. CPU acceptance stops at independent physical
+basis-loss absolute1e-6 gate; controller exits1, CLI0withoutmarker. No runtime
+loss/connectionerror/OOM evidence. First64/all15/all3 remainaccepted(629/623/631
+PMcorrect over960); secondcache accepted, half0rejected, no128pairedresult or
+617completion. No newinference/retuning/thresholdrelaxation. Failedraw+journal/log
+beingDrive+Mac preserved, exactcase diagnosis first. OwnGPU runtime andsole
+monitor remainlive; idlelocalconsumer stopped after5goodarchives/ACK.
+See currentR6 note and rejected/shard001_half0/ undercanonicalcurrentR6results.
+
+### 2026-11-08 — exact FP32 comparator root cause, explicit v2 amendment proposed
+
+[Run/CPU/Independent review/Open] Failedrawa51c... whole957625938B/CRC now
+Drive+Mac preserved, noACK. OnlyBGbatch0001 fails v1: raw8.811872482299805
+vsFP64basis8.81187358757228,error1.105272474e-6. All30witness/reference/basis
+hashes match. FP64perobjectenergies→FP32terms→orderedFP32sum reproducesraw
+exactly;90actualcases qualify1e-6same numeric threshold (max9.536743e-7).
+Independentreview agrees comparator precision-contract mismatch dominates,
+notunit/rank/scaleerror. Proposedvalidator-v2 changesacceptance ruleposthoc;
+v1failure retained, neverrenamedpassed. No sampling/source918/assets e3/alpha/
+cohort/native threshold change, noGPUretry. Red/green/adversarialCPUtests and
+full90casev1/v2 replay+sealedsource/provenance/resume review precede use. Native
+29/30repeatfailures remain. Compact basis_loss_failure_diagnosis.json and
+basis_loss_root_cause.md undercurrentR6knowledgeevidence; fullCPUaudit in
+rejected/shard001_half0/diagnostics_cpu_20261108T124719Z/.

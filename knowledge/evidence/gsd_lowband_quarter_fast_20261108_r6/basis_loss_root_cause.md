@@ -1,0 +1,13 @@
+# Read-only CPU root-cause assessment
+
+The original rejection is reproduced. Exactly one of 30 cases fails: background/batch0001. All 30 first-decoded tensors match the first probe hashes, prepared/reference hashes match, every basis tensor matches its archived SHA, and all basis entries outside the archived support are zero. The worker source hashes match the accepted source. The complete raw ZIP SHA and byte count are unchanged before and after diagnosis.
+
+The source computes per-object losses and their ordered batch sum in float32. The validator reconstructs each basis energy and sums in float64. Both divide each object by 3×2048 and sum over objects; there is no batch-size mean, rank denominator or unit mismatch.
+
+For the failed case, raw_loss is 8.811872482299805. The float64 mathematical basis sum is 8.81187358757228, giving absolute error 1.10527247443315e-6, about 1.159 float32 ULP. Rounding each independently calculated per-object basis term to float32 and replaying the source's sequential float32 accumulation reproduces raw_loss exactly. The float64 sum of float32 per-object projection terms is 8.811873510479927, only 7.71e-8 from the high-precision basis sum. The dominant discrepancy is batch accumulation precision. Per-object terms and the exact original validator replay are retained separately.
+
+A validator-only arithmetic repair can retain the independent float64 per-object basis calculation, cast each scalar term to the source dtype, and sum in the producer's documented float32 object order before applying the unchanged 1e-6 comparison to the recorded scalar. Original float64 sums/errors must remain visible. This is a proposed new validator version, not a retrospective claim that the original gate passed. Across 90 actual cases (accepted shard000 half0/M100 and rejected shard001 half0), this source-order replay has no failures at the unchanged threshold; maximum discrepancy is one float32 ULP, 9.5367431640625e-7. That qualification does not guarantee every future case will pass. Any further mismatch should still stop and retain its evidence.
+
+The alternative is to retain the literal original float64-sum rule and keep this run rejected. A future separately versioned diagnostic can record per-object actual producer terms and both reduction values to make the precision contract directly auditable while leaving sampling and gradients unchanged. Changing active rank, dividing the loss by batch size, changing tolerance, clamping discrepancies or special-casing this object are not part of either option.
+
+No production source, raw archive, receipt, acceptance decision, tolerance, sampler or gradient was changed. No GPU or remote operation was performed.

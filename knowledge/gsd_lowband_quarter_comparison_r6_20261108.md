@@ -149,3 +149,63 @@ controller, no early accuracy-based truncation. All617×15×3 outputs required.
 Actual OP-source archive b313b95386ca474231ec2469d3293a94038911d0803aa282c9b3cdb9307a8dac
 is separately bound from stagingpayload e5fd72 (same pinned member identities,
 different ZIP metadata). No617 accuracy accepted yet at this launch record.
+
+[Run/Partial] 2026-11-08 12:31:16 UTC: first64 matched objects/960predictions perarm accepted
+Drive+Mac with all4receipts/ACK, native/source/cache/RNG/half0-M100 filters matched.
+SCD629/960=65.520833%;half0623/960=64.895833%;M100631/960=65.729167%.
+M100-SCD+0.208333pp (14corrected,12harmed), conditional64object95%CI
+[-1.25,+1.666667]pp; M100-half0+.833333pp,CI[-.104167,+1.770833].
+Native29/30repeat failures still unresolved; no causal/seed/unseen-data claim.
+HardM100 effective ranks100–257 for960object-corruption graphs perlivearm,
+identicalfilters/ranks acrosshalf0/M100. Local derived/partial_064.json; compact
+repositoryreceipt evidence/gsd_lowband_quarter_fast_20261108_r6/partial_064.json.
+Coverage64/2468=2.59319%officialtest,64/617=10.3728%screen. Other oldB2 runs
+notpooled. Continue all617; no partial-accuracy futility/expansion decision.
+GPU corefirstjobs:cache36.6645s,SCD217.6936s,half0422.4759s,M100436.3106s;
+raw archive/transfer creation costs are additional and remain in wholeelapsed.
+
+[Publication] Sourcea7cdfaa selected14knowledge/compactreceipt files and pushed
+normalFF as origin/thesis-integration916ef24. JSON/IDSHA/diff checks pass;
+no raw archives/weights/temp wrappers or uncompletedaccuracy claim promoted.
+
+[Run/Failed hard gate] 12:35:43UTC shard001_half0 worker completed0/420.2177s
+and sealed957625938B rawZIP a51c70bdfd743efce1a2b8b164b3c2ad456b6e7bc56abbbf5dc4aedd43fb5ea7
+(Drive final receipt verified), then independent basis-loss acceptance failed
+at accept_fast617_unbounded.py:256, absolute1e-6. Campaign stopped before
+shard001M100/control; no accepted job receipt/ACK for rejectedhalf0. Source
+journal failed; exactprimaryexec end12:35:44/rc0/markerfalse (remotechilderror).
+This is NOT a Colab connection/runtime loss; no newruntime/research retry.
+First64/all15/all3 remain accepted; second64 cache accepted, half0 scientifically
+rejected, no128pairedaccuracy. Local transferconsumer stopped while idle after
+all5existinggoodarchives/ACK to avoid endless polling of failedcampaign;
+ownkernelmonitor/runtime remain live, peer untouched.
+Rootcause investigation follows systematic-debugging: no tolerance relaxation
+or guessing. Acceptedshard000 background loss~8.7 hasFP32ULP9.54e-7, fixedgate1e-6;
+its maxobservedFP64basiserror5.05e-7 passes. Firstdecodedhashes match all60
+acceptedlivecases. FP32sumvsFP64reference is a hypothesis, not confirmedcause
+until rejectedartifact is independently reproduced. File-only salvage now
+preserves failed archive/sourcejournal/log; no newloss/GPU inference launched.
+
+[Run/CPU/Independent review] Failed957625938B/a51c archive is now wholeSHA/
+29parts/CRC Drive+Mac preserved at rejected/shard001_half0/payload/; noACK or
+retroactivev1acceptance. Localfailedjournal+workerlog also downloaded. CPUaudit
+andindependentreviewer reproduce exactlyonefailure/30: Background/batch0001,
+32IDs398–499; raw8.811872482299805 vsFP64basis8.81187358757228,
+abs1.10527247443315e-6 (1.159FP32ULP). Allfirstdecoded/probe/reference/basis
+hashes match; no support/rank/unit/reduction mismatch, no rawbytes altered.
+Per-objectFP64energies roundedtoFP32 and accumulatedleft-to-rightFP32 give
+rawEXACT; FP64sum ofFP32per-objectterms differsidealonly7.71e-8. This identifies
+batch-accumulation arithmetic asdominantcause, notproofeachnative term/gradient
+is bit-exact.90actualcases qualify source-orderreplay atunchanged1e-6 number,
+max9.536743e-7. Fullaudit underdiagnostics_cpu_20261108T124719Z.
+
+[Decision/Code planned] Independentreview recommends explicitvalidator-v2
+comparator correction, NOT producer/guidance change. This IS a posthoc
+acceptance-rule amendment: v1 rejection/source/journal/raw remain immutable;
+neverclaimv1passed orunchangedacceptanceregion. RetainFP64ideal/error diagnostics
+forallcases, exactsource-dtype/object-order replay, same1e-6numericthreshold,
+allnativegates unchanged, nofallback/min/ULPtolerance/droppedcase/specialBGbranch.
+NewCPUregression/negativecorruption tests anduniformfullvalidator replay on90
+actualcases precede anyv2acceptance. Separatev2source/verdict/bindingarchives and
+reviewedexplicitresume required; no completedGPUworker rerun ordata/alpha/source
+change. CurrentGPU remains stopped for this verification.

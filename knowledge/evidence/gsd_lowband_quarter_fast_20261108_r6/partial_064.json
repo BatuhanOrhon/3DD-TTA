@@ -1,0 +1,247 @@
+{
+  "time_utc": "2026-11-08 12:31:16 UTC",
+  "status": "partial descriptive; fixed617 run continues",
+  "coverage": {
+    "shards": 1,
+    "objects": 64,
+    "indices": [
+      11,
+      17,
+      18,
+      24,
+      26,
+      32,
+      38,
+      50,
+      60,
+      63,
+      68,
+      69,
+      75,
+      84,
+      85,
+      86,
+      90,
+      91,
+      95,
+      101,
+      109,
+      111,
+      115,
+      119,
+      122,
+      124,
+      128,
+      131,
+      148,
+      151,
+      153,
+      157,
+      160,
+      161,
+      162,
+      164,
+      165,
+      166,
+      167,
+      170,
+      172,
+      174,
+      182,
+      184,
+      190,
+      191,
+      196,
+      202,
+      204,
+      207,
+      210,
+      216,
+      222,
+      223,
+      232,
+      242,
+      244,
+      255,
+      265,
+      267,
+      269,
+      270,
+      273,
+      277
+    ],
+    "predictions_per_arm": 960,
+    "inference_jobs": 3,
+    "cache_jobs": 1,
+    "actual_prepared_caches": 30
+  },
+  "pm": {
+    "control": {
+      "correct": 629,
+      "denominator": 960,
+      "accuracy_percent": 65.52083333333333
+    },
+    "half0": {
+      "correct": 623,
+      "denominator": 960,
+      "accuracy_percent": 64.89583333333333
+    },
+    "M100": {
+      "correct": 631,
+      "denominator": 960,
+      "accuracy_percent": 65.72916666666667
+    }
+  },
+  "M100_vs_SCD": {
+    "delta_pp": 0.20833333333333334,
+    "winner_accuracy_pct": 65.72916666666667,
+    "baseline_accuracy_pct": 65.52083333333333,
+    "seeds": [
+      0
+    ],
+    "seed_delta_pp": [
+      0.20833333333333334
+    ],
+    "per_corruption_delta_pp": {
+      "uniform": 1.5625,
+      "gaussian": 3.125,
+      "background": -3.125,
+      "impulse": 0.0,
+      "upsampling": 0.0,
+      "distortion_rbf": 0.0,
+      "distortion_rbf_inv": -1.5625,
+      "density": 0.0,
+      "density_inc": 3.125,
+      "shear": 1.5625,
+      "rotation": 0.0,
+      "cutout": 0.0,
+      "distortion": -1.5625,
+      "occlusion": 0.0,
+      "lidar": 0.0
+    },
+    "corrected": 14,
+    "harmed": 12,
+    "object_cluster_ci95_pp": [
+      -1.25,
+      1.666666666666667
+    ],
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20261101,
+    "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+  },
+  "M100_vs_half0": {
+    "delta_pp": 0.8333333333333334,
+    "winner_accuracy_pct": 65.72916666666667,
+    "baseline_accuracy_pct": 64.89583333333333,
+    "seeds": [
+      0
+    ],
+    "seed_delta_pp": [
+      0.8333333333333334
+    ],
+    "per_corruption_delta_pp": {
+      "uniform": 1.5625,
+      "gaussian": 1.5625,
+      "background": -1.5625,
+      "impulse": 0.0,
+      "upsampling": 0.0,
+      "distortion_rbf": 0.0,
+      "distortion_rbf_inv": -1.5625,
+      "density": 3.125,
+      "density_inc": 4.6875,
+      "shear": 0.0,
+      "rotation": 0.0,
+      "cutout": 3.125,
+      "distortion": 0.0,
+      "occlusion": 3.125,
+      "lidar": -1.5625
+    },
+    "corrected": 14,
+    "harmed": 6,
+    "object_cluster_ci95_pp": [
+      -0.10416666666666671,
+      1.7708333333333333
+    ],
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20261101,
+    "limitation": "Conditional development-cohort interval at one observed seed0; all15 corruptions stay together within each resampled object. No seed replication or unseen-confirmation claim."
+  },
+  "ranks": {
+    "half0": {
+      "count": 960,
+      "min": 100,
+      "max": 257
+    },
+    "M100": {
+      "count": 960,
+      "min": 100,
+      "max": 257
+    }
+  },
+  "provenance": {
+    "plan": {
+      "bytes": 4814,
+      "sha256": "0db2019fbeddb3a14fdf8b89e1cd3cbed4bd70c1365ce9d4e778b0843579ba83"
+    },
+    "evaluation": {
+      "bytes": 6083,
+      "sha256": "4156e92e3e1206bdd31131e59f93c5b10f38c876e35558fbf6a4bfe41eadcfc2"
+    },
+    "freeze": {
+      "bytes": 178240,
+      "sha256": "6f293cc40763ed3486076c1d478b8cdce976cdb9c977db4cc51e41df4bb0714f"
+    },
+    "batch_selection": {
+      "bytes": 4063,
+      "sha256": "7c177b0aaa72a2c5c47b54c088c3873421513b41d1f90c0d3a20ff3ba4bf69d8"
+    },
+    "raw_zip_sha_verified": false,
+    "receipts": [
+      {
+        "label": "shard000_cache",
+        "receipt": {
+          "bytes": 40016,
+          "sha256": "cd7a65581faf614d084f934574e11adc857c41710f97ed19af5d4c487a056726"
+        },
+        "archive": {
+          "bytes": 59208267,
+          "sha256": "2189f291652f349cdf91639f1f6a0a6239a388d9071910959c1f39b8caedaf0a"
+        }
+      },
+      {
+        "label": "shard000_control",
+        "receipt": {
+          "bytes": 413593,
+          "sha256": "bb22e0ed6559d661d605b490edb72aad1ce23a1274b939ab47c0505cfe4b2a26"
+        },
+        "archive": {
+          "bytes": 122885450,
+          "sha256": "af9a5b69d9a5f1ea7d366942ed4a6e2ef857e8774395a89d3319d72e812ccbb6"
+        }
+      },
+      {
+        "label": "shard000_half0",
+        "receipt": {
+          "bytes": 38125544,
+          "sha256": "b8148a3996b06f4db403b4faa4a1401ef844772f12981a99f561265f720d3ce7"
+        },
+        "archive": {
+          "bytes": 952834685,
+          "sha256": "349cfb9537472b9e99bd6ceb300c6dd4ee5658f0fe2d326b9f734177a21da2f2"
+        }
+      },
+      {
+        "label": "shard000_M100",
+        "receipt": {
+          "bytes": 38125521,
+          "sha256": "0c5db9be416914b3c69d5cd286267acac1071f13b321ac854c943c8b9d240bec"
+        },
+        "archive": {
+          "bytes": 952833569,
+          "sha256": "df2324e13df0ca0928bfe84fa15c4538e870d12c4f0758b7d360fb7da72c9fac"
+        }
+      }
+    ]
+  },
+  "limitation": "Separate617-object seed0 budgeted screen; no pooling of old B2 runs. Object-cluster intervals retain all15 corruptions together and exclude native numerical variability; no isolated causal GSD or unseen-data claim. Partial completion never triggers the stopping rule."
+}

@@ -2871,3 +2871,10 @@ This remains unresolved and forbids causal attribution from small gains.
 Predeclared617/all15/three-arm descriptive screen now begins with bounded
 40 transfers/Drive+Mac pre-ACK validation; no accuracy-based scope/weight change.
 Current source918780b; compact receipts knowledge/evidence/gsd_lowband_quarter_fast_20261108_r6/.
+
+[Run/Failed/Open,2026-11-08T12:35UTC] R6 screen stopped at shard001_half0
+independent physical-basis loss1e-6 gate, despite worker success andsealed
+DriveZIP. No617completion/no128paired; first64partial only. Diagnose actual
+failedwitness beforefix; acceptedBG~8.7 makesFP32batchsum ULP~9.54e-7, but
+precisionhypothesis notconfirmed withoutfailedcase. No relaxedgate/newGPUretry.
+Runtime retained, failedarchive/journal/source preserved; see ownedR6 record.

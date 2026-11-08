@@ -1,12 +1,11 @@
-**[Run/Accepted/Open] 2026-11-08 — owned r6 25% comparison:**
-[Current r6 record and fixed protocol](gsd_lowband_quarter_comparison_r6_20261108.md).
-Canonical10/native/data/checkpoint checks, Drive+Mac source/native archives and
-fresh64/384 B32 calibration accepted; alpha1004398.3843101977745 frozen.
-FD+actual41tail pass; repeat gate fails29/30 B32 cases, including SCD itself.
-Proceeding with fixed617/2468 test IDs/all15/three-arm descriptive comparison;
-small gains cannot establish isolated guidance. Global time window waived;
-all source/archive/finite-worker gates retained. Peer/unknown sessions untouched.
-Earlier r5 entries are dated history; no new617 accuracy is claimed here.
+**[Run/Failed hard gate/Open] 2026-11-08 — R6 comparison stopped for basis-loss diagnosis:**
+[Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
+First64/all15/all3 are Drive+Mac accepted: SCD65.520833%,half064.895833%,M10065.729167%;
+M100-SCD+.208333pp,conditional95%CI[-1.25,+1.666667]. Fixed617 is incomplete.
+Second-shard half0 worker completed, but independent physical-basis loss exceeds
+absolute1e-6 validation gate; no acceptance/ACK, no second-shard M100/control.
+Failed raw preserved; CPU diagnosis underway, no tolerance relaxation/new GPU retry.
+Native repeat failure29/30 persists. Own r6 runtime/monitor retained; peer untouched.
 
 **[User decision/Run/Open] 2026-11-08 — existing r5 resumes after audited idle state:**
 [Recovery evidence and current state](gsd_lowband_quarter_fast_retry_r5_20261108.md).

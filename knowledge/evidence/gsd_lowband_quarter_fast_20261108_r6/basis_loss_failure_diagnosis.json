@@ -1,0 +1,38 @@
+{
+  "status": "v1 rejection retained; root cause independently reproduced; v2 proposal only",
+  "rejected_archive": {
+    "status": "rejected scientific artifact preserved; transport SHA/CRC passed; NO ACK",
+    "archive": {
+      "path": "/content/studies/gsd-lowband-quarter-fast-20261108-r6/raw_runs/shard001_half0/modelnet40_c/decoded_physical_spectral_diagnostic/20261108-122829_decoded-live_control-8aed642b.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_quarter_fast_20261108_r6/runs/shard001_half0/modelnet40_c/decoded_physical_spectral_diagnostic/20261108-122829_decoded-live_control-8aed642b/final.zip",
+      "bytes": 957625938,
+      "sha256": "a51c70bdfd743efce1a2b8b164b3c2ad456b6e7bc56abbbf5dc4aedd43fb5ea7"
+    },
+    "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/rejected/shard001_half0/payload/20261108-122829_decoded-live_control-8aed642b.zip",
+    "scientific_status": "REJECTED: Independent physical basis loss failed; no acceptance or ACK"
+  },
+  "original_validator": [
+    {
+      "absolute_error": 1.10527247443315e-06,
+      "case": "background/batch0001",
+      "original_validator_projection64": 8.81187358757228,
+      "passes": false,
+      "raw_loss": 8.811872482299805
+    }
+  ],
+  "cases": 30,
+  "first_decoded_hash_matches": 30,
+  "basis_outside_support_nonzero": 0,
+  "arithmetic": "Producer FP32 per-object energy then ordered FP32 batch sum; v1 independent FP64 per-object energies then FP64 batch sum",
+  "proposal": "Explicit v2: independent FP64 per-object energies cast to declared producer dtype and accumulated in original object order; original FP64 totals/errors retained; no per-case fallback",
+  "numeric_tolerance": 1e-06,
+  "acceptance_amendment": "Post hoc comparator/acceptance rule change, NOT a claim that v1 passed",
+  "unchanged": [
+    "scientific source918780b/assetse3f280",
+    "alpha1004398.3843101977745",
+    "617 IDs/all15/s5/seed0/B32",
+    "guidance/sampling/gradients",
+    "native repeat thresholds and29/30failures"
+  ],
+  "gpu_retry": false
+}
