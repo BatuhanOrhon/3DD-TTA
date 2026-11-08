@@ -10,8 +10,12 @@ all 2,468 IDs/seed0/B128 is running on owned speed r5; no all15 result yet.
 One-seed/development/native variation and unguided-attribution limits remain.
 [Execution, failures and ownership](lion_guidance_speed_20261107.md).
 
-**[Run/Partial/Open] 2026-11-08 — R6 screen running; no SCD gain at448 objects:**
+**[Run/Partial/WAIT_USER] 2026-11-08 — R6 transport503; last448 show no SCD gain:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
+Consumer stopped16:11:46UTC on503 reading shard007_M100 ACK. No CLI retry/
+reconnect/allocation until a new user command, per standing instruction. Runtime
+not closed; existing primary stream16:14UTC waits at three-unACKed barrier.
+Mac31 job receipts/30 ACKed; M100 pendingACK raw949021975B/f2690b46 preserved.
 Current448/all15/all3 are Drive+Mac accepted: SCD4438/6720=66.041667%,
 half04410/6720=65.625%,M1004426/6720=65.863095%; M100-SCD−.178571pp,
 conditional95%CI[-.610119,+.238095]. Fixed617 is incomplete; old partials retained.

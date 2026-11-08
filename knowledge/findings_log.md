@@ -9184,3 +9184,16 @@ partial4482ef8a1e9 and CPU progress note retain evidence. Auxiliary finalization
 wrapper staging failedHTTP500 for uncreatedparent; sourceupload/ongoingGPU and
 ordinarytransfers stillpass. No reconnect/reallocation or scientificretry;
 file-only staging repair deferred until40complete, sanitizedreceipt saved.
+
+### 2026-11-08 16:11:46 UTC — R6 transfer503, WAIT_USER
+
+[Run/Failed transport/User instruction/Open] Consumer16246 stoppedexit3 on
+503 retrieving ACK shard007_M100. User's explicit recurrence boundary applies:
+no new Colab CLI/retry/reconnect/allocation until a new command. Rawfailure
+5566058a masked; sanitized knowledge receipt links exact local evidence.
+Mac31 job receipts,30ACKed; pending M100 raw949021975B/f2690b46 retained and
+rehashed. Latest complete paired coverage448 only, primary−.178571pp,
+conditional95%CI[-.610119,.238095]; no512/final617 result. Existing primary
+stream continued and at16:14:29UTC waits for threeACKs (007M100/control,008cache).
+No runtime closure or duplicate GPU launch; monitor23310 retained, local CPU
+supervisor stopped. New command must reconcile same live work before recovery.

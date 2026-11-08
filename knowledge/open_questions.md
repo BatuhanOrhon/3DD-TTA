@@ -2927,3 +2927,11 @@ and algorithmic novelty remain open; this integration authorizes no new GPU phas
 SCD4438/6720,M1004426,half04410; primary−.178571pp,conditional95%CI
 [-.610119,.238095]. No gain,169 objects remain. Legacyflags2/newv2error0 in
 secondcounterfactualcase; originalv1/native29/30 caveats persist. Continue617.
+
+[Run/Failed transport/WAIT_USER,2026-11-08T16:11:46UTC] Supersedes continue617
+as immediate action: consumerexit3 on ACK007_M100 HTTP503. No further Colab
+CLI/retry/reconnect/allocation until a new user command. Runtime/monitor kept;
+existing controller16:14 waits at3-unACKed safeguard. Mac31 receipts/30ACKed,
+448 paired objects only; pending M100 rawf2690b46 physically preserved. No512/
+617final analysis. Recover pendingACK/consumer on same work before duplicate
+GPU consideration, only after user command. CurrentR6 note gives exact paths.

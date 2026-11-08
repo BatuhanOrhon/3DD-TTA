@@ -355,3 +355,37 @@ replayerror0). The latter is a retained diagnostic under deployed v2, not a
 claim that v1 was rerun or passed. V2's numeric1e-6 remains unchanged and all
 current v2 cases pass; acceptance-rule amendment remains explicitly posthoc.
 Native29/30 repeat failure is unrelated and unresolved. Eighthshard half0 runs.
+
+### 2026-11-08 16:11:46 UTC — transport503, WAIT_USER; no512/final617 acceptance
+
+[Run/Failed transport/User instruction/Open] New consumer16246 exited3 after
+Contents API returned503 ServiceUnavailable while reading existing
+acks_basis_fp32_v2/shard007_M100.json before ACK publication. Raw local failure
+WAIT_USER_20261108T161146.json SHA5566058ace74e821094cf1e48d07257fcef7248a8e2de461262be7910ae2f1cb
+retains the masked error. Compact sanitized transport receipt is in v2 knowledge
+evidence. This is separate from the earlier auxiliary missing-directory PUT500.
+No new Colab CLI action/retry/reconnect/reallocation or GPU worker launch by
+the parent after detecting WAIT_USER; explicit user rule requires a new command.
+Runtime23310/owned r6 was not closed or interrupted. Local CPU supervisor stopped.
+
+[Run/Preserved] There are31 exact local job receipts,30 ACKed and
+shard007_M100 locally validated with ACK pending. Its949021975-byte raw ZIP
+SHAf2690b46bc6863df989371b0ba1d933756a9106113955258404f3d9cd700293c
+is physically retained on Mac and independently rehashed after this incident.
+Seven complete paired shards448 objects remain the latest accepted accuracy;
+no512/576/final617 analysis exists. Primary stream continued after503: shard007
+SCD completed218.0475s and sealed122840940B/5ccadb5e; shard008 cache also sealed.
+At16:14:29UTC actual controller reports max3 pendingACKs:
+shard007_M100,shard007_control,shard008_cache. It waits at its safeguard;
+this is no proof of VM loss and not permission to start a duplicate controller.
+The existing monitor still owns the running primary stream and is preserved.
+
+[Next action/User gate] Wait for a new user command. If authorized, first
+reconcile the same endpoint/current primary stream and pending transport state;
+recover the ACK/consumer path before any consideration of restarting inference.
+All source918/7f/operator1ef/alpha4398/B32/617 assets and waiver remain frozen.
+Preserve this failed attempt and all old v1/legacy/native diagnostics. Final
+source/metadata archiving remains prepared, not executed: finalizer0a75212a,
+parent wrapper9c16184c. Auxiliary input directory repair is deferred until scan
+completion; no final617 proof/report/archive claim. Source640b60f/integration
+81cd13c published the448 milestone while retaining peer integration2ce4e7f.

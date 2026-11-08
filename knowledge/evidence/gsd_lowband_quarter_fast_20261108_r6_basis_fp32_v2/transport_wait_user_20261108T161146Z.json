@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "WAIT_USER",
+  "utc": "2026-11-08T16:11:46.267187+00:00",
+  "session": "tta-gsd-quarter-fast-a100-20261108-r6",
+  "endpoint": "gpu-a100-hm-ass1c0-uycluss04t2v",
+  "consumer_pty": 16246,
+  "monitor_pty": 23310,
+  "error": {
+    "http_status": 503,
+    "operation": "download existing ACK before publishing new ACK",
+    "path": "/content/studies/gsd-lowband-quarter-fast-20261108-r6/acks_basis_fp32_v2/shard007_M100.json"
+  },
+  "original_failure": {
+    "path": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/failed_transfers_basis_fp32_v2/WAIT_USER_20261108T161146.json",
+    "bytes": 736,
+    "sha256": "5566058ace74e821094cf1e48d07257fcef7248a8e2de461262be7910ae2f1cb"
+  },
+  "local_job_receipts": 31,
+  "acknowledged_jobs": 30,
+  "pending_ack_jobs": [
+    "shard007_M100"
+  ],
+  "pending_M100_archive": {
+    "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard007_M100/download_20261108T160856/payload/20261108-160046_decoded-physical-a9c528ca.zip",
+    "bytes": 949021975,
+    "sha256": "f2690b46bc6863df989371b0ba1d933756a9106113955258404f3d9cd700293c",
+    "whole_sha_rechecked_on_mac": true
+  },
+  "last_paired_coverage": 448,
+  "planned_coverage": 617,
+  "final617_complete": false,
+  "primary_remote_job": "not interrupted; current controller may continue to max3-unacknowledged barrier",
+  "policy": "No further Colab CLI actions/retry/reconnect/allocation until new user command. Preserve runtime and existing primary monitor.",
+  "interpretation": "Contents API503 does not prove VM/kernel loss; existing streamed GPU output continues after failure. No512/final analysis accepted."
+}
