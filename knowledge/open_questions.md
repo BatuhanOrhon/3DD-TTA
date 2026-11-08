@@ -2833,3 +2833,16 @@ state. Own High-RAM A10080GB allocated; first canonical cell/reconnect pass.
 Drive consent then remaining canonical setup, measured feasibility,384-row fresh
 calibration and617 screen remain pending within07:08:21→11:08:21UTC. On a new
 Colab session/connection failure, wait for a new user command before recovery.
+
+
+[Run/Failed/User decision/Open,2026-11-08T07:37UTC] R5 hit the same CLI connection
+error at fresh Chamfer cell6 after EMD passed. WAIT_USER again; no new remote
+inspection or retry until a user command. Runtime state and cell6 execution
+unknown; no scientific screen started. Existing r5 deadline11:08:21UTC unchanged.
+
+
+[User decision/Run/Open,2026-11-08T08:52UTC] Live r5 continuation was explicitly
+authorized and audited safe: two idle kernels, no active build. Supported local
+REQUEST_TIMEOUT60 and fresh CLI succeeded on Chamfer; PointNet++ pending. No
+proof of permanent transport repair or native numerical stability. Same fixed
+budget/617 protocol retained, no new runtime or hidden clock reset.

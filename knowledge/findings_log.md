@@ -8926,3 +8926,29 @@ Fixed617 and64 nonoverlapping calibration IDs, all15/s5 and three matched arms
 remain unchanged. Only output namespaces/clock/controller bindings retargeted;
 no new accuracy or GPU feasibility result. Scientific source918780b remains.
 Old r3/r4 negative records preserved, no peer operation or new runtime teardown.
+
+
+## 2026-11-08 07:37UTC — r5 recurrent CLI connection loss; WAIT_USER
+
+[Run/Failed/User decision/Open] [Exact state](gsd_lowband_quarter_fast_retry_r5_20261108.md).
+Fresh A10080GB r5 passed Drive, Conda, CUDA-toolchain and EMD; Chamfer cell6
+submission lost CLI connection with no exact completion marker. No VM-loss or
+actual cell-execution conclusion. New allocation did not prevent observed CLI
+error recurrence; no causal diagnosis established. Explicit user boundary halts
+retries/recovery/new allocation/remote inspection until another command. Runtime
+not closed, peer unchanged. All CPU retarget/test/source/raw evidence retained;
+no profile, alpha calibration or617 accuracy result. Clock remains unchanged.
+
+
+## 2026-11-08 — same-VM recovery audited, Chamfer completes
+
+[User decision/Run/Code/Open] User explicitly authorizes continuation on live
+r5. Read-only process/native-marker/GPU/Jupyter-state audit establishes both
+kernels idle, no active build, and only prepare+EMD completed. Hung local CLI
+stopped without VM interruption. Installed CLI supports per-process
+REQUEST_TIMEOUT=60 for WS startup and silent prelude; --timeout alone governs
+the requested cell. No global code patch, account change, autoreconnect or new
+runtime. With this one configuration, cell6 Chamfer completed08:52:13UTC;
+PointNet++ next. One successful retry does not prove the connection root cause
+or resolve native numerical-repeat instability. [Current record](gsd_lowband_quarter_fast_retry_r5_20261108.md).
+Original11:08:21UTC cap remains. No scientific profile/calibration/accuracy yet.

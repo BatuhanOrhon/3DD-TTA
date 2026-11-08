@@ -1,7 +1,24 @@
+**[User decision/Run/Open] 2026-11-08 — existing r5 resumes after audited idle state:**
+[Recovery evidence and current state](gsd_lowband_quarter_fast_retry_r5_20261108.md).
+User authorizes same-VM continuation. Read-only console confirms both kernels
+idle, no active build, and prepare+EMD markers only. Broken local client stopped;
+new owner monitor30443 uses supported per-process REQUEST_TIMEOUT=60 and retries
+incomplete canonical setup. Chamfer now passes; PointNet++ is running. No new runtime or peer operation; clock11:08:21UTC
+unchanged. Earlier WAIT_USER entries remain dated history. No new accuracy yet.
+
+**[Run/Failed/User decision/Open] 2026-11-08 — r5 connection loss, WAIT_USER:**
+[Exact r5 incident and preserved preparation](gsd_lowband_quarter_fast_retry_r5_20261108.md).
+Actual A10080GB/Drive/Conda/CUDA-toolchain/EMD checks passed; Chamfer cell6 CLI
+reported `Connection was lost`07:37:23UTC, no completion marker. Per user boundary,
+no retry/recovery/new allocation or new remote inspection until a new command.
+Runtime not closed; actual execution state unknown. No research deployment,
+profile/calibration/617 inference started. Clock11:08:21UTC unchanged; peer untouched.
+Earlier running entries are dated history superseded by this incident.
+
 **[User decision/Run/Open] 2026-11-08 — fresh quarter-screen r5 allocated:**
 [Current runtime, clock and protocol](gsd_lowband_quarter_fast_retry_r5_20261108.md).
 High-RAM A100 r5 allocation succeeded; cell1/reconnect pass and80GB verified.
-Drive consent and mount completed; own monitor74712 runs canonical cell2.
+Drive/Conda/CUDA-toolchain checks pass; monitor74712 runs native EMD build.
 New separate four-hour attempt07:08:21UTC→11:08:21UTC. Frozen617/all15/three-arm
 protocol retained, fresh actual-batch calibration required. Prior r3 connection
 failure and r4 rejection preserved; peer untouched. No new accuracy yet.
