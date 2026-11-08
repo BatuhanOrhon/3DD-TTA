@@ -1,9 +1,10 @@
 **[Run/Failed v1 gate/CPU qualified/Open] 2026-11-08 — R6 validator-v2 recovery prepared:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
-First64/all15/all3 are Drive+Mac accepted: SCD65.520833%,half064.895833%,M10065.729167%;
-M100-SCD+.208333pp,conditional95%CI[-1.25,+1.666667]. Fixed617 is incomplete.
-Second-shard half0 worker completed, but independent physical-basis loss exceeds
-absolute1e-6 validation gate; no acceptance/ACK, no second-shard M100/control.
+Current128/all15/all3 are Drive+Mac accepted: SCD1250/1920=65.104167%,
+half01236/1920=64.375%,M1001250/1920=65.104167%; M100-SCD0pp,
+conditional95%CI[-.885417,+.885417]. Fixed617 is incomplete; old64 result retained.
+Second-shard half0 originally failed v1's independent physical-basis loss
+absolute1e-6 gate. Its v1 rejection remains; all completed jobs now have separate v2 receipts.
 Failed raw and v1 rejection preserved. [Explicit post-hoc validator-v2 arithmetic
 correction](basis_precision_validation_v2_20261108.md) qualifies all90 spectral,
 30 control and two cache archives; numeric1e-6 remains, acceptance rule changes.

@@ -247,3 +247,29 @@ native capsule/global time waiver are unchanged. Allocation start1794135389
 still anchors whole-phase elapsed time, including diagnosis/recovery overhead.
 Resume is running, not617 completion; first64 accuracy remains unchanged.
 Native29/30 repeat failures remain and forbid causal attribution from small gains.
+
+### 2026-11-08 14:09 UTC — 128 paired objects accepted; no SCD accuracy gain
+
+[Run/Partial] Shard001 M100 completed440.245s; its957624316B/f4428f15 raw
+archive passed v2 basis/source/pairing checks and Drive+Mac acceptance. SCD raw
+122979901B/ac193533 also passed and was acknowledged. All eight receipts across
+two complete shards are present. V2 analyzer emits derived/partial_128_v2.json,
+copied byte-exact to current v2 compact knowledge evidence. No old B2 run pooled.
+
+128/2468 official test objects=5.186386%;128/617 planned=20.745543%.
+Each arm has1920 predictions, all15 corruptions/s5/seed0/B32:
+SCD1250/1920=65.104167%, half01236/1920=64.375%, M1001250/1920=65.104167%.
+M100-SCD0pp; conditional object-cluster95%CI[-.885417,+.885417], corrected24/
+harmed24. M100-half0+.729167pp, CI[+.104167,+1.354167]. Thus M100 currently
+recovers the half-SCD control's deficit without improving operational SCD;
+the old16-object +2.5pp is not replicated in this partial cohort. This does not
+establish a causal spectral effect: native repeat29/30 failure persists and the
+interval excludes that uncertainty. Partial cohort never triggers the fixed617
+stopping decision. Shard002 cache completed37.160s and M100 now runs; continue
+unchanged. Exactly one legacy-v1 basis failure remains visible in v2 diagnostics.
+
+[Publication] Completed v2 admission milestone source36aad5b was integrated and
+normally pushed asf94e3d8 to origin/thesis-integration. Curated scope: research
+notes, explicit amendment and compact genuine admission/provenance receipts;
+temporary deployment/phase/consumer wrappers, full sidecars and raw ZIPs stay
+out of Git, preserved under result/ and the verified Drive provenance bundle.

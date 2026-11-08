@@ -2886,3 +2886,9 @@ workers, no completed-worker rerun, all scientific assets/alpha/cohort/B32 fixed
 Require all40 v2 receipts/617 paired objects and final raw rehash before a final
 accuracy conclusion. Future v2 failure remains a hard stop; connection trouble
 remains WAIT_USER. Native repeat instability is not solved by comparator repair.
+
+[Run/Partial/Open,2026-11-08T14:09UTC] First128 paired objects: operationalSCD
+andM100 both1250/1920=65.104167%;half01236/1920=64.375%. Primarydelta0pp,
+conditional95%CI[-.885417,+.885417]; pilot+2.5pp has not replicated. Continue
+fixed617, no stopping from partial coverage. Thirdshard M100 running; native
+uncertainty and original v1 rejection remain. See currentR6 record and v2partial128.

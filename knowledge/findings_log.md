@@ -9082,3 +9082,16 @@ whole-phase start remains1794135389 and no global cutoff by user instruction.
 Compact actual receipts/amendment in current v2 knowledge evidence; raw/provenance
 ZIPs remain Drive+Mac. Posthoc acceptance-rule change is explicit; v1 never passed,
 native29/30 instability unresolved. No new paired accuracy or617 completion yet.
+
+### 2026-11-08 14:09 UTC — R6 first128 complete paired objects
+
+[Run/Partial/Inference/Open] Eight v2 receipts/two full shards accepted Drive+Mac.
+128/2468 official test objects5.186386%, all15/s5/seed0/B32,1920 predictions/arm:
+SCD1250=65.104167%,half01236=64.375%,M1001250=65.104167%. M100-SCD0pp,
+object-cluster95%CI[-.885417,+.885417],24 corrected/24 harmed. M100-half0
++.729167pp,CI[.104167,1.354167]; this is no gain over operationalSCD and does
+not replicate old16-ID+2.5pp. Native29/30 failures and posthoc-v2 amendment
+remain explicit. Keep fixed617/all40 protocol; no partial stopping/tuning/pooling.
+Thirdshard M100 runs. Raw957624316B/f4428f15 and122979901B/ac193533 accepted;
+derived partial_128_v2.json in current compact evidence retains all projection
+checks, original legacy failure, coverage/metrics/CI/pairing/timing identities.
