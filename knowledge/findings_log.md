@@ -9054,3 +9054,15 @@ full90casev1/v2 replay+sealedsource/provenance/resume review precede use. Native
 29/30repeatfailures remain. Compact basis_loss_failure_diagnosis.json and
 basis_loss_root_cause.md undercurrentR6knowledgeevidence; fullCPUaudit in
 rejected/shard001_half0/diagnostics_cpu_20261108T124719Z/.
+
+### 2026-11-08 — validator-v2 CPU qualification complete; resume pending
+
+[Code/CPU/Independent review/Open] Source7f08280327478B corrects independent
+referencearithmeticonly, witholdFP64errors/legacyflag retained andnewfirstwitness/
+dtypeguards.21focusedtests pass;859existingtests2skip/562subtests/7warnings;
+full90spectral+30control+2cachearchives qualify uniformly. NoGPU/ACK/inference
+sourcechange. Portablepublished-location21tests also pass afterincludingfixed
+617manifestfixture. Newcode/noteunderknowledge/evidence/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/
+andbasis_precision_validation_v2_20261108.md. Explicitposthocacceptancerule/set
+change, notv1pass orsolvednativeinstability. Separatev2resume/ACKnamespace and
+oldfailedstate preservation undergoingCPUchecks beforeanyGPUcontinuation.

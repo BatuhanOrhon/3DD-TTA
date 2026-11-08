@@ -209,3 +209,15 @@ NewCPUregression/negativecorruption tests anduniformfullvalidator replay on90
 actualcases precede anyv2acceptance. Separatev2source/verdict/bindingarchives and
 reviewedexplicitresume required; no completedGPUworker rerun ordata/alpha/source
 change. CurrentGPU remains stopped for this verification.
+
+[Code/CPU/Independent review] Explicitvalidator-v2 source27478B/7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc
+passes21targeted tests (withTDDRED/GREEN),859existingconsumer/projecttests2skip
+562subtests7warnings. Fullv2load_run qualifies90spectral+30control cases and
+2cachearchives/60preparedstates; v1 exactrejection remainsreproduced. Reviewer
+independentlypassed21andPython3.8syntax withnoblocker. Sourcefrozen918/assets e3/
+alpha4398 unchanged; currentruntime stillnotresumed. Portablepublicationbundle
+underknowledge/evidence/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/ includes
+source/tests/actual32energyregression/fixturebuilders/fixed617IDmanifest/qualification.
+Published-location21tests pass; omittedfixturemanifest foundandadded before
+publication. Broadernewconsumer/controller recovery verification stillpending;
+nooriginalacceptance/source/ACKpaths overwritten.

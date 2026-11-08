@@ -609,3 +609,28 @@ the study; runtime and sole monitor remain live until explicit close authorizati
 
 ### 2026-11-07 — own LION guidance fresh split-notebook replay
 [Run/CPU] New own HighRAM A10080GB `tta-lion-guidance-pilot-a100-20261107-r1` executed canonical10cells in order. Cell1 restart/sameVM reconnect; cell2 only known deferredfastrlock wheel failure, Python3.8.20verified. Cells4–7 built pinnedCUDA12.1/GCC11.4/EMD/Chamfer/PointNet++; cell8 builtPVCNN and GPU smoke completion file at10:49:43UTC, but lost final CLI stream. Read-only console confirmed no remaining build/GPU process; stale localCLI only was stopped. Independent marker check passed; cell10 separately emitted SETUP_ENVIRONMENT_VERIFIED and finalwrapper marker, validating nativeGPU/data15arrays/checkpoints withTorch2.1.2+cu121/NumPy1.21.2. Cell3 similarly needed an independent copyhash check after its completion marker/CLI reply timeout. No duplicate builds or runtime restarts to hide failures. [Exact records and archive identities](lion_guidance_pilot_20261107.md); the cell8 final stream limitation is retained. Runtime remains live.
+
+## 2026-11-08 — fresh r6 ten-cell split replay verified
+
+[Run] Own High-RAM A100 r6 (`tta-gsd-quarter-fast-a100-20261108-r6`,
+endpoint `gpu-a100-hm-ass1c0-uycluss04t2v`) replayed the canonical split on
+a freshly allocated VM: cell1 alone10:57:14UTC, sameVMConda reconnect10:58:11;
+Drive independently verified; cell2 reached only user-deferred fastrlock0.8.4
+wheel failure, separate Python3.8/Drive validation passed; cells3–10 exact
+markers/exit0 in order, native on-disk phase markers checked. Cell10 finished
+11:43:58UTC. This supersedes older 'split not replayed fresh' status for this
+configuration; it does not establish a clean global pip dependency solution.
+
+Mac proof9005B SHA2b5bba7087d63a1c1243ee71c4a5564ec4c9e7a913e3ce5a5a2c08dd8112ea01
+retained under result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/
+fresh_canonical_setup.json. Python3.8.20, Torch2.1.2+cu121, NumPy1.21.2,
+A10080GB; prep dev a458cd46. Tensor/FPS/gatherforward-backward/KNN/Chamfer/EMD
+checks pass,15severity5arrays/2468officialtest IDs and checkpoints verified.
+Known nonfatal pip conflicts dask/importlib-metadata and scikit-image/networkx
+are in raw logs. No setup-cell research execution or peer-runtime mutation.
+
+This setup proof precedes a separately preserved, checked ten-binary capsule
+restore for the PM lowband experiment. It is not a sampling-determinism claim:
+that study's repeat gates still fail29/30B32 cases. Full chronology and raw
+paths: knowledge/gsd_lowband_quarter_comparison_r6_20261108.md; compact receipts:
+knowledge/evidence/gsd_lowband_quarter_fast_20261108_r6/.
