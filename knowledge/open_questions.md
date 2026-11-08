@@ -2892,3 +2892,13 @@ andM100 both1250/1920=65.104167%;half01236/1920=64.375%. Primarydelta0pp,
 conditional95%CI[-.885417,+.885417]; pilot+2.5pp has not replicated. Continue
 fixed617, no stopping from partial coverage. Thirdshard M100 running; native
 uncertainty and original v1 rejection remain. See currentR6 record and v2partial128.
+
+[Run/Partial/Open,2026-11-08T14:32UTC] Current192 paired objects supersede
+the128 interim as latest coverage: SCD1861/2880,M1001860,half01845;
+M100-SCD−.034722pp, conditional95%CI[-.729167,+.659722]. No operational gain
+established. Continue fixed617; original-v1 and native failure caveats remain.
+
+[Run/Partial/Open,2026-11-08T14:53UTC] Current256 paired objects: SCD andM100
+both2528/3840=65.833333%,half02513=65.442708%; primary0pp,95%conditionalCI
+[-.572917,+.572917]. Testcoverage10.372771%, fixed617 notfinished. Continue
+unchanged; no+2.5pp replication or native-stability claim.

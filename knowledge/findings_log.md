@@ -9095,3 +9095,22 @@ remain explicit. Keep fixed617/all40 protocol; no partial stopping/tuning/poolin
 Thirdshard M100 runs. Raw957624316B/f4428f15 and122979901B/ac193533 accepted;
 derived partial_128_v2.json in current compact evidence retains all projection
 checks, original legacy failure, coverage/metrics/CI/pairing/timing identities.
+
+### 2026-11-08 14:32 UTC — R6 first192 paired objects
+
+[Run/Partial/Open] SCD1861/2880=64.618056%,half01845=64.0625%,
+M1001860=64.583333%; primary−.034722pp, conditional object-cluster95%CI
+[-.729167,+.659722]. Three all15 shards Drive+Mac accepted; official test
+coverage7.779579%, no oldB2 pooling or617 completion. One legacy v1 rejection
+remains visible; native29/30 failures persist. Fixed617 continues unchanged.
+Full partial_192_v2.json d379998b retained in local derived and compact evidence;
+dedicated local CPU supervisor records later complete groups separately.
+
+### 2026-11-08 14:53 UTC — R6 first256 paired objects
+
+[Run/Partial/Open] Four all15 paired shards/16 job receipts,256/2468 objects
+(10.372771% test),3840 predictions/arm: SCD2528=65.833333%,half02513=65.442708%,
+M1002528=65.833333%. Primary0pp, conditional95%CI[-.572917,+.572917];
+M100-half0+.390625pp,CI[-.052734,+.833333]. No operationalgain; old16-ID+2.5pp
+still unreplicated. Same fixed617 protocol continues; native/posthoc-v2 caveats
+unchanged. partial_256_v2.json484b0b8f retained with all basis/legacy verdicts.

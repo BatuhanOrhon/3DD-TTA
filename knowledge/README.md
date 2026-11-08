@@ -1,8 +1,8 @@
 **[Run/Failed v1 gate/CPU qualified/Open] 2026-11-08 — R6 validator-v2 recovery prepared:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
-Current128/all15/all3 are Drive+Mac accepted: SCD1250/1920=65.104167%,
-half01236/1920=64.375%,M1001250/1920=65.104167%; M100-SCD0pp,
-conditional95%CI[-.885417,+.885417]. Fixed617 is incomplete; old64 result retained.
+Current256/all15/all3 are Drive+Mac accepted: SCD2528/3840=65.833333%,
+half02513/3840=65.442708%,M1002528/3840=65.833333%; M100-SCD0pp,
+conditional95%CI[-.572917,+.572917]. Fixed617 is incomplete; old partials retained.
 Second-shard half0 originally failed v1's independent physical-basis loss
 absolute1e-6 gate. Its v1 rejection remains; all completed jobs now have separate v2 receipts.
 Failed raw and v1 rejection preserved. [Explicit post-hoc validator-v2 arithmetic

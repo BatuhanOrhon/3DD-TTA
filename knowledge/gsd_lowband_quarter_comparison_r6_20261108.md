@@ -273,3 +273,30 @@ normally pushed asf94e3d8 to origin/thesis-integration. Curated scope: research
 notes, explicit amendment and compact genuine admission/provenance receipts;
 temporary deployment/phase/consumer wrappers, full sidecars and raw ZIPs stay
 out of Git, preserved under result/ and the verified Drive provenance bundle.
+
+### 2026-11-08 14:32 UTC — 192 paired objects; primary delta −.034722pp
+
+[Run/Partial/Open] All three arms/three shards accepted:192/2468 objects
+(7.779579% official test),2880 predictions per arm. SCD1861=64.618056%,
+half01845=64.0625%,M1001860=64.583333%. M100-SCD−.034722pp,
+conditional object-cluster95%CI[-.729167,+.659722]. M100-half0+.520833pp,
+CI approximately[0,+1.041667]. Original v1 failure remains visible exactly once.
+No operational SCD gain established; no causal/native-stability claim. Fixed617
+continues; next paired report256. Full derived partial_192_v2.json SHA
+d379998b0d1e9892c068b3bc22cfc09ac342d922a39e15f3ac04963b3fe2caba is
+copied byte-exact to current v2 knowledge evidence. Dedicated local-only CPU
+supervisor records each future complete64-object group in
+gsd_lowband_r6_progress_cpu_20261108.md; no remote/CLI/PTY access by that supervisor.
+
+### 2026-11-08 14:53 UTC — 256 paired objects; no operational SCD gain
+
+[Run/Partial/Open] Four complete paired shards/16 accepted job receipts:
+256/2468 official test objects=10.372771%; planned617 coverage41.491086%.
+All15/s5/seed0/B32 gives3840 predictions per arm. SCD2528=65.833333%,
+half02513=65.442708%,M1002528=65.833333%; primarydelta0pp,
+conditional object-cluster95%CI[-.572917,+.572917]. M100-half0+.390625pp,
+CI[-.052734,+.833333]. Original-v1 failurecount1/native29/30 remain; no causal
+or+2.5pp claim. Fifthshard half0 running, fixed617 continues without tuning.
+Full partial_256_v2.json SHA484b0b8f58ca22cc44a4ce2f8e1a15b0148cb0a6dba2cda72a618d519aa9593e
+is preserved in derived and current v2 compact evidence; local CPU progress
+note records the same accepted counts and intervals. No oldB2 pooling.
