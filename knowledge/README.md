@@ -1,3 +1,14 @@
+**[Run/CPU/Decision] 2026-11-08 — common-horizon Background and new all15 complete:**
+[Fixed-horizon report](lion_guidance_uniform_horizon_results_20261108.md).
+All15 use N5terminal/N8candidates. Background:N5 24.9595%,tunedN8terminal30.0243%,
+N8PM30.1053%,cheap30.5916%. Newall15:N5 61.4452%,N8terminal62.5716%,
+N8PM63.7358%,cheap63.7223%; cheap−PM−.0135pp,95%CI[−.1810,.1540],
+27.6730% less time. Same-margin checks pass under revised policy.
+Absolute Background accuracy drops sharply versus historicalN35; preserve both.
+User-directed afterN35result, one seed/development exposure, no unseen confirmation.
+Independent111060rows/900times/37020terminalrecount passed; raw/source archives
+Drive/local verified. Raw/source/derived archives Drive/local verified; runtime r5/monitor16794 retained.
+
 **[Run/CPU/Decision] 2026-11-08 — all15 extension complete: speed benefit with Background accuracy loss:**
 [Final all15 report](lion_guidance_all15_results_20261108.md). All2,468 IDs/seed0/B128:
 tuned PM66.0157%,cheap65.7293%,29.5625% less pipeline time. Difference−.2863pp,

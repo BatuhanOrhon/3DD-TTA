@@ -1,0 +1,35 @@
+{
+  "phase": "BackgroundCommonN5N8",
+  "run_id": "20261108T165415Z_background_uniform",
+  "elapsed_seconds": 608,
+  "closed_cases": 11,
+  "expected_cases": 20,
+  "checkpointed_rows": 4224,
+  "model_gate": true,
+  "full_B128_warmup": true,
+  "integrity": false,
+  "last_progress": "LION_SPEED_PROGRESS background_uniform background 0 10 0 cheap 13.686",
+  "last_output": "LION_SPEED_CASE_DRIVE_VERIFIED background_s0_b10",
+  "last_output_utc": "2026-11-08T17:04:22.129146+00:00",
+  "finished": null,
+  "state": "RUNNING_OBSERVED",
+  "status": "midrun_checkpoint_progress_not_accuracy_acceptance",
+  "recorded_utc": "2026-11-08T17:04:22.175925+00:00",
+  "session": "tta-lion-guidance-speed-a100-20261108-r5",
+  "source_overlay_sha256": "5221f7effff99045cfbde8459f7797123dad00a707330e29dfca28bf4854ddde",
+  "horizons": {
+    "terminal": 5,
+    "original": 8,
+    "cheap": 8
+  },
+  "batch_size": 128,
+  "last_batch_size": 36,
+  "seeds": [
+    0
+  ],
+  "Drive_roundtrip_verified": true,
+  "backed_record": {
+    "bytes": 984,
+    "sha256": "23210c81375e72bc3e9c12425a96189aac172a5864c7d365e4ffbb12fc0facaa"
+  }
+}

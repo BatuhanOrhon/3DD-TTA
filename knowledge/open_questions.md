@@ -2953,3 +2953,8 @@ GPU consideration, only after user command. CurrentR6 note gives exact paths.
 ## 2026-11-08T16:26:31.628374+00:00 — completed all15 extension; remaining research questions
 
 [Run/Decision/Open] Requested all2468/all15/seed0/B128 scope is complete and independently accepted. Macro14primaryPASS; all15 accuracy-margin FAILS (delta−.2863pp,95%[−.4727,−.0972]), with Background−3.6062pp. [Finalreport](lion_guidance_all15_results_20261108.md). No automatic new phase/default promotion. Open: explain Background behavior and negative PM−terminal effect under the fixed N35 policy; unguided attribution; repeat-seed and held-out generalization; matched terminal-only N8 latency if needed; corruption-independent horizons. A future changed Background policy would need a separate frozen validation, not relabelled all15 evidence.
+
+
+## 2026-11-08T17:15:39.099364+00:00 — common-horizon request completed
+
+[Run/Decision/Open] BackgroundN5terminal/tunedN8terminal/N8PM/cheapN8PM now accepted and common-policyall15 recomputed: cheap−PM−.013506pp/95%[−.180983,.153971],27.673026%less time, allthree same-marginchecksPASS. [Report](lion_guidance_uniform_horizon_results_20261108.md). HistoricalN35/macro14history preserved. Open: severeBackgroundabsoluteaccuracy underfixedN8; repeatseeds/held-outgeneralization; matchedterminal-onlyN8latencyifneeded; unguidedattribution/novelty. Future horizon adaptation must be label-free and separately validated; this result does not authorize a new GPUvariant or silent baseline-default change.

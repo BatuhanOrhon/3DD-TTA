@@ -1,0 +1,31 @@
+{
+  "status": "prepared_not_launched",
+  "created_utc": "2026-11-08T16:50:47.888662+00:00",
+  "session": "tta-lion-guidance-speed-a100-20261108-r5",
+  "root": "/content/studies/lion-guidance-background-uniform-20261108-r5",
+  "Drive": "/content/drive/MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5",
+  "source_commit": "345e85ef09eb5f3d8e5da10a5f152eddc353aabe",
+  "source_overlay": {
+    "bytes": 777391,
+    "sha256": "5221f7effff99045cfbde8459f7797123dad00a707330e29dfca28bf4854ddde"
+  },
+  "operator": {
+    "bytes": 796091,
+    "sha256": "b49f5c53e9f3bba3d29738e3a840cbb5c63efa40b172a4b58ffdaf703af1c175"
+  },
+  "validation": {
+    "bytes": 13874,
+    "sha256": "5d1c20b74c48257c825f4fafd03922f1e1157095c8d1d63a1549f5871d28195a"
+  },
+  "deploy_cell": {
+    "bytes": 2047,
+    "sha256": "f3beef3aa4ade97896bf5725c7fe3b2211a4d368d74e561921e9294840e55f86"
+  },
+  "launch_cell": {
+    "bytes": 996,
+    "sha256": "b2d8350f7e2b7d105bae9417ee895495362b0efcd1fea4a3234e655bb7c69378"
+  },
+  "GPU_estimate": "17\u201322min; unchangedB128 frozen comparison,20cases/7404rows",
+  "authorization": "Explicit user common-horizon request + standing GPU permission; no repeated ask",
+  "prior_results": "Acceptedmacro14andN35/all15preservedimmutable; new all15composite distinct"
+}

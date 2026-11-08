@@ -1,0 +1,359 @@
+{
+  "status": "complete_all15_common_horizon_Background_revision",
+  "created_utc": "2026-11-08T17:14:45.882591+00:00",
+  "rows": 111060,
+  "unique_objects": 2468,
+  "seeds": [
+    0
+  ],
+  "batch_size": 128,
+  "arms": [
+    {
+      "arm": "terminal",
+      "inferences": 37020,
+      "correct": 22747,
+      "accuracy_percent": 61.44516477579687,
+      "pipeline_seconds": 2975.721248728999,
+      "amortized_ms_per_inference": 80.38144918230684
+    },
+    {
+      "arm": "original",
+      "inferences": 37020,
+      "correct": 23595,
+      "accuracy_percent": 63.73581847649919,
+      "pipeline_seconds": 5489.957533373998,
+      "amortized_ms_per_inference": 148.29707005332247
+    },
+    {
+      "arm": "cheap",
+      "inferences": 37020,
+      "correct": 23590,
+      "accuracy_percent": 63.72231226364128,
+      "pipeline_seconds": 3970.720133634988,
+      "amortized_ms_per_inference": 107.25878264816284
+    }
+  ],
+  "comparisons": [
+    {
+      "reference": "original",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 37020,
+      "reference_accuracy_percent": 63.73581847649918,
+      "candidate_accuracy_percent": 63.72231226364128,
+      "delta_pp": -0.013506212857914639,
+      "delta_ci95_pp": [
+        -0.18098325229605616,
+        0.1539708265802269
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 5489.957533373998,
+      "candidate_seconds": 3970.720133634988,
+      "saving_percent": 27.67302643970221,
+      "saving_batch_cluster_ci95_percent": [
+        27.65599016052234,
+        27.692697928794388
+      ],
+      "timed_batches_per_arm": 300,
+      "timing_clusters": 300,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": -0.01350621285791464,
+          "saving_percent": 27.67302643970221
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 0.48622366288492713,
+        "cutout": 0.24311183144246357,
+        "density": 0.6888168557536467,
+        "density_inc": 0.0,
+        "distortion": 0.24311183144246357,
+        "distortion_rbf": -0.1620745542949757,
+        "distortion_rbf_inv": -0.526742301458671,
+        "gaussian": 0.04051863857374392,
+        "impulse": 0.24311183144246357,
+        "lidar": -1.2560777957860616,
+        "occlusion": -0.48622366288492713,
+        "rotation": -0.3241491085899514,
+        "shear": 0.6077795786061588,
+        "uniform": 0.04051863857374392,
+        "upsampling": -0.04051863857374392
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "terminal",
+      "candidate": "original",
+      "objects": 2468,
+      "paired_inferences": 37020,
+      "reference_accuracy_percent": 61.44516477579687,
+      "candidate_accuracy_percent": 63.73581847649918,
+      "delta_pp": 2.290653700702323,
+      "delta_ci95_pp": [
+        1.9881145326850351,
+        2.593192868719611
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 2975.721248728999,
+      "candidate_seconds": 5489.957533373998,
+      "saving_percent": -84.49166015529474,
+      "saving_batch_cluster_ci95_percent": [
+        -84.55524238593438,
+        -84.43456613572675
+      ],
+      "timed_batches_per_arm": 300,
+      "timing_clusters": 300,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 2.290653700702323,
+          "saving_percent": -84.49166015529474
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 5.145867098865478,
+        "cutout": 1.539708265802269,
+        "density": 0.04051863857374392,
+        "density_inc": 0.3241491085899514,
+        "distortion": 0.28363047001620745,
+        "distortion_rbf": 1.1345218800648298,
+        "distortion_rbf_inv": 1.539708265802269,
+        "gaussian": 4.983792544570503,
+        "impulse": 9.238249594813615,
+        "lidar": 3.8492706645056725,
+        "occlusion": 0.7293354943273906,
+        "rotation": 1.3371150729335495,
+        "shear": -1.2155591572123177,
+        "uniform": 2.8768233387358184,
+        "upsampling": 2.5526742301458674
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "terminal",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 37020,
+      "reference_accuracy_percent": 61.44516477579687,
+      "candidate_accuracy_percent": 63.72231226364128,
+      "delta_pp": 2.2771474878444087,
+      "delta_ci95_pp": [
+        1.9773095623987034,
+        2.590491626148028
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 2975.721248728999,
+      "candidate_seconds": 3970.720133634988,
+      "saving_percent": -33.437234261474494,
+      "saving_batch_cluster_ci95_percent": [
+        -33.47895302362805,
+        -33.39352838468737
+      ],
+      "timed_batches_per_arm": 300,
+      "timing_clusters": 300,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 2.2771474878444087,
+          "saving_percent": -33.437234261474494
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 5.632090761750405,
+        "cutout": 1.7828200972447326,
+        "density": 0.7293354943273906,
+        "density_inc": 0.3241491085899514,
+        "distortion": 0.526742301458671,
+        "distortion_rbf": 0.9724473257698543,
+        "distortion_rbf_inv": 1.012965964343598,
+        "gaussian": 5.024311183144246,
+        "impulse": 9.481361426256079,
+        "lidar": 2.593192868719611,
+        "occlusion": 0.24311183144246357,
+        "rotation": 1.012965964343598,
+        "shear": -0.6077795786061588,
+        "uniform": 2.9173419773095626,
+        "upsampling": 2.512155591572123
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    }
+  ],
+  "Background": {
+    "arms": [
+      {
+        "arm": "terminal",
+        "inferences": 2468,
+        "correct": 616,
+        "accuracy_percent": 24.959481361426256,
+        "pipeline_seconds": 198.32072470600178,
+        "amortized_ms_per_inference": 80.35685766045454
+      },
+      {
+        "arm": "original",
+        "inferences": 2468,
+        "correct": 743,
+        "accuracy_percent": 30.105348460291733,
+        "pipeline_seconds": 365.27574567898773,
+        "amortized_ms_per_inference": 148.00475918921705
+      },
+      {
+        "arm": "cheap",
+        "inferences": 2468,
+        "correct": 755,
+        "accuracy_percent": 30.59157212317666,
+        "pipeline_seconds": 264.1458620730009,
+        "amortized_ms_per_inference": 107.02830716085934
+      }
+    ],
+    "comparisons": [
+      {
+        "reference": "original",
+        "candidate": "cheap",
+        "objects": 2468,
+        "paired_inferences": 2468,
+        "reference_accuracy_percent": 30.105348460291737,
+        "candidate_accuracy_percent": 30.591572123176665,
+        "delta_pp": 0.4862236628849271,
+        "delta_ci95_pp": [
+          -0.2025931928687196,
+          1.1750405186385737
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 365.27574567898773,
+        "candidate_seconds": 264.1458620730009,
+        "saving_percent": 27.68590162426552,
+        "saving_batch_cluster_ci95_percent": [
+          27.62975314822995,
+          27.780087516691907
+        ],
+        "timed_batches_per_arm": 20,
+        "timing_clusters": 20,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 0.48622366288492713,
+            "saving_percent": 27.68590162426552
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "background": 0.48622366288492713
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "terminal",
+        "candidate": "original",
+        "objects": 2468,
+        "paired_inferences": 2468,
+        "reference_accuracy_percent": 24.959481361426256,
+        "candidate_accuracy_percent": 30.105348460291737,
+        "delta_pp": 5.145867098865478,
+        "delta_ci95_pp": [
+          4.051863857374392,
+          6.280388978930308
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 198.32072470600178,
+        "candidate_seconds": 365.27574567898773,
+        "saving_percent": -84.18435401569172,
+        "saving_batch_cluster_ci95_percent": [
+          -84.28599216197166,
+          -84.10680472989266
+        ],
+        "timed_batches_per_arm": 20,
+        "timing_clusters": 20,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 5.145867098865478,
+            "saving_percent": -84.18435401569172
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "background": 5.145867098865478
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "terminal",
+        "candidate": "cheap",
+        "objects": 2468,
+        "paired_inferences": 2468,
+        "reference_accuracy_percent": 24.959481361426256,
+        "candidate_accuracy_percent": 30.591572123176665,
+        "delta_pp": 5.632090761750405,
+        "delta_ci95_pp": [
+          4.4975688816855754,
+          6.766612641815235
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 198.32072470600178,
+        "candidate_seconds": 264.1458620730009,
+        "saving_percent": -33.19125495561839,
+        "saving_batch_cluster_ci95_percent": [
+          -33.27780096843317,
+          -33.0279528544218
+        ],
+        "timed_batches_per_arm": 20,
+        "timing_clusters": 20,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 5.632090761750405,
+            "saving_percent": -33.19125495561839
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "background": 5.632090761750405
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      }
+    ]
+  },
+  "margin_checks": {
+    "time_saving_at_least_15_percent": true,
+    "accuracy_lower95_above_minus_point3_pp": true,
+    "nondegenerate": true
+  },
+  "counts": {
+    "corrected": 518,
+    "harmed": 523,
+    "Background_corrected": 44,
+    "Background_harmed": 32
+  },
+  "policy": {
+    "terminal": 5,
+    "original": 8,
+    "cheap": 8,
+    "PM_checkpoints": [
+      2,
+      4,
+      6,
+      "terminal"
+    ]
+  },
+  "protocol_revision": "User-directed after observing N35 result; historical N35 raw/results retained; no retuning of rates/tau or rerun of accepted14",
+  "terminal_readout": {
+    "status": "derived_same_trace_common_N8_terminal_accuracy_only",
+    "correct": 23164,
+    "accuracy_percent": 62.571582928146945,
+    "PM_gain_pp": 1.164235548352245,
+    "Background_correct": 741,
+    "Background_terminal_accuracy_percent": 30.02431118314425,
+    "terminal_only_seconds": null
+  },
+  "source_background_raw": {
+    "bytes": 5408313,
+    "sha256": "2e2ffbc391372b1646567cdc9636a0fa2be2a2760b86369df7e1ebd3cf70a25b",
+    "local_path": "/content/studies/lion-guidance-background-uniform-20261108-r5/result/20261108T165415Z_background_uniform.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/raw/20261108T165415Z_background_uniform.zip"
+  },
+  "limitations": "UserrequestedcommonhorizonBackgroundrevisionafterN35result; macro14primaryandhistoricalN35remainfrozen. One seed/developmentexposure/nativevariation. ThreephysicalA100runtimes/fourmeasurementgroups; timingcomposite notsingle-runtime/hardwareCI. SameN5terminal/N8candidatesforall15; label-freefixedhorizons. Developmentexposedprotocolrevisionnotunseenconfirmation. B128amortized notB1. Unguidedattribution/novelty unestablished."
+}

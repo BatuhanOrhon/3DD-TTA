@@ -379,15 +379,17 @@ def decoded_to_geometry(decoded, dataset: str, scale, center, ops):
     return ops.normalize(geometry)[0]
 
 
-def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda", method=METHOD, scheduler_observer=None, observer_factory=None, protocol=None, paired_state_path=None):
+def reconstruct_geometry(raw, dataset: str, corruption: str, lion, graph, reconstruct, ops, *, device="cuda", method=METHOD, scheduler_observer=None, observer_factory=None, protocol=None, paired_state_path=None, original_steps=None):
     """Exact existing dataset pre/postprocessing, before any terminal head FPS."""
     import torch
+    if original_steps is not None and (method != ORIGINAL_METHOD or type(original_steps) is not int or original_steps not in (5, 35)):
+        raise ValueError("Invalid explicit original horizon")
     normalized, center, scale = ops.normalize(raw)
     prepared = torch.from_numpy(ops.upsample_all(normalized.numpy(), 2048)).float().to(device)
     prepared *= 3.3885
     prepared = ops.rotate_pointcloud(prepared)
     if method == ORIGINAL_METHOD:
-        steps = 35 if corruption == "background" else 5
+        steps = original_steps if original_steps is not None else (35 if corruption == "background" else 5)
         observed = []
         def observe(scheduler):
             record = original_scheduler_record(scheduler, steps)

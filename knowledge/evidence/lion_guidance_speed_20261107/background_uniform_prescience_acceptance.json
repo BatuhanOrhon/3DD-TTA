@@ -1,0 +1,17 @@
+{
+  "status": "accepted_before_science",
+  "verified_utc": "2026-11-08T16:53:33.394972+00:00",
+  "archive": {
+    "bytes": 5736171,
+    "sha256": "219801c36b4e854799dcc3021b6b649070753d38a974559a3520053b340401b5"
+  },
+  "raw_local": "result/modelnet40_c/lion_guidance_speed/raw/reproducibility_supplement_background_uniform_r5.zip",
+  "Drive": "/content/drive/MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/reproducibility_supplement_v2.zip",
+  "members": 416,
+  "source": {
+    "bytes": 777391,
+    "sha256": "5221f7effff99045cfbde8459f7797123dad00a707330e29dfca28bf4854ddde"
+  },
+  "native_files": 7,
+  "policy": "UserrequestedcommonN5N8horizons; immutablemacro14andN35 preserved; actualmodelgatependingfirstwarmup"
+}

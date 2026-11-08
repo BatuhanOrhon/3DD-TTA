@@ -1,0 +1,14 @@
+{
+  "status": "prepared_complete_common_horizon_integration",
+  "created_utc": "2026-11-08T17:18:08.039545+00:00",
+  "target_base": "93cd210",
+  "source_commits": [
+    "186b0aebd94e1e9dcdb4250587219f9c78f6078d",
+    "345e85ef09eb5f3d8e5da10a5f152eddc353aabe"
+  ],
+  "selected": "Two horizon-only scientific source files, tests/plan, new common-policy report/compact evidence, semantic historical/shared-note appendices",
+  "excluded": "Raw ZIPs, per-object CSV dumps, caches/weights, temporary host/operator scripts (immutable Drive bundles instead)",
+  "verification": "45targeted +848sourceprojecttests/2skip/500subtests;859integrationtests/2skip/562subtests48.19s; actual111060rows/900times/37020terminalreads and CIs independently recounted; derived and raw Drive roundtrip; sealedmacro14/N35 history retained",
+  "peer_records": "Latest93cd210 primary-paper/originality audit and all prior peer records retained; no whole shared-file overwrite",
+  "limits": "One seed/post-N35 user revision; severe absolute Background drop; no freshterminal-only latency/novelty/unguidedattribution/default promotion/newGPU/teardown"
+}

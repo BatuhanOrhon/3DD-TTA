@@ -1,0 +1,11 @@
+{
+  "status": "sealed_derived_results_Drive_roundtrip_verified",
+  "created_utc": "2026-11-08T17:16:37.039321+00:00",
+  "local": "result/preparation/lion_guidance_speed_20261107/background_uniform_r5/uniform_all15_derived_20261108T171636Z.zip",
+  "bytes": 795490,
+  "sha256": "23623f382f8ec850085a6d6ab322a37127cd36b0fd03d47b7e391353624839c9",
+  "members": 45,
+  "drive": "/content/drive/MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/uniform_all15_derived_20261108T171636Z.zip",
+  "Drive_roundtrip_verified": true,
+  "verified_utc": "2026-11-08T17:16:58.921552+00:00"
+}

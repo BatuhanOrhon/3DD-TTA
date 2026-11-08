@@ -65,3 +65,6 @@ Derived summary/CSV: `result/modelnet40_c/lion_guidance_speed/analysis/20261108T
 
 
 [Run/CPU/Decision] 2026-11-08T16:26:31.628374+00:00: Separately requested [Background/all15 extension](lion_guidance_all15_results_20261108.md) is complete:29.5625% less time,−.2863pp,95%CI[−.4727,−.0972]pp; all15 noninferiority is not established because of Background−3.6062pp. This preserves, rather than replaces, the frozen macro14 primary PASS. No retuning/default promotion.
+
+
+[User decision/Run/CPU] 2026-11-08T17:15:39.099364+00:00: Userrequested a [separate common-horizon Background revision](lion_guidance_uniform_horizon_results_20261108.md) after this historicalN35 result. Newall15 appliesN5terminal/N8candidates uniformly: cheap−PM−.013506pp,27.673026%less time,95%CI[−.180983,.153971]; same-marginchecks pass but absoluteBackgroundaccuracy falls sharply. This report/raw/summary remains unchanged historical evidence; do not replace its values with the newpolicy totals.

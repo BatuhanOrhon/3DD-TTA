@@ -102,3 +102,8 @@ This differs from the old fixed corrupted-input semantic teacher and from spectr
 ## 2026-11-08T16:26:31.628374+00:00 — all15 efficiency extension and Background limitation
 
 [Run/CPU/Inference] [Full all15 report](lion_guidance_all15_results_20261108.md): cheap65.729335% vs tunedPM66.015667%,29.562521% less time, delta−.286332pp/95%CI[−.472717,−.097245]. All15 noninferiority is not established; Background−3.606159pp must remain visible. Frozen macro14 gate remains PASS. Same-trace tuned N8/35terminal64.905457%; PMgain1.110211pp overall but PM−.729335pp onBackground. One seed/native/development exposure, no new terminal-only latency, isolated unguided attribution or novelty proof. No default promotion/retuning. Earlier pending/unrun entries are dated history.
+
+
+## 2026-11-08T17:15:39.099364+00:00 — common-horizon Background revision
+
+[Run/CPU/Inference] [Fixed-policyreport](lion_guidance_uniform_horizon_results_20261108.md): user replaces BackgroundN35 with normalN5/N8 because noise type is unknown. Full2468/seed0/B128, commonall15PM63.735818%,cheap63.722312%,27.673026%less time/−.013506pp,95%CI[−.180983,.153971]; same-marginchecks pass in this revision. Backgroundcheap30.591572% vsPM30.105348%, though absolute accuracy is far belowhistoricalN35. Oldmacro14PASS/N35all15failed-marginhistory retained. Newcomparison is post-result/development-exposed/one-seed; no unseen generalization, novelty or unguided-attribution claim, default promotion or extraGPU phase.

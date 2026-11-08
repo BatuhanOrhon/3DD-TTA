@@ -1,0 +1,37 @@
+{
+  "status": "passed_independent_actual_common_policy_recount",
+  "recorded_utc": "2026-11-08T17:14:45.882591+00:00",
+  "reviewer": "/root/review_speed_protocol",
+  "rows": 111060,
+  "deduplicated_batch_times": 900,
+  "physical_runtimes": 3,
+  "measurement_groups": 4,
+  "derived_terminal_predictions": 37020,
+  "correct_totals": [
+    22747,
+    23595,
+    23590
+  ],
+  "delta_pp": -0.013506212857914639,
+  "accuracy_ci95_pp": [
+    -0.18098325229605616,
+    0.1539708265802269
+  ],
+  "saving_percent": 27.67302643970221,
+  "counts": {
+    "corrected": 518,
+    "harmed": 523,
+    "Background_corrected": 44,
+    "Background_harmed": 32
+  },
+  "margin_checks": {
+    "time_saving_at_least_15_percent": true,
+    "accuracy_lower95_above_minus_point3_pp": true,
+    "nondegenerate": true
+  },
+  "frozen_macro14": "unchanged",
+  "historical_N35": "preserved, excluded only from new common-policy composite",
+  "terminal_correct": 23164,
+  "terminal_accuracy_percent": 62.571582928146945,
+  "limits": "Post-N35 user-directed policy revision; one seed/development/native variation, no unseen confirmation, no terminal-only latency or unguided attribution"
+}

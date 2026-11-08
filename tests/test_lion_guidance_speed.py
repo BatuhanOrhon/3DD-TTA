@@ -321,3 +321,81 @@ def test_background_parser_accepts_terminal_but_rejects_continuation_skips(monke
     monkeypatch.setattr(run.os.path,'ismount',lambda path:False)
     with pytest.raises(SystemExit):run.main()
     assert expected in capsys.readouterr().err
+
+
+def test_background_uniform_uses_full_data_and_normal_arm_horizons():
+    from scripts.run_lion_guidance_speed import phase_layout, arm_protocols, sampler_steps
+    assert phase_layout('background_uniform',{},128)==dict(ids=list(range(2468)),corruptions=['background'],seeds=[0],repetitions=1)
+    actual=arm_protocols('background_uniform',['terminal','original','cheap'])
+    assert actual==arm_protocols('full14',['terminal','original','cheap'])
+    assert [actual[a]['steps'] for a in ('terminal','original','cheap')]==[5,8,8]
+    for corruption in ('background','uniform','gaussian'):
+        assert sampler_steps('background_uniform',corruption)==8
+    assert sampler_steps('background','background')==35
+    assert sampler_steps('full14','uniform')==8
+
+
+def test_background_uniform_terminal_forwards_explicit_horizon_without_relabelling(monkeypatch):
+    import numpy as np
+    import torch
+    from scripts import eval_multibackbone_guidance as shared
+    from scripts.run_lion_guidance_speed import terminal_inference
+    seen=[]
+    def reconstruct(raw,dataset,corruption,*args,**kwargs):
+        seen.append((corruption,kwargs));return raw,{}
+    monkeypatch.setattr(shared,'reconstruct_geometry',reconstruct)
+    logits,pm=terminal_inference(np.zeros((2,4,3),dtype=np.float32),'background',None,None,None,
+        lambda x:torch.zeros(len(x),40),[],steps=5)
+    assert seen==[('background',{'method':shared.ORIGINAL_METHOD,'original_steps':5})]
+    assert logits.shape==(2,1,40) and pm.shape==(2,40)
+
+
+def test_background_uniform_parser_accepts_terminal(monkeypatch,capsys):
+    import sys
+    from scripts import run_lion_guidance_speed as run
+    monkeypatch.setattr(sys,'argv',['run','--asset-root','unused','--manifest-sha256','0'*64,
+        '--selection','unused','--output','unused','--progress-drive','/content/drive/MyDrive/test',
+        '--phase','background_uniform','--arms','terminal','original','cheap'])
+    monkeypatch.setattr(run.os.path,'ismount',lambda path:False)
+    with pytest.raises(SystemExit):run.main()
+    assert 'Verified Drive progress path required' in capsys.readouterr().err
+
+
+@pytest.mark.parametrize('override,method', [(True,'3dd_original'),(0,'3dd_original'),
+    (5.0,'3dd_original'),(8,'3dd_original'),(101,'3dd_original'),(5,'gsd_latent_spectral_v1')])
+def test_original_horizon_override_rejects_invalid_values_before_preprocessing(override,method):
+    from scripts.eval_multibackbone_guidance import reconstruct_geometry
+    with pytest.raises(ValueError,match='original horizon'):
+        reconstruct_geometry(None,'modelnet40_c','background',None,None,None,None,
+                             original_steps=override,method=method)
+
+
+def test_original_horizon_override_preserves_background_name_and_old_default():
+    import torch
+    from types import SimpleNamespace
+    from scripts import eval_multibackbone_guidance as shared
+    seen=[]
+    ops=SimpleNamespace(normalize=lambda x:(x,None,None),upsample_all=lambda x,n:x,
+        rotate_pointcloud=lambda x:x,rotateback_pointcloud=lambda x:x)
+    scheduler=SimpleNamespace(config=dict(beta_end=.02,beta_start=.0001,beta_schedule='linear',
+        clip_sample=False,num_train_timesteps=1000,prediction_type='epsilon',set_alpha_to_one=True),
+        timesteps=torch.arange(990,-1,-10),final_alpha_cumprod=torch.tensor(1.))
+    def reconstruct(**kwargs):
+        seen.append(kwargs['steps_back_local']);kwargs['scheduler_observer'](scheduler)
+        return kwargs['x']
+    for override in (None,5,35):
+        geometry,_=shared.reconstruct_geometry(torch.ones(1,2048,3),'modelnet40_c','background',
+            None,None,reconstruct,ops,method=shared.ORIGINAL_METHOD,device='cpu',original_steps=override)
+        assert geometry.shape==(1,2048,3)
+    assert seen==[35,5,35]
+
+
+def test_uniform_phase_metadata_uses_normal_checkpoints_and_preserves_old_phase():
+    from scripts.run_lion_guidance_speed import configure_phase
+    for phase in ('background','background_uniform'):
+        base=dict(normal_reverse_steps=8,background_reverse_steps=35,
+                  trajectory_selection=dict(normal=[2,4,6],background=[9,18,27]))
+        configure_phase(base,phase)
+        assert base['normal_reverse_steps']==8
+        assert base['background_reverse_steps']==(8 if phase=='background_uniform' else 35)
+        assert base['trajectory_selection']['background']==([2,4,6] if phase=='background_uniform' else [9,18,27])

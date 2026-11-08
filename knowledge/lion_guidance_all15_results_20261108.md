@@ -71,3 +71,6 @@ Derived all15 summary/CSV: `result/modelnet40_c/lion_guidance_speed/analysis/202
 
 
 [Run/CPU] 2026-11-08T16:27:46.152326+00:00: Final all15 derived bundle Drive-roundtrip verified:759,531bytes,SHAe6b5bd63c9947e310927a2f1e10d229abd4f043d9475398986a02b9e15ff3bed,34members/all member identities andCRC passed. Includes accepted all15/N8terminal CSV/summary, reports, exact host acceptance/composition/derivation sources, independent review and source/raw/sealed-macro14 receipts. Drive `MyDrive/thesis/result/lion_guidance_background_20261108_r5/all15_derived_results_20261108T162703Z.zip`. Receipt is outside its own sealed bundle; later publication metadata is separately recorded. Raw/source/native archives remain separate and unchanged.
+
+
+[User decision/Run/CPU] 2026-11-08T17:15:39.099364+00:00: Userrequested a [separate common-horizon Background revision](lion_guidance_uniform_horizon_results_20261108.md) after this historicalN35 result. Newall15 appliesN5terminal/N8candidates uniformly: cheap−PM−.013506pp,27.673026%less time,95%CI[−.180983,.153971]; same-marginchecks pass but absoluteBackgroundaccuracy falls sharply. This report/raw/summary remains unchanged historical evidence; do not replace its values with the newpolicy totals.

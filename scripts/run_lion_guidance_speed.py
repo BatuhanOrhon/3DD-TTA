@@ -130,7 +130,7 @@ def phase_layout(phase, selection, size):
     if phase in ('full14', 'continue14'):
         return dict(ids=list(range(2468)), corruptions=[c for c in CORRUPTIONS if c != 'background'],
                     seeds=[0], repetitions=1)
-    if phase == 'background':
+    if phase in ('background', 'background_uniform'):
         return dict(ids=list(range(2468)), corruptions=['background'], seeds=[0], repetitions=1)
     if phase == 'profile':
         return dict(ids=selection['calibration'] if size == 1 else selection['confirm'][:size], corruptions=['uniform', 'occlusion'],
@@ -143,7 +143,7 @@ def phase_layout(phase, selection, size):
 
 def arm_protocols(phase, arms):
     """Declare the horizon actually selected by the timed corruption policy."""
-    if phase not in ('profile', 'full14', 'continue14', 'background'):
+    if phase not in ('profile', 'full14', 'continue14', 'background', 'background_uniform'):
         return None
     return {arm: (dict(steps=35 if phase == 'background' else 5,
                        gamma=.01, eta=.01, p=.95, readouts=1,
@@ -162,15 +162,28 @@ def corruption_schedule(corruptions, skipped, blocks_per_corruption):
             for ci, corruption in enumerate(corruptions) if corruption not in skipped]
 
 
-def terminal_inference(raw_array, corruption, lion, original, ops, classify, models):
+def sampler_steps(phase, corruption):
+    """The common-horizon phase never selects a horizon using corruption identity."""
+    return 8 if phase == 'background_uniform' else (35 if corruption == 'background' else 8)
+
+
+def configure_phase(base, phase):
+    """Keep declared horizons and readouts consistent with the common policy."""
+    if phase == 'background_uniform':
+        base['background_reverse_steps'] = 8
+        base['trajectory_selection']['background'] = [2, 4, 6]
+
+
+def terminal_inference(raw_array, corruption, lion, original, ops, classify, models, *, steps=None):
     """Repository original N5/N35 SCD (normal/Background), with one terminal readout."""
     import numpy as np
     import torch
     from legacy_trajectory import isolated_probe
     from scripts import eval_multibackbone_guidance as shared
     raw = torch.from_numpy(np.array(raw_array, dtype=np.float32, copy=True))
+    horizon = {} if steps is None else dict(original_steps=steps)
     geometry, _ = shared.reconstruct_geometry(raw, 'modelnet40_c', corruption, lion,
-                                              None, original, ops, method=shared.ORIGINAL_METHOD)
+                                              None, original, ops, method=shared.ORIGINAL_METHOD, **horizon)
     with isolated_probe(models):
         logits = classify(geometry).detach()
         probabilities = logits.softmax(-1)
@@ -181,7 +194,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('asset-root', 'manifest-sha256', 'selection', 'output'):
         parser.add_argument('--' + name, required=True)
-    parser.add_argument('--phase', choices=('repeat', 'screen', 'confirm', 'profile', 'full14', 'continue14', 'background'), required=True)
+    parser.add_argument('--phase', choices=('repeat', 'screen', 'confirm', 'profile', 'full14', 'continue14', 'background', 'background_uniform'), required=True)
     parser.add_argument('--skip-corruptions', nargs='*', default=[])
     parser.add_argument('--batch-size', type=int, choices=(1, 2, 4, 8, 16, 32, 64, 128), default=32)
     parser.add_argument('--progress-drive', required=True)
@@ -192,7 +205,7 @@ def main():
         parser.error('At least two unique arms including original are required')
     if 'original_audit' in args.arms and args.phase != 'repeat':
         parser.error('Audit observer is not a timed deployment comparator')
-    if 'terminal' in args.arms and args.phase not in ('profile', 'full14', 'continue14', 'background'):
+    if 'terminal' in args.arms and args.phase not in ('profile', 'full14', 'continue14', 'background', 'background_uniform'):
         parser.error('Original terminal requires a matched full14/profile/background protocol')
     if args.skip_corruptions and args.phase != 'continue14':
         parser.error('Corruption skips require the explicitly partial continue14 phase')
@@ -244,6 +257,7 @@ def main():
             '--result-root', str(output), '--paired-state-root', str(output / 'paired'), '--arm', 'control',
             '--count', '2', '--backend-policy', 'controlled', '--corruptions', *corruptions])
         base.update(batch_size=batch_size, selected_original_ids=ids, count=len(ids))
+        configure_phase(base, args.phase)
         backend = apply_backend_policy('controlled')
         setup = verify_setup(asset, manifest, base)
         dataset = source.dataset_manifest(manifest, base)
@@ -302,7 +316,8 @@ def main():
                 return classifier(points, features=features)
             if arm == 'terminal':
                 logits, pm = terminal_inference(raw_array, corruption, lion, original, ops,
-                                               classify_geometry, models)
+                                               classify_geometry, models,
+                                               steps=5 if args.phase == 'background_uniform' else None)
                 return logits, pm, [], None
             prepared, center, scale, state = prepare(raw_array) if cached is None else cached
             def classify(decoded):
@@ -353,7 +368,7 @@ def main():
         for ci, corruption, block in schedule:
             corruption_hashes = [source.state_hash(m) for m in models]
             assert corruption_hashes == initial_hashes, 'Model state mutated before corruption'
-            steps = 35 if corruption == 'background' else 8
+            steps = sampler_steps(args.phase, corruption)
             # Calibration IDs only; warm the actual batch size by cycling fixed IDs.
             for warm_size in warm_sizes:
                 warm_ids = (selection['calibration'] * ((warm_size + 3) // 4))[:warm_size]

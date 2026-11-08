@@ -1,0 +1,173 @@
+{
+  "status": "derived_same_trace_common_N8_terminal_accuracy_only",
+  "inferences": 37020,
+  "unique_objects": 2468,
+  "seeds": [
+    0
+  ],
+  "batch_size": 128,
+  "normal_steps": 8,
+  "Background_steps": 8,
+  "gamma": 0.03,
+  "eta": 0.003,
+  "p": 0.95,
+  "correct": 23164,
+  "accuracy_percent": 62.571582928146945,
+  "PM_accuracy_percent": 63.73581847649919,
+  "PM_gain_pp": 1.164235548352245,
+  "terminal_only_seconds": null,
+  "Background_correct": 741,
+  "Background_terminal_accuracy_percent": 30.02431118314425,
+  "source_background_acceptance": {
+    "status": "accepted",
+    "batch_size": 128,
+    "profile_metrics": {
+      "objects_per_second": 8.94481254572753,
+      "max_allocated_mib": 59349.78271484375,
+      "max_reserved_mib": 63790.0,
+      "gpu_total_mib": 81152.75
+    },
+    "phase": "background_uniform",
+    "rows": 7404,
+    "comparisons": [
+      {
+        "reference": "original",
+        "candidate": "terminal",
+        "objects": 2468,
+        "paired_inferences": 2468,
+        "reference_accuracy_percent": 30.105348460291737,
+        "candidate_accuracy_percent": 24.959481361426256,
+        "delta_pp": -5.145867098865478,
+        "delta_ci95_pp": [
+          -6.280388978930308,
+          -4.051863857374392
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 365.27574567898773,
+        "candidate_seconds": 198.32072470600178,
+        "saving_percent": 45.706571801706666,
+        "saving_batch_cluster_ci95_percent": [
+          45.68370237768941,
+          45.73651593002832
+        ],
+        "timed_batches_per_arm": 20,
+        "timing_clusters": 20,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": -5.145867098865478,
+            "saving_percent": 45.706571801706666
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "background": -5.145867098865478
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "original",
+        "candidate": "cheap",
+        "objects": 2468,
+        "paired_inferences": 2468,
+        "reference_accuracy_percent": 30.105348460291737,
+        "candidate_accuracy_percent": 30.591572123176665,
+        "delta_pp": 0.4862236628849271,
+        "delta_ci95_pp": [
+          -0.2025931928687196,
+          1.1750405186385737
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 365.27574567898773,
+        "candidate_seconds": 264.1458620730009,
+        "saving_percent": 27.68590162426552,
+        "saving_batch_cluster_ci95_percent": [
+          27.62975314822995,
+          27.780087516691907
+        ],
+        "timed_batches_per_arm": 20,
+        "timing_clusters": 20,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 0.48622366288492713,
+            "saving_percent": 27.68590162426552
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "background": 0.48622366288492713
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "terminal",
+        "candidate": "cheap",
+        "objects": 2468,
+        "paired_inferences": 2468,
+        "reference_accuracy_percent": 24.959481361426256,
+        "candidate_accuracy_percent": 30.591572123176665,
+        "delta_pp": 5.632090761750405,
+        "delta_ci95_pp": [
+          4.4975688816855754,
+          6.766612641815235
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 198.32072470600178,
+        "candidate_seconds": 264.1458620730009,
+        "saving_percent": -33.19125495561839,
+        "saving_batch_cluster_ci95_percent": [
+          -33.27780096843317,
+          -33.0279528544218
+        ],
+        "timed_batches_per_arm": 20,
+        "timing_clusters": 20,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 5.632090761750405,
+            "saving_percent": -33.19125495561839
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "background": 5.632090761750405
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      }
+    ],
+    "numerical_repeats": [],
+    "cross_controls": [],
+    "elapsed": 969.276848087,
+    "source_overlay_sha256": "5221f7effff99045cfbde8459f7797123dad00a707330e29dfca28bf4854ddde",
+    "asset_manifest_sha256": "53d2921caa1c52cc1f8afea191aa5ce690f00b2324c8dda2280de524c61e9b82",
+    "archive": "result/modelnet40_c/lion_guidance_speed/raw/20261108T165415Z_background_uniform.zip",
+    "archive_bytes": 5408313,
+    "archive_sha256": "2e2ffbc391372b1646567cdc9636a0fa2be2a2760b86369df7e1ebd3cf70a25b",
+    "manifest_files": 175,
+    "run_id": "20261108T165415Z_background_uniform",
+    "executed_corruptions": [
+      "background"
+    ],
+    "skipped_corruptions": [],
+    "model_hashes": [
+      "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7",
+      "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+      "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+    ]
+  },
+  "prior_derivation_archive": {
+    "status": "sealed_and_Drive_roundtrip_verified",
+    "local": "result/preparation/lion_guidance_speed_20261107/full14_r5/macro14_N8_terminal_supplement_20261108.zip",
+    "bytes": 164742,
+    "sha256": "1d8e09fafd9f24c35c0160a77974c95de010043cf80df0b2beb6398d8fe06833",
+    "members": 6,
+    "drive": "/content/drive/MyDrive/thesis/result/lion_guidance_full14_20261108_r5/macro14_N8_terminal_supplement_20261108.zip",
+    "Drive_roundtrip_verified": true
+  },
+  "limitation": "Accuracy from saved traces, not a fresh terminal-only run or latency. Same tuned gamma/eta, common N8 across all15; one seed/development exposure/native variation.",
+  "derived_table_identity": {
+    "bytes": 4440527,
+    "sha256": "ec1147b01a491c4e042f778dafe81ae195fbe5a0a45e18a85a16f2f3ef7b806c"
+  }
+}

@@ -589,3 +589,67 @@ Owned `tta-lion-guidance-speed-a100-20261108-r5`/monitor16794 preserved; no tear
 
 
 [Run/CPU] 2026-11-08T16:27:46.152326+00:00: Final all15 derived bundle Drive-roundtrip verified:759,531bytes,SHAe6b5bd63c9947e310927a2f1e10d229abd4f043d9475398986a02b9e15ff3bed,34members/all member identities andCRC passed. Includes accepted all15/N8terminal CSV/summary, reports, exact host acceptance/composition/derivation sources, independent review and source/raw/sealed-macro14 receipts. Drive `MyDrive/thesis/result/lion_guidance_background_20261108_r5/all15_derived_results_20261108T162703Z.zip`. Receipt is outside its own sealed bundle; later publication metadata is separately recorded. Raw/source/native archives remain separate and unchanged.
+
+
+[Code/CPU/Run] 2026-11-08T16:29:55.203357+00:00: Final all15 knowledge/report published normally to `origin/thesis-integration` at `44af62acf4301b785c53b6819e9f5875698ff3e8`, latestpeer117b7f9 preserved. Remote ref independently verified; isolated integration checkout clean. Documentation/compact evidence only; no code change since848-test integration. Source/raw/derived archives remain immutable and Drive/local verified. All requested full-data one-seed tests and final analyses complete; macro14PASS/all15noninferiority not established and Background loss retained. Owned r5/solemonitor16794 live, no teardown. Final publication receipt: `knowledge/evidence/lion_guidance_speed_20261107/publication_all15_20261108.json`.
+
+
+## 2026-11-08T16:51:30.729758+00:00 — user-requested common-horizon Background phase preparing
+
+[User decision/Code/CPU/Open] User rejects corruption-name-dependent N35 for Background and requests the normal policies: N5terminal, tunedN8terminal andN8PM. Run only Background/all2468/s5/seed0/B128last36; include frozencheapN8PM for revised speed/accuracy totals. Three actual arms terminal/original/cheap,20cases/7404rows; tunedterminal accuracy from final saved N8PM readout, no invented latency. Rates/tau unchanged; no labels used in inference or parameter selection. This user-directed policy change occurs after observedN35loss, so report new all15 separately and preserve N35/macro14 history.
+
+[Code/CPU] Source345e85ef09eb5f3d8e5da10a5f152eddc353aabe, overlay5221f7effff99045cfbde8459f7797123dad00a707330e29dfca28bf4854ddde,777391bytes/261files. Explicit common-horizon phase and optional original_steps5/35 retain true Backgroundname/data and historical defaults. RED9fail→43targetedpass; independent review caught stalecheckpointmetadata and overbroadoverrideguard, then RED2fail→45targetedpass; final848projecttests/2skip/500subtests pass48.49s. All10nested mathematical paths identical except terminal horizon kw; other259sourcefiles matchN35source. Seven rawadversarialfixtures pass; initialsyntheticcompletion-marker omission retained asfixturefailure, generatorfixed notacceptancecriteria. Independentpresciencereview reports no remainingblocker.
+
+[Run/Open] Sameownedr5/monitor16794 responding; no newVM/setup/nativebuild. Separate `/content/studies/lion-guidance-background-uniform-20261108-r5`, Drive`MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5`. CPUdeployment/capture submitted; actualpre-sciencearchive/source/native/model/horizon gates precedeGPU. WholeGPUestimate17–22min, user standingGPUauthorization; no repeatedpermission. ActualVMloss→preserve/waituser, no replacement. No new accuracy result yet.
+
+
+[Run/Open] 2026-11-08T16:52:11.659654+00:00: First deployment submit was safely rejected by solemonitor because its bounded idle liveness probe was active; no phase body started. Probe completed exactmarker/exit0 at16:51:31UTC on sameVM, then identical deployment/capture submitted again. No VM loss, duplicate job or GPU science. Earlier submitted wording refers to request delivery, not accepted execution.
+
+
+## 2026-11-08T16:54:15.552866+00:00 — common-horizon Background GPU launch submitted
+
+[Run/Open] SameVMCPUdeployment/capture completed16:52:29UTC exactmarker/exit0. Newmanifest/source/native7/modelCPUgate verified; pre-sciencesupplement independently accepted5,736,171bytes SHA219801c36b4e854799dcc3021b6b649070753d38a974559a3520053b340401b5/416members and Drive/local byteidentity. Exact launchcell Drive-roundtrip passed. Source345e85e/overlay5221; onlyBackground/all2468/seed0/onepass/B128last36, N5terminal/N8originalcheap/fourPM[2,4,6,terminal], fixedtau/rates;20cases/7404rows. Solemonitor16794 submitted phase with3600s timeout; initial actual-model/data/backend/horizon5/8/8 gate and full warmups remain pending. No result yet. Preserve oldN35/macro14/artifactseals; actualVMloss→waitusercommand, no replacement.
+
+
+[Run/Open] 2026-11-08T16:56:48.154446+00:00: Actual common-horizon run `20261108T165415Z_background_uniform` initialized successfully; archived earlygate verified5/8/8, PM[2,4,6,terminal], same actual3modelhashes/backend/data/GPU. Initial Driveheaderenvironment SHA69560889411efc14b10c18194cf931c03d6373d543218c57fd7e9d0ad7f9d7f7; newmanifest53d2921caa1c52cc1f8afea191aa5ce690f00b2324c8dda2280de524c61e9b82. Gate Drive/local roundtrip verified. B36 bothwarmupspassed; firstB128warmup passed, second pending. Stillno accepted Backgroundaccuracy result.
+
+
+[Run/Open] 2026-11-08T17:00:17.019148+00:00: Common-horizon Background bothB36/B128warmups passed, finalB128marker16:56:29UTC. Measuredcases active; 5/20caseDrivecheckpoints. Samefixed5/8/8/rates/tau/B128 scope, no errors observed. Matched integration code over latest93cd210 passes859tests/2skip/562subtests48.19s; sourcecheckout848-test result remains separately scoped. Rawfinalacceptance/all15pending; no accuracy claim.
+
+
+[Run/Open] 2026-11-08T17:04:22.175925+00:00: Common-horizon Background midpoint 11/20 closedDrivecases/4224rows, same5/8/8policy/seed0/B128. Model/environment/horizoninitialgate andbothwarmups passed; finalintegrity/rawaccuracyacceptance pending. Midpoint receipt Drive/local roundtrip verified; no parameter change or early accuracy selection. `knowledge/evidence/lion_guidance_speed_20261107/background_uniform_midrun_progress.json`.
+
+
+## 2026-11-08T17:15:39.099364+00:00 — common-horizon Background and all15 independently accepted
+
+[Run/CPU/Inference/Decision] User-requested BackgroundN5terminal/N8candidates
+completed17:10:26UTC exactmarker/exit0,20cases/7404rows/frozen3modelproof,
+actual969.276848s on sameownedr5/monitor16794. Raw5,408,313bytes
+SHA2e2ffbc391372b1646567cdc9636a0fa2be2a2760b86369df7e1ebd3cf70a25b
+Drive/localverified. Source345e85e/overlay5221/currentmanifest53d292.
+Background:N5terminal616/2468=24.959481%; tunedN8terminal741=30.024311%;
+N8PM743=30.105348%; cheap755=30.591572%. Cheap−PM+.486224pp,
+95%CI[−.202593,1.175041],27.685902%less time; positive pointestimate alone
+is not established superiority. PM adds2 netcorrect overitsownN8terminal.
+
+[Run/CPU] Provenance-bound common-policy all15 composite111060rows accepted;
+macro14summary/CSVremainbyte-sealed. N5terminal61.445165%; tunedN8terminal
+62.571583%; N8PM63.735818%; cheap63.722312%. Cheap−PM−.013506pp,
+95%CI[−.180983,.153971],27.673026%lesspipeline time,518corrected/523harmed
+(net−5=old14−17+newBackground+12). Allthree same-marginchecks pass under
+newpolicy. PMadds1.164236pp versusownsavedN8terminal; no terminal-onlylatency.
+Cheap−N5terminal+2.277147pp but33.437234%moretime (wholepolicy comparison).
+Independentactualraw/compositeauditverifiedall111060rows,900timings,
+37020N8terminalpredictions andallCIs/sourcebindings. [Fullreport](lion_guidance_uniform_horizon_results_20261108.md).
+
+[Decision/Open] Same fixedhorizons remove Background-type routing but substantially
+reduce absolute Background accuracy versusN35(originalPM64.303079→30.105348%).
+N35/macro14/raw/history remainunchanged; this is a separately labelled
+user-directed post-N35 protocolrevision, not untouchedholdoutconfirmation,
+proofN8repairsBackgroundwell or isolated reverse-count attribution. Rates/tau
+unchanged, no corruptionfallback/retuning, extraGPUphase or globaldefaultpromotion.
+One-seed/development/nativevariation/three-runtime limits remain. Finalderived
+Drivebackup/sharedintegration next; runtime preserved, no teardown.
+
+
+[Run/CPU] 2026-11-08T17:16:58.921552+00:00: Final common-horizon all15 derived bundle Drive-roundtrip verified:795,490bytes,SHA23623f382f8ec850085a6d6ab322a37127cd36b0fd03d47b7e391353624839c9,45members/allmemberidentities/CRC. Includes newall15/N8terminal summaries+CSVs, currentandhistoricalreports, source/raw/model/sealedmacro14receipts, exacthostacceptance/composition/derivation/checksources and independentreview. Drive `MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/uniform_all15_derived_20261108T171636Z.zip`. Receipt/laterpublicationmetadata remain outside ownsealedbundle. Scientificraw and priorN35/macroseals unchanged.

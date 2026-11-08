@@ -1,0 +1,33 @@
+{
+  "status": "verified_actual_models_environment_and_common_horizon_gate",
+  "recorded_utc": "2026-11-08T16:56:07.223119+00:00",
+  "run_id": "20261108T165415Z_background_uniform",
+  "source_overlay_sha256": "5221f7effff99045cfbde8459f7797123dad00a707330e29dfca28bf4854ddde",
+  "asset_manifest_sha256": "53d2921caa1c52cc1f8afea191aa5ce690f00b2324c8dda2280de524c61e9b82",
+  "model_hashes": [
+    "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7",
+    "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+  ],
+  "backend": {
+    "cudnn": 8902,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cudnn_allow_tf32": false,
+    "cuda_matmul_allow_tf32": false,
+    "deterministic_algorithms": false,
+    "backend_determinism_guaranteed": false
+  },
+  "gpu_total_mib": 81152.75,
+  "environment_identity": {
+    "bytes": 83691,
+    "sha256": "69560889411efc14b10c18194cf931c03d6373d543218c57fd7e9d0ad7f9d7f7"
+  },
+  "expected_horizons": {
+    "terminal": 5,
+    "original": 8,
+    "cheap": 8
+  },
+  "early_check": "Bound archived checked_runner assertsactual5/8/8, one/fourreadouts, baseBackground8 and bothmetadata[2,4,6] before gate returns. Warmups/finalintegrity/rawresults separate.",
+  "scope": "Backgroundonly/all2468/seed0/B128; old14/N35results preserved"
+}

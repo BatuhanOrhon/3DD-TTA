@@ -9285,3 +9285,38 @@ frozen-.3pp noninferiority; Background alone loses3.606159pp. Macro14 passes
 remain valid and separate. Report and readiness amendment preserve both scopes.
 Read-only independent PM review also removed unsupported wording that the
 user-recorded local proposal was necessarily independent of external inspiration.
+
+
+## 2026-11-08T17:15:39.099364+00:00 — common-horizon Background and all15 independently accepted
+
+[Run/CPU/Inference/Decision] User-requested BackgroundN5terminal/N8candidates
+completed17:10:26UTC exactmarker/exit0,20cases/7404rows/frozen3modelproof,
+actual969.276848s on sameownedr5/monitor16794. Raw5,408,313bytes
+SHA2e2ffbc391372b1646567cdc9636a0fa2be2a2760b86369df7e1ebd3cf70a25b
+Drive/localverified. Source345e85e/overlay5221/currentmanifest53d292.
+Background:N5terminal616/2468=24.959481%; tunedN8terminal741=30.024311%;
+N8PM743=30.105348%; cheap755=30.591572%. Cheap−PM+.486224pp,
+95%CI[−.202593,1.175041],27.685902%less time; positive pointestimate alone
+is not established superiority. PM adds2 netcorrect overitsownN8terminal.
+
+[Run/CPU] Provenance-bound common-policy all15 composite111060rows accepted;
+macro14summary/CSVremainbyte-sealed. N5terminal61.445165%; tunedN8terminal
+62.571583%; N8PM63.735818%; cheap63.722312%. Cheap−PM−.013506pp,
+95%CI[−.180983,.153971],27.673026%lesspipeline time,518corrected/523harmed
+(net−5=old14−17+newBackground+12). Allthree same-marginchecks pass under
+newpolicy. PMadds1.164236pp versusownsavedN8terminal; no terminal-onlylatency.
+Cheap−N5terminal+2.277147pp but33.437234%moretime (wholepolicy comparison).
+Independentactualraw/compositeauditverifiedall111060rows,900timings,
+37020N8terminalpredictions andallCIs/sourcebindings. [Fullreport](lion_guidance_uniform_horizon_results_20261108.md).
+
+[Decision/Open] Same fixedhorizons remove Background-type routing but substantially
+reduce absolute Background accuracy versusN35(originalPM64.303079→30.105348%).
+N35/macro14/raw/history remainunchanged; this is a separately labelled
+user-directed post-N35 protocolrevision, not untouchedholdoutconfirmation,
+proofN8repairsBackgroundwell or isolated reverse-count attribution. Rates/tau
+unchanged, no corruptionfallback/retuning, extraGPUphase or globaldefaultpromotion.
+One-seed/development/nativevariation/three-runtime limits remain. Finalderived
+Drivebackup/sharedintegration next; runtime preserved, no teardown.
+
+
+[Run/CPU] 2026-11-08T17:16:58.921552+00:00: Final common-horizon all15 derived bundle Drive-roundtrip verified:795,490bytes,SHA23623f382f8ec850085a6d6ab322a37127cd36b0fd03d47b7e391353624839c9,45members/allmemberidentities/CRC. Includes newall15/N8terminal summaries+CSVs, currentandhistoricalreports, source/raw/model/sealedmacro14receipts, exacthostacceptance/composition/derivation/checksources and independentreview. Drive `MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/uniform_all15_derived_20261108T171636Z.zip`. Receipt/laterpublicationmetadata remain outside ownsealedbundle. Scientificraw and priorN35/macroseals unchanged.
