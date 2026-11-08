@@ -9368,3 +9368,22 @@ index. Monitor23310 exited0, ownr6 stop0, serverabsence17:41:30UTC verified.
 Peer closure delegated to its owner. Latest accepted448 result−.178571pp remains
 partial;617/finaldecision/external replication incomplete. Closure proofs in v2
 compact evidence; raw/source/logs in shutdown_20261108T173539Z on Drive+Mac.
+
+### 2026-11-08 — PM lowband halfmix: FAIL / candidate closed by user decision
+
+[User decision/Run/Inference] User requests recording the method as failed and
+publishing the knowledge update. The tested PM M100 SCD/GSD halfmix candidate
+failed to demonstrate accuracy improvement over operational SCD: latest accepted
+448 objects/all15/s5/seed0/B32 give SCD4438/6720=66.041667%, M1004426/6720=
+65.863095%, half04410/6720=65.625%. Primary−.178571pp, conditional95%CI
+[−.610119,+.238095]; M100−half0+.238095pp,CI[−.133929,+.610119]. Pilot+2.50pp
+on16 objects was not replicated. Decision: FAIL as an accuracy-improvement
+candidate, closed without baseline promotion or conditional external replication.
+No new GPU/code/default change. Planned617 screen remains incomplete; native
+29/30 failures and explicit posthoc-v2 acceptance amendment remain unresolved
+limits. This disposition is not a completed benchmark or universal harm claim.
+Evidence: [R6 record](gsd_lowband_quarter_comparison_r6_20261108.md),
+[accepted progress](gsd_lowband_r6_progress_cpu_20261108.md), local full
+partial_448_v2.json SHA2ef8a1e9b79298c080fcb80c6c528dce9b3d8b7e645c8bf1394c315ce662b5fb,
+and [closure proof](evidence/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/runtime_closure_20261108.json).
+The33 raw archives/source/logs and positive/negative/failed history stay preserved.

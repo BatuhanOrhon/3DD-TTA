@@ -54,8 +54,14 @@ all 2,468 IDs/seed0/B128 is running on owned speed r5; no all15 result yet.
 One-seed/development/native variation and unguided-attribution limits remain.
 [Execution, failures and ownership](lion_guidance_speed_20261107.md).
 
-**[User decision/Run/Closed/Partial] 2026-11-08 — R6 archived and closed;617 incomplete:**
+**[User decision/Run/Inference/FAIL] 2026-11-08 — PM lowband halfmix accuracy candidate closed:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
+User closes the PM SCD/GSD halfmix candidate as **FAIL: no demonstrated accuracy
+gain over operational SCD in the tested M100 follow-up**. The16-object pilot's
++2.50pp did not replicate in the accepted448-object comparison below. No default
+promotion or conditional external-dataset/source-model replication follows.
+This is the candidate's research disposition; the617 screen remains incomplete,
+and unresolved native variation prevents a universal or isolated causal claim.
 Explicit coordinated user shutdown: ownr6 closed17:41UTC, monitor23310 stopped;
 server inventory confirms no active sessions.33 raw archives/16789346159bytes
 rehash on Mac; pending007control/008cache salvaged without scientific ACKs.

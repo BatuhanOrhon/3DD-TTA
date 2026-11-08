@@ -1,5 +1,15 @@
 # PM düşük frekanslı halfmix — 7 Kasım 2026 sonuçları
 
+[User decision/Run/Inference,2026-11-08 — güncel karar: **FAIL / aday kapatıldı**]
+PM düşük frekanslı SCD/GSD karışımı, M100 takip deneyinde özgün SCD'ye karşı
+accuracy artışı gösteremedi. Kabul edilmiş448nesne/all15 karşılaştırmasında
+SCD%66.041667, M100%65.863095; fark−.178571puan, koşullu95%CI
+[−.610119,+.238095]. Aşağıdaki16nesnelik pilotta görülen+2.50puan bu kapsamda
+tekrarlanmadı. [Takip deneyi ve kapanış kararı](gsd_lowband_quarter_comparison_r6_20261108.md)
+güncel durumu belirler:617nesnelik tarama tamamlanmadı, native kararsızlık
+çözülmedi; varsayılan terfi veya koşullu dış-veriset/source-model tekrarı yok.
+Aşağıdaki pilot sonuçları ve eski sonraki-adım/oturum kayıtları tarihsel olarak korunur.
+
 [Run/Inference] Sınırlı pilot tamamlandı; güvenilir ek GSD katkısı gösterilmedi.
 M100 en yüksek betimleyici PM sayısını verdi, fakat yarım-SCD kontrolüne farkı
 2/240 ve koşullu güven aralığı sıfırı içeriyor. M200 yarım-SCD kontrolünün gerisinde.

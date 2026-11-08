@@ -2971,3 +2971,17 @@ Ownr6 archived and stopped0, ownmonitor stopped0, server absence verified;
 ACK emission or newGPU. Latest accepted coverage448/617, primary−.178571pp;
 617/final decision/external replication remain unrun. No live runtime to resume;
 future scientific work requires a new task. See currentR6 closure record/proofs.
+
+## 2026-11-08 — PM lowband halfmix candidate closed: FAIL
+
+[User decision/Run/Inference] The accuracy-improvement candidate is now closed
+as FAIL, superseding earlier continue617/recovery suggestions for this study.
+Latest accepted448 objects/all15: M10065.863095% versus SCD66.041667%,
+delta−.178571pp,conditional95%CI[−.610119,.238095]. Pilot+2.50pp did not
+replicate; no baseline promotion, further GPU continuation or conditional
+different-dataset/source-model replication is scheduled. See the
+[current disposition](gsd_lowband_quarter_comparison_r6_20261108.md).
+617 coverage, repeat-seed evidence and native stability remain missing evidence,
+not pending authorized tasks. They prevent a general efficacy/harm claim; they
+do not reopen this candidate. The33 archived raw jobs and failed outcomes remain
+available for a separately requested future research question. Runtimes stay closed.

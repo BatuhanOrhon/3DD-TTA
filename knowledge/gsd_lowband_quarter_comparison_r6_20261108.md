@@ -1,5 +1,34 @@
 # PM M100 comparison on owned r6 — 2026-11-08
 
+## Current disposition — FAIL / accuracy-improvement candidate closed
+
+[User decision/Run/Inference,2026-11-08] The user requests that the method be
+recorded as failed based on the observed results. PM low-frequency SCD/GSD
+halfmix is **FAIL as an accuracy-improvement candidate under this tested M100
+configuration**. The latest accepted paired comparison covers448 ModelNet40-C
+test objects/all15 corruptions/severity5/seed0/B32: operational SCD4438/6720
+(66.041667%), M1004426/6720 (65.863095%), half04410/6720 (65.625%).
+M100−SCD is−.178571pp, conditional object-cluster95%CI[−.610119,+.238095].
+M100−half0 is+.238095pp,CI[−.133929,+.610119]; neither contrast establishes
+the intended operational accuracy gain. The earlier16-object+2.50pp pilot
+gain was not reproduced in this accepted follow-up.
+
+The candidate is closed and is not promoted to the baseline. The conditional
+different-dataset/separate-source-model replication is not advanced. No further
+GPU continuation or parameter search is scheduled by this decision. Negative
+results, pilot positives, failed numeric gates, transport failures and immutable
+raw evidence remain preserved; this disposition does not alter their values.
+
+Limits remain explicit:617/2468 was the planned25% screen, while only448/2468
+(18.15%) have accepted paired accuracy. Shutdown salvage of extra raw archives
+does not constitute512/final617 acceptance. Native repeat gates failed29/30;
+the v2 scalar-comparator correction changed acceptance post-hoc and did not
+resolve sampling instability. The interval conditions on one observed seed and
+excludes native numerical variability. Thus FAIL records the unsuccessful
+development candidate, not a completed full-data benchmark or a general proof
+of harm/ineffectiveness. Runtime and monitor remain closed. Historical execution
+and next-action entries below are superseded by this disposition.
+
 [User decision/Run/Open] User confirms the unknown A100 is not theirs and must
 not be used; explicitly authorizes a new owned runtime if prior r5 is gone and
 forbids closing another agent's runtime. At10:49UTC, server inventory lacks old
