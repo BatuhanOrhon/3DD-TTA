@@ -1,0 +1,15 @@
+{
+  "status": "accepted",
+  "phase": "repeat",
+  "run_id": "20261107T163252Z_repeat",
+  "archive_bytes": 37396702,
+  "archive_sha256": "be4e28f16a7d282655899d69e9d09a27eff86878f37a1804c4530f1da0604688",
+  "source_overlay_sha256": "7c87f4956ed4f2313f076c6e97f1720a5e46b4672c7c77a304f6959a4bb4bdda",
+  "asset_manifest_sha256": "58d73c559349a008d3bb74fe9bbc1faec54ecad033c0f2df5b8fc04a8a7d5ebb",
+  "operational_comparison_permitted": true,
+  "legacy_numerical_parity_passed": false,
+  "decision_utc": "2026-11-07T16:40:20.178123+00:00",
+  "review": "Independent local rawSHA and PM recount agrees; retain native variability/all15/original reference. Reused crosspairs are not independent observations.",
+  "next_phase": "screen",
+  "scope": "32lockednewIDs/all15/s5/seed0/2repeats/B32; original/full/cheap/hybrid/sparse; 2warmups perarm/percorruption"
+}

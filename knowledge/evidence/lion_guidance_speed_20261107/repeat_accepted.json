@@ -1,0 +1,461 @@
+{
+  "status": "accepted",
+  "phase": "repeat",
+  "rows": 288,
+  "archive": "result/modelnet40_c/lion_guidance_speed/raw/20261107T163252Z_repeat.zip",
+  "archive_bytes": 37396702,
+  "archive_sha256": "be4e28f16a7d282655899d69e9d09a27eff86878f37a1804c4530f1da0604688",
+  "run_id": "20261107T163252Z_repeat",
+  "source_overlay_sha256": "7c87f4956ed4f2313f076c6e97f1720a5e46b4672c7c77a304f6959a4bb4bdda",
+  "asset_manifest_sha256": "58d73c559349a008d3bb74fe9bbc1faec54ecad033c0f2df5b8fc04a8a7d5ebb",
+  "elapsed": 324.8326404899999,
+  "comparisons": [
+    {
+      "reference": "original",
+      "candidate": "original_audit",
+      "objects": 4,
+      "paired_inferences": 48,
+      "reference_accuracy_percent": 68.75,
+      "candidate_accuracy_percent": 68.75,
+      "delta_pp": 0.0,
+      "delta_ci95_pp": [
+        0.0,
+        0.0
+      ],
+      "degenerate_object_differences": true,
+      "reference_seconds": 46.257675241998186,
+      "candidate_seconds": 46.96454004699717,
+      "saving_percent": -1.5281027446818474,
+      "saving_batch_cluster_ci95_percent": [
+        -3.516001546810066,
+        -0.6441971447668671
+      ],
+      "timed_batches_per_arm": 24,
+      "timing_clusters": 8,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 0.0,
+          "saving_percent": -2.312632412489224
+        },
+        {
+          "seed": 0,
+          "repeat": 1,
+          "delta_pp": 0.0,
+          "saving_percent": -1.196039338306809
+        },
+        {
+          "seed": 0,
+          "repeat": 2,
+          "delta_pp": 0.0,
+          "saving_percent": -1.0754681683434297
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "original",
+      "candidate": "full",
+      "objects": 4,
+      "paired_inferences": 48,
+      "reference_accuracy_percent": 68.75,
+      "candidate_accuracy_percent": 70.83333333333334,
+      "delta_pp": 2.0833333333333335,
+      "delta_ci95_pp": [
+        0.0,
+        6.25
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 46.257675241998186,
+      "candidate_seconds": 46.22642742100288,
+      "saving_percent": 0.06755164593081897,
+      "saving_batch_cluster_ci95_percent": [
+        -0.20271141807824966,
+        0.305810471571033
+      ],
+      "timed_batches_per_arm": 24,
+      "timing_clusters": 8,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 0.0,
+          "saving_percent": 0.1935371337427383
+        },
+        {
+          "seed": 0,
+          "repeat": 1,
+          "delta_pp": 6.25,
+          "saving_percent": 0.030886729506052202
+        },
+        {
+          "seed": 0,
+          "repeat": 2,
+          "delta_pp": 0.0,
+          "saving_percent": -0.021778047373111065
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 8.333333333333332,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "original",
+      "candidate": "cheap",
+      "objects": 4,
+      "paired_inferences": 48,
+      "reference_accuracy_percent": 68.75,
+      "candidate_accuracy_percent": 68.75,
+      "delta_pp": 0.0,
+      "delta_ci95_pp": [
+        0.0,
+        0.0
+      ],
+      "degenerate_object_differences": true,
+      "reference_seconds": 46.257675241998186,
+      "candidate_seconds": 21.366080073003104,
+      "saving_percent": 53.8107352753334,
+      "saving_batch_cluster_ci95_percent": [
+        48.28203295617265,
+        56.827109724412374
+      ],
+      "timed_batches_per_arm": 24,
+      "timing_clusters": 8,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 0.0,
+          "saving_percent": 53.65259638764079
+        },
+        {
+          "seed": 0,
+          "repeat": 1,
+          "delta_pp": 0.0,
+          "saving_percent": 53.88807279988883
+        },
+        {
+          "seed": 0,
+          "repeat": 2,
+          "delta_pp": 0.0,
+          "saving_percent": 53.89158174764693
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 25.0,
+        "density": 0.0,
+        "gaussian": -25.0,
+        "occlusion": 0.0
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "original",
+      "candidate": "hybrid",
+      "objects": 4,
+      "paired_inferences": 48,
+      "reference_accuracy_percent": 68.75,
+      "candidate_accuracy_percent": 68.75,
+      "delta_pp": 0.0,
+      "delta_ci95_pp": [
+        0.0,
+        0.0
+      ],
+      "degenerate_object_differences": true,
+      "reference_seconds": 46.257675241998186,
+      "candidate_seconds": 30.232427239998287,
+      "saving_percent": 34.64343575020451,
+      "saving_batch_cluster_ci95_percent": [
+        30.049538788118856,
+        37.200498654376695
+      ],
+      "timed_batches_per_arm": 24,
+      "timing_clusters": 8,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 0.0,
+          "saving_percent": 34.5830836296761
+        },
+        {
+          "seed": 0,
+          "repeat": 1,
+          "delta_pp": 0.0,
+          "saving_percent": 34.634953261815724
+        },
+        {
+          "seed": 0,
+          "repeat": 2,
+          "delta_pp": 0.0,
+          "saving_percent": 34.712246732766324
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "original",
+      "candidate": "sparse",
+      "objects": 4,
+      "paired_inferences": 48,
+      "reference_accuracy_percent": 68.75,
+      "candidate_accuracy_percent": 68.75,
+      "delta_pp": 0.0,
+      "delta_ci95_pp": [
+        0.0,
+        0.0
+      ],
+      "degenerate_object_differences": true,
+      "reference_seconds": 46.257675241998186,
+      "candidate_seconds": 29.923557453998,
+      "saving_percent": 35.31115150631293,
+      "saving_batch_cluster_ci95_percent": [
+        30.624859485199988,
+        37.88177877990459
+      ],
+      "timed_batches_per_arm": 24,
+      "timing_clusters": 8,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 0.0,
+          "saving_percent": 35.39081979322186
+        },
+        {
+          "seed": 0,
+          "repeat": 1,
+          "delta_pp": 0.0,
+          "saving_percent": 35.2197182908759
+        },
+        {
+          "seed": 0,
+          "repeat": 2,
+          "delta_pp": 0.0,
+          "saving_percent": 35.322837310175125
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": 0.0,
+        "density": 0.0,
+        "gaussian": 0.0,
+        "occlusion": 0.0
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    }
+  ],
+  "numerical_repeat_summary": [
+    {
+      "corruption": "gaussian",
+      "arm": "original",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.264984926635049e-07,
+      "max_logit_rms": 2.881335302867238e-06
+    },
+    {
+      "corruption": "gaussian",
+      "arm": "original_audit",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 5.166011739978993e-05,
+      "max_logit_rms": 0.003328555379493705
+    },
+    {
+      "corruption": "gaussian",
+      "arm": "full",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.2025064308178165e-07,
+      "max_logit_rms": 0.022428695962083245
+    },
+    {
+      "corruption": "gaussian",
+      "arm": "cheap",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.079372801134308e-05,
+      "max_logit_rms": 0.01330484241096263
+    },
+    {
+      "corruption": "gaussian",
+      "arm": "hybrid",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.221235775797532e-07,
+      "max_logit_rms": 3.1133960723733068e-06
+    },
+    {
+      "corruption": "gaussian",
+      "arm": "sparse",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.328410189240051e-07,
+      "max_logit_rms": 3.210728112777283e-06
+    },
+    {
+      "corruption": "background",
+      "arm": "original",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 0.03531912029249621,
+      "max_logit_rms": 0.5519627455769973
+    },
+    {
+      "corruption": "background",
+      "arm": "original_audit",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 0.04724868962527201,
+      "max_logit_rms": 0.6836415830699186
+    },
+    {
+      "corruption": "background",
+      "arm": "full",
+      "compared_predictions": 8,
+      "changed": 1,
+      "max_latent_rms": 0.04763465835363747,
+      "max_logit_rms": 0.5620741407502337
+    },
+    {
+      "corruption": "background",
+      "arm": "cheap",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 0.026173154137311572,
+      "max_logit_rms": 0.3872302618428958
+    },
+    {
+      "corruption": "background",
+      "arm": "hybrid",
+      "compared_predictions": 8,
+      "changed": 2,
+      "max_latent_rms": 0.030040106702951774,
+      "max_logit_rms": 0.6680289040120081
+    },
+    {
+      "corruption": "background",
+      "arm": "sparse",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 0.0087025258232198,
+      "max_logit_rms": 0.2864276767932615
+    },
+    {
+      "corruption": "density",
+      "arm": "original",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 6.06797935511173e-07,
+      "max_logit_rms": 3.936538248659365e-06
+    },
+    {
+      "corruption": "density",
+      "arm": "original_audit",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.2491123676356818e-07,
+      "max_logit_rms": 3.0103705331626483e-06
+    },
+    {
+      "corruption": "density",
+      "arm": "full",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.3013994725838856e-07,
+      "max_logit_rms": 2.875006424274827e-06
+    },
+    {
+      "corruption": "density",
+      "arm": "cheap",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.242470493401136e-07,
+      "max_logit_rms": 2.867664253574933e-06
+    },
+    {
+      "corruption": "density",
+      "arm": "hybrid",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 8.055931973576593e-05,
+      "max_logit_rms": 0.008899978997807248
+    },
+    {
+      "corruption": "density",
+      "arm": "sparse",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.3099010642289488e-07,
+      "max_logit_rms": 3.005129162015561e-06
+    },
+    {
+      "corruption": "occlusion",
+      "arm": "original",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 2.077976841353307e-07,
+      "max_logit_rms": 4.353026122545115e-06
+    },
+    {
+      "corruption": "occlusion",
+      "arm": "original_audit",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 2.062994225186821e-07,
+      "max_logit_rms": 4.5862782886834485e-06
+    },
+    {
+      "corruption": "occlusion",
+      "arm": "full",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 4.1342363472809137e-07,
+      "max_logit_rms": 6.064728184850074e-06
+    },
+    {
+      "corruption": "occlusion",
+      "arm": "cheap",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 1.2361814863305032e-07,
+      "max_logit_rms": 4.139496080310847e-06
+    },
+    {
+      "corruption": "occlusion",
+      "arm": "hybrid",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 0.0002791081358626653,
+      "max_logit_rms": 0.14703732725888832
+    },
+    {
+      "corruption": "occlusion",
+      "arm": "sparse",
+      "compared_predictions": 8,
+      "changed": 0,
+      "max_latent_rms": 5.030572799744386e-07,
+      "max_logit_rms": 5.926363175162872e-06
+    }
+  ],
+  "own_repeat_records": 96,
+  "cross_control_records": 144,
+  "interpretation": "Characterization only; not legacy parity pass. Diagnostic timing excludes encode, not deployment speed."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "byte_identical_to_pinned_original",
+  "bytes": 2596,
+  "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+  "external_source": "Accepted pre-science r3supplement manifest.json d9b89307...",
+  "construction": "Lossless NumPy label payload reconstruction from actual NPZ labels; exact original external SHA matched, no inferred labels",
+  "data_file": "result/preparation/lion_guidance_speed_20261107/full14_r4/reconstructed_original_label.npy"
+}

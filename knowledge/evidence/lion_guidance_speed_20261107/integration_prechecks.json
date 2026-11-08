@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "integration_base": "84be1d658126487690020489ad314934b05286c7",
+  "clean_baseline_tests": {
+    "passed": 826,
+    "skipped": 2,
+    "subtests": 562,
+    "seconds": 54.94
+  },
+  "selected_code_tests": {
+    "passed": 848,
+    "skipped": 2,
+    "subtests": 562,
+    "seconds": 56.81
+  },
+  "test_command": "/private/tmp/tta-lowband-halfmix-20261107-venv/bin/python -m pytest tests -q",
+  "scientific_changes": "Existing reviewed speed runner and Background phase only; no added GPU variants",
+  "shared_record_policy": "Semantic appends preserve peer records; final Background and shared headline pending"
+}

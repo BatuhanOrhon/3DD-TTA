@@ -1,0 +1,176 @@
+{
+  "status": "accepted",
+  "batch_size": 128,
+  "profile_metrics": {
+    "objects_per_second": 8.925457328225201,
+    "max_allocated_mib": 59351.34521484375,
+    "max_reserved_mib": 64302.0,
+    "gpu_total_mib": 81152.75
+  },
+  "phase": "continue14",
+  "rows": 66636,
+  "comparisons": [
+    {
+      "reference": "original",
+      "candidate": "terminal",
+      "objects": 2468,
+      "paired_inferences": 22212,
+      "reference_accuracy_percent": 59.77399603817756,
+      "candidate_accuracy_percent": 58.83756528002881,
+      "delta_pp": -0.9364307581487481,
+      "delta_ci95_pp": [
+        -1.2875922924545289,
+        -0.5762650819376913
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 3294.9205815900086,
+      "candidate_seconds": 1787.1926418790063,
+      "saving_percent": 45.75915875287737,
+      "saving_batch_cluster_ci95_percent": [
+        45.750515640692974,
+        45.767384281480716
+      ],
+      "timed_batches_per_arm": 180,
+      "timing_clusters": 180,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": -0.9364307581487483,
+          "saving_percent": 45.75915875287737
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "cutout": -1.539708265802269,
+        "density": -0.04051863857374392,
+        "density_inc": -0.3241491085899514,
+        "distortion": -0.28363047001620745,
+        "distortion_rbf_inv": -1.539708265802269,
+        "lidar": -3.8492706645056725,
+        "occlusion": -0.7293354943273906,
+        "rotation": -1.3371150729335495,
+        "shear": 1.2155591572123177
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "original",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 22212,
+      "reference_accuracy_percent": 59.77399603817756,
+      "candidate_accuracy_percent": 59.683954619124805,
+      "delta_pp": -0.09004141905276425,
+      "delta_ci95_pp": [
+        -0.3151449666846749,
+        0.1395641995317846
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 3294.9205815900086,
+      "candidate_seconds": 2383.7227051029895,
+      "saving_percent": 27.654623348988526,
+      "saving_batch_cluster_ci95_percent": [
+        27.63630667485118,
+        27.676888018449603
+      ],
+      "timed_batches_per_arm": 180,
+      "timing_clusters": 180,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": -0.09004141905276428,
+          "saving_percent": 27.654623348988526
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "cutout": 0.24311183144246357,
+        "density": 0.6888168557536467,
+        "density_inc": 0.0,
+        "distortion": 0.24311183144246357,
+        "distortion_rbf_inv": -0.526742301458671,
+        "lidar": -1.2560777957860616,
+        "occlusion": -0.48622366288492713,
+        "rotation": -0.3241491085899514,
+        "shear": 0.6077795786061588
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "terminal",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 22212,
+      "reference_accuracy_percent": 58.83756528002881,
+      "candidate_accuracy_percent": 59.683954619124805,
+      "delta_pp": 0.846389339095984,
+      "delta_ci95_pp": [
+        0.49522780479020345,
+        1.2065550153070412
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 1787.1926418790063,
+      "candidate_seconds": 2383.7227051029895,
+      "saving_percent": -33.378050538346415,
+      "saving_batch_cluster_ci95_percent": [
+        -33.42026632036986,
+        -33.32678554586427
+      ],
+      "timed_batches_per_arm": 180,
+      "timing_clusters": 180,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 0.8463893390959841,
+          "saving_percent": -33.378050538346415
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "cutout": 1.7828200972447326,
+        "density": 0.7293354943273906,
+        "density_inc": 0.3241491085899514,
+        "distortion": 0.526742301458671,
+        "distortion_rbf_inv": 1.012965964343598,
+        "lidar": 2.593192868719611,
+        "occlusion": 0.24311183144246357,
+        "rotation": 1.012965964343598,
+        "shear": -0.6077795786061588
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    }
+  ],
+  "numerical_repeats": [],
+  "cross_controls": [],
+  "elapsed": 8559.536920941999,
+  "source_overlay_sha256": "72bc0a1e4291480c2a1df4fd0d170a879f03f6fa5cadba264a9cdbadf593ed4d",
+  "asset_manifest_sha256": "40b30562bb3bf823479bfbbcda51d33ced976c96478d09f522b542bcd40522ac",
+  "archive": "result/modelnet40_c/lion_guidance_speed/raw/20261108T123641Z_continue14.zip",
+  "archive_bytes": 64514252,
+  "archive_sha256": "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b",
+  "manifest_files": 1305,
+  "run_id": "20261108T123641Z_continue14",
+  "executed_corruptions": [
+    "distortion_rbf_inv",
+    "density",
+    "density_inc",
+    "shear",
+    "rotation",
+    "cutout",
+    "distortion",
+    "occlusion",
+    "lidar"
+  ],
+  "skipped_corruptions": [
+    "uniform",
+    "gaussian",
+    "impulse",
+    "upsampling",
+    "distortion_rbf"
+  ],
+  "model_hashes": [
+    "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7",
+    "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+  ]
+}

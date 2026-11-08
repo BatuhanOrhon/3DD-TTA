@@ -1,0 +1,12 @@
+{
+  "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/lion-guidance-publication-20261107/result/modelnet40_c/lion_guidance_speed/raw/20261108T110849Z_recovered_r4_progress.zip",
+  "bytes": 13662411,
+  "sha256": "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63",
+  "integrity_corruptions": [
+    "impulse",
+    "upsampling",
+    "distortion_rbf"
+  ],
+  "drive_backup": "copied_and_independently_roundtrip_SHA256_verified",
+  "drive_path": "/content/drive/MyDrive/thesis/result/lion_guidance_full14_20261108_r5/recovered_checkpoints/20261108T110849Z_recovered_r4_progress.zip"
+}

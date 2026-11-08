@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-08T10:06:29.218134+00:00",
+  "status": "user_retry5_failed_HTTP503_no_owned_runtime",
+  "session": "tta-lion-guidance-speed-a100-20261108-r5",
+  "accelerator": "A100",
+  "shape": "High-RAM",
+  "log": "result/preparation/lion_guidance_speed_20261107/full14_r5/allocation_retry4_user.log",
+  "log_sha256": "b862077726bfd98cfd23e2d4fb5c9417252ef9c6aa29953cd20693eabf2a8eb1",
+  "assignments": [
+    {
+      "endpoint": "gpu-a100-hm-euw4a0-1bhkcvsfl7lu9",
+      "accelerator": "A100",
+      "shape": "HIGH_RAM"
+    }
+  ],
+  "new_runtime": false,
+  "new_monitor": false,
+  "drive_consent_ready": false,
+  "science_started": false
+}

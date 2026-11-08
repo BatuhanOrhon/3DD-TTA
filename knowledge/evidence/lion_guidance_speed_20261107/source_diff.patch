@@ -1,0 +1,40 @@
+--- v3/source_snapshot/lion_guidance_pilot.py
++++ v4/source_snapshot/lion_guidance_pilot.py
+@@ -81,7 +81,7 @@
+     from diffusers import DDIMScheduler
+     from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist
+     from legacy_trajectory import _restore_rng
+-    allowed = ('full', 'style_frozen', 'sparse', 'cheap', 'hybrid', 'feature', 'shuffled', 'metric4d', 'geometric')
++    allowed = ('full', 'style_frozen', 'sparse', 'cheap', 'hybrid', 'feature', 'shuffled', 'metric4d', 'geometric', 'unguided')
+     if arm not in allowed or steps not in (8, 35):
+         raise ValueError('Invalid frozen pilot arm/horizon')
+     scheduler = DDIMScheduler(beta_end=.02, beta_schedule='linear', beta_start=.0001,
+@@ -111,7 +111,7 @@
+     snapshots, records = [], []
+     checkpoints = [2,4,6] if steps==8 else [9,18,27]
+     for i,t in enumerate(times):
+-        full = arm not in ('cheap','sparse','hybrid') or (arm in ('sparse','hybrid') and i%3==0)
++        full = arm not in ('cheap','sparse','hybrid','unguided') or (arm in ('sparse','hybrid') and i%3==0)
+         noisy = noisy.detach().requires_grad_(full)
+         style = style.detach().requires_grad_(full)
+         with torch.set_grad_enabled(full):
+@@ -122,7 +122,7 @@
+         if i+1 in checkpoints:
+             snapshots.append(clean.detach().clone())
+             if callback is not None: callback(clean.detach(),z0,i+1)
+-        if not full and arm=='sparse':
++        if not full and arm in ('sparse','unguided'):
+             noisy,style=out.prev_sample.detach(),style.detach()
+             records.append(dict(loop=i+1,timestep=int(t),full_backward=False))
+             continue
+--- v3/source_snapshot/scripts/run_lion_guidance_speed.py
++++ v4/source_snapshot/scripts/run_lion_guidance_speed.py
+@@ -108,7 +108,7 @@
+     parser.add_argument('--phase', choices=('repeat', 'screen', 'confirm'), required=True)
+     parser.add_argument('--batch-size', type=int, choices=(2, 8, 16, 32), default=32)
+     parser.add_argument('--progress-drive', required=True)
+-    parser.add_argument('--arms', nargs='+', choices=('original', 'original_audit', 'full', 'cheap', 'hybrid', 'sparse'),
++    parser.add_argument('--arms', nargs='+', choices=('original', 'original_audit', 'full', 'cheap', 'hybrid', 'sparse', 'unguided'),
+                         default=['original', 'full', 'cheap', 'hybrid', 'sparse'])
+     args = parser.parse_args()
+     if len(args.arms) < 2 or len(args.arms) != len(set(args.arms)) or 'original' not in args.arms:

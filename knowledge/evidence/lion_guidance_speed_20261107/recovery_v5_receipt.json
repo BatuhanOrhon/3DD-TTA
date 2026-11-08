@@ -1,0 +1,18 @@
+{
+  "status": "sealed_local_only_not_deployed",
+  "source": {
+    "bytes": 775314,
+    "sha256": "06762d2cbd092af62bbbc81ce6cb91ae54ebe3adbcc4c1592e702ab092548137"
+  },
+  "base_source": {
+    "bytes": 775102,
+    "sha256": "75c6bb233e6833e9db0cc32a4537dca11d48abcff5b0290e07aaed46bcb6846e"
+  },
+  "changed": [
+    "source_snapshot/scripts/run_lion_guidance_speed.py"
+  ],
+  "reason": "Persist before/after frozen-model proof for every corruption outside inference timing",
+  "cpu_tests": "827passed/2skip/500subtests",
+  "r1_primary_status": "incomplete_final_integrity_unmeasured",
+  "r2_pending": "GoogleDriveconsent_andcanonicalcells2\u201310, revieweddeployment, fullconfirmationrerun"
+}

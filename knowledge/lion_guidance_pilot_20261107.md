@@ -78,3 +78,8 @@
 
 ## 11:30 UTC — clean integration and final derived backup
 [Code/CPU/Run] Source branch commit2fce343 selected into a clean integration checkout based on origin5ef0b95. Only new scoped files plus own README prefix/dated append-only entries were carried; peer halfmix documentation retained. Integrated815tests/2skip/500subtests pass in49.32s. Core final evidence53,967bytes SHA`14e229a8c19e31f092ef49b3a04d8852a33266ef270fc0eabb9020681d92c772` verified onDrive and downloaded back with identicalhash. It excludes its own receipt and later publication-status metadata by design. [Backup receipt](evidence/lion_guidance_pilot_20261107/final_backup_receipt.json), [integration scope](evidence/lion_guidance_pilot_20261107/publication.json). Own runtime preserved, no running science phase.
+
+
+### 2026-11-07T15:17:44Z — Runtime no longer in server inventory
+
+[Run] User requested a current session-status check. `colab sessions` no longer lists our `tta-lion-guidance-pilot-a100-20261107-r1` (previous endpoint `gpu-a100-hm-euw4a0-1icgz4d07xii6`). Only the protected peer `tta-gsd-lowband-halfmix-a100-20261107-r1` remains listed. No teardown command was issued by this agent. [Open] Exact termination time and cause are unknown; this is unexpected runtime loss, not authorized cleanup. Previously verified Drive/local raw archives and published evidence remain the recovery record. No new runtime allocated or research rerun; any continuation requires fresh setup and restoration.

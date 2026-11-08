@@ -1,0 +1,112 @@
+{
+  "status": "derived_same_trace_terminal_accuracy_only",
+  "inferences": 34552,
+  "unique_objects": 2468,
+  "corruptions": [
+    "uniform",
+    "gaussian",
+    "impulse",
+    "upsampling",
+    "distortion_rbf",
+    "distortion_rbf_inv",
+    "density",
+    "density_inc",
+    "shear",
+    "rotation",
+    "cutout",
+    "distortion",
+    "occlusion",
+    "lidar"
+  ],
+  "seeds": [
+    0
+  ],
+  "batch_size": 128,
+  "n8_terminal_correct": 22423,
+  "n8_terminal_accuracy_percent": 64.89638805279,
+  "n8_PM_accuracy_percent": 66.1379949062283,
+  "PM_gain_over_own_terminal_pp": 1.2416068534382987,
+  "n8_terminal_gain_over_N5_terminal_pp": 0.845103033109524,
+  "cheap_PM_gain_over_n8_terminal_pp": 1.1924056494558926,
+  "minimum_terminal_top_two_logit_gap": 4.2438507080078125e-05,
+  "configuration": {
+    "normal_steps": 8,
+    "gamma": 0.03,
+    "eta": 0.003,
+    "p": 0.95
+  },
+  "terminal_only_seconds": null,
+  "source_archives": {
+    "r3": {
+      "bytes": 9119366,
+      "sha256": "81c80f81ab3401444cb8257a3f23176f8c8fed8416869cb5cec91eefd847d988"
+    },
+    "r4": {
+      "bytes": 13662411,
+      "sha256": "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63"
+    },
+    "r5": {
+      "bytes": 64514252,
+      "sha256": "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+    }
+  },
+  "per_corruption": {
+    "uniform": {
+      "n8_terminal_accuracy_percent": 77.22852512155592,
+      "N8_PM_accuracy_percent": 80.22690437601297
+    },
+    "gaussian": {
+      "n8_terminal_accuracy_percent": 76.82333873581848,
+      "N8_PM_accuracy_percent": 79.4165316045381
+    },
+    "impulse": {
+      "n8_terminal_accuracy_percent": 77.3095623987034,
+      "N8_PM_accuracy_percent": 79.25445705024312
+    },
+    "upsampling": {
+      "n8_terminal_accuracy_percent": 83.50891410048622,
+      "N8_PM_accuracy_percent": 84.76499189627229
+    },
+    "distortion_rbf": {
+      "n8_terminal_accuracy_percent": 62.47974068071313,
+      "N8_PM_accuracy_percent": 64.3030794165316
+    },
+    "distortion_rbf_inv": {
+      "n8_terminal_accuracy_percent": 65.39708265802268,
+      "N8_PM_accuracy_percent": 67.42301458670988
+    },
+    "density": {
+      "n8_terminal_accuracy_percent": 71.71799027552674,
+      "N8_PM_accuracy_percent": 72.08265802269044
+    },
+    "density_inc": {
+      "n8_terminal_accuracy_percent": 85.77795786061589,
+      "N8_PM_accuracy_percent": 85.85899513776337
+    },
+    "shear": {
+      "n8_terminal_accuracy_percent": 64.62722852512157,
+      "N8_PM_accuracy_percent": 64.42463533225283
+    },
+    "rotation": {
+      "n8_terminal_accuracy_percent": 33.0226904376013,
+      "N8_PM_accuracy_percent": 34.60291734197731
+    },
+    "cutout": {
+      "n8_terminal_accuracy_percent": 72.3257698541329,
+      "N8_PM_accuracy_percent": 72.44732576985413
+    },
+    "distortion": {
+      "n8_terminal_accuracy_percent": 64.3030794165316,
+      "N8_PM_accuracy_percent": 65.31604538087521
+    },
+    "occlusion": {
+      "n8_terminal_accuracy_percent": 40.39708265802269,
+      "N8_PM_accuracy_percent": 40.883306320907614
+    },
+    "lidar": {
+      "n8_terminal_accuracy_percent": 33.630470016207454,
+      "N8_PM_accuracy_percent": 34.92706645056726
+    }
+  },
+  "limitation": "Terminal readout from N8+PM acquisition, not fresh terminal-only timing. Tunedgamma.03/eta.003, not depth-only changefromN5gamma/eta.01. One seed/three-runtime/developmentexposure; no newGPUrun."
+}

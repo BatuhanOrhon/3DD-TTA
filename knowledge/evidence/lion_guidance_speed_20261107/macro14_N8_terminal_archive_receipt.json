@@ -1,0 +1,9 @@
+{
+  "status": "sealed_and_Drive_roundtrip_verified",
+  "local": "result/preparation/lion_guidance_speed_20261107/full14_r5/macro14_N8_terminal_supplement_20261108.zip",
+  "bytes": 164742,
+  "sha256": "1d8e09fafd9f24c35c0160a77974c95de010043cf80df0b2beb6398d8fe06833",
+  "members": 6,
+  "drive": "/content/drive/MyDrive/thesis/result/lion_guidance_full14_20261108_r5/macro14_N8_terminal_supplement_20261108.zip",
+  "Drive_roundtrip_verified": true
+}

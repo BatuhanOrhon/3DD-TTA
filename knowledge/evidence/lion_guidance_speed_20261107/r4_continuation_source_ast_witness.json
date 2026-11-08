@@ -1,0 +1,22 @@
+{
+  "status": "AST_science_functions_and_other_source_unchanged",
+  "other_overlay_files_byte_identical": 260,
+  "changed_top_level": [
+    "phase_layout",
+    "main"
+  ],
+  "new_function": "corruption_schedule",
+  "nested_main_functions_unchanged": [
+    "prepare",
+    "infer",
+    "fps",
+    "classify_geometry",
+    "classify",
+    "decode",
+    "readout",
+    "clean",
+    "final_state",
+    "callback"
+  ],
+  "scope": "Only opt-in continuation scheduling/metadata; original sampler/readout/terminal inference ASTs and allother260overlayfiles preserved"
+}

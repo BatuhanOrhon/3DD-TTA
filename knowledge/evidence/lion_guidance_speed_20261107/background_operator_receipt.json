@@ -1,0 +1,18 @@
+{
+  "status": "v2prepared_noBackgroundGPU",
+  "operator": {
+    "bytes": 795048,
+    "sha256": "e93b84380667a6ed5bd216e1404c5df0e6e8065c517123c7f81dda90adb0e5ac"
+  },
+  "validation": {
+    "bytes": 9436,
+    "sha256": "d26c8f4de6bfc3243a855d0c9676310d10e414c2627cbc1907a3cdb7e4a0f63a"
+  },
+  "changed": [
+    "capture.py",
+    "research_phase.py"
+  ],
+  "wrapper_sha256": "66f3537f41bfb1ff1235b0891b655622cc8c2c78ab0592396f57e8c63b69bc4b",
+  "review": "no remaining materialblocker; actualv2supplement/rawacceptancepending",
+  "CPU": "837project/22targeted/7semanticrawfixtures/forwardingcleanupfixturepassed"
+}

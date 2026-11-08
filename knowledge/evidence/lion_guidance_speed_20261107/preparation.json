@@ -1,0 +1,23 @@
+{
+  "status": "cpu_prepared_waiting_drive_consent",
+  "timestamp_utc": "2026-11-07T15:39:55.189825+00:00",
+  "session": "tta-lion-guidance-speed-a100-20261107-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-r9pxi21kunxw",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "base": "0b6faebe916f3b1a797d65c6e5120931e2103bf3",
+  "setup": {
+    "cell1": "passed on retry; initial CLI disconnected before submitting cell",
+    "same_vm_conda": "verified",
+    "cell2": "known fastrlock failure deferred under standing user instruction; Python3.8.20 verified",
+    "cells3_10": "pending Drive authorization; not run"
+  },
+  "tests": {
+    "passed": 823,
+    "skipped": 2,
+    "subtests": 500,
+    "seconds": 48.43
+  },
+  "science_gpu": "not_started",
+  "drive_backup": "pending",
+  "runtime_teardown": "not_authorized"
+}

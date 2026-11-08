@@ -1,0 +1,27 @@
+{
+  "status": "bootstrap_verified_same_VM",
+  "verified_utc": "2026-11-08T11:46:35.650603+00:00",
+  "bootstrap": {
+    "status": "installer_completed_restart_requested",
+    "started_utc": "2026-11-08T11:44:30.872914+00:00",
+    "distribution": "Miniconda3",
+    "installer": "py313_26.3.2-2-Linux-x86_64",
+    "url": "https://repo.anaconda.com/miniconda/Miniconda3-py313_26.3.2-2-Linux-x86_64.sh",
+    "expected_sha256": "2284bafb7863a23411b19874d216e237964d4b32dd9beb6807fa8b2d84570961",
+    "condacolab": "0.1.14",
+    "actual_kernel_python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "adaptation": "User-authorized alternative bootstrap using documented CondaColabcustomURL; canonicalcells2-10stillrequired; scientificenv3.8andallstudysettingsunchanged",
+    "local_Mac_installer": false,
+    "finished_utc": "2026-11-08T11:44:46.542435+00:00"
+  },
+  "kernel_python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+  "base_python": "Python 3.13.13",
+  "conda": "conda 26.3.2",
+  "channels": [
+    "conda-forge"
+  ],
+  "drive_mount_survived_restart": true,
+  "config_before_sha256": "9ebd70e236189d1eb0d4c60aa5dbd6fb3c5dd281ea707076a2bd74f3915b9f83",
+  "config_after_sha256": "38f4165619c46b60e59eb97aeb7763d0d256a420b46aeac7429b2ddc3a0dcffd",
+  "research_environment": "Not yet created;canonicalcells2-10mandatory"
+}

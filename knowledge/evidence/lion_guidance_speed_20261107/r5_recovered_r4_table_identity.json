@@ -1,0 +1,15 @@
+{
+  "status": "accepted_table_sealed_immediately_after_independent_validation",
+  "per_object": {
+    "bytes": 1896776,
+    "sha256": "3438c4b7b8497fdd0060bcd333f53f7520a2dc71b994455ca3184ad269ee0cb8"
+  },
+  "acceptance": {
+    "bytes": 3853,
+    "sha256": "76c4a03772a1e9c5deef5eb5e9fe3e2685db46a7bf43a292b81c218c9f570bf3"
+  },
+  "raw_archive": {
+    "bytes": 13662411,
+    "sha256": "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63"
+  }
+}

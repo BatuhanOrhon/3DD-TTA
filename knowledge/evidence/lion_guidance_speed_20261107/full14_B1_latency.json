@@ -1,0 +1,34 @@
+{
+  "status": "accepted_descriptive_B1_calibration",
+  "run_id": "20261107T213330Z_profile_b1",
+  "objects": 4,
+  "corruptions": [
+    "uniform",
+    "occlusion"
+  ],
+  "repetitions": 3,
+  "methods": {
+    "terminal": {
+      "mean_seconds": 0.5252442211250354,
+      "observations": 24,
+      "min_seconds": 0.517679790999864,
+      "max_seconds": 0.5397556840007383
+    },
+    "original": {
+      "mean_seconds": 0.932885619208264,
+      "observations": 24,
+      "min_seconds": 0.9188729709994732,
+      "max_seconds": 0.9480356370004301
+    },
+    "cheap": {
+      "mean_seconds": 0.5479112497082875,
+      "observations": 24,
+      "min_seconds": 0.5412171579991991,
+      "max_seconds": 0.5561996719998206
+    }
+  },
+  "source": "a9c46e94ad5119634e8fe319b5560bf5cd459dc0be7cfa49634402967ce1cf99",
+  "asset": "d9b89307a333e200d610b2ab1722f89fefdc374fd945a04a1c860400a09f7782",
+  "archive_sha256": "3d8da9efb3ba29ba35b53370a340efc448ba98db9f6bf7c540ee6e8a119da760",
+  "limitation": "4calibration objects/two corruptions; notfull-dataset B1 latency; no accuracyclaim"
+}

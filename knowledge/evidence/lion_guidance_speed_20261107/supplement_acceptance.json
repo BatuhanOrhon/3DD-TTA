@@ -1,0 +1,128 @@
+{
+  "status": "accepted",
+  "archive": "result/modelnet40_c/lion_guidance_speed/raw/reproducibility_supplement.zip",
+  "bytes": 5720338,
+  "sha256": "7b105f8622245da89ff7a3b5f32b27206d8aeb9e97babc257bad7b26fc688ef4",
+  "files": 404,
+  "native": {
+    "captured_before_runs": true,
+    "limitation": "All seven native ELF identities and bytes captured before this speed study science",
+    "files": {
+      "_pvcnn_backend": {
+        "bytes": 685248,
+        "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0",
+        "path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+        "mtime": 1794069028.1928022,
+        "ctime": 1794069028.1928022
+      },
+      "chamfer_3D": {
+        "bytes": 1144176,
+        "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0",
+        "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+        "mtime": 1794069028.1988027,
+        "ctime": 1794069028.1988027
+      },
+      "emd_ext": {
+        "bytes": 559272,
+        "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154",
+        "path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+        "mtime": 1794069028.2048035,
+        "ctime": 1794069028.2048035
+      },
+      "knn": {
+        "bytes": 218200,
+        "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+        "mtime": 1794069028.2078037,
+        "ctime": 1794069028.2078037
+      },
+      "pointnet2_ops._ext": {
+        "bytes": 266256,
+        "sha256": "33f5528f8588f8b8747a77ea34f3acbe53fbdcbb98a86631d53b5fb7e3bfadfa",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794068051.3660269,
+        "ctime": 1794068051.3730276
+      },
+      "emd_cuda": {
+        "bytes": 9143368,
+        "sha256": "4fe5fc427acb9231b10e49da9d03136bad2119f6b42e51bb075927eb6d485c8e",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/emd_ext-0.0.0-py3.8-linux-x86_64.egg/emd_cuda.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794067499.171359,
+        "ctime": 1794067499.17836
+      },
+      "chamfer": {
+        "bytes": 720640,
+        "sha256": "f29d3cdf6449775ae77999c207ef007c93f06a784818ac9d5af3c8a5bf92d695",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794067667.7862735,
+        "ctime": 1794067667.7882736
+      }
+    }
+  },
+  "deployment": {
+    "asset_manifest": {
+      "bytes": 186552,
+      "sha256": "58d73c559349a008d3bb74fe9bbc1faec54ecad033c0f2df5b8fc04a8a7d5ebb"
+    },
+    "native_restore": {
+      "_pvcnn_backend": {
+        "before": {
+          "bytes": 685248,
+          "sha256": "3924b2060cd912fe31757b79c47efcf65098e09c1e017cb22aac3904f84e76f6"
+        },
+        "pinned": {
+          "bytes": 685248,
+          "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0"
+        },
+        "preserved_adjacent_path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so.before_agent_b_deployment",
+        "target": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so"
+      },
+      "chamfer_3D": {
+        "before": {
+          "bytes": 1144176,
+          "sha256": "17edb32068be379fc74b64bd1b1915cb806a8293a1000a26e222b04d07446e9f"
+        },
+        "pinned": {
+          "bytes": 1144176,
+          "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0"
+        },
+        "preserved_adjacent_path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so.before_agent_b_deployment",
+        "target": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so"
+      },
+      "emd_ext": {
+        "before": {
+          "bytes": 559272,
+          "sha256": "a44c43513a92979999a8741c42ccccb585a5ce180df0b107a22bda09ce359afb"
+        },
+        "pinned": {
+          "bytes": 559272,
+          "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154"
+        },
+        "preserved_adjacent_path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so.before_agent_b_deployment",
+        "target": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so"
+      },
+      "knn": {
+        "before": {
+          "bytes": 218200,
+          "sha256": "6f72aed208ea013704b22b5cd77a53f5bf9fbbf33a9ba7fa709695607b222d2d"
+        },
+        "pinned": {
+          "bytes": 218200,
+          "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb"
+        },
+        "preserved_adjacent_path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so.before_agent_b_deployment",
+        "target": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so"
+      }
+    },
+    "setup": {
+      "bytes": 9005,
+      "sha256": "a3e130bca5b9d1457791b7c1c75daaaa720a1a3873069cb891c8d03f9ef86f5d"
+    },
+    "source_commit": "08e37886d07ded2236dba6b9a683ecace6eb40c4",
+    "source_overlay": {
+      "bytes": 775084,
+      "sha256": "7c87f4956ed4f2313f076c6e97f1720a5e46b4672c7c77a304f6959a4bb4bdda"
+    },
+    "status": "complete"
+  }
+}

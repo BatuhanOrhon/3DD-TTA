@@ -1,0 +1,19 @@
+{
+  "status": "passed_independent_actual_raw_recount",
+  "reviewer": "/root/review_speed_protocol",
+  "recorded_utc": "2026-11-08T15:06:02.411109+00:00",
+  "predictions": 103656,
+  "deduplicated_batch_times": 840,
+  "corruption_arm_tables": 42,
+  "all_three_raw_SHAs_verified": true,
+  "accuracy_ci95_pp": [
+    -0.21995832368603846,
+    0.12445010419078491
+  ],
+  "timing_ci95_percent": [
+    27.654164753748,
+    27.69197870277
+  ],
+  "primary_gates_pass": true,
+  "limitation": "TimingCI describes fixedbatches, not hardware/runtime uncertainty; one seed; no unguidedattribution"
+}

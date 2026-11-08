@@ -1,0 +1,22 @@
+{
+  "status": "frozen_after_current_runtime_safety_profile",
+  "dataset": "modelnet40_c",
+  "severity": 5,
+  "requested_corruptions": 14,
+  "exclude": [
+    "background"
+  ],
+  "batch_size": 128,
+  "final_batch_size": 36,
+  "seed": 0,
+  "reference": "original operational N8+4readout equalPM",
+  "gamma": 0.03,
+  "eta": 0.003,
+  "p": 0.95,
+  "steps": 8,
+  "baseline_applies_to": "This speed study; all terminal/original/cheap arms share128. Other studies/defaults unchanged.",
+  "transfer_receipt": {
+    "bytes": 6981,
+    "sha256": "7ad9083337f0943bc80d0fe33fa592556e9796b2a74295c0fbdb194fca8c0196"
+  }
+}

@@ -1,0 +1,401 @@
+{
+  "status": "verified_before_model_initialization",
+  "batch_size": 128,
+  "source_overlay_sha256": "72bc0a1e4291480c2a1df4fd0d170a879f03f6fa5cadba264a9cdbadf593ed4d",
+  "asset_manifest_sha256": "40b30562bb3bf823479bfbbcda51d33ced976c96478d09f522b542bcd40522ac",
+  "actual_new_setup_identity": {
+    "bytes": 9005,
+    "sha256": "a3a57e2dae4053dd32a419ce697588a5c108d718852c02a269992a5e57bb9f56"
+  },
+  "completed_shards_identity": {
+    "bytes": 8499,
+    "sha256": "45b7e60351ac47a4da7e90da073fe5d596337a6c9f90cede458ae929cee58dbc"
+  },
+  "model_hashes": [
+    "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7",
+    "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+  ],
+  "backend": {
+    "cudnn": 8902,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cudnn_allow_tf32": false,
+    "cuda_matmul_allow_tf32": false,
+    "deterministic_algorithms": false,
+    "backend_determinism_guaranteed": false
+  },
+  "gpu_total_mib": 81152.75,
+  "dataset_files": {
+    "data_background_5.npy": {
+      "bytes": 31837328,
+      "dtype": "float32",
+      "sha256": "db05e75cffb4440323a064df9e23ebd526584daf027f9ad02e391a36b051a616",
+      "shape": [
+        2468,
+        1075,
+        3
+      ]
+    },
+    "data_cutout_5.npy": {
+      "bytes": 21442112,
+      "dtype": "float32",
+      "sha256": "b3ffb68ec412f54c89e02b5c128b3590eeaf16dd4ff08cc89f7039247a6c9c4b",
+      "shape": [
+        2468,
+        724,
+        3
+      ]
+    },
+    "data_density_5.npy": {
+      "bytes": 19220912,
+      "dtype": "float32",
+      "sha256": "bdde461b92427a0eaafc125eb93c8af89d979c0141d6ca5ae8e2bd61d6be65ba",
+      "shape": [
+        2468,
+        649,
+        3
+      ]
+    },
+    "data_density_inc_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "719fd79232fb6c6a72e83d4f5f219d499b253b2caadc55bd128110bb299ee86b",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_distortion_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "43b5849e878ba73bbda781491b689db3af5cd958dc8d57c2fd6b4460a584e19e",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_distortion_rbf_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "9cbcca3ee41e0f10e77b36aaa9b7021095aae860e81688009cbd8bab0055b596",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_distortion_rbf_inv_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "604c6acaacc4111dcef1cc22dee936c938e00cfafff9c7bb569d4b78a2439cce",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_gaussian_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "bf762a8f441a4234d0ca3e91da1f5101440acb7e5902c4854300041103f7171c",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_impulse_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "2174438eec71c4d98ebf23b48c5571805e280411a2a3a0ff51ee377462d50cfb",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_lidar_5.npy": {
+      "bytes": 22745216,
+      "dtype": "float32",
+      "sha256": "99ccaf1d62b5b308dd34d4fc1b09013cba8b73e9d1c8f0df1e94cfb812b9e91a",
+      "shape": [
+        2468,
+        768,
+        3
+      ]
+    },
+    "data_occlusion_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "5f37e9de373402007214fcb9fc90e00db4783f9801d0620f21bbeee6328cda2c",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_original.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_rotation_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "b75c5c8c0cb0ed57038d4677750a5e4fdad3aaf82de96357f33fe7c3a3bc4958",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_shear_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "78df0043e5cea431d10c817ac6a13e85e6e246fc64765e32546ecdd1d6614069",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_uniform_5.npy": {
+      "bytes": 30326912,
+      "dtype": "float32",
+      "sha256": "2cfbe01e02ae6745503eddf548db8f362656e92ec7efc6636281468547c73572",
+      "shape": [
+        2468,
+        1024,
+        3
+      ]
+    },
+    "data_upsampling_5.npy": {
+      "bytes": 60653696,
+      "dtype": "float32",
+      "sha256": "4984bfac96c7b559727fd0d967d115855eab30a315c3c3b2608cc43878fd782e",
+      "shape": [
+        2468,
+        2048,
+        3
+      ]
+    },
+    "label.npy": {
+      "bytes": 2596,
+      "dtype": "uint8",
+      "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+      "shape": [
+        2468,
+        1
+      ]
+    }
+  },
+  "native_ELFs_matched": 7,
+  "previous_verified_profile": {
+    "status": "accepted",
+    "batch_size": 128,
+    "profile_metrics": {
+      "objects_per_second": 8.940884580295986,
+      "max_allocated_mib": 59349.78271484375,
+      "max_reserved_mib": 63790.0,
+      "gpu_total_mib": 81152.75
+    },
+    "phase": "profile",
+    "rows": 2304,
+    "comparisons": [
+      {
+        "reference": "original",
+        "candidate": "terminal",
+        "objects": 128,
+        "paired_inferences": 768,
+        "reference_accuracy_percent": 57.8125,
+        "candidate_accuracy_percent": 57.421875,
+        "delta_pp": -0.390625,
+        "delta_ci95_pp": [
+          -3.515625,
+          2.734375
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 113.72469284999897,
+        "candidate_seconds": 61.63931471900014,
+        "saving_percent": 45.79953291208147,
+        "saving_batch_cluster_ci95_percent": [
+          45.77249373957898,
+          45.82675293332444
+        ],
+        "timed_batches_per_arm": 6,
+        "timing_clusters": 2,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": -0.390625,
+            "saving_percent": 45.80700553505537
+          },
+          {
+            "seed": 0,
+            "repeat": 1,
+            "delta_pp": -0.390625,
+            "saving_percent": 45.79285625921503
+          },
+          {
+            "seed": 0,
+            "repeat": 2,
+            "delta_pp": -0.390625,
+            "saving_percent": 45.79873696724631
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "occlusion": 0.0,
+          "uniform": -0.78125
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "original",
+        "candidate": "cheap",
+        "objects": 128,
+        "paired_inferences": 768,
+        "reference_accuracy_percent": 57.8125,
+        "candidate_accuracy_percent": 57.8125,
+        "delta_pp": 0.0,
+        "delta_ci95_pp": [
+          -1.953125,
+          1.953125
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 113.72469284999897,
+        "candidate_seconds": 82.32861549400059,
+        "saving_percent": 27.607089163484755,
+        "saving_batch_cluster_ci95_percent": [
+          27.602731928153222,
+          27.611417449517727
+        ],
+        "timed_batches_per_arm": 6,
+        "timing_clusters": 2,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 0.0,
+            "saving_percent": 27.599164464058777
+          },
+          {
+            "seed": 0,
+            "repeat": 1,
+            "delta_pp": 0.0,
+            "saving_percent": 27.61789071649866
+          },
+          {
+            "seed": 0,
+            "repeat": 2,
+            "delta_pp": 0.0,
+            "saving_percent": 27.604212260162686
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "occlusion": 0.78125,
+          "uniform": -0.78125
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "terminal",
+        "candidate": "cheap",
+        "objects": 128,
+        "paired_inferences": 768,
+        "reference_accuracy_percent": 57.421875,
+        "candidate_accuracy_percent": 57.8125,
+        "delta_pp": 0.390625,
+        "delta_ci95_pp": [
+          -2.734375,
+          3.515625
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 61.63931471900014,
+        "candidate_seconds": 82.32861549400059,
+        "saving_percent": -33.56510511078579,
+        "saving_batch_cluster_ci95_percent": [
+          -33.640259707418664,
+          -33.49052453720604
+        ],
+        "timed_batches_per_arm": 6,
+        "timing_clusters": 2,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 0.390625,
+            "saving_percent": -33.5981453890217
+          },
+          {
+            "seed": 0,
+            "repeat": 1,
+            "delta_pp": 0.390625,
+            "saving_percent": -33.52872755965133
+          },
+          {
+            "seed": 0,
+            "repeat": 2,
+            "delta_pp": 0.390625,
+            "saving_percent": -33.56845152499255
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "occlusion": 0.78125,
+          "uniform": 0.0
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      }
+    ],
+    "numerical_repeats": [],
+    "cross_controls": [],
+    "elapsed": 511.8066214970004,
+    "source_overlay_sha256": "72bc0a1e4291480c2a1df4fd0d170a879f03f6fa5cadba264a9cdbadf593ed4d",
+    "asset_manifest_sha256": "24ff48aef43b648f0b6426f0698ac8601edeea286a00cce5330ba342a9da452d",
+    "archive": "result/modelnet40_c/lion_guidance_speed/raw/20261108T081849Z_profile_b128.zip",
+    "archive_bytes": 2253690,
+    "archive_sha256": "cc240022388f2ff0503a2271c8da89eaa90528edd842030e1070dac307f4fcdf",
+    "manifest_files": 68,
+    "run_id": "20261108T081849Z_profile_b128"
+  },
+  "previous_transfer_identity": {
+    "bytes": 6981,
+    "sha256": "7ad9083337f0943bc80d0fe33fa592556e9796b2a74295c0fbdb194fca8c0196"
+  },
+  "old_batch_decision_identity": {
+    "bytes": 18188,
+    "sha256": "93aaf653fd3f4bf64822ea7dec3154f833762a2bbb713852abded8899f0ca27b"
+  },
+  "bootstrap_identity": {
+    "bytes": 1344,
+    "sha256": "49c25473565680cf4e5c6214a308dd4eef112e56e57a22c7453caff31b8d5cf9"
+  },
+  "recovery_inputs": [
+    {
+      "name": "recovered_r3_progress.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/lion_guidance_full14_20261107_r3/recovered_progress_20261108T073052Z.zip",
+      "identity": {
+        "bytes": 9119366,
+        "sha256": "81c80f81ab3401444cb8257a3f23176f8c8fed8416869cb5cec91eefd847d988"
+      }
+    },
+    {
+      "name": "recovered_r4_progress.zip",
+      "drive": "/content/drive/MyDrive/thesis/result/lion_guidance_full14_20261108_r5/recovered_checkpoints/20261108T110849Z_recovered_r4_progress.zip",
+      "identity": {
+        "bytes": 13662411,
+        "sha256": "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63"
+      }
+    }
+  ],
+  "policy": "B128 frozen from two A10080 VMs; no repeated grid or accuracy-based selection; existing runner warms128+36 before measured cases. Actual new model/backend/data/GPU identities must pass launcher gate before measured cases.",
+  "limitation": "Actual model tensor hashes remain pending model initialization; three-runtime final timings are operational composites and require per-runtime reporting."
+}

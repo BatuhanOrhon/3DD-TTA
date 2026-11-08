@@ -1,0 +1,106 @@
+{
+  "status": "accepted_closed_corruption_shards",
+  "source_run": "20261108T082824Z_continue14",
+  "runtime": "r4",
+  "rows": 22212,
+  "corruptions": [
+    "impulse",
+    "upsampling",
+    "distortion_rbf"
+  ],
+  "cases": 60,
+  "batch_size": 128,
+  "model_hashes": [
+    "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7",
+    "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+  ],
+  "source_overlay_sha256": "72bc0a1e4291480c2a1df4fd0d170a879f03f6fa5cadba264a9cdbadf593ed4d",
+  "asset_manifest_sha256": "24ff48aef43b648f0b6426f0698ac8601edeea286a00cce5330ba342a9da452d",
+  "archive": "result/modelnet40_c/lion_guidance_speed/raw/20261108T110849Z_recovered_r4_progress.zip",
+  "archive_identity": {
+    "bytes": 13662411,
+    "sha256": "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63"
+  },
+  "original_label_identity": {
+    "bytes": 2596,
+    "sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31"
+  },
+  "comparisons": [
+    {
+      "reference": "original",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 7404,
+      "reference_accuracy_percent": 76.107509454349,
+      "candidate_accuracy_percent": 76.12101566720692,
+      "delta_pp": 0.013506212857914618,
+      "delta_ci95_pp": [
+        -0.3106428957320368,
+        0.33799297676930906
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 1096.2763474050016,
+      "candidate_seconds": 791.9914966019951,
+      "saving_percent": 27.75621781162021,
+      "saving_batch_cluster_ci95_percent": [
+        27.70487535461592,
+        27.81269391189717
+      ],
+      "timed_batches_per_arm": 60,
+      "timing_clusters": 60,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 0.01350621285791464,
+          "saving_percent": 27.75621781162021
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "distortion_rbf": -0.1620745542949757,
+        "impulse": 0.24311183144246357,
+        "upsampling": -0.04051863857374392
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "terminal",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 7404,
+      "reference_accuracy_percent": 71.79902755267423,
+      "candidate_accuracy_percent": 76.12101566720692,
+      "delta_pp": 4.321988114532686,
+      "delta_ci95_pp": [
+        3.646677471636953,
+        5.010804970286332
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 592.4030737279945,
+      "candidate_seconds": 791.9914966019951,
+      "saving_percent": -33.69132128535222,
+      "saving_batch_cluster_ci95_percent": [
+        -33.808106187488264,
+        -33.563555063860534
+      ],
+      "timed_batches_per_arm": 60,
+      "timing_clusters": 60,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": 4.321988114532685,
+          "saving_percent": -33.69132128535222
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "distortion_rbf": 0.9724473257698543,
+        "impulse": 9.481361426256079,
+        "upsampling": 2.512155591572123
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    }
+  ],
+  "limitation": "Three accepted corruption shards from an interrupted run; not a complete macro14 evaluation"
+}

@@ -1,0 +1,29 @@
+{
+  "phase": "screen",
+  "run_id": "20261107T164047Z_screen",
+  "archive_bytes": 4633368,
+  "archive_sha256": "eded6bd9d97c718defcb6b58b5f6b2c3c49b3d23c02796820b2d673a89cd9e86",
+  "source_overlay_sha256": "7c87f4956ed4f2313f076c6e97f1720a5e46b4672c7c77a304f6959a4bb4bdda",
+  "asset_manifest_sha256": "58d73c559349a008d3bb74fe9bbc1faec54ecad033c0f2df5b8fc04a8a7d5ebb",
+  "status": "advance",
+  "candidate": "cheap",
+  "batch_size": 32,
+  "decision_utc": "2026-11-07T17:10:17.925441+00:00",
+  "selection_rule": "Fastest of cheap/hybrid/sparse with screen mean delta>=-1pp and saving>=15%",
+  "eligible": [
+    "cheap",
+    "hybrid",
+    "sparse"
+  ],
+  "confirmation_arms": [
+    "original",
+    "cheap",
+    "unguided"
+  ],
+  "selection_sha256": "c91aba60aac5cdfe8dda18c913d05b7546a08aa3f72ec25c726369d2ea3bbc05",
+  "confirmation_scope": "Locked256/all15/s5/seeds0,1,2/twooperationalrepeats/B32",
+  "primary_margin_pp": -0.3,
+  "primary_saving_percent": 15,
+  "screen_noninferiority_established": false,
+  "source_bridge_required": true
+}

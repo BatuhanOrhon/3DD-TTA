@@ -1,0 +1,73 @@
+{
+  "updated_utc": "2026-11-07T22:29:58.261230+00:00",
+  "session": "tta-lion-guidance-speed-a100-20261107-r3",
+  "endpoint": "gpu-a100-hm-ass1c0-d3xkxb14xo59",
+  "status": "runtime_lost_waiting_user_command",
+  "owner": "root/lion-guidance-speed",
+  "worktree": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/lion-guidance-publication-20261107",
+  "dataset": "modelnet40_c",
+  "objects": 2468,
+  "severity": 5,
+  "corruptions": "all14 excluding background",
+  "initial_seed": 0,
+  "primary_arms": [
+    "original",
+    "cheap"
+  ],
+  "attribution_followup": "unguided",
+  "runtime_teardown_authorized": false,
+  "primary_exec_id": null,
+  "log": "result/preparation/lion_guidance_speed_20261107/full14_r3/full14.log",
+  "complete_cells": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "same_VM_reconnect": "verified",
+  "next": "WAIT explicitusercommand before newallocation/recovery/restart",
+  "batch_size": 128,
+  "batch_candidates": [
+    32,
+    64,
+    128
+  ],
+  "drive_mount_verified": true,
+  "cell2_exception": "Only pre-authorized fastrlock wheel failure; Python3.8.20 verified",
+  "cpu_tests": "831passed/2skip/500subtests48.77s",
+  "gpu_run_approval": "standing user authorization; no repeated permission questions",
+  "runtime_loss_policy": "preserve evidence and await explicit user command; no autonomous allocation/setup/restart",
+  "acceptance_fixtures": "8passed",
+  "source_overlay_sha256": "a9c46e94ad5119634e8fe319b5560bf5cd459dc0be7cfa49634402967ce1cf99",
+  "operator_sha256": "e5321f96c70ea674fe96192a5082277be176748b4635b9d692d2a936a5408c71",
+  "arms": [
+    "terminal",
+    "original",
+    "cheap"
+  ],
+  "run_id": "20261107T215537Z_full14",
+  "accepted_profiles": [
+    "B1",
+    "B32",
+    "B64",
+    "B128"
+  ],
+  "full14_closed_batches": 40,
+  "full14_integrity_corruptions": [
+    "uniform",
+    "gaussian"
+  ],
+  "current_corruption": "impulse",
+  "current_corruption_closed_batches": 0,
+  "last_remote_log": "result/preparation/lion_guidance_speed_20261107/full14_r3/remote_stream_snapshots/snapshot_1794090506587.log",
+  "last_remote_log_sha256": "841aa17a362d94ffe1f57374385721bfbf8651ab9da5c0a46e2dd22e7e8b2fb7",
+  "failure": "Remote stdoutdownload404; independentserverinventory pruned ownedr3, peeronly; no teardownissued",
+  "scientific_completion": "partial; full14archive/finalmodelhash absent; nofullaccuracyclaim"
+}

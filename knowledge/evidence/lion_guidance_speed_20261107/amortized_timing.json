@@ -1,0 +1,48 @@
+{
+  "all15": {
+    "original": {
+      "events": 960,
+      "batches": 30,
+      "total_seconds": 177.24297232999834,
+      "mean_batch_seconds": 5.908099077666611,
+      "amortized_ms_per_object_corruption": 184.6280961770816
+    },
+    "cheap": {
+      "events": 960,
+      "batches": 30,
+      "total_seconds": 124.57929176100242,
+      "mean_batch_seconds": 4.152643058700081,
+      "amortized_ms_per_object_corruption": 129.77009558437751
+    },
+    "time_reduction_percent": 29.712704473802486,
+    "throughput_ratio": 1.4227322199746317
+  },
+  "macro14": {
+    "original": {
+      "events": 896,
+      "batches": 28,
+      "total_seconds": 144.3135379039977,
+      "mean_batch_seconds": 5.154054925142775,
+      "amortized_ms_per_object_corruption": 161.0642164107117
+    },
+    "cheap": {
+      "events": 896,
+      "batches": 28,
+      "total_seconds": 104.13618777100146,
+      "mean_batch_seconds": 3.719149563250052,
+      "amortized_ms_per_object_corruption": 116.22342385156412
+    },
+    "time_reduction_percent": 27.84031956844104,
+    "throughput_ratio": 1.3858154498736541
+  },
+  "status": "derived_from_accepted_screen",
+  "source_archive": "result/modelnet40_c/lion_guidance_speed/raw/20261107T164047Z_screen.zip",
+  "batch_size": 32,
+  "objects": 32,
+  "seed": 0,
+  "repetitions": 2,
+  "original_arm_meaning": "Operational tunedN8+PM production sampler, not original terminal-only 3DD-TTA",
+  "B1_latency": "unmeasured",
+  "matched_original_terminal_ratio": "unmeasured",
+  "timing": "CPU input ready through synchronized GPU PM; output copy and artifacts excluded"
+}

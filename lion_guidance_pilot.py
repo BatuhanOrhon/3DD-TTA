@@ -81,7 +81,7 @@ def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnost
     from diffusers import DDIMScheduler
     from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist
     from legacy_trajectory import _restore_rng
-    allowed = ('full', 'style_frozen', 'sparse', 'cheap', 'hybrid', 'feature', 'shuffled', 'metric4d', 'geometric')
+    allowed = ('full', 'style_frozen', 'sparse', 'cheap', 'hybrid', 'feature', 'shuffled', 'metric4d', 'geometric', 'unguided')
     if arm not in allowed or steps not in (8, 35):
         raise ValueError('Invalid frozen pilot arm/horizon')
     scheduler = DDIMScheduler(beta_end=.02, beta_schedule='linear', beta_start=.0001,
@@ -111,7 +111,7 @@ def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnost
     snapshots, records = [], []
     checkpoints = [2,4,6] if steps==8 else [9,18,27]
     for i,t in enumerate(times):
-        full = arm not in ('cheap','sparse','hybrid') or (arm in ('sparse','hybrid') and i%3==0)
+        full = arm not in ('cheap','sparse','hybrid','unguided') or (arm in ('sparse','hybrid') and i%3==0)
         noisy = noisy.detach().requires_grad_(full)
         style = style.detach().requires_grad_(full)
         with torch.set_grad_enabled(full):
@@ -122,7 +122,7 @@ def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnost
         if i+1 in checkpoints:
             snapshots.append(clean.detach().clone())
             if callback is not None: callback(clean.detach(),z0,i+1)
-        if not full and arm=='sparse':
+        if not full and arm in ('sparse','unguided'):
             noisy,style=out.prev_sample.detach(),style.detach()
             records.append(dict(loop=i+1,timestep=int(t),full_backward=False))
             continue

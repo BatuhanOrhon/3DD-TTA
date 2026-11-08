@@ -1,0 +1,22 @@
+{
+  "updated_utc": "2026-11-08T06:56:14.689489+00:00",
+  "status": "allocation_rejected_no_owned_runtime",
+  "requested_session": "tta-lion-guidance-speed-a100-20261108-r4",
+  "accelerator": "A100",
+  "shape": "High-RAM",
+  "endpoint": null,
+  "monitor_started": false,
+  "monitor_script": "/Users/batuhan/Desktop/projects/3DD-TTA/.codex/skills/colab-research-operator/scripts/monitor_colab_runtime.py",
+  "monitor_sha256": "fc40fbca58023c5029c87cd33fdb07245c6880e2a59091cf9f8cabb8c07d6422",
+  "account_usage": {
+    "compute_units": 0.0,
+    "usage_rate_per_hour": 0.0,
+    "active_assignments": 0
+  },
+  "allocation_error": "Backend rejected accelerator A100; quota or entitlement unavailable",
+  "user_authorization": "2026-11-08 user explicitly authorizes new runtime + monitoring + completion attempt; GPU runs need no further permission",
+  "runtime_loss_policy": "If newly allocated runtime is lost again, wait for another user command",
+  "background_audit": "No remaining local lion-guidance/full14 colab or monitor process; two unrelated gsd-lowband processes preserved",
+  "next": "Resolve configured-account A100 entitlement/quota; no automatic alternative GPU or new research launch",
+  "planned_recovery": "Verify actual r3 Drivecase bytes + per-corruption integrity first; reuse valid completed shards; preserve frozen B128/source/assets and batch profiles; no accuracy-based shard selection"
+}

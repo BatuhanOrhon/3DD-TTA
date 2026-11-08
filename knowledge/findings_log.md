@@ -9132,3 +9132,42 @@ Six all15 shards/24 accepted jobs; no operational accuracy gain. Fixed617
 continues; native29/30 and posthoc-v2 caveats remain. Full derived partial384
 SHAa28831c771ff1b7c98dc19b042511f4747c01420936b342a4009f8ea5dfa7c82 and
 CPU progress note preserve this stage. Source/alpha/B32/cohort unchanged.
+
+
+## 2026-11-08T15:53:06.224772+00:00 — accepted full macro14 speed study and N8 terminal clarification
+
+[Run/CPU/Inference] All 2,468 IDs/severity5/14 non-Background corruptions/seed0,
+common B128/final36, three arms: 103,656 verified rows. Terminal N5 is
+64.051285%, tuned N8+PM 66.137995%, cheap N8+PM 66.088794%.
+Cheap saves 27.672109% pipeline time versus N8+PM; paired original-object
+95% accuracy CI [−0.219958,+0.124450]pp meets the frozen −0.3pp lower margin.
+Independent raw audit verifies all predictions, labels, three raw identities,
+840 batch times and 42 corruption/arm totals. This is a three-runtime operational
+composite, one seed and development-exposed benchmark; B128 amortized time is
+not single-example latency. Cheap versus N5 is +2.037509pp but 33.4548% slower.
+[Full report](lion_guidance_macro14_results_20261108.md).
+
+[Run/CPU] User-requested N8 terminal derivation verifies 22,423/34,552 correct
+(64.896388%) from the final saved readout. PM adds 1.241607pp on the same N8
+traces. N8 versus N5 also changes gamma/eta (.03/.003 versus .01/.01), so the
++0.845103pp difference is not a depth-only effect. N8 terminal-only latency is
+unmeasured. Exact source/CSV/summary/report supplement is Drive-roundtrip verified:
+164,742 bytes, SHA256 1d8e09fafd9f24c35c0160a77974c95de010043cf80df0b2beb6398d8fe06833.
+[Compact identities](evidence/lion_guidance_speed_20261107/macro14_N8_terminal_archive_receipt.json).
+
+[Code/Run/Open] Actual macro14 scientific source is af90b34/overlay72bc0a1;
+Background source5afdf0d/overlay17b49a86 changes phase/metadata only and retains
+all ten nested scientific functions. User-requested Background N35/all2468/
+seed0/three arms/B128 has passed source/native/model/environment and full-size
+warmup gates on owned `tta-lion-guidance-speed-a100-20261108-r5`; measured run
+`20261108T152511Z_background` remains active. No all15 conclusion yet. Frozen
+macro14 summary/CSV are byte-sealed inputs. Actual VM loss requires waiting for
+a new user command; runtime and sole monitor16794 remain protected/live.
+
+[Code/CPU] Curated integration is based on shared84be1d6 and source5afdf0d.
+Select four scientific runner/analysis/test files, plan, detailed speed history,
+final report and compact receipts. Exclude temporary execution/setup wrappers,
+raw ZIPs, weights/caches and redundant intermediate dumps. Preserve all peer
+records by semantic appends. Clean shared baseline826 tests and selected
+integration848 tests pass, both with2 skips and562 subtests; source branch's
+837-test record remains its separate checkout result. No new local GPU work.

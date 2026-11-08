@@ -1,0 +1,20 @@
+{
+  "status": "independently_verified",
+  "created_utc": "2026-11-08T15:44:59.942389+00:00",
+  "reviewer": "/root/review_speed_protocol",
+  "scope": "CPU-only recount from all three accepted raw archives; no runtime action",
+  "inferences": 34552,
+  "correct": 22423,
+  "accuracy_percent": 64.89638805279,
+  "PM_gain_pp": 1.2416068534382987,
+  "checks": [
+    "Archive sizes and SHA-256",
+    "All final-logit predictions and labels",
+    "PM correctness and per-corruption totals",
+    "SpeedObserver terminal-last readout ordering"
+  ],
+  "limits": [
+    "Same-trace terminal readout, not new terminal-only runtime",
+    "N8 also changes gamma and eta versus N5"
+  ]
+}

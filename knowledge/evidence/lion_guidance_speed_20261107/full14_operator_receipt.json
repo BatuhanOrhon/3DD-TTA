@@ -1,0 +1,17 @@
+{
+  "status": "deployed_GPU_verified_pre_science_supplement_accepted",
+  "source": {
+    "bytes": 776662,
+    "sha256": "a9c46e94ad5119634e8fe319b5560bf5cd459dc0be7cfa49634402967ce1cf99"
+  },
+  "operator": {
+    "bytes": 785328,
+    "sha256": "e5321f96c70ea674fe96192a5082277be176748b4635b9d692d2a936a5408c71"
+  },
+  "cpu_tests": "831passed/2skip/500subtests48.77s",
+  "acceptance_fixtures": "8passed",
+  "runtime_loss_policy": "wait newusercommand; no autonomous replacement",
+  "deployment_completion": "initial plainPython JIT/ninja failure preserved; audited no-build bootstrap completed verification",
+  "asset_manifest_sha256": "d9b89307a333e200d610b2ab1722f89fefdc374fd945a04a1c860400a09f7782",
+  "supplement_sha256": "23bd4e9bc71a7337f9f53ac789db41e95c3ae816c9dfbd30a89c92d53f82c502"
+}

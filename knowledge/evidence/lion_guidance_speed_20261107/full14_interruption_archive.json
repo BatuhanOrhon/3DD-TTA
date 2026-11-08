@@ -1,0 +1,7 @@
+{
+  "path": "result/modelnet40_c/lion_guidance_speed/raw/full14_r3_interrupted_local_evidence.zip",
+  "bytes": 92202,
+  "sha256": "f65a1fa7c86f732c1d4d4a37b145a8723a7f648f718802b690ae39cab9725c65",
+  "status": "local_stream_evidence_only_not_raw_accuracy_bundle",
+  "drive_backup": "notpossibleafterruntimeloss; actualcasecheckpointsalreadypersistedbyrunner"
+}

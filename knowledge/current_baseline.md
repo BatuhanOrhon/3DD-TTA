@@ -96,3 +96,14 @@ follow-up instruction, owned `tta-depth-transfer-a100-20261031-r1` was
 closed and the server inventory verified empty at12:04UTC. Both full archive
 SHA identities were rechecked locally and on Drive before closure.
 [Closure receipt](../result/preparation/chamfer_depth_transfer_20261031/runtime_closure_20261031/runtime_closure.json).
+
+
+## 2026-11-08 — matched High-RAM speed-study batch override
+
+[Run/User decision] The [full speed study](lion_guidance_macro14_results_20261108.md)
+uses common B128/final36 after a measured B32/B64/B128 throughput-and-memory
+selection on A10080 and verified transfer to the continuation runtimes. This
+is the comparison baseline for this Point-MAE/ModelNet40-C study. The separate
+multi-head/multi-dataset entrypoint above retains its B32 locked profile;
+B128 capacity and numerical behavior have not been established for every
+other head or dataset. No global policy/default or existing artifact is rewritten.

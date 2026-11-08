@@ -1,0 +1,8 @@
+{
+  "path": "result/modelnet40_c/lion_guidance_speed/raw/20261108T0934_r4_interruption_local_evidence.zip",
+  "bytes": 585805,
+  "sha256": "e7305031a3c884803926445dea6deb253b619154255a14bf27e3a70f17b7746c",
+  "files": 346,
+  "drive_backup": "pending; owned runtime absent; no peer runtime access",
+  "status": "local_partial_operator_setup_profile_monitor_stdout_evidence_preserved; not scientific prediction archive"
+}

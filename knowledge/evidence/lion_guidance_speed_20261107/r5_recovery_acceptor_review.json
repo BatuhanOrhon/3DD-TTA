@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-08T11:07:50.837234+00:00",
+  "status": "read_only_review_no_new_blocker",
+  "reviewer": "/root/review_speed_protocol",
+  "scope": "accept_r4_shards.py against accepted r3validator and actual r4supplement",
+  "checks": [
+    "Exact64checkpointmanifest/membercoverage",
+    "22212rowsfrom60cases",
+    "3integrityreceipts and pinnedoriginaltruth",
+    "Modelhashesboundtoacceptedr3models",
+    "Actualr4source72bc.../asset24ff... supplement pins",
+    "Canonicalcorruptionindices2/3/4 and globalblocks40/60/80",
+    "continue14skip2/executed12 metadata truthful"
+  ],
+  "tests": "Reviewer performed no test suite or runtime/CLI actions; actual raw acceptance pendingdownload",
+  "acceptor_sha256": "1542715acd50886f53a996e292d6fd334df5cec286959c6ba107959a1d244d5f"
+}

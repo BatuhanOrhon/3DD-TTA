@@ -2910,3 +2910,15 @@ Still no operational gain; continue fixed617 with unchanged failure caveats.
 [Run/Partial/Open,2026-11-08T15:34UTC] Latest384 paired objects:
 SCD3745/5760,M1003740,half03726; primary−.086806pp,conditional95%CI
 [-.538194,.364583]. Six all15 shards accepted, no gain; continue fixed617.
+
+
+## 2026-11-08 — full macro14 efficiency outcome
+
+[Run/Decision/Open] Frozen macro14 speed/noninferiority gates pass at 27.6721%
+less time and −0.0492pp accuracy; independent full raw recount accepted.
+[Report](lion_guidance_macro14_results_20261108.md). Same-trace N8 terminal
+is 64.896388%; PM adds 1.241607pp, with no terminal-only N8 timing measurement.
+Background N35/all2468/seed0 is separately running; preserve macro14 primary
+conclusion when reporting an all15 extension. Additional seeds, an unguided
+attribution control, corruption-independent horizon, held-out generalization
+and algorithmic novelty remain open; this integration authorizes no new GPU phase.

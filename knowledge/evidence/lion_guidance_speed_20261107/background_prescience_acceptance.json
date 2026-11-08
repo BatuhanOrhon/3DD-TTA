@@ -1,0 +1,17 @@
+{
+  "status": "accepted_before_science",
+  "archive": {
+    "bytes": 5730639,
+    "sha256": "81c8aa41cced9f764c8bddb6cb00200a73d116c0c5b4cd6a55980ff47d26d54c"
+  },
+  "native_ELFs": 7,
+  "members": 416,
+  "source_overlay": {
+    "bytes": 777133,
+    "sha256": "17b49a8632f83b183dc654c334f6637c88e9fca88f0440ef4f59fedcd5301242"
+  },
+  "asset_manifest": {
+    "bytes": 190043,
+    "sha256": "01305b50e8e5de5321960772b0aaf49b5d142b726e80451df8a91c4dac91dcb6"
+  }
+}

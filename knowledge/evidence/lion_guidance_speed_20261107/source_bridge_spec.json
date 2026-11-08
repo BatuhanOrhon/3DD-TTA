@@ -1,0 +1,145 @@
+{
+  "status": "frozen_before_confirmation",
+  "accepted_screen": {
+    "phase": "screen",
+    "run_id": "20261107T164047Z_screen",
+    "archive_bytes": 4633368,
+    "archive_sha256": "eded6bd9d97c718defcb6b58b5f6b2c3c49b3d23c02796820b2d673a89cd9e86",
+    "source_overlay_sha256": "7c87f4956ed4f2313f076c6e97f1720a5e46b4672c7c77a304f6959a4bb4bdda",
+    "asset_manifest_sha256": "58d73c559349a008d3bb74fe9bbc1faec54ecad033c0f2df5b8fc04a8a7d5ebb",
+    "status": "advance",
+    "candidate": "cheap",
+    "batch_size": 32,
+    "decision_utc": "2026-11-07T17:10:17.925441+00:00",
+    "selection_rule": "Fastest of cheap/hybrid/sparse with screen mean delta>=-1pp and saving>=15%",
+    "eligible": [
+      "cheap",
+      "hybrid",
+      "sparse"
+    ],
+    "confirmation_arms": [
+      "original",
+      "cheap",
+      "unguided"
+    ],
+    "selection_sha256": "c91aba60aac5cdfe8dda18c913d05b7546a08aa3f72ec25c726369d2ea3bbc05",
+    "confirmation_scope": "Locked256/all15/s5/seeds0,1,2/twooperationalrepeats/B32",
+    "primary_margin_pp": -0.3,
+    "primary_saving_percent": 15,
+    "screen_noninferiority_established": false,
+    "source_bridge_required": true
+  },
+  "old_source_overlay": {
+    "bytes": 775084,
+    "sha256": "7c87f4956ed4f2313f076c6e97f1720a5e46b4672c7c77a304f6959a4bb4bdda"
+  },
+  "new_source_overlay": {
+    "bytes": 775102,
+    "sha256": "75c6bb233e6833e9db0cc32a4537dca11d48abcff5b0290e07aaed46bcb6846e"
+  },
+  "new_asset_manifest": {
+    "bytes": 187189,
+    "sha256": "392aca96bcb8dec6017e14f2d7ec5af5429b751c1cf968421af16ebfe77ad6c2"
+  },
+  "changed_source_files": {
+    "source_snapshot/lion_guidance_pilot.py": {
+      "old": {
+        "bytes": 13446,
+        "sha256": "06a18566865458c92580a6e29f4e79310a03f3e03aeeca5ecb563a9f8fe77149"
+      },
+      "new": {
+        "bytes": 13484,
+        "sha256": "ce79086ae259682895274d2d3f8324098799665b0ffbbec6df3f740c8584c7d0"
+      }
+    },
+    "source_snapshot/scripts/run_lion_guidance_speed.py": {
+      "old": {
+        "bytes": 21494,
+        "sha256": "d1ba525329bbc7e13b45b497f8338674ec0e43fcf9c9021f15e541cbc8d32b5c"
+      },
+      "new": {
+        "bytes": 21506,
+        "sha256": "ce30f9bcc7737c53058cfd3a20d3a754a007889d2ac6cf7d39b5da94184ae745"
+      }
+    }
+  },
+  "allowed_replacements": {
+    "source_snapshot/lion_guidance_pilot.py": [
+      [
+        "'metric4d', 'geometric')",
+        "'metric4d', 'geometric', 'unguided')"
+      ],
+      [
+        "arm not in ('cheap','sparse','hybrid')",
+        "arm not in ('cheap','sparse','hybrid','unguided')"
+      ],
+      [
+        "if not full and arm=='sparse':",
+        "if not full and arm in ('sparse','unguided'):"
+      ]
+    ],
+    "source_snapshot/scripts/run_lion_guidance_speed.py": [
+      [
+        "choices=('original', 'original_audit', 'full', 'cheap', 'hybrid', 'sparse'),",
+        "choices=('original', 'original_audit', 'full', 'cheap', 'hybrid', 'sparse', 'unguided'),"
+      ]
+    ]
+  },
+  "non_source_projection_sha256": "954cc4aa103738962b2451ef0b27351702b2617236e62782d0fb9dd8efe1394d",
+  "native": {
+    "captured_before_runs": true,
+    "limitation": "All seven native ELF identities and bytes captured before this speed study science",
+    "files": {
+      "_pvcnn_backend": {
+        "bytes": 685248,
+        "sha256": "d9c2313be5c2b75088a4d5fe54408b000136dc5a34d3e2fe4a123041b0e481b0",
+        "path": "/root/.cache/torch_extensions/py38_cu121/_pvcnn_backend/_pvcnn_backend.so",
+        "mtime": 1794069028.1928022,
+        "ctime": 1794069028.1928022
+      },
+      "chamfer_3D": {
+        "bytes": 1144176,
+        "sha256": "08040c76ff4e98b157c88a43b9cf0e178e6713b98be2abeaa0efd2b11d42c5e0",
+        "path": "/content/3DD-TTA/third_party/ChamferDistancePytorch/tmp/chamfer_3D.so",
+        "mtime": 1794069028.1988027,
+        "ctime": 1794069028.1988027
+      },
+      "emd_ext": {
+        "bytes": 559272,
+        "sha256": "67b729df603ae255c404d5db2792304de52cfb706d77ddfd619107dc9cdaf154",
+        "path": "/root/.cache/torch_extensions/py38_cu121/emd_ext/emd_ext.so",
+        "mtime": 1794069028.2048035,
+        "ctime": 1794069028.2048035
+      },
+      "knn": {
+        "bytes": 218200,
+        "sha256": "d37e5e4ec02a44553c6329c8918cd5b6b7e121d4055c79b82968eb4177d57fbb",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/knn_cuda/csrc/_ext/knn/knn.so",
+        "mtime": 1794069028.2078037,
+        "ctime": 1794069028.2078037
+      },
+      "pointnet2_ops._ext": {
+        "bytes": 266256,
+        "sha256": "33f5528f8588f8b8747a77ea34f3acbe53fbdcbb98a86631d53b5fb7e3bfadfa",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/pointnet2_ops-3.0.0-py3.8-linux-x86_64.egg/pointnet2_ops/_ext.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794068051.3660269,
+        "ctime": 1794068051.3730276
+      },
+      "emd_cuda": {
+        "bytes": 9143368,
+        "sha256": "4fe5fc427acb9231b10e49da9d03136bad2119f6b42e51bb075927eb6d485c8e",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/emd_ext-0.0.0-py3.8-linux-x86_64.egg/emd_cuda.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794067499.171359,
+        "ctime": 1794067499.17836
+      },
+      "chamfer": {
+        "bytes": 720640,
+        "sha256": "f29d3cdf6449775ae77999c207ef007c93f06a784818ac9d5af3c8a5bf92d695",
+        "path": "/usr/local/envs/3dd_tta_env/lib/python3.8/site-packages/chamfer-2.0.0-py3.8-linux-x86_64.egg/chamfer.cpython-38-x86_64-linux-gnu.so",
+        "mtime": 1794067667.7862735,
+        "ctime": 1794067667.7882736
+      }
+    }
+  },
+  "scientific_change": "Only add true unguided DDIM attribution arm; original/cheap formulas, settings, selection and assets preserved"
+}

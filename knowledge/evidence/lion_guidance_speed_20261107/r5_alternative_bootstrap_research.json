@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-08T11:44:31.145838+00:00",
+  "status": "official_miniconda_custom_bootstrap_running",
+  "authorization": "User explicitly requested websearch and permitted a different Conda installation method; existing environment setup authorization applies",
+  "selected": "CondaColab0.1.14 install_from_url officialMiniconda3-py313_26.3.2-2-Linux-x86_64.sh",
+  "url": "https://repo.anaconda.com/miniconda/Miniconda3-py313_26.3.2-2-Linux-x86_64.sh",
+  "expected_sha256": "2284bafb7863a23411b19874d216e237964d4b32dd9beb6807fa8b2d84570961",
+  "probe": "ColabHTTP206,8192byteconstructorheader; sysPython3.13.16matchespy313",
+  "sources": [
+    "https://pypi.org/project/condacolab/0.1.14/",
+    "https://github.com/conda-incubator/condacolab/issues/66",
+    "https://github.com/conda-incubator/condacolab/issues/71",
+    "https://repo.anaconda.com/miniconda/",
+    "https://mamba.readthedocs.io/en/stable/installation/micromamba-installation.html",
+    "https://github.blog/news-insights/company-news/github-availability-report-june-2026/"
+  ],
+  "interpretation": "Issue71 is historical404, not ourcurrent5xx; issue66 shows kernelPythonversionmustmatch. June8report documents similar unauthenticated504/releases disruption, distinct from currentNov8incident.",
+  "alternatives": "Micromamba supportsYAMLbutrequiresmorechanges; defaultGitHub4boundedattemptsfailed. Do not blindlyuse currentmain/Pixirewrite or latestpy314installer.",
+  "constraints": "Canonicalcell1defaultMiniforge replaced explicitly, not claimedbyteidentical. Canonicalcells2-10unchangedorder, finalresearchPython3.8/Torch2.1.2cu121/NumPy1.21.2/native7 stillmandatory. Model/data/seed/B128/accepted5/remaining9 frozen. NoMacbinary or newscience."
+}

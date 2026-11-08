@@ -1,3 +1,15 @@
+**[Run/CPU/Open] 2026-11-08 — full macro14 speed result accepted; Background extension running:**
+[Validated report](lion_guidance_macro14_results_20261108.md): all 2,468 IDs, seed0,
+common B128, three disjoint runtime groups. Cheap guidance uses 27.6721% less
+pipeline time than tuned N8+PM, with accuracy 66.0888% versus 66.1380%
+(delta −0.0492pp; paired object CI [−0.2200,+0.1245]pp). Frozen primary gates pass.
+N5 terminal is 64.0513%; saved tuned N8 terminal is 64.8964% (accuracy only,
+no separate latency). PM adds 1.2416pp on its own N8 traces. Cheap remains
+33.45% slower than N5 terminal. Separate user-requested Background N35,
+all 2,468 IDs/seed0/B128 is running on owned speed r5; no all15 result yet.
+One-seed/development/native variation and unguided-attribution limits remain.
+[Execution, failures and ownership](lion_guidance_speed_20261107.md).
+
 **[Run/Partial/Open] 2026-11-08 — R6 screen running; no SCD gain at384 objects:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
 Current384/all15/all3 are Drive+Mac accepted: SCD3745/5760=65.017361%,

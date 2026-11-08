@@ -1,0 +1,52 @@
+{
+  "status": "interrupted_not_full14_complete",
+  "audit": {
+    "utc": "2026-11-08T09:34:26.977945+00:00",
+    "operation": "bounded read-only backend assignment inventory; no allocation or kernel cell",
+    "status": "server_inventory_received",
+    "assignments": [
+      {
+        "endpoint": "gpu-a100-hm-euw4a0-1bhkcvsfl7lu9",
+        "accelerator": "A100",
+        "shape": "HIGH_RAM"
+      }
+    ],
+    "owned_endpoint_present": false
+  },
+  "session": "tta-lion-guidance-speed-a100-20261108-r4",
+  "endpoint": "gpu-a100-hm-ass1c0-dzq19cqohnoq",
+  "run_id": "20261108T082824Z_continue14",
+  "source_commit": "af90b34",
+  "source_overlay_sha256": "72bc0a1e4291480c2a1df4fd0d170a879f03f6fa5cadba264a9cdbadf593ed4d",
+  "asset_manifest_sha256": "24ff48aef43b648f0b6426f0698ac8601edeea286a00cce5330ba342a9da452d",
+  "accepted_old_corruptions": [
+    "uniform",
+    "gaussian"
+  ],
+  "new_checkpointed_corruptions": [
+    "impulse",
+    "upsampling",
+    "distortion_rbf"
+  ],
+  "new_checkpointed_rows_expected": 22212,
+  "new_raw_independent_acceptance": "pending next authorized runtime Drive retrieval",
+  "latest_observed_closed_cases": 63,
+  "partial_observed": "distortion_rbf_inv first3cases closed; no per-corruption integrity closure observed",
+  "baseline_batch_size": 128,
+  "last_batch": 36,
+  "remaining_after_recovery": [
+    "distortion_rbf_inv",
+    "density",
+    "density_inc",
+    "shear",
+    "rotation",
+    "cutout",
+    "distortion",
+    "occlusion",
+    "lidar"
+  ],
+  "next_expected_rows": 66636,
+  "derived_total_after_all_shards": 103656,
+  "uncertainty": "Last stdout snapshot09:20:28 is a lower bound; actual loss time and later Drive coverage unknown. Raw full14 archive absent; no complete accuracy/noninferiority conclusion.",
+  "restart_authorization": "Wait for new explicit user command; latest user asks whether next-session shard recovery is possible, not to allocate now."
+}

@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-08T09:46:32.679545+00:00",
+  "status": "allocation_failed_3_HTTP503_no_owned_runtime",
+  "requested_session": "tta-lion-guidance-speed-a100-20261108-r5",
+  "accelerator": "A100",
+  "shape": "High-RAM",
+  "assignments": [
+    {
+      "endpoint": "gpu-a100-hm-euw4a0-1bhkcvsfl7lu9",
+      "accelerator": "A100",
+      "shape": "HIGH_RAM"
+    }
+  ],
+  "logs": [
+    "allocation.log",
+    "allocation_retry1.log",
+    "allocation_retry2.log"
+  ],
+  "setup_cells_canonical_byte_verified": 10,
+  "drive_consent_command_ready": false,
+  "new_runtime_or_monitor_started": false,
+  "science_started": false,
+  "old_five_corruption_recovery": "2accepted old;3complete Drive checkpoints await independent retrieval/acceptance",
+  "next": "A100 High-RAM allocation must succeed before same-VM Conda cell1/reconnect and Drive consent command. No fake mount command for nonexistent session.",
+  "authorization": "Current user command authorizes new session and unchanged research; another actual runtime loss requires a fresh user command",
+  "archive": {
+    "path": "result/preparation/lion_guidance_speed_20261107/full14_r5/allocation_attempts_evidence.zip",
+    "bytes": 6016,
+    "sha256": "a8d8bc92d89fcb83b74265ea0f46c17d22e27b4859d091f94cb3d49268affaa7",
+    "drive_backup": "pending; no owned runtime"
+  }
+}

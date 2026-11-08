@@ -1,0 +1,13 @@
+{
+  "observed_utc": "2026-11-08T10:56:49.865673+00:00",
+  "source": "https://www.githubstatus.com/api/v2/incidents/unresolved.json",
+  "incident_url": "https://www.githubstatus.com/incidents/pyynvrm1vskw",
+  "incident_id": "pyynvrm1vskw",
+  "title": "Increase in timeouts for some unauthenticated users",
+  "status": "investigating",
+  "reported_utc": "2026-11-08T10:36:05.481Z",
+  "interpretation": "Official incident is consistent with public installer HTTP504/503; does not uniquely prove which network hop failed",
+  "previous_success": "r4 same exact installer URL downloaded07:09:24UTC and installed in6seconds",
+  "local_success": "Official assetAPI435215381 once delivered105172629bytes with pinnedSHA848194851a...; direct release URL failed504. Local binary deleted on explicit instruction.",
+  "runtime_live_last_verified": true
+}

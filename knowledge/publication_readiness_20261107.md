@@ -61,3 +61,8 @@ Yalnız bu rapor, README yönlendirmesi, findings kaydı ve open_questions önce
 
 
 [Run/Inference, later Nov7 update] The separate [hard-lowband halfmix pilot](gsd_lowband_halfmix_results_20261107.md) subsequently completed. M100171/240 vs half-SCD169; M200166. Numerical attribution gate fails, graph+reconstruction cost rises about23%, and no default promotion or publication-superiority claim follows. The earlier GPU-unrun statement records the review-time state.
+
+
+## 2026-11-08T15:08:01.893539+00:00 — newfullmacro14 efficiency evidence
+
+[Run/Inference/Open] [Validatedfull14report](lion_guidance_macro14_results_20261108.md) now supports an operationalaccuracy–costtradeoff: N8PM66.1380%,cheap66.0888%,27.6721%less time; pairedaccuracyCI[-.2200,.1245]pp meetsfrozen-.3ppmarginalgate. Cheap+2.0375ppversusactualN5terminal but33.45%moretime. All2468/14cors/seed0/B128; three-runtimecomposite; developmentexposure/nativevariationremain. This strengthens empiricalefficiencyevidence beyond32-IDscreen, not algorithmicnovelty or isolatedguidance superiority. Unguidedattribution/multi-seed/generalization gaps remain; Backgroundwasprospectivelyrequested as separate35-stepextensionbeforethisanalysis and isunrun. Earlierreadinessstatements remain datedhistory.

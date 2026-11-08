@@ -1,0 +1,53 @@
+{
+  "status": "frozen_before_GPU_profiles",
+  "session": "tta-lion-guidance-speed-a100-20261107-r3",
+  "endpoint": "gpu-a100-hm-ass1c0-d3xkxb14xo59",
+  "gpu": "A100-SXM4-80GB",
+  "dataset": "modelnet40_c",
+  "objects": 2468,
+  "corruptions": "all14 excluding background",
+  "severity": 5,
+  "seed": 0,
+  "measured_passes": 1,
+  "arms": [
+    "terminal",
+    "original",
+    "cheap"
+  ],
+  "arm_legend": {
+    "terminal": "Repository original N5/.01/.01/p.95 single terminal under common controlled eval/raw backend",
+    "original": "Tuned N8/.03/.003/p.95 four equalPM readouts",
+    "cheap": "N8/tau.1 closed-form Chamfer correction/four equalPM readouts"
+  },
+  "profile_batches": [
+    1,
+    32,
+    64,
+    128
+  ],
+  "profile_corruptions": [
+    "uniform",
+    "occlusion"
+  ],
+  "profile_repetitions": 3,
+  "warmups_per_arm_actual_size": 2,
+  "B1_ids": [
+    140,
+    1557,
+    1808,
+    2312
+  ],
+  "batch_selection": "Max aggregate measured throughput overcomplete profiles32/64/128, both allocated/reserved<=80%VRAM; exacttiesmaller; no accuracyselection",
+  "timing": "CPU input-batch ready through synchronized GPUprobabilities; excludesmodel/data loading,RNGseeding,argmaxCPUcopy,hashes,archive",
+  "primary_target": {
+    "reference": "original",
+    "candidate": "cheap",
+    "minimum_time_reduction_percent": 15,
+    "accuracy_object_CI95_lower_above_pp": -0.3,
+    "nondegenerate_required": true
+  },
+  "terminal_comparison": "Actual measured matched pipeline, no prespecified speed superiority claim",
+  "attribution": "Cheap-vs-unguided remains separate necessary follow-up",
+  "failure_policy": "Preserve failedphase; OOMinvalidatesentirebatchcandidate; do notdropobjects/corruptions; runtime loss=>waitnewusercommand",
+  "teardown_authorized": false
+}

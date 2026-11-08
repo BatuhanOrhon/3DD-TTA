@@ -1,0 +1,197 @@
+{
+  "status": "verified",
+  "batch_size": 128,
+  "source_overlay_sha256": "72bc0a1e4291480c2a1df4fd0d170a879f03f6fa5cadba264a9cdbadf593ed4d",
+  "asset_manifest_sha256": "24ff48aef43b648f0b6426f0698ac8601edeea286a00cce5330ba342a9da452d",
+  "old_shard_archive_identity": {
+    "bytes": 9119366,
+    "sha256": "81c80f81ab3401444cb8257a3f23176f8c8fed8416869cb5cec91eefd847d988"
+  },
+  "current_profile": {
+    "status": "accepted",
+    "batch_size": 128,
+    "profile_metrics": {
+      "objects_per_second": 8.940884580295986,
+      "max_allocated_mib": 59349.78271484375,
+      "max_reserved_mib": 63790.0,
+      "gpu_total_mib": 81152.75
+    },
+    "phase": "profile",
+    "rows": 2304,
+    "comparisons": [
+      {
+        "reference": "original",
+        "candidate": "terminal",
+        "objects": 128,
+        "paired_inferences": 768,
+        "reference_accuracy_percent": 57.8125,
+        "candidate_accuracy_percent": 57.421875,
+        "delta_pp": -0.390625,
+        "delta_ci95_pp": [
+          -3.515625,
+          2.734375
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 113.72469284999897,
+        "candidate_seconds": 61.63931471900014,
+        "saving_percent": 45.79953291208147,
+        "saving_batch_cluster_ci95_percent": [
+          45.77249373957898,
+          45.82675293332444
+        ],
+        "timed_batches_per_arm": 6,
+        "timing_clusters": 2,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": -0.390625,
+            "saving_percent": 45.80700553505537
+          },
+          {
+            "seed": 0,
+            "repeat": 1,
+            "delta_pp": -0.390625,
+            "saving_percent": 45.79285625921503
+          },
+          {
+            "seed": 0,
+            "repeat": 2,
+            "delta_pp": -0.390625,
+            "saving_percent": 45.79873696724631
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "occlusion": 0.0,
+          "uniform": -0.78125
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "original",
+        "candidate": "cheap",
+        "objects": 128,
+        "paired_inferences": 768,
+        "reference_accuracy_percent": 57.8125,
+        "candidate_accuracy_percent": 57.8125,
+        "delta_pp": 0.0,
+        "delta_ci95_pp": [
+          -1.953125,
+          1.953125
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 113.72469284999897,
+        "candidate_seconds": 82.32861549400059,
+        "saving_percent": 27.607089163484755,
+        "saving_batch_cluster_ci95_percent": [
+          27.602731928153222,
+          27.611417449517727
+        ],
+        "timed_batches_per_arm": 6,
+        "timing_clusters": 2,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 0.0,
+            "saving_percent": 27.599164464058777
+          },
+          {
+            "seed": 0,
+            "repeat": 1,
+            "delta_pp": 0.0,
+            "saving_percent": 27.61789071649866
+          },
+          {
+            "seed": 0,
+            "repeat": 2,
+            "delta_pp": 0.0,
+            "saving_percent": 27.604212260162686
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "occlusion": 0.78125,
+          "uniform": -0.78125
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      },
+      {
+        "reference": "terminal",
+        "candidate": "cheap",
+        "objects": 128,
+        "paired_inferences": 768,
+        "reference_accuracy_percent": 57.421875,
+        "candidate_accuracy_percent": 57.8125,
+        "delta_pp": 0.390625,
+        "delta_ci95_pp": [
+          -2.734375,
+          3.515625
+        ],
+        "degenerate_object_differences": false,
+        "reference_seconds": 61.63931471900014,
+        "candidate_seconds": 82.32861549400059,
+        "saving_percent": -33.56510511078579,
+        "saving_batch_cluster_ci95_percent": [
+          -33.640259707418664,
+          -33.49052453720604
+        ],
+        "timed_batches_per_arm": 6,
+        "timing_clusters": 2,
+        "per_seed_repeat": [
+          {
+            "seed": 0,
+            "repeat": 0,
+            "delta_pp": 0.390625,
+            "saving_percent": -33.5981453890217
+          },
+          {
+            "seed": 0,
+            "repeat": 1,
+            "delta_pp": 0.390625,
+            "saving_percent": -33.52872755965133
+          },
+          {
+            "seed": 0,
+            "repeat": 2,
+            "delta_pp": 0.390625,
+            "saving_percent": -33.56845152499255
+          }
+        ],
+        "per_corruption_delta_pp": {
+          "occlusion": 0.78125,
+          "uniform": 0.0
+        },
+        "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+      }
+    ],
+    "numerical_repeats": [],
+    "cross_controls": [],
+    "elapsed": 511.8066214970004,
+    "source_overlay_sha256": "72bc0a1e4291480c2a1df4fd0d170a879f03f6fa5cadba264a9cdbadf593ed4d",
+    "asset_manifest_sha256": "24ff48aef43b648f0b6426f0698ac8601edeea286a00cce5330ba342a9da452d",
+    "archive": "result/modelnet40_c/lion_guidance_speed/raw/20261108T081849Z_profile_b128.zip",
+    "archive_bytes": 2253690,
+    "archive_sha256": "cc240022388f2ff0503a2271c8da89eaa90528edd842030e1070dac307f4fcdf",
+    "manifest_files": 68,
+    "run_id": "20261108T081849Z_profile_b128"
+  },
+  "model_hashes": [
+    "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7",
+    "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+  ],
+  "native_ELFs_matched": 7,
+  "data_and_checkpoints_identical": true,
+  "other_source_files_byte_identical": 260,
+  "science_nested_functions_AST_identical": 10,
+  "actual_new_setup_identity": {
+    "bytes": 9005,
+    "sha256": "5192d7ac7ddfdef5ab17753859c71a0f4466fce4be31b58cf77f598366834e68"
+  },
+  "old_batch_decision_identity": {
+    "bytes": 18188,
+    "sha256": "93aaf653fd3f4bf64822ea7dec3154f833762a2bbb713852abded8899f0ca27b"
+  },
+  "policy": "Frozen old B128 decision transferred only after scientific identity and new B128/remainder36 memory-success proof; accuracy never used",
+  "limitation": "Two runtimes remain distinct; final timing must include per-runtime results and labelled combined ratio"
+}

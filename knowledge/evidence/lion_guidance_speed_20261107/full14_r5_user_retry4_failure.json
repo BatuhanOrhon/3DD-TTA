@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-08T09:52:54.760955+00:00",
+  "status": "user_retry4_failed_HTTP503_no_owned_runtime",
+  "requested_session": "tta-lion-guidance-speed-a100-20261108-r5",
+  "log": "result/preparation/lion_guidance_speed_20261107/full14_r5/allocation_retry3_user.log",
+  "assignments": [
+    {
+      "endpoint": "gpu-a100-hm-euw4a0-1bhkcvsfl7lu9",
+      "accelerator": "A100",
+      "shape": "HIGH_RAM"
+    }
+  ],
+  "new_runtime": false,
+  "drive_consent_ready": false,
+  "source_analysis": "result/modelnet40_c/lion_guidance_speed/analysis/20261108T095008Z_partial_verified_review/analysis.json"
+}
