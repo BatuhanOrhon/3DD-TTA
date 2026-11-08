@@ -1,0 +1,1021 @@
+{
+  "status": "derived_from_accepted_fixed_horizon_tables",
+  "created_utc": "2026-11-08T17:33:31.838642+00:00",
+  "scope": {
+    "dataset": "ModelNet40-C",
+    "severity": 5,
+    "unique_objects": 2468,
+    "seeds": [
+      0
+    ],
+    "repetitions": 1,
+    "batch_size": 128,
+    "final_batch": 36,
+    "corruptions": 15,
+    "rows": 111060,
+    "terminal_readouts": 37020
+  },
+  "inputs": {
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_horizon_all15/summary.json": {
+      "bytes": 72968,
+      "sha256": "cdce43f08ff514d128a76958f9bb2845c78db76019581c72762223582f155e5c"
+    },
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_horizon_all15/per_object.csv": {
+      "bytes": 20008368,
+      "sha256": "100ef8f458eeba64f0908d4b26d88a2f1eaa062ea5257a247a5ecd33584f372d"
+    },
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_N8_terminal_all15/summary.json": {
+      "bytes": 6578,
+      "sha256": "7d6b99484043d6040c73db5aa77440644468d291e7e66d6f7e6d3fb02dd9eae8"
+    },
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_N8_terminal_all15/per_object.csv": {
+      "bytes": 4440527,
+      "sha256": "ec1147b01a491c4e042f778dafe81ae195fbe5a0a45e18a85a16f2f3ef7b806c"
+    }
+  },
+  "derivation": {
+    "script": "result/preparation/lion_guidance_speed_20261107/knowledge_documentation_20261108/derive_corruption_detail.py",
+    "script_identity": {
+      "bytes": 10064,
+      "sha256": "7e4f867f73598594fb8617d53950dd99508d523fb1d6632cd130b393154805ab"
+    },
+    "paired_function": "scripts.analyze_lion_guidance_speed.paired_summary",
+    "bootstrap_draws": 10000,
+    "bootstrap_seed": 20261107,
+    "accuracy_cluster": "original object IDs; conditional on observed seed/runtime",
+    "timing": "Deduplicate each arm/corruption/seed/repeat/batch; descriptive fixed-batch CI",
+    "reserved_memory": "Not reported as standalone method memory; shared warmed allocator"
+  },
+  "per_corruption": [
+    {
+      "corruption": "uniform",
+      "arms": {
+        "terminal": {
+          "correct": 1909,
+          "n": 2468,
+          "accuracy_percent": 77.35008103727715,
+          "pipeline_seconds": 198.87205436099975,
+          "amortized_ms_per_inference": 80.58024893071303,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56734.9365234375
+        },
+        "original": {
+          "correct": 1980,
+          "n": 2468,
+          "accuracy_percent": 80.22690437601297,
+          "pipeline_seconds": 366.68292256899986,
+          "amortized_ms_per_inference": 148.57492810737435,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59349.78271484375
+        },
+        "cheap": {
+          "correct": 1981,
+          "n": 2468,
+          "accuracy_percent": 80.26742301458671,
+          "pipeline_seconds": 265.39282022500265,
+          "amortized_ms_per_inference": 107.53355762763479,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44756.96484375
+        },
+        "tuned_terminal": {
+          "correct": 1906,
+          "n": 2468,
+          "accuracy_percent": 77.22852512155592,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 2.9983792544570504,
+      "cheap_minus_PM_pp": 0.04051863857374392,
+      "cheap_minus_PM_ci95_pp": [
+        -0.6077795786061588,
+        0.6888168557536467
+      ],
+      "corrected": 35,
+      "harmed": 34,
+      "net_correct": 1,
+      "time_saving_percent": 27.623348705293783,
+      "time_saving_batch_ci95_percent": [
+        27.584771119411595,
+        27.69329124438761
+      ],
+      "seconds_saved": 101.2901023439972,
+      "source_runtime": [
+        "r3"
+      ],
+      "source_run": [
+        "20261107T215537Z_full14"
+      ],
+      "source_raw_sha256": [
+        "81c80f81ab3401444cb8257a3f23176f8c8fed8416869cb5cec91eefd847d988"
+      ]
+    },
+    {
+      "corruption": "gaussian",
+      "arms": {
+        "terminal": {
+          "correct": 1837,
+          "n": 2468,
+          "accuracy_percent": 74.43273905996759,
+          "pipeline_seconds": 198.93275405499662,
+          "amortized_ms_per_inference": 80.60484362033898,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56734.9365234375
+        },
+        "original": {
+          "correct": 1960,
+          "n": 2468,
+          "accuracy_percent": 79.4165316045381,
+          "pipeline_seconds": 366.8019361309998,
+          "amortized_ms_per_inference": 148.62315078241483,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59349.78271484375
+        },
+        "cheap": {
+          "correct": 1961,
+          "n": 2468,
+          "accuracy_percent": 79.45705024311184,
+          "pipeline_seconds": 265.46724963199995,
+          "amortized_ms_per_inference": 107.5637154100486,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44756.96484375
+        },
+        "tuned_terminal": {
+          "correct": 1896,
+          "n": 2468,
+          "accuracy_percent": 76.82333873581848,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 2.593192868719611,
+      "cheap_minus_PM_pp": 0.04051863857374392,
+      "cheap_minus_PM_ci95_pp": [
+        -0.5672609400324149,
+        0.6482982171799028
+      ],
+      "corrected": 30,
+      "harmed": 29,
+      "net_correct": 1,
+      "time_saving_percent": 27.626540788707597,
+      "time_saving_batch_ci95_percent": [
+        27.5845696831358,
+        27.70020148267
+      ],
+      "seconds_saved": 101.33468649899987,
+      "source_runtime": [
+        "r3"
+      ],
+      "source_run": [
+        "20261107T215537Z_full14"
+      ],
+      "source_raw_sha256": [
+        "81c80f81ab3401444cb8257a3f23176f8c8fed8416869cb5cec91eefd847d988"
+      ]
+    },
+    {
+      "corruption": "background",
+      "arms": {
+        "terminal": {
+          "correct": 616,
+          "n": 2468,
+          "accuracy_percent": 24.959481361426256,
+          "pipeline_seconds": 198.32072470600178,
+          "amortized_ms_per_inference": 80.35685766045454,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56734.9365234375
+        },
+        "original": {
+          "correct": 743,
+          "n": 2468,
+          "accuracy_percent": 30.105348460291733,
+          "pipeline_seconds": 365.27574567898773,
+          "amortized_ms_per_inference": 148.00475918921705,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59349.78271484375
+        },
+        "cheap": {
+          "correct": 755,
+          "n": 2468,
+          "accuracy_percent": 30.59157212317666,
+          "pipeline_seconds": 264.1458620730009,
+          "amortized_ms_per_inference": 107.02830716085934,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44756.96484375
+        },
+        "tuned_terminal": {
+          "correct": 741,
+          "n": 2468,
+          "accuracy_percent": 30.024311183144246,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 0.08103727714748785,
+      "cheap_minus_PM_pp": 0.4862236628849271,
+      "cheap_minus_PM_ci95_pp": [
+        -0.2025931928687196,
+        1.1750405186385737
+      ],
+      "corrected": 44,
+      "harmed": 32,
+      "net_correct": 12,
+      "time_saving_percent": 27.68590162426552,
+      "time_saving_batch_ci95_percent": [
+        27.62975314822995,
+        27.780087516691907
+      ],
+      "seconds_saved": 101.12988360598683,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T165415Z_background_uniform"
+      ],
+      "source_raw_sha256": [
+        "2e2ffbc391372b1646567cdc9636a0fa2be2a2760b86369df7e1ebd3cf70a25b"
+      ]
+    },
+    {
+      "corruption": "impulse",
+      "arms": {
+        "terminal": {
+          "correct": 1728,
+          "n": 2468,
+          "accuracy_percent": 70.0162074554295,
+          "pipeline_seconds": 199.02377851099754,
+          "amortized_ms_per_inference": 80.64172549067972,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1956,
+          "n": 2468,
+          "accuracy_percent": 79.25445705024312,
+          "pipeline_seconds": 366.9591030469992,
+          "amortized_ms_per_inference": 148.68683267706612,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 1962,
+          "n": 2468,
+          "accuracy_percent": 79.49756888168558,
+          "pipeline_seconds": 265.57841860999633,
+          "amortized_ms_per_inference": 107.60875956644908,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 1908,
+          "n": 2468,
+          "accuracy_percent": 77.3095623987034,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 1.9448946515397083,
+      "cheap_minus_PM_pp": 0.24311183144246354,
+      "cheap_minus_PM_ci95_pp": [
+        -0.28363047001620745,
+        0.7698541329011345
+      ],
+      "corrected": 27,
+      "harmed": 21,
+      "net_correct": 6,
+      "time_saving_percent": 27.627243361780906,
+      "time_saving_batch_ci95_percent": [
+        27.58890527665899,
+        27.69818352535109
+      ],
+      "seconds_saved": 101.38068443700286,
+      "source_runtime": [
+        "r4"
+      ],
+      "source_run": [
+        "20261108T082824Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63"
+      ]
+    },
+    {
+      "corruption": "upsampling",
+      "arms": {
+        "terminal": {
+          "correct": 2029,
+          "n": 2468,
+          "accuracy_percent": 82.21231766612642,
+          "pipeline_seconds": 194.47831315000076,
+          "amortized_ms_per_inference": 78.79996480956271,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 2092,
+          "n": 2468,
+          "accuracy_percent": 84.76499189627229,
+          "pipeline_seconds": 362.49536726800125,
+          "amortized_ms_per_inference": 146.87818770988704,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 2091,
+          "n": 2468,
+          "accuracy_percent": 84.72447325769855,
+          "pipeline_seconds": 261.02876190500047,
+          "amortized_ms_per_inference": 105.76530060980569,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 2061,
+          "n": 2468,
+          "accuracy_percent": 83.50891410048622,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 1.2560777957860616,
+      "cheap_minus_PM_pp": -0.04051863857374392,
+      "cheap_minus_PM_ci95_pp": [
+        -0.526742301458671,
+        0.4862236628849271
+      ],
+      "corrected": 20,
+      "harmed": 21,
+      "net_correct": -1,
+      "time_saving_percent": 27.991145411793404,
+      "time_saving_batch_ci95_percent": [
+        27.957644311372196,
+        28.058510784956855
+      ],
+      "seconds_saved": 101.46660536300078,
+      "source_runtime": [
+        "r4"
+      ],
+      "source_run": [
+        "20261108T082824Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63"
+      ]
+    },
+    {
+      "corruption": "distortion_rbf",
+      "arms": {
+        "terminal": {
+          "correct": 1559,
+          "n": 2468,
+          "accuracy_percent": 63.16855753646677,
+          "pipeline_seconds": 198.90098206699622,
+          "amortized_ms_per_inference": 80.59197004335341,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1587,
+          "n": 2468,
+          "accuracy_percent": 64.3030794165316,
+          "pipeline_seconds": 366.8218770900012,
+          "amortized_ms_per_inference": 148.63123058752075,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 1583,
+          "n": 2468,
+          "accuracy_percent": 64.14100486223663,
+          "pipeline_seconds": 265.3843160869983,
+          "amortized_ms_per_inference": 107.530111866693,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 1542,
+          "n": 2468,
+          "accuracy_percent": 62.47974068071313,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 1.8233387358184765,
+      "cheap_minus_PM_pp": -0.1620745542949757,
+      "cheap_minus_PM_ci95_pp": [
+        -0.8914100486223663,
+        0.526742301458671
+      ],
+      "corrected": 38,
+      "harmed": 42,
+      "net_correct": -4,
+      "time_saving_percent": 27.653083782163513,
+      "time_saving_batch_ci95_percent": [
+        27.61665051366739,
+        27.72169802005609
+      ],
+      "seconds_saved": 101.43756100300288,
+      "source_runtime": [
+        "r4"
+      ],
+      "source_run": [
+        "20261108T082824Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "7fbade0c5fc2a1be757435ba95a610f22e376758b45e134c7e68580d6c774d63"
+      ]
+    },
+    {
+      "corruption": "distortion_rbf_inv",
+      "arms": {
+        "terminal": {
+          "correct": 1626,
+          "n": 2468,
+          "accuracy_percent": 65.88330632090762,
+          "pipeline_seconds": 198.7576517409998,
+          "amortized_ms_per_inference": 80.53389454659634,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1664,
+          "n": 2468,
+          "accuracy_percent": 67.42301458670988,
+          "pipeline_seconds": 366.53037459400275,
+          "amortized_ms_per_inference": 148.51311774473368,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 1651,
+          "n": 2468,
+          "accuracy_percent": 66.89627228525121,
+          "pipeline_seconds": 265.1080791590048,
+          "amortized_ms_per_inference": 107.41818442423208,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 1614,
+          "n": 2468,
+          "accuracy_percent": 65.3970826580227,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 2.025931928687196,
+      "cheap_minus_PM_pp": -0.526742301458671,
+      "cheap_minus_PM_ci95_pp": [
+        -1.2560777957860616,
+        0.2025931928687196
+      ],
+      "corrected": 36,
+      "harmed": 49,
+      "net_correct": -13,
+      "time_saving_percent": 27.670911461933034,
+      "time_saving_batch_ci95_percent": [
+        27.635364083891197,
+        27.736166425275837
+      ],
+      "seconds_saved": 101.42229543499798,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "density",
+      "arms": {
+        "terminal": {
+          "correct": 1778,
+          "n": 2468,
+          "accuracy_percent": 72.0421393841167,
+          "pipeline_seconds": 199.19981578899933,
+          "amortized_ms_per_inference": 80.71305339910832,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1779,
+          "n": 2468,
+          "accuracy_percent": 72.08265802269044,
+          "pipeline_seconds": 366.6760376130005,
+          "amortized_ms_per_inference": 148.57213841693698,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 1796,
+          "n": 2468,
+          "accuracy_percent": 72.77147487844408,
+          "pipeline_seconds": 265.3910236819993,
+          "amortized_ms_per_inference": 107.53282969286843,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 1770,
+          "n": 2468,
+          "accuracy_percent": 71.71799027552674,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 0.3646677471636953,
+      "cheap_minus_PM_pp": 0.6888168557536467,
+      "cheap_minus_PM_ci95_pp": [
+        -0.04051863857374392,
+        1.4586709886547813
+      ],
+      "corrected": 54,
+      "harmed": 37,
+      "net_correct": 17,
+      "time_saving_percent": 27.622479666342436,
+      "time_saving_batch_ci95_percent": [
+        27.581207422964038,
+        27.69648469702649
+      ],
+      "seconds_saved": 101.28501393100123,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "density_inc",
+      "arms": {
+        "terminal": {
+          "correct": 2111,
+          "n": 2468,
+          "accuracy_percent": 85.53484602917342,
+          "pipeline_seconds": 198.51954606500476,
+          "amortized_ms_per_inference": 80.43741736831636,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 2119,
+          "n": 2468,
+          "accuracy_percent": 85.85899513776337,
+          "pipeline_seconds": 366.18004598499647,
+          "amortized_ms_per_inference": 148.37116936183003,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 2119,
+          "n": 2468,
+          "accuracy_percent": 85.85899513776337,
+          "pipeline_seconds": 264.8894096970016,
+          "amortized_ms_per_inference": 107.32958253525187,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 2117,
+          "n": 2468,
+          "accuracy_percent": 85.77795786061589,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 0.08103727714748785,
+      "cheap_minus_PM_pp": 0.0,
+      "cheap_minus_PM_ci95_pp": [
+        -0.5672609400324149,
+        0.6077795786061588
+      ],
+      "corrected": 29,
+      "harmed": 29,
+      "net_correct": 0,
+      "time_saving_percent": 27.661429779858903,
+      "time_saving_batch_ci95_percent": [
+        27.62503718984803,
+        27.731077469998425
+      ],
+      "seconds_saved": 101.29063628799486,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "shear",
+      "arms": {
+        "terminal": {
+          "correct": 1620,
+          "n": 2468,
+          "accuracy_percent": 65.64019448946516,
+          "pipeline_seconds": 198.59912132100362,
+          "amortized_ms_per_inference": 80.46966017868867,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1590,
+          "n": 2468,
+          "accuracy_percent": 64.42463533225283,
+          "pipeline_seconds": 366.34194802699494,
+          "amortized_ms_per_inference": 148.4367698650709,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 1605,
+          "n": 2468,
+          "accuracy_percent": 65.03241491085899,
+          "pipeline_seconds": 264.97090000699427,
+          "amortized_ms_per_inference": 107.36260129943041,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 1595,
+          "n": 2468,
+          "accuracy_percent": 64.62722852512155,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": -0.2025931928687196,
+      "cheap_minus_PM_pp": 0.6077795786061588,
+      "cheap_minus_PM_ci95_pp": [
+        -0.08103727714748785,
+        1.2965964343598055
+      ],
+      "corrected": 44,
+      "harmed": 29,
+      "net_correct": 15,
+      "time_saving_percent": 27.67115493214849,
+      "time_saving_batch_ci95_percent": [
+        27.63416739716225,
+        27.74082248257355
+      ],
+      "seconds_saved": 101.37104802000067,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "rotation",
+      "arms": {
+        "terminal": {
+          "correct": 821,
+          "n": 2468,
+          "accuracy_percent": 33.26580226904376,
+          "pipeline_seconds": 198.93991978099803,
+          "amortized_ms_per_inference": 80.60774707495868,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 854,
+          "n": 2468,
+          "accuracy_percent": 34.60291734197731,
+          "pipeline_seconds": 366.9341432800047,
+          "amortized_ms_per_inference": 148.6767193192888,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 846,
+          "n": 2468,
+          "accuracy_percent": 34.27876823338736,
+          "pipeline_seconds": 265.25119376199837,
+          "amortized_ms_per_inference": 107.4761725129653,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 815,
+          "n": 2468,
+          "accuracy_percent": 33.0226904376013,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 1.5802269043760129,
+      "cheap_minus_PM_pp": -0.3241491085899514,
+      "cheap_minus_PM_ci95_pp": [
+        -0.9319286871961102,
+        0.28363047001620745
+      ],
+      "corrected": 26,
+      "harmed": 34,
+      "net_correct": -8,
+      "time_saving_percent": 27.7114984746494,
+      "time_saving_batch_ci95_percent": [
+        27.676482604629058,
+        27.77684256595309
+      ],
+      "seconds_saved": 101.68294951800635,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "cutout",
+      "arms": {
+        "terminal": {
+          "correct": 1750,
+          "n": 2468,
+          "accuracy_percent": 70.90761750405187,
+          "pipeline_seconds": 199.25913764399775,
+          "amortized_ms_per_inference": 80.73708980713036,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1788,
+          "n": 2468,
+          "accuracy_percent": 72.44732576985413,
+          "pipeline_seconds": 366.831350157001,
+          "amortized_ms_per_inference": 148.63506894530025,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 1794,
+          "n": 2468,
+          "accuracy_percent": 72.6904376012966,
+          "pipeline_seconds": 265.52610389400434,
+          "amortized_ms_per_inference": 107.58756235575541,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 1785,
+          "n": 2468,
+          "accuracy_percent": 72.3257698541329,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 0.12155591572123177,
+      "cheap_minus_PM_pp": 0.24311183144246354,
+      "cheap_minus_PM_ci95_pp": [
+        -0.44671799027552583,
+        0.9724473257698542
+      ],
+      "corrected": 44,
+      "harmed": 38,
+      "net_correct": 6,
+      "time_saving_percent": 27.61630002987443,
+      "time_saving_batch_ci95_percent": [
+        27.57723960492036,
+        27.6872671244897
+      ],
+      "seconds_saved": 101.30524626299666,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "distortion",
+      "arms": {
+        "terminal": {
+          "correct": 1605,
+          "n": 2468,
+          "accuracy_percent": 65.03241491085899,
+          "pipeline_seconds": 198.66455055400002,
+          "amortized_ms_per_inference": 80.49617121312805,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1612,
+          "n": 2468,
+          "accuracy_percent": 65.31604538087521,
+          "pipeline_seconds": 366.34458948500287,
+          "amortized_ms_per_inference": 148.43784014789418,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 1618,
+          "n": 2468,
+          "accuracy_percent": 65.55915721231767,
+          "pipeline_seconds": 264.98301931199967,
+          "amortized_ms_per_inference": 107.3675118768232,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 1587,
+          "n": 2468,
+          "accuracy_percent": 64.3030794165316,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 1.012965964343598,
+      "cheap_minus_PM_pp": 0.24311183144246354,
+      "cheap_minus_PM_ci95_pp": [
+        -0.44570502431118314,
+        0.9319286871961102
+      ],
+      "corrected": 42,
+      "harmed": 36,
+      "net_correct": 6,
+      "time_saving_percent": 27.668368274660338,
+      "time_saving_batch_ci95_percent": [
+        27.63183103491912,
+        27.736243145352336
+      ],
+      "seconds_saved": 101.3615701730032,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "occlusion",
+      "arms": {
+        "terminal": {
+          "correct": 991,
+          "n": 2468,
+          "accuracy_percent": 40.15397082658023,
+          "pipeline_seconds": 197.53282204900097,
+          "amortized_ms_per_inference": 80.03761023055145,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 1009,
+          "n": 2468,
+          "accuracy_percent": 40.883306320907614,
+          "pipeline_seconds": 364.44696359400587,
+          "amortized_ms_per_inference": 147.6689479716393,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 997,
+          "n": 2468,
+          "accuracy_percent": 40.39708265802269,
+          "pipeline_seconds": 263.73213603199474,
+          "amortized_ms_per_inference": 106.8606710016186,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 997,
+          "n": 2468,
+          "accuracy_percent": 40.39708265802269,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 0.4862236628849271,
+      "cheap_minus_PM_pp": -0.4862236628849271,
+      "cheap_minus_PM_ci95_pp": [
+        -1.1750405186385737,
+        0.1620745542949757
+      ],
+      "corrected": 29,
+      "harmed": 41,
+      "net_correct": -12,
+      "time_saving_percent": 27.634975078076796,
+      "time_saving_batch_ci95_percent": [
+        27.592217021563556,
+        27.71362287124888
+      ],
+      "seconds_saved": 100.71482756201112,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    },
+    {
+      "corruption": "lidar",
+      "arms": {
+        "terminal": {
+          "correct": 767,
+          "n": 2468,
+          "accuracy_percent": 31.07779578606159,
+          "pipeline_seconds": 197.720076935002,
+          "amortized_ms_per_inference": 80.11348336102188,
+          "measured_batches": 20,
+          "peak_allocated_mib": 56735.6865234375
+        },
+        "original": {
+          "correct": 862,
+          "n": 2468,
+          "accuracy_percent": 34.92706645056726,
+          "pipeline_seconds": 364.6351288549995,
+          "amortized_ms_per_inference": 147.7451899736627,
+          "measured_batches": 20,
+          "peak_allocated_mib": 59351.34521484375
+        },
+        "cheap": {
+          "correct": 831,
+          "n": 2468,
+          "accuracy_percent": 33.6709886547812,
+          "pipeline_seconds": 263.87083955799244,
+          "amortized_ms_per_inference": 106.91687178200665,
+          "measured_batches": 20,
+          "peak_allocated_mib": 44760.52734375
+        },
+        "tuned_terminal": {
+          "correct": 830,
+          "n": 2468,
+          "accuracy_percent": 33.630470016207454,
+          "pipeline_seconds": null,
+          "amortized_ms_per_inference": null,
+          "measurement": "Saved N8 terminal readout; no separate terminal-only timing"
+        }
+      },
+      "PM_gain_over_own_N8_terminal_pp": 1.2965964343598055,
+      "cheap_minus_PM_pp": -1.2560777957860616,
+      "cheap_minus_PM_ci95_pp": [
+        -1.9448946515397083,
+        -0.6077795786061588
+      ],
+      "corrected": 20,
+      "harmed": 51,
+      "net_correct": -31,
+      "time_saving_percent": 27.63427912538753,
+      "time_saving_batch_ci95_percent": [
+        27.590248967506724,
+        27.710844382453914
+      ],
+      "seconds_saved": 100.76428929700705,
+      "source_runtime": [
+        "r5"
+      ],
+      "source_run": [
+        "20261108T123641Z_continue14"
+      ],
+      "source_raw_sha256": [
+        "e20117e4c48aafc47ad850b93fa74dc49782e038d655ba0e746e1a836c4c763b"
+      ]
+    }
+  ],
+  "checks": {
+    "all_inputs_rehashed": true,
+    "derived_terminal_source_label_PM_identity_match": true,
+    "all_grids_complete": true,
+    "all_counts_times_match_accepted_summary": true,
+    "total_corrected": 518,
+    "total_harmed": 523,
+    "total_net": -5
+  },
+  "limits": "One seed/development-exposed post-N35 user revision; no extra GPU, no terminal-only N8 latency; three physical runtimes/four measurement groups; no unguided attribution or novelty claim."
+}

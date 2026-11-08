@@ -30,25 +30,95 @@
 
 Cheap versus N5 terminal: +2.277147pp, but 33.437234% more time. N8PM versus N5 terminal:+2.290654pp and84.491660% more time. These whole-policy comparisons also change guidance rates/readouts, not just depth. Same-trace tuned N8 terminal is62.571583%; PM adds1.164236pp overall. On the preserved macro14 traces, tuned N8 terminal remains64.896388%, PMgain1.241607pp.
 
-## Per-corruption accuracy
+## Complete corruption-level record
 
-| Corruption | N5 terminal% | Tuned N8PM% | Cheap N8PM% | Cheap−PM pp |
+[Run/CPU] Every row below uses all **2,468 original objects**, severity5, seed0, one measured pass, common B128/final36. Parentheses contain the exact number correct out of 2,468. N8 terminal comes from the last saved tuned N8+PM readout. All original/cheap/terminal labels, IDs and source identities are cross-checked against the sealed tables.
+
+### Accuracy and exact counts
+
+| Corruption | N5 terminal% (correct) | Tuned N8 terminal% (correct) | N8+PM% (correct) | Cheap N8+PM% (correct) |
 |---|---:|---:|---:|---:|
-| uniform | 77.3501 | 80.2269 | 80.2674 | +0.0405 |
-| gaussian | 74.4327 | 79.4165 | 79.4571 | +0.0405 |
-| background | 24.9595 | 30.1053 | 30.5916 | +0.4862 |
-| impulse | 70.0162 | 79.2545 | 79.4976 | +0.2431 |
-| upsampling | 82.2123 | 84.7650 | 84.7245 | -0.0405 |
-| distortion_rbf | 63.1686 | 64.3031 | 64.1410 | -0.1621 |
-| distortion_rbf_inv | 65.8833 | 67.4230 | 66.8963 | -0.5267 |
-| density | 72.0421 | 72.0827 | 72.7715 | +0.6888 |
-| density_inc | 85.5348 | 85.8590 | 85.8590 | +0.0000 |
-| shear | 65.6402 | 64.4246 | 65.0324 | +0.6078 |
-| rotation | 33.2658 | 34.6029 | 34.2788 | -0.3241 |
-| cutout | 70.9076 | 72.4473 | 72.6904 | +0.2431 |
-| distortion | 65.0324 | 65.3160 | 65.5592 | +0.2431 |
-| occlusion | 40.1540 | 40.8833 | 40.3971 | -0.4862 |
-| lidar | 31.0778 | 34.9271 | 33.6710 | -1.2561 |
+| uniform | 77.3501 (1909) | 77.2285 (1906) | 80.2269 (1980) | 80.2674 (1981) |
+| gaussian | 74.4327 (1837) | 76.8233 (1896) | 79.4165 (1960) | 79.4571 (1961) |
+| background | 24.9595 (616) | 30.0243 (741) | 30.1053 (743) | 30.5916 (755) |
+| impulse | 70.0162 (1728) | 77.3096 (1908) | 79.2545 (1956) | 79.4976 (1962) |
+| upsampling | 82.2123 (2029) | 83.5089 (2061) | 84.7650 (2092) | 84.7245 (2091) |
+| distortion_rbf | 63.1686 (1559) | 62.4797 (1542) | 64.3031 (1587) | 64.1410 (1583) |
+| distortion_rbf_inv | 65.8833 (1626) | 65.3971 (1614) | 67.4230 (1664) | 66.8963 (1651) |
+| density | 72.0421 (1778) | 71.7180 (1770) | 72.0827 (1779) | 72.7715 (1796) |
+| density_inc | 85.5348 (2111) | 85.7780 (2117) | 85.8590 (2119) | 85.8590 (2119) |
+| shear | 65.6402 (1620) | 64.6272 (1595) | 64.4246 (1590) | 65.0324 (1605) |
+| rotation | 33.2658 (821) | 33.0227 (815) | 34.6029 (854) | 34.2788 (846) |
+| cutout | 70.9076 (1750) | 72.3258 (1785) | 72.4473 (1788) | 72.6904 (1794) |
+| distortion | 65.0324 (1605) | 64.3031 (1587) | 65.3160 (1612) | 65.5592 (1618) |
+| occlusion | 40.1540 (991) | 40.3971 (997) | 40.8833 (1009) | 40.3971 (997) |
+| lidar | 31.0778 (767) | 33.6305 (830) | 34.9271 (862) | 33.6710 (831) |
+
+### Paired accuracy changes and PM contribution
+
+All deltas below are **percentage points**. Corrected/harmed compares cheap with tuned N8+PM on the same object/corruption; it is not the difference in separately sampled cohorts. Arms use matched method-independent seeds with fresh native encodes; identical encoded states or bitwise trajectories are not established. Object bootstrap uses 10,000 draws and seed20261107. These per-corruption intervals are descriptive and unadjusted for 15 simultaneous comparisons.
+
+| Corruption | PM−own N8 terminal pp | Cheap−PM pp | Cheap−PM95%CI pp | Corrected | Harmed | Net correct |
+|---|---:|---:|---:|---:|---:|---:|
+| uniform | +2.9984 | +0.0405 | [-0.6078, +0.6888] | 35 | 34 | +1 |
+| gaussian | +2.5932 | +0.0405 | [-0.5673, +0.6483] | 30 | 29 | +1 |
+| background | +0.0810 | +0.4862 | [-0.2026, +1.1750] | 44 | 32 | +12 |
+| impulse | +1.9449 | +0.2431 | [-0.2836, +0.7699] | 27 | 21 | +6 |
+| upsampling | +1.2561 | -0.0405 | [-0.5267, +0.4862] | 20 | 21 | -1 |
+| distortion_rbf | +1.8233 | -0.1621 | [-0.8914, +0.5267] | 38 | 42 | -4 |
+| distortion_rbf_inv | +2.0259 | -0.5267 | [-1.2561, +0.2026] | 36 | 49 | -13 |
+| density | +0.3647 | +0.6888 | [-0.0405, +1.4587] | 54 | 37 | +17 |
+| density_inc | +0.0810 | +0.0000 | [-0.5673, +0.6078] | 29 | 29 | +0 |
+| shear | -0.2026 | +0.6078 | [-0.0810, +1.2966] | 44 | 29 | +15 |
+| rotation | +1.5802 | -0.3241 | [-0.9319, +0.2836] | 26 | 34 | -8 |
+| cutout | +0.1216 | +0.2431 | [-0.4467, +0.9724] | 44 | 38 | +6 |
+| distortion | +1.0130 | +0.2431 | [-0.4457, +0.9319] | 42 | 36 | +6 |
+| occlusion | +0.4862 | -0.4862 | [-1.1750, +0.1621] | 29 | 41 | -12 |
+| lidar | +1.2966 | -1.2561 | [-1.9449, -0.6078] | 20 | 51 | -31 |
+
+### Measured pipeline cost by corruption
+
+Each time is summed once over 20 batches per method, including the final 36-object batch. Cells show **total seconds / amortized milliseconds per input**. They exclude setup/loading/archive work and are not batch1 latency. N8 terminal-only time remains **unmeasured for every corruption**; N8+PM time must not be assigned to that readout.
+
+| Corruption | N5 terminal s / ms | N8+PM s / ms | Cheap N8+PM s / ms | Time saved s | Less time vs N8+PM% |
+|---|---:|---:|---:|---:|---:|
+| uniform | 198.872 / 80.580 | 366.683 / 148.575 | 265.393 / 107.534 | 101.290 | 27.6233 |
+| gaussian | 198.933 / 80.605 | 366.802 / 148.623 | 265.467 / 107.564 | 101.335 | 27.6265 |
+| background | 198.321 / 80.357 | 365.276 / 148.005 | 264.146 / 107.028 | 101.130 | 27.6859 |
+| impulse | 199.024 / 80.642 | 366.959 / 148.687 | 265.578 / 107.609 | 101.381 | 27.6272 |
+| upsampling | 194.478 / 78.800 | 362.495 / 146.878 | 261.029 / 105.765 | 101.467 | 27.9911 |
+| distortion_rbf | 198.901 / 80.592 | 366.822 / 148.631 | 265.384 / 107.530 | 101.438 | 27.6531 |
+| distortion_rbf_inv | 198.758 / 80.534 | 366.530 / 148.513 | 265.108 / 107.418 | 101.422 | 27.6709 |
+| density | 199.200 / 80.713 | 366.676 / 148.572 | 265.391 / 107.533 | 101.285 | 27.6225 |
+| density_inc | 198.520 / 80.437 | 366.180 / 148.371 | 264.889 / 107.330 | 101.291 | 27.6614 |
+| shear | 198.599 / 80.470 | 366.342 / 148.437 | 264.971 / 107.363 | 101.371 | 27.6712 |
+| rotation | 198.940 / 80.608 | 366.934 / 148.677 | 265.251 / 107.476 | 101.683 | 27.7115 |
+| cutout | 199.259 / 80.737 | 366.831 / 148.635 | 265.526 / 107.588 | 101.305 | 27.6163 |
+| distortion | 198.665 / 80.496 | 366.345 / 148.438 | 264.983 / 107.368 | 101.362 | 27.6684 |
+| occlusion | 197.533 / 80.038 | 364.447 / 147.669 | 263.732 / 106.861 | 100.715 | 27.6350 |
+| lidar | 197.720 / 80.113 | 364.635 / 147.745 | 263.871 / 106.917 | 100.764 | 27.6343 |
+
+### Coverage and source group
+
+| Corruption | Physical runtime group | Original measurement run |
+|---|---|---|
+| uniform | r3 | `20261107T215537Z_full14` |
+| gaussian | r3 | `20261107T215537Z_full14` |
+| background | r5 | `20261108T165415Z_background_uniform` |
+| impulse | r4 | `20261108T082824Z_continue14` |
+| upsampling | r4 | `20261108T082824Z_continue14` |
+| distortion_rbf | r4 | `20261108T082824Z_continue14` |
+| distortion_rbf_inv | r5 | `20261108T123641Z_continue14` |
+| density | r5 | `20261108T123641Z_continue14` |
+| density_inc | r5 | `20261108T123641Z_continue14` |
+| shear | r5 | `20261108T123641Z_continue14` |
+| rotation | r5 | `20261108T123641Z_continue14` |
+| cutout | r5 | `20261108T123641Z_continue14` |
+| distortion | r5 | `20261108T123641Z_continue14` |
+| occlusion | r5 | `20261108T123641Z_continue14` |
+| lidar | r5 | `20261108T123641Z_continue14` |
+
+[Run/CPU] The detailed JSON stores all unrounded values, exact counts, source archive hashes, input hashes, timing intervals and observed peak allocated MiB per measured arm. Allocated peaks include the resident shared process; they do not establish standalone incremental memory use. [Machine-readable record](evidence/lion_guidance_speed_20261107/uniform_per_corruption_detail_20261108.json). Counts sum to 22,747 N5,23,164 tuned N8 terminal,23,595 N8+PM and23,590 cheap correct out of37,020; corrected518/harmed523/net−5. Timing sums reproduce2975.721249/5489.957533/3970.720134s. No experimental result or frozen input is overwritten.
 
 ## Provenance and validation
 
@@ -64,3 +134,9 @@ Cheap versus N5 terminal: +2.277147pp, but 33.437234% more time. N8PM versus N5 
 
 
 [Run/CPU] 2026-11-08T17:16:58.921552+00:00: Final common-horizon all15 derived bundle Drive-roundtrip verified:795,490bytes,SHA23623f382f8ec850085a6d6ab322a37127cd36b0fd03d47b7e391353624839c9,45members/allmemberidentities/CRC. Includes newall15/N8terminal summaries+CSVs, currentandhistoricalreports, source/raw/model/sealedmacro14receipts, exacthostacceptance/composition/derivation/checksources and independentreview. Drive `MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/uniform_all15_derived_20261108T171636Z.zip`. Receipt/laterpublicationmetadata remain outside ownsealedbundle. Scientificraw and priorN35/macroseals unchanged.
+
+
+[User decision/Run] 2026-11-08T17:40:29.127164+00:00: Following completed scientific runs and verified raw/source/derived/documentation backups, user authorized shutdown. Own speed r5 was stopped successfully after monitor16794 exited; server inventory independently confirms its absence. Earlier retained/live statements above describe their dated state, not the current runtime. Peer r6 archival/shutdown is owned by its original task; final combined closure receipt is in `evidence/lion_guidance_speed_20261107/colab_shutdown_20261108.json`.
+
+
+[User decision/Run] 2026-11-08T17:42:59.179621+00:00: Both Colab runtimes and their owner monitors are now stopped, independently confirmed by emptyserverinventory after preservation of results. [Final closure receipt](evidence/lion_guidance_speed_20261107/colab_shutdown_20261108.json).

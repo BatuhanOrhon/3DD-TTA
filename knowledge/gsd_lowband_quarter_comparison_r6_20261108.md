@@ -389,3 +389,39 @@ source/metadata archiving remains prepared, not executed: finalizer0a75212a,
 parent wrapper9c16184c. Auxiliary input directory repair is deferred until scan
 completion; no final617 proof/report/archive claim. Source640b60f/integration
 81cd13c published the448 milestone while retaining peer integration2ce4e7f.
+
+### 2026-11-08 17:35–17:41 UTC — user-directed archival and owned-r6 closure
+
+[User decision/Run/Closed/Partial] Main owner thread
+01a1b552-e131-7291-8f18-9d23a5153108 conveyed the user's explicit request to
+close its completed speed runtime and any other Colab session. Coordinated
+ownership assigned only this r6 to this agent. Authorization lifted WAIT_USER
+for archival/shutdown only, without research recovery/resume/new GPU work.
+
+[Run/Failed/Preserved] Primary controller had already failed17:13:30UTC on
+`Local archive ack deadline exceeded; preserve all pending data`; CLI0 with
+missing completion marker remains failed. It held no campaign lock during the
+bounded file-only shutdown phase. Three pending remote/Drive ZIPs and transport
+parts were hash checked without emitting ACKs. New Mac salvage:
+007control122840940B/5ccadb5e and008cache59224783B/f0b21ddf, both wholeSHA/CRC.
+Previously retained pendingM100949021975B/f2690b46 remains unchanged.
+
+Shutdown metadata phase7e284d3a completed17:39:25UTC with exact marker/CLI0:
+5732301B SHA14471f1341d80eb443673b4c798d503b959f6cef2b7599a9bc818f79dbd90e18,
+118 members. Drive copy downloaded and wholeSHA/CRC/allmember hashes verified
+on Mac. It preserves failed journal, compact33-archive index, pending receipts/
+manifests, phase logs, source/assignment/alpha/amendment and exact archival code.
+Local base result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/;
+Drive result/gsd_lowband_quarter_fast_20261108_r6/shutdown_20261108T173539Z/.
+All33 raw Mac ZIPs (16789346159bytes) were independently rehashed against the
+remote shutdown index after retrieval. No old raw/receipt/rejection bytes changed.
+
+[Run/Closed] Monitor23310 exited0 at17:40:59.565599UTC. Exact ownr6
+`tta-gsd-quarter-fast-a100-20261108-r6` stop returned0/`Session terminated.`;
+17:41:30UTC server inventory reports no active sessions. This owner did not
+touch peer r5; its owner closed it separately. Compact runtime_closure_20261108.json
+and shutdown_archive_acceptance.json are in current v2 knowledge evidence.
+617 screen/final decision/external replication remain incomplete/unrun; latest
+scientifically accepted paired result is still448 objects, primary−.178571pp,
+conditional95%CI[-.610119,.238095]. No512/final617 analysis or positive claim.
+Runtime is closed; any future scientific continuation requires a new user task.

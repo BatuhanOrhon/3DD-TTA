@@ -1,3 +1,14 @@
+**[Run/CPU/User decision] 2026-11-08 — detailed corruption record; Colab runtimes closed:**
+[Common-horizon results](lion_guidance_uniform_horizon_results_20261108.md) contain
+all15 corruptions × four accuracy/count entries, PM contribution, paired deltas/
+95%CIs/corrected-harmed counts, three measured pipeline times per corruption,
+amortizedms and time saving, plus original run/runtime provenance.
+[Unrounded evidence](evidence/lion_guidance_speed_20261107/uniform_per_corruption_detail_20261108.json),
+[comparison policy](current_baseline.md), [verified documentation backup](evidence/lion_guidance_speed_20261107/documentation_archive_receipt_20261108.json).
+R5 and R6 were closed under explicit user authorization after archival;
+server inventory is empty. [Shutdown receipt](evidence/lion_guidance_speed_20261107/colab_shutdown_20261108.json).
+Earlier live/pending entries below retain their dated historical meaning.
+
 **[Run/CPU/Decision] 2026-11-08 — common-horizon Background and new all15 complete:**
 [Fixed-horizon report](lion_guidance_uniform_horizon_results_20261108.md).
 All15 use N5terminal/N8candidates. Background:N5 24.9595%,tunedN8terminal30.0243%,
@@ -9,7 +20,7 @@ User-directed afterN35result, one seed/development exposure, no unseen confirmat
 Independent111060rows/900times/37020terminalrecount passed; raw/source archives
 Drive/local verified. Raw/source/derived archives Drive/local verified; runtime r5/monitor16794 retained.
 
-**[Run/CPU/Decision] 2026-11-08 — all15 extension complete: speed benefit with Background accuracy loss:**
+**[Run/CPU/Decision — historical N35 Background policy] 2026-11-08 — all15 extension complete: speed benefit with Background accuracy loss:**
 [Final all15 report](lion_guidance_all15_results_20261108.md). All2,468 IDs/seed0/B128:
 tuned PM66.0157%,cheap65.7293%,29.5625% less pipeline time. Difference−.2863pp,
 paired95%CI[−.4727,−.0972]pp: the −.3pp noninferiority criterion is not met.
@@ -43,12 +54,14 @@ all 2,468 IDs/seed0/B128 is running on owned speed r5; no all15 result yet.
 One-seed/development/native variation and unguided-attribution limits remain.
 [Execution, failures and ownership](lion_guidance_speed_20261107.md).
 
-**[Run/Partial/WAIT_USER] 2026-11-08 — R6 transport503; last448 show no SCD gain:**
+**[User decision/Run/Closed/Partial] 2026-11-08 — R6 archived and closed;617 incomplete:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
-Consumer stopped16:11:46UTC on503 reading shard007_M100 ACK. No CLI retry/
-reconnect/allocation until a new user command, per standing instruction. Runtime
-not closed; existing primary stream16:14UTC waits at three-unACKed barrier.
-Mac31 job receipts/30 ACKed; M100 pendingACK raw949021975B/f2690b46 preserved.
+Explicit coordinated user shutdown: ownr6 closed17:41UTC, monitor23310 stopped;
+server inventory confirms no active sessions.33 raw archives/16789346159bytes
+rehash on Mac; pending007control/008cache salvaged without scientific ACKs.
+Shutdown metadata5732301B/14471f13 passes Drive+Mac SHA/CRC/all118member hashes.
+Consumer503 at16:11 and subsequent ACK timeout17:13 remain failed history;
+only archival/shutdown was authorized, no scientific resume or new GPU work.
 Current448/all15/all3 are Drive+Mac accepted: SCD4438/6720=66.041667%,
 half04410/6720=65.625%,M1004426/6720=65.863095%; M100-SCD−.178571pp,
 conditional95%CI[-.610119,+.238095]. Fixed617 is incomplete; old partials retained.
@@ -59,7 +72,7 @@ correction](basis_precision_validation_v2_20261108.md) qualifies all90 spectral,
 30 control and two cache archives; numeric1e-6 remains, acceptance rule changes.
 Separate v2 admission/controller recovery is CPU reviewed. Six actual Drive+Mac
 imports passed; same-r6 GPU resume started13:55UTC with34 remaining workers.
-Native repeat failure29/30 persists. Own r6 runtime/monitor retained; peer untouched.
+Native repeat failure29/30 persists. Ownr6 closed; peer runtime untouched by this owner.
 
 **[User decision/Run/Open] 2026-11-08 — existing r5 resumes after audited idle state:**
 [Recovery evidence and current state](gsd_lowband_quarter_fast_retry_r5_20261108.md).

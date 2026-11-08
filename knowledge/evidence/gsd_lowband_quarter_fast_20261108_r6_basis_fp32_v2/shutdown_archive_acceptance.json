@@ -1,0 +1,35 @@
+{
+  "status": "Drive and Mac shutdown archive SHA/member/CRC verified; preserved pending raws; runtime closure pending",
+  "utc": "2026-11-08T17:40:50.043288+00:00",
+  "metadata_archive": {
+    "local": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/shutdown_archive.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_quarter_fast_20261108_r6/shutdown_20261108T173539Z/shutdown_archive.zip",
+    "members": 118,
+    "bytes": 5732301,
+    "sha256": "14471f1341d80eb443673b4c798d503b959f6cef2b7599a9bc818f79dbd90e18"
+  },
+  "pending_raws_salvaged": {
+    "shard007_control": {
+      "local": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/shard007_control/20261108-160904_decoded-control-8aed642b.zip",
+      "crc_passed": true,
+      "bytes": 122840940,
+      "sha256": "5ccadb5e61b9bce5dd5915ba083a2fc212800cfe9ad75d3a99f2673829043606"
+    },
+    "shard008_cache": {
+      "local": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/shard008_cache/cache_shard008_B32.zip",
+      "crc_passed": true,
+      "bytes": 59224783,
+      "sha256": "f0b21ddff34e3fae8add988c9cb86c2e5899865e09cc55de78589ad76872f57e"
+    }
+  },
+  "previous_pending_M100": {
+    "bytes": 949021975,
+    "sha256": "f2690b46bc6863df989371b0ba1d933756a9106113955258404f3d9cd700293c",
+    "mac_preserved": true
+  },
+  "raw_jobs": 33,
+  "last_paired_objects": 448,
+  "final617_complete": false,
+  "scientific_ACKs_not_emitted": true,
+  "scientific_resume": false
+}

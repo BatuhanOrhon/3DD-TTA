@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "status": "closed by explicit user request after archive preservation",
+  "utc": "2026-11-08T17:43:09.239193+00:00",
+  "session": "tta-gsd-quarter-fast-a100-20261108-r6",
+  "endpoint": "gpu-a100-hm-ass1c0-uycluss04t2v",
+  "authorization_thread": "01a1b552-e131-7291-8f18-9d23a5153108",
+  "authorization_quote": "Eger testlerimiz bittiyse Colab oturumunu da sonlandirabilirsin. Bizim kullandigimizdan farkli bir Colab oturumu varsa onu da sonlandir",
+  "authorization_scope": "Coordinated own r6 archival/shutdown only; no research resumption",
+  "monitor": {
+    "pty": 23310,
+    "stopped_utc": "2026-11-08T17:40:59.565599+00:00",
+    "exit_code": 0
+  },
+  "runtime_stop": {
+    "cli_exit_code": 0,
+    "message": "Session terminated.",
+    "absence_verified_utc": "2026-11-08T17:41:30+00:00",
+    "server_inventory": "No active sessions found on server."
+  },
+  "peer_sessions_touched": false,
+  "campaign_end": {
+    "status": "failed",
+    "utc": "2026-11-08T17:13:30.460084+00:00",
+    "reason": "Local archive ack deadline exceeded",
+    "completion_marker": false
+  },
+  "metadata_archive": {
+    "local": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/shutdown_archive.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_quarter_fast_20261108_r6/shutdown_20261108T173539Z/shutdown_archive.zip",
+    "members": 118,
+    "bytes": 5732301,
+    "sha256": "14471f1341d80eb443673b4c798d503b959f6cef2b7599a9bc818f79dbd90e18"
+  },
+  "mac_raw_archives_rehashed": 33,
+  "raw_archive_bytes": 16789346159,
+  "raw_archives": {
+    "shard000_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_M100/download_20261108T122758/payload/20261108-121936_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 952833569,
+      "sha256": "df2324e13df0ca0928bfe84fa15c4538e870d12c4f0758b7d360fb7da72c9fac"
+    },
+    "shard000_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_cache/download_20261108T120756/payload/cache_shard000_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59208267,
+      "sha256": "2189f291652f349cdf91639f1f6a0a6239a388d9071910959c1f39b8caedaf0a"
+    },
+    "shard000_control": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_control/download_20261108T121141/payload/20261108-120756_decoded-control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 122885450,
+      "sha256": "af9a5b69d9a5f1ea7d366942ed4a6e2ef857e8774395a89d3319d72e812ccbb6"
+    },
+    "shard000_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_half0/download_20261108T121934/payload/20261108-121141_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 952834685,
+      "sha256": "349cfb9537472b9e99bd6ceb300c6dd4ee5658f0fe2d326b9f734177a21da2f2"
+    },
+    "shard001_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard001_M100/download_20261108T140418/payload/20261108-135605_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 957624316,
+      "sha256": "f4428f156036910c6ba0098da409b6f5cff7aa38f016912b2b83e27e20c21cd6"
+    },
+    "shard001_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard001_cache/download_20261108T123042/payload/cache_shard001_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59237210,
+      "sha256": "ce84f24db6c5c14abc35f9980084442dedfe78acd139da2207c51614beeb7aff"
+    },
+    "shard001_control": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard001_control/download_20261108T140805/payload/20261108-140417_decoded-control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 122979901,
+      "sha256": "ac193533543e2e7aba72d47e29f9f2d8a38668279888dff8dd044f8eaf798f74"
+    },
+    "shard001_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/rejected/shard001_half0/payload/20261108-122829_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 957625938,
+      "sha256": "a51c70bdfd743efce1a2b8b164b3c2ad456b6e7bc56abbbf5dc4aedd43fb5ea7"
+    },
+    "shard002_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard002_M100/download_20261108T141706/payload/20261108-140853_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 970904597,
+      "sha256": "a7555baba262618e90e9150d5cdf7fda3f9c2d73173db72aaea5c8fe3b9b38a8"
+    },
+    "shard002_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard002_cache/download_20261108T140852/payload/cache_shard002_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59228184,
+      "sha256": "f9696d49d7ce8999aac4a3e2374333ccea5e21d1a757b76566553bddde3012b3"
+    },
+    "shard002_control": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard002_control/download_20261108T142051/payload/20261108-141706_decoded-control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 122703982,
+      "sha256": "f49a12d4cab2fc1404166604d6413c7bbc55166765a4290268e0fdbea9842ce2"
+    },
+    "shard002_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard002_half0/download_20261108T142856/payload/20261108-142059_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 970908046,
+      "sha256": "536bc00df946c8db33e0570558194932d3120d9160116c2acef7dfabbbc26bf0"
+    },
+    "shard003_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard003_M100/download_20261108T144939/payload/20261108-144126_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 962218747,
+      "sha256": "029428f51d3c596b33ac28b107d8d644c252631d2d83f14aa7f26960312c9248"
+    },
+    "shard003_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard003_cache/download_20261108T143209/payload/cache_shard003_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59215953,
+      "sha256": "51686a0419b3d4bfe9683112efb86fe61f091edb80ef0b101af3ec03e85b1698"
+    },
+    "shard003_control": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard003_control/download_20261108T143322/payload/20261108-142936_decoded-control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 122745013,
+      "sha256": "cc26ec1bddf37376d05b70ef463678f87daa436c6a2be5608eb40fc8c97aaccb"
+    },
+    "shard003_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard003_half0/download_20261108T144126/payload/20261108-143329_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 962220789,
+      "sha256": "a3531dee8c5ccc0225f558c2e1769643302cb26461e467f45744a4b2d514d267"
+    },
+    "shard004_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard004_M100/download_20261108T150643/payload/20261108-145836_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 944617753,
+      "sha256": "5d952da0db92503db40882768513d56c4e143a749fc3f76e3ccd461f60d1c8e6"
+    },
+    "shard004_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard004_cache/download_20261108T145248/payload/cache_shard004_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59220251,
+      "sha256": "0b9692144625f493aef0685c01713e6a52bf4c1720205cf36df2f9410c717ea8"
+    },
+    "shard004_control": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard004_control/download_20261108T151035/payload/20261108-150650_decoded-control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 122859974,
+      "sha256": "491ebaf4b7920ac8302211ec9857d301b5c5871be6efc456b806190c0201bdf3"
+    },
+    "shard004_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard004_half0/download_20261108T145830/payload/20261108-145029_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 944620207,
+      "sha256": "8a74baf345d9ea99905bcbaee774c04248cfee5800e9ae08dc912dbadd8834a9"
+    },
+    "shard005_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard005_M100/download_20261108T151929/payload/20261108-151122_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 951430371,
+      "sha256": "c1ef04111c7233690da79c335068df07c04b8b68720f947a187a8f41994fbb24"
+    },
+    "shard005_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard005_cache/download_20261108T151228/payload/cache_shard005_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59235173,
+      "sha256": "c7fa0f92d5db874d696de46ee2006a274cdf3b8b29f79704d01627cadda89329"
+    },
+    "shard005_control": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard005_control/download_20261108T152347/payload/20261108-151930_decoded-control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 122973654,
+      "sha256": "04514321d7ac627efe55e7d541331a78dad491efae1705fb1bf4ca2ab6ace7dd"
+    },
+    "shard005_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard005_half0/download_20261108T153118/payload/20261108-152322_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 951433192,
+      "sha256": "59b2b10936efe04fa7527bd504125e439a7e4cc5ac0ca5caa97f926a76fd9bd1"
+    },
+    "shard006_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard006_M100/download_20261108T155156/payload/20261108-154349_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 947990622,
+      "sha256": "5ae43b8866e06f0d601e5700ee4cd987f347c375297ce3c0daf4363f2c52a214"
+    },
+    "shard006_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard006_cache/download_20261108T153443/payload/cache_shard006_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59211951,
+      "sha256": "679e0b3936abce841e9c1e3b59f2e94607d155958de7dfb44b358717a80dec15"
+    },
+    "shard006_control": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard006_control/download_20261108T153546/payload/20261108-153200_decoded-control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 123052240,
+      "sha256": "024809c90f5bd94743230291f38c93a92fb67de740c216e5219cafde1bb4fcdf"
+    },
+    "shard006_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard006_half0/download_20261108T154348/payload/20261108-153553_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 947993359,
+      "sha256": "93b13f1d2e9a51815cae73fc6a11e48a5757c2155852367b4054823a29bdb42a"
+    },
+    "shard007_M100": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard007_M100/download_20261108T160856/payload/20261108-160046_decoded-physical-a9c528ca.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 949021975,
+      "sha256": "f2690b46bc6863df989371b0ba1d933756a9106113955258404f3d9cd700293c"
+    },
+    "shard007_cache": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard007_cache/download_20261108T155518/payload/cache_shard007_B32.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 59220075,
+      "sha256": "538a3e39f4b7250bfecaff6eb00af1b673959f019589921221f7a0be0f03a6d0"
+    },
+    "shard007_control": {
+      "local": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/shard007_control/20261108-160904_decoded-control-8aed642b.zip",
+      "origin": "shutdown raw salvage only; no scientific ACK",
+      "bytes": 122840940,
+      "sha256": "5ccadb5e61b9bce5dd5915ba083a2fc212800cfe9ad75d3a99f2673829043606"
+    },
+    "shard007_half0": {
+      "local": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers_basis_fp32_v2/shard007_half0/download_20261108T160116/payload/20261108-155245_decoded-live_control-8aed642b.zip",
+      "origin": "prior local scientific receipt; pending ACK status preserved",
+      "bytes": 949024992,
+      "sha256": "5960209d5dfffcf57675e629bfaad8e08a91140e22a933914823bffadd2563a6"
+    },
+    "shard008_cache": {
+      "local": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/shard008_cache/cache_shard008_B32.zip",
+      "origin": "shutdown raw salvage only; no scientific ACK",
+      "bytes": 59224783,
+      "sha256": "f0b21ddff34e3fae8add988c9cb86c2e5899865e09cc55de78589ad76872f57e"
+    }
+  },
+  "last_accepted_paired_objects": 448,
+  "final617_complete": false,
+  "new_scientific_ACKs": false,
+  "new_GPU_work": false,
+  "limitations": "Native29/30 repeat failure and posthoc-v2 amendment retained; final617 and conditional external replication unrun"
+}

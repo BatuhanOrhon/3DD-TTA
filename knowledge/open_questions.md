@@ -2958,3 +2958,16 @@ GPU consideration, only after user command. CurrentR6 note gives exact paths.
 ## 2026-11-08T17:15:39.099364+00:00 — common-horizon request completed
 
 [Run/Decision/Open] BackgroundN5terminal/tunedN8terminal/N8PM/cheapN8PM now accepted and common-policyall15 recomputed: cheap−PM−.013506pp/95%[−.180983,.153971],27.673026%less time, allthree same-marginchecksPASS. [Report](lion_guidance_uniform_horizon_results_20261108.md). HistoricalN35/macro14history preserved. Open: severeBackgroundabsoluteaccuracy underfixedN8; repeatseeds/held-outgeneralization; matchedterminal-onlyN8latencyifneeded; unguidedattribution/novelty. Future horizon adaptation must be label-free and separately validated; this result does not authorize a new GPUvariant or silent baseline-default change.
+
+
+## 2026-11-08T17:36:19.773973+00:00 — per-corruption record and remaining evidence gaps
+
+[Run/CPU/Open] All15×four accuracy/count entries and15×three measured timing entries are now documented, with paired confidence intervals, PM contribution, corrected/harmed counts and source provenance. [Detailedreport](lion_guidance_uniform_horizon_results_20261108.md). Missing items remain explicit: separate terminal-onlyN8 latency; additional seeds/unseen validation; absolute Background repair under fixedhorizon; unguided attribution. Positive/negative corruption cells do not close those gaps. User-authorized runtime shutdown is being coordinated after archival.
+
+[User decision/Run/Closed/Partial,2026-11-08T17:41UTC] Latest action supersedes
+WAIT_USER recovery: user explicitly requested coordinated session closure.
+Ownr6 archived and stopped0, ownmonitor stopped0, server absence verified;
+33 raw archives and shutdown metadata Drive+Mac preserved. No research resume,
+ACK emission or newGPU. Latest accepted coverage448/617, primary−.178571pp;
+617/final decision/external replication remain unrun. No live runtime to resume;
+future scientific work requires a new task. See currentR6 closure record/proofs.

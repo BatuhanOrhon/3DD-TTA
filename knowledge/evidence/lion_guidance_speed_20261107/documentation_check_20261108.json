@@ -1,0 +1,56 @@
+{
+  "status": "passed_CPU_documentation_reconciliation",
+  "recorded_utc": "2026-11-08T17:36:19.773973+00:00",
+  "inputs": {
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_horizon_all15/summary.json": {
+      "bytes": 72968,
+      "sha256": "cdce43f08ff514d128a76958f9bb2845c78db76019581c72762223582f155e5c"
+    },
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_horizon_all15/per_object.csv": {
+      "bytes": 20008368,
+      "sha256": "100ef8f458eeba64f0908d4b26d88a2f1eaa062ea5257a247a5ecd33584f372d"
+    },
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_N8_terminal_all15/summary.json": {
+      "bytes": 6578,
+      "sha256": "7d6b99484043d6040c73db5aa77440644468d291e7e66d6f7e6d3fb02dd9eae8"
+    },
+    "result/modelnet40_c/lion_guidance_speed/analysis/20261108T1711Z_common_N8_terminal_all15/per_object.csv": {
+      "bytes": 4440527,
+      "sha256": "ec1147b01a491c4e042f778dafe81ae195fbe5a0a45e18a85a16f2f3ef7b806c"
+    }
+  },
+  "coverage": {
+    "dataset": "ModelNet40-C",
+    "severity": 5,
+    "unique_objects": 2468,
+    "seeds": [
+      0
+    ],
+    "repetitions": 1,
+    "batch_size": 128,
+    "final_batch": 36,
+    "corruptions": 15,
+    "rows": 111060,
+    "terminal_readouts": 37020
+  },
+  "checks": {
+    "all_inputs_rehashed": true,
+    "derived_terminal_source_label_PM_identity_match": true,
+    "all_grids_complete": true,
+    "all_counts_times_match_accepted_summary": true,
+    "total_corrected": 518,
+    "total_harmed": 523,
+    "total_net": -5
+  },
+  "accuracy_cells": 60,
+  "measured_time_cells": 45,
+  "paired_corruption_intervals": 15,
+  "point_estimate_corruption_wins_ties_losses": [
+    8,
+    1,
+    6
+  ],
+  "new_GPU_work": false,
+  "raw_or_sealed_input_mutations": false,
+  "limitation": "N8terminaltimingunmeasured;one seed; descriptive unadjusted per-corruption CIs"
+}

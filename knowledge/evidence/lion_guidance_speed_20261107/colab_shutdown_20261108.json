@@ -1,0 +1,47 @@
+{
+  "status": "both_runtimes_closed_user_authorized_and_server_verified",
+  "recorded_utc": "2026-11-08T17:38:49.464323+00:00",
+  "user_authorization": "Eger testlerimiz bittiyse Colab oturumunu da sonlandirabilirsin. Bizim kullandigimizdan farkli bir Colab oturumu varsa onu da sonlandir",
+  "own": {
+    "session": "tta-lion-guidance-speed-a100-20261108-r5",
+    "endpoint": "gpu-a100-hm-euw4a0-1svstdm1jnaaj",
+    "science": "All requested full-data seed0 tests and analyses complete",
+    "archive": "All raw/source/derived archives and detailed documentation addendum Drive/local verified",
+    "monitor": 16794,
+    "monitor_stop_utc": "2026-11-08T17:37:43.767010+00:00",
+    "monitor_exit": 0,
+    "stop_command": "colab stop -s tta-lion-guidance-speed-a100-20261108-r5",
+    "stop_exit": 0,
+    "stop_message": "Session terminated.",
+    "post_stop_server_inventory": "Own absence verified first, then no active sessions after coordinated peer shutdown"
+  },
+  "peer": {
+    "session": "tta-gsd-quarter-fast-a100-20261108-r6",
+    "endpoint": "gpu-a100-hm-ass1c0-uycluss04t2v",
+    "owner_thread": "01a1acd6-9b6a-7311-a4d0-65436d932a3e",
+    "handoff": "Owner accepted archival/shutdown responsibility in main-thread message; no new inference/recovery",
+    "status": "Owner confirms stop exit0/Session terminated and empty server inventory17:41:30UTC",
+    "monitor": 23310,
+    "monitor_stop_utc": "2026-11-08T17:40:59Z",
+    "monitor_exit": 0,
+    "stop_exit": 0,
+    "shutdown_archive": {
+      "bytes": 5732301,
+      "sha256": "14471f1341d80eb443673b4c798d503b959f6cef2b7599a9bc818f79dbd90e18",
+      "members": 118,
+      "validation": "CRC/all member SHA verified; Drive andMac retained"
+    },
+    "archive_local": "result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/shutdown_20261108T173539Z/",
+    "archive_Drive": "MyDrive/thesis/result/gsd_lowband_quarter_fast_20261108_r6/shutdown_20261108T173539Z/",
+    "scientific_status": "Last accepted paired448 objects;617 incomplete;33rawarchives preserved;noACK/researchresume/GPU",
+    "owner_source_commit": "307425b",
+    "owner_closure_receipt": "knowledge/evidence/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/runtime_closure_20261108.json",
+    "owner_archive_receipt": "knowledge/evidence/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/shutdown_archive_acceptance.json",
+    "raw_archives_rehashed": 33,
+    "raw_bytes_rehashed": 16789346159
+  },
+  "no_reallocation": true,
+  "inventory_verified_utc": "2026-11-08T17:41:45.587910+00:00",
+  "final_server_inventory": "No active sessions found on server.",
+  "owner_confirmation_recorded_utc": "2026-11-08T17:42:59.179621+00:00"
+}

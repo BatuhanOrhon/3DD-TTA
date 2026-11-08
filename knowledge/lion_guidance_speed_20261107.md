@@ -653,3 +653,38 @@ Drivebackup/sharedintegration next; runtime preserved, no teardown.
 
 
 [Run/CPU] 2026-11-08T17:16:58.921552+00:00: Final common-horizon all15 derived bundle Drive-roundtrip verified:795,490bytes,SHA23623f382f8ec850085a6d6ab322a37127cd36b0fd03d47b7e391353624839c9,45members/allmemberidentities/CRC. Includes newall15/N8terminal summaries+CSVs, currentandhistoricalreports, source/raw/model/sealedmacro14receipts, exacthostacceptance/composition/derivation/checksources and independentreview. Drive `MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/uniform_all15_derived_20261108T171636Z.zip`. Receipt/laterpublicationmetadata remain outside ownsealedbundle. Scientificraw and priorN35/macroseals unchanged.
+
+
+## 2026-11-08T17:36:19.773973+00:00 — corruption-level documentation completed from accepted records
+
+[User request/Run/CPU] Reconciled all15 common-horizon results into the existing
+[main report](lion_guidance_uniform_horizon_results_20261108.md). Every corruption
+now contains all four accuracy/count cells (N5terminal, tunedN8terminal,
+N8PM,cheapN8PM), pairedcheap−PM delta/95%CI/corrected/harmed/net, PM−ownN8terminal,
+three actual pipeline times plus amortizedms and time saving, and original
+measurementrun/runtime. Machine-readable detail retains unrounded values,
+raw/inputhashes, observedallocatedpeaks and descriptive timing intervals.
+
+[Run/CPU] Verified111060 measuredrows and37020 terminalreadouts, all15×2468
+IDgrids, original labels/sourceidentity/PMoutcomes, and acceptedinputSHA seals.
+Four accuracy totals22747/23164/23595/23590 and timing totals2975.721249/
+5489.957533/3970.720134s reproduced. Cheap improves8 corruptions, ties1 and
+loses6 by pointestimate;518corrected/523harmed/net−5. LiDAR−1.2561pp and
+Shear's PM−ownterminal−.2026pp remain visible. Per-corruption intervals are
+conditional/descriptive and unadjusted for15 simultaneous comparisons.
+N8 terminal timing staysnull; no GPU run/retest or productiondefault change.
+Detailed JSON: `evidence/lion_guidance_speed_20261107/uniform_per_corruption_detail_20261108.json`.
+
+[User decision] User confirms completed tests may be closed and explicitly
+requests closing any other Colab session as well. Ownr5 archival is finishing;
+peer r6 owner was contacted for safe preservation/shutdown handoff. No closure
+is claimed until actual stop and server-inventory verification.
+
+
+[User decision/Run] 2026-11-08T17:38:49.464323+00:00: User authorized closing completed speed runtime and any other session. All speed tests/analysis and final detailed-doc Drive backup verified before teardown. Own monitor16794 stopped17:37:43UTC/exit0, then `colab stop -s tta-lion-guidance-speed-a100-20261108-r5` returned Sessionterminated/exit0. Independentserverinventory confirms r5absent; onlyr6 remains. Peerowner accepted archival/shutdown handoff and is salvaging two archives without new inference; its shutdown not yetclaimed. Receipt: `evidence/lion_guidance_speed_20261107/colab_shutdown_20261108.json`.
+
+
+[User decision/Run] 2026-11-08T17:41:45.587910+00:00: Independent `colab sessions` now reports Noactive sessionsfound onserver. Ownr5 and separately owner-managedr6 both absent. Peerowner reports both pendingrawarchives and finalclosurepackage copied toMac/Drive; its final stop/receipt report is being collected. No new runtime/inference or deletion of local/Drive research evidence.
+
+
+[User decision/Run] 2026-11-08T17:42:59.179621+00:00: Peerowner confirms r6stop rc0/Sessionterminated, monitor23310 stopped17:40:59UTC/rc0 and emptyserverinventory17:41:30UTC. Two pendingrawarchives and118-member shutdownarchive5,732,301bytes/SHA14471f1341d80eb443673b4c798d503b959f6cef2b7599a9bc818f79dbd90e18 were preserved/verified onMacandDrive. Its lastacceptedpaired448/617 remains partial; no researchresume or claimedcompletion. BothR5/R6nowclosed; main independently verified emptyserverinventory. Finalreceipt `evidence/lion_guidance_speed_20261107/colab_shutdown_20261108.json`.

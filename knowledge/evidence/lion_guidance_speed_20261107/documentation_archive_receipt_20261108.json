@@ -1,0 +1,11 @@
+{
+  "status": "documentation_addendum_Drive_roundtrip_verified",
+  "created_utc": "2026-11-08T17:37:31.472819+00:00",
+  "local": "result/preparation/lion_guidance_speed_20261107/knowledge_documentation_20261108/knowledge_corruption_detail_20261108T173731Z.zip",
+  "bytes": 21688,
+  "sha256": "7b8e49008db1a04eac4116931ec888a864685ba3f822e039ccecc39f19eef811",
+  "members": 6,
+  "drive": "/content/drive/MyDrive/thesis/result/lion_guidance_background_uniform_20261108_r5/knowledge_corruption_detail_20261108T173731Z.zip",
+  "Drive_roundtrip_verified": true,
+  "verified_utc": "2026-11-08T17:37:32.855205+00:00"
+}

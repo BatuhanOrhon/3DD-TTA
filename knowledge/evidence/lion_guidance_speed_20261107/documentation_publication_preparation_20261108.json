@@ -1,0 +1,12 @@
+{
+  "status": "documentation_only_ready_for_publication_after_shutdown_confirmation",
+  "recorded_utc": "2026-11-08T17:40:29.127164+00:00",
+  "source_branch": "experiment/lion-guidance-speed-20261107",
+  "scientific_source_commit": "345e85ef09eb5f3d8e5da10a5f152eddc353aabe",
+  "target_base": "9daf8c14c0594f21ced8a6dfd119fc0977ff5f1a",
+  "selected": "Existing common-horizon report expanded to four15-row tables, compact per-corruption evidence/verification/backup/closure records, baseline clarification and shared knowledge appendices",
+  "excluded": "Raw ZIPs/per-object predictions/weights/caches/temporary derivation source (preserved in verified Drive addendum)",
+  "verification": "60accuracy/countcells,45measuredtimecells,15pairedCIs andallsourcegrids/labels/hashes/totals recounted from accepted111060rows+37020terminalreads; allfour15-rowtableschecked; no sealedinput mutations; documentation ZIP Drive roundtrip; diffcheck",
+  "code_tests": "No code behavior change or GPU run; existing859-test result not rerun or relabelled",
+  "limits": "Single seed, post-N35 revision, B128amortizednotB1, N8terminaltimeunmeasured, descriptive unadjustedper-corruptionCIs"
+}

@@ -107,3 +107,26 @@ is the comparison baseline for this Point-MAE/ModelNet40-C study. The separate
 multi-head/multi-dataset entrypoint above retains its B32 locked profile;
 B128 capacity and numerical behavior have not been established for every
 other head or dataset. No global policy/default or existing artifact is rewritten.
+
+
+## 2026-11-08 — current comparison record with corruption-independent horizons
+
+[User decision/Run] For the completed Point-MAE/ModelNet40-C speed comparison,
+use the [common-horizon all15 record](lion_guidance_uniform_horizon_results_20261108.md):
+N5 terminal at gamma/eta=.01/.01; tuned N8 terminal and N8+PM at .03/.003;
+p=.95; cheap N8+PM with tau=.1; all15 use the same horizon within a method,
+PM[2,4,6,terminal], B128/final36, seed0, all2468objects/corruption. TerminalN8
+accuracy is the last saved N8+PM readout; its separate latency is unmeasured.
+
+[Run] N5terminal61.445165%, tunedN8terminal62.571583%, N8PM63.735818%,
+cheap63.722312%; cheap saves27.673026% time with−.013506pp accuracy difference,
+conditional95%CI[−.180983,.153971]. The report contains all15 individual
+accuracies/counts, paired diagnostics and timings. Original8/35 and B32
+multi-head entrypoint settings above are historical executable profiles,
+not the new corruption-independent comparison. Their code defaults are not
+silently changed by this documentation update. Background short-horizon
+accuracy is substantially belowN35; retain both policies/results.
+
+[Open] One seed/development-exposed policy revision, native/runtime effects,
+no fresh terminal-onlyN8 latency, repeated-seed/unseen-generalization or
+isolated unguided-attribution claim. No automatic cheap/default promotion.
