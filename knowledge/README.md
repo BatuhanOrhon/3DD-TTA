@@ -1,3 +1,11 @@
+**[User decision/Open] 2026-11-08 — separate-agent small-pilot handoff prepared:**
+[Terminal acceleration + Logit Mean handoff](terminal_logit_pilot_agent_handoff_20261108.md)
+requires a fresh worktree/experiment branch from latest `origin/thesis-integration`
+and a new owned High-RAM A100 session. Proposed32-ID/all15/seed0 pilot compares
+matched terminalN5/N8 classic/cheap pairs plus one cheapN8 PM trace for offline
+LM–PM. Documentation only: no implementation, allocation or pilot run yet;
+no automatic full-data expansion or default change.
+
 **[User decision/Code/Run/Open] 2026-11-08 — accelerated baseline active; two future tests registered:**
 [Current baseline and executable contract](current_baseline.md) now select
 `lion_proximal_pm_n8_v1`: cheap/proximal tau=.1, N8 for every corruption,

@@ -1,5 +1,22 @@
 # Findings Log
 
+## 2026-11-08 — separate-agent terminal/logit pilot handoff prepared, not executed
+
+[User report/Decision/Open] User requests **only a handoff Markdown file**;
+the other agent will implement and run a small pilot in a new Colab session.
+[Self-contained handoff](terminal_logit_pilot_agent_handoff_20261108.md) requires
+a fresh worktree/new experiment branch derived from latest remote integration.
+Documentation source branch `docs/terminal-logit-pilot-handoff-20261108`, base
+`87525568f6775da5f906f0ea66b8d5b159756d46`. Proposed scope32objects/all15/s5/
+seed0/B32, matched N5/N8 terminal classic/cheap plus cheapN8PM; LM reuses the
+same four logits. Includes missing implementation, CPU/technical gates,
+canonical setup/Drive/account/source receipts, repeated timing, native limits,
+per-corruption archival and no automatic full-run/recovery/teardown boundary.
+Selected publication scope is this handoff plus navigation/log updates;
+code, existing results, runtime state and both registered NOT_RUN statuses
+remain unchanged. Validation: new relative links and staged whitespace/diff
+checks; no inference/test suite rerun for documentation-only changes.
+
 ## 2026-11-08 — accelerated baseline promoted; terminal and logit tests remain future work
 
 [User report/Decision/Code/Run/Open] On
