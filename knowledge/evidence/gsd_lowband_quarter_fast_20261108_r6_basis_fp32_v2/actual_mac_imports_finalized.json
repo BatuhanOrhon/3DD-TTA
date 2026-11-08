@@ -1,0 +1,68 @@
+{
+  "accepted_receipts": {
+    "shard000_M100": {
+      "bytes": 38137968,
+      "sha256": "336a25a75fee571072304d8d99df77dd0077c3a383862e513093aed33b4b9f0f"
+    },
+    "shard000_cache": {
+      "bytes": 39465,
+      "sha256": "56e2ea042f6f8371441f86b675e2c6ee8d9bdca86b20a05e52f5721a622ca940"
+    },
+    "shard000_control": {
+      "bytes": 412599,
+      "sha256": "6da286c995c95f32b7959e74f5759563926cd4f06d63a80be09e24b59b1985bd"
+    },
+    "shard000_half0": {
+      "bytes": 38137960,
+      "sha256": "d3480a4da63f48f54026b4b700a9128d45895e98650ddb0042e4fdbbb89807ff"
+    },
+    "shard001_cache": {
+      "bytes": 39791,
+      "sha256": "98ae5e1419355a50bfe25a2f9673552d263160ab2dadf8e18cf2f14c38014fcb"
+    },
+    "shard001_half0": {
+      "bytes": 38128177,
+      "sha256": "5a9ab180b4e5cc8280d01f14d03da40f5a5d548edf9b031cd0a3fe42246e04d1"
+    }
+  },
+  "binding": {
+    "acceptance_amendment": {
+      "bytes": 3672,
+      "sha256": "e957f03c59b5eb087f206374e242afec3f6f9cb0505b31a16719546f9595fc01"
+    },
+    "asset_manifest_sha256": "e3f2802f4bc806197018e47bc6a33f9d3568d371a053790f15778606efe04998",
+    "basis_validator_source": {
+      "bytes": 27478,
+      "sha256": "7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc"
+    },
+    "basis_validator_version": "basis-fp32-v2",
+    "batch_selection_identity": {
+      "bytes": 4063,
+      "sha256": "7c177b0aaa72a2c5c47b54c088c3873421513b41d1f90c0d3a20ff3ba4bf69d8"
+    },
+    "batch_size": 32,
+    "freeze_identity": {
+      "bytes": 178240,
+      "sha256": "6f293cc40763ed3486076c1d478b8cdce976cdb9c977db4cc51e41df4bb0714f"
+    },
+    "source_snapshot": {
+      "bytes": 1220540,
+      "sha256": "a62a7e4284754de65e12b62c3e561fea20c8855bd5509199bf3cdb58835444b9"
+    }
+  },
+  "import_receipt": {
+    "bytes": 9923,
+    "sha256": "d2a92a5367f9d5adabdf2b4a609e365df4c1dd0ed15c33b919c86a11ea0a92da"
+  },
+  "mac_admissions": {
+    "bytes": 15554,
+    "sha256": "8b0ef57daf47dc4dabe3a05492e30fca2ad4469ece92ad0503b658e088ec586e"
+  },
+  "schema_version": 1,
+  "status": "complete",
+  "v1_snapshot_archive": {
+    "bytes": 10121768,
+    "sha256": "5925dd4d5f0e454bd650af4489a0ef4aef7e519316b25d125eebbe0e9910ad0c"
+  },
+  "v1_snapshot_local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/v2_recovery/v1_pre_migration_metadata.zip"
+}

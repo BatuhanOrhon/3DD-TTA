@@ -1,0 +1,243 @@
+{
+  "binding": {
+    "acceptance_amendment": {
+      "bytes": 3672,
+      "sha256": "e957f03c59b5eb087f206374e242afec3f6f9cb0505b31a16719546f9595fc01"
+    },
+    "asset_manifest_sha256": "e3f2802f4bc806197018e47bc6a33f9d3568d371a053790f15778606efe04998",
+    "basis_validator_source": {
+      "bytes": 27478,
+      "sha256": "7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc"
+    },
+    "basis_validator_version": "basis-fp32-v2",
+    "batch_selection_identity": {
+      "bytes": 4063,
+      "sha256": "7c177b0aaa72a2c5c47b54c088c3873421513b41d1f90c0d3a20ff3ba4bf69d8"
+    },
+    "batch_size": 32,
+    "freeze_identity": {
+      "bytes": 178240,
+      "sha256": "6f293cc40763ed3486076c1d478b8cdce976cdb9c977db4cc51e41df4bb0714f"
+    },
+    "source_snapshot": {
+      "bytes": 1220540,
+      "sha256": "a62a7e4284754de65e12b62c3e561fea20c8855bd5509199bf3cdb58835444b9"
+    }
+  },
+  "controller_binding": {
+    "acceptor": {
+      "bytes": 27478,
+      "sha256": "7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc"
+    },
+    "batch_selection": {
+      "bytes": 4063,
+      "sha256": "7c177b0aaa72a2c5c47b54c088c3873421513b41d1f90c0d3a20ff3ba4bf69d8"
+    },
+    "budget": {
+      "bytes": 655,
+      "sha256": "5986cce0f6074a842791316b1ba9f96159dd6a1c0611019c0ff26f3448a9bbdf"
+    },
+    "calibration": {
+      "bytes": 178240,
+      "sha256": "6f293cc40763ed3486076c1d478b8cdce976cdb9c977db4cc51e41df4bb0714f"
+    },
+    "campaign": {
+      "bytes": 25907,
+      "sha256": "0a251d6f9892b5e99920a23e34fcd49b8e291d1d866dd243327d25097b2722ad"
+    },
+    "mac_admissions": {
+      "bytes": 15554,
+      "sha256": "8b0ef57daf47dc4dabe3a05492e30fca2ad4469ece92ad0503b658e088ec586e"
+    },
+    "operator_manifest": {
+      "bytes": 4085,
+      "sha256": "1ef63ceef412328ae9863c7c9a0db2f617f885b5465a3d4031a8210a877d9952"
+    },
+    "plan": {
+      "bytes": 5464,
+      "sha256": "be0891c69ee3748e12ce3c5e5d99c6d5a165c006be2b998b96063758e5bb0286"
+    },
+    "prepare_caches": {
+      "bytes": 6688,
+      "sha256": "c42a5a636dfeafed2b108083b6dcb03ed9e04c91bcf86850bc8040dd685f8fa1"
+    },
+    "source_mac_receipt": {
+      "bytes": 909,
+      "sha256": "6312a43cefb321c20fa9e23d1ee9f9a9176eeb72e0169e6bfd801e0726dc001c"
+    },
+    "study": {
+      "bytes": 39697,
+      "sha256": "15e20f939536379e6a8deeda99ceada2444c205368d118be5f80dc58a9a4c0f5"
+    },
+    "time_window_waiver": {
+      "bytes": 1198,
+      "sha256": "32421e2f706449d19f1777e0d88355095256c51fdc35c21949ca369d46a1d742"
+    },
+    "validation_binding": {
+      "acceptance_amendment": {
+        "bytes": 3672,
+        "sha256": "e957f03c59b5eb087f206374e242afec3f6f9cb0505b31a16719546f9595fc01"
+      },
+      "asset_manifest_sha256": "e3f2802f4bc806197018e47bc6a33f9d3568d371a053790f15778606efe04998",
+      "basis_validator_source": {
+        "bytes": 27478,
+        "sha256": "7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc"
+      },
+      "basis_validator_version": "basis-fp32-v2",
+      "batch_selection_identity": {
+        "bytes": 4063,
+        "sha256": "7c177b0aaa72a2c5c47b54c088c3873421513b41d1f90c0d3a20ff3ba4bf69d8"
+      },
+      "batch_size": 32,
+      "freeze_identity": {
+        "bytes": 178240,
+        "sha256": "6f293cc40763ed3486076c1d478b8cdce976cdb9c977db4cc51e41df4bb0714f"
+      },
+      "source_snapshot": {
+        "bytes": 1220540,
+        "sha256": "a62a7e4284754de65e12b62c3e561fea20c8855bd5509199bf3cdb58835444b9"
+      }
+    }
+  },
+  "imported_jobs": {
+    "shard000_M100": {
+      "ack": {
+        "bytes": 952833569,
+        "kind": "inference",
+        "label": "shard000_M100",
+        "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_M100/download_20261108T122758/payload/20261108-121936_decoded-physical-a9c528ca.zip",
+        "sha256": "df2324e13df0ca0928bfe84fa15c4538e870d12c4f0758b7d360fb7da72c9fac",
+        "status": "local_and_drive_verified"
+      },
+      "archive_id": {
+        "bytes": 952833569,
+        "sha256": "df2324e13df0ca0928bfe84fa15c4538e870d12c4f0758b7d360fb7da72c9fac"
+      },
+      "drive_verified": {
+        "bytes": 952833569,
+        "sha256": "df2324e13df0ca0928bfe84fa15c4538e870d12c4f0758b7d360fb7da72c9fac"
+      },
+      "status": "ACKed_retained"
+    },
+    "shard000_cache": {
+      "ack": {
+        "bytes": 59208267,
+        "kind": "cache",
+        "label": "shard000_cache",
+        "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_cache/download_20261108T120756/payload/cache_shard000_B32.zip",
+        "sha256": "2189f291652f349cdf91639f1f6a0a6239a388d9071910959c1f39b8caedaf0a",
+        "status": "local_and_drive_verified"
+      },
+      "archive_id": {
+        "bytes": 59208267,
+        "sha256": "2189f291652f349cdf91639f1f6a0a6239a388d9071910959c1f39b8caedaf0a"
+      },
+      "drive_verified": {
+        "bytes": 59208267,
+        "sha256": "2189f291652f349cdf91639f1f6a0a6239a388d9071910959c1f39b8caedaf0a"
+      },
+      "status": "ACKed_retained"
+    },
+    "shard000_control": {
+      "ack": {
+        "bytes": 122885450,
+        "kind": "inference",
+        "label": "shard000_control",
+        "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_control/download_20261108T121141/payload/20261108-120756_decoded-control-8aed642b.zip",
+        "sha256": "af9a5b69d9a5f1ea7d366942ed4a6e2ef857e8774395a89d3319d72e812ccbb6",
+        "status": "local_and_drive_verified"
+      },
+      "archive_id": {
+        "bytes": 122885450,
+        "sha256": "af9a5b69d9a5f1ea7d366942ed4a6e2ef857e8774395a89d3319d72e812ccbb6"
+      },
+      "drive_verified": {
+        "bytes": 122885450,
+        "sha256": "af9a5b69d9a5f1ea7d366942ed4a6e2ef857e8774395a89d3319d72e812ccbb6"
+      },
+      "status": "ACKed_retained"
+    },
+    "shard000_half0": {
+      "ack": {
+        "bytes": 952834685,
+        "kind": "inference",
+        "label": "shard000_half0",
+        "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard000_half0/download_20261108T121934/payload/20261108-121141_decoded-live_control-8aed642b.zip",
+        "sha256": "349cfb9537472b9e99bd6ceb300c6dd4ee5658f0fe2d326b9f734177a21da2f2",
+        "status": "local_and_drive_verified"
+      },
+      "archive_id": {
+        "bytes": 952834685,
+        "sha256": "349cfb9537472b9e99bd6ceb300c6dd4ee5658f0fe2d326b9f734177a21da2f2"
+      },
+      "drive_verified": {
+        "bytes": 952834685,
+        "sha256": "349cfb9537472b9e99bd6ceb300c6dd4ee5658f0fe2d326b9f734177a21da2f2"
+      },
+      "status": "ACKed_retained"
+    },
+    "shard001_cache": {
+      "ack": {
+        "bytes": 59237210,
+        "kind": "cache",
+        "label": "shard001_cache",
+        "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/downloaded/transfers/shard001_cache/download_20261108T123042/payload/cache_shard001_B32.zip",
+        "sha256": "ce84f24db6c5c14abc35f9980084442dedfe78acd139da2207c51614beeb7aff",
+        "status": "local_and_drive_verified"
+      },
+      "archive_id": {
+        "bytes": 59237210,
+        "sha256": "ce84f24db6c5c14abc35f9980084442dedfe78acd139da2207c51614beeb7aff"
+      },
+      "drive_verified": {
+        "bytes": 59237210,
+        "sha256": "ce84f24db6c5c14abc35f9980084442dedfe78acd139da2207c51614beeb7aff"
+      },
+      "status": "ACKed_retained"
+    },
+    "shard001_half0": {
+      "ack": {
+        "bytes": 957625938,
+        "kind": "inference",
+        "label": "shard001_half0",
+        "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/rejected/shard001_half0/payload/20261108-122829_decoded-live_control-8aed642b.zip",
+        "sha256": "a51c70bdfd743efce1a2b8b164b3c2ad456b6e7bc56abbbf5dc4aedd43fb5ea7",
+        "status": "local_and_drive_verified"
+      },
+      "archive_id": {
+        "bytes": 957625938,
+        "sha256": "a51c70bdfd743efce1a2b8b164b3c2ad456b6e7bc56abbbf5dc4aedd43fb5ea7"
+      },
+      "drive_verified": {
+        "bytes": 957625938,
+        "sha256": "a51c70bdfd743efce1a2b8b164b3c2ad456b6e7bc56abbbf5dc4aedd43fb5ea7"
+      },
+      "status": "ACKed_retained"
+    }
+  },
+  "mac_admissions": {
+    "bytes": 15554,
+    "sha256": "8b0ef57daf47dc4dabe3a05492e30fca2ad4469ece92ad0503b658e088ec586e"
+  },
+  "schema_version": 1,
+  "source_archive": {
+    "bytes": 13784478,
+    "path": "/content/drive/MyDrive/thesis/result/gsd_lowband_quarter_fast_20261108_r6/validation_basis_fp32_v2/controller_provenance_bundle.zip",
+    "sha256": "fecb316bc271abcba166399343ac8d8df991c2436776127c305bb7dfaa392b1a"
+  },
+  "source_mac_receipt": {
+    "bytes": 909,
+    "sha256": "6312a43cefb321c20fa9e23d1ee9f9a9176eeb72e0169e6bfd801e0726dc001c"
+  },
+  "status": "complete",
+  "v1_snapshot": {
+    "bytes": 23013,
+    "path": "/content/studies/gsd-lowband-quarter-fast-20261108-r6/validation_basis_fp32_v2/v1_snapshot.json",
+    "sha256": "8a81b172c85c4da0dc0b864a475093a2cb383928c5cff2a1143f144c3483c3df"
+  },
+  "v1_snapshot_archive": {
+    "bytes": 10121768,
+    "path": "/content/drive/MyDrive/thesis/result/gsd_lowband_quarter_fast_20261108_r6/validation_basis_fp32_v2/v1_pre_migration_metadata.zip",
+    "sha256": "5925dd4d5f0e454bd650af4489a0ef4aef7e519316b25d125eebbe0e9910ad0c"
+  }
+}

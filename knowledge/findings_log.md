@@ -9066,3 +9066,19 @@ sourcechange. Portablepublished-location21tests also pass afterincludingfixed
 andbasis_precision_validation_v2_20261108.md. Explicitposthocacceptancerule/set
 change, notv1pass orsolvednativeinstability. Separatev2resume/ACKnamespace and
 oldfailedstate preservation undergoingCPUchecks beforeanyGPUcontinuation.
+
+### 2026-11-08 13:53–13:56 UTC — actual v2 archive admission; r6 resumes
+
+[Run/CPU/Independent review/Open] All six completed job archives uniformly
+revalidated; genuine file-only installer rehashed current Drive ZIPs before
+six new v2 ACKs. Receipt9923B/d2a92a53 and original-v1 metadata snapshot
+10121768B/5925dd4d downloaded and wholeSHA/CRC verified; Mac finalization also
+rechecked all six raw files/full sidecars. Old v1 rejection/journal/source/
+receipts/ACKs/parts remain immutable. New consumer16246 and monitor23310 now
+drive the same r6 VM, explicit resume13:55:51UTC; first remaining GPU job is
+shard001_M100. Six retained imports +34 remaining workers, no rerun of completed
+jobs. Same source918/alpha4398.3843101977745/B32/617/all15/s5/seed0/native capsule;
+whole-phase start remains1794135389 and no global cutoff by user instruction.
+Compact actual receipts/amendment in current v2 knowledge evidence; raw/provenance
+ZIPs remain Drive+Mac. Posthoc acceptance-rule change is explicit; v1 never passed,
+native29/30 instability unresolved. No new paired accuracy or617 completion yet.

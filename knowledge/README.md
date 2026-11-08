@@ -1,10 +1,14 @@
-**[Run/Failed hard gate/Open] 2026-11-08 — R6 comparison stopped for basis-loss diagnosis:**
+**[Run/Failed v1 gate/CPU qualified/Open] 2026-11-08 — R6 validator-v2 recovery prepared:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
 First64/all15/all3 are Drive+Mac accepted: SCD65.520833%,half064.895833%,M10065.729167%;
 M100-SCD+.208333pp,conditional95%CI[-1.25,+1.666667]. Fixed617 is incomplete.
 Second-shard half0 worker completed, but independent physical-basis loss exceeds
 absolute1e-6 validation gate; no acceptance/ACK, no second-shard M100/control.
-Failed raw preserved; CPU diagnosis underway, no tolerance relaxation/new GPU retry.
+Failed raw and v1 rejection preserved. [Explicit post-hoc validator-v2 arithmetic
+correction](basis_precision_validation_v2_20261108.md) qualifies all90 spectral,
+30 control and two cache archives; numeric1e-6 remains, acceptance rule changes.
+Separate v2 admission/controller recovery is CPU reviewed. Six actual Drive+Mac
+imports passed; same-r6 GPU resume started13:55UTC with34 remaining workers.
 Native repeat failure29/30 persists. Own r6 runtime/monitor retained; peer untouched.
 
 **[User decision/Run/Open] 2026-11-08 — existing r5 resumes after audited idle state:**

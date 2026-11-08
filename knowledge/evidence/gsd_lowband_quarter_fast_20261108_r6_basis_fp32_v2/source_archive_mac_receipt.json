@@ -1,0 +1,25 @@
+{
+  "amendment": {
+    "bytes": 3672,
+    "sha256": "e957f03c59b5eb087f206374e242afec3f6f9cb0505b31a16719546f9595fc01"
+  },
+  "archive": {
+    "bytes": 13784478,
+    "sha256": "fecb316bc271abcba166399343ac8d8df991c2436776127c305bb7dfaa392b1a"
+  },
+  "local_archive": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/gsd-lowband-halfmix-20261105/result/preparation/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/controller_provenance_bundle.zip",
+  "mac_admissions": {
+    "bytes": 15554,
+    "sha256": "8b0ef57daf47dc4dabe3a05492e30fca2ad4469ece92ad0503b658e088ec586e"
+  },
+  "operator_manifest": {
+    "bytes": 4085,
+    "sha256": "1ef63ceef412328ae9863c7c9a0db2f617f885b5465a3d4031a8210a877d9952"
+  },
+  "schema_version": 1,
+  "status": "whole_sha_crc_verified_on_mac",
+  "validator_source": {
+    "bytes": 27478,
+    "sha256": "7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc"
+  }
+}

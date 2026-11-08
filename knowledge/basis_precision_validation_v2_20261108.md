@@ -67,3 +67,31 @@ validator change, not deployment, an ACK, or a completed617 result. Future
 cases can still fail the strict v2 comparator and must remain preserved.
 The unresolved native-repeat caveat remains. No GPU, CLI, Git, scientific retry,
 source mutation or acceptance change was performed in this implementation batch.
+
+## Versioned consumer and admission follow-up
+
+[Code/Test] The separate v2 consumer now uses only the new journal, transfer,
+ACK and `accepted_basis_fp32_v2` namespaces. Its common receipt binding adds the
+exact v2 source and 3672-byte amendment SHA
+`e957f03c59b5eb087f206374e242afec3f6f9cb0505b31a16719546f9595fc01`.
+Six immutable Mac CPU admission sidecars were prepared uniformly; their
+15554-byte inventory SHA is
+`8b0ef57daf47dc4dabe3a05492e30fca2ad4469ece92ad0503b658e088ec586e`.
+They remain remote-admission pending. The installer must verify all current
+Drive ZIPs and preserve the v1 metadata ZIP before a local finalization can
+recognize genuinely new ACKs. Finalization additionally verifies the downloaded
+v1 snapshot SHA/CRC. No canonical v2 acceptance or ACK was emitted by this batch.
+
+[Code/Test] The daemon requires all six finalized imports before any CLI action
+or receipt shortcut. Imported jobs cannot be retransferred or pruned. Future
+34 jobs retain the original bounded transfer/worker and WAIT_USER safeguards.
+The final analyzer reads only v2 receipts, requires all40 for final617 coverage,
+and keeps all legacy projection values/failures visible. Its authority, version,
+freeze, dtype, corruption and partial/final coverage checks passed34 tests.
+The original21 comparator tests now pass in an isolated publication bundle with
+local fixture helpers and no ignored old-PREP dependency. A temporary simulated
+installer test passed six-job finalization and immutable-sidecar tamper rejection;
+that test is not real remote admission. Independent review cleared the exact
+consumer/protocol/importer/analyzer/downloader source hashes. The acceptor
+remains byte-identical7f082803. Source seals, tests and exact primary-operator
+steps are in the new PREP's `consumer_seals.json` and `CONSUMER_RUNBOOK.md`.

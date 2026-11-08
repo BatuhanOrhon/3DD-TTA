@@ -1,0 +1,88 @@
+{
+  "acceptance_set_changed": true,
+  "amendment_id": "basis-fp32-v2",
+  "change_type": "posthoc_acceptance_rule_amendment",
+  "diagnostics": "Both legacy FP64 values/errors/gate and v2 producer-dtype replay values/errors are retained uniformly; unchanged source/geometry/cache/RNG/model/native/prediction guards remain mandatory.",
+  "imported_completed_jobs": {
+    "shard000_M100": {
+      "bytes": 952833569,
+      "sha256": "df2324e13df0ca0928bfe84fa15c4538e870d12c4f0758b7d360fb7da72c9fac"
+    },
+    "shard000_cache": {
+      "bytes": 59208267,
+      "sha256": "2189f291652f349cdf91639f1f6a0a6239a388d9071910959c1f39b8caedaf0a"
+    },
+    "shard000_control": {
+      "bytes": 122885450,
+      "sha256": "af9a5b69d9a5f1ea7d366942ed4a6e2ef857e8774395a89d3319d72e812ccbb6"
+    },
+    "shard000_half0": {
+      "bytes": 952834685,
+      "sha256": "349cfb9537472b9e99bd6ceb300c6dd4ee5658f0fe2d326b9f734177a21da2f2"
+    },
+    "shard001_cache": {
+      "bytes": 59237210,
+      "sha256": "ce84f24db6c5c14abc35f9980084442dedfe78acd139da2207c51614beeb7aff"
+    },
+    "shard001_half0": {
+      "bytes": 957625938,
+      "sha256": "a51c70bdfd743efce1a2b8b164b3c2ad456b6e7bc56abbbf5dc4aedd43fb5ea7"
+    }
+  },
+  "numeric_tolerance": 1e-06,
+  "old_failed_journal_sha256": "ab1d5b3b8efd54b5dad62ef5c03955b0b0aa215f83e9905607f82ff133b75ab3",
+  "old_operator_manifest_sha256": "152c3130c77a5e9713848ed3ac54705e52d6d27ffe37a287be9ac533a9a52524",
+  "reason": "The producer accumulates per-object physical loss in its tensor dtype and archived object order. The old validator summed independent energies only in FP64; one completed batch exceeded its gate by rounding.",
+  "recovered_worker": {
+    "label": "shard001_half0",
+    "log": {
+      "bytes": 16128,
+      "sha256": "0ed7370e776bc550735f9e7ee6c887aee2648486e5648aba32973948a0a3cf2c"
+    },
+    "process": {
+      "bytes": 1766,
+      "sha256": "45f4fb6de6eaadd4c77353e37d4602bff5d7ad99e52284a0c09d9951a6293150"
+    },
+    "returncode": 0,
+    "timed_out": false
+  },
+  "remaining_jobs": {
+    "cache": 8,
+    "first_labels": [
+      "shard001_M100",
+      "shard001_control"
+    ],
+    "inference": 26,
+    "total": 34
+  },
+  "retention": "All v1 source, journal, receipts, ACKs, rejection, red transfer manifest/parts and raw paths remain untouched. The six imported jobs are revalidated/ACKed/retained, never rerun or cleaned by v2.",
+  "rule_v1": "independent FP64 per-object energies summed in FP64; absolute error <=1e-6",
+  "rule_v2": "independent FP64 per-object energies cast to producer dtype then left-folded in archived batch order; absolute error <=1e-6; first decoded witness hash validated",
+  "schema_version": 1,
+  "unchanged": {
+    "alpha100": 4398.3843101977745,
+    "arms": [
+      "control",
+      "half0",
+      "M100"
+    ],
+    "asset_manifest_sha256": "e3f2802f4bc806197018e47bc6a33f9d3568d371a053790f15778606efe04998",
+    "batch_size": 32,
+    "calibration_sha256": "6f293cc40763ed3486076c1d478b8cdce976cdb9c977db4cc51e41df4bb0714f",
+    "corruptions": 15,
+    "evaluation_manifest_sha256": "4156e92e3e1206bdd31131e59f93c5b10f38c876e35558fbf6a4bfe41eadcfc2",
+    "native_fd_tolerances": "unchanged",
+    "native_repeat_tolerances": "unchanged",
+    "objects": 617,
+    "producer_source_commit": "918780bbc57fdcaab54e6d0e0b24a0b58a94375e",
+    "source_snapshot_sha256": "a62a7e4284754de65e12b62c3e561fea20c8855bd5509199bf3cdb58835444b9"
+  },
+  "validator_v1": {
+    "bytes": 25706,
+    "sha256": "c27c8eae4213695d2bd20d17417eee2048547106e5da4e2a54ef887391d9ec58"
+  },
+  "validator_v2": {
+    "bytes": 27478,
+    "sha256": "7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc"
+  }
+}

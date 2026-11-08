@@ -2878,3 +2878,11 @@ DriveZIP. No617completion/no128paired; first64partial only. Diagnose actual
 failedwitness beforefix; acceptedBG~8.7 makesFP32batchsum ULP~9.54e-7, but
 precisionhypothesis notconfirmed withoutfailedcase. No relaxedgate/newGPUretry.
 Runtime retained, failedarchive/journal/source preserved; see ownedR6 record.
+
+[Run/CPU/Running/Open,2026-11-08T13:56UTC] Explicit posthoc validator-v2
+admission now passed genuine Drive+Mac checks for all six completed jobs;
+old v1 failure remains unchanged. Same-r6 screen resumes with34 remaining
+workers, no completed-worker rerun, all scientific assets/alpha/cohort/B32 fixed.
+Require all40 v2 receipts/617 paired objects and final raw rehash before a final
+accuracy conclusion. Future v2 failure remains a hard stop; connection trouble
+remains WAIT_USER. Native repeat instability is not solved by comparator repair.

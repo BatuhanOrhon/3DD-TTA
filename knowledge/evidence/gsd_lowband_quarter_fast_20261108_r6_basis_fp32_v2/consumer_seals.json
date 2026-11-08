@@ -1,0 +1,70 @@
+{
+  "amendment": {
+    "bytes": 3672,
+    "sha256": "e957f03c59b5eb087f206374e242afec3f6f9cb0505b31a16719546f9595fc01"
+  },
+  "files": {
+    "CONSUMER_RUNBOOK.md": {
+      "bytes": 4698,
+      "sha256": "0fe4126cb61cdfe8933b1c454adbb4251dfff47348edc8f9c09cd35f2ed74e5a"
+    },
+    "accept_fast617.py": {
+      "bytes": 27478,
+      "sha256": "7f082803c10ff55300ed993bb1b32606e574ffcffc032fb0369609719b9e50bc"
+    },
+    "analyze_fast617.py": {
+      "bytes": 12040,
+      "sha256": "e431388507114ee888fd08b1446a635daeecdc6ebd3fc53a587b35f122527b39"
+    },
+    "basis_test_fixtures.py": {
+      "bytes": 11393,
+      "sha256": "0e508431813d8bd27dea37f959be61fa9db6aa41c0de39951fe2b1ac83454228"
+    },
+    "download_bundle.py": {
+      "bytes": 6237,
+      "sha256": "2ec4fa428f4f0ac56c20836d6b95ff88b5115a913bdb6ba90255af0baff6881d"
+    },
+    "import_v2_receipts.py": {
+      "bytes": 8100,
+      "sha256": "b3869c0c19d6b5e46a72ae519e3379cdc103c640a187f13347ad29ce7c654bfc"
+    },
+    "qualify_admission_handshake.py": {
+      "bytes": 2776,
+      "sha256": "297fb9f9d96bb70cb4be3509ffb0619225f7a420f757db014b74e4f71c138c8b"
+    },
+    "selfcheck_transfer.py": {
+      "bytes": 20913,
+      "sha256": "7e1d6d57e437688a736dc42ff2a83c843be30b09e19ff54e974adb9f10826544"
+    },
+    "test_basis_validation_v2.py": {
+      "bytes": 7159,
+      "sha256": "bcd402da3080793c3a05fe3733de4635755dc783178c5c3776b790f6c9daa4c3"
+    },
+    "test_v2_admission_protocol.py": {
+      "bytes": 7928,
+      "sha256": "92ee1e0f425e841f167ea44b317930e51d20dba5d489d25cf3978fca92cbd2d3"
+    },
+    "test_v2_analyzer.py": {
+      "bytes": 5255,
+      "sha256": "7e981674b671c5f314c7b4e6049221c786915a47c1b25705502ab8fc661f0abb"
+    },
+    "transfer_daemon.py": {
+      "bytes": 16397,
+      "sha256": "c7c3fac82b7eee9254aceb17e5341153047690b242d788f95353c7e5b2c8af77"
+    },
+    "v2_protocol.py": {
+      "bytes": 7170,
+      "sha256": "38b499c1b32e3c010c034e2f8933a3c41dfea813b0b1fb66ee197cc334bae137"
+    }
+  },
+  "independent_review": "34 tests passed; exact five production source hashes cleared",
+  "mac_admissions": {
+    "bytes": 15554,
+    "sha256": "8b0ef57daf47dc4dabe3a05492e30fca2ad4469ece92ad0503b658e088ec586e"
+  },
+  "portable_basis_tests": 21,
+  "simulated_installer_handshake": "passed in temporary root only; not actual acceptance",
+  "status": "CPU prepared; actual remote admission/finalization pending; no CLI/GPU",
+  "tests": 34,
+  "transfer_selfcheck": "passed"
+}

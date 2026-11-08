@@ -221,3 +221,29 @@ source/tests/actual32energyregression/fixturebuilders/fixed617IDmanifest/qualifi
 Published-location21tests pass; omittedfixturemanifest foundandadded before
 publication. Broadernewconsumer/controller recovery verification stillpending;
 nooriginalacceptance/source/ACKpaths overwritten.
+
+### 2026-11-08 13:53–13:56 UTC — actual v2 admission and same-VM resume
+
+[Run/CPU/Independent review] Reviewed provenance bundle13784478B/fecb316b,
+operator manifest4085B/1ef63cee and installer13144B/c7e67296 are deployed in
+separate v2 paths. File-only admission ran13:52:48–13:53:34UTC with exact
+completion marker and CLI0. All six current Drive raw ZIPs were rehashed;
+the original v1 files/failed journal/rejected manifest remain unchanged.
+Actual import receipt9923B/d2a92a53 and v1 metadata ZIP10121768B/5925dd4d
+were downloaded. Mac finalization passed actual snapshot wholeSHA/CRC,
+all six raw SHA, full sidecars and six genuine new remote ACKs. It created
+six accepted_basis_fp32_v2 receipts; old v1 receipts remain historical.
+Compact actual receipts and explicit acceptance amendment are preserved under
+knowledge/evidence/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/.
+
+[Run/Running/Open] Mac proof uploaded successfully; new consumerPTY16246
+replaces stopped v1 consumer48160. Sole kernel owner remains monitor23310.
+Same-VM explicit screen --resume started13:55:51UTC, operator binding13:55:55.
+Parent phase SHA8144ca085d1f638b53c1de22ef1f2d842dfb4c66cfd226460401558e168b8cde.
+Expected ledger40 comprises six retained imports and34 remaining workers
+(26 inference/eight caches), starting shard001_M100 then control. No completed
+GPU job is rerun. Source918/assets e3/alpha4398.3843101977745/617 IDs/B32/seed0/
+native capsule/global time waiver are unchanged. Allocation start1794135389
+still anchors whole-phase elapsed time, including diagnosis/recovery overhead.
+Resume is running, not617 completion; first64 accuracy remains unchanged.
+Native29/30 repeat failures remain and forbid causal attribution from small gains.
