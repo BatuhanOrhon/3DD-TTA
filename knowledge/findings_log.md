@@ -8977,3 +8977,41 @@ Actual runtime setup continues through serial3–10 markers. No fresh alpha or
 operator143380B/e5fd72d1 and bootstrap9853B/13e43385, source918780b unchanged.
 Decision: complete canonical setup then source/native Drive+Mac acceptance,
 fresh calibration, FD/repeat/tail gates, fixed comparison. Peer untouched.
+
+### 2026-11-08 11:45UTC — R6 setup and deployment accepted, fresh calibration starts
+
+[Run/Code/Open] All canonical10 stages completed (only authorized cell2 fastrlock
+deferral); actual final GPU/data/checkpoint verification pass. Mac proof9005B/
+2b5bba70, source918780b/a62a7e, assets400/e3f280. Initialalias-aware deployment
+completed11:45:30. Context8218583B/882e5879 and fresh-native6455290B/260c7e98
+are Drive+Mac/CRC/memberSHA accepted,124 context files and all10 fresh+pinned
+native files preserved. Local study result/modelnet40_c/lowband_quarter_fast/
+20261108-105629_a10080_screen617_r6/. Fresh64/384 B32 calibration now begins;
+no old alpha/cache and no617 accuracy. User removed global window; per-worker/
+transport/science/archive gates retained. Next accept calibration then FD/repeats/
+tail, fixed617/all15/three arms. See ownedR6 note for full SHAs/current actions.
+
+### 2026-11-08 11:49UTC — fresh B32 alpha frozen and locally accepted
+
+[Run/Open] R6 calibration completes:64disjointIDs/384 actual weighted local+style
+ratios, alpha1004398.3843101977745. No labels/clean target/accuracy selection.
+Cache22.1265s, norm job103.8195s. Raw142115354B/61c948f7 Drive+Mac accepted
+(146direct+132recovered); freeze178240B/6f293cc4 independently validated.
+Canonical result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/.
+Technical FD/repeat/41tail/timing phase now starts; no617 accuracy yet. Alpha
+immutable before benchmark. Native instability remains an explicit open gate.
+
+### 2026-11-08 12:03UTC — R6 technical gates accepted, repeat instability persists
+
+[Run/Accepted/Open] Technical raw431604836B/8d12f798 Drive+Mac accepted
+(1220direct+1140recovered,13verifiedparts). Native local FD passes unchanged
+.1relative/1e-5absolute tolerances; actual41tail[32,9] passes. RepeatsFAIL29/30
+B32 batchcases: control-within0/6,live0-within0/6,cross1/18 pass. Original
+.05maxlogit/.01checkpointRMS/1e-4firstdecodedRMS thresholds retained. SCD itself
+is unstable; no solved-numerics or causal-GSD claim. Core secondsGaussian/BG:
+control5.684696/16.624911,half010.914317/21.508307,M10011.439704/21.973138;
+startup/postworker reported separately. Frozenalpha4398.3843101977745 unchanged.
+Now fixed617/2468/all15/s5/seed0/three-arm descriptive screen with finite40jobs
+and Drive+Mac acceptance beforeACK. Full raw and compact receipts at currentR6
+canonical paths; no617 accuracy yet. User standing GPU permission/time waiver;
+peer and unknown runtimes preserved.

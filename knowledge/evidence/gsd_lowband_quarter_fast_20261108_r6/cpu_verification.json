@@ -1,0 +1,65 @@
+{
+  "status": "CPU-ready; not remotely deployed or executed by this batch",
+  "checks": {
+    "operator": 6,
+    "phase": 10,
+    "controller_jobs": 40,
+    "initial_deployment": 4,
+    "native_preservation": 5,
+    "active_namespace_python38_files": 23,
+    "consumer_pytest": 33,
+    "standalone_transfer": "passed"
+  },
+  "reference": "Mac-accepted R5 profile resource selection only; source paths preserved; fresh R6 hardware/alpha/FD/cache/inference required",
+  "files": {
+    "deployment/deploy_initial.py": {
+      "bytes": 9853,
+      "sha256": "13e43385bd1edbb85080f4a507f8d28beaacc69f58a6f9d0559182f8aec4a6e8"
+    },
+    "deployment/deploy_assets.py": {
+      "bytes": 11161,
+      "sha256": "76552f2e9ef11ee6fca0e974d83a41ed45f885c72190006303cdb505154a7dcd"
+    },
+    "phases/calibrate.py": {
+      "bytes": 2771,
+      "sha256": "fcd87823c5ccb018b9c23758aa74b3fb527f0b428755205b68a02a559047eee4"
+    },
+    "phases/screen.py": {
+      "bytes": 2768,
+      "sha256": "e7c636c83be8783ef02a66fe37061ddfcc861dff0d434791a1a9767f291604c3"
+    },
+    "phases/technical.py": {
+      "bytes": 2771,
+      "sha256": "f722a3d10fa5107f7e29a4b390492d44790e7ec6dbad0cb4c35574fafc4ff04c"
+    },
+    "operator_payload.zip": {
+      "bytes": 143380,
+      "sha256": "e5fd72d180d7e4a198dd91ad29ed6cf23b79ca0f0616c9d21f0a9b7fa4499642"
+    },
+    "operator_unbounded/operator_manifest.json": {
+      "bytes": 4206,
+      "sha256": "152c3130c77a5e9713848ed3ac54705e52d6d27ffe37a287be9ac533a9a52524"
+    },
+    "profile_reference.zip": {
+      "bytes": 416086,
+      "sha256": "70dc434661bda10550c67f6b5923b2e9886d252e99b82d776f74d5c99bead5c7"
+    },
+    "execution_wrappers.zip": {
+      "bytes": 11850,
+      "sha256": "a8181469c1152ecfeadf5351a93852333f9fcc9f642bbde1564c006f1b2c9138"
+    },
+    "runtime_assignment.json": {
+      "bytes": 606,
+      "sha256": "5fe810a8d0e80ad3ab55a142fb2ec5dab549c0989e2c8fb5d4e28f510521fb02"
+    },
+    "time_window_waiver.json": {
+      "bytes": 1198,
+      "sha256": "32421e2f706449d19f1777e0d88355095256c51fdc35c21949ca369d46a1d742"
+    },
+    "gpu_budget.json": {
+      "bytes": 655,
+      "sha256": "5986cce0f6074a842791316b1ba9f96159dd6a1c0611019c0ff26f3448a9bbdf"
+    }
+  },
+  "independent_review": "Complete; no remaining concrete blocker. Independently16operator tests,4initial deployment tests and5native preservation checks passed; exactbootstrap/payload/manifest/wrapperpins and namespace corrected/verified."
+}

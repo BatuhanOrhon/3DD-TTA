@@ -1,0 +1,11 @@
+{
+  "session": "tta-gsd-quarter-fast-a100-20261108-r6",
+  "owner": "PM M100 quarter comparison primary agent",
+  "allocation_succeeded_utc": "2026-11-08T10:56:29Z",
+  "global_time_window": "explicitly removed by user",
+  "original_r5_budget_preserved": true,
+  "peer_or_unknown_runtime_changed": false,
+  "scientific_source": "918780bbc57fdcaab54e6d0e0b24a0b58a94375e",
+  "reuse": "validated B32 resource selection only; fresh current-runtime alpha and native gates required",
+  "initial_allocation_request": "503 Service Unavailable; inventory confirmed no r6; one same-name allocation retry succeeded"
+}

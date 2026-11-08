@@ -1,0 +1,37 @@
+{
+  "status": "Drive+Mac context/fresh-native accepted; science outcome pending",
+  "archive": {
+    "path": "/content/studies/gsd-lowband-quarter-fast-20261108-r6/quarter_deployment_context.zip",
+    "drive": "/content/drive/.shortcut-targets-by-id/1tPaO3F7RvcItJUZBd5LDGOOw6zIRPLE2/thesis/result/gsd_lowband_quarter_fast_20261108_r6/preparation/quarter_deployment_context.zip",
+    "bytes": 8218583,
+    "sha256": "882e5879d687369dfa6c6433cc508f6dfea61e08c3f7ac4e4bf3c13d8994cab6"
+  },
+  "installed_files": 124,
+  "context": {
+    "operator_manifest": {
+      "bytes": 3808,
+      "sha256": "52ae65ff39e2a7733363720fb8e50af5847d5df0a7d5bc55f5d1a88214c5c9c5"
+    },
+    "source_snapshot": {
+      "bytes": 1220540,
+      "sha256": "a62a7e4284754de65e12b62c3e561fea20c8855bd5509199bf3cdb58835444b9"
+    },
+    "asset_manifest": {
+      "bytes": 203152,
+      "sha256": "e3f2802f4bc806197018e47bc6a33f9d3568d371a053790f15778606efe04998"
+    },
+    "operator_unbounded_manifest": {
+      "bytes": 4206,
+      "sha256": "152c3130c77a5e9713848ed3ac54705e52d6d27ffe37a287be9ac533a9a52524"
+    },
+    "time_window_waiver_sha256": "32421e2f706449d19f1777e0d88355095256c51fdc35c21949ca369d46a1d742"
+  },
+  "native_files": 10,
+  "fresh_native_backup": {
+    "bytes": 6455290,
+    "path": "/content/drive/.shortcut-targets-by-id/1tPaO3F7RvcItJUZBd5LDGOOw6zIRPLE2/thesis/result/gsd_lowband_quarter_fast_20261108_r6/recovery/20261108T114454Z/fresh_native_backup.zip",
+    "sha256": "260c7e98e02d9c3a8cf1d046e84881dca7d4547d83ed4f29a9020917ab948f0e"
+  },
+  "fresh_native_present": 10,
+  "old_alpha_or_caches_restored": false
+}

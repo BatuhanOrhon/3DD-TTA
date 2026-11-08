@@ -1,0 +1,20 @@
+{
+  "status": "fresh calibration accepted and freeze independently validated",
+  "alpha100": 4398.3843101977745,
+  "batch_size": 32,
+  "ratios_per_mode": 384,
+  "calibration_freeze": {
+    "bytes": 178240,
+    "sha256": "6f293cc40763ed3486076c1d478b8cdce976cdb9c977db4cc51e41df4bb0714f"
+  },
+  "batch_selection": {
+    "bytes": 4063,
+    "sha256": "7c177b0aaa72a2c5c47b54c088c3873421513b41d1f90c0d3a20ff3ba4bf69d8"
+  },
+  "archive": {
+    "path": "/content/studies/gsd-lowband-quarter-fast-20261108-r6/phase_packages/calibration.zip",
+    "drive": "/content/drive/MyDrive/thesis/result/gsd_lowband_quarter_fast_20261108_r6/phase_packages/calibration.zip",
+    "bytes": 142115354,
+    "sha256": "61c948f7e2495d59e435a54b2ef6c5e89dd19be0f6cceadbacef1ef0bd795ceb"
+  }
+}

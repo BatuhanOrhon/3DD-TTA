@@ -1,0 +1,19 @@
+{
+  "status": "fresh canonical setup downloaded and verified",
+  "bytes": 9005,
+  "sha256": "2b5bba7087d63a1c1243ee71c4a5564ec4c9e7a913e3ce5a5a2c08dd8112ea01",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "torch": "2.1.2+cu121",
+  "numpy": "1.21.2",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_memory_bytes": 85094825984,
+  "remote_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+  "native_checks": [
+    "CUDA tensor sum",
+    "FPS",
+    "KNN",
+    "Chamfer identical input",
+    "EMD finite output"
+  ],
+  "scope": "setup validation; no research accuracy"
+}

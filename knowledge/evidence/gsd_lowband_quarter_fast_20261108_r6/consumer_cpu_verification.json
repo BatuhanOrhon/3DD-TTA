@@ -1,0 +1,66 @@
+{
+  "acceptance_and_waiver_tests": 33,
+  "actual_runtime_assignment": {
+    "bytes": 606,
+    "sha256": "5fe810a8d0e80ad3ab55a142fb2ec5dab549c0989e2c8fb5d4e28f510521fb02"
+  },
+  "cli_timeout_seconds": 180,
+  "finite_screen_transfers": 40,
+  "global_deadline": "None only with explicit --no-time-window and exact historical waiver+budget validation",
+  "historical_budget": {
+    "bytes": 655,
+    "sha256": "5986cce0f6074a842791316b1ba9f96159dd6a1c0611019c0ff26f3448a9bbdf"
+  },
+  "historical_waiver": {
+    "bytes": 1198,
+    "sha256": "32421e2f706449d19f1777e0d88355095256c51fdc35c21949ca369d46a1d742"
+  },
+  "python38_files": 10,
+  "scope": "r5_unbounded copy with only r6 ROOT/Drive/session retarget; original r5 files untouched",
+  "source_files": {
+    "accept_fast617.py": {
+      "bytes": 25706,
+      "sha256": "c27c8eae4213695d2bd20d17417eee2048547106e5da4e2a54ef887391d9ec58"
+    },
+    "accept_phase.py": {
+      "bytes": 14010,
+      "sha256": "b06abbc33cd40ed2cebb608dd1feae119d8ad5a52c375dfbf7f34c18ce4795c9"
+    },
+    "analyze_fast617.py": {
+      "bytes": 11137,
+      "sha256": "6c4d0b666d7a07f2c4b2a0d3b66c638e7a0ef181e2d1faf18ce6fea34332e0bd"
+    },
+    "download_bundle.py": {
+      "bytes": 6223,
+      "sha256": "7b04cd357846f9c55b93e9912e813fc1a14d7bcbcea472207ff519cc5e5d3ace"
+    },
+    "selfcheck_transfer.py": {
+      "bytes": 19357,
+      "sha256": "d7ebd90fd109d5a7d43d9e6af701b86c3bde4f3c2fa72448d1992ee3d5e36c6b"
+    },
+    "test_accept_fast617.py": {
+      "bytes": 21483,
+      "sha256": "9cc83694c5baa8af2db0a8c32ddc1f98c4cf8771ddb42ef7400baf776ba5dd58"
+    },
+    "test_accept_phase.py": {
+      "bytes": 11700,
+      "sha256": "cf1b9f76ce05260e55edb11a30ded300a116e451ee138cf34be7c43fcd4dcad5"
+    },
+    "test_time_window_consumer.py": {
+      "bytes": 5563,
+      "sha256": "ced01da350157e0151b0910734be26709be692e2c3e392831c667c2a8cc1b976"
+    },
+    "time_window.py": {
+      "bytes": 1698,
+      "sha256": "ca8a662828002962a99bf06dc89e47e109e22c6b8410a4ca4ae4d0597374349c"
+    },
+    "transfer_daemon.py": {
+      "bytes": 15321,
+      "sha256": "11b011ceb4fd44738c76e2c795eb016b9c625b30debfc894c98551efaaa6611f"
+    }
+  },
+  "status": "CPU verified; no CLI, deployment or GPU actions",
+  "tests_seconds": 12.64,
+  "transfer_selfcheck": "passed",
+  "worker_timeout_seconds": 7200
+}

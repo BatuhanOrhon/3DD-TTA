@@ -1,10 +1,12 @@
-**[User decision/Run/Open] 2026-11-08 — owned r6 comparison preparation:**
-[Current r6 runtime and retained protocol](gsd_lowband_quarter_comparison_r6_20261108.md).
-Unknown/peer sessions preserved. Own High-RAM A100 r6 allocated after one503;
-cell1/reconnect pass,80GB verified, Drive consent completed. Global time window
-explicitly removed by user; all scientific/numeric/archive gates retained.
-Reuse validated B32 resources only; fresh R6 calibration and617 comparison pending.
-Earlier r5 running/WAIT_USER entries are dated history, not current accuracy.
+**[Run/Accepted/Open] 2026-11-08 — owned r6 25% comparison:**
+[Current r6 record and fixed protocol](gsd_lowband_quarter_comparison_r6_20261108.md).
+Canonical10/native/data/checkpoint checks, Drive+Mac source/native archives and
+fresh64/384 B32 calibration accepted; alpha1004398.3843101977745 frozen.
+FD+actual41tail pass; repeat gate fails29/30 B32 cases, including SCD itself.
+Proceeding with fixed617/2468 test IDs/all15/three-arm descriptive comparison;
+small gains cannot establish isolated guidance. Global time window waived;
+all source/archive/finite-worker gates retained. Peer/unknown sessions untouched.
+Earlier r5 entries are dated history; no new617 accuracy is claimed here.
 
 **[User decision/Run/Open] 2026-11-08 — existing r5 resumes after audited idle state:**
 [Recovery evidence and current state](gsd_lowband_quarter_fast_retry_r5_20261108.md).

@@ -2862,3 +2862,12 @@ remain before deployment. R6 CPU fork independently reviewed,16core+4bootstrap+
 before any deployment; all10 sealed staging inputs uploaded to R6. No old alpha/
 cache reused; fresh64/384 calibration and617/all15/three arms still pending.
 See gsd_lowband_quarter_comparison_r6_20261108.md for exact identities/current state.
+
+[Run/Accepted/Open,2026-11-08T12:03UTC] Current R6 canonical10+deployment and
+fresh64/384 B32 calibration are Drive+Mac accepted; alpha1004398.3843101977745
+frozen. FD/actual41tail pass. Native repeat gate fails29/30 B32 batchcases
+(control-within0/6,live0-within0/6,cross1/18); operationalSCD itself drifts.
+This remains unresolved and forbids causal attribution from small gains.
+Predeclared617/all15/three-arm descriptive screen now begins with bounded
+40 transfers/Drive+Mac pre-ACK validation; no accuracy-based scope/weight change.
+Current source918780b; compact receipts knowledge/evidence/gsd_lowband_quarter_fast_20261108_r6/.
