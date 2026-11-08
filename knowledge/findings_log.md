@@ -9114,3 +9114,21 @@ M1002528=65.833333%. Primary0pp, conditional95%CI[-.572917,+.572917];
 M100-half0+.390625pp,CI[-.052734,+.833333]. No operationalgain; old16-ID+2.5pp
 still unreplicated. Same fixed617 protocol continues; native/posthoc-v2 caveats
 unchanged. partial_256_v2.json484b0b8f retained with all basis/legacy verdicts.
+
+### 2026-11-08 15:11 UTC — R6 first320 paired objects
+
+[Run/Partial/Open] SCD3176/4800=66.166667%,half03158=65.791667%,
+M1003173=66.104167%; primary−.0625pp,conditional95%CI[-.5625,+.4375].
+Five all15 paired shards/20 accepted jobs; no operational gain. Original-v1/
+native29/30 caveats persist; fixed617 continues. Full derived partial320 SHA
+3588903f9739b7545422b47fc33042f50bdfd1bfe98a38f8fd143ac51711100a and CPU
+progress note preserve this stage; avoid duplicating later overlapping dumps.
+
+### 2026-11-08 15:34 UTC — R6 first384 paired objects
+
+[Run/Partial/Open] SCD3745/5760=65.017361%,half03726=64.6875%,
+M1003740=64.930556%; primary−.086806pp,conditional95%CI[-.538194,+.364583].
+Six all15 shards/24 accepted jobs; no operational accuracy gain. Fixed617
+continues; native29/30 and posthoc-v2 caveats remain. Full derived partial384
+SHAa28831c771ff1b7c98dc19b042511f4747c01420936b342a4009f8ea5dfa7c82 and
+CPU progress note preserve this stage. Source/alpha/B32/cohort unchanged.

@@ -2902,3 +2902,11 @@ established. Continue fixed617; original-v1 and native failure caveats remain.
 both2528/3840=65.833333%,half02513=65.442708%; primary0pp,95%conditionalCI
 [-.572917,+.572917]. Testcoverage10.372771%, fixed617 notfinished. Continue
 unchanged; no+2.5pp replication or native-stability claim.
+
+[Run/Partial/Open,2026-11-08T15:11UTC] Latest320 paired objects:
+SCD3176/4800,M1003173,half03158; primary−.0625pp,conditional95%CI[-.5625,.4375].
+Still no operational gain; continue fixed617 with unchanged failure caveats.
+
+[Run/Partial/Open,2026-11-08T15:34UTC] Latest384 paired objects:
+SCD3745/5760,M1003740,half03726; primary−.086806pp,conditional95%CI
+[-.538194,.364583]. Six all15 shards accepted, no gain; continue fixed617.

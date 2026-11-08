@@ -40,3 +40,29 @@ Coverage: {"actual_prepared_caches": 90, "cache_jobs": 3, "inference_jobs": 9, "
 - half0_vs_control: -0.390625pp; conditional object-cluster95%CI [-0.9635416666666667, 0.18229166666666666]pp.
 
 Coverage: {"actual_prepared_caches": 120, "cache_jobs": 4, "inference_jobs": 12, "objects": 256, "predictions_per_arm": 3840, "shards": 4}. Legacy v1 projection failures retained: [{"label": "shard001_half0", "absolute_error": 0.0, "arithmetic": "fp64_per_object_energy_then_producer_dtype_left_fold", "case": "background/1", "legacy_absolute_error": 1.10527247443315e-06, "legacy_fp64_sum": 8.81187358757228, "legacy_gate_passed": false, "object_order": "archived_batch_order", "passed": true, "per_object_count": 32, "per_object_energy_dtype": "float64", "producer_dtype": "float32", "producer_replayed_sum": 8.811872482299805, "schema_version": 2, "tolerance": 1e-06, "validator_version": "basis-fp32-v2"}]. Partial screen decision remains null; final617 decision reserved for primary operator.
+
+## 2026-11-08T15:11:53.409281+00:00 — new paired cohort
+
+[Run/CPU derived] `result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/derived/partial_320_v2.json`; SHA256 `3588903f9739b7545422b47fc33042f50bdfd1bfe98a38f8fd143ac51711100a`. All15 corruptions, seed0; only complete cache/control/half0/M100 ACK sets.
+
+- control PM: 3176/4800 = 66.166667%.
+- half0 PM: 3158/4800 = 65.791667%.
+- M100 PM: 3173/4800 = 66.104167%.
+- M100_vs_control: -0.062500pp; conditional object-cluster95%CI [-0.5625000000000001, 0.4375000000000001]pp.
+- M100_vs_half0: 0.312500pp; conditional object-cluster95%CI [-0.10416666666666671, 0.7291666666666666]pp.
+- half0_vs_control: -0.375000pp; conditional object-cluster95%CI [-0.8958333333333334, 0.12500000000000006]pp.
+
+Coverage: {"actual_prepared_caches": 150, "cache_jobs": 5, "inference_jobs": 15, "objects": 320, "predictions_per_arm": 4800, "shards": 5}. Legacy v1 projection failures retained: [{"label": "shard001_half0", "absolute_error": 0.0, "arithmetic": "fp64_per_object_energy_then_producer_dtype_left_fold", "case": "background/1", "legacy_absolute_error": 1.10527247443315e-06, "legacy_fp64_sum": 8.81187358757228, "legacy_gate_passed": false, "object_order": "archived_batch_order", "passed": true, "per_object_count": 32, "per_object_energy_dtype": "float64", "producer_dtype": "float32", "producer_replayed_sum": 8.811872482299805, "schema_version": 2, "tolerance": 1e-06, "validator_version": "basis-fp32-v2"}]. Partial screen decision remains null; final617 decision reserved for primary operator.
+
+## 2026-11-08T15:34:17.742361+00:00 — new paired cohort
+
+[Run/CPU derived] `result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/derived/partial_384_v2.json`; SHA256 `a28831c771ff1b7c98dc19b042511f4747c01420936b342a4009f8ea5dfa7c82`. All15 corruptions, seed0; only complete cache/control/half0/M100 ACK sets.
+
+- control PM: 3745/5760 = 65.017361%.
+- half0 PM: 3726/5760 = 64.687500%.
+- M100 PM: 3740/5760 = 64.930556%.
+- M100_vs_control: -0.086806pp; conditional object-cluster95%CI [-0.5381944444444445, 0.3645833333333334]pp.
+- M100_vs_half0: 0.243056pp; conditional object-cluster95%CI [-0.15625000000000003, 0.6423611111111112]pp.
+- half0_vs_control: -0.329861pp; conditional object-cluster95%CI [-0.7986111111111113, 0.1388888888888889]pp.
+
+Coverage: {"actual_prepared_caches": 180, "cache_jobs": 6, "inference_jobs": 18, "objects": 384, "predictions_per_arm": 5760, "shards": 6}. Legacy v1 projection failures retained: [{"label": "shard001_half0", "absolute_error": 0.0, "arithmetic": "fp64_per_object_energy_then_producer_dtype_left_fold", "case": "background/1", "legacy_absolute_error": 1.10527247443315e-06, "legacy_fp64_sum": 8.81187358757228, "legacy_gate_passed": false, "object_order": "archived_batch_order", "passed": true, "per_object_count": 32, "per_object_energy_dtype": "float64", "producer_dtype": "float32", "producer_replayed_sum": 8.811872482299805, "schema_version": 2, "tolerance": 1e-06, "validator_version": "basis-fp32-v2"}]. Partial screen decision remains null; final617 decision reserved for primary operator.

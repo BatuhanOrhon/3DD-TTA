@@ -300,3 +300,28 @@ or+2.5pp claim. Fifthshard half0 running, fixed617 continues without tuning.
 Full partial_256_v2.json SHA484b0b8f58ca22cc44a4ce2f8e1a15b0148cb0a6dba2cda72a618d519aa9593e
 is preserved in derived and current v2 compact evidence; local CPU progress
 note records the same accepted counts and intervals. No oldB2 pooling.
+
+### 2026-11-08 15:11 UTC — 320 paired objects; primary−.0625pp
+
+[Run/Partial/Open] Five complete paired shards/20 accepted jobs,320 objects,
+4800 predictions per arm: SCD3176=66.166667%,half03158=65.791667%,
+M1003173=66.104167%. Primary−.0625pp,conditional object-cluster95%CI
+[-.5625,+.4375]; M100-half0+.3125pp,CI[-.104167,+.729167]. No operational
+accuracy gain established. Original v1 failure remains once; native failure
+29/30 unresolved. Keep617 fixed, no partial stopping or expansion. Full derived
+partial_320_v2.json3588903f9739b7545422b47fc33042f50bdfd1bfe98a38f8fd143ac51711100a
+and per-stage logs remain under result/; CPU progress note preserves the metrics
+and SHA. Later overlapping partial dumps stay local, with final617 evidence
+selected for integration. Sixthshard M100 running.
+
+### 2026-11-08 15:34 UTC — 384 paired objects; primary−.086806pp
+
+[Run/Partial/Open] Six complete all15 paired shards/24 accepted jobs:
+384 objects,5760 predictions/arm. SCD3745=65.017361%,half03726=64.6875%,
+M1003740=64.930556%. Primary−.086806pp,conditional object-cluster95%CI
+[-.538194,+.364583]; M100-half0+.243056pp,CI[-.15625,+.642361]. Still no
+operational gain or oldpilot+2.5pp replication. Fixed617 continues with original
+native29/30 and posthoc-v2 caveats. Full derived partial384 SHA
+a28831c771ff1b7c98dc19b042511f4747c01420936b342a4009f8ea5dfa7c82;
+metrics/coverage/CI/SHA preserved in CPU progress note; full overlapping derived
+JSON remains local. Seventhshard SCD runs. No new GPU retry or source change.
