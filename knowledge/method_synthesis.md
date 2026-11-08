@@ -1,3 +1,17 @@
+## 2026-11-08 — primary-paper mapping and cheap-correction contribution boundary
+
+[Paper/Code/Run/Inference] [Detailed integration audit](lion_integration_originality_audit_20261108.md)
+compares original methods step by step with actual LION code. The strongest
+specific adaptation is the frozen bidirectional95%-trimmed latent Chamfer
+quadratic plus pointwise solve and fixed-epsilon DDIM previous-alpha transport,
+with sparse clean/terminal PM readouts. It is not exact original-SCD gradient,
+full G&G/Spin, a new generic proximal map, or first backward-free3DTTA.
+Current macro14 operational result supports an accuracy-cost improvement;
+the later all15 extension is a speed/accuracy tradeoff and fails the frozen
+accuracy margin. Causal contribution versus same-style unguided remains distinct.
+GSD/PxP and semantic/feature variants retain their own negative/null evidence.
+No new model run, source/default change or general novelty guarantee.
+
 ## Physical decoded-X spectral hypothesis — 2026-11-03
 
 [User report/Code/CPU/Run/Open] [H7 plan, implementation and owned Colab gate](decoded_physical_spectral_study_20261103.md)

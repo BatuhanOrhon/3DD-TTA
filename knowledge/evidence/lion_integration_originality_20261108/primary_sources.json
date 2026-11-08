@@ -1,0 +1,47 @@
+{
+  "review_base": "117b7f9e807999ac8df74db79eaf74a32e5463f6",
+  "primary_retrievals_with_new_byte_receipts": [
+    {
+      "id": "guess_guide_v1",
+      "url": "https://arxiv.org/html/2603.07860v1",
+      "resolved_url": "https://arxiv.org/html/2603.07860v1",
+      "bytes": 761734,
+      "sha256": "e0c4474c51fe821235271e8e44a86d366e2fc96d3bedfd3e088fe133df1e8791",
+      "retrieved_utc": "2026-11-08T16:24:17.098462+00:00",
+      "status": "retrieved_primary",
+      "scope": "relevant method sections, not full experimental replication"
+    },
+    {
+      "id": "spin_v3",
+      "url": "https://arxiv.org/html/2603.07860v3",
+      "resolved_url": "https://arxiv.org/html/2603.07860v3",
+      "bytes": 1443345,
+      "sha256": "db6d8eff925a2fbf7ba56c289fa615d39b3cdd3e0002ca54b37de4ba8f01c182",
+      "retrieved_utc": "2026-11-08T16:24:17.117537+00:00",
+      "status": "retrieved_primary",
+      "scope": "relevant method sections, not full experimental replication"
+    },
+    {
+      "id": "piecewise_v1",
+      "url": "https://arxiv.org/html/2507.18654v1",
+      "resolved_url": "https://arxiv.org/html/2507.18654v1",
+      "bytes": 275556,
+      "sha256": "e13ac1d6af7636cd49b858e277d76c1ffcb52b11feb38acca4b6044c9ec90e70",
+      "retrieved_utc": "2026-11-08T16:24:17.053397+00:00",
+      "status": "retrieved_primary",
+      "scope": "relevant method sections, not full experimental replication"
+    },
+    {
+      "id": "cloudfixer",
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603.pdf",
+      "resolved_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603.pdf",
+      "bytes": 1408151,
+      "sha256": "5d180bd056c3f20272751ec48f9b2f6f8c2b7f2e49421b4e09f8f19eaecdbba9",
+      "retrieved_utc": "2026-11-08T16:24:17.213242+00:00",
+      "status": "retrieved_primary",
+      "scope": "relevant method sections, not full experimental replication"
+    }
+  ],
+  "other_primary_method_reads": "See report Appendix C; primary browser method-section reads, no new byte receipt claimed.",
+  "excluded": "No primary full paper text, PDF, weights, archives or temporary agent drafts are published."
+}

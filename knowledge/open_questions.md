@@ -1,3 +1,16 @@
+## 2026-11-08 — LION integration originality separated from effectiveness
+
+[Paper/Code/Inference/Open] [Primary-paper and executed-code audit](lion_integration_originality_audit_20261108.md).
+
+- [x] Explain LION/3DD inherited architecture, latent SCD and actual local/style gradients.
+- [x] Separate retrospective PM precedents from documented historical inspirations.
+- [x] Trace trimmed bidirectional latent quadratic, fixed-epsilon DDIM transport and real executed source; distinguish Spin pixel-space optimization and CloudFixer transformation variables.
+- [x] Map GSD/PxP, sparse, KL/H, density, correspondence and causal-feature variants without relabeling null/negative outcomes successful baseline components.
+- [x] Keep two-dataset/four-head PM transfer separate from the accepted one-head full macro14 speed record; B128 amortized time is not B1 latency.
+- [ ] Establish nonzero cheap correction benefit against a same-style unguided control before attributing the speed result specifically to the proximal mechanism; no new run authorized here.
+- [ ] Locate source/protocol-bound eight-endpoint cheap-speed evidence if the user-reported broader result is to enter the run-backed record.
+- [ ] Extend the closest-prior comparison before any first-use or strong algorithmic novelty claim; generic PM/proximal/PCGrad primitives are established.
+
 ## 2026-11-07 — conversation-wide completion and unrun stages clarified
 
 [Run/CPU/Inference/Open] [Chronological inventory](gsd_session_test_inventory_20261107.md) is the current cross-phase accounting; dated checklists below retain their original scope/history.

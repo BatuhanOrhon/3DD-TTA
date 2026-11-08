@@ -8,6 +8,18 @@ is accuracy-only; no terminal-only latency. Independent full raw/count/time/CI
 review passed. No retuning/default promotion. Owned speed r5 and monitor16794
 remain live; source and complete raw archives are Drive/local verified.
 
+**[Paper/Code/Run/Inference] 2026-11-08 — LION paper-to-code originality audit:**
+[Step-by-step primary-paper and actual-source comparison](lion_integration_originality_audit_20261108.md)
+separates PM's retrospective precedents, LION/3DD inherited behavior and the
+specific frozen bidirectional-trimmed latent Chamfer solve/DDIM bridge.
+Generic ensembling/proximal/backward-free principles are established; the
+particular integration is a concrete adaptation, with no first-use proof.
+Secondary GSD/PxP, sparse, semantic, density and feature experiments are mapped
+separately. The accepted80/148/107ms record is Point-MAE/ModelNet macro14/B128,
+not an eight-endpoint cheap-speed result. The later all15 extension saves29.5625%
+with-.2863pp/CI[-.4727,-.0972], failing the frozen accuracy margin; macro14
+remains qualified. No new GPU/runtime/default changes.
+
 **[Run/CPU/Open] 2026-11-08 — full macro14 speed result accepted; Background extension running:**
 [Validated report](lion_guidance_macro14_results_20261108.md): all 2,468 IDs, seed0,
 common B128, three disjoint runtime groups. Cheap guidance uses 27.6721% less

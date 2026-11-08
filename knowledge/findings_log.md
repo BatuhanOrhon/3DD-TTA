@@ -9232,3 +9232,56 @@ Owned `tta-lion-guidance-speed-a100-20261108-r5`/monitor16794 preserved; no tear
 
 
 [Run/CPU] 2026-11-08T16:27:46.152326+00:00: Final all15 derived bundle Drive-roundtrip verified:759,531bytes,SHAe6b5bd63c9947e310927a2f1e10d229abd4f043d9475398986a02b9e15ff3bed,34members/all member identities andCRC passed. Includes accepted all15/N8terminal CSV/summary, reports, exact host acceptance/composition/derivation sources, independent review and source/raw/sealed-macro14 receipts. Drive `MyDrive/thesis/result/lion_guidance_background_20261108_r5/all15_derived_results_20261108T162703Z.zip`. Receipt is outside its own sealed bundle; later publication metadata is separately recorded. Raw/source/native archives remain separate and unchanged.
+
+## 2026-11-08 — primary-paper to LION integration and originality audit
+
+[Paper/Code/Run/Inference/Open] Reviewed clean shared base
+`117b7f9e807999ac8df74db79eaf74a32e5463f6` on
+`research/lion-integration-originality-20261108`; dirty original checkout and
+all peer source/runtime operations preserved. [Detailed Turkish audit](lion_integration_originality_audit_20261108.md)
+reads core primary method sections and traces current/historical executed code.
+PM's TEDM/Wang/Li precedents were identified retrospectively, not recorded as
+historical direct inspiration. GSDTTA/PixelAsParam and Oct30 sparse/semantic/
+density antecedents retain their documented roles. Existing methods, later
+related work, unimplemented proposals and negative/null experiments remain distinct.
+
+[Code/Inference] `lion_guidance_pilot.py` is byte-identical to actual macro14
+scientific source `af90b34` (SHAce79086a…8584c7d0). The cheap correction freezes
+both directed95%-trimmed NN edge sets, solves the incident-edge quadratic
+pointwise with scatter-add multiplicities and transports only clean latentXYZ
+through actual previous DDIM alpha with epsilon fixed. The proximal formula,
+backward removal and temporal averaging themselves are prior art. Direct
+latent correction without per-step decode/reencode and its LION integration
+are concrete adaptations; no literature-wide first-use proof or exact Spin
+posterior/convergence theorem transfer is established. GSD fidelity differs
+from learned physical shift/model adaptation; PCGrad-style routing differs
+from full PixelAsParam direction decomposition.
+
+[Run] Existing accepted evidence is reused, not recomputed: speed macro14
+`result/modelnet40_c/lion_guidance_speed/analysis/20261108T1501Z_full14_three_runtimes/`
+and compact `knowledge/evidence/lion_guidance_speed_20261107/macro14_final_20261108.json`:
+Point-MAE/2468IDs/14types/s5/seed0/B128; N5terminal64.051285%, N8terminal64.896388%,
+N8PM66.137995%, cheap66.088794%;80.383/148.318/107.275ms amortized for timed arms.
+PM own-terminal+1.241607pp; cheap-N8PM-.049201pp and27.672109% time reduction.
+This remains distinct from Oct31 two-dataset/four-head140-ID/three-seed transfer.
+User report of eight positive accuracy/speed settings is preserved as a report;
+the specific eight-endpoint cheap archive binding was not found in the audited record.
+
+[Validation] Primary URLs/versions/sections, source file SHA/symbol positions,
+actual-source comparison, local Markdown links and diff hygiene checked.
+No model/native inference, raw-archive reacceptance, new bootstrap, runtime
+operation or production change. Primary venue403/timeouts use explicitly
+identified arXiv method text; no claim of fresh visual verification for those pages.
+Decision: an incremental integration/empirical contribution is defensible;
+strong independent algorithmic novelty remains unproven. Falsifiers: a closer
+identical prior pipeline, a failed same-protocol result, or an unguided/style-
+matched control explaining the purported nonzero correction advantage.
+
+[Run/Inference, same review later update] Before publication, reconciled new
+origin/thesis-integration44af62a: completedBackground/all15 composite uses
+N5terminal63.854673%, N8PM66.015667%, cheap65.729335%;104.452/169.922/119.689ms.
+Cheap saves29.562521% but loses.286332pp,CI[-.472717,-.097245]pp and fails
+frozen-.3pp noninferiority; Background alone loses3.606159pp. Macro14 passes
+remain valid and separate. Report and readiness amendment preserve both scopes.
+Read-only independent PM review also removed unsupported wording that the
+user-recorded local proposal was necessarily independent of external inspiration.

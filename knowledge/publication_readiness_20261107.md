@@ -1,3 +1,16 @@
+## Later 2026-11-08 — speed evidence and originality mapping now available
+
+[Run/Code/Inference] The dated Nov7 assessment below predates the accepted
+[full macro14 speed result](lion_guidance_macro14_results_20261108.md).
+[New primary-paper/code audit](lion_integration_originality_audit_20261108.md)
+identifies the concrete latent trimmed-Chamfer quadratic/DDIM adaptation and
+separates generic prior principles, retrospective PM attribution and secondary
+null variants. The27.6721% saving is Point-MAE/ModelNet/seed0/B128, not an
+all15/eight-endpoint speed claim or proof of independent algorithmic novelty.
+The later [all15 extension](lion_guidance_all15_results_20261108.md) saves29.5625%
+but fails the accuracy noninferiority margin; its Background loss is preserved.
+Earlier no-joint-speed statements are dated history for their stated phases.
+
 # Tez ve yayın hazırlığı değerlendirmesi — 7 Kasım 2026
 
 [Inference/Decision] Mevcut kanıt, GSD üstünlüğünü merkez alan yeni-yöntem makalesini desteklemiyor. Buna karşılık kontrollü deney, olumsuz sonuç, yeniden üretilebilirlik ve trajectory readout analizi üzerine bir yüksek lisans tezi için ciddi içerik var. Tez kabulü kurum/danışman/jüriye; makale kabulü hedef yayın ve hakemlere bağlıdır. Bu bir kabul garantisi veya kurum yeterlilik kararı değildir.

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-08T16:35:40.320537+00:00",
+  "review_base": "117b7f9e807999ac8df74db79eaf74a32e5463f6",
+  "reconciled_target": "44af62acf4301b785c53b6819e9f5875698ff3e8",
+  "local_report_links_checked": 14,
+  "code_file_sha_identities_checked": 22,
+  "actual_scientific_kernel_byte_equality": true,
+  "macro14_and_all15_receipts_reconciled": true,
+  "independent_read_only_review": "PM/LION/source attribution; unsupported independence wording corrected",
+  "production_changes": false,
+  "new_inference": false,
+  "raw_zip_reacceptance": false,
+  "scope": "documentation/source identity and accepted receipt verification only; not new accuracy or global-novelty proof"
+}

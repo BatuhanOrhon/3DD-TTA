@@ -1,0 +1,126 @@
+{
+  "review_base": "117b7f9e807999ac8df74db79eaf74a32e5463f6",
+  "scientific_source": "af90b34",
+  "purpose": "read-only paper-to-code mapping, no model execution",
+  "files": [
+    {
+      "path": "tta.py",
+      "bytes": 15467,
+      "sha256": "0cd304c77b26729a4e3f839f2199878dbb99bbcd541d4b8a259387ae56f3cb5f"
+    },
+    {
+      "path": "models/latent_points_ada.py",
+      "bytes": 11854,
+      "sha256": "b9c20d6e9b1f6ffd0c8987055b696aaea552489e1db7c3e1d0181d83fe1cc798"
+    },
+    {
+      "path": "models/latent_points_ada_localprior.py",
+      "bytes": 4113,
+      "sha256": "1769fb9d3e29c5bac5c77aef5b832cbc061d365ba76b2fcec98b980af45c9c45"
+    },
+    {
+      "path": "lion_guidance_pilot.py",
+      "bytes": 13484,
+      "sha256": "ce79086ae259682895274d2d3f8324098799665b0ffbbec6df3f740c8584c7d0"
+    },
+    {
+      "path": "scripts/run_lion_guidance_speed.py",
+      "bytes": 27847,
+      "sha256": "56dcf2346edd41fa3dbbf9a3d1f7cf3266ee88cd029391fb1cc6d7980ff8b831"
+    },
+    {
+      "path": "scripts/analyze_legacy_trajectory.py",
+      "bytes": 25331,
+      "sha256": "37932e4af9d524d45dadfbc7225d2365e4f9629439d97ea9f7e4e0698bf876ac"
+    },
+    {
+      "path": "shared_trajectory.py",
+      "bytes": 7222,
+      "sha256": "35f688c100bd7ddc9b8a5ec0dcb754251970b3d058b59ce1677e4a5dca24bc3d"
+    },
+    {
+      "path": "legacy_trajectory.py",
+      "bytes": 13563,
+      "sha256": "bc6d77539445fc916aacaadf2b956e539daf19d2e328f47718a7abf724c280db"
+    },
+    {
+      "path": "scripts/eval_chamfer_baseline.py",
+      "bytes": 1783,
+      "sha256": "80079ac6336acb206941743099e48d447e340d0ca81b80aae2b98e418d752f31"
+    },
+    {
+      "path": "scripts/eval_chamfer_depth.py",
+      "bytes": 16521,
+      "sha256": "f10df266a4bbc068df4b9cf9459d1a2e4f880f0ef974de69ade306a66edb6b12"
+    },
+    {
+      "path": "graph_spectral.py",
+      "bytes": 22541,
+      "sha256": "eac3fb674867607c074edcda6ea6b61018b5b484c05cf2a81da043294590b7da"
+    },
+    {
+      "path": "graph_spectral_v2.py",
+      "bytes": 5145,
+      "sha256": "1cadd63642dc58bb0aa22969c08e00e4c9dd597696cf53107dbe081d3c68807e"
+    },
+    {
+      "path": "tta_gsd.py",
+      "bytes": 29491,
+      "sha256": "969af0719feb35dbb1a3d969c2841bd93bc9366191dfe2f13fed8fd5c4292517"
+    },
+    {
+      "path": "tta_gsd_v2.py",
+      "bytes": 16735,
+      "sha256": "e732bfc44f9a5e26bd0d505f34b97ad54a3e4157b8104752d0f8a2b84f444079"
+    },
+    {
+      "path": "gsd_composition.py",
+      "bytes": 9668,
+      "sha256": "a252559a9dab5c6f71fd1407c9b3a63f33d76c2735ddc33ef5bf6a16220d8793"
+    },
+    {
+      "path": "semantic_trajectory.py",
+      "bytes": 7997,
+      "sha256": "6cefaab5fe55b4a9efc3d4984fd677dec5dc9774a4957c6195a79d1bb27471dc"
+    },
+    {
+      "path": "chamfer_guidance_variants.py",
+      "bytes": 5080,
+      "sha256": "23fb6c4266b1051867543d91eb6cc6776f29a962844a4b7360c41580d3254ef0"
+    },
+    {
+      "path": "decoded_spectral.py",
+      "bytes": 11362,
+      "sha256": "9cac62411164c6d1397b3aa246df05bcd448d588635bf16b7419f5ba1ad684e3"
+    },
+    {
+      "path": "spectral_guidance_losses.py",
+      "bytes": 1452,
+      "sha256": "937c73a00165b0cff0792776dba4c6ba25a66b08e82bf28c399657a3c02381b4"
+    },
+    {
+      "path": "gsd_composition_protocol.py",
+      "bytes": 37010,
+      "sha256": "0217f7e617b4e606b827e5fb662a19b3cde780846af4061063960a4aedef0656"
+    },
+    {
+      "path": "models/vae_adain.py",
+      "bytes": 14667,
+      "sha256": "a6b91bbc21b28f5c08651ef1ecdfbd6e31ef2318c22cf1b01ea8593aa46548b0"
+    },
+    {
+      "path": "scripts/eval_multibackbone_guidance.py",
+      "bytes": 67910,
+      "sha256": "a59f1cbf966b597bdff84f7800cbb4efff23b1253039e53ee41fee41a8d52a93"
+    }
+  ],
+  "executed_kernel_witness": {
+    "revision": "af90b34",
+    "path": "lion_guidance_pilot.py",
+    "current_byte_identical": true,
+    "sha256": "ce79086ae259682895274d2d3f8324098799665b0ffbbec6df3f740c8584c7d0",
+    "runner_changes": "Background phase and protocol metadata; macro14 continuation AST witness retained in existing evidence"
+  },
+  "symbol_locations": "Relevant function and line anchors are recorded in the report; no redundant complete symbol dump.",
+  "reconciled_target": "44af62acf4301b785c53b6819e9f5875698ff3e8"
+}
