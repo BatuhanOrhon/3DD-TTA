@@ -16,7 +16,7 @@ User instruction: promote the validated speed method as the operational baseline
 - [x] RED tests: default/legacy preview, frozen-profile validation before asset access, scope/batch/readout invariants, worker primaryPM+terminal diagnostics, direct cheap adapter state/RNG/decode semantics and scheduler observability.
 - [x] Extend only the existing baseline entrypoint, depth geometry horizon selection/known profile, sampler optional scheduler observer and shared-worker optional backend callback. Reuse existing preparation/observer/artifact machinery; no new inference framework or dependency.
 - [x] GREEN targeted and project tests; independent review and verification. Preserve all prior math/default paths and source snapshots.
-- [ ] Update current_baseline/README/protocol/findings/research status and add planned terminal-only experiment with explicit NOT_RUN status. Publish necessary code/tests/docs to shared branch normally; no new GPU benchmark claim.
+- [x] Update current_baseline/README/protocol/findings/research status and add planned terminal-only experiment with explicit NOT_RUN status. Publish necessary code/tests/docs to shared branch normally; no new GPU benchmark claim.
 
 ## Future experiment (registration only)
 
@@ -27,3 +27,5 @@ Compare classic tunedN8 terminal SCD with cheapN8 terminal (tau=.1), both withou
 875 CPU tests passed,2skipped,564subtests passed; full run50.36s. A cold-process source-freeze regression reproduced the lazy policy import blocker before repair. Native-free preview/legacy dispatch and both-dataset/four-head worker fixtures pass. Independent review and metadata distinguish reference rates, cache/audit/RNG overhead and float64 PM from the accepted float32 speed host. No GPU smoke/rebenchmark or runtime allocation.
 
 The user also requests a future pre-softmax class-logit mean comparison. Registered at `knowledge/plans/logit_mean_readout_20261108.md`, refining the existing25October question with checked Li et al. arXivv3 B.4/D attribution. It remains NOT_RUN. The terminal-only plan now includes matched N5/N8 pairs, with future N5cheap implementation explicitly pending.
+
+Implementation and knowledge published normally to `origin/thesis-integration` at `64e447f7ff85091bef51be75ba5b7dd1dc47684d`; follow-up metadata records this identity.

@@ -35,7 +35,10 @@ IDs/candidates, matched precision, per-corruption paired counts/CIs and scale
 diagnostics. Positive CI-crossing-zero is inconclusive; gain is unknown.
 No LM computation, baseline LM replacement or runtime allocation occurred.
 All prior negative results, incomplete peer617 screen and verified runtime
-closures are preserved. Publication record and final CPU count follow below.
+closures are preserved. Normal fast-forward publication to `origin/thesis-integration`:
+`64e447f7ff85091bef51be75ba5b7dd1dc47684d`. Full CPU verification:875passed,2skipped,
+564subtests,7warnings/50.36s; staged diff and new local plan links pass.
+[Promotion/source/test receipt](evidence/lion_guidance_speed_20261107/baseline_promotion_20261108.json).
 
 ## 2026-10-30 — Scan DGCNN published checkpoint verified; gap remains open
 

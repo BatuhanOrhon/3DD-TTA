@@ -71,5 +71,6 @@
     "No new LM reduction implementation or outcome",
     "No PM-off/N5cheap implementation or GPU launch"
   ],
-  "publication": "Resulting implementation integration commit is recorded in findings_log after publication; this receipt is included in that commit"
+  "publication": "Normal fast-forward push to origin/thesis-integration completed; this follow-up records publication identity only.",
+  "implementation_integration_commit": "64e447f7ff85091bef51be75ba5b7dd1dc47684d"
 }
