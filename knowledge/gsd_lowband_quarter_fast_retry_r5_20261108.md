@@ -205,3 +205,20 @@ profile status before calibration, while all resource measurements remain valid.
 No617 inference accuracy or frozen new alpha exists yet. New controllers will
 reuse this validated selection and caches only at their declared scope, then
 perform fresh384-row calibration/technical checks before the comparison.
+
+## R5 assignment loss and owned R6 continuation
+
+[Run/Failed/Open] Original R5 monitor inventory timed out10:22:47UTC, then
+server inventory reports assignment missing10:26:34 through10:31:35. Local
+monitor stopped10:32:33 with runtime_teardown=false; no VM stop was issued.
+The accepted resource profile/context remain preserved; new calibration,
+technical checks and617 inference never launched on R5. No OOM/root-cause
+evidence exists, so this loss is not labeled a RAM failure.
+
+[User decision/Run] User rejects ownership/use of the unknown A100 and explicitly
+authorizes a new own session if R5 is gone, protecting peer runtimes. Read-only
+10:49 inventory lacks R5. Own r6 subsequently allocated10:56:29 after an audited
+503/no-assignment attempt and same-name retry. Current continuation is
+[owned R6 comparison](gsd_lowband_quarter_comparison_r6_20261108.md); historical
+R5 time projection/native/profile/source evidence stays unchanged. R6 reuses
+only the validated B32 resource choice, never R5 alpha/prepared states.
