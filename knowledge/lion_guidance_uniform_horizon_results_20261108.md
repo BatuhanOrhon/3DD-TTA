@@ -1,5 +1,12 @@
 # Common-horizon Background and all15 results — 2026-11-08
 
+[Later user decision/Code/Open] The user subsequently promotes cheapN8+PM as
+the [operational baseline](current_baseline.md). Accepted measurements below
+remain unchanged and belong to the original speed runner; the newly integrated
+artifact CLI has CPU checks only, with different overhead/RNG/PM precision.
+[PM-off terminal](plans/proximal_terminal_without_pm_20261108.md) and
+[Logit Mean](plans/logit_mean_readout_20261108.md) are future tests, NOT_RUN.
+
 [Run/CPU/Inference] **With N5 terminal and N8 candidates applied to every corruption, cheap N8+PM saves 27.673026% pipeline time with -0.013506 percentage-point accuracy difference.** All three same-margin diagnostic checks pass; the paired original-object95% interval is[-0.180983,0.153971]pp, above the −.3pp lower margin. This is a separate user-directed protocol revision after seeing historicalN35 results, not the untouched original primary test or unseen confirmation.
 
 [User decision/Run] The user rejects a special35-step Background horizon because corruption identity is unavailable at inference. This run changes only Background to the existing normal policy: N5terminal/gamma=eta=.01; tunedN8/gamma=.03,eta=.003; p=.95, PM[2,4,6,terminal]; cheapN8/tau=.1 unchanged. Original Background inputs/labels/name are retained; no corruption aliasing or label-dependent selection. Other14 results are reused byte-for-byte. Every corruption now has the same horizon within each method.

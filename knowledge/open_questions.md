@@ -1,3 +1,21 @@
+## 2026-11-08 — promoted proximal baseline and registered next comparisons
+
+[User decision/Code/Open] [Current executable baseline](current_baseline.md)
+is proximal/cheapN8+PM for all15. This supersedes the earlier no-promotion
+status, not its historical source/results. CPU integration does not certify
+the new host's GPU speed or near-tie PM parity.
+
+- [x] Promote fixed tau=.1/N8/PM2/4/6/terminal and preserve explicit historical profile.
+- [ ] Fresh technical GPU validation and matched timing of the integrated artifact host; no runtime started here.
+- [ ] [PM-off terminal acceleration](plans/proximal_terminal_without_pm_20261108.md): matched classic/cheapN5 andN8, single terminal decode/head, no PM; N5cheap/readout-free path needs future implementation.
+- [ ] [Logit Mean versus Probability Mean](plans/logit_mean_readout_20261108.md): on identical saved candidate logits compare softmax(mean logits) with mean(softmax logits), all15/corruption-level paired accuracy and scale diagnostics. First audit/reuse common-N8 cheap archives; no new inference just to change reduction.
+
+[Paper/Open] Li et al. arXivv3 appendixB.4/D explicitly averages timestep-probe
+logits. Our plan reuses a single frozen head on decoded point clouds; LM
+superiority and novelty are not established. Both future comparisons are
+**PLANNED / NOT_RUN**; the25October question below is refined, not duplicated
+as a completed result. Failed lowband evidence and all archived histories remain.
+
 ## 2026-11-08 — LION integration originality separated from effectiveness
 
 [Paper/Code/Inference/Open] [Primary-paper and executed-code audit](lion_integration_originality_audit_20261108.md).
@@ -249,6 +267,10 @@ a separate open question; complete three-head40-class candidate logits now
 also exist for an offline comparison without repeating diffusion.
 
 ## 2026-10-25 — logit mean versus probability mean
+
+[User decision/Open] Refined on2026-11-08 into the
+[registered proximal N8 readout plan](plans/logit_mean_readout_20261108.md).
+Status remains NOT_RUN; no test result is inferred from its prior registration.
 
 [User report/Open] **Could averaging classifier logits across the same GSD
 diffusion checkpoints yield higher accuracy than averaging class probabilities?**

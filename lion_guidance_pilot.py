@@ -1,4 +1,4 @@
-"""Opt-in kernels for the bounded LION guidance study; no production defaults."""
+"""Reusable LION guidance kernels; the named baseline selects only frozen cheap guidance."""
 import math
 
 import torch
@@ -76,7 +76,8 @@ def bridge_clean_delta(previous, xyz_delta, alpha_previous):
     return previous + alpha.sqrt() * correction.reshape_as(previous)
 
 
-def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnostic=None):
+def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnostic=None,
+           scheduler_observer=None):
     """Isolated experimental N8/B35 sampler; full-control parity is a GPU gate."""
     from diffusers import DDIMScheduler
     from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist
@@ -88,6 +89,8 @@ def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnost
         clip_sample=False, num_train_timesteps=1000, prediction_type='epsilon')
     h0, z0 = (state[key].detach().clone() for key in ('local_latent','shape_latent'))
     scheduler.set_timesteps(100, device=h0.device)
+    if scheduler_observer is not None:
+        scheduler_observer(scheduler)
     times = scheduler.timesteps[-steps:]
     style = lion.vae.global2style(z0)
     alpha = scheduler.alphas_cumprod[times[0]]

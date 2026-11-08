@@ -175,7 +175,10 @@ def test_unguided_matches_zero_proximal_without_guidance_work(monkeypatch):
     h=torch.arange(16).float().reshape(1,16,1,1)/10
     state=dict(local_latent=h, shape_latent=torch.ones(1,2,1,1),
                noise=torch.full_like(h,.01), rng_after_prepare=_rng_state())
-    zero,_=sample(lion,state,8,'cheap',tau=0)
+    scheduler_seen=[]
+    zero,_=sample(lion,state,8,'cheap',tau=0,
+                  scheduler_observer=lambda scheduler:scheduler_seen.append(scheduler.timesteps[-8:].tolist()))
+    assert scheduler_seen==[[79,69,59,49,39,29,19,9]]
     assert len(calls)==8
     calls.clear();grad_modes.clear()
     unguided,records=sample(lion,state,8,'unguided',callback=lambda h,z,i:readouts.append(i))

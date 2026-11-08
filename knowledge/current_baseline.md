@@ -1,4 +1,81 @@
-# Current thesis operational baseline — 2026-10-31
+# Current thesis operational baseline — 2026-11-08
+
+[User report/Decision/Code] The user explicitly promotes **proximal N8 +
+Probability Mean** for future thesis work. This supersedes the earlier
+documentation-only/no-default-promotion decision below. GSD stays outside
+the baseline. Historical results/profiles and the original terminal comparator
+are preserved; this promotion launches no new inference.
+
+| Setting | Current locked value |
+|---|---|
+| Profile / artifact method | `lion_proximal_pm_n8_v1` / `3dd_proximal_pm_baseline` |
+| Reverse updates / DDIM total | 8 for **every** corruption / 100, final-alpha1 |
+| Guidance | Existing `cheap` kernel: frozen bidirectional95%-trimmed latentXYZ Chamfer solve + DDIM clean-delta bridge |
+| Actual correction strength | tau=.1; no denoiser backward or direct style update |
+| Reference rates | gamma=.03 / eta=.003 retained for compatibility; cheap does not apply these gradient rates |
+| PM / candidates | Equal probabilities, temperature1; clean2/4/6 and terminal8 |
+| Decoder / weights | Original encoded shape latent; raw eval LION, EMAoff, separately frozen source heads |
+| Backend | Controlled: cuDNN benchmarkFalse/deterministicTrue, TF32off, deterministic_algorithmsFalse; native determinism unproven |
+| Default batch | B128 for ModelNet40-C/Point-MAE alone; B32 for other supported datasets/head selections |
+
+[Code] `scripts/eval_chamfer_baseline.py` now defaults to this profile. It
+reuses `lion_guidance_pilot.sample` and shared trajectory/artifact machinery;
+validation rejects changing the frozen algorithm/readout/horizon. An explicit
+`--batch-size` in1/2/4/8/16/32/64/128 is allowed, with actual GPU capacity and
+numerical validation required before using an unmeasured batch. Supported
+ScanObjectNN-C and other frozen heads retain technical interfaces; the speed
+and accuracy evidence below is **Point-MAE/ModelNet40-C only**.
+
+```bash
+python scripts/eval_chamfer_baseline.py \
+  --dataset modelnet40_c --backbones pointmae \
+  --dataset-root /content/data/modelnet40_c \
+  --label-path /content/data/modelnet40_c/label.npy \
+  --asset-root /content/baseline_assets \
+  --asset-manifest-sha256 VERIFIED_ASSET_MANIFEST_SHA256 \
+  --pointmae-config source_snapshot/cfgs/tta_modelnet.yaml \
+  --pointmae-checkpoint checkpoints/modelnet_jt.pth \
+  --index-manifest EXPLICIT_ORIGINAL_IDS.json \
+  --paired-state-root /content/proximal_n8_states_seed0 \
+  --result-root result --seed 0 --preview
+```
+
+Use verified source/assets for the current commit, real paths and an explicit
+manifest; preview starts no GPU work. Use fresh cache/output roots tied to the
+profile/source/assets/seed. CSV/NPZ `prediction` means PM; `logits` and
+`terminal_prediction` remain terminal diagnostics. Saved historical workers
+and `--baseline-profile chamfer_pm_n8_v1` still select the old N8/35+B32 path.
+
+[Run] The [accepted common-horizon all15 speed study](lion_guidance_uniform_horizon_results_20261108.md)
+uses all2468 objects/corruption, severity5, seed0, B128/final36. Cheap N8+PM
+is63.722312% versus full-backward N8+PM63.735818%: −.013506pp,
+conditional95%CI[−.180983,+.153971], **27.673026% less measured pipeline time**
+(1.382610× throughput). Cheap is **33.437234% slower than N5 terminal** while
+gaining2.277147pp. Tuned N8 terminal62.571583% has no separately measured latency.
+
+[Open] These measurements belong to the **accepted speed runner**, not a new
+GPU benchmark of this integrated CLI. Its shared observer hashes/D2H, paired
+cache I/O, continuous RNG scheduling and multi-head time allocation differ;
+its PM reduction uses NumPy float64 versus the runner's GPU float32, with
+near-tie prediction parity unverified. CPU contracts establish integration,
+not exact measured accuracy/latency transfer. A future matched GPU smoke and
+benchmark are still required before assigning those numbers to the CLI host.
+One seed, exposed development data, native/runtime variability and the
+post-N35 user policy revision limit generalization. Background accuracy falls
+sharply versus special N35; keep both reports. Promotion is an operational
+decision, not proof of novelty, global optimality or benefit against unguided.
+
+[Open] Registered follow-ups, **not run**:
+[terminal acceleration without PM](plans/proximal_terminal_without_pm_20261108.md)
+and [Logit Mean versus Probability Mean](plans/logit_mean_readout_20261108.md).
+PM remains active until a separate readout comparison supports a new decision.
+All Colab sessions remain closed under the verified shutdown receipt.
+
+## Historical baseline and promotion record — 2026-10-31
+
+The following dated policy is retained for reproducibility. References to
+"current/default" and "no promotion" below describe their original dates,
+before the explicit Nov8 promotion above.
 
 [User report/Decision] After accepting the depth transfer results, the user
 explicitly promotes this complete policy to the baseline for future thesis
@@ -34,6 +111,7 @@ source/asset receipt for the **current commit** and matching dataset/head:
 
 ```bash
 python scripts/eval_chamfer_baseline.py \
+  --baseline-profile chamfer_pm_n8_v1 \
   --dataset modelnet40_c \
   --dataset-root /content/data/modelnet40_c \
   --label-path /content/data/modelnet40_c/label.npy \

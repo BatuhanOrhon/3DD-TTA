@@ -1,6 +1,19 @@
 # Repository Map
 
-## Current baseline entrypoint — 2026-10-31
+## Current baseline entrypoint — 2026-11-08
+
+[Code/Decision] `scripts/eval_chamfer_baseline.py` defaults to
+`lion_proximal_pm_n8_v1` / `3dd_proximal_pm_baseline`: all-corruptionN8,
+existing `lion_guidance_pilot.sample` cheap tau=.1, controlled backend and
+PM2/4/6/terminal through the shared trajectory/artifact worker. Single
+ModelNet40-C/Point-MAE defaultsB128; other supported selectionsB32.
+Historical profile/worker remains explicit via
+`--baseline-profile chamfer_pm_n8_v1`. Shared worker backend override and
+sampler scheduler observer are optional; their prior callers keep defaults.
+CLI integration is CPU checked, not yet GPU rebenchmarked.
+[Exact policy and limits](current_baseline.md).
+
+## Historical baseline entrypoint — 2026-10-31
 
 [Code/Decision] `scripts/eval_chamfer_baseline.py` selects the operational
 `chamfer_pm_n8_v1` policy and method `3dd_chamfer_pm_baseline`, using the

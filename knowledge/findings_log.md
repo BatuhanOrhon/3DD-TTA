@@ -1,5 +1,42 @@
 # Findings Log
 
+## 2026-11-08 — accelerated baseline promoted; terminal and logit tests remain future work
+
+[User report/Decision/Code/Run/Open] On
+`feature/proximal-pm-baseline-20261108`, integrated from shared target
+`6c40897b77b78bab5c163210ba064af92a7e6715`, the user promotes
+`lion_proximal_pm_n8_v1` / `3dd_proximal_pm_baseline` in code and
+[knowledge](current_baseline.md). All15 useN8, cheap tau=.1/retained.95,
+original encoded style, controlled backend and equal PM2/4/6/terminal.
+Single ModelNet40-C/Point-MAE defaultsB128; other supported selectionsB32.
+Historical explicit profile and old entrypoints remain. The accepted
+[common-horizon report](lion_guidance_uniform_horizon_results_20261108.md)
+has63.722312% versus63.735818%, −.013506pp/CI[−.180983,+.153971] and
+27.673026% less pipeline time. Its immutable raw/source/derived inputs are
+unchanged; this is operational promotion, not an additional accuracy result.
+
+[Code/CPU/Open] Reuses the measured cheap sampler plus existing shared host.
+Native-free previews, fixed-policy guards, legacy compatibility, observer/
+scheduler/state/RNG/decoder fixtures and both-dataset/four-head composition
+are tested. Independent review found a lazy policy import after source freeze;
+a fresh-process regression failed before the eager-import repair and passes
+afterward. Host audit/cache/RNG/time allocation and float64PM differ from the
+speed runner's float32PM; no new GPU smoke, timing or near-tie identity claim.
+Gamma/eta metadata is reference-only; cheap applies no style gradient step.
+
+[User report/Paper/Inference/Open] Registered, **NOT_RUN**:
+[terminal acceleration without PM](plans/proximal_terminal_without_pm_20261108.md)
+and [LM versus PM](plans/logit_mean_readout_20261108.md). LM refines the existing
+25October question using pre-softmax **class logits**, not hidden embeddings.
+Li et al. [arXivv3 appendixB.4 and D](https://arxiv.org/html/2502.05743v3#A2.SS4)
+provides the explicit timestep-probe logit-ensemble precedent. First reuse
+immutable common-N8 cheap logits; compare only the reduction on identical
+IDs/candidates, matched precision, per-corruption paired counts/CIs and scale
+diagnostics. Positive CI-crossing-zero is inconclusive; gain is unknown.
+No LM computation, baseline LM replacement or runtime allocation occurred.
+All prior negative results, incomplete peer617 screen and verified runtime
+closures are preserved. Publication record and final CPU count follow below.
+
 ## 2026-10-30 — Scan DGCNN published checkpoint verified; gap remains open
 
 [User report/Code/Run/Inference/Open] Static/CPU audit at source basef57b170

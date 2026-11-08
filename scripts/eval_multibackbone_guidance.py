@@ -625,7 +625,8 @@ def update_row(rows: list, config: dict, corruption: str, n: int, correct: int, 
         rows.append(row)
 
 
-def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=None, observer_provider=None) -> None:
+def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=None, observer_provider=None,
+           backend_policy=None) -> None:
     bundles = {json.loads((Path(path) / "config.json").read_text())["backbone"]: source.RunBundle(Path(path)) for path in directories}
     configs = {name: json.loads((bundle.path / "config.json").read_text()) for name, bundle in bundles.items()}
     for config in configs.values():
@@ -654,6 +655,8 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
         from legacy_trajectory import rng_hash, tensor_hash
         if not torch.cuda.is_available():
             raise RuntimeError("Guidance requires CUDA; no CPU inference fallback")
+        if backend_policy is not None:
+            backend_policy()
         lion, graph, reconstruct, ops, native_report, lion_config = (runtime_loader or load_guidance_runtime)(common, manifest)
         heads, guard = initialize_heads(configs, manifest)
         if common.get('chamfer_experiment', {}).get('variant') == 'semantic':
@@ -663,13 +666,19 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
         def fps(points, number):
             indices = pointnet2_utils.furthest_point_sample(points.contiguous(), number)
             return pointnet2_utils.gather_operation(points.transpose(1, 2).contiguous(), indices).transpose(1, 2).contiguous()
-        torch.backends.cudnn.benchmark = common["method"] == ORIGINAL_METHOD or bool(common.get('chamfer_depth_study'))
-        torch.backends.cudnn.deterministic = False
-        torch.use_deterministic_algorithms(False)
+        applied_backend = None
+        if backend_policy is None:
+            torch.backends.cudnn.benchmark = common["method"] == ORIGINAL_METHOD or bool(common.get('chamfer_depth_study'))
+            torch.backends.cudnn.deterministic = False
+            torch.use_deterministic_algorithms(False)
+        else:
+            applied_backend = backend_policy()
         seed_hash = seed_inference(common["seed"])
         lion_before = dict(vae=source.state_hash(lion.vae), priors=source.state_hash(lion.priors))
         classifier_before = {name: source.state_hash(head) for name, head in heads.items()}
         for name, config in configs.items():
+            if applied_backend is not None:
+                config['applied_backend_policy'] = applied_backend
             config.update(initialization_rng_guard=guard, inference_seed_boundary_sha256=seed_hash,
                           native_bootstrap=native_report, lion_state_before=lion_before,
                           resolved_lion_config=lion_config, lion_checkpoint_load="legacy raw state loader, strict default; exact pinned bytes verified before unpickling; EMA off",

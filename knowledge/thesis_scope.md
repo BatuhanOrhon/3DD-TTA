@@ -1,3 +1,13 @@
+## 2026-11-08 — operational promotion and future readout/terminal tests
+
+[User decision/Open] Use [proximal N8+PM](current_baseline.md) as the new thesis
+baseline after the common-horizon speed study. Register future
+[PM-off terminal acceleration](plans/proximal_terminal_without_pm_20261108.md)
+and [LM versus PM](plans/logit_mean_readout_20261108.md), first reusing saved
+logits. The earlier25October exclusion of logit averaging applied to that
+specific GPU phase; this explicit new instruction adds a future experiment,
+not an immediate run or a result. Both runtimes remain closed.
+
 ## Agent A fixed ModelNet readouts integrated — 2026-10-30
 
 [Run/Inference] CompletedOct25 all15/2468-ID/seed0 three-head observation:

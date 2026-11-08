@@ -1,6 +1,25 @@
 # Experiment and Reproducibility Protocol
 
-## Current operational baseline — 2026-10-31
+## Current operational baseline — 2026-11-08
+
+[User decision/Code/Run/Open] New thesis comparisons use
+[`lion_proximal_pm_n8_v1`](current_baseline.md): existing cheap latentXYZ
+correction tau=.1/retained.95, N8 for all15, original encoded decoder style,
+PM2/4/6/terminal at temperature1, controlled backend, raw/eval/EMAoff frozen
+models. No denoiser backward/direct style update; inherited gamma/eta are
+reference-only. DefaultB128 is scoped to ModelNet40-C/Point-MAE alone;
+other supported heads/datasets defaultB32 and lack this full speed validation.
+Explicit IDs, source/asset hashes, seeds and fresh output/cache identities
+remain mandatory. The27.6730% speed result describes the accepted speed host,
+not a new GPU validation of the integrated shared-artifact CLI. The latter
+uses different audit/cache/RNG timing and float64 PM; near-tie parity is open.
+
+Future comparisons are registered separately, not executed:
+[PM-off terminal acceleration](plans/proximal_terminal_without_pm_20261108.md)
+and [LM versus PM on identical saved candidates](plans/logit_mean_readout_20261108.md).
+Logit averaging does not change the active probability-mean policy.
+
+## Historical operational baseline — 2026-10-31
 
 [User report/Decision/Code] New thesis comparisons start from
 [`chamfer_pm_n8_v1`](current_baseline.md): Chamfer + equal Probability Mean,

@@ -1,3 +1,21 @@
+## 2026-11-08 — later common-horizon result and user baseline decision
+
+[Run/User decision/Code/Open] [Revised all15 report](lion_guidance_uniform_horizon_results_20261108.md)
+now uses oneN8 policy for every corruption: proximalPM63.722312% versus
+full-backwardN8PM63.735818%, −.013506pp/CI[−.180983,+.153971],27.673026%
+less measured pipeline time. The user promotes this [operational baseline](current_baseline.md);
+it remains single-seed/development-exposed, with severe absolute Background
+loss relative to specialN35. The historicalN35 margin failure below remains
+valid. New CLI integration has CPU checks only and different audit/cache/RNG/
+PM precision; exact GPU speed/near-tie parity is not yet verified.
+
+[Paper/Inference/Open] [LM versus PM](plans/logit_mean_readout_20261108.md) and
+[terminal-only acceleration](plans/proximal_terminal_without_pm_20261108.md)
+are registered, NOT_RUN. Generic logit averaging is explicitly prior art
+(Li et al. arXivv3 appendixB.4/D). A useful frozen-head adaptation and controlled
+empirical result may strengthen the thesis; this registration establishes
+neither a new gain nor independent algorithmic novelty or submission readiness.
+
 ## Later 2026-11-08 — speed evidence and originality mapping now available
 
 [Run/Code/Inference] The dated Nov7 assessment below predates the accepted

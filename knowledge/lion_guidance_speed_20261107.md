@@ -1,5 +1,14 @@
 # LION guidance speed continuation — 2026-11-07
 
+**Later2026-11-08 user decision:** cheap/proximalN8+PM is now the
+[active baseline](current_baseline.md); explicit historical profiles and all
+sealed measurements are preserved. This code integration is CPU verified,
+not a new GPU benchmark of the shared-artifact host. Future
+[PM-off terminal](plans/proximal_terminal_without_pm_20261108.md) and
+[logit-mean readout](plans/logit_mean_readout_20261108.md) comparisons are
+registered only. All runtimes remain closed; earlier live/default statements
+below describe their original dates.
+
 [User report/Decision] User accepts substantial speed gain without accuracy gain, including a small accuracy loss, and authorizes necessary tests. Earlier permission to run all necessary GPU phases without duration questions persists. No runtime teardown authorization. This is a new prospectively registered stochastic evaluation, not a retroactive pass of the failed pilot numerical gates.
 
 ## Design and alternatives

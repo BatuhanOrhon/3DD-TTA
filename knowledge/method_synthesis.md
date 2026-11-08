@@ -1,3 +1,21 @@
+## 2026-11-08 — proximal baseline promoted; readout and terminal ablations registered
+
+[User decision/Code/Run/Open] The active [baseline](current_baseline.md) is now
+cheap/proximalN8+PM, all15 atN8, tau=.1, retained.95 and PM2/4/6/terminal.
+Accepted common-horizon results show27.6730% less time/−.0135pp versus tuned
+N8PM on Point-MAE/ModelNet/all2468/seed0/B128. This is a user promotion based
+on the [revised all15 policy](lion_guidance_uniform_horizon_results_20261108.md),
+not an unseen-confirmation result or GPU rebenchmark of the integrated CLI.
+The historicalN35 accuracy-margin failure below remains true for its policy.
+No same-style unguided attribution or first-use claim follows.
+
+[Paper/Inference/Open] [Logit Mean](plans/logit_mean_readout_20261108.md) is a
+future matched offline reduction of the same four pre-softmax class-score
+vectors, inspired by Li et al. arXivv3 appendixB.4/D. It is not hidden-feature
+averaging or a newly trained classifier. Generic LM has prior art; superiority
+over PM is unknown. [PM-off terminal acceleration](plans/proximal_terminal_without_pm_20261108.md)
+is a distinct future control with N5/N8 matched pairs. Both are NOT_RUN.
+
 ## 2026-11-08 — primary-paper mapping and cheap-correction contribution boundary
 
 [Paper/Code/Run/Inference] [Detailed integration audit](lion_integration_originality_audit_20261108.md)
@@ -53,7 +71,7 @@ occurrences in five Scan corruption cells do not override the old offdiag
 accuracy null. Preserve the selected N8 Chamfer+PM baseline; no production,
 GPU, Colab or new semantic-causality experiment was performed.
 
-## Current operational baseline — 2026-10-31
+## Historical operational baseline — 2026-10-31
 
 [User report/Decision/Code] The user promotes the accepted whole N8 Chamfer
 and equal Probability Mean policy (8/35, eta=.003, gamma=.03, p=.95, B32,

@@ -1,3 +1,19 @@
+**[User decision/Code/Run/Open] 2026-11-08 — accelerated baseline active; two future tests registered:**
+[Current baseline and executable contract](current_baseline.md) now select
+`lion_proximal_pm_n8_v1`: cheap/proximal tau=.1, N8 for every corruption,
+equal PM2/4/6/terminal, controlled backend. B128 is default for single-head
+ModelNet40-C/Point-MAE; other supported selectionsB32. Accepted all15 speed
+evidence is27.6730% less time/−.0135pp versus tunedN8PM, one exposed seed.
+Integrated artifact-host CPU checks are not a new GPU benchmark; cache/RNG/
+observer overhead and float64-versus-float32 near-tie parity remain unmeasured.
+Historical8/35profile remains explicit. **Planned, not run:**
+[terminal acceleration without PM](plans/proximal_terminal_without_pm_20261108.md),
+[Logit Mean versus Probability Mean](plans/logit_mean_readout_20261108.md).
+The latter advances the existing25October question using the same saved four
+class-logit vectors, with Li et al. v3 appendixB.4/D attribution. Accuracy
+benefit is unknown; PM stays active. Both runtimes remain closed; earlier
+no-default-promotion/live statements below are dated history.
+
 **[Run/CPU/User decision] 2026-11-08 — detailed corruption record; Colab runtimes closed:**
 [Common-horizon results](lion_guidance_uniform_horizon_results_20261108.md) contain
 all15 corruptions × four accuracy/count entries, PM contribution, paired deltas/

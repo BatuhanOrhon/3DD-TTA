@@ -15,6 +15,8 @@ from scripts import eval_multibackbone_guidance as shared
 METHOD = '3dd_chamfer_depth_study'
 BASELINE_METHOD = '3dd_chamfer_pm_baseline'
 BASELINE_ID = 'chamfer_pm_n8_v1'
+PROXIMAL_BASELINE_ID = 'lion_proximal_pm_n8_v1'
+PROXIMAL_BASELINE_METHOD = '3dd_proximal_pm_baseline'
 TRANSFER_BACKBONES = ('pointmae', 'dgcnn', 'curvenet', 'pointnext')
 TRANSFER_PROTOCOL = dict(gamma=.03, eta=.003, p=.95, total=100, scd_normalize=False)
 
@@ -179,7 +181,9 @@ def reconstruct_geometry(raw, dataset, corruption, lion, graph, reconstruct, ops
                          observer_factory=None, protocol=None, paired_state_path=None):
     import torch
     allowed_dataset = dataset == 'modelnet40_c' or (dataset == 'scanobjectnn_c' and depth_config.get('transfer_study'))
-    expected_method = BASELINE_METHOD if depth_config.get('operational_baseline') == BASELINE_ID else METHOD
+    profile = depth_config.get('operational_baseline')
+    expected_method = (BASELINE_METHOD if profile == BASELINE_ID else
+                       PROXIMAL_BASELINE_METHOD if profile == PROXIMAL_BASELINE_ID else METHOD)
     if not allowed_dataset or method != expected_method or graph is not None or observer_factory is None or paired_state_path is None:
         raise ValueError('Depth study requires ModelNet or opt-in Scan transfer, original host, observer and paired states')
     normalized, center, scale = ops.normalize(raw)
@@ -188,7 +192,7 @@ def reconstruct_geometry(raw, dataset, corruption, lion, graph, reconstruct, ops
     prepared = ops.rotate_pointcloud(prepared)
     if not torch.isfinite(prepared).all():
         raise ValueError('Nonfinite prepared depth-study input')
-    steps = 35 if corruption == 'background' else depth_config['normal_reverse_steps']
+    steps = depth_config.get('background_reverse_steps', 35) if corruption == 'background' else depth_config['normal_reverse_steps']
     seen = []
     def observe(scheduler):
         record = scheduler_record(scheduler, steps)

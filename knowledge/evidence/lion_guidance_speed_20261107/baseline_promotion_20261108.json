@@ -1,0 +1,75 @@
+{
+  "recorded_utc": "2026-11-08T19:49:16.745862+00:00",
+  "source_branch": "feature/proximal-pm-baseline-20261108",
+  "integration_base": "6c40897b77b78bab5c163210ba064af92a7e6715",
+  "profile": "lion_proximal_pm_n8_v1",
+  "method": "3dd_proximal_pm_baseline",
+  "decision": "User-promoted fixed proximal N8+PM baseline; future terminal and LM experiments registered only",
+  "source_files": {
+    "lion_guidance_pilot.py": {
+      "bytes": 13608,
+      "sha256": "565b2126aa50f43e3fa68f5f39e32c22799a16cbedc9bcb3f533605bc7ad9b38"
+    },
+    "scripts/eval_chamfer_baseline.py": {
+      "bytes": 9868,
+      "sha256": "ba523aed5a48b7ecf0e6bf869eb09db8380ed060ab9cad02828e804210813949"
+    },
+    "scripts/eval_chamfer_depth.py": {
+      "bytes": 16781,
+      "sha256": "99e865793428f18b84db7de87f23edfc86fc900b2ba6192626c27de8537565b2"
+    },
+    "scripts/eval_multibackbone_guidance.py": {
+      "bytes": 68530,
+      "sha256": "26a24965b3d396c496a4e2167de6c1a0a4f235c04035dc372f175e4fcb0970aa"
+    },
+    "tests/test_proximal_baseline.py": {
+      "bytes": 7463,
+      "sha256": "0e400b2c59dd89276d9f5b62ca1705185c59b6c2ccc82a1e17fe93007891c934"
+    },
+    "tests/test_chamfer_depth.py": {
+      "bytes": 40825,
+      "sha256": "37e6a663db17eaac0715cb9ae89b5b4b89eee0c9447a5330fb2e2758288f63d4"
+    },
+    "tests/test_lion_guidance_speed.py": {
+      "bytes": 20620,
+      "sha256": "ba0f089cf10e376f32d05ad115c46d76f59469396ed2020f57bed9193358ec16"
+    }
+  },
+  "verification": {
+    "command": "/private/tmp/tta-lowband-halfmix-20261107-venv/bin/python -m pytest tests -q",
+    "exit_code": 0,
+    "passed": 875,
+    "skipped": 2,
+    "subtests_passed": 564,
+    "warnings": 7,
+    "seconds": 50.36,
+    "log_sha256": "4b6184215300fa23d06a58b347f5eebbf7b4c9908b9272310ff9ac815eefefbd",
+    "native_free_preview": "PASS in suite",
+    "new_local_links": "PASS",
+    "review": "Independent read-only review: eager import fixed, no remaining material blocker"
+  },
+  "scientific_evidence": "knowledge/lion_guidance_uniform_horizon_results_20261108.md",
+  "future_experiments": [
+    {
+      "plan": "knowledge/plans/logit_mean_readout_20261108.md",
+      "status": "PLANNED_NOT_RUN"
+    },
+    {
+      "plan": "knowledge/plans/proximal_terminal_without_pm_20261108.md",
+      "status": "PLANNED_NOT_RUN"
+    }
+  ],
+  "runtime_actions": "NONE; previously closed sessions remain closed",
+  "limits": [
+    "No new GPU smoke or benchmark of integrated host",
+    "Audit/cache/RNG scheduling and multi-head timing allocation differ from accepted speed host",
+    "NumPy float64 PM vs accepted GPU float32: near-tie identity unverified",
+    "Single exposed seed/Point-MAE/ModelNet40-C speed evidence; no universal transfer or novelty claim"
+  ],
+  "excluded_scope": [
+    "Raw archives, weights, caches and temporary host preparation remain outside Git",
+    "No new LM reduction implementation or outcome",
+    "No PM-off/N5cheap implementation or GPU launch"
+  ],
+  "publication": "Resulting implementation integration commit is recorded in findings_log after publication; this receipt is included in that commit"
+}

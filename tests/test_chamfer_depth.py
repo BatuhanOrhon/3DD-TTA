@@ -488,7 +488,12 @@ class WorkerCompositionTests(unittest.TestCase):
             with self.subTest(dataset=dataset):
                 self.run_worker(dataset=dataset,transfer=True,baseline=True)
 
-    def run_worker(self,dataset='modelnet40_c',transfer=False,baseline=False):
+    def test_promoted_proximal_worker_keeps_PM_primary_and_controlled_backend(self):
+        for dataset in ('modelnet40_c','scanobjectnn_c'):
+            with self.subTest(dataset=dataset):
+                self.run_worker(dataset=dataset,transfer=True,baseline=True,proximal=True)
+
+    def run_worker(self,dataset='modelnet40_c',transfer=False,baseline=False,proximal=False):
         from scripts import eval_chamfer_depth as depth
         from scripts import eval_multibackbone_guidance as shared
         with tempfile.TemporaryDirectory() as temporary:
@@ -497,6 +502,8 @@ class WorkerCompositionTests(unittest.TestCase):
             if baseline:
                 from scripts import eval_chamfer_baseline
                 args.remove('--transfer-study')
+                if not proximal:
+                    args+=['--baseline-profile','chamfer_pm_n8_v1']
                 configs=eval_chamfer_baseline.configurations(args)
             else:
                 configs=depth.configurations(args)
@@ -527,6 +534,9 @@ class WorkerCompositionTests(unittest.TestCase):
             def geometry(raw, dataset, corruption, lion, graph, reconstruct, ops, **kwargs):
                 geometry_calls.append(corruption)
                 observer = kwargs['observer_factory'](None,None)
+                if proximal:
+                    self.assertEqual(observer.horizon,8)
+                    self.assertEqual(observer.steps,[2,4,6])
                 latent = torch.ones(len(raw),3,1,1)
                 observer.initial(input_points=raw, shape_latent=latent, local_latent=latent,
                                  noise=latent, noisy_local=latent, style=latent)
@@ -564,6 +574,12 @@ class WorkerCompositionTests(unittest.TestCase):
             self.assertEqual(len(geometry_calls),15)
             for bundle in bundles:
                 self.check_bundle(bundle,config)
+                if proximal:
+                    finished=json.loads((bundle.path/'config.json').read_text())
+                    self.assertEqual(finished['operational_baseline'],'lion_proximal_pm_n8_v1')
+                    self.assertFalse(finished['applied_backend_policy']['cudnn_benchmark'])
+                    self.assertTrue(finished['applied_backend_policy']['cudnn_deterministic'])
+                    self.assertFalse(finished['applied_backend_policy']['cuda_matmul_allow_tf32'])
                 if baseline:
                     import csv
                     with (bundle.path/'per_corruption.csv').open() as stream:
@@ -625,7 +641,7 @@ class BaselineEntryTests(unittest.TestCase):
 
     def test_baseline_preview_uses_selected_policy_without_native_imports(self):
         with tempfile.TemporaryDirectory() as directory:
-            args=DepthConfigTests().args(Path(directory))
+            args=DepthConfigTests().args(Path(directory))+['--baseline-profile','chamfer_pm_n8_v1']
             result=subprocess.run([sys.executable,'-S',str(ROOT/'scripts/eval_chamfer_baseline.py'),*args],
                                   capture_output=True,text=True)
             self.assertEqual(result.returncode,0,result.stderr)
@@ -648,7 +664,7 @@ class BaselineEntryTests(unittest.TestCase):
         import copy
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
-            args=DepthConfigTests().args(root)
+            args=DepthConfigTests().args(root)+['--baseline-profile','chamfer_pm_n8_v1']
             for extra in (['--normal-reverse-steps','10'],['--eta','.01'],['--gamma','.01'],
                           ['--p','.96'],['--chamfer-experiment','semantic']):
                 with self.subTest(extra=extra),redirect_stderr(StringIO()),self.assertRaises((ValueError,SystemExit)):
