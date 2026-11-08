@@ -1,0 +1,34 @@
+{
+  "phase": "BackgroundN35",
+  "run_id": "20261108T152511Z_background",
+  "elapsed_seconds": 2042,
+  "closed_cases": 10,
+  "expected_cases": 20,
+  "checkpointed_rows": 3840,
+  "model_gate": true,
+  "full_B128_warmup": true,
+  "integrity": false,
+  "last_progress": "LION_SPEED_PROGRESS background background 0 10 0 original 60.37",
+  "last_output": "LION_SPEED_PROGRESS background background 0 10 0 original 60.37",
+  "last_output_utc": "2026-11-08T15:59:02.248779+00:00",
+  "finished": null,
+  "state": "RUNNING_OBSERVED",
+  "status": "midrun_checkpoint_progress_not_final_acceptance",
+  "recorded_utc": "2026-11-08T15:59:04.618999+00:00",
+  "session": "tta-lion-guidance-speed-a100-20261108-r5",
+  "source_overlay_sha256": "17b49a8632f83b183dc654c334f6637c88e9fca88f0440ef4f59fedcd5301242",
+  "batch_size": 128,
+  "last_batch_size": 36,
+  "steps": 35,
+  "seeds": [
+    0
+  ],
+  "all15_result": "pending",
+  "scope": "Background only; frozen accepted macro14 retained",
+  "Drive_roundtrip_verified": true,
+  "backed_record": {
+    "bytes": 1010,
+    "sha256": "a7fcb8840e02516c9c0b2096f1e4a2886d752598686b68b83e4d99ec98d284aa"
+  },
+  "Drive_path": "/content/drive/MyDrive/thesis/result/lion_guidance_background_20261108_r5/midrun_progress_20261108T1558Z.json"
+}

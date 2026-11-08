@@ -1,0 +1,11 @@
+{
+  "status": "sealed_derived_results_Drive_roundtrip_verified",
+  "created_utc": "2026-11-08T16:27:03.609447+00:00",
+  "local": "result/preparation/lion_guidance_speed_20261107/background_r5/all15_derived_results_20261108T162703Z.zip",
+  "bytes": 759531,
+  "sha256": "e6b5bd63c9947e310927a2f1e10d229abd4f043d9475398986a02b9e15ff3bed",
+  "members": 34,
+  "drive": "/content/drive/MyDrive/thesis/result/lion_guidance_background_20261108_r5/all15_derived_results_20261108T162703Z.zip",
+  "Drive_roundtrip_verified": true,
+  "verified_utc": "2026-11-08T16:27:46.152326+00:00"
+}

@@ -545,3 +545,47 @@ OnlyBackground/all2468IDs/seed0/onepass/commonB128last36/terminaloriginalcheap, 
 
 
 [Run/CPU] 2026-11-08T15:44:59.942389+00:00: Independent read-only audit verified all 34,552 saved N8 terminal predictions against the three accepted raw archive identities, labels, PM outcomes and readout order. N8 terminal 64.896388%; PM gain on the same traces +1.241607pp. This supplies no separate terminal-only N8 latency. The full report now displays the N8 accuracy-only row explicitly. Evidence: `knowledge/evidence/lion_guidance_speed_20261107/macro14_N8_terminal_review.json`. Background continues on the same owned r5 runtime.
+
+
+[Code/CPU/Run] 2026-11-08T15:53:52.632099+00:00: Curated macro14/N8 terminal results published normally to `origin/thesis-integration` at `2ce4e7f9f6d828f6e2c16e4e185eefeb0ddbea0a`, based on latest shared84be1d6. Four source/test files plus scientific plans, final report and compact evidence selected; peer records preserved by semantic append, raw ZIPs/weights/temporary operators/redundant dumps excluded. Integrated848tests/2skip/562subtests pass56.81s; remote ref verified. This is publication of macro14 and prepared Background code, not a Background/all15 result. Current Background run remains active on owned r5, solemonitor16794; no runtime teardown. Scope: `knowledge/evidence/lion_guidance_speed_20261107/publication_macro14_20261108.json`.
+
+
+[Run/Open] 2026-11-08T15:59:04.618999+00:00: Background `20261108T152511Z_background` midpoint: 10/20 closed Drive cases, 3,840 object-method rows; B128/N35 warmups and initial actual-model/environment gate passed. Same owned r5/source17b, no retuning or new GPU arm. Final model-integrity proof and independent raw/all15 acceptance remain pending. Midpoint receipt Drive/local bytes roundtrip verified; `knowledge/evidence/lion_guidance_speed_20261107/background_midrun_progress.json`.
+
+
+[Run/CPU/Open] 2026-11-08T16:23:23.789148+00:00: Background run `20261108T152511Z_background` completed16:22:06UTC, exact marker/exit0;20cases/7404rows. Independent raw acceptor verified source17b/currentsetup/native/actualmodels, N35 metadata/warmups, source-bound sealed macro14 inputs, all PM probabilities/predictions/labels/RNG/order/final36, complete model integrity and timing recount. Raw5,425,487bytes SHAbf75c39c9477b3f5e292b33f45166acdbbbac2f77932dad59ea8f60faa5a7953 matches actual Drive and local bytes. Full phase about57min. All15 compositor running; independent read-only reviewer requested. No all15 interpretation before composition, no new GPU phase. Owned r5/solemonitor16794 retained.
+
+
+## 2026-11-08T16:26:31.628374+00:00 — full Background and all15 extension independently accepted
+
+[Run/CPU/Inference/Decision] Background35/all2468/seed0/B128 completed16:22:06UTC,
+20cases/7404rows, exactfinalmarker/exit0 and frozen3-modelproof. Raw5,425,487bytes
+SHAbf75c39c9477b3f5e292b33f45166acdbbbac2f77932dad59ea8f60faa5a7953
+matches Drive/local. All15 composite111060rows/37020perarm accepted with frozen
+macro14 byte seals unchanged. Terminal N5/35 63.854673%; tuned N8/35PM66.015667%;
+cheap65.729335%. Cheap−PM−.286332pp, object95%CI[−.472717,−.097245],29.562521%
+less time;581corrected/687harmed. Extension noninferiority FAILS because lowerCI
+is below−.3pp; CI straddles that margin, so not proof loss exceeds.3pp. Macro14
+primary remains PASS. Background cheap60.696921% vsPM64.303079% (−3.606159pp),
+37.872281% less time;107corrected/196harmed/net−89. No corruption-specific routing,
+retuning or default promotion. Cheap versus N5/35:+1.874662pp,14.587550% more time.
+
+[Run/CPU] User-requested terminal clarification extended without GPU: tuned
+N8 normal/N35 Background final readouts24028/37020=64.905457%, same-trace PMgain
++1.110211pp. Background tunedterminal65.032415% exceeds its PM by.729335pp
+(1605vs1587correct). Normalmacro14N8terminal64.896388%, PMgain1.241607pp.
+Gamma/eta differ from N5/35; these are not depth-only changes or terminal-only
+runtime measurements. All15hostderivationchecks original14archive/CSV identities
+and actualBackgroundNPZ/acceptedlabels/PMoutcomes before composition.
+
+[Run/CPU] Independent reviewer reproduced every111060row,900batchtimes,
+threephysicalruntimes/fourmeasurementgroups, all37020terminalpredictions and
+bothaccuracy/timingCIs. Fullresults: [all15report](lion_guidance_all15_results_20261108.md),
+`analysis/20261108T1623Z_all15_extension/` and `analysis/20261108T1623Z_policy_terminal_all15/`.
+One-seed/development/nativevariation remain; B128amortized isnotB1. Unguided
+attribution, additionalseeds/generalization and Background failure mechanism
+remain open. Requested full-data one-seed scope complete; no new GPU phase.
+Owned `tta-lion-guidance-speed-a100-20261108-r5`/monitor16794 preserved; no teardown.
+
+
+[Run/CPU] 2026-11-08T16:27:46.152326+00:00: Final all15 derived bundle Drive-roundtrip verified:759,531bytes,SHAe6b5bd63c9947e310927a2f1e10d229abd4f043d9475398986a02b9e15ff3bed,34members/all member identities andCRC passed. Includes accepted all15/N8terminal CSV/summary, reports, exact host acceptance/composition/derivation sources, independent review and source/raw/sealed-macro14 receipts. Drive `MyDrive/thesis/result/lion_guidance_background_20261108_r5/all15_derived_results_20261108T162703Z.zip`. Receipt is outside its own sealed bundle; later publication metadata is separately recorded. Raw/source/native archives remain separate and unchanged.

@@ -1,0 +1,138 @@
+{
+  "status": "accepted",
+  "batch_size": 128,
+  "profile_metrics": {
+    "objects_per_second": 2.484950134033747,
+    "max_allocated_mib": 59349.78271484375,
+    "max_reserved_mib": 63790.0,
+    "gpu_total_mib": 81152.75
+  },
+  "phase": "background",
+  "rows": 7404,
+  "comparisons": [
+    {
+      "reference": "original",
+      "candidate": "terminal",
+      "objects": 2468,
+      "paired_inferences": 2468,
+      "reference_accuracy_percent": 64.3030794165316,
+      "candidate_accuracy_percent": 61.102106969205835,
+      "delta_pp": -3.20097244732577,
+      "delta_ci95_pp": [
+        -4.781199351701783,
+        -1.6612641815235007
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 1165.829049062002,
+      "candidate_seconds": 1089.4046011360006,
+      "saving_percent": 6.555373447547108,
+      "saving_batch_cluster_ci95_percent": [
+        6.538602750479735,
+        6.568952291694047
+      ],
+      "timed_batches_per_arm": 20,
+      "timing_clusters": 20,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": -3.20097244732577,
+          "saving_percent": 6.555373447547108
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": -3.20097244732577
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "original",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 2468,
+      "reference_accuracy_percent": 64.3030794165316,
+      "candidate_accuracy_percent": 60.6969205834684,
+      "delta_pp": -3.6061588330632093,
+      "delta_ci95_pp": [
+        -4.983792544570503,
+        -2.228525121555916
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 1165.829049062002,
+      "candidate_seconds": 724.3030006970002,
+      "saving_percent": 37.872280564654226,
+      "saving_batch_cluster_ci95_percent": [
+        37.83608225640576,
+        37.94592028716222
+      ],
+      "timed_batches_per_arm": 20,
+      "timing_clusters": 20,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": -3.606158833063209,
+          "saving_percent": 37.872280564654226
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": -3.606158833063209
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    },
+    {
+      "reference": "terminal",
+      "candidate": "cheap",
+      "objects": 2468,
+      "paired_inferences": 2468,
+      "reference_accuracy_percent": 61.102106969205835,
+      "candidate_accuracy_percent": 60.6969205834684,
+      "delta_pp": -0.4051863857374392,
+      "delta_ci95_pp": [
+        -1.9448946515397083,
+        1.1355348460291586
+      ],
+      "degenerate_object_differences": false,
+      "reference_seconds": 1089.4046011360006,
+      "candidate_seconds": 724.3030006970002,
+      "saving_percent": 33.51386620345485,
+      "saving_batch_cluster_ci95_percent": [
+        33.47097535408898,
+        33.601174771121016
+      ],
+      "timed_batches_per_arm": 20,
+      "timing_clusters": 20,
+      "per_seed_repeat": [
+        {
+          "seed": 0,
+          "repeat": 0,
+          "delta_pp": -0.4051863857374392,
+          "saving_percent": 33.51386620345485
+        }
+      ],
+      "per_corruption_delta_pp": {
+        "background": -0.4051863857374392
+      },
+      "uncertainty": "Accuracy CI clusters original objects, conditional on observed seeds/repeats/runtime; timing CI clusters corruption/batch and is descriptive for this fixed suite. Degenerate zero-difference CI does not prove population equivalence."
+    }
+  ],
+  "numerical_repeats": [],
+  "cross_controls": [],
+  "elapsed": 3413.113804711,
+  "source_overlay_sha256": "17b49a8632f83b183dc654c334f6637c88e9fca88f0440ef4f59fedcd5301242",
+  "asset_manifest_sha256": "01305b50e8e5de5321960772b0aaf49b5d142b726e80451df8a91c4dac91dcb6",
+  "archive": "result/modelnet40_c/lion_guidance_speed/raw/20261108T152511Z_background.zip",
+  "archive_bytes": 5425487,
+  "archive_sha256": "bf75c39c9477b3f5e292b33f45166acdbbbac2f77932dad59ea8f60faa5a7953",
+  "manifest_files": 175,
+  "run_id": "20261108T152511Z_background",
+  "executed_corruptions": [
+    "background"
+  ],
+  "skipped_corruptions": [],
+  "model_hashes": [
+    "d74f3c242e5130d5419335d8181ef81d25ee7c657830946092f69b44281a55c7",
+    "f1c654fdc907e9a7c47ea9fe755ed1c4a0b3e7b92cfdd88954eae7ac9a29229e",
+    "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e"
+  ]
+}

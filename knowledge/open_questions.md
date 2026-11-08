@@ -2935,3 +2935,8 @@ existing controller16:14 waits at3-unACKed safeguard. Mac31 receipts/30ACKed,
 448 paired objects only; pending M100 rawf2690b46 physically preserved. No512/
 617final analysis. Recover pendingACK/consumer on same work before duplicate
 GPU consideration, only after user command. CurrentR6 note gives exact paths.
+
+
+## 2026-11-08T16:26:31.628374+00:00 — completed all15 extension; remaining research questions
+
+[Run/Decision/Open] Requested all2468/all15/seed0/B128 scope is complete and independently accepted. Macro14primaryPASS; all15 accuracy-margin FAILS (delta−.2863pp,95%[−.4727,−.0972]), with Background−3.6062pp. [Finalreport](lion_guidance_all15_results_20261108.md). No automatic new phase/default promotion. Open: explain Background behavior and negative PM−terminal effect under the fixed N35 policy; unguided attribution; repeat-seed and held-out generalization; matched terminal-only N8 latency if needed; corruption-independent horizons. A future changed Background policy would need a separate frozen validation, not relabelled all15 evidence.

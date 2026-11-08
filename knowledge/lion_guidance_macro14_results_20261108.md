@@ -62,3 +62,6 @@ Derived summary/CSV: `result/modelnet40_c/lion_guidance_speed/analysis/20261108T
 ## 2026-11-08T15:39:23.492320+00:00 — supplementary same-trace N8 terminal accuracy
 
 [Run/CPU] Terminal-onlyreadoutfromacceptedN8PMtraces is22,423/34,552 = **64.896388%**, versusN5terminal64.051285%,N8PM66.137995%,cheapPM66.088794%. PM adds **1.241607pp** toitsownN8terminal; N8terminalexceedsN5terminalby.845103pp; cheapPMexceedsN8terminalby1.192406pp. N8ratesaregamma.03/eta.003, N5rates.01/.01, soN5→N8isnotdepth-only. Extractionverifiesall3rawSHAs/IDs/labelsandterminal-lastreadoutorder. No newGPU; no freshterminal-onlyN8latencymeasurement, andN8PMacquisitiontimemustnotberelabelled. [Derivedreadoutsummary](../result/modelnet40_c/lion_guidance_speed/analysis/20261108T153708Z_n8_terminal_macro14/summary.json). Primarymacro14frozenCSV/summaryunchanged.
+
+
+[Run/CPU/Decision] 2026-11-08T16:26:31.628374+00:00: Separately requested [Background/all15 extension](lion_guidance_all15_results_20261108.md) is complete:29.5625% less time,−.2863pp,95%CI[−.4727,−.0972]pp; all15 noninferiority is not established because of Background−3.6062pp. This preserves, rather than replaces, the frozen macro14 primary PASS. No retuning/default promotion.

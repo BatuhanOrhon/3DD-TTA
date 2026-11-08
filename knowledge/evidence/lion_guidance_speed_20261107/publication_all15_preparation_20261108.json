@@ -1,0 +1,12 @@
+{
+  "status": "all15_knowledge_integration_prepared",
+  "created_utc": "2026-11-08T16:28:20.614994+00:00",
+  "target_base": "117b7f9",
+  "prior_code_integration": "2ce4e7f9f6d828f6e2c16e4e185eefeb0ddbea0a",
+  "scientific_source": "5afdf0d43ed54c2380134ec43d364db10b04601b",
+  "selected": "All15 report, final compact evidence and semantic shared-note appendices; scientific code unchanged",
+  "excluded": "Raw ZIPs, per-object dumps, caches/weights, temporary host/operator scripts (archived on Drive instead)",
+  "verification": "Independent111060predictions/900times/37020terminalreads and bootstrap reproduction; frozen macro14 seals; Drive bundle roundtrip. Existing848tests/2skip/562subtests verified selected code; target advanced documentation only, no code retest needed.",
+  "peer_records": "117b7f9 and81cd13c preserved by fast-forward then semantic append",
+  "limitations": "All15 accuracy margin fails; Background loss retained; no default promotion/retuning/extra GPU/teardown"
+}

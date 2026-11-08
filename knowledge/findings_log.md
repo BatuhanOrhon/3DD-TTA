@@ -9197,3 +9197,38 @@ conditional95%CI[-.610119,.238095]; no512/final617 result. Existing primary
 stream continued and at16:14:29UTC waits for threeACKs (007M100/control,008cache).
 No runtime closure or duplicate GPU launch; monitor23310 retained, local CPU
 supervisor stopped. New command must reconcile same live work before recovery.
+
+
+## 2026-11-08T16:26:31.628374+00:00 — full Background and all15 extension independently accepted
+
+[Run/CPU/Inference/Decision] Background35/all2468/seed0/B128 completed16:22:06UTC,
+20cases/7404rows, exactfinalmarker/exit0 and frozen3-modelproof. Raw5,425,487bytes
+SHAbf75c39c9477b3f5e292b33f45166acdbbbac2f77932dad59ea8f60faa5a7953
+matches Drive/local. All15 composite111060rows/37020perarm accepted with frozen
+macro14 byte seals unchanged. Terminal N5/35 63.854673%; tuned N8/35PM66.015667%;
+cheap65.729335%. Cheap−PM−.286332pp, object95%CI[−.472717,−.097245],29.562521%
+less time;581corrected/687harmed. Extension noninferiority FAILS because lowerCI
+is below−.3pp; CI straddles that margin, so not proof loss exceeds.3pp. Macro14
+primary remains PASS. Background cheap60.696921% vsPM64.303079% (−3.606159pp),
+37.872281% less time;107corrected/196harmed/net−89. No corruption-specific routing,
+retuning or default promotion. Cheap versus N5/35:+1.874662pp,14.587550% more time.
+
+[Run/CPU] User-requested terminal clarification extended without GPU: tuned
+N8 normal/N35 Background final readouts24028/37020=64.905457%, same-trace PMgain
++1.110211pp. Background tunedterminal65.032415% exceeds its PM by.729335pp
+(1605vs1587correct). Normalmacro14N8terminal64.896388%, PMgain1.241607pp.
+Gamma/eta differ from N5/35; these are not depth-only changes or terminal-only
+runtime measurements. All15hostderivationchecks original14archive/CSV identities
+and actualBackgroundNPZ/acceptedlabels/PMoutcomes before composition.
+
+[Run/CPU] Independent reviewer reproduced every111060row,900batchtimes,
+threephysicalruntimes/fourmeasurementgroups, all37020terminalpredictions and
+bothaccuracy/timingCIs. Fullresults: [all15report](lion_guidance_all15_results_20261108.md),
+`analysis/20261108T1623Z_all15_extension/` and `analysis/20261108T1623Z_policy_terminal_all15/`.
+One-seed/development/nativevariation remain; B128amortized isnotB1. Unguided
+attribution, additionalseeds/generalization and Background failure mechanism
+remain open. Requested full-data one-seed scope complete; no new GPU phase.
+Owned `tta-lion-guidance-speed-a100-20261108-r5`/monitor16794 preserved; no teardown.
+
+
+[Run/CPU] 2026-11-08T16:27:46.152326+00:00: Final all15 derived bundle Drive-roundtrip verified:759,531bytes,SHAe6b5bd63c9947e310927a2f1e10d229abd4f043d9475398986a02b9e15ff3bed,34members/all member identities andCRC passed. Includes accepted all15/N8terminal CSV/summary, reports, exact host acceptance/composition/derivation sources, independent review and source/raw/sealed-macro14 receipts. Drive `MyDrive/thesis/result/lion_guidance_background_20261108_r5/all15_derived_results_20261108T162703Z.zip`. Receipt is outside its own sealed bundle; later publication metadata is separately recorded. Raw/source/native archives remain separate and unchanged.

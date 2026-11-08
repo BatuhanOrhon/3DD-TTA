@@ -1,0 +1,31 @@
+{
+  "status": "passed_independent_actual_raw_and_all15_recount",
+  "recorded_utc": "2026-11-08T16:26:31.628374+00:00",
+  "reviewer": "/root/review_speed_protocol",
+  "rows": 111060,
+  "deduplicated_batch_times": 900,
+  "physical_runtimes": 3,
+  "measurement_groups": 4,
+  "Background_predictions": 7404,
+  "Background_times": 60,
+  "terminal_readout_predictions": 37020,
+  "all15_delta_pp": -0.2863317125877904,
+  "accuracy_ci95_pp": [
+    -0.47271745002701243,
+    -0.09724473257698542
+  ],
+  "saving_percent": 29.562520640322642,
+  "timing_ci95_percent": [
+    28.844121490372746,
+    30.270513711030553
+  ],
+  "corrected": 581,
+  "harmed": 687,
+  "all15_accuracy_margin_pass": false,
+  "macro14_primary_pass": true,
+  "terminal_correct": 24028,
+  "terminal_accuracy_percent": 64.9054565099946,
+  "Background_terminal_correct": 1605,
+  "Background_PM_correct": 1587,
+  "limits": "CI straddles -.3pp: noninferiority not established, not proof loss exceeds .3. Conditional one-seed suite; no fresh terminal-only timing, retuning or corruption-specific fallback."
+}

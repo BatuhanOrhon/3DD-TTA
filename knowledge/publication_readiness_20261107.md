@@ -66,3 +66,8 @@ Yalnız bu rapor, README yönlendirmesi, findings kaydı ve open_questions önce
 ## 2026-11-08T15:08:01.893539+00:00 — newfullmacro14 efficiency evidence
 
 [Run/Inference/Open] [Validatedfull14report](lion_guidance_macro14_results_20261108.md) now supports an operationalaccuracy–costtradeoff: N8PM66.1380%,cheap66.0888%,27.6721%less time; pairedaccuracyCI[-.2200,.1245]pp meetsfrozen-.3ppmarginalgate. Cheap+2.0375ppversusactualN5terminal but33.45%moretime. All2468/14cors/seed0/B128; three-runtimecomposite; developmentexposure/nativevariationremain. This strengthens empiricalefficiencyevidence beyond32-IDscreen, not algorithmicnovelty or isolatedguidance superiority. Unguidedattribution/multi-seed/generalization gaps remain; Backgroundwasprospectivelyrequested as separate35-stepextensionbeforethisanalysis and isunrun. Earlierreadinessstatements remain datedhistory.
+
+
+## 2026-11-08T16:26:31.628374+00:00 — all15 efficiency extension and Background limitation
+
+[Run/CPU/Inference] [Full all15 report](lion_guidance_all15_results_20261108.md): cheap65.729335% vs tunedPM66.015667%,29.562521% less time, delta−.286332pp/95%CI[−.472717,−.097245]. All15 noninferiority is not established; Background−3.606159pp must remain visible. Frozen macro14 gate remains PASS. Same-trace tuned N8/35terminal64.905457%; PMgain1.110211pp overall but PM−.729335pp onBackground. One seed/native/development exposure, no new terminal-only latency, isolated unguided attribution or novelty proof. No default promotion/retuning. Earlier pending/unrun entries are dated history.

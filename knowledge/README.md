@@ -1,3 +1,13 @@
+**[Run/CPU/Decision] 2026-11-08 — all15 extension complete: speed benefit with Background accuracy loss:**
+[Final all15 report](lion_guidance_all15_results_20261108.md). All2,468 IDs/seed0/B128:
+tuned PM66.0157%,cheap65.7293%,29.5625% less pipeline time. Difference−.2863pp,
+paired95%CI[−.4727,−.0972]pp: the −.3pp noninferiority criterion is not met.
+Background alone loses3.6062pp. Frozen [macro14 primary](lion_guidance_macro14_results_20261108.md)
+remains PASS (27.6721% less time,−.0492pp). Saved tuned N8/35 terminal64.9055%
+is accuracy-only; no terminal-only latency. Independent full raw/count/time/CI
+review passed. No retuning/default promotion. Owned speed r5 and monitor16794
+remain live; source and complete raw archives are Drive/local verified.
+
 **[Run/CPU/Open] 2026-11-08 — full macro14 speed result accepted; Background extension running:**
 [Validated report](lion_guidance_macro14_results_20261108.md): all 2,468 IDs, seed0,
 common B128, three disjoint runtime groups. Cheap guidance uses 27.6721% less
