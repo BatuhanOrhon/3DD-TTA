@@ -138,3 +138,64 @@ unsafe ZIP rejection,384-row alpha median, conflict-preserving cache materializa
 result/preparation/gsd_lowband_quarter_fast_20261107/{accept_fast617.py,analyze_fast617.py,test_accept_fast617.py}.
 This is archive/statistics validation, not a new accuracy observation. Remote
 source/native mirrors are explicit verified copies in the deployment context.
+
+[Run/Open] Cell4 requirements installed with the known nonfatal pip resolver
+warnings: dask2023.5.0 requires importlib-metadata>=4.13.0 but4.10.1 is present;
+scikit-image0.20.0 requires networkx>=2.8 but2.6.3 is present. These are preserved,
+not a claim of globally consistent dependencies. CUDA12.1/GCC11.4 package
+installation continues after its solver passed20:56:58UTC. Native/model/data
+checks remain mandatory; no new accuracy or throughput observation follows.
+
+[CPU/Review/Open] Fast acceptance/analysis checks expanded to12 and passed;
+pre-ACK sibling matching now includes exact complete graph/basis/support/rank,
+IDs, labels, common source/native/model identity and paired RNG. The local
+consumer's standalone checks pass for three parallel32MiB parts, whole ZIP
+SHA/CRC, corruption rejection, durable receipt/ACK replay, true tails, hard
+00:33:04UTC deadline and WAIT_USER on connectivity failure. Parent independently
+ran the consumer selfcheck. Current files stay in the new quarter preparation
+namespace; old artifacts are unchanged. Current hashes:
+accept_fast617.py f1f238287d72f820e4ad988d4b12dd0775796cc9297c8094a83909f35b570d6d;
+analyze_fast617.py 6c4d0b666d7a07f2c4b2a0d3b66c638e7a0ef181e2d1faf18ce6fea34332e0bd;
+transfer_daemon.py dc89fa3d9b1ccedbfe6c30519d623c51b8229ae3194034cd44d2c9139c8e2f9f.
+These CPU passes do not establish CUDA compatibility or speed. Cell4 passed
+21:00:35UTC with architecture8.0 and expected source patches; canonical EMD
+cell5 started21:02:17UTC, build output began21:02:36UTC.
+
+[CPU/Review/Run/Open] Final operator payload138102bytes/SHA
+9f117b79ae207d8ddf10b59337bb48f68c0a2127a441d626eead06d382ecb960;
+manifest813720627faf8f4d034d3bd8d5ee32f095f338ff4c04e3fb58a392641fd7fbb0.
+Fourteen operator contract checks and the40-job controller simulation passed.
+Phase packaging retains each validated sealed ZIP once, with a SHA-bound
+recovery map proving recovery of every omitted duplicate. Corrupt/unsealed,
+changed and uncovered raw files remain preserved. Main archives and method
+math are unchanged. Seventeen wrapper CPU checks passed, including actual
+payload/native/source context, failed-phase preservation,32MiB reassembly,
+Drive identity and success guards. Cell6 completed21:07:07UTC; cell7 completed
+21:12:12UTC; cell8 PVCNN started21:13:18UTC. All native setup phases remain
+serial on monitor77268. No new research inference result yet.
+New local evidence root:
+result/modelnet40_c/lowband_quarter_fast/20261107-203304_a10080_screen617/.
+
+## WAIT_USER — recurrent CLI connection loss, 21:22:08UTC
+
+[Run/Failed/User decision/Open] Cell8 completed21:20:42UTC: PyTorch2.1.2+cu121,
+CUDA12.1/A10080GB, FPS and gather forward/backward passed. Cell9 completed
+21:21:49UTC after Drive copy, ZIP CRC and ModelNet extraction. Cell10 was
+submitted21:21:56UTC; the CLI emitted `RuntimeError: Connection was lost.` at
+21:22:08UTC. No exact cell10 completion marker or exec-finished event has been
+observed. This establishes a client connection failure, not VM termination or
+proof of whether cell10 executed. Fresh full setup is incomplete/unverified.
+
+The user's explicit recurrent-session boundary now applies: WAIT_USER, no
+retry, recovery, new session, reconnect or new remote inspection. Parent issued
+only a local monitor stop request21:23:23UTC to suppress further autonomous
+launch/probe work; it is deferred while the existing CLI process remains
+unresolved. Runtime was not closed; its current execution/assignment state is
+unknown after the failure. Peer remains untouched. Research asset deployment,
+batch profile, fresh calibration and617 screen have NOT started. The four-hour
+allocation deadline remains2026-11-08T00:33:04UTC; waiting does not reset it.
+Incident record: result/preparation/gsd_lowband_quarter_fast_20261107/cell10_connection_loss_20261107T212208Z.json.
+Raw primary stream remains setup/monitor.jsonl. Completed CPU packages, wrappers,
+acceptors and existing negative evidence are retained. Last published integration
+is5fb5b5f; later local progress/incident records await the next user command
+before publication or any other new external action.

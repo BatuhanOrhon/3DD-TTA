@@ -2813,3 +2813,9 @@ objects, all15/s5 and allthree matched arms within the four-hour whole-phase cap
 measured throughput, batch-specific frozen alpha and GPU comparison are pending.
 No additional accuracy expansion follows a nonpositive completed617 contrast.
 Small gains remain descriptive while native-repeat failures are unresolved.
+
+
+[User decision/Open,2026-11-07T21:22UTC] Quarter617 work is WAIT_USER after cell10
+CLI connection loss. No new remote action until a user command; actual cell10
+execution and current runtime state remain unknown. The original four-hour
+clock is not reset. See the dated quarter incident note for preserved state.

@@ -8887,3 +8887,16 @@ Falsifier: no positive M100-minus-SCD PM difference on completed617 stops furthe
 accuracy expansion; positive CI spanning zero stays inconclusive. Native-repeat
 instability remains unresolved. Old Standard r2 closure was explicitly authorized;
 peer High-RAM session is untouched. Current runtime remains live.
+
+
+## 2026-11-07 21:22UTC — quarter setup connection failure; WAIT_USER
+
+[Run/Failed/User decision/Open] [Incident](gsd_lowband_quarter_fast_20261107.md).
+Canonical8 native GPU smoke and9 dataset CRC/extraction passed; cell10 submission
+lost CLI connection without a completion marker. Remote execution is unknown;
+no claim of VM termination or successful full setup. Explicit user instruction
+halts retries/recovery/new sessions and remote inspection until a new command.
+Runtime not closed; peer untouched. No research deployment/profile/calibration
+or617 screen yet. Exact local incident JSON and raw stream are preserved under
+result/preparation/gsd_lowband_quarter_fast_20261107/. Four-hour clock stays
+20:33:04UTC→00:33:04UTC; waiting does not reset it. No new accuracy evidence.

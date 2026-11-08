@@ -1,3 +1,13 @@
+**[Run/Failed/User decision/Open] 2026-11-07 — quarter screen WAIT_USER:**
+[Current incident and preserved CPU preparation](gsd_lowband_quarter_fast_20261107.md).
+Own High-RAM A10080GB canonical cells1–9 completed with only the authorized
+cell2 fastrlock deferral; cell10 CLI reported `Connection was lost`21:22:08UTC.
+No cell10 completion marker. Per explicit user instruction, no retry/recovery,
+new runtime or new remote inspection until a user command. Runtime not closed;
+current execution state unknown. Deployment/profile/calibration/617 screen have
+not started. Deadline00:33:04UTC remains unchanged; peer untouched. Previous
+running/setup headlines below are dated history, superseded by this entry.
+
 **[Decision/CPU/Run/Open] 2026-11-07 — bounded 25% PM M100 screen:**
 [Current protocol, CPU checks and owned High-RAM setup](gsd_lowband_quarter_fast_20261107.md).
 The user replaces the long B2 benchmark with 617/2468 test objects, all15/s5,
