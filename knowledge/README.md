@@ -1,3 +1,20 @@
+**[User decision/Run/Open] 2026-11-08 — fresh quarter-screen r5 allocated:**
+[Current runtime, clock and protocol](gsd_lowband_quarter_fast_retry_r5_20261108.md).
+High-RAM A100 r5 allocation succeeded; cell1/reconnect pass and80GB verified.
+Drive consent and mount completed; own monitor74712 runs canonical cell2.
+New separate four-hour attempt07:08:21UTC→11:08:21UTC. Frozen617/all15/three-arm
+protocol retained, fresh actual-batch calibration required. Prior r3 connection
+failure and r4 rejection preserved; peer untouched. No new accuracy yet.
+Earlier WAIT_USER entries are dated history superseded by explicit user retry.
+
+**[Run/Failed/User decision/Open] 2026-11-08 — fresh A100 retry rejected; WAIT_USER:**
+[Cleanup, exact allocation error and retained preparation](gsd_lowband_quarter_fast_retry_20261108.md).
+All verified own stale terminal processes are closed; server inventory had no
+active runtimes. Colab rejected the new High-RAM A100 request, citing possible
+quota/entitlement. No VM/endpoint or monitor was created, no fallback/retry,
+no GPU research. Existing617 protocol and CPU code remain ready. Peer untouched;
+waiting for a new user command. Earlier setup/running entries are dated history.
+
 **[Run/Failed/User decision/Open] 2026-11-07 — quarter screen WAIT_USER:**
 [Current incident and preserved CPU preparation](gsd_lowband_quarter_fast_20261107.md).
 Own High-RAM A10080GB canonical cells1–9 completed with only the authorized

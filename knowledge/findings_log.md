@@ -8900,3 +8900,29 @@ Runtime not closed; peer untouched. No research deployment/profile/calibration
 or617 screen yet. Exact local incident JSON and raw stream are preserved under
 result/preparation/gsd_lowband_quarter_fast_20261107/. Four-hour clock stays
 20:33:04UTC→00:33:04UTC; waiting does not reset it. No new accuracy evidence.
+
+
+## 2026-11-08 — fresh quarter-screen allocation rejected
+
+[User decision/Run/Failed/Open] User explicitly resumes with own stale-terminal
+cleanup and one fresh runtime attempt. All exact owned stale process groups
+were terminated and locally verified absent. Server inventory beforehand had
+no active runtimes; no runtime teardown or peer modification occurred. New
+High-RAM A100 r4 allocation failed with backend accelerator rejection; possible
+quota/entitlement is the CLI diagnosis, not a verified root cause. No VM,
+monitor, setup or research run. No fallback or automatic retry; WAIT_USER.
+[Protocol continuity and raw paths](gsd_lowband_quarter_fast_retry_20261108.md).
+No new accuracy, timing or method conclusion. Existing negative evidence kept.
+
+
+## 2026-11-08 — authorized r5 retry allocated, canonical setup resumes
+
+[User decision/Run/Open] [Current r5 record](gsd_lowband_quarter_fast_retry_r5_20261108.md).
+After r4 rejection, explicit “Tekrar dene” authorized one new attempt. High-RAM
+A100 r5 was allocated; cell1 and same-VM reconnect passed, actual80GB verified.
+Legitimate task-owned monitor ran before setup; serial Drive consent is now
+pending with no competing kernel cell. New whole-attempt clock07:08:21→11:08:21UTC.
+Fixed617 and64 nonoverlapping calibration IDs, all15/s5 and three matched arms
+remain unchanged. Only output namespaces/clock/controller bindings retargeted;
+no new accuracy or GPU feasibility result. Scientific source918780b remains.
+Old r3/r4 negative records preserved, no peer operation or new runtime teardown.

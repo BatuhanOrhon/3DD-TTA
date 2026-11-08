@@ -2819,3 +2819,17 @@ Small gains remain descriptive while native-repeat failures are unresolved.
 CLI connection loss. No new remote action until a user command; actual cell10
 execution and current runtime state remain unknown. The original four-hour
 clock is not reset. See the dated quarter incident note for preserved state.
+
+
+[User decision/Run/Failed/Open,2026-11-08] Fresh quarter-screen A100 High-RAM
+allocation was rejected after authorized stale local-process cleanup. No VM or
+monitor exists for r4; exact quota/entitlement cause is unknown. Await a user
+command before another allocation/fallback. Fixed617 GPU tests remain pending.
+See [retry record](gsd_lowband_quarter_fast_retry_20261108.md).
+
+
+[User decision/Run/Open,2026-11-08] Explicit r5 retry supersedes earlier waiting
+state. Own High-RAM A10080GB allocated; first canonical cell/reconnect pass.
+Drive consent then remaining canonical setup, measured feasibility,384-row fresh
+calibration and617 screen remain pending within07:08:21→11:08:21UTC. On a new
+Colab session/connection failure, wait for a new user command before recovery.
