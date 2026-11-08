@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-08T15:54:43.107526+00:00",
+  "session": "tta-gsd-quarter-fast-a100-20261108-r6",
+  "endpoint": "gpu-a100-hm-ass1c0-uycluss04t2v",
+  "stage": "final archival input staging only",
+  "phase_source_upload": {
+    "status": "passed",
+    "remote": "/content/quarter_r6_basis_fp32_v2_final_evidence.py",
+    "sha256": "0a75212aeca4b23adab4702f6a8e77c46980eaa0d4abfb221cc012efb1b66fb3"
+  },
+  "failed_wrapper_uploads": [
+    {
+      "name": "install.py",
+      "remote_parent": "/content/studies/gsd-lowband-quarter-fast-20261108-r6/finalization_inputs",
+      "http_status": 500,
+      "cli_exit": 1
+    },
+    {
+      "name": "screen_resume_parent.py",
+      "remote_parent": "/content/studies/gsd-lowband-quarter-fast-20261108-r6/finalization_inputs",
+      "http_status": 500,
+      "cli_exit": 1
+    }
+  ],
+  "local_code_evidence": "Installed ContentsClient.upload sends PUT file only; no directory creation. New finalization_inputs parent was not created by prior installer.",
+  "interpretation": "Missing staging directory is the expected filesystem cause; server traceback not retrieved. GPU primary stream and ordinary artifact consumer continue; not classified as runtime/session loss.",
+  "action": "No retries or reconnect. After scientific completion, create/verify owned staging directory in bounded CPU finalization, copy exact leaf-staged wrappers with SHA guards, preserve failed attempts.",
+  "credential_handling": "Proxy query credentials excluded from this receipt"
+}

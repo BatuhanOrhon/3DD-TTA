@@ -9171,3 +9171,16 @@ raw ZIPs, weights/caches and redundant intermediate dumps. Preserve all peer
 records by semantic appends. Clean shared baseline826 tests and selected
 integration848 tests pass, both with2 skips and562 subtests; source branch's
 837-test record remains its separate checkout result. No new local GPU work.
+
+### 2026-11-08 15:55 UTC — R6 first448 paired objects
+
+[Run/Partial/Open] SCD4438/6720=66.041667%,half04410=65.625%,
+M1004426=65.863095%; primary−.178571pp,conditional95%CI[-.610119,.238095].
+Seven all15 shards/28 accepted jobs; no operationalgain, fixed617 continues.
+Legacy comparatorflags now2: originalrejection plus current shard006_M100 BG1,
+oldFP64error1.3879207383382663e-6/neworderedFP32error0. Originalv1 history,
+explicitposthoc amendment and unrelatednative29/30 failure preserved. Full
+partial4482ef8a1e9 and CPU progress note retain evidence. Auxiliary finalization
+wrapper staging failedHTTP500 for uncreatedparent; sourceupload/ongoingGPU and
+ordinarytransfers stillpass. No reconnect/reallocation or scientificretry;
+file-only staging repair deferred until40complete, sanitizedreceipt saved.

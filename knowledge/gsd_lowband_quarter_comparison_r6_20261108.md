@@ -325,3 +325,33 @@ native29/30 and posthoc-v2 caveats. Full derived partial384 SHA
 a28831c771ff1b7c98dc19b042511f4747c01420936b342a4009f8ea5dfa7c82;
 metrics/coverage/CI/SHA preserved in CPU progress note; full overlapping derived
 JSON remains local. Seventhshard SCD runs. No new GPU retry or source change.
+
+[Code/Run/Partial,15:51–15:54UTC] Reviewed file-only finalizer0a75212a
+staged successfully under /content. Two auxiliary wrapper PUT uploads into the
+new ROOT/finalization_inputs directory returned HTTP500/CLI1. Installed CLI
+upload code does not create parents; no prior phase created this directory.
+Expected cause is missing staging parent, not proven by a server traceback.
+Same-endpoint primary GPU and normal artifact consumer continue (eighthshard
+half0 active); no session loss/reconnect/reallocation or scientific retry.
+Sanitized failure receipt final_staging_failure.json preserves status/paths
+without proxy credentials. Defer repair until scan completes: bounded CPU
+finalization creates/verifies the owned input directory and copies SHA-guarded
+leaf-staged wrapper bytes. Sealed finalizer/scientific source unchanged.
+
+### 2026-11-08 15:55 UTC — 448 paired objects; primary−.178571pp
+
+[Run/Partial/Open] Seven complete all15 paired shards/28 accepted jobs:
+448 objects,6720 predictions/arm. SCD4438=66.041667%,half04410=65.625%,
+M1004426=65.863095%. Primary−.178571pp,conditional object-cluster95%CI
+[-.610119,+.238095]; M100-half0+.238095pp,CI[-.133929,+.610119]. No
+operational gain. Fixed617 continues with169 objects remaining. Full partial448
+SHA2ef8a1e9b79298c080fcb80c6c528dce9b3d8b7e645c8bf1394c315ce662b5fb
+remains under derived/; CPU progress note records complete metrics and SHA.
+
+Legacy-v1 scalar-comparator failures now2: the original runtime rejection at
+shard001_half0 Background1 plus a new counterfactual legacy check at
+shard006_M100 Background1 (idealFP64error1.3879207383382663e-6, orderedFP32
+replayerror0). The latter is a retained diagnostic under deployed v2, not a
+claim that v1 was rerun or passed. V2's numeric1e-6 remains unchanged and all
+current v2 cases pass; acceptance-rule amendment remains explicitly posthoc.
+Native29/30 repeat failure is unrelated and unresolved. Eighthshard half0 runs.

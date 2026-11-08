@@ -10,11 +10,11 @@ all 2,468 IDs/seed0/B128 is running on owned speed r5; no all15 result yet.
 One-seed/development/native variation and unguided-attribution limits remain.
 [Execution, failures and ownership](lion_guidance_speed_20261107.md).
 
-**[Run/Partial/Open] 2026-11-08 — R6 screen running; no SCD gain at384 objects:**
+**[Run/Partial/Open] 2026-11-08 — R6 screen running; no SCD gain at448 objects:**
 [Current R6 record](gsd_lowband_quarter_comparison_r6_20261108.md).
-Current384/all15/all3 are Drive+Mac accepted: SCD3745/5760=65.017361%,
-half03726/5760=64.6875%,M1003740/5760=64.930556%; M100-SCD−.086806pp,
-conditional95%CI[-.538194,+.364583]. Fixed617 is incomplete; old partials retained.
+Current448/all15/all3 are Drive+Mac accepted: SCD4438/6720=66.041667%,
+half04410/6720=65.625%,M1004426/6720=65.863095%; M100-SCD−.178571pp,
+conditional95%CI[-.610119,+.238095]. Fixed617 is incomplete; old partials retained.
 Second-shard half0 originally failed v1's independent physical-basis loss
 absolute1e-6 gate. Its v1 rejection remains; all completed jobs now have separate v2 receipts.
 Failed raw and v1 rejection preserved. [Explicit post-hoc validator-v2 arithmetic

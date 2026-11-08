@@ -2922,3 +2922,8 @@ Background N35/all2468/seed0 is separately running; preserve macro14 primary
 conclusion when reporting an all15 extension. Additional seeds, an unguided
 attribution control, corruption-independent horizon, held-out generalization
 and algorithmic novelty remain open; this integration authorizes no new GPU phase.
+
+[Run/Partial/Open,2026-11-08T15:55UTC] Latest448 paired objects:
+SCD4438/6720,M1004426,half04410; primary−.178571pp,conditional95%CI
+[-.610119,.238095]. No gain,169 objects remain. Legacyflags2/newv2error0 in
+secondcounterfactualcase; originalv1/native29/30 caveats persist. Continue617.

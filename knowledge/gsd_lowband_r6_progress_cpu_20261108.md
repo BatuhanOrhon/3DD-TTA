@@ -66,3 +66,16 @@ Coverage: {"actual_prepared_caches": 150, "cache_jobs": 5, "inference_jobs": 15,
 - half0_vs_control: -0.329861pp; conditional object-cluster95%CI [-0.7986111111111113, 0.1388888888888889]pp.
 
 Coverage: {"actual_prepared_caches": 180, "cache_jobs": 6, "inference_jobs": 18, "objects": 384, "predictions_per_arm": 5760, "shards": 6}. Legacy v1 projection failures retained: [{"label": "shard001_half0", "absolute_error": 0.0, "arithmetic": "fp64_per_object_energy_then_producer_dtype_left_fold", "case": "background/1", "legacy_absolute_error": 1.10527247443315e-06, "legacy_fp64_sum": 8.81187358757228, "legacy_gate_passed": false, "object_order": "archived_batch_order", "passed": true, "per_object_count": 32, "per_object_energy_dtype": "float64", "producer_dtype": "float32", "producer_replayed_sum": 8.811872482299805, "schema_version": 2, "tolerance": 1e-06, "validator_version": "basis-fp32-v2"}]. Partial screen decision remains null; final617 decision reserved for primary operator.
+
+## 2026-11-08T15:55:18.743483+00:00 — new paired cohort
+
+[Run/CPU derived] `result/modelnet40_c/lowband_quarter_fast/20261108-105629_a10080_screen617_r6/derived/partial_448_v2.json`; SHA256 `2ef8a1e9b79298c080fcb80c6c528dce9b3d8b7e645c8bf1394c315ce662b5fb`. All15 corruptions, seed0; only complete cache/control/half0/M100 ACK sets.
+
+- control PM: 4438/6720 = 66.041667%.
+- half0 PM: 4410/6720 = 65.625000%.
+- M100 PM: 4426/6720 = 65.863095%.
+- M100_vs_control: -0.178571pp; conditional object-cluster95%CI [-0.6101190476190477, 0.23809523809523817]pp.
+- M100_vs_half0: 0.238095pp; conditional object-cluster95%CI [-0.13392857142857148, 0.6101190476190477]pp.
+- half0_vs_control: -0.416667pp; conditional object-cluster95%CI [-0.8630952380952381, 0.014880952380952377]pp.
+
+Coverage: {"actual_prepared_caches": 210, "cache_jobs": 7, "inference_jobs": 21, "objects": 448, "predictions_per_arm": 6720, "shards": 7}. Legacy v1 projection failures retained: [{"label": "shard001_half0", "absolute_error": 0.0, "arithmetic": "fp64_per_object_energy_then_producer_dtype_left_fold", "case": "background/1", "legacy_absolute_error": 1.10527247443315e-06, "legacy_fp64_sum": 8.81187358757228, "legacy_gate_passed": false, "object_order": "archived_batch_order", "passed": true, "per_object_count": 32, "per_object_energy_dtype": "float64", "producer_dtype": "float32", "producer_replayed_sum": 8.811872482299805, "schema_version": 2, "tolerance": 1e-06, "validator_version": "basis-fp32-v2"}, {"label": "shard006_M100", "case": "background/1", "schema_version": 2, "validator_version": "basis-fp32-v2", "arithmetic": "fp64_per_object_energy_then_producer_dtype_left_fold", "producer_dtype": "float32", "per_object_energy_dtype": "float64", "object_order": "archived_batch_order", "per_object_count": 32, "producer_replayed_sum": 8.90091609954834, "absolute_error": 0.0, "passed": true, "legacy_fp64_sum": 8.900917487469078, "legacy_absolute_error": 1.3879207383382663e-06, "legacy_gate_passed": false, "tolerance": 1e-06}]. Partial screen decision remains null; final617 decision reserved for primary operator.
