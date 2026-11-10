@@ -1,0 +1,33 @@
+{
+  "source_commit": "c76d6b967ea63a6efd2988ec674fbb196756cfad",
+  "project_tests": {
+    "passed": 888,
+    "skipped": 2,
+    "subtests": 564,
+    "warnings": 7,
+    "seconds": 51.66
+  },
+  "vendor_root_collection": "four unsupported vendor collection errors, see study",
+  "files": {
+    "project_tests_final.log": {
+      "bytes": 2808,
+      "sha256": "3f2ff0feec415a8d22a51317d4ca33a4b1c616afedd146001e80ddc8b36315ff"
+    },
+    "root_pytest.log": {
+      "bytes": 3930,
+      "sha256": "2475c7539ca4ed3a0ccac06140b3a09457e9613fa3c8dacf35180cf6086e92f8"
+    },
+    "source_overlay.zip": {
+      "bytes": 791710,
+      "sha256": "51a40ab644bfddce7ab63fb2d70389e8ceba6382ab89283bb092a1ccc6b12ac3"
+    },
+    "source_receipt.json": {
+      "bytes": 49956,
+      "sha256": "b3926626a6373b277cfd300a74e34d526480f1ba4084bc2b4781bcaf27392419"
+    },
+    "setup_source_identity.json": {
+      "bytes": 2023,
+      "sha256": "3971f8bb5d49dfe0606b4ea852c82eee7dbd4b9946835103cb33258c30113c73"
+    }
+  }
+}

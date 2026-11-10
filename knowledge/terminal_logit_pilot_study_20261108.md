@@ -59,3 +59,35 @@ noninferiority proof is expected from32objects.
 Registration identity: `{"bytes": 1801, "sha256": "ac18925b95bf88d5ef4e95c7b16ea4b9fd780a579a058fadfed4d3c2a995e3b7"}`. Accuracy not inspected when IDs selected.
 
 [CPU/Open] Unrestricted root `pytest -q` additionally collects unsupported vendor tests and fails collection in Pointnet2_PyTorch/tests (hydra absent), extensions/emd/test_emd_loss.py and third_party/PyTorchEMD/test_emd_loss.py (emd_cuda absent), and third_party/ChamferDistancePytorch/unit_test.py (Python3.12 importlib.find_loader removed). Raw log: `result/preparation/terminal_logit_pilot_20261110/root_pytest.log`. Project `pytest tests -q` passes; no Linux/CUDA model environment was installed on Mac.
+
+[Run/Open] 2026-11-10T17:50:13.995571+00:00 — New owned session `tta-terminal-logit-pilot-a100-20261110-r1`, endpoint `gpu-a100-hm-ass1c0-vcmn4mvmkhfd`, A100/High-RAM allocated. Sole CLI owner is this task; first setup CLI exec session6579, no peer assignments observed. Source commit `c76d6b967ea63a6efd2988ec674fbb196756cfad`; source overlay `51a40ab644bfddce7ab63fb2d70389e8ceba6382ab89283bb092a1ccc6b12ac3` (791710bytes/263files), native source bytes to be bound to actual fresh build. Local preparation `result/preparation/terminal_logit_pilot_20261110/`; planned Drive task root `/content/drive/MyDrive/thesis/result/terminal_logit_pilot_20261110_r1/`. Cell1 in progress; all science unrun.
+
+[Run/Open] 2026-11-10T17:59:25.902040+00:00 — Canonical cell1 exact marker and planned Conda restart/reconnect pass; actual A100-SXM4-80GB/81920MiB. Cell2 completed Conda transaction but only known deferred fastrlock pip-wheel failure; no cell2 success claimed. Independent exact `TERMINAL_CELL2_PYTHON38_VERIFIED` marker passes. Awaiting user-run `colab drivemount -s tta-terminal-logit-pilot-a100-20261110-r1 /content/drive`; do not send cell3 before consent. Cell3–10/deployment/smoke/pilot remain unrun. Session live/idle awaiting consent, not closed. All latest project CPU checks888passed/2skipped/564subtests,13 new targeted tests; compact preparation receipt preserved.
+
+### Completed CPU publication scope; science pending
+
+[Code/CPU/Decision] Publish the necessary opt-in sampler/runner/reducer,13tests,
+frozen ID registration, compact preparation receipt and current knowledge only.
+Source branch `experiment/terminal-logit-pilot-20261110`, code source commit
+`c76d6b967ea63a6efd2988ec674fbb196756cfad`, shared base/latest fetched target
+`bb1526d461081a0cae5401dbfee3c5745624cb1a`. The isolated worktree is based on that
+latest target; no shared conflicts or peer changes to reconcile. Verification:
+888passed/2skipped/564subtests in51.66s;13new pilot tests, Python3.8 parse,
+source overlay CRC/hash and independent review. Root vendor collection failures
+are preserved above. No algorithm default promotion or GPU validation follows.
+
+Excluded: all `result/` raw logs/sourceZIPs, setup/deployment/science wrappers,
+large assets and weights. These are preserved in the owned preparation folder;
+Drive backup is pending actual consent. Current deploy captures fresh canonical
+native source/binary identities (including exact installed `.so` import origins),
+refreshes actual runtime metadata and restores no historical binaries. This
+operator has not run and remains gated on full canonicalsetup. Publication of
+this completed CPU batch does not mark the requested scientific pilot complete.
+
+Next: user Terminal `colab drivemount -s tta-terminal-logit-pilot-a100-20261110-r1 /content/drive`;
+then verify actual mount/shortcut/assets, run canonicalcell3–10 in order, deploy
+current source/fresh native receipts, archive and independently validate smoke,
+update duration estimate and run only the fixed pilot. User already authorizes
+GPU phase; no additional research-run approval needed. On connection/runtime
+loss, WAIT_USER without a new cell/retry/replacement. Runtime is live/idle
+awaiting consent and must not be closed.

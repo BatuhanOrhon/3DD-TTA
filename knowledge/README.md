@@ -1,3 +1,16 @@
+**[Code/CPU/Run/Open] 2026-11-10 — terminal/logit pilot implemented; Drive consent pending:**
+[Owned execution record](terminal_logit_pilot_study_20261108.md) supersedes the
+preparation-only handoff status below. Isolated source `c76d6b9` adds true
+terminal-only proximal N5/N8 and five-arm pilot, plus same-logit LM/PM reducer;
+888 project tests/2skip/564subtests pass, independent review resolved.
+Registration fixes32IDs/all15/s5/seed0/B32/three operational repeats; no full
+expansion or baseline change. Owned High-RAM A10080 session
+`tta-terminal-logit-pilot-a100-20261110-r1` completed cell1/reconnect and cell2
+Python3.8 verification (only user-deferred fastrlock pip failure). Await user
+Drive authorization before cells3–10/deployment/smoke/pilot. No new accuracy,
+latency or native-repeat result; no auto replacement/retry on loss. Runtime
+remains live and is not closed.
+
 **[User decision/Open] 2026-11-08 — separate-agent small-pilot handoff prepared:**
 [Terminal acceleration + Logit Mean handoff](terminal_logit_pilot_agent_handoff_20261108.md)
 requires a fresh worktree/experiment branch from latest `origin/thesis-integration`

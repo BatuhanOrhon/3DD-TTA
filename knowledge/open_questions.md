@@ -1,3 +1,15 @@
+## 2026-11-10 — bounded terminal/logit pilot active
+
+[Code/CPU/Run/Open] [Study](terminal_logit_pilot_study_20261108.md) is current.
+
+- [x] Implement true terminal cheapN5/N8, locked five-arm runner and same-logit LM/PM reducer; CPU/independent review.
+- [x] Freeze32pilot+4smoke disjoint IDs and source identity before accuracy.
+- [x] Allocate owned A10080High-RAM, canonicalcell1/reconnect/cell2Python3.8 verification.
+- [ ] User Drive consent; canonicalcell3–10/current source/native/assets; GPU smoke and fresh-repeat pilot.
+- [ ] Actual all15/macro14/per-corruption paired accuracy, latency/memory and verified raw archives; native repeat floor and uncertainty.
+
+No default change, full-data expansion, auto retry/replacement or teardown authorized.
+
 ## 2026-11-08 — promoted proximal baseline and registered next comparisons
 
 [User decision/Code/Open] [Current executable baseline](current_baseline.md)

@@ -9447,3 +9447,6 @@ The33 raw archives/source/logs and positive/negative/failed history stay preserv
 
 
 [Code/CPU/Open] 2026-11-10 — terminal/logit pilot prepared in isolated branch/worktree from bb1526d. N5 cheap true terminal-only path, five-arm runner and same-logit float64 LM/PM reducer added; no default change or GPU result.13 targeted tests and887 broad project tests/2skip/564subtests pass; current registration and next gates in [study](terminal_logit_pilot_study_20261108.md).
+
+
+[Code/CPU/Run/Open] 2026-11-10 — Completed CPU preparation: source c76d6b9,888tests/2skip/564subtests,13new pilot tests and independent code/temporary-deployment review. Preparation receipt records exact log/source/registration hashes. Owned `tta-terminal-logit-pilot-a100-20261110-r1` / `gpu-a100-hm-ass1c0-vcmn4mvmkhfd` A10080High-RAM: cell1/reconnect pass, only deferred cell2 fastrlock wheel error; independent Python3.8 pass. Await user Drive consent, cells3–10 and all scientific phases pending. No accuracy/latency/native-repeat claim. [Precise next action and scope](terminal_logit_pilot_study_20261108.md).
