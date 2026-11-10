@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "dataset": "modelnet40_c",
+  "severity": 5,
+  "backbone": "pointmae",
+  "selection_seed": 20261108,
+  "smoke_ids": [
+    170,
+    1119,
+    1596,
+    2309
+  ],
+  "pilot_ids": [
+    28,
+    42,
+    126,
+    139,
+    173,
+    205,
+    209,
+    225,
+    300,
+    353,
+    547,
+    600,
+    709,
+    748,
+    755,
+    760,
+    779,
+    814,
+    919,
+    1008,
+    1018,
+    1073,
+    1374,
+    1441,
+    1455,
+    1495,
+    1549,
+    1553,
+    1684,
+    1829,
+    2089,
+    2130
+  ],
+  "inference_seed": 0,
+  "operational_repeats": 3,
+  "batch_size": 32,
+  "smoke_batch_size": 2,
+  "corruptions": [
+    "uniform",
+    "gaussian",
+    "background",
+    "impulse",
+    "upsampling",
+    "distortion_rbf",
+    "distortion_rbf_inv",
+    "density",
+    "density_inc",
+    "shear",
+    "rotation",
+    "cutout",
+    "distortion",
+    "occlusion",
+    "lidar"
+  ],
+  "smoke_corruptions": [
+    "gaussian",
+    "background",
+    "density",
+    "lidar"
+  ],
+  "arms": {
+    "T5": {
+      "steps": 5,
+      "gamma": 0.01,
+      "eta": 0.01,
+      "cheap": false,
+      "pm": false
+    },
+    "P5": {
+      "steps": 5,
+      "cheap": true,
+      "pm": false
+    },
+    "T8": {
+      "steps": 8,
+      "gamma": 0.03,
+      "eta": 0.003,
+      "cheap": false,
+      "pm": false
+    },
+    "P8": {
+      "steps": 8,
+      "cheap": true,
+      "pm": false
+    },
+    "P8-PM": {
+      "steps": 8,
+      "cheap": true,
+      "pm": true
+    }
+  },
+  "tau": 0.1,
+  "retained": 0.95,
+  "warmups": 2,
+  "budget_seconds": 2700,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261108,
+  "accuracy_primary_repeat": 0,
+  "reduction_precision": "float64 offline; archived GPU PM float32 separately",
+  "exposure": "Official test development data; neither unseen confirmation nor noninferiority proof"
+}

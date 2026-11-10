@@ -3007,3 +3007,6 @@ different-dataset/source-model replication is scheduled. See the
 not pending authorized tasks. They prevent a general efficacy/harm claim; they
 do not reopen this candidate. The33 archived raw jobs and failed outcomes remain
 available for a separately requested future research question. Runtimes stay closed.
+
+
+[Open] 2026-11-10 — terminal acceleration and LM–PM are now in CPU preparation; [study and fixed32-ID scope](terminal_logit_pilot_study_20261108.md). Actual GPU scheduler/readout/source/native/repeat gates and accuracy/timing remain pending. No full expansion, no auto retry/replacement on loss.

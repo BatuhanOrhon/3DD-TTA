@@ -9444,3 +9444,6 @@ Evidence: [R6 record](gsd_lowband_quarter_comparison_r6_20261108.md),
 partial_448_v2.json SHA2ef8a1e9b79298c080fcb80c6c528dce9b3d8b7e645c8bf1394c315ce662b5fb,
 and [closure proof](evidence/gsd_lowband_quarter_fast_20261108_r6_basis_fp32_v2/runtime_closure_20261108.json).
 The33 raw archives/source/logs and positive/negative/failed history stay preserved.
+
+
+[Code/CPU/Open] 2026-11-10 — terminal/logit pilot prepared in isolated branch/worktree from bb1526d. N5 cheap true terminal-only path, five-arm runner and same-logit float64 LM/PM reducer added; no default change or GPU result.13 targeted tests and887 broad project tests/2skip/564subtests pass; current registration and next gates in [study](terminal_logit_pilot_study_20261108.md).

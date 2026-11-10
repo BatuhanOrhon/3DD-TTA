@@ -1,3 +1,5 @@
+**2026-11-10 status:** CPU implementation/testing in progress under the user-requested small pilot. Latest [execution record](../terminal_logit_pilot_study_20261108.md) supersedes the historical NOT_RUN/unsupported-code status below; no new GPU result yet. Full-data expansion is outside this task.
+
 # Terminal-only acceleration without PM — registered 2026-11-08
 
 [User report/Open] **PLANNED / NOT_RUN; terminal-only acceleration arms not

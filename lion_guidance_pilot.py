@@ -77,13 +77,15 @@ def bridge_clean_delta(previous, xyz_delta, alpha_previous):
 
 
 def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnostic=None,
-           scheduler_observer=None):
-    """Isolated experimental N8/B35 sampler; full-control parity is a GPU gate."""
+           scheduler_observer=None, terminal_only=False):
+    """Frozen guidance sampler; terminal_only omits intermediate probes and copies."""
     from diffusers import DDIMScheduler
     from third_party.ChamferDistancePytorch.chamfer3D.dist_chamfer_3D import chamfer_3DDist
     from legacy_trajectory import _restore_rng
     allowed = ('full', 'style_frozen', 'sparse', 'cheap', 'hybrid', 'feature', 'shuffled', 'metric4d', 'geometric', 'unguided')
-    if arm not in allowed or steps not in (8, 35):
+    if (arm not in allowed or steps not in (5, 8, 35)
+            or (steps == 5 and (arm != 'cheap' or not terminal_only))
+            or type(terminal_only) is not bool):
         raise ValueError('Invalid frozen pilot arm/horizon')
     scheduler = DDIMScheduler(beta_end=.02, beta_schedule='linear', beta_start=.0001,
         clip_sample=False, num_train_timesteps=1000, prediction_type='epsilon')
@@ -112,7 +114,7 @@ def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnost
             matching_scales=(xyz_scale,feature_scale)
     chamfer = chamfer_3DDist()
     snapshots, records = [], []
-    checkpoints = [2,4,6] if steps==8 else [9,18,27]
+    checkpoints = [] if terminal_only else ([2,4,6] if steps==8 else [9,18,27])
     for i,t in enumerate(times):
         full = arm not in ('cheap','sparse','hybrid','unguided') or (arm in ('sparse','hybrid') and i%3==0)
         noisy = noisy.detach().requires_grad_(full)
@@ -173,7 +175,7 @@ def sample(lion, state, steps, arm, *, tau=.06, beta=.1, callback=None, diagnost
                 full_backward=full))
         records.append(dict(loop=i+1,timestep=int(t),full_backward=full))
         noisy,style=previous.detach(),next_style.detach()
-    snapshots.append(noisy.clone())
+    snapshots.append(noisy if terminal_only else noisy.clone())
     if callback is not None: callback(noisy,z0,steps)
     return snapshots, records
 
