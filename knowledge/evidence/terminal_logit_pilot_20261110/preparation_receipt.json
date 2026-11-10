@@ -29,5 +29,14 @@
       "bytes": 2023,
       "sha256": "3971f8bb5d49dfe0606b4ea852c82eee7dbd4b9946835103cb33258c30113c73"
     }
+  },
+  "publication": {
+    "time_utc": "2026-11-10T18:02:16.507776+00:00",
+    "target": "origin/thesis-integration",
+    "integration_commit": "2f71f0845e328d3ed381f4d83e57cf652fedc3ee",
+    "verified_remote_ref": true,
+    "normal_fast_forward": true,
+    "status": "completed_CPU_batch_only; GPU smoke/pilot pending Drive consent",
+    "excluded": "result raw/source ZIPs, temporary operators, weights and caches preserved locally; not committed"
   }
 }

@@ -91,3 +91,5 @@ update duration estimate and run only the fixed pilot. User already authorizes
 GPU phase; no additional research-run approval needed. On connection/runtime
 loss, WAIT_USER without a new cell/retry/replacement. Runtime is live/idle
 awaiting consent and must not be closed.
+
+[Code/Publication/Open] Completed CPU scope normal-pushed and remote-ref verified at `2f71f0845e328d3ed381f4d83e57cf652fedc3ee` (includes code source c76d6b9). [Compact receipt](evidence/terminal_logit_pilot_20261110/preparation_receipt.json). This records the CPU integration, not scientific pilot completion. Drive consent remains pending; no further remote cell has been submitted.
