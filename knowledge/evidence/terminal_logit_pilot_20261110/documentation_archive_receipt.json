@@ -9,5 +9,14 @@
   "kernel_pid": 896,
   "local_roundtrip": "result/preparation/terminal_logit_pilot_20261110/documentation_drive_roundtrip.zip",
   "validation": "Whole SHA256, ZIP CRC, exact43-member manifest and every member SHA verified on Drive roundtrip",
-  "archive_scope": "Accepted result/derived analysis/review/knowledge at prepublication stage; this subsequent receipt and final publication status are external to archived manifest"
+  "archive_scope": "Accepted result/derived analysis/review/knowledge at prepublication stage; this subsequent receipt and final publication status are external to archived manifest",
+  "subsequent_repository_formatting": "Six published CSVs normalized CRLF to LF; every parsed CSV cell verified identical. Immutable raw/prepublication ZIPs retain original bytes.",
+  "normalized_csvs": [
+    "comparisons.csv",
+    "diagnostics.csv",
+    "per_corruption.csv",
+    "stability.csv",
+    "summary.csv",
+    "timing_memory.csv"
+  ]
 }

@@ -50,7 +50,7 @@ counted separately. No baseline defaults change.
 - [x] Checkpoint each corruption, verify immutable rawZIPs Drive/Mac SHA/CRC,
   then report counts/all15/macro14/per-corruption, paired corrected/harmed/net,
   object-cluster10000draw/seed20261108 CIs per repeat and logit diagnostics.
-- [ ] Reconcile latest integration and normal fast-forward push only necessary
+- [x] Reconcile latest integration and normal fast-forward push only necessary
   code/tests/knowledge/compact evidence; exclude rawZIPs, setup wrappers/weights.
 
 [Historical preparation/Open] The following source/session/measurement items
@@ -275,3 +275,15 @@ Source unchanged, independent full real-output recount/bootstrap and new
 JSON/CSV/link/diff checks pass. Excludes result ZIPs/logs/operators/weights,
 full benchmark/extra seed, defaults and peer checkouts/runtimes. Publish via
 normal fast-forward only; no force. Worktree and live runtime retained.
+
+
+[Code/Publication] Accepted results normal-pushed as
+`dc18070` to origin/thesis-integration, preserving earlier core c76d6b9.
+Final staged whitespace check exposed RFC-style CRLF endings in six CSVs;
+the shell command chain incorrectly continued to commit/push after that check.
+Corrected repository CSV line endings to LF, with parsed cell-by-cell equality
+asserted. No numeric/source/raw archive change. Original archived bytes stay
+immutable; receipt records this post-archive formatting. Follow-up normal
+publication includes this correction and completed publication checklist.
+Full accepted raw evidence, failed native floor and all limits remain unchanged.
+Runtime `tta-terminal-logit-pilot-a100-20261110-r1` retained; no teardown.
