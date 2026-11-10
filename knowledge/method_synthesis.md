@@ -751,3 +751,16 @@ claims. Defaults and accepted N8Chamfer+PM baseline remain unchanged.
 ## 2026-11-07 — Standalone robust proximal/lift proposal: accepted negative and uncertain results
 
 [Paper/Run/Code/Inference/Open] [Nov4literature and derivations](gsd_lion_spectral_literature_20261104.md), [Nov5results](gsd_hypotheses_results_20261105.md), [status inventory](gsd_hypotheses_test_inventory_20261107.md). Generic graph-posterior correction is acknowledged prior art, not novelty. In this separate study's local H1–H4 naming, reconstructed-anchor superiority is unestablished, robust-surface mean benefit uncertain, and uniform lambda1 worse than lambda0.784SPD solves/actual frozen-Huber descent and DDIM algebra pass while direct coordinate identity lift fails. Cached F application and graph construction/PCG costs remain separate; no SCD throughput/accuracy benefit. Future final physical refinement or measured decoder-aware lift requires independent validation; neither was implemented here. Preserve later comprehensive decoder/graph/native diagnostics as a different dated protocol, not overwritten evidence.
+
+
+## 2026-11-10 — matched terminal acceleration and same-logit reductions
+
+[Code/Run/Inference] T5→P5 -1.0417pp,95%CI[-3.5417,+1.2500],32.1167%less time; T8→P8 -1.8750pp,95%CI[-4.3750,+0.6250],35.3848%less time; P8-PM→P8-LM +0.2083pp,95%CI[+0.0000,+0.6250]; P8→P8-PM +3.9583pp,95%CI[+2.0833,+6.0417],-42.0284%less time.
+[Bounded pilot](terminal_logit_pilot_results_20261110.md):32 original objects,
+all15/s5/Point-MAE/seed0/B32, repeat0 primary, fresh repeats1/2 separate.
+Classic uses actual tta.py; proximal N5/N8 is terminal-only, one decoder/head
+and zero denoiser backward steps. LM/PM share exactclean2/4/6+terminal8 logits.
+These are operational pipeline comparisons with frozen settings, not a new
+optimizer novelty claim. Native floor fails55/80, so no isolated guidance
+causal attribution or strict native parity. Full-data/held-out/multiseed
+confirmation was not run; current proximal N8+PM baseline remains unchanged.

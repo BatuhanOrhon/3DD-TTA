@@ -1,0 +1,13 @@
+{
+  "bytes": 639522,
+  "sha256": "6496ec9d85bfe76fa2b886cf90f184e189d144674b7359d1667431f91833e09e",
+  "local_path": "/Users/batuhan/.codex/worktrees/c117/3DD-TTA/result/preparation/terminal_logit_pilot_20261110/documentation_20261110T193956Z.zip",
+  "remote_path": "/content/terminal_logit_operator/documentation_20261110T193956Z.zip",
+  "drive_path": "/content/drive/MyDrive/thesis/result/terminal_logit_pilot_20261110_r1/documentation_20261110T193956Z.zip",
+  "members": 43,
+  "status": "drive_verified",
+  "kernel_pid": 896,
+  "local_roundtrip": "result/preparation/terminal_logit_pilot_20261110/documentation_drive_roundtrip.zip",
+  "validation": "Whole SHA256, ZIP CRC, exact43-member manifest and every member SHA verified on Drive roundtrip",
+  "archive_scope": "Accepted result/derived analysis/review/knowledge at prepublication stage; this subsequent receipt and final publication status are external to archived manifest"
+}

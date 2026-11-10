@@ -1,3 +1,12 @@
+**2026-11-10 latest: bounded pilot COMPLETE.**
+[Full results](../terminal_logit_pilot_results_20261110.md) supersede pending,
+WAIT_USER, unsupported-code and NOT_RUN statements below (historical plan).
+Implemented/tested; exact32-ID/all15/s5/seed0/B32 pilot accepted independently,
+three operational repeats. Native repeat floor fails55/80: descriptive only.
+No automatic full-data expansion, extra seed, tuning or default promotion.
+Historical broader future steps below are not authorized next actions.
+Runtime retained; archive/publication complete or recorded in the execution note.
+
 **2026-11-10 latest:** WAIT_USER after CLI connection loss before Drive verification; no GPU smoke/pilot. Same assignment still listed, kernel unknown. No retry/replacement. [Incident](../terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization).
 
 **2026-11-10 status:** CPU implementation/tests complete, owned High-RAM A10080 setup awaiting Drive consent. Latest [execution record](../terminal_logit_pilot_study_20261108.md) supersedes historical unsupported-code statements; GPU smoke/pilot and results remain pending. Full-data expansion is outside this task.

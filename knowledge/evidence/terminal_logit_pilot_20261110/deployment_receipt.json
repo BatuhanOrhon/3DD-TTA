@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "asset_root": "/content/studies/terminal-logit-pilot-20261110-r1/prepared/assets",
+  "asset_manifest": {
+    "bytes": 186464,
+    "sha256": "8bc589db3dd6eb5cc83522cd716d7b59ff3ef5101d567d8708edb280821a09d5"
+  },
+  "source_commit": "c76d6b967ea63a6efd2988ec674fbb196756cfad",
+  "source_snapshot": {
+    "bytes": 1256650,
+    "sha256": "b5ff4e7284274aab24be890a932a0df7261b7d04f50ec126986f5c78f32d7d43"
+  },
+  "fresh_native_audit": {
+    "bytes": 29022,
+    "sha256": "c427e02e7a9308d5b0864210a511d1484d6154d72c1b2be97d3a8851d7a5871b"
+  },
+  "setup": {
+    "bytes": 9005,
+    "sha256": "e3a0523bb89f19ba11c2c9e946a31a400ac4f300e843a6c22f2be51d1946ed92"
+  },
+  "native_restore": false
+}

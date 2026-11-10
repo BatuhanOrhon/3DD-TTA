@@ -1,0 +1,17 @@
+{
+  "status": "accepted_descriptive_pilot",
+  "reviewer": "/root/review_terminal_pilot",
+  "scope": [
+    "archive member hashes",
+    "174 executed-source identities",
+    "smoke/native/model bindings",
+    "original labels",
+    "225 cases",
+    "outcome counts",
+    "timing",
+    "primary paired object-cluster bootstrap intervals",
+    "report limits"
+  ],
+  "decision": "No remaining admission/report blocker; no demonstrated terminal accuracy retention or reliable LM gain",
+  "runtime_actions": false
+}

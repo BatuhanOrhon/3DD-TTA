@@ -1,0 +1,26 @@
+{
+  "status": "same_session_reconnect_passed",
+  "user_authorization": "2026-11-10 user: Tekrar ba\u011flanmay\u0131 dene",
+  "session": "tta-terminal-logit-pilot-a100-20261110-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-vcmn4mvmkhfd",
+  "kernel_pid": 896,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_memory_mib": 81920,
+  "drive_mount": true,
+  "drive_required_files_readable": true,
+  "canonical_cell3": "exact marker passed",
+  "old_local_cli_stopped": [
+    31297,
+    31287
+  ],
+  "native_setup": "cell4 running; no science",
+  "setup_backup": {
+    "bytes": 40640,
+    "sha256": "abf9ae8e1943d1af72dd35c866d1833d9cd670abef40d6401965ddc80dff13cf",
+    "drive_path": "/content/drive/MyDrive/thesis/result/terminal_logit_pilot_20261110_r1/setup/setup_before_native.zip",
+    "local_path": "result/preparation/terminal_logit_pilot_20261110/setup_before_native_20261110.zip",
+    "drive_copy_hash_verified": true
+  },
+  "runtime_reset": false,
+  "new_allocation": false
+}

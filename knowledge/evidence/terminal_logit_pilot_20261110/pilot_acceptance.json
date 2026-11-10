@@ -1,0 +1,69 @@
+{
+  "status": "accepted_complete_pilot",
+  "archive": {
+    "bytes": 4777541,
+    "sha256": "8570672072e7bbcb9b62e4c06246f33dbfb14863b20f7f9e7612f5b8d0fc8111",
+    "local_path": "/content/studies/terminal-logit-pilot-20261110-r1/result/modelnet40_c/terminal_logit_pilot/20261110-191704_pilot_seed0.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/terminal_logit_pilot_20261110_r1/raw/20261110-191704_pilot_seed0.zip"
+  },
+  "local_run": "result/modelnet40_c/terminal_logit_pilot/20261110-191704_pilot_seed0",
+  "pilot_elapsed_seconds": 1185.5613167359998,
+  "cases": 225,
+  "raw_method_predictions": 7200,
+  "derived_policy_predictions": 8640,
+  "ids": [
+    28,
+    42,
+    126,
+    139,
+    173,
+    205,
+    209,
+    225,
+    300,
+    353,
+    547,
+    600,
+    709,
+    748,
+    755,
+    760,
+    779,
+    814,
+    919,
+    1008,
+    1018,
+    1073,
+    1374,
+    1441,
+    1455,
+    1495,
+    1549,
+    1553,
+    1684,
+    1829,
+    2089,
+    2130
+  ],
+  "corruptions": 15,
+  "seed": 0,
+  "operational_repeats": 3,
+  "gpu32_cpu64_prediction_changes_by_arm": {
+    "T5": 0,
+    "P5": 0,
+    "T8": 0,
+    "P8": 0,
+    "P8-PM": 0
+  },
+  "source_snapshot": {
+    "bytes": 1256650,
+    "sha256": "b5ff4e7284274aab24be890a932a0df7261b7d04f50ec126986f5c78f32d7d43"
+  },
+  "asset_manifest": {
+    "bytes": 186464,
+    "sha256": "8bc589db3dd6eb5cc83522cd716d7b59ff3ef5101d567d8708edb280821a09d5"
+  },
+  "smoke_native_repeat_floor_passes": 25,
+  "smoke_native_repeat_floor_cases": 80,
+  "limitation": "32 exposed development objects,one inference seed,one VM,failed native repeat floor; repeat0 primary,1/2 separate; no expansion"
+}

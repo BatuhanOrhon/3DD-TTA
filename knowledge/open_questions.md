@@ -3030,3 +3030,20 @@ available for a separately requested future research question. Runtimes stay clo
 
 
 [Open] 2026-11-10 — terminal acceleration and LM–PM are now in CPU preparation; [study and fixed32-ID scope](terminal_logit_pilot_study_20261108.md). Actual GPU scheduler/readout/source/native/repeat gates and accuracy/timing remain pending. No full expansion, no auto retry/replacement on loss.
+
+
+## 2026-11-10 — terminal acceleration and LM–PM pilot answered within bounds
+
+[Run/Inference/Open] T5329/480=68.5417%; P5324/480=67.5000%; T8334/480=69.5833%; P8325/480=67.7083%; P8-PM344/480=71.6667%; P8-LM345/480=71.8750%.
+T5→P5 -1.0417pp,95%CI[-3.5417,+1.2500],32.1167%less time; T8→P8 -1.8750pp,95%CI[-4.3750,+0.6250],35.3848%less time; P8-PM→P8-LM +0.2083pp,95%CI[+0.0000,+0.6250]; P8→P8-PM +3.9583pp,95%CI[+2.0833,+6.0417],-42.0284%less time.
+[All15/corruption/repeat-specific report](terminal_logit_pilot_results_20261110.md).
+The prior pending GPU gates are complete for this fixed32-ID task, not the
+full2468-object benchmark. Native floor fails55/80; same-state strict parity
+and isolated guidance attribution remain unresolved. One exposed cohort,
+seed0 and one VM cannot establish unseen benefit or the −.3pp noninferiority
+criterion. Repeat1/2 are operational repeats, not additional inference seeds.
+No expansion/default change or automatic next GPU phase is authorized.
+Future confirmation, if separately requested, needs a frozen question and
+scope; this task ends after archive/publication. Runtime retained, no close
+permission. Earlier connection-loss WAIT_USER was superseded only by explicit
+user reconnect instruction; same restriction applies on a new loss.

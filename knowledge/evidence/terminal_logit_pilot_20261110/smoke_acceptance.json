@@ -1,0 +1,48 @@
+{
+  "status": "accepted",
+  "phase": "smoke",
+  "raw_run": "/content/studies/terminal-logit-pilot-20261110-r1/result/modelnet40_c/terminal_logit_pilot/20261110-191050_smoke_seed0",
+  "local_run": "result/modelnet40_c/terminal_logit_pilot/20261110-191050_smoke_seed0",
+  "archive": {
+    "bytes": 1763623,
+    "sha256": "ad6b46a65237a0ba9faee5fd486a84fd57679566735f761ab7362d0f4b0c1b6e",
+    "local_path": "/content/studies/terminal-logit-pilot-20261110-r1/result/modelnet40_c/terminal_logit_pilot/20261110-191050_smoke_seed0.zip",
+    "drive_path": "/content/drive/MyDrive/thesis/result/terminal_logit_pilot_20261110_r1/raw/20261110-191050_smoke_seed0.zip"
+  },
+  "smoke_gate": {
+    "bytes": 23784,
+    "sha256": "77ff166c4f2dc228b7c9c654f4a9d3c83d15aee57f6960f4d4ecccfc2a9cb3ed"
+  },
+  "cases": 120,
+  "objects": 4,
+  "corruptions": 4,
+  "repeats": 3,
+  "repeat_passes": 25,
+  "repeat_cases": 80,
+  "prediction_changes": 0,
+  "max_abs_logit_difference": 1.1585958003997803,
+  "descriptive_only": true,
+  "timing_diagnostic_only": {
+    "T5": {
+      "mean_seconds": 0.6323405231252082,
+      "max_seconds": 0.6417306510002163
+    },
+    "P5": {
+      "mean_seconds": 0.27595021787499263,
+      "max_seconds": 0.2804347940000298
+    },
+    "T8": {
+      "mean_seconds": 0.9727721432500402,
+      "max_seconds": 0.9899523320000299
+    },
+    "P8": {
+      "mean_seconds": 0.40523340583331446,
+      "max_seconds": 0.41860554100003355
+    },
+    "P8-PM": {
+      "mean_seconds": 0.6032135317917285,
+      "max_seconds": 0.62394024599962
+    }
+  },
+  "interpretation": "Same-state native floor only; smoke timings exclude fresh encode and cannot be terminal pilot speed measurements"
+}

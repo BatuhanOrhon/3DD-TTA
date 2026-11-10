@@ -1,3 +1,26 @@
+**[Run/CPU/Inference] 2026-11-10 — terminal acceleration + same-logit LM–PM pilot complete:**
+[Accepted results](terminal_logit_pilot_results_20261110.md),
+[execution/provenance](terminal_logit_pilot_study_20261108.md).
+Fixed32objects/all15/s5/seed0/B32,three fresh operational repeats; repeat0 primary.
+T5329/480=68.5417%; P5324/480=67.5000%; T8334/480=69.5833%; P8325/480=67.7083%; P8-PM344/480=71.6667%; P8-LM345/480=71.8750%.
+T5→P5 -1.0417pp,95%CI[-3.5417,+1.2500],32.1167%less time; T8→P8 -1.8750pp,95%CI[-4.3750,+0.6250],35.3848%less time; P8-PM→P8-LM +0.2083pp,95%CI[+0.0000,+0.6250]; P8→P8-PM +3.9583pp,95%CI[+2.0833,+6.0417],-42.0284%less time.
+Native same-state floor fails55/80: descriptive results only, no isolated causal
+attribution or noninferiority claim. LM/PM use identical saved four logits.
+Raw/source/native/model/label/Drive→Mac SHA/CRC and independent recount/bootstrap
+verified; all corruption/count/paired/time/memory tables preserved. No full-data
+expansion, tuning or baseline change. Owned session
+`tta-terminal-logit-pilot-a100-20261110-r1` retained; teardown not authorized.
+Earlier pending/WAIT_USER/consent headlines below are preserved dated history,
+superseded by completed same-session recovery and this accepted bounded result.
+
+**[User decision/Run/Open] 2026-11-10 — terminal/logit same-session recovery resumed:**
+User explicitly requests reconnection. Same endpoint/kernel896/A10080 respond;
+Drive mount and required file access pass, canonicalcell3 completes. Setup
+backup then canonicalcell4–10/current-native deployment/smoke/pilot remain
+ordered gates. No new runtime, reset or science result. Earlier connection loss
+is preserved; no additional auto retry on another loss.
+[Current execution](terminal_logit_pilot_study_20261108.md).
+
 **[Run/Failure/Open] 2026-11-10 — terminal/logit pilot WAIT_USER after connection loss:**
 [Current incident and exact next gate](terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization)
 records `Connection was lost` in the CLI working-directory prelude before the

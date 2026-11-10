@@ -646,3 +646,34 @@ knowledge/evidence/gsd_lowband_quarter_fast_20261108_r6/.
 [Run/Code/Open] GitHubdefaultMiniforge release/API download repeatedly503/504 during officialincidentpyynvrm1vskw; installer had not executed. User authorized alternateConda method. OwnedHighRAM A10080 `tta-lion-guidance-speed-a100-20261108-r5` used installedCondaColab0.1.14 `install_from_url` with official `https://repo.anaconda.com/miniconda/Miniconda3-py313_26.3.2-2-Linux-x86_64.sh`, expectedSHA2284bafb7863a23411b19874d216e237964d4b32dd9beb6807fa8b2d84570961 checked before installer; py313 matches actualColabkernel3.13. SameVMreconnect, condacolab.check and physicalDrive survived; conda-forge-only channels configured after preserving originalconfiguration. No MacLinuxinstaller execution.
 
 Exactcanonicalcells2–10thenraninorder: knowncell2fastrlock-only pip exception and independentPython3.8proof, Drive/KNN bytecheck, cell4CUDA12.1/GCC11.4, cells5–8 EMD/Chamfer/PointNet++/PVCNN and GPUfwd/bwd; allfive native `.complete` files separatelydownloaded. Cell9 datasetpassed; cell10 exactSETUP_ENVIRONMENT_VERIFIED/wrapper markers12:28:01UTC. Downloaded freshsetupstatuspassedSHA842b7ef304ad34551a96fe1e48f3b9792dd4e80c6b0a9cbba4213b2d81249c2c,15arrays/weights/nativeGPU. Drive/bootstrap/canonical_setup_verification_before_restore.json localroundtripverified. This is an explicitcell1bootstrapdistribution adaptation; cells2–10unchanged and knowncell2exception remains. Scientific pinnednative restoration/deployment/actualmodels are separate pendinggates. [Execution](lion_guidance_speed_20261107.md), compactbootstrapreceipt `knowledge/evidence/lion_guidance_speed_20261107/r5_miniconda_bootstrap_verified.json`; actualsetup/localcompletefiles under `result/preparation/lion_guidance_speed_20261107/full14_r5/`.
+
+
+## 2026-11-10 — terminal/logit pilot fresh canonical setup verified
+
+[Run/CPU] Owned High-RAM A10080 session
+`tta-terminal-logit-pilot-a100-20261110-r1` completed the canonical ten-cell
+sequence: cell1 alone and same-VM Conda reconnect, only user-deferred cell2
+fastrlock wheel failure, independent Python3.8 verification, cells3–10 in order.
+Initial CLI connection loss happened before Drive-verification submission;
+work resumed only after explicit user reconnection instruction, same kernel896.
+Cells4–8 exact completion lines, all five native markers and Drive checkpoints
+pass. Cell9 ModelNet ZIP CRC/path/data checks and cell10 actual native GPU,
+15 severity5 arrays, clean data and checkpoint checks pass. No research cells
+from the full notebook or ScanObjectNN section were executed.
+
+Python3.8.20/Torch2.1.2+cu121/NumPy1.21.2, CUDA12.1.105/GCC11.4,
+A100-SXM4-80GB/81920MiB, host RAM175166460kB. Recorded nonfatal dependency
+warnings do not establish global pip consistency; fastrlock0.8 later installed
+in requirements. Setup dev@a458cd46bba1288a3f41302548bc777700cbc7d4 and fresh
+native sources/binaries are distinct from scientific core c76d6b9. No historical
+native binaries restored. Scientific smoke repeat floor still fails55/80;
+setup success is not sampling determinism.
+
+Setup verification9005B/SHA256
+`e3a0523bb89f19ba11c2c9e946a31a400ac4f300e843a6c22f2be51d1946ed92`;
+complete canonical setup archive105811B/SHA256
+`b7622715ff93bc6cb2acd83bcd184ffafaad3e621425aebdd7a022c39df837de`,
+Drive and local whole-SHA/CRC verified. Exact source cells, wrappers, adaptations,
+logs and phase receipts: local `result/preparation/terminal_logit_pilot_20261110/`,
+Drive `MyDrive/thesis/result/terminal_logit_pilot_20261110_r1/`.
+[Execution and native/source binding](terminal_logit_pilot_study_20261108.md).
