@@ -9482,3 +9482,15 @@ expansion, tuning or baseline change. Owned session
 `tta-terminal-logit-pilot-a100-20261110-r1` retained; teardown not authorized.
 Earlier pending/WAIT_USER/consent headlines below are preserved dated history,
 superseded by completed same-session recovery and this accepted bounded result.
+
+
+## 2026-11-10 — terminal/logit pilot archived, published and runtime closed
+
+[User decision/Run/Closed] User accepted completion and authorized closure. Owned
+`tta-terminal-logit-pilot-a100-20261110-r1` stopped successfully; independent
+server inventory confirms absence. Peer CloudFixer session preserved.
+Pilot findings already published at `2eaa8e8`; raw/derived archives remain on
+Drive and Mac, SHA/CRC reverified before closure. No new inference or expansion.
+[Results](terminal_logit_pilot_results_20261110.md),
+[closure proof](evidence/terminal_logit_pilot_20261110/runtime_closure_20261110.json).
+Earlier retained/no-teardown statements below are historical and superseded.

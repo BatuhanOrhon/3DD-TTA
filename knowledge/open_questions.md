@@ -3044,6 +3044,6 @@ seed0 and one VM cannot establish unseen benefit or the −.3pp noninferiority
 criterion. Repeat1/2 are operational repeats, not additional inference seeds.
 No expansion/default change or automatic next GPU phase is authorized.
 Future confirmation, if separately requested, needs a frozen question and
-scope; this task ends after archive/publication. Runtime retained, no close
-permission. Earlier connection-loss WAIT_USER was superseded only by explicit
+scope; this task ends after archive/publication. Runtime closed under explicit
+user authorization; [closure proof](evidence/terminal_logit_pilot_20261110/runtime_closure_20261110.json). Earlier connection-loss WAIT_USER was superseded only by explicit
 user reconnect instruction; same restriction applies on a new loss.

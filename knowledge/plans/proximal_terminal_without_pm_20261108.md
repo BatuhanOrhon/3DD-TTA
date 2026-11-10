@@ -5,7 +5,8 @@ Implemented/tested; exact32-ID/all15/s5/seed0/B32 pilot accepted independently,
 three operational repeats. Native repeat floor fails55/80: descriptive only.
 No automatic full-data expansion, extra seed, tuning or default promotion.
 Historical broader future steps below are not authorized next actions.
-Runtime retained; archive/publication complete or recorded in the execution note.
+Results published; owned runtime closed under explicit user authorization.
+[Closure proof](../evidence/terminal_logit_pilot_20261110/runtime_closure_20261110.json).
 
 **2026-11-10 latest:** WAIT_USER after CLI connection loss before Drive verification; no GPU smoke/pilot. Same assignment still listed, kernel unknown. No retry/replacement. [Incident](../terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization).
 

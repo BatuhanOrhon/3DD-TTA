@@ -4,7 +4,8 @@
 
 [Run/CPU/Inference] [Accepted results and all tables](terminal_logit_pilot_results_20261110.md).
 Same-session recovery/setup/smoke/pilot/archive/local admission complete.
-Native floor55/80fails remains; descriptive evidence only. Runtime retained.
+Native floor55/80fails remains; descriptive evidence only. Runtime closed under
+explicit user authorization; see closure proof below.
 The dated preparation/loss entries below are history, not current blockers.
 
 [User decision/Code/Open] Execute the [Nov8 handoff](terminal_logit_pilot_agent_handoff_20261108.md)
@@ -287,3 +288,29 @@ immutable; receipt records this post-archive formatting. Follow-up normal
 publication includes this correction and completed publication checklist.
 Full accepted raw evidence, failed native floor and all limits remain unchanged.
 Runtime `tta-terminal-logit-pilot-a100-20261110-r1` retained; no teardown.
+
+
+## 2026-11-10 — user-authorized runtime closure; findings published
+
+[User decision/Run/Closed] User accepts completed pilot and explicitly asks
+closure plus knowledge publication. Results/code/tests already normal-pushed
+at `2eaa8e8058afa119b1f90b3a229ce9ad981ed3a8`; fetched target unchanged.
+Before closure, immutable pilot4777541B/smoke1763623B/documentation639522B local
+copies rehashed against published Drive-roundtrip receipts; whole SHA/ZIPCRC
+pass. No pending artifact retrieval, inference or owner CLI stream.
+
+`colab stop -s tta-terminal-logit-pilot-a100-20261110-r1` emitted
+`Session terminated.`/exit0, observed19:50:52UTC. Post-stop server inventory
+independently confirms owned endpoint absent and CloudFixer peer preserved.
+No new remote notebook cell, experiment, allocation, retry or peer mutation.
+[Compact closure proof](evidence/terminal_logit_pilot_20261110/runtime_closure_20261110.json)
+records exact logs/hashes; originals remain in owned local preparation folder.
+Earlier retained/no-teardown status is superseded by this explicit user action.
+
+Findings stay unchanged: proximal terminal saves32.1167%/35.3848% time at N5/N8,
+with point accuracy−1.0417pp/−1.8750pp and no demonstrated accuracy retention;
+same-logit LM345/480 versus PM344/480,95%CI[0,.6250]pp, no reliable gain.
+Native repeat55/80 failures remain. No full-data/extra-seed expansion or baseline
+promotion. Scope of this publication: closure proof and current knowledge status;
+scientific source/tests/results unchanged. Exclude raw archives/operators/weights
+and peer work; preserve experiment branch/worktree. Normal push only.
