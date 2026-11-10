@@ -1,3 +1,11 @@
+## 2026-11-10 — terminal/logit WAIT_USER on connection loss
+
+[Run/Failure/Open] [Exact incident](terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization):
+user Drive consent reported, CLI prelude connection lost before verification
+file submission. Same endpoint still assigned; kernel unknown. No cell3–10 or
+scientific phase ran. Local raw archive/receipt verified, Drive backup pending.
+No further remote cell/retry/replacement/restart until a new explicit user command.
+
 ## 2026-11-10 — bounded terminal/logit pilot active
 
 [Code/CPU/Run/Open] [Study](terminal_logit_pilot_study_20261108.md) is current.

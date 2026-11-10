@@ -1,3 +1,5 @@
+**2026-11-10 latest:** WAIT_USER after CLI connection loss before Drive verification; no GPU smoke/pilot. Same assignment still listed, kernel unknown. No retry/replacement. [Incident](../terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization).
+
 **2026-11-10 status:** CPU implementation/tests complete, owned High-RAM A10080 setup awaiting Drive consent. Latest [execution record](../terminal_logit_pilot_study_20261108.md) supersedes historical unsupported-code statements; GPU smoke/pilot and results remain pending. Full-data expansion is outside this task.
 
 # Logit Mean versus Probability Mean — registered 2026-11-08

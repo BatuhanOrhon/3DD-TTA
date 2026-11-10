@@ -1,3 +1,14 @@
+**[Run/Failure/Open] 2026-11-10 — terminal/logit pilot WAIT_USER after connection loss:**
+[Current incident and exact next gate](terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization)
+records `Connection was lost` in the CLI working-directory prelude before the
+Drive-verification file was submitted. User reports Drive consent complete;
+actual mount/asset access is unverified. Server inventory still lists the same
+owned A10080High-RAM endpoint, but kernel state is unknown. No cell3–10,
+deployment, smoke or pilot ran. No retry/replacement/new cell/restart/teardown;
+wait for the user's command. Raw failure/source/setup evidence is locally
+SHA/CRC verified; Drive backup pending. Earlier setup/consent headlines below
+are historical. Completed CPU code/tests remain published.
+
 **[Code/CPU/Run/Open] 2026-11-10 — terminal/logit pilot implemented; Drive consent pending:**
 [Owned execution record](terminal_logit_pilot_study_20261108.md) supersedes the
 preparation-only handoff status below. Isolated source `c76d6b9` adds true

@@ -1,0 +1,42 @@
+{
+  "time_utc": "2026-11-10T18:13:59.679946+00:00",
+  "status": "WAIT_USER_CONNECTION_LOSS",
+  "user_report": "Drive authorization completed",
+  "session": "tta-terminal-logit-pilot-a100-20261110-r1",
+  "endpoint": "gpu-a100-hm-ass1c0-vcmn4mvmkhfd",
+  "failure": "RuntimeError: Connection was lost.",
+  "failure_boundary": "CLI execution.py:217 initial working-directory prelude; verify_drive.py not submitted",
+  "last_confirmed": "cell1/reconnect/A10080 and independent cell2 Python3.8; known deferred fastrlock exception only",
+  "server_inventory_after_failure": "same owned A100 High-RAM assignment still listed; kernel execution state unknown",
+  "local_exec_session": 92895,
+  "local_primary_process": "traceback emitted but process has not returned final exit",
+  "drive_verification": "unconfirmed",
+  "cell3_to_10": "not submitted",
+  "deployment": "not uploaded or executed",
+  "smoke": "NOT_RUN",
+  "pilot": "NOT_RUN",
+  "actions_not_taken": [
+    "no new remote cell",
+    "no retry",
+    "no replacement",
+    "no restart",
+    "no teardown"
+  ],
+  "next_action": "Wait for explicit user command before any same-session recovery/inspection cell or retry; preserve owned assignment",
+  "source_commit": "c76d6b967ea63a6efd2988ec674fbb196756cfad",
+  "registration": {
+    "bytes": 1801,
+    "sha256": "ac18925b95bf88d5ef4e95c7b16ea4b9fd780a579a058fadfed4d3c2a995e3b7"
+  },
+  "raw_log": {
+    "bytes": 5701,
+    "sha256": "277d8dc8f5d8788fb947c576492fd4825741238f4ad6e0a06204a0e788fb9801"
+  },
+  "drive_backup": "pending; access not verified, do not retry automatically",
+  "local_archive": {
+    "path": "result/preparation/terminal_logit_pilot_20261110/connection_loss_evidence_20261110T1813Z.zip",
+    "bytes": 1659233,
+    "sha256": "10ff7f87de3b39ef262835e1d377052301dad4ac3e0c5d5e76a8711d26b0d963"
+  },
+  "members": 42
+}

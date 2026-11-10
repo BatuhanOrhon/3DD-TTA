@@ -93,3 +93,42 @@ loss, WAIT_USER without a new cell/retry/replacement. Runtime is live/idle
 awaiting consent and must not be closed.
 
 [Code/Publication/Open] Completed CPU scope normal-pushed and remote-ref verified at `2f71f0845e328d3ed381f4d83e57cf652fedc3ee` (includes code source c76d6b9). [Compact receipt](evidence/terminal_logit_pilot_20261110/preparation_receipt.json). This records the CPU integration, not scientific pilot completion. Drive consent remains pending; no further remote cell has been submitted.
+
+## 2026-11-10 — connection loss after user Drive authorization
+
+[User report/Run/Failure/Open] 2026-11-10T18:14:44.400734+00:00 — User reports completing Drive
+consent. A read-only server inventory confirmed owned endpoint
+`gpu-a100-hm-ass1c0-vcmn4mvmkhfd`. The next CLI command attempted
+`verify_drive.py`, but failed in `colab_cli/commands/execution.py:217`, the
+CLI's initial working-directory prelude, with **RuntimeError: Connection was
+lost**. The verification file was not submitted and no Drive gate marker
+appeared. Do not attribute this to invalid consent, Drive files, FUSE, an
+installer, quota or VM termination; the cause is unknown.
+
+Status **WAIT_USER_CONNECTION_LOSS**. Per user's no-automatic-recovery boundary,
+no new remote cell, retry, replacement, restart or teardown was attempted.
+Post-failure read-only inventory still lists the SAME A100High-RAM assignment;
+that does not prove kernel responsiveness or idle state. The primary local
+exec session92895 emitted the traceback but had not returned a final exit when
+archived; preserve its identity and do not launch a duplicate owner. No science
+subprocess was created. Cell3–10, deployment, smoke and pilot are **NOT_RUN**.
+Last confirmed gates remain canonicalcell1/reconnect/A10080 and independent
+cell2Python3.8 (only the known deferred fastrlock wheel failure).
+
+Local immutable raw archive:
+`result/preparation/terminal_logit_pilot_20261110/connection_loss_evidence_20261110T1813Z.zip`,
+1,659,233bytes/SHA256
+`10ff7f87de3b39ef262835e1d377052301dad4ac3e0c5d5e76a8711d26b0d963`;
+42files, ZIPCRC/safe paths/unique members pass. Contains actual failure log,
+exact submitted verification script, canonicalcells/wrappers/source hashes,
+CPU logs, sealed source overlay and prepared/unexecuted operator. No weights
+or credentials. [Compact receipt](evidence/terminal_logit_pilot_20261110/connection_loss_receipt.json).
+Drive backup remains pending because access is unverified; no automatic retry.
+
+Next gated action: **wait for an explicit user command** before same-session
+reconnection/inspection/recovery. Preserve the same assignment and all local
+artifacts. No new GPU duration approval is needed for unchanged pilot scope,
+but that standing authorization does not override the explicit loss/retry stop.
+No new accuracy, per-corruption paired result, timing or memory measurement.
+This failed connection is not pilot evidence. Source c76d6b9/frozen32+4IDs,
+completed888CPUtests/2skip/564subtests and default baseline remain unchanged.

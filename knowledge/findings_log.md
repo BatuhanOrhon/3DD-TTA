@@ -9450,3 +9450,15 @@ The33 raw archives/source/logs and positive/negative/failed history stay preserv
 
 
 [Code/CPU/Run/Open] 2026-11-10 — Completed CPU preparation: source c76d6b9,888tests/2skip/564subtests,13new pilot tests and independent code/temporary-deployment review. Preparation receipt records exact log/source/registration hashes. Owned `tta-terminal-logit-pilot-a100-20261110-r1` / `gpu-a100-hm-ass1c0-vcmn4mvmkhfd` A10080High-RAM: cell1/reconnect pass, only deferred cell2 fastrlock wheel error; independent Python3.8 pass. Await user Drive consent, cells3–10 and all scientific phases pending. No accuracy/latency/native-repeat claim. [Precise next action and scope](terminal_logit_pilot_study_20261108.md).
+
+
+## 2026-11-10 — terminal/logit pilot connection loss, WAIT_USER
+
+[User report/Run/Failure/Open] Drive consent reportedly completed; actual Drive
+verification not executed. CLI failed in working-directory prelude at
+execution.py217 with `Connection was lost`, before file submission. Same owned
+A100High-RAM endpoint remains in server inventory; kernel state unknown. No
+cell3–10/deploy/smoke/pilot, new cell/retry/replacement/restart/teardown. Local
+1,659,233byte raw failure/source/setup archive SHA10ff7f87…b0d963/CRC verified;
+Drive backup pending. [Incident, exact paths and next gated action](terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization).
+Wait for explicit user command. No scientific result or failure cause inferred.
