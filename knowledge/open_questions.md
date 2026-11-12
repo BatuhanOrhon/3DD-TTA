@@ -1,3 +1,16 @@
+## 2026-11-12 — CloudFixer denoiser transfer remains untested
+
+[Paper/Code/Inference/Open] [Training/model audit](cloudfixer_denoiser_transfer_audit_20261112.md).
+
+- [x] Identify XYZ-only Point-E-derived Transformer and author source-training recipe/checkpoint link.
+- [x] Separate physical XYZ from LION latent/style and source-domain training from architecture claims.
+- [ ] Verify released checkpoint bytes, raw/EMA identity, training/selection provenance and applicable dataset before reuse.
+- [ ] Establish physical-space proximal+PM effectiveness with matched frozen-head/normalization and compute controls; no run authorized or launched by this review.
+
+ModelNet40 and PointDA ScanNet recipes do not establish a ScanObjectNN-trained
+prior. Published clean-test checkpoint selection is preserved as a split caveat.
+Current LION baseline and existing peer experiments remain unchanged.
+
 ## 2026-11-10 — terminal/logit WAIT_USER on connection loss
 
 [Run/Failure/Open] [Exact incident](terminal_logit_pilot_study_20261108.md#2026-11-10--connection-loss-after-user-drive-authorization):

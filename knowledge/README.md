@@ -1,3 +1,12 @@
+**[Paper/Code/Inference/Open] 2026-11-12 — CloudFixer denoiser and training provenance checked:**
+[Model/training/transfer audit](cloudfixer_denoiser_transfer_audit_20261112.md)
+identifies Point-E-derived XYZ-only `base40M-uncond` Transformer, source-trained
+author weights and the published training/checkpoint paths. LION's ShapeNet
+prior versus ModelNet40-source training is a comparison confound; raw XYZ
+weights cannot replace a conditioned four-channel latent prior unchanged.
+Physical-space proximal+PM transfer is plausible, not implemented or measured.
+No checkpoint download, model/GPU run, baseline or peer-runtime change.
+
 **[User decision/Run/Closed] 2026-11-10 — completed terminal/logit pilot runtime closed:**
 User accepted completion and authorized closure. Owned
 `tta-terminal-logit-pilot-a100-20261110-r1` stopped successfully; independent

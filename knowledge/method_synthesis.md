@@ -1,3 +1,13 @@
+## 2026-11-12 — denoiser family and source-training confounds
+
+[Paper/Code/Inference/Open] [CloudFixer denoiser audit](cloudfixer_denoiser_transfer_audit_20261112.md)
+establishes author-trained Point-E-derived physical-XYZ Transformer, not an
+unchanged OpenAI checkpoint. Its ModelNet40-source training differs from the
+ShapeNet-pretrained LION transfer setup. Porting frozen-neighbor proximal+PM
+to its physical diffusion is possible in principle, but requires a different
+state/schedule/preprocessing contract; accuracy, speed and memory are untested.
+No direct prior replacement, new GPU experiment or baseline change follows.
+
 ## 2026-11-08 — proximal baseline promoted; readout and terminal ablations registered
 
 [User decision/Code/Run/Open] The active [baseline](current_baseline.md) is now

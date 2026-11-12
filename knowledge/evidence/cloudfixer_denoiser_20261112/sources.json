@@ -1,0 +1,84 @@
+{
+  "review_date": "2026-11-12",
+  "cloudfixer_commit": "f043e24414fcf4165fdc892abff21215c9989141",
+  "point_e_commit": "fc8a607c08a3ea804cc82bf1ef8628f88a3a5d2f",
+  "primary_pages": [
+    "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603.pdf",
+    "https://arxiv.org/html/2411.14495v1"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/README.md",
+      "bytes": 4641,
+      "sha256": "40ed53967d6f5044b2f7ce3ac3cf4715de53c9861f448de863d42813a6206957"
+    },
+    {
+      "path": "diffusion/build_model.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/diffusion/build_model.py",
+      "bytes": 1202,
+      "sha256": "b7c74ebb5b03aceda4f6fcbdef07c97117fce5aa38d9842f352b94cd39054988"
+    },
+    {
+      "path": "scripts/train_dm.sh",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/scripts/train_dm.sh",
+      "bytes": 3400,
+      "sha256": "0427e16d2086d71034999412533b4b9391a047cabad29e3aa03f4668427f764d"
+    },
+    {
+      "path": "train_dm.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/train_dm.py",
+      "bytes": 14083,
+      "sha256": "531bd85305ecaef5de1ec4462de71dfa76215c033b79a93a9e008c5e35f4786f"
+    },
+    {
+      "path": "cfgs/cfgs_train_dm.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/cfgs/cfgs_train_dm.py",
+      "bytes": 3762,
+      "sha256": "f391fc676487dde404c39d9682df56d0334d69e4df582c73e430a70c1ebeb848"
+    },
+    {
+      "path": "diffusion/transformer.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/diffusion/transformer.py",
+      "bytes": 12097,
+      "sha256": "b2f10ad41f98b47b7f95c7cd55f82c18fe8f865e7d9f64bd66a899a0a6ecd0ea"
+    },
+    {
+      "path": "diffusion/diffusion.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/diffusion/diffusion.py",
+      "bytes": 27065,
+      "sha256": "19229e1ab4e51585ad1118d70170b8407384a33f8c75043a315a21645d4630be"
+    },
+    {
+      "path": "scripts/run_cloudfixer.sh",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/scripts/run_cloudfixer.sh",
+      "bytes": 5269,
+      "sha256": "72efb4313e62323500e3b1adb7683589e5a8de3d2f5b99fa7760507a74b6a2b7"
+    },
+    {
+      "path": "datasets/dataloader.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/datasets/dataloader.py",
+      "bytes": 30373,
+      "sha256": "2db915713b2b5592070da2bd6a750a171af48a13c395f55ddbfaa76469626162"
+    },
+    {
+      "path": "point-e/point_e/models/configs.py",
+      "url": "https://github.com/openai/point-e/blob/fc8a607c08a3ea804cc82bf1ef8628f88a3a5d2f/point_e/models/configs.py",
+      "bytes": 4224,
+      "sha256": "ed5cfc8292e8781bdcc6feb5837b0c0f5b2c60008a77ffc840042954ace4ca40"
+    }
+  ],
+  "checks": [
+    "static configuration and build path",
+    "non-resume weight initialization versus resume loading",
+    "clean source training loader and source test selection boundary",
+    "normalization, scheduler and released-checkpoint documentation"
+  ],
+  "not_verified": [
+    "released weight bytes and Drive folder contents",
+    "exact per-checkpoint training logs or epoch",
+    "raw versus EMA release identity",
+    "model inference, accuracy, speed or memory advantage"
+  ],
+  "raw_source_location": "/tmp/cloudfixer-denoiser-audit-20261112/sources.json"
+}

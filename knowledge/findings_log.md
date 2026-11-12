@@ -1,5 +1,30 @@
 # Findings Log
 
+## 2026-11-12 — CloudFixer denoiser provenance and LION replacement boundary
+
+[Paper/Code/Inference/Open] Static audit on
+`research/cloudfixer-denoiser-audit-20261112`, based on shared `3789bcce8f0f9d4e42e50f48cc2ff14def16750b`.
+[Full note](cloudfixer_denoiser_transfer_audit_20261112.md) and
+[10 primary-source hashes](evidence/cloudfixer_denoiser_20261112/sources.json).
+CloudFixer authors train Point-E-derived `base40M-uncond` with XYZ3/3 channels,
+12-layer/512-width/8-head Transformer on each source; published non-resume code
+initializes weights without an OpenAI checkpoint. ModelNet40 source-training
+recipe5000epochs/500-step polynomial schedule is not a verified checkpoint log.
+README releases a Drive link; current weight bytes/EMA/epoch are unverified.
+Clean test loader is used for checkpoint evaluation, not corrupted-test gradient
+training; no separate validation split is claimed. No ScanObjectNN-specific
+prior is established by PointDA ScanNet scripts.
+
+[Inference/Open] Source-trained ModelNet prior versus ShapeNet LION, representation,
+sampler, transforms and classifier/readout confound architecture attribution.
+Raw XYZ denoiser cannot replace our conditioned four-channel local prior
+unchanged. Proximal+PM could be ported to physical sampling; accuracy/speed are
+unknown until matched controls. No implementation, inference, GPU phase,
+training, asset substitution, production/default or peer-runtime action.
+Selected integration: note/source receipt/navigation/method/open links only;
+verification uses source assertions, local-link and whitespace checks, not model
+tests. No `result/` artifact is produced because no experiment ran.
+
 ## 2026-11-08 — separate-agent terminal/logit pilot handoff prepared, not executed
 
 [User report/Decision/Open] User requests **only a handoff Markdown file**;
