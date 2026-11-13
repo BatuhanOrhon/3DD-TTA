@@ -1,0 +1,37 @@
+{
+  "review_date": "2026-11-13",
+  "cloudfixer_commit": "f043e24414fcf4165fdc892abff21215c9989141",
+  "local_base": "c17ed59",
+  "scope": "static model-adaptation flow, no inference",
+  "files": [
+    {
+      "path": "adapt.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/adapt.py",
+      "bytes": 26106,
+      "sha256": "a56ef16f14603d49abecd8121b5df7913a6c47b2e0effad8d3d99ad37ff333b7"
+    },
+    {
+      "path": "utils/tta_utils.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/utils/tta_utils.py",
+      "bytes": 12149,
+      "sha256": "907097cfb929e21625a364096acbb3213b16e3697bdabf70b6d79f4700b70e36"
+    },
+    {
+      "path": "scripts/run_cloudfixer.sh",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/scripts/run_cloudfixer.sh",
+      "bytes": 5269,
+      "sha256": "72efb4313e62323500e3b1adb7683589e5a8de3d2f5b99fa7760507a74b6a2b7"
+    },
+    {
+      "path": "cfgs/cfgs_adapt.py",
+      "url": "https://github.com/shimazing/CloudFixer/blob/f043e24414fcf4165fdc892abff21215c9989141/cfgs/cfgs_adapt.py",
+      "bytes": 7221,
+      "sha256": "48713c599bfb6c2869a922556d386ff2481d4ef64a2d8e4953af45631d2b1484"
+    }
+  ],
+  "unresolved": [
+    "effective per-run YAML and parameter names/counts",
+    "runtime or accuracy reproduction"
+  ],
+  "raw_sources": "/tmp/cloudfixer-online-audit-20261113/sources.json"
+}

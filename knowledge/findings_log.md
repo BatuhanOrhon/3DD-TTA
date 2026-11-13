@@ -1,5 +1,18 @@
 # Findings Log
 
+## 2026-11-13 — CloudFixer-O classifier update and paper/code distinction
+
+[Paper/Code/Inference/Open] [Follow-up audit](cloudfixer_denoiser_transfer_audit_20261112.md#2026-11-13-follow-up-cloudfixer-o-changes-the-classifier-after-input-adaptation)
+on basec17ed59 pins authorf043e244. Paper4.3 original-versus-adapted KL differs
+from released adapted-view cyclic KL; both classifier branches remain live,
+geometry is detached, denoiser fixed. The classifier step is after input
+adaptation and before probability voting. Head exclusion plus effective
+`params_to_adapt` controls optimizer scope; episodic reset controls carry-over.
+Default/example episodic mode is not evidence of continual online accumulation.
+Effective Point2Vec/PointMAE YAML paths were404, so per-run settings are not
+inferred from placeholder script values. Four primary source hashes and static
+checks retained; no inference, GPU, experiment, baseline or peer-runtime action.
+
 ## 2026-11-12 — CloudFixer denoiser provenance and LION replacement boundary
 
 [Paper/Code/Inference/Open] Static audit on

@@ -139,3 +139,40 @@ files. [Compact source receipt](evidence/cloudfixer_denoiser_20261112/sources.js
 records exact inspected file bytes. Documentation checks only; no model tests
 or scientific results. The commit containing this note is the publication
 identity; the source branch and base are recorded above.
+
+## 2026-11-13 follow-up: CloudFixer-O changes the classifier after input adaptation
+
+**[Paper/Code]** Section4.3 describes KL consistency between original-input and
+adapted-input class probabilities, updating the classifier except its head.
+At the inspected author commit, `adapt.py:205–248` instead detaches K adapted
+geometries, concatenates them and cyclically shifts their view order for two
+classifier forwards. `KLDivLoss(log_target=True)` gives directed
+`KL(p_j || p_next)` averaged over the K-view batch; no original X prediction
+enters this particular model-update loss. Neither classifier probability branch
+is explicitly detached. Original X is copied but not used in this loss.
+Do not present the paper equation as identical to this released implementation.
+
+**[Code]** The added classifier optimizer step occurs after all geometric input
+updates and before final inference/probability voting. Adapted coordinates and
+diffusion targets do not receive this classifier-loss backward. The diffusion
+model remains unchanged. `utils/tta_utils.py:134–198` excludes head parameters
+using name filters; actual optimizer scope depends on `params_to_adapt`:
+`all` selects remaining parameters, while LN/BN/GN selects normalization affine
+parameters. Do not claim all backbone weights are always optimized.
+
+**[Code/Open]** `episodic=True` resets classifier/optimizer before each input
+batch; disabling it permits carry-over. The parser and example script use
+episodic mode, and effective YAML overrides must be checked per run. Online
+does not by itself prove continual accumulation across batches. Requested
+Point2Vec/PointMAE `cloudfixer_o.yaml` paths returned404 in this inspection;
+no effective experiment YAML or parameter-count claim follows.
+
+**[Code/Inference]** Equal probability voting itself updates no classifier.
+CloudFixer-O first minimizes cross-view disagreement and then can vote using
+the updated classifier. Unlabelled consistency supplies no ground-truth target
+and need not improve accuracy. Our proximal+PM baseline keeps classifier weights
+and buffers frozen, so it does not include this additional adaptation stage.
+
+Follow-up base `c17ed59`, same isolated research branch; scope is this explanation,
+findings entry and [four source hashes](evidence/cloudfixer_denoiser_20261112/online_adaptation_sources.json).
+No experiment, model execution, implementation/default or peer-runtime change.
