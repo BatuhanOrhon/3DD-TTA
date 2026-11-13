@@ -32,41 +32,33 @@ Request the required tool escalation; do not redirect credentials or bypass
 permissions. Shell approval for a CLI command is separate from research-run
 approval. Do not request a reusable unrestricted `colab exec`/`run` prefix.
 
-## Approval for GPU runs longer than one hour
+## GPU execution within the requested scope
 
-**Obtain explicit user approval only for GPU runs reasonably expected to take
-more than 60 minutes.** This user decision supersedes approval for every run.
-Within the requested task, proceed with shorter GPU runs, CPU work, VM
-allocation, environment setup, retries, inspection and artifact retrieval
-without an additional research-run approval. Use existing logs or small pilots
-to estimate uncertain durations; request approval when the GPU phase is expected
-to exceed one hour. Assess the whole planned GPU phase, not each CLI call;
-do not split a long run into short commands to avoid approval.
+Do not ask for separate GPU-run approval within the user's requested research
+scope, regardless of duration. This supersedes the historical 60-minute gate.
+Prepare the concrete phase, record the user's task authorization and execute
+without an additional confirmation question. Setup, allocation, retries,
+monitoring and artifact retrieval follow the same authorization.
 
-The approval request must identify:
+Before launch, record:
 
 - Question/hypothesis and stage; exact script/commands or selected notebook cells.
 - Source commit plus snapshot/dirty-file hashes; dataset, split, severity,
   corruptions, indices/counts, method, seeds, batch size and checkpoint identities.
-- Existing or new session, requested accelerator, environment, runtime/cost
-  estimate (or explicitly unknown), and stopping/failure conditions.
+- Session, accelerator, environment, whole-phase runtime/cost estimate (or
+  explicitly unknown), stopping limits and failure conditions.
 - Fresh output/Drive destinations, required archive contents and recovery plan.
 
-For a run over one hour, record the user's reply and approved scope before
-launch. Do not ask again for unchanged execution, monitoring or downloads.
-Reassess duration after material changes or failures. A distinct GPU run over
-one hour needs approval; a short retry or smoke-to-pilot transition does not
-need approval solely because it is a new invocation. Record estimates and
-actual duration, and obtain approval if continuing work is expected to make
-the GPU phase longer than one hour.
+Assess the whole GPU phase, not each CLI call. Record estimates and actual
+cost/duration; reassess the plan after material changes or failures. Respect
+explicit user limits and keep scientific scope within the requested task.
+A machine-readable authorization receipt may record the user's task instruction;
+it must not introduce a new human approval gate.
 
-Local preparation and CLI help need no run approval. Inspecting session status,
-existing logs/files and downloading available artifacts also need no new run
-approval. Remote inspection code must be bounded to reading state and must not
-invoke experiment entrypoints. Uploads, installs, Drive mounting and environment
-changes may proceed within the user's setup task; interactive account consent
-remains user-operated. Runtime teardown follows the separate lifecycle contract
-below; creating a VM does not authorize its later cleanup.
+Read-only inspection must not invoke experiment entrypoints. Uploads, installs,
+Drive mounting and environment changes may proceed within the task; interactive
+account consent remains user-operated. Runtime teardown still requires the
+separate completion-and-close authorization below.
 
 ## Task-specific session names and agent ownership
 
@@ -205,7 +197,7 @@ phase, preserving notebook magic semantics (e.g. execute `%%bash` bodies with
 Bash) and record their indices/source hashes. Preserve the original notebook.
 `colab run` creates a fresh VM and normally releases it afterward; use it only
 when provisioning and artifact persistence are part of the requested task,
-with approval if the planned GPU run exceeds one hour.
+within the requested research scope and recorded runtime limits.
 Do not automatically choose another GPU on allocation failure.
 
 Monitor status/logs with bounded calls and keep the user informed. A local
@@ -213,8 +205,8 @@ timeout/disconnect is not proof that the remote process stopped. Inspect the
 same session/process/run files first; reconnect to an active job. If state is
 unknown, preserve it and pause launch decisions. Never start a duplicate job.
 On failure, retain partial outputs, traceback, exit/status and completed counts;
-review them before proposing another attempt; seek approval if its GPU phase
-is expected to exceed one hour. Do not reset, overwrite,
+review them before another attempt within the requested scope and runtime
+limits. Do not reset, overwrite,
 silently resume, or automatically rerun a failed directory.
 
 ## Archive evidence before interpreting it
@@ -259,7 +251,7 @@ experiment note. Use this compact record, including pending/failed outcomes:
 
 ```text
 Date/time (UTC; local date if useful), evidence labels:
-Question/stage; duration estimate; approval reference if GPU time exceeds1h:
+Question/stage; duration estimate; user task authorization and runtime limits:
 Run/session ID; source commit + snapshot/dirty hashes:
 Dataset/checkpoint identity; config/seeds/coverage:
 Status (planned / awaiting approval / running / complete / partial / failed):
@@ -278,4 +270,4 @@ Update `knowledge/open_questions.md` gates and the relevant method/reproduction
 note. Update the headline in `knowledge/README.md` when the current task,
 blocker or reading order changes. Preserve superseded dated history with a
 pointer to newer evidence. Before yielding, leave a precise next action and
-approval state so another session can continue without chat history.
+task authorization and stopping limits so another session can continue without chat history.

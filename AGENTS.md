@@ -6,10 +6,11 @@ For thesis work, read `.agents/skills/iterative-thesis-researcher/SKILL.md` and
 start from `knowledge/README.md`; reconcile dated notes with the actual checkout.
 
 For Colab work, read `.codex/skills/colab-research-operator/SKILL.md`.
-Use Colab CLI. Obtain explicit user approval only for GPU runs reasonably
-expected to exceed 60 minutes; estimate the whole planned GPU phase, not each
-CLI call. Within the requested task, shorter runs, CPU work, setup, allocation,
-retries and artifact retrieval need no additional research-run approval.
+Use Colab CLI. Do not ask for separate GPU-run approval within the user's
+requested research scope, regardless of duration. Prepare and record the whole
+GPU phase, runtime/cost estimate, stopping limits and recovery plan, then execute.
+Interactive account consent remains user-operated; preserve the separate
+runtime teardown authorization rule.
 Update the knowledge records as the skill specifies.
 
 For each new Colab runtime, prepare the environment with the ten code cells in

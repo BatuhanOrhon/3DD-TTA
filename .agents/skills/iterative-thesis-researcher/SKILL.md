@@ -96,12 +96,13 @@ teardown, scientific scope expansion or a claim of external replication.
 
 For Colab preparation, execution and retrieval, also read
 `.codex/skills/colab-research-operator/SKILL.md` from the repository root.
-The user now delegates Colab operations through the installed Colab CLI,
-with explicit approval only for GPU runs expected to exceed 60 minutes.
-This supersedes the historical assumption that all runs are manually operated
-by the user. Prepare the concrete phase, obtain approval when it exceeds that
-GPU-duration threshold, then execute within the requested scope. Short runs,
-CPU preparation, setup and allocation need no additional research-run approval.
+The user delegates Colab operations through the installed Colab CLI.
+Do not ask for separate GPU-run approval within the requested research scope,
+regardless of duration. Prepare and record the concrete whole-phase plan,
+runtime/cost estimate, user task authorization, stopping limits and recovery,
+then execute. This supersedes the historical 60-minute approval gate and the
+assumption that runs are manually operated by the user. Interactive account
+consent and runtime completion-and-close authorization remain separate.
 Retrieve and validate the complete bundle through CLI when available.
 If the bundle is only available in another environment, ask for that transfer
 instead. The standard inference layout is:

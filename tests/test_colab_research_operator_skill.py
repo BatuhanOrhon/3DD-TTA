@@ -11,6 +11,19 @@ SKILL = (
 
 
 class ColabResearchOperatorSkillTests(unittest.TestCase):
+    def test_requested_gpu_work_has_no_separate_duration_approval_gate(self):
+        root = SKILL.parents[3]
+        for relative in (
+            "AGENTS.md",
+            ".codex/skills/colab-research-operator/SKILL.md",
+            ".agents/skills/iterative-thesis-researcher/SKILL.md",
+        ):
+            with self.subTest(path=relative):
+                text = " ".join((root / relative).read_text().split())
+                self.assertIn("Do not ask for separate GPU-run approval", text)
+                self.assertNotIn("Obtain explicit user approval only for GPU runs", text)
+                self.assertNotIn("obtain approval when it exceeds", text)
+
     def test_runtime_teardown_requires_task_completion_and_close_permission(self):
         text = SKILL.read_text()
 
