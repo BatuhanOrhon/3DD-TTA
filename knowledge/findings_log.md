@@ -9519,3 +9519,12 @@ Drive and Mac, SHA/CRC reverified before closure. No new inference or expansion.
 [Results](terminal_logit_pilot_results_20261110.md),
 [closure proof](evidence/terminal_logit_pilot_20261110/runtime_closure_20261110.json).
 Earlier retained/no-teardown statements below are historical and superseded.
+
+## 2026-11-13 — GPU task authorization replaces the duration gate
+
+[User decision/Code] User removes separate GPU-run approval and requests
+Colab recreation/test launch. Three policy entrypoints and regression check
+updated; eight checks pass on latest shared base45b7aaf. Only scoped policy
+files/test/compact knowledge integrated from f043b4c; unfinished experiments
+and raw artifacts excluded. No accuracy/teardown claim.
+[Authoritative policy](colab_gpu_task_authorization_20261113.md).

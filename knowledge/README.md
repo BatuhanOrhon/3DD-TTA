@@ -1,3 +1,9 @@
+**[User decision/Code] 2026-11-13 — no separate GPU duration approval:**
+Requested Colab research runs proceed after documented preparation without an
+extra GPU confirmation. This supersedes historical 60-minute approval gates.
+Google account consent and runtime-close authorization remain separate.
+[Current policy and validation](colab_gpu_task_authorization_20261113.md).
+
 **[Paper/Code/Inference/Open] 2026-11-12 — CloudFixer denoiser and training provenance checked:**
 [Model/training/transfer audit](cloudfixer_denoiser_transfer_audit_20261112.md)
 identifies Point-E-derived XYZ-only `base40M-uncond` Transformer, source-trained
