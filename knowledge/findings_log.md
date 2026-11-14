@@ -9541,3 +9541,34 @@ updated; eight checks pass on latest shared base45b7aaf. Only scoped policy
 files/test/compact knowledge integrated from f043b4c; unfinished experiments
 and raw artifacts excluded. No accuracy/teardown claim.
 [Authoritative policy](colab_gpu_task_authorization_20261113.md).
+
+## 2026-11-14 — full-data uniform N5 versus proximal N8+PM completed
+
+[Run/Code] All60groups/240raw head archives/365880final predictions pass
+independent host SHA/CRC/ID/label/logit/PM recount; all8overall rows and120paired
+corruption rows agree. ModelNet40-C/all2468IDs/all15/s5: PointMAE N5/PM
+61.5235/63.6764%,DGCNN63.2442/63.9411%,CurveNet64.5030/65.6780%,
+PointNeXt68.4684/70.6267%. Accepted ScanObjectNN-Cmain_split/all581/all15:
+35.7085/37.9231%,36.0528/38.3477%,54.2628/56.2937%,48.5714/50.0861%,
+respectively. B32 includes tails4/5, fresh seed0 per corruption, frozen source
+heads, common BackgroundN5/N8. No tuning or claim of statistical reliability,
+component attribution or exact paper reproduction. Checkpoints are published
+alternatives; native determinism/Scan corruption seed parity remain unproven.
+
+Scientific sourceb651e259, contractf2721cd29a1cfdc0937d552a63e4d6f34e0950c528625c3370e5d506d2210f43;
+source/native snapshot and all actual hashes in
+[results/proof](fulltest_n5_proximal_n8_results_20261114.md). Explicit opt-in
+uniformN5 and full-ID proximal corruption-shard options preserve legacy paths;
+23CPU regression tests +21subtests pass, backup/registry checks21pass. No local
+real model inference. Canonical fresh r9setup/actualGPU/data/checkpoint/strict
+8headCPU admission passed. Two prior host-safe r7uniform groups imported only
+after identical CID;58fresh r9groups. Earlier Drivequota0 cached-readback
+misinterpretation and smoke/full cache collision are preserved in
+[recovery](fulltest_n5_proximal_n8_20261112.md); missing old raw groups were
+recomputed, no metrics inferred from prose. Host ACK gates subsequent workers;
+all60copies and final host proof uploaded. Final official DriveFS cloud flush
+succeeded18:09UTC. Campaign14613.754s (~4h04) within6hcap (~36.05CU estimate
+at observed8.88CU/h; exact session billing unavailable, setupadditional).
+Owned r9remains live; Drive unmounted after flush, no VM teardown authority.
+Shared publication curates necessary code/tests/completed proof only, preserves
+peer CloudFixer/policy records and source branch/raws; no whole-branch merge.

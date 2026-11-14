@@ -87,6 +87,39 @@ class Original3DDExtensionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "timesteps"):
             runner.original_scheduler_record(scheduler, 5)
 
+    def test_uniform_n5_is_explicit_for_all_heads_and_both_datasets(self):
+        for dataset in ('modelnet40_c', 'scanobjectnn_c'):
+            arguments = self.args('--preview', '--dataset', dataset, '--method', 'original3dd',
+                                  '--backbones', 'pointmae', 'dgcnn', 'curvenet', 'pointnext',
+                                  '--pointmae-config', '/config.yaml', '--pointmae-checkpoint', '/checkpoint.pth')
+            historical = runner.configurations(arguments)
+            configs = runner.configurations([*arguments, '--original-uniform-n5'])
+            self.assertEqual(len(configs), 4)
+            for old, config in zip(historical, configs):
+                self.assertEqual(old['background_reverse_steps'], 35)
+                self.assertEqual(config['normal_reverse_steps'], 5)
+                self.assertEqual(config['background_reverse_steps'], 5)
+                self.assertEqual(config['guidance_protocol'], runner.ORIGINAL_PROTOCOL)
+                self.assertFalse(config['trajectory_observation'])
+                self.assertEqual(config['backend_policy'], 'controlled')
+        with self.assertRaises(ValueError):
+            runner.configurations(self.args('--preview', '--original-uniform-n5'))
+
+    def test_uniform_worker_rejects_changed_horizon_or_mixed_head_policies_before_assets(self):
+        configs = runner.configurations(self.args('--preview', '--method', 'original3dd', '--original-uniform-n5'))
+        for change in ({'background_reverse_steps': 35}, {'original_uniform_n5': False}, {'backend_policy': 'legacy'}):
+            with tempfile.TemporaryDirectory() as directory:
+                directories = []
+                for index, config in enumerate(configs):
+                    path = Path(directory) / str(index)
+                    path.mkdir()
+                    value = dict(config, **(change if index else {}))
+                    (path / 'config.json').write_text(json.dumps(value))
+                    directories.append(str(path))
+                with self.subTest(change=change), patch.object(runner.source, 'read_manifest', side_effect=AssertionError('early asset access')):
+                    with self.assertRaisesRegex(ValueError, 'uniform N5'):
+                        runner.worker(directories)
+
     def operations(self):
         tree = ast.parse((runner.source.REPO / "utilities_3dd_tta.py").read_text())
         tree.body = [node for node in tree.body if isinstance(node, ast.FunctionDef)
@@ -130,7 +163,8 @@ class Original3DDExtensionTests(unittest.TestCase):
         def cpu_ones(*args, **kwargs):
             kwargs.pop("device", None)
             return original_ones(*args, **kwargs)
-        for dataset, corruption, steps in (("modelnet40_c", "gaussian", 5), ("scanobjectnn_c", "background", 35)):
+        for dataset, corruption, steps in (("modelnet40_c", "gaussian", 5), ("scanobjectnn_c", "background", 35),
+                                           ("modelnet40_c", "background", 5), ("scanobjectnn_c", "background", 5)):
             lion = SimpleNamespace(vae=VAE(), priors=[None, Prior()])
             state = _rng_state()
             normalized, center, scale = ops.normalize(raw)
@@ -145,7 +179,8 @@ class Original3DDExtensionTests(unittest.TestCase):
             observed = []
             with patch.object(torch, "ones", side_effect=cpu_ones):
                 geometry, metrics = runner.reconstruct_geometry(raw, dataset, corruption, lion, None, module.tta_reconstruct, ops,
-                                                               device="cpu", method="3dd_original", scheduler_observer=observed.append)
+                                                               device="cpu", method="3dd_original", scheduler_observer=observed.append,
+                                                               **({'original_steps': 5} if corruption == 'background' and steps == 5 else {}))
             with self.subTest(dataset=dataset):
                 self.assertTrue(torch.equal(geometry, expected.detach()))
                 self.assertEqual(rng_hash(), direct_rng)

@@ -105,6 +105,8 @@ def configurations(argv=None) -> list:
     parser.add_argument("--drive-root")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--method", choices=("gsd", "original3dd"), default="gsd")
+    parser.add_argument('--original-uniform-n5', action='store_true',
+                        help='Original terminal N5 for every corruption, using the controlled baseline backend')
     parser.add_argument("--backbones", nargs="+", choices=(*BACKBONES, "dgcnn", "pointmae"), default=list(BACKBONES))
     parser.add_argument("--trajectory-observe", action="store_true")
     parser.add_argument("--component-arm", choices=tuple(COMPONENT_WEIGHTS))
@@ -183,6 +185,8 @@ def configurations(argv=None) -> list:
     if args.seed < 0 or args.max_batches < 0:
         raise ValueError("Seed and max-batches must be nonnegative")
     original = args.method == "original3dd"
+    if args.original_uniform_n5 and not original:
+        raise ValueError('Uniform N5 requires original3dd')
     spectral_kind = getattr(args, 'spectral_loss_kind', None)
     if spectral_kind is not None and (original or args.component_arm not in ('combined', 'spectral')):
         raise ValueError('Spectral loss kinds require an explicit active-spectral component study')
@@ -256,6 +260,11 @@ def configurations(argv=None) -> list:
                           normal_reverse_steps=5, background_reverse_steps=35,
                           cudnn_policy="benchmark=True and deterministic=False, deterministic algorithms off; validated repository original eval/raw policy",
                           comparison_scope="whole reconstruction policy comparison; not isolated spectral attribution or paper reproduction")
+            if args.original_uniform_n5:
+                config.update(background_reverse_steps=5, trajectory_observation=False,
+                              backend_policy='controlled',
+                              display_name='Original 3DD-TTA terminal uniform N5 + ' + backbone,
+                              cudnn_policy='controlled: benchmarkFalse/deterministicTrue/TF32off; custom native determinism unproven')
         if backbone == "dgcnn":
             config["backbone_caveat"] = ("Published alternative, not paper checkpoint identity; ScanObjectNN DGCNN has weaker clean/source accuracy; "
                                           "exploratory comparison only to this fixed checkpoint's own source row")
@@ -629,13 +638,24 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
            backend_policy=None) -> None:
     bundles = {json.loads((Path(path) / "config.json").read_text())["backbone"]: source.RunBundle(Path(path)) for path in directories}
     configs = {name: json.loads((bundle.path / "config.json").read_text()) for name, bundle in bundles.items()}
+    uniform_n5 = any(config.get('original_uniform_n5') for config in configs.values())
     for config in configs.values():
         validate_fixed_chamfer_variant_host(config)
+        if uniform_n5 and (
+                config.get('original_uniform_n5') is not True or config.get('method') != ORIGINAL_METHOD
+                or (config.get('normal_reverse_steps'), config.get('background_reverse_steps')) != (5, 5)
+                or config.get('guidance_protocol') != ORIGINAL_PROTOCOL
+                or config.get('trajectory_observation') is not False
+                or config.get('backend_policy') != 'controlled'):
+            raise ValueError('Invalid original uniform N5 worker policy')
     rows = {name: [] for name in bundles}
     worker_started = time.monotonic()
     heads, lion, active = {}, None, None
     try:
         common = next(iter(configs.values()))
+        if common.get('original_uniform_n5') and backend_policy is None:
+            from scripts.diagnose_decoded_spectral import apply_backend_policy
+            backend_policy = lambda: apply_backend_policy('controlled')
         root = Path(common["asset_root"])
         manifest = source.read_manifest(root, common["asset_manifest_sha256"])
         guidance = manifest["guidance"]
@@ -776,6 +796,8 @@ def worker(directories: list, *, runtime_loader=None, geometry_reconstructor=Non
                     observers.append(observer)
                     return observer
                 observer_options = {"observer_factory": observer_factory} if common.get("trajectory_observation") else {}
+                if common.get('original_uniform_n5'):
+                    observer_options['original_steps'] = 5
                 paired_path = None
                 preparation_mode = 'fresh_encode'
                 if common.get('paired_state_root'):

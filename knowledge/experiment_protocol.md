@@ -347,3 +347,21 @@ The next user-operated Colab run is a full-data development screen: all15 ModelN
 ## 2026-10-11 - Opt-in sampling-consistency experiment
 
 [User decision/Code/CPU/Open] The approved two-view extension uses a common10-step horizon and macro14 only, Legacy B70/M800 seed0, checkpoints3/5/8 plus terminal. Per candidate: original A FPS and deterministic alternate-start B, same whole-cloud normalization and1024-point input. Terminal A+B plus six more votes provide the eight-forward terminal control. Acquisition14 forwards must not be reported as method-eight latency. Freeze classifier weights/BN/token algorithm; no entropy gradient, fitted threshold, corruption routing or early stop. Compare four-A mean, eight-view mean, two-view H and H+JS selectors, terminalA and terminal8. Source snapshot and ID manifests are hashed; full source/coverage/state/view checks precede CPU scoring. Gaussian140 smoke is followed by a separately launched macro14x280 pilot after ZIP review; source and user notebooks are preserved. Exact references, test requirements and falsifiers: [sampling consistency](gsd_sampling_consistency_20261011.md). No GPU result yet.
+
+## 2026-11-14 — accepted full-test uniform comparison extension
+
+[User decision/Code/Run] The requested comparison uses originalTerminalN5 for
+all15 (explicit `--original-uniform-n5` with original3dd), and the current
+cheap proximalN8PM policy uniformly including Background. No30/35Background
+exception. All4heads share reconstructions, B32 retains final4ModelNet/final5
+Scan examples. Complete IDs2468/581 per corruption, severity5, fresh seed0 per
+immutable corruption worker; source/head/data/native identities and observed
+scheduler traces bound in receipts. This independent-worker seed policy is
+explicitly distinct from historical continuous all15 streams. Proximal
+`--corruption-shard` permits only the current profile/allIDs/fixed seed policy,
+not a prefix, technical smoke or historical variant. Historical controls are
+unchanged by default. All60groups/240raws/365880outcomes were independently
+recounted. [Accepted table/limits](fulltest_n5_proximal_n8_results_20261114.md).
+Per-corruption verified host backup gates subsequent workers; Drive mirrors
+are verified and final network flush must complete before cloud persistence
+is claimed. Same-VM cached readback alone was insufficient when quota was0.

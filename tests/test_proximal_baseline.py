@@ -51,6 +51,24 @@ def test_new_profile_preview_is_native_free(tmp_path):
     assert json.loads(result.stdout)[0]['operational_baseline']=='lion_proximal_pm_n8_v1'
 
 
+@pytest.mark.parametrize('dataset,count',[('modelnet40_c',2468),('scanobjectnn_c',581)])
+def test_full_corruption_shard_keeps_policy_and_requires_all_test_ids(tmp_path,dataset,count):
+    args=arguments(tmp_path,dataset=dataset,heads=('pointmae','dgcnn','curvenet','pointnext'))
+    (tmp_path/'ids.json').write_text(json.dumps(dict(dataset=dataset,n_examples=count,
+        stage='development',indices=list(range(count)))))
+    configs=baseline.configurations(args+['--corruption-shard','background'])
+    assert len(configs)==4
+    for config in configs:
+        assert config['corruptions']==['background']
+        assert config['normal_reverse_steps']==config['background_reverse_steps']==8
+        assert config['corruption_seed_policy']=='fresh_worker_seed_v1'
+        baseline.validate_config(config)
+    with pytest.raises(ValueError):
+        baseline.configurations(args+['--baseline-profile','chamfer_pm_n8_v1','--corruption-shard','background'])
+    with pytest.raises(ValueError):
+        baseline.configurations(arguments(tmp_path)+['--corruption-shard','background'])
+
+
 def test_worker_loads_policy_source_before_shared_source_freeze(tmp_path):
     config, = baseline.configurations(arguments(tmp_path))
     directory = tmp_path/'worker'

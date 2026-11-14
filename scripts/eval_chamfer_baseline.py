@@ -36,7 +36,10 @@ def configurations(argv=None) -> list[dict]:
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument('--baseline-profile', choices=(BASELINE_ID, depth.BASELINE_ID), default=BASELINE_ID)
     parser.add_argument('--batch-size', type=int, choices=BATCH_SIZES)
+    parser.add_argument('--corruption-shard', choices=depth.shared.source.CORRUPTIONS)
     selected, arguments = parser.parse_known_args(sys.argv[1:] if argv is None else argv)
+    if selected.corruption_shard and selected.baseline_profile == depth.BASELINE_ID:
+        raise ValueError('Corruption shards require the uniform proximal baseline')
     configs = legacy_configurations(arguments)
     if selected.baseline_profile == depth.BASELINE_ID:
         if selected.batch_size not in (None, 32):
@@ -59,6 +62,9 @@ def configurations(argv=None) -> list[dict]:
                       guidance_rate_semantics='gamma/eta are compatibility reference values; cheap uses tau=.1, no gradient rate or style update',
                       baseline_host_validation='CPU contracts only; audit/cache/RNG schedule and float64 PM differ from the speed runner; GPU timing and near-tie parity unverified',
                       comparison_scope='User-promoted common-horizon operational policy; one-seed exposed-data evidence, not universal validation')
+        if selected.corruption_shard:
+            config.update(corruptions=[selected.corruption_shard], corruption_shard=selected.corruption_shard,
+                          corruption_seed_policy='fresh_worker_seed_v1')
         validate_config(config)
     return configs
 
@@ -77,6 +83,15 @@ def validate_config(config: dict) -> None:
         raise ValueError('Invalid frozen proximal baseline profile')
     # Reuse the existing data/head/ID/decoder/PM guards after checking every changed field.
     historical = copy.deepcopy(config)
+    shard = config.get('corruption_shard')
+    if shard is not None:
+        if (shard not in depth.shared.source.CORRUPTIONS or config.get('corruptions') != [shard]
+                or config.get('corruption_seed_policy') != 'fresh_worker_seed_v1'
+                or config.get('selected_original_ids') != list(range(config['n_examples']))
+                or config.get('evaluation_n_examples') != config['n_examples']
+                or config.get('technical_smoke')):
+            raise ValueError('Corruption shards require every test ID and the frozen independent-seed policy')
+        historical['corruptions'] = list(depth.shared.source.CORRUPTIONS)
     historical.update(method=depth.BASELINE_METHOD, operational_baseline=depth.BASELINE_ID,
                       background_reverse_steps=35, batch_size=32)
     historical['trajectory_selection'].update(background_loop_counts=[9,18,27,35],

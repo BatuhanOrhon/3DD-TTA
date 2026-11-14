@@ -208,3 +208,14 @@ accuracy is substantially belowN35; retain both policies/results.
 [Open] One seed/development-exposed policy revision, native/runtime effects,
 no fresh terminal-onlyN8 latency, repeated-seed/unseen-generalization or
 isolated unguided-attribution claim. No automatic cheap/default promotion.
+
+## 2026-11-14 — accepted full-data accuracy comparison
+
+[Run/Code] The frozen current proximalN8+PM policy has now been compared with
+uniform originalTerminalN5 across all15/s5/fullModelNet2468 and Scanmain_split581,
+all4source heads, B32/tailsretained/freshseed0 per corruption. All60groups and
+240raw head archives independently recounted; final host/Drive persistence
+confirmed. [Observed8cell table/source identities/limits](fulltest_n5_proximal_n8_results_20261114.md).
+This adds accuracy evidence under this exact common-host/frozen-head protocol;
+it does not change the operational baseline, establish multi-seed reliability
+or a speed gain relative to N5, or isolate horizon/reconstruction/readout effects.

@@ -1,3 +1,13 @@
+**[Run/Code/Complete] 2026-11-14 — full-data N5 versus N8+PM comparison:**
+All60groups/240raw archives/365880predictions independently recounted: all15/s5,
+ModelNet40-C2468 and accepted ScanObjectNN-Cmain_split581, four frozen heads,
+freshseed0/B32/tailsretained, uniformBackgroundN5/N8. N8PM higher in all8cells
+by0.6969–2.2949pp; one-seed descriptive whole-policy comparison. Host/Drive
+persistence complete; final cloud flush verified. Owned r9A100 remains live,
+Drive unmounted after flush; no runtime teardown authorization.
+[Accepted table/proof/limits](fulltest_n5_proximal_n8_results_20261114.md),
+[execution and recovery](fulltest_n5_proximal_n8_20261112.md).
+
 **[User decision/Code] 2026-11-13 — no separate GPU duration approval:**
 Requested Colab research runs proceed after documented preparation without an
 extra GPU confirmation. This supersedes historical 60-minute approval gates.

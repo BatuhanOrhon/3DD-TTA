@@ -1,3 +1,21 @@
+## 2026-11-14 — fresh r9canonical ten-cell sequence validated
+
+[Run] Fresh owned r9A10080/High-RAM, setupdev@a458cd46. Exact extracted ten
+canonical cells executed in order, Cell1 separately + same-VM reconnect.
+Cell2retains only the user-deferred fastrlock pip failure; independent
+Python3.8.20 proof passed. Cells3–10 and prepare/EMD/Chamfer/PointNet++/
+PVCNN-smoke completion markers verified; actual CUDA/FPS/KNN/Chamfer/EMD,
+all15ModelNet arrays/clean2468 and checkpoint checks pass. Torch2.1.2+cu121,
+NumPy1.21.2. No full-notebook RunAll/research cells used for setup, no old
+native binary restore and no native/dataset/checkpoint gate bypassed.
+Strict8headCPU/no-forward/source-contract admission then passed before GPU work.
+Setup archive122205bytes SHA256
+`db24dc0398f94e0f07f14e82834e2efb61a4d02f8a97a9d3dfd9f15c68d596b3`;
+[execution/evidence and full results](fulltest_n5_proximal_n8_20261112.md).
+Earlier fresh-ten-cell-not-replayed/r2-only validation statements below are
+superseded for this exact observed configuration. Runtime retained; final
+successful cloud flush unmounted Drive, not the VM.
+
 ## 2026-11-03 — Physical-spectral A100 ten-cell replay passes
 
 [Run/Open] Owned `tta-gsd-physical-spectral-a100-20261103-r1` passed canonical

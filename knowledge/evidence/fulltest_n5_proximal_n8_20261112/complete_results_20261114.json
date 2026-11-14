@@ -1,0 +1,2611 @@
+{
+  "analysis_drive_path": "/content/drive/MyDrive/thesis/result/fulltest_n5_proximal_n8_20261112/attempts/r9/derived",
+  "background_override": false,
+  "batch_size": 32,
+  "campaign": {
+    "finished_utc": "2026-11-14T18:08:26.251519+00:00",
+    "plan_sha256": "38d18030f5965002cf15c1913f174fbd510672e4455df663c98c6f1bf4a67c10",
+    "status": "complete"
+  },
+  "checkpoint_identities": {
+    "checkpoints/3deformrs_curvenet_scanobjectnn_better.t7": {
+      "bytes": 8680161,
+      "sha256": "470725f49015908c9ec8c4ab6cf27d827ce021ab7d91b638bfe416c0d9649085"
+    },
+    "checkpoints/modelnet_jt.pth": {
+      "bytes": 351656113,
+      "sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75"
+    },
+    "checkpoints/pointnext_modelnet40.pth": {
+      "bytes": 54383385,
+      "sha256": "4c9c6deacc82235b864c6adfe3251c29bc4848038f03fc32402ba302f0b3ff97"
+    },
+    "checkpoints/pointnext_scanobjectnn.pth": {
+      "bytes": 16491609,
+      "sha256": "5b51fe01381c65889f268c85a1a52fa37f00941c874cf228e39dcc881a85e52a"
+    },
+    "checkpoints/scanobject_jt.pth": {
+      "bytes": 351525407,
+      "sha256": "53f6c2e46d3c982c9c144a9c822acf5852ef626e2e3124ec0d165c64b9535dac"
+    },
+    "checkpoints/svwa_curvenet_modelnet40.pth": {
+      "bytes": 26013253,
+      "sha256": "1288beba37b65d063f87d45b25c24895f739188daf7d4001ed6ae2f44beabe20"
+    },
+    "checkpoints/svwa_dgcnn_modelnet40.pth": {
+      "bytes": 21771717,
+      "sha256": "e9eb118cd5adb42b7a564e2cc396ce698dee6cad42342d5e6c518e47ea152494"
+    },
+    "checkpoints/svwa_dgcnn_scanobjectnn.pth": {
+      "bytes": 21694533,
+      "sha256": "7816a3ccf915406c5cc613883d8deb187d78e8f505df925d83cdcb8ac1343bfe"
+    }
+  },
+  "classifier_states": {
+    "modelnet40_c": {
+      "curvenet": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881",
+      "dgcnn": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1",
+      "pointmae": "7b212d65e82d3b20dc2476bdb99df30f4ab5d25d69b8cac24d7c2cf1f80b875e",
+      "pointnext": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e"
+    },
+    "scanobjectnn_c": {
+      "curvenet": "30c4d9194aca84009cca843d13de3e5e1334b9eb7bcaf49d8ad5a906a75b19b6",
+      "dgcnn": "95e50111a0118af398b8066900f11b01f997ce293151bdbd38ccec74df4c3524",
+      "pointmae": "fa16d1ff6ce236cd346aca49ef651ed14ae3c27f53395d509fcf26ea8bd562e1",
+      "pointnext": "eb1bc53f326ee281c48176dcb404779653143e6f0c25f80cb513650b389fb540"
+    }
+  },
+  "cloud_flush": {
+    "completed_groups": 60,
+    "drive_mounted": false,
+    "final_outcomes": 365880,
+    "host_backup_retained": true,
+    "runtime_teardown": false,
+    "status": "cloud_flush_completed",
+    "time_utc": "2026-11-14T18:09:00.050524+00:00"
+  },
+  "completed_groups": 60,
+  "corruptions": 15,
+  "cost_limit": "Estimate at observed8.88CU/h, not a per-session billing receipt; shared account also had another active assignment",
+  "datasets": {
+    "modelnet40_c": {
+      "predictions_per_head_per_method": 37020,
+      "tail_batch": 4,
+      "unique_objects": 2468
+    },
+    "scanobjectnn_c": {
+      "predictions_per_head_per_method": 8715,
+      "split": "main_split",
+      "tail_batch": 5,
+      "unique_objects": 581
+    }
+  },
+  "drive_root": "/content/drive/MyDrive/thesis/result/fulltest_n5_proximal_n8_20261112",
+  "elapsed_seconds": 14613.754055,
+  "endpoint": "gpu-a100-hm-euw4a0-3bdkwbiiijjdo",
+  "estimated_compute_units_at_observed_single_vm_rate": 36.04726000233334,
+  "experiment_identity": "f2721cd29a1cfdc0937d552a63e4d6f34e0950c528625c3370e5d506d2210f43",
+  "files": {
+    "analysis_receipt.json": {
+      "bytes": 3496,
+      "sha256": "2fe1f11243e63a67aa86ba7688a81f4d420191b595c7c3f2997759164027c611"
+    },
+    "fulltest_accuracy.csv": {
+      "bytes": 920,
+      "sha256": "b86657f86bc8383e7ea6604610d6a1d5c25ff079a96cecbe0d6d4cf4b2a771dc"
+    },
+    "fulltest_accuracy.md": {
+      "bytes": 795,
+      "sha256": "b34c28c640b4c28c98d4401d12d8d66338797a31d38101204b95cf989bd9f81a"
+    },
+    "host_independent_recount.json": {
+      "bytes": 100637,
+      "sha256": "9bd45916ce883bc09fe125b462184aa829b72d2b20cabda37dc99fd17904c52b"
+    },
+    "per_corruption_accuracy.csv": {
+      "bytes": 12362,
+      "sha256": "69c8d2201ce5e7271f925fb8a41d8ea69eef072387409bd9db945ec4564ab2c0"
+    }
+  },
+  "final_outcomes": 365880,
+  "gpu": "A100-SXM4-80GB",
+  "head_archives": 240,
+  "new_r9_groups": 58,
+  "overall": [
+    {
+      "backbone": "pointmae",
+      "dataset": "modelnet40_c",
+      "delta_percentage_points": 2.1528903295515938,
+      "n_examples": 37020,
+      "proximal_n8_pm_accuracy_percent": 63.67639113992436,
+      "proximal_n8_pm_correct": 23573,
+      "terminal_n5_accuracy_percent": 61.523500810372774,
+      "terminal_n5_correct": 22776
+    },
+    {
+      "backbone": "dgcnn",
+      "dataset": "modelnet40_c",
+      "delta_percentage_points": 0.6969205834683955,
+      "n_examples": 37020,
+      "proximal_n8_pm_accuracy_percent": 63.94111291193949,
+      "proximal_n8_pm_correct": 23671,
+      "terminal_n5_accuracy_percent": 63.244192328471094,
+      "terminal_n5_correct": 23413
+    },
+    {
+      "backbone": "curvenet",
+      "dataset": "modelnet40_c",
+      "delta_percentage_points": 1.1750405186385737,
+      "n_examples": 37020,
+      "proximal_n8_pm_accuracy_percent": 65.67801188546731,
+      "proximal_n8_pm_correct": 24314,
+      "terminal_n5_accuracy_percent": 64.50297136682875,
+      "terminal_n5_correct": 23879
+    },
+    {
+      "backbone": "pointnext",
+      "dataset": "modelnet40_c",
+      "delta_percentage_points": 2.1582928146947595,
+      "n_examples": 37020,
+      "proximal_n8_pm_accuracy_percent": 70.62668827660724,
+      "proximal_n8_pm_correct": 26146,
+      "terminal_n5_accuracy_percent": 68.46839546191248,
+      "terminal_n5_correct": 25347
+    },
+    {
+      "backbone": "pointmae",
+      "dataset": "scanobjectnn_c",
+      "delta_percentage_points": 2.214572576018359,
+      "n_examples": 8715,
+      "proximal_n8_pm_accuracy_percent": 37.92312105565117,
+      "proximal_n8_pm_correct": 3305,
+      "terminal_n5_accuracy_percent": 35.70854847963282,
+      "terminal_n5_correct": 3112
+    },
+    {
+      "backbone": "dgcnn",
+      "dataset": "scanobjectnn_c",
+      "delta_percentage_points": 2.2948938611589216,
+      "n_examples": 8715,
+      "proximal_n8_pm_accuracy_percent": 38.34767641996557,
+      "proximal_n8_pm_correct": 3342,
+      "terminal_n5_accuracy_percent": 36.052782558806655,
+      "terminal_n5_correct": 3142
+    },
+    {
+      "backbone": "curvenet",
+      "dataset": "scanobjectnn_c",
+      "delta_percentage_points": 2.0309810671256456,
+      "n_examples": 8715,
+      "proximal_n8_pm_accuracy_percent": 56.293746414228345,
+      "proximal_n8_pm_correct": 4906,
+      "terminal_n5_accuracy_percent": 54.26276534710269,
+      "terminal_n5_correct": 4729
+    },
+    {
+      "backbone": "pointnext",
+      "dataset": "scanobjectnn_c",
+      "delta_percentage_points": 1.5146299483648882,
+      "n_examples": 8715,
+      "proximal_n8_pm_accuracy_percent": 50.08605851979346,
+      "proximal_n8_pm_correct": 4365,
+      "terminal_n5_accuracy_percent": 48.57142857142857,
+      "terminal_n5_correct": 4233
+    }
+  ],
+  "overall_rows": 8,
+  "per_corruption_paired_rows": 120,
+  "plan_sha256": "38d18030f5965002cf15c1913f174fbd510672e4455df663c98c6f1bf4a67c10",
+  "raw_archives": [
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-152756_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 623,
+      "n_examples": 2468,
+      "sha256": "739be0f0c3fb47d904bcbb56364eb9632b9bebe9db2a640ff399917305a44ccc"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-152757_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 406,
+      "n_examples": 2468,
+      "sha256": "baa930c89171c7d8b45b424ef370d7c669918120cb2e3631fc068f2eef65997b"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-152758_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 241,
+      "n_examples": 2468,
+      "sha256": "8dbe34fde5ff999d47f43bfc7b1c93ff038e3a293c30c8d47d784be195a984c1"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-152759_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 1569,
+      "n_examples": 2468,
+      "sha256": "6e83a03a9ccd7caab4df799d6aedeccc8d11d2c97b8f5c61b46e5765592d6d7b"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-171922_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1758,
+      "n_examples": 2468,
+      "sha256": "4e4b7a19821c3807513310a1f463e6dccc7bc9a93a052299d21ad3d7ca23fd3a"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-171923_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1593,
+      "n_examples": 2468,
+      "sha256": "3d9782bc1ee84c50a6cc0d3b6448e16ddb627fdb683200b221e3486815898bcd"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-171924_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1691,
+      "n_examples": 2468,
+      "sha256": "93b03594953025dc21f8fe932d7879a3552c73edd2680614a1f40e3356b086b6"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-171924_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1936,
+      "n_examples": 2468,
+      "sha256": "881a8489c38705cdd660104d4c145c316137bcc1a48415e9a75a80f8198d7d59"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-162932_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1801,
+      "n_examples": 2468,
+      "sha256": "bdb743fa3c2ef324762abc663b699310e9b84e90f84c973ac5f9f7aab1ff85ad"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-162933_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1656,
+      "n_examples": 2468,
+      "sha256": "cdefccf3a7a3bad8712eb71cd355800aa4c9d27ffc229e9a643a337524a50093"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-162934_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1728,
+      "n_examples": 2468,
+      "sha256": "f54d549a1138322e7254e6da3e340516f2a6383298c85c4143429f20333d80c9"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-162935_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1918,
+      "n_examples": 2468,
+      "sha256": "05e50f91db1c6f73483b7b38d67a2e1dd09ec456914246392c8ddb821ba3503f"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-164206_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 2134,
+      "n_examples": 2468,
+      "sha256": "ec3deab1717fff3215045abf4d2a6bc6e2d374d396871ab33670c8c8e0dd5931"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-164207_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 2008,
+      "n_examples": 2468,
+      "sha256": "d1a0d2d27083d4e2490cfbbca4e72935af53f0c63e49a1b8af8a0680c374e2ed"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-164208_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 1988,
+      "n_examples": 2468,
+      "sha256": "81bdca7b2992607b8fdd4f1742f29cbee3f4175debf491c6a0f9b93a1dd0501d"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-164208_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 2158,
+      "n_examples": 2468,
+      "sha256": "94713fe1410e04730b50900a58f8329b694a7fec10c1214669abfd9c6b7fb180"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-173135_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1607,
+      "n_examples": 2468,
+      "sha256": "d054ba80319581ecc3e0427dfda1377dd7a18291608fb2754c4d93ce1636b833"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-173136_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1841,
+      "n_examples": 2468,
+      "sha256": "f8da4924a3dbadb4609e0204bb1e02acce9c3b621de6c410f47280996d7b0a31"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-173137_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1901,
+      "n_examples": 2468,
+      "sha256": "f88582b2d7af42960fb8c9d89ffc71b508897f1cb7735c0cff6efa68f2b2c638"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-173138_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1803,
+      "n_examples": 2468,
+      "sha256": "3e4460d6ef8e3d3fee3d17c9444a9cf6c7a232534ce740b1aca7cf29f12fdc3e"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-160457_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1547,
+      "n_examples": 2468,
+      "sha256": "76668b8b3a927a8e954c56f3adc10c83b24c94cbb960f115b6c0a0ec2012bbbd"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-160458_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1818,
+      "n_examples": 2468,
+      "sha256": "74ebd7a1a3043d72b1a18875037dc84d1af05926063a2db480ed27a177d9c2c2"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-160459_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1933,
+      "n_examples": 2468,
+      "sha256": "a83903252ca7a500beb80091c79b836c2fc0ac1161d8ea63e10af104dfdf5b86"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-160459_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1783,
+      "n_examples": 2468,
+      "sha256": "8236292367cdc8c3110f0e7e2d47d10491c9a6885da2806159aad331ebfedd4d"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-161714_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1606,
+      "n_examples": 2468,
+      "sha256": "fa05c5c3b8eb5d55074c699e0f135262c58baaf52b159a9d30a491bf2d196ba6"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-161715_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1874,
+      "n_examples": 2468,
+      "sha256": "303d9304cf29a9fd79df573bddc9b963ca99d5ba73eb261de0e6de87088f19ee"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-161716_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1942,
+      "n_examples": 2468,
+      "sha256": "5dac0ca772c3fbb62a91f996f637aebeb60d6ae1aeaa5a668feb45dbdcfd5558"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-161716_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1865,
+      "n_examples": 2468,
+      "sha256": "04073ca432dfaba20a3e18db55f7becae52b1e22fcf35cd467679e6035346d7f"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-151545_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1841,
+      "n_examples": 2468,
+      "sha256": "78d7fa51e31f0426918bc49b77d936d80c2b1918825692ef0063b5f23dcda6e4"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-151546_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1782,
+      "n_examples": 2468,
+      "sha256": "662bf883f2b2c2c549e7819389a4fb5f5790b8f3a66e87d22871daeabbfef798"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-151546_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1822,
+      "n_examples": 2468,
+      "sha256": "5a807b930733431b37c4f54641ba3f417a1e380f40e2d36475268998812adc91"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-151547_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1850,
+      "n_examples": 2468,
+      "sha256": "56b38cf517a7ba0bc1b8e7085d4c3803701acf96dbbca54f44a2c84961491652"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-154021_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 1721,
+      "n_examples": 2468,
+      "sha256": "b82d5511730cb4c1940e7d407cba59a54a7e2afc825961f8ee478cf7fb9a2944"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-154022_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 1675,
+      "n_examples": 2468,
+      "sha256": "797ebd74870f0451d15f243b5534e4a39b4c7be514fc5bad71f5266056f63496"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-154023_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 1611,
+      "n_examples": 2468,
+      "sha256": "49cb1f9b47b6c1f6d0b4e13f181e1d4ee10627ae3d3f938369f13c4c3b8059c6"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-154023_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 1874,
+      "n_examples": 2468,
+      "sha256": "7084af33262083dec17c40ce8b1526334ce3f693fea57a8600b17f516cab5890"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-175600_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 729,
+      "n_examples": 2468,
+      "sha256": "9de3e6dd67fb30a08c12899a4c55ef543e8bbe3393f70229781ef45c97436dec"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-175600_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 760,
+      "n_examples": 2468,
+      "sha256": "f3793d19faadb2bc0b3801f037737c91d82632dcf435e00f467486f17ef6d846"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-175601_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 878,
+      "n_examples": 2468,
+      "sha256": "e4510094a3b0baf4fa4ab5458fcc1f5915235ff3a1b309155618dc170f60bb0d"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-175602_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 750,
+      "n_examples": 2468,
+      "sha256": "024fe3d2cdfd18112255a7c63858d05e428ccc74fda5b9b7f6b9b8abeaf3fa1d"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-174349_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 984,
+      "n_examples": 2468,
+      "sha256": "7a9d36c9698c833e6759fcfe0daaa98aaef72878fb231aeb9ff3bb7614db03eb"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-174350_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 892,
+      "n_examples": 2468,
+      "sha256": "7a30e9403aa67268632d03d259a0649a6b82ae5b10d8857bcb4376b8efdb2828"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-174351_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 910,
+      "n_examples": 2468,
+      "sha256": "1c6c998435b22c20ba596b94038de767eb9c99e15bc93f98aa9d89605d428dc6"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-174351_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 968,
+      "n_examples": 2468,
+      "sha256": "0e63d3c71353144c29262d0bd8e67a07a5677d5880fe5e9093849e6c6aecb394"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-170653_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 814,
+      "n_examples": 2468,
+      "sha256": "2c7118a24439aaa3ec1c07f84991c8ef9c9a87eff597115830f0a6d93554f315"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-170654_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 1387,
+      "n_examples": 2468,
+      "sha256": "ea82e11e9e91dc145fa5579a5f1ca418822141bceb2115a791dc523116774e98"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-170655_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 1666,
+      "n_examples": 2468,
+      "sha256": "ac2a0365b607ae910fb31f969691ca1e2d578e79901ad06a8217dfe25dd8f9b7"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-170656_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 1033,
+      "n_examples": 2468,
+      "sha256": "729791613162608aa9f13af7e586e8071770346f7d9822f28ddab866b6b74398"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-165419_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1646,
+      "n_examples": 2468,
+      "sha256": "e90d5cd8e1fd6d4fb21fa0af81b0e5e64dc6c57c42b9eecacc7c1d91b945ac31"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-165420_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1883,
+      "n_examples": 2468,
+      "sha256": "522436f65f5ba4bfb751f2f5ae6da2ffb5ec1556e85fc97c2386d38ef0d4300b"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-165420_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1841,
+      "n_examples": 2468,
+      "sha256": "e1e2c5d20715db829437d94028716dad62f15d7f4d123215eb1bba8b8baa2f4a"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-165421_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1877,
+      "n_examples": 2468,
+      "sha256": "2763aaf7225f7d1da52daa48f990bdbf75b3355ac9da0545ca998da5fe527ab8"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-150332_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1903,
+      "n_examples": 2468,
+      "sha256": "92da98806208cb1ffbb8f1b322c50173134665a84471c57a3a2c3de1670c94a3"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-150333_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1828,
+      "n_examples": 2468,
+      "sha256": "b4ef3453bb64b15f1a9936e541377d7911c3b86068f5ca39b2d0ede948809627"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-150333_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1871,
+      "n_examples": 2468,
+      "sha256": "193bf4565d210b7b478e926c84322aed3876d9ca659d6ba6187ed394b0e63d2e"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-150334_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1893,
+      "n_examples": 2468,
+      "sha256": "f982d19abedcd95d6198a3247ee1ee6c563050752dd4201a6910fd43879f35d3"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-155235_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 2000,
+      "n_examples": 2468,
+      "sha256": "6f2521edc8daa29faeaefe3ff49bb335e7bb522b79a50bfaaa61a9e612cb2150"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-155235_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 2031,
+      "n_examples": 2468,
+      "sha256": "baf14f5c84d7bd3737038d7930a114b0d4929ae2655d5e361de272f5eb74bf54"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-155236_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 1897,
+      "n_examples": 2468,
+      "sha256": "1353134b00a54c5ca5ee5ec1ace7195787cefa3434934b4b3a329ee194156c7d"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_original/20261114-155237_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 2070,
+      "n_examples": 2468,
+      "sha256": "6ede709eeca03c273307e440beb15828457e637f27a5cf0f028306eefa9354ac"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-153255_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 737,
+      "n_examples": 2468,
+      "sha256": "cf09a4870998259c5c16b510dd2a7ab90a68948da51aaa20c561678d6b55a8e7"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-153256_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 390,
+      "n_examples": 2468,
+      "sha256": "9fc3f6b749516b28671526a405c65bba9ff8219bb12e5097b77a33ca4823452c"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-153257_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 360,
+      "n_examples": 2468,
+      "sha256": "7eb58e64998c73cb03e3579a3cba782079d57ef3fb4f775f6f3fc030964bb2fd"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-153257_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "background",
+      "dataset": "modelnet40_c",
+      "n_correct": 1735,
+      "n_examples": 2468,
+      "sha256": "b72125a2655a3d21cea7dc19000839963befe54c1eff6dac372e3580c0686994"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-172408_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1803,
+      "n_examples": 2468,
+      "sha256": "2d129050cdf90e1a55b73378cd682643472b9096df0f1f404aac9d8ddba9580e"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-172409_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1622,
+      "n_examples": 2468,
+      "sha256": "ff2681216d0bd286f81e34507beb807faddecd99e7f66285d12ab0c85a607a4a"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-172410_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1707,
+      "n_examples": 2468,
+      "sha256": "7ead1cd0e48fb5f74f5142f80d605980d6446d8e63e42749b3439feecb944e27"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-172411_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "cutout",
+      "dataset": "modelnet40_c",
+      "n_correct": 1990,
+      "n_examples": 2468,
+      "sha256": "8924bb56332e65e14d16235a12fe24a35b8c0dfb5b8cd329cd57b953fbfc308f"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-163420_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1789,
+      "n_examples": 2468,
+      "sha256": "e0119075c6a0ceb393242fa0009906b460e9a3566b325899d1c8b09db6f47ec2"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-163421_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1633,
+      "n_examples": 2468,
+      "sha256": "ca4f49557fd86577a0697c7bc2b75716217c0fc67efe34c6e9ee34159639bc30"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-163422_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1724,
+      "n_examples": 2468,
+      "sha256": "442b2c1d28e0c5f291028065ccc5996aa22d71ba864c44ac133fea3443352c30"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-163423_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "density",
+      "dataset": "modelnet40_c",
+      "n_correct": 1965,
+      "n_examples": 2468,
+      "sha256": "dd9f2bebd6e2fc980ea4a014dce270ae88b5ae9813db77c1d61d4f0b70edb6c7"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-164653_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 2113,
+      "n_examples": 2468,
+      "sha256": "241345fc151ed230e3d2e888f6e4b4d0cb42593cec12a0356ebaecb6eeebe04f"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-164654_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 2005,
+      "n_examples": 2468,
+      "sha256": "c5e31c6bc06e725d5df98ae4c2d6c1e0f0b41e2364fd711caeaeffc90adeb43f"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-164655_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 1954,
+      "n_examples": 2468,
+      "sha256": "7bca29cbe166e9d7d67a85037853b4eca4c3a1d8b768f5346ded858bb7abc4c4"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-164655_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "density_inc",
+      "dataset": "modelnet40_c",
+      "n_correct": 2166,
+      "n_examples": 2468,
+      "sha256": "1dcff8c2ede0755cca69486a31444f00a013a168add71cd99d33ed6acd1ffda2"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-173623_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1618,
+      "n_examples": 2468,
+      "sha256": "e23cb636c3e35e41e5f09aeb344656a5428198ba25515b5bc0a3cf9337e35d3c"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-173624_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1802,
+      "n_examples": 2468,
+      "sha256": "65065cb3b67c4058a5ed1f45bdb3f3627560206c313294a8e797c4483aba37eb"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-173625_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1869,
+      "n_examples": 2468,
+      "sha256": "192297dece9440df7f3835aa9e47ecbfead7ab729c370c2a625fde05fd98b740"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-173626_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "distortion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1790,
+      "n_examples": 2468,
+      "sha256": "a5352aac8736cd0935b91170d904138e78ae84fb57d777d8fdf6c9fd2907c374"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-160945_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1600,
+      "n_examples": 2468,
+      "sha256": "317f7e97f278021eb27b68b82fbd4034146c36a905b253c70b6925393f1ac541"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-160946_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1893,
+      "n_examples": 2468,
+      "sha256": "5fe70071e8a111aca015f5b3536c936c738060d7b6994cb2febb0fc3d5557b4d"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-160946_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1801,
+      "n_examples": 2468,
+      "sha256": "abc6f9cc02f36895a5f801d44ba48468884961fe73cc9e34b59ee59a6df6c116"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-160947_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf",
+      "dataset": "modelnet40_c",
+      "n_correct": 1778,
+      "n_examples": 2468,
+      "sha256": "9a42a1d8f1ae19a15f336c3949159677a39d0a63c4b7c33c2b8ee6e4c4171372"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-162203_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1646,
+      "n_examples": 2468,
+      "sha256": "9d96fc569054225bbd84cb082e255676e82180557fa922f31eb5cda913837a90"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-162204_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1844,
+      "n_examples": 2468,
+      "sha256": "4b412e24564da54b594644085637511bea125655877d10ad03c3f03ac5c30eb8"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-162205_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1937,
+      "n_examples": 2468,
+      "sha256": "c0a3c39c12d28d1f151eb14ed06c377e3e387fbf87bb6fbacada67d9a14c48ca"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-162205_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "modelnet40_c",
+      "n_correct": 1852,
+      "n_examples": 2468,
+      "sha256": "64b42d07a13bcebacedc71ebef0c90b0bad2586eb958922e83a0e04235a9176f"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-152031_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1970,
+      "n_examples": 2468,
+      "sha256": "b81cd7d4647168e24c5ed755c8b3cae19ccf72ff152bb219d92375bf5f0d2d92"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-152032_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1884,
+      "n_examples": 2468,
+      "sha256": "6d618ac7f1451071d1fba0e438d5db277434617cec11127c8fb5ee5624c233ae"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-152032_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1935,
+      "n_examples": 2468,
+      "sha256": "5b3fa463ccf66ab50a92c6965fdfc897be7f35b7bd68906663bac778ceb277ba"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-152033_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "gaussian",
+      "dataset": "modelnet40_c",
+      "n_correct": 1991,
+      "n_examples": 2468,
+      "sha256": "ba14d89dfa877d547b8e79615ef246e2f6618b3aab1fcbdf48d5969173e728b9"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-154509_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 1973,
+      "n_examples": 2468,
+      "sha256": "5a2710409012b28709c00ced262960af2df6aad916b521d3fb0c921a4f2730aa"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-154510_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 1861,
+      "n_examples": 2468,
+      "sha256": "5773c283f68dbc608a6191542cbbb05e6ba85942a0c05c8a7e583a123925e866"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-154510_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 1897,
+      "n_examples": 2468,
+      "sha256": "caaffb5bb1718ac96133aacd3ea70ebe12eaa6877a673168bb1522eefa5b7e7c"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-154511_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "impulse",
+      "dataset": "modelnet40_c",
+      "n_correct": 2065,
+      "n_examples": 2468,
+      "sha256": "d139359dbae4bc4bd3447fa6606ba35a04d2dee847d718bc698ea978a42ce8cf"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-180045_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 821,
+      "n_examples": 2468,
+      "sha256": "5a5691e1004561a23f9bd1e2746d8e82c7126a9647675605a715d419db044433"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-180046_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 760,
+      "n_examples": 2468,
+      "sha256": "3b89ea22a4548af3a905eb47559401f86ee71c89e65e73275ffa0977f6ee015f"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-180047_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 906,
+      "n_examples": 2468,
+      "sha256": "595a6e76f605bbaa0be6d65998102bff9788b1dfbd5c58532e581eb6c23c4ae2"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-180048_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "lidar",
+      "dataset": "modelnet40_c",
+      "n_correct": 849,
+      "n_examples": 2468,
+      "sha256": "520d4bf8c981d88b6ac656c8c1ae96c056430202aeb91a8f2c17468603776e08"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-174835_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 1006,
+      "n_examples": 2468,
+      "sha256": "633648936a1d98aa1c2f545f7dd22784adf9d7cd80986592cacd33bd07683394"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-174836_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 896,
+      "n_examples": 2468,
+      "sha256": "cb07b6d2775db8d9a4b801362d94d878c65d8f9901e39a821c3ac73461ce848a"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-174837_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 898,
+      "n_examples": 2468,
+      "sha256": "e0f4edef5fd9fa13e3b655a558100cad38c50de4be7814e1d0b6725c89f3b99e"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-174838_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "occlusion",
+      "dataset": "modelnet40_c",
+      "n_correct": 978,
+      "n_examples": 2468,
+      "sha256": "6ec8ff815464e48c39382676353b693fab83fc562cea91e7f7ca3fa516f74b58"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-171148_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 844,
+      "n_examples": 2468,
+      "sha256": "dcd69aca75db3e686c7111a0c5eaf55c63858a5e381beda37dfc082442c972a5"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-171149_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 1331,
+      "n_examples": 2468,
+      "sha256": "ed580968a04a2bf90f9d9cba00ccdda2eb963f2dc891e13113c834690b766d66"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-171150_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 1640,
+      "n_examples": 2468,
+      "sha256": "23b23d39b03e644aab82d012133ed8092219aa0c22bc6e0f36e0410aa1959cf8"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-171151_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "rotation",
+      "dataset": "modelnet40_c",
+      "n_correct": 1032,
+      "n_examples": 2468,
+      "sha256": "1f7680bdc59655f660e67ba0b01f04d94e99299999a81c56e35fb90ae2941b49"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-165911_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1619,
+      "n_examples": 2468,
+      "sha256": "d598696653a4fec5b414d492d3c05fa8cc9a1152162b493645e1212f15a61e84"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-165912_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1777,
+      "n_examples": 2468,
+      "sha256": "ae51d39b112bdbcae4d241a4759a3a715b246b4613592f7a0c5b9d1dc9d2134e"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-165913_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1831,
+      "n_examples": 2468,
+      "sha256": "9514a40974e95ad12fee5af98c1c7c5473f4f33b7be014dd5ad1ba68ffd42c5e"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-165913_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "shear",
+      "dataset": "modelnet40_c",
+      "n_correct": 1821,
+      "n_examples": 2468,
+      "sha256": "440c7f31d86853f5ea5dfdf494cf9371fedaece8ff197aa843f702622e9b80c9"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-150819_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1937,
+      "n_examples": 2468,
+      "sha256": "ad30f04085247f249137b0d5a290558a4d650f7e0dd2a0739ef1ea5123f17075"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-150819_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1970,
+      "n_examples": 2468,
+      "sha256": "115157ec0f79f2cd2a0d7fd1cba884943850199c88e4c7f7b09f3ad4417cf296"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-150820_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1893,
+      "n_examples": 2468,
+      "sha256": "e056511270d8a34eac915f33c8f79e799c1e3916b0261fb72746877ccc6963b1"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-150821_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "uniform",
+      "dataset": "modelnet40_c",
+      "n_correct": 1990,
+      "n_examples": 2468,
+      "sha256": "78885f2e5e5d3a27cee94fcd85b30bae656779ee661a503e19e0422617e83776"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-155717_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 2064,
+      "n_examples": 2468,
+      "sha256": "bedf59a68c9ffe95c7ecb3feeae6e5d9a80a5dbd52bfee00581407f1204ac7aa"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-155718_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 2041,
+      "n_examples": 2468,
+      "sha256": "66bddffec09e5cb860af7fae89155778a526506e77f86be5acd8a109925dc284"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-155719_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 1957,
+      "n_examples": 2468,
+      "sha256": "f9917584214734d1fa346a4d67e5b94988b3406559deaf0d3a9f2a43598078f6"
+    },
+    {
+      "archive": "result/modelnet40_c/3dd_proximal_pm_baseline/20261114-155720_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "upsampling",
+      "dataset": "modelnet40_c",
+      "n_correct": 2144,
+      "n_examples": 2468,
+      "sha256": "78faae34532e5fca5b07cd1546805996525a32152b5bf2fc961d78daf35f828f"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141147_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 158,
+      "n_examples": 581,
+      "sha256": "249749bd911f700a1914e93e6ef09fa0c12a027a4a6f9b3814c9cf12f8242360"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141148_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 165,
+      "n_examples": 581,
+      "sha256": "719c53536a92efbc54b8f56594b2453c850948a0e394e4a2ad56b15311326368"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141149_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 99,
+      "n_examples": 581,
+      "sha256": "4b983d14b432599f555efd9f37db3a329b9ec82476ca0c2f36773d0138a39c7f"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141150_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 224,
+      "n_examples": 581,
+      "sha256": "e229a8ee3f74c8b267ba7073b15232fdbeeb8f48e24de04eab206eb550f411e6"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144734_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 323,
+      "n_examples": 581,
+      "sha256": "fb1826d93c31517bf4584451c22f8dfa61ceca0dc7beafe9844ef159155bc879"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144734_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 360,
+      "n_examples": 581,
+      "sha256": "ad9c257650266f7e77821a9e9d12070f798e2893e3a5b380955c1e7bde442e43"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144735_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 411,
+      "n_examples": 581,
+      "sha256": "13fb4e409cc266f6ad87cfb2fe779368042361a8d333f20b32b1bf2a7a42b6ae"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144736_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 464,
+      "n_examples": 581,
+      "sha256": "a560a459ad6c145c750ad70c25dbe30612ce627aef7120ba6652a1c741a552bc"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143154_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 331,
+      "n_examples": 581,
+      "sha256": "3e741394945ba1d2976e3e55f341550a46ffde6b74bf8abd09107ff1598b3408"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143154_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 375,
+      "n_examples": 581,
+      "sha256": "1a583ba1013cb393f23a04ad727676f81b982a917e4019e69cef36a3efd3b6f7"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143155_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 416,
+      "n_examples": 581,
+      "sha256": "be3b6dd3280cd2d7e268a9a037b2c1ab36629c0470138653976515a3737f1fcd"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143156_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 473,
+      "n_examples": 581,
+      "sha256": "53ab13f29b409f0f958d5b34a911d2f739bc6cad3b9c943538c8f69de0a56acc"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143550_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 402,
+      "n_examples": 581,
+      "sha256": "bf3b9b4b655bd42a00de9e991a64cf0e7dbe02d0255bb71934cced89f8a2aa4c"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143551_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 387,
+      "n_examples": 581,
+      "sha256": "08a86a69cce207d78c54d8dd80651f0e4b946017b20d7150b422eaff8a2aa5b5"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143552_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 437,
+      "n_examples": 581,
+      "sha256": "640206c013bf8e5e4c19d9ab4040596cf56e3914c50f66475a385c5323498ef2"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143552_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 494,
+      "n_examples": 581,
+      "sha256": "8295937a5e23abe92bcb6ccc9a61bd92a9d2865a0364832554b19f4f0b77cfc1"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145142_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 212,
+      "n_examples": 581,
+      "sha256": "53179cf1b9be86871f11c253a8c03a034ec8a2553cc6c9c3601b3491ac048f5c"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145143_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 226,
+      "n_examples": 581,
+      "sha256": "82e668b5f4a6c14dcededaf417de1397cb24e4dadc79c9f18164d52cc1361975"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145144_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 403,
+      "n_examples": 581,
+      "sha256": "47300d03e96ca121ffc7719fe1b47c88d2544e62baf1bccfe9729d1a4ff9cd5e"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145145_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 301,
+      "n_examples": 581,
+      "sha256": "ebcaf1838fb23b496f47545572c5e2d4166870870d644a0398c70a1aebd9be25"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142332_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 195,
+      "n_examples": 581,
+      "sha256": "a60ceb108abb420bdd7c8d4a00e355ac6ec6c915e24fc88c8fc23b68cfc51710"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142333_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 217,
+      "n_examples": 581,
+      "sha256": "53ee9a63a8c6a786bd10bf8f89f847ef0614cfba63c6570e18db45a9468acc84"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142334_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 393,
+      "n_examples": 581,
+      "sha256": "dc6d06f69f0aee088c7f01f3eed034ac84ae17fa0a42aabb58755fd8bfd65e24"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142334_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 291,
+      "n_examples": 581,
+      "sha256": "72632f5310f4576c305cbd9ee2d0f57f56169931cf11812a935424ddbbc3ea06"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142759_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 202,
+      "n_examples": 581,
+      "sha256": "43bcd78628d82a58df46b6ee8279432a43704e3b68f11ef0d6d034b7509214fe"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142800_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 209,
+      "n_examples": 581,
+      "sha256": "0338639b1b3b60036eea0681de67eb469dfab855d16c3c5e72fe6a5bc6bab4ed"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142801_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 398,
+      "n_examples": 581,
+      "sha256": "e6247a0e26cc0f555d04ca0b147b192fc6d90aaef945388968f124bd4b617b85"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-142802_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 299,
+      "n_examples": 581,
+      "sha256": "9f09aa7224916d9744a64f642a5f9e5b3a8d8e8aeb5012401443ee0bd24b2ae6"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-140752_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 266,
+      "n_examples": 581,
+      "sha256": "2f1e28b176ea4b0cc4a9a6300735a0cf2139fc09a14616d549a168594c862b24"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-140752_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 254,
+      "n_examples": 581,
+      "sha256": "79469ebf40611a033b0710b8711b5f52ee3e3d0e238aa4e9117d1f99b438a98a"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-140753_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 328,
+      "n_examples": 581,
+      "sha256": "00d41dc443727366c07ca3e483f1216d97279f5fb373bfbc2e9fbca708093992"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-140754_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 307,
+      "n_examples": 581,
+      "sha256": "b1997f2b1a6e039421e15d1cb5a6d298d3243e1624bd0666be1fe7670c156f99"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141543_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 148,
+      "n_examples": 581,
+      "sha256": "6c28d1e5ccb7322dda457a4e70b592c367688aeb92085060d1e596120cfa216a"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141544_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 153,
+      "n_examples": 581,
+      "sha256": "b960d965779a02702bbc5e394862da7dccf6ca268ee857a57e155fe10b1e8cf8"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141545_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 234,
+      "n_examples": 581,
+      "sha256": "ffc42f19e6b82669da925caaa3f05d0b56a8c9bda81174d8be9d98605384ef08"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141546_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 232,
+      "n_examples": 581,
+      "sha256": "3c58177dba093bffa50d250a23efa2f1095f972f2357cf7920b92b14c0314cfa"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145937_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 42,
+      "n_examples": 581,
+      "sha256": "5dcd5785f1b924bac5136f7fcb1dba3df70f2e9428eb39aafce2ce719e4d278f"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145937_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 47,
+      "n_examples": 581,
+      "sha256": "6054e62ba633d4b283f7b3a442aad8c2b3e1a4143b5e707fcf570d8521ac7a4c"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145938_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 49,
+      "n_examples": 581,
+      "sha256": "7d3b224b4dd3f6bafccdf31be7aa4e21ec2a8706253aaa361660b7eb8620879f"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145939_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 43,
+      "n_examples": 581,
+      "sha256": "58e348d831f2cf3614c17f0166a61b7b19429fa03449b30c8dd5138594cb7dc4"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145540_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 46,
+      "n_examples": 581,
+      "sha256": "188abc316265c98cc58aae9e73a5f20e76d62577a0863c499277fa168ea5c2d3"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145541_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 43,
+      "n_examples": 581,
+      "sha256": "5ba8a0181e037a90a20b2361157ad454059771f9b77b9e80c4af1a981260f0ab"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145542_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 49,
+      "n_examples": 581,
+      "sha256": "62771e4c628d9da234203021169e12bd0d5b2cf0245e71cf58d1504718c9aab5"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-145543_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 49,
+      "n_examples": 581,
+      "sha256": "b2cb255c1634c13af9bea030f073ed87ad09e4c014a066f67651ed8d0e2acff1"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144339_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 166,
+      "n_examples": 581,
+      "sha256": "59ebb2517e7ae21e5bb5674cebad5435593d3ed3d481c52373b4627f0e1e3262"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144340_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 183,
+      "n_examples": 581,
+      "sha256": "97b6ea777ba42bcf3216cfbb2703654dff7cce8bbe56c14ff1b0c90e45ea9d09"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144341_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 373,
+      "n_examples": 581,
+      "sha256": "6ee95d081e3c8e4488f81704b65378254b6e93e4a19923d2325dd923fd117da4"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-144342_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 244,
+      "n_examples": 581,
+      "sha256": "fda9aedd67a55bdc691d3fd8fd9361f79685b8a985b36bca998fad565e9c1f2b"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143944_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 210,
+      "n_examples": 581,
+      "sha256": "dae04420b12e66e28240cce22d2bbb9f7c66d8a7668f675e904dc8536a3e8c80"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143945_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 232,
+      "n_examples": 581,
+      "sha256": "78d4e6c352615902e224185ad5d606621653efbb3cc9174306464913d550cccb"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143946_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 398,
+      "n_examples": 581,
+      "sha256": "28d58634ed2ec03a02144698530c0aac06dde507cfc92e7b8211800b19f9355b"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-143947_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 319,
+      "n_examples": 581,
+      "sha256": "ed4dfbb9d389bb6295e51347dd661623041df46330ed65c29f54d1b0adbddbc3"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141939_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 184,
+      "n_examples": 581,
+      "sha256": "d25f3f478e05b214d851cab88b147b536075af7096aa07627fdb6725fac05ee5"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141940_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 194,
+      "n_examples": 581,
+      "sha256": "db6c859e3b46b4cee50b317918d4fa8862271cf8970f0aaaa5debc1c602b26c6"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141941_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 375,
+      "n_examples": 581,
+      "sha256": "ea9654e73c962a4a279b2a6bc17934802533eed4fa175be5ecd74ae5219bdb2a"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261114-141942_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 259,
+      "n_examples": 581,
+      "sha256": "0c9648f961d8fb5af79703e1dcd3f3bcf154724acd4d2f577a1973b312c3d8d0"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141326_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 186,
+      "n_examples": 581,
+      "sha256": "2640e26137e4c57660f91c156bb623e4988e6226a5f3cbb6f275aac5612aeac3"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141327_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 177,
+      "n_examples": 581,
+      "sha256": "bdbb0826878b0392bca938d9c46899492f4b5fc05742beb489dd0cb35611b964"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141328_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 100,
+      "n_examples": 581,
+      "sha256": "0a0a8b7a3ea48e0ed9d290276de79c3bf36dfb10874e88a77d73a8c6b2408310"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141329_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "background",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 244,
+      "n_examples": 581,
+      "sha256": "9d97a7dfaaff259f89b2b016710beb166a502046b912645b59bf3c7da5e790dd"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144925_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 373,
+      "n_examples": 581,
+      "sha256": "5eeac2c07104d5afd71c4fec192667c2109ee6b45012025f3f21dd921cdaa48e"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144926_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 345,
+      "n_examples": 581,
+      "sha256": "be07210959c800beae03ad58fef8942753aabe48419ef951740dd916b6596daa"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144927_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 413,
+      "n_examples": 581,
+      "sha256": "ef0d60c21aef352866ac6d3204e01bd1f57a4b0740defd472a3862ecf5f50aee"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144928_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "cutout",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 465,
+      "n_examples": 581,
+      "sha256": "147ed03688e3c2bd70ff99fc9491a111cbc8c0ecc67df9544be05675ff14ccf3"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143333_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 374,
+      "n_examples": 581,
+      "sha256": "fc1a426e1c7bd406e8a50796dd99e735ec418fc3ddb8166f14c3bb330c9be2ac"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143334_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 337,
+      "n_examples": 581,
+      "sha256": "730b961920f50b61601df25ee77d9c9f427321404fddee5ae9a13af3317a4ba5"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143335_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 409,
+      "n_examples": 581,
+      "sha256": "90fad2e5511d782bf48d3a03b3531786170b0ed86b3034651ec8a4708cf519a0"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143336_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "density",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 463,
+      "n_examples": 581,
+      "sha256": "46ecb81ef9798732c69c8cbc4ede247c7f364045f91083f7234017d4cd1e5330"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143729_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 388,
+      "n_examples": 581,
+      "sha256": "7fb03d96be58eb3c9c30123f934f1cce677ef555a1873d3946ea073389f61eed"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143729_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 403,
+      "n_examples": 581,
+      "sha256": "8dc37db318825501c126d3a3f01c43420cfd42d75220b86da9c9b0b21ca3ef57"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143730_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 436,
+      "n_examples": 581,
+      "sha256": "8ff9f18731884f835f061872779bc5423428516f7f5b388818af018cc52acef3"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-143731_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "density_inc",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 486,
+      "n_examples": 581,
+      "sha256": "198206c101843874de55447745ac1b5b62de0519e753d5edc4eee550df10dfea"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145322_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 213,
+      "n_examples": 581,
+      "sha256": "79c9f8acc962123971454e27c00daf33997fb3021b2fdd1a6c9194a265630e36"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145323_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 402,
+      "n_examples": 581,
+      "sha256": "b19ed802f4fb88f2a8f77e39f056c8f33f8e8c89356b16da1525a98c1ce1147c"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145323_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 227,
+      "n_examples": 581,
+      "sha256": "4bba735f6fd7727b58f329c90771097af8f4cdac3c1694d01b8615d5d90b404f"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145324_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "distortion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 294,
+      "n_examples": 581,
+      "sha256": "0e9979755ddb60123619ab178cc2534e64eee5eb0b674525c45a7276b0428ad7"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142511_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 201,
+      "n_examples": 581,
+      "sha256": "85c6d03b73155068905cbe8c91d9ad3c0446f9b590ad8bb0e94116c56d6e176a"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142512_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 394,
+      "n_examples": 581,
+      "sha256": "301f3e6ce26e5b4124e91cbf2eb8e44de17cf099b5761087501f184d886c073d"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142512_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 224,
+      "n_examples": 581,
+      "sha256": "4fb0bf278da205cd9281487a2dc1cd7fda0d8f84c6588bfd00e627bd63edb2d7"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142513_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 291,
+      "n_examples": 581,
+      "sha256": "a7042f0f1934cac349047924773550709648b589ade87c62589e3924b178a50c"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142938_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 209,
+      "n_examples": 581,
+      "sha256": "d666a653d6b897a349a29518db88e34242b4b5a5c85ec9739c6a6563909bc99f"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142939_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 221,
+      "n_examples": 581,
+      "sha256": "b5a5aa7a0a5c932d52eda97c7ad650a079da9828edee561e43bdd85999f23abc"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142940_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 403,
+      "n_examples": 581,
+      "sha256": "fb5561e0d9c95570c088075cdba139fb8881f096192093f14d5cb833389a49f6"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142940_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "distortion_rbf_inv",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 293,
+      "n_examples": 581,
+      "sha256": "cb8c818f51026048c5a5c0ff622a2747c0cb798c55d4274ca8264b1f0e6c7156"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-140931_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 289,
+      "n_examples": 581,
+      "sha256": "f99d3d1b6c0460992d9dfcb28a60caa3026081f90ba6dc0e7a412202d0a2388a"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-140932_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 300,
+      "n_examples": 581,
+      "sha256": "e28c341d47ffb927eea2657dd086444195fc72cb3af06401a58b4ab6e5c55eb1"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-140933_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 375,
+      "n_examples": 581,
+      "sha256": "eb9013147a39f31fe2c61868fb77cf1865a4d508b1267673d04c504450ee8e41"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-140934_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "gaussian",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 364,
+      "n_examples": 581,
+      "sha256": "d7e67b1ab66d303eebd393333deaf87c9221dc252bb1f6f1d5602116012a7ac4"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141723_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 193,
+      "n_examples": 581,
+      "sha256": "d5d1b4a8aa9c32e687dd8568e7b09ec397dde9c74373600d8934fd515c4a3fcb"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141724_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 198,
+      "n_examples": 581,
+      "sha256": "dca39292a591fc58c4d997abdd210c1ec33cb3943b8ab13db1812aafda8bd7c8"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141725_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 313,
+      "n_examples": 581,
+      "sha256": "b388f4c6f2d292c6697ad29ef3abcb1b0e97f701502ea17016a7c5d74744f5ff"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-141725_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "impulse",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 286,
+      "n_examples": 581,
+      "sha256": "04735fdc875372bddc5dd689fabd6f813f16ad209bcadd194a7c58635f15669a"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-150115_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 49,
+      "n_examples": 581,
+      "sha256": "cdbe525b6b12888587504af805d9d2b53ea8243204bf9d85e7a47bae8998c152"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-150116_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 46,
+      "n_examples": 581,
+      "sha256": "c26ca7361a041f719093002c52d360165b3612f4dab45976dd95fdab826d2dde"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-150117_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 47,
+      "n_examples": 581,
+      "sha256": "190415501bbf3a680389be2065fb3d1c9602d8de159c67145bb7ee404bc5c221"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-150118_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "lidar",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 48,
+      "n_examples": 581,
+      "sha256": "1dcf00c875b7e3fa9e803cf07bdeaf6af9f5aec8ec7389683f30738dce8609b5"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145720_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 49,
+      "n_examples": 581,
+      "sha256": "748ad2ecbfaae1df52ac19ff99aec75d1c103b0dcbe3e0aa056e3f1f252ea97f"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145721_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 45,
+      "n_examples": 581,
+      "sha256": "38eef345f19699e3946ba5878d145a5b3603783f116877329b94087ce08eb964"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145722_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 46,
+      "n_examples": 581,
+      "sha256": "921ca08d75f876103a3a4fcf48cd72dc6005ed512bdd5af06f16b54ebb53cd87"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-145722_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "occlusion",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 47,
+      "n_examples": 581,
+      "sha256": "b56b78d7ec5501f31c278210dae2f86c6d9f80753fa48afe474aca3b2b47857e"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144518_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 182,
+      "n_examples": 581,
+      "sha256": "e96d16a6aa2aaef2a094d1ec053244ce306c1a159c28b287bb6d227485fbc453"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144519_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 383,
+      "n_examples": 581,
+      "sha256": "6fdfd7c06c9e62975b838f7f100cf68c9c6b11c3797b2637ae5528d7f85abe1b"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144519_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 190,
+      "n_examples": 581,
+      "sha256": "9add1d4b4be0bce330f0072afa818eb27c1f074db11911470569b47e08f72c3a"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144520_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "rotation",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 241,
+      "n_examples": 581,
+      "sha256": "fd3e91b060d0fdd0402597c68d5abbe0509de6072296dd93a4b284eb75df9d45"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144123_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 219,
+      "n_examples": 581,
+      "sha256": "cdd012ba83eddf7e0b557209604c6d980af08719e6a17939baf62ef4bd3f954c"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144124_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 391,
+      "n_examples": 581,
+      "sha256": "03176e09230d4647f87f6762881b2f0fb576da74eb0914484094fba6507e0eed"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144124_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 220,
+      "n_examples": 581,
+      "sha256": "f7a435c8cb1a437ced44c1e25bd6f1296fa2f398003669ff5445bb269f9dc4b0"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-144125_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "shear",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 315,
+      "n_examples": 581,
+      "sha256": "f2b3a2719522fdff862f1af5cc1c487cec281eaaaa888c225179ead56cb4771d"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142117_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 194,
+      "n_examples": 581,
+      "sha256": "e299aa508d2c5f9f13ac04cca97198c2e49eb4f17593a28d830c0bcd4ab4c7ad"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142118_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 225,
+      "n_examples": 581,
+      "sha256": "dd3af5ef54c0c7e5a42f27a133f6d3ff7a6b24c387b3581c90e43eb243fcbaa5"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142119_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 408,
+      "n_examples": 581,
+      "sha256": "f176ee6868ca41a29bdca028c5595312a459c38cff9b60ea1670fc9de2b80cf5"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261114-142119_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "upsampling",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 271,
+      "n_examples": 581,
+      "sha256": "4d30ef67422b6bb9c85de7f437105e0dfe5b53c691e9f596475eda5da699fefc"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261113-111653_pointmae-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointmae",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 153,
+      "n_examples": 581,
+      "sha256": "0067bc84e9c3cd94ce11b0c8aa970a7c1d871cc54ff8e305282f81a7e2f37982"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261113-111654_curvenet-seed0.zip",
+      "arm": "terminal",
+      "backbone": "curvenet",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 366,
+      "n_examples": 581,
+      "sha256": "a1557001bd3d31786bfebc38202c33fa70ce6bcdefb120dce088b98b6019d459"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261113-111654_dgcnn-seed0.zip",
+      "arm": "terminal",
+      "backbone": "dgcnn",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 171,
+      "n_examples": 581,
+      "sha256": "c38b574bd2b2d446633f9d4a48aaf5b358cbdd56e083d7f30bf49e1bf8c4557e"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_original/20261113-111655_pointnext-seed0.zip",
+      "arm": "terminal",
+      "backbone": "pointnext",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 234,
+      "n_examples": 581,
+      "sha256": "1ea40a8197c26073869f2ca4c3150fea16b608896cf665db3bda0268a2af8e5b"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261113-111829_pointmae-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointmae",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 171,
+      "n_examples": 581,
+      "sha256": "7cde31d506882305120a780dd19429867f053d0f982238590cf8a88627715099"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261113-111830_dgcnn-seed0.zip",
+      "arm": "proximal",
+      "backbone": "dgcnn",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 199,
+      "n_examples": 581,
+      "sha256": "ab8b381079c399bdff0920e1071dfe596a5f9e0f0fc92afd27ac4ff9b06462fa"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261113-111831_curvenet-seed0.zip",
+      "arm": "proximal",
+      "backbone": "curvenet",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 386,
+      "n_examples": 581,
+      "sha256": "f6f07f63ab4dcf27dd2e947c5409832d61a3bd0694210d8a403a7f199ca0e8cf"
+    },
+    {
+      "archive": "result/scanobjectnn_c/3dd_proximal_pm_baseline/20261113-111832_pointnext-seed0.zip",
+      "arm": "proximal",
+      "backbone": "pointnext",
+      "corruption": "uniform",
+      "dataset": "scanobjectnn_c",
+      "n_correct": 257,
+      "n_examples": 581,
+      "sha256": "ad1aaf20cbb00deaed3d62e87ddc42fe3ff363c427b95616630b20f7b63483bc"
+    }
+  ],
+  "recovered_r7_groups": 2,
+  "research_source": "b651e259db9ec6341f39e606b01eef5254d90456",
+  "runtime_teardown_authorized": false,
+  "seed": 0,
+  "seed_policy": "fresh_worker_seed_v1",
+  "session": "tta-fulltest-n5-proximal-n8-a100-20261114-r9",
+  "severity": 5,
+  "source_snapshot_sha256": "8a198faf17cd22f33210e3a72b35bafa89f1ca23d5b7d569f2f4ed11430cc2ec",
+  "started_utc": "2026-11-14T14:04:52.497464+00:00",
+  "status": "complete_host_recount_and_cloud_flush"
+}

@@ -3060,3 +3060,18 @@ Future confirmation, if separately requested, needs a frozen question and
 scope; this task ends after archive/publication. Runtime closed under explicit
 user authorization; [closure proof](evidence/terminal_logit_pilot_20261110/runtime_closure_20261110.json). Earlier connection-loss WAIT_USER was superseded only by explicit
 user reconnect instruction; same restriction applies on a new loss.
+
+## 2026-11-14 — full-test requested accuracy gate closed
+
+[Run/Code] Uniform originalTerminalN5 versus proximalN8PM now complete for all
+15corruptions/s5/full2468ModelNet and581Scanmain_split/four frozen heads/seed0.
+All60groups/240raws/365880final outcomes independently recounted and cloud
+flush confirmed. [Table, counts and limits](fulltest_n5_proximal_n8_results_20261114.md).
+No pending GPU approval, result transfer or benchmark cell remains for this scope.
+
+[Open] Multi-seed reliability, native determinism, exact author checkpoint/
+Scan corruption-generation parity, separate horizon/reconstruction/readout
+attribution and general speed remain open; these results do not close them.
+VMr9is retained under separate task-completion-and-close authorization; Drive
+was unmounted by final successful flush. No new tests or cleanup authorized
+by completion alone. Older pending experiment entries are dated history.
