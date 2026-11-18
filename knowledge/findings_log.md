@@ -9572,3 +9572,25 @@ at observed8.88CU/h; exact session billing unavailable, setupadditional).
 Owned r9remains live; Drive unmounted after flush, no VM teardown authority.
 Shared publication curates necessary code/tests/completed proof only, preserves
 peer CloudFixer/policy records and source branch/raws; no whole-branch merge.
+
+## 2026-11-18 — CloudFixer forward citations and publication assessment
+
+[Paper/Code] Research branch `research/cloudfixer-citation-review-20261118` from
+`9538768`. [Search coverage and exclusions](evidence/cloudfixer_citation_review_20261118/search.md)
+record 23 distinct forward-index candidates and additional full-text checks.
+Google Scholar did not expose its citing list in this session. GSDTTA exceeds
+the comparator labelled CloudFixer in both datasets. Uni-Adapter and the authors’
+Point-Cache implementation exceed input-only CloudFixer on Uni3D-Large. Its
+ShapeNet-C printed mean and per-corruption arithmetic disagree. SMART-PC online
+beats standard CF but falls below CF online. [Primary tables and methods](cloudfixer_citation_review_20261118.md).
+
+[Run/Inference/Open] CPU recount of `result/<dataset>/<method>/<run>.zip`
+listed in the [full-test manifest](evidence/fulltest_n5_proximal_n8_20261112/complete_results_20261114.json)
+and the three committed-branch XYZ archives documented in the [recount](evidence/cloudfixer_citation_review_20261118/local_recount.json).
+Same-trace N8 PM minus terminal is +0.45 to +1.59 pp across eight all15/s5/seed0
+cells. Scan PointNeXt’s conditional object interval includes zero. On the same
+128 development IDs, ModelNet/Point-MAE LION N8+PM 58.6458%, native CloudFixer
+63.5938% (three operational repeats), strongest grid-selected XYZ terminal
+67.4479%. The source classifier weights match, preprocessing differs. No new
+GPU inference. A matched frozen control at equal cost or failure on unseen
+data would narrow the contribution. [Interpretation and decision gates](cloudfixer_thesis_readiness_20261118.md).

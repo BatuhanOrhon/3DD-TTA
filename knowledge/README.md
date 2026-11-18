@@ -1,3 +1,12 @@
+**[Paper/Code/Run/Inference] 2026-11-18 — Which methods outperform CloudFixer?**
+The [Turkish citation review](cloudfixer_citation_review_20261118.md) compares the
+actual CloudFixer variants in GSDTTA, Uni-Adapter, Point-Cache and SMART-PC,
+with primary tables, methods, a search ledger and a conditional publication target.
+The [local study](cloudfixer_thesis_readiness_20261118.md) recounts 240 LION
+archives and compares the same 128 development objects to the XYZ system.
+Four-readout averaging improves all eight LION terminals at seed 0, while on
+the intersected Point-MAE objects LION PM trails native CloudFixer by 4.95 pp.
+
 **[Run/Code/Complete] 2026-11-14 — full-data N5 versus N8+PM comparison:**
 All60groups/240raw archives/365880predictions independently recounted: all15/s5,
 ModelNet40-C2468 and accepted ScanObjectNN-Cmain_split581, four frozen heads,

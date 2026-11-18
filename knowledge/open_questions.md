@@ -3075,3 +3075,20 @@ attribution and general speed remain open; these results do not close them.
 VMr9is retained under separate task-completion-and-close authorization; Drive
 was unmounted by final successful flush. No new tests or cleanup authorized
 by completion alone. Older pending experiment entries are dated history.
+
+## 2026-11-18 — What evidence would support a CloudFixer claim?
+
+- [x] Verify which citing papers actually tabulate a higher classification
+  accuracy and record the access model, adaptation state and arithmetic exceptions.
+  [Literature synthesis](cloudfixer_citation_review_20261118.md).
+- [x] Compare four-readout PM with its own N8 terminal on full LION data and
+  compare accepted LION/XYZ predictions on their exact shared development IDs.
+  [Recount and uncertainty](cloudfixer_thesis_readiness_20261118.md).
+- [ ] On a locked independent cohort and multiple seeds, does the selected
+  policy beat source-only, native single/voted CF, the best prespecified fixed
+  readout and equal-budget terminal voting under the same input contract?
+  Compare real latency and peak memory. Count harm on clean and difficult inputs.
+- [ ] Can the author settings or raw predictions resolve the GSDTTA comparator
+  identity and the inconsistent ShapeNet-C average for Uni-Adapter's CF row?
+  A Scholar citing-list export would allow a coverage comparison to the
+  [recorded index union](evidence/cloudfixer_citation_review_20261118/search.md).
