@@ -9664,6 +9664,10 @@ remain unmeasured. [Registration and evidence paths](cloudfixer_rotation_pilot_2
 
 [Run/Decision] Source `78850f5`, same A10040 r9, 12 reserved IDs ×16 conditions ×3 seeds, 4,032 benchmark policy evaluations. The three-sweep mutual-kNN filter improved the compound synthetic Background angle by an extra 0.305° in the fixed-target schedule. All filtered schedules and their matched controls scored 18/36 on Background. Fixed filtered gained +2.78 pp Rotation and lost −2.78 pp clean. Wall increases were 1.31–2.39%, with no extra network calls. None passed the registered screen. A repeatable Background gain on a separate cohort with acceptable clean, rotation and timing effects would change that result. [Full record](cloudfixer_spectral_rotation_pilot_20261121.md).
 
+## 2026-11-21 — Background ceiling for reweighting the three Point2Vec probes
+
+[Run/Inference/Open] On the accepted full seed-2 Point2Vec archive, 779/856 N8 PM Background errors have a strict common rival above truth at all three probes. Even example-specific convex reweighting is bounded above by 1,689/2,468 (68.44%), below matched plain CF 1,878. Equal PM repairs 41 and harms 27 relative to N8 terminal. The proposal prioritizes density-weighted observed anchors, a fixed-cost noise schedule control and one support-filtered classifier view. New variant accuracy and latency remain open. [Diagnosis, raw identity, method and falsifiers](cloudfixer_background_guidance_pm_20261121.md)
+
 ## 2026-11-21 — Direct derivative-free SCD search at t80
 
 [Run/Decision] Source `ba13d81`, A10040 r9, 12 disjoint IDs × clean and 15

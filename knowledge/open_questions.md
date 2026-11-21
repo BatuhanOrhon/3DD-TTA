@@ -3145,9 +3145,13 @@ historical checkpoints: A/B are complete, no pending runtime task.
   macro14, repairs/harms, and the worst corruption. Predeclare harm tolerances
   and report whether the held-out evidence meets them.
 
-- [x] Evaluate fixed-t80 direct SCD search with ±15° and ±10° six-axis
-  polls, matched N8 and three Kabsch controls. The 12-object pilot tied N8
+- [x] Evaluate fixed-t80 direct SCD search with six axis-aligned candidates at each of
+  ±15° and ±10°, matched N8 and three Kabsch controls. The 12-object pilot tied N8
   on Rotation, while Background improved only against Kabsch. The
   expansion gate is closed for this candidate. Evidence of a genuine
   independent Rotation gain without a Background loss would reopen it.
   [Verified pilot](cloudfixer_scd_rotation_pilot_20261121.md).
+
+### 2026-11-21 — Background repair with nine denoiser and three classifier calls
+
+[Open] Does observed-anchor reliability outperform uniformly weakening the same proximal pull? Can a stronger eight-step noise schedule or one support-filtered late view repair common-rival errors without harming Rotation or thin structures? Compare shared inputs, tail latency and the combined pose arm against each component. [Evidence, candidate definitions and pilot criteria](cloudfixer_background_guidance_pm_20261121.md)
