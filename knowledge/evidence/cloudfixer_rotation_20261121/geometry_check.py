@@ -45,6 +45,15 @@ def main():
     incremental = best_rotation(p, q, np.ones(len(p)))
     remaining = angle_deg(applied @ incremental)
     assert 0 < remaining < 25
+    # Same ideal clean target throughout. Only the nearest neighbors change.
+    pose = incremental.copy()
+    errors = [remaining]
+    for _ in range(7):
+        a, b = trimmed_pairs(x @ pose, clean)
+        pose = pose @ best_rotation(a, b, np.ones(len(a)))
+        errors.append(angle_deg(applied @ pose))
+    assert np.allclose(pose.T @ pose, np.eye(3)) and np.isclose(np.linalg.det(pose), 1)
+    assert np.allclose([errors[i] for i in (0, 2, 7)], [24.3876, 22.7932, 7.1371], atol=.0001)
     p, q = trimmed_pairs(x, x)
     identity = best_rotation(p, q, np.ones(len(p)))
     assert np.allclose(identity, np.eye(3))
@@ -65,6 +74,7 @@ def main():
                        proximal(clean @ incremental.T, x) @ incremental)
     print(f"Known correspondences: residual angle {angle_deg(applied @ fit):.5f} deg")
     print(f"One trimmed nearest-neighbor step: {25:.2f} -> {remaining:.4f} deg")
+    print(f"Fixed clean target after 1, 3, 8 fits: {errors[0]:.4f}, {errors[2]:.4f}, {errors[7]:.4f} deg")
     print("Input copied by target: identity. Octahedron: 90 deg has zero set error.")
     print("Local correction in the two coordinate frames agrees.")
 

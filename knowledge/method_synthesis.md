@@ -7,6 +7,10 @@
 pre-correction denoiser prediction through a trimmed SO(3) Procrustes solve.
 Fitting the prediction back to a rotated observation can undo a correct pose.
 A separate low-query candidate uses the frozen head to rank output rotations.
+If used, credit Kabsch and Trimmed ICP for the first approach, and CanDO
+for the second, alongside the shared CloudFixer and 3DD-TTA sources.
+Compare three fits on a fixed target with three fits across denoising steps.
+Quantify harm on clean inputs and all 14 non-Rotation conditions against N8.
 [Derivation, alternatives and acceptance controls](cloudfixer_gradient_free_rotation_20261121.md).
 
 [User report/Decision/Run/Code/Inference/Open] The main new-method development

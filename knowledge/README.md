@@ -6,7 +6,8 @@ Rotation/background account for795/848 net deficit; matching CF there leaves53.
 [Baseline and falsifiable next-stage analysis](cloudfixer_baseline_rotation_background_20261121.md) ·
 [Full A/B test record](cloudfixer_ab_detailed_tests_results_20261121.md).
 [Gradient-free rotation literature and two testable updates](cloudfixer_gradient_free_rotation_20261121.md)
-traces how to obtain a pose signal from the frozen denoiser or classifier.
+records the required method citations, single versus progressive denoising-step
+pose updates, and per-corruption harm checks for both proposals.
 Historical LION code/results retained. No new GPU/tuning.
 [Selective integration record](cloudfixer_baseline_integration_20261121.md):
 primary code/results commit `ab88723` published to `origin/thesis-integration`.

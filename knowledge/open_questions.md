@@ -3127,3 +3127,10 @@ historical checkpoints: A/B are complete, no pending runtime task.
   Compare output-only rotation against feeding the same pose into the chain,
   with identical classifier query counts and identical FPS draws.
   [Sources, CPU geometry evidence and falsifiers](cloudfixer_gradient_free_rotation_20261121.md).
+
+- [ ] Compare a single t80 fit, three re-matches on t80, and one incremental
+  fit at each of t80/t50/t20. Log GPU latency, nearest-neighbor work, angles,
+  and prediction changes under the same total motion budget.
+- [ ] For each candidate publish all 15 paired outcomes, clean, non-Rotation
+  macro14, repairs/harms, and the worst corruption. Predeclare harm tolerances
+  and report whether the held-out evidence meets them.

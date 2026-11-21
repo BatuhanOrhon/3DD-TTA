@@ -9635,3 +9635,14 @@ but only 0.61° recovered by one trimmed nearest-neighbor step on the same shape
 This motivates measuring the direction of the real denoiser residual before
 choosing a pose loss. Kabsch on posed anchors and low-budget classifier queries
 remain proposals. No ModelNet accuracy has been measured for either update.
+
+## 2026-11-21 — Progressive rotation and collateral accuracy changes
+
+[User report/Decision/Run] Research source `6f9deeb`, integration base
+`576e97c`. On the existing synthetic seed-93 cloud with a *fixed* ideal target,
+the residual of a 25° rotation was 24.3876°, 22.7932° and 7.1371° after
+1, 3 and 8 re-matched fits. The changing-denoiser-target comparison remains
+open. The [research note](cloudfixer_gradient_free_rotation_20261121.md)
+now records mandatory attribution per component, compute-matched controls,
+and paired harm analysis across clean inputs and all 15 corruptions. The
+working N8 policy and its measured results remain the reference.
