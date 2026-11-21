@@ -1,0 +1,39 @@
+{
+  "recorded_utc": "2026-11-14T14:08:07.614822+00:00",
+  "source_commit": "a8b0faf",
+  "official_commit": "f043e24414fcf4165fdc892abff21215c9989141",
+  "package": {
+    "official_cloudfixer.tar": {
+      "bytes": 5570560,
+      "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+    },
+    "research_overlay.zip": {
+      "bytes": 45962,
+      "sha256": "5faa79753b345df2fb4a407f39a0c8b4788101a051fa144a142e76e9a040bd91"
+    },
+    "manifest.json": {
+      "bytes": 68849,
+      "sha256": "f287777a26957b291f6513d80f4116e027add63de009c550e3de73e486e9de2a"
+    }
+  },
+  "tests": {
+    "command": "/private/tmp/cloudfixer-transfer-cpu/bin/python -m pytest tests -q",
+    "passed": 930,
+    "skipped": 2,
+    "warnings": 14,
+    "seconds": 49.49,
+    "log_sha256": "3b689add660bd09000109db0762d061733284387c087a3da5ebde71994b5890e"
+  },
+  "setup": {
+    "session": "tta-cloudfixer-transfer-a100-20261114-r4",
+    "endpoint": "gpu-a100-hm-euw4a0-2prq6s01hjedf",
+    "cell1": "complete+reconnected",
+    "cell2": "only known fastrlock failure deferred; Python3.8.20 verified",
+    "cell3_to10": "not submitted",
+    "drive": "user interactive consent pending",
+    "cli_mount_exec": 22687,
+    "persistent_monitor": "not started; primary mount stream owns session"
+  },
+  "gpu_science": "not run",
+  "teardown_authorized": false
+}

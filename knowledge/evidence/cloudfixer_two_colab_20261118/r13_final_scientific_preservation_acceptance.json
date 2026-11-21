@@ -1,0 +1,15 @@
+{
+  "status": "scientific_and_preservation_complete",
+  "utc": "2026-11-20T20:32:54.884721+00:00",
+  "session": "tta-cloudfixer-point2vec-recovery-a100-20261120-r13",
+  "endpoint": "gpu-a100-s-usw4b0-3turcmp9s9iyb",
+  "archive_sha256": "b2f0685cb1f0c3e0a053dff6e19f71503e9b793ba2ed340ff1eb0c6f6081e42d",
+  "derived_sha256": "8c6f9da76d509213d31de0da88f555ff28acdf98c95588350e123750e80960aa",
+  "objects": 2468,
+  "corruptions": 15,
+  "observations": 37020,
+  "blocks": 1170,
+  "knowledge_commit": "973262d564da7817c8c6748f5e7d50f593d35318",
+  "Drive_derived_readback_pass": true,
+  "user_instruction": "Complete all unfinished tests, preserve results and knowledge, then close owned Colab session without another confirmation"
+}

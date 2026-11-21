@@ -1,4 +1,36 @@
-# Current thesis operational baseline — 2026-11-08
+# Current thesis operational baseline — 2026-11-21
+
+[User report/Decision/Run/Code] Yeni yöntem geliştirmesinin ana referansı
+**CloudFixer XYZ diffusion + proximal N8/K80/τ=.1/retained=.95 + eşit geç PM
+[20,10,0]**, araştırma adı `cloudfixer_xyz_proximal_pm_n8_k80_late_v1`.
+LION bu yolda kullanılmaz. Classifier/prior donmuş; native20/10 pre-clean
+ve gerçek t0 terminali, float64 probability mean:9 denoiser/3 classifier.
+Kod: `scripts/run_cloudfixer_point2vec.py`, mevcut `POLICIES['proximal_pm']`
+ve `proximal_policy()`; sampler `cloudfixer_diffusion.py`, quadratic
+`pointcloud_proximal.py`. Yeni bir manifest/cache şeması veya runtime dispatch
+eklenmedi; eski deneyi üretmiş kaynaklar korunur.
+
+[Run/Decision] A tam Point2Vec2468/all15/s5/seed2/B1: **N8 PM74.954079%**;
+aşılması gereken **plain CF77.244733%**; N32 gerçek terminal73.233387%,
+source61.985413%. Başlangıç politikası seçimi üstünlük ilanı değildir.
+B Point-MAE256/all15/üç-seed, kilitli geç PM'nin aynı yörüngenin terminaline
+N8'de+.902778pp kazancını doğrular; backbone/protokol farkı korunur.
+Rotation/background net açığın795/848=%93.75'ini açıklar. İkisinde CF'a
+yalnız eşitlenmek53 olay geride bırakır; diğer13 sabitken geçmek için≥849
+net doğru eklenmelidir. Geometri nedeni henüz izole edilmedi.
+
+[Exact decision, evidence, code use and next-stage falsifiers](cloudfixer_baseline_rotation_background_20261121.md) ·
+[Complete A/B results](cloudfixer_ab_detailed_tests_results_20261121.md) ·
+[Machine-checkable decision](evidence/cloudfixer_baseline_20261121/decision.json).
+
+**Historical LION path:** `scripts/eval_chamfer_baseline.py` and
+`lion_proximal_pm_n8_v1` retain their behavior; they are not the new XYZ
+entrypoint. LION full-benchmark/multibackbone and citation results accepted
+on the shared branch remain valid under their own protocols. No new GPU
+phase follows from this baseline decision. The dated policies below describe
+their original periods, superseded as the main development reference.
+
+# Historical LION operational baseline — 2026-11-08
 
 [User report/Decision/Code] The user explicitly promotes **proximal N8 +
 Probability Mean** for future thesis work. This supersedes the earlier

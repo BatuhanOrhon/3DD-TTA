@@ -1,0 +1,5576 @@
+{
+  "inputs": {
+    "entropy": [
+      "20261115-114749_entropy_run.zip",
+      "509ea9699cd2fcde8542fc52564c03146a1f2f30db0d4e20d176e1aa479506df"
+    ],
+    "nstep": [
+      "20261115-110019_nstep_run.zip",
+      "2a4c544f2f08de453205f556689a47a1aedabf37be4b87e07d8c9348e68d58f7"
+    ]
+  },
+  "bootstrap_seed": 20261115,
+  "bootstrap_replicates": 10000,
+  "scope": "Posthoc explanatory diagnostics; all subsets retained; no inference or policy promotion",
+  "views": {
+    "n8_four": {
+      "times": [
+        70,
+        50,
+        30,
+        0
+      ],
+      "terminal": 1269,
+      "probes": [
+        {
+          "time": 70,
+          "correct": 1119,
+          "repair": 54,
+          "harm": 204,
+          "delta_pp": -7.8125
+        },
+        {
+          "time": 50,
+          "correct": 1224,
+          "repair": 62,
+          "harm": 107,
+          "delta_pp": -2.34375
+        },
+        {
+          "time": 30,
+          "correct": 1265,
+          "repair": 61,
+          "harm": 65,
+          "delta_pp": -0.2083333333333326
+        },
+        {
+          "time": 0,
+          "correct": 1269,
+          "repair": 0,
+          "harm": 0,
+          "delta_pp": 0.0
+        }
+      ],
+      "mixed_correctness_objects": 325,
+      "pooled_entropy_correct_vs_wrong_auc": 0.8617008008130953,
+      "within_object_entropy_pair_auc": 0.6232558139534884,
+      "within_object_entropy_mean_auc": 0.6235897435897435,
+      "within_object_correct_wrong_pairs": 1075,
+      "min_entropy": {
+        "correct": 1251,
+        "repair": 48,
+        "harm": 66,
+        "delta_pp": -0.9374999999999911
+      },
+      "pm_harms": {
+        "n": 62,
+        "candidate_correct_counts": [
+          1,
+          5,
+          15,
+          62
+        ],
+        "mean_true_vs_wrong_winner_margin": [
+          -0.5365433341641717,
+          -0.44197549204997916,
+          -0.20192767742153372,
+          0.3232294546850861
+        ],
+        "mean_entropy": [
+          1.0934062651529999,
+          1.1827383175998891,
+          1.3331682311930346,
+          1.384904644546415
+        ],
+        "at_least_half_candidates_correct": 20
+      },
+      "pm_repairs": {
+        "n": 43,
+        "candidate_correct_counts": [
+          34,
+          37,
+          30,
+          0
+        ],
+        "mean_true_vs_wrong_winner_margin": [
+          0.36720058517274146,
+          0.4459773052678434,
+          0.3160973998993139,
+          -0.2423185014037545
+        ],
+        "mean_entropy": [
+          1.2127963936352228,
+          1.0759869688839176,
+          1.1270024307516169,
+          1.3446777144820736
+        ],
+        "at_least_half_candidates_correct": 39
+      },
+      "subsets": {
+        "equal": {
+          "correct": 1250,
+          "repair": 43,
+          "harm": 62,
+          "delta_pp": -0.9895833333333326,
+          "times": [
+            70,
+            50,
+            30,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.083333333333333,
+            0.10416666666666664
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 86,
+              "repair": 3,
+              "harm": 6,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 1,
+              "harm": 8,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 91,
+              "repair": 9,
+              "harm": 3,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 45,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 0,
+              "harm": 6,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 109,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "suffix_1": {
+          "correct": 1269,
+          "repair": 0,
+          "harm": 0,
+          "delta_pp": 0.0,
+          "times": [
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 40,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 89,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "density_inc": {
+              "correct": 107,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion": {
+              "correct": 89,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf": {
+              "correct": 85,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf_inv": {
+              "correct": 91,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "gaussian": {
+              "correct": 112,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 50,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 76,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "upsampling": {
+              "correct": 109,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "suffix_2": {
+          "correct": 1264,
+          "repair": 32,
+          "harm": 37,
+          "delta_pp": -0.26041666666666297,
+          "times": [
+            30,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.0416666666666667,
+            0.5208333333333334
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 38,
+              "repair": 0,
+              "harm": 2,
+              "delta_pp": -1.5625
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 88,
+              "repair": 3,
+              "harm": 4,
+              "delta_pp": -0.78125
+            },
+            "density_inc": {
+              "correct": 108,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "distortion": {
+              "correct": 88,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "distortion_rbf": {
+              "correct": 89,
+              "repair": 7,
+              "harm": 3,
+              "delta_pp": 3.125
+            },
+            "distortion_rbf_inv": {
+              "correct": 89,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "gaussian": {
+              "correct": 112,
+              "repair": 1,
+              "harm": 1,
+              "delta_pp": 0.0
+            },
+            "impulse": {
+              "correct": 113,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 3,
+              "harm": 1,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 47,
+              "repair": 0,
+              "harm": 3,
+              "delta_pp": -2.34375
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 72,
+              "repair": 0,
+              "harm": 4,
+              "delta_pp": -3.125
+            },
+            "uniform": {
+              "correct": 115,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 2,
+              "harm": 1,
+              "delta_pp": 0.78125
+            }
+          }
+        },
+        "suffix_3": {
+          "correct": 1264,
+          "repair": 43,
+          "harm": 48,
+          "delta_pp": -0.26041666666666297,
+          "times": [
+            50,
+            30,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.25,
+            0.7291666666666669
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 38,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "cutout": {
+              "correct": 98,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "density": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 87,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 10,
+              "harm": 2,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 45,
+              "repair": 0,
+              "harm": 5,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 71,
+              "repair": 0,
+              "harm": 5,
+              "delta_pp": -3.90625
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            }
+          }
+        },
+        "prefix_1": {
+          "correct": 1119,
+          "repair": 54,
+          "harm": 204,
+          "delta_pp": -7.8125,
+          "times": [
+            70
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -9.84375,
+            -5.885416666666666
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 27,
+              "repair": 0,
+              "harm": 13,
+              "delta_pp": -10.15625
+            },
+            "cutout": {
+              "correct": 89,
+              "repair": 5,
+              "harm": 17,
+              "delta_pp": -9.375
+            },
+            "density": {
+              "correct": 71,
+              "repair": 3,
+              "harm": 21,
+              "delta_pp": -14.0625
+            },
+            "density_inc": {
+              "correct": 97,
+              "repair": 2,
+              "harm": 12,
+              "delta_pp": -7.8125
+            },
+            "distortion": {
+              "correct": 74,
+              "repair": 1,
+              "harm": 16,
+              "delta_pp": -11.71875
+            },
+            "distortion_rbf": {
+              "correct": 83,
+              "repair": 10,
+              "harm": 12,
+              "delta_pp": -1.5625
+            },
+            "distortion_rbf_inv": {
+              "correct": 83,
+              "repair": 9,
+              "harm": 17,
+              "delta_pp": -6.25
+            },
+            "gaussian": {
+              "correct": 106,
+              "repair": 3,
+              "harm": 9,
+              "delta_pp": -4.6875
+            },
+            "impulse": {
+              "correct": 104,
+              "repair": 3,
+              "harm": 14,
+              "delta_pp": -8.59375
+            },
+            "lidar": {
+              "correct": 47,
+              "repair": 4,
+              "harm": 7,
+              "delta_pp": -2.34375
+            },
+            "occlusion": {
+              "correct": 40,
+              "repair": 2,
+              "harm": 12,
+              "delta_pp": -7.8125
+            },
+            "rotation": {
+              "correct": 37,
+              "repair": 4,
+              "harm": 10,
+              "delta_pp": -4.6875
+            },
+            "shear": {
+              "correct": 58,
+              "repair": 2,
+              "harm": 20,
+              "delta_pp": -14.0625
+            },
+            "uniform": {
+              "correct": 107,
+              "repair": 2,
+              "harm": 7,
+              "delta_pp": -3.90625
+            },
+            "upsampling": {
+              "correct": 96,
+              "repair": 4,
+              "harm": 17,
+              "delta_pp": -10.15625
+            }
+          }
+        },
+        "prefix_2": {
+          "correct": 1191,
+          "repair": 58,
+          "harm": 136,
+          "delta_pp": -4.062499999999991,
+          "times": [
+            70,
+            50
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -5.729166666666666,
+            -2.395833333333334
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 31,
+              "repair": 1,
+              "harm": 10,
+              "delta_pp": -7.03125
+            },
+            "cutout": {
+              "correct": 91,
+              "repair": 5,
+              "harm": 15,
+              "delta_pp": -7.8125
+            },
+            "density": {
+              "correct": 80,
+              "repair": 3,
+              "harm": 12,
+              "delta_pp": -7.03125
+            },
+            "density_inc": {
+              "correct": 101,
+              "repair": 3,
+              "harm": 9,
+              "delta_pp": -4.6875
+            },
+            "distortion": {
+              "correct": 79,
+              "repair": 3,
+              "harm": 13,
+              "delta_pp": -7.8125
+            },
+            "distortion_rbf": {
+              "correct": 90,
+              "repair": 11,
+              "harm": 6,
+              "delta_pp": 3.90625
+            },
+            "distortion_rbf_inv": {
+              "correct": 90,
+              "repair": 9,
+              "harm": 10,
+              "delta_pp": -0.78125
+            },
+            "gaussian": {
+              "correct": 112,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "impulse": {
+              "correct": 109,
+              "repair": 2,
+              "harm": 8,
+              "delta_pp": -4.6875
+            },
+            "lidar": {
+              "correct": 47,
+              "repair": 3,
+              "harm": 6,
+              "delta_pp": -2.34375
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 39,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "shear": {
+              "correct": 65,
+              "repair": 1,
+              "harm": 12,
+              "delta_pp": -8.59375
+            },
+            "uniform": {
+              "correct": 111,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "upsampling": {
+              "correct": 105,
+              "repair": 4,
+              "harm": 8,
+              "delta_pp": -3.125
+            }
+          }
+        },
+        "prefix_3": {
+          "correct": 1245,
+          "repair": 61,
+          "harm": 85,
+          "delta_pp": -1.2499999999999956,
+          "times": [
+            70,
+            50,
+            30
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.6041666666666665,
+            0.10416666666666664
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 6,
+              "harm": 7,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 86,
+              "repair": 4,
+              "harm": 7,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 104,
+              "repair": 3,
+              "harm": 6,
+              "delta_pp": -2.34375
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 3,
+              "harm": 11,
+              "delta_pp": -6.25
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 12,
+              "harm": 4,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 96,
+              "repair": 9,
+              "harm": 4,
+              "delta_pp": 3.90625
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 113,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 39,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 0,
+              "harm": 6,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 107,
+              "repair": 4,
+              "harm": 6,
+              "delta_pp": -1.5625
+            }
+          }
+        },
+        "omit_70": {
+          "correct": 1264,
+          "repair": 43,
+          "harm": 48,
+          "delta_pp": -0.26041666666666297,
+          "times": [
+            50,
+            30,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.25,
+            0.7291666666666669
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 38,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "cutout": {
+              "correct": 98,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "density": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 87,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 10,
+              "harm": 2,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 45,
+              "repair": 0,
+              "harm": 5,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 71,
+              "repair": 0,
+              "harm": 5,
+              "delta_pp": -3.90625
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            }
+          }
+        },
+        "omit_50": {
+          "correct": 1256,
+          "repair": 38,
+          "harm": 51,
+          "delta_pp": -0.6770833333333282,
+          "times": [
+            70,
+            30,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.6145833333333335,
+            0.2604166666666667
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 37,
+              "repair": 0,
+              "harm": 3,
+              "delta_pp": -2.34375
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 86,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 84,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "distortion_rbf": {
+              "correct": 91,
+              "repair": 9,
+              "harm": 3,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 94,
+              "repair": 6,
+              "harm": 3,
+              "delta_pp": 2.34375
+            },
+            "gaussian": {
+              "correct": 114,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 46,
+              "repair": 1,
+              "harm": 5,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 3,
+              "harm": 4,
+              "delta_pp": -0.78125
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 0,
+              "harm": 6,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 111,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "upsampling": {
+              "correct": 109,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "omit_30": {
+          "correct": 1239,
+          "repair": 43,
+          "harm": 73,
+          "delta_pp": -1.5625,
+          "times": [
+            70,
+            50,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.7604166666666665,
+            -0.36458333333333337
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 34,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 87,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 102,
+              "repair": 2,
+              "harm": 7,
+              "delta_pp": -3.90625
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 1,
+              "harm": 8,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 88,
+              "repair": 8,
+              "harm": 5,
+              "delta_pp": 2.34375
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 6,
+              "harm": 5,
+              "delta_pp": 0.78125
+            },
+            "gaussian": {
+              "correct": 114,
+              "repair": 3,
+              "harm": 1,
+              "delta_pp": 1.5625
+            },
+            "impulse": {
+              "correct": 114,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 9,
+              "delta_pp": -5.46875
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 71,
+              "repair": 0,
+              "harm": 5,
+              "delta_pp": -3.90625
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 108,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            }
+          }
+        },
+        "omit_0": {
+          "correct": 1245,
+          "repair": 61,
+          "harm": 85,
+          "delta_pp": -1.2499999999999956,
+          "times": [
+            70,
+            50,
+            30
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.6041666666666665,
+            0.10416666666666664
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 6,
+              "harm": 7,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 86,
+              "repair": 4,
+              "harm": 7,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 104,
+              "repair": 3,
+              "harm": 6,
+              "delta_pp": -2.34375
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 3,
+              "harm": 11,
+              "delta_pp": -6.25
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 12,
+              "harm": 4,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 96,
+              "repair": 9,
+              "harm": 4,
+              "delta_pp": 3.90625
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 113,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 39,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 0,
+              "harm": 6,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 107,
+              "repair": 4,
+              "harm": 6,
+              "delta_pp": -1.5625
+            }
+          }
+        }
+      }
+    },
+    "n8_nine": {
+      "times": [
+        80,
+        70,
+        60,
+        50,
+        40,
+        30,
+        20,
+        10,
+        0
+      ],
+      "terminal": 1269,
+      "probes": [
+        {
+          "time": 80,
+          "correct": 1031,
+          "repair": 41,
+          "harm": 279,
+          "delta_pp": -12.395833333333329
+        },
+        {
+          "time": 70,
+          "correct": 1119,
+          "repair": 54,
+          "harm": 204,
+          "delta_pp": -7.8125
+        },
+        {
+          "time": 60,
+          "correct": 1184,
+          "repair": 56,
+          "harm": 141,
+          "delta_pp": -4.427083333333326
+        },
+        {
+          "time": 50,
+          "correct": 1224,
+          "repair": 62,
+          "harm": 107,
+          "delta_pp": -2.34375
+        },
+        {
+          "time": 40,
+          "correct": 1250,
+          "repair": 66,
+          "harm": 85,
+          "delta_pp": -0.9895833333333326
+        },
+        {
+          "time": 30,
+          "correct": 1265,
+          "repair": 61,
+          "harm": 65,
+          "delta_pp": -0.2083333333333326
+        },
+        {
+          "time": 20,
+          "correct": 1284,
+          "repair": 59,
+          "harm": 44,
+          "delta_pp": 0.78125
+        },
+        {
+          "time": 10,
+          "correct": 1266,
+          "repair": 46,
+          "harm": 49,
+          "delta_pp": -0.15624999999999112
+        },
+        {
+          "time": 0,
+          "correct": 1269,
+          "repair": 0,
+          "harm": 0,
+          "delta_pp": 0.0
+        }
+      ],
+      "mixed_correctness_objects": 474,
+      "pooled_entropy_correct_vs_wrong_auc": 0.8622365004066798,
+      "within_object_entropy_pair_auc": 0.6366153846153846,
+      "within_object_entropy_mean_auc": 0.6477915076016341,
+      "within_object_correct_wrong_pairs": 6500,
+      "min_entropy": {
+        "correct": 1242,
+        "repair": 49,
+        "harm": 76,
+        "delta_pp": -1.4062499999999978
+      },
+      "pm_harms": {
+        "n": 62,
+        "candidate_correct_counts": [
+          1,
+          1,
+          5,
+          6,
+          8,
+          17,
+          31,
+          33,
+          62
+        ],
+        "mean_true_vs_wrong_winner_margin": [
+          -0.5535252137957599,
+          -0.5331479891346013,
+          -0.49774681092967155,
+          -0.42045074163630736,
+          -0.35258602403999917,
+          -0.1777738811116606,
+          0.10873028955507516,
+          0.16482864131520777,
+          0.3182444322378413
+        ],
+        "mean_entropy": [
+          0.9666407166324266,
+          1.0505467585968946,
+          1.0842989381557409,
+          1.141212430075315,
+          1.2413745015323827,
+          1.2598826947721147,
+          1.3026637251693083,
+          1.3248982641631566,
+          1.3409071384379923
+        ],
+        "at_least_half_candidates_correct": 4
+      },
+      "pm_repairs": {
+        "n": 49,
+        "candidate_correct_counts": [
+          22,
+          36,
+          38,
+          38,
+          39,
+          36,
+          28,
+          25,
+          0
+        ],
+        "mean_true_vs_wrong_winner_margin": [
+          0.16051608362997827,
+          0.30357400552148334,
+          0.3078740148863792,
+          0.37701186945840676,
+          0.3827923584941287,
+          0.2985144393682819,
+          0.22555313633726967,
+          0.06566079166637334,
+          -0.2476739184015
+        ],
+        "mean_entropy": [
+          1.3591426732522982,
+          1.3124464981522566,
+          1.2086843258199842,
+          1.1280086570732266,
+          1.0875373596335434,
+          1.170459439198007,
+          1.171297840414171,
+          1.291455037889633,
+          1.3546447698528408
+        ],
+        "at_least_half_candidates_correct": 35
+      },
+      "subsets": {
+        "equal": {
+          "correct": 1256,
+          "repair": 49,
+          "harm": 62,
+          "delta_pp": -0.6770833333333282,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.7708333333333333,
+            0.41666666666666674
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 85,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 83,
+              "repair": 2,
+              "harm": 8,
+              "delta_pp": -4.6875
+            },
+            "distortion_rbf": {
+              "correct": 92,
+              "repair": 11,
+              "harm": 4,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 44,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 72,
+              "repair": 1,
+              "harm": 5,
+              "delta_pp": -3.125
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 111,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            }
+          }
+        },
+        "suffix_1": {
+          "correct": 1269,
+          "repair": 0,
+          "harm": 0,
+          "delta_pp": 0.0,
+          "times": [
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 40,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 89,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "density_inc": {
+              "correct": 107,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion": {
+              "correct": 89,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf": {
+              "correct": 85,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf_inv": {
+              "correct": 91,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "gaussian": {
+              "correct": 112,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 50,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 76,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "upsampling": {
+              "correct": 109,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "suffix_2": {
+          "correct": 1274,
+          "repair": 26,
+          "harm": 21,
+          "delta_pp": 0.26041666666667407,
+          "times": [
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.3645833333333333,
+            0.8854166666666666
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 40,
+              "repair": 1,
+              "harm": 1,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 2,
+              "harm": 1,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 89,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "density_inc": {
+              "correct": 110,
+              "repair": 4,
+              "harm": 1,
+              "delta_pp": 2.34375
+            },
+            "distortion": {
+              "correct": 86,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "distortion_rbf": {
+              "correct": 88,
+              "repair": 4,
+              "harm": 1,
+              "delta_pp": 2.34375
+            },
+            "distortion_rbf_inv": {
+              "correct": 89,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "gaussian": {
+              "correct": 113,
+              "repair": 1,
+              "harm": 0,
+              "delta_pp": 0.78125
+            },
+            "impulse": {
+              "correct": 117,
+              "repair": 3,
+              "harm": 1,
+              "delta_pp": 1.5625
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 1,
+              "harm": 1,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 48,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 0,
+              "harm": 1,
+              "delta_pp": -0.78125
+            },
+            "shear": {
+              "correct": 76,
+              "repair": 1,
+              "harm": 1,
+              "delta_pp": 0.0
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 2,
+              "harm": 1,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 111,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            }
+          }
+        },
+        "suffix_3": {
+          "correct": 1283,
+          "repair": 38,
+          "harm": 24,
+          "delta_pp": 0.7291666666666696,
+          "times": [
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.05208333333333332,
+            1.5625
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 40,
+              "repair": 1,
+              "harm": 1,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 87,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 111,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "distortion": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion_rbf": {
+              "correct": 90,
+              "repair": 6,
+              "harm": 1,
+              "delta_pp": 3.90625
+            },
+            "distortion_rbf_inv": {
+              "correct": 91,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "gaussian": {
+              "correct": 113,
+              "repair": 1,
+              "harm": 0,
+              "delta_pp": 0.78125
+            },
+            "impulse": {
+              "correct": 116,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 48,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 78,
+              "repair": 3,
+              "harm": 1,
+              "delta_pp": 1.5625
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 112,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            }
+          }
+        },
+        "suffix_4": {
+          "correct": 1273,
+          "repair": 37,
+          "harm": 33,
+          "delta_pp": 0.2083333333333326,
+          "times": [
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.625,
+            1.09375
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 39,
+              "repair": 0,
+              "harm": 1,
+              "delta_pp": -0.78125
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 86,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 109,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "distortion": {
+              "correct": 86,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "distortion_rbf": {
+              "correct": 89,
+              "repair": 6,
+              "harm": 2,
+              "delta_pp": 3.125
+            },
+            "distortion_rbf_inv": {
+              "correct": 91,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "gaussian": {
+              "correct": 114,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 46,
+              "repair": 0,
+              "harm": 4,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 44,
+              "repair": 2,
+              "harm": 1,
+              "delta_pp": 0.78125
+            },
+            "shear": {
+              "correct": 75,
+              "repair": 1,
+              "harm": 2,
+              "delta_pp": -0.78125
+            },
+            "uniform": {
+              "correct": 116,
+              "repair": 6,
+              "harm": 2,
+              "delta_pp": 3.125
+            },
+            "upsampling": {
+              "correct": 111,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            }
+          }
+        },
+        "suffix_5": {
+          "correct": 1280,
+          "repair": 45,
+          "harm": 34,
+          "delta_pp": 0.5729166666666674,
+          "times": [
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.3645833333333333,
+            1.5104166666666667
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 39,
+              "repair": 1,
+              "harm": 2,
+              "delta_pp": -0.78125
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 109,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "distortion": {
+              "correct": 87,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "distortion_rbf": {
+              "correct": 92,
+              "repair": 9,
+              "harm": 2,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "gaussian": {
+              "correct": 114,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 46,
+              "repair": 0,
+              "harm": 4,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 75,
+              "repair": 1,
+              "harm": 2,
+              "delta_pp": -0.78125
+            },
+            "uniform": {
+              "correct": 117,
+              "repair": 7,
+              "harm": 2,
+              "delta_pp": 3.90625
+            },
+            "upsampling": {
+              "correct": 112,
+              "repair": 4,
+              "harm": 1,
+              "delta_pp": 2.34375
+            }
+          }
+        },
+        "suffix_6": {
+          "correct": 1281,
+          "repair": 53,
+          "harm": 41,
+          "delta_pp": 0.6250000000000089,
+          "times": [
+            50,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.4179687499999989,
+            1.7187500000000002
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 39,
+              "repair": 1,
+              "harm": 2,
+              "delta_pp": -0.78125
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 109,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "distortion": {
+              "correct": 85,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "distortion_rbf": {
+              "correct": 95,
+              "repair": 12,
+              "harm": 2,
+              "delta_pp": 7.8125
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 4,
+              "harm": 1,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 45,
+              "repair": 0,
+              "harm": 5,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 74,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "uniform": {
+              "correct": 117,
+              "repair": 7,
+              "harm": 2,
+              "delta_pp": 3.90625
+            },
+            "upsampling": {
+              "correct": 113,
+              "repair": 5,
+              "harm": 1,
+              "delta_pp": 3.125
+            }
+          }
+        },
+        "suffix_7": {
+          "correct": 1278,
+          "repair": 53,
+          "harm": 44,
+          "delta_pp": 0.46875000000000666,
+          "times": [
+            60,
+            50,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.5729166666666666,
+            1.510416666666667
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 38,
+              "repair": 1,
+              "harm": 3,
+              "delta_pp": -1.5625
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 108,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "distortion": {
+              "correct": 85,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 11,
+              "harm": 3,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 46,
+              "repair": 1,
+              "harm": 5,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "uniform": {
+              "correct": 116,
+              "repair": 6,
+              "harm": 2,
+              "delta_pp": 3.125
+            },
+            "upsampling": {
+              "correct": 113,
+              "repair": 6,
+              "harm": 2,
+              "delta_pp": 3.125
+            }
+          }
+        },
+        "suffix_8": {
+          "correct": 1269,
+          "repair": 52,
+          "harm": 52,
+          "delta_pp": 0.0,
+          "times": [
+            70,
+            60,
+            50,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.9895833333333335,
+            1.0416666666666667
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 37,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 88,
+              "repair": 3,
+              "harm": 4,
+              "delta_pp": -0.78125
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 83,
+              "repair": 2,
+              "harm": 8,
+              "delta_pp": -4.6875
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 11,
+              "harm": 3,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 94,
+              "repair": 6,
+              "harm": 3,
+              "delta_pp": 2.34375
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 45,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 111,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            }
+          }
+        },
+        "prefix_1": {
+          "correct": 1031,
+          "repair": 41,
+          "harm": 279,
+          "delta_pp": -12.395833333333329,
+          "times": [
+            80
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -14.739583333333334,
+            -10.104166666666666
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 20,
+              "repair": 1,
+              "harm": 21,
+              "delta_pp": -15.625
+            },
+            "cutout": {
+              "correct": 76,
+              "repair": 3,
+              "harm": 28,
+              "delta_pp": -19.53125
+            },
+            "density": {
+              "correct": 63,
+              "repair": 4,
+              "harm": 30,
+              "delta_pp": -20.3125
+            },
+            "density_inc": {
+              "correct": 82,
+              "repair": 2,
+              "harm": 27,
+              "delta_pp": -19.53125
+            },
+            "distortion": {
+              "correct": 69,
+              "repair": 1,
+              "harm": 21,
+              "delta_pp": -15.625
+            },
+            "distortion_rbf": {
+              "correct": 80,
+              "repair": 9,
+              "harm": 14,
+              "delta_pp": -3.90625
+            },
+            "distortion_rbf_inv": {
+              "correct": 77,
+              "repair": 5,
+              "harm": 19,
+              "delta_pp": -10.9375
+            },
+            "gaussian": {
+              "correct": 101,
+              "repair": 3,
+              "harm": 14,
+              "delta_pp": -8.59375
+            },
+            "impulse": {
+              "correct": 98,
+              "repair": 2,
+              "harm": 19,
+              "delta_pp": -13.28125
+            },
+            "lidar": {
+              "correct": 41,
+              "repair": 1,
+              "harm": 10,
+              "delta_pp": -7.03125
+            },
+            "occlusion": {
+              "correct": 40,
+              "repair": 3,
+              "harm": 13,
+              "delta_pp": -7.8125
+            },
+            "rotation": {
+              "correct": 35,
+              "repair": 3,
+              "harm": 11,
+              "delta_pp": -6.25
+            },
+            "shear": {
+              "correct": 55,
+              "repair": 1,
+              "harm": 22,
+              "delta_pp": -16.40625
+            },
+            "uniform": {
+              "correct": 102,
+              "repair": 1,
+              "harm": 11,
+              "delta_pp": -7.8125
+            },
+            "upsampling": {
+              "correct": 92,
+              "repair": 2,
+              "harm": 19,
+              "delta_pp": -13.28125
+            }
+          }
+        },
+        "prefix_2": {
+          "correct": 1085,
+          "repair": 43,
+          "harm": 227,
+          "delta_pp": -9.583333333333332,
+          "times": [
+            80,
+            70
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -11.666666666666666,
+            -7.552083333333333
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 25,
+              "repair": 1,
+              "harm": 16,
+              "delta_pp": -11.71875
+            },
+            "cutout": {
+              "correct": 84,
+              "repair": 3,
+              "harm": 20,
+              "delta_pp": -13.28125
+            },
+            "density": {
+              "correct": 68,
+              "repair": 4,
+              "harm": 25,
+              "delta_pp": -16.40625
+            },
+            "density_inc": {
+              "correct": 86,
+              "repair": 2,
+              "harm": 23,
+              "delta_pp": -16.40625
+            },
+            "distortion": {
+              "correct": 71,
+              "repair": 2,
+              "harm": 20,
+              "delta_pp": -14.0625
+            },
+            "distortion_rbf": {
+              "correct": 81,
+              "repair": 8,
+              "harm": 12,
+              "delta_pp": -3.125
+            },
+            "distortion_rbf_inv": {
+              "correct": 81,
+              "repair": 6,
+              "harm": 16,
+              "delta_pp": -7.8125
+            },
+            "gaussian": {
+              "correct": 107,
+              "repair": 3,
+              "harm": 8,
+              "delta_pp": -3.90625
+            },
+            "impulse": {
+              "correct": 104,
+              "repair": 2,
+              "harm": 13,
+              "delta_pp": -8.59375
+            },
+            "lidar": {
+              "correct": 46,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 37,
+              "repair": 4,
+              "harm": 10,
+              "delta_pp": -4.6875
+            },
+            "shear": {
+              "correct": 55,
+              "repair": 0,
+              "harm": 21,
+              "delta_pp": -16.40625
+            },
+            "uniform": {
+              "correct": 103,
+              "repair": 1,
+              "harm": 10,
+              "delta_pp": -7.03125
+            },
+            "upsampling": {
+              "correct": 96,
+              "repair": 3,
+              "harm": 16,
+              "delta_pp": -10.15625
+            }
+          }
+        },
+        "prefix_3": {
+          "correct": 1142,
+          "repair": 50,
+          "harm": 177,
+          "delta_pp": -6.614583333333323,
+          "times": [
+            80,
+            70,
+            60
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -8.438802083333332,
+            -4.791666666666666
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 29,
+              "repair": 1,
+              "harm": 12,
+              "delta_pp": -8.59375
+            },
+            "cutout": {
+              "correct": 88,
+              "repair": 4,
+              "harm": 17,
+              "delta_pp": -10.15625
+            },
+            "density": {
+              "correct": 74,
+              "repair": 3,
+              "harm": 18,
+              "delta_pp": -11.71875
+            },
+            "density_inc": {
+              "correct": 96,
+              "repair": 1,
+              "harm": 12,
+              "delta_pp": -8.59375
+            },
+            "distortion": {
+              "correct": 73,
+              "repair": 3,
+              "harm": 19,
+              "delta_pp": -12.5
+            },
+            "distortion_rbf": {
+              "correct": 86,
+              "repair": 10,
+              "harm": 9,
+              "delta_pp": 0.78125
+            },
+            "distortion_rbf_inv": {
+              "correct": 85,
+              "repair": 7,
+              "harm": 13,
+              "delta_pp": -4.6875
+            },
+            "gaussian": {
+              "correct": 113,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            },
+            "impulse": {
+              "correct": 107,
+              "repair": 2,
+              "harm": 10,
+              "delta_pp": -6.25
+            },
+            "lidar": {
+              "correct": 46,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 39,
+              "repair": 4,
+              "harm": 8,
+              "delta_pp": -3.125
+            },
+            "shear": {
+              "correct": 58,
+              "repair": 0,
+              "harm": 18,
+              "delta_pp": -14.0625
+            },
+            "uniform": {
+              "correct": 107,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "upsampling": {
+              "correct": 100,
+              "repair": 4,
+              "harm": 13,
+              "delta_pp": -7.03125
+            }
+          }
+        },
+        "prefix_4": {
+          "correct": 1164,
+          "repair": 50,
+          "harm": 155,
+          "delta_pp": -5.46875,
+          "times": [
+            80,
+            70,
+            60,
+            50
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -7.135416666666666,
+            -3.802083333333333
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 29,
+              "repair": 1,
+              "harm": 12,
+              "delta_pp": -8.59375
+            },
+            "cutout": {
+              "correct": 87,
+              "repair": 4,
+              "harm": 18,
+              "delta_pp": -10.9375
+            },
+            "density": {
+              "correct": 77,
+              "repair": 3,
+              "harm": 15,
+              "delta_pp": -9.375
+            },
+            "density_inc": {
+              "correct": 99,
+              "repair": 1,
+              "harm": 9,
+              "delta_pp": -6.25
+            },
+            "distortion": {
+              "correct": 78,
+              "repair": 3,
+              "harm": 14,
+              "delta_pp": -8.59375
+            },
+            "distortion_rbf": {
+              "correct": 85,
+              "repair": 9,
+              "harm": 9,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf_inv": {
+              "correct": 88,
+              "repair": 8,
+              "harm": 11,
+              "delta_pp": -2.34375
+            },
+            "gaussian": {
+              "correct": 113,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            },
+            "impulse": {
+              "correct": 110,
+              "repair": 2,
+              "harm": 7,
+              "delta_pp": -3.90625
+            },
+            "lidar": {
+              "correct": 46,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 39,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "shear": {
+              "correct": 60,
+              "repair": 1,
+              "harm": 17,
+              "delta_pp": -12.5
+            },
+            "uniform": {
+              "correct": 109,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "upsampling": {
+              "correct": 103,
+              "repair": 3,
+              "harm": 9,
+              "delta_pp": -4.6875
+            }
+          }
+        },
+        "prefix_5": {
+          "correct": 1197,
+          "repair": 57,
+          "harm": 129,
+          "delta_pp": -3.749999999999998,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -5.365885416666666,
+            -2.1354166666666665
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 31,
+              "repair": 1,
+              "harm": 10,
+              "delta_pp": -7.03125
+            },
+            "cutout": {
+              "correct": 91,
+              "repair": 4,
+              "harm": 14,
+              "delta_pp": -7.8125
+            },
+            "density": {
+              "correct": 79,
+              "repair": 3,
+              "harm": 13,
+              "delta_pp": -7.8125
+            },
+            "density_inc": {
+              "correct": 101,
+              "repair": 3,
+              "harm": 9,
+              "delta_pp": -4.6875
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 3,
+              "harm": 11,
+              "delta_pp": -6.25
+            },
+            "distortion_rbf": {
+              "correct": 88,
+              "repair": 10,
+              "harm": 7,
+              "delta_pp": 2.34375
+            },
+            "distortion_rbf_inv": {
+              "correct": 91,
+              "repair": 8,
+              "harm": 8,
+              "delta_pp": 0.0
+            },
+            "gaussian": {
+              "correct": 113,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            },
+            "impulse": {
+              "correct": 110,
+              "repair": 2,
+              "harm": 7,
+              "delta_pp": -3.90625
+            },
+            "lidar": {
+              "correct": 47,
+              "repair": 3,
+              "harm": 6,
+              "delta_pp": -2.34375
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 64,
+              "repair": 1,
+              "harm": 13,
+              "delta_pp": -9.375
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "upsampling": {
+              "correct": 107,
+              "repair": 5,
+              "harm": 7,
+              "delta_pp": -1.5625
+            }
+          }
+        },
+        "prefix_6": {
+          "correct": 1222,
+          "repair": 54,
+          "harm": 101,
+          "delta_pp": -2.4479166666666607,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            30
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -3.802083333333333,
+            -1.1458333333333333
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 32,
+              "repair": 1,
+              "harm": 9,
+              "delta_pp": -6.25
+            },
+            "cutout": {
+              "correct": 93,
+              "repair": 4,
+              "harm": 12,
+              "delta_pp": -6.25
+            },
+            "density": {
+              "correct": 81,
+              "repair": 4,
+              "harm": 12,
+              "delta_pp": -6.25
+            },
+            "density_inc": {
+              "correct": 103,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 3,
+              "harm": 11,
+              "delta_pp": -6.25
+            },
+            "distortion_rbf": {
+              "correct": 90,
+              "repair": 10,
+              "harm": 5,
+              "delta_pp": 3.90625
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 8,
+              "harm": 6,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 113,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 40,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "shear": {
+              "correct": 68,
+              "repair": 1,
+              "harm": 9,
+              "delta_pp": -6.25
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 106,
+              "repair": 4,
+              "harm": 7,
+              "delta_pp": -2.34375
+            }
+          }
+        },
+        "prefix_7": {
+          "correct": 1236,
+          "repair": 53,
+          "harm": 86,
+          "delta_pp": -1.7187499999999911,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            30,
+            20
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -3.020833333333333,
+            -0.4687499999999999
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 34,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "cutout": {
+              "correct": 97,
+              "repair": 4,
+              "harm": 8,
+              "delta_pp": -3.125
+            },
+            "density": {
+              "correct": 83,
+              "repair": 4,
+              "harm": 10,
+              "delta_pp": -4.6875
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 80,
+              "repair": 2,
+              "harm": 11,
+              "delta_pp": -7.03125
+            },
+            "distortion_rbf": {
+              "correct": 91,
+              "repair": 11,
+              "harm": 5,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 6,
+              "harm": 5,
+              "delta_pp": 0.78125
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 4,
+              "harm": 1,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 114,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 1,
+              "harm": 10,
+              "delta_pp": -7.03125
+            },
+            "rotation": {
+              "correct": 40,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 109,
+              "repair": 5,
+              "harm": 5,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "prefix_8": {
+          "correct": 1245,
+          "repair": 52,
+          "harm": 76,
+          "delta_pp": -1.2499999999999956,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            30,
+            20,
+            10
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.449218749999999,
+            -0.05208333333333315
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 34,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 84,
+              "repair": 4,
+              "harm": 9,
+              "delta_pp": -3.90625
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 79,
+              "repair": 2,
+              "harm": 12,
+              "delta_pp": -7.8125
+            },
+            "distortion_rbf": {
+              "correct": 92,
+              "repair": 11,
+              "harm": 4,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 42,
+              "repair": 1,
+              "harm": 9,
+              "delta_pp": -6.25
+            },
+            "rotation": {
+              "correct": 40,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            }
+          }
+        },
+        "omit_80": {
+          "correct": 1269,
+          "repair": 52,
+          "harm": 52,
+          "delta_pp": 0.0,
+          "times": [
+            70,
+            60,
+            50,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.9895833333333335,
+            1.0416666666666667
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 37,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 88,
+              "repair": 3,
+              "harm": 4,
+              "delta_pp": -0.78125
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 83,
+              "repair": 2,
+              "harm": 8,
+              "delta_pp": -4.6875
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 11,
+              "harm": 3,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 94,
+              "repair": 6,
+              "harm": 3,
+              "delta_pp": 2.34375
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 45,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "uniform": {
+              "correct": 114,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "upsampling": {
+              "correct": 111,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            }
+          }
+        },
+        "omit_70": {
+          "correct": 1264,
+          "repair": 49,
+          "harm": 54,
+          "delta_pp": -0.26041666666666297,
+          "times": [
+            80,
+            60,
+            50,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.3020833333333335,
+            0.7812500000000002
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 37,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 87,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 2,
+              "harm": 9,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 11,
+              "harm": 3,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 46,
+              "repair": 1,
+              "harm": 5,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 112,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            }
+          }
+        },
+        "omit_60": {
+          "correct": 1263,
+          "repair": 50,
+          "harm": 56,
+          "delta_pp": -0.31249999999999334,
+          "times": [
+            80,
+            70,
+            50,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.3541666666666667,
+            0.7291666666666669
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 37,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 87,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 2,
+              "harm": 9,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 94,
+              "repair": 12,
+              "harm": 3,
+              "delta_pp": 7.03125
+            },
+            "distortion_rbf_inv": {
+              "correct": 94,
+              "repair": 6,
+              "harm": 3,
+              "delta_pp": 2.34375
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 45,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 72,
+              "repair": 1,
+              "harm": 5,
+              "delta_pp": -3.125
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 111,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            }
+          }
+        },
+        "omit_50": {
+          "correct": 1258,
+          "repair": 48,
+          "harm": 59,
+          "delta_pp": -0.5729166666666674,
+          "times": [
+            80,
+            70,
+            60,
+            40,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.614583333333333,
+            0.46875000000000006
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 36,
+              "repair": 1,
+              "harm": 5,
+              "delta_pp": -3.125
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 86,
+              "repair": 3,
+              "harm": 6,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 2,
+              "harm": 10,
+              "delta_pp": -6.25
+            },
+            "distortion_rbf": {
+              "correct": 93,
+              "repair": 11,
+              "harm": 3,
+              "delta_pp": 6.25
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 44,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            }
+          }
+        },
+        "omit_40": {
+          "correct": 1251,
+          "repair": 45,
+          "harm": 63,
+          "delta_pp": -0.9374999999999911,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            30,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.979166666666667,
+            0.10416666666666682
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 84,
+              "repair": 2,
+              "harm": 7,
+              "delta_pp": -3.90625
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 2,
+              "harm": 10,
+              "delta_pp": -6.25
+            },
+            "distortion_rbf": {
+              "correct": 91,
+              "repair": 10,
+              "harm": 4,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 44,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 72,
+              "repair": 0,
+              "harm": 4,
+              "delta_pp": -3.125
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 112,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            }
+          }
+        },
+        "omit_30": {
+          "correct": 1250,
+          "repair": 47,
+          "harm": 66,
+          "delta_pp": -0.9895833333333326,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            20,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.1354166666666665,
+            0.15625
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 84,
+              "repair": 2,
+              "harm": 7,
+              "delta_pp": -3.90625
+            },
+            "density_inc": {
+              "correct": 104,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 2,
+              "harm": 9,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 91,
+              "repair": 10,
+              "harm": 4,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 43,
+              "repair": 1,
+              "harm": 8,
+              "delta_pp": -5.46875
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            }
+          }
+        },
+        "omit_20": {
+          "correct": 1250,
+          "repair": 49,
+          "harm": 68,
+          "delta_pp": -0.9895833333333326,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            30,
+            10,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.1354166666666665,
+            0.15625000000000014
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 34,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 85,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 2,
+              "harm": 9,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 91,
+              "repair": 10,
+              "harm": 4,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 94,
+              "repair": 6,
+              "harm": 3,
+              "delta_pp": 2.34375
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 43,
+              "repair": 1,
+              "harm": 8,
+              "delta_pp": -5.46875
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 0,
+              "harm": 6,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 108,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            }
+          }
+        },
+        "omit_10": {
+          "correct": 1251,
+          "repair": 51,
+          "harm": 69,
+          "delta_pp": -0.9374999999999911,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            30,
+            20,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.0833333333333335,
+            0.20833333333333334
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 34,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 85,
+              "repair": 4,
+              "harm": 8,
+              "delta_pp": -3.125
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 2,
+              "harm": 9,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 91,
+              "repair": 10,
+              "harm": 4,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 42,
+              "repair": 1,
+              "harm": 9,
+              "delta_pp": -6.25
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "shear": {
+              "correct": 71,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 109,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "omit_0": {
+          "correct": 1245,
+          "repair": 52,
+          "harm": 76,
+          "delta_pp": -1.2499999999999956,
+          "times": [
+            80,
+            70,
+            60,
+            50,
+            40,
+            30,
+            20,
+            10
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.449218749999999,
+            -0.05208333333333315
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 34,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 84,
+              "repair": 4,
+              "harm": 9,
+              "delta_pp": -3.90625
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "distortion": {
+              "correct": 79,
+              "repair": 2,
+              "harm": 12,
+              "delta_pp": -7.8125
+            },
+            "distortion_rbf": {
+              "correct": 92,
+              "repair": 11,
+              "harm": 4,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 93,
+              "repair": 5,
+              "harm": 3,
+              "delta_pp": 1.5625
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 4,
+              "harm": 0,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 52,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "occlusion": {
+              "correct": 42,
+              "repair": 1,
+              "harm": 9,
+              "delta_pp": -6.25
+            },
+            "rotation": {
+              "correct": 40,
+              "repair": 2,
+              "harm": 5,
+              "delta_pp": -2.34375
+            },
+            "shear": {
+              "correct": 70,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 5,
+              "harm": 4,
+              "delta_pp": 0.78125
+            }
+          }
+        }
+      }
+    },
+    "n12_four": {
+      "times": [
+        67,
+        47,
+        27,
+        0
+      ],
+      "terminal": 1235,
+      "probes": [
+        {
+          "time": 67,
+          "correct": 1143,
+          "repair": 78,
+          "harm": 170,
+          "delta_pp": -4.791666666666661
+        },
+        {
+          "time": 47,
+          "correct": 1236,
+          "repair": 92,
+          "harm": 91,
+          "delta_pp": 0.052083333333341475
+        },
+        {
+          "time": 27,
+          "correct": 1286,
+          "repair": 95,
+          "harm": 44,
+          "delta_pp": 2.6562500000000044
+        },
+        {
+          "time": 0,
+          "correct": 1235,
+          "repair": 0,
+          "harm": 0,
+          "delta_pp": 0.0
+        }
+      ],
+      "mixed_correctness_objects": 330,
+      "pooled_entropy_correct_vs_wrong_auc": 0.863894582293349,
+      "within_object_entropy_pair_auc": 0.6226765799256505,
+      "within_object_entropy_mean_auc": 0.632070707070707,
+      "within_object_correct_wrong_pairs": 1076,
+      "min_entropy": {
+        "correct": 1256,
+        "repair": 74,
+        "harm": 53,
+        "delta_pp": 1.0937500000000044
+      },
+      "pm_harms": {
+        "n": 50,
+        "candidate_correct_counts": [
+          2,
+          2,
+          16,
+          50
+        ],
+        "mean_true_vs_wrong_winner_margin": [
+          -0.5020960334517268,
+          -0.44970847912842304,
+          -0.15410806696836116,
+          0.2873367070448558
+        ],
+        "mean_entropy": [
+          0.9928754903975642,
+          1.069625841962437,
+          1.1553161340086704,
+          1.2871453508329018
+        ],
+        "at_least_half_candidates_correct": 20
+      },
+      "pm_repairs": {
+        "n": 72,
+        "candidate_correct_counts": [
+          56,
+          66,
+          63,
+          0
+        ],
+        "mean_true_vs_wrong_winner_margin": [
+          0.3901845648545469,
+          0.5286248144190504,
+          0.4901373543432875,
+          -0.3123170647137332
+        ],
+        "mean_entropy": [
+          1.0533402841158437,
+          0.9710532108862808,
+          0.9886114876218196,
+          1.2874386883781601
+        ],
+        "at_least_half_candidates_correct": 67
+      },
+      "subsets": {
+        "equal": {
+          "correct": 1257,
+          "repair": 72,
+          "harm": 50,
+          "delta_pp": 1.1458333333333348,
+          "times": [
+            67,
+            47,
+            27,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.05208333333333341,
+            2.395833333333333
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 101,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            },
+            "density": {
+              "correct": 88,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density_inc": {
+              "correct": 110,
+              "repair": 2,
+              "harm": 3,
+              "delta_pp": -0.78125
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 5,
+              "harm": 6,
+              "delta_pp": -0.78125
+            },
+            "distortion_rbf": {
+              "correct": 89,
+              "repair": 10,
+              "harm": 4,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 90,
+              "repair": 8,
+              "harm": 3,
+              "delta_pp": 3.90625
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 9,
+              "harm": 0,
+              "delta_pp": 7.03125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 6,
+              "harm": 1,
+              "delta_pp": 3.90625
+            },
+            "occlusion": {
+              "correct": 42,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 2,
+              "harm": 1,
+              "delta_pp": 0.78125
+            },
+            "shear": {
+              "correct": 76,
+              "repair": 2,
+              "harm": 7,
+              "delta_pp": -3.90625
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 8,
+              "harm": 1,
+              "delta_pp": 5.46875
+            },
+            "upsampling": {
+              "correct": 108,
+              "repair": 4,
+              "harm": 6,
+              "delta_pp": -1.5625
+            }
+          }
+        },
+        "suffix_1": {
+          "correct": 1235,
+          "repair": 0,
+          "harm": 0,
+          "delta_pp": 0.0,
+          "times": [
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 89,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "density_inc": {
+              "correct": 111,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion": {
+              "correct": 83,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf": {
+              "correct": 83,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf_inv": {
+              "correct": 85,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "gaussian": {
+              "correct": 106,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "impulse": {
+              "correct": 113,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 46,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "occlusion": {
+              "correct": 46,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 81,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "uniform": {
+              "correct": 105,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 0,
+              "harm": 0,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "suffix_2": {
+          "correct": 1272,
+          "repair": 62,
+          "harm": 25,
+          "delta_pp": 1.9270833333333348,
+          "times": [
+            27,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            0.9375000000000001,
+            2.96875
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 39,
+              "repair": 7,
+              "harm": 3,
+              "delta_pp": 3.125
+            },
+            "cutout": {
+              "correct": 102,
+              "repair": 3,
+              "harm": 1,
+              "delta_pp": 1.5625
+            },
+            "density": {
+              "correct": 88,
+              "repair": 0,
+              "harm": 1,
+              "delta_pp": -0.78125
+            },
+            "density_inc": {
+              "correct": 114,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "distortion": {
+              "correct": 83,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf": {
+              "correct": 89,
+              "repair": 7,
+              "harm": 1,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 88,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 9,
+              "harm": 0,
+              "delta_pp": 7.03125
+            },
+            "impulse": {
+              "correct": 113,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 5,
+              "harm": 0,
+              "delta_pp": 3.90625
+            },
+            "occlusion": {
+              "correct": 47,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "rotation": {
+              "correct": 43,
+              "repair": 1,
+              "harm": 0,
+              "delta_pp": 0.78125
+            },
+            "shear": {
+              "correct": 77,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 7,
+              "harm": 0,
+              "delta_pp": 5.46875
+            },
+            "upsampling": {
+              "correct": 111,
+              "repair": 4,
+              "harm": 3,
+              "delta_pp": 0.78125
+            }
+          }
+        },
+        "suffix_3": {
+          "correct": 1268,
+          "repair": 72,
+          "harm": 39,
+          "delta_pp": 1.7187500000000022,
+          "times": [
+            47,
+            27,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            0.625,
+            2.8125
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 38,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            },
+            "cutout": {
+              "correct": 103,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "density": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 112,
+              "repair": 2,
+              "harm": 1,
+              "delta_pp": 0.78125
+            },
+            "distortion": {
+              "correct": 85,
+              "repair": 6,
+              "harm": 4,
+              "delta_pp": 1.5625
+            },
+            "distortion_rbf": {
+              "correct": 88,
+              "repair": 9,
+              "harm": 4,
+              "delta_pp": 3.90625
+            },
+            "distortion_rbf_inv": {
+              "correct": 89,
+              "repair": 7,
+              "harm": 3,
+              "delta_pp": 3.125
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 9,
+              "harm": 0,
+              "delta_pp": 7.03125
+            },
+            "impulse": {
+              "correct": 114,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 6,
+              "harm": 1,
+              "delta_pp": 3.90625
+            },
+            "occlusion": {
+              "correct": 44,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 1,
+              "harm": 1,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 77,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 9,
+              "harm": 1,
+              "delta_pp": 6.25
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "prefix_1": {
+          "correct": 1143,
+          "repair": 78,
+          "harm": 170,
+          "delta_pp": -4.791666666666661,
+          "times": [
+            67
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -6.666666666666667,
+            -2.8645833333333335
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 27,
+              "repair": 3,
+              "harm": 11,
+              "delta_pp": -6.25
+            },
+            "cutout": {
+              "correct": 90,
+              "repair": 2,
+              "harm": 12,
+              "delta_pp": -7.8125
+            },
+            "density": {
+              "correct": 78,
+              "repair": 4,
+              "harm": 15,
+              "delta_pp": -8.59375
+            },
+            "density_inc": {
+              "correct": 93,
+              "repair": 1,
+              "harm": 19,
+              "delta_pp": -14.0625
+            },
+            "distortion": {
+              "correct": 76,
+              "repair": 6,
+              "harm": 13,
+              "delta_pp": -5.46875
+            },
+            "distortion_rbf": {
+              "correct": 85,
+              "repair": 11,
+              "harm": 9,
+              "delta_pp": 1.5625
+            },
+            "distortion_rbf_inv": {
+              "correct": 83,
+              "repair": 11,
+              "harm": 13,
+              "delta_pp": -1.5625
+            },
+            "gaussian": {
+              "correct": 110,
+              "repair": 7,
+              "harm": 3,
+              "delta_pp": 3.125
+            },
+            "impulse": {
+              "correct": 109,
+              "repair": 5,
+              "harm": 9,
+              "delta_pp": -3.125
+            },
+            "lidar": {
+              "correct": 44,
+              "repair": 5,
+              "harm": 7,
+              "delta_pp": -1.5625
+            },
+            "occlusion": {
+              "correct": 38,
+              "repair": 3,
+              "harm": 11,
+              "delta_pp": -6.25
+            },
+            "rotation": {
+              "correct": 39,
+              "repair": 3,
+              "harm": 6,
+              "delta_pp": -2.34375
+            },
+            "shear": {
+              "correct": 60,
+              "repair": 2,
+              "harm": 23,
+              "delta_pp": -16.40625
+            },
+            "uniform": {
+              "correct": 111,
+              "repair": 10,
+              "harm": 4,
+              "delta_pp": 4.6875
+            },
+            "upsampling": {
+              "correct": 100,
+              "repair": 5,
+              "harm": 15,
+              "delta_pp": -7.8125
+            }
+          }
+        },
+        "prefix_2": {
+          "correct": 1212,
+          "repair": 83,
+          "harm": 106,
+          "delta_pp": -1.1979166666666652,
+          "times": [
+            67,
+            47
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -2.65625,
+            0.3125000000000001
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 31,
+              "repair": 2,
+              "harm": 6,
+              "delta_pp": -3.125
+            },
+            "cutout": {
+              "correct": 95,
+              "repair": 3,
+              "harm": 8,
+              "delta_pp": -3.90625
+            },
+            "density": {
+              "correct": 83,
+              "repair": 4,
+              "harm": 10,
+              "delta_pp": -4.6875
+            },
+            "density_inc": {
+              "correct": 103,
+              "repair": 2,
+              "harm": 10,
+              "delta_pp": -6.25
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 8,
+              "harm": 10,
+              "delta_pp": -1.5625
+            },
+            "distortion_rbf": {
+              "correct": 90,
+              "repair": 13,
+              "harm": 6,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 89,
+              "repair": 11,
+              "harm": 7,
+              "delta_pp": 3.125
+            },
+            "gaussian": {
+              "correct": 114,
+              "repair": 9,
+              "harm": 1,
+              "delta_pp": 6.25
+            },
+            "impulse": {
+              "correct": 113,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            },
+            "lidar": {
+              "correct": 47,
+              "repair": 6,
+              "harm": 5,
+              "delta_pp": 0.78125
+            },
+            "occlusion": {
+              "correct": 41,
+              "repair": 4,
+              "harm": 9,
+              "delta_pp": -3.90625
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 3,
+              "harm": 4,
+              "delta_pp": -0.78125
+            },
+            "shear": {
+              "correct": 67,
+              "repair": 2,
+              "harm": 16,
+              "delta_pp": -10.9375
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 8,
+              "harm": 1,
+              "delta_pp": 5.46875
+            },
+            "upsampling": {
+              "correct": 105,
+              "repair": 4,
+              "harm": 9,
+              "delta_pp": -3.90625
+            }
+          }
+        },
+        "prefix_3": {
+          "correct": 1252,
+          "repair": 87,
+          "harm": 70,
+          "delta_pp": 0.8854166666666718,
+          "times": [
+            67,
+            47,
+            27
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.4687499999999999,
+            2.239583333333334
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 99,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 86,
+              "repair": 4,
+              "harm": 7,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 8,
+              "delta_pp": -4.6875
+            },
+            "distortion": {
+              "correct": 83,
+              "repair": 6,
+              "harm": 6,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf": {
+              "correct": 90,
+              "repair": 12,
+              "harm": 5,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 11,
+              "harm": 4,
+              "delta_pp": 5.46875
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 10,
+              "harm": 0,
+              "delta_pp": 7.8125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 7,
+              "harm": 2,
+              "delta_pp": 3.90625
+            },
+            "occlusion": {
+              "correct": 42,
+              "repair": 4,
+              "harm": 8,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 2,
+              "harm": 10,
+              "delta_pp": -6.25
+            },
+            "uniform": {
+              "correct": 115,
+              "repair": 11,
+              "harm": 1,
+              "delta_pp": 7.8125
+            },
+            "upsampling": {
+              "correct": 108,
+              "repair": 4,
+              "harm": 6,
+              "delta_pp": -1.5625
+            }
+          }
+        },
+        "omit_67": {
+          "correct": 1268,
+          "repair": 72,
+          "harm": 39,
+          "delta_pp": 1.7187500000000022,
+          "times": [
+            47,
+            27,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            0.625,
+            2.8125
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 38,
+              "repair": 5,
+              "harm": 2,
+              "delta_pp": 2.34375
+            },
+            "cutout": {
+              "correct": 103,
+              "repair": 3,
+              "harm": 0,
+              "delta_pp": 2.34375
+            },
+            "density": {
+              "correct": 87,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "density_inc": {
+              "correct": 112,
+              "repair": 2,
+              "harm": 1,
+              "delta_pp": 0.78125
+            },
+            "distortion": {
+              "correct": 85,
+              "repair": 6,
+              "harm": 4,
+              "delta_pp": 1.5625
+            },
+            "distortion_rbf": {
+              "correct": 88,
+              "repair": 9,
+              "harm": 4,
+              "delta_pp": 3.90625
+            },
+            "distortion_rbf_inv": {
+              "correct": 89,
+              "repair": 7,
+              "harm": 3,
+              "delta_pp": 3.125
+            },
+            "gaussian": {
+              "correct": 115,
+              "repair": 9,
+              "harm": 0,
+              "delta_pp": 7.03125
+            },
+            "impulse": {
+              "correct": 114,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 6,
+              "harm": 1,
+              "delta_pp": 3.90625
+            },
+            "occlusion": {
+              "correct": 44,
+              "repair": 3,
+              "harm": 5,
+              "delta_pp": -1.5625
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 1,
+              "harm": 1,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 77,
+              "repair": 3,
+              "harm": 7,
+              "delta_pp": -3.125
+            },
+            "uniform": {
+              "correct": 113,
+              "repair": 9,
+              "harm": 1,
+              "delta_pp": 6.25
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 4,
+              "harm": 4,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "omit_47": {
+          "correct": 1258,
+          "repair": 62,
+          "harm": 39,
+          "delta_pp": 1.1979166666666652,
+          "times": [
+            67,
+            27,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            0.15625000000000006,
+            2.2395833333333335
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 36,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "cutout": {
+              "correct": 103,
+              "repair": 4,
+              "harm": 1,
+              "delta_pp": 2.34375
+            },
+            "density": {
+              "correct": 86,
+              "repair": 1,
+              "harm": 4,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 113,
+              "repair": 2,
+              "harm": 0,
+              "delta_pp": 1.5625
+            },
+            "distortion": {
+              "correct": 82,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "distortion_rbf": {
+              "correct": 89,
+              "repair": 8,
+              "harm": 2,
+              "delta_pp": 4.6875
+            },
+            "distortion_rbf_inv": {
+              "correct": 89,
+              "repair": 7,
+              "harm": 3,
+              "delta_pp": 3.125
+            },
+            "gaussian": {
+              "correct": 114,
+              "repair": 8,
+              "harm": 0,
+              "delta_pp": 6.25
+            },
+            "impulse": {
+              "correct": 114,
+              "repair": 3,
+              "harm": 2,
+              "delta_pp": 0.78125
+            },
+            "lidar": {
+              "correct": 50,
+              "repair": 6,
+              "harm": 2,
+              "delta_pp": 3.125
+            },
+            "occlusion": {
+              "correct": 44,
+              "repair": 2,
+              "harm": 4,
+              "delta_pp": -1.5625
+            },
+            "rotation": {
+              "correct": 41,
+              "repair": 1,
+              "harm": 2,
+              "delta_pp": -0.78125
+            },
+            "shear": {
+              "correct": 75,
+              "repair": 1,
+              "harm": 7,
+              "delta_pp": -4.6875
+            },
+            "uniform": {
+              "correct": 112,
+              "repair": 7,
+              "harm": 0,
+              "delta_pp": 5.46875
+            },
+            "upsampling": {
+              "correct": 110,
+              "repair": 5,
+              "harm": 5,
+              "delta_pp": 0.0
+            }
+          }
+        },
+        "omit_27": {
+          "correct": 1236,
+          "repair": 66,
+          "harm": 65,
+          "delta_pp": 0.052083333333341475,
+          "times": [
+            67,
+            47,
+            0
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -1.1979166666666667,
+            1.3541666666666667
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 2,
+              "harm": 2,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 100,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "density": {
+              "correct": 84,
+              "repair": 3,
+              "harm": 8,
+              "delta_pp": -3.90625
+            },
+            "density_inc": {
+              "correct": 106,
+              "repair": 1,
+              "harm": 6,
+              "delta_pp": -3.90625
+            },
+            "distortion": {
+              "correct": 81,
+              "repair": 4,
+              "harm": 6,
+              "delta_pp": -1.5625
+            },
+            "distortion_rbf": {
+              "correct": 90,
+              "repair": 12,
+              "harm": 5,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 90,
+              "repair": 8,
+              "harm": 3,
+              "delta_pp": 3.90625
+            },
+            "gaussian": {
+              "correct": 113,
+              "repair": 7,
+              "harm": 0,
+              "delta_pp": 5.46875
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "lidar": {
+              "correct": 49,
+              "repair": 6,
+              "harm": 3,
+              "delta_pp": 2.34375
+            },
+            "occlusion": {
+              "correct": 40,
+              "repair": 2,
+              "harm": 8,
+              "delta_pp": -4.6875
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 74,
+              "repair": 2,
+              "harm": 9,
+              "delta_pp": -5.46875
+            },
+            "uniform": {
+              "correct": 109,
+              "repair": 5,
+              "harm": 1,
+              "delta_pp": 3.125
+            },
+            "upsampling": {
+              "correct": 108,
+              "repair": 4,
+              "harm": 6,
+              "delta_pp": -1.5625
+            }
+          }
+        },
+        "omit_0": {
+          "correct": 1252,
+          "repair": 87,
+          "harm": 70,
+          "delta_pp": 0.8854166666666718,
+          "times": [
+            67,
+            47,
+            27
+          ],
+          "conditional_object_bootstrap_ci95_pp": [
+            -0.4687499999999999,
+            2.239583333333334
+          ],
+          "per_corruption": {
+            "background": {
+              "correct": 35,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "cutout": {
+              "correct": 99,
+              "repair": 4,
+              "harm": 5,
+              "delta_pp": -0.78125
+            },
+            "density": {
+              "correct": 86,
+              "repair": 4,
+              "harm": 7,
+              "delta_pp": -2.34375
+            },
+            "density_inc": {
+              "correct": 105,
+              "repair": 2,
+              "harm": 8,
+              "delta_pp": -4.6875
+            },
+            "distortion": {
+              "correct": 83,
+              "repair": 6,
+              "harm": 6,
+              "delta_pp": 0.0
+            },
+            "distortion_rbf": {
+              "correct": 90,
+              "repair": 12,
+              "harm": 5,
+              "delta_pp": 5.46875
+            },
+            "distortion_rbf_inv": {
+              "correct": 92,
+              "repair": 11,
+              "harm": 4,
+              "delta_pp": 5.46875
+            },
+            "gaussian": {
+              "correct": 116,
+              "repair": 10,
+              "harm": 0,
+              "delta_pp": 7.8125
+            },
+            "impulse": {
+              "correct": 115,
+              "repair": 4,
+              "harm": 2,
+              "delta_pp": 1.5625
+            },
+            "lidar": {
+              "correct": 51,
+              "repair": 7,
+              "harm": 2,
+              "delta_pp": 3.90625
+            },
+            "occlusion": {
+              "correct": 42,
+              "repair": 4,
+              "harm": 8,
+              "delta_pp": -3.125
+            },
+            "rotation": {
+              "correct": 42,
+              "repair": 3,
+              "harm": 3,
+              "delta_pp": 0.0
+            },
+            "shear": {
+              "correct": 73,
+              "repair": 2,
+              "harm": 10,
+              "delta_pp": -6.25
+            },
+            "uniform": {
+              "correct": 115,
+              "repair": 11,
+              "harm": 1,
+              "delta_pp": 7.8125
+            },
+            "upsampling": {
+              "correct": 108,
+              "repair": 4,
+              "harm": 6,
+              "delta_pp": -1.5625
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-14",
+  "scope": "Literature/source/workspace preparation; no new model run",
+  "branch": "research/cloudfixer-transfer-20261114",
+  "base_commit": "64b7345138777a7cc6833c6130be28bccd166c01",
+  "workspace": "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA",
+  "official_clone": {
+    "path": "/Users/batuhan/Desktop/projects/CloudFixer",
+    "origin": "https://github.com/shimazing/CloudFixer.git",
+    "commit": "f043e24414fcf4165fdc892abff21215c9989141",
+    "working_tree_clean": true,
+    "sources": [
+      {
+        "path": "README.md",
+        "bytes": 4641,
+        "sha256": "40ed53967d6f5044b2f7ce3ac3cf4715de53c9861f448de863d42813a6206957"
+      },
+      {
+        "path": "LICENSE",
+        "bytes": 1069,
+        "sha256": "e044b19f3396154f3f08e0e6f40c3b71b216f80a322fe7ce8831d8ac72fa949b"
+      },
+      {
+        "path": "adapt.py",
+        "bytes": 26106,
+        "sha256": "a56ef16f14603d49abecd8121b5df7913a6c47b2e0effad8d3d99ad37ff333b7"
+      },
+      {
+        "path": "diffusion/build_model.py",
+        "bytes": 1202,
+        "sha256": "b7c74ebb5b03aceda4f6fcbdef07c97117fce5aa38d9842f352b94cd39054988"
+      },
+      {
+        "path": "diffusion/diffusion.py",
+        "bytes": 27065,
+        "sha256": "19229e1ab4e51585ad1118d70170b8407384a33f8c75043a315a21645d4630be"
+      },
+      {
+        "path": "diffusion/transformer.py",
+        "bytes": 12097,
+        "sha256": "b2f10ad41f98b47b7f95c7cd55f82c18fe8f865e7d9f64bd66a899a0a6ecd0ea"
+      },
+      {
+        "path": "scripts/train_dm.sh",
+        "bytes": 3400,
+        "sha256": "0427e16d2086d71034999412533b4b9391a047cabad29e3aa03f4668427f764d"
+      },
+      {
+        "path": "scripts/run_cloudfixer.sh",
+        "bytes": 5269,
+        "sha256": "72efb4313e62323500e3b1adb7683589e5a8de3d2f5b99fa7760507a74b6a2b7"
+      },
+      {
+        "path": "scripts/set_env.sh",
+        "bytes": 1063,
+        "sha256": "e631d5e3e7570f66808d4437bb14429d95966aee3b779a694e0c26987754fe0e"
+      },
+      {
+        "path": "train_dm.py",
+        "bytes": 14083,
+        "sha256": "531bd85305ecaef5de1ec4462de71dfa76215c033b79a93a9e008c5e35f4786f"
+      },
+      {
+        "path": "datasets/dataloader.py",
+        "bytes": 30373,
+        "sha256": "2db915713b2b5592070da2bd6a750a171af48a13c395f55ddbfaa76469626162"
+      },
+      {
+        "path": "classifier/pointMAE.py",
+        "bytes": 62996,
+        "sha256": "b07129216649c2a5a5a42231c541b5f97ef622043db222d415e69f9162226997"
+      },
+      {
+        "path": "cfgs/cfgs_mate/tta/tta_modelnet.yaml",
+        "bytes": 973,
+        "sha256": "9e281d6e225fe96f357f73bc0cd4a3beb66bfee3f0f32ce8ee1470c75ddc760c"
+      },
+      {
+        "path": "cfgs/cfgs_adapt.py",
+        "bytes": 7221,
+        "sha256": "48713c599bfb6c2869a922556d386ff2481d4ef64a2d8e4953af45631d2b1484"
+      },
+      {
+        "path": "utils/pc_utils.py",
+        "bytes": 48344,
+        "sha256": "a13d74e5579abe93e4809771c35d2f8f6b20c4cefa7568ccafc1bade07c51399"
+      },
+      {
+        "path": "utils/misc.py",
+        "bytes": 9013,
+        "sha256": "96cf425d6f147d7cf9c6462faddf8b72ce19a804c6544902e9014f992db83409"
+      }
+    ]
+  },
+  "thesis_sources": [
+    {
+      "path": "scripts/eval_chamfer_baseline.py",
+      "bytes": 9868,
+      "sha256": "ba523aed5a48b7ecf0e6bf869eb09db8380ed060ab9cad02828e804210813949"
+    },
+    {
+      "path": "lion_guidance_pilot.py",
+      "bytes": 13810,
+      "sha256": "347a6184f38aec2994eef19e4bea12dcb2d1f126660ee562419cc1ea347fbe16"
+    },
+    {
+      "path": "tta.py",
+      "bytes": 15467,
+      "sha256": "0cd304c77b26729a4e3f839f2199878dbb99bbcd541d4b8a259387ae56f3cb5f"
+    },
+    {
+      "path": "scripts/eval_chamfer_depth.py",
+      "bytes": 16781,
+      "sha256": "99e865793428f18b84db7de87f23edfc86fc900b2ba6192626c27de8537565b2"
+    },
+    {
+      "path": "knowledge/current_baseline.md",
+      "bytes": 12494,
+      "sha256": "9c60b1d3428942522562422864fffcf8d6d0a6df4404322ad8caaecc961635b7"
+    },
+    {
+      "path": "knowledge/cloudfixer_denoiser_transfer_audit_20261112.md",
+      "bytes": 11014,
+      "sha256": "c1b79f71abf961eaf8225e9f581262e7fde6e949d87a4352503f993fb4085ebf"
+    },
+    {
+      "path": "knowledge/lion_guidance_uniform_horizon_results_20261108.md",
+      "bytes": 16093,
+      "sha256": "1d4311d69bfe46a7d46b17504efddee40b141c49678ff51e74e28a465c6a3d9a"
+    },
+    {
+      "path": "knowledge/terminal_logit_pilot_results_20261110.md",
+      "bytes": 19868,
+      "sha256": "f4d161b80bf530ce4e41292fc57d2ff651893631a5071f625e231ab66948628d"
+    }
+  ],
+  "peer_evidence": {
+    "branch": "experiment/cloudfixer-pointmae-pilot-20261110",
+    "commit": "d91a64d8fc51e645cf0bf4078dc03908cfd7883e",
+    "path": "/Users/batuhan/Desktop/projects/3DD-TTA-worktrees/cloudfixer-pointmae-pilot-20261110",
+    "sources": [
+      {
+        "path": "knowledge/cloudfixer_pilot_20261110.md",
+        "bytes": 15884,
+        "sha256": "013956fdb0d5cc8d89b94a3629f50065526bcf2797841575f86e34637bc30907"
+      },
+      {
+        "path": "knowledge/cloudfixer_full_20261110.md",
+        "bytes": 11127,
+        "sha256": "d13415e7ffe2bfc0ea8cc3ef16a22dc86f2db2dd255d35adbcac31913f151e15"
+      },
+      {
+        "path": "result/modelnet40_c/cloudfixer_comparison/20261110_seed0_b32/comparison.json",
+        "bytes": 3609,
+        "sha256": "ed34b7db82284615a1477d9f84bb5b800908c66be301a88226664aadd73d1aa6"
+      },
+      {
+        "path": "scripts/run_cloudfixer_full.py",
+        "bytes": 13305,
+        "sha256": "76ed6d129f1ed534c09df19c8e62883371624f569cf600ecfd7655be5f3e2a7d"
+      },
+      {
+        "path": "scripts/validate_cloudfixer_pilot.py",
+        "bytes": 5298,
+        "sha256": "67dfbe946d94f0fb9acb7278b78069ab7a9a994301ef4f8bc386d2426034cc5c"
+      },
+      {
+        "path": "scripts/cloudfixer_colab_case.py",
+        "bytes": 3635,
+        "sha256": "1e3abdd02365110a99ab689368bf325b4c7cd0c50a9203611110a3c29d33404f"
+      }
+    ],
+    "pilot_archive_checks": [
+      {
+        "path": "result/modelnet40_c/cloudfixer/20261110-192926_pilot_seed0.zip",
+        "bytes": 40295,
+        "sha256": "b4d48bffbc8c4fb81c1d92b9f0442cb88e684d8a91b36f9b864e63952f9bd2f7",
+        "checks": "SHA256/CRC/safe paths/CSV totals",
+        "n_examples": 96,
+        "n_correct": 71
+      },
+      {
+        "path": "result/modelnet40_c/3dd_proximal_pm_baseline/20261110-193715_thesis_pilot_seed0.zip",
+        "bytes": 87387,
+        "sha256": "3f020b491918f660045144e7e7b1015dc0a71103e5c568aedf9571deb65a2c0b",
+        "checks": "SHA256/CRC/safe paths/CSV totals",
+        "n_examples": 96,
+        "n_correct": 55
+      }
+    ],
+    "limit": "Historical pilot only; no fresh NPZ recount, current runtime query, full15 validation or transfer experiment"
+  },
+  "primary_papers": [
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603.pdf",
+      "sections": "4.1-4.3,5.1"
+    },
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04603-supp.pdf",
+      "sections": "D,E,G"
+    }
+  ],
+  "checks": {
+    "architecture_static_assertions": "passed",
+    "modelnet40_training_recipe_static_assertions": "passed",
+    "baseline_native_free_cli_preview": "passed: N8/8, tau.1, PM2/4/6/terminal, frozen style",
+    "clone_and_branch_identity": "passed",
+    "local_links": "passed: 9 new-section links",
+    "whitespace": "passed: new sections and git diff --check; inherited historical whitespace left unchanged",
+    "source_hash_recheck": "passed: all16 official and8 thesis entries"
+  },
+  "not_checked": [
+    "Checkpoint download/current bytes/raw-versus-EMA",
+    "Model inference/GPU/native behavior",
+    "Full CPU test suite: local numpy/torch/pytest absent",
+    "Peer current runtime/Drive/full15 completion"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "evidence": "accepted A counts; descriptive conditional arithmetic, no new inference",
+  "baseline_id": "cloudfixer_xyz_proximal_pm_n8_k80_late_v1",
+  "existing_runner_arm": "proximal_pm",
+  "policy": {
+    "steps": 8,
+    "start": 80,
+    "tau": 0.1,
+    "retained": 0.95,
+    "probe_indices": [
+      20,
+      10,
+      0
+    ]
+  },
+  "denoiser_calls": 9,
+  "classifier_calls": 3,
+  "pm": "equal float64 softmax probabilities; pre-clean20/10 plus true terminal0",
+  "primary_comparator": "original plain CloudFixer, first logits",
+  "tested_protocol": {
+    "classifier": "point2vec",
+    "objects": 2468,
+    "corruptions": 15,
+    "severity": 5,
+    "seed": 2,
+    "batch_size": 1,
+    "observations_per_arm": 37020
+  },
+  "source_csv": {
+    "path": "knowledge/evidence/cloudfixer_two_colab_20261118/a_full_point2vec_per_corruption.csv",
+    "sha256": "9abf253c6a928352fe1b55c59ef5422c5647fd1f7d1a833d3990bb09ce10b2fc"
+  },
+  "totals_correct": {
+    "source": 22947,
+    "proximal_pm": 27748,
+    "proximal_terminal": 27111,
+    "cloudfixer": 28596
+  },
+  "accuracy_percent": {
+    "source": 61.985413290113456,
+    "proximal_pm": 74.95407887628309,
+    "proximal_terminal": 73.23338735818477,
+    "cloudfixer": 77.24473257698541
+  },
+  "focus_correct": {
+    "rotation": {
+      "source": 1158,
+      "proximal_pm": 1186,
+      "proximal_terminal": 1109,
+      "cloudfixer": 1715
+    },
+    "background": {
+      "source": 909,
+      "proximal_pm": 1612,
+      "proximal_terminal": 1887,
+      "cloudfixer": 1878
+    }
+  },
+  "total_net_deficit": 848,
+  "focus_net_deficit": 795,
+  "focus_fraction_of_net_deficit": 0.9375,
+  "other13_net_deficit": 53,
+  "hypothetical_cf_parity_on_focus": {
+    "correct": 28543,
+    "accuracy_percent": 77.10156672069152,
+    "remaining_deficit_pp": 0.1431658562938952
+  },
+  "required_to_strictly_beat_observed_cf_if_other13_unchanged": {
+    "net_extra_correct": 849,
+    "focus_correct": 3647,
+    "focus_observations": 4936,
+    "focus_accuracy_percent": 73.88573743922204,
+    "focus_mean_gain_pp": 17.200162074554296,
+    "rotation_only_required_correct": 2035,
+    "background_only_required_correct": 2461
+  },
+  "limits": [
+    "fixed seed/native realization; not seed variance",
+    "N8 versus N32 changes N/K/tau/readout; not isolated PM",
+    "no corruption-name routing or test-label retuning",
+    "arithmetic target is not evidence of achievable or statistical superiority"
+  ]
+}

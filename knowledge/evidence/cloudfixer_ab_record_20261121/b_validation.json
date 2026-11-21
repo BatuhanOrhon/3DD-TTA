@@ -1,0 +1,64 @@
+{
+  "status": "accepted_independent_recount",
+  "raw_archive_sha256": "80ad0b9192690cc4959fafe31fcb53ba6a127a1831da4e44787cf9ed2a57ffb0",
+  "raw_archive_bytes": 395520996,
+  "campaign": "c3c9dfbe949341bd5638f92ad626a3dfed0ce24b6a0c4ad12aac92f3e173a7f1",
+  "n_units": 1080,
+  "n_original_objects": 256,
+  "n_corruptions": 15,
+  "severity": 5,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "n_traces": 34560,
+  "native_environments": 1,
+  "raw_gpu_source_commit": "eec1e8b2fe272e9d1f42b6a628cacd5341f1c8c8",
+  "analysis_checkout_commit": "f4aeddf54422007cfda4460aef15fb50c2d32dcb",
+  "analysis_sources": {
+    "pointcloud_proximal.py": "170151c455120e869358646f531ca2d24864a90c930f1bf61b3375784f3cea24",
+    "cloudfixer_diffusion.py": "3e3c66246af5dff79603f9263ab784040a32c7d0c0bde0fe398900ca862d6f27",
+    "cloudfixer_store.py": "5f93c079a5a080de85b0a1f7028d08e2fe628d944d540e46657792a9b330e179",
+    "research_artifacts.py": "df60704d92e65141717a130d88e257bf816dadac1cb8646af0105918d910bab4",
+    "scripts/run_cloudfixer_transfer.py": "ce49112d99cff295eacca1409431b458762a27ded8d83e399e910348f03feb2d",
+    "cfgs/cloudfixer_transfer_assets.json": "5ff6ab89ce19771c0be9df4d4f870695973501f23c26e815a399e61c106b7f47",
+    "scripts/run_cloudfixer_hypotheses.py": "e8d9cd10e9730e86e81606c445f5e571c944a32e61649b67e8fb7ee183c37bdb",
+    "scripts/run_cloudfixer_exploration.py": "1d89a4610c73a9ebfb134d095fe18e1c14e976281f3a717c4781e657316ca547",
+    "scripts/analyze_cloudfixer_hypotheses.py": "1332f532043fb453f3151e68e5dccaf923e9ba2d58db1bff03dddf39138322de",
+    "scripts/analyze_cloudfixer_exploration.py": "67978b7435060a159ae87c8cf7f7eef16641268336e9de4a3b22ea92e12692ac",
+    "scripts/analyze_cloudfixer_weighted_pm.py": "7140904720dcdf747804334349593c73e9a436d612ccf667102bb1cf5942500f",
+    "scripts/analyze_legacy_trajectory_macro14.py": "160fe72861816e0f50d5c33a7cd2b6ed0ba98130a7ce46357d81d315fbeef198",
+    "scripts/analyze_legacy_trajectory.py": "37932e4af9d524d45dadfbc7225d2365e4f9629439d97ea9f7e4e0698bf876ac",
+    "scripts/analyze_cloudfixer_canonical_contributions.py": "492c74f5c2587d5f86a0825fcd761a8c8527e94677a45b1360c31c9f143b2cc6"
+  },
+  "outputs": {
+    "summary.csv": {
+      "bytes": 53140,
+      "sha256": "ce08f28b01a53869b681686f7c6926bcb633ab9db41b25e49ec4f7f8e5fc853d"
+    },
+    "per_corruption.csv": {
+      "bytes": 806925,
+      "sha256": "6318b0fab0f41db85e90acdd72952b15ac20c85e2b5d312d6f2751d333b091c3"
+    },
+    "paired.csv": {
+      "bytes": 98228,
+      "sha256": "84f008181f98bd1a491f7214d9e021bcfaceeacb4e54dab63af15cc4af5df155"
+    },
+    "diagnostics.json": {
+      "bytes": 28303,
+      "sha256": "dca65ef48927dd91a531a8dc9f1c4118b4b4f89443d354cc11b65edc52b59666"
+    },
+    "terminal_transitions.csv": {
+      "bytes": 106774,
+      "sha256": "ac77a8649aba70abc434684c16e58a8eb1e50b155e0f768dbe1a042e8428c180"
+    },
+    "canonical_contributions.json": {
+      "bytes": 27344,
+      "sha256": "3393b380aceaf8a38b0647abba703cf84fd3b1fbd0fd69e57e82dc9e13b507cd"
+    }
+  },
+  "validation": "Independent A DriveFS mount -> CLI download -> global ZIP SHA/member CRC/hash/size/path/source checks -> all1080 unit receipts/raw labels/probabilities/entropy/geometry/pilot gates -> exact registered metrics recount and saved-CSV comparison -> canonical contribution H/R counts match paired report.",
+  "confidence_intervals": "Nominal95% original-object-cluster paired bootstrap;10000draws,PCG64seed20261118; conditional on three fixed seeds; no multiplicity correction or held-out parameter selection.",
+  "a_status": "Full Point2Vec benchmark remains running and is not scientifically complete."
+}

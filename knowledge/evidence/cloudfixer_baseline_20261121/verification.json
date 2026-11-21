@@ -1,0 +1,15 @@
+{
+  "status": "documentation arithmetic and selected integrated code checked",
+  "source_head_before_decision": "4de6fdbd17a759e72c1d483b7e0c66828c19aaa2",
+  "counts": "60 A corruption rows; exact4totals; locked POLICIES and registration; no inference",
+  "tests": {
+    "command": "/tmp/cf-baseline-integration-20261121-venv/bin/python -m pytest -q tests/test_cloudfixer*.py",
+    "checkout": "/Users/batuhan/.codex/research-checkouts/cloudfixer-ab-baseline-20261121",
+    "result": "146 passed in 6.90s",
+    "environment": "macOS ARM64 Python3.12 torch2.6.0 numpy1.26.4 pytest8.3.5; CPU"
+  },
+  "limits": [
+    "No new CUDA/GPU/native replay",
+    "No seed-variance measurement or new geometry method result"
+  ]
+}

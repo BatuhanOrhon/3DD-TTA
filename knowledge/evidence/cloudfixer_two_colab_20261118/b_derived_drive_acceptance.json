@@ -1,0 +1,9 @@
+{
+  "archive": "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount.zip",
+  "bytes": 320749,
+  "sha256": "0de7f49d376afece37e5d132fa243e2f5d9746494d13d2efe6b5731d8169ec9e",
+  "raw_archive_sha256": "80ad0b9192690cc4959fafe31fcb53ba6a127a1831da4e44787cf9ed2a57ffb0",
+  "status": "accepted_independent_A_Drive_roundtrip",
+  "reader_session": "tta-cloudfixer-point2vec-a100-20261118-r3",
+  "drive_archive": "/content/drive/MyDrive/thesis/result/cloudfixer_two_colab_20261118/b_412a15c74123/derived/20261118-093757_confirmation_recount.zip"
+}

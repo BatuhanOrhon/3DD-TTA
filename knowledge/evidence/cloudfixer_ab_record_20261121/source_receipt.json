@@ -1,0 +1,88 @@
+{
+  "status": "documentation_tables_verified_no_new_model_run",
+  "compiled_utc": "2026-11-21T08:10:47.594403+00:00",
+  "source_head": "95eeac49b448cab60eff77d17d3edc0ac3eae6d2",
+  "inputs": {
+    "result/modelnet40_c/cloudfixer_point2vec/20261120-184955_full_recount/summary.csv": {
+      "bytes": 920,
+      "sha256": "b18405bb299b0ebc3c8184ddcc0b8a6402bfc33243667b657907cb8e11fda8a4"
+    },
+    "result/modelnet40_c/cloudfixer_point2vec/20261120-184955_full_recount/per_corruption.csv": {
+      "bytes": 10706,
+      "sha256": "9abf253c6a928352fe1b55c59ef5422c5647fd1f7d1a833d3990bb09ce10b2fc"
+    },
+    "result/modelnet40_c/cloudfixer_point2vec/20261120-184955_full_recount/paired_policy_differences.csv": {
+      "bytes": 253,
+      "sha256": "0a8abc91df65ac7ddde5b281293617e3fa391497bfe178bd411a2d99aac318cc"
+    },
+    "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/summary.csv": {
+      "bytes": 53140,
+      "sha256": "ce08f28b01a53869b681686f7c6926bcb633ab9db41b25e49ec4f7f8e5fc853d"
+    },
+    "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/per_corruption.csv": {
+      "bytes": 806925,
+      "sha256": "6318b0fab0f41db85e90acdd72952b15ac20c85e2b5d312d6f2751d333b091c3"
+    },
+    "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/paired.csv": {
+      "bytes": 98228,
+      "sha256": "84f008181f98bd1a491f7214d9e021bcfaceeacb4e54dab63af15cc4af5df155"
+    },
+    "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/diagnostics.json": {
+      "bytes": 28303,
+      "sha256": "dca65ef48927dd91a531a8dc9f1c4118b4b4f89443d354cc11b65edc52b59666"
+    },
+    "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/canonical_contributions.json": {
+      "bytes": 27344,
+      "sha256": "3393b380aceaf8a38b0647abba703cf84fd3b1fbd0fd69e57e82dc9e13b507cd"
+    },
+    "cloudfixer_diffusion.py": {
+      "bytes": 6770,
+      "sha256": "3e3c66246af5dff79603f9263ab784040a32c7d0c0bde0fe398900ca862d6f27"
+    },
+    "knowledge/evidence/cloudfixer_two_colab_20261118/b_pilot_independent_validation.json": {
+      "bytes": 2848,
+      "sha256": "6aa9a773d1a46bd61358cdcc14e3a6c07a83c9b84a01252b68f281b9b0d50600"
+    },
+    "knowledge/evidence/cloudfixer_two_colab_20261118/confirmation_id_audit.json": {
+      "bytes": 4354,
+      "sha256": "b084f5ef283bdc0d7de1157c225ff1b98e8df1cdcebc1f3907b3b6beaed618dc"
+    }
+  },
+  "archives": [
+    {
+      "label": "A ham",
+      "path": "result/modelnet40_c/cloudfixer_point2vec/20261120-184955_full.zip",
+      "bytes": 136139832,
+      "sha256": "b2f0685cb1f0c3e0a053dff6e19f71503e9b793ba2ed340ff1eb0c6f6081e42d"
+    },
+    {
+      "label": "A analiz",
+      "path": "result/modelnet40_c/cloudfixer_point2vec/20261120-184955_full_recount.zip",
+      "bytes": 192235,
+      "sha256": "8c6f9da76d509213d31de0da88f555ff28acdf98c95588350e123750e80960aa"
+    },
+    {
+      "label": "B ham",
+      "path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation.zip",
+      "bytes": 395520996,
+      "sha256": "80ad0b9192690cc4959fafe31fcb53ba6a127a1831da4e44787cf9ed2a57ffb0"
+    },
+    {
+      "label": "B analiz",
+      "path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount.zip",
+      "bytes": 320749,
+      "sha256": "0de7f49d376afece37e5d132fa243e2f5d9746494d13d2efe6b5731d8169ec9e"
+    }
+  ],
+  "report_sha256": "47ee96cbde661f9f5477b9e33c0b80609da6c4ea6fc2f7da9eec42a2190f3925",
+  "tables_sha256": "b0f60057a824bbdd5a1c9ac94f8d41f9a63205ba86c8752670fa219144404284",
+  "counts": {
+    "A_summary": 4,
+    "A_corruption": 60,
+    "B_summary": 279,
+    "B_corruption": 4185,
+    "B_paired": 479,
+    "B_readouts": 31,
+    "B_pooled_readouts": 93
+  }
+}

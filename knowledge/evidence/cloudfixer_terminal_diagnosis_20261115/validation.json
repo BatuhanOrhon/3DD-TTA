@@ -1,0 +1,7 @@
+{
+  "independent_readout_recounts": 51,
+  "inputs_sha256_verified_in_main": true,
+  "python38_ast": true,
+  "script_sha256": "13ec4daf517dd1fd9cd448ccebe629c2c45528da8d74e9bc428279fb74ada7de",
+  "diagnostics_sha256": "8ff63abe949b281462acb6de8679827f3173eb3a282372ee2a28ca4e7ad1dbb3"
+}

@@ -1,0 +1,24 @@
+{
+  "status": "scientific_documentation_review_pass_no_corrections",
+  "utc": "2026-11-21T08:16:09.290150+00:00",
+  "reviewer": "/root/review_r12_recovery",
+  "report_sha256": "47ee96cbde661f9f5477b9e33c0b80609da6c4ea6fc2f7da9eec42a2190f3925",
+  "checks": [
+    "all input/archive/report/table hashes and links",
+    "same sampler bytes in frozen A9afa/B eec",
+    "nine B pooled primary contrasts and nine seed intervals",
+    "15 B pooled corruption rows",
+    "nine entropy weighting rows",
+    "canonical contribution margins/top1 counts",
+    "entropy AUC/confidence counts",
+    "cumulative correction and endpoint RMS/margins",
+    "Nτ contrasts",
+    "pre/post/preextra sign reversal including repair/harm and CI order",
+    "A whole-policy versus B same-trajectory interpretation"
+  ],
+  "not_repeated": [
+    "bootstrap recomputation",
+    "GPU/model inference"
+  ],
+  "scope": "Read-only review; no files or runtimes modified"
+}

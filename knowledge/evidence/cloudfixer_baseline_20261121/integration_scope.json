@@ -1,0 +1,171 @@
+{
+  "source_branch": "research/cloudfixer-transfer-20261114",
+  "source_commit": "92b456c49a1d2c5bd03013fd2e0bec4d5a4486e6",
+  "shared_base": "be2ad78c7de559c081ee9d67e584553bd2efeee8",
+  "target": "origin/thesis-integration",
+  "own_integration_branch": "integration/cloudfixer-ab-baseline-20261121",
+  "included_files": {
+    "cfgs/cloudfixer_point2vec_assets.json": "dd670c4ffb8688503e2af304b3266ca72530103eb4ac6c105dcc17d43230bdbc",
+    "cfgs/cloudfixer_transfer_assets.json": "5ff6ab89ce19771c0be9df4d4f870695973501f23c26e815a399e61c106b7f47",
+    "cloudfixer_diffusion.py": "3e3c66246af5dff79603f9263ab784040a32c7d0c0bde0fe398900ca862d6f27",
+    "cloudfixer_store.py": "5f93c079a5a080de85b0a1f7028d08e2fe628d944d540e46657792a9b330e179",
+    "docs/superpowers/plans/2026-11-14-cloudfixer-transfer.md": "1c5f05ef55cd203389afe093fd076bf47a9a07a58d5f5f8b3e55727fe229570b",
+    "docs/superpowers/specs/2026-11-14-cloudfixer-only-proximal-pm-design.md": "dbdb1d15a915dff63a5d94b31e20be918cf3a1b2420382e4d0ff72b36f3ff9e9",
+    "knowledge/cloudfixer_ab_detailed_tests_results_20261121.md": "47ee96cbde661f9f5477b9e33c0b80609da6c4ea6fc2f7da9eec42a2190f3925",
+    "knowledge/cloudfixer_baseline_rotation_background_20261121.md": "b019be0138c45edcb320692243fac69c039bb71794617ca598150cc979f849cd",
+    "knowledge/cloudfixer_entropy_weighted_pm_20261115.md": "8f1bd3f305981fec829034439493b05b264fd66dec8c281129ef49dafed19e88",
+    "knowledge/cloudfixer_nstep_entropy_20261115.md": "9a0fccd5a9a30a9fd8dcdcc6dfdbb6a9a61063da271335851b0a6475e5bbac19",
+    "knowledge/cloudfixer_paper_protocol_audit_20261115.md": "2702002daf8ae9efca951dc130ea3150526e65b00066869a9451488471eefb30",
+    "knowledge/cloudfixer_pm_hypotheses_confirmation_20261118.md": "6346295848ea364ff345352ffabc127844d31bab6413055df37b3f9ae8e273e9",
+    "knowledge/cloudfixer_point2vec_full_results_20261120.md": "57dadb1aad38342f8467d67501145a4bb5d6e0c8413e80485bbf4238ec4b11a9",
+    "knowledge/cloudfixer_point2vec_hypothesis_handoff_20261118.md": "2a01554893cbb45c49d8be259ddf262d39b45ff7ca793e602e83de99999c5b74",
+    "knowledge/cloudfixer_terminal_diagnosis_20261115.md": "604632fdd5f3ce125b62d64dc97a1df06c65c0bef99e7e07d8a1330b2385c0f9",
+    "knowledge/cloudfixer_transfer_execution_20261114.md": "6bd63429fe08df08027ec512111ea5ae89bffc7ceda1098e2d9cc2ef10be8c4f",
+    "knowledge/cloudfixer_transfer_preparation_20261114.md": "6a41b5051e07f2f90521e690db302b573c628421fb5b2990690c05dc38f20f27",
+    "knowledge/cloudfixer_transfer_results_20261115.md": "4a7fbc418f698a9ac096a5a17dd1ae7dfe6c3ba07b3683f3052b60bfb0b5a2ea",
+    "knowledge/cloudfixer_two_colab_execution_20261118.md": "93047c9947243bbeeeb88a6f017d94ef0ca31ad806b4abed328d8abb009be824",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/b_accepted_tables_receipt.json": "269b2ff44229b9b271d05c2c6fb2b66e6e7d950d5f0e0620791fcf2868ea2b2e",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/b_canonical_contributions.json": "3393b380aceaf8a38b0647abba703cf84fd3b1fbd0fd69e57e82dc9e13b507cd",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/b_diagnostics.json": "dca65ef48927dd91a531a8dc9f1c4118b4b4f89443d354cc11b65edc52b59666",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/b_paired.csv": "84f008181f98bd1a491f7214d9e021bcfaceeacb4e54dab63af15cc4af5df155",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/b_per_corruption.csv": "6318b0fab0f41db85e90acdd72952b15ac20c85e2b5d312d6f2751d333b091c3",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/b_summary.csv": "ce08f28b01a53869b681686f7c6926bcb633ab9db41b25e49ec4f7f8e5fc853d",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/b_validation.json": "b27cdb59f43417977359b720f7ef37d0d5132e13f8d3454c18fba9d985c1b65e",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/documentation_source_bundle.zip": "da7345e02c2d8287f7c0ec675abb37f058f05d2ca9b06aa01bbbd221e567f860",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/documentation_source_bundle_receipt.json": "896ef5b40eb5dd7d6db6cfb085632519524cfde18b08f6bf1a83b3dda5ee14de",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/independent_review.json": "d3f19a07f485e21f23631421ea910c65f304a1abd34ae58fbf72eddff748aac8",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/source_receipt.json": "7405f4e10314f56b20b035ea86a28b959494464e04b0faf8aba2061dd96b11fa",
+    "knowledge/evidence/cloudfixer_ab_record_20261121/verified_report_tables.json": "b0f60057a824bbdd5a1c9ac94f8d41f9a63205ba86c8752670fa219144404284",
+    "knowledge/evidence/cloudfixer_baseline_20261121/decision.json": "f492d6f9181637d5b224145c2dff7d53773a3185befed332d5b548eb871a515f",
+    "knowledge/evidence/cloudfixer_baseline_20261121/recount.py": "fa77bc385c33bd1815246f9b611c7a8fb7c16b2d1fd5456fdaf444046f5619c6",
+    "knowledge/evidence/cloudfixer_baseline_20261121/verification.json": "2c04cefebcdae72ca202c39ea20591803c5afcb838fd2cfa7aae42654be765d1",
+    "knowledge/evidence/cloudfixer_entropy_weighted_pm_20261115/accepted_readouts.json": "16a8888bca4887d0591577665297fb34edb20551ac4af2a0ae656e9d2bad9760",
+    "knowledge/evidence/cloudfixer_entropy_weighted_pm_20261115/archive_receipts.json": "b76932ec19bad42619e531c56e6278404e3b281201d88e88a53f7b7053c8b72c",
+    "knowledge/evidence/cloudfixer_entropy_weighted_pm_20261115/independent_recount.json": "072df0ca8172365a887dc65783f5c82729e1f0a2cb5e6c399a2dc068d06d0dc5",
+    "knowledge/evidence/cloudfixer_entropy_weighted_pm_20261115/per_corruption.csv": "91ddeaaf71142afb0ea71b2f493880bcab5594e12da73ef81faf4b65bd86beee",
+    "knowledge/evidence/cloudfixer_entropy_weighted_pm_20261115/summary.csv": "bb8c42d4cd5c82e5c3d17e48a013264d19f943699bba75c95b801048216bce2c",
+    "knowledge/evidence/cloudfixer_nstep_entropy_20261115/entropy_candidates.csv": "43af54f2b77710f9f65463bd902b39d9e86573b0072e104ad9a4a5638178ef17",
+    "knowledge/evidence/cloudfixer_nstep_entropy_20261115/entropy_cases.csv": "540d8e002a7f5ff673ebf8d94a0108f1ffb327714c974aed8afba00e27b0969c",
+    "knowledge/evidence/cloudfixer_nstep_entropy_20261115/entropy_per_corruption.csv": "5601ad981c20500fd759377b060ee9194fe3adccc5c97a81955ea82bed69b63b",
+    "knowledge/evidence/cloudfixer_nstep_entropy_20261115/entropy_t20_terminal_by_corruption.csv": "799730736d930290ae6263b65b9dce30d6d7e70d3ba93340f49b902346b982e0",
+    "knowledge/evidence/cloudfixer_nstep_entropy_20261115/nstep_grid.csv": "3779c44946b4ba599b5b0b855e87018fb2fe40f5d5acff954e3c8f7823d9cf4e",
+    "knowledge/evidence/cloudfixer_nstep_entropy_20261115/nstep_per_corruption.csv": "5177ac59a3c6ccf18c63e86c481e7bdcc02cf9838f88ab9ad067b250e32745f4",
+    "knowledge/evidence/cloudfixer_terminal_diagnosis_20261115/diagnostics.json": "8ff63abe949b281462acb6de8679827f3173eb3a282372ee2a28ca4e7ad1dbb3",
+    "knowledge/evidence/cloudfixer_terminal_diagnosis_20261115/drive_backup_receipt.json": "19ca0c7bd1d4aea2e2581065c8bbdaf72cc9a31c3b505d8b4bde3ada1f686ed5",
+    "knowledge/evidence/cloudfixer_terminal_diagnosis_20261115/validation.json": "fdcc65e936f4e8c3b69eaa57611dd1e6122aacc4211831512349eaf2a9f3b527",
+    "knowledge/evidence/cloudfixer_transfer_20261114/canonical_setup_verification.json": "9881bae94251511c79fdb21cf75d36c35bb41e5a183e1e2a21ba0fd2c4608306",
+    "knowledge/evidence/cloudfixer_transfer_20261114/checkpoint_gamma_coefficients.json": "f3dc51ce0a1efb8dc91c03ea193e52e5018568b02b50bd0d314a8f54122732f9",
+    "knowledge/evidence/cloudfixer_transfer_20261114/checkpoint_gamma_ema_reproduction.json": "77671bcd2b790e86b2a8c1a56845ce3e68914bc46db8b7b87939a5dca23b15db",
+    "knowledge/evidence/cloudfixer_transfer_20261114/development_grid.csv": "422743d091ecbe341b896eb30231dee9da5847945b4b139c2b347fbf6cbca598",
+    "knowledge/evidence/cloudfixer_transfer_20261114/development_per_corruption.csv": "522a5362c2b5d2bdb678b34b02cf66f831cd4d17cd77675872db60d1ed071d52",
+    "knowledge/evidence/cloudfixer_transfer_20261114/development_reference_per_corruption.csv": "89ef9d6013886af417b3a185237555f594f426ac87224ba77e87d8716ad84e85",
+    "knowledge/evidence/cloudfixer_transfer_20261114/implementation_validation.json": "4ebc8f885c81fa3c3344ddcfd0b5297c147ff6a4c3920bcb610c3d441f84e3d3",
+    "knowledge/evidence/cloudfixer_transfer_20261114/paper_pointmae_per_corruption_comparison.csv": "efb93e1b8b791e943093fc697cb53dfc15bf68480b4d2fa75fc48a7e63083c39",
+    "knowledge/evidence/cloudfixer_transfer_20261114/sources.json": "351efdfad4f9d38cef6dc6d8280bcb245635863fdd73f7541107aa07ca848ec9",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/a_full_point2vec_paired_policy_differences.csv": "0a8abc91df65ac7ddde5b281293617e3fa391497bfe178bd411a2d99aac318cc",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/a_full_point2vec_per_corruption.csv": "9abf253c6a928352fe1b55c59ef5422c5647fd1f7d1a833d3990bb09ce10b2fc",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/a_full_point2vec_summary.csv": "b18405bb299b0ebc3c8184ddcc0b8a6402bfc33243667b657907cb8e11fda8a4",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/b_derived_drive_acceptance.json": "0c03b107ed2f837c36ca46ea46b76834e146fc39e69665eaf0da06e9538c5007",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/b_pilot_independent_validation.json": "6aa9a773d1a46bd61358cdcc14e3a6c07a83c9b84a01252b68f281b9b0d50600",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/b_pilot_reopen_and_phase_estimate.json": "f3a33ba4c2f7f5f8138b3559d256f5a1dc0bac266841e7e3f837debb2e62e50f",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/confirmation_id_audit.json": "b084f5ef283bdc0d7de1157c225ff1b98e8df1cdcebc1f3907b3b6beaed618dc",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/r13_final_runtime_closed_verification.json": "a0bb5c66b80158bd3fe4e6b38eeef85f8a2a5ef335c0a32479ba159bfac96ca6",
+    "knowledge/evidence/cloudfixer_two_colab_20261118/r13_final_scientific_preservation_acceptance.json": "e1a4fb41c67e693f8734e9db253142cc4b039bbbe9fe59b700999157774fa1aa",
+    "pointcloud_proximal.py": "170151c455120e869358646f531ca2d24864a90c930f1bf61b3375784f3cea24",
+    "scripts/analyze_cloudfixer_canonical_contributions.py": "492c74f5c2587d5f86a0825fcd761a8c8527e94677a45b1360c31c9f143b2cc6",
+    "scripts/analyze_cloudfixer_exploration.py": "67978b7435060a159ae87c8cf7f7eef16641268336e9de4a3b22ea92e12692ac",
+    "scripts/analyze_cloudfixer_hypotheses.py": "1332f532043fb453f3151e68e5dccaf923e9ba2d58db1bff03dddf39138322de",
+    "scripts/analyze_cloudfixer_point2vec.py": "6137485b3cfada92a2a65577f4416eee85af42d05f2e84e1bfccfb22c41cb545",
+    "scripts/analyze_cloudfixer_weighted_pm.py": "7140904720dcdf747804334349593c73e9a436d612ccf667102bb1cf5942500f",
+    "scripts/diagnose_cloudfixer_terminal.py": "13ec4daf517dd1fd9cd448ccebe629c2c45528da8d74e9bc428279fb74ada7de",
+    "scripts/prepare_cloudfixer_transfer.py": "a7cb1615c181dd769dcdabf4aa14071f1dc01dd7817b3834b446a153244086f0",
+    "scripts/run_cloudfixer_exploration.py": "1d89a4610c73a9ebfb134d095fe18e1c14e976281f3a717c4781e657316ca547",
+    "scripts/run_cloudfixer_hypotheses.py": "e8d9cd10e9730e86e81606c445f5e571c944a32e61649b67e8fb7ee183c37bdb",
+    "scripts/run_cloudfixer_point2vec.py": "ec0e90cfcd2fe7bcf44e8c689e57f64fa99379e7e20a719cf2a7a7209c1a49fc",
+    "scripts/run_cloudfixer_transfer.py": "ce49112d99cff295eacca1409431b458762a27ded8d83e399e910348f03feb2d",
+    "scripts/setup_cloudfixer_point2vec_colab.py": "71b90ee315a56736c1af84f8c6d999111eecca36369f57a30fb5699a0422d902",
+    "scripts/summarize_cloudfixer_reference.py": "a72aa9b36ba7371aeb92c76eafa5b400b2d5099972de4725418f3559ec8b4feb",
+    "tests/test_cloudfixer_canonical_contributions.py": "0dd67a79e2c91122427b728539e05fa717cb4731d7ce788446098fb9af67d218",
+    "tests/test_cloudfixer_dense_runtime.py": "790a2f62a9ca6e946c112e2ea7ff00e1016412d7c65be19128b34c2ab9884091",
+    "tests/test_cloudfixer_diffusion.py": "0f80df978136425cbcb18ade1af4a88973b9d16892d38dbc4dfb1102e70a4342",
+    "tests/test_cloudfixer_exploration.py": "642bdf267b102d86e65519f9b32cd0fbf6e842073ade791e999a96e41c8da09f",
+    "tests/test_cloudfixer_exploration_analysis.py": "0a0ee521d4a792513043bb0dd865aa17f919d882c926eac6b2bce235f1757b06",
+    "tests/test_cloudfixer_hypotheses.py": "9019ab574d4e8fd8028554e8fc573d3a6e7ac3068705a494a22a197a04244df4",
+    "tests/test_cloudfixer_point2vec.py": "8863aeba0d3b3004cd09010d316e6a190aff04cb27c55eab3fdf727a02d3ab79",
+    "tests/test_cloudfixer_point2vec_analysis.py": "e0e770fd3cc7858a5dfceb4ec123d4c9fa93ef1ffe6e444ec4cf5213a72da5db",
+    "tests/test_cloudfixer_point2vec_setup.py": "d5660e240423539db74ca52f8919a37682f472db41125262960b2bbc9bc2966f",
+    "tests/test_cloudfixer_preparation.py": "fa7dddd695e536312852ef000a721c7dd616f7bb79e1dd94d47f0040e9bb4088",
+    "tests/test_cloudfixer_reference_summary.py": "58aa7f5195e83cfcb07273f9feacbe451d5c0258873263433e886131609b5230",
+    "tests/test_cloudfixer_store.py": "8e999c46d4b236c8f4df5bb1d5da9d38843ec0c228823295470410777d216671",
+    "tests/test_cloudfixer_transfer.py": "b73b801fb118195f5f0a7d6aef5c391be2ac287cdbbe076b35f4dc56f9f06ed8",
+    "tests/test_cloudfixer_weighted_pm.py": "01b683d2a658bb9bf1949fc1018090970a7df9a16d35dcf3f3210625dfb072df"
+  },
+  "shared_files_reconciled": [
+    "knowledge/README.md",
+    "knowledge/current_baseline.md",
+    "knowledge/experiment_protocol.md",
+    "knowledge/findings_log.md",
+    "knowledge/method_synthesis.md",
+    "knowledge/open_questions.md",
+    "knowledge/repository_map.md",
+    "knowledge/reproduction_gap.md",
+    "knowledge/cloudfixer_thesis_readiness_20261118.md"
+  ],
+  "selection_reason": "Tested XYZ proximal sampler, exact A/B runners and analyzers, strict classifier assets/setup, all focused tests, complete numerical result families and scientific history required by linked reports",
+  "exclusions": {
+    "entire_source_branch": "not merged; preserve newer shared LION/citation work",
+    "raw_result_archives_weights_datasets": "retained local/Drive with identities in accepted reports; no new raw upload",
+    "temporary_recovery_wrappers_and_auth_status_dumps": "not needed to execute or assess the selected algorithm/results",
+    "lion_guidance_pilot_shared_helper_refactor": "not required by standalone XYZ module; preserve target implementation",
+    "old_source_shared_knowledge_whole_copies": "merge only new policy by meaning; preserve target accepted evidence"
+  },
+  "checks": [
+    "all selected source bytes identical",
+    "all selected Markdown local links resolve except intentionally external result artifacts",
+    "all9shared accepted texts preserved in order",
+    "LION CLI/worker/implementation and citation review unchanged",
+    "copied ZIP CRC and path checks",
+    "no copied Google consent URLs or access-token prefix",
+    "B accepted-table hashes and all479paired arithmetic/interval-order checks"
+  ],
+  "tests": {
+    "command": "/tmp/cf-baseline-integration-20261121-venv/bin/python -m pytest -q tests/test_cloudfixer*.py",
+    "result": "146 passed in 6.90s",
+    "execution": "macOS ARM64 Python3.12 torch2.6.0 numpy1.26.4 pytest8.3.5 CPU"
+  },
+  "actual_package_checks": {
+    "Point2Vec": {
+      "official_cloudfixer.tar": {
+        "bytes": 5570560,
+        "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+      },
+      "research_overlay.zip": {
+        "bytes": 63587,
+        "sha256": "882d3edebfda2e156238c8aef36be1b3d80892654262303ee4731416908490cb"
+      },
+      "manifest.json": {
+        "bytes": 67079,
+        "sha256": "de502a34a9682d88a7c67a28bd1ca24978d9367ff7b342dddd4b7e34c493d078"
+      }
+    },
+    "PointMAE_hypotheses": {
+      "official_cloudfixer.tar": {
+        "bytes": 5570560,
+        "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+      },
+      "research_overlay.zip": {
+        "bytes": 89700,
+        "sha256": "21f14c8087c46661c8e3e86db63b9200e6fe4abfdd1937ad90a81e87a354757a"
+      },
+      "manifest.json": {
+        "bytes": 71110,
+        "sha256": "a67769ae577119a5ca0dc449c3276b4dbd5ab709a5a3b448d7a0bd7b12a29120"
+      }
+    }
+  },
+  "limits": [
+    "No new GPU/native numerical parity run or geometry correction accuracy",
+    "Single A seed/native realization; nominal conditional intervals",
+    "Original CRLF CSV bytes retained; git whitespace check recognizes cr-at-eol"
+  ]
+}

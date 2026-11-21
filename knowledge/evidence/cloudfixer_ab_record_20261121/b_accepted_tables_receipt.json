@@ -1,0 +1,32 @@
+{
+  "b_canonical_contributions.json": {
+    "original_path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/canonical_contributions.json",
+    "bytes": 27344,
+    "sha256": "3393b380aceaf8a38b0647abba703cf84fd3b1fbd0fd69e57e82dc9e13b507cd"
+  },
+  "b_diagnostics.json": {
+    "original_path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/diagnostics.json",
+    "bytes": 28303,
+    "sha256": "dca65ef48927dd91a531a8dc9f1c4118b4b4f89443d354cc11b65edc52b59666"
+  },
+  "b_paired.csv": {
+    "original_path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/paired.csv",
+    "bytes": 98228,
+    "sha256": "84f008181f98bd1a491f7214d9e021bcfaceeacb4e54dab63af15cc4af5df155"
+  },
+  "b_per_corruption.csv": {
+    "original_path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/per_corruption.csv",
+    "bytes": 806925,
+    "sha256": "6318b0fab0f41db85e90acdd72952b15ac20c85e2b5d312d6f2751d333b091c3"
+  },
+  "b_summary.csv": {
+    "original_path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/summary.csv",
+    "bytes": 53140,
+    "sha256": "ce08f28b01a53869b681686f7c6926bcb633ab9db41b25e49ec4f7f8e5fc853d"
+  },
+  "b_validation.json": {
+    "original_path": "result/modelnet40_c/cloudfixer_hypotheses/20261118-093757_confirmation_recount/validation.json",
+    "bytes": 3628,
+    "sha256": "b27cdb59f43417977359b720f7ef37d0d5132e13f8d3454c18fba9d985c1b65e"
+  }
+}

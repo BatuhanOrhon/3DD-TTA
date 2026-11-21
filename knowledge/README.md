@@ -1,3 +1,18 @@
+**[Decision/Run/Code/Inference] 2026-11-21 — CloudFixer XYZ operational baseline and geometry focus:**
+New development reference: N8/K80/tau.1/retained.95 equal late PM[20,10,0],
+existing tested Point2Vec `proximal_pm` arm. A74.954079% trails plainCF77.244733%;
+B supports shared-trajectory latePM, not Point2Vec whole-policy superiority.
+Rotation/background account for795/848 net deficit; matching CF there leaves53.
+[Baseline and falsifiable next-stage analysis](cloudfixer_baseline_rotation_background_20261121.md) ·
+[Full A/B test record](cloudfixer_ab_detailed_tests_results_20261121.md).
+Historical LION code/results retained. No new GPU/tuning; selective shared-branch integration.
+
+**[Run/Code] 2026-11-21 — A/B detailed tests and accepted results:**
+[Detailed Turkish inventory](cloudfixer_ab_detailed_tests_results_20261121.md)
+records full Point2Vec A and reserved256/three-seed Point-MAE B, all readout
+families, negative outcomes and native/recovery limitations. Both studies are
+complete; no new GPU phase. [Numerical evidence](evidence/cloudfixer_ab_record_20261121/verified_report_tables.json).
+
 **[Paper/Code/Run/Inference] 2026-11-18 — Which methods outperform CloudFixer?**
 The [Turkish citation review](cloudfixer_citation_review_20261118.md) compares the
 actual CloudFixer variants in GSDTTA, Uni-Adapter, Point-Cache and SMART-PC,

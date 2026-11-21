@@ -1,3 +1,11 @@
+[Run/Decision — 2026-11-21 güncellemesi] Bu 18 Kasım incelemesinin tarihsel
+LION/literatür bulguları korunur. Sonradan tamamlanan A tam Point2Vec ve B
+hipotez doğrulaması için [A/B ayrıntılı sonuçları](cloudfixer_ab_detailed_tests_results_20261121.md)
+ve [yeni XYZ çalışma baseline kararı](cloudfixer_baseline_rotation_background_20261121.md)
+geçerlidir. A74.954079% PM, plainCF77.244733%'ü geçmedi; rotation/background
+795/848 net açıkla öncelikli araştırma yönüdür. B'de kendi terminaline geç-PM
+kazancı, A'da CF'a üstünlük veya LION/XYZ backbone nedenselliği değildir.
+
 # LION ve CloudFixer üzerinde tez yönteminin doğruluğu ve yayın hazırlığı
 
 18 Kasım 2026. **LION üzerinde en sağlam sonuç, aynı proksimal N8 yörüngesinden dört temiz tahmini birleştirmenin sekiz veri kümesi–sınıflandırıcı çiftinde de o yörüngenin son tahmininden yüksek ortalama doğruluk vermesidir.** Yine de tek bir sabit ara adım, ScanObjectNN-C / Point-MAE’de ortalamayı geçiyor. CloudFixer’ın XYZ modeli üzerinde ise aynı dört-adım kuralının yönü ayara göre değişiyor. İki sistemde ortak bir algoritma ilkesi denenmiş, zaman seçiminin iki sistem arasında kendiliğinden taşınmadığı ölçülmüştür.

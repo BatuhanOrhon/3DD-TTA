@@ -1,0 +1,11 @@
+{
+  "status": "owned_r13_closed_server_assignment_absent",
+  "utc": "2026-11-20T20:35:58.158429+00:00",
+  "session": "tta-cloudfixer-point2vec-recovery-a100-20261120-r13",
+  "endpoint": "gpu-a100-s-usw4b0-3turcmp9s9iyb",
+  "stop_returncode": 0,
+  "server_assignment_present": false,
+  "balance_cu": 90.1,
+  "rate_cu_per_hour": 0.0,
+  "active_assignments": 0
+}

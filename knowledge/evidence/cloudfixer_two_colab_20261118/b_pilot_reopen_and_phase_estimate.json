@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "n_pilot_payloads": 12,
+  "cache_payloads_environment_and_pilot_gate_identical": true,
+  "original_sha256": "00109b48164d48ce8f82617b859b65c5975226a9e0f7a42b3391140e4b57e41a",
+  "reopened_sha256": "c26676682403ec5247496ef520d8a96301da8e7a86f9b154db7c483d2a88b878",
+  "n8_dense_seconds_per32objects": 4.635553583250044,
+  "pure_inference_hours": 1.8542214333000175,
+  "whole_confirmation_hours": [
+    2,
+    3
+  ],
+  "estimated_confirmation_cu": [
+    17.76,
+    26.64
+  ],
+  "n8_confirmation_format_mean_payload_bytes": 283645.5,
+  "projected_B_cache_bytes": 397103700,
+  "projected_B_cache_plus_archive_bytes": 794207400,
+  "projected_A_cache_plus_archive_bytes": 268835580,
+  "drive_free_bytes_before_pilot": 2148360192,
+  "storage_margin_bytes": 536870912,
+  "caveat": "Timing scales N8 to N12; other corruptions and Drive overhead uncertain. No independent cloud-sync guarantee."
+}

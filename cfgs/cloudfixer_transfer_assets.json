@@ -1,0 +1,25 @@
+{
+  "author_commit": "f043e24414fcf4165fdc892abff21215c9989141",
+  "classifier_sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75",
+  "diffusion_sha256": "b64841d022e08b1a89f58dd9b16d9023e00be52fbca3dca735d5798362bb5a5a",
+  "diffusion_drive_id": "1MKX6_bG6rrqEqQCjY4sRQt3z9DDYG7k4",
+  "dataset_files": {
+    "label.npy": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+    "data_background_5.npy": "db05e75cffb4440323a064df9e23ebd526584daf027f9ad02e391a36b051a616",
+    "data_cutout_5.npy": "b3ffb68ec412f54c89e02b5c128b3590eeaf16dd4ff08cc89f7039247a6c9c4b",
+    "data_density_5.npy": "bdde461b92427a0eaafc125eb93c8af89d979c0141d6ca5ae8e2bd61d6be65ba",
+    "data_density_inc_5.npy": "719fd79232fb6c6a72e83d4f5f219d499b253b2caadc55bd128110bb299ee86b",
+    "data_distortion_5.npy": "43b5849e878ba73bbda781491b689db3af5cd958dc8d57c2fd6b4460a584e19e",
+    "data_distortion_rbf_5.npy": "9cbcca3ee41e0f10e77b36aaa9b7021095aae860e81688009cbd8bab0055b596",
+    "data_distortion_rbf_inv_5.npy": "604c6acaacc4111dcef1cc22dee936c938e00cfafff9c7bb569d4b78a2439cce",
+    "data_gaussian_5.npy": "bf762a8f441a4234d0ca3e91da1f5101440acb7e5902c4854300041103f7171c",
+    "data_impulse_5.npy": "2174438eec71c4d98ebf23b48c5571805e280411a2a3a0ff51ee377462d50cfb",
+    "data_lidar_5.npy": "99ccaf1d62b5b308dd34d4fc1b09013cba8b73e9d1c8f0df1e94cfb812b9e91a",
+    "data_occlusion_5.npy": "5f37e9de373402007214fcb9fc90e00db4783f9801d0620f21bbeee6328cda2c",
+    "data_rotation_5.npy": "b75c5c8c0cb0ed57038d4677750a5e4fdad3aaf82de96357f33fe7c3a3bc4958",
+    "data_shear_5.npy": "78df0043e5cea431d10c817ac6a13e85e6e246fc64765e32546ecdd1d6614069",
+    "data_uniform_5.npy": "2cfbe01e02ae6745503eddf548db8f362656e92ec7efc6636281468547c73572",
+    "data_upsampling_5.npy": "4984bfac96c7b559727fd0d967d115855eab30a315c3c3b2608cc43878fd782e"
+  },
+  "provenance": "Expected identities from the archived2026-11-10 author-weight/Drive-data pilot; reverify actual bytes before execution."
+}

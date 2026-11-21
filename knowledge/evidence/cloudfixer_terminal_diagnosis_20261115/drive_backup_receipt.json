@@ -1,0 +1,12 @@
+{
+  "bytes": 427516,
+  "completed_utc": "2026-11-15T16:56:37.939902+00:00",
+  "drive_folder": "/content/drive/MyDrive/thesis/result/cloudfixer_terminal_diagnosis_20261115",
+  "name": "20261115-165611_diagnosis.zip",
+  "sha256": "696016fe13aa5a89c0720766222dc511900a3b41ccc1bcd31d25a57d7d956b18",
+  "verification": "DriveFS atomic write/SHA readback; independent server sync unproven",
+  "local_drivefs_readback_sha_verified": true,
+  "independent_server_sync_proven": false,
+  "live_session": "tta-cloudfixer-weighted-pm-drive-cpu-20261115-r1",
+  "teardown_issued": false
+}

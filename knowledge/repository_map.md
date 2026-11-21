@@ -1,5 +1,30 @@
 # Repository Map
 
+
+## 2026-11-21 — A/B baseline decision and geometry questions
+
+[User report/Decision/Run/Code/Inference/Open] The main new-method development
+reference is now CloudFixer XYZ proximalN8/K80/tau.1/retained.95 with equal
+late pre-clean20/10+true-t0 probability mean. A's full Point2Vec seed2/B1
+result74.954079% loses to plainCF77.244733%, paired−2.290654pp
+CI[−2.663425,−1.925918]. N32terminal73.233387% stays as a negative comparator;
+source61.985413% remains a control. This chooses a working policy, not a claim
+of efficacy over CF. B's reserved256/three-seed same-trajectory evidence
+supports latePM, not isolated Point2Vec PM or a backbone effect.
+
+Rotation−529 and background−266 account for795/848 net deficit,93.75%.
+Only matching CF in those cells leaves53 net cases; other13 unchanged requires
+at least849 net gains to beat the observed single-seed CF count. Explicit
+SO(3), robust-anchor, preprocessing and correction/prior conflict explanations
+remain hypotheses; propose isolated pose/anchor controls before combination,
+source-derived development, frozen all15 policy and original-ID/seed-aware
+validation. No corruption-name routing, test-label retuning or newGPU.
+[Detailed decision, code boundary, arithmetic and falsifiers](cloudfixer_baseline_rotation_background_20261121.md).
+Existing LION defaults/data, accepted shared literature and native variability
+limits remain under their dated protocols. Older A-running statements describe
+historical checkpoints: A/B are complete, no pending runtime task.
+
+
 ## Current baseline entrypoint — 2026-11-08
 
 [Code/Decision] `scripts/eval_chamfer_baseline.py` defaults to

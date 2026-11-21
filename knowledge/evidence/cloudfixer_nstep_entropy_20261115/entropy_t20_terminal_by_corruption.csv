@@ -1,0 +1,16 @@
+corruption,n_examples,t20_correct,terminal_correct,delta_correct,delta_percentage_points,terminal_wrong_t20_correct,t20_wrong_terminal_correct
+background,128,40,40,0,0.0,3,3
+cutout,128,100,101,-1,-0.78125,3,4
+density,128,90,89,1,0.78125,5,4
+density_inc,128,109,107,2,1.5625,4,2
+distortion,128,86,89,-3,-2.34375,3,6
+distortion_rbf,128,91,85,6,4.6875,8,2
+distortion_rbf_inv,128,93,91,2,1.5625,5,3
+gaussian,128,114,112,2,1.5625,4,2
+impulse,128,116,115,1,0.78125,3,2
+lidar,128,53,50,3,2.34375,3,0
+occlusion,128,45,50,-5,-3.90625,0,5
+rotation,128,42,43,-1,-0.78125,2,3
+shear,128,77,76,1,0.78125,5,4
+uniform,128,116,112,4,3.125,6,2
+upsampling,128,112,109,3,2.34375,5,2

@@ -1,0 +1,7 @@
+{
+  "iterations": 2661,
+  "ema_gamma_sha256": "4b3df7c8fc1cd3bba40684eee11827915fa168e3fabd172c77a0017d06119125",
+  "checkpoint_gamma_sha256": "4b3df7c8fc1cd3bba40684eee11827915fa168e3fabd172c77a0017d06119125",
+  "algorithm": "Copied official EMA beta0.9999 applied to constant native polynomial500 gamma",
+  "all501_exact_hash_match": true
+}

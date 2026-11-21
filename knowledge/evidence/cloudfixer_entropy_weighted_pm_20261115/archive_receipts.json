@@ -1,0 +1,16 @@
+{
+  "20261115-152910_saved_logits": {
+    "path": "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/modelnet40_c/cloudfixer_entropy_weighted/20261115-152910_saved_logits.zip",
+    "bytes": 1719379,
+    "sha256": "8ca90bb8e7a040efa35ec3db3f211d54f4b2598d4db319e27058f97a44fb7801",
+    "accepted": false,
+    "scope": "CPU saved-logit analysis; no new model inference"
+  },
+  "20261115-153117_saved_logits": {
+    "path": "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/modelnet40_c/cloudfixer_entropy_weighted/20261115-153117_saved_logits.zip",
+    "bytes": 1723588,
+    "sha256": "9af29a2d70e5ad778775a9c0943f24c07f7bf2b93cda352256e607f84694fbd8",
+    "accepted": true,
+    "scope": "CPU saved-logit analysis; no new model inference"
+  }
+}

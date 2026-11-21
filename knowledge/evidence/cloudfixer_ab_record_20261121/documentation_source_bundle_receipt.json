@@ -1,0 +1,20 @@
+{
+  "status": "documentation_source_ZIP_CRC_and_member_bytes_pass",
+  "bytes": 15621,
+  "sha256": "da7345e02c2d8287f7c0ec675abb37f058f05d2ca9b06aa01bbbd221e567f860",
+  "members": {
+    "build_record.py": {
+      "bytes": 33368,
+      "sha256": "41618871341cea8e8bfa9319940b19a7184635ba83d06ef594722cd70b993a03"
+    },
+    "source_receipt.json": {
+      "bytes": 3788,
+      "sha256": "7405f4e10314f56b20b035ea86a28b959494464e04b0faf8aba2061dd96b11fa"
+    },
+    "independent_review.json": {
+      "bytes": 941,
+      "sha256": "d3f19a07f485e21f23631421ea910c65f304a1abd34ae58fbf72eddff748aac8"
+    }
+  },
+  "report_sha256": "47ee96cbde661f9f5477b9e33c0b80609da6c4ea6fc2f7da9eec42a2190f3925"
+}
