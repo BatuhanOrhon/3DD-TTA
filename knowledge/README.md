@@ -8,6 +8,8 @@ Rotation/background account for795/848 net deficit; matching CF there leaves53.
 [Gradient-free rotation literature and two testable updates](cloudfixer_gradient_free_rotation_20261121.md)
 records the required method citations, single versus progressive denoising-step
 pose updates, and per-corruption harm checks for both proposals.
+[New-session rotation experiment handoff](cloudfixer_rotation_agent_handoff_20261121.md)
+starts from the published research record in a new worktree.
 Historical LION code/results retained. No new GPU/tuning.
 [Selective integration record](cloudfixer_baseline_integration_20261121.md):
 primary code/results commit `ab88723` published to `origin/thesis-integration`.
