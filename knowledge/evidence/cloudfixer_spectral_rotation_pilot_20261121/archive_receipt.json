@@ -1,0 +1,59 @@
+{
+  "run_id": "20261121-183158_spectral",
+  "source_commit": "78850f534095debea4fd239ab5d81220b5f663a0",
+  "source_status": [],
+  "campaign": "fa6d48b2926967d3eeb341d2792bac0c6683029281b91a26c3e90295fb7dae9a",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "environment_sha256": "619cc5b98a23096815f22c0e67518fb0c6a3a8289484a4c302afa0e1f900b769",
+  "model_hashes": [
+    "b06cec8f25456e182c469304d9bfac98ea673db693fe3f92e7a3ed2251aa5574",
+    "a08ca898b3880a038170dff38ff516e921ef76b7490a32e704a860f927b22887"
+  ],
+  "clean_sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c",
+  "ids": [
+    122,
+    168,
+    1053,
+    1095,
+    1319,
+    1395,
+    1420,
+    1614,
+    1852,
+    1933,
+    2342,
+    2351
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "conditions": [
+    "clean",
+    "background",
+    "cutout",
+    "density",
+    "density_inc",
+    "distortion",
+    "distortion_rbf",
+    "distortion_rbf_inv",
+    "gaussian",
+    "impulse",
+    "lidar",
+    "occlusion",
+    "rotation",
+    "shear",
+    "uniform",
+    "upsampling"
+  ],
+  "paired_inputs": 576,
+  "method_evaluations": 4032,
+  "blocks": 48,
+  "archive_sha256": "d70a61ee44cef02fef9400f2f6236ef87376a5d3fa3efe0811ec0f79dbd750ef",
+  "archive_bytes": 7369701,
+  "drive_path": "MyDrive/thesis/cloudfixer_spectral_rotation_20261121/archives/20261121-183158_spectral.zip",
+  "setup": "Same A10040 verified native environment, author sources and checkpoint bytes; separate sealed research package",
+  "source_zip_sha256": "0facfc216bc77e3ec24aab14f2bbf848f3f64f070b1ce4e38d0fa5512f9242e2",
+  "acceptance": "Remote mounted Drive readback and CLI local ZIP SHA/CRC verified. Independent Python softmax/PM, per-arm counts, paired repairs/harms, seed deltas, SO(3), graph and model-call counts passed."
+}

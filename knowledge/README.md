@@ -3,8 +3,10 @@ Fixed-target Kabsch improved Rotation by +3.65 pp. Progressive gave +3.13 pp
 and +0.17 pp all15. Classifier-selected output and feedback each fell 9.90 pp
 on Background. No arm passed the registered continuation gates.
 [Paired accuracy, timing, uncertainty and evidence](cloudfixer_rotation_pilot_20261121.md).
-The user-authorized [spectral correspondence follow-up](cloudfixer_spectral_rotation_pilot_20261121.md)
-is running on a separate 12-object manifest.
+The [spectral correspondence follow-up](cloudfixer_spectral_rotation_pilot_20261121.md)
+completed on 12 disjoint objects, 16 conditions and three seeds. All three
+placements tied their matched Background counts at 18/36 and added 1.31–2.39%
+B1 policy time. No arm passed its expansion screen.
 
 **[Decision/Run/Code/Inference] 2026-11-21 — CloudFixer XYZ operational baseline and geometry focus:**
 New development reference: N8/K80/tau.1/retained.95 equal late PM[20,10,0],

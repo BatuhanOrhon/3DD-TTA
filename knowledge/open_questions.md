@@ -4,7 +4,7 @@
 - [x] Compare shared t20 selection output and feedback versus equal-query controls.
 - [x] Verify synthetic inverse errors, clean/corruption harms, clustered intervals and synchronized GPU cost.
 - [x] Apply extension gates. No arm was eligible for the full benchmark.
-- [ ] Complete independent pilot of spectral proxies for rigid fits and apply its screen.
+- [x] Complete independent pilot of spectral proxies for rigid fits. All schedules missed the Background screen.
 
 [Gradient-free result](cloudfixer_rotation_pilot_20261121.md) · [Spectral registration](cloudfixer_spectral_rotation_pilot_20261121.md).
 
