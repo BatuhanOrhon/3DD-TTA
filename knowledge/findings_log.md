@@ -9646,3 +9646,12 @@ open. The [research note](cloudfixer_gradient_free_rotation_20261121.md)
 now records mandatory attribution per component, compute-matched controls,
 and paired harm analysis across clean inputs and all 15 corruptions. The
 working N8 policy and its measured results remain the reference.
+
+## 2026-11-21 — CloudFixer gradient-free rotation implementation
+
+[Code/Run/Open] At base `6e812b400d7f27451256a1d2ae680344e8b7f604` the isolated
+pilot implements the single/fixed/progressive Kabsch and output/feedback comparisons,
+common random draws and same-query controls. CPU geometry validates direction and
+shows local correspondence error with ideal targets. A100 standard r9 is in setup.
+Learned-model direction, repaired and harmed labels, timings and continuation
+remain unmeasured. [Registration and evidence paths](cloudfixer_rotation_pilot_20261121.md).

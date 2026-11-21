@@ -1,3 +1,9 @@
+**[Code/Run/Open] 2026-11-21 — CloudFixer rotation pilot in setup.**
+Both gradient-free arms and their controls are implemented in the isolated pilot branch.
+CPU geometry and policy equivalence passed. Standard A100 r9 was assigned after capacity errors.
+See the [registration, sources, status and attribution](cloudfixer_rotation_pilot_20261121.md).
+Accuracy, harms and synchronized GPU cost remain open pending model runs.
+
 **[Decision/Run/Code/Inference] 2026-11-21 — CloudFixer XYZ operational baseline and geometry focus:**
 New development reference: N8/K80/tau.1/retained.95 equal late PM[20,10,0],
 existing tested Point2Vec `proximal_pm` arm. A74.954079% trails plainCF77.244733%;

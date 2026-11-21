@@ -38,10 +38,8 @@ def grid(*, steps: int, start: int) -> list:
 
 
 @torch.no_grad()
-def correct(q, reference, mask, *, tau: float, retained: float):
-    """Full predicted set versus valid observed anchors, with bidirectional trimming."""
-    if not math.isfinite(tau) or tau < 0 or not 0 < retained <= 1:
-        raise ValueError('Invalid proximal strength or retained fraction')
+def trimmed_neighbors(q, reference, mask, retained):
+    """Return bidirectional nearest neighbors and the two retained-pair masks."""
     keep_n = int(q.shape[1] * retained)
     keep_r = (mask.sum(1) * retained).long()
     if keep_n < 1 or (keep_r < 1).any():
@@ -51,14 +49,34 @@ def correct(q, reference, mask, *, tau: float, retained: float):
     d2, reverse = distance.min(1)
     keep1 = torch.zeros_like(d1, dtype=torch.bool).scatter_(1, d1.argsort(1)[:, :keep_n], True)
     keep2 = (d2.argsort(1).argsort(1) < keep_r[:, None]) & mask
-    return proximal_chamfer(q, reference, forward, reverse, keep1, keep2, tau)
+    return forward, reverse, keep1, keep2
+
+
+@torch.no_grad()
+def correct(q, reference, mask, *, tau: float, retained: float, measure=None):
+    """Full predicted set versus valid observed anchors, with bidirectional trimming."""
+    if not math.isfinite(tau) or tau < 0 or not 0 < retained <= 1:
+        raise ValueError('Invalid proximal strength or retained fraction')
+    if measure is None:
+        pairs = trimmed_neighbors(q, reference, mask, retained)
+        return proximal_chamfer(q, reference, *pairs, tau)
+    pairs = measure("local_matching", trimmed_neighbors, q, reference, mask, retained)
+    return measure("proximal", proximal_chamfer, q, reference, *pairs, tau)
 
 
 @torch.no_grad()
 def sample(model, x, mask, noise, *, steps: int, start: int, tau: float, retained: float = .95,
-           trace_all: bool = False, probe_indices=None, observe=None, fingerprint=False):
+           trace_all: bool = False, probe_indices=None, observe=None, fingerprint=False,
+           pose_reference=None, feedback_rotation=None, measure=None):
     """Return pre-correction clean estimates plus a native deterministic t0 terminal."""
     indices = grid(steps=steps, start=start)
+    reference = x
+    predict = model.phi
+    correction = correct
+    if measure is not None:
+        from functools import partial
+        predict = partial(measure, "denoiser", predict)
+        correction = partial(correction, measure=measure)
     if (x.ndim != 3 or x.shape[-1] != 3 or not x.is_floating_point()
             or x.shape != noise.shape or x.device != noise.device or x.dtype != noise.dtype
             or not torch.isfinite(x).all() or not torch.isfinite(noise).all()):
@@ -96,21 +114,27 @@ def sample(model, x, mask, noise, *, steps: int, start: int, tau: float, retaine
         t, alpha, sigma = coefficients(index)
         if fingerprint:
             trajectory.update(state.detach().cpu().contiguous().numpy().tobytes())
-        eps = model.phi(state, t, node_mask)
+        eps = predict(state, t, node_mask)
         clean = (state - sigma * eps) / alpha
         if not torch.isfinite(clean).all():
             raise FloatingPointError('Nonfinite diffusion clean estimate')
         if loop in loops:
             candidates.append(clean.clone())
         pre = clean
+        if pose_reference is not None:
+            reference = pose_reference(index, pre)
         if tau:
-            clean = correct(clean, x, mask, tau=tau, retained=retained)
+            clean = correction(clean, reference, mask, tau=tau, retained=retained)
+        if index == 20 and feedback_rotation is not None:
+            rotation = feedback_rotation(pre)
+            if rotation is not None:
+                clean, eps, reference = clean @ rotation, eps @ rotation, x @ rotation
         if observe is not None:
             observe(index, state.clone(), pre.clone(), clean.clone(), alpha.clone(), sigma.clone())
         _, alpha_s, sigma_s = coefficients(previous)
         state = alpha_s * clean + sigma_s * eps
     t, alpha, sigma = coefficients(0)
-    terminal = (state - sigma * model.phi(state, t, node_mask)) / alpha
+    terminal = (state - sigma * predict(state, t, node_mask)) / alpha
     if not torch.isfinite(terminal).all():
         raise FloatingPointError('Nonfinite terminal estimate')
     if observe is not None:
