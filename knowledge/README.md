@@ -5,7 +5,9 @@ B supports shared-trajectory latePM, not Point2Vec whole-policy superiority.
 Rotation/background account for795/848 net deficit; matching CF there leaves53.
 [Baseline and falsifiable next-stage analysis](cloudfixer_baseline_rotation_background_20261121.md) ·
 [Full A/B test record](cloudfixer_ab_detailed_tests_results_20261121.md).
-Historical LION code/results retained. No new GPU/tuning; selective shared-branch integration.
+Historical LION code/results retained. No new GPU/tuning.
+[Selective integration record](cloudfixer_baseline_integration_20261121.md):
+primary code/results commit `ab88723` published to `origin/thesis-integration`.
 
 **[Run/Code] 2026-11-21 — A/B detailed tests and accepted results:**
 [Detailed Turkish inventory](cloudfixer_ab_detailed_tests_results_20261121.md)

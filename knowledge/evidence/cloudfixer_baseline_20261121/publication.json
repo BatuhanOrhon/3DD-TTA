@@ -1,0 +1,12 @@
+{
+  "status": "primary integration published and remote head independently read back",
+  "verified_utc": "2026-11-21T09:49:59.059993+00:00",
+  "source_commit": "92b456c49a1d2c5bd03013fd2e0bec4d5a4486e6",
+  "integration_commit": "ab88723bb74a376572097822191cd4f5e8486c02",
+  "remote_ref": "origin/thesis-integration",
+  "remote_head_readback": "ab88723bb74a376572097822191cd4f5e8486c02",
+  "push": "normal fast-forward be2ad78 -> ab88723; no force",
+  "verification": "146 CPU tests; A arithmetic; B479paired; full selected byte identity; both actual official packages CRC/overlaySHA; existing shared content retained",
+  "gpu_experiment": false,
+  "raw_archives_changed": false
+}

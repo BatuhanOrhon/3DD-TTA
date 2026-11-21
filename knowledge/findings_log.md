@@ -9618,3 +9618,9 @@ validation. No corruption-name routing, test-label retuning or newGPU.
 Existing LION defaults/data, accepted shared literature and native variability
 limits remain under their dated protocols. Older A-running statements describe
 historical checkpoints: A/B are complete, no pending runtime task.
+
+[Code/Published] 2026-11-21: selected tested XYZ code and complete A/B numerical
+families published as `ab88723bb74a376572097822191cd4f5e8486c02` to origin/thesis-integration by normal
+fast-forward push; remote readback matches.146 CPU tests and both actual
+package CRC/overlaySHA checks pass; original shared evidence retained.
+[Scope and exclusions](cloudfixer_baseline_integration_20261121.md). No new GPU.

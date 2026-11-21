@@ -33,3 +33,7 @@ remain on Mac/Drive). Original CSV CRLF is preserved for byte provenance;
 `git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --cached --check`
 is the appropriate whitespace check. No CUDA replay, external replication,
 new seed inference or claimed rotation/background repair result.
+
+[Published] Primary integration commit `ab88723bb74a376572097822191cd4f5e8486c02` is present on
+`origin/thesis-integration`, verified by `git ls-remote`.
+[Publication receipt](evidence/cloudfixer_baseline_20261121/publication.json).
