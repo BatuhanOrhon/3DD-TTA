@@ -3,6 +3,12 @@
 
 ## 2026-11-21 — A/B baseline decision and geometry questions
 
+[Paper/Code/Inference] A rigid update can fit the observed anchors to the
+pre-correction denoiser prediction through a trimmed SO(3) Procrustes solve.
+Fitting the prediction back to a rotated observation can undo a correct pose.
+A separate low-query candidate uses the frozen head to rank output rotations.
+[Derivation, alternatives and acceptance controls](cloudfixer_gradient_free_rotation_20261121.md).
+
 [User report/Decision/Run/Code/Inference/Open] The main new-method development
 reference is now CloudFixer XYZ proximalN8/K80/tau.1/retained.95 with equal
 late pre-clean20/10+true-t0 probability mean. A's full Point2Vec seed2/B1

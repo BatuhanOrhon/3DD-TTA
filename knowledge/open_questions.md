@@ -3116,3 +3116,14 @@ validation. No corruption-name routing, test-label retuning or newGPU.
 Existing LION defaults/data, accepted shared literature and native variability
 limits remain under their dated protocols. Older A-running statements describe
 historical checkpoints: A/B are complete, no pending runtime task.
+
+### 2026-11-21 — Gradient-free rotation inside the XYZ chain
+
+- [ ] On distinct source-development objects with known applied rotations,
+  does the pre-SCD clean estimate point toward the inverse pose? Compare trimmed
+  and index-based rigid fits, an identity arm and symmetry-aware angle error.
+- [ ] If the prior supplies insufficient signal, does fixed-budget head-based
+  pose selection improve held-out classification relative to matched controls?
+  Compare output-only rotation against feeding the same pose into the chain,
+  with identical classifier query counts and identical FPS draws.
+  [Sources, CPU geometry evidence and falsifiers](cloudfixer_gradient_free_rotation_20261121.md).

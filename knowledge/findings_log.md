@@ -9624,3 +9624,14 @@ families published as `ab88723bb74a376572097822191cd4f5e8486c02` to origin/thesi
 fast-forward push; remote readback matches.146 CPU tests and both actual
 package CRC/overlaySHA checks pass; original shared evidence retained.
 [Scope and exclusions](cloudfixer_baseline_integration_20261121.md). No new GPU.
+
+## 2026-11-21 — Source of a gradient-free global rotation
+
+[Paper/Code/Run/Inference] The [rotation review](cloudfixer_gradient_free_rotation_20261121.md)
+uses base `576e97c` and the archived Point2Vec seed-2 A results. Recounting the
+other 13 corruptions gives N8 24,950 versus plain CF 25,003 correct. A small
+CPU geometry check found a 25° rotation recovered with known correspondences,
+but only 0.61° recovered by one trimmed nearest-neighbor step on the same shape.
+This motivates measuring the direction of the real denoiser residual before
+choosing a pose loss. Kabsch on posed anchors and low-budget classifier queries
+remain proposals. No ModelNet accuracy has been measured for either update.
