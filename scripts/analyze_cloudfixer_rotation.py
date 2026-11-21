@@ -116,7 +116,7 @@ def per_arm_metrics(config, rows):
             config['conditions'], config['seeds'], config['ids'])]
         for entry in entries:
             call = entry['diagnostics']
-            expected = 3 if arm == 'identity' or arm.startswith('kabsch') else 9
+            expected = 3 if arm in ('identity', 'scd_search') or arm.startswith('kabsch') else 9
             if (call['denoiser_calls'] != 9 or call['classifier_calls'] != expected
                     or not np.isfinite(entry['seconds']) or entry['seconds'] <= 0
                     or not np.isfinite(entry['peak_mib']) or entry['peak_mib'] <= 0
@@ -138,7 +138,7 @@ def report(config, rows, *, raw_output, derived_output):
         ('kabsch_fixed', 'kabsch_single'), ('kabsch_progressive', 'kabsch_single'),
         ('kabsch_progressive', 'kabsch_fixed'), ('feedback', 'output'),
         ('kabsch_spectral_single', 'kabsch_single'), ('kabsch_spectral_fixed', 'kabsch_fixed'),
-        ('kabsch_spectral_progressive', 'kabsch_progressive'),
+        ('kabsch_spectral_progressive', 'kabsch_progressive'), ('scd_search', 'kabsch_fixed'),
     ) if arm in tensors and reference in tensors)
     conditions, seeds = config['conditions'], config['seeds']
     groups = bootstrap_groups(conditions)
@@ -282,7 +282,7 @@ def main():
     config, rows = read_records(args.run)
     args.derived.mkdir(parents=True, exist_ok=False)
     metrics, entries = report(config, rows, raw_output=args.run, derived_output=args.derived)
-    if config['phase'] in ('development', 'spectral'):
+    if config['phase'] in ('development', 'spectral', 'scd'):
         (args.derived/'synthetic.json').write_bytes(canonical(synthetic_summary(rows)))
     if config['phase'] == 'validation':
         if args.development is None:

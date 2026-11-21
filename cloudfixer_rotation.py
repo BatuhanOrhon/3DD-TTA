@@ -4,7 +4,7 @@ import math
 
 import torch
 
-from cloudfixer_diffusion import sample, trimmed_neighbors
+from cloudfixer_diffusion import sample, trimmed_neighbors, trimmed_scd
 
 
 KABSCH_STEPS = {
@@ -18,6 +18,7 @@ SPECTRAL_STEPS = {
     'kabsch_spectral_fixed': KABSCH_STEPS['kabsch_fixed'],
     'kabsch_spectral_progressive': KABSCH_STEPS['kabsch_progressive'],
 }
+SCD_SEARCH_STEPS = (15., 10.)
 GRAPH_K = 12
 GRAPH_STEPS = 3
 SEARCH_ARMS = ('output', 'feedback', 'random', 'view_mean')
@@ -185,6 +186,48 @@ class KabschPose:
         row.update(reason='accepted', applied_degrees=math.degrees(delta))
 
 
+class SCDSearchPose:
+    def __init__(self, x, mask, indices, *, max_degrees=25., measure=unmeasured):
+        self.x = self.anchors = x
+        self.mask = deduplicated_mask(mask, indices)
+        self.pose = torch.eye(3, device=x.device, dtype=x.dtype)
+        self.max_degrees = max_degrees
+        self.measure = measure
+        self.updates = []
+
+    def reference(self, index, target):
+        if index == 80 and int(self.mask.sum()) >= 4:
+            self.measure('scd_search', self.search, target)
+        return self.anchors
+
+    def search(self, target):
+        score = float(trimmed_scd(target, self.x, self.mask, .95)[0])
+        support = int(self.mask.sum())
+        travel = 0.
+        for round_index, step in enumerate(SCD_SEARCH_STEPS):
+            angle = min(step, self.max_degrees - travel)
+            if angle <= 0:
+                break
+            rotations = torch.stack([axis_rotation(axis, math.radians(sign * angle), self.x)
+                                     for axis in range(3) for sign in (-1, 1)])
+            poses = self.pose @ rotations
+            scores = trimmed_scd(target.expand(6, -1, -1), self.x @ poses, self.mask.expand(6, -1), .95)
+            best = int(scores.argmin())
+            candidate = float(scores[best])
+            before = score
+            accepted = candidate < before
+            if accepted:
+                self.pose = poses[best]
+                self.anchors = self.x @ self.pose
+                score = candidate
+                travel += angle
+            self.updates.append(dict(index=80, matching=7 if round_index == 0 else 6, svd=0,
+                                     anchors=support, applied_degrees=angle if accepted else 0.,
+                                     travel_degrees=travel, total_degrees=math.degrees(rotation_angle(self.pose)),
+                                     pose=self.pose.tolist(), score_before=before, score_after=score,
+                                     reason='accepted' if accepted else 'identity'))
+
+
 @dataclass
 class RotationResult:
     logits: torch.Tensor
@@ -200,7 +243,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
     """Run an arm with the baseline RNG contract and fixed, index-addressed FPS draws."""
     from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal
 
-    if (arm not in ARMS and arm not in SPECTRAL_STEPS) or x.shape[0] != 1:
+    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search') or x.shape[0] != 1:
         raise ValueError('Expected a registered B1 rotation arm')
     config = POLICIES['proximal_pm']
     devices = [x.device.index] if x.is_cuda else []
@@ -250,17 +293,19 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
         if arm in SPECTRAL_STEPS:
             from functools import partial
             filter_points = partial(graph_lowpass, measure=measure)
-        kabsch = (KabschPose(x, mask, point_indices, schedule, max_degrees=max_degrees,
+        estimator = (KabschPose(x, mask, point_indices, schedule, max_degrees=max_degrees,
                              measure=measure, filter_points=filter_points)
                   if schedule is not None else None)
+        if arm == 'scd_search':
+            estimator = SCDSearchPose(x, mask, point_indices, max_degrees=max_degrees, measure=measure)
         clouds, metadata = sample(model, x, mask, noise, **config, measure=measure,
-                                  pose_reference=kabsch.reference if kabsch is not None else None,
+                                  pose_reference=estimator.reference if estimator is not None else None,
                                   feedback_rotation=select if arm == 'feedback' else None)
         if arm in SEARCH_ARMS and arm != 'feedback':
             select(clouds[:, 0])
-        if kabsch is not None:
-            pose = kabsch.pose
-            diagnostics['updates'] = kabsch.updates
+        if estimator is not None:
+            pose = estimator.pose
+            diagnostics['updates'] = estimator.updates
         logits = []
         for index, cloud in zip(metadata['candidate_indices'], clouds.unbind(1)):
             if index == 20 and selected_logits is not None:

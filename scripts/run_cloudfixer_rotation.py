@@ -18,7 +18,7 @@ import numpy as np
 import torch
 
 from cloudfixer_diffusion import verify_gamma
-from cloudfixer_rotation import (ARMS, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SPECTRAL_STEPS,
+from cloudfixer_rotation import (ARMS, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SCD_SEARCH_STEPS, SPECTRAL_STEPS,
                                  axis_rotation, rotation_angle, rotation_policy)
 from cloudfixer_store import Budget, MountStore, canonical, commit_unit, load_units, sha, unit_key
 from research_artifacts import CORRUPTIONS
@@ -30,10 +30,11 @@ from scripts.setup_cloudfixer_point2vec_colab import runtime_identity
 
 REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_rotation_pilot.json').read_text())
 SPECTRAL_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_spectral_rotation_pilot.json').read_text())
+SCD_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_scd_rotation_pilot.json').read_text())
 CONDITIONS = ('clean', *sorted(CORRUPTIONS))
 DEV_CONDITIONS = ('clean', 'rotation', 'background')
 COMPONENTS = ('denoiser', 'classifier', 'proximal', 'local_matching', 'matching', 'svd',
-              'spectral_graph', 'spectral_filter')
+              'spectral_graph', 'spectral_filter', 'scd_search')
 
 
 class CudaComponents:
@@ -128,7 +129,7 @@ def run_arm(model, head, xyz, mask, indices, arm, params, *, rng, noise_rotation
         result, seconds, memory = timed(lambda: rotation_policy(
             model, head, xyz, mask, indices, arm, max_degrees=REGISTRY['max_angle_degrees'],
             measure=components.measure, noise_rotation=noise_rotation, **params))
-    expected_calls = (9, 3 if arm in KABSCH_STEPS or arm in SPECTRAL_STEPS else 9)
+    expected_calls = (9, 3 if arm in KABSCH_STEPS or arm in SPECTRAL_STEPS or arm == 'scd_search' else 9)
     observed_calls = (result.diagnostics['denoiser_calls'], result.diagnostics['classifier_calls'])
     if observed_calls != expected_calls:
         raise ValueError(f'{arm} query count {observed_calls} differs from {expected_calls}')
@@ -205,10 +206,14 @@ def search_lock(rows):
 
 
 def phase_scope(phase, freeze, decision):
-    if phase.startswith('spectral'):
-        ids = SPECTRAL_REGISTRY['ids']
-        arms = dict.fromkeys((*KABSCH_STEPS, *SPECTRAL_STEPS), {})
-        if phase == 'spectral_smoke':
+    if phase.startswith(('scd', 'spectral')):
+        if phase.startswith('scd'):
+            ids = SCD_REGISTRY['ids']
+            arms = dict.fromkeys(('identity', 'kabsch_fixed', 'scd_search'), {})
+        else:
+            ids = SPECTRAL_REGISTRY['ids']
+            arms = dict.fromkeys((*KABSCH_STEPS, *SPECTRAL_STEPS), {})
+        if phase.endswith('_smoke'):
             return ('background', 'rotation'), ids[:1], [0], arms
         return CONDITIONS, ids, REGISTRY['seeds'], arms
     if phase == 'development':
@@ -252,7 +257,7 @@ def evaluate(args, spec, store, budget):
     root.mkdir()
     (args.output / 'environment.txt').write_text(json.dumps(environment, indent=2) + '\n')
     store.put('execution.json', canonical(dict(spec=spec, registry=REGISTRY)))
-    is_smoke = args.phase in ('smoke', 'spectral_smoke')
+    is_smoke = args.phase in ('smoke', 'spectral_smoke', 'scd_smoke')
     if not is_smoke and json.loads(store.get('smoke_ready.json'))['runtime'] != signature:
         raise ValueError('Smoke verification does not match the live environment')
     freeze = json.loads(store.get('search_lock.json')) if args.phase in ('validation', 'full') else {}
@@ -310,7 +315,7 @@ def evaluate(args, spec, store, budget):
                                timing_order=order, rng=rng)
                     if args.phase == 'development' and seed == 0 and cond != 'rotation':
                         row['synthetic'] = synthetic_diagnostics(model, head, *batch, rng)
-                    if args.phase == 'spectral' and seed == 0 and cond in ('clean', 'background'):
+                    if args.phase in ('spectral', 'scd') and seed == 0 and cond in ('clean', 'background'):
                         row['synthetic'] = synthetic_diagnostics(model, head, *batch, rng, arms=arms)
                     found.append(row)
                 data = pack(found)
@@ -338,7 +343,7 @@ def evaluate(args, spec, store, budget):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phase', choices=('smoke', 'development', 'validation', 'full',
-                                            'spectral_smoke', 'spectral'), required=True)
+                                            'spectral_smoke', 'spectral', 'scd_smoke', 'scd'), required=True)
     for arg in ('manifest', 'output', 'drive-folder'):
         parser.add_argument(f'--{arg}', type=Path, required=True)
     for arg, default in (
@@ -361,6 +366,12 @@ def main():
         or set(SPECTRAL_REGISTRY['ids']) & set(REGISTRY['development_ids'] + REGISTRY['validation_ids'])
     ):
         raise ValueError('Spectral manifest or reserved cohort differs from registration')
+    if args.phase.startswith('scd') and (
+        spec['scd_registration'] != SCD_REGISTRY or list(SCD_SEARCH_STEPS) != SCD_REGISTRY['step_degrees']
+        or len(set(SCD_REGISTRY['ids'])) != 12
+        or set(SCD_REGISTRY['ids']) & set(REGISTRY['development_ids'] + REGISTRY['validation_ids'] + SPECTRAL_REGISTRY['ids'])
+    ):
+        raise ValueError('SCD manifest or reserved cohort differs from registration')
     args.output.mkdir(parents=True, exist_ok=False)
     (args.output / 'command.txt').write_text(shlex.join(sys.argv) + '\n')
     (args.output / 'notes.md').write_text(
@@ -370,9 +381,12 @@ def main():
     path = args.output / 'config.json'
     path.write_bytes(canonical(dict(run_id=args.output.name, phase=args.phase, spec=spec, execution_status='running')))
     store = MountStore(args.drive_folder)
-    scope = ('spectral' if args.phase.startswith('spectral') else
-             'full_pair' if args.phase == 'full' else 'pilot')
-    cap = SPECTRAL_REGISTRY['budget_seconds'] if scope == 'spectral' else REGISTRY[scope + '_budget_seconds']
+    if args.phase.startswith(('scd', 'spectral')):
+        scope = args.phase.split('_')[0]
+        cap = (SCD_REGISTRY if scope == 'scd' else SPECTRAL_REGISTRY)['budget_seconds']
+    else:
+        scope = 'full_pair' if args.phase == 'full' else 'pilot'
+        cap = REGISTRY[scope + '_budget_seconds']
     budget = Budget(MountStore(store.folder / (scope + '_budget')), cap=cap)
     try:
         evaluate(args, spec, store, budget)

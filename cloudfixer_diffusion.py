@@ -38,8 +38,7 @@ def grid(*, steps: int, start: int) -> list:
 
 
 @torch.no_grad()
-def trimmed_neighbors(q, reference, mask, retained):
-    """Return bidirectional nearest neighbors and the two retained-pair masks."""
+def _trimmed_matches(q, reference, mask, retained):
     keep_n = int(q.shape[1] * retained)
     keep_r = (mask.sum(1) * retained).long()
     if keep_n < 1 or (keep_r < 1).any():
@@ -49,7 +48,19 @@ def trimmed_neighbors(q, reference, mask, retained):
     d2, reverse = distance.min(1)
     keep1 = torch.zeros_like(d1, dtype=torch.bool).scatter_(1, d1.argsort(1)[:, :keep_n], True)
     keep2 = (d2.argsort(1).argsort(1) < keep_r[:, None]) & mask
-    return forward, reverse, keep1, keep2
+    return forward, reverse, keep1, keep2, d1, d2
+
+
+def trimmed_neighbors(q, reference, mask, retained):
+    """Return bidirectional nearest neighbors and the two retained-pair masks."""
+    return _trimmed_matches(q, reference, mask, retained)[:4]
+
+
+def trimmed_scd(q, reference, mask, retained):
+    """Sum the two directional means of retained squared distances per candidate."""
+    _, _, keep1, keep2, d1, d2 = _trimmed_matches(q, reference, mask, retained)
+    return (d1.masked_fill(~keep1, 0).sum(1) / keep1.sum(1)
+            + d2.masked_fill(~keep2, 0).sum(1) / keep2.sum(1))
 
 
 @torch.no_grad()

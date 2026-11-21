@@ -1,0 +1,26 @@
+{
+  "ids": [
+    154,
+    414,
+    1133,
+    1234,
+    1411,
+    1550,
+    1571,
+    1585,
+    1749,
+    1859,
+    1958,
+    2398
+  ],
+  "step_degrees": [
+    15,
+    10
+  ],
+  "budget_seconds": 1500,
+  "rotation_min_pp": 0,
+  "background_min_pp": 0,
+  "clean_min_pp": -2,
+  "macro14_min_pp": -2,
+  "max_latency_ratio": 1.2
+}

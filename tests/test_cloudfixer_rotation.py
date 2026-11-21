@@ -163,3 +163,35 @@ def test_spectral_proxy_is_cached_by_target_and_returns_rotated_raw_anchors():
     torch.testing.assert_close(fit.pose, desired)
     torch.testing.assert_close(corrected, x @ desired)
     assert len(calls) == 2
+
+
+def test_direct_scd_search_recovers_known_pose_and_keeps_identity_on_ties():
+    from cloudfixer_rotation import SCDSearchPose, axis_rotation
+
+    target = cloud()
+    applied = axis_rotation(1, math.radians(15), target)
+    observed = target @ applied
+    x = torch.cat((observed, observed[:, :2], observed[:, :1] + 100.), dim=1)
+    ids = torch.cat((torch.arange(32), torch.tensor([0, 1, 99])))[None]
+    mask = torch.ones_like(ids, dtype=torch.bool)
+    mask[:, -1] = False
+    fit = SCDSearchPose(x, mask, ids)
+    assert fit.reference(70, target) is x
+    torch.testing.assert_close(fit.reference(80, target), x @ applied.T)
+    assert sum(row['matching'] for row in fit.updates) == 13
+    assert fit.updates[-1]['score_after'] < fit.updates[0]['score_before']
+    assert fit.updates[-1]['travel_degrees'] <= 25
+    assert fit.reference(50, target) is fit.anchors
+    aligned = SCDSearchPose(target, mask[:, :32], None)
+    assert aligned.reference(80, target) is target
+    assert all(row['reason'] == 'identity' for row in aligned.updates)
+
+
+def test_scd_phase_pairs_three_methods_on_disjoint_cohort():
+    from scripts.run_cloudfixer_rotation import phase_scope, REGISTRY, SPECTRAL_REGISTRY
+
+    conditions, ids, seeds, arms = phase_scope('scd', {}, {})
+    assert len(conditions) == 16 and seeds == [0, 1, 2] and len(set(ids)) == 12
+    assert not set(ids).intersection(REGISTRY['development_ids'] + REGISTRY['validation_ids'] + SPECTRAL_REGISTRY['ids'])
+    assert set(arms) == {'identity', 'kabsch_fixed', 'scd_search'}
+    assert phase_scope('scd_smoke', {}, {}) == (('background', 'rotation'), ids[:1], [0], arms)

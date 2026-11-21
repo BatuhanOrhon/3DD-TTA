@@ -130,7 +130,7 @@ def execute(phase, session, allocation_epoch, dev_run):
     from cloudfixer_store import MountStore, canonical, record_setup
 
     store = MountStore(DRIVE)
-    if not phase.startswith('spectral'):
+    if not phase.startswith(('spectral', 'scd')):
         misc = WORK/'pilot_setup.json'
         if not misc.exists():
             start = datetime.fromtimestamp(allocation_epoch, timezone.utc).isoformat()
@@ -182,19 +182,20 @@ def main(argv=None):
     global WORK, SOURCE, DRIVE
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=('deploy', 'smoke', 'development', 'validation', 'full',
-                                          'spectral_deploy', 'spectral_smoke', 'spectral'))
+                                          'spectral_deploy', 'spectral_smoke', 'spectral', 'scd_deploy', 'scd_smoke', 'scd'))
     parser.add_argument('--session')
     parser.add_argument('--allocation-epoch', type=float)
     parser.add_argument('--development')
     args = parser.parse_args(argv)
     if not Path('/content/drive').is_mount():
         raise RuntimeError('Drive mount required')
-    if args.phase.startswith('spectral'):
-        WORK = Path('/content/cloudfixer_spectral_rotation_20261121')
+    if args.phase.startswith(('scd', 'spectral')):
+        folder = 'cloudfixer_' + args.phase.split('_')[0] + '_rotation_20261121'
+        WORK = Path('/content')/folder
         SOURCE = WORK/'source'
-        DRIVE = Path('/content/drive/MyDrive/thesis/cloudfixer_spectral_rotation_20261121')
-    if args.phase in ('deploy', 'spectral_deploy'):
-        deploy(reuse_verified_environment=args.phase == 'spectral_deploy')
+        DRIVE = Path('/content/drive/MyDrive/thesis')/folder
+    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy'):
+        deploy(reuse_verified_environment=args.phase != 'deploy')
     else:
         if not args.session or args.allocation_epoch is None:
             parser.error('Execution requires the session identity and allocation epoch')
