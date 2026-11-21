@@ -1,11 +1,12 @@
 ## 2026-11-21 — CloudFixer XYZ rotation validation
 
-- [ ] Compare single t80, fixed-target three t80 fits and progressive t80/t50/t20.
-- [ ] Compare shared t20 selection output and feedback versus equal-query controls.
-- [ ] Verify synthetic inverse errors, clean/corruption harms, clustered intervals and synchronized GPU cost.
-- [ ] Continue only a validation-eligible arm within available measured compute.
+- [x] Compare single t80, fixed-target three t80 fits and progressive t80/t50/t20.
+- [x] Compare shared t20 selection output and feedback versus equal-query controls.
+- [x] Verify synthetic inverse errors, clean/corruption harms, clustered intervals and synchronized GPU cost.
+- [x] Apply extension gates. No arm was eligible for the full benchmark.
+- [ ] Complete independent pilot of spectral proxies for rigid fits and apply its screen.
 
-[Registration and actual runtime status](cloudfixer_rotation_pilot_20261121.md).
+[Gradient-free result](cloudfixer_rotation_pilot_20261121.md) · [Spectral registration](cloudfixer_spectral_rotation_pilot_20261121.md).
 
 ## 2026-11-12 — CloudFixer denoiser transfer remains untested
 

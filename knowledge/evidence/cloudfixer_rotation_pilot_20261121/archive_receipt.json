@@ -1,0 +1,139 @@
+{
+  "run_id": "20261121-161227_validation",
+  "source_commit": "1367d3923454861c80b1ad925edc533eb2490512",
+  "source_status": [],
+  "campaign": "0014b6862025aab1edf0510539c5808f9d95aeae0d0f1c21ddda1d9a9f1eb50f",
+  "environment_sha256": "619cc5b98a23096815f22c0e67518fb0c6a3a8289484a4c302afa0e1f900b769",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "model_hashes": [
+    "b06cec8f25456e182c469304d9bfac98ea673db693fe3f92e7a3ed2251aa5574",
+    "a08ca898b3880a038170dff38ff516e921ef76b7490a32e704a860f927b22887"
+  ],
+  "clean_sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c",
+  "paired_inputs": 3072,
+  "arm_predictions": 24576,
+  "blocks": 192,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "objects": [
+    16,
+    25,
+    85,
+    130,
+    206,
+    220,
+    304,
+    360,
+    458,
+    481,
+    528,
+    570,
+    635,
+    699,
+    740,
+    741,
+    765,
+    919,
+    921,
+    933,
+    988,
+    1015,
+    1022,
+    1041,
+    1076,
+    1081,
+    1090,
+    1101,
+    1131,
+    1136,
+    1139,
+    1154,
+    1244,
+    1305,
+    1315,
+    1321,
+    1354,
+    1400,
+    1408,
+    1413,
+    1414,
+    1457,
+    1548,
+    1596,
+    1603,
+    1636,
+    1663,
+    1810,
+    1813,
+    1853,
+    1870,
+    1914,
+    1965,
+    1992,
+    2015,
+    2020,
+    2023,
+    2094,
+    2128,
+    2202,
+    2209,
+    2226,
+    2329,
+    2338
+  ],
+  "freeze": {
+    "campaign": "ea42f028dc12830dd4b883ec797c21d1caa7d5e158121c55df2bb46809514b22",
+    "development_passed": false,
+    "development_scores": [
+      {
+        "deltas": {
+          "background": -10.416666666666668,
+          "clean": -2.083333333333333,
+          "rotation": 6.25
+        },
+        "params": {
+          "penalty": 0.1,
+          "theta": 12.0,
+          "threshold": 0.015
+        }
+      },
+      {
+        "deltas": {
+          "background": -14.583333333333334,
+          "clean": -2.083333333333333,
+          "rotation": 4.166666666666666
+        },
+        "params": {
+          "penalty": 0.1,
+          "theta": 20.0,
+          "threshold": 0.015
+        }
+      },
+      {
+        "deltas": {
+          "background": -14.583333333333334,
+          "clean": -2.083333333333333,
+          "rotation": 4.166666666666666
+        },
+        "params": {
+          "penalty": 0.2,
+          "theta": 20.0,
+          "threshold": 0.03
+        }
+      }
+    ],
+    "params": {
+      "penalty": 0.2,
+      "theta": 20.0,
+      "threshold": 0.03
+    }
+  },
+  "archive_sha256": "18082360e5ead01b3cffd7807e71ac0a867eb5a3c2879efa677b82db71aba3d8",
+  "archive_bytes": 37949640,
+  "drive_path": "MyDrive/thesis/cloudfixer_rotation_20261121/archives/20261121-161227_validation.zip",
+  "remote_execution": "complete inference; final JSON decision serialization failed",
+  "acceptance": "Local replay matched all five remote output tables byte-for-byte. Corrected decision written separately. Independent Python softmax/PM/labels/call/geometry/repair and harm recount passed."
+}

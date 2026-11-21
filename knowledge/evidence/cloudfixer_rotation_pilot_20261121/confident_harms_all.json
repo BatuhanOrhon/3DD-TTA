@@ -1,0 +1,211 @@
+[
+  {
+    "arm": "feedback",
+    "corruption": "background",
+    "seed": 1,
+    "id": 481,
+    "label": 2,
+    "prediction": 8,
+    "candidate_confidence": 0.8097308843281925,
+    "baseline_confidence": 0.5091178857088852,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "background",
+    "seed": 1,
+    "id": 481,
+    "label": 2,
+    "prediction": 8,
+    "candidate_confidence": 0.8070925148629634,
+    "baseline_confidence": 0.5091178857088852,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "distortion_rbf",
+    "seed": 0,
+    "id": 570,
+    "label": 33,
+    "prediction": 8,
+    "candidate_confidence": 0.8076479385475991,
+    "baseline_confidence": 0.28638095662146873,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "distortion_rbf",
+    "seed": 1,
+    "id": 570,
+    "label": 33,
+    "prediction": 8,
+    "candidate_confidence": 0.8235383858397228,
+    "baseline_confidence": 0.34632106621892234,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "distortion_rbf",
+    "seed": 1,
+    "id": 570,
+    "label": 33,
+    "prediction": 8,
+    "candidate_confidence": 0.8184057231087497,
+    "baseline_confidence": 0.34632106621892234,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "distortion_rbf",
+    "seed": 2,
+    "id": 570,
+    "label": 33,
+    "prediction": 8,
+    "candidate_confidence": 0.8243443610603779,
+    "baseline_confidence": 0.42242596451407866,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "distortion_rbf",
+    "seed": 2,
+    "id": 570,
+    "label": 33,
+    "prediction": 8,
+    "candidate_confidence": 0.8244052648513197,
+    "baseline_confidence": 0.42242596451407866,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "lidar",
+    "seed": 0,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8343801722304459,
+    "baseline_confidence": 0.6974391347936781,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "lidar",
+    "seed": 0,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8349720009919664,
+    "baseline_confidence": 0.6974391347936781,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "lidar",
+    "seed": 1,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.835854780714134,
+    "baseline_confidence": 0.725063937170181,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "lidar",
+    "seed": 1,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8342573015978614,
+    "baseline_confidence": 0.725063937170181,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "lidar",
+    "seed": 2,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8329592806517961,
+    "baseline_confidence": 0.7479564920524826,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "lidar",
+    "seed": 2,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8317580070317975,
+    "baseline_confidence": 0.7479564920524826,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "occlusion",
+    "seed": 0,
+    "id": 1870,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8656302272736225,
+    "baseline_confidence": 0.8071859999871072,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "occlusion",
+    "seed": 0,
+    "id": 1870,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8675862457856445,
+    "baseline_confidence": 0.8071859999871072,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "occlusion",
+    "seed": 0,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8481409028238197,
+    "baseline_confidence": 0.5417794906511659,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "occlusion",
+    "seed": 0,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.84687437271878,
+    "baseline_confidence": 0.5417794906511659,
+    "confidence_increased": true
+  },
+  {
+    "arm": "feedback",
+    "corruption": "occlusion",
+    "seed": 2,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8381689208471647,
+    "baseline_confidence": 0.46724737433923513,
+    "confidence_increased": true
+  },
+  {
+    "arm": "output",
+    "corruption": "occlusion",
+    "seed": 2,
+    "id": 2202,
+    "label": 17,
+    "prediction": 31,
+    "candidate_confidence": 0.8349449002044028,
+    "baseline_confidence": 0.46724737433923513,
+    "confidence_increased": true
+  }
+]

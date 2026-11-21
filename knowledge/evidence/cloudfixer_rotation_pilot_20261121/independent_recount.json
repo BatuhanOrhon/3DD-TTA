@@ -1,0 +1,18 @@
+{
+  "run_id": "20261121-161227_validation",
+  "cases": 3072,
+  "scored": 24576,
+  "validated_query_agreement": {
+    "feedback": 3072,
+    "output": 3072
+  },
+  "table_rows": 384,
+  "raw_blocks": 192,
+  "pose_rejections": {
+    "kabsch_fixed/accepted": 9216,
+    "kabsch_progressive/accepted": 9216,
+    "kabsch_single/accepted": 3072
+  },
+  "confident_harms": 19,
+  "confident_harms_increased": 19
+}

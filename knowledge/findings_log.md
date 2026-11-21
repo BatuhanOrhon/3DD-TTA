@@ -9655,3 +9655,7 @@ common random draws and same-query controls. CPU geometry validates direction an
 shows local correspondence error with ideal targets. A100 standard r9 is in setup.
 Learned-model direction, repaired and harmed labels, timings and continuation
 remain unmeasured. [Registration and evidence paths](cloudfixer_rotation_pilot_20261121.md).
+
+## 2026-11-21 — CloudFixer rotation validation and negative continuation
+
+[Run/Decision] Source `1367d39`, A10040 r9, 3,072 paired inputs and 24,576 policies. Fixed and progressive Kabsch gained +3.65 and +3.13 pp on Rotation. Progressive gained +0.17 pp all15. Output and feedback gained +3.13 pp Rotation and lost −9.90 pp Background plus ~49% wall latency. None passed the registered confidence/harm/cost gates. All GPU blocks completed and local replay repaired one JSON serialization flaw. The evidence would favor expansion only if an independent test clears the preregistered tolerances. [Record](cloudfixer_rotation_pilot_20261121.md).

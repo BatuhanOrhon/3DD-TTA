@@ -50,3 +50,48 @@ Synthetic [Open] diagnostic uses the same 16 development IDs, both clean and Bac
 [Run/Inference] Mean inverse-angle recovery for the synthetic compound case on clean was +0.387° single, +0.981° fixed and +0.593° progressive. On Background it was +0.451° / +1.158° / +0.704°. The 60° case worsened slightly under all three. Identity-rotation clean inputs acquired 0.202° / 0.471° / 0.306° mean pose error. This favors more re-pairing with a fixed target for the tested small/compound synthetic diagnostic, with a small effect and no orientation recovery for the large test. It does not resolve benchmark classification. The raw angles, set distances, counts and exploratory intervals sit in `result/preparation/cloudfixer_rotation_20261121/development_pose_recount.json`.
 
 [Run/Open] Validation launched ~16:12 UTC after archiving development. All 64 held-out pilot IDs ×16 conditions ×3 seeds ×8 arms (24,576 paired policies), 192 immutable blocks, same A100 and frozen settings. Raw archives live under `MyDrive/thesis/cloudfixer_rotation_20261121/archives/` and `result/modelnet40_c/cloudfixer_rotation/`.
+
+## Paired A100 validation complete
+
+[Run] Validation finished all 192 blocks and 24,576 policy evaluations over 3,072 paired inputs. The cloud analysis wrote the tables, then failed to encode a NumPy boolean in its final decision JSON. The sealed original ZIP was archived unchanged. Local replay from the raw logits recreated the five report tables byte-for-byte and wrote the same gates with a JSON-native boolean. A separate recount confirmed all prediction counts, both classifier choices on all inputs, SO(3) transforms, call counts, repairs and harms. [Receipt and evidence](evidence/cloudfixer_rotation_pilot_20261121/archive_receipt.json)
+
+Differences in percentage points against identity N8, pooled across the three seeds. Direct comparisons, counts, accuracies, repairs, harms, per-seed effects and simultaneous intervals are in the [paired table](evidence/cloudfixer_rotation_pilot_20261121/paired.csv). The 95% intervals use a joint object resample and an 11.46 pp family-wide radius.
+
+| Condition | Kabsch single | Kabsch fixed | Kabsch progressive | Output | Feedback | Random | View mean |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| clean | +0.52 | +0.52 | +0.52 | -1.04 | -1.04 | -23.96 | -1.56 |
+| background | +0.00 | -1.56 | -0.52 | -9.90 | -9.90 | -22.40 | -1.04 |
+| cutout | -0.52 | -0.52 | -0.52 | -6.77 | -6.77 | -23.44 | -2.08 |
+| density | -0.52 | -0.52 | +0.00 | -2.08 | -2.08 | -22.92 | +0.00 |
+| density_inc | -2.08 | -1.56 | -1.04 | -1.56 | -1.04 | -19.79 | -2.08 |
+| distortion | -0.52 | +0.52 | +1.04 | -3.12 | -3.12 | -19.79 | +0.52 |
+| distortion_rbf | +0.00 | +0.52 | +0.52 | -5.21 | -5.21 | -20.83 | +0.52 |
+| distortion_rbf_inv | +1.56 | -0.52 | +1.04 | -2.60 | -2.60 | -19.79 | +1.04 |
+| gaussian | -1.04 | -0.52 | -1.04 | -3.12 | -3.12 | -27.08 | -0.52 |
+| impulse | +0.52 | +0.52 | +0.52 | -1.04 | -1.04 | -22.40 | +0.52 |
+| lidar | +1.04 | +1.04 | +0.52 | -6.25 | -6.25 | -17.19 | -1.56 |
+| occlusion | +0.52 | +1.04 | +1.04 | -4.69 | -4.69 | -16.67 | +0.00 |
+| rotation | +1.56 | +3.65 | +3.12 | +3.12 | +3.12 | +0.00 | +1.04 |
+| shear | -2.08 | -1.56 | -1.04 | -6.25 | -6.25 | -25.00 | +0.00 |
+| uniform | -1.04 | -1.04 | -0.52 | -1.56 | -1.56 | -25.52 | -0.52 |
+| upsampling | -0.52 | +0.00 | -0.52 | -4.17 | -4.17 | -26.56 | -1.04 |
+| macro14 | -0.33 | -0.30 | -0.04 | -4.17 | -4.13 | -22.10 | -0.45 |
+| macro13 | -0.36 | -0.20 | +0.00 | -3.73 | -3.69 | -22.08 | -0.40 |
+| all15 | -0.21 | -0.03 | +0.17 | -3.68 | -3.65 | -20.62 | -0.35 |
+
+| Policy | Mean synchronized ms | Peak MiB | Worst corrupted condition | Candidate only full seed-2 hours | Matched full seed-2 hours |
+|---|---:|---:|---|---:|---:|
+| identity | 252.18 | 554.32 | — | 2.60 | 5.20 |
+| kabsch_single | 257.14 | 554.35 | density_inc (-2.08 pp) | 2.65 | 5.25 |
+| kabsch_fixed | 265.49 | 554.35 | background (-1.56 pp) | 2.74 | 5.33 |
+| kabsch_progressive | 265.83 | 554.35 | density_inc (-1.04 pp) | 2.74 | 5.34 |
+| output | 375.88 | 554.32 | background (-9.90 pp) | 3.87 | 6.47 |
+| feedback | 376.47 | 554.35 | background (-9.90 pp) | 3.88 | 6.47 |
+| random | 376.02 | 554.32 | gaussian (-27.08 pp) | 3.87 | 6.47 |
+| view_mean | 375.80 | 554.32 | cutout (-2.08 pp) | 3.87 | 6.47 |
+
+Full projections average the fifteen measured corrupted conditions and multiply by 37,020. They exclude setup and artifact I/O. [Component GPU timings](evidence/cloudfixer_rotation_pilot_20261121/gpu_cost.csv) · [Per-seed counts and wall time](evidence/cloudfixer_rotation_pilot_20261121/per_corruption.csv)
+
+[Run/Inference] Fixed passed seven additional Rotation predictions and lost zero on that condition. Progressive passed six and lost zero. Direct progressive minus fixed was −0.52 pp Rotation with simultaneous interval [−11.98,+10.94], and +0.21 pp all15. Output and feedback each repaired 10 Rotation predictions and harmed four. Both harmed 19 and repaired none on Background. Feedback changed one all15 prediction from wrong to right relative to output. The same-query controls had smaller Rotation gains than active selection, with large uncertainty. Search cost about 49% more wall time than N8, above the 30% cap. All Kabsch costs were within the cap. Some 19 high-confidence harm events had candidate confidence at least 0.80 and higher than N8. [Examples](evidence/cloudfixer_rotation_pilot_20261121/confident_harms_all.json)
+
+[Decision] No candidate passed. Progressive was +0.17 pp all15 with −0.04 pp macro14. Its joint interval could not rule out the registered harm tolerance. The historical full plain CloudFixer score remains an external reference because the cohorts and RNG addressing differ. No full benchmark launch or default promotion. [Decision gates](evidence/cloudfixer_rotation_pilot_20261121/decision.json) · [Historical Point2Vec comparison](cloudfixer_point2vec_full_results_20261120.md)
