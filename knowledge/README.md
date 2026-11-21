@@ -1,3 +1,5 @@
+**[Run/Inference/Open] 2026-11-21 — Background limit of late-PM reweighting.** On the full seed-2 Point2Vec trace, 779 of 856 Background errors share a strict rival across t20/t10/t0. Reweighting those probabilities can reach at most 68.44% versus plain CloudFixer 76.09%. [Recount and fixed-cost SCD/PM proposals](cloudfixer_background_guidance_pm_20261121.md).
+
 **[Run/Decision] 2026-11-21 — CloudFixer gradient-free rotation pilot.**
 Fixed-target Kabsch improved Rotation by +3.65 pp. Progressive gave +3.13 pp
 and +0.17 pp all15. Classifier-selected output and feedback each fell 9.90 pp
