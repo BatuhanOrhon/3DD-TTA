@@ -61,7 +61,7 @@ def assert_path(name):
         raise ValueError(f'Unsafe archive member {name}')
 
 
-def deploy():
+def deploy(*, reuse_verified_environment=False):
     verified = Path('/content/cli_setup_verification.json')
     if json.loads(verified.read_text())['status'] != 'passed':
         raise RuntimeError('Canonical environment verification must pass before deployment')
@@ -110,7 +110,9 @@ def deploy():
     command = [sys.executable, '-u', str(SOURCE/'scripts/setup_cloudfixer_point2vec_colab.py'),
                '--official-root', str(OFFICIAL), '--manifest', str(SOURCE/'manifest.json'),
                '--classifier-checkpoint', str(checkpoints/spec['classifier']['classifier_filename'])]
-    if stream(command, log) != 0 or not Path('/content/.cf_point2vec_setup/verified.complete').is_file():
+    if not reuse_verified_environment and stream(command, log) != 0:
+        raise RuntimeError('Supplemental native/head verification failed')
+    if not Path('/content/.cf_point2vec_setup/verified.complete').is_file():
         raise RuntimeError('Supplemental native/head verification failed')
     proof = DRIVE/'setup'
     proof.mkdir(parents=True, exist_ok=True)
@@ -128,12 +130,13 @@ def execute(phase, session, allocation_epoch, dev_run):
     from cloudfixer_store import MountStore, canonical, record_setup
 
     store = MountStore(DRIVE)
-    misc = WORK/'pilot_setup.json'
-    if not misc.exists():
-        start = datetime.fromtimestamp(allocation_epoch, timezone.utc).isoformat()
-        misc.write_bytes(canonical(dict(attempts=[dict(session=session, started_utc=start,
-                                                       seconds=time()-allocation_epoch)])))
-    record_setup(MountStore(DRIVE/'pilot_budget'), json.loads(misc.read_text()), cap=4*3600)
+    if not phase.startswith('spectral'):
+        misc = WORK/'pilot_setup.json'
+        if not misc.exists():
+            start = datetime.fromtimestamp(allocation_epoch, timezone.utc).isoformat()
+            misc.write_bytes(canonical(dict(attempts=[dict(session=session, started_utc=start,
+                                                           seconds=time()-allocation_epoch)])))
+        record_setup(MountStore(DRIVE/'pilot_budget'), json.loads(misc.read_text()), cap=4*3600)
     now = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     output = WORK/f'{now}_{phase}'
     derived = WORK/f'{output.name}_derived'
@@ -176,16 +179,22 @@ def execute(phase, session, allocation_epoch, dev_run):
 
 
 def main(argv=None):
+    global WORK, SOURCE, DRIVE
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('phase', choices=('deploy', 'smoke', 'development', 'validation', 'full'))
+    parser.add_argument('phase', choices=('deploy', 'smoke', 'development', 'validation', 'full',
+                                          'spectral_deploy', 'spectral_smoke', 'spectral'))
     parser.add_argument('--session')
     parser.add_argument('--allocation-epoch', type=float)
     parser.add_argument('--development')
     args = parser.parse_args(argv)
     if not Path('/content/drive').is_mount():
         raise RuntimeError('Drive mount required')
-    if args.phase == 'deploy':
-        deploy()
+    if args.phase.startswith('spectral'):
+        WORK = Path('/content/cloudfixer_spectral_rotation_20261121')
+        SOURCE = WORK/'source'
+        DRIVE = Path('/content/drive/MyDrive/thesis/cloudfixer_spectral_rotation_20261121')
+    if args.phase in ('deploy', 'spectral_deploy'):
+        deploy(reuse_verified_environment=args.phase == 'spectral_deploy')
     else:
         if not args.session or args.allocation_epoch is None:
             parser.error('Execution requires the session identity and allocation epoch')

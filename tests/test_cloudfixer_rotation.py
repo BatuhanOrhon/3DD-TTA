@@ -111,3 +111,55 @@ def test_simultaneous_bootstrap_keeps_object_corruption_and_seed_groups():
     opposing = np.array([[100., -100.], [-100., 100.]])
     assert joint_radius(opposing, draws=1000, seed=0) == 100.
     assert joint_radius(opposing.mean(1, keepdims=True), draws=1000, seed=0) == 0.
+
+
+def test_validation_decision_serializes_numpy_pose_recovery():
+    import json
+    import numpy as np
+    from scripts.analyze_cloudfixer_rotation import decide
+    from scripts.run_cloudfixer_rotation import REGISTRY
+
+    fit_arms = ('kabsch_single', 'kabsch_fixed', 'kabsch_progressive', 'output', 'feedback')
+    conditions = ['clean', 'rotation', 'background']
+    config = dict(campaign='test', conditions=conditions, freeze={'development_passed': True},
+                  spec={'registration': REGISTRY})
+    metrics = [dict(arm=arm, reference=ref, group=group, delta_pp=0., simultaneous_lower_pp=0.)
+               for arm in fit_arms for ref in ('identity', 'random', 'view_mean')
+               for group in (*conditions, 'all15', 'macro14')]
+    entries = {arm: [{'seconds': 1.}] for arm in ('identity', *fit_arms)}
+    synthetic = [dict(arm='kabsch_single', condition='clean', scenario='compound',
+                      mean_degree_recovery=np.float64(.2))]
+    assert json.loads(json.dumps(decide(config, metrics, entries, synthetic)))['arms']['kabsch_single']['gates']['pose']
+
+
+def test_graph_lowpass_ignores_padding_and_preserves_rigid_equivariance():
+    from cloudfixer_rotation import axis_rotation, graph_lowpass
+
+    points = torch.tensor([[[0., 0., 0.], [2., 0., 0.], [100., 100., 100.]]], dtype=torch.float64)
+    mask = torch.tensor([[True, True, False]])
+    filtered = graph_lowpass(points, mask)
+    expected = points.clone()
+    expected[0, :2, 0] = 1.
+    torch.testing.assert_close(filtered, expected)
+    rotation = axis_rotation(1, .4, points)
+    torch.testing.assert_close(graph_lowpass(points @ rotation, mask), expected @ rotation)
+    torch.testing.assert_close(graph_lowpass(cloud() @ rotation), graph_lowpass(cloud()) @ rotation)
+
+
+def test_spectral_proxy_is_cached_by_target_and_returns_rotated_raw_anchors():
+    from cloudfixer_rotation import KabschPose, axis_rotation
+
+    x = cloud()
+    mask = torch.ones(x.shape[:2], dtype=torch.bool)
+    desired = axis_rotation(1, .02, x)
+    calls = []
+
+    def smoother(points, valid):
+        calls.append(points)
+        return points * .5
+
+    fit = KabschPose(x, mask, None, {80: 3}, filter_points=smoother)
+    corrected = fit.reference(80, x @ desired)
+    torch.testing.assert_close(fit.pose, desired)
+    torch.testing.assert_close(corrected, x @ desired)
+    assert len(calls) == 2

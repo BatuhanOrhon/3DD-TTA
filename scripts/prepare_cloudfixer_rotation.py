@@ -16,9 +16,11 @@ from scripts.prepare_cloudfixer_transfer import manifest
 
 
 EXTRA = ('cloudfixer_rotation.py', 'cfgs/cloudfixer_rotation_pilot.json',
+         'cfgs/cloudfixer_spectral_rotation_pilot.json',
          'scripts/run_cloudfixer_rotation.py', 'scripts/analyze_cloudfixer_rotation.py',
          'scripts/prepare_cloudfixer_rotation.py', 'scripts/operate_cloudfixer_rotation_colab.py',
-         'knowledge/cloudfixer_rotation_pilot_20261121.md')
+         'knowledge/cloudfixer_rotation_pilot_20261121.md',
+         'knowledge/cloudfixer_spectral_rotation_pilot_20261121.md')
 
 
 def package(author, output):
@@ -36,6 +38,7 @@ def package(author, output):
         raise ValueError('Unexpected official source identity')
     spec = manifest(files, 'point2vec')
     spec['registration'] = json.loads((ROOT/'cfgs/cloudfixer_rotation_pilot.json').read_text())
+    spec['spectral_registration'] = json.loads((ROOT/'cfgs/cloudfixer_spectral_rotation_pilot.json').read_text())
     spec['overlay_files'].update({name:sha((ROOT/name).read_bytes()) for name in EXTRA})
     spec['source_commit'] = subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     spec['source_status'] = subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).splitlines()

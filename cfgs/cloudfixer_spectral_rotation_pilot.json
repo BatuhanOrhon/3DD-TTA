@@ -1,0 +1,24 @@
+{
+  "ids": [
+    122,
+    168,
+    1053,
+    1095,
+    1319,
+    1395,
+    1420,
+    1614,
+    1852,
+    1933,
+    2342,
+    2351
+  ],
+  "neighbors": 12,
+  "sweeps": 3,
+  "budget_seconds": 2100,
+  "background_min_pp": 2.0,
+  "rotation_min_pp": 0.0,
+  "clean_min_pp": -2.0,
+  "macro14_min_pp": -2.0,
+  "max_latency_ratio": 1.2
+}

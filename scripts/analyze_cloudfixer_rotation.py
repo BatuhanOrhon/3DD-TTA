@@ -137,6 +137,8 @@ def report(config, rows, *, raw_output, derived_output):
     contrasts.extend((arm, reference) for arm, reference in (
         ('kabsch_fixed', 'kabsch_single'), ('kabsch_progressive', 'kabsch_single'),
         ('kabsch_progressive', 'kabsch_fixed'), ('feedback', 'output'),
+        ('kabsch_spectral_single', 'kabsch_single'), ('kabsch_spectral_fixed', 'kabsch_fixed'),
+        ('kabsch_spectral_progressive', 'kabsch_progressive'),
     ) if arm in tensors and reference in tensors)
     conditions, seeds = config['conditions'], config['seeds']
     groups = bootstrap_groups(conditions)
@@ -188,6 +190,7 @@ def report(config, rows, *, raw_output, derived_output):
                 mean_applied_step_degrees=float(np.mean([u['applied_degrees'] for u in proposed])) if proposed else 0.,
                 mean_anchor_support=float(np.mean([u['anchors'] for u in proposed])) if proposed else None,
                 pose_attempts=len(proposed), pose_rejections=sum(u['reason']!='accepted' for u in proposed),
+                graph_builds=sum(e.get('graph_builds', 0) for e in corrections),
                 rematches=sum(u['matching'] for u in proposed), svds=sum(u['svd'] for u in proposed),
                 search_nonidentity=sum(e['diagnostics'].get('choice',0)!=0 for e in corrections)))
             for row, src, cand in zip(packed, denoms, corrections):
@@ -258,7 +261,7 @@ def decide(config, metrics, entries, synthetic):
             tail=min(effect(c)['delta_pp'] for c in config['conditions'] if c!='clean') >= reg['worst_corruption_point_pp'],
             time=ratio <= reg['max_time_ratio'])
         if arm.startswith('kabsch'):
-            gates['pose'] = seen_synthetic.get(arm,-1.) > 0
+            gates['pose'] = bool(seen_synthetic.get(arm,-1.) > 0)
         else:
             gates['development'] = config['freeze']['development_passed']
             gates['query_controls'] = all(effect('rotation', c)['delta_pp'] > 0 for c in ('random', 'view_mean'))
@@ -279,7 +282,7 @@ def main():
     config, rows = read_records(args.run)
     args.derived.mkdir(parents=True, exist_ok=False)
     metrics, entries = report(config, rows, raw_output=args.run, derived_output=args.derived)
-    if config['phase'] == 'development':
+    if config['phase'] in ('development', 'spectral'):
         (args.derived/'synthetic.json').write_bytes(canonical(synthetic_summary(rows)))
     if config['phase'] == 'validation':
         if args.development is None:

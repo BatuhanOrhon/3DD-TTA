@@ -18,7 +18,8 @@ import numpy as np
 import torch
 
 from cloudfixer_diffusion import verify_gamma
-from cloudfixer_rotation import ARMS, KABSCH_STEPS, axis_rotation, rotation_angle, rotation_policy
+from cloudfixer_rotation import (ARMS, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SPECTRAL_STEPS,
+                                 axis_rotation, rotation_angle, rotation_policy)
 from cloudfixer_store import Budget, MountStore, canonical, commit_unit, load_units, sha, unit_key
 from research_artifacts import CORRUPTIONS
 from scripts.run_cloudfixer_point2vec import (POLICIES, load_head, model_hash, options_for,
@@ -28,9 +29,11 @@ from scripts.setup_cloudfixer_point2vec_colab import runtime_identity
 
 
 REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_rotation_pilot.json').read_text())
+SPECTRAL_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_spectral_rotation_pilot.json').read_text())
 CONDITIONS = ('clean', *sorted(CORRUPTIONS))
 DEV_CONDITIONS = ('clean', 'rotation', 'background')
-COMPONENTS = ('denoiser', 'classifier', 'proximal', 'local_matching', 'matching', 'svd')
+COMPONENTS = ('denoiser', 'classifier', 'proximal', 'local_matching', 'matching', 'svd',
+              'spectral_graph', 'spectral_filter')
 
 
 class CudaComponents:
@@ -125,7 +128,7 @@ def run_arm(model, head, xyz, mask, indices, arm, params, *, rng, noise_rotation
         result, seconds, memory = timed(lambda: rotation_policy(
             model, head, xyz, mask, indices, arm, max_degrees=REGISTRY['max_angle_degrees'],
             measure=components.measure, noise_rotation=noise_rotation, **params))
-    expected_calls = (9, 3 if arm in KABSCH_STEPS else 9)
+    expected_calls = (9, 3 if arm in KABSCH_STEPS or arm in SPECTRAL_STEPS else 9)
     observed_calls = (result.diagnostics['denoiser_calls'], result.diagnostics['classifier_calls'])
     if observed_calls != expected_calls:
         raise ValueError(f'{arm} query count {observed_calls} differs from {expected_calls}')
@@ -134,7 +137,8 @@ def run_arm(model, head, xyz, mask, indices, arm, params, *, rng, noise_rotation
     prob = result.probabilities[0]
     row = dict(prediction=int(prob.argmax()), confidence=float(prob.max()), probabilities=prob.tolist(),
                logits=result.logits[0].tolist(), pose=result.pose.tolist(), seconds=seconds,
-               peak_mib=memory, cuda_ms=components.milliseconds(), diagnostics=result.diagnostics)
+               peak_mib=memory, cuda_ms=components.milliseconds(), diagnostics=result.diagnostics,
+               graph_builds=sum(key == 'spectral_graph' for key, _, _ in components.events))
     return row, result
 
 
@@ -149,7 +153,7 @@ def check_identity(model, head, xyz, mask, indices, rng):
     torch.testing.assert_close(result.probabilities, pm, atol=0, rtol=0)
 
 
-def synthetic_diagnostics(model, head, xyz, mask, indices, rng):
+def synthetic_diagnostics(model, head, xyz, mask, indices, rng, *, arms=KABSCH_STEPS):
     identity = torch.eye(3, device=xyz.device, dtype=xyz.dtype)
     rotations = {
         'identity': identity,
@@ -166,7 +170,7 @@ def synthetic_diagnostics(model, head, xyz, mask, indices, rng):
         unposed = torch.cdist(observed[mask], valid_points).square()
         before_scd = float(unposed.amin(0).mean() + unposed.amin(1).mean())
         rows[name] = {}
-        for arm in KABSCH_STEPS:
+        for arm in arms:
             record, result = run_arm(model, head, observed, mask, indices, arm, {},
                                      rng=rng, noise_rotation=None if name == 'identity' else applied)
             points = (observed @ result.pose)[mask]
@@ -201,6 +205,12 @@ def search_lock(rows):
 
 
 def phase_scope(phase, freeze, decision):
+    if phase.startswith('spectral'):
+        ids = SPECTRAL_REGISTRY['ids']
+        arms = dict.fromkeys((*KABSCH_STEPS, *SPECTRAL_STEPS), {})
+        if phase == 'spectral_smoke':
+            return ('background', 'rotation'), ids[:1], [0], arms
+        return CONDITIONS, ids, REGISTRY['seeds'], arms
     if phase == 'development':
         return DEV_CONDITIONS, REGISTRY['development_ids'], REGISTRY['seeds'], {}
     if phase == 'smoke':
@@ -242,7 +252,8 @@ def evaluate(args, spec, store, budget):
     root.mkdir()
     (args.output / 'environment.txt').write_text(json.dumps(environment, indent=2) + '\n')
     store.put('execution.json', canonical(dict(spec=spec, registry=REGISTRY)))
-    if args.phase != 'smoke' and json.loads(store.get('smoke_ready.json'))['runtime'] != signature:
+    is_smoke = args.phase in ('smoke', 'spectral_smoke')
+    if not is_smoke and json.loads(store.get('smoke_ready.json'))['runtime'] != signature:
         raise ValueError('Smoke verification does not match the live environment')
     freeze = json.loads(store.get('search_lock.json')) if args.phase in ('validation', 'full') else {}
     decision = json.loads(store.get('validation_decision.json')) if args.phase == 'full' else {}
@@ -254,7 +265,7 @@ def evaluate(args, spec, store, budget):
     (args.output / 'config.json').write_bytes(canonical(config))
     cache = MountStore(store.folder / f'{args.phase}_{campaign[:16]}')
     cached = load_units(cache, campaign)
-    length = 1 if args.phase == 'smoke' else 8 if args.phase == 'development' else 16
+    length = 1 if is_smoke else 8 if args.phase == 'development' else 16
     slots = [dict(campaign=campaign, condition=cond, seed=seed, ids=ids[i:i+length])
              for cond in conditions for seed in seeds for i in range(0, len(ids), length)]
     keys = [unit_key(unit) for unit in slots]
@@ -274,7 +285,7 @@ def evaluate(args, spec, store, budget):
                 arms = {arm: (arm, p) for arm, p in params.items()}
             # A shape-matched untimed pass first, using the same per-object RNG.
             rng, *batch = item(dataset, ids[0], seed, int(labels[ids[0]]))
-            if args.phase == 'smoke':
+            if is_smoke:
                 check_identity(model, head, *batch, rng)
             for arm, p in arms.values():
                 run_arm(model, head, *batch, arm, p, rng=rng)
@@ -299,6 +310,8 @@ def evaluate(args, spec, store, budget):
                                timing_order=order, rng=rng)
                     if args.phase == 'development' and seed == 0 and cond != 'rotation':
                         row['synthetic'] = synthetic_diagnostics(model, head, *batch, rng)
+                    if args.phase == 'spectral' and seed == 0 and cond in ('clean', 'background'):
+                        row['synthetic'] = synthetic_diagnostics(model, head, *batch, rng, arms=arms)
                     found.append(row)
                 data = pack(found)
                 commit_unit(cache, unit, data)
@@ -312,7 +325,7 @@ def evaluate(args, spec, store, budget):
             print('ROTATION_BLOCK', block, len(slots), cond, seed, key, flush=True)
     if [model_hash(m) for m in (model, head)] != environment['model_hashes']:
         raise ValueError('Frozen model state changed during inference')
-    if args.phase == 'smoke':
+    if is_smoke:
         store.put('smoke_ready.json', canonical(dict(runtime=signature, campaign=campaign)))
     if args.phase == 'development':
         lock = dict(search_lock(rows), campaign=campaign)
@@ -324,7 +337,8 @@ def evaluate(args, spec, store, budget):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--phase', choices=('smoke', 'development', 'validation', 'full'), required=True)
+    parser.add_argument('--phase', choices=('smoke', 'development', 'validation', 'full',
+                                            'spectral_smoke', 'spectral'), required=True)
     for arg in ('manifest', 'output', 'drive-folder'):
         parser.add_argument(f'--{arg}', type=Path, required=True)
     for arg, default in (
@@ -341,6 +355,12 @@ def main():
     spec = json.loads(args.manifest.read_text())
     if spec['registration'] != REGISTRY:
         raise ValueError('Source manifest and pilot registry disagree')
+    if args.phase.startswith('spectral') and (
+        spec['spectral_registration'] != SPECTRAL_REGISTRY
+        or (SPECTRAL_REGISTRY['neighbors'], SPECTRAL_REGISTRY['sweeps']) != (GRAPH_K, GRAPH_STEPS)
+        or set(SPECTRAL_REGISTRY['ids']) & set(REGISTRY['development_ids'] + REGISTRY['validation_ids'])
+    ):
+        raise ValueError('Spectral manifest or reserved cohort differs from registration')
     args.output.mkdir(parents=True, exist_ok=False)
     (args.output / 'command.txt').write_text(shlex.join(sys.argv) + '\n')
     (args.output / 'notes.md').write_text(
@@ -350,8 +370,10 @@ def main():
     path = args.output / 'config.json'
     path.write_bytes(canonical(dict(run_id=args.output.name, phase=args.phase, spec=spec, execution_status='running')))
     store = MountStore(args.drive_folder)
-    budget = Budget(MountStore(store.folder / ('full_budget' if args.phase == 'full' else 'pilot_budget')),
-                    cap=REGISTRY['full_pair_budget_seconds' if args.phase == 'full' else 'pilot_budget_seconds'])
+    scope = ('spectral' if args.phase.startswith('spectral') else
+             'full_pair' if args.phase == 'full' else 'pilot')
+    cap = SPECTRAL_REGISTRY['budget_seconds'] if scope == 'spectral' else REGISTRY[scope + '_budget_seconds']
+    budget = Budget(MountStore(store.folder / (scope + '_budget')), cap=cap)
     try:
         evaluate(args, spec, store, budget)
     except BaseException:

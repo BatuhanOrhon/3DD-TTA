@@ -13,6 +13,13 @@ KABSCH_STEPS = {
     'kabsch_fixed': {80: 3},
     'kabsch_progressive': {80: 1, 50: 1, 20: 1},
 }
+SPECTRAL_STEPS = {
+    'kabsch_spectral_single': KABSCH_STEPS['kabsch_single'],
+    'kabsch_spectral_fixed': KABSCH_STEPS['kabsch_fixed'],
+    'kabsch_spectral_progressive': KABSCH_STEPS['kabsch_progressive'],
+}
+GRAPH_K = 12
+GRAPH_STEPS = 3
 SEARCH_ARMS = ('output', 'feedback', 'random', 'view_mean')
 ARMS = (*KABSCH_STEPS, *SEARCH_ARMS)
 
@@ -75,29 +82,72 @@ def unmeasured(_, function, *args, **kwargs):
     return function(*args, **kwargs)
 
 
+def mutual_graph(points):
+    distances = torch.cdist(points, points).square()
+    distances.fill_diagonal_(float('inf'))
+    neighbors = distances.topk(min(GRAPH_K, len(points) - 1), largest=False, sorted=True).indices
+    offsets = points[:, None] - points[neighbors]
+    edge_squared = offsets.square().sum(-1)
+    bandwidth = edge_squared[:, -1].sqrt()
+    vertex = torch.arange(len(points), device=points.device)
+    mutual = (neighbors[neighbors] == vertex[:, None, None]).any(-1)
+    scale = (2 * bandwidth[:, None] * bandwidth[neighbors]).clamp_min(torch.finfo(points.dtype).eps)
+    return neighbors, (-edge_squared / scale).exp() * mutual
+
+
+def spectral_sweeps(points, neighbors, weights):
+    degree = weights.sum(1)
+    step_weights = weights / (2 * degree.max().clamp_min(torch.finfo(points.dtype).eps))
+    for _ in range(GRAPH_STEPS):
+        offsets = points[neighbors] - points[:, None]
+        points = points + (step_weights[..., None] * offsets).sum(1)
+    return points
+
+
+@torch.no_grad()
+def graph_lowpass(x, mask=None, *, measure=unmeasured):
+    """Apply a bounded Laplacian polynomial to valid physical XYZ coordinates."""
+    points = x[0] if mask is None else x[0, mask[0]]
+    if len(points) < 2:
+        return x
+    neighbors, weights = measure('spectral_graph', mutual_graph, points)
+    filtered = measure('spectral_filter', spectral_sweeps, points, neighbors, weights)
+    if mask is None:
+        return filtered.unsqueeze(0)
+    result = x.clone()
+    result[0, mask[0]] = filtered
+    return result
+
+
 class KabschPose:
-    def __init__(self, x, mask, indices, schedule, *, max_degrees=25., measure=unmeasured):
+    def __init__(self, x, mask, indices, schedule, *, max_degrees=25., measure=unmeasured, filter_points=None):
         self.x = x
         self.mask = deduplicated_mask(mask, indices) if schedule else None
         self.schedule = schedule
         self.pose = torch.eye(3, device=x.device, dtype=x.dtype)
         self.anchors = x
+        self.filter_points = filter_points
+        self.match_x = filter_points(x, self.mask) if filter_points is not None else x
+        self.match_anchors = self.match_x
         self.remaining = math.radians(max_degrees)
         self.travel = 0.
         self.measure = measure
         self.updates = []
 
     def pairs(self, target):
-        fw, rv, keep_fw, keep_rv = trimmed_neighbors(target, self.anchors, self.mask, .95)
+        fw, rv, keep_fw, keep_rv = trimmed_neighbors(target, self.match_anchors, self.mask, .95)
         q_ids = keep_fw[0].nonzero().flatten()
         x_ids = keep_rv[0].nonzero().flatten()
         pairs_x = torch.cat((fw[0, q_ids], x_ids))
         pairs_q = torch.cat((q_ids, rv[0, x_ids]))
         support = (pairs_x.unique().numel(), pairs_q.unique().numel())
-        return self.anchors[0, pairs_x], target[0, pairs_q], support
+        return self.match_anchors[0, pairs_x], target[0, pairs_q], support
 
     def reference(self, index, target):
-        for _ in range(self.schedule.get(index, 0)):
+        iterations = self.schedule.get(index, 0)
+        if iterations and self.filter_points is not None:
+            target = self.filter_points(target, None)
+        for _ in range(iterations):
             row = dict(index=index, anchors=0, targets=0, pairs=0, matching=0, svd=0,
                        reason='support', proposed_degrees=0., applied_degrees=0.)
             if int(self.mask.sum()) >= 4:
@@ -129,6 +179,7 @@ class KabschPose:
             return
         self.pose = self.pose @ clip_rotation(oriented, angle, delta)
         self.anchors = self.x @ self.pose
+        self.match_anchors = self.anchors if self.filter_points is None else self.match_x @ self.pose
         self.remaining -= delta
         self.travel += delta
         row.update(reason='accepted', applied_degrees=math.degrees(delta))
@@ -149,7 +200,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
     """Run an arm with the baseline RNG contract and fixed, index-addressed FPS draws."""
     from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal
 
-    if arm not in ARMS or x.shape[0] != 1:
+    if (arm not in ARMS and arm not in SPECTRAL_STEPS) or x.shape[0] != 1:
         raise ValueError('Expected a registered B1 rotation arm')
     config = POLICIES['proximal_pm']
     devices = [x.device.index] if x.is_cuda else []
@@ -194,8 +245,14 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
                                scores=scores.tolist(), angle_degrees=theta if choice else 0.)
             return pose if choice else None
 
-        kabsch = (KabschPose(x, mask, point_indices, KABSCH_STEPS[arm], max_degrees=max_degrees,
-                             measure=measure) if arm in KABSCH_STEPS else None)
+        schedule = KABSCH_STEPS.get(arm, SPECTRAL_STEPS.get(arm))
+        filter_points = None
+        if arm in SPECTRAL_STEPS:
+            from functools import partial
+            filter_points = partial(graph_lowpass, measure=measure)
+        kabsch = (KabschPose(x, mask, point_indices, schedule, max_degrees=max_degrees,
+                             measure=measure, filter_points=filter_points)
+                  if schedule is not None else None)
         clouds, metadata = sample(model, x, mask, noise, **config, measure=measure,
                                   pose_reference=kabsch.reference if kabsch is not None else None,
                                   feedback_rotation=select if arm == 'feedback' else None)
