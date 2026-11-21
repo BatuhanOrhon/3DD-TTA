@@ -9663,3 +9663,17 @@ remain unmeasured. [Registration and evidence paths](cloudfixer_rotation_pilot_2
 ## 2026-11-21 — Spectral correspondence pilot for CloudFixer rotation
 
 [Run/Decision] Source `78850f5`, same A10040 r9, 12 reserved IDs ×16 conditions ×3 seeds, 4,032 benchmark policy evaluations. The three-sweep mutual-kNN filter improved the compound synthetic Background angle by an extra 0.305° in the fixed-target schedule. All filtered schedules and their matched controls scored 18/36 on Background. Fixed filtered gained +2.78 pp Rotation and lost −2.78 pp clean. Wall increases were 1.31–2.39%, with no extra network calls. None passed the registered screen. A repeatable Background gain on a separate cohort with acceptable clean, rotation and timing effects would change that result. [Full record](cloudfixer_spectral_rotation_pilot_20261121.md).
+
+## 2026-11-21 — Direct derivative-free SCD search at t80
+
+[Run/Decision] Source `ba13d81`, A10040 r9, 12 disjoint IDs × clean and 15
+severity-5 corruptions × seeds 0/1/2. All 48 blocks and 1,728 benchmark
+policies verified. SCD tied N8 in every paired correctness outcome, including
+21/36 Rotation, 26/36 Background, and 441/540 all15. Compared with three
+fixed-target Kabsch fits, SCD repaired one Background prediction and gained
+0.56 pp all15. The compound synthetic pose improved 1.41° clean and 1.50°
+on Background, with 8/36 real Rotation poses updated and zero net label repairs.
+Mean A100 B1 latency was 253.47 ms (N8 245.95, Kabsch 259.46), with 802.41
+MiB peak allocation. The ROT-over-N8 expansion gate failed. Independent
+real Rotation gains while preserving Background would change the decision.
+[Run, scope, citations and sealed evidence](cloudfixer_scd_rotation_pilot_20261121.md).

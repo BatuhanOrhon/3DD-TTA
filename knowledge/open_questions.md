@@ -3144,3 +3144,10 @@ historical checkpoints: A/B are complete, no pending runtime task.
 - [ ] For each candidate publish all 15 paired outcomes, clean, non-Rotation
   macro14, repairs/harms, and the worst corruption. Predeclare harm tolerances
   and report whether the held-out evidence meets them.
+
+- [x] Evaluate fixed-t80 direct SCD search with ±15° and ±10° six-axis
+  polls, matched N8 and three Kabsch controls. The 12-object pilot tied N8
+  on Rotation, while Background improved only against Kabsch. The
+  expansion gate is closed for this candidate. Evidence of a genuine
+  independent Rotation gain without a Background loss would reopen it.
+  [Verified pilot](cloudfixer_scd_rotation_pilot_20261121.md).

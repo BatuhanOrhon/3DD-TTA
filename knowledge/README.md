@@ -8,6 +8,12 @@ completed on 12 disjoint objects, 16 conditions and three seeds. All three
 placements tied their matched Background counts at 18/36 and added 1.31–2.39%
 B1 policy time. No arm passed its expansion screen.
 
+The [direct SCD rotation pilot](cloudfixer_scd_rotation_pilot_20261121.md)
+completed on another 12 objects with the same conditions and seeds. It tied
+N8 on Rotation (21/36), Background (26/36) and all15 (441/540).
+It gained 0.56 pp all15 over three fixed-target Kabsch updates. It missed
+the preregistered Rotation improvement over N8 required for expansion.
+
 **[Decision/Run/Code/Inference] 2026-11-21 — CloudFixer XYZ operational baseline and geometry focus:**
 New development reference: N8/K80/tau.1/retained.95 equal late PM[20,10,0],
 existing tested Point2Vec `proximal_pm` arm. A74.954079% trails plainCF77.244733%;
