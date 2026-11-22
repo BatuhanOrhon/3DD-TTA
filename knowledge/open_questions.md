@@ -3180,3 +3180,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
 [Open] Can a prospectively locked single filtered t10 read retain its observed Background benefit and protect remaining corruptions on separate IDs, with its actual one-classifier latency?
 
 [Open, 2026-11-22] The seed-0 baseline comparison on 14 corruptions excluding Background fell by 0.53 pp. Can the single read improve overall accuracy on objects held out from the pilot while preserving performance on the other 14, particularly Density and Rotation, at its measured one-read latency? [Pilot breakdown](cloudfixer_background_followup_20261122.md#tek-filtreli-t10-için-bozulma-bazında-doğruluk).
+
+[User decision/Open, 2026-11-22] Prioritize Rotation. Does single-pass prealignment from surface normals improve held-out N8 classification with acceptable non-Rotation accuracy and p95 time? Compare with known inverse pose (diagnostic), N8 and fixed Kabsch. Keep large-angle wrong-axis selection visible. [Rotation refocus and CPU diagnostics](cloudfixer_rotation_refocus_20261122.md).

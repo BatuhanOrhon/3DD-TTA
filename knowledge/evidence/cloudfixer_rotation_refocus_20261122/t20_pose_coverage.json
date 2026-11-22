@@ -1,0 +1,82 @@
+{
+  "archive_sha256": "18082360e5ead01b3cffd7807e71ac0a867eb5a3c2879efa677b82db71aba3d8",
+  "counts": {
+    "clean": {
+      "0": {
+        "all_wrong": 5,
+        "any_correct": 59,
+        "events": 64,
+        "harms": 0,
+        "identity": 55,
+        "repairs": 1,
+        "selected": 56
+      },
+      "1": {
+        "all_wrong": 6,
+        "any_correct": 58,
+        "events": 64,
+        "harms": 2,
+        "identity": 55,
+        "repairs": 1,
+        "selected": 54
+      },
+      "2": {
+        "all_wrong": 4,
+        "any_correct": 60,
+        "events": 64,
+        "harms": 1,
+        "identity": 56,
+        "repairs": 1,
+        "selected": 56
+      },
+      "pooled": {
+        "all_wrong": 15,
+        "any_correct": 177,
+        "events": 192,
+        "harms": 3,
+        "identity": 166,
+        "repairs": 3,
+        "selected": 166
+      }
+    },
+    "rotation": {
+      "0": {
+        "all_wrong": 27,
+        "any_correct": 37,
+        "events": 64,
+        "harms": 1,
+        "identity": 26,
+        "repairs": 1,
+        "selected": 26
+      },
+      "1": {
+        "all_wrong": 27,
+        "any_correct": 37,
+        "events": 64,
+        "harms": 3,
+        "identity": 23,
+        "repairs": 4,
+        "selected": 24
+      },
+      "2": {
+        "all_wrong": 28,
+        "any_correct": 36,
+        "events": 64,
+        "harms": 1,
+        "identity": 24,
+        "repairs": 3,
+        "selected": 26
+      },
+      "pooled": {
+        "all_wrong": 82,
+        "any_correct": 110,
+        "events": 192,
+        "harms": 5,
+        "identity": 73,
+        "repairs": 8,
+        "selected": 76
+      }
+    }
+  },
+  "readout": "t20 top-1, identity and six signed 20-degree axis rotations"
+}

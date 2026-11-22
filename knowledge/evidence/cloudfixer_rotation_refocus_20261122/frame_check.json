@@ -1,0 +1,457 @@
+{
+  "clean_sha256": "8aa5000d74a7ee7c3f827d9e80a1b325a12544a01b23aa2c76f990c0109a260c",
+  "summary": {
+    "identity": {
+      "before": 0.0,
+      "mean_after": 0.0,
+      "applied": 0,
+      "better": 0,
+      "worse": 0,
+      "tied": 16
+    },
+    "small_x": {
+      "before": 4.999999999999992,
+      "mean_after": 4.999999999999992,
+      "applied": 0,
+      "better": 0,
+      "worse": 0,
+      "tied": 16
+    },
+    "compound": {
+      "before": 24.743885519968142,
+      "mean_after": 10.433567530114997,
+      "applied": 12,
+      "better": 12,
+      "worse": 0,
+      "tied": 4
+    },
+    "large_y": {
+      "before": 59.99999999999999,
+      "mean_after": 83.74999999999999,
+      "applied": 13,
+      "better": 0,
+      "worse": 13,
+      "tied": 3
+    },
+    "off_grid": {
+      "before": 24.320393197386338,
+      "mean_after": 18.505542533313296,
+      "applied": 8,
+      "better": 8,
+      "worse": 0,
+      "tied": 8
+    }
+  },
+  "objects": {
+    "identity": [
+      {
+        "id": 37,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 42,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 126,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 248,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 412,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 459,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 550,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 720,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 784,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 977,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 1332,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 1369,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 1647,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 1948,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 2241,
+        "applied": false,
+        "residual_degrees": 0.0
+      },
+      {
+        "id": 2316,
+        "applied": false,
+        "residual_degrees": 0.0
+      }
+    ],
+    "small_x": [
+      {
+        "id": 37,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 42,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 126,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 248,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 412,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 459,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 550,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 720,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 784,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 977,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 1332,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 1369,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 1647,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 1948,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 2241,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      },
+      {
+        "id": 2316,
+        "applied": false,
+        "residual_degrees": 4.999999999999992
+      }
+    ],
+    "compound": [
+      {
+        "id": 37,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 42,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 126,
+        "applied": false,
+        "residual_degrees": 24.743885519968142
+      },
+      {
+        "id": 248,
+        "applied": true,
+        "residual_degrees": 6.304848659660344
+      },
+      {
+        "id": 412,
+        "applied": false,
+        "residual_degrees": 24.743885519968142
+      },
+      {
+        "id": 459,
+        "applied": true,
+        "residual_degrees": 6.304848659660344
+      },
+      {
+        "id": 550,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 720,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 784,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 977,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 1332,
+        "applied": false,
+        "residual_degrees": 24.743885519968142
+      },
+      {
+        "id": 1369,
+        "applied": false,
+        "residual_degrees": 24.743885519968142
+      },
+      {
+        "id": 1647,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 1948,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 2241,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      },
+      {
+        "id": 2316,
+        "applied": true,
+        "residual_degrees": 5.535184108264671
+      }
+    ],
+    "large_y": [
+      {
+        "id": 37,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 42,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 126,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 248,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 412,
+        "applied": false,
+        "residual_degrees": 59.99999999999999
+      },
+      {
+        "id": 459,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 550,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 720,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 784,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 977,
+        "applied": false,
+        "residual_degrees": 59.99999999999999
+      },
+      {
+        "id": 1332,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 1369,
+        "applied": false,
+        "residual_degrees": 59.99999999999999
+      },
+      {
+        "id": 1647,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 1948,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 2241,
+        "applied": true,
+        "residual_degrees": 89.99999999999999
+      },
+      {
+        "id": 2316,
+        "applied": true,
+        "residual_degrees": 79.99999999999999
+      }
+    ],
+    "off_grid": [
+      {
+        "id": 37,
+        "applied": true,
+        "residual_degrees": 11.143854920495452
+      },
+      {
+        "id": 42,
+        "applied": true,
+        "residual_degrees": 11.143854920495452
+      },
+      {
+        "id": 126,
+        "applied": true,
+        "residual_degrees": 14.521807444205963
+      },
+      {
+        "id": 248,
+        "applied": true,
+        "residual_degrees": 10.597086595236313
+      },
+      {
+        "id": 412,
+        "applied": true,
+        "residual_degrees": 21.78090296252081
+      },
+      {
+        "id": 459,
+        "applied": true,
+        "residual_degrees": 10.597086595236313
+      },
+      {
+        "id": 550,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      },
+      {
+        "id": 720,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      },
+      {
+        "id": 784,
+        "applied": true,
+        "residual_degrees": 10.597086595236313
+      },
+      {
+        "id": 977,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      },
+      {
+        "id": 1332,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      },
+      {
+        "id": 1369,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      },
+      {
+        "id": 1647,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      },
+      {
+        "id": 1948,
+        "applied": true,
+        "residual_degrees": 11.143854920495452
+      },
+      {
+        "id": 2241,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      },
+      {
+        "id": 2316,
+        "applied": false,
+        "residual_degrees": 24.320393197386338
+      }
+    ]
+  }
+}

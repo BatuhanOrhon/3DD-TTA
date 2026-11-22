@@ -1,3 +1,5 @@
+**[User decision/Run/Inference] 2026-11-22 — Rotation is the research priority.** The current frozen N8/K80 late-PM baseline scores 48.06% against plain CloudFixer 69.49% on Rotation. Its existing three readouts have a 52.07% convex-reweighting upper bound. The first proposed test is a geometry-only pose estimate before N8. A development check helps compound tilts but worsens 60° rotations. [Rotation refocus and CPU diagnostics](cloudfixer_rotation_refocus_20261122.md).
+
 **[Run/Decision] 2026-11-22 — Independent filtered-t10 and multiscale SCD follow-up.** On 256 new objects filtered three-vote PM gained 2.08 pp Background, 1.56 pp over the random-view control, and one net correct across 15 corruptions. p95 +2.81%. The two-scale SCD candidate lost two Background events on a separate 64 objects. Exploratory filtered t10 alone gained 6.77 pp Background versus baseline PM. [Completed experiment and verified archives](cloudfixer_background_followup_20261122.md).
 
 **[Paper/Code/Artifact] 2026-11-22 — ScanNet / ScanObjectNN and prior training domains:**
