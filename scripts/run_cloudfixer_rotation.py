@@ -463,7 +463,7 @@ def main():
     path.write_bytes(canonical(dict(run_id=args.output.name, phase=args.phase, spec=spec, execution_status='running')))
     store = MountStore(args.drive_folder)
     if args.phase.startswith('background'):
-        scope, cap = 'background', 5 * 3600
+        scope, cap = 'background', BG_REGISTRY['budget_seconds']
     elif args.phase.startswith(('scd', 'spectral')):
         scope = args.phase.split('_')[0]
         cap = (SCD_REGISTRY if scope == 'scd' else SPECTRAL_REGISTRY)['budget_seconds']

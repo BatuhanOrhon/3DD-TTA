@@ -140,7 +140,8 @@ def execute(phase, session, allocation_epoch, dev_run):
                                                            seconds=time()-allocation_epoch)])))
         is_bg = phase.startswith('background')
         record_setup(MountStore(DRIVE/('background_budget' if is_bg else 'pilot_budget')),
-                     json.loads(misc.read_text()), cap=(5 if is_bg else 4)*3600)
+                     json.loads(misc.read_text()), cap=(json.loads((SOURCE/'cfgs/cloudfixer_background_pilot.json').read_text())['budget_seconds']
+                          if is_bg else 4*3600))
     now = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     output = WORK/f'{now}_{phase}'
     derived = WORK/f'{output.name}_derived'
