@@ -9717,3 +9717,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
 ## 2026-11-22 — Rotation priority and geometry diagnostics
 
 [Run/Inference] The full seed-2 record bounds unchanged N8 late-vector reweighting at 1285/2468 on Rotation. From the archived 1367d39 validation run the 7 t20 poses contain a correct option in 110/192 Rotation events, identity gives 73 and penalized-confidence choice 76. New 0abb521-frozen CPU geometry check on the 16 earlier development objects reduces compound tilt from 24.74° to 10.43° and increases 60° to 83.75°. Classifier gain and latency remain unknown. [Rotation refocus and CPU diagnostics](cloudfixer_rotation_refocus_20261122.md).
+
+[Run/Inference, 2026-11-22] Whole-cloud PCA on the same 16 development objects, rule fixed at 07342a9, reduced mean compound and off-grid angular residuals to 11.72° and 11.56°. Two clean objects moved and the 60° stress mean rose to 69.16°. This input-geometry check motivates a matched single update on the denoiser output before late PM. [Results and proposed causal comparison](cloudfixer_rotation_refocus_20261122.md#denoiser-çıktısından-pca-ile-yön-kestirimi).
