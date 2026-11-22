@@ -16,8 +16,10 @@ def anchor_weights(x, mask, k):
     distance = torch.cdist(points, points, compute_mode='donot_use_mm_for_euclid_dist')
     distance.fill_diagonal_(float('inf'))
     nearest, neighbors = distance.topk(k, largest=False)
-    spacing = nearest.median(1).values
-    typical = spacing[neighbors].median(1).values
+    # Select the lower median explicitly under deterministic CUDA. topk is sorted.
+    middle = (k - 1) // 2
+    spacing = nearest[:, middle]
+    typical = spacing[neighbors].sort(dim=1).values[:, middle]
     ratio = (typical / spacing.clamp_min(torch.finfo(spacing.dtype).tiny)).clamp_max(1.)
     weights[0, valid] = ratio[inverse]
     return weights

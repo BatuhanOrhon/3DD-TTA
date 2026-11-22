@@ -25,6 +25,17 @@ def test_isolation_duplicates_and_rotation():
     assert w[0, -2] == w[0, 0] and w[0, -1] == 0 and 0 < w[0, 11] < .5
 
 
+@pytest.mark.parametrize('k', [4, 5])
+def test_sorted_neighbor_statistics_match_lower_median(k):
+    x = torch.randn((1, 17, 3), generator=torch.Generator().manual_seed(521))
+    valid = torch.ones_like(x[..., 0], dtype=torch.bool)
+    distance = torch.cdist(x[0], x[0]).fill_diagonal_(float('inf'))
+    nearest, neighbors = distance.topk(k, largest=False)
+    spacing = nearest.median(dim=1).values
+    expected = (spacing[neighbors].median(dim=1).values / spacing).clamp_max(1)
+    torch.testing.assert_close(anchor_weights(x, valid, k)[0], expected)
+
+
 def test_scalar_matches_total_force_coefficients_and_view_count():
     x = torch.randn((1, 100, 3), generator=torch.Generator().manual_seed(11))
     x[0, -1] = 100
