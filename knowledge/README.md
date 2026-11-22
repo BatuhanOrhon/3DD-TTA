@@ -1,3 +1,12 @@
+**[Paper/Code/Artifact] 2026-11-22 — ScanNet / ScanObjectNN and prior training domains:**
+[Dataset and checkpoint audit](cloudfixer_scannet_scanobjectnn_lion_provenance_20261122.md)
+separates PointDA-10 ScanNet (10classes/natural shifts) from ScanObjectNN-C
+(15classes/corruptions). CloudFixer trains each source-domain prior separately;
+ScanNet-target transfers use ModelNet/ShapeNet priors, ScanNet-source transfers
+use its own prior. Fresh public Drive lists8diffusion checkpoints including
+ScanNet, with no ScanObjectNN-named prior. Our accepted Scan tests use the same
+ShapeNet-all55 LION with dataset-specific Scan classifiers. No new GPU/model run.
+
 **[Code/Run/Open] 2026-11-22 — Background pilot with interruption recovery.** Nine paired policies, A100 r7 allocated, canonical setup in progress. The fingerprinted pilot stores four-object Drive checkpoints and grouped host mirrors. [Study, cost and recovery procedure](cloudfixer_background_pilot_20261122.md).
 
 **[Run/Inference/Open] 2026-11-21 — Background limit of late-PM reweighting.** On the full seed-2 Point2Vec trace, 779 of 856 Background errors share a strict rival across t20/t10/t0. Reweighting those probabilities can reach at most 68.44% versus plain CloudFixer 76.09%. [Recount and fixed-cost SCD/PM proposals](cloudfixer_background_guidance_pm_20261121.md).

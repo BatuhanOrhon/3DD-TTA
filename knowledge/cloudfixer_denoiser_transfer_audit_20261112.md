@@ -176,3 +176,16 @@ and buffers frozen, so it does not include this additional adaptation stage.
 Follow-up base `c17ed59`, same isolated research branch; scope is this explanation,
 findings entry and [four source hashes](evidence/cloudfixer_denoiser_20261112/online_adaptation_sources.json).
 No experiment, model execution, implementation/default or peer-runtime change.
+
+
+## 2026-11-22 — source/target clarification and fresh public weight inventory
+
+[Paper/Code/Artifact] [New ScanNet/ScanObjectNN/LION audit](cloudfixer_scannet_scanobjectnn_lion_provenance_20261122.md)
+supersedes only the earlier uninspected-Drive availability gap: fresh public
+HTTP200 lists25checkpoints,8diffusion, including separateModelNet40/PointDA
+ModelNet/ScanNet weights; noScanObjectNN-named prior found. No new weights
+were downloaded/deserialized. PointDA denoiser follows source domain:
+ModelNet→ScanNet usesPointDAModelNet, not the40classModelNet40 checkpoint;
+ScanNet→ModelNet/ShapeNet usesScanNet. SameShapeNet-all55 LION underlies our
+acceptedScanObjectNN-C tests; theScan-trained source classifier is separate.
+Original negative/provenance limits and dated historical findings retained.

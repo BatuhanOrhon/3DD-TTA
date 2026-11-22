@@ -1,0 +1,9 @@
+{
+  "source_branch": "research/cloudfixer-transfer-20261114",
+  "source_commit": "574384d2cd34404f06fd1311f4ea8fb8b456782b",
+  "shared_base": "b9afa4995bc0d1e2d4fccb4dd08feea33bfb53b7",
+  "selected_scope": "One primary-source dataset/prior audit, public filename-only inventory/source receipt and four dated knowledge links; no older whole-file replacement",
+  "excluded": "weights, rawHTML, rawarchives, code/runtime changes and all peer work",
+  "verification": "25visible names/8priors; source dispatch and runtime/config SHA assertions; ordered shared-text preservation; local links; diffcheck",
+  "publication": "Resulting integration commit is the commit containing this receipt; recorded in source worktree after normal push/readback"
+}

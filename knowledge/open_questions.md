@@ -3157,3 +3157,17 @@ historical checkpoints: A/B are complete, no pending runtime task.
 [Open] Does observed-anchor reliability outperform uniformly weakening the same proximal pull? Can a stronger eight-step noise schedule or one support-filtered late view repair common-rival errors without harming Rotation or thin structures? Compare shared inputs, tail latency and the combined pose arm against each component. [Evidence, candidate definitions and pilot criteria](cloudfixer_background_guidance_pm_20261121.md)
 
 [Open, 2026-11-22] The Background candidates have a registered nine-arm Colab pilot with fixed IDs, independent controls, checkpoint/recovery and speed gates. [Execution record](cloudfixer_background_pilot_20261122.md).
+
+
+## 2026-11-22 — ScanNet, ScanObjectNN-C and source-specific diffusion
+
+[Paper/Code/Artifact/Inference/Open] [Provenance audit](cloudfixer_scannet_scanobjectnn_lion_provenance_20261122.md)
+confirms CloudFixer PointDA-10 ScanNet is a10class natural-shift domain,
+not our15class ScanObjectNN-C. Source-specific PointDA priors and40class
+ModelNet40 weights are separate; ScanNet as target does not select a ScanNet
+prior. Fresh public Drive inventory25checkpoints/8diffusion includesScanNet,
+notScanObjectNN; no evidence of a released dedicatedScanObjectNN denoiser.
+Our acceptedScan pipeline pins ShapeNet-all55 LION SHA807f6732…a86c2 and
+Scan-specific classifier53f6c2e4…35dac for Point-MAE. No model replacement,
+training or GPU test. Dataset ancestry may overlap; disjointness is not proven.
+Availability is a dated filename inventory, not weight/training-log validation.

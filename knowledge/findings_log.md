@@ -9687,3 +9687,17 @@ real Rotation gains while preserving Background would change the decision.
 [User report/Code/Open] The requested Point2Vec pilot includes soft density anchors, the scalar control, high and geometry-gated eight-step grids, filtered and random t10 views and the paired progressive pose interaction. The user requests recovery after credit loss. Blocks of four objects with all arms are published individually to Drive with checksums and mirrored to the host in groups. New-worker smoke and CPU interruption checks precede interpretation. [Registration, budget and recovery](cloudfixer_background_pilot_20261122.md)
 
 [User report/Code/Open] The higher-starting-noise PM interaction is now primary. Before model outcomes, register 128 additional disjoint IDs × Background/Rotation/clean × three seeds × K80/K120/K160 and a first-index-only K160 control, prioritized before the all15 study. All arms use 9/3 model calls. Cross-grid smoke verifies identical initial Gaussian draw and actual logSNR grid. All subset readouts and paired object-clustered differences in PM-minus-terminal are calculated from the same three logits. [Registration](cloudfixer_background_pilot_20261122.md)
+
+
+## 2026-11-22 — ScanNet, ScanObjectNN-C and source-specific diffusion
+
+[Paper/Code/Artifact/Inference/Open] [Provenance audit](cloudfixer_scannet_scanobjectnn_lion_provenance_20261122.md)
+confirms CloudFixer PointDA-10 ScanNet is a10class natural-shift domain,
+not our15class ScanObjectNN-C. Source-specific PointDA priors and40class
+ModelNet40 weights are separate; ScanNet as target does not select a ScanNet
+prior. Fresh public Drive inventory25checkpoints/8diffusion includesScanNet,
+notScanObjectNN; no evidence of a released dedicatedScanObjectNN denoiser.
+Our acceptedScan pipeline pins ShapeNet-all55 LION SHA807f6732…a86c2 and
+Scan-specific classifier53f6c2e4…35dac for Point-MAE. No model replacement,
+training or GPU test. Dataset ancestry may overlap; disjointness is not proven.
+Availability is a dated filename inventory, not weight/training-log validation.
