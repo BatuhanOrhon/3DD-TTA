@@ -3178,3 +3178,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
 [Run/Decision, 2026-11-22] The larger disjoint filtered t10 validation and k5/k16 SCD test are complete. Three-vote PM did not reach the registered minimum and matched-count superiority remains uncertain. The tested multiscale SCD missed the compact-cluster and Background classification targets. [Decisions](cloudfixer_background_followup_20261122.md).
 
 [Open] Can a prospectively locked single filtered t10 read retain its observed Background benefit and protect remaining corruptions on separate IDs, with its actual one-classifier latency?
+
+[Open, 2026-11-22] The seed-0 baseline comparison on 14 corruptions excluding Background fell by 0.53 pp. Can the single read improve overall accuracy on objects held out from the pilot while preserving performance on the other 14, particularly Density and Rotation, at its measured one-read latency? [Pilot breakdown](cloudfixer_background_followup_20261122.md#tek-filtreli-t10-için-bozulma-bazında-doğruluk).

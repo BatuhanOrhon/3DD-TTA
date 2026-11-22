@@ -62,3 +62,33 @@
 2. **K5+k16 minimum-ağırlıklı SCD'yi genişletme.** Dağınık noktalarda ek yakalama var, kompakt kümelerde zayıf ve ayrı sınıflandırma panelinde Background'da iki net doğru kaybediyor. K160 yönlendirmesine geçiş kapalı.
 
 [Run/Artifact] Çalışma 14:05:09–15:35:08 UTC arasında yaklaşık 90 dakika sürdü. Önceden ölçülen 8,88 CU/saat A100 tarifesiyle bu çalışmanın ek tüketimi yaklaşık 13,32 CU. Smoke dahil dört başarılı faz, 19.212 yöntem tahmini ve 1.554 blok. Tüm arşivler Drive yolundan yeniden indirilip VM/laptop SHA-256 ve ZIP CRC ile karşılaştırıldı. Bloklar kısmi, ters sıra ve yinelenen yedek içe aktarmalarıyla boş bir dizinde yeniden kuruldu. Bu doğrulama ek GPU hesabı gerektirmedi. Nihai arşiv kaydedildikten sonra r7 üzerinde GPU işçi süreci bulunmadığı ayrıca doğrulandı. [Arşiv adları ve hash'ler](evidence/cloudfixer_background_followup_20261122/verification.json) · [Colab yöneticisi](../scripts/supervise_cloudfixer_background.py) · [Tekrar analiz](../scripts/analyze_cloudfixer_background_followup.py) · [Drive çalışma klasörü](https://drive.google.com/drive/folders/1rPDzwC8qzD51XXIO_W0WiNH1OA3SNva9).
+
+## Tek filtreli t10 için bozulma bazında doğruluk
+
+[Run] Aynı 256 nesnenin her bozulmadaki seed 0 tahminleri karşılaştırıldı. Her satırda referans K80 ve filtresiz, eşit ağırlıklı PM(t20, t10, t0). Aday K80 ve tek filtreli t10. Clean ayrı bir kontroldür. Sağdaki fark yüzde puandır.
+
+| Bozulma | PM doğru | Tek filtreli t10 doğru | Net doğru | Fark (puan) |
+|---|---:|---:|---:|---:|
+| background | 168 | 191 | +23 | +8,98 |
+| distortion_rbf | 199 | 201 | +2 | +0,78 |
+| shear | 186 | 188 | +2 | +0,78 |
+| gaussian | 232 | 233 | +1 | +0,39 |
+| occlusion | 108 | 109 | +1 | +0,39 |
+| cutout | 218 | 218 | +0 | +0,00 |
+| distortion_rbf_inv | 207 | 206 | -1 | −0,39 |
+| impulse | 232 | 231 | -1 | −0,39 |
+| lidar | 108 | 107 | -1 | −0,39 |
+| uniform | 231 | 229 | -2 | −0,78 |
+| density_inc | 216 | 213 | -3 | −1,17 |
+| distortion | 198 | 195 | -3 | −1,17 |
+| upsampling | 226 | 223 | -3 | −1,17 |
+| rotation | 122 | 117 | -5 | −1,95 |
+| density | 200 | 194 | -6 | −2,34 |
+| Background hariç 14 bozulma | 2683 | 2664 | -19 | −0,53 |
+| Tüm 15 bozulma | 2851 | 2855 | +4 | +0,10 |
+
+[Run] Beş bozulmada doğruluk arttı, birinde aynı kaldı, dokuzunda düştü. Background'da net +23, diğer 14'te toplam −19 doğru. Tüm 15'te 60 eski hata düzeldi, 56 eski doğru kaybedildi. Genel doğruluk %74,24'ten %74,35'e çıktı, eşlenmiş fark +0,10 puan (nominal %95 [−0,47, +0,65]). Background çıkarıldığında %74,86'dan %74,33'e indi, fark −0,53 puan (nominal %95 [−1,06, −0,06]). Aralıklar aynı 256 özgün nesneyi bütün koşullarıyla birlikte 10.000 kez yeniden örnekler. Background dışı karşılaştırma keşifseldir. Üç odak tohumu birleştirildiğinde Background +6,77 ve Rotation −0,65 puandır.
+
+[Artifact] Odak ve diğer 13 bozulmanın SHA-256 ile doğrulanmış ham arşivleri `result/modelnet40_c/cloudfixer_background_followup_20261122/` altındadır. Yeniden sayım için `scripts/analyze_cloudfixer_background_followup.py` içindeki `read_archive` çıktısında (bozulma, seed 0, özgün ID) anahtarını kullan. Her nesne için `identity[0]` (üçlü PM doğru) ve `bg_view[3]` (tek filtreli t10 doğru) göstergelerini topla. Tüm 15'in ve üç tohumlu odak grubunun toplamları ile aralıkları önceki arşivlenmiş karşılaştırmayla eşleşti. [Arşiv kimlikleri ve birleşik sonuçlar](evidence/cloudfixer_background_followup_20261122/comparison.json).
+
+[Decision] Tek filtreli t10 bağımsız doğrulama adayı olarak kalıyor. Genel temel modeli değiştirmeden önce pilot dışında kalan nesnelerde 15 bozulmanın ortalamasını, Background dışındaki performansı, Rotation'ı ve tek sınıflandırıcıyla uçtan uca gecikmeyi birlikte doğrula.
