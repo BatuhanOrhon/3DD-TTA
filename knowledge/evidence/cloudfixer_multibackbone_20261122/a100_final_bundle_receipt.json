@@ -1,0 +1,17 @@
+{
+  "actual_full_seconds": 10826.007684,
+  "archive": "result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/final_20261122T230335Z.zip",
+  "blocks": 585,
+  "bytes": 65528957,
+  "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+  "final": "result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/final_20261122T230335Z",
+  "original_archives": 15,
+  "rows": 135,
+  "sha256": "bcb64ea0c5c0165e43c4498dfc428af6c1e4804f82889e17d4924b76e38cfe07",
+  "source": "228555f/v5",
+  "status": "verified_independent_Drive_to_host_readback",
+  "readback": "result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/final_20261122T230335Z_drive_readback.zip",
+  "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64/final_20261122T230335Z.zip",
+  "members": 41,
+  "verified_utc": "2026-11-22T23:05:56.787021+00:00"
+}

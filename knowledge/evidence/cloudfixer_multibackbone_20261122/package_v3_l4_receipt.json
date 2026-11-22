@@ -1,0 +1,33 @@
+{
+  "source_commit": "237d7b2f4089001b230eb73189fca8b238d78dff",
+  "accelerator": "L4",
+  "campaign": "8d40913917886290a06dd4e714d4f45c5a4f7df74c9d1ca7dd0f6dbd55b30578",
+  "local_root": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/package_v3",
+  "status": "CPU_package_verified; pending Drive consent/canonical/native admission",
+  "files": {
+    "manifest.json": {
+      "bytes": 135795,
+      "sha256": "e07fe3976c744fafa8fb7611a73a36d6da008adaa9f198ab77da8e1f1b93b6d9"
+    },
+    "baseline_reference.json": {
+      "bytes": 94668,
+      "sha256": "199e52a5d826efaa39e159fcc98c441d95ac463951a6538dada3a450866bcc48"
+    },
+    "official_cloudfixer.tar": {
+      "bytes": 5570560,
+      "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+    },
+    "head_assets.zip": {
+      "bytes": 98419180,
+      "sha256": "e3c61cbabea5df676472fece072deee2a3a2188c07a1974ef19b3ae735600ddc"
+    },
+    "overlay.zip": {
+      "bytes": 53279,
+      "sha256": "6970a921bb52ab29e1315d9cdb09eee989f70fffa8c944d3fffc4498e4f010c1"
+    },
+    "setup_cloudfixer_multibackbone_colab.py": {
+      "bytes": 14528,
+      "sha256": "25663a7accee640da022e76e735630700cf002ba865bbc23d728181938ac57ce"
+    }
+  }
+}

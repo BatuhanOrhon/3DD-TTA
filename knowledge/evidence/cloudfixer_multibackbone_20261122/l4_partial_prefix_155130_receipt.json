@@ -1,0 +1,22 @@
+{
+  "status": "validated_partial_prefix",
+  "campaign": "68d53814491e08d2206bbf3b2559a308751259ac2f9c5c5a2461cee8d9421c3a",
+  "blocks": 21,
+  "objects": 672,
+  "expected_objects": 37020,
+  "full_campaign": false,
+  "validated_utc": "2026-11-22T15:52:14.897242+00:00",
+  "archive": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cf_mb_partial_20261122T155130Z_Drive_download.zip",
+  "archive_sha256": "13501433a8aee539e19944ea0cf807e2195261541d7e2e913f72b8984f6ad67b",
+  "archive_bytes": 1390049,
+  "local_extracted": "result/modelnet40_c/cloudfixer_multibackbone/68d53814491e/partial_capture_20261122T155130Z",
+  "checks": [
+    "safeZIP/CRC/sizeSHA",
+    "campaign/data/labels",
+    "unit receipts and allpayloadSHA",
+    "finite shapes and originalIDs",
+    "contiguousprefix",
+    "savedRNGchain"
+  ],
+  "limitation": "No full-corruption accuracy or fulltest conclusion; currentworker continues beyond this snapshot"
+}

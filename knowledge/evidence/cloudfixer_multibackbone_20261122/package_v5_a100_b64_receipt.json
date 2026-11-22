@@ -1,0 +1,72 @@
+{
+  "source_commit": "228555fe952669bf4e1e9a1ee2e6f347d61b066c",
+  "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+  "scientific_protocol": {
+    "dataset": "modelnet40_c",
+    "objects": 2468,
+    "severity": 5,
+    "seed": 0,
+    "batch_size": 64,
+    "CF_OPTIONS": {
+      "t_min": 0.02,
+      "t_len": 0.1,
+      "warmup": 0.2,
+      "input_lr": 0.2,
+      "rotation": 0.02,
+      "pow": 1,
+      "knn": 5,
+      "weighted_reg": true,
+      "optim": "adamax",
+      "n_update": 30,
+      "weight_decay": 0,
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "optim_end_factor": 0.05,
+      "lam_h": 10,
+      "lam_l": 1,
+      "vote": 1,
+      "subsample": 2048,
+      "diffusion_steps": 500,
+      "diffusion_noise_schedule": "polynomial_2",
+      "scenario": "normal",
+      "imb_ratio": 1,
+      "cls_scale_mode": "unit_norm",
+      "scale_mode": "unit_std"
+    },
+    "heads": [
+      "dgcnn",
+      "curvenet",
+      "pointnext"
+    ],
+    "geometry": "authorrotateTrue;unitSTD;inverseaxis/unitsphereoutput",
+    "seed_policy": "continuousfreshpercorruptionseed0;allRNGsavedper64;classifierfork;not author full-shuffledstream or common-draw paired with LION"
+  },
+  "budget_seconds": 28800,
+  "container_reuse": "v4 original acceptedA100headELF assetZIP reusedonlyafterallmemberSHA/CRC; noL4rebuiltELF import",
+  "files": {
+    "manifest.json": {
+      "bytes": 135797,
+      "sha256": "48322a1f01fb42172eedac141a8744d05995c835aa59ec2e26c9f71ccd8f2cd9"
+    },
+    "baseline_reference.json": {
+      "bytes": 94668,
+      "sha256": "199e52a5d826efaa39e159fcc98c441d95ac463951a6538dada3a450866bcc48"
+    },
+    "official_cloudfixer.tar": {
+      "bytes": 5570560,
+      "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+    },
+    "head_assets.zip": {
+      "bytes": 98419180,
+      "sha256": "e3c61cbabea5df676472fece072deee2a3a2188c07a1974ef19b3ae735600ddc"
+    },
+    "overlay.zip": {
+      "bytes": 53379,
+      "sha256": "06cf6e1314e5f00ab810dfb3a8b3f84b44e9a4459265d361cc04ff9d2bbac157"
+    },
+    "setup_cloudfixer_multibackbone_colab.py": {
+      "bytes": 14938,
+      "sha256": "a08f8074e9e1d20e83c29f2e831b6405276a44bedd5507a1fbf7c20421f40c9b"
+    }
+  }
+}

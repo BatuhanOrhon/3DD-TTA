@@ -1,0 +1,112 @@
+{
+  "utc": "2026-11-22T22:20:46.009011+00:00",
+  "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+  "scope": "rotation_only_full2468_s5_seed0_B64",
+  "recount": "result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/retrieval_20261122T200631Z/analysis_11/recount.json",
+  "blocks_full_scopes": 429,
+  "rows": [
+    {
+      "accuracy": 0.833063209076175,
+      "backbone": "curvenet",
+      "corruption": "rotation",
+      "method": "cloudfixer_plain",
+      "n_correct": 2056,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.7597244732576985,
+      "backbone": "dgcnn",
+      "corruption": "rotation",
+      "method": "cloudfixer_plain",
+      "n_correct": 1875,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.630064829821718,
+      "backbone": "pointnext",
+      "corruption": "rotation",
+      "method": "cloudfixer_plain",
+      "n_correct": 1555,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.7540518638573744,
+      "backbone": "curvenet",
+      "corruption": "rotation",
+      "method": "source_cf_frame",
+      "n_correct": 1861,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.6284440842787682,
+      "backbone": "dgcnn",
+      "corruption": "rotation",
+      "method": "source_cf_frame",
+      "n_correct": 1551,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.4258508914100486,
+      "backbone": "pointnext",
+      "corruption": "rotation",
+      "method": "source_cf_frame",
+      "n_correct": 1051,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.6880064829821718,
+      "backbone": "curvenet",
+      "corruption": "rotation",
+      "method": "source_raw",
+      "n_correct": 1698,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.5725283630470016,
+      "backbone": "dgcnn",
+      "corruption": "rotation",
+      "method": "source_raw",
+      "n_correct": 1413,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.3905996758508914,
+      "backbone": "pointnext",
+      "corruption": "rotation",
+      "method": "source_raw",
+      "n_correct": 964,
+      "n_examples": 2468
+    }
+  ],
+  "comparisons": [
+    {
+      "backbone": "curvenet",
+      "cloudfixer_correct": 2056,
+      "cloudfixer_minus_lion_pp": 16.85575364667747,
+      "corruption": "rotation",
+      "lion_pm_correct": 1640,
+      "n_examples": 2468,
+      "reference_archive_sha256": "23b23d39b03e644aab82d012133ed8092219aa0c22bc6e0f36e0410aa1959cf8"
+    },
+    {
+      "backbone": "dgcnn",
+      "cloudfixer_correct": 1875,
+      "cloudfixer_minus_lion_pp": 22.042139384116695,
+      "corruption": "rotation",
+      "lion_pm_correct": 1331,
+      "n_examples": 2468,
+      "reference_archive_sha256": "ed580968a04a2bf90f9d9cba00ccdda2eb963f2dc891e13113c834690b766d66"
+    },
+    {
+      "backbone": "pointnext",
+      "cloudfixer_correct": 1555,
+      "cloudfixer_minus_lion_pp": 21.191247974068073,
+      "corruption": "rotation",
+      "lion_pm_correct": 1032,
+      "n_examples": 2468,
+      "reference_archive_sha256": "1f7680bdc59655f660e67ba0b01f04d94e99299999a81c56e35fb90ae2941b49"
+    }
+  ],
+  "raw_archive_sha256": "83f0eff9a5bd41e6d673e55fc060d71d8a7b272957f1c9964293ece52ab2f2c2",
+  "limitation": "Different priors/preprocessing/RNG: whole pipelines. Scalar reference is insufficient for paired object statistics."
+}

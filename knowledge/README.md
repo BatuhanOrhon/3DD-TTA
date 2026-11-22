@@ -1,3 +1,13 @@
+**[Run/Complete] 2026-11-22 23:06 UTC — OriginalCF, üç alternatif head, tam ModelNet40-C all15.**
+DGCNN/CurveNet/PointNeXt CF%71.277688/%75.931929/%75.018909; eskiLIONN8PM'e
++7.336575/+10.253917/+4.392220pp. All2468×15/s5/seed0/B64,585blok/135satır
+hamID/etiket/logit/RNG sayımı ve son15ZIPDrive→host SHA/CRC geçti.
+Density/Cutout/Occlusion kayıpları ve BackgroundPointNeXt rawsource üstünlüğü
+korunuyor; farklıprior/ön işleme, tekseed, bütünpipeline kıyası. YeniCF-priorN8
+buüçhead'de ölçülmedi. [Tam tablolar ve çıkarımlar](cloudfixer_multibackbone_results_20261122.md),
+[çalıştırma/koruma/kapatma kaydı](cloudfixer_multibackbone_preparation_20261122.md).
+Sonpublication/cloudflush/yalnızownedr16kapatma sürüyor; GPUyenidenkoşusu yok.
+
 **[User decision/Run/Inference] 2026-11-22 — Rotation is the research priority.** The current frozen N8/K80 late-PM baseline scores 48.06% against plain CloudFixer 69.49% on Rotation. Its existing three readouts have a 52.07% convex-reweighting upper bound. Surface normals and whole-cloud PCA both reduced moderate compound tilts on raw development clouds and worsened 60° rotations. The proposed denoiser-side comparison applies one PCA or SCD rotation at t50 before all three PM reads. [Rotation refocus and CPU diagnostics](cloudfixer_rotation_refocus_20261122.md).
 
 **[Run/Decision] 2026-11-22 — Independent filtered-t10 and multiscale SCD follow-up.** On 256 new objects filtered three-vote PM gained 2.08 pp Background, 1.56 pp over the random-view control, and one net correct across 15 corruptions. p95 +2.81%. The two-scale SCD candidate lost two Background events on a separate 64 objects. Exploratory filtered t10 alone gained 6.77 pp Background versus baseline PM. [Completed experiment and verified archives](cloudfixer_background_followup_20261122.md).

@@ -1,0 +1,8 @@
+{
+  "local": "result/modelnet40_c/cloudfixer_multibackbone/68d53814491e/uniform_validated_20261122T1615Z.zip",
+  "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/l4_trial/uniform_validated_20261122T1615Z.zip",
+  "status": "Drive independent CLI download byteidentical/CRC/7standardfiles verified",
+  "bytes": 4648978,
+  "sha256": "bda64debc8e8dd32cb63c80fa1fab066bf9b51047a73a766b3d24c88245b8d16",
+  "readback": "result/modelnet40_c/cloudfixer_multibackbone/68d53814491e/uniform_validated_20261122T1615Z_Drive_readback.zip"
+}

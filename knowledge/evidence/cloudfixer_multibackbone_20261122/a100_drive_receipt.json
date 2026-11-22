@@ -1,0 +1,19 @@
+{
+  "session": "tta-cloudfixer-multibackbone-a100-20261122-r16",
+  "physical_mount": true,
+  "utc": "2026-11-22T18:50:31.917600+00:00",
+  "oldblocks": 97,
+  "oldcounts": {
+    "uniform": 2468,
+    "gaussian": 608
+  },
+  "new_destination": "/content/drive/MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64",
+  "old_destination": "/content/drive/MyDrive/thesis/result/cloudfixer_multibackbone_20261122/l4_trial",
+  "cpu_count": 12,
+  "meminfo": [
+    "MemTotal:       175166460 kB",
+    "MemFree:        168991284 kB",
+    "MemAvailable:   172260476 kB"
+  ],
+  "diskfree_gib": 234.99819946289062
+}

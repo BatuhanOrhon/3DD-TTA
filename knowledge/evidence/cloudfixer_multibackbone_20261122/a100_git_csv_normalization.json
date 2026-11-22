@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-22T23:09:02.345191+00:00",
+  "scope": "KnowledgeCSVcopiesonly; originalZIPs/finalarchive/rawCSVbytesunchanged",
+  "reason": "NormalizeCRLFtoLFforGitdiffcheck; parsedCSVrowsverifiedidentical",
+  "files": [
+    {
+      "file": "a100_cf_vs_lion.csv",
+      "archive_derived_csv_sha256": "9fd5280ce80373ee97197d646164a75f6a48ca4606e405eea09b1d1596469d0f",
+      "git_LF_sha256": "3e1f92631b89cddefae068da1ca764ccf0ec83f33e6324e01fc5be92468cce7a",
+      "rows_equal": true
+    },
+    {
+      "file": "a100_per_corruption.csv",
+      "archive_derived_csv_sha256": "59dbf1067a938621565a8573a8ff3efd9a12471315010667c78780e4c8e9ef1c",
+      "git_LF_sha256": "30afca7389af8ee57f4d2611c92f070965d27252caed85e3416a81c79cc8bba7",
+      "rows_equal": true
+    },
+    {
+      "file": "a100_summary.csv",
+      "archive_derived_csv_sha256": "bdaa951f91de990b092150be492055da0e3b1ef131abe00748d5c8fb92157700",
+      "git_LF_sha256": "5e0870a419aa969bf61ac6433b637877ab22d7335abac6e043971d3ce1fdf450",
+      "rows_equal": true
+    }
+  ]
+}

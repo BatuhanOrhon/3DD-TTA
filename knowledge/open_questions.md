@@ -3184,3 +3184,24 @@ Availability is a dated filename inventory, not weight/training-log validation.
 [User decision/Open, 2026-11-22] Prioritize Rotation. Does single-pass prealignment from surface normals improve held-out N8 classification with acceptable non-Rotation accuracy and p95 time? Compare with known inverse pose (diagnostic), N8 and fixed Kabsch. Keep large-angle wrong-axis selection visible. [Rotation refocus and CPU diagnostics](cloudfixer_rotation_refocus_20261122.md).
 
 [Open, 2026-11-22] At the same t50 clean estimate, does a single confidence-gated whole-cloud PCA rotation propagated to the next state improve paired Rotation accuracy over identity and SCD-based output alignment while preserving clean accuracy, all15 accuracy and latency? [Denoiser-side PCA proposal and geometry evidence](cloudfixer_rotation_refocus_20261122.md#denoiser-çıktısından-pca-ile-yön-kestirimi).
+
+
+## 2026-11-22 — Multibackbone original CF: completed and remaining gates
+
+- [x] AllModelNet40-C2468×15/s5/seed0 with accepted frozen DGCNN/CurveNet/PointNeXt,
+  plainCF/vote1; B64 native/smoke/replay/capacity gates and585rawblock independent
+  recount passed. OldL4B32 pilot remains separate; no head/checkpoint/window tuning.
+- [x] All15 tables/control modes and oldLIONmatched-head scalar comparisons,
+  including Density/Cutout/Occlusion losses, BackgroundPointNeXtrawsource
+  superiority and Rotation gains; [complete report](cloudfixer_multibackbone_results_20261122.md).
+- [x] Final15originalZIP/source/derivedbundle independently Drive→host SHA/CRC verified.
+- [ ] Record final official cloudflush, curated thesis publication and explicitly
+  user-authorized ownedA100r16close; preserve old-account and peer runtimes.
+- [Open] New CF-XYZ N8/K80/t20-t10-t0 baseline on these three heads is unmeasured;
+  do not equate it with the oldLIONN8PM2/4/6/8 comparator. No PM-only conclusion.
+- [Open] Attribution to prior, preprocessing, optimizer or readout requires matched
+  controls/heldout development and independent seeds; no fulltest-selected routing.
+- [Open] ScanObjectNN-C transfer can use verified ModelNet40XYZ priorb64841d0...5a5a,
+  with explicitly cross-domain protocol and matched Scanheads; no dedicated
+  ScanObjectNN diffusion checkpoint was found/released in the audited assets.
+  Scan GPU evaluation is outside this completed ModelNet phase.

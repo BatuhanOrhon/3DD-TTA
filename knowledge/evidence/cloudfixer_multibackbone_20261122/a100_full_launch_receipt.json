@@ -1,0 +1,91 @@
+{
+  "status": "running; scientificfulltestnotyetcomplete",
+  "session": "tta-cloudfixer-multibackbone-a100-20261122-r16",
+  "endpoint": "gpu-a100-hm-ass1c0-1smilmkaz90s4",
+  "primary_pid": 56566,
+  "worker": {
+    "runid": "20261122T200042Z_full_window01",
+    "phase": "full",
+    "output": "/content/cf_multibackbone_a100/runs/20261122T200042Z_full_window01",
+    "stdout": "/content/drive/MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64/stdout_detached_full_window01.log",
+    "pid": 56962,
+    "command": [
+      "/content/cf_multibackbone_a100/code/scripts/run_cloudfixer_multibackbone.py",
+      "--manifest",
+      "/content/cf_mb_package_a100_v5/manifest.json",
+      "--asset-root",
+      "/content/cf_multibackbone_a100/assets",
+      "--official-root",
+      "/content/cf_multibackbone_a100/official",
+      "--diffusion",
+      "/content/cf_multibackbone_a100/official/checkpoints/diffusion_model_transformer_modelnet40.npy",
+      "--dataset-root",
+      "/content/3DD-TTA/data/modelnet40_c",
+      "--drive-folder",
+      "/content/drive/MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64",
+      "--output",
+      "/content/cf_multibackbone_a100/runs/20261122T200042Z_full_window01",
+      "--phase",
+      "full",
+      "--full-gate-key",
+      "full_gate_d695904649420376cd552ff4aa1632cca9a2ddde6fc3a81663535e55f18a1664.json"
+    ],
+    "gate": "full_gate_d695904649420376cd552ff4aa1632cca9a2ddde6fc3a81663535e55f18a1664.json",
+    "scientific_source": "registeredv5/source228555f/A100B64; unchangedworker/model/optimizer"
+  },
+  "gate": {
+    "key": "full_gate_d695904649420376cd552ff4aa1632cca9a2ddde6fc3a81663535e55f18a1664.json",
+    "receipt": {
+      "status": "passed",
+      "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+      "profile_payload_sha256": "02fe289f694cffd0263f3312a970dde5f81a7a9f948342b4eb2ac8949473f259",
+      "account_read_epoch": 1795377478.323761,
+      "balance_cu": 489.36,
+      "all_assignments_cu_per_h": 8.88,
+      "remaining_eta_seconds": 15813.90434669775,
+      "execution_window_seconds": 15813,
+      "reserve_cu": 5.0,
+      "capacity_report_key": "capacity_maxpoints_20261122T195510Z.json",
+      "capacity_report_sha256": "f46e29bedb3d276cdbf2d30a4d9b3408a6a1f02e8825412bb2079fe55958d872",
+      "runtime_signature_sha256": "397d6d99221fee4bac4e90a90eae9888654fc8bd5ff4e87fd7ff41b7160471f3",
+      "owned_rate_cu_per_h": 8.88,
+      "owned_cu_accrued_estimate": 11.39203891043663,
+      "owned_phase_cap_cu": 80.0,
+      "prior_L4_cost_allowance_reserved_cu": 55.0,
+      "global_task_cap_cu": 120.0,
+      "phase_wall_cap_seconds": 28800,
+      "allocation_started_epoch": 1795372947.098914,
+      "operator_source_sha256": {
+        "cf_a100_technical_driver.py": "cc8bdd0008375958bfbfab423720c80939f51e7bf3367928dbc6d6a35aa4be63",
+        "cf_a100_phase_smoke01.py": "e89cde2e5f5c243d8392cac20f6a38efad9ab037911dd5f9c21ea137d6d5891e",
+        "cf_a100_phase_smoke02.py": "4a764c87ea48b77c8b84f56acec6343792fbd45d0e3f0d2e4dab1438377944c5",
+        "cf_a100_phase_profile01.py": "d76846a79de53a317e699d8b8763326a07075ae7a51094dd4029c70673cd5b83",
+        "cf_a100_check_max_capacity.py": "6b1b1572b5427700b44850f289e5e013eefb7aeb5c2988019647e275cdcd5651",
+        "cf_a100_collect_profile_capacity_meta.py": "90262b7d2c2a6d2f28135cae30cee8849409488ef694326cf805f57770267abe",
+        "cf_a100_full_window_budget.py": "3fec5cc206d7548b098d3f04858fb11b7d7612ec341e8c44da8c7b0ac835f40c",
+        "cf_a100_issue_full_gate.py": "53adc141ddc8397d4d8909076b3cc4252a093ce1c0d0ecd47e300dc6b0882146",
+        "cf_a100_detached_full_runner.py": "2ab54f98a3fceb2c2ca1e00baf16fc8d9d548388b5cc83031251b298314294bc",
+        "cf_a100_detached_supervisor.py": "2774eab23ca6077b40f3b4473c2f3d83008305e0f86ef8765f708841df2a443f",
+        "cf_a100_launch_full.py": "7f57c9320d7c11bee903f65d2b4feb551e2a75433b9a4b032b2603d85fac9dc4"
+      },
+      "estimate_basis": {
+        "old_A100_B32_seconds": 10396.330104966197,
+        "measured_native_scale": 1.981119770199378,
+        "profile_head_seconds": 1.3580101249990548,
+        "profile_overhead_seconds": 2.5,
+        "margin": 1.25
+      },
+      "scientific_source": "registered v5/source228555f; no operational model or optimizer changes",
+      "teardown_authorization": "User explicitly requested ownedruntime close after taskcomplete andpreservation"
+    }
+  },
+  "actual_profile": {
+    "gaussian64_native_seconds": 15.779776993999803,
+    "gaussian64_peak_mib": 5089.01025390625,
+    "upsampling64_native_seconds": 41.63971814300021,
+    "upsampling64_peak_mib": 18163.37353515625
+  },
+  "updated_utc": "2026-11-22T20:11:41.192883+00:00",
+  "control_validation": "independentreviewandfailureinjectionpassed; workerplusindependentsupervisordeadline; immutableselection/atomicexit; fullcompletionrequires15rawscopeCPUrecount",
+  "transport_adaptation": "canonical10executedviaColabCLIexec; purePythonpostcanonicaltechnical/fulloperators viaCLIconsole as revieweduploadedbytes, detachedprocessgroups, local+Driveprogress; noauth/CLIinstallchanges"
+}

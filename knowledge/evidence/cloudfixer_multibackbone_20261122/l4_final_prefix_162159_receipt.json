@@ -1,0 +1,28 @@
+{
+  "status": "validated_partial_prefix",
+  "campaign": "68d53814491e08d2206bbf3b2559a308751259ac2f9c5c5a2461cee8d9421c3a",
+  "blocks": 97,
+  "objects": 3076,
+  "coverage": {
+    "uniform": 2468,
+    "gaussian": 608
+  },
+  "full_campaign": false,
+  "archive": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cf_mb_partial_20261122T162159Z_Drive_download.zip",
+  "archive_bytes": 5923249,
+  "archive_sha256": "0299db66dcb0a435fb1224cfa13c88952419ff7a5515f0c7db7a1059824675fd",
+  "drive": "/content/drive/.shortcut-targets-by-id/1tPaO3F7RvcItJUZBd5LDGOOw6zIRPLE2/thesis/result/cloudfixer_multibackbone_20261122/l4_trial/cf_mb_partial_20261122T162159Z.zip",
+  "local_extracted": "result/modelnet40_c/cloudfixer_multibackbone/68d53814491e/partial_capture_20261122T162159Z",
+  "previous_prefix_byteidentical_files": 114,
+  "validated_utc": "2026-11-22T16:22:39.673779+00:00",
+  "checks": [
+    "ZIPsafe/CRC/sizeSHA",
+    "campaign/data/labels",
+    "allreceipt/payloadSHA",
+    "finite shapes and originalIDs",
+    "contiguousprefix",
+    "savedRNGchain",
+    "previousprefix unchanged"
+  ],
+  "limitation": "Point-in-time partial coverage; no fulltest conclusion"
+}

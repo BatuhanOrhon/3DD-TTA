@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-22T13:33:24.796199+00:00",
+  "passed": 175,
+  "focused": 29,
+  "seconds": 3.55,
+  "command": "/tmp/cf-baseline-integration-20261121-venv/bin/python -m pytest tests/test_cloudfixer*.py -q",
+  "syntax": "compileall passed",
+  "diff": "passed",
+  "review": "read-only review: L4 source inputs/SM89/preload correct; cached receipt destination issue fixed before any restore and four regressions pass",
+  "source_files": {
+    "scripts/prepare_cloudfixer_multibackbone.py": "6cf23114f8784649a4ae9421080a8a34c983ee9f9244a94c298ce5ead6e53a96",
+    "scripts/run_cloudfixer_multibackbone.py": "045a69c4e6fa407458a3b84363fcca863bacc5819e457d5da03f6d09932a1693",
+    "scripts/setup_cloudfixer_multibackbone_colab.py": "25663a7accee640da022e76e735630700cf002ba865bbc23d728181938ac57ce",
+    "tests/test_cloudfixer_multibackbone.py": "d91254be83a5d67866ec0825da3499f04c67cb49c9f4f8de8fa69bf8d5a9fe83"
+  },
+  "gpu_native_smoke": "not run; Drive consent pending"
+}

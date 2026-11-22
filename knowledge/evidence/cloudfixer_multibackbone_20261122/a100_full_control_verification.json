@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "source": "actual reviewedoperational source, scientificsource228555funchanged",
+  "checks": [
+    "CPUwindow6boundchecks",
+    "selectionconflictpreservesoldprojection",
+    "100concurrentatomicJSONupdates/reads forworkerandsupervisor",
+    "independentsupervisorkillsGIL-heldnativechildandwaits",
+    "Drive-start+terminalmetadatafailuresstillwaitandpreservelocalactualexit"
+  ],
+  "review": "all3importantreviewfindingsresolved; finalreview no launchblocker",
+  "utc": "2026-11-22T20:09:31.161211+00:00"
+}

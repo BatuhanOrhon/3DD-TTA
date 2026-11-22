@@ -1,0 +1,61 @@
+{
+  "source": "663d756 registered science unchanged",
+  "operational_sources": {
+    "resource_policy01.py": {
+      "sha256": "43d09782cf18dc6b64423bbfe9c0f83a4119afa81db0421e6761c82b0732cc37",
+      "bytes": 1806
+    },
+    "detached_full_runner.py": {
+      "sha256": "7937b060a78bbf877fd0c149cf3a1584f48d530cc59cbf9d04faae8d0837b2e3",
+      "bytes": 2717
+    },
+    "detached_supervisor.py": {
+      "sha256": "c3597e918dbd76bc2a14ff87fe7b30071a9502da63330acec0da7029a2569c5a",
+      "bytes": 1452
+    },
+    "launch_detached_full02.py": {
+      "sha256": "192a0567da7b3e21880838dcb2af2010f9ec3db5d75a5b30cb92e1bf88d3b4c3",
+      "bytes": 1753
+    },
+    "cli_absolute_phase.py": {
+      "sha256": "0a99882a32342b78ef119938b8a57a017e19d0a63159197096a79f8ab58e11b2",
+      "bytes": 550
+    },
+    "recover_setup_cache02.py": {
+      "sha256": "197ccb7bb25074094e5d40ea7ee0da7cf439852875d56866f0f2c5d736f4978d",
+      "bytes": 4104
+    }
+  },
+  "gate": {
+    "key": "full_gate_c2a3b356b0bd5a9ad3d645cd41960fa99e01cc2ac4a31fd1dcbbb6978633ad14.json",
+    "status": "passed",
+    "campaign": "68d53814491e08d2206bbf3b2559a308751259ac2f9c5c5a2461cee8d9421c3a",
+    "profile_payload_sha256": "940c3efdf02d3dead6164e62e42ce2f700b178d7125ea647279250df31f86a9a",
+    "account_read_epoch": 1795361751.0,
+    "balance_cu": 10.0,
+    "all_assignments_cu_per_h": 10.82,
+    "remaining_eta_seconds": 35853.21876043089,
+    "execution_window_seconds": 2814.0,
+    "reserve_cu": 1.0,
+    "operational_policy_sha256": "43d09782cf18dc6b64423bbfe9c0f83a4119afa81db0421e6761c82b0732cc37",
+    "policy_amendment": "Reserve1CU after actual per32atomic/freshprocess-replay proof; user explicitly accepts CU-exhaustion continuation. No numeric/model/source changes. All6h/55CU caps retained; total2assignment cost and180s margin used.",
+    "scientific_source": "registered v4/663d756 + separately archived operational resource policy01",
+    "account_read_source": "colab usage returned10.00CU/10.82CUh/2assignments; commandstarted15:35:51UTC usedconservatively",
+    "operator_source_sha256": {
+      "resource_policy01.py": "43d09782cf18dc6b64423bbfe9c0f83a4119afa81db0421e6761c82b0732cc37",
+      "detached_full_runner.py": "7937b060a78bbf877fd0c149cf3a1584f48d530cc59cbf9d04faae8d0837b2e3",
+      "detached_supervisor.py": "c3597e918dbd76bc2a14ff87fe7b30071a9502da63330acec0da7029a2569c5a",
+      "launch_detached_full02.py": "192a0567da7b3e21880838dcb2af2010f9ec3db5d75a5b30cb92e1bf88d3b4c3"
+    }
+  },
+  "launch_log": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/launch_detached_full02.stdout.log",
+  "supervisor": {
+    "supervisor_pid": 74349,
+    "started_utc": "2026-11-22T15:42:32.430459+00:00",
+    "worker_pid": 74350
+  },
+  "first_observed_objects": 224,
+  "scope": "partial running; no full-corruption accuracy yet",
+  "raw_source_local": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial",
+  "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/l4_trial"
+}

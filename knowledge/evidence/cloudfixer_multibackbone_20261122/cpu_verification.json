@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-22T13:05:14.874585+00:00",
+  "status": "CPU_prepared_not_GPU_admitted",
+  "command": "/tmp/cf-baseline-integration-20261121-venv/bin/python -m pytest tests/test_cloudfixer*.py -q",
+  "passed": 168,
+  "seconds": 3.73,
+  "focused_tests": 22,
+  "syntax": "compileall passed",
+  "diff_check": "passed",
+  "review": "review_two_colab: no remaining CPU-preparation blockers; realGPU/native restore unverified",
+  "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+  "source_files": {
+    "scripts/run_cloudfixer_multibackbone.py": "0665651eef57840a1d5b1e9de964638505a407f67b294cf33ffec33b6ee31de9",
+    "scripts/prepare_cloudfixer_multibackbone.py": "43684c6f81b4a186a1be818597d66113f69dba065b73163274c2363cb8fbedf6",
+    "scripts/setup_cloudfixer_multibackbone_colab.py": "b450b6ed445d3a5f0bc5fbf7ff38809c7ccfbdd5ecb8332764482d8dfa986c40",
+    "scripts/analyze_cloudfixer_multibackbone.py": "9db731e775227635601be27f1e546c2519b068227ad4ea658cef7d331d11c6d2",
+    "tests/test_cloudfixer_multibackbone.py": "a21a809e720a01eae1d85729885626bae41ec8795ceb366699416e97841bde86"
+  },
+  "no_owned_runtime": true,
+  "gpu_accuracy": null,
+  "allocation_failures": 10
+}

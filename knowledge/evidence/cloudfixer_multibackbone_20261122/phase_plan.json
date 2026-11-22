@@ -1,0 +1,126 @@
+{
+  "created_utc": "2026-11-22T12:19:03.142202+00:00",
+  "task": "Original CloudFixer on ModelNet40-C with matched DGCNN/CurveNet/PointNeXt checkpoints, compared with accepted LION proximalN8 PM results; prospective Scan checkpoint audit only",
+  "user_authorization": "User explicitly requested a new Colab and these comparisons; no separate GPU-duration approval required",
+  "source_head": "656ac65e62d0a982c4ba44ba2fc4e1bc999db8a1",
+  "stage": "prepare canonical setup and strict assets/runner then smoke before full",
+  "session": null,
+  "hardware": "A100 standard RAM preferred; no automatic accelerator substitution",
+  "dataset": "ModelNet40-C all2468/all15/severity5",
+  "seed": 0,
+  "batch_size": 32,
+  "heads": [
+    "dgcnn",
+    "curvenet",
+    "pointnext"
+  ],
+  "prior": "official ModelNet40 XYZ b64841d022e08b1a89f58dd9b16d9023e00be52fbca3dca735d5798362bb5a5a",
+  "method": "unchanged official adapt.cloudfixer delta/rotation; plainCF/vote1; same three frozen accepted heads",
+  "comparison": "accepted sourceb651e259 LION proximalN8 PM; whole-policy across priors, not isolated update effect or official paper-head benchmark",
+  "coverage": "1170 full32/final4 reconstruction blocks shared across3classifier heads; no LION rerun",
+  "estimate": "Empirical prior~2.9h CF compute alone; plan3-4h science plus1-1.5h setup, total4-5.5h; actual per-corruption smoke/profile governs. No guarantee of funding/allocation.",
+  "resource": {
+    "balance_cu": 34.77,
+    "existing_peer_cu_per_h": 8.88,
+    "expected_new_session_cu_per_h": 6.73,
+    "max_owned_cu": 55,
+    "max_owned_wall_h": 6,
+    "minimum_account_reserve_cu": 5,
+    "gate": "Fresh immutable single-use receipt funds a partial execution window from account_read_epoch; subtract receipt age; reserve>=5CU; deadline covers runtime check/recovery/inference/archive; full ETA need not be funded",
+    "funding_mode": "segmented; user explicitly accepts continuation across CU depletion/runtime loss"
+  },
+  "protected_peer": "tta-cloudfixer-background-a100-20261122-r7 / gpu-a100-hm-euw4a0-39enm5hdhexf8",
+  "stop_on": [
+    "native/data/weights/head parity failure",
+    "resourcegate/limits",
+    "unexpected runtime loss: salvage before any rescore",
+    "unknown live worker state: no duplicate launch"
+  ],
+  "persistence": "Atomic Drive payload/receipt + allRNG each32 IDs; per-corruption allhead rawZIP; separate perhead completionJSON; completed cursor+archiveSHA skips finished corruptions on recovery; nativeELFs backed up for sameABI restore",
+  "drive_root": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122",
+  "local_root": "result/modelnet40_c/cloudfixer_multibackbone",
+  "teardown": "preserve until task-completion and close authorization are reconciled; no peer action",
+  "status": "User-renewed standardRAM A100 r11 and r12 both HTTP503; no owned assignment",
+  "allocation_attempts": [
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r1",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r2",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r3",
+      "ram": "High-RAM",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r4",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r5",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r6",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r7",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r8",
+      "ram": "High-RAM",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r9",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r10",
+      "ram": "standard",
+      "result": "HTTP503; no owned server assignment"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r11",
+      "ram": "standard",
+      "result": "HTTP503; no owned assignment",
+      "command": "colab new -s tta-cloudfixer-multibackbone-a100-20261122-r11 --gpu A100",
+      "utc": "2026-11-22T13:14:08Z"
+    },
+    {
+      "session": "tta-cloudfixer-multibackbone-a100-20261122-r12",
+      "ram": "standard",
+      "result": "HTTP503; no owned assignment",
+      "command": "colab new -s tta-cloudfixer-multibackbone-a100-20261122-r12 --gpu A100",
+      "utc": "2026-11-22T13:15:38Z"
+    }
+  ],
+  "superseded_initial_estimate": {
+    "estimate": "Initial setup60-90min, full30-60min after timed smoke; total1.5-2.5h; actual ETA re-estimated before full; current shared CU may limit upper end",
+    "resource": {
+      "max_owned_wall_h": 3,
+      "max_owned_cu": 20,
+      "note": "Initial proposed bound, superseded before any owned VM allocation; historical estimate dictionary was aliased during intermediate preparation and corrected here"
+    },
+    "reason": "Independent review found exact historical CF B32 full-compute extrapolation~2.9h before additional heads/setup; no owned GPU allocated or inference executed under initial limit"
+  },
+  "seed_policy": "continuous fresh seed0 before each corruption evaluation; full Python/NumPy/CPU/CUDA beforeSHA/after state in each32object payload; classifier substreams restored",
+  "technical_smoke": "two4object batches per background/rotation/gaussian; independent input-frame + direct head/RNG + frozen-state checks; fresh interpreter reopen required",
+  "profile": "one32object Gaussian profile; extrapolate using historical all15 timing heterogeneity and actual new-machine cost",
+  "scan_checkpoint_decision": "For prospective first ScanObjectNN-C transfer baseline keep validated ModelNet40 XYZ b648...5a5a, with Scan-specific frozen heads; explicitly cross-dataset transfer, not author source-matched reproduction. No ScanNet/ScanObjectNN equivalence. ShapeNetCore remains separate candidate pending full provenance; no Scan GPU launched now.",
+  "latest_user_authorization": "Oturum tahsisini tekrar dene; dusuk/standart RAM A100 yeterli (2026-11-22)",
+  "native_recovery": "Same pinned Py3.8/Torch2.1.2/cu121/A100; restore exact native .so before fresh probe, signature must match; do not silently merge differing runtimes",
+  "updated_utc": "2026-11-22T13:16:27.131372+00:00"
+}

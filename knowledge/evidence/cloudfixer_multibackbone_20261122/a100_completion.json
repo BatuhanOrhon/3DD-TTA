@@ -1,0 +1,31 @@
+{
+  "status": "scientific_evaluation_complete_preservation_and_teardown_pending",
+  "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+  "worker": {
+    "runid": "20261122T200042Z_full_window01",
+    "pid": 56962,
+    "returncode": 0,
+    "output": "/content/cf_multibackbone_a100/runs/20261122T200042Z_full_window01",
+    "ended_utc": "2026-11-22T23:01:07.947500+00:00",
+    "completed_corruptions": 15,
+    "full_campaign_complete": true,
+    "status": "full_campaign_complete"
+  },
+  "supervisor": {
+    "supervisor_pid": 56960,
+    "worker_pid": 56962,
+    "started_utc": "2026-11-22T20:00:42.921245+00:00",
+    "independent_deadline_expired": false,
+    "returncode": 0,
+    "signal": null,
+    "status": "worker_returned",
+    "ended_utc": "2026-11-22T23:01:08.928929+00:00"
+  },
+  "full_seconds": 10826.007684,
+  "full_hours": 3.0072243566666668,
+  "full_compute_units_estimate_at_8_88_per_h": 26.7041522872,
+  "limitation": "Rate-based estimate, not exact billing; allocation setup and finalization additional.",
+  "blocks": 585,
+  "per_method_per_head_examples": 37020,
+  "rows": 135
+}

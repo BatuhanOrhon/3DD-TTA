@@ -1,0 +1,24 @@
+{
+  "observed_command_utc": "2026-11-22T16:23:04.100181+00:00",
+  "balance_cu": 0.95,
+  "all_assignments_cu_per_h": 10.82,
+  "active_assignments": 2,
+  "reserve_cu": 1.0,
+  "margin_seconds": 180.0,
+  "minimum_window_seconds": 120.0,
+  "funded_window_seconds": -197,
+  "admit_next_window": false,
+  "status": "capacity_blocked",
+  "coverage": {
+    "uniform": 2468,
+    "gaussian": 608,
+    "total": 3076,
+    "remaining": 33944,
+    "blocks": 97,
+    "expected_blocks": 1170
+  },
+  "resume": "samecampaign; skip completed_uniform; replay19Gaussian cachedblocks without rescoring; firstnewGaussianID608",
+  "session": "tta-cloudfixer-multibackbone-l4-20261122-r1",
+  "session_state": "live16:22:16UTC; workerfinished0/partial16:21:33UTC; noagentteardown",
+  "raw_usage": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\nCurrent balance: 0.95 compute units\nUsage rate: 10.82/hr\nActive assignments: 2\n"
+}

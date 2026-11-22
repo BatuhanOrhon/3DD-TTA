@@ -1,0 +1,130 @@
+{
+  "source_archive": "result/modelnet40_c/cloudfixer_transfer/20261114-171811_development.zip",
+  "source_csv_member": "20261114-171811_development/per_corruption.csv",
+  "source_csv_sha256": "edb532f560242bae96b4375ea1a37486aa3ee6420f1b9635716d79effa286efa",
+  "reference": "same-seed3native repeats, terminal alias chosen once per repeat; A100 old measurements include old PointMAE head",
+  "per_corruption": [
+    {
+      "corruption": "background",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 33.990338068333585,
+      "mean_seconds_per_B32": 8.497584517083396,
+      "estimated_78batch_seconds": 662.8115923325049
+    },
+    {
+      "corruption": "cutout",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 20.44863361200017,
+      "mean_seconds_per_B32": 5.112158403000042,
+      "estimated_78batch_seconds": 398.7483554340033
+    },
+    {
+      "corruption": "density",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 18.687751221329865,
+      "mean_seconds_per_B32": 4.671937805332466,
+      "estimated_78batch_seconds": 364.4111488159324
+    },
+    {
+      "corruption": "density_inc",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 44.21658392333605,
+      "mean_seconds_per_B32": 11.054145980834013,
+      "estimated_78batch_seconds": 862.223386505053
+    },
+    {
+      "corruption": "distortion",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.263995415332225,
+      "mean_seconds_per_B32": 8.065998853833056,
+      "estimated_78batch_seconds": 629.1479105989783
+    },
+    {
+      "corruption": "distortion_rbf",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.243049996667345,
+      "mean_seconds_per_B32": 8.060762499166836,
+      "estimated_78batch_seconds": 628.7394749350133
+    },
+    {
+      "corruption": "distortion_rbf_inv",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.25896091566877,
+      "mean_seconds_per_B32": 8.064740228917193,
+      "estimated_78batch_seconds": 629.049737855541
+    },
+    {
+      "corruption": "gaussian",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.23739978666708,
+      "mean_seconds_per_B32": 8.05934994666677,
+      "estimated_78batch_seconds": 628.6292958400081
+    },
+    {
+      "corruption": "impulse",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.25832837833271,
+      "mean_seconds_per_B32": 8.064582094583178,
+      "estimated_78batch_seconds": 629.0374033774879
+    },
+    {
+      "corruption": "lidar",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 29.54519941833617,
+      "mean_seconds_per_B32": 7.386299854584043,
+      "estimated_78batch_seconds": 576.1313886575554
+    },
+    {
+      "corruption": "occlusion",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 44.19692371533407,
+      "mean_seconds_per_B32": 11.049230928833518,
+      "estimated_78batch_seconds": 861.8400124490145
+    },
+    {
+      "corruption": "rotation",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.25201944666939,
+      "mean_seconds_per_B32": 8.063004861667347,
+      "estimated_78batch_seconds": 628.9143792100531
+    },
+    {
+      "corruption": "shear",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.23758858133442,
+      "mean_seconds_per_B32": 8.059397145333605,
+      "estimated_78batch_seconds": 628.6329773360212
+    },
+    {
+      "corruption": "uniform",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 32.235265136667294,
+      "mean_seconds_per_B32": 8.058816284166824,
+      "estimated_78batch_seconds": 628.5876701650122
+    },
+    {
+      "corruption": "upsampling",
+      "old_objects": 128,
+      "old_batches": 4,
+      "mean_seconds_old": 84.07309597200098,
+      "mean_seconds_per_B32": 21.018273993000246,
+      "estimated_78batch_seconds": 1639.4253714540191
+    }
+  ],
+  "estimated_seconds": 10396.330104966197,
+  "limits": "Timing extrapolation, not new-GPU measurement; final4 cost upper-bounded by full32; does not include new3head/additionalpersistence/setup"
+}

@@ -1,0 +1,9 @@
+{
+  "local": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/operational_full02_20261122T1549Z.zip",
+  "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/l4_trial/operational_full02_20261122T1549Z.zip",
+  "status": "Drive upload and independent CLI download verified byteidentical; CRC pass",
+  "bytes": 11711,
+  "sha256": "54125a7f342b61d2bb3b2e0bbc8d341370388a51df7b832b5f42fd5f37c0d73f",
+  "readback": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/operational_full02_20261122T1549Z_Drive_readback.zip",
+  "validated_utc": "2026-11-22T15:48:54.228870+00:00"
+}

@@ -1,0 +1,10 @@
+{
+  "local": "result/preparation/cloudfixer_multibackbone_20261122/a100_highram_resume/a100_canonical_operational_20261122T2008Z.zip",
+  "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64/a100_canonical_operational_20261122T2008Z.zip",
+  "bytes": 110976,
+  "sha256": "216646e1c7cc5ed78bc988525fd7217e16d1d39ae070a4d369a0fcc1e278af60",
+  "status": "verified_independent_Drive_to_host_readback",
+  "readback": "result/preparation/cloudfixer_multibackbone_20261122/a100_highram_resume/a100_canonical_operational_20261122T2008Z_drive_readback.zip",
+  "members": 62,
+  "verified_utc": "2026-11-22T20:15:17.084513+00:00"
+}

@@ -1,0 +1,8 @@
+{
+  "local": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/recovery_knowledge_20261122T1624Z.zip",
+  "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/l4_trial/recovery_knowledge_20261122T1624Z.zip",
+  "bytes": 48944,
+  "sha256": "2133d6f279945a1742a5c2e23da05b9b74d58a235574efafff79462ddf8b0113",
+  "status": "Drive independentCLI readback byteidentical and CRC verified",
+  "readback": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/recovery_knowledge_20261122T1624Z_Drive_readback.zip"
+}

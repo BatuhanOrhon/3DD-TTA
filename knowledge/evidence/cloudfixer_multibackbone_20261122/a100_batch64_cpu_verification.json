@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-11-22T18:45:02.322379+00:00",
+  "source": "197551e +batch64patch (to becommitted)",
+  "checks": [
+    {
+      "command": "pytest -q tests/test_cloudfixer_multibackbone.py",
+      "result": "34passed1.25s"
+    },
+    {
+      "command": "pytest -q tests/test_cloudfixer_multibackbone.py tests/test_cloudfixer_store.py tests/test_cloudfixer_preparation.py tests/test_cloudfixer_diffusion.py tests/test_cloudfixer_point2vec.py tests/test_cloudfixer_transfer.py tests/test_eval_multibackbone_source.py",
+      "result": "131passed4.84s"
+    }
+  ],
+  "red": "newbatch64unit failedunexpectedkeywordbeforeimplementation",
+  "review": "independentreviewer confirmedbatch64arithmetic; capacity/cumulativeCUproof enforcedbyoperator beforefullgate, notyetGPUpassed"
+}

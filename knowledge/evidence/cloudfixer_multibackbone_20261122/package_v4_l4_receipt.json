@@ -1,0 +1,34 @@
+{
+  "source_commit": "663d7569f2557ea08d045345ebc74ce85894f26a",
+  "accelerator": "L4",
+  "campaign": "68d53814491e08d2206bbf3b2559a308751259ac2f9c5c5a2461cee8d9421c3a",
+  "local_root": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/package_v4",
+  "status": "verified_CPU_package; CFbootstrap_v3_failed_before_writes; fresh_v4_required",
+  "container_reuse": "head_assets.zip exact v3 bytes reused after all member SHA/size and CRC checks; receipt rebound to actual reused container",
+  "files": {
+    "manifest.json": {
+      "bytes": 135795,
+      "sha256": "9592dea3423d40c55bda208529a18c319a97da3e1a6c7c6d2fa0de2e157fe1d2"
+    },
+    "baseline_reference.json": {
+      "bytes": 94668,
+      "sha256": "199e52a5d826efaa39e159fcc98c441d95ac463951a6538dada3a450866bcc48"
+    },
+    "official_cloudfixer.tar": {
+      "bytes": 5570560,
+      "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+    },
+    "head_assets.zip": {
+      "bytes": 98419180,
+      "sha256": "e3c61cbabea5df676472fece072deee2a3a2188c07a1974ef19b3ae735600ddc"
+    },
+    "overlay.zip": {
+      "bytes": 53272,
+      "sha256": "8dfb659868cf920f15f3f697c15cbdae15d90ec19be2ef17d17d3293f9f9199d"
+    },
+    "setup_cloudfixer_multibackbone_colab.py": {
+      "bytes": 14838,
+      "sha256": "92a0fc69ed9dd71de85e248ab1321d7ace68f215ab0931fa124fc74845886630"
+    }
+  }
+}

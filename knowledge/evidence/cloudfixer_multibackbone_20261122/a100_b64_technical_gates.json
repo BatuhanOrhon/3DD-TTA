@@ -1,0 +1,276 @@
+{
+  "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+  "capacity": {
+    "batch_size": 64,
+    "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+    "corruption": "upsampling",
+    "drive_key": "capacity_maxpoints_20261122T195510Z.json",
+    "frozen_heads": {
+      "curvenet": "91e3b7e19648dbe3139de5492474079054a65c033e7b1be1ca2b0022ca940881",
+      "dgcnn": "8cbefb805cd7422d88f96c40d7fad45967810c2f2b2eeac9332dc0244314bfa1",
+      "pointnext": "2c0b549007b3881d0be3f91397345867f1e4f63db6a8c1e1bf017b408d39456e"
+    },
+    "gamma": {
+      "ema_iterations": 2661,
+      "max_abs_native": 0.0007076263427734375,
+      "mode": "author_ema_0.9999_fixed_point"
+    },
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "native_seconds": 41.63971814300021,
+    "peak_mib": 18163.37353515625,
+    "registered_shapes": {
+      "background": [
+        2468,
+        1075,
+        3
+      ],
+      "cutout": [
+        2468,
+        724,
+        3
+      ],
+      "density": [
+        2468,
+        649,
+        3
+      ],
+      "density_inc": [
+        2468,
+        1024,
+        3
+      ],
+      "distortion": [
+        2468,
+        1024,
+        3
+      ],
+      "distortion_rbf": [
+        2468,
+        1024,
+        3
+      ],
+      "distortion_rbf_inv": [
+        2468,
+        1024,
+        3
+      ],
+      "gaussian": [
+        2468,
+        1024,
+        3
+      ],
+      "impulse": [
+        2468,
+        1024,
+        3
+      ],
+      "lidar": [
+        2468,
+        768,
+        3
+      ],
+      "occlusion": [
+        2468,
+        1024,
+        3
+      ],
+      "rotation": [
+        2468,
+        1024,
+        3
+      ],
+      "shear": [
+        2468,
+        1024,
+        3
+      ],
+      "uniform": [
+        2468,
+        1024,
+        3
+      ],
+      "upsampling": [
+        2468,
+        2048,
+        3
+      ]
+    },
+    "runtime_signature_sha256": "397d6d99221fee4bac4e90a90eae9888654fc8bd5ff4e87fd7ff41b7160471f3",
+    "scope": "technical_max_cardinality_capacity_no_accuracy",
+    "started_utc": "2026-11-22T19:54:20.509677+00:00",
+    "status": "passed"
+  },
+  "persisted_phase_seconds": 3830.678925148296,
+  "profile": {
+    "head_seconds": [
+      [
+        0.3163427210001828,
+        0.4087997059996269,
+        0.06153956999969523
+      ],
+      [
+        0.0760555850001765,
+        0.16169366499980242,
+        0.047697967999738466
+      ],
+      [
+        0.07573238499935542,
+        0.16235857399988163,
+        0.047789951000595465
+      ]
+    ],
+    "payload_sha256": "02fe289f694cffd0263f3312a970dde5f81a7a9f948342b4eb2ac8949473f259",
+    "peak_mib": 5089.01025390625,
+    "seconds": [
+      0.7881368630005454,
+      0.3003298370003904,
+      15.779776993999803
+    ],
+    "unit": {
+      "batch_size": 64,
+      "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+      "corruption": "gaussian",
+      "ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "phase": "profile",
+      "seed": 0
+    }
+  },
+  "profile_lease": {
+    "key": "reserve_039b5bbd6e814bf78b29080d0e76b2ba_000000.json",
+    "reservation_sha256": "d66a51c70f3937698ebbae3659578a86528846793d91272d71b21b96aef3dc1e",
+    "settlement_sha256": "a1cc33e1aedd8721dbadf46815baddc445812264a605b6035fec1e2db4cc792a"
+  },
+  "profile_operation_seconds": 17.956018984000366,
+  "runtime_signature_sha256": "397d6d99221fee4bac4e90a90eae9888654fc8bd5ff4e87fd7ff41b7160471f3"
+}

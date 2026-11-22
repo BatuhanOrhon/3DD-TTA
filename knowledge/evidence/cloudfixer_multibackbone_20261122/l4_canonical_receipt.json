@@ -1,0 +1,13 @@
+{
+  "archive": "result/preparation/cloudfixer_multibackbone_20261122/l4_trial/canonical_execution_l4_20261122T1441Z.zip",
+  "bytes": 91973,
+  "sha256": "9fc5f99af5627bbc2e694cdc3ea2cf1d9e366fe323a69c93046fd9116d898470",
+  "members": 50,
+  "canonical_receipt_sha256": "c172e3ff488fc9c395db7e046d9244209639a1c3f484b8283d0b8a0885b6e6e4",
+  "status": "canonical_passed_CF_specific_setup_pending",
+  "dataset_registry_sha_matches": 16,
+  "remote_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+  "gpu": "NVIDIA L4",
+  "drive_backup": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/l4_trial/canonical_execution_l4_20261122T1441Z.zip",
+  "drive_download_size_sha_crc": "passed"
+}

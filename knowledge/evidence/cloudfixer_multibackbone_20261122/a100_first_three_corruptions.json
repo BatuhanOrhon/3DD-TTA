@@ -1,0 +1,309 @@
+{
+  "utc": "2026-11-22T20:36:26.064888+00:00",
+  "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+  "blocks": 117,
+  "full_campaign": false,
+  "recount": "result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/retrieval_20261122T200631Z/analysis_3/recount.json",
+  "rows": [
+    {
+      "accuracy": 0.8845218800648298,
+      "backbone": "curvenet",
+      "corruption": "uniform",
+      "method": "cloudfixer_plain",
+      "n_correct": 2183,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.8816855753646677,
+      "backbone": "dgcnn",
+      "corruption": "uniform",
+      "method": "cloudfixer_plain",
+      "n_correct": 2176,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.8796596434359806,
+      "backbone": "pointnext",
+      "corruption": "uniform",
+      "method": "cloudfixer_plain",
+      "n_correct": 2171,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.8294165316045381,
+      "backbone": "curvenet",
+      "corruption": "uniform",
+      "method": "source_cf_frame",
+      "n_correct": 2047,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.7937601296596435,
+      "backbone": "dgcnn",
+      "corruption": "uniform",
+      "method": "source_cf_frame",
+      "n_correct": 1959,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.692868719611021,
+      "backbone": "pointnext",
+      "corruption": "uniform",
+      "method": "source_cf_frame",
+      "n_correct": 1710,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.6730145867098866,
+      "backbone": "curvenet",
+      "corruption": "uniform",
+      "method": "source_raw",
+      "n_correct": 1661,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.6819286871961102,
+      "backbone": "dgcnn",
+      "corruption": "uniform",
+      "method": "source_raw",
+      "n_correct": 1683,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.45259319286871963,
+      "backbone": "pointnext",
+      "corruption": "uniform",
+      "method": "source_raw",
+      "n_correct": 1117,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.8849270664505673,
+      "backbone": "curvenet",
+      "corruption": "gaussian",
+      "method": "cloudfixer_plain",
+      "n_correct": 2184,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.8776337115072933,
+      "backbone": "dgcnn",
+      "corruption": "gaussian",
+      "method": "cloudfixer_plain",
+      "n_correct": 2166,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.8784440842787682,
+      "backbone": "pointnext",
+      "corruption": "gaussian",
+      "method": "cloudfixer_plain",
+      "n_correct": 2168,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.7694489465153971,
+      "backbone": "curvenet",
+      "corruption": "gaussian",
+      "method": "source_cf_frame",
+      "n_correct": 1899,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.7504051863857374,
+      "backbone": "dgcnn",
+      "corruption": "gaussian",
+      "method": "source_cf_frame",
+      "n_correct": 1852,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.5749594813614263,
+      "backbone": "pointnext",
+      "corruption": "gaussian",
+      "method": "source_cf_frame",
+      "n_correct": 1419,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.7706645056726094,
+      "backbone": "curvenet",
+      "corruption": "gaussian",
+      "method": "source_raw",
+      "n_correct": 1902,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.75,
+      "backbone": "dgcnn",
+      "corruption": "gaussian",
+      "method": "source_raw",
+      "n_correct": 1851,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.5494327390599676,
+      "backbone": "pointnext",
+      "corruption": "gaussian",
+      "method": "source_raw",
+      "n_correct": 1356,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.4991896272285251,
+      "backbone": "curvenet",
+      "corruption": "background",
+      "method": "cloudfixer_plain",
+      "n_correct": 1232,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.553484602917342,
+      "backbone": "dgcnn",
+      "corruption": "background",
+      "method": "cloudfixer_plain",
+      "n_correct": 1366,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.7560777957860616,
+      "backbone": "pointnext",
+      "corruption": "background",
+      "method": "cloudfixer_plain",
+      "n_correct": 1866,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.04538087520259319,
+      "backbone": "curvenet",
+      "corruption": "background",
+      "method": "source_cf_frame",
+      "n_correct": 112,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.24473257698541329,
+      "backbone": "dgcnn",
+      "corruption": "background",
+      "method": "source_cf_frame",
+      "n_correct": 604,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.4939222042139384,
+      "backbone": "pointnext",
+      "corruption": "background",
+      "method": "source_cf_frame",
+      "n_correct": 1219,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.07576985413290113,
+      "backbone": "curvenet",
+      "corruption": "background",
+      "method": "source_raw",
+      "n_correct": 187,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.13614262560777957,
+      "backbone": "dgcnn",
+      "corruption": "background",
+      "method": "source_raw",
+      "n_correct": 336,
+      "n_examples": 2468
+    },
+    {
+      "accuracy": 0.8525121555915721,
+      "backbone": "pointnext",
+      "corruption": "background",
+      "method": "source_raw",
+      "n_correct": 2104,
+      "n_examples": 2468
+    }
+  ],
+  "comparisons": [
+    {
+      "backbone": "curvenet",
+      "cloudfixer_correct": 2183,
+      "cloudfixer_minus_lion_pp": 11.750405186385738,
+      "corruption": "uniform",
+      "lion_pm_correct": 1893,
+      "n_examples": 2468,
+      "reference_archive_sha256": "e056511270d8a34eac915f33c8f79e799c1e3916b0261fb72746877ccc6963b1"
+    },
+    {
+      "backbone": "dgcnn",
+      "cloudfixer_correct": 2176,
+      "cloudfixer_minus_lion_pp": 9.683954619124798,
+      "corruption": "uniform",
+      "lion_pm_correct": 1937,
+      "n_examples": 2468,
+      "reference_archive_sha256": "ad30f04085247f249137b0d5a290558a4d650f7e0dd2a0739ef1ea5123f17075"
+    },
+    {
+      "backbone": "pointnext",
+      "cloudfixer_correct": 2171,
+      "cloudfixer_minus_lion_pp": 7.33387358184765,
+      "corruption": "uniform",
+      "lion_pm_correct": 1990,
+      "n_examples": 2468,
+      "reference_archive_sha256": "78885f2e5e5d3a27cee94fcd85b30bae656779ee661a503e19e0422617e83776"
+    },
+    {
+      "backbone": "curvenet",
+      "cloudfixer_correct": 2184,
+      "cloudfixer_minus_lion_pp": 12.155591572123177,
+      "corruption": "gaussian",
+      "lion_pm_correct": 1884,
+      "n_examples": 2468,
+      "reference_archive_sha256": "6d618ac7f1451071d1fba0e438d5db277434617cec11127c8fb5ee5624c233ae"
+    },
+    {
+      "backbone": "dgcnn",
+      "cloudfixer_correct": 2166,
+      "cloudfixer_minus_lion_pp": 9.359805510534846,
+      "corruption": "gaussian",
+      "lion_pm_correct": 1935,
+      "n_examples": 2468,
+      "reference_archive_sha256": "5b3fa463ccf66ab50a92c6965fdfc897be7f35b7bd68906663bac778ceb277ba"
+    },
+    {
+      "backbone": "pointnext",
+      "cloudfixer_correct": 2168,
+      "cloudfixer_minus_lion_pp": 7.171799027552674,
+      "corruption": "gaussian",
+      "lion_pm_correct": 1991,
+      "n_examples": 2468,
+      "reference_archive_sha256": "ba14d89dfa877d547b8e79615ef246e2f6618b3aab1fcbdf48d5969173e728b9"
+    },
+    {
+      "backbone": "curvenet",
+      "cloudfixer_correct": 1232,
+      "cloudfixer_minus_lion_pp": 35.3322528363047,
+      "corruption": "background",
+      "lion_pm_correct": 360,
+      "n_examples": 2468,
+      "reference_archive_sha256": "7eb58e64998c73cb03e3579a3cba782079d57ef3fb4f775f6f3fc030964bb2fd"
+    },
+    {
+      "backbone": "dgcnn",
+      "cloudfixer_correct": 1366,
+      "cloudfixer_minus_lion_pp": 39.546191247974065,
+      "corruption": "background",
+      "lion_pm_correct": 390,
+      "n_examples": 2468,
+      "reference_archive_sha256": "9fc3f6b749516b28671526a405c65bba9ff8219bb12e5097b77a33ca4823452c"
+    },
+    {
+      "backbone": "pointnext",
+      "cloudfixer_correct": 1866,
+      "cloudfixer_minus_lion_pp": 5.307941653160454,
+      "corruption": "background",
+      "lion_pm_correct": 1735,
+      "n_examples": 2468,
+      "reference_archive_sha256": "b72125a2655a3d21cea7dc19000839963befe54c1eff6dac372e3580c0686994"
+    }
+  ],
+  "limitation": "Different priors/preprocessing/RNG: whole pipelines. Scalar reference is insufficient for paired object statistics."
+}

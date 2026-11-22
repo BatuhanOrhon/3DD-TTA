@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-22T23:07:20.943227+00:00",
+  "reviewer": "independent read-only /root/review_two_colab",
+  "scope": "15nestedoriginalZIPs in finalbundle; noColabcalls",
+  "status": "no_scientific_publication_blocker",
+  "raw_recount": {
+    "blocks": 585,
+    "cells": 135,
+    "overall_cells": 9,
+    "matched_lion_comparisons": 45,
+    "ids_labels_receipts_RNG": "passed"
+  },
+  "cf_correct": [
+    26387,
+    28110,
+    27772
+  ],
+  "net_gain": [
+    2716,
+    3796,
+    1626
+  ],
+  "units_and_comparator": "one-seed wholepipelines; oldLION2/4/6/8 distinguishedfromnewCF20/10/0",
+  "wording_fix": "configuredregularization10/1; applied10\u21921.3 forstep0..29; correctedresultsnote",
+  "Drive_readback": "separatelyverifiedin a100_final_bundle_receipt.json at23:05:56UTC",
+  "prior_future_packaging_finding": "resolvedexact94668B/SHAguard; positiveandnegativecaseschecked"
+}

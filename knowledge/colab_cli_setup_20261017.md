@@ -695,3 +695,31 @@ Drive and local whole-SHA/CRC verified. Exact source cells, wrappers, adaptation
 logs and phase receipts: local `result/preparation/terminal_logit_pilot_20261110/`,
 Drive `MyDrive/thesis/result/terminal_logit_pilot_20261110_r1/`.
 [Execution and native/source binding](terminal_logit_pilot_study_20261108.md).
+
+
+## 2026-11-22 — multibackbone fresh A100 canonical setup verified
+
+[Run/Code] Owned `tta-cloudfixer-multibackbone-a100-20261122-r16`,
+A100-SXM4-80GB/High-RAM (~167GiB), completed the ten canonical cells. Cell1
+ran alone and reconnected to the same VM; cells2–10 ran in order with the
+required project CWD. Only the user-deferred cell2 fastrlock wheel failure was
+accepted; independent Python3.8 verification passed. CUDA/native/data/checkpoint
+checks were mandatory and passed. Exact split markers, five on-disk native
+completion markers, actual CUDA forward/backward and `SETUP_ENVIRONMENT_VERIFIED`
+were confirmed. A failed CLI cell7 CWD prelude had not submitted its body;
+only that local failed client was stopped, and a fresh cells7–10 retry completed.
+No RunAll or ScanObjectNN research cells were executed.
+
+Actual setup checkout `a458cd46bba1288a3f41302548bc777700cbc7d4`, Python3.8.20,
+Torch2.1.2+cu121, NumPy1.21.2, CUDA12.1/GCC11.4, native arch8.0. Resolver
+warnings are not a global pip-consistency check. Subsequent CF/head smoke,
+fresh-process replay and B64/max2048-point native capacity checks also passed;
+these are distinct scientific admission gates, not part of canonical setup.
+
+Exact canonical source/receipts/sanitized logs plus operational source archive:
+110976bytes, SHA256
+`216646e1c7cc5ed78bc988525fd7217e16d1d39ae070a4d369a0fcc1e278af60`;
+independent Drive→host size/SHA/CRC readback passed (62members). OAuth/consent
+TTY and private Drive inventory were excluded. [Canonical proof](evidence/cloudfixer_multibackbone_20261122/a100_canonical_receipt.json),
+[archive proof](evidence/cloudfixer_multibackbone_20261122/a100_canonical_operational_archive_receipt.json),
+[execution/adaptations](cloudfixer_multibackbone_preparation_20261122.md).

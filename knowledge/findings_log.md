@@ -9719,3 +9719,33 @@ Availability is a dated filename inventory, not weight/training-log validation.
 [Run/Inference] The full seed-2 record bounds unchanged N8 late-vector reweighting at 1285/2468 on Rotation. From the archived 1367d39 validation run the 7 t20 poses contain a correct option in 110/192 Rotation events, identity gives 73 and penalized-confidence choice 76. New 0abb521-frozen CPU geometry check on the 16 earlier development objects reduces compound tilt from 24.74° to 10.43° and increases 60° to 83.75°. Classifier gain and latency remain unknown. [Rotation refocus and CPU diagnostics](cloudfixer_rotation_refocus_20261122.md).
 
 [Run/Inference, 2026-11-22] Whole-cloud PCA on the same 16 development objects, rule fixed at 07342a9, reduced mean compound and off-grid angular residuals to 11.72° and 11.56°. Two clean objects moved and the 60° stress mean rose to 69.16°. This input-geometry check motivates a matched single update on the denoiser output before late PM. [Results and proposed causal comparison](cloudfixer_rotation_refocus_20261122.md#denoiser-çıktısından-pca-ile-yön-kestirimi).
+
+
+## 2026-11-22 23:06 UTC — Original CloudFixer multibackbone all15 complete
+
+[Run/Complete] Frozen matched DGCNN/CurveNet/PointNeXt, ModelNet40-C2468×15/s5,
+seed0/B64/585blocks, original plainCF30updates/vote1/ModelNet40XYZprior. Scientific
+source228555f/v5 campaign3596befa489b; actualworker+supervisor0/fullflag15,
+independent rawID/label/logit/RNG/CSV recount135cells and9overall cells passed.
+All15 CF accuracy%71.277688/%75.931929/%75.018909; oldLIONproximalN8PM
+%63.941113/%65.678012/%70.626688, gaps+7.336575/+10.253917/+4.392220pp.
+Netcorrect+2716/+3796/+1626, not object-levelCF-only/LION-only counts.
+
+[Inference] Different priors/preprocessing/batch/RNG, one seed, same accepted heads:
+whole pipelines. CurveNet15/15CF>LION, DGCNN12/15, PointNeXt12/15. DGCNN
+Density−15.64pp/Cutout−6.44pp/Occlusion−1object; PointNeXt Density/Increase/
+Occlusion loses. BackgroundPointNeXt rawsource85.25%>CF75.61%; Shearframe
+source>CFallthree. RotationCF−LION+22.04/+16.86/+21.19pp; sameframecontrol
+CF adds324/195/504netcorrect. Preserve these negative controls, no test tuning.
+This does not evaluate the newer CF-XYZ N8/K80/latePM baseline on these heads
+or isolate PM. No new ScanObjectNN GPU test. Prior checkpoint is available.
+
+[Run] Full elapsed10826.007684s/3.007224h, rate-estimate26.704152CU at8.88/h,
+setup/finalization additional and not exact billing. Original15ZIPs+derivedfull
+report+exactsource+actualexit finalbundle65528957B/SHA bcb64ea0...e38cfe07,
+Drive→freshhost size/SHA/CRC confirmed23:05:56UTC. Rawlocalroot
+`result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/`, Drive taskroot
+`MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64/`.
+[Detailed result/limits/evidence](cloudfixer_multibackbone_results_20261122.md),
+[execution](cloudfixer_multibackbone_preparation_20261122.md). Publication/cloudflush/
+user-authorized ownedr16close pending; no separate GPU approval needed.

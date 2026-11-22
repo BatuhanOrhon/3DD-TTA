@@ -1,0 +1,61 @@
+{
+  "scope": "uniform s5 only/full2468; all15 campaign remains incomplete",
+  "status": "validated_single_corruption",
+  "table": [
+    {
+      "backbone": "dgcnn",
+      "objects": 2468,
+      "source_raw_percent": 68.19286871961103,
+      "source_frame_percent": 79.37601296596435,
+      "cloudfixer_correct": 2179,
+      "cloudfixer_percent": 88.290113452188,
+      "lion_pm_correct": 1937,
+      "lion_pm_percent": 78.48460291734197,
+      "cloudfixer_minus_lion_pp": 9.805510534846029
+    },
+    {
+      "backbone": "curvenet",
+      "objects": 2468,
+      "source_raw_percent": 67.30145867098865,
+      "source_frame_percent": 82.94165316045381,
+      "cloudfixer_correct": 2173,
+      "cloudfixer_percent": 88.04700162074555,
+      "lion_pm_correct": 1893,
+      "lion_pm_percent": 76.70178282009725,
+      "cloudfixer_minus_lion_pp": 11.345218800648299
+    },
+    {
+      "backbone": "pointnext",
+      "objects": 2468,
+      "source_raw_percent": 45.259319286871964,
+      "source_frame_percent": 69.28687196110211,
+      "cloudfixer_correct": 2174,
+      "cloudfixer_percent": 88.08752025931929,
+      "lion_pm_correct": 1990,
+      "lion_pm_percent": 80.6320907617504,
+      "cloudfixer_minus_lion_pp": 7.455429497568882
+    }
+  ],
+  "provenance": {
+    "raw_archive": "result/modelnet40_c/cloudfixer_multibackbone/68d53814491e/retrieval_20261122T154804Z/uniform_20261122T161412Z/corruption_20261122T154232Z_full_window02_uniform.zip",
+    "raw_archive_identity": {
+      "bytes": 4644392,
+      "sha256": "065cf7fb7530858164c9d00d67db624a8470e7e345ec1359cbc59fca0d79a9a3"
+    },
+    "raw_archive_preserved": true,
+    "stdout_origin": "Separate contemporaneous Drive stdout snapshot; raw author-worker ZIP contains6standard files plusraw, stdout supplied as a documented sidecar",
+    "stdout_identity": {
+      "bytes": 8499,
+      "sha256": "9783a7e63898a813bee793c94e791ffd8d2a55ee6f5ab7fbea0c98fe7fcb1314"
+    },
+    "validated_source": "663d756 registered science + archived operational controller",
+    "campaign": "68d53814491e08d2206bbf3b2559a308751259ac2f9c5c5a2461cee8d9421c3a",
+    "full_campaign": false,
+    "corruptions": [
+      "uniform"
+    ],
+    "objects_per_head": 2468,
+    "checks": "all78rawreceipts/SHA/labels/IDs/RNG-chain, per_corruption and summaryCSV recount, frozenstates inworker"
+  },
+  "limitation": "Different priors and preprocessing: whole-pipeline comparison, one seed0/native realization, no isolated optimizer/PM effect or all15 conclusion"
+}

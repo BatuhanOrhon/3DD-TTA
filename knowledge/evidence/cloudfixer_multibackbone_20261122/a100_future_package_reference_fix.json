@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-22T20:24:07.248478+00:00",
+  "scope": "futurepackagingonly; runningregisteredv5/source228555funchanged",
+  "finding": "movingintegrationbranchreferencecouldsilentlychangeacceptedLIONstudy",
+  "fix": "require94668bytesandSHA199e52a5d826efaa39e159fcc98c441d95ac463951a6538dada3a450866bcc48 beforepackaging",
+  "red": "2negativecasesmissinghelperbeforeimplementation",
+  "green": "133relatedCPUcheckspassed4.59s; actualacceptedpositiveidentityverified",
+  "skipped": "NoGPUrerun; currentv5alreadyusesacceptedexactbytes"
+}
