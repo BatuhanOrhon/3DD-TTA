@@ -46,6 +46,59 @@ def pull(session, remote, expected, output):
         staged.rename(target)
 
 
+def sync_run(session, phase, folder, run_name, output):
+    """Recover from an interrupted output stream using the Colab contents API."""
+    if not re.fullmatch(r'[0-9]{8}-[0-9]{6}_' + re.escape(phase), run_name):
+        raise ValueError('Recovery needs the exact run ID of the requested phase')
+    remote = '/content/' + folder + '/' + run_name
+    cli = ['colab', '--auth', 'oauth2']
+    with tempfile.TemporaryDirectory() as tmp:
+        log = Path(tmp)/'stdout.log'
+        subprocess.run([*cli, 'download', '-s', session, remote+'.log', str(log)],
+                       capture_output=True, check=True, timeout=150)
+        lines = log.read_text().splitlines()
+        receipts = []
+        for line in lines:
+            if line.startswith('BACKGROUND_MIRROR '):
+                _, path, expected = line.split()
+                if not re.fullmatch(re.escape(remote) + r'_mirror_[0-9]{4}\.zip', path) or not re.fullmatch('[0-9a-f]{64}', expected):
+                    raise ValueError('Unexpected mirror identity in remote log')
+                receipts.append((path, expected))
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            pending = [pool.submit(pull, session, path, expected, output/'mirrors') for path, expected in receipts]
+            for future in pending:
+                future.result()
+        checkpoints = [line for line in lines if line.startswith('BACKGROUND_CHECKPOINT ')]
+        print('BACKGROUND_CONTENTS_SYNC', len(receipts), 'mirrors', 'last block',
+              checkpoints[-1].split()[2] if checkpoints else 0, flush=True)
+        if 'CLOUDFIXER_ROTATION_ANALYSIS_DONE '+phase not in lines:
+            return
+        drive = '/content/drive/MyDrive/thesis/' + folder + '/archives'
+        listing = subprocess.run([*cli, 'ls', '-s', session, drive], check=True, capture_output=True,
+                                 text=True, timeout=120).stdout.splitlines()
+        if run_name+'.zip' not in [line.strip() for line in listing]:
+            return
+        saved = Path(tmp)/'drive.zip'
+        subprocess.run([*cli, 'download', '-s', session, drive+'/'+run_name+'.zip', str(saved)],
+                       capture_output=True, check=True, timeout=300)
+        with zipfile.ZipFile(saved) as z:
+            config = json.loads(z.read(run_name+'/config.json'))
+            if (config['execution_status'] != 'complete' or config['phase'] != phase
+                    or json.loads(z.read(run_name+'/exit_status.json'))['returncode'] != 0
+                    or len(checkpoints) != config['blocks'] or z.testzip() is not None):
+                raise ValueError('Recovered archive does not match the completed worker')
+        checksum = digest(saved)
+        pull(session, remote+'.zip', checksum, output)
+        receipt = dict(run=run_name, archive=remote+'.zip', sha256=checksum, bytes=saved.stat().st_size,
+                       returncode=0, recovered_via='matching VM and mounted Drive archives')
+        message = 'CLOUDFIXER_ROTATION_ARCHIVE ' + json.dumps(receipt)
+        report = output/'logs'/(run_name+'_contents_recovery.log')
+        if report.exists() and report.read_text() != message+'\n':
+            raise ValueError('Conflicting archive recovery receipt')
+        report.write_text(message+'\n')
+        print('BACKGROUND_CONTENTS_COMPLETE', run_name, checksum, flush=True)
+
+
 def run(args):
     if not re.fullmatch(r'tta-cloudfixer-background-a100-20261122-r[0-9]+', args.session):
         raise ValueError('Expected an explicitly owned Background assignment')
@@ -58,6 +111,9 @@ def run(args):
     log_dir.mkdir(exist_ok=True)
     host_mirrors = output/'mirrors'
     host_mirrors.mkdir(exist_ok=True)
+    if getattr(args, 'recover_run', None):
+        sync_run(args.session, args.phase, folder, args.recover_run, output)
+        return
     stamp = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-%f')
     log = log_dir / (stamp + '_' + args.phase)
     cli = ['colab', '--auth', 'oauth2']
@@ -151,7 +207,11 @@ if __name__ == '__main__':
     parser.add_argument('phase', choices=['background_deploy', 'restore', 'background_smoke',
                                           'background_pm', 'background_dev', 'background', *FOLLOW_PHASES])
     parser.add_argument('--session', required=True)
-    parser.add_argument('--epoch', type=float, required=True)
+    parser.add_argument('--epoch', type=float)
+    parser.add_argument('--recover-run', help='Refresh host mirrors and any completed archive without executing a cell')
     parser.add_argument('--package', type=Path)
     parser.add_argument('--output', type=Path)
-    run(parser.parse_args())
+    args = parser.parse_args()
+    if args.epoch is None and not args.recover_run:
+        parser.error('Execution requires --epoch')
+    run(args)
