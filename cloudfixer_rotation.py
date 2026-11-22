@@ -4,7 +4,7 @@ import math
 
 import torch
 
-from cloudfixer_background import BackgroundGeometry, EXPERIMENT_ARMS
+from cloudfixer_background import BackgroundGeometry, BACKGROUND_ARMS
 from cloudfixer_diffusion import sample, trimmed_neighbors, trimmed_scd
 
 
@@ -244,7 +244,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
     """Run an arm with the baseline RNG contract and fixed, index-addressed FPS draws."""
     from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal
 
-    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search' and arm not in EXPERIMENT_ARMS) or x.shape[0] != 1:
+    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search' and arm not in BACKGROUND_ARMS) or x.shape[0] != 1:
         raise ValueError('Expected a registered B1 rotation arm')
     config = POLICIES['proximal_pm']
     devices = [x.device.index] if x.is_cuda else []
@@ -292,7 +292,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
         schedule = KABSCH_STEPS.get(arm, SPECTRAL_STEPS.get(arm))
         geometry = None
         sampler_options = {}
-        if arm in EXPERIMENT_ARMS:
+        if arm in BACKGROUND_ARMS:
             geometry = BackgroundGeometry(x, mask, arm, background_config)
             diagnostics['weak_fraction'] = geometry.weak_fraction
             if geometry.schedule is not None:

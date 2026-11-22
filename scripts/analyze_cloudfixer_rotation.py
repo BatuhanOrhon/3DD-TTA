@@ -135,6 +135,7 @@ def report(config, rows, *, raw_output, derived_output):
     contrasts.extend((arm, control) for arm in ('output', 'feedback') for control in ('random', 'view_mean')
                      if arm in tensors and control in tensors)
     contrasts.extend((arm, reference) for arm, reference in (
+        ('bg_multiscale', 'bg_weighted'), ('bg_multiscale', 'bg_multiscale_scalar'),
         ('bg_weighted', 'bg_scalar'), ('bg_view', 'bg_random_view'),
         ('bg_weighted_pose', 'bg_weighted'), ('bg_weighted_pose', 'kabsch_progressive'),
         ('kabsch_fixed', 'kabsch_single'), ('kabsch_progressive', 'kabsch_single'),

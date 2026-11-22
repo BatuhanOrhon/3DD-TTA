@@ -14,7 +14,9 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER = 'cloudfixer_background_20261122'
-REMOTE = '/content/' + FOLDER
+FOLLOW_FOLDER = 'cloudfixer_background_followup_20261122'
+FOLLOW_PHASES = ('background_follow_deploy', 'background_follow_restore', 'background_follow_smoke',
+                 'background_follow_focus', 'background_follow_scd', 'background_follow_other')
 OPERATOR = ROOT / 'scripts/operate_cloudfixer_rotation_colab.py'
 
 
@@ -47,7 +49,10 @@ def pull(session, remote, expected, output):
 def run(args):
     if not re.fullmatch(r'tta-cloudfixer-background-a100-20261122-r[0-9]+', args.session):
         raise ValueError('Expected an explicitly owned Background assignment')
-    output = args.output.resolve()
+    folder = FOLLOW_FOLDER if args.phase in FOLLOW_PHASES else FOLDER
+    remote_root = '/content/' + folder
+    deployment = args.phase in ('background_deploy', 'background_follow_deploy')
+    output = (args.output or ROOT/'result/modelnet40_c'/folder).resolve()
     output.mkdir(exist_ok=True, parents=True)
     log_dir = output/'logs'
     log_dir.mkdir(exist_ok=True)
@@ -56,17 +61,17 @@ def run(args):
     stamp = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-%f')
     log = log_dir / (stamp + '_' + args.phase)
     cli = ['colab', '--auth', 'oauth2']
-    if args.phase == 'background_deploy':
+    if deployment:
         if args.package is None:
             raise ValueError('Deployment needs the original sealed source package')
         for name in ('official.tar', 'research.zip', 'receipt.json'):
             subprocess.run([*cli, 'upload', '-s', args.session, str(args.package/name),
-                            '/content/' + FOLDER + '_' + name], check=True)
+                            '/content/'  + folder + '_' + name], check=True)
         code = f"""from pathlib import Path
-work = Path({REMOTE!r})
+work = Path({remote_root!r})
 work.mkdir(exist_ok=True)
 for name in ('official.tar','research.zip','receipt.json'):
-    incoming = Path('/content') / ({FOLDER!r} + '_' + name)
+    incoming = Path('/content') / ({folder!r} + '_' + name)
     target = work / name
     if target.exists():
         assert target.read_bytes() == incoming.read_bytes(), 'Source differs from prior deployment'
@@ -75,7 +80,7 @@ for name in ('official.tar','research.zip','receipt.json'):
 """
     else:
         code = ''
-    if args.phase == 'restore':
+    if args.phase in ('restore', 'background_follow_restore'):
         mirrors = sorted(host_mirrors.glob('*.zip'))
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp)/'host.zip'
@@ -83,34 +88,35 @@ for name in ('official.tar','research.zip','receipt.json'):
                 for mirror in mirrors:
                     archive.write(mirror, mirror.name)
             checksum = digest(path)
-            subprocess.run([*cli, 'upload', '-s', args.session, str(path), REMOTE+'/host.zip'], check=True)
+            subprocess.run([*cli, 'upload', '-s', args.session, str(path), remote_root+'/host.zip'], check=True)
         code = f"""from pathlib import Path
 import hashlib, io, sys, zipfile
-work=Path({REMOTE!r})
+work=Path({remote_root!r})
 assert Path('/content/drive').is_mount()
 assert (work/'deployment.complete').read_text().strip() == 'verified'
 sys.path.insert(0,str(work/'source'))
-from cloudfixer_background_checkpoint import import_mirror
+from runpy import run_path
+import_mirror = run_path(str(work/'source/cloudfixer_background_checkpoint.py'))['import_mirror']
 path=work/'host.zip'
 assert hashlib.sha256(path.read_bytes()).hexdigest() == {checksum!r}
 with zipfile.ZipFile(path) as archive:
     for member in archive.infolist():
-        import_mirror(Path('/content/drive/MyDrive/thesis') / {FOLDER!r}, io.BytesIO(archive.read(member)))
+        import_mirror(Path('/content/drive/MyDrive/thesis') / {folder!r}, io.BytesIO(archive.read(member)))
 print('BACKGROUND_HOST_RESTORE_DONE', flush=True)
 """
         marker = 'BACKGROUND_HOST_RESTORE_DONE'
     else:
         source = OPERATOR.read_text().split("if __name__ == '__main__':")[0]
         # Run the exact packaged operator on all phases after deployment.
-        if args.phase == 'background_deploy':
+        if deployment:
             with zipfile.ZipFile(args.package/'research.zip') as archive:
                 if archive.read('scripts/operate_cloudfixer_rotation_colab.py') != OPERATOR.read_bytes():
                     raise ValueError('Deployment operator differs from sealed package')
             code += source + '\n'
         else:
-            code += f"import sys\nsys.path.insert(0,{(REMOTE+'/source/scripts')!r})\nfrom operate_cloudfixer_rotation_colab import main\n"
+            code += f"from runpy import run_path\nmain = run_path({(remote_root+'/source/scripts/operate_cloudfixer_rotation_colab.py')!r})['main']\n"
         code += 'main(' + repr([args.phase, '--allocation-epoch', str(args.epoch), '--session', args.session]) + ')\n'
-        marker = ('CLOUDFIXER_ROTATION_DEPLOYMENT_DONE' if args.phase == 'background_deploy'
+        marker = ('CLOUDFIXER_ROTATION_DEPLOYMENT_DONE' if deployment
                   else 'CLOUDFIXER_ROTATION_OPERATOR_DONE ' + args.phase)
     script = log.with_suffix('.py')
     script.write_text(code)
@@ -143,9 +149,9 @@ print('BACKGROUND_HOST_RESTORE_DONE', flush=True)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=['background_deploy', 'restore', 'background_smoke',
-                                          'background_pm', 'background_dev', 'background'])
+                                          'background_pm', 'background_dev', 'background', *FOLLOW_PHASES])
     parser.add_argument('--session', required=True)
     parser.add_argument('--epoch', type=float, required=True)
     parser.add_argument('--package', type=Path)
-    parser.add_argument('--output', type=Path, default=ROOT/'result/modelnet40_c'/FOLDER)
+    parser.add_argument('--output', type=Path)
     run(parser.parse_args())

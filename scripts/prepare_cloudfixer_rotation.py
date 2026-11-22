@@ -16,7 +16,7 @@ from scripts.prepare_cloudfixer_transfer import manifest
 
 
 EXTRA = ('cloudfixer_rotation.py', 'cloudfixer_background.py', 'cloudfixer_background_checkpoint.py',
-         'cfgs/cloudfixer_background_pilot.json', 'cfgs/cloudfixer_rotation_pilot.json',
+         'cfgs/cloudfixer_background_pilot.json', 'cfgs/cloudfixer_background_followup.json', 'cfgs/cloudfixer_rotation_pilot.json',
          'cfgs/cloudfixer_spectral_rotation_pilot.json', 'cfgs/cloudfixer_scd_rotation_pilot.json',
          'scripts/run_cloudfixer_rotation.py', 'scripts/analyze_cloudfixer_rotation.py',
          'scripts/prepare_cloudfixer_rotation.py', 'scripts/operate_cloudfixer_rotation_colab.py',
@@ -41,6 +41,7 @@ def package(author, output):
     spec['registration'] = json.loads((ROOT/'cfgs/cloudfixer_rotation_pilot.json').read_text())
     spec['spectral_registration'] = json.loads((ROOT/'cfgs/cloudfixer_spectral_rotation_pilot.json').read_text())
     spec['background_registration'] = json.loads((ROOT/'cfgs/cloudfixer_background_pilot.json').read_text())
+    spec['background_followup'] = json.loads((ROOT/'cfgs/cloudfixer_background_followup.json').read_text())
     spec['scd_registration'] = json.loads((ROOT/'cfgs/cloudfixer_scd_rotation_pilot.json').read_text())
     spec['overlay_files'].update({name:sha((ROOT/name).read_bytes()) for name in EXTRA})
     spec['source_commit'] = subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()

@@ -4,8 +4,11 @@ import torch
 EXPERIMENT_ARMS = ('bg_weighted', 'bg_scalar', 'bg_high', 'bg_gate',
                    'bg_view', 'bg_random_view', 'bg_weighted_pose', 'bg_mid', 'bg_start_only')
 
+MULTISCALE_ARMS = ('bg_multiscale', 'bg_multiscale_scalar')
+BACKGROUND_ARMS = EXPERIMENT_ARMS + MULTISCALE_ARMS
 
-def anchor_weights(x, mask, k):
+
+def anchor_weights(x, mask, k, wide_k=None):
     """Relative neighbor spacing, computed on distinct valid reference coordinates."""
     valid = mask.reshape(-1).bool()
     points, inverse = torch.unique(x[0, valid], dim=0, return_inverse=True)
@@ -15,12 +18,15 @@ def anchor_weights(x, mask, k):
         return weights
     distance = torch.cdist(points, points, compute_mode='donot_use_mm_for_euclid_dist')
     distance.fill_diagonal_(float('inf'))
-    nearest, neighbors = distance.topk(k, largest=False)
-    # Select the lower median explicitly under deterministic CUDA. topk is sorted.
-    middle = (k - 1) // 2
-    spacing = nearest[:, middle]
-    typical = spacing[neighbors].sort(dim=1).values[:, middle]
-    ratio = (typical / spacing.clamp_min(torch.finfo(spacing.dtype).tiny)).clamp_max(1.)
+    scales = [k] if wide_k is None or len(points) <= wide_k else [k, wide_k]
+    nearest, neighbors = distance.topk(max(scales), largest=False)
+    ratios = []
+    for scale in scales:
+        middle = (scale - 1) // 2
+        spacing = nearest[:, middle]
+        typical = spacing[neighbors[:, :scale]].sort(dim=1).values[:, middle]
+        ratios.append((typical / spacing.clamp_min(torch.finfo(spacing.dtype).tiny)).clamp_max(1.))
+    ratio = ratios[0] if len(ratios) == 1 else torch.minimum(*ratios)
     weights[0, valid] = ratio[inverse]
     return weights
 
@@ -29,7 +35,8 @@ class BackgroundGeometry:
     def __init__(self, x, mask, arm, config):
         self.arm = arm
         self.threshold = config['filter_below']
-        self.weights = None if arm in ('bg_high', 'bg_mid', 'bg_start_only') else anchor_weights(x, mask, config['k'])
+        wide_k = config['wide_k'] if arm in MULTISCALE_ARMS else None
+        self.weights = None if arm in ('bg_high', 'bg_mid', 'bg_start_only') else anchor_weights(x, mask, config['k'], wide_k)
         self.weak_fraction = (float((self.weights[mask.reshape_as(self.weights).bool()] < self.threshold).float().mean())
                               if self.weights is not None else None)
         self.high = arm == 'bg_high' or arm == 'bg_gate' and self.weak_fraction > config['gate_fraction']
@@ -46,7 +53,7 @@ class BackgroundGeometry:
             return forward, reverse, keep_forward, keep_reverse
         weighted_fw = fw * keep_forward
         weighted_rv = self.weights * keep_reverse
-        if self.arm == 'bg_scalar':
+        if self.arm in ('bg_scalar', 'bg_multiscale_scalar'):
             scale = (weighted_fw.sum() + weighted_rv.sum()) / (keep_forward.sum() + keep_reverse.sum())
             weighted_fw, weighted_rv = scale * keep_forward, scale * keep_reverse
         return forward, reverse, weighted_fw, weighted_rv

@@ -193,3 +193,28 @@ def test_noise_pm_interaction_uses_each_terminal_and_clusters_seeds(tmp_path):
         r = next(r for r in csv.DictReader(f) if r['candidate']=='bg_high' and r['reference']=='identity')
     assert float(r['pm_change_pp']) == 0 and float(r['terminal_change_pp']) == -50
     assert float(r['interaction_pp']) == 50 and int(r['n_original_ids']) == 2
+
+
+def test_followup_cohorts_and_multiscale_rule():
+    from scripts.run_cloudfixer_rotation import (BG_REGISTRY, FOLLOW_REGISTRY, REGISTRY, SCD_REGISTRY,
+                                                 SPECTRAL_REGISTRY, phase_scope)
+    from cloudfixer_background import MULTISCALE_ARMS
+
+    groups = [set(FOLLOW_REGISTRY[k]) for k in ('ids', 'scd_ids', 'geometry_ids')]
+    assert [len(group) for group in groups] == [256, 64, 32]
+    previous = set(REGISTRY['development_ids'] + REGISTRY['validation_ids'] + SCD_REGISTRY['ids'] +
+                   SPECTRAL_REGISTRY['ids'] + BG_REGISTRY['dev_ids'] + BG_REGISTRY['ids'] + BG_REGISTRY['pm_ids'])
+    assert len(set.union(*groups)) == 352 and not previous.intersection(set.union(*groups))
+    focus, ids, seeds, arms = phase_scope('background_follow_focus', {}, {})
+    other = phase_scope('background_follow_other', {}, {})
+    assert len(focus) == 3 and len(other[0]) == 13 and not set(focus).intersection(other[0])
+    assert ids == other[1] and seeds == [0, 1, 2] and other[2] == [0]
+    assert list(arms) == list(other[3]) == ['identity', 'bg_view', 'bg_random_view']
+    _, _, _, scd = phase_scope('background_follow_scd', {}, {})
+    x = torch.randn((1, 90, 3), generator=torch.Generator().manual_seed(7))
+    mask = torch.ones_like(x[..., 0], dtype=torch.bool)
+    expected = torch.minimum(anchor_weights(x, mask, 5), anchor_weights(x, mask, 16))
+    torch.testing.assert_close(anchor_weights(x, mask, 5, 16), expected)
+    for arm in MULTISCALE_ARMS:
+        result = rotation_policy(ConstantEpsilon(), lambda v: v.mean(1), x, mask, None, arm, **scd[arm])
+        assert result.diagnostics['classifier_calls'] == 3 and result.diagnostics['denoiser_calls'] == 9

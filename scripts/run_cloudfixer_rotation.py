@@ -17,7 +17,7 @@ os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG', ':4096:8')
 import numpy as np
 import torch
 
-from cloudfixer_background import EXPERIMENT_ARMS, anchor_weights
+from cloudfixer_background import BACKGROUND_ARMS, EXPERIMENT_ARMS, anchor_weights
 from cloudfixer_background_checkpoint import block_name, mirror_group, restore_or_score
 from cloudfixer_diffusion import verify_gamma
 from cloudfixer_rotation import (ARMS, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SCD_SEARCH_STEPS, SPECTRAL_STEPS,
@@ -34,6 +34,8 @@ REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_rotation_pilot.json').read_text()
 SPECTRAL_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_spectral_rotation_pilot.json').read_text())
 SCD_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_scd_rotation_pilot.json').read_text())
 BG_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_pilot.json').read_text())
+FOLLOW_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_followup.json').read_text())
+FOLLOW_PHASES = ('background_follow_smoke', 'background_follow_focus', 'background_follow_scd', 'background_follow_other')
 CONDITIONS = ('clean', *sorted(CORRUPTIONS))
 DEV_CONDITIONS = ('clean', 'rotation', 'background')
 COMPONENTS = ('denoiser', 'classifier', 'proximal', 'local_matching', 'matching', 'svd',
@@ -132,9 +134,9 @@ def run_arm(model, head, xyz, mask, indices, arm, params, *, rng, noise_rotation
         result, seconds, memory = timed(lambda: rotation_policy(
             model, head, xyz, mask, indices, arm, max_degrees=REGISTRY['max_angle_degrees'],
             measure=components.measure, noise_rotation=noise_rotation, **params))
-    three_probes = arm in KABSCH_STEPS or arm in SPECTRAL_STEPS or arm in EXPERIMENT_ARMS or arm == 'scd_search'
+    three_probes = arm in KABSCH_STEPS or arm in SPECTRAL_STEPS or arm in BACKGROUND_ARMS or arm == 'scd_search'
     expected_calls = (9, 3 if three_probes else 9)
-    if arm in EXPERIMENT_ARMS and sum(key == 'denoiser' for key, _, _ in components.events) != 9:
+    if arm in BACKGROUND_ARMS and sum(key == 'denoiser' for key, _, _ in components.events) != 9:
         raise ValueError('Unexpected measured denoiser count')
     observed_calls = (result.diagnostics['denoiser_calls'], result.diagnostics['classifier_calls'])
     if observed_calls != expected_calls:
@@ -212,6 +214,20 @@ def search_lock(rows):
 
 
 def phase_scope(phase, freeze, decision):
+    if phase in FOLLOW_PHASES:
+        params = dict(BG_REGISTRY, wide_k=FOLLOW_REGISTRY['wide_k'])
+        view_arms = ('identity', 'bg_view', 'bg_random_view')
+        scd_arms = ('identity', 'bg_weighted', 'bg_multiscale', 'bg_multiscale_scalar')
+        conditions = ('background', 'rotation', 'clean')
+        ids, seeds, names = FOLLOW_REGISTRY['ids'], FOLLOW_REGISTRY['seeds'], view_arms
+        if phase == 'background_follow_smoke':
+            conditions, ids, seeds = conditions[:2], FOLLOW_REGISTRY['geometry_ids'][:1], [0]
+            names = view_arms + scd_arms[1:]
+        elif phase == 'background_follow_scd':
+            ids, names = FOLLOW_REGISTRY['scd_ids'], scd_arms
+        elif phase == 'background_follow_other':
+            conditions, seeds = tuple(c for c in CONDITIONS if c not in conditions), [0]
+        return conditions, ids, seeds, {arm: {} if arm == 'identity' else {'background_config': params} for arm in names}
     if phase.startswith('background'):
         arms = {arm: {} for arm in ('identity', 'kabsch_progressive')}
         arms.update({arm: {'background_config': BG_REGISTRY} for arm in EXPERIMENT_ARMS})
@@ -324,7 +340,7 @@ def evaluate(args, spec, store, budget):
     (args.output / 'environment.txt').write_text(json.dumps(environment, indent=2) + '\n')
     store.put('execution.json', canonical(dict(spec=spec, registry=REGISTRY)))
     bg = args.phase.startswith('background')
-    is_smoke = args.phase in ('background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
+    is_smoke = args.phase in ('background_follow_smoke', 'background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
     smoke_key = f'smoke_{signature}.json' if bg else 'smoke_ready.json'
     if not is_smoke and json.loads(store.get(smoke_key))['runtime'] != signature:
         raise ValueError('Smoke verification does not match the live environment')
@@ -396,6 +412,13 @@ def evaluate(args, spec, store, budget):
                     offset = rng % len(order)
                     order = order[offset:] + order[:offset]
                     scores = {name: run_arm(model, head, *batch, *arms[name], rng=rng)[0] for name in order}
+                    if args.phase in FOLLOW_PHASES and 'bg_view' in scores:
+                        base = scores['identity']['logits']
+                        view, random = scores['bg_view'], scores['bg_random_view']
+                        if not all(e['logits'][i] == base[i] for e in (view, random) for i in (0, 2)):
+                            raise ValueError('Filtered PM changed a shared t20 or terminal prediction')
+                        if view['diagnostics']['t10_view_points'] != random['diagnostics']['t10_view_points']:
+                            raise ValueError('Random t10 control has a different point count')
                     if 'feedback' in scores and 'output' in scores:
                         left, right = scores['feedback'], scores['output']
                         if (left['diagnostics']['choice'] != right['diagnostics']['choice']
@@ -455,7 +478,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phase', choices=('smoke', 'development', 'validation', 'full',
                                             'spectral_smoke', 'spectral', 'scd_smoke', 'scd',
-                                            'background_smoke', 'background_pm', 'background_dev', 'background'), required=True)
+                                            'background_smoke', 'background_pm', 'background_dev', 'background', *FOLLOW_PHASES), required=True)
     for arg in ('manifest', 'output', 'drive-folder'):
         parser.add_argument(f'--{arg}', type=Path, required=True)
     for arg, default in (
@@ -486,6 +509,8 @@ def main():
         raise ValueError('SCD manifest or reserved cohort differs from registration')
     if args.phase.startswith('background') and spec['background_registration'] != BG_REGISTRY:
         raise ValueError('Background study differs from registered parameters')
+    if args.phase in FOLLOW_PHASES and spec['background_followup'] != FOLLOW_REGISTRY:
+        raise ValueError('Follow-up manifest differs from registration')
     args.output.mkdir(parents=True, exist_ok=False)
     (args.output / 'command.txt').write_text(shlex.join(sys.argv) + '\n')
     (args.output / 'notes.md').write_text(
@@ -496,7 +521,7 @@ def main():
     path.write_bytes(canonical(dict(run_id=args.output.name, phase=args.phase, spec=spec, execution_status='running')))
     store = MountStore(args.drive_folder)
     if args.phase.startswith('background'):
-        scope, cap = 'background', BG_REGISTRY['budget_seconds']
+        scope, cap = 'background', (FOLLOW_REGISTRY if args.phase in FOLLOW_PHASES else BG_REGISTRY)['budget_seconds']
     elif args.phase.startswith(('scd', 'spectral')):
         scope = args.phase.split('_')[0]
         cap = (SCD_REGISTRY if scope == 'scd' else SPECTRAL_REGISTRY)['budget_seconds']

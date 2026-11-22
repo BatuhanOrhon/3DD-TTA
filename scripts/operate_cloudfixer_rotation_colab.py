@@ -139,8 +139,9 @@ def execute(phase, session, allocation_epoch, dev_run):
             misc.write_bytes(canonical(dict(attempts=[dict(session=session, started_utc=start,
                                                            seconds=time()-allocation_epoch)])))
         is_bg = phase.startswith('background')
+        budget_file = 'cloudfixer_background_followup.json' if phase.startswith('background_follow_') else 'cloudfixer_background_pilot.json'
         record_setup(MountStore(DRIVE/('background_budget' if is_bg else 'pilot_budget')),
-                     json.loads(misc.read_text()), cap=(json.loads((SOURCE/'cfgs/cloudfixer_background_pilot.json').read_text())['budget_seconds']
+                     json.loads(misc.read_text()), cap=(json.loads((SOURCE/'cfgs'/budget_file).read_text())['budget_seconds']
                           if is_bg else 4*3600))
     now = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     output = WORK/f'{now}_{phase}'
@@ -188,7 +189,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=('deploy', 'smoke', 'development', 'validation', 'full',
                                           'spectral_deploy', 'spectral_smoke', 'spectral', 'scd_deploy', 'scd_smoke', 'scd',
-                                          'background_deploy', 'background_smoke', 'background_pm', 'background_dev', 'background'))
+                                          'background_deploy', 'background_smoke', 'background_pm', 'background_dev', 'background',
+                                          'background_follow_deploy', 'background_follow_smoke', 'background_follow_focus',
+                                          'background_follow_scd', 'background_follow_other'))
     parser.add_argument('--session')
     parser.add_argument('--allocation-epoch', type=float)
     parser.add_argument('--development')
@@ -196,7 +199,8 @@ def main(argv=None):
     if not Path('/content/drive').is_mount():
         raise RuntimeError('Drive mount required')
     if args.phase.startswith('background'):
-        WORK = Path('/content/cloudfixer_background_20261122')
+        folder = 'cloudfixer_background_followup_20261122' if args.phase.startswith('background_follow_') else 'cloudfixer_background_20261122'
+        WORK = Path('/content')/folder
         SOURCE = WORK/'source'
         DRIVE = Path('/content/drive/MyDrive/thesis')/WORK.name
     elif args.phase.startswith(('scd', 'spectral')):
@@ -204,8 +208,8 @@ def main(argv=None):
         WORK = Path('/content')/folder
         SOURCE = WORK/'source'
         DRIVE = Path('/content/drive/MyDrive/thesis')/folder
-    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy', 'background_deploy'):
-        deploy(reuse_verified_environment=args.phase not in ('deploy', 'background_deploy'), session=args.session)
+    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy', 'background_deploy', 'background_follow_deploy'):
+        deploy(reuse_verified_environment=args.phase not in ('deploy', 'background_deploy', 'background_follow_deploy'), session=args.session)
     else:
         if not args.session or args.allocation_epoch is None:
             parser.error('Execution requires the session identity and allocation epoch')
