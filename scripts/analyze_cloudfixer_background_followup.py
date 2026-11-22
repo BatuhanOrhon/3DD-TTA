@@ -13,7 +13,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from research_artifacts import CORRUPTIONS
-from scripts.analyze_cloudfixer_rotation import joint_radius, paired_counts, read_records
+from scripts.analyze_cloudfixer_rotation import joint_radius, paired_counts, read_records, softmax
 
 
 def read_archive(path, phase, registration):
@@ -56,8 +56,11 @@ def read_archive(path, phase, registration):
                 tally['pm_correct'] += int(e['prediction'] == truth)
                 tally['t10_changed'] += int(t10 != np.argmax(arms['identity']['logits'][1]))
                 tally['pm_changed'] += int(e['prediction'] != arms['identity']['prediction'])
-        data[key] = {name: (entry['prediction'] == row['label'], entry['seconds'], entry['peak_mib'])
-                     for name, entry in arms.items()}
+        data[key] = {}
+        for name, entry in arms.items():
+            probs = softmax(entry['logits'])
+            data[key][name] = (entry['prediction'] == row['label'], entry['seconds'], entry['peak_mib'],
+                               probs[1].argmax() == row['label'], probs[1:].mean(0).argmax() == row['label'])
     for stats in view_diagnostics.values():
         points = stats.pop('points')
         stats['kept_points_p10_p50_p90'] = np.quantile(points, [.1, .5, .9]).tolist()
@@ -83,7 +86,7 @@ def compare(data, ids, contrasts, timing_conditions, timing_seeds, draws):
     keys = list(itertools.product(timing_conditions, timing_seeds, ids))
     profile = {}
     for arm in data[keys[0]]:
-        values = np.array([data[k][arm][1:] for k in keys])
+        values = np.array([data[k][arm][1:3] for k in keys])
         assert np.isfinite(values).all() and (values>0).all()
         p50, p95 = 1000*np.quantile(values[:, 0], [.5, .95])
         profile[arm] = dict(p50_ms=p50, p95_ms=p95, peak_allocated_mib=values[:, 1].max())
@@ -91,6 +94,24 @@ def compare(data, ids, contrasts, timing_conditions, timing_seeds, draws):
         for metric in ('p50','p95'):
             v[metric+'_ratio'] = v[metric+'_ms']/profile['identity'][metric+'_ms']
     return dict(comparisons=rows,timing=profile)
+
+
+def exploratory_windows(data, ids, groups, draws):
+    weights = np.random.default_rng(20261122).multinomial(len(ids), np.full(len(ids), 1/len(ids)), size=draws)/len(ids)
+    result = []
+    for group, conditions, seeds in groups:
+        keys = list(itertools.product(conditions, seeds, ids))
+        for window, column in [('t10', 3), ('t10_t0', 4), ('pm', 0)]:
+            candidate = np.array([data[k]['bg_view'][column] for k in keys])
+            row = dict(group=group, window=window, events=len(keys), filtered_correct=int(candidate.sum()))
+            for field, arm, index in [('baseline_pm', 'identity', 0), ('unfiltered_window', 'identity', column),
+                                      ('random_window', 'bg_random_view', column)]:
+                ref = np.array([data[k][arm][index] for k in keys])
+                cluster = 100*(candidate.astype(int)-ref).reshape(-1,len(ids)).mean(axis=0)
+                row[field] = dict(correct=int(ref.sum()), delta_pp=float(cluster.mean()),
+                                  nominal_95_pp=np.quantile(weights @ cluster,[.025,.975]).tolist())
+            result.append(row)
+    return result
 
 
 def analyze(focus, other, scd):
@@ -113,6 +134,7 @@ def analyze(focus, other, scd):
     design = [(c,[c],seeds,view,'identity') for c in ('background','rotation','clean')]
     design += [('background_random',['background'],seeds,view,'bg_random_view'),
                ('macro13',other13,[0],view,'identity'),('all15',sorted(CORRUPTIONS),[0],view,'identity')]
+    design_pm = [entry for entry in design if entry[0]!='background_random']
     pm = compare(pm_data,ids,design,sorted(CORRUPTIONS),[0],reg['bootstrap_draws'])
     limits = dict(background=3.,rotation=-1.,clean=-1.,macro13=-.5,all15=0.,background_random=0.)
     points, intervals = [], []
@@ -128,7 +150,9 @@ def analyze(focus, other, scd):
     scd_result = compare(runs[2][1],reg['scd_ids'],design,['background','rotation','clean'],seeds,reg['bootstrap_draws'])
     return dict(source_commit=configs[0]['spec']['source_commit'], archives={n:dict(file=p.name,
                 sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for n,p in zip(names,paths)},
-                pm=pm,scd=scd_result, view_diagnostics={**runs[0][2], **runs[1][2]})
+                pm=pm,scd=scd_result,
+                exploratory_windows=exploratory_windows(pm_data, ids, [(g,cs,ss) for g,cs,ss,_,_ in design_pm], reg['bootstrap_draws']),
+                view_diagnostics={**runs[0][2], **runs[1][2]})
 
 
 if __name__ == '__main__':
