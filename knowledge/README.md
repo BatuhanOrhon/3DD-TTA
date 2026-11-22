@@ -1,3 +1,5 @@
+**[Code/Run/Open] 2026-11-22 — Background pilot with interruption recovery.** Nine paired policies, A100 r7 allocated, canonical setup in progress. The fingerprinted pilot stores four-object Drive checkpoints and grouped host mirrors. [Study, cost and recovery procedure](cloudfixer_background_pilot_20261122.md).
+
 **[Run/Inference/Open] 2026-11-21 — Background limit of late-PM reweighting.** On the full seed-2 Point2Vec trace, 779 of 856 Background errors share a strict rival across t20/t10/t0. Reweighting those probabilities can reach at most 68.44% versus plain CloudFixer 76.09%. [Recount and fixed-cost SCD/PM proposals](cloudfixer_background_guidance_pm_20261121.md).
 
 **[Run/Decision] 2026-11-21 — CloudFixer gradient-free rotation pilot.**
