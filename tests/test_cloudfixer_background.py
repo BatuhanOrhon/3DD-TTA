@@ -218,3 +218,25 @@ def test_followup_cohorts_and_multiscale_rule():
     for arm in MULTISCALE_ARMS:
         result = rotation_policy(ConstantEpsilon(), lambda v: v.mean(1), x, mask, None, arm, **scd[arm])
         assert result.diagnostics['classifier_calls'] == 3 and result.diagnostics['denoiser_calls'] == 9
+
+
+def test_followup_analysis_pairs_original_ids_and_obeys_requested_seeds():
+    from scripts.analyze_cloudfixer_background_followup import compare, exploratory_windows
+
+    entries = {}
+    for condition in ('background', 'rotation'):
+        for seed in (0, 1):
+            for ident in (10, 20):
+                baseline = (False, .25, 400., False, False)
+                improves = condition == 'background' and ident == 10
+                view = (improves, .26, 402., seed == 1, improves)
+                entries[condition, seed, ident] = dict(identity=baseline, bg_view=view, bg_random_view=baseline)
+    design = [('focus', ['background'], [0, 1], 'bg_view', 'identity'),
+              ('balanced', ['background', 'rotation'], [0], 'bg_view', 'identity')]
+    result = compare(entries, [10,20], design, ['background','rotation'], [0], 100)
+    assert [r['delta_pp'] for r in result['comparisons']] == [50.,25.]
+    assert result['comparisons'][0]['repairs'] == 2
+    assert result['comparisons'][1]['total'] == 4
+    assert result['timing']['bg_view']['p95_ratio'] == pytest.approx(1.04)
+    windows = exploratory_windows(entries, [10,20], [('balanced',['background','rotation'],[0])], 100)
+    assert [r['filtered_correct'] for r in windows] == [0,1,1]
