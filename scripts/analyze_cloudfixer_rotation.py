@@ -116,7 +116,7 @@ def per_arm_metrics(config, rows):
             config['conditions'], config['seeds'], config['ids'])]
         for entry in entries:
             call = entry['diagnostics']
-            expected = 3 if arm in ('identity', 'scd_search') or arm.startswith('kabsch') else 9
+            expected = 3 if arm in ('identity', 'scd_search') or arm.startswith(('kabsch', 'bg_')) else 9
             if (call['denoiser_calls'] != 9 or call['classifier_calls'] != expected
                     or not np.isfinite(entry['seconds']) or entry['seconds'] <= 0
                     or not np.isfinite(entry['peak_mib']) or entry['peak_mib'] <= 0
@@ -135,6 +135,8 @@ def report(config, rows, *, raw_output, derived_output):
     contrasts.extend((arm, control) for arm in ('output', 'feedback') for control in ('random', 'view_mean')
                      if arm in tensors and control in tensors)
     contrasts.extend((arm, reference) for arm, reference in (
+        ('bg_weighted', 'bg_scalar'), ('bg_view', 'bg_random_view'),
+        ('bg_weighted_pose', 'bg_weighted'), ('bg_weighted_pose', 'kabsch_progressive'),
         ('kabsch_fixed', 'kabsch_single'), ('kabsch_progressive', 'kabsch_single'),
         ('kabsch_progressive', 'kabsch_fixed'), ('feedback', 'output'),
         ('kabsch_spectral_single', 'kabsch_single'), ('kabsch_spectral_fixed', 'kabsch_fixed'),
@@ -273,6 +275,46 @@ def decide(config, metrics, entries, synthetic):
     return dict(campaign=config['campaign'], next_arm=chosen, arms=decisions)
 
 
+def background_report(config, rows, metrics, output):
+    readouts = []
+    gates = {}
+    arms = config['params']
+    for arm in arms:
+        for cond in config['conditions']:
+            subset = [r for r in rows.values() if r['condition'] == cond]
+            labels = np.array([r['label'] for r in subset])
+            entries = [r['arms'][arm] for r in subset]
+            logits = np.array([e['logits'] for e in entries])
+            pm = np.array([e['prediction'] for e in entries]) == labels
+            terminal = logits[:, -1].argmax(-1) == labels
+            truth = np.take_along_axis(logits, labels[:, None, None], axis=2)
+            readouts.append(dict(arm=arm, condition=cond, total=len(labels), pm=int(pm.sum()),
+                terminal=int(terminal.sum()), pm_repairs=int((pm & ~terminal).sum()),
+                pm_harms=int((~pm & terminal).sum()),
+                common_rival=int((logits > truth).all(1).any(1).sum())))
+        if arm == 'identity' or config['phase'] != 'background':
+            continue
+        selected = [r for r in rows.values() if r['condition'] != 'clean']
+        costs = np.array([[r['arms'][name]['seconds'] for r in selected] for name in ('identity', arm)])
+        pct = np.quantile(costs, [.5, .95], axis=1)
+        ratios = pct[:, 1] / pct[:, 0]
+        effects = {m['group']: m for m in metrics if m['arm'] == arm and m['reference'] == 'identity'}
+        limits = {'background': 3., 'clean': -1., 'rotation': -1., 'macro13': -.5, 'all15': 0.}
+        point_gate = all(effects[group]['delta_pp'] + 1e-10 >= limit for group, limit in limits.items())
+        point_gate &= effects['all15']['delta_pp'] > 0 and bool(np.all(ratios <= 1.10))
+        interval_gate = all(effects[group]['simultaneous_lower_pp'] > (0 if group == 'background' else limit)
+                            for group, limit in limits.items())
+        gates[arm] = dict(p50_ratio=float(ratios[0]), p95_ratio=float(ratios[1]),
+                          point_gate=bool(point_gate), interval_gate=bool(interval_gate),
+                          passes=bool(point_gate and interval_gate))
+    csv_write(output/'pm_vs_terminal.csv', readouts)
+    (output/'background_gates.json').write_bytes(canonical(gates))
+    if config['phase'] == 'background_dev':
+        diagnostics = [dict(id=r['id'], **r['support_diagnostic'])
+                       for r in rows.values() if 'support_diagnostic' in r]
+        (output/'support_diagnostic.json').write_bytes(canonical(diagnostics))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('run', type=Path)
@@ -282,6 +324,8 @@ def main():
     config, rows = read_records(args.run)
     args.derived.mkdir(parents=True, exist_ok=False)
     metrics, entries = report(config, rows, raw_output=args.run, derived_output=args.derived)
+    if config['phase'].startswith('background'):
+        background_report(config, rows, metrics, args.derived)
     if config['phase'] in ('development', 'spectral', 'scd'):
         (args.derived/'synthetic.json').write_bytes(canonical(synthetic_summary(rows)))
     if config['phase'] == 'validation':

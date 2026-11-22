@@ -3155,3 +3155,5 @@ historical checkpoints: A/B are complete, no pending runtime task.
 ### 2026-11-21 — Background repair with nine denoiser and three classifier calls
 
 [Open] Does observed-anchor reliability outperform uniformly weakening the same proximal pull? Can a stronger eight-step noise schedule or one support-filtered late view repair common-rival errors without harming Rotation or thin structures? Compare shared inputs, tail latency and the combined pose arm against each component. [Evidence, candidate definitions and pilot criteria](cloudfixer_background_guidance_pm_20261121.md)
+
+[Open, 2026-11-22] The Background candidates have a registered nine-arm Colab pilot with fixed IDs, independent controls, checkpoint/recovery and speed gates. [Execution record](cloudfixer_background_pilot_20261122.md).

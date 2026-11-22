@@ -61,7 +61,7 @@ def assert_path(name):
         raise ValueError(f'Unsafe archive member {name}')
 
 
-def deploy(*, reuse_verified_environment=False):
+def deploy(*, reuse_verified_environment=False, session=None):
     verified = Path('/content/cli_setup_verification.json')
     if json.loads(verified.read_text())['status'] != 'passed':
         raise RuntimeError('Canonical environment verification must pass before deployment')
@@ -115,6 +115,8 @@ def deploy(*, reuse_verified_environment=False):
     if not Path('/content/.cf_point2vec_setup/verified.complete').is_file():
         raise RuntimeError('Supplemental native/head verification failed')
     proof = DRIVE/'setup'
+    if 'background' in WORK.name:
+        proof = proof/(session or digest(verified)[:16])
     proof.mkdir(parents=True, exist_ok=True)
     for path in (verified, WORK/'official.tar', WORK/'research.zip', WORK/'receipt.json',
                  Path('/content/.cf_point2vec_setup/verified.complete')):
@@ -136,7 +138,9 @@ def execute(phase, session, allocation_epoch, dev_run):
             start = datetime.fromtimestamp(allocation_epoch, timezone.utc).isoformat()
             misc.write_bytes(canonical(dict(attempts=[dict(session=session, started_utc=start,
                                                            seconds=time()-allocation_epoch)])))
-        record_setup(MountStore(DRIVE/'pilot_budget'), json.loads(misc.read_text()), cap=4*3600)
+        is_bg = phase.startswith('background')
+        record_setup(MountStore(DRIVE/('background_budget' if is_bg else 'pilot_budget')),
+                     json.loads(misc.read_text()), cap=(5 if is_bg else 4)*3600)
     now = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     output = WORK/f'{now}_{phase}'
     derived = WORK/f'{output.name}_derived'
@@ -182,20 +186,25 @@ def main(argv=None):
     global WORK, SOURCE, DRIVE
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=('deploy', 'smoke', 'development', 'validation', 'full',
-                                          'spectral_deploy', 'spectral_smoke', 'spectral', 'scd_deploy', 'scd_smoke', 'scd'))
+                                          'spectral_deploy', 'spectral_smoke', 'spectral', 'scd_deploy', 'scd_smoke', 'scd',
+                                          'background_deploy', 'background_smoke', 'background_dev', 'background'))
     parser.add_argument('--session')
     parser.add_argument('--allocation-epoch', type=float)
     parser.add_argument('--development')
     args = parser.parse_args(argv)
     if not Path('/content/drive').is_mount():
         raise RuntimeError('Drive mount required')
-    if args.phase.startswith(('scd', 'spectral')):
+    if args.phase.startswith('background'):
+        WORK = Path('/content/cloudfixer_background_20261122')
+        SOURCE = WORK/'source'
+        DRIVE = Path('/content/drive/MyDrive/thesis')/WORK.name
+    elif args.phase.startswith(('scd', 'spectral')):
         folder = 'cloudfixer_' + args.phase.split('_')[0] + '_rotation_20261121'
         WORK = Path('/content')/folder
         SOURCE = WORK/'source'
         DRIVE = Path('/content/drive/MyDrive/thesis')/folder
-    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy'):
-        deploy(reuse_verified_environment=args.phase != 'deploy')
+    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy', 'background_deploy'):
+        deploy(reuse_verified_environment=args.phase not in ('deploy', 'background_deploy'), session=args.session)
     else:
         if not args.session or args.allocation_epoch is None:
             parser.error('Execution requires the session identity and allocation epoch')

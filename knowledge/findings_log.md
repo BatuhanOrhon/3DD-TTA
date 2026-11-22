@@ -9681,3 +9681,7 @@ Mean A100 B1 latency was 253.47 ms (N8 245.95, Kabsch 259.46), with 802.41
 MiB peak allocation. The ROT-over-N8 expansion gate failed. Independent
 real Rotation gains while preserving Background would change the decision.
 [Run, scope, citations and sealed evidence](cloudfixer_scd_rotation_pilot_20261121.md).
+
+## 2026-11-22 — Background pilot registered with incremental recovery
+
+[User report/Code/Open] The requested Point2Vec pilot includes soft density anchors, the scalar control, high and geometry-gated eight-step grids, filtered and random t10 views and the paired progressive pose interaction. The user requests recovery after credit loss. Blocks of four objects with all arms are published individually to Drive with checksums and mirrored to the host in groups. New-worker smoke and CPU interruption checks precede interpretation. [Registration, budget and recovery](cloudfixer_background_pilot_20261122.md)

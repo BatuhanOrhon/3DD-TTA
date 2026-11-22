@@ -4,6 +4,7 @@ import math
 
 import torch
 
+from cloudfixer_background import BackgroundGeometry, EXPERIMENT_ARMS
 from cloudfixer_diffusion import sample, trimmed_neighbors, trimmed_scd
 
 
@@ -239,11 +240,11 @@ class RotationResult:
 
 @torch.no_grad()
 def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15., penalty=.1,
-                    threshold=.015, max_degrees=25., measure=unmeasured, noise_rotation=None):
+                    threshold=.015, max_degrees=25., measure=unmeasured, noise_rotation=None, background_config=None):
     """Run an arm with the baseline RNG contract and fixed, index-addressed FPS draws."""
     from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal
 
-    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search') or x.shape[0] != 1:
+    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search' and arm not in EXPERIMENT_ARMS) or x.shape[0] != 1:
         raise ValueError('Expected a registered B1 rotation arm')
     config = POLICIES['proximal_pm']
     devices = [x.device.index] if x.is_cuda else []
@@ -289,6 +290,18 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
             return pose if choice else None
 
         schedule = KABSCH_STEPS.get(arm, SPECTRAL_STEPS.get(arm))
+        geometry = None
+        sampler_options = {}
+        if arm in EXPERIMENT_ARMS:
+            geometry = BackgroundGeometry(x, mask, arm, background_config)
+            diagnostics['weak_fraction'] = geometry.weak_fraction
+            if geometry.high:
+                config = dict(config, start=background_config['high_grid'][0])
+                sampler_options['schedule'] = background_config['high_grid']
+            if arm not in ('bg_high', 'bg_gate'):
+                sampler_options['pair_transform'] = geometry.pairs
+            if arm == 'bg_weighted_pose':
+                schedule = KABSCH_STEPS['kabsch_progressive']
         filter_points = None
         if arm in SPECTRAL_STEPS:
             from functools import partial
@@ -298,7 +311,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
                   if schedule is not None else None)
         if arm == 'scd_search':
             estimator = SCDSearchPose(x, mask, point_indices, max_degrees=max_degrees, measure=measure)
-        clouds, metadata = sample(model, x, mask, noise, **config, measure=measure,
+        clouds, metadata = sample(model, x, mask, noise, **config, **sampler_options, measure=measure,
                                   pose_reference=estimator.reference if estimator is not None else None,
                                   feedback_rotation=select if arm == 'feedback' else None)
         if arm in SEARCH_ARMS and arm != 'feedback':
@@ -313,10 +326,15 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
             else:
                 if choice and arm in ('output', 'random'):
                     cloud = cloud @ pose
+                if geometry is not None and geometry.keep is not None and index == 10:
+                    cloud = geometry.view(cloud, seeds[index])
+                    diagnostics['t10_view_points'] = cloud.shape[1]
                 logits.append(classify(index, cloud))
         logits = torch.stack(logits, 1)
         probabilities = logits.double().softmax(-1)
         if arm == 'view_mean':
             probabilities[:, 0] = view_probabilities
+        if geometry is not None:
+            diagnostics['grid'] = metadata['indices']
         diagnostics['denoiser_calls'] = metadata['denoiser_calls']
         return RotationResult(logits, probabilities.mean(1), clouds, pose, diagnostics)

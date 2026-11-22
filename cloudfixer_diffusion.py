@@ -64,23 +64,33 @@ def trimmed_scd(q, reference, mask, retained):
 
 
 @torch.no_grad()
-def correct(q, reference, mask, *, tau: float, retained: float, measure=None):
+def correct(q, reference, mask, *, tau: float, retained: float, measure=None, index=None, pair_transform=None):
     """Full predicted set versus valid observed anchors, with bidirectional trimming."""
     if not math.isfinite(tau) or tau < 0 or not 0 < retained <= 1:
         raise ValueError('Invalid proximal strength or retained fraction')
     if measure is None:
         pairs = trimmed_neighbors(q, reference, mask, retained)
+    else:
+        pairs = measure("local_matching", trimmed_neighbors, q, reference, mask, retained)
+    if pair_transform is not None:
+        pairs = pair_transform(index, *pairs)
+    if measure is None:
         return proximal_chamfer(q, reference, *pairs, tau)
-    pairs = measure("local_matching", trimmed_neighbors, q, reference, mask, retained)
     return measure("proximal", proximal_chamfer, q, reference, *pairs, tau)
 
 
 @torch.no_grad()
 def sample(model, x, mask, noise, *, steps: int, start: int, tau: float, retained: float = .95,
            trace_all: bool = False, probe_indices=None, observe=None, fingerprint=False,
-           pose_reference=None, feedback_rotation=None, measure=None):
+           pose_reference=None, feedback_rotation=None, measure=None, schedule=None, pair_transform=None):
     """Return pre-correction clean estimates plus a native deterministic t0 terminal."""
     indices = grid(steps=steps, start=start)
+    if schedule is not None:
+        if (len(schedule) != len(indices) or schedule[0] != start or schedule[-1] != 0
+                or any(type(i) is not int for i in schedule)
+                or any(a <= b for a, b in zip(schedule, schedule[1:]))):
+            raise ValueError('Invalid user-supplied native timestep grid')
+        indices = list(schedule)
     reference = x
     predict = model.phi
     correction = correct
@@ -135,7 +145,8 @@ def sample(model, x, mask, noise, *, steps: int, start: int, tau: float, retaine
         if pose_reference is not None:
             reference = pose_reference(index, pre)
         if tau:
-            clean = correction(clean, reference, mask, tau=tau, retained=retained)
+            clean = correction(clean, reference, mask, tau=tau, retained=retained,
+                               index=index, pair_transform=pair_transform)
         if index == 20 and feedback_rotation is not None:
             rotation = feedback_rotation(pre)
             if rotation is not None:
