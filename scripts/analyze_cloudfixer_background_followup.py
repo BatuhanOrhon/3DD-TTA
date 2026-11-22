@@ -34,6 +34,7 @@ def read_archive(path, phase, registration):
     if config['phase'] != phase or config['spec']['background_followup'] != registration:
         raise ValueError('Archive does not belong to the locked follow-up')
     data = {}
+    view_diagnostics = {}
     for key, row in raw.items():
         arms = row['arms']
         if 'bg_view' in arms:
@@ -41,9 +42,26 @@ def read_archive(path, phase, registration):
             assert left['diagnostics']['t10_view_points'] == right['diagnostics']['t10_view_points']
             for i in (0, 2):
                 assert left['logits'][i] == right['logits'][i] == arms['identity']['logits'][i]
+            stats = view_diagnostics.setdefault(key[0], dict(events=0, points=[], arms={}))
+            stats['events'] += 1
+            stats['points'].append(left['diagnostics']['t10_view_points'])
+            truth = row['label']
+            for name in ('identity', 'bg_view', 'bg_random_view'):
+                e = arms[name]
+                tally = stats['arms'].setdefault(name, dict(t10_correct=0, pm_correct=0, terminal_correct=0,
+                                                           t10_changed=0, pm_changed=0))
+                t10 = int(np.argmax(e['logits'][1]))
+                tally['t10_correct'] += int(t10 == truth)
+                tally['terminal_correct'] += int(np.argmax(e['logits'][2]) == truth)
+                tally['pm_correct'] += int(e['prediction'] == truth)
+                tally['t10_changed'] += int(t10 != np.argmax(arms['identity']['logits'][1]))
+                tally['pm_changed'] += int(e['prediction'] != arms['identity']['prediction'])
         data[key] = {name: (entry['prediction'] == row['label'], entry['seconds'], entry['peak_mib'])
                      for name, entry in arms.items()}
-    return config, data
+    for stats in view_diagnostics.values():
+        points = stats.pop('points')
+        stats['kept_points_p10_p50_p90'] = np.quantile(points, [.1, .5, .9]).tolist()
+    return config, data, view_diagnostics
 
 
 def compare(data, ids, contrasts, timing_conditions, timing_seeds, draws):
@@ -80,7 +98,7 @@ def analyze(focus, other, scd):
     names = ('focus','other','scd')
     paths = (focus, other, scd)
     runs = [read_archive(p, 'background_follow_'+name, reg) for name,p in zip(names,paths)]
-    configs = [c for c,_ in runs]
+    configs = [r[0] for r in runs]
     assert len({c['spec']['source_commit'] for c in configs}) == 1
     ids, seeds = reg['ids'], reg['seeds']
     other13 = sorted(set(CORRUPTIONS)-{'background','rotation'})
@@ -110,7 +128,7 @@ def analyze(focus, other, scd):
     scd_result = compare(runs[2][1],reg['scd_ids'],design,['background','rotation','clean'],seeds,reg['bootstrap_draws'])
     return dict(source_commit=configs[0]['spec']['source_commit'], archives={n:dict(file=p.name,
                 sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for n,p in zip(names,paths)},
-                pm=pm,scd=scd_result)
+                pm=pm,scd=scd_result, view_diagnostics={**runs[0][2], **runs[1][2]})
 
 
 if __name__ == '__main__':
