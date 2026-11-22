@@ -1,0 +1,93 @@
+{
+  "session": "tta-cloudfixer-background-a100-20261122-r7",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "source_commit": "e22d0eeae2d83cd8823f500cd7782e7cff0adfcb",
+  "source_integration": "666a25d",
+  "package": {
+    "official.tar": {
+      "bytes": 5570560,
+      "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+    },
+    "research.zip": {
+      "bytes": 113370,
+      "sha256": "f1a554cb926eeaaa48e3d1445664e6f2ae0a34d9da1a2dcdaeaeab0136c030cf"
+    }
+  },
+  "allocated_utc": "2026-11-22T11:19:39.223615+00:00",
+  "last_phase_log_utc": "2026-11-22T13:55:21.083739+00:00",
+  "occupied_hours_to_last_scientific_log": 2.5949611454539827,
+  "assignment_estimated_CU": 23.04325497163137,
+  "archive_root": "MyDrive/thesis/cloudfixer_background_20261122/archives",
+  "archives": {
+    "background_smoke": {
+      "filename": "20261122-122035_background_smoke.zip",
+      "sha256": "2924e2145915e2d1c9dfeb5276db0040304c8eb352903da6877fc998aa682470",
+      "bytes": 72884,
+      "seeds": [
+        0
+      ],
+      "objects": 1,
+      "conditions": 2,
+      "scores": 22,
+      "paired_events": 2,
+      "verified_blocks": 2,
+      "verified_host_mirrors": 1
+    },
+    "background_pm": {
+      "filename": "20261122-122109_background_pm.zip",
+      "sha256": "b3cc0ccbacdace9ba319a23c8250650ca9ef20e698b7ec07c2296f8b27b8456b",
+      "bytes": 7655490,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "objects": 128,
+      "conditions": 3,
+      "scores": 4608,
+      "paired_events": 1152,
+      "verified_blocks": 288,
+      "verified_host_mirrors": 72
+    },
+    "background_dev": {
+      "filename": "20261122-124014_background_dev.zip",
+      "sha256": "1f227282f46c7569b62cd71262d40a7f6f0a020a404fb82b43a86377abbf1435",
+      "bytes": 290863,
+      "seeds": [
+        0
+      ],
+      "objects": 8,
+      "conditions": 2,
+      "scores": 176,
+      "paired_events": 16,
+      "verified_blocks": 4,
+      "verified_host_mirrors": 1
+    },
+    "background": {
+      "filename": "20261122-124123_background.zip",
+      "sha256": "d2021904307a20207e255ed4ece9391e46059375a17cfc76520a579dfbfead2f",
+      "bytes": 23799869,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "objects": 32,
+      "conditions": 16,
+      "scores": 16896,
+      "paired_events": 1536,
+      "verified_blocks": 384,
+      "verified_host_mirrors": 96
+    }
+  },
+  "checks": [
+    "complete registered object/seed/condition/arm sets",
+    "9 denoiser and 3 classifier calls per policy",
+    "independent PM, terminal, repairs, harms and common rivals from raw logits",
+    "host mirror block hash equality for every phase",
+    "all four archive SHA256 compared with mounted Drive path readback",
+    "all four ZIP CRCs and local block receipts verified",
+    "all 288 PM blocks from 72 real host bundles restored in reverse order into empty scratch, repeated bundle idempotent, zero GPU calls",
+    "only CSV line endings normalized for tracked review copies"
+  ]
+}

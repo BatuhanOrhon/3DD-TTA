@@ -7,7 +7,7 @@ use its own prior. Fresh public Drive lists8diffusion checkpoints including
 ScanNet, with no ScanObjectNN-named prior. Our accepted Scan tests use the same
 ShapeNet-all55 LION with dataset-specific Scan classifiers. No new GPU/model run.
 
-**[Code/Run/Open] 2026-11-22 — Background pilot with interruption recovery.** Nine paired policies, A100 r7 allocated, canonical setup in progress. The fingerprinted pilot stores four-object Drive checkpoints and grouped host mirrors. [Study, cost and recovery procedure](cloudfixer_background_pilot_20261122.md).
+**[Run/Decision] 2026-11-22 — Background guidance and high-start-noise PM pilot complete.** On 128 paired objects K120 gained 3.39 pp on Background but its own terminal gained 4.43 pp. K160 PM interaction −1.30 pp, nominal 95% CI [−3.91, +1.30]. The separate all-condition pilot favored the filtered t10 view descriptively (+2.08 pp Background, +0.49 pp all15, p95 1.028×). No candidate met the full adoption gates. [Paired results, recommendations and verified recovery](cloudfixer_background_pilot_20261122.md).
 
 **[Run/Inference/Open] 2026-11-21 — Background limit of late-PM reweighting.** On the full seed-2 Point2Vec trace, 779 of 856 Background errors share a strict rival across t20/t10/t0. Reweighting those probabilities can reach at most 68.44% versus plain CloudFixer 76.09%. [Recount and fixed-cost SCD/PM proposals](cloudfixer_background_guidance_pm_20261121.md).
 

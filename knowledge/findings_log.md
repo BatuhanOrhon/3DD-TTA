@@ -9701,3 +9701,8 @@ Our acceptedScan pipeline pins ShapeNet-all55 LION SHA807f6732…a86c2 and
 Scan-specific classifier53f6c2e4…35dac for Point-MAE. No model replacement,
 training or GPU test. Dataset ancestry may overlap; disjointness is not proven.
 Availability is a dated filename inventory, not weight/training-log validation.
+
+
+## 2026-11-22 — Paired Background PM interaction and SCD pilot complete
+
+[Run/Inference] Frozen Point2Vec and XYZ prior, N8 and fixed t20/t10/t0 probes. Background on 128 paired objects × 3 seeds: PM K80/K120/K160 255/268/265 of 384, own terminal 253/270/268. K160-versus-K80 PM interaction −1.30 pp (nominal 95% [−3.91,+1.30]). Higher starting noise also lowered clean and Rotation PM in this cohort. On 32 separate objects × 16 conditions × 3 seeds none of ten alternatives passed all gates. The filtered t10 view gained 2.08 pp Background and 0.49 pp all15, unchanged clean/Rotation, synchronized p95 ratio 1.028. Weighted SCD gained one Background event over the scalar control. The k=5 reliability mask flagged 163/816 diffuse and 28/816 clustered added points in a separate 8-object diagnostic. Four verified Drive archives, 678 matching block mirrors, 21,702 scores and a 288-block recovery rehearsal with no inference. [Study, evidence and recommendations](cloudfixer_background_pilot_20261122.md).

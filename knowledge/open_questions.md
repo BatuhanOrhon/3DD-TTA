@@ -3156,7 +3156,9 @@ historical checkpoints: A/B are complete, no pending runtime task.
 
 [Open] Does observed-anchor reliability outperform uniformly weakening the same proximal pull? Can a stronger eight-step noise schedule or one support-filtered late view repair common-rival errors without harming Rotation or thin structures? Compare shared inputs, tail latency and the combined pose arm against each component. [Evidence, candidate definitions and pilot criteria](cloudfixer_background_guidance_pm_20261121.md)
 
-[Open, 2026-11-22] The Background candidates have a registered nine-arm Colab pilot with fixed IDs, independent controls, checkpoint/recovery and speed gates. [Execution record](cloudfixer_background_pilot_20261122.md).
+[Run/Decision, 2026-11-22] The fixed-noise-start experiment and eleven-arm validation are complete. Higher starting noise improved Background terminals without a detected increase in late PM contribution. No method passed all gates. [Results and recovery record](cloudfixer_background_pilot_20261122.md).
+
+[Open] Does the one filtered t10 view beat its count-matched random control on a larger disjoint cohort? Can wider-scale support identify clustered background points while preserving clean thin surfaces and p95 ≤1.10×?
 
 
 ## 2026-11-22 — ScanNet, ScanObjectNN-C and source-specific diffusion
