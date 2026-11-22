@@ -1,0 +1,13 @@
+arm,condition,total,pm,terminal,pm_repairs,pm_harms,common_rival
+bg_high,background,384,265,268,3,6,108
+bg_high,rotation,384,172,166,12,6,191
+bg_high,clean,384,336,337,1,2,44
+bg_mid,background,384,268,270,4,6,102
+bg_mid,rotation,384,181,175,11,5,185
+bg_mid,clean,384,345,346,2,3,33
+bg_start_only,background,384,251,254,3,6,121
+bg_start_only,rotation,384,162,157,11,6,205
+bg_start_only,clean,384,338,338,2,2,41
+identity,background,384,255,253,7,5,111
+identity,rotation,384,189,180,13,4,178
+identity,clean,384,350,349,2,1,29

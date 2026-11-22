@@ -1,0 +1,363 @@
+{
+  "session": "tta-cloudfixer-background-a100-20261122-r7",
+  "source_commit": "e22d0eeae2d83cd8823f500cd7782e7cff0adfcb",
+  "research_zip_sha256": "f1a554cb926eeaaa48e3d1445664e6f2ae0a34d9da1a2dcdaeaeab0136c030cf",
+  "conditions": {
+    "background": {
+      "identity": {
+        "grid": [
+          {
+            "index": 80,
+            "logsnr": 2.932844400405884
+          },
+          {
+            "index": 70,
+            "logsnr": 3.2090904712677
+          },
+          {
+            "index": 60,
+            "logsnr": 3.525257110595703
+          },
+          {
+            "index": 50,
+            "logsnr": 3.8963050842285156
+          },
+          {
+            "index": 40,
+            "logsnr": 4.347900867462158
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "c4807c7c74c6bafeba11de63da3a091cd16efa9b9482673a22510fac36ff7fc5",
+        "rng": 207,
+        "source_receipt_sha256": "e02a08fb4ebcef1eda3971a71efc4d9f30037355807c46fa90709459270140cf",
+        "initial_sigma": 0.22484133263288478
+      },
+      "bg_mid": {
+        "grid": [
+          {
+            "index": 120,
+            "logsnr": 2.0715794563293457
+          },
+          {
+            "index": 100,
+            "logsnr": 2.4641706943511963
+          },
+          {
+            "index": 80,
+            "logsnr": 2.932844400405884
+          },
+          {
+            "index": 60,
+            "logsnr": 3.525257110595703
+          },
+          {
+            "index": 45,
+            "logsnr": 4.109926700592041
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "c4807c7c74c6bafeba11de63da3a091cd16efa9b9482673a22510fac36ff7fc5",
+        "rng": 207,
+        "source_receipt_sha256": "00f4cbe892efb6868682f215d2c22a3fb7daeb26846a31948e34b11017cbc9b8",
+        "initial_sigma": 0.3344996125005779
+      },
+      "bg_high": {
+        "grid": [
+          {
+            "index": 160,
+            "logsnr": 1.4221781492233276
+          },
+          {
+            "index": 130,
+            "logsnr": 1.89533269405365
+          },
+          {
+            "index": 100,
+            "logsnr": 2.4641706943511963
+          },
+          {
+            "index": 70,
+            "logsnr": 3.2090904712677
+          },
+          {
+            "index": 50,
+            "logsnr": 3.8963050842285156
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "c4807c7c74c6bafeba11de63da3a091cd16efa9b9482673a22510fac36ff7fc5",
+        "rng": 207,
+        "source_receipt_sha256": "5b1b269b9c238b34665e120838b145e0285de045358f31b809fc6a357b0db31d",
+        "initial_sigma": 0.44081781451495716
+      },
+      "bg_start_only": {
+        "grid": [
+          {
+            "index": 160,
+            "logsnr": 1.4221781492233276
+          },
+          {
+            "index": 70,
+            "logsnr": 3.2090904712677
+          },
+          {
+            "index": 60,
+            "logsnr": 3.525257110595703
+          },
+          {
+            "index": 50,
+            "logsnr": 3.8963050842285156
+          },
+          {
+            "index": 40,
+            "logsnr": 4.347900867462158
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "c4807c7c74c6bafeba11de63da3a091cd16efa9b9482673a22510fac36ff7fc5",
+        "rng": 207,
+        "source_receipt_sha256": "1e08b8e213ed7c22ecd7223663a385d344bdea7e53123b17ab09e84afcfd47a5",
+        "initial_sigma": 0.44081781451495716
+      }
+    },
+    "rotation": {
+      "identity": {
+        "grid": [
+          {
+            "index": 80,
+            "logsnr": 2.932844400405884
+          },
+          {
+            "index": 70,
+            "logsnr": 3.2090904712677
+          },
+          {
+            "index": 60,
+            "logsnr": 3.525257110595703
+          },
+          {
+            "index": 50,
+            "logsnr": 3.8963050842285156
+          },
+          {
+            "index": 40,
+            "logsnr": 4.347900867462158
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "47e3c092f82fc8d1023e34df1f078fb07fa5960a64b22f2004fd203c5171d3ca",
+        "rng": 207,
+        "source_receipt_sha256": "b769ce4430235f497a1d2578b34b11c1973e072aef48dba6c343ba9da26b2b42",
+        "initial_sigma": 0.22484133263288478
+      },
+      "bg_mid": {
+        "grid": [
+          {
+            "index": 120,
+            "logsnr": 2.0715794563293457
+          },
+          {
+            "index": 100,
+            "logsnr": 2.4641706943511963
+          },
+          {
+            "index": 80,
+            "logsnr": 2.932844400405884
+          },
+          {
+            "index": 60,
+            "logsnr": 3.525257110595703
+          },
+          {
+            "index": 45,
+            "logsnr": 4.109926700592041
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "47e3c092f82fc8d1023e34df1f078fb07fa5960a64b22f2004fd203c5171d3ca",
+        "rng": 207,
+        "source_receipt_sha256": "c88380c46f2c5b352951aa1c0e58d3d1a070250c9d39bd4dbb99de5e56dec949",
+        "initial_sigma": 0.3344996125005779
+      },
+      "bg_high": {
+        "grid": [
+          {
+            "index": 160,
+            "logsnr": 1.4221781492233276
+          },
+          {
+            "index": 130,
+            "logsnr": 1.89533269405365
+          },
+          {
+            "index": 100,
+            "logsnr": 2.4641706943511963
+          },
+          {
+            "index": 70,
+            "logsnr": 3.2090904712677
+          },
+          {
+            "index": 50,
+            "logsnr": 3.8963050842285156
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "47e3c092f82fc8d1023e34df1f078fb07fa5960a64b22f2004fd203c5171d3ca",
+        "rng": 207,
+        "source_receipt_sha256": "dd0a876a4a128af3ef539868e1562e9f6d260fd53a11b66d8b69c1f26dab3b58",
+        "initial_sigma": 0.44081781451495716
+      },
+      "bg_start_only": {
+        "grid": [
+          {
+            "index": 160,
+            "logsnr": 1.4221781492233276
+          },
+          {
+            "index": 70,
+            "logsnr": 3.2090904712677
+          },
+          {
+            "index": 60,
+            "logsnr": 3.525257110595703
+          },
+          {
+            "index": 50,
+            "logsnr": 3.8963050842285156
+          },
+          {
+            "index": 40,
+            "logsnr": 4.347900867462158
+          },
+          {
+            "index": 30,
+            "logsnr": 4.926882266998291
+          },
+          {
+            "index": 20,
+            "logsnr": 5.739089488983154
+          },
+          {
+            "index": 10,
+            "logsnr": 7.117883682250977
+          },
+          {
+            "index": 0,
+            "logsnr": 11.51291561126709
+          }
+        ],
+        "noise_sha256": "47e3c092f82fc8d1023e34df1f078fb07fa5960a64b22f2004fd203c5171d3ca",
+        "rng": 207,
+        "source_receipt_sha256": "76d73d390a9884313515ef9ce69bf88925358459c2512de8c2b6904e64d21605",
+        "initial_sigma": 0.44081781451495716
+      }
+    }
+  }
+}
