@@ -4,6 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -117,7 +118,8 @@ print('BACKGROUND_HOST_RESTORE_DONE', flush=True)
     passed = False
     with ThreadPoolExecutor(max_workers=1) as pool, log.with_suffix('.log').open('x') as stream:
         process = subprocess.Popen([*cli, 'exec', '-s', args.session, '-f', str(script), '--timeout', '18000'],
-                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
+                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True,
+                                   env={**os.environ, 'PYTHONUNBUFFERED': '1'})
         for line in process.stdout:
             stream.write(line)
             stream.flush()
