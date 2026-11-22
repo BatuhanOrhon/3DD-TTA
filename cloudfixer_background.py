@@ -2,7 +2,7 @@
 import torch
 
 EXPERIMENT_ARMS = ('bg_weighted', 'bg_scalar', 'bg_high', 'bg_gate',
-                   'bg_view', 'bg_random_view', 'bg_weighted_pose')
+                   'bg_view', 'bg_random_view', 'bg_weighted_pose', 'bg_mid', 'bg_start_only')
 
 
 def anchor_weights(x, mask, k):
@@ -27,10 +27,13 @@ class BackgroundGeometry:
     def __init__(self, x, mask, arm, config):
         self.arm = arm
         self.threshold = config['filter_below']
-        self.weights = None if arm == 'bg_high' else anchor_weights(x, mask, config['k'])
+        self.weights = None if arm in ('bg_high', 'bg_mid', 'bg_start_only') else anchor_weights(x, mask, config['k'])
         self.weak_fraction = (float((self.weights[mask.reshape_as(self.weights).bool()] < self.threshold).float().mean())
                               if self.weights is not None else None)
         self.high = arm == 'bg_high' or arm == 'bg_gate' and self.weak_fraction > config['gate_fraction']
+        self.schedule = config['high_grid'] if self.high else None
+        if arm in ('bg_mid', 'bg_start_only'):
+            self.schedule = config['mid_grid' if arm == 'bg_mid' else 'start_only_grid']
         self.keep = None
 
     def pairs(self, index, forward, reverse, keep_forward, keep_reverse):

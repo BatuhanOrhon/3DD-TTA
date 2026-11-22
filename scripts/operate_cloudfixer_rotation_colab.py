@@ -188,7 +188,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=('deploy', 'smoke', 'development', 'validation', 'full',
                                           'spectral_deploy', 'spectral_smoke', 'spectral', 'scd_deploy', 'scd_smoke', 'scd',
-                                          'background_deploy', 'background_smoke', 'background_dev', 'background'))
+                                          'background_deploy', 'background_smoke', 'background_pm', 'background_dev', 'background'))
     parser.add_argument('--session')
     parser.add_argument('--allocation-epoch', type=float)
     parser.add_argument('--development')

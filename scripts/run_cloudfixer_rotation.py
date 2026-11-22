@@ -217,6 +217,9 @@ def phase_scope(phase, freeze, decision):
         arms.update({arm: {'background_config': BG_REGISTRY} for arm in EXPERIMENT_ARMS})
         if phase == 'background_smoke':
             return ('background', 'rotation'), BG_REGISTRY['dev_ids'][:1], [0], arms
+        if phase == 'background_pm':
+            comparisons = {a: arms[a] for a in ('identity', 'bg_mid', 'bg_high', 'bg_start_only')}
+            return ('background', 'rotation', 'clean'), BG_REGISTRY['pm_ids'], BG_REGISTRY['seeds'], comparisons
         if phase == 'background_dev':
             return ('clean', 'background'), BG_REGISTRY['dev_ids'], [0], arms
         return ('background', 'rotation', 'clean', *(c for c in CONDITIONS if c not in DEV_CONDITIONS)), BG_REGISTRY['ids'], BG_REGISTRY['seeds'], arms
@@ -261,6 +264,34 @@ def unpack(data, unit, labels, expected_arms=None):
                 or (expected_arms is not None and set(row['arms']) != set(expected_arms))):
             raise ValueError('Recovered record does not match the paired protocol')
     return rows
+
+
+@torch.no_grad()
+def audit_start_noise(store, model, head, batch, rng, arm, params, condition, signature):
+    from unittest.mock import patch
+    x = batch[0]
+    with torch.random.fork_rng(devices=[x.device.index]):
+        torch.manual_seed(rng)
+        common_noise = torch.randn_like(x)
+    observed = []
+    predictor = model.phi
+    def verify(state, t, node_mask):
+        index = int((t * 500).round().item())
+        if not observed:
+            gamma = model.gamma(t)
+            alpha = model.alpha(gamma, target_tensor=x)
+            sigma = model.sigma(gamma, target_tensor=x)
+            torch.testing.assert_close(state, alpha * x + sigma * common_noise, rtol=0, atol=0)
+        observed.append(dict(index=index, logsnr=float(-model.gamma(t).item())))
+        return predictor(state, t, node_mask)
+    with patch.object(model, 'phi', verify):
+        run_arm(model, head, *batch, arm, params, rng=rng)
+    registered = {'identity': list(range(80, -1, -10)), 'bg_mid': BG_REGISTRY['mid_grid'],
+                  'bg_start_only': BG_REGISTRY['start_only_grid'], 'bg_high': BG_REGISTRY['high_grid']}
+    if [r['index'] for r in observed] != registered[arm]:
+        raise ValueError('Denoiser did not execute the registered noise grid')
+    store.put(f'noise_{signature}_{condition}_{arm}.json', canonical(dict(grid=observed, rng=rng,
+              noise_sha256=sha(common_noise.cpu().contiguous().numpy().tobytes()))))
 
 
 @torch.no_grad()
@@ -344,6 +375,8 @@ def evaluate(args, spec, store, budget):
             for arm, p in arms.values():
                 warm, _ = run_arm(model, head, *batch, arm, p, rng=rng)
                 if bg and is_smoke:
+                    if arm in ('identity', 'bg_mid', 'bg_high', 'bg_start_only'):
+                        audit_start_noise(store, model, head, batch, rng, arm, p, cond, signature)
                     name = f'golden_{cond}_{arm}.json'
                     golden = dict(logits=warm['logits'], prediction=warm['prediction'], label=int(labels[ids[0]]))
                     if name in store.keys('golden_'):
@@ -422,7 +455,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phase', choices=('smoke', 'development', 'validation', 'full',
                                             'spectral_smoke', 'spectral', 'scd_smoke', 'scd',
-                                            'background_smoke', 'background_dev', 'background'), required=True)
+                                            'background_smoke', 'background_pm', 'background_dev', 'background'), required=True)
     for arg in ('manifest', 'output', 'drive-folder'):
         parser.add_argument(f'--{arg}', type=Path, required=True)
     for arg, default in (

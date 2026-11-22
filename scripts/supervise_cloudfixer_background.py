@@ -141,7 +141,7 @@ print('BACKGROUND_HOST_RESTORE_DONE', flush=True)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=['background_deploy', 'restore', 'background_smoke',
-                                          'background_dev', 'background'])
+                                          'background_pm', 'background_dev', 'background'])
     parser.add_argument('--session', required=True)
     parser.add_argument('--epoch', type=float, required=True)
     parser.add_argument('--package', type=Path)

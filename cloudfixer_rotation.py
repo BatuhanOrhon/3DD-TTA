@@ -295,10 +295,10 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
         if arm in EXPERIMENT_ARMS:
             geometry = BackgroundGeometry(x, mask, arm, background_config)
             diagnostics['weak_fraction'] = geometry.weak_fraction
-            if geometry.high:
-                config = dict(config, start=background_config['high_grid'][0])
-                sampler_options['schedule'] = background_config['high_grid']
-            if arm not in ('bg_high', 'bg_gate'):
+            if geometry.schedule is not None:
+                config = dict(config, start=geometry.schedule[0])
+                sampler_options['schedule'] = geometry.schedule
+            if arm not in ('bg_high', 'bg_gate', 'bg_mid', 'bg_start_only'):
                 sampler_options['pair_transform'] = geometry.pairs
             if arm == 'bg_weighted_pose':
                 schedule = KABSCH_STEPS['kabsch_progressive']

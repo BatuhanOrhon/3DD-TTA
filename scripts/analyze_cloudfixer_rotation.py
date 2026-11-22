@@ -275,6 +275,62 @@ def decide(config, metrics, entries, synthetic):
     return dict(campaign=config['campaign'], next_arm=chosen, arms=decisions)
 
 
+def noise_pm_interactions(config, rows, output):
+    """Cluster by object for the paired change in PM's gain over its own terminal."""
+    conditions, seeds, ids = (config[key] for key in ('conditions', 'seeds', 'ids'))
+    schedule_arms = ('identity', 'bg_mid', 'bg_high', 'bg_start_only')
+    if not all(name in config['params'] for name in schedule_arms):
+        return
+    keys = list(itertools.product(conditions, seeds, ids))
+    shape = (len(conditions), len(seeds), len(ids))
+    truth = np.array([rows[k]['label'] for k in keys])
+    windows = {'t20': [0], 't10': [1], 't0': [2], 't20_t10': [0, 1],
+               't20_t0': [0, 2], 't10_t0': [1, 2], 'pm': [0, 1, 2]}
+    correct = {}
+    descriptive = []
+    groups = bootstrap_groups(conditions)
+    for arm in schedule_arms:
+        p = softmax([rows[k]['arms'][arm]['logits'] for k in keys])
+        each = {name: (p[:, ix].mean(1).argmax(1) == truth).reshape(shape) for name, ix in windows.items()}
+        correct[arm] = each
+        votes = p.argmax(2)
+        disagree = (votes != votes[:, :1]).any(1).reshape(shape)
+        for group, ix in groups.items():
+            for name, hits in each.items():
+                comparison = paired_counts(each['t0'][ix], hits[ix])
+                descriptive.append(dict(arm=arm, group=group, window=name,
+                                        disagree=int(disagree[ix].sum()), **comparison))
+    csv_write(output/'noise_pm_windows.csv', descriptive)
+    draws = config['spec']['registration']['bootstrap_draws']
+    rng = np.random.default_rng(20261122)
+    weights = rng.multinomial(len(ids), np.full(len(ids), 1 / len(ids)), size=draws) / len(ids)
+    interactions, vectors = [], []
+    for arm, reference in [('bg_mid', 'identity'), ('bg_high', 'identity'),
+                           ('bg_start_only', 'identity'), ('bg_high', 'bg_start_only')]:
+        for group, ix in groups.items():
+            base = correct[reference]
+            target = correct[arm]
+            base_gain = base['pm'][ix].astype(int) - base['t0'][ix]
+            target_gain = target['pm'][ix].astype(int) - target['t0'][ix]
+            difference = 100 * (target_gain - base_gain)
+            by_object = difference.mean(axis=(0, 1))
+            bootstrap = weights @ by_object
+            lo, hi = np.quantile(bootstrap, [.025, .975])
+            vectors.append(by_object)
+            interactions.append(dict(candidate=arm, reference=reference, group=group,
+                n_original_ids=len(ids), paired_events=difference.size,
+                candidate_pm_minus_t0_pp=100*target_gain.mean(), reference_pm_minus_t0_pp=100*base_gain.mean(),
+                interaction_pp=by_object.mean(), nominal_lower_pp=lo, nominal_upper_pp=hi,
+                by_seed_pp=json.dumps(difference.mean(axis=(0, 2)).tolist()),
+                pm_change_pp=100*(target['pm'][ix].mean()-base['pm'][ix].mean()),
+                terminal_change_pp=100*(target['t0'][ix].mean()-base['t0'][ix].mean())))
+    radius = joint_radius(np.column_stack(vectors), draws=draws, seed=20261122)
+    for row in interactions:
+        row['simultaneous_lower_pp'] = row['interaction_pp'] - radius
+        row['simultaneous_upper_pp'] = row['interaction_pp'] + radius
+    csv_write(output/'noise_pm_interaction.csv', interactions)
+
+
 def background_report(config, rows, metrics, output):
     readouts = []
     gates = {}
@@ -325,6 +381,7 @@ def main():
     args.derived.mkdir(parents=True, exist_ok=False)
     metrics, entries = report(config, rows, raw_output=args.run, derived_output=args.derived)
     if config['phase'].startswith('background'):
+        noise_pm_interactions(config, rows, args.derived)
         background_report(config, rows, metrics, args.derived)
     if config['phase'] in ('development', 'spectral', 'scd'):
         (args.derived/'synthetic.json').write_bytes(canonical(synthetic_summary(rows)))

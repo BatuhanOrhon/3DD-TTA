@@ -158,3 +158,27 @@ def test_runner_resumes_gaps_on_new_vm_without_rescoring_completed_pairs(tmp_pat
     cfg['phase'] = 'background_smoke'  # Partial fixture has only two conditions.
     background_report(cfg, rows, metrics, derived)
     assert (derived/'pm_vs_terminal.csv').is_file()
+
+
+def test_noise_pm_interaction_uses_each_terminal_and_clusters_seeds(tmp_path):
+    import csv
+    import numpy as np
+    from scripts.analyze_cloudfixer_rotation import noise_pm_interactions
+    arms = ['identity', 'bg_mid', 'bg_high', 'bg_start_only']
+    cfg = dict(conditions=['background'], seeds=[0, 1], ids=[0, 1], params=dict.fromkeys(arms),
+               spec={'registration': {'bootstrap_draws': 100}})
+    rows = {}
+    for ident in cfg['ids']:
+        for seed in cfg['seeds']:
+            entries = {}
+            for arm in arms:
+                logits = np.tile([2., 0.], (3, 1))
+                if arm == 'bg_high' and ident == 1:
+                    logits[-1] = [0., 1.]
+                entries[arm] = dict(logits=logits.tolist())
+            rows['background', seed, ident] = dict(label=0, arms=entries)
+    noise_pm_interactions(cfg, rows, tmp_path)
+    with (tmp_path/'noise_pm_interaction.csv').open() as f:
+        r = next(r for r in csv.DictReader(f) if r['candidate']=='bg_high' and r['reference']=='identity')
+    assert float(r['pm_change_pp']) == 0 and float(r['terminal_change_pp']) == -50
+    assert float(r['interaction_pp']) == 50 and int(r['n_original_ids']) == 2
