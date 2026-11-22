@@ -1,0 +1,10 @@
+arm,condition,total,pm,terminal,pm_repairs,pm_harms,common_rival
+bg_random_view,background,768,517,504,22,9,223
+bg_random_view,rotation,768,362,354,18,10,378
+bg_random_view,clean,768,704,702,6,4,56
+bg_view,background,768,529,504,37,12,174
+bg_view,rotation,768,360,354,16,10,375
+bg_view,clean,768,704,702,5,3,56
+identity,background,768,513,504,19,10,218
+identity,rotation,768,363,354,17,8,375
+identity,clean,768,703,702,5,4,57

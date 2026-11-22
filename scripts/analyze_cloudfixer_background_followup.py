@@ -143,7 +143,7 @@ def analyze(focus, other, scd):
         points.append(r['delta_pp']>0 if group in ('all15','background_random') else r['delta_pp']+1e-9>=limits[group])
         intervals.append(r['joint_95_pp'][0]>(0 if group=='background' else limits[group]))
     pm['decision'] = dict(point=all(points),joint_interval=all(intervals),
-                          speed=max(pm['timing'][view][k] for k in ('p50_ratio','p95_ratio'))<=1.10)
+                          speed=bool(max(pm['timing'][view][k] for k in ('p50_ratio','p95_ratio'))<=1.10))
     pm['decision']['adopt'] = all(pm['decision'].values())
     design = [(c,[c],seeds,'bg_multiscale',control) for c in ('background','rotation','clean')
               for control in ('identity','bg_weighted','bg_multiscale_scalar')]
@@ -161,6 +161,6 @@ if __name__ == '__main__':
         parser.add_argument(name,type=Path)
     args = parser.parse_args()
     result = analyze(args.focus,args.other,args.scd)
+    encoded = json.dumps(result, indent=2) + '\n'
     with args.output.open('x') as f:
-        json.dump(result,f,indent=2)
-        f.write('\n')
+        f.write(encoded)

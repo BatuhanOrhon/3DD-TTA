@@ -1,0 +1,67 @@
+{
+  "session": "tta-cloudfixer-background-a100-20261122-r7",
+  "start_utc": "2026-11-22T14:05:09+00:00",
+  "scientific_end_utc": "2026-11-22T15:35:08+00:00",
+  "additional_hours": 1.4997222222222222,
+  "estimated_owned_compute_units": 13.317533333333333,
+  "source_commit": "40b6fd1",
+  "cuda_package": {
+    "official.tar": {
+      "bytes": 5570560,
+      "sha256": "c7817cc2d04bdf1f8a054ec69831afb10f96d27068a65a0b86820232f314fdcd"
+    },
+    "research.zip": {
+      "bytes": 116164,
+      "sha256": "e88f9d34beb78d9baf1f0ccfa409ce65ce7ba352cbf080d7fb1b1874d846a21c"
+    }
+  },
+  "phases": {
+    "smoke": {
+      "phase": "background_follow_smoke",
+      "archive": "20261122-141030_background_follow_smoke.zip",
+      "sha256": "c2a35fd06e1fab143ca24dba10ed550d3877931894055ef775cad2dfc427ce39",
+      "blocks": 2,
+      "objects": 1,
+      "paired_events": 2,
+      "arm_scores": 12,
+      "drive_readback_bytes": 54316,
+      "host_mirrors": 1
+    },
+    "focus": {
+      "phase": "background_follow_focus",
+      "archive": "20261122-141057_background_follow_focus.zip",
+      "sha256": "f3573bff7deb6bb334a9cca441c8e6ab08fc35bdde423cb992fff8a28ad4bfea",
+      "blocks": 576,
+      "objects": 256,
+      "paired_events": 2304,
+      "arm_scores": 6912,
+      "drive_readback_bytes": 7021054,
+      "host_mirrors": 144
+    },
+    "scd": {
+      "phase": "background_follow_scd",
+      "archive": "20261122-143939_background_follow_scd.zip",
+      "sha256": "ce2ce1cf0f0be0d11e7e42ac904a8bd740e353d1aa71f29adddc53d3a6131401",
+      "blocks": 144,
+      "objects": 64,
+      "paired_events": 576,
+      "arm_scores": 2304,
+      "drive_readback_bytes": 3844836,
+      "host_mirrors": 36
+    },
+    "other": {
+      "phase": "background_follow_other",
+      "archive": "20261122-144930_background_follow_other.zip",
+      "sha256": "e1ce3daa4ee6ce1325ff9ae393f67ca2ac788e9ef3edc818a1178e5bafaf4451",
+      "blocks": 832,
+      "objects": 256,
+      "paired_events": 3328,
+      "arm_scores": 9984,
+      "drive_readback_bytes": 10785323,
+      "host_mirrors": 208
+    }
+  },
+  "recovered_in_scratch": 1554,
+  "recomputed_during_rehearsal": 0,
+  "duplicate_bundle_idempotent": true
+}

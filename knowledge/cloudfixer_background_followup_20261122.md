@@ -1,5 +1,7 @@
 # Filtrelenmiş t10 ve iki ölçekli SCD doğrulaması
 
+**Tamamlandı.** 256 ayrı nesnede filtrelenmiş t10, üçlü PM ile Background’u %66,80’den %68,88’e çıkardı. Tüm 15 bozulmada net kazanç bir doğru tahmin ve p95 maliyeti +%2,81. 64 ayrı nesnede çok ölçekli SCD Background’u iyileştirmedi. Keşifsel tek filtreli t10, Background’da %73,57’ye ulaştı. [Nihai karar](#üçlü-pm-için-nihai-karar) · [Okuma pencereleri](#t10-kazancının-ortalamaya-taşınması) · [Öneri ve arşiv](#öneri-ve-arşiv).
+
 ## Ön kayıt
 
 [Decision/Code] 22 Kasım 2026, yaklaşık 14:05 UTC. Kullanıcı önceki pilotun iki önerisinin denenmesini istedi. Kaynak tabanı 4d5fe1b. Önceki incelemeden bağımsız olarak kod ve grafik denemeleri için 32, sınıflandırmada SCD için 64, PM için 256 ayrı özgün ID ayrıldı. Önceki Background, rotation, spectral ve SCD pilotlarındaki ID'ler dışlandı. Tarihsel tam test bütün nesneleri içermişti. Sabit SHA-256 sırası ve tüm kimlikler cfgs/cloudfixer_background_followup.json içinde. Kaynak, frozen Point2Vec ve XYZ prior, checkpoint kimlikleri, ModelNet40-C s5 yazar loader'ı, K80/N8, τ=.1 ve %95 SCD önceki deneyle ortak. B1, üç geç okuma t20/t10/t0, eşlenmiş RNG ve sıralaması nesne başına döndürülen gerçek süre ölçümleri.
@@ -23,3 +25,40 @@
 [Run] Ayrı SCD grubunda 64 nesne × 3 seed = 192 örnek/koşul. K80, k5, k5+k16 ve eşit toplam kuvvetli skaler kontrol için Background doğru sayıları 129/129/127/125, Rotation 95/94/97/98, clean 178/178/178/178. İki ölçek K80'e göre Background'da bir onarım ve üç kayıp verdi. Üç koşulda zamanlar K80 p50/p95 238,01/244,43 ms ve iki ölçek 241,01/247,24 ms. İki ölçekli SCD'nin bu sürümü temel modele alınmadı. SCD fazının 144 bloğu ve 2304 yöntem tahmini yerel yedeklerden doğrulandı.
 
 [Run/Code] Son fazın Jupyter çıktı akışı 236. blokta sessizleşti. Ayrı Colab contents API okumaları aynı uzaktaki işçinin yeni bloklar üretmeye ve Drive'a yazmaya devam ettiğini doğruladı. Hiçbir GPU bloğu yeniden çalıştırılmadı. Yerel yöneticinin --recover-run seçeneği uzak günlüğün SHA-256 makbuzlarından host yedeklerini günceller, bitişte VM ve Drive arşivlerinin baytlarını, blok sayısını ve başarı durumunu karşılaştırır. Tamamlanmış smoke üzerinde uçtan uca doğrulandı ve devam eden son fazda eksik host kopyalarını tamamladı.
+
+## Üçlü PM için nihai karar
+
+**K80 ve t20/t10/t0 eşit PM temel modeli korundu.** Filtrelenmiş t10 ile üçlü PM, ayrı 256 nesnede Background kazancını yeniden gösterdi. Etkinin büyüklüğü önceki 32 nesnelik pilotla aynıydı. Aşağıdaki aralıklar aynı özgün nesnenin bütün koşul/seed gözlemlerini birlikte yeniden örnekler. Eşzamanlı aralık altı kayıtlı karar karşılaştırmasını kapsar.
+
+| Eşlenmiş karşılaştırma | Kontrol doğru | Filtreli PM doğru | Fark, puan | Nominal %95 | Eşzamanlı %95 |
+|---|---:|---:|---:|---:|---:|
+| Background, K80 PM | 513/768 | 529/768 | +2,08 | [0,39, 3,91] | [0,26, 3,91] |
+| Background, aynı sayıda rastgele nokta | 517/768 | 529/768 | +1,56 | [0,00, 3,26] | [−0,26, 3,39] |
+| Rotation, K80 PM | 363/768 | 360/768 | −0,39 | [−1,17, 0,13] | [−2,21, 1,43] |
+| Clean, K80 PM | 703/768 | 704/768 | +0,13 | [0,00, 0,39] | [−1,69, 1,95] |
+| Diğer 13, K80 PM, seed 0 | 2561/3328 | 2556/3328 | −0,15 | [−0,42, 0,09] | [−1,97, 1,67] |
+| Tüm 15, K80 PM, seed 0 | 2851/3840 | 2852/3840 | +0,03 | [−0,26, 0,31] | [−1,80, 1,85] |
+
+[Run] Tüm 15'te filtre 16 hatayı düzeltti, 15 doğruyu bozdu. K80 ve filtreli PM p50 süreleri 237,05 ve 240,40 ms, p95 süreleri 347,44 ve 357,20 ms. Fark p50'de %1,41, p95'te %2,81. Tepe PyTorch tahsisi 554,43 ve 554,44 MiB. Her iki gecikme ölçümü de kayıtlı %10 artış sınırı içinde kaldı. Background +3 puan nokta eşiği geçilmedi. Rastgele kontrole özgü üstünlük ve tüm koruma marjları da eşzamanlı aralıklarla gösterilemedi. İki yöntem aynı dokuz denoiser ve üç head çağrısını yaptı. [Karar, sayılar ve aralıklar](evidence/cloudfixer_background_followup_20261122/comparison.json) · [Diğer 13 koşulun eşlenmiş sonuçları](evidence/cloudfixer_background_followup_20261122/other_paired.csv) · [Koşul bazlı GPU profili](evidence/cloudfixer_background_followup_20261122/other_gpu_cost.csv).
+
+## t10 kazancının ortalamaya taşınması
+
+[Run/Inference] Filtreli tek t10, Background'da filtresiz t10'a karşı 565−509=56, aynı sayıda rastgele noktaya karşı 565−508=57 ek doğru verdi. Üçlü PM'de temel PM'ye göre net kazanç 16'ya indi. t20 ve terminal logitleri bire bir eşlenmişti. Aynı yörüngede genişleyen oylama bu koşulda filtrenin güçlü t10 sinyalini seyreltti. Odak sonuçları görüldükten sonra yapılan bu okuma keşifseldir.
+
+| Filtreli okuma | Background (768) | Rotation (768) | Clean (768) | Diğer 13 (3328) | Tüm 15 (3840) |
+|---|---:|---:|---:|---:|---:|
+| K80 üçlü PM referansı, görünüm filtresi kapalı | 513 | 363 | 703 | 2561 | 2851 |
+| Yalnız t10 | **565** | 358 | 700 | 2547 | 2855 |
+| t10 ve t0 eşit ortalama | 542 | 361 | 702 | 2544 | 2845 |
+| t20, t10 ve t0 eşit ortalama | 529 | 360 | 704 | 2556 | 2852 |
+
+[Run] Tek filtreli t10, Background'da K80 üçlü PM'ye karşı +6,77 puan, nominal %95 [4,04, 9,64]. Aynı karşılaştırma Rotation −0,65, clean −0,39, diğer13 −0,42 ve tüm15 +0,10 puan (tüm15 nominal %95 [−0,47, +0,65]). Tüm15 için filtresiz t10 2839/3840, rastgele t10 2828/3840. İki oy Background +3,78 puan sağladı, tüm15 −0,16 puan. Alternatif okumaların kararları mevcut logitlerden hesaplandı. Tek/iki classifier ile gerçek uçtan uca süre henüz ölçülmedi.
+
+[Artifact/Inference] Tarihsel arşivin aynı 256 nesneli seed-2 alt kümesinde plain CloudFixer Background 185/256 ve Rotation 169/256 doğru. Güncel deneyde K80 üçlü PM 170/123, filtreli üçlü 179/122 ve filtreli tek t10 187/121 (sırasıyla Background/Rotation). İki arşivin RNG adreslemeleri farklıdır. Tek bir koşulun bu tarihsel sayısını geçmek eşlenmiş CloudFixer üstünlüğü göstermiyor. [Tarihsel deney ve kaynak arşiv](cloudfixer_point2vec_full_results_20261120.md).
+
+## Öneri ve arşiv
+
+1. **Doğrulanacak aday olarak K80 + tek filtreli t10'u seç.** Yeni, kullanılmamış nesnelerde K80 üçlü PM, filtreli üçlü PM ve tek filtreli t10 kollarını önceden kilitle. Tek t10 kolunu üretimde kullanacağı classifier çağrısıyla zamanla. Tüm bozulmalarda tek pencereye geçme kararını bağımsız doğrulamaya bırak.
+2. **K5+k16 minimum-ağırlıklı SCD'yi genişletme.** Dağınık noktalarda ek yakalama var, kompakt kümelerde zayıf ve ayrı sınıflandırma panelinde Background'da iki net doğru kaybediyor. K160 yönlendirmesine geçiş kapalı.
+
+[Run/Artifact] Çalışma 14:05:09–15:35:08 UTC arasında yaklaşık 90 dakika sürdü. Önceden ölçülen 8,88 CU/saat A100 tarifesiyle bu çalışmanın ek tüketimi yaklaşık 13,32 CU. Smoke dahil dört başarılı faz, 19.212 yöntem tahmini ve 1.554 blok. Tüm arşivler Drive yolundan yeniden indirilip VM/laptop SHA-256 ve ZIP CRC ile karşılaştırıldı. Bloklar kısmi, ters sıra ve yinelenen yedek içe aktarmalarıyla boş bir dizinde yeniden kuruldu. Bu doğrulama ek GPU hesabı gerektirmedi. Nihai arşiv kaydedildikten sonra r7 üzerinde GPU işçi süreci bulunmadığı ayrıca doğrulandı. [Arşiv adları ve hash'ler](evidence/cloudfixer_background_followup_20261122/verification.json) · [Colab yöneticisi](../scripts/supervise_cloudfixer_background.py) · [Tekrar analiz](../scripts/analyze_cloudfixer_background_followup.py) · [Drive çalışma klasörü](https://drive.google.com/drive/folders/1rPDzwC8qzD51XXIO_W0WiNH1OA3SNva9).

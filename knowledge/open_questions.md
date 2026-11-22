@@ -3173,3 +3173,8 @@ Our acceptedScan pipeline pins ShapeNet-all55 LION SHA807f6732…a86c2 and
 Scan-specific classifier53f6c2e4…35dac for Point-MAE. No model replacement,
 training or GPU test. Dataset ancestry may overlap; disjointness is not proven.
 Availability is a dated filename inventory, not weight/training-log validation.
+
+
+[Run/Decision, 2026-11-22] The larger disjoint filtered t10 validation and k5/k16 SCD test are complete. Three-vote PM did not reach the registered minimum and matched-count superiority remains uncertain. The tested multiscale SCD missed the compact-cluster and Background classification targets. [Decisions](cloudfixer_background_followup_20261122.md).
+
+[Open] Can a prospectively locked single filtered t10 read retain its observed Background benefit and protect remaining corruptions on separate IDs, with its actual one-classifier latency?

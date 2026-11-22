@@ -1,3 +1,5 @@
+**[Run/Decision] 2026-11-22 — Independent filtered-t10 and multiscale SCD follow-up.** On 256 new objects filtered three-vote PM gained 2.08 pp Background, 1.56 pp over the random-view control, and one net correct across 15 corruptions. p95 +2.81%. The two-scale SCD candidate lost two Background events on a separate 64 objects. Exploratory filtered t10 alone gained 6.77 pp Background versus baseline PM. [Completed experiment and verified archives](cloudfixer_background_followup_20261122.md).
+
 **[Paper/Code/Artifact] 2026-11-22 — ScanNet / ScanObjectNN and prior training domains:**
 [Dataset and checkpoint audit](cloudfixer_scannet_scanobjectnn_lion_provenance_20261122.md)
 separates PointDA-10 ScanNet (10classes/natural shifts) from ScanObjectNN-C
