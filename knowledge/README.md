@@ -1,4 +1,4 @@
-**[Run/Complete] 2026-11-22 23:06 UTC — OriginalCF, üç alternatif head, tam ModelNet40-C all15.**
+**[Run/Complete] 2026-11-22 23:13 UTC — OriginalCF, üç alternatif head, tam ModelNet40-C all15.**
 DGCNN/CurveNet/PointNeXt CF%71.277688/%75.931929/%75.018909; eskiLIONN8PM'e
 +7.336575/+10.253917/+4.392220pp. All2468×15/s5/seed0/B64,585blok/135satır
 hamID/etiket/logit/RNG sayımı ve son15ZIPDrive→host SHA/CRC geçti.
@@ -6,7 +6,8 @@ Density/Cutout/Occlusion kayıpları ve BackgroundPointNeXt rawsource üstünlü
 korunuyor; farklıprior/ön işleme, tekseed, bütünpipeline kıyası. YeniCF-priorN8
 buüçhead'de ölçülmedi. [Tam tablolar ve çıkarımlar](cloudfixer_multibackbone_results_20261122.md),
 [çalıştırma/koruma/kapatma kaydı](cloudfixer_multibackbone_preparation_20261122.md).
-Sonpublication/cloudflush/yalnızownedr16kapatma sürüyor; GPUyenidenkoşusu yok.
+Kod/knowledge thesis-integration@ad18e42; officialDrivecloudflush geçti, yalnızownedr16
+23:12UTC kapatıldı ve serverenvanteri/0CUh doğrulandı. GPUişi tamamlandı.
 
 **[User decision/Run/Inference] 2026-11-22 — Rotation is the research priority.** The current frozen N8/K80 late-PM baseline scores 48.06% against plain CloudFixer 69.49% on Rotation. Its existing three readouts have a 52.07% convex-reweighting upper bound. Surface normals and whole-cloud PCA both reduced moderate compound tilts on raw development clouds and worsened 60° rotations. The proposed denoiser-side comparison applies one PCA or SCD rotation at t50 before all three PM reads. [Rotation refocus and CPU diagnostics](cloudfixer_rotation_refocus_20261122.md).
 

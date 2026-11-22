@@ -1,0 +1,9 @@
+{
+  "local": "result/preparation/cloudfixer_multibackbone_20261122/a100_highram_resume/knowledge_source_publication_20261122T2312Z.zip",
+  "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64/knowledge_source_publication_20261122T2312Z.zip",
+  "bytes": 126278,
+  "sha256": "ad71fa6383de3c406905de715bd936a17feb1142c5f08f6898fc7d62bd2c37be",
+  "status": "independent_Drive_to_host_size_SHA_CRC_verified",
+  "readback": "result/preparation/cloudfixer_multibackbone_20261122/a100_highram_resume/knowledge_source_publication_20261122T2312Z_drive_readback.zip",
+  "verified_utc": "2026-11-22T23:11:42.599078+00:00"
+}

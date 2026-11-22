@@ -1,0 +1,48 @@
+{
+  "status": "complete_and_owned_runtime_closed",
+  "session": "tta-cloudfixer-multibackbone-a100-20261122-r16",
+  "endpoint": "gpu-a100-hm-ass1c0-1smilmkaz90s4",
+  "owner": "/root/multibackbone",
+  "observed_closed_utc": "2026-11-22T23:12:50+00:00",
+  "stop_action": "colab stop -s tta-cloudfixer-multibackbone-a100-20261122-r16; exit0/Session terminated",
+  "server_inventory": "No active sessions found on currently configured account",
+  "postclose_usage": {
+    "balance_cu": 460.52,
+    "usage_cu_per_h": 0.0,
+    "active_assignments": 0
+  },
+  "allocation_started_utc": "2026-11-22T18:42:27.098914+00:00",
+  "allocation_to_observed_close_seconds": 16222.901086,
+  "allocation_rate_estimate_cu": 40.016489345466674,
+  "full_seconds": 10826.007684,
+  "full_rate_estimate_cu": 26.7041522872,
+  "rate_cu_per_h": 8.88,
+  "cost_limitation": "Elapsed\u00d7observedrate estimate, not exactbilling; balance500\u2192460.52 observed, meter may lag. PriorL4actualcostunknown, reserved55CU allowance retained.",
+  "global_task_time_estimate_seconds": 25028.25508126938,
+  "prior_L4_cost_allowance_reserved_cu": 55.0,
+  "user_authorization": "Explicitly requested newA100HighRAM/largerbatch andcloseafterfinishedwork; no newpermissiongate",
+  "acceptance": "all15/585blocks/135cells, actualworker+supervisor0/fullflag15, independentnestedrawrecount, finalDrive\u2192hostSHA/CRC, officialcloudflush/unmounted and scientificpublicationad18e42 allpassed",
+  "cloud_flush": {
+    "started_utc": "2026-11-22T23:12:01.345203+00:00",
+    "session": "tta-cloudfixer-multibackbone-a100-20261122-r16",
+    "status": "cloud_flush_passed",
+    "integration_commit": "ad18e42c465780cf177acd2c745c6ca04e6ef34d",
+    "full_completed": 15,
+    "host_and_Drive_archives_verified": true,
+    "teardown_authorization": "User explicitly requested close owned new A100 after finished work; tests/results/knowledge now complete and published",
+    "official_module": "/usr/local/lib/python3.13/dist-packages/google/colab/drive.py",
+    "official_function_sha256": "3bce624dc76a5b1f3c59690368d1d47c2a41e023023ad7fa07149b3ecf18433b",
+    "Drive_unmounted": true,
+    "return_value": "None",
+    "ended_utc": "2026-11-22T23:12:03.609930+00:00"
+  },
+  "published_results_code_commit": "ad18e42c465780cf177acd2c745c6ca04e6ef34d",
+  "protected_other_runtimes": "No peer/old-account runtime modified; currentaccountabsence says nothing about oldaccountL4/peers",
+  "flush_source_backup": {
+    "drive": "MyDrive/thesis/result/cloudfixer_multibackbone_20261122/a100_highram_b64/final_drive_flush.py",
+    "bytes": 2373,
+    "sha256": "2fbae3029dd11a2ae45903e49b1f129db170df7babd317e6d7b35220bb588cc6",
+    "independent_source_readback": true
+  },
+  "runtime_inspection_scope": "Only ownedr16; currentaccountread-onlyinventory"
+}

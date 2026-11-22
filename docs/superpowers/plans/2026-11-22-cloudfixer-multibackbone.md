@@ -82,3 +82,11 @@ while the detached full worker is active. No ScanObjectNN GPU phase is included.
 Scientific source remains228555f/v5; later accepted-reference packaging guard
 is for future campaigns only. New CF-XYZ N8/K80/latePM is not the old LION
 comparator and has not been evaluated here on these three heads. No Scan run.
+
+## 2026-11-22 23:13 UTC — lifecycle complete
+
+- [x] Curated science/code/knowledge published in ad18e42, preserving peer work.
+- [x] Knowledge/source backup independentDrive→hostSHA/CRC and officialcloudflush passed.
+- [x] Only ownedA100r16 stopped under explicit user instruction; serverabsent,
+ 0CU/h/0assignments verified. All requested tests/results/knowledge completed.
+No ScanGPU run or additional PM/optimizer tuning was performed.

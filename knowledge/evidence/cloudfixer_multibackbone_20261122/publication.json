@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-22T23:10:20.125198+00:00",
+  "status": "scientific_code_results_and_lifecycle_complete",
+  "integration_commit": "ad18e42c465780cf177acd2c745c6ca04e6ef34d",
+  "target": "origin/thesis-integration",
+  "target_base": "42590bc711bfb117b2a6c018a72095723ecdece5",
+  "source_commit": "fddebfbf9810b4f8fb8a635dbfe7c6308f5eb593",
+  "scientific_source": "228555f/v5/campaign3596befa489b",
+  "verification": "133relatedCPUchecks onlatesttarget4.55s; independentnested15ZIPrecount; finalDrive\u2192hostSHA/CRC",
+  "excluded": "raw/weights/native/wrappers remain verifiedDrive+host; unrelated historical branch files not copied; all peerfiles preserved",
+  "cloudflush": "passed",
+  "ownedruntime": "closed",
+  "closure_receipt": "a100_runtime_closed_receipt.json"
+}

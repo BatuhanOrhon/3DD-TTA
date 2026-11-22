@@ -823,3 +823,22 @@ kontrolü geçti. [Paket makbuzu](evidence/cloudfixer_multibackbone_20261122/a10
 GPUdeneyi tamamlandı; sonbilimselinceleme, gerekli kod/knowledge'ın güncel
 thesis-integration'a aktarımı, resmiDrivecloudflush ve kullanıcının açıkça
 yetkilendirdiği yalnızownedr16kapatma sürüyor. Diğer account/runtime'lara dokunulmadı.
+
+## 2026-11-22 23:13 UTC — CloudFixer multibackbone lifecycle complete
+
+[Run/Complete] All15/585blocks/135cells and matched oldLIONcomparison accepted;
+necessarycode/knowledge published thesis-integration@ad18e42 after133CPUchecks
+and independent15nestedZIPrecount. Finalraw/sourcebundle65528957B/SHA
+bcb64ea0...e38cfe07 andknowledge/source126278B/SHAad71fa63...bd2c37be
+independently Drive→hostsize/SHA/CRC verified. OfficialDriveflush/unmount passed
+23:12:03.609930UTC; exactsourcehash2fbae302...bb588cc6 archivedbeforeflush.
+User explicitly requestedcloseafterfinishedwork: onlyownedr16 stopped, CLIexit0/
+Sessionterminated, serverabsent23:12:50UTC, usage0CUh/0assignments. No peer or
+old-account runtime intervention. [Closure proof](evidence/cloudfixer_multibackbone_20261122/a100_runtime_closed_receipt.json).
+Allocationelapsedthroughobservedclose16222.901086s/
+4.506361h; rateestimate40.016489CU
+at8.88/h includespreparation/retries/full/finalization, notexactbilling. Reported
+balance500→460.52maylag. Fullphasealone10826.007684s/26.704152CUestimate.
+OldL4time8805.354s and55CUreservedallowance retained; no accounting reset.
+AllrequestedModelNetwork complete. DedicatednewCF-priorN8threehead and
+ScanObjectNNbenchmarks remain futurework; noPM-only claim or fulltest tuning.

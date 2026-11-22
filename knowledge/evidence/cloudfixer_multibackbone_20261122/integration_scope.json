@@ -68,5 +68,7 @@
     "older_shared_knowledge_history": "preserved on source branch and dedicated execution note; do not overwrite newer target shared history",
     "other_historical_source_branch_files": "already integrated or unrelated to completed multibackbone task"
   },
-  "verification": "133relatedCPUchecks passed on latest42590bc integration4.55s; independent15nestedZIPrecountpassed; GitCSVcopiesLFnormalized with equalityreceipt"
+  "verification": "133relatedCPUchecks passed on latest42590bc integration4.55s; independent15nestedZIPrecountpassed; GitCSVcopiesLFnormalized with equalityreceipt",
+  "applies_to_integration_commit": "ad18e42c465780cf177acd2c745c6ca04e6ef34d",
+  "later_lifecycle_update": "Closure followup only updates status/resource/preservation records; scientific code and rawmetrics unchanged."
 }

@@ -3195,7 +3195,7 @@ Availability is a dated filename inventory, not weight/training-log validation.
   including Density/Cutout/Occlusion losses, BackgroundPointNeXtrawsource
   superiority and Rotation gains; [complete report](cloudfixer_multibackbone_results_20261122.md).
 - [x] Final15originalZIP/source/derivedbundle independently Drive→host SHA/CRC verified.
-- [ ] Record final official cloudflush, curated thesis publication and explicitly
+- [x] Record final official cloudflush, curated thesis publication and explicitly
   user-authorized ownedA100r16close; preserve old-account and peer runtimes.
 - [Open] New CF-XYZ N8/K80/t20-t10-t0 baseline on these three heads is unmeasured;
   do not equate it with the oldLIONN8PM2/4/6/8 comparator. No PM-only conclusion.

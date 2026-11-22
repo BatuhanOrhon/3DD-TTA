@@ -59,12 +59,13 @@
   "estimated_full_hours": 4.392751207416041,
   "final_evaluation_status": {
     "utc": "2026-11-22T23:06:58.091961+00:00",
-    "status": "all15_evaluation_and_raw_recount_complete",
+    "status": "complete_and_owned_runtime_closed",
     "blocks": 585,
     "objects_per_head_method": 37020,
     "actual_worker_exit": 0,
     "full_seconds": 10826.007684,
     "final_bundle_verified": true,
-    "publication_cloudflush_owned_teardown": "pending"
+    "publication_cloudflush_owned_teardown": "passed",
+    "observed_closed_utc": "2026-11-22T23:12:50+00:00"
   }
 }

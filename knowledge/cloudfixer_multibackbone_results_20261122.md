@@ -2,7 +2,8 @@
 
 **[Run/Complete] 2026-11-22 23:01 UTC: all15 GPU evaluation and independent raw recount complete.**
 585blocks/135cells,threeheads/threeoutputmodes,37020 predictions per head/mode.
-Final bundle Drive-to-host readback passed; publication/cloudflush/runtime closure are recorded below when completed.
+Final raw/source and knowledge backups passed independent Drive-to-host readback;
+scientific publicationad18e42, official cloudflush and ownedr16closure all completed.
 [Execution and recovery](cloudfixer_multibackbone_preparation_20261122.md).
 
 ## Complete all15 accuracy and counts
@@ -58,7 +59,7 @@ All135 cells,45 CF−LION comparisons and9 overall cells are available in [raw-r
 
 [Run] Actual worker+supervisor elapsed 10826.007684s (3.007224h),20:00:42.921245–23:01:08.928929UTC. Both real returncodes0; workerfullflagtrue/15, independent deadline not reached. The full-time estimate at8.88CU/h is 26.704152CU; setup/allocation and finalization are additional, not exact billed CU.
 
-Host final bundle `result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/final_20261122T230335Z.zip`: 65528957 bytes/SHA256 `bcb64ea0c5c0165e43c4498dfc428af6c1e4804f82889e17d4924b76e38cfe07`. Contains15 unchanged raw ZIPs, complete derived seven-file report, exact executed v5 overlay/official source, canonical/operational source supplement, exact host analysis/assembly source and actual exit receipts. Final independent Drive-to-fresh-host size/SHA/CRC readback passed23:05:56UTC (41members); [bundle receipt](evidence/cloudfixer_multibackbone_20261122/a100_final_bundle_receipt.json). Official cloud flush, publication and ownedr16closure remain pending until their receipts confirm them.
+Host final bundle `result/modelnet40_c/cloudfixer_multibackbone/3596befa489b/final_20261122T230335Z.zip`: 65528957 bytes/SHA256 `bcb64ea0c5c0165e43c4498dfc428af6c1e4804f82889e17d4924b76e38cfe07`. Contains15 unchanged raw ZIPs, complete derived seven-file report, exact executed v5 overlay/official source, canonical/operational source supplement, exact host analysis/assembly source and actual exit receipts. Final independent Drive-to-fresh-host size/SHA/CRC readback passed23:05:56UTC (41members); [bundle receipt](evidence/cloudfixer_multibackbone_20261122/a100_final_bundle_receipt.json). Scientific code/results published in `ad18e42`. Official Drive cloudflush passed23:12:03UTC and unmounted Drive; only ownedr16 was explicitly stopped. Current-account server inventory showed no active sessions at23:12:50UTC, with0CU/h/0assignments. [Closure/resource receipt](evidence/cloudfixer_multibackbone_20261122/a100_runtime_closed_receipt.json).
 
 ## Question and fixed protocol
 

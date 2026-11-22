@@ -1,5 +1,5 @@
 {
-  "status": "scientific_evaluation_complete_preservation_and_teardown_pending",
+  "status": "complete_and_owned_runtime_closed",
   "campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
   "worker": {
     "runid": "20261122T200042Z_full_window01",
@@ -27,5 +27,10 @@
   "limitation": "Rate-based estimate, not exact billing; allocation setup and finalization additional.",
   "blocks": 585,
   "per_method_per_head_examples": 37020,
-  "rows": 135
+  "rows": 135,
+  "final_bundle_Drive_readback": true,
+  "knowledge_archive_Drive_readback": true,
+  "official_cloud_flush": "passed",
+  "owned_runtime_closed": true,
+  "published_results_code_commit": "ad18e42c465780cf177acd2c745c6ca04e6ef34d"
 }
