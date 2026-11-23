@@ -9768,3 +9768,5 @@ balance500→460.52maylag. Fullphasealone10826.007684s/26.704152CUestimate.
 OldL4time8805.354s and55CUreservedallowance retained; no accounting reset.
 AllrequestedModelNetwork complete. DedicatednewCF-priorN8threehead and
 ScanObjectNNbenchmarks remain futurework; noPM-only claim or fulltest tuning.
+
+[Code/Run, 2026-11-23] New High-RAM A100 allocated for the paired denoiser-output pose study. Sealed N8 identities, 128 disjoint focus IDs, SCD/PCA × single/every-step controls, Drive block recovery, CPU verification and conditional all15 criteria are recorded. [Experiment and execution record](cloudfixer_rotation_feedback_20261123.md).

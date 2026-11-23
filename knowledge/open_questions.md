@@ -3205,3 +3205,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
   with explicitly cross-domain protocol and matched Scanheads; no dedicated
   ScanObjectNN diffusion checkpoint was found/released in the audited assets.
   Scan GPU evaluation is outside this completed ModelNet phase.
+
+[Open, 2026-11-23] The paired denoiser-output SCD and PCA comparison is registered. Does the t50 or persistent update satisfy Rotation, clean, and B1 timing gates on 128 previously unused pilot IDs? [Registered study](cloudfixer_rotation_feedback_20261123.md).
