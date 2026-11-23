@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-23T11:59:34.084239+00:00",
+  "reviewed_range": "6f4abdd..ebe787f",
+  "fix_range": "ebe787f..464f547",
+  "verdict": "Ready_to_merge",
+  "critical": 0,
+  "important": 0,
+  "minor": 0,
+  "source_comment_fix_commit": "4d89c14",
+  "integration_comment_fix_commit": "464f547",
+  "model": "gpt-6.2-astra",
+  "checks": "Reviewer independently hashed sealedbundle/141CRCmembers, checked45publishedcorruption rows and9paired aggregate rows; minorfixedcomment andASTidentical",
+  "reports": {
+    "whole-branch-review-report.md": {
+      "bytes": 3469,
+      "sha256": "43a5f3468916d755d08bfa0f5eae537c0004e32779d23f767993a94366a8aa5e"
+    },
+    "whole-branch-minor-fix-report.md": {
+      "bytes": 1263,
+      "sha256": "33559b810ad091dd4935fbc30a72a0dcdb1dc1b4606c146c5202e99d864eadf5"
+    },
+    "whole-branch-fix-review-report.md": {
+      "bytes": 659,
+      "sha256": "8cd8010955fdeca8bada3ef5bc1bf2b5a8fdc7a31511ff480f83538b09b542be"
+    }
+  }
+}

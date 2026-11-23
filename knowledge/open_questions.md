@@ -5,7 +5,8 @@
 - [x] Kaynak ölçümüyle B96 seçildi; B128 Upsampling OOM korundu; tamtestte tek batch kullanıldı.
 - [x] 2468×15/s5/seed0,390blok,15ham ZIP; actual workerexit0 ve iki bağımsız ham sayım geçti.
 - [x] PM–terminal ve PM/terminal–CF object-ID paired sayıları; 45corruption/model accuracy ve ayrıntılı bulgular kaydedildi.
-- [ ] Son406.9MB bundle Drive→freshhost SHA/CRC, seçili knowledge/code publication ve officialflush/ownedr25 kapatma.
+- [x] Son406.9MB raw/source bundle Drive→freshhost SHA/CRC/141safeüyekontrolü geçti.
+- [ ] Seçili knowledge/code publication, knowledge/sourcepacket yedeği ve officialflush/ownedr25 kapatma.
 - [ ] Bağımsız seed tekrarı ve üç head'de PM etkisinin belirsizlik aralıkları ölçülmedi; yeni GPU görevi olarak başlatılmadı.
 - [ ] Gelecek pose/background müdahalesini ayrı geliştirme nesnelerinde kilitle; source-only zararını ve diğer13 sonucu korumayı ölç.
 

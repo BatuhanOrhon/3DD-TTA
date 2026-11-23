@@ -1,0 +1,52 @@
+{
+  "utc": "2026-11-23T11:59:34.084239+00:00",
+  "status": "final_raw_bundle_DriveFS_and_fresh_host_verified_cloud_flush_pending",
+  "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+  "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+  "actual_publisher_exit": 0,
+  "CLI_upload_invocations": 52,
+  "part_count": 49,
+  "vm_manifest": {
+    "bytes": 7460,
+    "name": "final_20261123T112717Z.parts.json",
+    "sha256": "02c298df7bbcaad63d23be9b8d617f64595897c9add0100e4ff67b78f081ebdf"
+  },
+  "vm_publisher": {
+    "bytes": 7366,
+    "name": "publish_final_parts.py",
+    "sha256": "104a244d4c4bb6fc17a3dae6b1931f4911dc6956b786037ac2d0e315ab9d1a74"
+  },
+  "archive": {
+    "bytes": 406927870,
+    "name": "final_20261123T112717Z.zip",
+    "sha256": "c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265"
+  },
+  "host_validation": {
+    "utc": "2026-11-23T11:56:59.255164+00:00",
+    "status": "Drive_to_fresh_host_SHA_CRC_safe_members_passed",
+    "path": "result/modelnet40_c/cloudfixer_baseline_heads/e8df74eb3976/drive_download_20261123T1155Z/final_20261123T112717Z.zip",
+    "Drive": "/content/drive/MyDrive/thesis/result/cloudfixer_baseline_heads_20261123/selected_b96/final_20261123T112717Z.zip",
+    "bytes": 406927870,
+    "sha256": "c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265",
+    "members": 141,
+    "cloud_flush": "pending",
+    "download_timeout_seconds": 600
+  },
+  "host_download_attempt01": "90second helpertimeout, actualexit1;noverifiedfile",
+  "host_download_attempt02": {
+    "returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Downloaded '/content/drive/MyDrive/thesis/result/cloudfixer_baseline_heads_20261123/selected_b96/final_20261123T112717Z.zip' to '/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/modelnet40_c/cloudfixer_baseline_heads/e8df74eb3976/drive_download_20261123T1155Z/final_20261123T112717Z.zip.pending'\n",
+    "stderr": "",
+    "started_utc": "2026-11-23T11:54:41.540658+00:00",
+    "ended_utc": "2026-11-23T11:56:59.034608+00:00",
+    "command": [
+      "colab",
+      "download",
+      "-s",
+      "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+      "/content/drive/MyDrive/thesis/result/cloudfixer_baseline_heads_20261123/selected_b96/final_20261123T112717Z.zip",
+      "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/modelnet40_c/cloudfixer_baseline_heads/e8df74eb3976/drive_download_20261123T1155Z/final_20261123T112717Z.zip.pending"
+    ]
+  },
+  "official_cloud_flush": "pending"
+}
