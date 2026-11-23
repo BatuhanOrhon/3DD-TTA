@@ -198,7 +198,8 @@ def units(campaign, phase, batch_size=32, *, profile=ORIGINAL_PROFILE):
 
 
 def seed_for(unit):
-    # Classifier-only substream; native geometry uses the continuous corruption seed0.
+    # Seeds baseline geometry per unit. Original CloudFixer uses this for classifier
+    # substreams and keeps geometry on the continuous per-corruption seed-0 stream.
     return int(sha(canonical({k: unit[k] for k in ('corruption', 'seed', 'ids')}))[:8], 16)
 
 
