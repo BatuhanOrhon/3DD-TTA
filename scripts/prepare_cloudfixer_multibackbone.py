@@ -25,10 +25,26 @@ def accepted_reference():
     return data
 
 
-def package(base, official, output, accelerator='A100', batch_size=32, budget_hours=6):
+def original_cloudfixer_reference():
+    from scripts.run_cloudfixer_multibackbone import ORIGINAL_CF_REFERENCE, ORIGINAL_CF_ARCHIVE_INDEX
+
+    directory = ROOT/'knowledge/evidence/cloudfixer_multibackbone_20261122'
+    recount = (directory/'a100_full_recount.json').read_bytes()
+    archive_index = (directory/'a100_original_archive_index.json').read_bytes()
+    if identity(recount) != ORIGINAL_CF_REFERENCE or identity(archive_index) != ORIGINAL_CF_ARCHIVE_INDEX:
+        raise ValueError('Accepted original CloudFixer reference identity changed')
+    return recount, archive_index
+
+
+def package(base, official, output, accelerator='A100', batch_size=32, budget_hours=6, *,
+            profile='original_cloudfixer'):
     if accelerator not in ('A100','L4'):raise ValueError('Unregistered accelerator')
-    from scripts.run_cloudfixer_multibackbone import CF_OPTIONS, HEADS, units
-    units('registration','profile',batch_size)
+    from scripts.run_cloudfixer_multibackbone import (
+        BASELINE_OVERLAY_FILES, BASELINE_POLICY, BASELINE_PROFILE, BASELINE_TASK, CF_OPTIONS, HEADS,
+        ORIGINAL_CF_SOURCE, OVERLAY_FILES, baseline_protocol, manifest_profile, validate_batch_size,
+    )
+    validate_batch_size(batch_size, profile)
+    is_baseline = profile == BASELINE_PROFILE
     if type(budget_hours) is not int or budget_hours not in (6,8):raise ValueError('Unregistered budget')
     from scripts.prepare_cloudfixer_transfer import repair_import
     accepted = json.loads((ROOT/'knowledge/gsd_multibackbone_provenance_20261018.json').read_text())
@@ -66,33 +82,51 @@ def package(base, official, output, accelerator='A100', batch_size=32, budget_ho
                 data=tar.extractfile(member).read()
                 if member.name=='utils/misc.py':data=repair_import(data.decode()).encode()
                 author_files[member.name]=identity(data)
-    overlay=('scripts/run_cloudfixer_multibackbone.py','scripts/setup_cloudfixer_multibackbone_colab.py','scripts/eval_multibackbone_source.py',
-        'scripts/run_cloudfixer_point2vec.py','scripts/run_cloudfixer_transfer.py',
-        'classifier_backbones.py','research_artifacts.py','cloudfixer_store.py','cloudfixer_diffusion.py','pointcloud_proximal.py')
+    overlay = BASELINE_OVERLAY_FILES if is_baseline else OVERLAY_FILES
+    reference_names = ['baseline_reference.json']
+    if is_baseline:
+        if subprocess.check_output(['git','-C',str(ROOT),'diff','--name-only','HEAD','--',*overlay],text=True).strip():
+            raise ValueError('Commit baseline overlay source before packaging its identity')
+        reference, archive_index = original_cloudfixer_reference()
+        reference_names.append('original_archive_index.json')
+        (output/'original_archive_index.json').write_bytes(archive_index)
+        full = json.loads(reference)
+        reference_results = [r for r in full['summary'] if r['method']=='cloudfixer_plain']
+        reference_source = ORIGINAL_CF_SOURCE
+        head_states = {r['backbone']: r['state_sha256'] for r in accepted['preparation']['cpu_preflight_models']
+                       if r['dataset']=='modelnet40_c' and r['backbone'] in HEADS}
+    else:
+        reference = accepted_reference()
+        legacy_reference = json.loads(reference)
+        head_states = legacy_reference['classifier_states']['modelnet40_c']
+        reference_results = [r for r in legacy_reference['overall'] if r['dataset']=='modelnet40_c' and r['backbone'] in HEADS]
+        reference_source = legacy_reference['research_source']
     overlay_files={n:identity((ROOT/n).read_bytes()) for n in overlay}
-    full_bytes=accepted_reference()
-    full=json.loads(full_bytes)
-    (output/'baseline_reference.json').write_bytes(full_bytes)
+    (output/'baseline_reference.json').write_bytes(reference)
     spec=dict(schema=1,task='cloudfixer_multibackbone_20261122',accelerator=accelerator,files=files,official_files=author_files,
         overlay_files=overlay_files,author_commit=assets['author_commit'],
         dataset_files=assets['dataset_files'],diffusion_sha256=assets['diffusion_sha256'],
         diffusion_drive_id=assets['diffusion_drive_id'],
         head_configs={h:dict(backbone=h,dataset='modelnet40_c',num_classes=40,input_layout='bnc',
             checkpoint='checkpoints/'+checkpoints[h],dgcnn_head_dataset_name='scanobject',pointnext_width=64) for h in HEADS},
-        head_state_hashes={h:full['classifier_states']['modelnet40_c'][h] for h in HEADS},
-        baseline_results=[r for r in full['overall'] if r['dataset']=='modelnet40_c' and r['backbone'] in HEADS],
-        baseline_source=full['research_source'],source_commit=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip(),
-        baseline_reference=identity(full_bytes),
+        head_state_hashes={h:head_states[h] for h in HEADS},
+        baseline_results=reference_results, baseline_source=reference_source,
+        source_commit=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip(),
+        baseline_reference=identity(reference),
         scientific_protocol=dict(dataset='modelnet40_c',objects=2468,severity=5,seed=0,batch_size=batch_size,
             CF_OPTIONS=CF_OPTIONS,heads=list(HEADS),geometry='authorrotateTrue;unitSTD;inverseaxis/unitsphereoutput',
             seed_policy=f'continuousfreshpercorruptionseed0;allRNGsavedper{batch_size};classifierfork;not author full-shuffledstream or common-draw paired with LION'),
         budget_seconds=budget_hours*3600)
+    if is_baseline:
+        spec.update(task=BASELINE_TASK, profile=BASELINE_PROFILE, policy=BASELINE_POLICY,
+                    scientific_protocol=baseline_protocol(batch_size), baseline_archive_index=identity(archive_index))
+    manifest_profile(spec)
     (output/'manifest.json').write_text(json.dumps(spec,indent=2)+'\n')
     setup_name='setup_cloudfixer_multibackbone_colab.py'
     (output/setup_name).write_bytes((ROOT/'scripts'/setup_name).read_bytes())
     with zipfile.ZipFile(output/'overlay.zip','x',zipfile.ZIP_DEFLATED) as z:
         for name in overlay:z.write(ROOT/name,name)
-    receipt={n:identity((output/n).read_bytes()) for n in ('manifest.json','baseline_reference.json','official_cloudfixer.tar','head_assets.zip','overlay.zip',setup_name)}
+    receipt={n:identity((output/n).read_bytes()) for n in ('manifest.json',*reference_names,'official_cloudfixer.tar','head_assets.zip','overlay.zip',setup_name)}
     (output/'package_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
     for name in ('head_assets.zip','overlay.zip'):
         with zipfile.ZipFile(output/name) as z:
@@ -108,6 +142,12 @@ if __name__=='__main__':
     p.add_argument('--official-checkout',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--accelerator',choices=('A100','L4'),default='A100')
-    p.add_argument('--batch-size',type=int,choices=(32,64),default=32)
+    from scripts.run_cloudfixer_multibackbone import (
+        BASELINE_BATCH_SIZES, BASELINE_PROFILE, ORIGINAL_BATCH_SIZES, ORIGINAL_PROFILE,
+    )
+    p.add_argument('--batch-size',type=int,choices=sorted(set(ORIGINAL_BATCH_SIZES + BASELINE_BATCH_SIZES)),default=32,
+                   help='Registered batch size for the selected profile')
     p.add_argument('--budget-hours',type=int,choices=(6,8),default=6)
-    a=p.parse_args();package(a.base_assets.resolve(),a.official_checkout.resolve(),a.output.resolve(),a.accelerator,a.batch_size,a.budget_hours)
+    p.add_argument('--profile',choices=(ORIGINAL_PROFILE,BASELINE_PROFILE),default=ORIGINAL_PROFILE)
+    a=p.parse_args();package(a.base_assets.resolve(),a.official_checkout.resolve(),a.output.resolve(),a.accelerator,
+                             a.batch_size,a.budget_hours,profile=a.profile)

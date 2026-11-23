@@ -19,13 +19,23 @@ import zipfile
 
 DRIVE_MOUNT=Path('/content/drive')
 TASK_DRIVE_ROOT=DRIVE_MOUNT/'MyDrive/thesis/result/cloudfixer_multibackbone_20261122'
+BASELINE_TASK='cloudfixer_baseline_heads_20261123'
+BASELINE_PROFILE='cloudfixer_xyz_proximal_pm_n8_k80_late_v1'
 
 
-def require_task_drive(folder):
+def require_task_drive(folder, *, profile=None):
     if not os.path.ismount(str(DRIVE_MOUNT)):
         raise ValueError('Real Google Drive must be mounted')
     mount=str(DRIVE_MOUNT.resolve())
-    parent=str(TASK_DRIVE_ROOT.resolve())
+    if profile == BASELINE_PROFILE:
+        root = DRIVE_MOUNT/'MyDrive/thesis/result'/BASELINE_TASK
+        if root.is_symlink():
+            raise ValueError('The baseline task root cannot be a symlink')
+    elif profile is None or profile == 'original_cloudfixer':
+        root = TASK_DRIVE_ROOT
+    else:
+        raise ValueError('Unknown task Drive profile')
+    parent=str(root.resolve())
     target=Path(folder).resolve()
     if (os.path.commonpath([parent,mount])!=mount
             or os.path.commonpath([str(target),parent])!=parent):
@@ -147,13 +157,16 @@ def main():
     p.add_argument('--root',type=Path,default=Path('/content/cf_multibackbone'))
     p.add_argument('--drive-folder',type=Path,required=True)
     a=p.parse_args()
-    a.drive_folder=require_task_drive(a.drive_folder)
     if json.loads(Path('/content/cli_setup_verification.json').read_text()).get('status')!='passed':
         raise ValueError('Canonical ten cells must pass first')
     receipt=json.loads((a.package/'package_receipt.json').read_text())
     for name,expected in receipt.items():
         if identity(a.package/name)!=expected:raise ValueError('Uploaded package mismatch: '+name)
     spec=json.loads((a.package/'manifest.json').read_text())
+    profile = spec.get('profile')
+    if (spec.get('task') == BASELINE_TASK) != (profile == BASELINE_PROFILE):
+        raise ValueError('Package task and baseline profile disagree')
+    a.drive_folder=require_task_drive(a.drive_folder, profile=profile)
     official=a.root/'official';code=a.root/'code';assets=a.root/'assets'
     def write(path,data,expected=None):
         if expected and dict(bytes=len(data),sha256=hashlib.sha256(data).hexdigest())!=expected:
