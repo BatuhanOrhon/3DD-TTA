@@ -10230,3 +10230,7 @@ Kapanış metadata'sı host'ta kaydedilip aynı sharedbranch'e normalpush ile ek
 DGCNN/Impulse PM ve terminal aynı2194doğruya rağmen22/22yalnız-doğru, CurveNet/DensityIncrease aynı2114doğruya rağmen33/33yalnız-doğru içerir. En azbir düzeltme/readout’un source-only’den düşük olduğu9hücre ayrı tabloya alındı. Kazanç, kayıp ve negatif sonuçlar korunur; farklı CF B64/native RNG ile bizim B96/unitfork farkı ve tek-seed sınırı açık tutulur.
 
 Kayıt: [corruption ayrıntıları](cloudfixer_baseline_corruption_diagnostics_20261123.md). Kaynak/derivasyon doğrulaması: evidence/cloudfixer_corruption_record_20261123/verification.json. Bilimsel GPU kaynağıa979bce; eski arşiv ve önceki sonuçlar değiştirilmedi. Bu güncelleme yalnız knowledge ve kompakt doğrulama kaydıdır. Bağımsız seed/CI ve ayrı terminal-only süre hâlâ ölçülmedi.
+
+## 2026-11-23 — Yüzey normali kaynağı ve 512 nesnelik GPU doğrulaması
+
+[Paper/Code/Open] [Straub vd. CVPR 2014](papers/straub2014_manhattan_frames.md) ve [512 nesne protokolü](cloudfixer_surface512_gpu_20261123.md) kaydedildi. Sabit SHA/doğrulanmış dört eski örnek, iki-yol karşılaştırması ve koşullu tek aday tam test hazırlandı.
