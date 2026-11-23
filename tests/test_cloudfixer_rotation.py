@@ -195,3 +195,55 @@ def test_scd_phase_pairs_three_methods_on_disjoint_cohort():
     assert not set(ids).intersection(REGISTRY['development_ids'] + REGISTRY['validation_ids'] + SPECTRAL_REGISTRY['ids'])
     assert set(arms) == {'identity', 'kabsch_fixed', 'scd_search'}
     assert phase_scope('scd_smoke', {}, {}) == (('background', 'rotation'), ids[:1], [0], arms)
+
+
+def test_output_scd_rotates_prediction_toward_reference_and_transports_increment():
+    from cloudfixer_diffusion import trimmed_neighbors
+    from cloudfixer_rotation import OutputPose, axis_rotation
+
+    x = cloud()
+    mask = torch.ones(x.shape[:2], dtype=torch.bool)
+    target = x @ axis_rotation(2, math.radians(1), x)
+    pose = OutputPose(x, mask, None, 'pose_scd_t50')
+    pose.capture_pairs(50, *trimmed_neighbors(target, x, mask, .95))
+    assert pose.update(60, target, x) is None
+    delta = pose.update(50, target, x)
+    torch.testing.assert_close(target @ delta, x)
+    assert pose.updates[0]['score_after'] < pose.updates[0]['score_before']
+
+
+def test_output_pca_rejects_isotropic_cloud_and_handles_rotation_on_real_grid():
+    import itertools
+    from cloudfixer_rotation import OUTPUT_ARMS, OutputPose, axis_rotation, rotation_policy
+
+    x = torch.tensor(list(itertools.product([-3., 3.], [-2., 2.], [-1., 1.])), dtype=torch.float64)
+    # Repeat balanced geometry in both fixed halves for a deterministic recovery check.
+    x = x.repeat(128, 1)[None]
+    mask = torch.ones(x.shape[:2], dtype=torch.bool)
+    rotation = axis_rotation(2, math.radians(16), x)
+    pose = OutputPose(x, mask, None, 'pose_pca_t50')
+    torch.testing.assert_close(pose.update(50, x @ rotation, x), rotation.T)
+    assert pose.update(50, x * 0, x) is None
+    for arm in OUTPUT_ARMS:
+        probe = cloud()
+        result = rotation_policy(ConstantEpsilon(), lambda z: z.mean(1), probe,
+                                 mask[:, :probe.shape[1]], None, arm)
+        expected = [50] if arm.endswith('t50') else list(range(80, 0, -10))
+        updates = result.diagnostics['updates']
+        assert [u['index'] for u in updates] == expected
+        assert updates[-1]['travel_degrees'] <= 30.00001
+        assert result.diagnostics['classifier_calls'] == 3 and result.diagnostics['denoiser_calls'] == 9
+
+
+def test_output_feedback_eligibility_and_reserved_ids():
+    from scripts.run_cloudfixer_rotation import OUTPUT_REGISTRY, phase_scope
+    import pytest
+
+    for phase in ('feedback_focus','feedback_smoke'):
+        conditions, ids, seeds, arms = phase_scope(phase, {}, {})
+        assert conditions == ('rotation', 'clean') and len(arms) == 5
+    with pytest.raises(ValueError):
+        phase_scope('feedback_other', {}, {'eligible': []})
+    conditions, ids, seeds, arms = phase_scope('feedback_other', {}, {'eligible':['pose_pca_t50']})
+    assert len(conditions) == 15 and seeds == [0] and list(arms) == ['identity','pose_pca_t50']
+    assert len(set(ids + OUTPUT_REGISTRY['ids'] + OUTPUT_REGISTRY['smoke_ids'])) == 257

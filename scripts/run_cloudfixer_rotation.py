@@ -20,7 +20,7 @@ import torch
 from cloudfixer_background import BACKGROUND_ARMS, EXPERIMENT_ARMS, anchor_weights
 from cloudfixer_background_checkpoint import block_name, mirror_group, restore_or_score
 from cloudfixer_diffusion import verify_gamma
-from cloudfixer_rotation import (ARMS, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SCD_SEARCH_STEPS, SPECTRAL_STEPS,
+from cloudfixer_rotation import (ARMS, OUTPUT_ARMS, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SCD_SEARCH_STEPS, SPECTRAL_STEPS,
                                  axis_rotation, rotation_angle, rotation_policy)
 from cloudfixer_store import Budget, MountStore, canonical, commit_unit, load_units, sha, unit_key
 from research_artifacts import CORRUPTIONS
@@ -35,6 +35,8 @@ SPECTRAL_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_spectral_rotation_pilot.
 SCD_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_scd_rotation_pilot.json').read_text())
 BG_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_pilot.json').read_text())
 FOLLOW_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_followup.json').read_text())
+OUTPUT_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_output_rotation.json').read_text())
+OUTPUT_PHASES = ('feedback_smoke', 'feedback_focus', 'feedback_other')
 FOLLOW_PHASES = ('background_follow_smoke', 'background_follow_focus', 'background_follow_scd', 'background_follow_other')
 CONDITIONS = ('clean', *sorted(CORRUPTIONS))
 DEV_CONDITIONS = ('clean', 'rotation', 'background')
@@ -134,7 +136,7 @@ def run_arm(model, head, xyz, mask, indices, arm, params, *, rng, noise_rotation
         result, seconds, memory = timed(lambda: rotation_policy(
             model, head, xyz, mask, indices, arm, max_degrees=REGISTRY['max_angle_degrees'],
             measure=components.measure, noise_rotation=noise_rotation, **params))
-    three_probes = arm in KABSCH_STEPS or arm in SPECTRAL_STEPS or arm in BACKGROUND_ARMS or arm == 'scd_search'
+    three_probes = arm in KABSCH_STEPS or arm in SPECTRAL_STEPS or arm in BACKGROUND_ARMS or arm == 'scd_search' or arm in OUTPUT_ARMS
     expected_calls = (9, 3 if three_probes else 9)
     if arm in BACKGROUND_ARMS and sum(key == 'denoiser' for key, _, _ in components.events) != 9:
         raise ValueError('Unexpected measured denoiser count')
@@ -214,6 +216,20 @@ def search_lock(rows):
 
 
 def phase_scope(phase, freeze, decision):
+    if phase in OUTPUT_PHASES:
+        conditions, seeds = ('rotation', 'clean'), OUTPUT_REGISTRY['seeds']
+        arms = ('identity', *OUTPUT_ARMS)
+        ids = OUTPUT_REGISTRY['ids']
+        if phase == 'feedback_smoke':
+            ids, seeds = OUTPUT_REGISTRY['smoke_ids'], [0]
+        if phase == 'feedback_other':
+            ids, seeds = OUTPUT_REGISTRY['other_ids'], [0]
+            conditions = tuple(c for c in CONDITIONS if c != 'clean')
+            selected = decision['eligible']
+            if not selected or not set(selected).issubset(OUTPUT_ARMS):
+                raise ValueError('Expansion requires a passing focus candidate')
+            arms = ('identity', *selected)
+        return conditions, ids, seeds, dict.fromkeys(arms, {})
     if phase in FOLLOW_PHASES:
         params = dict(BG_REGISTRY, wide_k=FOLLOW_REGISTRY['wide_k'])
         view_arms = ('identity', 'bg_view', 'bg_random_view')
@@ -339,13 +355,15 @@ def evaluate(args, spec, store, budget):
     root.mkdir()
     (args.output / 'environment.txt').write_text(json.dumps(environment, indent=2) + '\n')
     store.put('execution.json', canonical(dict(spec=spec, registry=REGISTRY)))
-    bg = args.phase.startswith('background')
-    is_smoke = args.phase in ('background_follow_smoke', 'background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
+    bg = args.phase.startswith('background') or args.phase in OUTPUT_PHASES
+    is_smoke = args.phase in ('feedback_smoke', 'background_follow_smoke', 'background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
     smoke_key = f'smoke_{signature}.json' if bg else 'smoke_ready.json'
     if not is_smoke and json.loads(store.get(smoke_key))['runtime'] != signature:
         raise ValueError('Smoke verification does not match the live environment')
     freeze = json.loads(store.get('search_lock.json')) if args.phase in ('validation', 'full') else {}
     decision = json.loads(store.get('validation_decision.json')) if args.phase == 'full' else {}
+    if args.phase == 'feedback_other':
+        decision = json.loads(store.get('feedback_decision.json'))
     conditions, ids, seeds, params = phase_scope(args.phase, freeze, decision)
     campaign = sha(canonical(dict(spec=spec, phase=args.phase, freeze=freeze, decision=decision,
                                   registry=REGISTRY, runtime=('verified-background-pilot' if bg and not is_smoke else signature))))
@@ -426,6 +444,8 @@ def evaluate(args, spec, store, budget):
                             raise ValueError('The t20 choice differs between paired search paths')
                     row = dict(condition=cond, seed=seed, id=ident, label=label, arms=scores,
                                timing_order=order, rng=rng)
+                    if args.phase == 'feedback_focus' and cond == 'clean' and seed == 0 and ident in ids[:8]:
+                        row['synthetic'] = synthetic_diagnostics(model, head, *batch, rng, arms=arms)
                     if args.phase == 'development' and seed == 0 and cond != 'rotation':
                         row['synthetic'] = synthetic_diagnostics(model, head, *batch, rng)
                     if args.phase in ('spectral', 'scd') and seed == 0 and cond in ('clean', 'background'):
@@ -478,7 +498,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phase', choices=('smoke', 'development', 'validation', 'full',
                                             'spectral_smoke', 'spectral', 'scd_smoke', 'scd',
-                                            'background_smoke', 'background_pm', 'background_dev', 'background', *FOLLOW_PHASES), required=True)
+                                            'background_smoke', 'background_pm', 'background_dev', 'background', *FOLLOW_PHASES, *OUTPUT_PHASES), required=True)
     for arg in ('manifest', 'output', 'drive-folder'):
         parser.add_argument(f'--{arg}', type=Path, required=True)
     for arg, default in (
@@ -509,6 +529,8 @@ def main():
         raise ValueError('SCD manifest or reserved cohort differs from registration')
     if args.phase.startswith('background') and spec['background_registration'] != BG_REGISTRY:
         raise ValueError('Background study differs from registered parameters')
+    if args.phase in OUTPUT_PHASES and spec['output_rotation'] != OUTPUT_REGISTRY:
+        raise ValueError('Output pose manifest differs from registration')
     if args.phase in FOLLOW_PHASES and spec['background_followup'] != FOLLOW_REGISTRY:
         raise ValueError('Follow-up manifest differs from registration')
     args.output.mkdir(parents=True, exist_ok=False)
@@ -520,7 +542,9 @@ def main():
     path = args.output / 'config.json'
     path.write_bytes(canonical(dict(run_id=args.output.name, phase=args.phase, spec=spec, execution_status='running')))
     store = MountStore(args.drive_folder)
-    if args.phase.startswith('background'):
+    if args.phase in OUTPUT_PHASES:
+        scope, cap = 'feedback', OUTPUT_REGISTRY['budget_seconds']
+    elif args.phase.startswith('background'):
         scope, cap = 'background', (FOLLOW_REGISTRY if args.phase in FOLLOW_PHASES else BG_REGISTRY)['budget_seconds']
     elif args.phase.startswith(('scd', 'spectral')):
         scope = args.phase.split('_')[0]

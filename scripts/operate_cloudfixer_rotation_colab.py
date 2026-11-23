@@ -115,7 +115,7 @@ def deploy(*, reuse_verified_environment=False, session=None):
     if not Path('/content/.cf_point2vec_setup/verified.complete').is_file():
         raise RuntimeError('Supplemental native/head verification failed')
     proof = DRIVE/'setup'
-    if 'background' in WORK.name:
+    if 'background' in WORK.name or 'feedback' in WORK.name:
         proof = proof/(session or digest(verified)[:16])
     proof.mkdir(parents=True, exist_ok=True)
     for path in (verified, WORK/'official.tar', WORK/'research.zip', WORK/'receipt.json',
@@ -132,6 +132,8 @@ def execute(phase, session, allocation_epoch, dev_run):
     from cloudfixer_store import MountStore, canonical, record_setup
 
     store = MountStore(DRIVE)
+    if phase.startswith('feedback'):
+        budget_folder, cap = 'feedback_budget', json.loads((SOURCE/'cfgs/cloudfixer_output_rotation.json').read_text())['budget_seconds']
     if not phase.startswith(('spectral', 'scd')):
         misc = WORK/'pilot_setup.json'
         if not misc.exists():
@@ -140,9 +142,10 @@ def execute(phase, session, allocation_epoch, dev_run):
                                                            seconds=time()-allocation_epoch)])))
         is_bg = phase.startswith('background')
         budget_file = 'cloudfixer_background_followup.json' if phase.startswith('background_follow_') else 'cloudfixer_background_pilot.json'
-        record_setup(MountStore(DRIVE/('background_budget' if is_bg else 'pilot_budget')),
-                     json.loads(misc.read_text()), cap=(json.loads((SOURCE/'cfgs'/budget_file).read_text())['budget_seconds']
-                          if is_bg else 4*3600))
+        if not phase.startswith('feedback'):
+            budget_folder = 'background_budget' if is_bg else 'pilot_budget'
+            cap = json.loads((SOURCE/'cfgs'/budget_file).read_text())['budget_seconds'] if is_bg else 4*3600
+        record_setup(MountStore(DRIVE/budget_folder), json.loads(misc.read_text()), cap=cap)
     now = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     output = WORK/f'{now}_{phase}'
     derived = WORK/f'{output.name}_derived'
@@ -179,6 +182,8 @@ def execute(phase, session, allocation_epoch, dev_run):
           sha256=digest(archive), bytes=archive.stat().st_size, returncode=result)), flush=True)
     if result != 0:
         raise RuntimeError(f'Failed {phase} attempt archived as {archive.name}')
+    if phase == 'feedback_focus':
+        store.put('feedback_decision.json', (derived/'decision.json').read_bytes())
     if phase == 'validation':
         store.put('validation_decision.json', (derived/'decision.json').read_bytes())
     print('CLOUDFIXER_ROTATION_OPERATOR_DONE', phase, flush=True)
@@ -191,14 +196,18 @@ def main(argv=None):
                                           'spectral_deploy', 'spectral_smoke', 'spectral', 'scd_deploy', 'scd_smoke', 'scd',
                                           'background_deploy', 'background_smoke', 'background_pm', 'background_dev', 'background',
                                           'background_follow_deploy', 'background_follow_smoke', 'background_follow_focus',
-                                          'background_follow_scd', 'background_follow_other'))
+                                          'background_follow_scd', 'background_follow_other', 'feedback_deploy', 'feedback_smoke', 'feedback_focus', 'feedback_other'))
     parser.add_argument('--session')
     parser.add_argument('--allocation-epoch', type=float)
     parser.add_argument('--development')
     args = parser.parse_args(argv)
     if not Path('/content/drive').is_mount():
         raise RuntimeError('Drive mount required')
-    if args.phase.startswith('background'):
+    if args.phase.startswith('feedback'):
+        WORK = Path('/content/rotation_feedback_20261123')
+        SOURCE = WORK/'source'
+        DRIVE = Path('/content/drive/MyDrive/thesis')/WORK.name
+    elif args.phase.startswith('background'):
         folder = 'cloudfixer_background_followup_20261122' if args.phase.startswith('background_follow_') else 'cloudfixer_background_20261122'
         WORK = Path('/content')/folder
         SOURCE = WORK/'source'
@@ -208,8 +217,8 @@ def main(argv=None):
         WORK = Path('/content')/folder
         SOURCE = WORK/'source'
         DRIVE = Path('/content/drive/MyDrive/thesis')/folder
-    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy', 'background_deploy', 'background_follow_deploy'):
-        deploy(reuse_verified_environment=args.phase not in ('deploy', 'background_deploy', 'background_follow_deploy'), session=args.session)
+    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy', 'background_deploy', 'background_follow_deploy', 'feedback_deploy'):
+        deploy(reuse_verified_environment=args.phase not in ('deploy', 'background_deploy', 'background_follow_deploy', 'feedback_deploy'), session=args.session)
     else:
         if not args.session or args.allocation_epoch is None:
             parser.error('Execution requires the session identity and allocation epoch')

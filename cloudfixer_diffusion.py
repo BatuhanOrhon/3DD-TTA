@@ -82,7 +82,7 @@ def correct(q, reference, mask, *, tau: float, retained: float, measure=None, in
 @torch.no_grad()
 def sample(model, x, mask, noise, *, steps: int, start: int, tau: float, retained: float = .95,
            trace_all: bool = False, probe_indices=None, observe=None, fingerprint=False,
-           pose_reference=None, feedback_rotation=None, measure=None, schedule=None, pair_transform=None):
+           pose_reference=None, feedback_rotation=None, measure=None, schedule=None, pair_transform=None, output_rotation=None):
     """Return pre-correction clean estimates plus a native deterministic t0 terminal."""
     indices = grid(steps=steps, start=start)
     if schedule is not None:
@@ -151,6 +151,10 @@ def sample(model, x, mask, noise, *, steps: int, start: int, tau: float, retaine
             rotation = feedback_rotation(pre)
             if rotation is not None:
                 clean, eps, reference = clean @ rotation, eps @ rotation, x @ rotation
+        if output_rotation is not None:
+            delta = output_rotation(index, pre, reference)
+            if delta is not None:
+                clean, eps, reference = clean @ delta, eps @ delta, reference @ delta
         if observe is not None:
             observe(index, state.clone(), pre.clone(), clean.clone(), alpha.clone(), sigma.clone())
         _, alpha_s, sigma_s = coefficients(previous)

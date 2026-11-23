@@ -116,7 +116,7 @@ def per_arm_metrics(config, rows):
             config['conditions'], config['seeds'], config['ids'])]
         for entry in entries:
             call = entry['diagnostics']
-            expected = 3 if arm in ('identity', 'scd_search') or arm.startswith(('kabsch', 'bg_')) else 9
+            expected = 3 if arm in ('identity', 'scd_search') or arm.startswith(('kabsch', 'bg_', 'pose_')) else 9
             if (call['denoiser_calls'] != 9 or call['classifier_calls'] != expected
                     or not np.isfinite(entry['seconds']) or entry['seconds'] <= 0
                     or not np.isfinite(entry['peak_mib']) or entry['peak_mib'] <= 0
@@ -135,6 +135,8 @@ def report(config, rows, *, raw_output, derived_output):
     contrasts.extend((arm, control) for arm in ('output', 'feedback') for control in ('random', 'view_mean')
                      if arm in tensors and control in tensors)
     contrasts.extend((arm, reference) for arm, reference in (
+        ('pose_scd_all', 'pose_scd_t50'), ('pose_pca_all', 'pose_pca_t50'),
+        ('pose_pca_all', 'pose_scd_all'), ('pose_pca_t50', 'pose_scd_t50'),
         ('bg_multiscale', 'bg_weighted'), ('bg_multiscale', 'bg_multiscale_scalar'),
         ('bg_weighted', 'bg_scalar'), ('bg_view', 'bg_random_view'),
         ('bg_weighted_pose', 'bg_weighted'), ('bg_weighted_pose', 'kabsch_progressive'),
@@ -384,7 +386,21 @@ def main():
     if config['phase'].startswith('background'):
         noise_pm_interactions(config, rows, args.derived)
         background_report(config, rows, metrics, args.derived)
-    if config['phase'] in ('development', 'spectral', 'scd'):
+    if config['phase'] == 'feedback_focus':
+        effects = {(m['arm'], m['group']):m['delta_pp'] for m in metrics if m['reference'] == 'identity'}
+        selected = []
+        for arm in config['params']:
+            if arm == 'identity':
+                continue
+            ratios = []
+            for cond in config['conditions']:
+                paired = [row['arms'] for row in rows.values() if row['condition'] == cond]
+                ratios.extend(np.quantile([r[arm]['seconds'] for r in paired], [.5, .95]) /
+                              np.quantile([r['identity']['seconds'] for r in paired], [.5, .95]))
+            if effects[arm, 'rotation'] >= 3 and effects[arm, 'clean'] >= -1 and max(ratios) <= 1.1:
+                selected.append(arm)
+        (args.derived/'decision.json').write_bytes(canonical(dict(campaign=config['campaign'], eligible=selected)))
+    if config['phase'] in ('development', 'spectral', 'scd', 'feedback_focus'):
         (args.derived/'synthetic.json').write_bytes(canonical(synthetic_summary(rows)))
     if config['phase'] == 'validation':
         if args.development is None:

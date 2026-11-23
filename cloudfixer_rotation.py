@@ -1,6 +1,9 @@
 """Opt-in, gradient-free pose updates for the CloudFixer XYZ pilot."""
 from dataclasses import dataclass
 import math
+import itertools
+
+import numpy as np
 
 import torch
 
@@ -24,6 +27,112 @@ GRAPH_K = 12
 GRAPH_STEPS = 3
 SEARCH_ARMS = ('output', 'feedback', 'random', 'view_mean')
 ARMS = (*KABSCH_STEPS, *SEARCH_ARMS)
+OUTPUT_ARMS = ('pose_scd_t50', 'pose_scd_all', 'pose_pca_t50', 'pose_pca_all')
+RIGHT_AXES = np.array([np.eye(3)[:, p] * signs for p in itertools.permutations(range(3))
+                      for signs in itertools.product((-1, 1), repeat=3)
+                      if np.linalg.det(np.eye(3)[:, p] * signs) > 0])
+
+
+def pca_basis(points):
+    centered = points - points.mean(0)
+    values, vectors = np.linalg.eigh(centered.T @ centered)
+    if np.linalg.det(vectors) < 0:
+        vectors[:, 0] *= -1
+    options = vectors @ RIGHT_AXES
+    gap = np.diff(values).min() / max(values[-1], 1e-12)
+    return options[np.trace(options, axis1=1, axis2=2).argmax()], gap
+
+
+class OutputPose:
+    def __init__(self, x, mask, indices, arm):
+        self.arm = arm
+        self.mask = mask.reshape(1, -1).bool()
+        self.pose = torch.eye(3, device=x.device, dtype=x.dtype)
+        self.travel = 0.
+        self.updates = []
+        if 'pca' in arm:
+            self.valid = deduplicated_mask(mask, indices)[0]
+            order = np.random.default_rng(20261122).permutation(int(self.valid.sum()))
+            self.halves = np.array_split(order, 2)
+
+    def capture_pairs(self, index, *pairs):
+        self.pairs = pairs
+        return pairs
+
+    def update(self, index, q, reference):
+        if self.arm.endswith('t50') and index != 50:
+            return None
+        row = dict(index=index, matching=0, svd=0, anchors=int(self.mask.sum()), reason='budget')
+        remaining = math.radians(30) - self.travel
+        delta = None
+        if remaining > 1e-6:
+            if 'pca' in self.arm:
+                proposal = self.pca(q, row)
+            else:
+                proposal = self.scd(q, reference, row)
+            if proposal is not None:
+                angle = rotation_angle(proposal)
+                step = min(remaining, angle)
+                if step > 1e-6:
+                    trial = clip_rotation(proposal, angle, step)
+                    accept = True
+                    if 'scd' in self.arm:
+                        moved = q @ trial
+                        trial_pairs = trimmed_neighbors(moved, reference, self.mask, .95)
+                        qa, xa, qb, xb = self.paired_points(moved, reference, trial_pairs)
+                        row['score_after'] = float(self.score(qa, xa, qb, xb))
+                        row['matching'] = 1
+                        accept = row['score_after'] < row['score_before']
+                    if accept:
+                        delta = trial
+                        self.pose = self.pose @ trial
+                        self.travel += step
+                        row.update(reason='accepted', applied_degrees=math.degrees(step))
+                    else:
+                        row['reason'] = 'score'
+        row.setdefault('applied_degrees', 0.)
+        row.update(travel_degrees=math.degrees(self.travel), total_degrees=math.degrees(rotation_angle(self.pose)),
+                   pose=self.pose.tolist())
+        self.updates.append(row)
+        return delta
+
+    def pca(self, q, row):
+        points = q[0, self.valid].double().cpu().numpy()
+        row['reason'] = 'unstable'
+        if len(points) < 6:
+            return None
+        matrix, gap = pca_basis(points)
+        degrees = np.rad2deg(np.arccos(np.clip((matrix.trace() - 1) / 2, -1, 1)))
+        if gap < .05 or not 5 <= degrees <= 30:
+            return None
+        left, right = (pca_basis(points[h])[0] for h in self.halves)
+        if np.trace(left.T @ right) < 1 + 2 * math.cos(math.radians(10)):
+            return None
+        return torch.as_tensor(matrix, device=q.device, dtype=q.dtype)
+
+    @staticmethod
+    def paired_points(q, reference, pairs):
+        fw, rv, keep_fw, keep_rv = pairs
+        return (q[0, keep_fw[0]], reference[0, fw[0, keep_fw[0]]],
+                q[0, rv[0, keep_rv[0]]], reference[0, keep_rv[0]])
+
+    @staticmethod
+    def score(qa, xa, qb, xb):
+        return (qa - xa).square().sum(1).mean() + (qb - xb).square().sum(1).mean()
+
+    def scd(self, q, reference, row):
+        # Exact minimizer for the current trimmed correspondences; re-score after rematching.
+        qa, xa, qb, xb = self.paired_points(q, reference, self.pairs)
+        cross = qa.T @ xa / len(qa) + qb.T @ xb / len(qb)
+        row.update(score_before=float(self.score(qa, xa, qb, xb)),
+                   reason='rank', svd=1)
+        u, values, vh = torch.linalg.svd(cross)
+        if values[1] <= values[0] * 1e-4:
+            return None
+        sign = torch.linalg.det(u @ vh).sign()
+        row['reason'] = 'identity'
+        return torch.cat((u[:, :2], u[:, 2:] * sign), dim=1) @ vh
+
 
 
 def axis_rotation(axis, angle, like):
@@ -244,7 +353,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
     """Run an arm with the baseline RNG contract and fixed, index-addressed FPS draws."""
     from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal
 
-    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search' and arm not in BACKGROUND_ARMS) or x.shape[0] != 1:
+    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search' and arm not in BACKGROUND_ARMS and arm not in OUTPUT_ARMS) or x.shape[0] != 1:
         raise ValueError('Expected a registered B1 rotation arm')
     config = POLICIES['proximal_pm']
     devices = [x.device.index] if x.is_cuda else []
@@ -292,6 +401,11 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
         schedule = KABSCH_STEPS.get(arm, SPECTRAL_STEPS.get(arm))
         geometry = None
         sampler_options = {}
+        output_pose = OutputPose(x, mask, point_indices, arm) if arm in OUTPUT_ARMS else None
+        if output_pose is not None:
+            sampler_options['output_rotation'] = output_pose.update
+            if 'scd' in arm:
+                sampler_options['pair_transform'] = output_pose.capture_pairs
         if arm in BACKGROUND_ARMS:
             geometry = BackgroundGeometry(x, mask, arm, background_config)
             diagnostics['weak_fraction'] = geometry.weak_fraction
@@ -319,6 +433,9 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
         if estimator is not None:
             pose = estimator.pose
             diagnostics['updates'] = estimator.updates
+        if output_pose is not None:
+            pose = output_pose.pose
+            diagnostics['updates'] = output_pose.updates
         logits = []
         for index, cloud in zip(metadata['candidate_indices'], clouds.unbind(1)):
             if index == 20 and selected_logits is not None:
