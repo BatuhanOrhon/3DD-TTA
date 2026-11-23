@@ -21,3 +21,43 @@
 [Run, teknik ara kontrol] İlk sabit 128 nesne × 16 koşul × 3 seed = 6144 kayıt tamamlandı. Yerel blok kopyalarındaki SHA-256, eksiksiz/tekil kayıtlar, 9/3 çağrıları ve reddedilen müdahalelerde üç logit eşitliği doğrulandı. Önceden seçilen 8 zamanlama nesnesinde all15 için 360 eşli ölçüm, aday/baseline B1 p50 247,83/243,82 ms (+%1,65), p95 356,12/353,33 ms (+%0,79). Bu aşamada doğruluk üzerinden karar verilmedi.
 
 [User decision, 20:30 UTC] Kullanıcı GPU işleri tamamlandığında bu oturumun kapatılmasını istedi. 512 ölçütleri geçilirse son GPU işi tek adaylı tam taramadır. Ölçütler geçilmezse son GPU işi doğrulama panelidir. close_after_results.py son kapsamın bütün Drive ve host ZIP’lerini doğrulayıp resmî flush_and_unmount yaptıktan sonra isim ve endpoint eşleşmesiyle yalnız r8 oturumunu kapatır, envanterde yokluğunu ve hesap kullanımını kaydeder.
+
+
+## 512 nesnede doğrulama sonucu
+
+[Run/Decision, 24 Kasım 2026 TSİ] Yüzey onaylı tek t50 PCA, Rotation PM doğruluğunu **%46,09’dan %64,58’e** çıkardı. All-15 **%73,90’dan %75,14’e** yükseldi. Clean’in 1.536 eşli kararında doğru/yanlış sonucu değişmedi. Diğer 14 bozulmada toplam iki ek doğruya rağmen dokuz bozulmanın kendi satırında düşüş görüldü. Önceden kaydedilen dört ölçütten Rotation, all-15 ve ortak hız geçti. Her bir bozulmada doğruluğu koruma koşulu geçilmedi. Bu sebeple koşullu 2.468 × 15 tam aday taraması başlatılmadı. Tez baseline’ı N8/K80 SCD + geç Probability Mean olarak kaldı.
+
+512 yeni nesnenin her biri 15 bozulma ve clean altında seed 0, 1 ve 2 ile ölçüldü. Her tekil satırda 1.536, all-15’te 23.040 eşli gözlem var. Üç seed aynı nesneleri tekrar ölçtü. All-15 temiz veriyi dışarıda bırakır. Tabloda fark aday eksi baseline ve birimi yüzde puandır. Aralıklar 512 nesne üzerinden 10.000 tekrarlı kümeli bootstrap ile hesaplanan satır bazında nominal %95 aralıklardır. Düzelen ve bozulan sütunları PM’nin doğru/yanlış geçişlerini, son sütun kabul edilen dönüş sayısını verir.
+
+| Koşul | Baseline PM (%) | Aday PM (%) | Fark (puan) | %95 aralık (puan) | Düzelen / bozulan | Uygulanan dönüş |
+|---|---:|---:|---:|---:|---:|---:|
+| Clean | 91,34 | 91,34 | 0,00 | [0,00, 0,00] | 0 / 0 | 13 |
+| Background | 62,89 | 62,57 | -0,33 | [-0,98, +0,13] | 1 / 6 | 13 |
+| Cutout | 83,59 | 83,33 | -0,26 | [-0,78, +0,13] | 1 / 5 | 13 |
+| Density | 79,43 | 79,36 | -0,07 | [-0,20, 0,00] | 0 / 1 | 12 |
+| Density Increase | 86,07 | 85,87 | -0,20 | [-0,59, 0,00] | 0 / 3 | 15 |
+| Distortion | 73,76 | 73,96 | +0,20 | [-0,26, +0,78] | 5 / 2 | 62 |
+| Distortion RBF | 78,19 | 78,12 | -0,07 | [-0,20, 0,00] | 0 / 1 | 27 |
+| Distortion RBF Inverse | 79,43 | 79,36 | -0,07 | [-0,52, +0,46] | 3 / 4 | 15 |
+| Gaussian | 89,65 | 89,65 | 0,00 | [0,00, 0,00] | 0 / 0 | 8 |
+| Impulse | 91,02 | 90,82 | -0,20 | [-0,59, 0,00] | 0 / 3 | 17 |
+| LiDAR | 41,73 | 41,54 | -0,20 | [-0,52, 0,00] | 0 / 3 | 22 |
+| Occlusion | 42,12 | 41,99 | -0,13 | [-0,59, +0,20] | 1 / 3 | 34 |
+| Rotation | 46,09 | 64,58 | +18,49 | [+15,36, +21,74] | 284 / 0 | 564 |
+| Shear | 75,52 | 76,95 | +1,43 | [+0,46, +2,54] | 26 / 4 | 115 |
+| Uniform | 89,52 | 89,52 | 0,00 | [0,00, 0,00] | 0 / 0 | 9 |
+| Upsampling | 89,45 | 89,45 | 0,00 | [0,00, 0,00] | 0 / 0 | 3 |
+| Rotation dışındaki 14 | 75,88 | 75,89 | +0,01 | [-0,18, +0,16] | 37 / 35 | 365 |
+| All-15 | 73,90 | 75,14 | +1,24 | [+0,95, +1,52] | 321 / 35 | 929 |
+
+[Run] Rotation’da seed 0, 1 ve 2 için kazanç sırasıyla +19,34, +18,36 ve +17,77 puan. Üçünde de baseline’ın doğru bildiği bir tahmin kaybedilmedi. Rotation’da toplam 284 düzeltme 117 ayrı nesneden geldi. All-15 kazancı üç seed’de +1,30, +1,17 ve +1,25 puan. Aynı örneklerde terminal okuması da Rotation’da %45,57’den %64,06’ya, all-15’te %73,46’dan %74,70’e çıktı. Adayda PM, terminalin all-15 doğruluğuna 0,44 puan ekledi.
+
+[Run/Inference] Rotation dışındaki 14 türdeki 37 düzeltmeye 35 kayıp eşlik etti. Shear’da net 22 ve Distortion’da net 3 ek doğru elde edildi. En büyük kayıplar Background’da net 5, Cutout’ta net 4 olaydı. Dokuz olumsuz satırın her birinin nominal aralığı sıfırı içerir. Kayıpların büyüklüğü için belirsizlik sürüyor, ancak önceden yazılan karar kuralı gözlenen satır farklarına dayanıyor. Aynı nesneler üzerinden bütün satırlar için birlikte hesaplanan %95 aralık Rotation’da [+15,30, +21,68], all-15’te [−1,95, +4,43] puandır.
+
+[Run/Inference] Rotation dışındaki 35 kayıp dokuz ayrı nesnede toplandı. Bunların 15’i tek bir nesneye ait ve dokuz nesnenin üçünde rotasyon bozulması altında da düzeltme görüldü. Gelecek geometri çalışmasında ilk tanı, bu nesnelere hangi yüzey yamalarının dönüş onayı verdiğini ve aynı nesnenin Rotation örneğinde nasıl davrandığını incelemektir. Bu panel üzerinde geliştirilen bir kuralı değerlendirmek için ayrı nesneler gerekir. [Nesne düzeyinde sayım](evidence/surface512_20261123/affected_objects.json)
+
+[Run] Önceden ayrılan 32 nesne × 15 bozulma × 3 seed üzerinde A100 B1 için 1.440 eşli zamanlama alındı. Baseline → aday p50 245,25 → 250,55 ms (+%2,16), p95 354,45 → 358,33 ms (+%1,10). Rotation’a özgü p95 255,00 → 272,03 ms (+%6,68, 96 çift). Kayıtlı %5 sınırı all-15 p50 ve p95 içindi. Adayın en yüksek kayıtlı GPU bellek kullanımı 554,46 MiB. Her aday tahmininde dokuz denoiser ve üç sınıflandırıcı çağrısı doğrulandı.
+
+[Artifact] Ham arşiv `result/modelnet40_c/surface512_20261123/20261123-192004_feedback_surface512.zip`, Drive konumu `MyDrive/thesis/surface512_20261123/archives/`. 51.753.848 bayt, SHA-256 `a273d78157fa9e45a2aa841c541ae8cfc4929b9d3c345aea3283ee3379bab807`. 6.144 blokta bütün ID/seed/bozulma kombinasyonları birer kez görüldü. Drive’dan bağımsız indirilen ZIP, GPU arşiviyle aynı SHA ve geçerli CRC verdi. Üç logit okumasından PM tahminleri yeniden hesaplandı ve yöntem kararı ham sayılarla doğrulandı. CloudFixer bu 512 panelinde çalıştırılmadı. [Karar, hız, güven aralıkları ve seed bazında sayılar](evidence/surface512_20261123/result.json)
+
+[Run/Close] Drive yazımları tamamlanıp disk ayrıldı. Colab CLI, yalnız bu deneye ayrılan `tta-surface512-a100-20261123-r8` oturumunu 23 Kasım 21:41 UTC’de (24 Kasım 00:41 TSİ) kapattı. Bağımsız sunucu ve kullanım sorguları sıfır aktif oturum, 0,00 CU/saat ve 378,00 CU bakiye gösterdi. Tahsis süresi yaklaşık 3 saat 25 dakika. Başlangıç ve bitiş bakiyelerinin farkı 22,77 CU. Kaynak experiment/surface512-20261123 üzerinde f44dc30, sonuçların paylaşım kapsamı isteğe bağlı deney uygulaması, konfigürasyon, test ve kompakt kanıtlardır. Ham ZIP’ler ve geçici operatörler sonuç dizinindedir. İlgili 257 yerel test geçti. [Kapatma ve iki arşivin sağlama toplamları](evidence/surface512_20261123/closure.json) · [Straub vd., literatür ve projedeki uyarlama](papers/straub2014_manhattan_frames.md)

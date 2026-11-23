@@ -1,0 +1,939 @@
+{
+  "run": "20261123-192004_feedback_surface512",
+  "sha256": "a273d78157fa9e45a2aa841c541ae8cfc4929b9d3c345aea3283ee3379bab807",
+  "blocks": 6144,
+  "events": 24576,
+  "decision": {
+    "checks": {
+      "rotation": true,
+      "all15": true,
+      "protected": false,
+      "speed": true
+    },
+    "pass": false,
+    "campaign": "f377d21ae90eeca51c647bfc67e27b6f3c77c0ed079c38ebc24faf4598fcde1c",
+    "run": "20261123-192004_feedback_surface512",
+    "measurements": [
+      {
+        "group": "clean",
+        "n": 1536,
+        "candidate": 1403,
+        "pm_pct": 91.34114583333334,
+        "terminal": 1404,
+        "accepted": 13,
+        "timing_n": 96,
+        "p50_ms": 247.36596749971795,
+        "p95_ms": 269.2255872500482,
+        "peak_mib": 405.0029296875,
+        "baseline": 1403,
+        "baseline_terminal": 1404,
+        "delta_pp": 0.0,
+        "repairs": 0,
+        "harms": 0,
+        "baseline_p50_ms": 243.57832299983784,
+        "baseline_p95_ms": 253.08066899970072,
+        "ratio50": 1.0155500064752587,
+        "ratio95": 1.063793565562159,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "joint95_low": -3.190104166666668,
+        "joint95_high": 3.190104166666668
+      },
+      {
+        "group": "background",
+        "n": 1536,
+        "candidate": 961,
+        "pm_pct": 62.565104166666664,
+        "terminal": 955,
+        "accepted": 13,
+        "timing_n": 96,
+        "p50_ms": 245.91076149999935,
+        "p95_ms": 257.66594625019934,
+        "peak_mib": 405.01318359375,
+        "baseline": 966,
+        "baseline_terminal": 960,
+        "delta_pp": -0.32552083333333337,
+        "repairs": 1,
+        "harms": 6,
+        "baseline_p50_ms": 243.71550799969555,
+        "baseline_p95_ms": 251.99159725002573,
+        "ratio50": 1.0090074428103548,
+        "ratio95": 1.0225180087832195,
+        "ci95_low": -0.9765625,
+        "ci95_high": 0.13020833333333331,
+        "joint95_low": -3.5156250000000013,
+        "joint95_high": 2.8645833333333344
+      },
+      {
+        "group": "cutout",
+        "n": 1536,
+        "candidate": 1280,
+        "pm_pct": 83.33333333333334,
+        "terminal": 1276,
+        "accepted": 13,
+        "timing_n": 96,
+        "p50_ms": 248.61354999984542,
+        "p95_ms": 265.4974427498473,
+        "peak_mib": 404.96484375,
+        "baseline": 1284,
+        "baseline_terminal": 1280,
+        "delta_pp": -0.26041666666666663,
+        "repairs": 1,
+        "harms": 5,
+        "baseline_p50_ms": 243.37871199986694,
+        "baseline_p95_ms": 251.5150200001699,
+        "ratio50": 1.0215090217092666,
+        "ratio95": 1.0555927942182857,
+        "ci95_low": -0.78125,
+        "ci95_high": 0.13020833333333331,
+        "joint95_low": -3.4505208333333344,
+        "joint95_high": 2.9296875000000013
+      },
+      {
+        "group": "density",
+        "n": 1536,
+        "candidate": 1219,
+        "pm_pct": 79.36197916666666,
+        "terminal": 1218,
+        "accepted": 12,
+        "timing_n": 96,
+        "p50_ms": 248.63366399995357,
+        "p95_ms": 263.97248250032135,
+        "peak_mib": 404.95703125,
+        "baseline": 1220,
+        "baseline_terminal": 1220,
+        "delta_pp": -0.06510416666666666,
+        "repairs": 0,
+        "harms": 1,
+        "baseline_p50_ms": 243.3550744999593,
+        "baseline_p95_ms": 253.71994424995137,
+        "ratio50": 1.0216908955395345,
+        "ratio95": 1.040408877909376,
+        "ci95_low": -0.19531249999999997,
+        "ci95_high": 0.0,
+        "joint95_low": -3.2552083333333344,
+        "joint95_high": 3.1250000000000013
+      },
+      {
+        "group": "density_inc",
+        "n": 1536,
+        "candidate": 1319,
+        "pm_pct": 85.87239583333334,
+        "terminal": 1317,
+        "accepted": 15,
+        "timing_n": 96,
+        "p50_ms": 260.9552154999619,
+        "p95_ms": 270.226589500453,
+        "peak_mib": 405.0029296875,
+        "baseline": 1322,
+        "baseline_terminal": 1320,
+        "delta_pp": -0.1953125,
+        "repairs": 0,
+        "harms": 3,
+        "baseline_p50_ms": 244.8616570000013,
+        "baseline_p95_ms": 253.81857075012704,
+        "ratio50": 1.0657251065648083,
+        "ratio95": 1.0646446739568118,
+        "ci95_low": -0.5859375,
+        "ci95_high": 0.0,
+        "joint95_low": -3.385416666666668,
+        "joint95_high": 2.994791666666668
+      },
+      {
+        "group": "distortion",
+        "n": 1536,
+        "candidate": 1136,
+        "pm_pct": 73.95833333333334,
+        "terminal": 1134,
+        "accepted": 62,
+        "timing_n": 96,
+        "p50_ms": 259.8635749995992,
+        "p95_ms": 275.87949224948716,
+        "peak_mib": 405.0029296875,
+        "baseline": 1133,
+        "baseline_terminal": 1128,
+        "delta_pp": 0.1953125,
+        "repairs": 5,
+        "harms": 2,
+        "baseline_p50_ms": 245.6864294999832,
+        "baseline_p95_ms": 253.42924849996962,
+        "ratio50": 1.0577042270037833,
+        "ratio95": 1.088585843514113,
+        "ci95_low": -0.26041666666666663,
+        "ci95_high": 0.78125,
+        "joint95_low": -2.994791666666668,
+        "joint95_high": 3.385416666666668
+      },
+      {
+        "group": "distortion_rbf",
+        "n": 1536,
+        "candidate": 1200,
+        "pm_pct": 78.125,
+        "terminal": 1173,
+        "accepted": 27,
+        "timing_n": 96,
+        "p50_ms": 253.20225700033916,
+        "p95_ms": 274.75036500072747,
+        "peak_mib": 405.0029296875,
+        "baseline": 1201,
+        "baseline_terminal": 1175,
+        "delta_pp": -0.06510416666666666,
+        "repairs": 0,
+        "harms": 1,
+        "baseline_p50_ms": 246.5030924995517,
+        "baseline_p95_ms": 256.50770025049496,
+        "ratio50": 1.0271767969839958,
+        "ratio95": 1.0711193649641608,
+        "ci95_low": -0.19531249999999997,
+        "ci95_high": 0.0,
+        "joint95_low": -3.2552083333333344,
+        "joint95_high": 3.1250000000000013
+      },
+      {
+        "group": "distortion_rbf_inv",
+        "n": 1536,
+        "candidate": 1219,
+        "pm_pct": 79.36197916666666,
+        "terminal": 1206,
+        "accepted": 15,
+        "timing_n": 96,
+        "p50_ms": 253.05347549965518,
+        "p95_ms": 274.9503499999264,
+        "peak_mib": 405.0029296875,
+        "baseline": 1220,
+        "baseline_terminal": 1206,
+        "delta_pp": -0.06510416666666663,
+        "repairs": 3,
+        "harms": 4,
+        "baseline_p50_ms": 245.58151299970632,
+        "baseline_p95_ms": 255.88053699948432,
+        "ratio50": 1.0304255903006747,
+        "ratio95": 1.0745262348753024,
+        "ci95_low": -0.5208333333333333,
+        "ci95_high": 0.45572916666666674,
+        "joint95_low": -3.2552083333333344,
+        "joint95_high": 3.1250000000000013
+      },
+      {
+        "group": "gaussian",
+        "n": 1536,
+        "candidate": 1377,
+        "pm_pct": 89.6484375,
+        "terminal": 1373,
+        "accepted": 8,
+        "timing_n": 96,
+        "p50_ms": 249.40382149998186,
+        "p95_ms": 269.11097650054217,
+        "peak_mib": 405.0029296875,
+        "baseline": 1377,
+        "baseline_terminal": 1373,
+        "delta_pp": 0.0,
+        "repairs": 0,
+        "harms": 0,
+        "baseline_p50_ms": 246.0223779999069,
+        "baseline_p95_ms": 259.9853952506237,
+        "ratio50": 1.0137444549864332,
+        "ratio95": 1.035100361084212,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "joint95_low": -3.190104166666668,
+        "joint95_high": 3.190104166666668
+      },
+      {
+        "group": "impulse",
+        "n": 1536,
+        "candidate": 1395,
+        "pm_pct": 90.8203125,
+        "terminal": 1396,
+        "accepted": 17,
+        "timing_n": 96,
+        "p50_ms": 248.32257900015975,
+        "p95_ms": 269.14815175086915,
+        "peak_mib": 405.0029296875,
+        "baseline": 1398,
+        "baseline_terminal": 1399,
+        "delta_pp": -0.1953125,
+        "repairs": 0,
+        "harms": 3,
+        "baseline_p50_ms": 245.75845649906114,
+        "baseline_p95_ms": 254.99902725005086,
+        "ratio50": 1.0104335066944417,
+        "ratio95": 1.0554869744147837,
+        "ci95_low": -0.5859375,
+        "ci95_high": 0.0,
+        "joint95_low": -3.385416666666668,
+        "joint95_high": 2.994791666666668
+      },
+      {
+        "group": "lidar",
+        "n": 1536,
+        "candidate": 638,
+        "pm_pct": 41.53645833333333,
+        "terminal": 633,
+        "accepted": 22,
+        "timing_n": 96,
+        "p50_ms": 252.37813150033617,
+        "p95_ms": 265.0573877501756,
+        "peak_mib": 404.9697265625,
+        "baseline": 641,
+        "baseline_terminal": 635,
+        "delta_pp": -0.19531249999999997,
+        "repairs": 0,
+        "harms": 3,
+        "baseline_p50_ms": 244.49250249972465,
+        "baseline_p95_ms": 256.55092424949544,
+        "ratio50": 1.0322530503798184,
+        "ratio95": 1.0331570175611906,
+        "ci95_low": -0.5208333333333333,
+        "ci95_high": 0.0,
+        "joint95_low": -3.385416666666668,
+        "joint95_high": 2.994791666666668
+      },
+      {
+        "group": "occlusion",
+        "n": 1536,
+        "candidate": 645,
+        "pm_pct": 41.9921875,
+        "terminal": 639,
+        "accepted": 34,
+        "timing_n": 96,
+        "p50_ms": 249.5933119998881,
+        "p95_ms": 270.1197325004614,
+        "peak_mib": 405.0029296875,
+        "baseline": 647,
+        "baseline_terminal": 642,
+        "delta_pp": -0.13020833333333334,
+        "repairs": 1,
+        "harms": 3,
+        "baseline_p50_ms": 245.2598335003131,
+        "baseline_p95_ms": 252.96681625059136,
+        "ratio50": 1.017668928653046,
+        "ratio95": 1.067806981580059,
+        "ci95_low": -0.5859375,
+        "ci95_high": 0.19531249999999997,
+        "joint95_low": -3.3203125000000013,
+        "joint95_high": 3.0598958333333344
+      },
+      {
+        "group": "rotation",
+        "n": 1536,
+        "candidate": 992,
+        "pm_pct": 64.58333333333334,
+        "terminal": 984,
+        "accepted": 564,
+        "timing_n": 96,
+        "p50_ms": 249.12466050000148,
+        "p95_ms": 272.031445749235,
+        "peak_mib": 405.0029296875,
+        "baseline": 708,
+        "baseline_terminal": 700,
+        "delta_pp": 18.48958333333333,
+        "repairs": 284,
+        "harms": 0,
+        "baseline_p50_ms": 244.45187450055528,
+        "baseline_p95_ms": 254.99870300063776,
+        "ratio50": 1.0191153617005118,
+        "ratio95": 1.066795409341963,
+        "ci95_low": 15.364583333333332,
+        "ci95_high": 21.744791666666668,
+        "joint95_low": 15.29947916666666,
+        "joint95_high": 21.679687499999996
+      },
+      {
+        "group": "shear",
+        "n": 1536,
+        "candidate": 1182,
+        "pm_pct": 76.953125,
+        "terminal": 1165,
+        "accepted": 115,
+        "timing_n": 96,
+        "p50_ms": 248.6403490001976,
+        "p95_ms": 269.28704500051026,
+        "peak_mib": 405.0029296875,
+        "baseline": 1160,
+        "baseline_terminal": 1145,
+        "delta_pp": 1.4322916666666665,
+        "repairs": 26,
+        "harms": 4,
+        "baseline_p50_ms": 244.7107119987777,
+        "baseline_p95_ms": 252.5180137490679,
+        "ratio50": 1.0160582958110944,
+        "ratio95": 1.0664072673567997,
+        "ci95_low": 0.45572916666666663,
+        "ci95_high": 2.5390625,
+        "joint95_low": -1.7578125000000013,
+        "joint95_high": 4.622395833333334
+      },
+      {
+        "group": "uniform",
+        "n": 1536,
+        "candidate": 1375,
+        "pm_pct": 89.51822916666666,
+        "terminal": 1369,
+        "accepted": 9,
+        "timing_n": 96,
+        "p50_ms": 248.4167825004988,
+        "p95_ms": 268.6418919997777,
+        "peak_mib": 405.0029296875,
+        "baseline": 1375,
+        "baseline_terminal": 1370,
+        "delta_pp": 0.0,
+        "repairs": 0,
+        "harms": 0,
+        "baseline_p50_ms": 245.33653100024821,
+        "baseline_p95_ms": 252.1619902497605,
+        "ratio50": 1.0125552093187764,
+        "ratio95": 1.0653544244859992,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "joint95_low": -3.190104166666668,
+        "joint95_high": 3.190104166666668
+      },
+      {
+        "group": "upsampling",
+        "n": 1536,
+        "candidate": 1374,
+        "pm_pct": 89.453125,
+        "terminal": 1372,
+        "accepted": 3,
+        "timing_n": 96,
+        "p50_ms": 360.87973350004177,
+        "p95_ms": 394.35406300026443,
+        "peak_mib": 554.4599609375,
+        "baseline": 1374,
+        "baseline_terminal": 1372,
+        "delta_pp": 0.0,
+        "repairs": 0,
+        "harms": 0,
+        "baseline_p50_ms": 356.4128365005672,
+        "baseline_p95_ms": 362.74294850136357,
+        "ratio50": 1.012532929631078,
+        "ratio95": 1.0871446698812453,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "joint95_low": -3.190104166666668,
+        "joint95_high": 3.190104166666668
+      },
+      {
+        "group": "other14",
+        "n": 21504,
+        "candidate": 16320,
+        "pm_pct": 75.89285714285714,
+        "terminal": 16226,
+        "accepted": 365,
+        "timing_n": 1344,
+        "p50_ms": 250.65858149991982,
+        "p95_ms": 358.642446151498,
+        "peak_mib": 554.4599609375,
+        "baseline": 16318,
+        "baseline_terminal": 16225,
+        "delta_pp": 0.009300595238095226,
+        "repairs": 37,
+        "harms": 35,
+        "baseline_p50_ms": 245.33396449987777,
+        "baseline_p95_ms": 355.2489003500341,
+        "ratio50": 1.0217035460658555,
+        "ratio95": 1.0095525863644341,
+        "ci95_low": -0.1813616071428572,
+        "ci95_high": 0.15811011904761899,
+        "joint95_low": -3.1808035714285725,
+        "joint95_high": 3.199404761904763
+      },
+      {
+        "group": "all15",
+        "n": 23040,
+        "candidate": 17312,
+        "pm_pct": 75.13888888888889,
+        "terminal": 17210,
+        "accepted": 929,
+        "timing_n": 1440,
+        "p50_ms": 250.5455760001496,
+        "p95_ms": 358.3335920500758,
+        "peak_mib": 554.4599609375,
+        "baseline": 17026,
+        "baseline_terminal": 16925,
+        "delta_pp": 1.2413194444444446,
+        "repairs": 321,
+        "harms": 35,
+        "baseline_p50_ms": 245.25409850002688,
+        "baseline_p95_ms": 354.4494307500827,
+        "ratio50": 1.021575490613553,
+        "ratio95": 1.0109582946480504,
+        "ci95_low": 0.9548611111111127,
+        "ci95_high": 1.5190972222222212,
+        "joint95_low": -1.9487847222222232,
+        "joint95_high": 4.4314236111111125
+      }
+    ]
+  },
+  "per_seed": {
+    "clean": [
+      {
+        "n": 512,
+        "base": 468,
+        "candidate": 468,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 5
+      },
+      {
+        "n": 512,
+        "base": 466,
+        "candidate": 466,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 469,
+        "candidate": 469,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 4
+      }
+    ],
+    "background": [
+      {
+        "n": 512,
+        "base": 325,
+        "candidate": 323,
+        "repaired": 0,
+        "harmed": 2,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 322,
+        "candidate": 320,
+        "repaired": 0,
+        "harmed": 2,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 319,
+        "candidate": 318,
+        "repaired": 1,
+        "harmed": 2,
+        "applied": 5
+      }
+    ],
+    "cutout": [
+      {
+        "n": 512,
+        "base": 423,
+        "candidate": 422,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 430,
+        "candidate": 428,
+        "repaired": 0,
+        "harmed": 2,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 431,
+        "candidate": 430,
+        "repaired": 1,
+        "harmed": 2,
+        "applied": 5
+      }
+    ],
+    "density": [
+      {
+        "n": 512,
+        "base": 413,
+        "candidate": 413,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 407,
+        "candidate": 406,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 400,
+        "candidate": 400,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 4
+      }
+    ],
+    "density_inc": [
+      {
+        "n": 512,
+        "base": 440,
+        "candidate": 439,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 5
+      },
+      {
+        "n": 512,
+        "base": 442,
+        "candidate": 441,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 5
+      },
+      {
+        "n": 512,
+        "base": 440,
+        "candidate": 439,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 5
+      }
+    ],
+    "distortion": [
+      {
+        "n": 512,
+        "base": 373,
+        "candidate": 374,
+        "repaired": 2,
+        "harmed": 1,
+        "applied": 22
+      },
+      {
+        "n": 512,
+        "base": 382,
+        "candidate": 382,
+        "repaired": 1,
+        "harmed": 1,
+        "applied": 22
+      },
+      {
+        "n": 512,
+        "base": 378,
+        "candidate": 380,
+        "repaired": 2,
+        "harmed": 0,
+        "applied": 18
+      }
+    ],
+    "distortion_rbf": [
+      {
+        "n": 512,
+        "base": 397,
+        "candidate": 397,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 9
+      },
+      {
+        "n": 512,
+        "base": 400,
+        "candidate": 400,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 9
+      },
+      {
+        "n": 512,
+        "base": 404,
+        "candidate": 403,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 9
+      }
+    ],
+    "distortion_rbf_inv": [
+      {
+        "n": 512,
+        "base": 404,
+        "candidate": 402,
+        "repaired": 1,
+        "harmed": 3,
+        "applied": 6
+      },
+      {
+        "n": 512,
+        "base": 404,
+        "candidate": 404,
+        "repaired": 1,
+        "harmed": 1,
+        "applied": 5
+      },
+      {
+        "n": 512,
+        "base": 412,
+        "candidate": 413,
+        "repaired": 1,
+        "harmed": 0,
+        "applied": 4
+      }
+    ],
+    "gaussian": [
+      {
+        "n": 512,
+        "base": 460,
+        "candidate": 460,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 3
+      },
+      {
+        "n": 512,
+        "base": 460,
+        "candidate": 460,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 2
+      },
+      {
+        "n": 512,
+        "base": 457,
+        "candidate": 457,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 3
+      }
+    ],
+    "impulse": [
+      {
+        "n": 512,
+        "base": 465,
+        "candidate": 464,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 5
+      },
+      {
+        "n": 512,
+        "base": 466,
+        "candidate": 465,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 6
+      },
+      {
+        "n": 512,
+        "base": 467,
+        "candidate": 466,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 6
+      }
+    ],
+    "lidar": [
+      {
+        "n": 512,
+        "base": 212,
+        "candidate": 210,
+        "repaired": 0,
+        "harmed": 2,
+        "applied": 7
+      },
+      {
+        "n": 512,
+        "base": 213,
+        "candidate": 212,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 8
+      },
+      {
+        "n": 512,
+        "base": 216,
+        "candidate": 216,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 7
+      }
+    ],
+    "occlusion": [
+      {
+        "n": 512,
+        "base": 217,
+        "candidate": 217,
+        "repaired": 1,
+        "harmed": 1,
+        "applied": 12
+      },
+      {
+        "n": 512,
+        "base": 214,
+        "candidate": 213,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 11
+      },
+      {
+        "n": 512,
+        "base": 216,
+        "candidate": 215,
+        "repaired": 0,
+        "harmed": 1,
+        "applied": 11
+      }
+    ],
+    "rotation": [
+      {
+        "n": 512,
+        "base": 232,
+        "candidate": 331,
+        "repaired": 99,
+        "harmed": 0,
+        "applied": 194
+      },
+      {
+        "n": 512,
+        "base": 239,
+        "candidate": 333,
+        "repaired": 94,
+        "harmed": 0,
+        "applied": 191
+      },
+      {
+        "n": 512,
+        "base": 237,
+        "candidate": 328,
+        "repaired": 91,
+        "harmed": 0,
+        "applied": 179
+      }
+    ],
+    "shear": [
+      {
+        "n": 512,
+        "base": 388,
+        "candidate": 397,
+        "repaired": 10,
+        "harmed": 1,
+        "applied": 39
+      },
+      {
+        "n": 512,
+        "base": 382,
+        "candidate": 387,
+        "repaired": 7,
+        "harmed": 2,
+        "applied": 37
+      },
+      {
+        "n": 512,
+        "base": 390,
+        "candidate": 398,
+        "repaired": 9,
+        "harmed": 1,
+        "applied": 39
+      }
+    ],
+    "uniform": [
+      {
+        "n": 512,
+        "base": 462,
+        "candidate": 462,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 3
+      },
+      {
+        "n": 512,
+        "base": 456,
+        "candidate": 456,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 4
+      },
+      {
+        "n": 512,
+        "base": 457,
+        "candidate": 457,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 2
+      }
+    ],
+    "upsampling": [
+      {
+        "n": 512,
+        "base": 459,
+        "candidate": 459,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 1
+      },
+      {
+        "n": 512,
+        "base": 457,
+        "candidate": 457,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 1
+      },
+      {
+        "n": 512,
+        "base": 458,
+        "candidate": 458,
+        "repaired": 0,
+        "harmed": 0,
+        "applied": 1
+      }
+    ],
+    "all15": [
+      {
+        "n": 7680,
+        "base": 5670,
+        "candidate": 5770,
+        "repaired": 113,
+        "harmed": 13,
+        "applied": 318
+      },
+      {
+        "n": 7680,
+        "base": 5674,
+        "candidate": 5764,
+        "repaired": 103,
+        "harmed": 13,
+        "applied": 313
+      },
+      {
+        "n": 7680,
+        "base": 5682,
+        "candidate": 5778,
+        "repaired": 105,
+        "harmed": 9,
+        "applied": 298
+      }
+    ],
+    "other14": [
+      {
+        "n": 7168,
+        "base": 5438,
+        "candidate": 5439,
+        "repaired": 14,
+        "harmed": 13,
+        "applied": 124
+      },
+      {
+        "n": 7168,
+        "base": 5435,
+        "candidate": 5431,
+        "repaired": 9,
+        "harmed": 13,
+        "applied": 122
+      },
+      {
+        "n": 7168,
+        "base": 5445,
+        "candidate": 5450,
+        "repaired": 14,
+        "harmed": 9,
+        "applied": 119
+      }
+    ]
+  }
+}

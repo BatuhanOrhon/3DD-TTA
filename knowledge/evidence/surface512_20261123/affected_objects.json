@@ -1,0 +1,17 @@
+{
+  "nonrotation_harms": 35,
+  "unique_harmed_ids": 9,
+  "harm_events_per_object": {
+    "1": 2,
+    "2": 3,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "15": 1
+  },
+  "nonrotation_repairs": 37,
+  "unique_repaired_ids": 19,
+  "rotation_repairs": 284,
+  "unique_rotation_repaired_ids": 117,
+  "both_rotation_repair_and_nonrotation_harm_ids": 3
+}

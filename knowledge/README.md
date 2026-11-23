@@ -1,3 +1,5 @@
+**[Run/Decision] 2026-11-24 — Yüzey normaliyle onaylanan tek t50 PCA, ayrı 512 nesne ve üç seed.** Rotation PM %46,09 → %64,58 (+18,49 puan), all-15 %73,90 → %75,14 (+1,24), clean %91,34. Rotation dışındaki 14 türün dokuzunda −0,07 ile −0,33 puan gözlendi. Her türü koruma koşulu geçilmedi, tam tarama açılmadı. Ortak A100 p50 +%2,16 ve p95 +%1,10. Drive arşivi doğrulandı ve A100 kapatıldı. [Tam tablo, belirsizlik ve karar](cloudfixer_surface512_gpu_20261123.md#512-nesnede-doğrulama-sonucu).
+
 **[Run/Complete] 2026-11-23 — CF-XYZ N8, üç model, tam ModelNet40-C.**
 Tam2468×15/s5/seed0/B96. Source / aynıN8terminal / PM:
 DGCNN58.835764/70.680713/71.139924%; CurveNet64.011345/73.841167/74.243652%;
@@ -13,7 +15,7 @@ yalnızownedr25stop12:28UTC doğrulandı. Poststop envanteri0oturum/0CUh.
 [Yürütme/kurtarma](cloudfixer_baseline_multibackbone_20261123.md).
 Aşağıdaki eski running/no-result ifadeleri tarihseldir; bu görev tamamlandı.
 
-**[Run/Decision] 2026-11-23 — Yüzey normaliyle onaylanan tek t50 PCA.** Arşiv tekrarında Rotation %42,19→%62,50, all-15 %75,73→%77,24. Diğer 14 satırdan 12’si korundu, ikisi yükseldi. Ayrı clean paneli %92,97. Yeni A100 gecikmesi ve ayrı nesnelerde doğrulama bekleniyor. [Kural, kontroller ve karar](cloudfixer_selective_rotation_20261123.md). [Geometrik ilham kaynağı, Straub vd. CVPR 2014](papers/straub2014_manhattan_frames.md).
+**[Run/Decision] 2026-11-23 — Yüzey normaliyle onaylanan tek t50 PCA.** Arşiv tekrarında Rotation %42,19→%62,50, all-15 %75,73→%77,24. Diğer 14 satırdan 12’si korundu, ikisi yükseldi. Ayrı clean paneli %92,97. Ayrı 512 nesnenin A100 doğrulaması yukarıda kayıtlıdır. [Kural, kontroller ve karar](cloudfixer_selective_rotation_20261123.md). [Geometrik ilham kaynağı, Straub vd. CVPR 2014](papers/straub2014_manhattan_frames.md).
 
 **[Run/Decision] 2026-11-23 — Ayrık all-15 PCA pilotu.** 128 nesne × 15 bozulma, seed 0. Baseline PM %75,73, PCA t50 %73,44, sekiz adım %73,59. İki kol Rotation’da kazanıp kalan 14 satırın her birinde düştü; genel baseline korundu. [Bozulma tablosu, hız, belirsizlik ve arşiv](cloudfixer_pca_all15_20261123.md#all-15-pilot-sonucu).
 

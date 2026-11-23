@@ -1,0 +1,22 @@
+{
+  "closed_utc": "2026-11-23T21:41:06.615179+00:00",
+  "session": "tta-surface512-a100-20261123-r8",
+  "endpoint": "gpu-a100-s-ass1c0-3ck9nrgygida9",
+  "archives": {
+    "feedback_surface_smoke": {
+      "archive": "20261123-191936_feedback_surface_smoke.zip",
+      "sha256": "2f9cb88c4cbb3e363de51355219af6368325e6d30b998cf04223645a2152bf89"
+    },
+    "feedback_surface512": {
+      "archive": "20261123-192004_feedback_surface512.zip",
+      "sha256": "a273d78157fa9e45a2aa841c541ae8cfc4929b9d3c345aea3283ee3379bab807"
+    }
+  },
+  "cloud_flush": true,
+  "absent_from_server": true,
+  "usage": [
+    "Current balance: 378.00 compute units",
+    "Usage rate: 0.00/hr",
+    "Active assignments: 0"
+  ]
+}

@@ -3231,6 +3231,11 @@ Availability is a dated filename inventory, not weight/training-log validation.
 ## 2026-11-23 — Yüzey onaylı t50 PCA
 
 - [x] Tek adımlı PCA yolunun seçimini gözlenen yerel yüzeylerle doğrula, diğer 14 bozulmanın hiçbir satırında kayıp olup olmadığını yeniden say.
-- [ ] 512 ayrı nesnede donmuş kuralı, üç ortak seed, clean ve her 15 bozulmada doğrula. Eşlenmiş farkları ve A100 B1 p50/p95’i kaydet. Her bir non-Rotation satırını koruma koşulu, önceki izin verilen ortalama kayıp ölçütünün yerini alır. [Tekrar sayım, kanıt ve yeni ölçütler](cloudfixer_selective_rotation_20261123.md).
+- [x] 512 ayrı nesnede donmuş kuralı, üç ortak seed, clean ve her 15 bozulmada doğrula. Eşlenmiş farkları ve A100 B1 p50/p95’i kaydet. Her bir non-Rotation satırını koruma koşulu, önceki izin verilen ortalama kayıp ölçütünün yerini alır. [Tekrar sayım, kanıt ve yeni ölçütler](cloudfixer_selective_rotation_20261123.md).
 
 [Open, 2026-11-23] Yüzey onaylı t50 PCA’nın 512 nesne, üç eş seed, tüm 15 bozulma, clean ve gerçek A100 gecikme ölçütlerine etkisi [GPU doğrulama kaydında](cloudfixer_surface512_gpu_20261123.md) izleniyor. İlk genişletme çalışma baseline seçimini değiştirmez.
+
+
+[Run/Decision, 2026-11-24] 512 nesnedeki doğrulama tamamlandı. Rotation, all-15 ve hız ölçütleri geçti. Dokuz non-Rotation satırındaki düşüş tam taramaya geçişi durdurdu. [Karar ve 15 satır](cloudfixer_surface512_gpu_20261123.md#512-nesnede-doğrulama-sonucu).
+
+[Open] Rotation dışındaki 35 PM kaybının toplandığı dokuz nesnede hangi yüzey yamaları yanlış dönüşü destekliyor? Aynı nesnelerin üçünde Rotation kazancı da görüldü. Gelecek bir seçicinin bu ayrımı ayrı nesnelerde, aynı doğruluk ve hız koşullarında doğrulaması gerekir.
