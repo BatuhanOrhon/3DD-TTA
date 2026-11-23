@@ -1,3 +1,5 @@
+**[Run/Decision] 2026-11-23 — Ayrık all-15 PCA pilotu.** 128 nesne × 15 bozulma, seed 0. Baseline PM %75,73, PCA t50 %73,44, sekiz adım %73,59. İki kol Rotation’da kazanıp kalan 14 satırın her birinde düştü; genel baseline korundu. [Bozulma tablosu, hız, belirsizlik ve arşiv](cloudfixer_pca_all15_20261123.md#all-15-pilot-sonucu).
+
 **[Run/Decision] 2026-11-23 — Denoiser çıktısında PCA ve SCD rotasyonu.** Eşlenmiş 128 nesne × 3 seed üzerinde tek t50 ve sekiz adımlı PCA, Rotation PM doğruluğunu +11,20 ve +12,50 puan artırdı. Clean kayıpları −4,17 ve −4,43 puan. Kademeli SCD −6,25 Rotation puanı ve +%15,4 Rotation p95 verdi. Kayıtlı tüm15 genişletme koşulları geçilmedi. [Deney, arşiv ve karar](cloudfixer_rotation_feedback_20261123.md#odak-pilotu-sonucu).
 
 **[Run/Complete] 2026-11-22 23:13 UTC — OriginalCF, üç alternatif head, tam ModelNet40-C all15.**

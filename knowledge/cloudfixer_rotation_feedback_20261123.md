@@ -41,3 +41,5 @@
 [Artifact] Bilimsel kaynak 7304679, kampanya a62d2f77d4d0cbb1b01c5f37e189e929ee7524f6d1c59d47b906e62c3fc78667. Yerel result/modelnet40_c/rotation_feedback_20261123/20261123-070327_feedback_focus.zip, SHA-256 f17ea646443b883f68f6744d2149e78a9b120f38c3887eac026f64403ccc501a. Kısa kontrol ve odak arşivleri Drive'da MyDrive/thesis/rotation_feedback_20261123/archives altında. Bütün 192 odak ve iki kısa kontrol bloğunun yerel ayna içeriği ve SHA'ları nihai arşivlerle eşleşti. Son karar 07:20:43 UTC, tahsis talebinden bilimsel bitişe ~85 dakika, 8,88 CU/saat ile tahmini 12,57 CU. Tahsis açık kaldığı sürece faturalama sürebilir.
 
 [Artifact] Her iki ZIP, Colab CLI ile ayrıca doğrudan bağlı Drive klasöründen yeniden indirildi. İki kopya da VM'den alınan özgün yerel arşivle bayt bayt aynı. Yerel doğrulama kopyaları result/preparation/rotation_feedback_20261123/drive_readback altında.
+
+[Run, takip] Kullanıcı daha sonra ayrı bir all-15 pilotu istedi. İlk çalışmanın temiz doğruluk kapısı korunarak, ayrılmış 128 yeni nesnede sonuç ayrıca ölçüldü. [All-15 tablosu ve karar](cloudfixer_pca_all15_20261123.md#all-15-pilot-sonucu).
