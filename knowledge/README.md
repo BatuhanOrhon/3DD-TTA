@@ -13,7 +13,7 @@ yalnızownedr25stop12:28UTC doğrulandı. Poststop envanteri0oturum/0CUh.
 [Yürütme/kurtarma](cloudfixer_baseline_multibackbone_20261123.md).
 Aşağıdaki eski running/no-result ifadeleri tarihseldir; bu görev tamamlandı.
 
-**[Run/Decision] 2026-11-23 — Yüzey normaliyle onaylanan tek t50 PCA.** Arşiv tekrarında Rotation %42,19→%62,50, all-15 %75,73→%77,24. Diğer 14 satırdan 12’si korundu, ikisi yükseldi. Ayrı clean paneli %92,97. Yeni A100 gecikmesi ve ayrı nesnelerde doğrulama bekleniyor. [Kural, kontroller ve karar](cloudfixer_selective_rotation_20261123.md).
+**[Run/Decision] 2026-11-23 — Yüzey normaliyle onaylanan tek t50 PCA.** Arşiv tekrarında Rotation %42,19→%62,50, all-15 %75,73→%77,24. Diğer 14 satırdan 12’si korundu, ikisi yükseldi. Ayrı clean paneli %92,97. Yeni A100 gecikmesi ve ayrı nesnelerde doğrulama bekleniyor. [Kural, kontroller ve karar](cloudfixer_selective_rotation_20261123.md). [Geometrik ilham kaynağı, Straub vd. CVPR 2014](papers/straub2014_manhattan_frames.md).
 
 **[Run/Decision] 2026-11-23 — Ayrık all-15 PCA pilotu.** 128 nesne × 15 bozulma, seed 0. Baseline PM %75,73, PCA t50 %73,44, sekiz adım %73,59. İki kol Rotation’da kazanıp kalan 14 satırın her birinde düştü; genel baseline korundu. [Bozulma tablosu, hız, belirsizlik ve arşiv](cloudfixer_pca_all15_20261123.md#all-15-pilot-sonucu).
 
