@@ -247,3 +247,15 @@ def test_output_feedback_eligibility_and_reserved_ids():
     conditions, ids, seeds, arms = phase_scope('feedback_other', {}, {'eligible':['pose_pca_t50']})
     assert len(conditions) == 15 and seeds == [0] and list(arms) == ['identity','pose_pca_t50']
     assert len(set(ids + OUTPUT_REGISTRY['ids'] + OUTPUT_REGISTRY['smoke_ids'])) == 257
+
+
+def test_separate_all15_request_keeps_original_expansion_gate_and_uses_reserved_panel():
+    from scripts.run_cloudfixer_rotation import CONDITIONS, OUTPUT_REGISTRY, phase_scope
+
+    conditions, ids, seeds, arms = phase_scope('feedback_all15', {}, {})
+    assert set(conditions) == set(CONDITIONS) - {'clean'} and len(conditions) == 15
+    assert len(set(ids)) == 128 and ids == OUTPUT_REGISTRY['other_ids'] and seeds == [0]
+    assert list(arms) == ['identity', 'pose_pca_t50', 'pose_pca_all']
+    smoke = phase_scope('feedback_all15_smoke', {}, {})
+    assert smoke == (('rotation', 'clean'), OUTPUT_REGISTRY['smoke_ids'], [0], arms)
+    assert not set(smoke[1]) & set(ids)

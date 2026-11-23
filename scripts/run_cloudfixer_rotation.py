@@ -36,7 +36,7 @@ SCD_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_scd_rotation_pilot.json').rea
 BG_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_pilot.json').read_text())
 FOLLOW_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_followup.json').read_text())
 OUTPUT_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_output_rotation.json').read_text())
-OUTPUT_PHASES = ('feedback_smoke', 'feedback_focus', 'feedback_other')
+OUTPUT_PHASES = ('feedback_smoke', 'feedback_focus', 'feedback_other', 'feedback_all15_smoke', 'feedback_all15')
 FOLLOW_PHASES = ('background_follow_smoke', 'background_follow_focus', 'background_follow_scd', 'background_follow_other')
 CONDITIONS = ('clean', *sorted(CORRUPTIONS))
 DEV_CONDITIONS = ('clean', 'rotation', 'background')
@@ -216,6 +216,11 @@ def search_lock(rows):
 
 
 def phase_scope(phase, freeze, decision):
+    if phase in ('feedback_all15_smoke', 'feedback_all15'):
+        arms = dict.fromkeys(('identity', 'pose_pca_t50', 'pose_pca_all'), {})
+        if phase == 'feedback_all15_smoke':
+            return ('rotation', 'clean'), OUTPUT_REGISTRY['smoke_ids'], [0], arms
+        return tuple(c for c in CONDITIONS if c != 'clean'), OUTPUT_REGISTRY['other_ids'], [0], arms
     if phase in OUTPUT_PHASES:
         conditions, seeds = ('rotation', 'clean'), OUTPUT_REGISTRY['seeds']
         arms = ('identity', *OUTPUT_ARMS)
@@ -356,7 +361,7 @@ def evaluate(args, spec, store, budget):
     (args.output / 'environment.txt').write_text(json.dumps(environment, indent=2) + '\n')
     store.put('execution.json', canonical(dict(spec=spec, registry=REGISTRY)))
     bg = args.phase.startswith('background') or args.phase in OUTPUT_PHASES
-    is_smoke = args.phase in ('feedback_smoke', 'background_follow_smoke', 'background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
+    is_smoke = args.phase in ('feedback_all15_smoke', 'feedback_smoke', 'background_follow_smoke', 'background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
     smoke_key = f'smoke_{signature}.json' if bg else 'smoke_ready.json'
     if not is_smoke and json.loads(store.get(smoke_key))['runtime'] != signature:
         raise ValueError('Smoke verification does not match the live environment')
@@ -542,7 +547,9 @@ def main():
     path = args.output / 'config.json'
     path.write_bytes(canonical(dict(run_id=args.output.name, phase=args.phase, spec=spec, execution_status='running')))
     store = MountStore(args.drive_folder)
-    if args.phase in OUTPUT_PHASES:
+    if args.phase.startswith('feedback_all15'):
+        scope, cap = 'feedback', 4*3600
+    elif args.phase in OUTPUT_PHASES:
         scope, cap = 'feedback', OUTPUT_REGISTRY['budget_seconds']
     elif args.phase.startswith('background'):
         scope, cap = 'background', (FOLLOW_REGISTRY if args.phase in FOLLOW_PHASES else BG_REGISTRY)['budget_seconds']

@@ -102,11 +102,16 @@ def sync_run(session, phase, folder, run_name, output):
 def run(args):
     feedback = args.phase.startswith('feedback_')
     session_prefix = 'tta-rotation-feedback-a100-20261123' if feedback else 'tta-cloudfixer-background-a100-20261122'
+    all15 = args.phase.startswith('feedback_all15')
+    if all15:
+        session_prefix = 'tta-pca-all15-a100-20261123'
     if not re.fullmatch(session_prefix + r'-r[0-9]+', args.session):
         raise ValueError('Expected an explicitly owned Background assignment')
     folder = 'rotation_feedback_20261123' if feedback else FOLLOW_FOLDER if args.phase in FOLLOW_PHASES else FOLDER
+    if all15:
+        folder = 'pca_all15_20261123'
     remote_root = '/content/' + folder
-    deployment = args.phase in ('background_deploy', 'background_follow_deploy', 'feedback_deploy')
+    deployment = args.phase in ('background_deploy', 'background_follow_deploy', 'feedback_deploy', 'feedback_all15_deploy')
     output = (args.output or ROOT/'result/modelnet40_c'/folder).resolve()
     output.mkdir(exist_ok=True, parents=True)
     log_dir = output/'logs'
@@ -138,7 +143,7 @@ for name in ('official.tar','research.zip','receipt.json'):
 """
     else:
         code = ''
-    if args.phase in ('restore', 'background_follow_restore', 'feedback_restore'):
+    if args.phase in ('restore', 'background_follow_restore', 'feedback_restore', 'feedback_all15_restore'):
         mirrors = sorted(host_mirrors.glob('*.zip'))
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp)/'host.zip'
@@ -207,7 +212,8 @@ print('BACKGROUND_HOST_RESTORE_DONE', flush=True)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=['background_deploy', 'restore', 'background_smoke',
-                                          'background_pm', 'background_dev', 'background', *FOLLOW_PHASES, 'feedback_deploy', 'feedback_restore', 'feedback_smoke', 'feedback_focus', 'feedback_other'])
+                                          'background_pm', 'background_dev', 'background', *FOLLOW_PHASES, 'feedback_deploy', 'feedback_restore', 'feedback_smoke', 'feedback_focus', 'feedback_other',
+                                          'feedback_all15_deploy', 'feedback_all15_restore', 'feedback_all15_smoke', 'feedback_all15'])
     parser.add_argument('--session', required=True)
     parser.add_argument('--epoch', type=float)
     parser.add_argument('--recover-run', help='Refresh host mirrors and any completed archive without executing a cell')

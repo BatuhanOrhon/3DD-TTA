@@ -46,7 +46,7 @@ def import_mirror(root, path):
 
     with zipfile.ZipFile(path) as bundle:
         for member in bundle.infolist():
-            match = re.fullmatch(r'(background(?:_dev|_smoke|_pm|_follow_(?:smoke|focus|scd|other))?|feedback_(?:smoke|focus|other))_([0-9a-f]{16})/(unit_[0-9a-f]{64}\.zip)', member.filename)
+            match = re.fullmatch(r'(background(?:_dev|_smoke|_pm|_follow_(?:smoke|focus|scd|other))?|feedback_(?:smoke|focus|other|all15(?:_smoke)?))_([0-9a-f]{16})/(unit_[0-9a-f]{64}\.zip)', member.filename)
             if not match or member.file_size > 8_000_000:
                 raise ValueError('Unexpected mirror member')
             folder, name = member.filename.split('/')
