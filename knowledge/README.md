@@ -1,3 +1,5 @@
+**[Run/Decision] 2026-11-23 — Yüzey normaliyle onaylanan tek t50 PCA.** Arşiv tekrarında Rotation %42,19→%62,50, all-15 %75,73→%77,24. Diğer 14 satırdan 12’si korundu, ikisi yükseldi. Ayrı clean paneli %92,97. Yeni A100 gecikmesi ve ayrı nesnelerde doğrulama bekleniyor. [Kural, kontroller ve karar](cloudfixer_selective_rotation_20261123.md).
+
 **[Run/Decision] 2026-11-23 — Ayrık all-15 PCA pilotu.** 128 nesne × 15 bozulma, seed 0. Baseline PM %75,73, PCA t50 %73,44, sekiz adım %73,59. İki kol Rotation’da kazanıp kalan 14 satırın her birinde düştü; genel baseline korundu. [Bozulma tablosu, hız, belirsizlik ve arşiv](cloudfixer_pca_all15_20261123.md#all-15-pilot-sonucu).
 
 **[Run/Decision] 2026-11-23 — Denoiser çıktısında PCA ve SCD rotasyonu.** Eşlenmiş 128 nesne × 3 seed üzerinde tek t50 ve sekiz adımlı PCA, Rotation PM doğruluğunu +11,20 ve +12,50 puan artırdı. Clean kayıpları −4,17 ve −4,43 puan. Kademeli SCD −6,25 Rotation puanı ve +%15,4 Rotation p95 verdi. Kayıtlı tüm15 genişletme koşulları geçilmedi. [Deney, arşiv ve karar](cloudfixer_rotation_feedback_20261123.md#odak-pilotu-sonucu).

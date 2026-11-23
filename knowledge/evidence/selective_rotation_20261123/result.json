@@ -1,0 +1,1197 @@
+{
+  "all15": {
+    "archive_sha256": "a2cf85604c94477ec3671958bc0ba534bbac4a2256714ca3a1785a818638e153",
+    "table": {
+      "background": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 89,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 23,
+          "correct": 82,
+          "repairs": 0,
+          "harms": 7,
+          "delta_pp": -5.46875,
+          "nominal_ci_pp": [
+            -9.375,
+            -2.3438
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 89,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 89,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 89,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "cutout": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 112,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 45,
+          "correct": 105,
+          "repairs": 1,
+          "harms": 8,
+          "delta_pp": -5.46875,
+          "nominal_ci_pp": [
+            -10.1562,
+            -1.5625
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 112,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 112,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 112,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "density": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 103,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 51,
+          "correct": 94,
+          "repairs": 0,
+          "harms": 9,
+          "delta_pp": -7.03125,
+          "nominal_ci_pp": [
+            -11.7188,
+            -3.125
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 103,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 103,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 103,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "density_inc": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 115,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 43,
+          "correct": 109,
+          "repairs": 0,
+          "harms": 6,
+          "delta_pp": -4.6875,
+          "nominal_ci_pp": [
+            -8.5938,
+            -1.5625
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 115,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 115,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 115,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "distortion": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 103,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 64,
+          "correct": 96,
+          "repairs": 2,
+          "harms": 9,
+          "delta_pp": -5.46875,
+          "nominal_ci_pp": [
+            -10.9375,
+            -0.7812
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 5,
+          "correct": 104,
+          "repairs": 1,
+          "harms": 0,
+          "delta_pp": 0.78125,
+          "nominal_ci_pp": [
+            0.0,
+            2.3438
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 103,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 2,
+          "correct": 103,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "distortion_rbf": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 104,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 47,
+          "correct": 100,
+          "repairs": 2,
+          "harms": 6,
+          "delta_pp": -3.125,
+          "nominal_ci_pp": [
+            -7.8125,
+            0.7812
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 104,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 104,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 104,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "distortion_rbf_inv": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 110,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 43,
+          "correct": 107,
+          "repairs": 1,
+          "harms": 4,
+          "delta_pp": -2.34375,
+          "nominal_ci_pp": [
+            -6.25,
+            0.7812
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 110,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 110,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 110,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "gaussian": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 14,
+          "correct": 115,
+          "repairs": 0,
+          "harms": 2,
+          "delta_pp": -1.5625,
+          "nominal_ci_pp": [
+            -3.9062,
+            0.0
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "impulse": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 119,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 16,
+          "correct": 116,
+          "repairs": 0,
+          "harms": 3,
+          "delta_pp": -2.34375,
+          "nominal_ci_pp": [
+            -5.4688,
+            0.0
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 119,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 119,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 119,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "lidar": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 46,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 48,
+          "correct": 42,
+          "repairs": 1,
+          "harms": 5,
+          "delta_pp": -3.125,
+          "nominal_ci_pp": [
+            -7.0312,
+            0.0
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 3,
+          "correct": 46,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 46,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 2,
+          "correct": 45,
+          "repairs": 0,
+          "harms": 1,
+          "delta_pp": -0.78125,
+          "nominal_ci_pp": [
+            -2.3438,
+            0.0
+          ]
+        }
+      },
+      "occlusion": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 47,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 47,
+          "correct": 41,
+          "repairs": 1,
+          "harms": 7,
+          "delta_pp": -4.6875,
+          "nominal_ci_pp": [
+            -9.375,
+            -0.7812
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 3,
+          "correct": 47,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 47,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 47,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "rotation": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 54,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 56,
+          "correct": 80,
+          "repairs": 26,
+          "harms": 0,
+          "delta_pp": 20.3125,
+          "nominal_ci_pp": [
+            13.2812,
+            27.3438
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 51,
+          "correct": 80,
+          "repairs": 26,
+          "harms": 0,
+          "delta_pp": 20.3125,
+          "nominal_ci_pp": [
+            13.2812,
+            27.3438
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 13,
+          "correct": 62,
+          "repairs": 8,
+          "harms": 0,
+          "delta_pp": 6.25,
+          "nominal_ci_pp": [
+            2.3438,
+            10.9375
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 46,
+          "correct": 76,
+          "repairs": 22,
+          "harms": 0,
+          "delta_pp": 17.1875,
+          "nominal_ci_pp": [
+            10.9375,
+            23.457
+          ]
+        }
+      },
+      "shear": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 100,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 58,
+          "correct": 95,
+          "repairs": 3,
+          "harms": 8,
+          "delta_pp": -3.90625,
+          "nominal_ci_pp": [
+            -9.375,
+            0.7812
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 11,
+          "correct": 102,
+          "repairs": 3,
+          "harms": 1,
+          "delta_pp": 1.5625,
+          "nominal_ci_pp": [
+            -1.5625,
+            4.6875
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 100,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 11,
+          "correct": 100,
+          "repairs": 2,
+          "harms": 2,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            -3.125,
+            3.125
+          ]
+        }
+      },
+      "uniform": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 118,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 20,
+          "correct": 113,
+          "repairs": 0,
+          "harms": 5,
+          "delta_pp": -3.90625,
+          "nominal_ci_pp": [
+            -7.8125,
+            -0.7812
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 118,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 118,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 118,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "upsampling": {
+        "identity": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 128,
+          "accepted": 21,
+          "correct": 115,
+          "repairs": 1,
+          "harms": 3,
+          "delta_pp": -1.5625,
+          "nominal_ci_pp": [
+            -4.6875,
+            1.5625
+          ]
+        },
+        "normals": {
+          "n": 128,
+          "accepted": 1,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 128,
+          "accepted": 0,
+          "correct": 117,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "other14": {
+        "identity": {
+          "n": 1792,
+          "accepted": 0,
+          "correct": 1400,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 1792,
+          "accepted": 540,
+          "correct": 1330,
+          "repairs": 12,
+          "harms": 82,
+          "delta_pp": -3.90625,
+          "nominal_ci_pp": [
+            -5.9152,
+            -2.1763
+          ]
+        },
+        "normals": {
+          "n": 1792,
+          "accepted": 28,
+          "correct": 1403,
+          "repairs": 4,
+          "harms": 1,
+          "delta_pp": 0.167411,
+          "nominal_ci_pp": [
+            -0.0558,
+            0.5022
+          ]
+        },
+        "two_planes": {
+          "n": 1792,
+          "accepted": 2,
+          "correct": 1400,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 1792,
+          "accepted": 15,
+          "correct": 1399,
+          "repairs": 2,
+          "harms": 3,
+          "delta_pp": -0.055804,
+          "nominal_ci_pp": [
+            -0.279,
+            0.1674
+          ]
+        }
+      },
+      "all15": {
+        "identity": {
+          "n": 1920,
+          "accepted": 0,
+          "correct": 1454,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 1920,
+          "accepted": 596,
+          "correct": 1410,
+          "repairs": 38,
+          "harms": 82,
+          "delta_pp": -2.291667,
+          "nominal_ci_pp": [
+            -4.2188,
+            -0.625
+          ]
+        },
+        "normals": {
+          "n": 1920,
+          "accepted": 79,
+          "correct": 1483,
+          "repairs": 30,
+          "harms": 1,
+          "delta_pp": 1.510417,
+          "nominal_ci_pp": [
+            0.9896,
+            2.0833
+          ]
+        },
+        "two_planes": {
+          "n": 1920,
+          "accepted": 15,
+          "correct": 1462,
+          "repairs": 8,
+          "harms": 0,
+          "delta_pp": 0.416667,
+          "nominal_ci_pp": [
+            0.1562,
+            0.7292
+          ]
+        },
+        "generator": {
+          "n": 1920,
+          "accepted": 61,
+          "correct": 1475,
+          "repairs": 24,
+          "harms": 3,
+          "delta_pp": 1.09375,
+          "nominal_ci_pp": [
+            0.625,
+            1.6146
+          ]
+        }
+      }
+    },
+    "overlap": {
+      "objects_harmed_other14": 40,
+      "harms_on_top_five": 33,
+      "harms_on_top_ten": 46,
+      "rotation_repairs_with_other_harm": 13
+    }
+  },
+  "focus": {
+    "archive_sha256": "f17ea646443b883f68f6744d2149e78a9b120f38c3887eac026f64403ccc501a",
+    "table": {
+      "rotation": {
+        "identity": {
+          "n": 384,
+          "accepted": 0,
+          "correct": 208,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 384,
+          "accepted": 149,
+          "correct": 251,
+          "repairs": 45,
+          "harms": 2,
+          "delta_pp": 11.197917,
+          "nominal_ci_pp": [
+            6.5104,
+            16.6667
+          ]
+        },
+        "normals": {
+          "n": 384,
+          "accepted": 134,
+          "correct": 248,
+          "repairs": 42,
+          "harms": 2,
+          "delta_pp": 10.416667,
+          "nominal_ci_pp": [
+            5.7292,
+            15.625
+          ]
+        },
+        "two_planes": {
+          "n": 384,
+          "accepted": 28,
+          "correct": 222,
+          "repairs": 14,
+          "harms": 0,
+          "delta_pp": 3.645833,
+          "nominal_ci_pp": [
+            1.0417,
+            7.0312
+          ]
+        },
+        "generator": {
+          "n": 384,
+          "accepted": 97,
+          "correct": 237,
+          "repairs": 31,
+          "harms": 2,
+          "delta_pp": 7.552083,
+          "nominal_ci_pp": [
+            3.6458,
+            12.2396
+          ]
+        }
+      },
+      "clean": {
+        "identity": {
+          "n": 384,
+          "accepted": 0,
+          "correct": 357,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "pca": {
+          "n": 384,
+          "accepted": 89,
+          "correct": 341,
+          "repairs": 0,
+          "harms": 16,
+          "delta_pp": -4.166667,
+          "nominal_ci_pp": [
+            -7.5521,
+            -1.5625
+          ]
+        },
+        "normals": {
+          "n": 384,
+          "accepted": 0,
+          "correct": 357,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "two_planes": {
+          "n": 384,
+          "accepted": 0,
+          "correct": 357,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "generator": {
+          "n": 384,
+          "accepted": 0,
+          "correct": 357,
+          "repairs": 0,
+          "harms": 0,
+          "delta_pp": 0.0,
+          "nominal_ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "overlap": {}
+  }
+}

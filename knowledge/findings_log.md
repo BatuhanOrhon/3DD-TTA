@@ -9776,3 +9776,7 @@ ScanObjectNNbenchmarks remain futurework; noPM-only claim or fulltest tuning.
 [User report/Code, 2026-11-23] Separate all15 PCA pilot requested after the focus clean gate failed. Frozen 128 reserved objects, seed 0, two original PCA policies and identity, 15 corrupted conditions. [Execution and evidence](cloudfixer_pca_all15_20261123.md).
 
 [Run/Decision, 2026-11-23] All-15 completed on the 128 reserved IDs with subject-paired seed 0 data, frozen Point2Vec. PM correct counts per 1,920 were 1,454 baseline, 1,410 single-t50 PCA and 1,413 eight-step PCA. Rotation gained 26 and 25 net correct; every other corruption lost accuracy with both arms. Actual pooled p95 increases were 0.67% and 2.82%. Baseline kept. [Complete table, intervals, threshold replay and verified archive](cloudfixer_pca_all15_20261123.md#all-15-pilot-sonucu).
+
+## 2026-11-23 — Yüzey onaylı t50 PCA
+
+[Run/Code/Inference] T50 PCA’yı sadece gözlenen yüzey normalleri her iki sabit yarıda da eksen uyumunu artırdığında uygula. Arşivde 128×15 seed0 diğer14 +4 düzeltme/1 kayıp, Rotation +26/0; ayrı 128×3 temiz panelinde 0 müdahale. CPU mikro ölçümü ve üç kilitli kontrol kaydedildi. Genel baseline sürüyor. [Tekrar sayım, kanıt ve yeni ölçütler](cloudfixer_selective_rotation_20261123.md).
