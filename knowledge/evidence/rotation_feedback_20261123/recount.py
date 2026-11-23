@@ -88,6 +88,29 @@ def recount(path):
                                         if effect else None))
         result=dict(run=run, archive_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),blocks=config['blocks'],
                     objects=len(ids),events=len(rows),method_events=len(rows)*len(arms),table=table)
+        if config['phase'] == 'feedback_focus':
+            comparison = {}
+            for cond in conditions:
+                kept = correct = repairs = harms = identical = 0
+                for ident, seed in itertools.product(ids, seeds):
+                    r = rows[ident, cond, seed]
+                    base = r['arms']['identity']
+                    pca = r['arms']['pose_pca_t50']
+                    update, = pca['diagnostics']['updates']
+                    if update['reason'] != 'accepted':
+                        assert base['logits'] == pca['logits']
+                        identical += 1
+                    apply = update['applied_degrees'] >= 15
+                    choice = pca if apply else base
+                    right = choice['prediction'] == r['label']
+                    base_right = base['prediction'] == r['label']
+                    kept += int(apply)
+                    correct += int(right)
+                    repairs += int(right and not base_right)
+                    harms += int(base_right and not right)
+                comparison[cond] = dict(accepted=kept, correct=correct, repairs=repairs, harms=harms,
+                                        original_noop_logits_verified=identical)
+            result['exploratory_t50_minimum_15_degrees'] = comparison
         for key in ('decision','synthetic'):
             name=run+'_derived/'+key+'.json'
             if name in archive.namelist():

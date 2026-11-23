@@ -1,3 +1,5 @@
+**[Run/Decision] 2026-11-23 — Denoiser çıktısında PCA ve SCD rotasyonu.** Eşlenmiş 128 nesne × 3 seed üzerinde tek t50 ve sekiz adımlı PCA, Rotation PM doğruluğunu +11,20 ve +12,50 puan artırdı. Clean kayıpları −4,17 ve −4,43 puan. Kademeli SCD −6,25 Rotation puanı ve +%15,4 Rotation p95 verdi. Kayıtlı tüm15 genişletme koşulları geçilmedi. [Deney, arşiv ve karar](cloudfixer_rotation_feedback_20261123.md#odak-pilotu-sonucu).
+
 **[Run/Complete] 2026-11-22 23:13 UTC — OriginalCF, üç alternatif head, tam ModelNet40-C all15.**
 DGCNN/CurveNet/PointNeXt CF%71.277688/%75.931929/%75.018909; eskiLIONN8PM'e
 +7.336575/+10.253917/+4.392220pp. All2468×15/s5/seed0/B64,585blok/135satır

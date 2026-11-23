@@ -3207,3 +3207,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
   Scan GPU evaluation is outside this completed ModelNet phase.
 
 [Open, 2026-11-23] The paired denoiser-output SCD and PCA comparison is registered. Does the t50 or persistent update satisfy Rotation, clean, and B1 timing gates on 128 previously unused pilot IDs? [Registered study](cloudfixer_rotation_feedback_20261123.md).
+
+[Run/Decision, 2026-11-23] The registered output-rotation pilot is complete. Both PCA placements pass Rotation and speed and miss clean preservation. Direct output-SCD gives no PM benefit. [Results](cloudfixer_rotation_feedback_20261123.md#odak-pilotu-sonucu). On new IDs, can a second geometric check reject clean false rotations after a single t50 proposal while retaining its Rotation gain and p95 budget?
