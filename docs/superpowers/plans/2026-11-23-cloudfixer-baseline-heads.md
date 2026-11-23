@@ -51,7 +51,7 @@
 - [x] Prepare exact source/asset manifest and immutable Drive/host output; technical smoke and fresh-process recovery replay, B64 Gaussian and max-point capacity; record measured whole-phase ETA/shared balance and enforce independent wall/CU stop limits.
 - [x] Run all15 once, save every batch/corruption, download completed ZIPs and independently recount. Do not restart while active state is unknown.
 - [x] Compare PM vs true N8 terminal and both vs saved originalCF; all15/eachhead/corruption tables, corrected/broken counts and one-seed limitations.
-- [ ] Archive exact source/log/config/environment/arrays, Drive upload→freshhost SHA/CRC and official cloudflush; update knowledge and curate necessary reviewed changes to latest thesis-integration preserving peers. User's standing instruction authorizes close after completed work; record explicit scope before teardown.
+- [x] Archive exact source/log/config/environment/arrays, Drive upload→freshhost SHA/CRC and official cloudflush; update knowledge and curate necessary reviewed changes to latest thesis-integration preserving peers. User's standing instruction authorizes close after completed work; record explicit scope before teardown.
 
 ### User steering — measured memory/throughput batch selection
 

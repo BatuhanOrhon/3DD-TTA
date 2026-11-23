@@ -6,7 +6,7 @@
 - [x] 2468×15/s5/seed0,390blok,15ham ZIP; actual workerexit0 ve iki bağımsız ham sayım geçti.
 - [x] PM–terminal ve PM/terminal–CF object-ID paired sayıları; 45corruption/model accuracy ve ayrıntılı bulgular kaydedildi.
 - [x] Son406.9MB raw/source bundle Drive→freshhost SHA/CRC/141safeüyekontrolü geçti.
-- [ ] Seçili knowledge/code publication, knowledge/sourcepacket yedeği ve officialflush/ownedr25 kapatma.
+- [x] Code/knowledge primary7b438d9 publication, packetDrivefreshproof, officialcloudflush ve yalnızownedr25stop; poststop0CUh/0assignment.
 - [ ] Bağımsız seed tekrarı ve üç head'de PM etkisinin belirsizlik aralıkları ölçülmedi; yeni GPU görevi olarak başlatılmadı.
 - [ ] Gelecek pose/background müdahalesini ayrı geliştirme nesnelerinde kilitle; source-only zararını ve diğer13 sonucu korumayı ölç.
 

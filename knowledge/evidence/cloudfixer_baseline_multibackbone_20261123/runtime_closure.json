@@ -1,0 +1,141 @@
+{
+  "recorded_utc": "2026-11-23T12:33:26.228771+00:00",
+  "status": "complete_owned_runtime_closed",
+  "primary_integration_commit": "7b438d9b3faefa08662130494f661525155f8eea",
+  "actual_GPU_source": "a979bcec11c24963ff31f0574d66decb85d680d3",
+  "raw_archive": {
+    "bytes": 406927870,
+    "name": "final_20261123T112717Z.zip",
+    "sha256": "c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265"
+  },
+  "publication_packet": {
+    "utc": "2026-11-23T12:19:16.128339+00:00",
+    "status": "publication_packet_Drive_to_fresh_host_SHA_CRC_safe_members_passed",
+    "integration_commit": "7b438d9b3faefa08662130494f661525155f8eea",
+    "archive": {
+      "name": "knowledge_source_publication_20261123T121611Z.zip",
+      "bytes": 757552,
+      "sha256": "7f95c4d776018ace4c4b1356644adbd5e1b3065e4065c297eadc4432c4c86fd3"
+    },
+    "receipt": {
+      "name": "knowledge_source_publication_20261123T121611Z.receipt.json",
+      "bytes": 839,
+      "sha256": "5032fd1b72e4351d13001465100716c121100145dcf81058be14961ae64f6c94"
+    },
+    "members": 207,
+    "actual_publisher_exit": 0,
+    "fresh_download": true,
+    "sha256_verified": true,
+    "crc_verified": true,
+    "safe_members_verified": true,
+    "cloud_flush": "pending"
+  },
+  "official_flush": {
+    "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+    "drive_unmounted": true,
+    "ended_utc": "2026-11-23T12:27:19.622918+00:00",
+    "endpoint": "gpu-a100-s-ass1c0-2al4sshtzsyaj",
+    "full_corruptions": 15,
+    "gate": {
+      "bytes": 1362,
+      "name": "final_close_gate.json",
+      "sha256": "f4cee85d27190bf6ec01ae089e9d96cdf297f641558de9cb7349af74fac6b68e"
+    },
+    "integration_commit": "7b438d9b3faefa08662130494f661525155f8eea",
+    "official_function_source_sha256": "3bce624dc76a5b1f3c59690368d1d47c2a41e023023ad7fa07149b3ecf18433b",
+    "official_module": "google.colab.drive",
+    "official_module_file": "/usr/local/lib/python3.13/dist-packages/google/colab/drive.py",
+    "official_module_source_sha256": "20e4d2b5a2231bb101d9cd94626c579f8e8216104e694f37fdeea056ac5d77c4",
+    "packet_archive": {
+      "bytes": 757552,
+      "name": "knowledge_source_publication_20261123T121611Z.zip",
+      "sha256": "7f95c4d776018ace4c4b1356644adbd5e1b3065e4065c297eadc4432c4c86fd3"
+    },
+    "raw_archive": {
+      "bytes": 406927870,
+      "name": "final_20261123T112717Z.zip",
+      "sha256": "c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265"
+    },
+    "return_type": "NoneType",
+    "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+    "started_utc": "2026-11-23T12:27:17.959406+00:00",
+    "status": "cloud_flush_passed",
+    "teardown_authorization": "user_authorized_close_owned_r25_after_results_and_knowledge_complete",
+    "timeout_ms": 120000
+  },
+  "flush_execution_recovery": {
+    "initial_kernel_cli": {
+      "returncode": null,
+      "status": "local_CLI_timeout_actual_remote_flush_must_be_inspected",
+      "stdout": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n",
+      "stderr": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Traceback (most recent call last) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 /Users/batuhan/.local/share/uv/tools/google-colab-cli/lib/python3.13/site-pa \u2502\n\u2502 ckages/colab_cli/commands/execution.py:227 in exec_command                   \u2502\n\u2502                                                                              \u2502\n\u2502   224 \u2502   \u2502   \u2502   )                                                          \u2502\n\u2502   225 \u2502   \u2502   \u2502   state.prune_session(name)                                  \u2502\n\u2502   226 \u2502   \u2502   \u2502   raise typer.Exit(1)                                        \u2502\n\u2502 \u2771 227 \u2502   \u2502   raise e                                                        \u2502\n\u2502   228 \u2502                                                                      \u2502\n\u2502   229 \u2502   try:                                                               \u2502\n\u2502   230 \u2502   \u2502   is_nb = file and file.endswith(\".ipynb\")                       \u2502\n\u2502                                                                              \u2502\n\u2502 /Users/batuhan/.local/share/uv/tools/google-colab-cli/lib/python3.13/site-pa \u2502\n\u2502 ckages/colab_cli/commands/execution.py:217 in exec_command                   \u2502\n\u2502                                                                              \u2502\n\u2502   214 \u2502   )                                                                  \u2502\n\u2502   215 \u2502   try:                                                               \u2502\n\u2502   216 \u2502   \u2502   # Ensure we are in /content which is the standard Colab        \u2502\n\u2502       working directory                                                      \u2502\n\u2502 \u2771 217 \u2502   \u2502   runtime.execute_code(                                          \u2502\n\u2502   218 \u2502   \u2502   \u2502   \"import os; os.makedirs('/content', exist_ok=True);        \u2502\n\u2502       os.chdir('/content')\"                                                  \u2502\n\u2502   219 \u2502   \u2502   )                                                              \u2502\n\u2502   220 \u2502   except Exception as e:                                             \u2502\n\u2502                                                                              \u2502\n\u2502 /Users/batuhan/.local/share/uv/tools/google-colab-cli/lib/python3.13/site-pa \u2502\n\u2502 ckages/colab_cli/runtime.py:243 in execute_code                              \u2502\n\u2502                                                                              \u2502\n\u2502   240 \u2502   \u2502   \u2502   # execute_interactive returns the raw reply message        \u2502\n\u2502   241 \u2502   \u2502   \u2502   reply_content = reply[\"content\"] if reply else {\"status\":  \u2502\n\u2502       \"error\"}                                                               \u2502\n\u2502   242 \u2502   \u2502   else:                                                          \u2502\n\u2502 \u2771 243 \u2502   \u2502   \u2502   reply = self.kernel_client.execute(code, **kwargs)         \u2502\n\u2502   244 \u2502   \u2502   \u2502   if not reply:                                              \u2502\n\u2502   245 \u2502   \u2502   \u2502   \u2502   return []                                              \u2502\n\u2502   246 \u2502   \u2502   \u2502   outputs = reply.get(\"outputs\", [])                         \u2502\n\u2502                                                                              \u2502\n\u2502 /Users/batuhan/.local/share/uv/tools/google-colab-cli/lib/python3.13/site-pa \u2502\n\u2502 ckages/jupyter_kernel_client/client.py:287 in execute                        \u2502\n\u2502                                                                              \u2502\n\u2502   284 \u2502   \u2502   \"\"\"                                                            \u2502\n\u2502   285 \u2502   \u2502   outputs = []                                                   \u2502\n\u2502   286 \u2502   \u2502   self._set_variables(variables)                                 \u2502\n\u2502 \u2771 287 \u2502   \u2502   reply = self._manager.client.execute_interactive(              \u2502\n\u2502   288 \u2502   \u2502   \u2502   code,                                                      \u2502\n\u2502   289 \u2502   \u2502   \u2502   silent=silent,                                             \u2502\n\u2502   290 \u2502   \u2502   \u2502   store_history=store_history,                               \u2502\n\u2502                                                                              \u2502\n\u2502 /Users/batuhan/.local/share/uv/tools/google-colab-cli/lib/python3.13/site-pa \u2502\n\u2502 ckages/jupyter_kernel_client/wsclient.py:1073 in execute_interactive         \u2502\n\u2502                                                                              \u2502\n\u2502   1070 \u2502   \u2502   \u2502   # wait for output and redisplay it                        \u2502\n\u2502   1071 \u2502   \u2502   \u2502   while True:                                               \u2502\n\u2502   1072 \u2502   \u2502   \u2502   \u2502   if not self.connection_ready.is_set():                \u2502\n\u2502 \u2771 1073 \u2502   \u2502   \u2502   \u2502   \u2502   raise RuntimeError(\"Connection was lost.\")        \u2502\n\u2502   1074 \u2502   \u2502   \u2502   \u2502                                                         \u2502\n\u2502   1075 \u2502   \u2502   \u2502   \u2502   if timeout is not None:                               \u2502\n\u2502   1076 \u2502   \u2502   \u2502   \u2502   \u2502   timeout = max(0, deadline - time.monotonic())     \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\nRuntimeError: Connection was lost.\n",
+      "command": [
+        "colab",
+        "exec",
+        "-s",
+        "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "-f",
+        "result/preparation/cloudfixer_baseline_multibackbone_20261123/final_drive_flush.py",
+        "--timeout",
+        "180"
+      ],
+      "started_utc": "2026-11-23T12:21:11.151536+00:00",
+      "ended_utc": "2026-11-23T12:25:11.165204+00:00"
+    },
+    "failed_call_did_not_execute_phase": true,
+    "evidence": "Connection lost at execution.py217 CWD prelude; registered kernels idle; no flush start/result before fallback",
+    "fallback_command": [
+      "/usr/bin/python3",
+      "-u",
+      "/content/cf_baseline_publication_packet_r25/final_drive_flush.py"
+    ],
+    "unchanged_reviewed_source_sha256": "58107c1d351b74536b83a02e8efff748c0a32bddf535c93089b4cd87f1df071e",
+    "actual_console_exit": 0,
+    "official_function_calls": 1,
+    "readonly_probe": "default python3 lacked google; official system Python module, Drive binary and mount preflight passed"
+  },
+  "stop": {
+    "command": [
+      "colab",
+      "stop",
+      "-s",
+      "tta-cloudfixer-baseline-heads-a100-20261123-r25"
+    ],
+    "actual_returncode": 0,
+    "stdout": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[colab] Stopping session 'tta-cloudfixer-baseline-heads-a100-20261123-r25'...\n[colab] Session terminated.\n",
+    "stderr": "",
+    "started_utc": "2026-11-23T12:28:49.066705+00:00",
+    "ended_utc": "2026-11-23T12:28:50.664338+00:00",
+    "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+    "endpoint": "gpu-a100-s-ass1c0-2al4sshtzsyaj",
+    "authorization": "user_authorized_close_owned_r25_after_results_and_knowledge_complete",
+    "task_complete_before_stop": true,
+    "raw_and_packet_fresh_host_validated": true,
+    "official_cloud_flush_passed": true,
+    "only_owned_runtime_targeted": true,
+    "post_server_inventory": "pending"
+  },
+  "post_stop_server_snapshot": {
+    "owned_session_absent": true,
+    "active_assignments": 0,
+    "usage_CU_per_hour": 0.0,
+    "balance_CU": 401.33,
+    "sessions_returncode": 0,
+    "usage_returncode": 0,
+    "other_runtimes_terminated": false
+  },
+  "phase_cost": {
+    "allocation_started_utc": "2026-11-23T07:32:11.437220+00:00",
+    "stopped_utc": "2026-11-23T12:28:50.664338+00:00",
+    "actual_allocated_seconds": 17799.22711801529,
+    "actual_allocated_hours": 4.944229755004247,
+    "observed_owned_CU_per_hour": 6.73,
+    "estimated_owned_CU": 33.27466625117858,
+    "exact_vendor_invoice_CU": "not separately queried; estimate uses observed allocation rate",
+    "whole_cap_hours": 8,
+    "whole_cap_CU": 80,
+    "all_setup_consent_probe_transfer_time_included": true,
+    "supervised_full_seconds": 4500.207551
+  },
+  "remaining": "Host-only final closure metadata normal push; no GPU or account consent pending"
+}

@@ -1,13 +1,16 @@
-**[Run/Validated; yayın ve kapatma hazırlanıyor]  2026-11-23 — CF-XYZ N8, üç model, tam ModelNet40-C.**
-Tam2468×15/s5/seed0/B96: DGCNN terminal/PM/CF **70.680713/71.139924/71.277688%**;
-CurveNet **73.841167/74.243652/75.931929%**; PointNeXt **73.987034/74.278768/75.018909%**.
-PM aynı N8 terminalini üç modelde de artırıyor; CF toplamda üçünde de önde.
-Diğer13corruption'da PM net+689/+120/+451; Background+Rotation kayıpları toplamı tersine çeviriyor.
-390blok/15ZIP/135accuracy+135paired ham yeniden sayımı ve gerçek exit0 geçti.
-[Ayrıntılı sonuçlar ve çıkarımlar](cloudfixer_baseline_multibackbone_results_20261123.md) ·
-[Son Drive aktarımı/yayın/kapatma](cloudfixer_baseline_multibackbone_20261123.md).
-Son406.9MB raw/sourceZIP Drive→freshhost SHA/CRC geçti; wholebranchreview0/0/0.
-Yayın/sourcepacket/officialcloudflush/kapatma bekliyor. Aşağıdaki running/no-result kayıtları tarihseldir.
+**[Run/Complete] 2026-11-23 — CF-XYZ N8, üç model, tam ModelNet40-C.**
+Tam2468×15/s5/seed0/B96. Source / aynıN8terminal / PM:
+DGCNN58.835764/70.680713/71.139924%; CurveNet64.011345/73.841167/74.243652%;
+PointNeXt65.837385/73.987034/74.278768%. CF71.277688/75.931929/75.018909%.
+PM terminali üçünde artırdı; CF toplamda önde. Background+Rotation dışındaki13
+türün toplamında PM net+689/+120/+451doğru; iki türdeki kayıp toplamı tersine çeviriyor.
+390blok/15ZIP, iki ham sayım, raw+knowledgepaketi Drive→freshhost SHA/CRC,
+review0/0/0 geçti. Primarythesis-integration7b438d9; officialcloudflush12:27,
+yalnızownedr25stop12:28UTC doğrulandı. Poststop envanteri0oturum/0CUh.
+[Tam tablolar ve yorum](cloudfixer_baseline_multibackbone_results_20261123.md) ·
+[Yayın/kapatma](cloudfixer_baseline_multibackbone_integration_20261123.md) ·
+[Yürütme/kurtarma](cloudfixer_baseline_multibackbone_20261123.md).
+Aşağıdaki eski running/no-result ifadeleri tarihseldir; bu görev tamamlandı.
 
 **[Run/Decision] 2026-11-23 — Yüzey normaliyle onaylanan tek t50 PCA.** Arşiv tekrarında Rotation %42,19→%62,50, all-15 %75,73→%77,24. Diğer 14 satırdan 12’si korundu, ikisi yükseldi. Ayrı clean paneli %92,97. Yeni A100 gecikmesi ve ayrı nesnelerde doğrulama bekleniyor. [Kural, kontroller ve karar](cloudfixer_selective_rotation_20261123.md).
 

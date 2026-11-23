@@ -1,0 +1,42 @@
+{
+  "utc": "2026-11-23T12:16:10.805907+00:00",
+  "status": "final_operator_sources_independently_approved_before_execution",
+  "critical": 0,
+  "important": 0,
+  "minor": 0,
+  "fix_round": 1,
+  "cpu_tests": 8,
+  "original_receipt_sha_required_independently": true,
+  "files": {
+    "build_publication_evidence.py": {
+      "bytes": 13001,
+      "sha256": "5980bb029e9137e0e9458b75929af3da216c2cb81dc91d9f685c76a449b4390a"
+    },
+    "publish_publication_packet.py": {
+      "bytes": 8076,
+      "sha256": "508d53a7671e115ed20a61e488b48158ced8fb594559d310161b3f52d484fbf3"
+    },
+    "final_drive_flush.py": {
+      "bytes": 7080,
+      "sha256": "58107c1d351b74536b83a02e8efff748c0a32bddf535c93089b4cd87f1df071e"
+    },
+    "final-publication-flush-check.py": {
+      "bytes": 12287,
+      "sha256": "49680a80176af95a4081c263caf35f7dd82a0e95b64fb19c7cf105d140ff73a2"
+    },
+    "final-publication-flush-report.md": {
+      "bytes": 13779,
+      "sha256": "cfd00f11b0ac47d649310c01c02e1a4df5f4cc748e94d0ea26b0b54fb51ab56c"
+    },
+    "final-publication-flush-review-report.md": {
+      "bytes": 2670,
+      "sha256": "6db67b654167310879ad1cf09a0d265710be181d2afecbe3f1b009bbd8efe2ab"
+    },
+    "final-publication-flush-fix-round1-review-report.md": {
+      "bytes": 1275,
+      "sha256": "0f2e443aea817a800371458dbfe1b6353a344e3e23e8176ee978f058ac234820"
+    }
+  },
+  "user_teardown_authorization": "Close ONLY owned r25 after completed results and knowledge; no extra question",
+  "actual_execution": "not yet; build/publish/freshreadback/officialflush follow"
+}

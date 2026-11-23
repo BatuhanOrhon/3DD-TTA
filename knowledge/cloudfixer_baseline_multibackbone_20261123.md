@@ -1,6 +1,6 @@
 # CloudFixer XYZ baseline: three heads, paired PM and true terminal
 
-**Güncel durum 2026-11-23:** Bilimsel all15 sonuçlar kabul edildi; [tam tablolar ve yorum](cloudfixer_baseline_multibackbone_results_20261123.md). Son406.9MB arşiv Drive→freshhost SHA/CRC doğrulamasını geçti; yayın, knowledge/source packet yedeği, cloudflush ve yetkili r25 kapatma bekliyor. Aşağıda başlangıçtan itibaren tarihlenmiş tarihçe korunur.
+**Güncel durum 2026-11-23:** Bilimsel all15 sonuçlar kabul edildi; [tam tablolar ve yorum](cloudfixer_baseline_multibackbone_results_20261123.md). Kod/knowledge primary7b438d9 yayımlandı; raw ve knowledge/sourcepacket Drive→freshhost doğrulandı, officialcloudflush geçti ve ownedr25 12:28UTC kapatıldı. Güncel görev tamam; aşağıdaki pending/live ifadeleri tarihçedir. Aşağıda başlangıçtan itibaren tarihlenmiş tarihçe korunur.
 
 2026-11-23 [User report/Code/Open]. New task; no GPU results yet.
 User requests a new Colab evaluation of the established CF-denoiser baseline
@@ -533,3 +533,57 @@ ASTparentilebirebir, scopedrereview0Critical/Important/Minor,ReadyToMerge.
 Bilimsel sonuç/kod davranışı değişmedi. Kaynak/Gitbilimselkayıtlarhazır;
 yayın, knowledge/sourcepacketDrivefreshproof,officialflushveyetkiliownedr25
 kapatma sıradadır. Kanıtlar: final_drive_verification.json,whole_branch_acceptance.json.
+
+## 2026-11-23T12:03:56.501150+00:00 — seçili kod/knowledge normal yayın doğrulandı
+
+[Code/Run] `origin/thesis-integration` normalfast-forward6f4abdd→7b438d9
+başarılı(exit0); bağımsız `git ls-remote` tamcommit
+`7b438d9b3faefa08662130494f661525155f8eea` döndürdü.28gerekli dosya, beşproduction/testdeğişikliği
+vebilimselnot/compactevidence; peerPCA/rotation/background dosyalarıvekabul
+edilmişhistorykorundu. Ortakdiffusiondosyası eskiwholefileiledeğiştirilmedi.
+Kaynakworktree/branch veana/diğercheckout'lar korundu; main/upstreampush yok.
+Soncode/knowledgebütün-branchvecommentrereview0Critical/Important/Minor.
+
+Sourcepacket yedeği/officialcloudflush/yalnızownedr25 kapatma henüzbekliyor.
+Bunlar tamamlanınca ekclosuremetadata aynıtarget'a normalpushilekaydedilecek.
+Raw/sourcebundleDrive→freshhostverified; bilimselsonuçdeğişikliği/yeniGPU
+koşusu yok. Kanıt: primary_publication.json.
+
+## 2026-11-23 — Görev tamamlandı: cloud flush ve r25 kapatma
+
+[Run/Complete] Tam 2468×15/s5/seed0, üç donmuş head ve390blok sonuçları kabul edildi.
+Kod ve bilimsel knowledge primary `7b438d9b3faefa08662130494f661525155f8eea`
+ile normal fast-forward yayımlandı ve remote HEAD bağımsız doğrulandı.
+
+Raw/source: `final_20261123T112717Z.zip`,406927870B,
+SHA `c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265`;
+Drive→freshhost141safeüyedeCRC ve tamkimlik geçti. Knowledge/source:
+`knowledge_source_publication_20261123T121611Z.zip`,757552B,
+SHA `7f95c4d776018ace4c4b1356644adbd5e1b3065e4065c297eadc4432c4c86fd3`;
+207safeüyedeCRC ve bağımsızhostreceiptSHA doğrulandı. İkisi de Drive
+`MyDrive/thesis/result/cloudfixer_baseline_heads_20261123/selected_b96/` altında.
+Son yerel packet: `result/preparation/cloudfixer_baseline_multibackbone_20261123/publication_drive_download_20261123T1218Z/`.
+
+[Run/Code] İlk notebookCLI çağrısı execution.py217 CWDprelude'de bağlantıyı
+kaybetti;240s outerbound sonlandı. Kernel idle, flushstart/result yoktu:
+betik gövdesi çalışmamıştı. Defaultshell python3 readonlyprobe'da Google
+modülü yoktu; sistem `/usr/bin/python3.real` resmi modül, Drivebinary ve
+mount önkoşullarını geçti. Aynı reviewed/packetSHA bağlı betik (58107c1d…)
+ColabCLI console'da sistem Python ile yalnız bir kez çalıştırıldı, actualexit0.
+Bu bir model/GPU yeniden koşusu değildir. Tam CLI hata kaydı ve uyarlama
+`runtime_closure.json` içinde korunur; bilimsel kaynak ve sonuçlar değişmedi.
+
+Resmi `google.colab.drive.flush_and_unmount(timeout_ms=120000)`
+12:27:17.959406→12:27:19.622918UTC geçti; fizikselDrive unmounted.
+OfficialfunctionSHA `3bce624dc76a5b1f3c59690368d1d47c2a41e023023ad7fa07149b3ecf18433b`.
+Flushreceipt VM'den host'a indirildi ve doğrulandı. Kullanıcının sonuç ve
+knowledge tamamlandıktan sonra kapatma yetkisiyle SADECEowned
+`tta-cloudfixer-baseline-heads-a100-20261123-r25` 12:28:49→12:28:50UTC,
+`colab stop -s` exit0 ile kapatıldı. Bağımsız poststop serverenvanteri0aktif,
+hesap0.00CU/h ve401.33CU gösterdi. Peer/unknownruntime'larına müdahale edilmedi.
+
+Toplam tahsis 4.944230saat (17799.227s), bütünsetup/consent/
+probe/transfer dahil;6.73CU/h gözlenen hızla tahmini 33.274666CU.
+Bu ayrı çekilmiş vendor faturası değildir.8h/80CU sınırları aşılmadı.
+Tam denetimli GPUtur4500.207551s≈75.0dk. Yeni GPUişi veya consent engeli yok.
+Kapanış metadata'sı host'ta kaydedilip aynı sharedbranch'e normalpush ile eklenir.
