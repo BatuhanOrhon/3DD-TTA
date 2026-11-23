@@ -1,0 +1,11 @@
+{
+  "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+  "source": "a979bcec11c24963ff31f0574d66decb85d680d3",
+  "batch_size": 96,
+  "manifest_sha256": "08e99de7de377d3a94ec76071df79e51ea27df81743d819ec9a28407097193e7",
+  "package_receipt_sha256": "48f93eab2f5891eafca6e985c18a7a51fc17fea7ab1a5884a1d3f1293dcae988",
+  "transport_package": "result/preparation/cloudfixer_baseline_multibackbone_20261123/a100_selected_b96_deploy_v1",
+  "source_package": "result/preparation/cloudfixer_baseline_multibackbone_20261123/a100_selected_b96_v1",
+  "reused_head_zip_container_sha256": "16cca72d0f91789458d554f6b96d839ca18edc8f1e2394e62124a011552cb8e6",
+  "identical_asset_member_bytes_verified": true
+}

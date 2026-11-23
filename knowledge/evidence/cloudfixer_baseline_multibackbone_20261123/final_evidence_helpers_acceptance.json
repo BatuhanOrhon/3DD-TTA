@@ -1,0 +1,38 @@
+{
+  "utc": "2026-11-23T10:56:37.663257+00:00",
+  "scope": "Task2 evidence helpers; not whole-branch final review",
+  "verdict": "Spec and quality pass;5addressed/0open",
+  "regression_tests": 8,
+  "files": {
+    "archive_selected_terminal.py": {
+      "bytes": 12700,
+      "sha256": "99e265f55746fb8e7213ccc1a538065f4af4690f26e51f49a7931f13d85a5b58"
+    },
+    "finalize_host.py": {
+      "bytes": 19720,
+      "sha256": "1d823bd8d4fcddc4e2a23647ed6273fa7caa9af9004cd526320bae621b02fd8b"
+    },
+    "write_results.py": {
+      "bytes": 11095,
+      "sha256": "974de70f159a5c47a83086116980a2a5a1f6413141b19701f3f28f98a35e1e04"
+    },
+    "final-evidence-check.py": {
+      "bytes": 17118,
+      "sha256": "c583d7c02afb3161880477e432ecd4df52a89087a2e8f050c057539585d3ae3c"
+    },
+    "final-evidence-review-report.md": {
+      "bytes": 4153,
+      "sha256": "e6ada547ede7c9434bab9daa832ea857e06ca901abd7f9a237d18e0dd048628c"
+    },
+    "final-evidence-fix-report.md": {
+      "bytes": 6363,
+      "sha256": "7daafdeb6ad6857fd2a55ea9b76edef9c2d789a7a98c6e54edb8a7c21e49b65d"
+    },
+    "final-evidence-fix-round1-review-report.md": {
+      "bytes": 2444,
+      "sha256": "1bd244029541e28edcbf80507f4c70a557e5d5fde02bcf0e5a09a3a11abe90fa"
+    }
+  },
+  "source_code_campaign_unchanged": true,
+  "remote_execution": "not yet; full01 still running"
+}

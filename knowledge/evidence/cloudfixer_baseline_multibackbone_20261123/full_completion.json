@@ -1,0 +1,102 @@
+{
+  "utc": "2026-11-23T11:33:46.423215+00:00",
+  "status": "all15_scientific_results_accepted_final_Drive_transport_pending",
+  "source": "a979bcec11c24963ff31f0574d66decb85d680d3",
+  "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+  "coverage": {
+    "objects": 2468,
+    "corruptions": 15,
+    "observations_per_head": 37020,
+    "heads": [
+      "dgcnn",
+      "curvenet",
+      "pointnext"
+    ],
+    "blocks": 390,
+    "accuracy_rows": 135,
+    "paired_rows": 135
+  },
+  "actual_worker_exit": {
+    "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+    "deadline_epoch": 1795440032.583883,
+    "deadline_expired": false,
+    "ended_utc": "2026-11-23T11:25:51.774014+00:00",
+    "endpoint": "gpu-a100-s-ass1c0-2al4sshtzsyaj",
+    "key": "full_gate_ff6348394ec1292d47bea78c93cc80d22e4202c77fa2a67d8d925c2d14049c2c.json",
+    "label": "full01",
+    "output": "/content/cf_baseline_heads_a100_b96/runs/full01",
+    "returncode": 0,
+    "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+    "signal": null,
+    "stdout": "/content/cf_baseline_heads_a100_b96/full01_worker.log",
+    "supervisor_pid": 106917,
+    "worker_pid": 106919
+  },
+  "finished": {
+    "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+    "deadline_epoch": 1795440032.583883,
+    "deadline_expired": false,
+    "ended_utc": "2026-11-23T11:25:51.774014+00:00",
+    "endpoint": "gpu-a100-s-ass1c0-2al4sshtzsyaj",
+    "full_campaign_complete": true,
+    "key": "full_gate_ff6348394ec1292d47bea78c93cc80d22e4202c77fa2a67d8d925c2d14049c2c.json",
+    "label": "full01",
+    "output": "/content/cf_baseline_heads_a100_b96/runs/full01",
+    "returncode": 0,
+    "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+    "signal": null,
+    "stdout": "/content/cf_baseline_heads_a100_b96/full01_worker.log",
+    "stdout_sha256": "cec3167f4f6d1a16e2864dfc0109bf5596edab829617ead19cf94a59bbae7bfa",
+    "supervisor_pid": 106917,
+    "worker_pid": 106919
+  },
+  "terminal_ops_archive": {
+    "bytes": 1920976,
+    "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+    "file": "selected_b96_terminal_receipts.zip",
+    "gate_key": "full_gate_ff6348394ec1292d47bea78c93cc80d22e4202c77fa2a67d8d925c2d14049c2c.json",
+    "label": "full01",
+    "members": 154,
+    "raw_corruptions_verified": 15,
+    "sha256": "03731758a98355a7233863f756d02f8ab76efc25b5c06da23b9bd5f7ccec7dbc",
+    "source": "a979bcec11c24963ff31f0574d66decb85d680d3"
+  },
+  "final_bundle_receipt": {
+    "archive": "result/modelnet40_c/cloudfixer_baseline_heads/e8df74eb3976/final_20261123T112717Z.zip",
+    "blocks": 390,
+    "bytes": 406927870,
+    "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+    "elapsed_full_seconds": 4500.207551,
+    "final": "result/modelnet40_c/cloudfixer_baseline_heads/e8df74eb3976/final_20261123T112717Z",
+    "gate_key": "full_gate_ff6348394ec1292d47bea78c93cc80d22e4202c77fa2a67d8d925c2d14049c2c.json",
+    "original_archives": 15,
+    "paired_rows": 135,
+    "profile": "cloudfixer_xyz_proximal_pm_n8_k80_late_v1",
+    "rows": 135,
+    "sha256": "c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265",
+    "source": "a979bcec11c24963ff31f0574d66decb85d680d3",
+    "status": "host_validated_upload_pending",
+    "validated_analysis": {
+      "paired_per_corruption.csv": {
+        "bytes": 22628,
+        "sha256": "af166101084c7be35816a0167a6eddaf92898f6e230f4ae7e0bc9e32bfcfeee6"
+      },
+      "per_corruption.csv": {
+        "bytes": 27555,
+        "sha256": "be687a38f0438be5b3e4df58cd62ce9a27c03b076fac5a985224d4d3d578bdc4"
+      },
+      "recount.json": {
+        "bytes": 82891,
+        "sha256": "4abebb4d7d6b58c2d97f6fbf1d6d6f659e7b292deaa8bd1a36e2f2fa5f460fed"
+      },
+      "summary.csv": {
+        "bytes": 1830,
+        "sha256": "4533ee81ac4a9139cd795d9ac96473f2f3ab675854b855233ecc694f632c731c"
+      }
+    }
+  },
+  "full_peak_allocated_MiB": 27151.1533203125,
+  "elapsed_supervised_full_seconds": 4500.207551,
+  "Drive_cloud_flush": "pending",
+  "runtime": "owned r25 preserved for final transfer/publication/flush and authorized close"
+}

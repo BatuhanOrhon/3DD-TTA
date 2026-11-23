@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-23T06:33:54.786685+00:00",
+  "code_commit": "ccd0a7c3c4bdf2f6259079a52ad3dad233d22fb5",
+  "base": "8b53eec",
+  "status": "code_review_pass_GPU_admission_pending",
+  "checks": {
+    "focused": 61,
+    "impacted": 249,
+    "command": "/tmp/cf-baseline-integration-20261121-venv/bin/python -m pytest -q tests/test_cloudfixer*.py tests/test_eval_multibackbone_source.py tests/test_classifier_backbones.py tests/test_proximal_baseline.py",
+    "result": "249passed7.93s"
+  },
+  "review": {
+    "SpecCompliance": "Pass",
+    "Quality": "Pass",
+    "round": 1,
+    "findings_addressed": [
+      "registeredseed0RNGboundary",
+      "operator_expectedcampaign",
+      "headwalltimebounds"
+    ],
+    "open": 0
+  },
+  "scientific_results": "none_newGPUrun",
+  "host_analyzer_required": "--expected-campaign sha(canonical(operator_prepared_manifest))",
+  "old_packages": "8dfpre-reviewimmutable; do_notdeploy; rebuildpostfix",
+  "review_report": "result/preparation/cloudfixer_baseline_multibackbone_20261123/task-1-fix-round1-review-report.md",
+  "packages": "reviewed_packages_v2.json",
+  "new_GPU_status": "notstarted_allocation503"
+}

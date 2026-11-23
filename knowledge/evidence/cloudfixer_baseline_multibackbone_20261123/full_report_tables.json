@@ -1,0 +1,147 @@
+{
+  "campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+  "summary": [
+    {
+      "backbone": "dgcnn",
+      "source": 21781,
+      "terminal": 26166,
+      "pm": 26336,
+      "cloudfixer": 26387
+    },
+    {
+      "backbone": "curvenet",
+      "source": 23697,
+      "terminal": 27336,
+      "pm": 27485,
+      "cloudfixer": 28110
+    },
+    {
+      "backbone": "pointnext",
+      "source": 24373,
+      "terminal": 27390,
+      "pm": 27498,
+      "cloudfixer": 27772
+    }
+  ],
+  "paired_totals": [
+    {
+      "backbone": "dgcnn",
+      "comparison": "proximal_n8_pm_vs_proximal_n8_terminal",
+      "ours_only": 618,
+      "reference_only": 448,
+      "net_correct": 170,
+      "delta_pp": 0.4592112371690978,
+      "wins": 12,
+      "ties": 1,
+      "losses": 2
+    },
+    {
+      "backbone": "dgcnn",
+      "comparison": "proximal_n8_pm_vs_cloudfixer_plain",
+      "ours_only": 2073,
+      "reference_only": 2124,
+      "net_correct": -51,
+      "delta_pp": -0.13776337115072934,
+      "wins": 10,
+      "ties": 0,
+      "losses": 5
+    },
+    {
+      "backbone": "dgcnn",
+      "comparison": "proximal_n8_terminal_vs_cloudfixer_plain",
+      "ours_only": 2056,
+      "reference_only": 2277,
+      "net_correct": -221,
+      "delta_pp": -0.5969746083198271,
+      "wins": 9,
+      "ties": 0,
+      "losses": 6
+    },
+    {
+      "backbone": "curvenet",
+      "comparison": "proximal_n8_pm_vs_proximal_n8_terminal",
+      "ours_only": 523,
+      "reference_only": 374,
+      "net_correct": 149,
+      "delta_pp": 0.4024851431658563,
+      "wins": 13,
+      "ties": 1,
+      "losses": 1
+    },
+    {
+      "backbone": "curvenet",
+      "comparison": "proximal_n8_pm_vs_cloudfixer_plain",
+      "ours_only": 1525,
+      "reference_only": 2150,
+      "net_correct": -625,
+      "delta_pp": -1.68827660723933,
+      "wins": 5,
+      "ties": 0,
+      "losses": 10
+    },
+    {
+      "backbone": "curvenet",
+      "comparison": "proximal_n8_terminal_vs_cloudfixer_plain",
+      "ours_only": 1518,
+      "reference_only": 2292,
+      "net_correct": -774,
+      "delta_pp": -2.0907617504051865,
+      "wins": 5,
+      "ties": 0,
+      "losses": 10
+    },
+    {
+      "backbone": "pointnext",
+      "comparison": "proximal_n8_pm_vs_proximal_n8_terminal",
+      "ours_only": 520,
+      "reference_only": 412,
+      "net_correct": 108,
+      "delta_pp": 0.2917341977309562,
+      "wins": 12,
+      "ties": 0,
+      "losses": 3
+    },
+    {
+      "backbone": "pointnext",
+      "comparison": "proximal_n8_pm_vs_cloudfixer_plain",
+      "ours_only": 1901,
+      "reference_only": 2175,
+      "net_correct": -274,
+      "delta_pp": -0.7401404646137223,
+      "wins": 9,
+      "ties": 0,
+      "losses": 6
+    },
+    {
+      "backbone": "pointnext",
+      "comparison": "proximal_n8_terminal_vs_cloudfixer_plain",
+      "ours_only": 1894,
+      "reference_only": 2276,
+      "net_correct": -382,
+      "delta_pp": -1.0318746623446786,
+      "wins": 9,
+      "ties": 0,
+      "losses": 6
+    }
+  ],
+  "focus": [
+    {
+      "backbone": "dgcnn",
+      "total_cf_minus_pm": 51,
+      "background_rotation_cf_minus_pm": 740,
+      "other13_cf_minus_pm": -689
+    },
+    {
+      "backbone": "curvenet",
+      "total_cf_minus_pm": 625,
+      "background_rotation_cf_minus_pm": 745,
+      "other13_cf_minus_pm": -120
+    },
+    {
+      "backbone": "pointnext",
+      "total_cf_minus_pm": 274,
+      "background_rotation_cf_minus_pm": 725,
+      "other13_cf_minus_pm": -451
+    }
+  ]
+}

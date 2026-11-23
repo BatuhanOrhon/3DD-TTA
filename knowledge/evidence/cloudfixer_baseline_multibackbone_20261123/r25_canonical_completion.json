@@ -1,0 +1,279 @@
+{
+  "utc": "2026-11-23T09:21:26.824624+00:00",
+  "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+  "source_snapshot": "d15a3c5",
+  "canonical": [
+    {
+      "cell": 1,
+      "status": "exactmarker_and_sameVMrestart_verified",
+      "source_sha256": "ae97607d1b0dca88fda400339ee984762120b02d61057b34c72fcdb8526ddbcf",
+      "stdout": "cell_01.stdout.log"
+    },
+    {
+      "cell": 2,
+      "status": "authorized_known_fastrlock_deferred_Python3.8.20_verified",
+      "source_sha256": "7e22c3d1fd857340b24551776c42c9d8d59e909d25fc367a035886595f733401",
+      "stdout": "cell_02.stdout.log"
+    },
+    {
+      "cell": 3,
+      "status": {
+        "phase": 3,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_03.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "eb25b4a81c8def9bc90666d0c39731b141ba54eaf46c9adbfe8b0d282bd8df05",
+        "canonical_source_sha256": "74db615efdc0fa87cf44c1925862891aa0c4235cba1b336acc909947667aa15a",
+        "started_utc": "2026-11-23T08:53:02.131077+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 123.56189799308777,
+        "exact_marker": true
+      },
+      "source_sha256": "eb25b4a81c8def9bc90666d0c39731b141ba54eaf46c9adbfe8b0d282bd8df05",
+      "stdout": "cell_03.stdout.log"
+    },
+    {
+      "cell": 4,
+      "status": {
+        "phase": 4,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_04.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "b0612b2abad7692ad0067db3341586fe86ce7ab1b231d2223361dde627830bd1",
+        "canonical_source_sha256": "9cab746178a244dd290403c0a2b8e5e4d5b8735dc6bcfc0c69105c791b69e84c",
+        "started_utc": "2026-11-23T08:55:08.368307+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 581.9752101898193,
+        "exact_marker": true
+      },
+      "source_sha256": "b0612b2abad7692ad0067db3341586fe86ce7ab1b231d2223361dde627830bd1",
+      "stdout": "cell_04.stdout.log"
+    },
+    {
+      "cell": 5,
+      "status": {
+        "phase": 5,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_05.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "7b3591cf6c8dc7f44ee883c6a7bd4882de20fe7fa9325bc79b6758f77b16d0fd",
+        "canonical_source_sha256": "4323c7279e390570075f01d89812f4738a6cd908bcfa251ebf1f744600df69b7",
+        "started_utc": "2026-11-23T09:04:54.852522+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 77.09718894958496,
+        "exact_marker": true
+      },
+      "source_sha256": "7b3591cf6c8dc7f44ee883c6a7bd4882de20fe7fa9325bc79b6758f77b16d0fd",
+      "stdout": "cell_05.stdout.log"
+    },
+    {
+      "cell": 6,
+      "status": {
+        "phase": 6,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_06.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "a984dfaf88f4e3013d45c703029af34661ee3a56bfd53d88ebd027b19692e61f",
+        "canonical_source_sha256": "0b8149d77aace8e0310d438cac6b7f1b4630c2563befc8d736311f7895f23ba0",
+        "started_utc": "2026-11-23T09:06:15.980155+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 97.10867404937744,
+        "exact_marker": true
+      },
+      "source_sha256": "a984dfaf88f4e3013d45c703029af34661ee3a56bfd53d88ebd027b19692e61f",
+      "stdout": "cell_06.stdout.log"
+    },
+    {
+      "cell": 7,
+      "status": {
+        "phase": 7,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_07.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "755889597b76cbfd6aadaa1c306303b4839fbd4b55a3418c7efc16b1750d2e50",
+        "canonical_source_sha256": "030eb9ba5a3ff16d2f1a4d57ff4daf5ebd35f32ebfe1fb4999931eb0836a7181",
+        "started_utc": "2026-11-23T09:09:50.871895+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 98.89976501464844,
+        "exact_marker": true
+      },
+      "source_sha256": "755889597b76cbfd6aadaa1c306303b4839fbd4b55a3418c7efc16b1750d2e50",
+      "stdout": "cell_07_retry01.stdout.log"
+    },
+    {
+      "cell": 8,
+      "status": {
+        "phase": 8,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_08.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "a2479d12cb20cf36b6da4787faaf189bf4984f11242cbee9b0d8572749a2627a",
+        "canonical_source_sha256": "7fd5b4dd730dbe83e1d5f6e1f6c0f16c535f9230ba99306afcf04cf0dcc0b34c",
+        "started_utc": "2026-11-23T09:11:35.481763+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 184.64436507225037,
+        "exact_marker": true
+      },
+      "source_sha256": "a2479d12cb20cf36b6da4787faaf189bf4984f11242cbee9b0d8572749a2627a",
+      "stdout": "cell_08_retry01.stdout.log"
+    },
+    {
+      "cell": 9,
+      "status": {
+        "phase": 9,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_09.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "781f8bb5bb1ab79ac8b47bbea05ee20e3f70a029c74b3e1593fa5190af1d2877",
+        "canonical_source_sha256": "6b0977ebf431c1a7cc5a2b961778f65cc1ca79a145f71b9303a2aa0ec8a582b9",
+        "started_utc": "2026-11-23T09:16:37.863547+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 66.70904779434204,
+        "exact_marker": true
+      },
+      "source_sha256": "781f8bb5bb1ab79ac8b47bbea05ee20e3f70a029c74b3e1593fa5190af1d2877",
+      "stdout": "cell_09_retry02.stdout.log"
+    },
+    {
+      "cell": 10,
+      "status": {
+        "phase": 10,
+        "session": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+        "command": [
+          "/Users/batuhan/.local/share/uv/tools/google-colab-cli/bin/python",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_multibackbone_20261122/l4_trial/cli_transport60.py",
+          "exec",
+          "-s",
+          "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+          "-f",
+          "/Users/batuhan/.codex/worktrees/0e7f/3DD-TTA/result/preparation/cloudfixer_baseline_multibackbone_20261123/cell_10.py",
+          "--env",
+          "MAX_JOBS=4",
+          "--timeout",
+          "3600"
+        ],
+        "source_sha256": "1517c3cf470103bb0e45569caea3289f1495293b4d335e0b634b43682a5442a2",
+        "canonical_source_sha256": "20e3845e7a101c96d45941004ecec9dc5697d165f06d6679ad01ee65f9f44fda",
+        "started_utc": "2026-11-23T09:17:48.932530+00:00",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 93.62977576255798,
+        "exact_marker": true
+      },
+      "source_sha256": "1517c3cf470103bb0e45569caea3289f1495293b4d335e0b634b43682a5442a2",
+      "stdout": "cell_10_retry02.stdout.log"
+    }
+  ],
+  "verification_sha256": "baf17919433acc09c4283298d219880e5bf6fd668830d194f430a67d59678864",
+  "physical_markers": {
+    "utc": "2026-11-23T09:20:31.255986+00:00",
+    "markers": {
+      "prepare.complete": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "emd.complete": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "chamfer.complete": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pointnet2.complete": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pvcnn-smoke.complete": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "source_reference_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+  "scientific_GPU_inference": "not_started"
+}

@@ -1,3 +1,17 @@
+## 2026-11-23 — CF-XYZ N8 PM / aynı N8 terminal, üç alternatif source model
+
+- [x] DGCNN/CurveNet/PointNeXt donmuş checkpoint/prior/data sınıf-ID kimlikleri eşleştirildi.
+- [x] Canonical10, gerçek native GPU, smoke, bağımsız process recovery ve sayısal golden geçti.
+- [x] Kaynak ölçümüyle B96 seçildi; B128 Upsampling OOM korundu; tamtestte tek batch kullanıldı.
+- [x] 2468×15/s5/seed0,390blok,15ham ZIP; actual workerexit0 ve iki bağımsız ham sayım geçti.
+- [x] PM–terminal ve PM/terminal–CF object-ID paired sayıları; 45corruption/model accuracy ve ayrıntılı bulgular kaydedildi.
+- [ ] Son406.9MB bundle Drive→freshhost SHA/CRC, seçili knowledge/code publication ve officialflush/ownedr25 kapatma.
+- [ ] Bağımsız seed tekrarı ve üç head'de PM etkisinin belirsizlik aralıkları ölçülmedi; yeni GPU görevi olarak başlatılmadı.
+- [ ] Gelecek pose/background müdahalesini ayrı geliştirme nesnelerinde kilitle; source-only zararını ve diğer13 sonucu korumayı ölç.
+
+[Tam sonuçlar](cloudfixer_baseline_multibackbone_results_20261123.md) · [Yürütme](cloudfixer_baseline_multibackbone_20261123.md).
+Önceki tarihli açık kurulum/test kayıtları bu tam kampanyanın güncel durumu değildir.
+
 ## 2026-11-21 — CloudFixer XYZ rotation validation
 
 - [x] Compare single t80, fixed-target three t80 fits and progressive t80/t50/t20.

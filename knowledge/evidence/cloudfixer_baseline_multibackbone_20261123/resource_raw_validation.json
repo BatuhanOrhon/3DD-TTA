@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-23T10:06:55.834464+00:00",
+  "archive_sha256": "0682646cf50fdb82a99526da411e0a4b4a4dfefc208c079c4f21721574d380a5",
+  "archive_bytes": 8287577,
+  "safe_members": 75,
+  "validated_resource_units": 15,
+  "resource_observations_including_warmups_and_repetitions": 1344,
+  "fulltest": false,
+  "actual_failed_B128_Upsampling": true,
+  "runtime_signature_sha256": "7d35f4704bee15fa149069de47c18522773ae371c8cb60ea0f404991dcadf250",
+  "host_raw": "result/preparation/cloudfixer_baseline_multibackbone_20261123/resource_probes_raw"
+}

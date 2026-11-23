@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-23T10:09:39.069670+00:00",
+  "old_resource_campaign": "810bb93f4037450d47254ba54f8722cce6d4aa4770fb0d253c630402476bc915",
+  "selected_campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+  "old_resource_payload_sha256": "cf56e05faab92e6dad3b11df6fa857171a444c8bef641f158e167e42b2076959",
+  "selected_profile_payload_sha256": "34706aaace42eee43490b788fade5c2f8e306e962c8b2739c502b8970f3d4391",
+  "same_B96_ids_and_geometry_seed": true,
+  "exact_numeric_and_geometry_fields": {
+    "source_logits": true,
+    "candidate_logits": true,
+    "terminal_logits": true,
+    "candidate_probabilities": true,
+    "pm_probabilities": true,
+    "input_sha256": true,
+    "mask_sha256": true,
+    "candidate_cloud_sha256": true,
+    "geometry_seed": true
+  },
+  "native_and_frozen_runtime_signature_sha256": "7d35f4704bee15fa149069de47c18522773ae371c8cb60ea0f404991dcadf250",
+  "scope": "technical golden; no accuracy selection"
+}

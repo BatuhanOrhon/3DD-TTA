@@ -1,0 +1,38 @@
+{
+  "utc": "2026-11-23T07:44:19.687326+00:00",
+  "allocation": {
+    "name": "tta-cloudfixer-baseline-heads-a100-20261123-r25",
+    "accelerator": "A100",
+    "highram": false,
+    "started_epoch": 1795419131.43722,
+    "started_utc": "2026-11-23T07:32:11.437220+00:00",
+    "returncode": 0,
+    "seconds": 4.033732891082764,
+    "ended_utc": "2026-11-23T07:32:15.470959+00:00",
+    "owned_inventory": [
+      "[tta-cloudfixer-baseline-heads-a100-20261123-r25] gpu-a100-s-ass1c0-2al4sshtzsyaj | Hardware: A100 | Shape: Standard | Variant: GPU"
+    ],
+    "status": "assigned"
+  },
+  "periodic_attempt_count": 9,
+  "retry_driver_status": "assignment_observed",
+  "hardware_console_observation": {
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "memory_mib": 40960,
+    "cpu_count": 12,
+    "MemTotal_kB": 87528500
+  },
+  "canonical1_exact_marker": true,
+  "canonical2": "sameVM condacolab.check passed; environment creation active",
+  "Drive": "interactive user consent pending; no physical mount claim",
+  "profile": "cloudfixer_xyz_proximal_pm_n8_k80_late_v1",
+  "campaign": "810bb93f4037450d47254ba54f8722cce6d4aa4770fb0d253c630402476bc915",
+  "new_accuracy_available": false,
+  "limits": {
+    "allocated_epoch": 1795419131.43722,
+    "whole_phase_seconds": 28800,
+    "whole_phase_CU": 80,
+    "reserve_CU": 5,
+    "reserve_seconds": 180
+  }
+}

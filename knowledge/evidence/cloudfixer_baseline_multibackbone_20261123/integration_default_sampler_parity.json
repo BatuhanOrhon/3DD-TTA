@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "scope": "CPU default-path regression; synthetic stateful prior, not real CUDA or checkpoint replay",
+  "executed_source": "a979bce",
+  "integrated_base": "24be2e9",
+  "executed_sampler_sha256": "3e3c66246af5dff79603f9263ab784040a32c7d0c0bde0fe398900ca862d6f27",
+  "integrated_sampler_sha256": "b62adb9a1ddc01ec989c31b744592dff2a233c4d4d1c77a94af70967d01021f7",
+  "cases": [
+    {
+      "dtype": "torch.float32",
+      "points": 7,
+      "trace_all": false,
+      "cloud_metadata_rng_exact": true
+    },
+    {
+      "dtype": "torch.float32",
+      "points": 7,
+      "trace_all": true,
+      "cloud_metadata_rng_exact": true
+    },
+    {
+      "dtype": "torch.float32",
+      "points": 19,
+      "trace_all": false,
+      "cloud_metadata_rng_exact": true
+    },
+    {
+      "dtype": "torch.float32",
+      "points": 19,
+      "trace_all": true,
+      "cloud_metadata_rng_exact": true
+    },
+    {
+      "dtype": "torch.float64",
+      "points": 7,
+      "trace_all": false,
+      "cloud_metadata_rng_exact": true
+    },
+    {
+      "dtype": "torch.float64",
+      "points": 7,
+      "trace_all": true,
+      "cloud_metadata_rng_exact": true
+    },
+    {
+      "dtype": "torch.float64",
+      "points": 19,
+      "trace_all": false,
+      "cloud_metadata_rng_exact": true
+    },
+    {
+      "dtype": "torch.float64",
+      "points": 19,
+      "trace_all": true,
+      "cloud_metadata_rng_exact": true
+    }
+  ],
+  "impacted_cpu_tests": 159,
+  "harness_note": "Initial harness incorrectly combined trace_all and explicit probes; rejected as designed before corrected harness passed all cases"
+}

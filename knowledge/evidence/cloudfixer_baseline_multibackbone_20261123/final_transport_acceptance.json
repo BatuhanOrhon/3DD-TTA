@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-23T11:40:54.621699+00:00",
+  "scope": "Task2 sealed final artifact transport; no inference changes",
+  "verdict": "Spec/quality PASS,1addressed/0open afterround1",
+  "cpu_tests": 7,
+  "files": {
+    "upload_final_parts.py": {
+      "bytes": 8879,
+      "sha256": "71ac1cd551422658882fc542288c43f7bdad0841479dbedde29aa6fff4644cd9"
+    },
+    "publish_final_parts.py": {
+      "bytes": 7366,
+      "sha256": "104a244d4c4bb6fc17a3dae6b1931f4911dc6956b786037ac2d0e315ab9d1a74"
+    },
+    "final-transport-check.py": {
+      "bytes": 11586,
+      "sha256": "6fb2a4e5a0fbd0eb6cf0afa8b8d659aab2e90d54411c69640355fe502e7f9bbb"
+    },
+    "final-transport-report.md": {
+      "bytes": 8697,
+      "sha256": "aeba888fb403a9965c9b2a98a2f4512d6a71c48044d36a4fe1da8d79957599f9"
+    },
+    "final-transport-review-report.md": {
+      "bytes": 2091,
+      "sha256": "285b4c365aef202f60aef19dbec5c8875865a83d669e44fec8aaab6f1f925d91"
+    },
+    "final-transport-fix-round1-review-report.md": {
+      "bytes": 797,
+      "sha256": "5e3e90bd12ea6ca1922ec2fc0517e078d85cce73aff887b8cbb42cb8d88c1c3f"
+    }
+  },
+  "archive": {
+    "bytes": 406927870,
+    "sha256": "c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265"
+  },
+  "protocol": "49parts x8MiB exceptlast4274686B; actual remote perpart andassembledSHA required; DriveFSreceipt+freshhost validation; official cloudflush still required"
+}

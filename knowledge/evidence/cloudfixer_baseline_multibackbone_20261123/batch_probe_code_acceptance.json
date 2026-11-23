@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-23T09:08:11.389260+00:00",
+  "profile": "resource_only_before_full_batch_selection",
+  "source_sha256": {
+    "ops/probe_batch.py": "a62fb66fc2c4c0777a102d3a913e05fb1758e00c5f1efce9b438a1c7394a6a25",
+    "ops-check-batch-probe.py": "02872d649aa9dd0565c5a6272db434dc125248fb55e258a301de5d47d7fc407a"
+  },
+  "CPU_checks": 14,
+  "initial_review_mustfix": 3,
+  "fixround1": {
+    "prior_addressed": 3,
+    "new_finding": 1
+  },
+  "fixround2": {
+    "addressed": 1,
+    "spec": "Pass",
+    "quality": "Pass",
+    "remaining_findings": 0
+  },
+  "archive": {
+    "path": "result/preparation/cloudfixer_baseline_multibackbone_20261123/resource_probe_preparation_v1.zip",
+    "bytes": 25449,
+    "sha256": "6404f00f1bb1c5e897da6d3b699cc26d742c8579da0f75476a4de143b6ff2f0d"
+  },
+  "GPU_or_Drive_execution": "notyet",
+  "accepted_production_manifest_unchanged": true
+}

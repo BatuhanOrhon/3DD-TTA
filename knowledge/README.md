@@ -1,3 +1,13 @@
+**[Run/Validated; son arşiv aktarımı sürüyor] 2026-11-23 — CF-XYZ N8, üç model, tam ModelNet40-C.**
+Tam2468×15/s5/seed0/B96: DGCNN terminal/PM/CF **70.680713/71.139924/71.277688%**;
+CurveNet **73.841167/74.243652/75.931929%**; PointNeXt **73.987034/74.278768/75.018909%**.
+PM aynı N8 terminalini üç modelde de artırıyor; CF toplamda üçünde de önde.
+Diğer13corruption'da PM net+689/+120/+451; Background+Rotation kayıpları toplamı tersine çeviriyor.
+390blok/15ZIP/135accuracy+135paired ham yeniden sayımı ve gerçek exit0 geçti.
+[Ayrıntılı sonuçlar ve çıkarımlar](cloudfixer_baseline_multibackbone_results_20261123.md) ·
+[Son Drive aktarımı/yayın/kapatma](cloudfixer_baseline_multibackbone_20261123.md).
+Aşağıdaki running/no-result kayıtları tarihsel aşamalardır; ownedr25 henüz kapatılmadı.
+
 **[Run/Decision] 2026-11-23 — Yüzey normaliyle onaylanan tek t50 PCA.** Arşiv tekrarında Rotation %42,19→%62,50, all-15 %75,73→%77,24. Diğer 14 satırdan 12’si korundu, ikisi yükseldi. Ayrı clean paneli %92,97. Yeni A100 gecikmesi ve ayrı nesnelerde doğrulama bekleniyor. [Kural, kontroller ve karar](cloudfixer_selective_rotation_20261123.md).
 
 **[Run/Decision] 2026-11-23 — Ayrık all-15 PCA pilotu.** 128 nesne × 15 bozulma, seed 0. Baseline PM %75,73, PCA t50 %73,44, sekiz adım %73,59. İki kol Rotation’da kazanıp kalan 14 satırın her birinde düştü; genel baseline korundu. [Bozulma tablosu, hız, belirsizlik ve arşiv](cloudfixer_pca_all15_20261123.md#all-15-pilot-sonucu).
