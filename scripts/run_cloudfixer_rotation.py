@@ -20,7 +20,7 @@ import torch
 from cloudfixer_background import BACKGROUND_ARMS, EXPERIMENT_ARMS, anchor_weights
 from cloudfixer_background_checkpoint import block_name, mirror_group, restore_or_score
 from cloudfixer_diffusion import verify_gamma
-from cloudfixer_rotation import (ARMS, OUTPUT_ARMS, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SCD_SEARCH_STEPS, SPECTRAL_STEPS,
+from cloudfixer_rotation import (ARMS, OUTPUT_ARMS, SURFACE_ARM, GRAPH_K, GRAPH_STEPS, KABSCH_STEPS, SCD_SEARCH_STEPS, SPECTRAL_STEPS,
                                  axis_rotation, rotation_angle, rotation_policy)
 from cloudfixer_store import Budget, MountStore, canonical, commit_unit, load_units, sha, unit_key
 from research_artifacts import CORRUPTIONS
@@ -37,6 +37,9 @@ BG_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_pilot.json').read_t
 FOLLOW_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_background_followup.json').read_text())
 OUTPUT_REGISTRY = json.loads((ROOT / 'cfgs/cloudfixer_output_rotation.json').read_text())
 OUTPUT_PHASES = ('feedback_smoke', 'feedback_focus', 'feedback_other', 'feedback_all15_smoke', 'feedback_all15')
+SURFACE_PHASES = ('feedback_surface_smoke', 'feedback_surface512', 'feedback_surface_full')
+SURFACE_CONFIG = json.loads((ROOT / 'cfgs/cloudfixer_surface512.json').read_text())
+SURFACE_SMOKE = json.loads((ROOT / 'cfgs/cloudfixer_surface_smoke.json').read_text())
 FOLLOW_PHASES = ('background_follow_smoke', 'background_follow_focus', 'background_follow_scd', 'background_follow_other')
 CONDITIONS = ('clean', *sorted(CORRUPTIONS))
 DEV_CONDITIONS = ('clean', 'rotation', 'background')
@@ -136,7 +139,7 @@ def run_arm(model, head, xyz, mask, indices, arm, params, *, rng, noise_rotation
         result, seconds, memory = timed(lambda: rotation_policy(
             model, head, xyz, mask, indices, arm, max_degrees=REGISTRY['max_angle_degrees'],
             measure=components.measure, noise_rotation=noise_rotation, **params))
-    three_probes = arm in KABSCH_STEPS or arm in SPECTRAL_STEPS or arm in BACKGROUND_ARMS or arm == 'scd_search' or arm in OUTPUT_ARMS
+    three_probes = arm in KABSCH_STEPS or arm in SPECTRAL_STEPS or arm in BACKGROUND_ARMS or arm == 'scd_search' or arm in (*OUTPUT_ARMS, SURFACE_ARM)
     expected_calls = (9, 3 if three_probes else 9)
     if arm in BACKGROUND_ARMS and sum(key == 'denoiser' for key, _, _ in components.events) != 9:
         raise ValueError('Unexpected measured denoiser count')
@@ -216,6 +219,15 @@ def search_lock(rows):
 
 
 def phase_scope(phase, freeze, decision):
+    if phase in SURFACE_PHASES:
+        arms = dict.fromkeys(('identity', SURFACE_ARM), {})
+        if phase == 'feedback_surface_smoke':
+            return tuple(dict.fromkeys(r['condition'] for r in SURFACE_SMOKE)), list(dict.fromkeys(r['id'] for r in SURFACE_SMOKE)), [0], arms
+        if phase == 'feedback_surface_full':
+            if not decision['pass']:
+                raise ValueError('Full evaluation requires a passing surface512 decision')
+            return CONDITIONS[1:], list(range(2468)), [SURFACE_CONFIG['full_seed']], {SURFACE_ARM: {}}
+        return CONDITIONS, SURFACE_CONFIG['ids'], SURFACE_CONFIG['seeds'], arms
     if phase in ('feedback_all15_smoke', 'feedback_all15'):
         arms = dict.fromkeys(('identity', 'pose_pca_t50', 'pose_pca_all'), {})
         if phase == 'feedback_all15_smoke':
@@ -360,13 +372,15 @@ def evaluate(args, spec, store, budget):
     root.mkdir()
     (args.output / 'environment.txt').write_text(json.dumps(environment, indent=2) + '\n')
     store.put('execution.json', canonical(dict(spec=spec, registry=REGISTRY)))
-    bg = args.phase.startswith('background') or args.phase in OUTPUT_PHASES
-    is_smoke = args.phase in ('feedback_all15_smoke', 'feedback_smoke', 'background_follow_smoke', 'background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
+    bg = args.phase.startswith('background') or args.phase in (*OUTPUT_PHASES, *SURFACE_PHASES)
+    is_smoke = args.phase in ('feedback_surface_smoke', 'feedback_all15_smoke', 'feedback_smoke', 'background_follow_smoke', 'background_smoke', 'smoke', 'spectral_smoke', 'scd_smoke')
     smoke_key = f'smoke_{signature}.json' if bg else 'smoke_ready.json'
     if not is_smoke and json.loads(store.get(smoke_key))['runtime'] != signature:
         raise ValueError('Smoke verification does not match the live environment')
     freeze = json.loads(store.get('search_lock.json')) if args.phase in ('validation', 'full') else {}
     decision = json.loads(store.get('validation_decision.json')) if args.phase == 'full' else {}
+    if args.phase == 'feedback_surface_full':
+        decision = json.loads(store.get('surface512_decision.json'))
     if args.phase == 'feedback_other':
         decision = json.loads(store.get('feedback_decision.json'))
     conditions, ids, seeds, params = phase_scope(args.phase, freeze, decision)
@@ -384,8 +398,9 @@ def evaluate(args, spec, store, budget):
     length = 1 if is_smoke else 8 if args.phase == 'development' else 16
     if bg and not is_smoke:
         length = 4
-    slots = [dict(campaign=campaign, condition=cond, seed=seed, ids=ids[i:i+length])
-             for cond in conditions for seed in seeds for i in range(0, len(ids), length)]
+    shards = [ids[:128], ids[128:]] if args.phase == 'feedback_surface512' else [ids]
+    slots = [dict(campaign=campaign, condition=cond, seed=seed, ids=shard[i:i+length])
+             for shard in shards for cond in conditions for seed in seeds for i in range(0, len(shard), length)]
     keys = [unit_key(unit) for unit in slots]
     if bg and not cached.issubset({block_name(u) for u in slots}):
         raise ValueError('Unexpected checkpoint in Background campaign')
@@ -393,15 +408,23 @@ def evaluate(args, spec, store, budget):
         raise ValueError('Restored units must be a contiguous prefix of the registered campaign')
     rows = []
     pending_mirror = []
-    warmed = set()
+    active_condition = None
+    previous_condition = None
+    carried = {}
+    if args.phase == 'feedback_surface_full':
+        validation_campaign = decision['campaign']
+        validation_store = MountStore(store.folder / ('feedback_surface512_' + validation_campaign[:16]))
+        validation_protocol = json.loads(store.get('protocol_' + validation_campaign + '.json'))
+        if validation_protocol['spec'] != spec or validation_protocol['ids'] != SURFACE_CONFIG['ids']:
+            raise ValueError('Validation data do not share the exact full-evaluation policy')
     for block, (key, unit) in enumerate(zip(keys, slots), 1):
         cond, seed = unit['condition'], unit['seed']
         already_scored = bg and block_name(unit) in cached
         if bg:
             arms = {arm: (arm, p) for arm, p in params.items()}
-        if cond not in warmed and (not already_scored or is_smoke):
+        if cond != active_condition and (not already_scored or is_smoke):
             dataset = dataset_for(adapt, options, cond, labels, spec['classifier']['class_order'])
-            warmed.add(cond)
+            active_condition = cond
             if args.phase == 'development':
                 arms = {'identity': ('identity', {})}
                 arms.update({f'search_{i}': ('output', p) for i, p in enumerate(REGISTRY['search_grid'])})
@@ -425,16 +448,61 @@ def evaluate(args, spec, store, budget):
                             raise ValueError('Cross-runtime smoke replay differs for ' + name)
                     else:
                         store.put(name, canonical(golden))
+        if args.phase == 'feedback_surface_full' and cond != previous_condition and not already_scored:
+            carried = {}
+            previous_condition = cond
+            pilot_ids = SURFACE_CONFIG['ids']
+            for j in range(0, len(pilot_ids), 4):
+                prior_unit = dict(condition=cond, seed=seed, ids=pilot_ids[j:j+4], campaign=validation_campaign)
+                saved = restore_or_score(validation_store, prior_unit, {block_name(prior_unit)}, None,
+                                         lambda blob: unpack(blob, prior_unit, labels, ('identity', SURFACE_ARM)))
+                for r in unpack(saved, prior_unit, labels, ('identity', SURFACE_ARM)):
+                    if r['rng'] != seed * 100_003 + r['id']:
+                        raise ValueError('Candidate RNG does not match the full protocol')
+                    carried[r['id']] = dict(r, arms={SURFACE_ARM: r['arms'][SURFACE_ARM]},
+                                            timing_order=[SURFACE_ARM], reused_from=validation_campaign)
+            if len(carried) != len(pilot_ids):
+                raise ValueError('Incomplete seed-matched validation records')
         with budget.operation(180 if bg else 1200):
             def score_block():
                 found = []
                 for ident in unit['ids']:
+                    if ident in carried:
+                        found.append(carried[ident])
+                        continue
                     label = int(labels[ident])
                     rng, *batch = item(dataset, ident, seed, label)
                     order = list(arms)
                     offset = rng % len(order)
                     order = order[offset:] + order[:offset]
+                    if args.phase == 'feedback_surface512':
+                        timing = ident in SURFACE_CONFIG['timing_ids']
+                        order = order if timing else [SURFACE_ARM]
+                        if timing and ((SURFACE_CONFIG['timing_ids'].index(ident) + seed + conditions.index(cond)) % 2 == 0):
+                            order = ['identity', SURFACE_ARM]
+                        elif timing:
+                            order = [SURFACE_ARM, 'identity']
                     scores = {name: run_arm(model, head, *batch, *arms[name], rng=rng)[0] for name in order}
+                    if args.phase in ('feedback_surface512', 'feedback_surface_smoke'):
+                        proposed = scores[SURFACE_ARM]
+                        update, = proposed['diagnostics']['updates']
+                        applied = update['reason'] == 'accepted'
+                        if 'identity' not in scores:
+                            if applied:
+                                scores['identity'] = run_arm(model, head, *batch, 'identity', {}, rng=rng)[0]
+                                order.append('identity')
+                            else:
+                                scores['identity'] = {key: proposed[key] for key in ('prediction', 'confidence', 'probabilities', 'logits')}
+                                scores['identity']['from_noop'] = True
+                        if not applied and proposed['logits'] != scores['identity']['logits']:
+                            raise ValueError('Rejected surface rotation changed baseline logits')
+                        if args.phase == 'feedback_surface_smoke':
+                            for known in SURFACE_SMOKE:
+                                if (cond, ident) == (known['condition'], known['id']):
+                                    if applied != known['apply'] or label != known['label']:
+                                        raise ValueError('Surface decision differs from archived geometry')
+                                    for arm, key in ((SURFACE_ARM, 'logits'), ('identity', 'base_logits')):
+                                        np.testing.assert_allclose(scores[arm]['logits'], known[key], rtol=1e-4, atol=1e-4)
                     if args.phase in FOLLOW_PHASES and 'bg_view' in scores:
                         base = scores['identity']['logits']
                         view, random = scores['bg_view'], scores['bg_random_view']
@@ -471,7 +539,7 @@ def evaluate(args, spec, store, budget):
                 data = score_block()
                 commit_unit(cache, unit, data)
             restored = unpack(data, unit, labels, arms)
-            if args.phase != 'full':
+            if args.phase != 'full' and args.phase not in SURFACE_PHASES:
                 rows.extend(restored)
             payload_name = f'block_{block:04d}.npz'
             (root / payload_name).write_bytes(data)
@@ -479,7 +547,8 @@ def evaluate(args, spec, store, budget):
                 canonical(dict(unit=unit, bytes=len(data), sha256=sha(data))))
             if bg:
                 pending_mirror.append(unit)
-                if len(pending_mirror) == 4 or block == len(slots):
+                mirror_blocks = 32 if args.phase in SURFACE_PHASES else 4
+                if len(pending_mirror) == mirror_blocks or block == len(slots):
                     target = args.output.parent / f'{args.output.name}_mirror_{block:04d}.zip'
                     digest = mirror_group(cache, pending_mirror, target)
                     print('BACKGROUND_MIRROR', target, digest, flush=True)
@@ -503,7 +572,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phase', choices=('smoke', 'development', 'validation', 'full',
                                             'spectral_smoke', 'spectral', 'scd_smoke', 'scd',
-                                            'background_smoke', 'background_pm', 'background_dev', 'background', *FOLLOW_PHASES, *OUTPUT_PHASES), required=True)
+                                            'background_smoke', 'background_pm', 'background_dev', 'background', *FOLLOW_PHASES, *OUTPUT_PHASES, *SURFACE_PHASES), required=True)
     for arg in ('manifest', 'output', 'drive-folder'):
         parser.add_argument(f'--{arg}', type=Path, required=True)
     for arg, default in (
@@ -547,7 +616,9 @@ def main():
     path = args.output / 'config.json'
     path.write_bytes(canonical(dict(run_id=args.output.name, phase=args.phase, spec=spec, execution_status='running')))
     store = MountStore(args.drive_folder)
-    if args.phase.startswith('feedback_all15'):
+    if args.phase in SURFACE_PHASES:
+        scope, cap = 'surface', 3600 * SURFACE_CONFIG['duration_hours']
+    elif args.phase.startswith('feedback_all15'):
         scope, cap = 'feedback', 4*3600
     elif args.phase in OUTPUT_PHASES:
         scope, cap = 'feedback', OUTPUT_REGISTRY['budget_seconds']

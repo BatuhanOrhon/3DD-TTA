@@ -115,7 +115,7 @@ def deploy(*, reuse_verified_environment=False, session=None):
     if not Path('/content/.cf_point2vec_setup/verified.complete').is_file():
         raise RuntimeError('Supplemental native/head verification failed')
     proof = DRIVE/'setup'
-    if 'background' in WORK.name or 'feedback' in WORK.name or 'pca_all15' in WORK.name:
+    if 'background' in WORK.name or 'feedback' in WORK.name or 'pca_all15' in WORK.name or 'surface512' in WORK.name:
         proof = proof/(session or digest(verified)[:16])
     proof.mkdir(parents=True, exist_ok=True)
     for path in (verified, WORK/'official.tar', WORK/'research.zip', WORK/'receipt.json',
@@ -132,7 +132,9 @@ def execute(phase, session, allocation_epoch, dev_run):
     from cloudfixer_store import MountStore, canonical, record_setup
 
     store = MountStore(DRIVE)
-    if phase.startswith('feedback_all15'):
+    if phase.startswith('feedback_surface'):
+        budget_folder, cap = 'surface_budget', 16*3600
+    elif phase.startswith('feedback_all15'):
         budget_folder, cap = 'feedback_budget', 4*3600
     elif phase.startswith('feedback'):
         budget_folder, cap = 'feedback_budget', json.loads((SOURCE/'cfgs/cloudfixer_output_rotation.json').read_text())['budget_seconds']
@@ -156,7 +158,8 @@ def execute(phase, session, allocation_epoch, dev_run):
                '--manifest', str(SOURCE/'manifest.json'), '--output', str(output), '--drive-folder', str(DRIVE)]
     result = stream(command, log)
     if result == 0:
-        command = [*CONDA, str(SOURCE/'scripts/analyze_cloudfixer_rotation.py'), str(output),
+        analyzer = 'analyze_cloudfixer_surface.py' if phase.startswith('feedback_surface') else 'analyze_cloudfixer_rotation.py'
+        command = [*CONDA, str(SOURCE/'scripts'/analyzer), str(output),
                    '--derived', str(derived)]
         if phase == 'validation':
             if not dev_run:
@@ -184,6 +187,8 @@ def execute(phase, session, allocation_epoch, dev_run):
           sha256=digest(archive), bytes=archive.stat().st_size, returncode=result)), flush=True)
     if result != 0:
         raise RuntimeError(f'Failed {phase} attempt archived as {archive.name}')
+    if phase == 'feedback_surface512':
+        store.put('surface512_decision.json', (derived/'decision.json').read_bytes())
     if phase == 'feedback_focus':
         store.put('feedback_decision.json', (derived/'decision.json').read_bytes())
     if phase == 'validation':
@@ -199,7 +204,8 @@ def main(argv=None):
                                           'background_deploy', 'background_smoke', 'background_pm', 'background_dev', 'background',
                                           'background_follow_deploy', 'background_follow_smoke', 'background_follow_focus',
                                           'background_follow_scd', 'background_follow_other', 'feedback_deploy', 'feedback_smoke', 'feedback_focus', 'feedback_other',
-                                          'feedback_all15_deploy', 'feedback_all15_smoke', 'feedback_all15'))
+                                          'feedback_all15_deploy', 'feedback_all15_smoke', 'feedback_all15',
+                                          'feedback_surface_deploy','feedback_surface_smoke','feedback_surface512','feedback_surface_full'))
     parser.add_argument('--session')
     parser.add_argument('--allocation-epoch', type=float)
     parser.add_argument('--development')
@@ -208,6 +214,8 @@ def main(argv=None):
         raise RuntimeError('Drive mount required')
     if args.phase.startswith('feedback'):
         folder = 'pca_all15_20261123' if args.phase.startswith('feedback_all15') else 'rotation_feedback_20261123'
+        if args.phase.startswith('feedback_surface'):
+            folder = 'surface512_20261123'
         WORK = Path('/content')/folder
         SOURCE = WORK/'source'
         DRIVE = Path('/content/drive/MyDrive/thesis')/WORK.name
@@ -221,8 +229,8 @@ def main(argv=None):
         WORK = Path('/content')/folder
         SOURCE = WORK/'source'
         DRIVE = Path('/content/drive/MyDrive/thesis')/folder
-    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy', 'background_deploy', 'background_follow_deploy', 'feedback_deploy', 'feedback_all15_deploy'):
-        deploy(reuse_verified_environment=args.phase not in ('deploy', 'background_deploy', 'background_follow_deploy', 'feedback_deploy', 'feedback_all15_deploy'), session=args.session)
+    if args.phase in ('deploy', 'spectral_deploy', 'scd_deploy', 'background_deploy', 'background_follow_deploy', 'feedback_deploy', 'feedback_all15_deploy','feedback_surface_deploy'):
+        deploy(reuse_verified_environment=args.phase not in ('deploy', 'background_deploy', 'background_follow_deploy', 'feedback_deploy', 'feedback_all15_deploy','feedback_surface_deploy'), session=args.session)
     else:
         if not args.session or args.allocation_epoch is None:
             parser.error('Execution requires the session identity and allocation epoch')

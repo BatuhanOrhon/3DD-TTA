@@ -28,6 +28,7 @@ GRAPH_STEPS = 3
 SEARCH_ARMS = ('output', 'feedback', 'random', 'view_mean')
 ARMS = (*KABSCH_STEPS, *SEARCH_ARMS)
 OUTPUT_ARMS = ('pose_scd_t50', 'pose_scd_all', 'pose_pca_t50', 'pose_pca_all')
+SURFACE_ARM = 'pose_pca_surface_t50'
 RIGHT_AXES = np.array([np.eye(3)[:, p] * signs for p in itertools.permutations(range(3))
                       for signs in itertools.product((-1, 1), repeat=3)
                       if np.linalg.det(np.eye(3)[:, p] * signs) > 0])
@@ -46,6 +47,8 @@ def pca_basis(points):
 class OutputPose:
     def __init__(self, x, mask, indices, arm):
         self.arm = arm
+        if arm == SURFACE_ARM:
+            self.observed = x
         self.mask = mask.reshape(1, -1).bool()
         self.pose = torch.eye(3, device=x.device, dtype=x.dtype)
         self.travel = 0.
@@ -108,7 +111,19 @@ class OutputPose:
         left, right = (pca_basis(points[h])[0] for h in self.halves)
         if np.trace(left.T @ right) < 1 + 2 * math.cos(math.radians(10)):
             return None
-        return torch.as_tensor(matrix, device=q.device, dtype=q.dtype)
+        candidate = torch.as_tensor(matrix, device=q.device, dtype=q.dtype)
+        if self.arm == SURFACE_ARM:
+            from knowledge.evidence.cloudfixer_rotation_refocus_20261122.frame_check import normal_patches, select
+            observed = self.observed[0].detach().cpu().numpy()
+            if len(np.unique(observed, axis=0)) < 17:
+                row['reason'] = 'surface_support'
+                return None
+            normals, weights = normal_patches(observed)
+            # Score the actual float32 pose applied to the downstream chain.
+            if not select(normals, weights, np.stack((np.eye(3), candidate.cpu().double().numpy()))):
+                row['reason'] = 'surface_veto'
+                return None
+        return candidate
 
     @staticmethod
     def paired_points(q, reference, pairs):
@@ -353,7 +368,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
     """Run an arm with the baseline RNG contract and fixed, index-addressed FPS draws."""
     from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal
 
-    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search' and arm not in BACKGROUND_ARMS and arm not in OUTPUT_ARMS) or x.shape[0] != 1:
+    if (arm not in ARMS and arm not in SPECTRAL_STEPS and arm != 'scd_search' and arm not in BACKGROUND_ARMS and arm not in (*OUTPUT_ARMS, SURFACE_ARM)) or x.shape[0] != 1:
         raise ValueError('Expected a registered B1 rotation arm')
     config = POLICIES['proximal_pm']
     devices = [x.device.index] if x.is_cuda else []
@@ -401,7 +416,7 @@ def rotation_policy(model, classifier, x, mask, point_indices, arm, *, theta=15.
         schedule = KABSCH_STEPS.get(arm, SPECTRAL_STEPS.get(arm))
         geometry = None
         sampler_options = {}
-        output_pose = OutputPose(x, mask, point_indices, arm) if arm in OUTPUT_ARMS else None
+        output_pose = OutputPose(x, mask, point_indices, arm) if arm in (*OUTPUT_ARMS, SURFACE_ARM) else None
         if output_pose is not None:
             sampler_options['output_rotation'] = output_pose.update
             if 'scd' in arm:

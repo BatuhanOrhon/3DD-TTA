@@ -105,13 +105,18 @@ def run(args):
     all15 = args.phase.startswith('feedback_all15')
     if all15:
         session_prefix = 'tta-pca-all15-a100-20261123'
+    surface = args.phase.startswith('feedback_surface')
+    if surface:
+        session_prefix = 'tta-surface512-a100-20261123'
     if not re.fullmatch(session_prefix + r'-r[0-9]+', args.session):
         raise ValueError('Expected an explicitly owned Background assignment')
     folder = 'rotation_feedback_20261123' if feedback else FOLLOW_FOLDER if args.phase in FOLLOW_PHASES else FOLDER
     if all15:
         folder = 'pca_all15_20261123'
+    if surface:
+        folder = 'surface512_20261123'
     remote_root = '/content/' + folder
-    deployment = args.phase in ('background_deploy', 'background_follow_deploy', 'feedback_deploy', 'feedback_all15_deploy')
+    deployment = args.phase in ('background_deploy', 'background_follow_deploy', 'feedback_deploy', 'feedback_all15_deploy', 'feedback_surface_deploy')
     output = (args.output or ROOT/'result/modelnet40_c'/folder).resolve()
     output.mkdir(exist_ok=True, parents=True)
     log_dir = output/'logs'
@@ -143,7 +148,7 @@ for name in ('official.tar','research.zip','receipt.json'):
 """
     else:
         code = ''
-    if args.phase in ('restore', 'background_follow_restore', 'feedback_restore', 'feedback_all15_restore'):
+    if args.phase in ('restore', 'background_follow_restore', 'feedback_restore', 'feedback_all15_restore', 'feedback_surface_restore'):
         mirrors = sorted(host_mirrors.glob('*.zip'))
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp)/'host.zip'
@@ -186,7 +191,7 @@ print('BACKGROUND_HOST_RESTORE_DONE', flush=True)
     futures = []
     passed = False
     with ThreadPoolExecutor(max_workers=1) as pool, log.with_suffix('.log').open('x') as stream:
-        process = subprocess.Popen([*cli, 'exec', '-s', args.session, '-f', str(script), '--timeout', '18000'],
+        process = subprocess.Popen([*cli, 'exec', '-s', args.session, '-f', str(script), '--timeout', '57600' if surface else '18000'],
                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True,
                                    env={**os.environ, 'PYTHONUNBUFFERED': '1'})
         for line in process.stdout:
@@ -213,7 +218,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=['background_deploy', 'restore', 'background_smoke',
                                           'background_pm', 'background_dev', 'background', *FOLLOW_PHASES, 'feedback_deploy', 'feedback_restore', 'feedback_smoke', 'feedback_focus', 'feedback_other',
-                                          'feedback_all15_deploy', 'feedback_all15_restore', 'feedback_all15_smoke', 'feedback_all15'])
+                                          'feedback_all15_deploy', 'feedback_all15_restore', 'feedback_all15_smoke', 'feedback_all15',
+                                          'feedback_surface_deploy','feedback_surface_restore','feedback_surface_smoke','feedback_surface512','feedback_surface_full'])
     parser.add_argument('--session', required=True)
     parser.add_argument('--epoch', type=float)
     parser.add_argument('--recover-run', help='Refresh host mirrors and any completed archive without executing a cell')

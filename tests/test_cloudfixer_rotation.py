@@ -259,3 +259,38 @@ def test_separate_all15_request_keeps_original_expansion_gate_and_uses_reserved_
     smoke = phase_scope('feedback_all15_smoke', {}, {})
     assert smoke == (('rotation', 'clean'), OUTPUT_REGISTRY['smoke_ids'], [0], arms)
     assert not set(smoke[1]) & set(ids)
+
+
+def test_surface_confirmation_uses_observation_to_accept_or_veto_same_pca():
+    from cloudfixer_rotation import OutputPose, SURFACE_ARM, axis_rotation
+    import numpy as np
+
+    # A rectangular box has identifiable principal axes and three planar normal directions.
+    u, v = np.meshgrid(np.linspace(-1, 1, 16), np.linspace(-1, 1, 16))
+    faces = [np.stack([u.ravel(), v.ravel(), np.full(u.size, sign)], axis=1)[:, perm]
+             for sign in (-1, 1) for perm in [(0, 1, 2), (2, 0, 1), (1, 2, 0)]]
+    x = torch.tensor(np.unique(np.concatenate(faces), axis=0)*[3,2,1], dtype=torch.float32)[None]
+    rot = axis_rotation(0, .27, x) @ axis_rotation(1, -.21, x) @ axis_rotation(2, .22, x)
+    q = x @ rot
+    indices = torch.arange(q.shape[1])[None]
+    mask = torch.ones_like(indices, dtype=torch.bool)
+    for observed, accepted in [(q, True), (x, False)]:
+        policy = OutputPose(observed, mask, indices, SURFACE_ARM)
+        assert policy.update(60, q, observed) is None
+        delta = policy.update(50, q, observed)
+        assert (delta is not None) == accepted
+        assert policy.updates[0]['reason'] == ('accepted' if accepted else 'surface_veto')
+
+
+def test_surface_phase_cohorts_and_full_gate():
+    import pytest
+    from scripts.run_cloudfixer_rotation import SURFACE_CONFIG, SURFACE_ARM, phase_scope
+    c, ids, seeds, params = phase_scope('feedback_surface512', {}, {})
+    assert len(c) == 16 and len(set(ids)) == 512 and set(ids).isdisjoint(SURFACE_CONFIG['excluded'])
+    assert seeds == [0, 1, 2] and set(params) == {'identity', SURFACE_ARM}
+    assert SURFACE_CONFIG['timing_ids'] == ids[::16]
+    with pytest.raises(ValueError):
+        phase_scope('feedback_surface_full', {}, {'pass': False})
+    c, ids, seeds, params = phase_scope('feedback_surface_full', {}, {'pass': True})
+    assert len(c) == 15 and 'clean' not in c and len(set(ids)) == 2468
+    assert seeds == [2] and list(params) == [SURFACE_ARM]

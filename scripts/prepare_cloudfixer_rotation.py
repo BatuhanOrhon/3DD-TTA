@@ -15,7 +15,9 @@ from cloudfixer_store import canonical, sha
 from scripts.prepare_cloudfixer_transfer import manifest
 
 
-EXTRA = ('cfgs/cloudfixer_output_rotation.json', 'cloudfixer_rotation.py', 'cloudfixer_background.py', 'cloudfixer_background_checkpoint.py',
+EXTRA = ('cfgs/cloudfixer_surface512.json', 'cfgs/cloudfixer_surface_smoke.json',
+         'knowledge/evidence/cloudfixer_rotation_refocus_20261122/frame_check.py', 'scripts/analyze_cloudfixer_surface.py',
+         'cfgs/cloudfixer_output_rotation.json', 'cloudfixer_rotation.py', 'cloudfixer_background.py', 'cloudfixer_background_checkpoint.py',
          'cfgs/cloudfixer_background_pilot.json', 'cfgs/cloudfixer_background_followup.json', 'cfgs/cloudfixer_rotation_pilot.json',
          'cfgs/cloudfixer_spectral_rotation_pilot.json', 'cfgs/cloudfixer_scd_rotation_pilot.json',
          'scripts/run_cloudfixer_rotation.py', 'scripts/analyze_cloudfixer_rotation.py',
