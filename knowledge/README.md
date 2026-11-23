@@ -8,6 +8,7 @@ türün toplamında PM net+689/+120/+451doğru; iki türdeki kayıp toplamı ter
 review0/0/0 geçti. Primarythesis-integration7b438d9; officialcloudflush12:27,
 yalnızownedr25stop12:28UTC doğrulandı. Poststop envanteri0oturum/0CUh.
 [Tam tablolar ve yorum](cloudfixer_baseline_multibackbone_results_20261123.md) ·
+[Corruption bazında eşleşmeli sayılar ve yorumlar](cloudfixer_baseline_corruption_diagnostics_20261123.md) ·
 [Yayın/kapatma](cloudfixer_baseline_multibackbone_integration_20261123.md) ·
 [Yürütme/kurtarma](cloudfixer_baseline_multibackbone_20261123.md).
 Aşağıdaki eski running/no-result ifadeleri tarihseldir; bu görev tamamlandı.

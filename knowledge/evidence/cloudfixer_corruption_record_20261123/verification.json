@@ -1,0 +1,29 @@
+{
+  "status": "verified_derived_corruption_documentation",
+  "date": "2026-11-23",
+  "source_archive": "result/modelnet40_c/cloudfixer_baseline_heads/e8df74eb3976/final_20261123T112717Z.zip",
+  "source_archive_sha256": "c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265",
+  "recount_sha256": "4abebb4d7d6b58c2d97f6fbf1d6d6f659e7b292deaa8bd1a36e2f2fa5f460fed",
+  "baseline_campaign": "e8df74eb3976517f74452c49363df953ac5d103e4ff0cc6fb265d327769b0427",
+  "original_CF_campaign": "3596befa489bc8f05cd5f139a976c7a00b7429d390a19fec850595814cd3f224",
+  "objects_per_corruption": 2468,
+  "corruptions": 15,
+  "heads": [
+    "dgcnn",
+    "curvenet",
+    "pointnext"
+  ],
+  "verified_accuracy_records": 135,
+  "verified_pairs": 135,
+  "verified_summary_rows": 9,
+  "existing_accuracy_numeric_fields": 270,
+  "new_count_table_rows": 45,
+  "new_pair_table_rows": 45,
+  "new_integer_fields_verified": 540,
+  "source_harm_cells": 9,
+  "document": "knowledge/cloudfixer_baseline_corruption_diagnostics_20261123.md",
+  "document_sha256": "966df6e29f340e519ecb40c8f1a36c9e388b07aa7a87424f6d89b6593a071c0f",
+  "derivation_script_sha256": "eef62345fd20eb19989a33fcd8386a72a926096b91b5cef5fefecb7687e9fbe8",
+  "new_inference": false,
+  "method_or_hyperparameter_change": false
+}

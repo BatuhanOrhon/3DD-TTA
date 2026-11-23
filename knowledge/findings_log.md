@@ -10220,3 +10220,13 @@ probe/transfer dahil;6.73CU/h gözlenen hızla tahmini 33.274666CU.
 Bu ayrı çekilmiş vendor faturası değildir.8h/80CU sınırları aşılmadı.
 Tam denetimli GPUtur4500.207551s≈75.0dk. Yeni GPUişi veya consent engeli yok.
 Kapanış metadata'sı host'ta kaydedilip aynı sharedbranch'e normalpush ile eklenir.
+
+## 2026-11-23 — Üç source model sonucunun corruption bazında ayrıntılı kaydı
+
+[User report/Run/Derived] Kullanıcı corruption özelindeki sonuçları ayrıntılarıyla knowledge’a kaydedip thesis-integration’a pushlamayı istedi. Kaynak branch research/cloudfixer-transfer-20261114, başlangıç HEAD8d5c058; güncel shared hedef7399c17 doğrulandı. Yeni deney/Colab çağrısı, model/politika/parametre değişikliği veya test etiketiyle seçim yapılmadı.
+
+[Run] Mühürlü406927870B ZIP SHA c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265 ve içindeki recount.json SHA4abebb4d7d6b58c2d97f6fbf1d6d6f659e7b292deaa8bd1a36e2f2fa5f460fed doğrulandı. 15corruption×3model, her hücre2468ID/s5/seed0;135accuracy kaydı,135paired kayıt ve9toplam tutarlı. Mevcut45accuracy satırındaki270alan ayrıca eşleşti. Yeni45doğru/net ve45eşleşmeli satırdaki540tamsayı kaynakla karşılaştırıldı.
+
+DGCNN/Impulse PM ve terminal aynı2194doğruya rağmen22/22yalnız-doğru, CurveNet/DensityIncrease aynı2114doğruya rağmen33/33yalnız-doğru içerir. En azbir düzeltme/readout’un source-only’den düşük olduğu9hücre ayrı tabloya alındı. Kazanç, kayıp ve negatif sonuçlar korunur; farklı CF B64/native RNG ile bizim B96/unitfork farkı ve tek-seed sınırı açık tutulur.
+
+Kayıt: [corruption ayrıntıları](cloudfixer_baseline_corruption_diagnostics_20261123.md). Kaynak/derivasyon doğrulaması: evidence/cloudfixer_corruption_record_20261123/verification.json. Bilimsel GPU kaynağıa979bce; eski arşiv ve önceki sonuçlar değiştirilmedi. Bu güncelleme yalnız knowledge ve kompakt doğrulama kaydıdır. Bağımsız seed/CI ve ayrı terminal-only süre hâlâ ölçülmedi.

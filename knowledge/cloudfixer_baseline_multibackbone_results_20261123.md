@@ -2,6 +2,8 @@
 
 2026-11-23 — [Run/Validated] Tam 2.468 özgün nesne × 15 corruption, severity5, seed0. Her head için 37.020 corruption gözlemi; bu 37.020 ayrı özgün nesne değildir. 390 B96 blok, 135 accuracy ve 135 nesne-eşleşmeli karşılaştırma satırı bağımsız ham sayımdan doğrulandı.
 
+Corruption başına doğru sayıları, üç çift karşılaştırmanın yalnız-doğru/yalnız-yanlış sayıları ve ayrı yorumlar: [15 corruption için ayrıntılı kayıt](cloudfixer_baseline_corruption_diagnostics_20261123.md).
+
 ## Sabit yöntem ve karşılaştırma
 
 Resmî ModelNet40 CloudFixer XYZ diffusion prior kullanılır; LION kullanılmaz. Kendi yöntemimiz N8/K80/tau=.1/retained=.95 gradient-free proximal düzeltmedir. PM, düzeltme öncesi t20 ve t10 ile ek denoiser çağrısından gelen gerçek t0 softmax olasılıklarının eşit float64 ortalamasıdır. Toplam 9 prior çağrısı vardır. PM kapalı sütunu aynı N8 yörüngesinin t0 çıktısıdır; N32 değildir. Tek geometri üç donmuş head tarafından değerlendirilir; classifier ağırlıkları/adaptasyonu yoktur.

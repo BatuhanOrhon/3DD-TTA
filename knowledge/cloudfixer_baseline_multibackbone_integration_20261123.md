@@ -86,3 +86,11 @@ probe/transfer dahil;6.73CU/h gözlenen hızla tahmini 33.274666CU.
 Bu ayrı çekilmiş vendor faturası değildir.8h/80CU sınırları aşılmadı.
 Tam denetimli GPUtur4500.207551s≈75.0dk. Yeni GPUişi veya consent engeli yok.
 Kapanış metadata'sı host'ta kaydedilip aynı sharedbranch'e normalpush ile eklenir.
+
+## 2026-11-23 — Corruption ayrıntıları için dokümantasyon eki
+
+[User report/Run/Derived] Kullanıcının ek isteğiyle her corruption ayrı bölümde açıldı: source/T/PM/CF doğru sayıları, PM–T/PM–CF/T–CF yalnız-doğru eşleşmeleri, net farklar ve her türe özgü yorum. Kaynak dokümantasyon commit’i `research/cloudfixer-transfer-20261114@9df8418`; entegrasyon tabanı `origin/thesis-integration@7399c17`.
+
+Seçilen kapsam yalnız knowledge: yeni `cloudfixer_baseline_corruption_diagnostics_20261123.md`, doğrulama JSON’u, ana sonuç notunun bağlantısı, README/open_questions bağlantıları ve findings kaydı. Geçici türetme betiği `result/preparation/cloudfixer_corruption_record_20261123/` altında tutulur; model kodu, raw ZIP/NPZ, checkpoint ve önceki arşivler değiştirilmez veya yeniden yayımlanmaz. Diğer araştırmaların kaynak ve tarihçeleri korunur.
+
+[Run] 135 accuracy/135 paired kayıt ve9 toplam; mevcut45 accuracy satırının270 sayısal alanı ve yeni tablolardaki540 tamsayı mühürlü sayımla karşılaştırıldı. Kaynak ZIP SHA `c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265`, recount SHA `4abebb4d7d6b58c2d97f6fbf1d6d6f659e7b292deaa8bd1a36e2f2fa5f460fed`. Yeni GPU/Colab çağrısı veya model testi gerekmedi; bilimsel sayı/parametre değişikliği yok. Yalnız dokümantasyon doğrulaması ve normal fast-forward push yapılır; son commit kimliği bağımsız remote readback ile doğrulanır.

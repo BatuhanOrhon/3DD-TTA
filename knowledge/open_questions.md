@@ -7,6 +7,7 @@
 - [x] PM–terminal ve PM/terminal–CF object-ID paired sayıları; 45corruption/model accuracy ve ayrıntılı bulgular kaydedildi.
 - [x] Son406.9MB raw/source bundle Drive→freshhost SHA/CRC/141safeüyekontrolü geçti.
 - [x] Code/knowledge primary7b438d9 publication, packetDrivefreshproof, officialcloudflush ve yalnızownedr25stop; poststop0CUh/0assignment.
+- [x] [15 corruption’ın ayrıntılı doğru/yanlış eşleşmeleri](cloudfixer_baseline_corruption_diagnostics_20261123.md): 45 hücre, 135 çift karşılaştırma, source-only zararları ve eşit accuracy içindeki örnek değişimleri doğrulandı.
 - [ ] Bağımsız seed tekrarı ve üç head'de PM etkisinin belirsizlik aralıkları ölçülmedi; yeni GPU görevi olarak başlatılmadı.
 - [ ] Gelecek pose/background müdahalesini ayrı geliştirme nesnelerinde kilitle; source-only zararını ve diğer13 sonucu korumayı ölç.
 
