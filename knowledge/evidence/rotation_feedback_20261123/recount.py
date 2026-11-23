@@ -11,6 +11,51 @@ import zipfile
 import numpy as np
 
 
+def all15_summary(config, rows, paired, table):
+    ids = config['ids']
+    conditions = config['conditions']
+    assert len(ids) == 128 and config['seeds'] == [0] and len(conditions) == 15 and 'clean' not in conditions
+    assert set(ids) == set(config['spec']['output_rotation']['other_ids'])
+    arms = ('identity', 'pose_pca_t50', 'pose_pca_all')
+    assert set(arms) == set(config['params']) and config['blocks'] == 480
+    draws = np.random.default_rng(20261121).integers(len(ids), size=(10000, len(ids)))
+    summary = {}
+    for group, names in [('all15', conditions), ('macro14', [c for c in conditions if c != 'rotation'])]:
+        comparisons = {}
+        ordered = [rows[i, c, 0] for i in ids for c in names]
+        base = np.array([r['arms']['identity']['prediction'] == r['label'] for r in ordered])
+        for arm in (*arms,'t50_minimum_15'):
+            recovered = arm == 't50_minimum_15'
+            correct, terminal, seconds = [], [], []
+            for r in ordered:
+                if recovered:
+                    entry = r['arms']['pose_pca_t50']
+                    update, = entry['diagnostics']['updates']
+                    if update['applied_degrees'] < 15:
+                        entry = r['arms']['identity']
+                else:
+                    entry = r['arms'][arm]
+                correct.append(entry['prediction'] == r['label'])
+                terminal.append(np.argmax(entry['logits'][-1]) == r['label'])
+                seconds.append(entry['seconds'])
+            correct = np.array(correct)
+            delta = 100*(correct.astype(float)-base).reshape(len(ids),len(names)).mean(1)
+            stats = dict(n=len(ordered), pm=int(correct.sum()), terminal=int(sum(terminal)),
+                         repairs=int((correct & ~base).sum()), harms=int((~correct & base).sum()),
+                         delta_pp=float(delta.mean()), nominal_ci_pp=np.quantile(delta[draws].mean(1), [.025,.975]).tolist())
+            if not recovered:
+                stats['p50_ms'], stats['p95_ms'] = (1000*np.quantile(seconds, [.5,.95])).tolist()
+                assert stats['pm'] == sum(table[c][arm]['pm'] for c in names)
+                assert stats['terminal'] == sum(table[c][arm]['terminal'] for c in names)
+                if arm != 'identity':
+                    effect, = [r for r in paired if r['group']==group and r['arm']==arm and r['reference']=='identity']
+                    assert int(effect['candidate_correct'])==stats['pm'] and np.isclose(float(effect['delta_pp']),stats['delta_pp'])
+                    stats['simultaneous_ci_pp'] = [float(effect[k]) for k in ('simultaneous_lower_pp','simultaneous_upper_pp')]
+            comparisons[arm] = stats
+        summary[group] = comparisons
+    return summary
+
+
 def recount(path):
     run = path.stem
     with zipfile.ZipFile(path) as archive:
@@ -88,7 +133,9 @@ def recount(path):
                                         if effect else None))
         result=dict(run=run, archive_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),blocks=config['blocks'],
                     objects=len(ids),events=len(rows),method_events=len(rows)*len(arms),table=table)
-        if config['phase'] == 'feedback_focus':
+        if config['phase'] == 'feedback_all15':
+            result['aggregate'] = all15_summary(config, rows, paired, table)
+        if config['phase'] in ('feedback_focus','feedback_all15'):
             comparison = {}
             for cond in conditions:
                 kept = correct = repairs = harms = identical = 0
