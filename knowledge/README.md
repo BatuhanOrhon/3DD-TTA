@@ -1,7 +1,5 @@
 **[Run] 2026-11-24 — Point2Vec tam ModelNet40-C taraması tamamlandı.** Rotation PM %48,06 → %64,95 (+16,90 puan). All-15 PM %74,95 → %76,34 (+1,39 puan). CloudFixer all-15 %77,24. Diğer 14 bozulmanın 3 tanesinde adayın PM doğru sayısı tarihsel baseline’ın altında kaldı. r34 kapatıldı. [Tam tablo ve doğrulama](cloudfixer_surfacefull_gpu_20261124.md#tam-test-sonucu)
 
-**[User report/Code/Open] 2026-11-24 — Point2Vec ile tam ModelNet40-C taraması.** Kullanıcı 512 nesnedeki doğrulamadan sonra yüzey onaylı t50 PCA adayının 2.468 nesnenin tamamında ayrıca ölçülmesini istedi. Seed 2’de her bozulmada 512 kayıt arşivle birebir eşleşti. 37.020 kararın 7.680’i hazır, 29.340 yeni ölçüm hedefleniyor. 24 Kasım’da L4 ve standart A100 kapatıldı. High-RAM A100 r34 üzerinde tam tarama başladı ve ilk bloklar Drive’a yazıldı. [Tam tarama, önceki bulgular ve arşiv kaydı](cloudfixer_surfacefull_gpu_20261124.md)
-
 **[Run/Decision] 2026-11-24 — Yüzey normaliyle onaylanan tek t50 PCA, ayrı 512 nesne ve üç seed.** Rotation PM %46,09 → %64,58 (+18,49 puan), all-15 %73,90 → %75,14 (+1,24), clean %91,34. Rotation dışındaki 14 türün dokuzunda −0,07 ile −0,33 puan gözlendi. Her türü koruma koşulu geçilmedi, tam tarama açılmadı. Ortak A100 p50 +%2,16 ve p95 +%1,10. Drive arşivi doğrulandı ve A100 kapatıldı. [Tam tablo, belirsizlik ve karar](cloudfixer_surface512_gpu_20261123.md#512-nesnede-doğrulama-sonucu).
 
 **[Run/Complete] 2026-11-23 — CF-XYZ N8, üç model, tam ModelNet40-C.**

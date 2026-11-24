@@ -66,3 +66,9 @@
 [Run] 7.680 pilot kaydı ve 29.340 yeni kayıt tam sayıldı. Drive ve yerel ZIP aynı SHA-256 değerine sahip. UTC 2026-11-24T19:38:35.053613+00:00 itibarıyla r34 kapalı. [Ham arşiv kimlikleri, batch seçimleri ve kapanış](evidence/surfacefull_20261124/r34_closed.json) · [Bozulma, terminal/PM ve iki nesne grubunun ham sayımları](evidence/surfacefull_20261124/full_comparison.json)
 
 [Decision] Tarihsel CloudFixer ve baseline aynı nesneleri kapsıyor. Rastgele çekim sırası adaydan farklı. Tam test tanımlayıcı karşılaştırmadır.
+
+[Run/Decision] Aday PM toplamda 513 ek doğru tahmin getirdi. Bunların 417’si Rotation’da, 96’sı diğer 14 türde toplam net kazançtır (+0,28 puan). 12 türde artış görüldü. Background’da 26, Impulse’da 10, Cutout’ta 2 doğru tahmin kaybedildi. Her bozulmanın doğruluğunu koruma ölçütü geçilmedi. Tez baseline’ı mevcut SCD + Probability Mean olarak korundu. Adayın Rotation PM doğruluğu, ilk kez ölçülen 1.956 nesnede 1.275/1.956 (%65,18), önceki 512 nesnede 328/512 (%64,06). Aday PM, kendi terminaline göre all-15’te net 126 ek doğru tahmin getirdi (+0,34 puan).
+
+[Run] A100-SXM4-80GB üzerinde 15 bozulmanın her birinde B1, B2, B4 ve B8 denendi. B2–B8 referansla sayısal eşdeğerlik denetimini geçemedi ve 15 türde B1 seçildi. Yeni 29.340 nesne-bozulmada senkronize çıkarım medyanı 247,99 ms, p95 352,44 ms, hız 3,88 örnek/saniye ve en yüksek PyTorch tahsisi 554,46 MiB oldu. Bu süreye Drive yazımı ve veri hazırlığı dahil değildir. Tam test karşılaştırmasında baseline zamanlaması tekrar ölçülmedi. [Bozulma bazında hız, VRAM, eşdeğerlik ve batch ölçümleri](evidence/surfacefull_20261124/r34_batch_profiles.json)
+
+[Run] Kapanış 24 Kasım 22.38 Türkiye saati. Kapatma sonrası Colab sunucusu 0 aktif oturum, 0,00 CU/saat ve 937,77 CU bakiye bildirdi. Oturumun çalışması sırasında gözlenen hesap tüketim hızı 8,88–10,99 CU/saat aralığındaydı.
