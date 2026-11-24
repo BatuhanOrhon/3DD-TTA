@@ -3243,3 +3243,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
 [Open, 2026-11-24] Kullanıcı isteğiyle tüm 2.468 ModelNet40-C nesnesinde sabit t50 adayının PM ve terminal doğrulukları, genel ortalama ve her bir bozulmada tarihsel referanslarla karşılaştırılacak. [Sabit kapsam ve tekrar kullanım protokolü](cloudfixer_surfacefull_gpu_20261124.md)
 
 [Open, 2026-11-24] r34 High-RAM A100 üzerinde her bozulmada B1 ile uyumlu hangi batch_size en yüksek ölçülen örnek/saniyeyi veriyor? Seçim ve gerçek bellek kullanımı tam tarama ölçümleriyle birlikte kaydedilecek. [Donanım ve protokol](cloudfixer_surfacefull_gpu_20261124.md)
+
+[Run] r34 tam test, donanımda batch seçimi ve kapanış tamamlandı. [Sonuçlar ve kaynaklar](cloudfixer_surfacefull_gpu_20261124.md#tam-test-sonucu)

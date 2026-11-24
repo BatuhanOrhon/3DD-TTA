@@ -10247,3 +10247,5 @@ Kayıt: [corruption ayrıntıları](cloudfixer_baseline_corruption_diagnostics_2
 [Run, 2026-11-24 16:35 UTC] r34 High-RAM A100 üzerinde on kurulum hücresi, beş sayısal GPU kontrolü ve 15 ModelNet40-C dizisi doğrulandı. [Kurulum kaydı](evidence/surfacefull_20261124/r34_setup.json)
 
 [Run/Open, 2026-11-24 16:58 UTC] Point2Vec tam tarama kontrolleri geçti, düzeltilmiş yürütücüyle ilk dört nesnelik Drive blokları kaydedildi. Background’da B2–B8 daha yüksek throughput verdi, logit eşdeğerliği için B1 seçildi. [Ölçüm ve kimlik kayıtları](evidence/surfacefull_20261124/r34_first_blocks.json)
+
+[Run, 2026-11-24T19:38:35.053613+00:00] Rotation PM %48,06 → %64,95 (+16,90 puan). All-15 PM %74,95 → %76,34 (+1,39 puan). CloudFixer all-15 %77,24. Diğer 14 bozulmanın 3 tanesinde adayın PM doğru sayısı tarihsel baseline’ın altında kaldı. [Tam test ve oturum kapanışı](cloudfixer_surfacefull_gpu_20261124.md#tam-test-sonucu)

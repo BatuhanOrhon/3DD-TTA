@@ -39,3 +39,30 @@
 [Run, 16:35 UTC] r34’te 10 kanonik hücre tamamlandı. Conda yeniden başladıktan sonra Drive yeniden doğrulandı. Hücre 2’de yalnız bilinen fastrlock wheel hatası ertelendi. CUDA 12.1, Torch 2.1.2+cu121 ve 15 bozulma dizisi denetlendi. CUDA tensörü, FPS, KNN, Chamfer ve EMD testleri geçti. PyTorch GPU’ya 85.094.825.984 bayt toplam bellek bildiriyor. Point2Vec ve denoiser kaynak/ağırlık dağıtımı başladı. Yerel yürütücü ff4060a bağlantı düşerse aynı işin sunucu kaydını kontrol ediyor. [Kurulum ve kaynak kaydı](evidence/surfacefull_20261124/r34_setup.json)
 
 [Run, 16:58 UTC] Altı örneklik smoke arşivi Drive’dan indirilip tekrar sayıldı. Önceki pilotla model ve sayısal ortam kimliği eşleşti. İlk tam deneme, B1 geri dönüşünde Python kapsam hatasıyla ilk bloktan önce durdu. Başarısız arşiv Drive ve yerelde korunuyor. Düzeltme f45ae24, çalışan GPU ortamı ve smoke kullanılarak ayrı kaynak dizinine yüklendi. Yeni research.zip SHA-256 6cabef864122f5737f3f18780f49df4d948d6e83da27e14058fed6a595ce76ee. Yalnız yürütücü dosyasının içeriği değişti. Donmuş çıkarım bileşenleri ve 7.680 arşiv kaydı yeniden doğrulandı. Çalışan tam taramada Background için sekiz gerçek örnekte B1/B2/B4/B8 sırasıyla 3.91, 5.27, 5.85, 6.46 örnek/saniye. B2/B4/B8 logit eşdeğerlik toleransını aşınca B1 seçildi. Drive’da dört nesnelik blokların yazımı doğrulandı. Bu aşama tam accuracy sonucu vermez. [Ölçümler ve arşiv SHA değerleri](evidence/surfacefull_20261124/r34_first_blocks.json)
+
+## Tam test sonucu
+
+[Run] Rotation PM %48,06 → %64,95 (+16,90 puan). All-15 PM %74,95 → %76,34 (+1,39 puan). CloudFixer all-15 %77,24. Diğer 14 bozulmanın 3 tanesinde adayın PM doğru sayısı tarihsel baseline’ın altında kaldı.
+
+| Bozulma | CloudFixer | Baseline terminal | Baseline PM | Aday terminal | Aday PM | Aday PM − baseline PM (puan) |
+|---|---:|---:|---:|---:|---:|---:|
+| uniform | 90,96 | 90,11 | 90,44 | 90,44 | 90,52 | +0,08 |
+| gaussian | 91,57 | 90,24 | 90,84 | 90,64 | 91,37 | +0,53 |
+| background | 76,09 | 64,75 | 65,32 | 64,42 | 64,26 | -1,05 |
+| impulse | 91,57 | 91,65 | 91,94 | 91,49 | 91,53 | -0,41 |
+| upsampling | 89,06 | 90,19 | 90,11 | 89,83 | 90,19 | +0,08 |
+| distortion_rbf | 80,75 | 78,89 | 79,38 | 78,28 | 80,02 | +0,65 |
+| distortion_rbf_inv | 83,43 | 81,28 | 81,97 | 81,65 | 82,13 | +0,16 |
+| density | 79,34 | 79,74 | 79,66 | 80,67 | 80,47 | +0,81 |
+| density_inc | 87,76 | 86,99 | 86,91 | 87,24 | 87,12 | +0,20 |
+| shear | 78,97 | 75,53 | 75,89 | 76,30 | 76,94 | +1,05 |
+| rotation | 69,49 | 47,33 | 48,06 | 64,38 | 64,95 | +16,90 |
+| cutout | 81,44 | 85,98 | 85,25 | 85,29 | 85,17 | -0,08 |
+| distortion | 78,69 | 75,97 | 76,34 | 76,99 | 77,39 | +1,05 |
+| occlusion | 41,17 | 40,96 | 41,37 | 41,45 | 41,82 | +0,45 |
+| lidar | 38,37 | 40,44 | 40,84 | 40,92 | 41,21 | +0,36 |
+| all15 | 77,24 | 74,67 | 74,95 | 76,00 | 76,34 | +1,39 |
+
+[Run] 7.680 pilot kaydı ve 29.340 yeni kayıt tam sayıldı. Drive ve yerel ZIP aynı SHA-256 değerine sahip. UTC 2026-11-24T19:38:35.053613+00:00 itibarıyla r34 kapalı. [Ham arşiv kimlikleri, batch seçimleri ve kapanış](evidence/surfacefull_20261124/r34_closed.json) · [Bozulma, terminal/PM ve iki nesne grubunun ham sayımları](evidence/surfacefull_20261124/full_comparison.json)
+
+[Decision] Tarihsel CloudFixer ve baseline aynı nesneleri kapsıyor. Rastgele çekim sırası adaydan farklı. Tam test tanımlayıcı karşılaştırmadır.

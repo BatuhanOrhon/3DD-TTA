@@ -1,0 +1,44 @@
+{
+  "closure": {
+    "closed_utc": "2026-11-24T19:38:35.053613+00:00",
+    "session": "tta-surfacefull-a100-20261124-r34",
+    "endpoint": "gpu-a100-hm-ass1c0-3esttahj5vu4e",
+    "archives": {
+      "feedback_surface_smoke": {
+        "archive": "20261124-165309_feedback_surface_smoke.zip",
+        "sha256": "95430e5e06264b04a336c35eb654c3e22fbd3a574d993b15d7d2d4fc2874514e"
+      },
+      "feedback_surface_full": {
+        "archive": "20261124-165747_feedback_surface_full.zip",
+        "sha256": "8fdd16417fca413a83d4fcd869c1e8b54c8d1352ef02baf27dbb4b49899a29e3"
+      }
+    },
+    "cloud_flush": true,
+    "absent_from_server": true,
+    "usage": [
+      "Current balance: 937.77 compute units",
+      "Usage rate: 0.00/hr",
+      "Active assignments: 0"
+    ]
+  },
+  "batches": {
+    "background": 1,
+    "cutout": 1,
+    "density": 1,
+    "density_inc": 1,
+    "distortion": 1,
+    "distortion_rbf": 1,
+    "distortion_rbf_inv": 1,
+    "gaussian": 1,
+    "impulse": 1,
+    "lidar": 1,
+    "occlusion": 1,
+    "rotation": 1,
+    "shear": 1,
+    "uniform": 1,
+    "upsampling": 1
+  },
+  "predictions": 37020,
+  "new": 29340,
+  "reused": 7680
+}

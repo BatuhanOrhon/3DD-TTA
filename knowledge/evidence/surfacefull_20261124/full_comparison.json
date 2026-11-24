@@ -1,0 +1,363 @@
+{
+  "run": "20261124-165747_feedback_surface_full",
+  "archive_sha256": "8fdd16417fca413a83d4fcd869c1e8b54c8d1352ef02baf27dbb4b49899a29e3",
+  "rows": {
+    "uniform": {
+      "n": 2468,
+      "base_pm": 2232,
+      "base_terminal": 2224,
+      "candidate_pm": 2234,
+      "candidate_terminal": 2232,
+      "cf": 2245,
+      "n_accepted": 9
+    },
+    "gaussian": {
+      "n": 2468,
+      "base_pm": 2242,
+      "base_terminal": 2227,
+      "candidate_pm": 2255,
+      "candidate_terminal": 2237,
+      "cf": 2260,
+      "n_accepted": 8
+    },
+    "background": {
+      "n": 2468,
+      "base_pm": 1612,
+      "base_terminal": 1598,
+      "candidate_pm": 1586,
+      "candidate_terminal": 1590,
+      "cf": 1878,
+      "n_accepted": 16
+    },
+    "impulse": {
+      "n": 2468,
+      "base_pm": 2269,
+      "base_terminal": 2262,
+      "candidate_pm": 2259,
+      "candidate_terminal": 2258,
+      "cf": 2260,
+      "n_accepted": 12
+    },
+    "upsampling": {
+      "n": 2468,
+      "base_pm": 2224,
+      "base_terminal": 2226,
+      "candidate_pm": 2226,
+      "candidate_terminal": 2217,
+      "cf": 2198,
+      "n_accepted": 12
+    },
+    "distortion_rbf": {
+      "n": 2468,
+      "base_pm": 1959,
+      "base_terminal": 1947,
+      "candidate_pm": 1975,
+      "candidate_terminal": 1932,
+      "cf": 1993,
+      "n_accepted": 30
+    },
+    "distortion_rbf_inv": {
+      "n": 2468,
+      "base_pm": 2023,
+      "base_terminal": 2006,
+      "candidate_pm": 2027,
+      "candidate_terminal": 2015,
+      "cf": 2059,
+      "n_accepted": 30
+    },
+    "density": {
+      "n": 2468,
+      "base_pm": 1966,
+      "base_terminal": 1968,
+      "candidate_pm": 1986,
+      "candidate_terminal": 1991,
+      "cf": 1958,
+      "n_accepted": 13
+    },
+    "density_inc": {
+      "n": 2468,
+      "base_pm": 2145,
+      "base_terminal": 2147,
+      "candidate_pm": 2150,
+      "candidate_terminal": 2153,
+      "cf": 2166,
+      "n_accepted": 17
+    },
+    "shear": {
+      "n": 2468,
+      "base_pm": 1873,
+      "base_terminal": 1864,
+      "candidate_pm": 1899,
+      "candidate_terminal": 1883,
+      "cf": 1949,
+      "n_accepted": 168
+    },
+    "rotation": {
+      "n": 2468,
+      "base_pm": 1186,
+      "base_terminal": 1168,
+      "candidate_pm": 1603,
+      "candidate_terminal": 1589,
+      "cf": 1715,
+      "n_accepted": 903
+    },
+    "cutout": {
+      "n": 2468,
+      "base_pm": 2104,
+      "base_terminal": 2122,
+      "candidate_pm": 2102,
+      "candidate_terminal": 2105,
+      "cf": 2010,
+      "n_accepted": 15
+    },
+    "distortion": {
+      "n": 2468,
+      "base_pm": 1884,
+      "base_terminal": 1875,
+      "candidate_pm": 1910,
+      "candidate_terminal": 1900,
+      "cf": 1942,
+      "n_accepted": 91
+    },
+    "occlusion": {
+      "n": 2468,
+      "base_pm": 1021,
+      "base_terminal": 1011,
+      "candidate_pm": 1032,
+      "candidate_terminal": 1023,
+      "cf": 1016,
+      "n_accepted": 51
+    },
+    "lidar": {
+      "n": 2468,
+      "base_pm": 1008,
+      "base_terminal": 998,
+      "candidate_pm": 1017,
+      "candidate_terminal": 1010,
+      "cf": 947,
+      "n_accepted": 58
+    },
+    "all15": {
+      "n": 37020,
+      "base_pm": 27748,
+      "base_terminal": 27643,
+      "candidate_pm": 28261,
+      "candidate_terminal": 28135,
+      "cf": 28596,
+      "n_accepted": 1433
+    }
+  },
+  "ref_raw_sha256": "b2f0685cb1f0c3e0a053dff6e19f71503e9b793ba2ed340ff1eb0c6f6081e42d",
+  "per_partition": {
+    "uniform": {
+      "reused": {
+        "n": 512,
+        "pm": 457,
+        "terminal": 458,
+        "accepted": 2
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1777,
+        "terminal": 1774,
+        "accepted": 7
+      }
+    },
+    "gaussian": {
+      "reused": {
+        "n": 512,
+        "pm": 457,
+        "terminal": 457,
+        "accepted": 3
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1798,
+        "terminal": 1780,
+        "accepted": 5
+      }
+    },
+    "background": {
+      "reused": {
+        "n": 512,
+        "pm": 318,
+        "terminal": 320,
+        "accepted": 5
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1268,
+        "terminal": 1270,
+        "accepted": 11
+      }
+    },
+    "impulse": {
+      "reused": {
+        "n": 512,
+        "pm": 466,
+        "terminal": 466,
+        "accepted": 6
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1793,
+        "terminal": 1792,
+        "accepted": 6
+      }
+    },
+    "upsampling": {
+      "reused": {
+        "n": 512,
+        "pm": 458,
+        "terminal": 459,
+        "accepted": 1
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1768,
+        "terminal": 1758,
+        "accepted": 11
+      }
+    },
+    "distortion_rbf": {
+      "reused": {
+        "n": 512,
+        "pm": 403,
+        "terminal": 395,
+        "accepted": 9
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1572,
+        "terminal": 1537,
+        "accepted": 21
+      }
+    },
+    "distortion_rbf_inv": {
+      "reused": {
+        "n": 512,
+        "pm": 413,
+        "terminal": 411,
+        "accepted": 4
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1614,
+        "terminal": 1604,
+        "accepted": 26
+      }
+    },
+    "density": {
+      "reused": {
+        "n": 512,
+        "pm": 400,
+        "terminal": 403,
+        "accepted": 4
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1586,
+        "terminal": 1588,
+        "accepted": 9
+      }
+    },
+    "density_inc": {
+      "reused": {
+        "n": 512,
+        "pm": 439,
+        "terminal": 437,
+        "accepted": 5
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1711,
+        "terminal": 1716,
+        "accepted": 12
+      }
+    },
+    "shear": {
+      "reused": {
+        "n": 512,
+        "pm": 398,
+        "terminal": 386,
+        "accepted": 39
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1501,
+        "terminal": 1497,
+        "accepted": 129
+      }
+    },
+    "rotation": {
+      "reused": {
+        "n": 512,
+        "pm": 328,
+        "terminal": 323,
+        "accepted": 179
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1275,
+        "terminal": 1266,
+        "accepted": 724
+      }
+    },
+    "cutout": {
+      "reused": {
+        "n": 512,
+        "pm": 430,
+        "terminal": 430,
+        "accepted": 5
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1672,
+        "terminal": 1675,
+        "accepted": 10
+      }
+    },
+    "distortion": {
+      "reused": {
+        "n": 512,
+        "pm": 380,
+        "terminal": 383,
+        "accepted": 18
+      },
+      "new": {
+        "n": 1956,
+        "pm": 1530,
+        "terminal": 1517,
+        "accepted": 73
+      }
+    },
+    "occlusion": {
+      "reused": {
+        "n": 512,
+        "pm": 215,
+        "terminal": 212,
+        "accepted": 11
+      },
+      "new": {
+        "n": 1956,
+        "pm": 817,
+        "terminal": 811,
+        "accepted": 40
+      }
+    },
+    "lidar": {
+      "reused": {
+        "n": 512,
+        "pm": 216,
+        "terminal": 216,
+        "accepted": 7
+      },
+      "new": {
+        "n": 1956,
+        "pm": 801,
+        "terminal": 794,
+        "accepted": 51
+      }
+    }
+  }
+}
