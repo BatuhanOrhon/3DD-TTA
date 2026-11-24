@@ -19,3 +19,7 @@
 [Decision/Open] Tam kümenin %20,75’i önceki seed 2 ölçümlerinden karşılanıyor. Yeni 1.956 nesnedeki sonuçlar ve tüm 2.468 nesnenin doğrulukları ayrı raporlanacak. Tarihsel CloudFixer ve baseline aynı nesneleri kullanıyor ancak rastgele çekim sıraları farklı. Tam küme ve pilot kısmen örtüştüğü için bunlar bağımsız doğrulamalar sayılamaz. [Arşiv eşlemesinin kanıtı](evidence/surfacefull_20261124/pilot_reuse.json)
 
 [Run, 07:12 UTC] On dokuzuncu A100 tahsis isteği de sonuçsuz kaldı. Sunucu envanteri 0 aktif oturum, 0,00 CU/saat ve güncel bakiye 978,00 CU bildirdi. Tam küme için yeni GPU tahmini bu anda sıfırdı.
+
+[User report/Run, 07:26 UTC] Kullanıcının talebiyle otomatik tahsis, kurulum zinciri, deney yürütücüsü, izleyici ve sonuç sonrası kapatma süreci sonlandırıldı. 28. isteğin yerel istemcisi de kapandı. Sunucuda 0 aktif oturum ve 0,00 CU/saat doğrulandı. Tam taramada yeni GPU kaydı oluşmadı. Kullanıcının sonraki talebi, yüksek sistem RAM’li A100, standart A100 ve gerekirse L4 sırasıyla tek seferlik manuel tahsistir.
+
+[Run, 07:30 UTC] Manuel yüksek sistem RAM’li A100 (r29), standart A100 (r30) ve L4 (r1) isteklerinin üçüne de Colab `Service Unavailable` yanıtı verdi. Her başvurudan önce ve son istekten sonra sunucu envanteri boştu. Son kontrolde 0 aktif oturum, 0,00 CU/saat ve 978,00 CU bakiye vardı. Otomatik süreçler kapalıdır.
