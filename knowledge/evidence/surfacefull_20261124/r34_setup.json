@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-24T16:35:53Z",
+  "session": "tta-surfacefull-a100-20261124-r34",
+  "endpoint": "gpu-a100-hm-ass1c0-3esttahj5vu4e",
+  "verification_sha256": "254ac8175392d4020652017512ac4a2bd25eb03a09e22fd9e1001000cef5a62f",
+  "native_checks": [
+    "CUDA tensor sum",
+    "FPS",
+    "KNN",
+    "Chamfer identical input",
+    "EMD finite output"
+  ],
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_bytes_for_torch": 85094825984,
+  "torch": "2.1.2+cu121",
+  "cuda": "12.1",
+  "modelnet_corruptions": 15,
+  "canonical_cells_completed": 10,
+  "pilot_sha256": "a273d78157fa9e45a2aa841c541ae8cfc4929b9d3c345aea3283ee3379bab807",
+  "research_source": "2a682d9",
+  "host_supervisor": "ff4060a"
+}

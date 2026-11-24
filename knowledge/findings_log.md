@@ -10243,3 +10243,5 @@ Kayıt: [corruption ayrıntıları](cloudfixer_baseline_corruption_diagnostics_2
 [User report/Code, 2026-11-24] Kullanıcı isteğiyle sabit yüzey onaylı t50 PCA için seed 2 tam Point2Vec taraması açıldı. Pilot kararı korunuyor. 37.020 nesne-bozulmanın 7.680'inde arşiv eşleşmesi doğrulandı, 29.340 yeni aday ölçümü planlandı. [Protokol ve yürütme](cloudfixer_surfacefull_gpu_20261124.md)
 
 [Run/Open, 2026-11-24] Tam tarama için High-RAM A100 r34 atandı. Standart A100 ve L4 kapatıldı. r34 üzerinde Drive ve önceki 512 nesnelik pilot ZIP’inin SHA-256 değeri doğrulandı. [Oturum, donanım ve kalibrasyon kapsamı](cloudfixer_surfacefull_gpu_20261124.md)
+
+[Run, 2026-11-24 16:35 UTC] r34 High-RAM A100 üzerinde on kurulum hücresi, beş sayısal GPU kontrolü ve 15 ModelNet40-C dizisi doğrulandı. [Kurulum kaydı](evidence/surfacefull_20261124/r34_setup.json)
