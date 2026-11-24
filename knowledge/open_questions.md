@@ -3239,3 +3239,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
 [Run/Decision, 2026-11-24] 512 nesnedeki doğrulama tamamlandı. Rotation, all-15 ve hız ölçütleri geçti. Dokuz non-Rotation satırındaki düşüş tam taramaya geçişi durdurdu. [Karar ve 15 satır](cloudfixer_surface512_gpu_20261123.md#512-nesnede-doğrulama-sonucu).
 
 [Open] Rotation dışındaki 35 PM kaybının toplandığı dokuz nesnede hangi yüzey yamaları yanlış dönüşü destekliyor? Aynı nesnelerin üçünde Rotation kazancı da görüldü. Gelecek bir seçicinin bu ayrımı ayrı nesnelerde, aynı doğruluk ve hız koşullarında doğrulaması gerekir.
+
+[Open, 2026-11-24] Kullanıcı isteğiyle tüm 2.468 ModelNet40-C nesnesinde sabit t50 adayının PM ve terminal doğrulukları, genel ortalama ve her bir bozulmada tarihsel referanslarla karşılaştırılacak. [Sabit kapsam ve tekrar kullanım protokolü](cloudfixer_surfacefull_gpu_20261124.md)

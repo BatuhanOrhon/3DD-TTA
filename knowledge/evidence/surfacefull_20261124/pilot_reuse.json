@@ -1,0 +1,29 @@
+{
+  "pilot": "20261123-192004_feedback_surface512.zip",
+  "sha256": "a273d78157fa9e45a2aa841c541ae8cfc4929b9d3c345aea3283ee3379bab807",
+  "source": "d81c74849b77722a0a22a2a8f041d24b9afb4496",
+  "source_zip_sha256": "e1c144aeb994467bd50eb4f22a3b89670ef42932ce37c64a71e08d451dc5541c",
+  "label_sha256": "97b6e660820103074ab192f10b6d9c33aa0446f1547ddb6ad2ca35a029a63b31",
+  "pilot_pass": false,
+  "seed": 2,
+  "reused_by_corruption": {
+    "uniform": 512,
+    "gaussian": 512,
+    "background": 512,
+    "impulse": 512,
+    "upsampling": 512,
+    "distortion_rbf": 512,
+    "distortion_rbf_inv": 512,
+    "density": 512,
+    "density_inc": 512,
+    "shear": 512,
+    "rotation": 512,
+    "cutout": 512,
+    "distortion": 512,
+    "occlusion": 512,
+    "lidar": 512
+  },
+  "reused": 7680,
+  "new": 29340,
+  "total": 37020
+}

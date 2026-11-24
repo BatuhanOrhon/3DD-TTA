@@ -10239,3 +10239,5 @@ Kayıt: [corruption ayrıntıları](cloudfixer_baseline_corruption_diagnostics_2
 ## 2026-11-24 — Rotation kazancı ayrı panelde doğrulandı, dokuz bozulmada küçük kayıp görüldü
 
 [Run/Decision] Point2Vec/s5/B1, 512 nesne × 16 koşul × üç ortak seed. Yüzey onaylı t50 PCA, Rotation PM %46,09 → %64,58 (+18,49 puan, 284 düzelen, 0 bozulan) ve all-15 PM %73,90 → %75,14 (+1,24, nominal nesne-kümeli %95 aralık [+0,95, +1,52]) verdi. Clean %91,34. Diğer 14 türde +0,01 puan, ancak dokuz satırda kayıp. Eşli all-15 p50/p95 +%2,16/+%1,10. Her türü koruma ölçütü geçilmedi, tam tarama açılmadı. Ham ZIP ve Drive kopyası f44dc30 kaynağıyla doğrulandı, r8 21:41 UTC’de kapatıldı. [Satır tablosu, süre, kaynak ve arşiv](cloudfixer_surface512_gpu_20261123.md#512-nesnede-doğrulama-sonucu).
+
+[User report/Code, 2026-11-24] Kullanıcı isteğiyle sabit yüzey onaylı t50 PCA için seed 2 tam Point2Vec taraması açıldı. Pilot kararı korunuyor. 37.020 nesne-bozulmanın 7.680'inde arşiv eşleşmesi doğrulandı, 29.340 yeni aday ölçümü planlandı. [Protokol ve yürütme](cloudfixer_surfacefull_gpu_20261124.md)
