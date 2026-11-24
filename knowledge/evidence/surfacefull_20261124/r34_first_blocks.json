@@ -1,0 +1,87 @@
+{
+  "session": "tta-surfacefull-a100-20261124-r34",
+  "source": "f45ae24",
+  "research_sha256": "6cabef864122f5737f3f18780f49df4d948d6e83da27e14058fed6a595ce76ee",
+  "smoke_run": "20261124-165309_feedback_surface_smoke",
+  "smoke_sha256": "95430e5e06264b04a336c35eb654c3e22fbd3a574d993b15d7d2d4fc2874514e",
+  "archived_failed_attempt": "20261124-165339_feedback_surface_full.zip",
+  "failed_sha256": "0f21a536391bb4d8f709fee0a2e58e4366ff889d983b7b66e0028afead1de31e",
+  "failed_reason": "UnboundLocalError in first score_block callback before any full block committed",
+  "committed_blocks_observed": 58,
+  "total_blocks": 9255,
+  "background_calibration": {
+    "free_bytes": 84174241792,
+    "ids": [
+      531,
+      1410,
+      262,
+      426,
+      395,
+      1169,
+      1767,
+      1906
+    ],
+    "points_per_object": 1075,
+    "size": 1,
+    "total_bytes": 85094825984,
+    "trials": [
+      {
+        "equivalent": true,
+        "objects_per_second": 3.90636498599014,
+        "peak_mib": 405.17041015625,
+        "size": 1
+      },
+      {
+        "equivalent": false,
+        "free_after_bytes": 83889029120,
+        "max_abs_logit_error": 0.03448392450809479,
+        "mismatch_ids": [
+          262,
+          395,
+          531,
+          1169,
+          1410,
+          1767,
+          1906
+        ],
+        "objects_per_second": 5.265916789956861,
+        "peak_mib": 441.84228515625,
+        "size": 2
+      },
+      {
+        "equivalent": false,
+        "free_after_bytes": 83591233536,
+        "max_abs_logit_error": 0.03448392450809479,
+        "mismatch_ids": [
+          262,
+          395,
+          531,
+          1169,
+          1410,
+          1767,
+          1906
+        ],
+        "objects_per_second": 5.850253552746529,
+        "peak_mib": 609.990234375,
+        "size": 4
+      },
+      {
+        "equivalent": false,
+        "free_after_bytes": 82995642368,
+        "max_abs_logit_error": 0.029317378997802734,
+        "mismatch_ids": [
+          262,
+          395,
+          426,
+          1169,
+          1410,
+          1767,
+          1906
+        ],
+        "objects_per_second": 6.457723654427474,
+        "peak_mib": 942.27880859375,
+        "size": 8
+      }
+    ]
+  }
+}
