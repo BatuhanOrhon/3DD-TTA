@@ -60,6 +60,22 @@ Drive mounting and environment changes may proceed within the task; interactive
 account consent remains user-operated. Runtime teardown still requires the
 separate completion-and-close authorization below.
 
+## Choose the batch size on the assigned GPU
+
+After loading the model, check free and total GPU memory in the active Colab
+runtime (for PyTorch, `torch.cuda.mem_get_info()`). When the protocol allows
+batching, use a short warm-up with representative inputs, including the most
+memory-intensive shapes or corruptions. Start with a known working `batch_size`
+and increase it while measuring peak GPU memory and synchronized samples per
+second. Use the fastest stable size that leaves memory headroom. On CUDA OOM,
+release the failed batch and retry at a smaller size.
+
+Preserve the experiment's per-object random draws and adaptation state during
+calibration. Keep a protocol-defined batch size for batch-dependent adaptation
+or B1 latency measurements. Record the GPU, available memory, selected
+`batch_size`, peak memory and throughput in the run record. Recheck the choice
+when the runtime or workload changes.
+
 ## Task-specific session names and agent ownership
 
 Before allocating a runtime, choose a unique session name that identifies the
