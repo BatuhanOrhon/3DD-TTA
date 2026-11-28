@@ -3248,3 +3248,5 @@ Availability is a dated filename inventory, not weight/training-log validation.
 
 
 [Open, 2026-11-28] Sabit t50 yüzey onaylı PCA, ModelNet40-C severity 5 üzerinde DGCNN, CurveNet, PointNeXt ve Point-MAE için Rotation kazancını ve all-15 doğruluğunu nasıl etkiliyor? Başlangıç referansında ilk üç head için tam plain CloudFixer var. Point-MAE’de tam on beş bozulma için yerel referansın arşiv kapsamı ayrıca doğrulanmalı. [Adayın tanımı ve Point2Vec kanıtı](cloudfixer_surface_walkthrough_20261128.md) [Uygulama ve karşılaştırma kapsamı](cloudfixer_surface_four_models_handoff_20261128.md).
+
+[Open, 2026-11-28] Aynı nesne, seed ve sabit t50 PCA önerisiyle ham gözlem/t50 normalleri ve vetosuz kontrol nasıl ayrışır? Aynı kabul edilmiş R, yalnız sınıflandırma çıktısına uygulanınca zincir içi geri beslemenin sağladığı kazanç korunur mu? [Kanıtın sınırı ve ayırt edici deneyler](cloudfixer_surface_attribution_20261128.md)
