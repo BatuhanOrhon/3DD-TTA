@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-28T14:16:43.746211+00:00",
+  "old_session": "tta-surface-four-models-a100-20261128-r3",
+  "inventory": {
+    "owned_session_present": false,
+    "other_assignments": 1
+  },
+  "usage": "Current balance: 922.97 compute units\nUsage rate: 2.33/hr\nActive assignments: 1",
+  "cursor": {
+    "verified_blocks": 29,
+    "corruption": "uniform",
+    "stop": 928,
+    "expected_blocks": 1170,
+    "utc": "2026-11-28T13:54:55Z"
+  },
+  "last_remote_log": "uniform: 928/2468 IDs sealed on Drive",
+  "cause": "Server no longer listed the A100. Remote job end receipt unavailable.",
+  "source_commit": "096d274a347a6310383c15b2b05aa689ebf9b180",
+  "verified_model_object_records": 3712,
+  "recovery_zip_sha256": "bddcd5166849fcf310608a02424e5ef2293031285fd644cc8840df109e45b09a"
+}
