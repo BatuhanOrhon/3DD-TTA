@@ -47,7 +47,7 @@ def test_end_to_end_archive_report_matches_ids_and_keeps_partial_reference(tmp_p
 
     class Runtime:
         identity = dict(author_commit='a', dataset_files={}, checkpoint_sha256=dict(lineage['checkpoint_sha256'], prior='prior'),
-                        frozen_states=lineage['frozen_states'], heads={m:'adapter' for m in analysis.MODELS},
+                        frozen_states=dict(lineage['frozen_states'], prior=analysis.PRIOR_STATE), heads={m:'adapter' for m in analysis.MODELS},
                         class_order=class_names, hardware={'device':'CPU fixture'}, timing='test', rng='test')
 
         def calibrate(self, corr):

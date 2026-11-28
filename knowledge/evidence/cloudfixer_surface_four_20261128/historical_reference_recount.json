@@ -275,5 +275,11 @@
     "B96_and_128_object_raw_checkout": "research/cloudfixer-transfer-20261114",
     "recovered_folder": "result/modelnet40_c/cloudfixer/20261110-222614_full_seed0",
     "recovered_checkout": "experiment/cloudfixer-pointmae-pilot-20261110@d91a64d"
+  },
+  "prior_state_crosscheck": {
+    "method": "SHA-256 over sorted state_dict key followed by CPU contiguous tensor bytes, independently recomputed on the original b64841d0 checkpoint on CPU",
+    "unwrapped_pilot_and_candidate": "b06cec8f25456e182c469304d9bfac98ea673db693fe3f92e7a3ed2251aa5574",
+    "r2_DataParallel_module_prefix": "3fa12d22c599bdced7c4b67aefcd6b4c10a6947362d1a0671c5bf360014f194a",
+    "same_tensor_bytes": true
   }
 }

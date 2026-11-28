@@ -25,6 +25,9 @@ BASE_ZIP = 'c392dce804c213a21e97769590e3a036ee80deefb9b0d6379689958530646265'
 PLAIN_ZIP = 'bcb64ea0c5c0165e43c4498dfc428af6c1e4804f82889e17d4924b76e38cfe07'
 DEV_ZIP = '28baa27f2b80ae32c42fb5b56d569f8bb3dfac4e94fb6c055a2e89d1dabf50e7'
 EVIDENCE = ROOT / 'knowledge/evidence'
+PRIOR_STATE = 'b06cec8f25456e182c469304d9bfac98ea673db693fe3f92e7a3ed2251aa5574'
+# The historical B32 Point-MAE runner used DataParallel, which prefixes all state keys with "module.".
+PARALLEL_PRIOR_STATE = '3fa12d22c599bdced7c4b67aefcd6b4c10a6947362d1a0671c5bf360014f194a'
 
 
 def require(condition, message):
@@ -146,6 +149,7 @@ def historical_pilot(path, lineage, labels, repeats):
                 require(rep in (0, 1, 2) and unit['phase'] == 'development' and unit['seed'] == 0
                         and unit['campaign'] == meta['campaign'] and np.array_equal(ids, unit['ids'])
                         and np.array_equal(labels[ids], d['labels']), 'Invalid historical Point-MAE pilot unit')
+                require(str(d['model_hashes'][0]) == PRIOR_STATE, 'Point-MAE development prior state mismatch')
                 state = str(d['model_hashes'][1])
                 require(lineage['frozen_states'].setdefault('pointmae', state) == state, 'Point-MAE state changed')
                 c = CORRUPTIONS.index(corr)
@@ -174,7 +178,7 @@ def recovered_cases(path, lineage, labels, target):
                 and cfg['args']['vote'] == 1 and cfg['args']['rotate'] and cfg['args']['classifier'] == 'pointMAE'
                 and cfg['classifier_sha256'] == lineage['checkpoint_sha256']['pointmae']
                 and cfg['diffusion_sha256'] == lineage['diffusion_sha256'] and cfg['dataset_sha256'] == lineage['dataset_files']
-                and cfg['model_hashes'][0] == lineage['frozen_states']['pointmae']
+                and cfg['model_hashes'] == [lineage['frozen_states']['pointmae'], PARALLEL_PRIOR_STATE]
                 and cfg['author_commit'] == lineage['author_commit']
                 and digest(header.read('executed_runner.py')) == cfg['runner_sha256'], 'Point-MAE recovery header mismatch')
     report = dict(run=cfg['run_id'], header_sha256=saved_hash(path/'header.zip'), runner_sha256=cfg['runner_sha256'],
@@ -324,7 +328,7 @@ def check_lineage(runtime, lineage):
     require(all(checkpoints.get(h) == lineage['checkpoint_sha256'][h] for h in MODELS),
             'Candidate and historical classifier checkpoint digests differ')
     require(checkpoints['prior'] == lineage['diffusion_sha256'], 'Candidate prior checkpoint differs')
-    require(all(states.get(h) == lineage['frozen_states'][h] for h in MODELS),
+    require(states.get('prior') == PRIOR_STATE and all(states.get(h) == lineage['frozen_states'][h] for h in MODELS),
             'Candidate and historical frozen classifier states differ')
     require(set(runtime['heads']) == set(MODELS) and all(runtime['heads'].values()), 'Missing head coordinate/FPS contracts')
     class_names = json.loads((ROOT/'cfgs/cloudfixer_point2vec_assets.json').read_text())['class_order']
@@ -456,7 +460,7 @@ def report_text(rows, timing, pilot, wall, runtime):
     for r in timing:
         if r['group'] in CORRUPTIONS and r['pointmae_plain_b32_pipeline_s'] is not None:
             lines.append(f"\nPoint-MAE {r['group']} için tarihsel B32 plain CF "
-                         f"{r['pointmae_plain_b32_pipeline_s']:.2f} s. "
+                         f"{r['pointmae_plain_b32_pipeline_s']:.2f} s (CPU girdi hazırlığı ve H2D dahil). "
                          f"Adayda ortak geometri {r['trajectory_shared_s']:.2f} s ve Point-MAE okumaları "
                          f"{r['head_three_readouts_s']:.2f} s sürdü.")
     lines.extend(['','Aday sürelerinde ortak geometri dört model için bir kez ölçüldü. Tarihsel CF ve SCD satırları üç head paylaşımıyla ölçülen ortak geometri ve ilgili head süresidir. Batch boyutu, okuma sayısı ve RNG düzeni koşullara özeldir. '
