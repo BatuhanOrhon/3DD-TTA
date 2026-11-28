@@ -1,3 +1,12 @@
+## 2026-11-28 — Yüzey onaylı t50 PCA dört modele taşınıyor mu?
+
+- [x] DGCNN, CurveNet ve PointNeXt için 15 tam CF ve SCD referans hücresi model başına doğrulandı. Point-MAE için tam Background ve 128 özgün ID’lik eşli panel elde edildi.
+- [x] Dört donmuş modelde aynı geometrinin üç okuması GPU’da denetlendi. Üç stres koşulunda B1 seçildi. İlk Drive blokları ayrı CPU sayımını geçti.
+- [ ] 60 hücrenin her birinde 2.468 özgün ID, Rotation ve diğer 14 bozulma etkisi, ortak ve model başına süre, ham ZIP ve teslim paketinin Drive doğrulaması.
+- [ ] Yerel tarihsel Point-MAE all-15 plain CF referansı eksik. Eşli panel ve Background kendi paydalarıyla değerlendirilecek.
+
+[Deney ve doğrulama kaydı](cloudfixer_surface_four_models_20261128.md)
+
 ## 2026-11-23 — CF-XYZ N8 PM / aynı N8 terminal, üç alternatif source model
 
 - [x] DGCNN/CurveNet/PointNeXt donmuş checkpoint/prior/data sınıf-ID kimlikleri eşleştirildi.

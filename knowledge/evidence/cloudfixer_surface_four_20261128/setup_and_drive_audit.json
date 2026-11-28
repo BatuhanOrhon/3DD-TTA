@@ -1,0 +1,75 @@
+{
+  "session": "tta-surface-four-models-a100-20261128-r3",
+  "endpoint": "gpu-a100-hm-ass1c0-3lytjne93jnr",
+  "start_utc": "2026-11-28T12:39:12.451643+00:00",
+  "GPU": "NVIDIA A100-SXM4-80GB",
+  "GPU_bytes": 85094825984,
+  "torch": "2.1.2+cu121",
+  "cuda": "12.1",
+  "numpy": "1.21.2",
+  "native_checks": [
+    "CUDA tensor sum",
+    "FPS",
+    "KNN",
+    "Chamfer identical input",
+    "EMD finite output"
+  ],
+  "dataset_arrays": 15,
+  "source_commit": "f3d2b3dd89cdde23a0dde1bde52e85fec9be4d01",
+  "source_zip_sha256": "952dcd07414f3d80ee6908aedfc1c1984b88aeb10c8aa73b4c7f9f24509a699f",
+  "setup_environment_commit": "a458cd46bba1288a3f41302548bc777700cbc7d4",
+  "setup_sha256": "dc0c3062e1e1df431a8dfd5560caa6aad166bf906c565820e134a0e17e19b2ce",
+  "pointmae": {
+    "bytes": 351656113,
+    "sha256": "507e0bbfc91b9293ef021b9078e86c0f333c04f408fa21e9c3320a83f53aec75"
+  },
+  "pointmae_drive_audit": {
+    "directories": {
+      "cloudfixer_full_20261110_r1": [
+        "20261110-194646_latency_seed0",
+        "20261110-195255_full_seed0"
+      ],
+      "cloudfixer_full_recovery_20261110_r2": [
+        "20261110-222614_full_seed0",
+        "backup_probe",
+        "canonical_setup"
+      ],
+      "cloudfixer_full_recovery_20261110_r3": null
+    },
+    "files": []
+  },
+  "old_drive_capture_sha256": "c5fd1e00452759169654b6c7c44ae312e807e87d58333f6a6f85e5c8fc192ace",
+  "failed_initial_calibration": {
+    "status": 1,
+    "recorded_blocks": 0,
+    "error": "CurveNet CurveGrouping.forward squeezed the batch dimension in B1; historical batches used B64/B96",
+    "unaffected_b1_checks": {
+      "dgcnn": {
+        "shape": [
+          1,
+          3,
+          40
+        ],
+        "max_abs_logit_error": 0
+      },
+      "pointnext": {
+        "shape": [
+          1,
+          3,
+          40
+        ],
+        "max_abs_logit_error": 0
+      },
+      "pointmae": {
+        "shape": [
+          1,
+          3,
+          40
+        ],
+        "max_abs_logit_error": 0
+      }
+    },
+    "check_corruption": "background",
+    "check_id": 321
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "scientific_source": "096d274a347a6310383c15b2b05aa689ebf9b180",
+  "source_zip_sha256": "8a84ec2e99afac24b2801e78f82f8be89add70b64df27d5e5f02abcc53fa8bb3",
+  "store": "MyDrive/thesis/result/surface_four_models_20261128/campaign_fix1",
+  "profiles": {
+    "background": {
+      "selected": 1,
+      "b1_objects_per_second": 1.0305588636366132,
+      "b1_peak_mib": 419.48876953125,
+      "equivalent_batches": [
+        1
+      ],
+      "curve_historical_parity": {
+        "2": {
+          "exact": true,
+          "ids": [
+            321,
+            1146
+          ],
+          "logits_sha256": "cf3d8428dd6cd4a1ffc210fa4299b3306ecc7cb552660a89e7cdf1f619eea616",
+          "predictions": [
+            26,
+            26
+          ],
+          "rng_after_sha256": "76f34cc31d78735e80bd41e7fe0c3801df8fbf7020938903a2ef9ac3ba6da8ea"
+        },
+        "4": {
+          "exact": true,
+          "ids": [
+            321,
+            1146,
+            531,
+            1410
+          ],
+          "logits_sha256": "aa0cd1d5b042b9260742747c6b8f42340b265e7bb5c360c74b47ac773d032517",
+          "predictions": [
+            26,
+            26,
+            26,
+            26
+          ],
+          "rng_after_sha256": "8927471adf79698b16235a6c4cab2bcec2c822ae3f7a30f83657091ce33159fa"
+        }
+      },
+      "independent_b1": {
+        "1146": {
+          "frame_max_abs": 5.960464477539063e-08,
+          "heads": {
+            "curvenet": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3e5b409ebea08aba2a0fc03964dc62c8fd7ea67844f3e972d21023e042ebc3eb",
+              "exact": true,
+              "logits_sha256": "fb1c866c792e5859b1ca6232ca4a6f8dc85971c21335210d946d6fc2e26a6c91",
+              "pm": 26,
+              "probe_predictions": [
+                26,
+                26,
+                26
+              ],
+              "reason": "unstable"
+            },
+            "dgcnn": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3e5b409ebea08aba2a0fc03964dc62c8fd7ea67844f3e972d21023e042ebc3eb",
+              "exact": true,
+              "logits_sha256": "1589f3a89c9eefa4441e88c3303758dfa7eaebd3567e65297854c7d23e942b4e",
+              "pm": 28,
+              "probe_predictions": [
+                28,
+                25,
+                25
+              ],
+              "reason": "unstable"
+            },
+            "pointmae": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3e5b409ebea08aba2a0fc03964dc62c8fd7ea67844f3e972d21023e042ebc3eb",
+              "exact": true,
+              "logits_sha256": "fae8599ba646030ddf8d0e1bf579b10fc22f1bedcbe729310e698c42a2a081fc",
+              "pm": 25,
+              "probe_predictions": [
+                25,
+                25,
+                25
+              ],
+              "reason": "unstable"
+            },
+            "pointnext": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3e5b409ebea08aba2a0fc03964dc62c8fd7ea67844f3e972d21023e042ebc3eb",
+              "exact": true,
+              "logits_sha256": "bffea69beb76ee72d4d4d3eef50ae122a8d70fdad730ffb4d3d076202f74e56b",
+              "pm": 28,
+              "probe_predictions": [
+                28,
+                28,
+                28
+              ],
+              "reason": "unstable"
+            }
+          },
+          "input_sha256": "a4b1d6bb601d19f578eeb453d5df38d58c9cdc50984ed175701af48a7878fa10",
+          "point_count": 1075,
+          "valid_anchors": 1075
+        },
+        "321": {
+          "frame_max_abs": 1.1920928955078125e-07,
+          "heads": {
+            "curvenet": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3c0ac501400e8970fbd2f5d2be22c99a48358c5f29eeb6a5f792bd985e5b2ac6",
+              "exact": true,
+              "logits_sha256": "461d8660dba0a00e0e84cc1532ae696a0caae8eeed480f47344072cec86e46e6",
+              "pm": 26,
+              "probe_predictions": [
+                26,
+                26,
+                26
+              ],
+              "reason": "unstable"
+            },
+            "dgcnn": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3c0ac501400e8970fbd2f5d2be22c99a48358c5f29eeb6a5f792bd985e5b2ac6",
+              "exact": true,
+              "logits_sha256": "271368685046afa7b33fd14dfcba4a1e5ebaa47b68e09d89f0ddfdc0230cd4be",
+              "pm": 8,
+              "probe_predictions": [
+                8,
+                32,
+                8
+              ],
+              "reason": "unstable"
+            },
+            "pointmae": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3c0ac501400e8970fbd2f5d2be22c99a48358c5f29eeb6a5f792bd985e5b2ac6",
+              "exact": true,
+              "logits_sha256": "8ffde3378296ca18ce3f2087a86e653096e3e18d86ccd0687a110d560fb1139e",
+              "pm": 26,
+              "probe_predictions": [
+                26,
+                26,
+                26
+              ],
+              "reason": "unstable"
+            },
+            "pointnext": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "3c0ac501400e8970fbd2f5d2be22c99a48358c5f29eeb6a5f792bd985e5b2ac6",
+              "exact": true,
+              "logits_sha256": "573405699424b869e64e7bcbbc025a7eadfa6d0fbb79896a15bd5be6c3d80c1e",
+              "pm": 11,
+              "probe_predictions": [
+                11,
+                13,
+                11
+              ],
+              "reason": "unstable"
+            }
+          },
+          "input_sha256": "70e44854464cab788044e8b3bc332cbf6a5c73df188015b74b2c9db685d91bf2",
+          "point_count": 1075,
+          "valid_anchors": 1075
+        }
+      }
+    },
+    "upsampling": {
+      "selected": 1,
+      "b1_objects_per_second": 0.9184958168432064,
+      "b1_peak_mib": 615.37890625,
+      "equivalent_batches": [
+        1
+      ],
+      "curve_historical_parity": {
+        "2": {
+          "exact": true,
+          "ids": [
+            321,
+            1146
+          ],
+          "logits_sha256": "f3a472b0a79e4edd899e690d6f90ba5a7fbd7676c0f561345cdd22cfaf05c0ef",
+          "predictions": [
+            13,
+            28
+          ],
+          "rng_after_sha256": "76f34cc31d78735e80bd41e7fe0c3801df8fbf7020938903a2ef9ac3ba6da8ea"
+        },
+        "4": {
+          "exact": true,
+          "ids": [
+            321,
+            1146,
+            531,
+            1410
+          ],
+          "logits_sha256": "a7a0f3af2f8e66ff1d92d92c8470c493ae15a968b6287add3bdd7b470be5aece",
+          "predictions": [
+            13,
+            28,
+            0,
+            8
+          ],
+          "rng_after_sha256": "8927471adf79698b16235a6c4cab2bcec2c822ae3f7a30f83657091ce33159fa"
+        }
+      },
+      "independent_b1": {
+        "1146": {
+          "frame_max_abs": 8.940696716308594e-08,
+          "heads": {
+            "curvenet": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "bfaa4c25007874090c2aebd76490ba8e09ce6dd8530612ad5629806c54f62cfc",
+              "exact": true,
+              "logits_sha256": "db9ce36a4b3f8a9aa648b8e56decddd48cdc66cfed8da404f4ee542ab68865e6",
+              "pm": 28,
+              "probe_predictions": [
+                28,
+                28,
+                28
+              ],
+              "reason": "unstable"
+            },
+            "dgcnn": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "bfaa4c25007874090c2aebd76490ba8e09ce6dd8530612ad5629806c54f62cfc",
+              "exact": true,
+              "logits_sha256": "8b1cd099b002f82667e24d1f55f5de257974b0f3f3e1708cefa6bcf1416a665e",
+              "pm": 28,
+              "probe_predictions": [
+                28,
+                28,
+                28
+              ],
+              "reason": "unstable"
+            },
+            "pointmae": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "bfaa4c25007874090c2aebd76490ba8e09ce6dd8530612ad5629806c54f62cfc",
+              "exact": true,
+              "logits_sha256": "48ac53f9dc592ca0d3bf88f61b25ab444cad556023ed33b174912eaa7cbe2374",
+              "pm": 28,
+              "probe_predictions": [
+                28,
+                28,
+                28
+              ],
+              "reason": "unstable"
+            },
+            "pointnext": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "bfaa4c25007874090c2aebd76490ba8e09ce6dd8530612ad5629806c54f62cfc",
+              "exact": true,
+              "logits_sha256": "96b45924cd1249cd27482395fda7360e69577058df12610aa59081076750a778",
+              "pm": 28,
+              "probe_predictions": [
+                28,
+                28,
+                28
+              ],
+              "reason": "unstable"
+            }
+          },
+          "input_sha256": "31d04bc84c855647ea14fbee010614d75738dd3fafc1482b3e75c5800de9be90",
+          "point_count": 2048,
+          "valid_anchors": 2048
+        },
+        "321": {
+          "frame_max_abs": 1.1920928955078125e-07,
+          "heads": {
+            "curvenet": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "6c1003e815bbcb2c05c99a1495d14b55fe11d59ace42e8c95b4fa04cf10a1910",
+              "exact": true,
+              "logits_sha256": "dbc04fce5d866925516dbfc987354d451f7741b9b1ea95444228734b06843d15",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "unstable"
+            },
+            "dgcnn": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "6c1003e815bbcb2c05c99a1495d14b55fe11d59ace42e8c95b4fa04cf10a1910",
+              "exact": true,
+              "logits_sha256": "7dd7b9ea547a178009a1b5b1a166c297fe41e65c71e7a398d181a5a35da65d75",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "unstable"
+            },
+            "pointmae": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "6c1003e815bbcb2c05c99a1495d14b55fe11d59ace42e8c95b4fa04cf10a1910",
+              "exact": true,
+              "logits_sha256": "09931934fc759beece8a751af82e154f540e83e44672d26d62e104e3d3dd6bd3",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "unstable"
+            },
+            "pointnext": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "6c1003e815bbcb2c05c99a1495d14b55fe11d59ace42e8c95b4fa04cf10a1910",
+              "exact": true,
+              "logits_sha256": "35f14f4bc7b0f58bd0cd8ca00e994a30712009cc2da51a69da43934b8f491e03",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "unstable"
+            }
+          },
+          "input_sha256": "6585b2215d495a6782957235f3795ccca6fc951fdff32d80378a6a02fbcd87e7",
+          "point_count": 2048,
+          "valid_anchors": 2048
+        }
+      }
+    },
+    "rotation": {
+      "selected": 1,
+      "b1_objects_per_second": 1.0417096437002709,
+      "b1_peak_mib": 410.990234375,
+      "equivalent_batches": [
+        1
+      ],
+      "curve_historical_parity": {
+        "2": {
+          "exact": true,
+          "ids": [
+            321,
+            1146
+          ],
+          "logits_sha256": "fe5ff7a7229fdddd6d34b2df965b79790cecabc29007dbdc42824faae1e3d3a8",
+          "predictions": [
+            13,
+            28
+          ],
+          "rng_after_sha256": "76f34cc31d78735e80bd41e7fe0c3801df8fbf7020938903a2ef9ac3ba6da8ea"
+        },
+        "4": {
+          "exact": true,
+          "ids": [
+            321,
+            1146,
+            531,
+            1410
+          ],
+          "logits_sha256": "8de0e1359e43d9595fa4c4bde5ca938c82214a20cad993fc53d9beee78ee1ee1",
+          "predictions": [
+            13,
+            28,
+            0,
+            8
+          ],
+          "rng_after_sha256": "8927471adf79698b16235a6c4cab2bcec2c822ae3f7a30f83657091ce33159fa"
+        }
+      },
+      "independent_b1": {
+        "1146": {
+          "frame_max_abs": 8.940696716308594e-08,
+          "heads": {
+            "curvenet": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "ea9f340820bbdb26127d249a97df760c0896daa8c6cbdcf6f5a968e6deb3eb12",
+              "exact": true,
+              "logits_sha256": "a89e8a5fcc473c58c9c365de16e4f1e56d9a36258c142f78e345973ad399c4c7",
+              "pm": 28,
+              "probe_predictions": [
+                28,
+                28,
+                28
+              ],
+              "reason": "surface_veto"
+            },
+            "dgcnn": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "ea9f340820bbdb26127d249a97df760c0896daa8c6cbdcf6f5a968e6deb3eb12",
+              "exact": true,
+              "logits_sha256": "a371cb622e3d77cefe81e22cb3cdf7ee5753f90faaf0329565a71eeef2a11a3b",
+              "pm": 34,
+              "probe_predictions": [
+                34,
+                28,
+                34
+              ],
+              "reason": "surface_veto"
+            },
+            "pointmae": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "ea9f340820bbdb26127d249a97df760c0896daa8c6cbdcf6f5a968e6deb3eb12",
+              "exact": true,
+              "logits_sha256": "f6ca03e01dcc68ae3dd6d648601b35f307d9df71392408ce001f327b950edc21",
+              "pm": 7,
+              "probe_predictions": [
+                7,
+                7,
+                7
+              ],
+              "reason": "surface_veto"
+            },
+            "pointnext": {
+              "angle_degrees": 0.0,
+              "clouds_sha256": "ea9f340820bbdb26127d249a97df760c0896daa8c6cbdcf6f5a968e6deb3eb12",
+              "exact": true,
+              "logits_sha256": "f3edecf52b73f43ddc2a1219754c5af2d9b9d682fad4646abad7cd874a994440",
+              "pm": 26,
+              "probe_predictions": [
+                7,
+                26,
+                26
+              ],
+              "reason": "surface_veto"
+            }
+          },
+          "input_sha256": "e2d4d5e3dcd9905abf10c1211b713a8e3c95f000d0d25dcb5813196b193dfff4",
+          "point_count": 1024,
+          "valid_anchors": 1024
+        },
+        "321": {
+          "frame_max_abs": 2.384185791015625e-07,
+          "heads": {
+            "curvenet": {
+              "angle_degrees": 23.978520629642162,
+              "clouds_sha256": "f6c9461f6b08388b17d4ad58f7966181bfd5a7f3c01b331902aa31acfe447bd4",
+              "exact": true,
+              "logits_sha256": "a13fa37eaf50ff7a87f07ee2a7b4749662f90d973f148dc06cc5b2176a0ae345",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "accepted"
+            },
+            "dgcnn": {
+              "angle_degrees": 23.978520629642162,
+              "clouds_sha256": "f6c9461f6b08388b17d4ad58f7966181bfd5a7f3c01b331902aa31acfe447bd4",
+              "exact": true,
+              "logits_sha256": "7e54e7ea531f85a9fa52ac5838bbafda02754b98b965259eb789afe2287094bf",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "accepted"
+            },
+            "pointmae": {
+              "angle_degrees": 23.978520629642162,
+              "clouds_sha256": "f6c9461f6b08388b17d4ad58f7966181bfd5a7f3c01b331902aa31acfe447bd4",
+              "exact": true,
+              "logits_sha256": "240b37bfab1bffb7efc34fabb5a0861036babdabb3caf1244dd30cd742e4785e",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "accepted"
+            },
+            "pointnext": {
+              "angle_degrees": 23.978520629642162,
+              "clouds_sha256": "f6c9461f6b08388b17d4ad58f7966181bfd5a7f3c01b331902aa31acfe447bd4",
+              "exact": true,
+              "logits_sha256": "912e31a38a5b2c5d286d638d73109163dd4f003ee12dbb23dd6cd0e3853f9f31",
+              "pm": 13,
+              "probe_predictions": [
+                13,
+                13,
+                13
+              ],
+              "reason": "accepted"
+            }
+          },
+          "input_sha256": "847ef0e42a79ede0278dc66b234610d46fda5d2674022b4d851b7effdfddb202",
+          "point_count": 1024,
+          "valid_anchors": 1024
+        }
+      }
+    }
+  }
+}
