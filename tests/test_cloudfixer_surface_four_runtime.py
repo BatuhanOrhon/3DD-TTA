@@ -52,3 +52,29 @@ def test_calibration_rejects_changed_veto_pose_logits_and_decisions():
         result = parity(dict(base, logits=logits), base)
         assert not result['equivalent']
         assert result['heads']['pointmae']['probe_decisions_equal'] is False
+
+
+def test_curvenet_singleton_shape_fix_preserves_batch_math_and_rng():
+    from scripts.cloudfixer_surface_four_runtime import repaired_curve_forward
+
+    class Group(torch.nn.Module):
+        def forward(self, start_index):
+            return start_index.squeeze().unsqueeze(2)
+
+    class Walk(torch.nn.Module):
+        def forward(self, cur_feature, pre_feature):
+            return torch.cat((cur_feature.squeeze(), pre_feature.squeeze()),dim=1)
+
+    for cls, layer in ((Group, 'CurveGrouping'), (Walk, 'Walk')):
+        original = cls()
+        repaired = cls()
+        method, receipt = repaired_curve_forward(cls.forward, layer)
+        repaired.forward = method.__get__(repaired)
+        assert receipt['before_sha256'] != receipt['after_sha256']
+        for size in (1, 2, 4):
+            values = ([torch.ones(size, 1, 4)] if cls is Group else
+                      [torch.ones(size, 3, 4, 1), torch.ones(size, 3, 4, 1)])
+            result = repaired(*values)
+            assert result.shape == ((size, 4, 1) if cls is Group else (size, 6, 4))
+            if size > 1:
+                assert torch.equal(original(*values), result)

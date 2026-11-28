@@ -2,23 +2,26 @@
 from __future__ import annotations
 
 import ast
-from contextlib import contextmanager
+from contextlib import contextmanager, ExitStack
 from hashlib import sha256
+import inspect
 import json
 from pathlib import Path
 import random
 import sys
+import textwrap
 import time
 from unittest.mock import patch
 
 import numpy as np
 import torch
 
+from cloudfixer_store import canonical
 from cloudfixer_diffusion import sample
 from cloudfixer_rotation import OutputPose, SURFACE_ARM, rotation_policy
 from scripts import eval_multibackbone_source as source
 from scripts.run_cloudfixer_multibackbone import checked_runtime, require_workspace_config
-from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal, model_hash
+from scripts.run_cloudfixer_point2vec import POLICIES, deterministic_proximal, model_hash, rng_state
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ('dgcnn', 'curvenet', 'pointnext', 'pointmae')
@@ -169,6 +172,46 @@ def assert_origin(module, expected):
         raise ValueError('Unexpected executed source for ' + module.__name__)
 
 
+CURVE_B1_EDITS = {
+    'CurveGrouping': ('curvenet_util', 'start_index.squeeze().unsqueeze(2)', 'start_index.squeeze(1).unsqueeze(2)'),
+    'Walk': ('walk', 'cur_feature.squeeze(), pre_feature.squeeze()', 'cur_feature.squeeze(-1), pre_feature.squeeze(-1)'),
+}
+
+
+def repaired_curve_forward(original, layer):
+    """Bind only the documented singleton axis in the authenticated method body."""
+    _, before, after = CURVE_B1_EDITS[layer]
+    method = textwrap.dedent(inspect.getsource(original))
+    if method.count(before) != 1:
+        raise ValueError('Unexpected original CurveNet forward method: ' + layer)
+    fixed = method.replace(before, after)
+    namespace = {}
+    exec(compile(fixed, '<surface CurveNet ' + layer + '.forward>', 'exec'), original.__globals__, namespace)
+    receipt = dict(before_sha256=sha256(method.encode()).hexdigest(), after_sha256=sha256(fixed.encode()).hexdigest(),
+                   original=before, replacement=after)
+    return namespace['forward'], receipt
+
+
+def repair_curvenet(head, root, manifest):
+    layers, receipts = [], {}
+    for name, (filename, _, _) in CURVE_B1_EDITS.items():
+        module = sys.modules['study_svwa.' + filename]
+        rel = 'model_probe_sources/study_svwa/' + filename + '.py'
+        asset = source.asset_path(root, rel)
+        assert_origin(module, asset)
+        identity = source.verify_identity(asset, manifest['files'][rel])
+        cls = getattr(module, name)
+        forward, receipt = repaired_curve_forward(cls.forward, name)
+        instances = [layer for layer in head.modules() if type(layer) is cls]
+        if not instances:
+            raise ValueError('Registered CurveNet layer missing: ' + name)
+        for layer in instances:
+            layer.forward = forward.__get__(layer)
+        layers.extend(instances)
+        receipts[name] = dict(receipt, asset=rel, asset_sha256=identity['sha256'], instances=len(instances))
+    return layers, receipts
+
+
 def load_pointmae(args):
     from classifier import pointMAE
     from utils.config import cfg_from_yaml_file
@@ -237,6 +280,7 @@ class SurfaceRuntime:
         if self.labels.shape != (2468,) or set(self.labels.tolist()) != set(range(40)) or len(self.class_order) != 40:
             raise ValueError('Wrong ModelNet40-C test split or label ordering')
         self.expected_states = dict(spec['head_state_hashes'], **AUTHOR_STATES)
+        self.curve_layers, curve_repair = repair_curvenet(self.heads['curvenet'], args.asset_root, spec)
         self.dataset = None
         self.condition = None
         self.native = {}
@@ -246,6 +290,7 @@ class SurfaceRuntime:
                                'pointmae': assets['classifier_sha256'], 'prior': assets['diffusion_sha256']},
             dataset_files=spec['dataset_files'], source_files={k: v['sha256'] for k,v in current.items()},
             class_order=self.class_order, frozen_states=self.verify_frozen(), gamma=gamma,
+            curvenet_b1_axis_repair=curve_repair,
             heads={k: ('raw author-frame probe -> author rotate=True forward, unit sphere, '
                        '32 groups of 32, all tokens, no external FPS' if k == 'pointmae' else
                        'author unit sphere then inverse x-axis rotation, external native FPS1024, '
@@ -389,10 +434,36 @@ class SurfaceRuntime:
                     angle_degrees=ref.diagnostics['updates'][0]['applied_degrees'], exact=True)
         return receipts
 
+    @torch.no_grad()
+    def _audit_curve_repair(self, items):
+        # Compare the exact same checkpoint and FPS/head path on distinct real objects in its historical B>=2 domain.
+        receipts = {}
+        for size in (2, 4):
+            clouds = torch.cat([item[1] for item in items[:size]])
+            def observe(original):
+                with deterministic_proximal(), host_rng(), torch.random.fork_rng(devices=devices(clouds)), ExitStack() as undo:
+                    random.seed(0)
+                    np.random.seed(0)
+                    torch.manual_seed(0)
+                    if original:
+                        for layer in self.curve_layers:
+                            undo.enter_context(patch.object(layer, 'forward', type(layer).forward.__get__(layer)))
+                    logits = self._forward('curvenet', clouds, direct=original)
+                    state = sha256(canonical(rng_state())).hexdigest()
+                return logits, state
+            historical, prior_rng = observe(True)
+            repaired, active_rng = observe(False)
+            if not torch.equal(historical, repaired) or prior_rng != active_rng:
+                raise ValueError(f'CurveNet B{size} logit or RNG parity failed after singleton-axis repair')
+            receipts[str(size)] = dict(ids=[i[0] for i in items[:size]], exact=True, rng_after_sha256=active_rng,
+                                       logits_sha256=tensor_hash(repaired), predictions=repaired.argmax(-1).tolist())
+        return receipts
+
     def calibrate(self, condition):
         items = self._items(condition, PROFILE_IDS)
         torch.cuda.empty_cache()
         free, total = torch.cuda.mem_get_info()
+        curve_parity = self._audit_curve_repair(items)
         self._predict_items(items[:1])
         refs = [self._predict_items([item]) for item in items]
         audited = self._audit_independent(condition, items[:2], refs[:2])
@@ -433,4 +504,5 @@ class SurfaceRuntime:
         self.verify_frozen()
         return dict(condition=condition, selected_batch_size=best['size'], ids=list(PROFILE_IDS),
                     atol=TOLERANCE, rtol=TOLERANCE, total_bytes=total, free_before_bytes=free,
-                    reason_b1=baseline['reason'].tolist(), independent_b1=audited, native=self.native, trials=trials)
+                    reason_b1=baseline['reason'].tolist(), independent_b1=audited, native=self.native, trials=trials,
+                    curvenet_historical_parity=curve_parity)
