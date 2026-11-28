@@ -1,3 +1,5 @@
+**[Code/Run] 2026-11-28 — t50 yüzey onaylı PCA’nın sayısal açıklaması.** [25 nokta üzerinde PCA, SCD, yüzey kararı ve gerçek Point2Vec örnekleri](cloudfixer_surface_walkthrough_20261128.md).
+
 **[Run] 2026-11-24 — Point2Vec tam ModelNet40-C taraması tamamlandı.** Rotation PM %48,06 → %64,95 (+16,90 puan). All-15 PM %74,95 → %76,34 (+1,39 puan). CloudFixer all-15 %77,24. Diğer 14 bozulmanın 3 tanesinde adayın PM doğru sayısı tarihsel baseline’ın altında kaldı. r34 kapatıldı. [Tam tablo ve doğrulama](cloudfixer_surfacefull_gpu_20261124.md#tam-test-sonucu)
 
 **[Run/Decision] 2026-11-24 — Yüzey normaliyle onaylanan tek t50 PCA, ayrı 512 nesne ve üç seed.** Rotation PM %46,09 → %64,58 (+18,49 puan), all-15 %73,90 → %75,14 (+1,24), clean %91,34. Rotation dışındaki 14 türün dokuzunda −0,07 ile −0,33 puan gözlendi. Her türü koruma koşulu geçilmedi, tam tarama açılmadı. Ortak A100 p50 +%2,16 ve p95 +%1,10. Drive arşivi doğrulandı ve A100 kapatıldı. [Tam tablo, belirsizlik ve karar](cloudfixer_surface512_gpu_20261123.md#512-nesnede-doğrulama-sonucu).
