@@ -23,12 +23,14 @@ BASELINE_TASK='cloudfixer_baseline_heads_20261123'
 BASELINE_PROFILE='cloudfixer_xyz_proximal_pm_n8_k80_late_v1'
 
 
-def require_task_drive(folder, *, profile=None):
+def require_task_drive(folder, *, profile=None, baseline_task=BASELINE_TASK):
     if not os.path.ismount(str(DRIVE_MOUNT)):
         raise ValueError('Real Google Drive must be mounted')
     mount=str(DRIVE_MOUNT.resolve())
     if profile == BASELINE_PROFILE:
-        root = DRIVE_MOUNT/'MyDrive/thesis/result'/BASELINE_TASK
+        if baseline_task not in (BASELINE_TASK, 'surface_four_models_20261128'):
+            raise ValueError('Unknown baseline deployment destination')
+        root = DRIVE_MOUNT/'MyDrive/thesis/result'/baseline_task
         if root.is_symlink():
             raise ValueError('The baseline task root cannot be a symlink')
     elif profile is None or profile == 'original_cloudfixer':
@@ -151,7 +153,7 @@ def run(command, cwd=None):
         done.set();thread.join()
 
 
-def main():
+def main(*, baseline_task=BASELINE_TASK):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--package',type=Path,required=True)
     p.add_argument('--root',type=Path,default=Path('/content/cf_multibackbone'))
@@ -166,7 +168,7 @@ def main():
     profile = spec.get('profile')
     if (spec.get('task') == BASELINE_TASK) != (profile == BASELINE_PROFILE):
         raise ValueError('Package task and baseline profile disagree')
-    a.drive_folder=require_task_drive(a.drive_folder, profile=profile)
+    a.drive_folder=require_task_drive(a.drive_folder, profile=profile, baseline_task=baseline_task)
     official=a.root/'official';code=a.root/'code';assets=a.root/'assets'
     def write(path,data,expected=None):
         if expected and dict(bytes=len(data),sha256=hashlib.sha256(data).hexdigest())!=expected:

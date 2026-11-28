@@ -573,6 +573,10 @@ def test_xyz_baseline_requires_its_own_drive_root(tmp_path, monkeypatch):
     monkeypatch.setattr(setup,'TASK_DRIVE_ROOT',old)
     monkeypatch.setattr(setup.os.path,'ismount',lambda p:True)
     assert setup.require_task_drive(new/'owned', profile=BASELINE_PROFILE) == new/'owned'
+    surface = old.with_name('surface_four_models_20261128')
+    assert setup.require_task_drive(surface/'setup', profile=BASELINE_PROFILE, baseline_task=surface.name) == surface/'setup'
+    with pytest.raises(ValueError):
+        setup.require_task_drive(new/'setup', profile=BASELINE_PROFILE, baseline_task=surface.name)
     for invalid in (old, new.with_name(new.name+'_peer')):
         with pytest.raises(ValueError):
             setup.require_task_drive(invalid, profile=BASELINE_PROFILE)
