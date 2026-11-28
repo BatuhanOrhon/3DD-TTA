@@ -3247,4 +3247,4 @@ Availability is a dated filename inventory, not weight/training-log validation.
 [Run] r34 tam test, donanımda batch seçimi ve kapanış tamamlandı. [Sonuçlar ve kaynaklar](cloudfixer_surfacefull_gpu_20261124.md#tam-test-sonucu)
 
 
-[Open, 2026-11-28] Sabit t50 yüzey onaylı PCA, ModelNet40-C severity 5 üzerinde DGCNN, CurveNet, PointNeXt ve Point-MAE için Rotation kazancını ve all-15 doğruluğunu nasıl etkiliyor? Başlangıç referansında ilk üç head için tam plain CloudFixer var. Point-MAE’de tam on beş bozulma için yerel referansın arşiv kapsamı ayrıca doğrulanmalı. [Adayın tanımı ve Point2Vec kanıtı](cloudfixer_surface_walkthrough_20261128.md)
+[Open, 2026-11-28] Sabit t50 yüzey onaylı PCA, ModelNet40-C severity 5 üzerinde DGCNN, CurveNet, PointNeXt ve Point-MAE için Rotation kazancını ve all-15 doğruluğunu nasıl etkiliyor? Başlangıç referansında ilk üç head için tam plain CloudFixer var. Point-MAE’de tam on beş bozulma için yerel referansın arşiv kapsamı ayrıca doğrulanmalı. [Adayın tanımı ve Point2Vec kanıtı](cloudfixer_surface_walkthrough_20261128.md) [Uygulama ve karşılaştırma kapsamı](cloudfixer_surface_four_models_handoff_20261128.md).
