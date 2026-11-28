@@ -1,4 +1,4 @@
-**[Run/Open] 2026-11-28 — Dört modelin severity 5 taraması A100’de başladı.** DGCNN, CurveNet, PointNeXt ve Point-MAE için ortak t50 PCA yörüngesi gerçek GPU’da doğrulandı. İlk A100 kesintisinden önce Uniform’da 29 blok Drive’dan indirildi ve 3.712 model kararı logitlerden doğrulandı. Yeni A100 tahsisi bekleniyor. [Deney ve kurtarma kaydı](cloudfixer_surface_four_models_20261128.md).
+**[Run/Open] 2026-11-28 — Dört modelin severity 5 taraması A100’de başladı.** DGCNN, CurveNet, PointNeXt ve Point-MAE için ortak t50 PCA yörüngesi gerçek GPU’da doğrulandı. İlk A100 kesintisinden önce Uniform’da 29 blok Drive’dan indirildi ve 3.712 model kararı logitlerden doğrulandı. Kurtarma için 40 GB A100 r24 tahsis edildi. [Deney ve kurtarma kaydı](cloudfixer_surface_four_models_20261128.md).
 
 **[Paper/Code] 2026-11-28 — Yüzey onaylı PCA için atıflar ve özgünlük sınırı.** [Li vd. ile kod karşılaştırması, düzlemsellik formülünün kaynağı ve tezde kullanılabilecek ifade](cloudfixer_surface_attribution_20261128.md) · [BibTeX](papers/surface_pca_references_20261128.bib).
 

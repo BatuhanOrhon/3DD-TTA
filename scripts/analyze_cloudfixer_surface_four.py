@@ -299,8 +299,14 @@ def read_candidate(path, expected_sha, reference, lineage):
         frozen = json.loads(archive.read('frozen.json'))
         require(frozen['states'] == runtime['frozen_states'], 'End-of-run frozen states differ from startup')
         require(np.array_equal(campaign['labels'], reference['labels']), 'Candidate label map differs from reference')
-        attempts = {n:json.loads(archive.read(n)) for n in archive.namelist()
-                    if n.startswith('attempts/') and n.endswith('.json')}
+        attempt_names = {n for n in archive.namelist() if n.startswith('attempts/') and n.endswith('.json')}
+        for sha, segment in seal.get('hardware_segments', {}).items():
+            if sha != seal['provenance_sha256']:
+                source = json.loads(archive.read(f'segments/{sha}/campaign.json'))
+                check_lineage(source['runtime'], lineage)
+                require(source['labels'] == campaign['labels'], 'Recovered campaign original-ID labels differ')
+            attempt_names.update(segment['attempts'])
+        attempts = {n:json.loads(archive.read(n)) for n in sorted(attempt_names)}
         for name in archive.namelist():
             if not name.startswith('blocks/') or not name.endswith('.npz'):
                 continue
@@ -335,6 +341,23 @@ def check_lineage(runtime, lineage):
     require(runtime['class_order'] == class_names, 'Candidate class indices differ from canonical ModelNet40 order')
 
 
+def measured_timing(timing, mask):
+    n = int(mask.sum())
+    wall = timing['wall_ms'][mask]
+    starts = mask & (timing['batch_start'] == np.arange(mask.shape[1]))
+    batches = timing['batch_size'][starts]
+    seconds = float(wall.sum()/1000)
+    require(seconds > 0 and np.all(batches > 0) and int(batches.sum()) == n, 'Invalid active batch timing')
+    p50, p95 = np.percentile(timing['wall_ms'][starts]*batches, [50,95])
+    return dict(n=n, timed_batches=len(batches), pipeline_all_heads_s=seconds,
+                trajectory_shared_s=float(timing['trajectory_ms'][mask].sum()/1000),
+                pipeline_objects_per_s=n/seconds,
+                pipeline_amortized_p50_ms=float(np.median(wall)),
+                pipeline_amortized_p95_ms=float(np.percentile(wall,95)),
+                pipeline_batch_p50_ms=float(p50), pipeline_batch_p95_ms=float(p95),
+                peak_allocated_mib=float(timing['peak_mib'][mask].max()))
+
+
 def timing_rows(timing, historical, sizes, recovery):
     records = []
     mae_seconds = {}
@@ -342,24 +365,16 @@ def timing_rows(timing, historical, sizes, recovery):
         for corr, record in run['complete'].items():
             mae_seconds.setdefault(corr, record['seconds'])
     for group, ix in groups():
-        n = len(ix)*N
-        selected = {str(sizes[CORRUPTIONS[c]]) for c in ix}
-        wall = timing['wall_ms'][ix]
-        trajectory = timing['trajectory_ms'][ix]
-        start_mask = timing['batch_start'][ix] == np.arange(N)
-        batches = timing['batch_size'][ix][start_mask]
-        pipeline_seconds = float(wall.sum()/1000)
-        require(pipeline_seconds > 0 and (batches > 0).all() and int(batches.sum()) == n, 'Invalid active batch timing')
-        batch_p50, batch_p95 = np.percentile(wall[start_mask]*batches, [50,95])
+        mask = np.zeros(timing['wall_ms'].shape, dtype=bool)
+        mask[ix] = True
+        measured = measured_timing(timing, mask)
+        selected = sorted({b for c in ix for b in sizes[CORRUPTIONS[c]]})
         for model in MODELS:
-            head = timing[model+'_head_ms'][ix]
-            item = dict(model=model, group=group, n=n, selected_batch_sizes=','.join(sorted(selected)),
-                        timed_batches=int(start_mask.sum()), pipeline_all_heads_s=pipeline_seconds,
-                        trajectory_shared_s=float(trajectory.sum()/1000), head_three_readouts_s=float(head.sum()/1000),
-                        pipeline_objects_per_s=n/pipeline_seconds,
-                        pipeline_amortized_p50_ms=float(np.median(wall)), pipeline_amortized_p95_ms=float(np.percentile(wall,95)),
-                        pipeline_batch_p50_ms=float(batch_p50), pipeline_batch_p95_ms=float(batch_p95),
-                        peak_allocated_mib=float(timing['peak_mib'][ix].max()))
+            item = dict(model=model, group=group, n=measured['n'], selected_batch_sizes=','.join(map(str, selected)),
+                        timed_batches=measured['timed_batches'], pipeline_all_heads_s=measured['pipeline_all_heads_s'],
+                        trajectory_shared_s=measured['trajectory_shared_s'],
+                        head_three_readouts_s=float(timing[model+'_head_ms'][mask].sum()/1000))
+            item.update(measured)
             for key in ('cloudfixer_plain','proximal_n8_pm'):
                 matches = [r for r in historical if r['method'] == key and r['backbone'] == model
                            and CORRUPTIONS.index(r['corruption']) in ix]
@@ -368,6 +383,54 @@ def timing_rows(timing, historical, sizes, recovery):
             item['pointmae_plain_b32_pipeline_s'] = sum(mae_seconds[CORRUPTIONS[c]] for c in ix) if available else None
             records.append(item)
     return records
+
+
+def segment_results(segments, timing, pm, terminal, labels, accepted, attempts):
+    """Pool only the measured, closed blocks owned by each verified campaign."""
+    covered = np.zeros(accepted.shape, dtype=bool)
+    rows = []
+    receipts = {}
+    selected = {corr:set() for corr in CORRUPTIONS}
+    for sha, segment in segments.items():
+        mask = np.zeros_like(covered)
+        for block in segment['blocks']:
+            prefix, corr, name = block.split('/')
+            start, stop = map(int, Path(name).stem.split('-'))
+            c = CORRUPTIONS.index(corr)
+            require(prefix == 'blocks' and 0 <= start < stop <= mask.shape[1]
+                    and not mask[c,start:stop].any() and not covered[c,start:stop].any(),
+                    'Overlapping or invalid hardware segment block')
+            mask[c,start:stop] = True
+            selected[corr].add(segment['selected_batch_sizes'][corr])
+        covered |= mask
+        # An assignment can disappear between a sealed start receipt and its end receipt.
+        names = segment['attempts']
+        starts = {n.rsplit('.', 2)[0] for n in names if n.endswith('.start.json')}
+        ends = {n.rsplit('.', 2)[0] for n in names if n.endswith('.end.json')}
+        completed = [attempts[n] for n in names if n.endswith('.end.json') and attempts[n]['status'] == 'complete']
+        receipts[sha] = dict(hardware=segment['hardware'], blocks=len(segment['blocks']), examples=int(mask.sum()),
+                             model_object_records=int(mask.sum())*len(MODELS), final_frozen_receipt=segment['final_frozen_receipt'],
+                             completed_commands=len(completed), completed_command_wall_s=sum(a['elapsed_seconds'] for a in completed),
+                             starts_without_end=sorted(starts-ends), attempt_receipts=names)
+        for group, ix in [*((c,[i]) for i,c in enumerate(CORRUPTIONS)), ('segment_total',list(range(len(CORRUPTIONS))))]:
+            scope = np.zeros_like(mask)
+            scope[ix] = mask[ix]
+            if not scope.any():
+                continue
+            measured = measured_timing(timing, scope)
+            batch_sizes = sorted({segment['selected_batch_sizes'][CORRUPTIONS[c]] for c in ix if mask[c].any()})
+            gold = np.broadcast_to(labels, mask.shape)[scope]
+            hw = segment['hardware']
+            for h, model in enumerate(MODELS):
+                rows.append(dict(campaign_sha256=sha, gpu=hw['gpu'], gpu_total_bytes=hw['total_bytes'], model=model,
+                                 group=group, selected_batch_sizes=','.join(map(str,batch_sizes)),
+                                 observed_batch_sizes=','.join(str(int(b)) for b in np.unique(timing['batch_size'][scope])),
+                                 pm_correct=int((pm[:,:,h][scope] == gold).sum()),
+                                 terminal_correct=int((terminal[:,:,h][scope] == gold).sum()),
+                                 accepted=int(accepted[scope].sum()), **measured,
+                                 head_three_readouts_s=float(timing[model+'_head_ms'][scope].sum()/1000)))
+    require(covered.all(), 'Missing hardware attribution for closed candidate IDs')
+    return rows, receipts, selected
 
 
 def pilot_rows(pm, terminal, accepted, labels, pilot):
@@ -399,7 +462,7 @@ def format_score(row, key):
     return f"{count}/{row['n']} ({row[key+'_pct']:.2f}%)" if count is not None else 'Eksik referans'
 
 
-def report_text(rows, timing, pilot, wall, runtime):
+def report_text(rows, timing, pilot, wall, runtime, hardware_rows=None):
     lines = ['# ModelNet40-C • Yüzey onaylı PCA, severity 5, seed 0', '',
              'Her model 15 bozulmada aynı 2.468 özgün nesneyi değerlendirir. '
              'PM, t20/t10/gerçek t0 sınıf olasılıklarının eşit ortalamasıdır. '
@@ -448,8 +511,33 @@ def report_text(rows, timing, pilot, wall, runtime):
         f"Örnek başına amorti p50/p95 {t['pipeline_amortized_p50_ms']:.2f}/{t['pipeline_amortized_p95_ms']:.2f} ms, "
         f"gerçek batch p50/p95 {t['pipeline_batch_p50_ms']:.2f}/{t['pipeline_batch_p95_ms']:.2f} ms. "
         f"Tepe CUDA allocation {t['peak_allocated_mib']:.1f} MiB.",
-        f"Donanım kaydı `{json.dumps(runtime['hardware'], ensure_ascii=False)}`.",
         f"Ölçüm protokolü: {runtime['timing']}. Rastgelelik protokolü: {runtime['rng']}."])
+    if hardware_rows:
+        lines.append('Yukarıdaki süreler farklı GPU kampanyalarında tamamlanan blokların ortak ölçümüdür. '
+                     'Aşağıdaki süreler yalnız ilgili kampanyanın doğrulanmış bloklarını kapsar.')
+        lines.extend(['', '| GPU / kampanya | Model | Seçilen B | PM doğru/n | t0 doğru/n | Kabul | Ortak geometri (s) | Head (s) | '
+                      'Dört head (s) | Nesne/s | Amorti p50/p95 (ms) | Batch p50/p95 (ms) | Tepe (MiB) |',
+                      '|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|'])
+        for r in hardware_rows:
+            if r['group'] != 'segment_total':
+                continue
+            n = r['n']
+            lines.append(f"| {r['gpu']} / {r['campaign_sha256'][:12]} | {r['model']} | {r['selected_batch_sizes']} | {r['pm_correct']}/{n} | "
+                         f"{r['terminal_correct']}/{n} | {r['accepted']}/{n} | {r['trajectory_shared_s']:.2f} | "
+                         f"{r['head_three_readouts_s']:.2f} | {r['pipeline_all_heads_s']:.2f} | "
+                         f"{r['pipeline_objects_per_s']:.2f} | {r['pipeline_amortized_p50_ms']:.2f}/{r['pipeline_amortized_p95_ms']:.2f} | "
+                         f"{r['pipeline_batch_p50_ms']:.2f}/{r['pipeline_batch_p95_ms']:.2f} | {r['peak_allocated_mib']:.1f} |")
+        lines.append('')
+        for sha, r in wall['by_campaign'].items():
+            lines.append(f"{r['hardware']['gpu']} ({r['hardware']['total_bytes']/2**30:.2f} GiB, `{sha[:12]}`), {r['blocks']} doğrulanmış blok, "
+                         f"{r['model_object_records']} model–nesne–bozulma kaydı. "
+                         f"Bitişi doğrulanan {r['completed_commands']} komutun toplamı {r['completed_command_wall_s']:.2f} s.")
+            if r['starts_without_end']:
+                lines.append(f"Bitiş kaydı eksik {len(r['starts_without_end'])} komut için gerçek duvar süresi bilinmiyor.")
+            elif not r['attempt_receipts']:
+                lines.append('Bu kampanya için komut duvar süresi kaydı yok.')
+    else:
+        lines.insert(-1, f"Donanım kaydı `{json.dumps(runtime['hardware'], ensure_ascii=False)}`.")
     if wall['completed_attempt_elapsed_s']:
         lines.append(f"Tamamlanan komutların duvar süresi toplamı {wall['completed_attempt_elapsed_s']:.2f} s.")
     lines.extend(['', '| Model | Aday head, üç okuma (s) | Eski CF B64, geometri + head (s) | Eski SCD PM B96, geometri + head (s) |',
@@ -490,18 +578,29 @@ def report(args):
         pilot = pilot_rows(pm, terminal, accepted, labels, ref['pilot'])
     elapsed = sum(a['elapsed_seconds'] for a in attempts.values() if a.get('status') == 'complete')
     wall = dict(completed_attempt_elapsed_s=elapsed, attempts=attempts)
-    timed = timing_rows(timing, metadata['historical_timing'], seal['selected_batch_sizes'], metadata['recovery'])
+    hardware_rows = []
+    sizes = {c:{b} for c,b in seal['selected_batch_sizes'].items()}
+    segments = seal.get('hardware_segments', {})
+    if len(segments) > 1:
+        hardware_rows, wall['by_campaign'], sizes = segment_results(
+            segments, timing, pm, terminal, labels, accepted, attempts)
+    timed = timing_rows(timing, metadata['historical_timing'], sizes, metadata['recovery'])
     args.out.mkdir(parents=True, exist_ok=False)
     write_csv(args.out/'per_corruption.csv', [r for r in rows if r['group'] in CORRUPTIONS])
     write_csv(args.out/'summary.csv', [r for r in rows if r['group'] not in CORRUPTIONS])
     write_csv(args.out/'runtime.csv', timed)
+    if hardware_rows:
+        write_csv(args.out/'hardware_segments.csv', hardware_rows)
     write_csv(args.out/'pointmae_paired128.csv', pilot)
-    (args.out/'report.md').write_text(report_text(rows, timed, pilot, wall, campaign['runtime']))
+    (args.out/'report.md').write_text(report_text(rows, timed, pilot, wall, campaign['runtime'], hardware_rows))
     record = dict(archive_sha256=args.sha256, archive_name=args.archive.name, provenance_sha256=seal['provenance_sha256'],
                   reference_json_sha256=file_sha(args.references/'references.json'), reference_npz_sha256=file_sha(source),
                   model_object_records=seal['model_object_records'], selected_batch_sizes=seal['selected_batch_sizes'],
                   protocol=campaign['protocol'], runtime=campaign['runtime'], wall=wall,
                   historical_protocol=metadata['protocol'], pointmae_recovery=metadata['recovery'])
+    if hardware_rows:
+        record['hardware_segments'] = segments
+        record['selected_batch_sizes'] = {c:sorted(v) for c,v in sizes.items()}
     (args.out/'recount.json').write_text(json.dumps(record, indent=2)+'\n')
     print(json.dumps({'report':str(args.out/'report.md'),'model_object_records':seal['model_object_records']}))
 

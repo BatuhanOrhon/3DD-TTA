@@ -105,3 +105,49 @@ def test_end_to_end_archive_report_matches_ids_and_keeps_partial_reference(tmp_p
     runtime.identity['checkpoint_sha256']['pointmae'] = 'foreign'
     with pytest.raises(ValueError, match='checkpoint'):
         analysis.check_lineage(runtime.identity, lineage)
+
+
+def test_hardware_segments_split_one_corruption_and_distinguish_unclosed_command():
+    from scripts import analyze_cloudfixer_surface_four as analysis
+
+    labels = np.arange(4)
+    shape = (len(analysis.CORRUPTIONS), len(labels))
+    pm = np.broadcast_to(labels[None,:,None], (*shape,4)).copy()
+    terminal = pm.copy()
+    pm[0,0,0] = 3
+    terminal[0,3,0] = 0
+    accepted = np.zeros(shape, dtype=bool)
+    accepted[0,0] = True
+    blocks = [f'blocks/{corr}/{start:04d}-{start+2:04d}.npz'
+              for corr in analysis.CORRUPTIONS for start in (0,2)]
+    old_start = 'segments/old/attempts/ab.start.json'
+    new_start, new_end = 'attempts/cd.start.json', 'attempts/cd.end.json'
+    segments = {
+        'old': dict(hardware={'gpu':'A100 80GB','total_bytes':80*2**30}, blocks=blocks[:1], attempts=[old_start],
+                    selected_batch_sizes={'uniform':1}, final_frozen_receipt=False),
+        'new': dict(hardware={'gpu':'A100 40GB','total_bytes':40*2**30}, blocks=blocks[1:], attempts=[new_start,new_end],
+                    selected_batch_sizes=dict.fromkeys(analysis.CORRUPTIONS,2), final_frozen_receipt=True)}
+    attempts = {old_start:{},new_start:{},new_end:{'status':'complete','elapsed_seconds':12.}}
+    timing = {k: np.ones(shape) for k in ('wall_ms','trajectory_ms','peak_mib',*(h+'_head_ms' for h in analysis.MODELS))}
+    timing['batch_start'] = np.tile([0,0,2,2], (len(analysis.CORRUPTIONS),1))
+    timing['batch_size'] = np.full(shape,2)
+    timing['batch_start'][0,:2] = [0,1]
+    timing['batch_size'][0,:2] = 1
+    timing['wall_ms'][0,:2] = [40.,60.]
+    rows, wall, sizes = analysis.segment_results(segments, timing, pm, terminal, labels, accepted, attempts)
+    old, new = [r for r in rows if r['group'] == 'segment_total' and r['model'] == 'dgcnn']
+    assert (old['n'], old['pm_correct'], old['terminal_correct'], old['accepted']) == (2,1,2,1)
+    assert (new['n'], new['pm_correct'], new['terminal_correct'], new['accepted']) == (58,58,57,0)
+    assert old['pipeline_all_heads_s'] == pytest.approx(.100) and old['pipeline_amortized_p50_ms'] == 50.
+    assert new['pipeline_all_heads_s'] == pytest.approx(.058) and new['pipeline_batch_p95_ms'] == 2.
+    assert old['timed_batches'] == 2 and new['timed_batches'] == 29 and sizes['uniform'] == {1,2}
+    assert wall['old']['starts_without_end'] and wall['old']['completed_commands'] == 0
+    assert not wall['new']['starts_without_end'] and wall['new']['completed_command_wall_s'] == 12
+    assert sum(r['model_object_records'] for r in wall.values()) == 240
+    pooled, = [r for r in analysis.timing_rows(timing, [], sizes, []) if r['group'] == 'all15' and r['model'] == 'dgcnn']
+    assert pooled['n'] == 60 and pooled['selected_batch_sizes'] == '1,2'
+    assert pooled['pipeline_all_heads_s'] == pytest.approx(old['pipeline_all_heads_s'] + new['pipeline_all_heads_s'])
+    assert old['pm_correct'] + new['pm_correct'] == np.count_nonzero(pm[:,:,0] == labels)
+    segments['new']['blocks'].append(blocks[0])
+    with pytest.raises(ValueError, match='Overlapping'):
+        analysis.segment_results(segments, timing, pm, terminal, labels, accepted, attempts)

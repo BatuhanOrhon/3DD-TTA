@@ -1,0 +1,18 @@
+{
+  "session": "tta-surface-four-models-a100-20261128-r24",
+  "endpoint": "gpu-a100-s-ass1c0-3jnsutx03bum7",
+  "issued_utc": "2026-11-28T15:12:38.033753+00:00",
+  "verified_gpu": "NVIDIA A100-SXM4-40GB",
+  "verified_gpu_mib": 40960,
+  "own_cu_hour": 8.16,
+  "inactive_allocation_responses": 20,
+  "started_from": "15f2d1f05cd86193373ca4140f3bd2bc54492082",
+  "vm_probe": "SURFACE_FOUR_A100_CONFIRMED",
+  "same_boot_and_conda_after_first_cell": "SAME_VM_AFTER_CONDA",
+  "setup_completed_cells": [
+    1,
+    2
+  ],
+  "previous_session": "tta-surface-four-models-a100-20261128-r3",
+  "comparison": "Fresh four-corruption device calibration plus real prior accepted and vetoed Uniform anchors. Retain exact original bytes and per-GPU provenance."
+}

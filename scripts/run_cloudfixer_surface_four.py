@@ -108,7 +108,7 @@ def batches(start: int, stop: int, size: int):
         start = end
 
 
-def encode(runtime, condition: str, start: int, stop: int, profile: dict, profile_sha: str) -> bytes:
+def encode(runtime, condition: str, start: int, stop: int, profile: dict, profile_sha: str, *, writer=None) -> bytes:
     rows = []
     for ids in batches(start, stop, profile["selected_batch_size"]):
         result = runtime.predict(condition, ids)
@@ -135,6 +135,8 @@ def encode(runtime, condition: str, start: int, stop: int, profile: dict, profil
             row[model+"_head_ms"] = np.full(n, 1000*head_seconds[h]/n)
         rows.append(row)
     arrays = {field: np.concatenate([r[field] for r in rows]) for field in rows[0]}
+    if writer is not None:
+        arrays["writer_sha256"] = writer
     stream = io.BytesIO()
     np.savez_compressed(stream, **arrays, corruption=condition, seed=0, severity=5,
                         models=MODELS, probe_indices=[20, 10, 0], profile_sha256=profile_sha,
@@ -142,7 +144,7 @@ def encode(runtime, condition: str, start: int, stop: int, profile: dict, profil
     return stream.getvalue()
 
 
-def validate(data, condition, start, stop, labels, profile, profile_sha) -> dict:
+def validate(data, condition, start, stop, labels, profile, profile_sha, writer=None) -> dict:
     with np.load(io.BytesIO(data), allow_pickle=False) as saved:
         if len(saved.files) != len(set(saved.files)):
             raise ValueError("Duplicate NPZ member")
@@ -151,6 +153,8 @@ def validate(data, condition, start, stop, labels, profile, profile_sha) -> dict
     expected = dict(ids=np.arange(start, stop), labels=labels[start:stop], models=MODELS,
                     corruption=condition, seed=0, severity=5, probe_indices=[20, 10, 0],
                     provenance_sha256=profile["provenance_sha256"], profile_sha256=profile_sha)
+    if writer is not None:
+        expected["writer_sha256"] = writer
     expected_batches = list(batches(start, stop, profile["selected_batch_size"]))
     expected["batch_start"] = [b[0] for b in expected_batches for _ in b]
     expected["batch_size"] = [len(b) for b in expected_batches for _ in b]
@@ -244,7 +248,175 @@ def calibration(runtime, root: Path, condition: str, campaign_sha: str):
     return profile, sha(raw)
 
 
-def run(runtime, root: Path, *, calibrate_only: bool = False, conditions=None) -> None:
+STRESS = ("uniform", "background", "upsampling", "rotation")
+ORIGINAL_WRITER = "9a27805a6086dc10bdc08d0f727748ec751b82df429882aef52073fe3b3bcc5d"
+TRANSFER = "transfer.json"
+PARITY = "cross_vm_parity.json"
+
+
+def check_campaign_pair(old, new, writer):
+    def science(campaign):
+        runtime = dict(campaign["runtime"])
+        hardware = dict(runtime["hardware"])
+        for key in ("gpu", "total_bytes"):
+            hardware.pop(key)
+        runtime["hardware"] = hardware
+        return (campaign["labels"], campaign["protocol"], runtime)
+
+    if (old["runner_sha256"] not in (ORIGINAL_WRITER, writer) or
+            science(old) != science(new) or old["protocol"] != protocol()):
+        raise ValueError("Source/target campaigns differ in labels, scientific sources, assets or numeric runtime")
+
+
+def check_parity(receipt, old_id, new_id, old_profiles, new_profiles):
+    if (receipt.get("schema") != 1 or receipt.get("status") != "passed" or receipt.get("source_campaign_sha256") != old_id
+            or receipt.get("target_campaign_sha256") != new_id or old_id == new_id
+            or set(receipt.get("profiles", {})) != set(STRESS)):
+        raise ValueError("Cross-VM parity receipt does not match the registered campaigns and four controls")
+    for condition in STRESS:
+        a, old_sha = old_profiles[condition]
+        b, new_sha = new_profiles[condition]
+        link = receipt["profiles"][condition]
+        if (link.get("source_sha256") != old_sha or link.get("target_sha256") != new_sha
+                or a["ids"] != b["ids"] or a.get("reason_b1") != b.get("reason_b1")
+                or set(a["independent_b1"]) != {"321", "1146"}
+                or set(b["independent_b1"]) != {"321", "1146"}):
+            raise ValueError("Cross-VM parity sample or profile identity differs: "+condition)
+        for ident, left in a["independent_b1"].items():
+            right = b["independent_b1"][ident]
+            if not DIGEST.fullmatch(left["input_sha256"]) or left["input_sha256"] != right["input_sha256"]:
+                raise ValueError("Cross-VM input parity failed: "+condition+"/"+ident)
+            for head in MODELS:
+                lhs, rhs = left["heads"][head], right["heads"][head]
+                keys = ("clouds_sha256", "logits_sha256", "pm", "probe_predictions", "reason", "angle_degrees")
+                if (any(lhs[k] != rhs[k] for k in keys) or
+                        not all(DIGEST.fullmatch(lhs[k]) for k in ("clouds_sha256", "logits_sha256"))):
+                    raise ValueError("Cross-VM cloud, logits or decision parity failed: "+condition+"/"+ident+"/"+head)
+
+
+def metadata_names(root):
+    return sorted(p.relative_to(root).as_posix() for folder in ("profiles","attempts")
+                  for p in (root/folder).glob("*.json") if sidecar(p).is_file())
+
+
+def profiles_from(files, campaign_id):
+    return {name[9:-5]: (read_profile(raw, name[9:-5], campaign_id), sha(raw))
+            for name, raw in files.items() if name.startswith("profiles/")}
+
+
+def prepare_import(source, root, campaign_data, parity_path):
+    if source.resolve() == root.resolve() or (source/TRANSFER).exists():
+        raise ValueError("Expected a distinct, original source campaign")
+    inventory(source)
+    read = disk_reader(source)
+    parity = checked(disk_reader(parity_path.parent), parity_path.name)
+    if (root/TRANSFER).is_file() and sidecar(root/TRANSFER).is_file():
+        index = json.loads(checked(disk_reader(root), TRANSFER))
+        if (sha(checked(read, "campaign.json")) != index["source_campaign_sha256"]
+                or sha(campaign_data) != index["target_campaign_sha256"] or sha(parity) != index["parity_sha256"]):
+            raise ValueError("Resume sources differ from the sealed transfer")
+        return index
+    files = {key: checked(read, key) for key in ["campaign.json", *metadata_names(source)]}
+    if (source/"frozen.json").is_file() and sidecar(source/"frozen.json").is_file():
+        files["frozen.json"] = checked(read, "frozen.json")
+    old_id = sha(files["campaign.json"])
+    new_id = sha(campaign_data)
+    writer = file_sha(Path(__file__))
+    old, new = json.loads(files["campaign.json"]), json.loads(campaign_data)
+    check_campaign_pair(old, new, writer)
+    profiles = profiles_from(files, old_id)
+    fresh = profiles_from({f"profiles/{c}.json": checked(disk_reader(root), f"profiles/{c}.json") for c in STRESS}, new_id)
+    check_parity(json.loads(parity), old_id, new_id, profiles, fresh)
+    # Freeze membership before publishing any old bytes at canonical target paths.
+    blocks, invalid = {}, []
+    available = {p.relative_to(source).as_posix() for p in (source/"blocks").glob("*/*.npz")}
+    labels = np.asarray(old["labels"])
+    for c, start, stop, key in ranges():
+        if key in available:
+            try:
+                raw = checked(read, key)
+                validate(raw, c, start, stop, labels, *profiles[c])
+            except INVALID:
+                invalid.append(key)
+            else:
+                blocks[key] = sha(raw)
+    if not blocks:
+        raise ValueError("No verified source blocks are available for import")
+    index = dict(schema=1, source_campaign_sha256=old_id, target_campaign_sha256=new_id,
+                 writer_sha256=writer, parity_sha256=sha(parity), blocks=blocks, invalid_source_blocks=invalid,
+                 files={name:sha(raw) for name,raw in files.items()})
+    for name, raw in files.items():
+        sealed(root/"segments"/old_id/name, raw)
+    sealed(root/PARITY, parity)
+    seal_identity(root, root/TRANSFER, canonical(index))
+    return index
+
+
+def verify_transfer(consume, index, campaign, target_id, profiles):
+    old_id = index["source_campaign_sha256"]
+    writer = index["writer_sha256"]
+    if (index.get("schema") != 1 or not DIGEST.fullmatch(old_id) or not DIGEST.fullmatch(writer)
+            or index["target_campaign_sha256"] != target_id or not index["blocks"]):
+        raise ValueError("Invalid archived campaign transfer identity")
+    legal = {key for *_,key in ranges()}
+    if (not set(index["blocks"]) <= legal or any(not DIGEST.fullmatch(h) for h in index["blocks"].values())
+            or set(index["invalid_source_blocks"]) & set(index["blocks"])
+            or not set(index["invalid_source_blocks"]) <= legal):
+        raise ValueError("Unexpected duplicate, invalid or foreign transfer block")
+    prefix = "segments/"+old_id+"/"
+    files = {}
+    for name,digest in sorted(index["files"].items()):
+        allowed = (name in ("campaign.json","frozen.json") or name in {f"profiles/{c}.json" for c in CORRUPTIONS}
+                   or re.fullmatch(r"attempts/[a-f0-9]{32}[.](start|end)[.]json",name))
+        if not allowed:
+            raise ValueError("Unexpected source campaign metadata: "+name)
+        raw = consume(prefix+name)
+        if sha(raw) != digest:
+            raise ValueError("Imported metadata SHA mismatch: "+name)
+        files[name] = raw
+    if sha(files["campaign.json"]) != old_id:
+        raise ValueError("Imported campaign SHA mismatch")
+    old = json.loads(files["campaign.json"])
+    check_campaign_pair(old, campaign, writer)
+    old_profiles = profiles_from(files, old_id)
+    raw = consume(PARITY)
+    if sha(raw) != index["parity_sha256"]:
+        raise ValueError("Cross-VM parity receipt SHA mismatch")
+    parity = json.loads(raw)
+    check_parity(parity, old_id, target_id, old_profiles, profiles)
+    for replay in parity.get("uniform_raw_b1_replays", {}).values():
+        if (replay["exact"] is not True or index["blocks"].get(replay["source_block"]) != replay["source_block_sha256"]):
+            raise ValueError("Uniform parity replay lacks a matching original sealed block")
+    if "frozen.json" in files:
+        receipt = json.loads(files["frozen.json"])
+        if receipt != dict(provenance_sha256=old_id,states=old["runtime"]["frozen_states"]):
+            raise ValueError("Invalid source frozen receipt")
+    segment = dict(hardware=old["runtime"]["hardware"], blocks=sorted(index["blocks"]),
+                   attempts=sorted(prefix+k for k in files if k.startswith("attempts/")),
+                   selected_batch_sizes={c:p["selected_batch_size"] for c,(p,_) in old_profiles.items()},
+                   final_frozen_receipt="frozen.json" in files and set(index["blocks"]) == legal)
+    return old_profiles, segment
+
+
+def restore_imported(root, source, name, expected_sha, args):
+    try:
+        data = checked(disk_reader(root), name)
+    except INVALID:
+        if source is None:
+            raise ValueError("Original --resume-from campaign required to restore "+name)
+        data = checked(disk_reader(source), name)
+        if sha(data) != expected_sha:
+            raise ValueError("Original block SHA changed: "+name)
+        validate(data, *args)
+        quarantine(root, root/name)
+        sealed(root/name, data)
+        return
+    if sha(data) != expected_sha:
+        raise ValueError("Conflicting sealed blocks at "+name)
+    validate(data, *args)
+
+
+def run(runtime, root: Path, *, calibrate_only: bool = False, conditions=None, resume_from=None, parity_receipt=None) -> None:
     root.mkdir(parents=True, exist_ok=True)
     inventory(root)
     labels = np.asarray(runtime.labels)
@@ -253,6 +425,11 @@ def run(runtime, root: Path, *, calibrate_only: bool = False, conditions=None) -
         raise ValueError("Wrong label mapping")
     campaign = dict(protocol=protocol(), labels=labels.tolist(), runtime=runtime.identity,
                     runner_sha256=file_sha(Path(__file__)))
+    # A fresh target may already hold an original-writer calibration. Keep that signed registration.
+    if (resume_from or (root/TRANSFER).exists()) and (root/"campaign.json").is_file():
+        previous = json.loads(checked(disk_reader(root), "campaign.json"))
+        if previous.get("runner_sha256") == ORIGINAL_WRITER:
+            campaign["runner_sha256"] = ORIGINAL_WRITER
     campaign_data = canonical(campaign)
     campaign_sha = sha(campaign_data)
     read = disk_reader(root)
@@ -269,6 +446,22 @@ def run(runtime, root: Path, *, calibrate_only: bool = False, conditions=None) -
             raise ValueError("Frozen states changed before publication")
         return states
 
+    transfer = None
+    if resume_from is not None or parity_receipt is not None:
+        if not resume_from or not parity_receipt or calibrate_only:
+            raise ValueError("A mixed run needs both --resume-from and --parity-receipt")
+        for condition in STRESS:
+            calibration(runtime, root, condition, campaign_sha)
+        transfer = prepare_import(resume_from, root, campaign_data, parity_receipt)
+    elif (root/TRANSFER).exists() or sidecar(root/TRANSFER).exists():
+        transfer = json.loads(checked(read, TRANSFER))
+    elif (root/"segments").exists() or (root/PARITY).exists():
+        raise ValueError("Interrupted transfer; supply --resume-from and --parity-receipt")
+    if transfer:
+        if transfer["writer_sha256"] != file_sha(Path(__file__)):
+            raise ValueError("Mixed-run writer source changed")
+        controls = profiles_from({f"profiles/{c}.json": checked(read, f"profiles/{c}.json") for c in STRESS}, campaign_sha)
+        old_profiles, _ = verify_transfer(lambda p: checked(read,p), transfer, campaign, campaign_sha, controls)
     for condition in conditions or CORRUPTIONS:
         profile, profile_sha = calibration(runtime, root, condition, campaign_sha)
         if calibrate_only:
@@ -276,13 +469,18 @@ def run(runtime, root: Path, *, calibrate_only: bool = False, conditions=None) -
         for corr, start, stop, name in ranges():
             if corr != condition:
                 continue
-            args = (condition, start, stop, labels, profile, profile_sha)
+            if transfer and name in transfer["blocks"]:
+                restore_imported(root, resume_from, name, transfer["blocks"][name],
+                                 (condition, start, stop, labels, *old_profiles[condition]))
+                continue
+            writer = transfer["writer_sha256"] if transfer else None
+            args = (condition, start, stop, labels, profile, profile_sha, writer)
             try:
                 validate(checked(read, name), *args)
                 continue
             except INVALID:
                 quarantine(root, root/name)
-            payload = encode(runtime, condition, start, stop, profile, profile_sha)
+            payload = encode(runtime, condition, start, stop, profile, profile_sha, writer=writer)
             validate(payload, *args)
             verify_frozen()
             sealed(root/name, payload)
@@ -320,9 +518,29 @@ def recount(read, names, archive=None) -> dict:
         for condition in CORRUPTIONS:
             raw = consume(f"profiles/{condition}.json")
             profiles[condition] = (read_profile(raw, condition, digest), sha(raw))
+        transfer = json.loads(consume(TRANSFER)) if TRANSFER in names else None
+        segments = {}
+        if archive is None:
+            expected_segment = {f"segments/{transfer['source_campaign_sha256']}/{k}{suffix}"
+                                for k in transfer["files"] for suffix in ("", ".sha256")} if transfer else set()
+            if {k for k in names if k.startswith("segments/")} != expected_segment:
+                raise ValueError("Unexpected or missing source segment metadata")
+        if transfer:
+            old_profiles, segment = verify_transfer(consume, transfer, campaign, digest, profiles)
+            segments[transfer["source_campaign_sha256"]] = segment
+        primary_blocks = []
         cells = {m: {} for m in MODELS}
         for cond, start, stop, name in ranges():
-            values = validate(consume(name), cond, start, stop, labels, *profiles[cond])
+            raw = consume(name)
+            if transfer and name in transfer["blocks"]:
+                if sha(raw) != transfer["blocks"][name]:
+                    raise ValueError("Imported raw block SHA mismatch: "+name)
+                item_profile = old_profiles[cond]
+            else:
+                item_profile = profiles[cond]
+                primary_blocks.append(name)
+            writer = transfer["writer_sha256"] if transfer and name not in transfer["blocks"] else None
+            values = validate(raw, cond, start, stop, labels, *item_profile, writer=writer)
             for model in MODELS:
                 cell = cells[model].setdefault(cond, dict(n=0, pm_correct=0, terminal_correct=0, accepted=0))
                 cell["n"] += stop - start
@@ -334,8 +552,11 @@ def recount(read, names, archive=None) -> dict:
             json.loads(consume(p))
     except (KeyError, FileNotFoundError) as exc:
         raise ValueError("Missing required evidence: "+str(exc)) from exc
-    return dict(provenance_sha256=digest, model_object_records=N_OBJECTS*len(CORRUPTIONS)*len(MODELS),
-                cells=cells, selected_batch_sizes={c: p["selected_batch_size"] for c,(p,_) in profiles.items()})
+    sizes = {c:p["selected_batch_size"] for c,(p,_) in profiles.items()}
+    segments[digest] = dict(hardware=campaign["runtime"].get("hardware", {}), blocks=primary_blocks,
+                            attempts=attempts, selected_batch_sizes=sizes, final_frozen_receipt=True)
+    return dict(provenance_sha256=digest, hardware_segments=segments, model_object_records=N_OBJECTS*len(CORRUPTIONS)*len(MODELS),
+                cells=cells, selected_batch_sizes=sizes)
 
 
 def verify_archive(path: Path) -> dict:
@@ -354,6 +575,8 @@ def finalize(root: Path) -> Path:
     inventory(root)
     names = [p.relative_to(root).as_posix() for folder in ("blocks", "attempts")
              for p in (root/folder).rglob("*") if p.is_file() and not p.name.startswith(".pending_")]
+    if (root/TRANSFER).exists() or sidecar(root/TRANSFER).exists():
+        names.append(TRANSFER)
     # Stage on local disk; a closed, verified archive is the publication boundary.
     with tempfile.TemporaryDirectory() as temp:
         staged = Path(temp)/"raw.zip"
@@ -396,6 +619,9 @@ def main(argv=None):
     for action in ("calibrate", "run"):
         part = commands.add_parser(action)
         part.add_argument("--store", required=True, type=Path)
+        if action == "run":
+            part.add_argument("--resume-from", type=Path, help="Original mounted campaign with sealed blocks")
+            part.add_argument("--parity-receipt", type=Path, help="SHA-sealed four-condition cross-VM parity JSON")
         for option in ("manifest", "asset-root", "official-root", "diffusion", "dataset-root", "classifier"):
             part.add_argument("--"+option, required=True, type=Path)
         part.add_argument("--deadline-epoch", type=float, required=True,
@@ -423,6 +649,10 @@ def main(argv=None):
     with owned_writer(root), hard_deadline(remaining):
         for field in ("manifest", "asset_root", "official_root", "diffusion", "dataset_root", "classifier"):
             setattr(args, field, getattr(args, field).resolve())
+        source = getattr(args, "resume_from", None)
+        parity = getattr(args, "parity_receipt", None)
+        source = source.resolve() if source else None
+        parity = parity.resolve() if parity else None
         from scripts.cloudfixer_surface_four_runtime import SurfaceRuntime
         attempt = root/"attempts"/uuid4().hex
         now = time.time()
@@ -432,7 +662,8 @@ def main(argv=None):
         status = "failed"
         try:
             runtime = SurfaceRuntime(args)
-            run(runtime, root, calibrate_only=args.action == "calibrate", conditions=args.corruptions)
+            run(runtime, root, calibrate_only=args.action == "calibrate", conditions=args.corruptions,
+                resume_from=source, parity_receipt=parity)
             status = "complete"
         finally:
             sealed(attempt.with_suffix(".end.json"), canonical(dict(

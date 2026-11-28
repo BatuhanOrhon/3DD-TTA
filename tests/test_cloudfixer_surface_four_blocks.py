@@ -181,3 +181,120 @@ def test_unverified_calibration_choice_or_changed_frozen_states_cannot_seal(tmp_
     with pytest.raises(ValueError, match="rozen"):
         runner.run(runtime, tmp_path)
     assert not (tmp_path / "frozen.json").exists()
+
+
+def mixed_inputs(tmp_path, monkeypatch):
+    import json
+    monkeypatch.setattr(runner, "N_OBJECTS", 10)
+    monkeypatch.setattr(runner, "CORRUPTIONS", ("rotation",))
+    monkeypatch.setattr(runner, "STRESS", ("rotation",))
+    monkeypatch.setattr(runner, "BLOCK_SIZE", 8)
+    old, new = tmp_path/"old", tmp_path/"new"
+    def machine(name):
+        r = Runtime()
+        r.identity = dict(r.identity, hardware={"gpu": name, "total_bytes": 80 if name=="80GB" else 40, "torch": "pinned"})
+        original = r.calibrate
+        def calibrate(c):
+            p = original(c)
+            head = dict(exact=True, logits_sha256="c"*64, clouds_sha256="a"*64, pm=1, reason="unstable",
+                        angle_degrees=0, probe_predictions=[1,1,2])
+            item = dict(input_sha256="a"*64, heads={m:head for m in runner.MODELS})
+            return dict(p, ids=[321,1146], independent_b1={"321":item,"1146":item})
+        r.calibrate = calibrate
+        return r
+    a, b = machine("80GB"), machine("40GB")
+    runner.run(a, old)
+    runner.run(b, new, calibrate_only=True)
+    for path in (old/"frozen.json", old/"blocks/rotation/0008-0010.npz"):
+        path.unlink()
+        runner.sidecar(path).unlink()
+    ticket = dict(schema=1, status="passed", source_campaign_sha256=runner.file_sha(old/"campaign.json"),
+                  target_campaign_sha256=runner.file_sha(new/"campaign.json"),
+                  profiles={"rotation": {k+"_sha256":runner.file_sha(r/"profiles/rotation.json")
+                            for k,r in (("source",old),("target",new))}})
+    receipt = tmp_path/"parity.json"
+    receipt.write_text(json.dumps(ticket))
+    runner.sidecar(receipt).write_text(runner.file_sha(receipt)+"\n")
+    return old, new, b, receipt, ticket
+
+
+def test_mixed_raw_blocks_keep_original_provenance_and_interrupted_state(tmp_path,monkeypatch):
+    old,new,b,receipt,ticket = mixed_inputs(tmp_path,monkeypatch)
+    first = "blocks/rotation/0000-0008.npz"
+    old_bytes = (old/first).read_bytes()
+    runner.run(b,new,resume_from=old,parity_receipt=receipt)
+    assert b.calls == [(8,), (9,)]
+    assert (new/first).read_bytes() == old_bytes
+    (new/first).write_bytes(b"truncated")
+    runner.run(b,new,resume_from=old,parity_receipt=receipt)
+    assert b.calls == [(8,), (9,)]
+    with zipfile.ZipFile(runner.finalize(new)) as archive:
+        assert archive.read(first) == old_bytes
+        assert archive.read(first+".sha256") == runner.sidecar(old/first).read_bytes()
+        prior = "segments/"+ticket["source_campaign_sha256"]+"/"
+        assert archive.read(prior+"campaign.json") == (old/"campaign.json").read_bytes()
+        assert prior+"frozen.json" not in archive.namelist()
+    seal = runner.verify_archive(runner.finalize(new))
+    old_seg,new_seg=(seal["hardware_segments"][ticket[k+"_campaign_sha256"]] for k in ("source","target"))
+    assert old_seg["blocks"] == [first] and not old_seg["final_frozen_receipt"]
+    assert new_seg["blocks"] == ["blocks/rotation/0008-0010.npz"] and new_seg["final_frozen_receipt"]
+    assert old_seg["hardware"] != new_seg["hardware"] and seal["model_object_records"] == 40
+
+
+def test_cross_device_decisions_must_match_even_with_fresh_valid_sidecars(tmp_path,monkeypatch):
+    import json
+    old,new,b,receipt,ticket = mixed_inputs(tmp_path,monkeypatch)
+    p = new/"profiles/rotation.json"
+    row = json.loads(p.read_bytes())
+    row["independent_b1"]["321"]["heads"]["dgcnn"]["logits_sha256"] = "5"*64
+    for dest in (p,new/"profile_backups/rotation.json"):
+        dest.write_bytes(runner.canonical(row))
+        runner.sidecar(dest).write_text(runner.file_sha(dest)+"\n")
+    ticket["profiles"]["rotation"]["target_sha256"] = runner.file_sha(p)
+    receipt.write_bytes(runner.canonical(ticket))
+    runner.sidecar(receipt).write_text(runner.file_sha(receipt)+"\n")
+    with pytest.raises(ValueError,match="parity"):
+        runner.run(b,new,resume_from=old,parity_receipt=receipt)
+    assert not b.calls and not list(new.glob("blocks/*/*.npz"))
+
+
+def test_interrupted_import_can_resume_without_replaying_or_replacing_a_sealed_block(tmp_path,monkeypatch):
+    old,new,b,receipt,ticket = mixed_inputs(tmp_path,monkeypatch)
+    first = "blocks/rotation/0000-0008.npz"
+    original = runner.restore_imported
+
+    def interrupted(*args):
+        raise InterruptedError("interrupted before first copy")
+
+    monkeypatch.setattr(runner, "restore_imported", interrupted)
+    with pytest.raises(InterruptedError):
+        runner.run(b,new,resume_from=old,parity_receipt=receipt)
+    assert not b.calls and (new/runner.TRANSFER).is_file()
+    monkeypatch.setattr(runner, "restore_imported", original)
+    runner.run(b,new,resume_from=old,parity_receipt=receipt)
+    # Once membership is sealed, losing the old payload cannot relabel or replay the good imported copy.
+    (old/first).unlink()
+    runner.run(b,new,resume_from=old,parity_receipt=receipt)
+    runner.run(b,new)
+    assert b.calls == [(8,), (9,)]
+    with np.load(new/"blocks/rotation/0008-0010.npz", allow_pickle=False) as block:
+        assert block["writer_sha256"] == runner.file_sha(runner.Path(runner.__file__))
+    mixed = runner.finalize(new)
+    with zipfile.ZipFile(mixed, "a") as archive:
+        archive.writestr("segments/"+ticket["source_campaign_sha256"]+"/frozen.json", b"{}")
+    tampered = new/"tampered.zip"
+    mixed.rename(tampered)
+    runner.sidecar(tampered).write_text(runner.file_sha(tampered)+"\n")
+    with pytest.raises(ValueError,match="segment"):
+        runner.verify_archive(tampered)
+
+
+def test_transfer_rejects_numeric_or_data_changes(tmp_path,monkeypatch):
+    import json
+    old,new,b,receipt,ticket = mixed_inputs(tmp_path,monkeypatch)
+    old_meta = json.loads((old/"campaign.json").read_bytes())
+    new_meta = json.loads((new/"campaign.json").read_bytes())
+    for changed in (dict(new_meta, labels=[39]*10),
+                    dict(new_meta, runtime=dict(new_meta["runtime"], hardware=dict(b.identity["hardware"], torch="other")))):
+        with pytest.raises(ValueError,match="numeric runtime"):
+            runner.check_campaign_pair(old_meta,changed,runner.file_sha(runner.Path(runner.__file__)))
